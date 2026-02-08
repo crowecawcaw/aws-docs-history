@@ -1,34 +1,95 @@
-# Troubleshooting DB cluster exports
+# Considerations for DB cluster exports
 
-Use the following sections to help troubleshoot failure messages and PostgreSQL permission errors for DB cluster export tasks to Amazon S3.
+Use the following sections to learn about the limitations, file naming conventions, and data conversion and storage when exporting DB cluster data to Amazon S3.
 
-## Failure messages for Amazon S3 export tasks
+###### Topics
 
-The following table describes the messages that are returned when Amazon S3 export tasks fail.
+- [Limitations](#export-cluster-data.Limits "#export-cluster-data.Limits")
+- [File naming convention](#export-cluster-data.FileNames "#export-cluster-data.FileNames")
+- [Data conversion and storage format](#export-cluster-data.data-types "#export-cluster-data.data-types")
 
-| Failure message                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`Failed to find or access the source DB cluster: [cluster name]`**                                                                                                                | The source DB cluster can't be cloned.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **`An unknown internal error occurred.`**                                                                                                                                           | The task has failed because of an unknown error, exception, or failure.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **`An unknown internal error occurred writing the export task's metadata to the S3 bucket<br>[bucket name].`**                                                                      | The task has failed because of an unknown error, exception, or failure.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **`The RDS export failed to write the export task's metadata because it can't assume the<br>IAM role [role ARN].`**                                                                 | The export task assumes your IAM role to validate whether it is allowed to write metadata to your S3<br>bucket. If the task can't assume your IAM role, it fails.                                                                                                                                                                                                                                                                                                                                                          |
-| **`The RDS export failed to write the export task's metadata to the S3 bucket [bucket name]<br>using the IAM role [role ARN] with the KMS key [key ID]. Error code: [error code]`** | One or more permissions are missing, so the export task can't access the S3 bucket. This failure<br>message is raised when receiving one of the following error codes:<br>• `AWSSecurityTokenServiceException` with the error code `AccessDenied`<br>• `AmazonS3Exception` with the error code `NoSuchBucket`,<br>`AccessDenied`, `KMS.KMSInvalidStateException`, `403<br>Forbidden`, or `KMS.DisabledException`<br>These error codes indicate that settings are misconfigured for the IAM role, S3 bucket, or<br>KMS key. |
-| **`The IAM role [role ARN] isn't authorized to call [S3 action] on the S3 bucket [bucket name].<br>Review your permissions and retry the export.`**                                 | The IAM policy is misconfigured. Permission for the specific S3 action on the S3 bucket is missing,<br>which causes the export task to fail.                                                                                                                                                                                                                                                                                                                                                                               |
-| **`KMS key check failed. Check the credentials on your KMS key and try again.`**                                                                                                    | The KMS key credential check failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **`S3 credential check failed. Check the permissions on your S3 bucket and IAM<br>policy.`**                                                                                        | The S3 credential check failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **`The S3 bucket [bucket name] isn't valid. Either it isn't located in the current<br>AWS Region or it doesn't exist. Review your S3 bucket name and retry the export.`**           | The S3 bucket is invalid.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **`The S3 bucket [bucket name] isn't located in the current AWS Region. Review your S3 bucket<br>name and retry the export.`**                                                      | The S3 bucket is in the wrong AWS Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+## Limitations
 
-## Troubleshooting PostgreSQL permissions errors
+Exporting DB cluster data to Amazon S3 has the following limitations:
 
-When exporting PostgreSQL databases to Amazon S3, you might see a `PERMISSIONS_DO_NOT_EXIST` error stating that certain
-tables were skipped. This error usually occurs when the superuser, which you specified when creating the DB cluster, doesn't
-have permissions to access those tables.
-
-To fix this error, run the following command:
+- You can't run multiple export tasks for the same DB cluster simultaneously. This applies to both full and partial
+  exports.
+- You can have up to five concurrent DB snapshot export tasks in progress per AWS account.
+- Aurora Serverless v1 DB clusters don't support exports to S3.
+- Aurora MySQL and Aurora PostgreSQL support exports to S3 only for the provisioned engine mode.
+- Exports to S3 don't support S3 prefixes containing a colon (:).
+- The following characters in the S3 file path are converted to underscores (\_) during export:
 
 ```
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA `schema_name` TO `superuser_name`
+\ ` " (space)
 ```
 
-For more information on superuser privileges, see [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
+- If a database, schema, or table has characters in its name other than the following, partial export isn't
+  supported. However, you can export the entire DB cluster.
+  - Latin letters (A–Z)
+  - Digits (0–9)
+  - Dollar symbol ($)
+  - Underscore (\_)
+
+- Spaces ( ) and certain characters aren't supported in database table column names. Tables with the following
+  characters in column names are skipped during export:
+
+```
+, ; { } ( ) \n \t = (space)
+```
+
+- Tables with slashes (/) in their names are skipped during export.
+- Aurora PostgreSQL temporary and unlogged tables are skipped during export.
+- If the data contains a large object, such as a BLOB or CLOB, that is close to or greater than 500 MB, then the export
+  fails.
+- If a table contains a large row that is close to or greater than 2 GB, then the table is skipped during export.
+- For partial exports, the `ExportOnly` list has a maximum size of
+  200 KB.
+- We strongly recommend that you use a unique name for each export task. If you don't use a unique task name, you might
+  receive the following error message:
+
+**`ExportTaskAlreadyExistsFault: An error occurred (ExportTaskAlreadyExists) when calling the StartExportTask
+ operation: The export task with the ID `xxxxx` already exists.`**
+
+- Because some tables might be skipped, we recommend that you verify row and table counts in the data after
+  export.
+
+## File naming convention
+
+Exported data for specific tables is stored in the format
+``base_prefix`/`files``, where the base prefix is
+the following:
+
+```
+`export_identifier`/`database_name`/`schema_name`.`table_name`/
+```
+
+For example:
+
+```
+export-1234567890123-459/rdststcluster/mycluster.DataInsert_7ADB5D19965123A2/
+```
+
+Output files use the following naming convention, where `partition_index` is alphanumeric:
+
+```
+``partition_index`/part-00000-`random_uuid`.`format-based_extension``
+```
+
+For example:
+
+```
+1/part-00000-c5a881bb-58ff-4ee6-1111-b41ecff340a3-c000.gz.parquet
+    a/part-00000-d7a881cc-88cc-5ab7-2222-c41ecab340a4-c000.gz.parquet
+
+
+```
+
+The file naming convention is subject to change. Therefore, when reading target tables, we recommend that you read everything
+inside the base prefix for the table.
+
+## Data conversion and storage format
+
+When you export a DB cluster to an Amazon S3 bucket, Amazon Aurora converts, exports, and stores data in the Parquet
+format. For more information, see [Data conversion when exporting to an Amazon S3
+bucket](aurora-export-snapshot.md#aurora-export-snapshot.data-types "aurora-export-snapshot.md#aurora-export-snapshot.data-types").

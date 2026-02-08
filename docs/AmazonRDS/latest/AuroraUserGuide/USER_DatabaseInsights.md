@@ -1,43 +1,64 @@
-# Configuring your database to monitor slow SQL queries with Database Insights for Amazon Aurora
+# Amazon Aurora DB engine, Region, and instance class support
 
-To monitor slow SQL queries for your database, you can use the **Slow SQL Queries** section in the Database Insights dashboard. Before configuring your database to monitor slow SQL queries, the **Slow SQL Queries** section is blank.
+for Database Insights
 
-For more information about monitoring slow SQL queries in the Database Insights dashboard, see [Viewing the Database Instance Dashboard for CloudWatch Database Insights](../../../AmazonCloudWatch/latest/monitoring/Database-Insights-Database-Instance-Dashboard.md "../../../AmazonCloudWatch/latest/monitoring/Database-Insights-Database-Instance-Dashboard.md") in the _Amazon CloudWatch User Guide_.
+The following table provides Amazon Aurora DB engines that support Database Insights.
 
-To configure your database to monitor slow SQL queries with Database Insights, complete the following steps:
+| Amazon Aurora DB engine                     | Supported engine versions and Regions                                                                                                                                                                                                                                                                                                                                             | Instance class restrictions                                                                                                                                             |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon Aurora MySQL-Compatible Edition      | For more information on version and Region availability of Database Insights with Aurora MySQL, see<br>[Performance Insights with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.amy").           | Database Insights has the following engine class restrictions:<br>• db.t2 – Not supported<br>• db.t3 – Not supported<br>• db.t4g.micro and db.t4g.small – Not supported |
+| Amazon Aurora PostgreSQL-Compatible Edition | For more information on version and Region availability of Database Insights with Aurora PostgreSQL, see<br>[Performance Insights with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.apg"). | Not applicable                                                                                                                                                          |
+| Aurora PostgreSQL Limitless Database        | For more information about using Database Insights with Aurora PostgreSQL Limitless Database, see<br>[Monitoring Aurora PostgreSQL Limitless Database with CloudWatch Database Insights](limitless-monitoring.md "limitless-monitoring.md").                                                                                                                                      | Not applicable                                                                                                                                                          |
 
-1. Enable log exports to CloudWatch Logs.
-2. Create or modify the DB cluster parameter group for your DB cluster.
-   For information about configuring log exports, see [Publishing database logs to Amazon CloudWatch Logs](USER_LogAccess.md#USER_LogAccess.Procedural.UploadtoCloudWatch "USER_LogAccess.md#USER_LogAccess.Procedural.UploadtoCloudWatch") in the _Amazon Aurora User Guide_.
+Database Insights supports Amazon Aurora Serverless v2.
 
-To create or modify your DB cluster parameter group, see the following topics.
+## Amazon Aurora DB engine, Region, and instance class support
 
-- [Creating a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
-- [Modifying parameters in a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+for Database Insights features
 
-Amazon Aurora MySQL
-To configure your Amazon Aurora MySQL DB cluster to monitor slow SQL queries, you can use the following parameter combination as an example:
+The following table provides Amazon Aurora DB engines that support Database Insights features.
 
-- `slow_query_log` – set to `1`
-- `long_query_time` – set to `1.0`
-- `log_output` – set to `FILE`
+| Feature                                                                                                                          | [Pricing tier](https://aws.amazon.com/rds/performance-insights/pricing/ "https://aws.amazon.com/rds/performance-insights/pricing/") | [Supported regions](Concepts.md#Concepts.RegionsAndAvailabilityZones.Regions "Concepts.md#Concepts.RegionsAndAvailabilityZones.Regions")                                                                                                                                                                                                                                                                   | Supported DB engines | [Supported instance classes](Concepts.md#Concepts.DBInstanceClass.Types "Concepts.md#Concepts.DBInstanceClass.Types") |
+| -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| [SQL statistics for Performance Insights](sql-statistics.md "sql-statistics.md")                                                 | All                                                                                                                                 | All                                                                                                                                                                                                                                                                                                                                                                                                        | All                  | All                                                                                                                   |
+| [Analyzing database performance for a period of time](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md") | Paid tier only                                                                                                                      | All                                                                                                                                                                                                                                                                                                                                                                                                        | All                  | All except db.serverless (Aurora Serverless v2)                                                                       |
+| [Viewing Performance Insights proactive recommendations](USER_PerfInsights.md "USER_PerfInsights.md")                            | Paid tier only                                                                                                                      | • US East (Ohio)<br>• US East (N. Virginia)<br>• US West (N. California)<br>• US West (Oregon)<br>• Asia Pacific (Mumbai)<br>• Asia Pacific (Seoul)<br>• Asia Pacific (Singapore)<br>• Asia Pacific (Sydney)<br>• Asia Pacific (Tokyo)<br>• Canada (Central)<br>• Europe (Frankfurt)<br>• Europe (Ireland)<br>• Europe (London)<br>• Europe (Paris)<br>• Europe (Stockholm)<br>• South America (São Paulo) | All                  | All except db.serverless (Aurora Serverless v2)                                                                       |
 
-This is one possible configuration. For a comprehensive guide to MySQL slow query log parameters and additional configuration options, see the [MySQL documentation for the slow query log](https://dev.mysql.com/doc/refman/8.0/en/slow-query-log.html "https://dev.mysql.com/doc/refman/8.0/en/slow-query-log.html").
+## Amazon Aurora Region support
 
-Amazon Aurora PostgreSQL
-To configure your Amazon Aurora PostgreSQL DB cluster to monitor slow SQL queries, you can use the following parameter combination as an example. Note that setting these parameters might reduce the performance of your DB cluster.
+for Database Insights
 
-- `log_min_duration_statement` – set to `1000`
-- `log_statement` – set to `none`
-- `log_destination` – set to `stderr`
+Aurora supports Database Insights in the following AWS Regions.
 
-This is one possible configuration. For a comprehensive guide to PostgreSQL logging parameters and additional configuration options, see the [PostgreSQL documentation for logging configuration](https://www.postgresql.org/docs/current/runtime-config-logging.html "https://www.postgresql.org/docs/current/runtime-config-logging.html").
-
-###### Note
-
-For Aurora MySQL, you can configure the parameter `long_query_time` with 1‐microsecond granularity. For example, you can set this parameter to `0.000001`. Depending on the amount of queries on the DB instance, the value of the parameter `long_query_time` can reduce performance. Start with the value `1.0`, and adjust it based on your workload. When you set this parameter to `0`, Database Insights logs all queries.
-
-For information about Aurora MySQL and Aurora PostgreSQL logs, see the following.
-
-- [Aurora MySQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
-- [Aurora PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (N. California)
+- US West (Oregon)
+- Africa (Cape Town)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Hyderabad)
+- Asia Pacific (Jakarta)
+- Asia Pacific (Malaysia)
+- Asia Pacific (Melbourne)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Osaka)
+- Asia Pacific (Seoul)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Canada (Central)
+- Canada West (Calgary)
+- Europe (Frankfurt)
+- Europe (Ireland)
+- Europe (London)
+- Europe (Milan)
+- Europe (Paris)
+- Europe (Spain)
+- Europe (Stockholm)
+- Europe (Zurich)
+- Israel (Tel Aviv)
+- Middle East (Bahrain)
+- Middle East (UAE)
+- South America (São Paulo)
+- AWS GovCloud (US-East)
+- AWS GovCloud (US-West)

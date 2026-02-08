@@ -1,160 +1,176 @@
-# Setting up
+# Reestablishing logical replication after a major upgrade
 
-logical replication for Aurora PostgreSQL DB cluster
+Before you can perform a major version upgrade of an Aurora PostgreSQL DB cluster
+that's set up as a
+publisher node for logical replication, you must drop all replication slots, even those that
+aren't active. We recommend that you temporarily divert database transactions from the
+publisher node, drop the replication slots, upgrade the
+Aurora PostgreSQL DB cluster,
+and then
+re-establish and restart replication.
 
-The following procedure shows you how to start logical replication between two Aurora PostgreSQL DB clusters. The steps assume that both the source (publisher) and
-the target (subscriber) have the `pglogical` extension set up as detailed in [Setting up the
-pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md").
+The replication slots are hosted on the publisher node only.
 
-###### Note
+The Aurora PostgreSQL subscriber node in a logical replication scenario
+has no slots to drop. The Aurora PostgreSQL major version upgrade process supports upgrading the
+subscriber to a new major version of PostgreSQL independent of the publisher node. However,
+the upgrade process does disrupt the replication process and interferes with the
+synchronization of WAL data between publisher node and subscriber node. You need to
+re-establish logical replication between publisher and subscriber after upgrading the
+publisher, the subscriber, or both. The following procedure shows you how to determine that
+replication has been disrupted and how to resolve the issue.
 
-The `node_name` of a subscriber node can't start with `rds`.
+## Determining that logical replication has been disrupted
 
-###### To create the publisher node and define the tables to replicate
+You can determine that the replication process has been disrupted by querying either the
+publisher node or the subscriber node, as follows.
 
-These steps assume that your Aurora PostgreSQL DB cluster has a
-writer instance with a database that has one or more tables that you want to replicate to
-another node. You need to recreate the table structure from the publisher on the subscriber,
-so first, get the table structure if necessary. You can do that by using the
-`psql` metacommand `\d `tablename`` and
-then creating the same table on the subscriber instance. The following procedure creates an
-example table on the publisher (source) for demonstration purposes.
+###### To check the publisher node
 
-1. Use `psql` to connect to the instance that has the table you want to use as
-   a source for subscribers.
-
-```
-psql --host=`source-instance`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password --dbname=`labdb`
-
-```
-
-If you don't have an existing table that you want to replicate, you can create a
-sample table as follows.
-
-    1. Create an example table using the following SQL statement.
-
-
-
-    ```
-    CREATE TABLE docs_lab_table (a int PRIMARY KEY);
-    ```
-    2. Populate the table with generated data by using the following SQL
-     statement.
-
-
-
-    ```
-    INSERT INTO docs_lab_table VALUES (generate_series(1,5000));
-    `INSERT 0 5000`
-    ```
-    3. Verify that data exists in the table by using the following SQL statement.
-
-
-
-    ```
-    SELECT count(*) FROM docs_lab_table;
-    ```
-
-2. Identify this Aurora PostgreSQL DB cluster as the publisher node, as
-   follows.
+- Use `psql` to connect to the publisher node, and then query the
+  `pg_replication_slots` function. Note the value in the active column.
+  Normally, this will return `t` (true), showing that replication is active. If
+  the query returns `f` (false), it's an indication that replication to
+  the subscriber has stopped.
 
 ```
-SELECT pglogical.create_node(
-    node_name := '`docs_lab_provider`',
-    dsn := 'host=`source-instance`.`aws-region`.rds.amazonaws.com port=5432 dbname=`labdb`');
- `create_node
--------------
- 3410995529
+SELECT slot_name,plugin,slot_type,active FROM pg_replication_slots;
+ `slot_name | plugin | slot_type | active
+-------------------------------------------+------------------+-----------+--------
+ pgl_labdb_docs_labcb4fa94_docs_lab3de412c | pglogical_output | logical | f
 (1 row)`
 ```
 
-3. Add the table that you want to replicate to the default replication set. For more
-   information about replication sets, see [Replication sets](https://github.com/2ndQuadrant/pglogical/tree/REL2_x_STABLE/docs#replication-sets "https://github.com/2ndQuadrant/pglogical/tree/REL2_x_STABLE/docs#replication-sets") in the pglogical documentation.
+###### To check the subscriber node
+
+On the subscriber node, you can check the status of replication in three different
+ways.
+
+- Look through the PostgreSQL logs on the subscriber node to find failure messages.
+  The log identifies failure with messages that include exit code 1, as shown
+  following.
 
 ```
-SELECT pglogical.replication_set_add_table('default', '`docs_lab_table`', 'true', NULL, NULL);
- `replication_set_add_table
- ---------------------------
+2022-07-06 16:17:03 UTC::@:[7361]:LOG: background worker "pglogical apply 16404:2880255011" (PID 14610) exited with exit code 1
+2022-07-06 16:19:44 UTC::@:[7361]:LOG: background worker "pglogical apply 16404:2880255011" (PID 21783) exited with exit code 1
+```
+
+- Query the `pg_replication_origin` function. Connect to the database on
+  the subscriber node using `psql` and query the
+  `pg_replication_origin` function, as follows.
+
+```
+SELECT * FROM pg_replication_origin;
+ `roident | roname
+---------+--------
+(0 rows)`
+```
+
+The empty result set means that replication has been disrupted. Normally, you see
+output such as the following.
+
+```
+   roident |                       roname
+  ---------+----------------------------------------------------
+         1 | pgl_labdb_docs_labcb4fa94_docs_lab3de412c
+  (1 row)
+```
+
+- Query the `pglogical.show_subscription_status` function as shown in the
+  following example.
+
+```
+SELECT subscription_name,status,slot_name FROM pglogical.show_subscription_status();
+ `subscription_name | status | slot_name
+---====----------------+--------+-------------------------------------
+ docs_lab_subscription | down | pgl_labdb_docs_labcb4fa94_docs_lab3de412c
+(1 row)`
+```
+
+This output shows that replication has been disrupted. Its status is
+`down`. Normally, the output shows the status as
+`replicating`.
+
+If your logical replication process has been disrupted, you can re-establish replication
+by following these steps.
+
+###### To reestablish logical replication between publisher and subscriber nodes
+
+To re-establish replication, you first disconnect the subscriber from the publisher
+node and then re-establish the subscription, as outlined in these steps.
+
+1. Connect to the subscriber node using `psql` as follows.
+
+```
+psql --host=`222222222222`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password --dbname=`labdb`
+```
+
+2. Deactivate the subscription by using the
+   `pglogical.alter_subscription_disable` function.
+
+```
+SELECT pglogical.alter_subscription_disable('docs_lab_subscription',true);
+ `alter_subscription_disable
+----------------------------
  t
- (1 row)`
-```
-
-The publisher node setup is complete. You can now set up the subscriber node to receive
-the updates from the publisher.
-
-###### To set up the subscriber node and create a subscription to receive updates
-
-These steps assume that the Aurora PostgreSQL DB cluster
-has been set up with the
-`pglogical` extension. For more information, see [Setting up the
-pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md").
-
-1. Use `psql` to connect to the instance that you want to receive updates from
-   the publisher.
-
-```
-psql --host=`target-instance`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password --dbname=`labdb`
-
-```
-
-2. On the subscriber Aurora PostgreSQL DB cluster,
-   ,create the same table
-   that exists on the publisher. For this example, the table is `docs_lab_table`.
-   You can create the table as follows.
-
-```
-CREATE TABLE docs_lab_table (a int PRIMARY KEY);
-```
-
-3. Verify that this table is empty.
-
-```
-SELECT count(*) FROM docs_lab_table;
- `count
--------
- 0
 (1 row)`
 ```
 
-4. Identify this Aurora PostgreSQL DB cluster as the subscriber node, as
-   follows.
+3. Get the publisher node's identifier by querying the
+   `pg_replication_origin`, as follows.
 
 ```
-SELECT pglogical.create_node(
-    node_name := '`docs_lab_target`',
-    dsn := 'host=`target-instance`.`aws-region`.rds.amazonaws.com port=5432 sslmode=require dbname=`labdb` user=`postgres` password=`********`');
- `create_node
--------------
- 2182738256
+SELECT * FROM pg_replication_origin;
+ `roident | roname
+---------+-------------------------------------
+ 1 | pgl_labdb_docs_labcb4fa94_docs_lab3de412c
 (1 row)`
 ```
 
-5. Create the subscription.
+4. Use the response from the previous step with the
+   `pg_replication_origin_create` command to assign the identifier that can be
+   used by the subscription when re-established.
 
 ```
-SELECT pglogical.create_subscription(
-   subscription_name := 'docs_lab_subscription',
-   provider_dsn := 'host=`source-instance`.`aws-region`.rds.amazonaws.com port=5432 sslmode=require dbname=`labdb` user=`postgres` password=`*******`',
-   replication_sets := ARRAY['default'],
-   synchronize_data := true,
-   forward_origins := '{}' );
- `create_subscription
----------------------
-1038357190
+SELECT pg_replication_origin_create('pgl_labdb_docs_labcb4fa94_docs_lab3de412c');
+ `pg_replication_origin_create
+------------------------------
+ 1
 (1 row)`
 ```
 
-When you complete this step, the data from the table on the publisher is created in
-the table on the subscriber. You can verify that this has occurred by using the following
-SQL query.
+5. Turn on the subscription by passing its name with a status of `true`, as
+   shown in the following example.
 
 ```
-SELECT count(*) FROM docs_lab_table;
- `count
--------
- 5000
+SELECT pglogical.alter_subscription_enable('docs_lab_subscription',true);
+ `alter_subscription_enable
+---------------------------
+ t
 (1 row)`
 ```
 
-From this point forward, changes made to the table on the publisher are replicated to the
-table on the subscriber.
+Check the status of the node. Its status should be `replicating` as shown in
+this example.
+
+```
+SELECT subscription_name,status,slot_name
+  FROM pglogical.show_subscription_status();
+ `subscription_name | status | slot_name
+-------------------------------+-------------+-------------------------------------
+ docs_lab_subscription | replicating | pgl_labdb_docs_lab98f517b_docs_lab3de412c
+(1 row)`
+```
+
+Check the status of the subscriber's replication slot on the publisher node. The
+slot's `active` column should return `t` (true), indicating that
+replication has been re-established.
+
+```
+SELECT slot_name,plugin,slot_type,active
+  FROM pg_replication_slots;
+ `slot_name | plugin | slot_type | active
+-------------------------------------------+------------------+-----------+--------
+ pgl_labdb_docs_lab98f517b_docs_lab3de412c | pglogical_output | logical | t
+(1 row)`
+```

@@ -1,269 +1,384 @@
-# Comparing Aurora MySQL version 2 and Aurora MySQL version 3
+# Major version upgrade prechecks for Aurora MySQL
 
-Use the following to learn about changes to be aware of when you upgrade your Aurora MySQL version 2 cluster to version 3.
+Upgrading MySQL from one major version to another, such as going from MySQL 5.7 to MySQL 8.0, involves some significant architectural changes that
+require careful planning and preparation. Unlike minor version upgrades where the focus is mainly on updating the database engine software and in some
+cases system tables, major MySQL upgrades often introduce fundamental changes to how the database stores and manages its metadata.
 
-###### Topics
+To assist you in identifying such incompatibilities, when upgrading from Aurora MySQL version 2 to version 3, Aurora runs upgrade compatibility checks
+(prechecks) automatically to examine objects in your database cluster and identify known incompatibilities that can block the upgrade from proceeding. For
+details about the Aurora MySQL prechecks, see [Precheck descriptions reference for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md "AuroraMySQL.upgrade-prechecks.md"). The Aurora prechecks run in addition to those run by the Community MySQL [upgrade checker utility](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-upgrade.html "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-upgrade.html").
 
-- [Atomic Data Definition Language (DDL) support](#AuroraMySQL.Compare-v2-v3-atomic-ddl "#AuroraMySQL.Compare-v2-v3-atomic-ddl")
-- [Feature differences between Aurora MySQL version 2 and 3](#AuroraMySQL.Compare-v2-v3-features "#AuroraMySQL.Compare-v2-v3-features")
-- [Instance class support](#AuroraMySQL.mysql80-instance-classes "#AuroraMySQL.mysql80-instance-classes")
-- [Parameter changes for Aurora MySQL version 3](#AuroraMySQL.mysql80-parameter-changes "#AuroraMySQL.mysql80-parameter-changes")
-- [Status variables](#AuroraMySQL.mysql80-status-vars "#AuroraMySQL.mysql80-status-vars")
-- [Inclusive language changes for Aurora MySQL version 3](#AuroraMySQL.8.0-inclusive-language "#AuroraMySQL.8.0-inclusive-language")
-- [AUTO_INCREMENT values](#AuroraMySQL.mysql80-autoincrement "#AuroraMySQL.mysql80-autoincrement")
-- [Binary log replication](#AuroraMySQL.mysql80-binlog "#AuroraMySQL.mysql80-binlog")
+These prechecks are mandatory. You can't choose to skip them. The prechecks provide the following benefits:
 
-## Atomic Data Definition Language (DDL) support
+- They can reduce the possibility of running into upgrade failures that can lead to extended downtime.
+- If there are incompatibilities, Amazon Aurora prevents the upgrade from proceeding and provides a log for you to learn about them. You can
+  then use the log to prepare your database for the upgrade to version 3 by resolving the incompatibilities. For detailed information about resolving
+  incompatibilities, see [Preparing your installation for
+  upgrade](https://dev.mysql.com/doc/refman/8.0/en/upgrade-prerequisites.html "https://dev.mysql.com/doc/refman/8.0/en/upgrade-prerequisites.html") in the MySQL documentation and [Upgrading to MySQL 8.0? Here is what you need to know...](https://dev.mysql.com/blog-archive/upgrading-to-mysql-8-0-here-is-what-you-need-to-know/ "https://dev.mysql.com/blog-archive/upgrading-to-mysql-8-0-here-is-what-you-need-to-know/") on the MySQL Server Blog.
 
-One of the largest changes from MySQL 5.7 to 8.0 is the introduction of the [Atomic Data Dictionary](https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-file-removal.html "https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-file-removal.html"). Before MySQL 8.0, the MySQL
-data dictionary used a file-based approach to store metadata such as table definitions (.frm), triggers (.trg), and functions separately from
-the storage engine's metadata (such as InnoDB's). This had some issues, including the risk of tables becoming "[orphaned](https://dev.mysql.com/doc/refman/5.7/en/innodb-troubleshooting-datadict.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-troubleshooting-datadict.html")" if something unexpected happened during
-a DDL operation, causing the file-based and storage engine metadata to get out of sync.
+For more information about upgrading to MySQL 8.0, see [Upgrading MySQL](https://dev.mysql.com/doc/refman/8.0/en/upgrading.html "https://dev.mysql.com/doc/refman/8.0/en/upgrading.html") in the MySQL
+documentation.
+The prechecks run before your DB cluster is taken offline for the major version upgrade. If the prechecks find an incompatibility, Aurora
+automatically cancels the upgrade before the DB instance is stopped. Aurora also generates an event for the incompatibility. For more information about
+Amazon Aurora events, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").
 
-To fix this, MySQL 8.0 introduced the Atomic Data Dictionary, which stores all metadata in a set of internal InnoDB tables in the
-`mysql` schema. This new architecture provides a transactional, [ACID](https://en.wikipedia.org/wiki/ACID "https://en.wikipedia.org/wiki/ACID")-compliant way to manage database metadata, solving the "atomic DDL" problem from the old file-based approach. For more information
-on the Atomic Data Dictionary, see [Removal of file-based
-metadata storage](https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-file-removal.html "https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-file-removal.html") and [Atomic data definition statement
-support](https://dev.mysql.com/doc/refman/8.0/en/atomic-ddl.html "https://dev.mysql.com/doc/refman/8.0/en/atomic-ddl.html") in the _MySQL Reference Manual_.
-
-Due to this architectural change, you must consider the following when upgrading from Aurora MySQL version 2 to version 3:
-
-- The file-based metadata from version 2 must be migrated to the new data dictionary tables during the upgrade process to version 3.
-  Depending on how many database objects are migrated, this could take some time.
-- The changes have also introduced some new incompatibilities that might need to be addressed before you can upgrade from MySQL 5.7 to
-  8.0. For example, 8.0 has some new reserved keywords that could conflict with existing database object names.
-
-To help you identify these incompatibilities before upgrading the engine, Aurora MySQL runs a series of upgrade compatibility checks (prechecks)
-to determine whether there are any incompatible objects in your database dictionary, before performing the data dictionary upgrade. For more
-information on the prechecks, see [Major version upgrade prechecks for Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md").
-
-## Feature differences between Aurora MySQL version 2 and 3
-
-The following Amazon Aurora MySQL features are supported in Aurora MySQL for MySQL 5.7, but these features aren't supported
-in Aurora MySQL for MySQL 8.0:
-
-- You can't use Aurora MySQL version 3 for Aurora Serverless v1 clusters. Aurora MySQL version 3
-  works with Aurora Serverless v2.
-- Lab mode doesn't apply to Aurora MySQL version 3. There aren't any lab mode features in Aurora MySQL version
-
-3.  Instant DDL supersedes the fast online DDL feature that was formerly available in lab mode. For an example, see
-    [Instant DDL (Aurora MySQL version 3)](AuroraMySQL.Managing.md#AuroraMySQL.mysql80-instant-ddl "AuroraMySQL.Managing.md#AuroraMySQL.mysql80-instant-ddl").
-
-- The query cache is removed from community MySQL 8.0 and also from Aurora MySQL version 3.
-- Aurora MySQL version 3 is compatible with the community MySQL hash join feature. The Aurora-specific implementation
-  of hash joins in Aurora MySQL version 2 isn't used. For information about using hash joins with Aurora parallel
-  query, see [Turning on hash join for
-  parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join") and [Aurora MySQL hints](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md"). For general usage information about hash joins, see [Hash Join Optimization](https://dev.mysql.com/doc/refman/8.0/en/hash-joins.html "https://dev.mysql.com/doc/refman/8.0/en/hash-joins.html") in the
-  _MySQL Reference Manual_.
-- The `mysql.lambda_async` stored procedure that was deprecated in Aurora MySQL version 2 is removed in
-  version 3. For version 3, use the asynchronous function `lambda_async` instead.
-- The default character set in Aurora MySQL version 3 is `utf8mb4`. In Aurora MySQL version 2, the default
-  character set was `latin1`. For information about this character set, see [The utf8mb4 Character Set (4-Byte
-  UTF-8 Unicode Encoding)](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb4.html "https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb4.html") in the _MySQL Reference Manual_.
-
-Some Aurora MySQL features are available for certain combinations of AWS Region and DB engine version. For details, see
-[Supported features in
-Amazon Aurora by AWS Region and Aurora DB engine](Concepts.AuroraFeaturesRegionsDBEngines.md "Concepts.AuroraFeaturesRegionsDBEngines.md").
-
-## Instance class support
-
-Aurora MySQL version 3 supports a different set of instance classes from Aurora MySQL version 2:
-
-- For larger instances, you can use the modern instance classes such as `db.r5`, `db.r6g`, and
-  `db.x2g`.
-- For smaller instances, you can use the modern instance classes such as `db.t3` and
-  `db.t4g`.
+After the prechecks are completed, Aurora records detailed information about each incompatibility in the `upgrade-prechecks.log`
+file. In most cases, the log entry includes a link to the MySQL documentation for correcting the incompatibility. For more information about viewing log
+files, see [Viewing and listing database log files](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").
 
 ###### Note
 
-We recommend using the T DB instance classes only for development and test servers, or other non-production
-servers. For more details on the T instance classes, see [Using T instance classes for development and testing](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium").
+Due to the nature of the prechecks, they analyze the objects in your database. This analysis results in resource consumption and increases the time
+for the upgrade to complete. For more information on precheck performance considerations, see [Precheck process for Aurora MySQL](#AuroraMySQL.upgrade-prechecks.process "#AuroraMySQL.upgrade-prechecks.process").
 
-The following instance classes from Aurora MySQL version 2 aren't available for Aurora MySQL version 3:
+###### Contents
 
-- `db.r4`
-- `db.r3`
-- `db.t3.small`
-- `db.t2`
+- [Precheck process for Aurora MySQL](AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.process "AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.process")
+- [Precheck log format for Aurora MySQL](AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.log-format "AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.log-format")
+- [Precheck log output examples for Aurora MySQL](AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.log-examples "AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.log-examples")
+- [Precheck performance for Aurora MySQL](AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.performance "AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.performance")
+- [Summary of Community MySQL upgrade prechecks](AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.community "AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.community")
+- [Summary of Aurora MySQL upgrade prechecks](AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.ams "AuroraMySQL.md#AuroraMySQL.upgrade-prechecks.ams")
+- [Precheck descriptions reference for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md "AuroraMySQL.upgrade-prechecks.md")
+  - [Errors](AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-errors "AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-errors")
+    - [MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-errors.mysql "AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-errors.mysql")
+    - [Aurora MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-errors.aurora "AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-errors.aurora")
 
-Check your administration scripts for any CLI statements that create Aurora MySQL
-DB instances. Hardcode instance class names that aren't available for
-Aurora MySQL version 3. If necessary, modify the instance class names to ones that
-Aurora MySQL version 3 supports.
+  - [Warnings](AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-warnings "AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-warnings")
+    - [MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-warnings.mysql "AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-warnings.mysql")
+    - [Aurora MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-warnings.aurora "AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-warnings.aurora")
 
-###### Tip
+  - [Notices](AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-notices "AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-notices")
+  - [Errors, warnings, or notices](AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-all "AuroraMySQL.upgrade-prechecks.md#precheck-descriptions-all")
 
-To check the instance classes that you can use for a specific combination of Aurora MySQL version and AWS Region, use
-the `describe-orderable-db-instance-options` AWS CLI command.
+## Precheck process for Aurora MySQL
 
-For full details about Aurora instance classes, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
+As described previously, the Aurora MySQL upgrade process involves running compatibility checks (prechecks) on your database before the major version
+upgrade can proceed.
 
-## Parameter changes for Aurora MySQL version 3
+For in-place upgrades, the prechecks run on your writer DB instance while it's online. If the precheck succeeds, the upgrade proceeds. If errors are
+found, they're logged in the `upgrade-prechecks.log` file and the upgrade is canceled. Before attempting the upgrade again, resolve
+any errors returned in the `upgrade-prechecks.log` file.
 
-Aurora MySQL version 3 includes new cluster-level and instance-level configuration parameters. Aurora MySQL version 3 also
-removes some parameters that were present in Aurora MySQL version 2. Some parameter names are changed as a result of the
-initiative for inclusive language. For backward compatibility, you can still retrieve the parameter values using either the
-old names or the new names. However, you must use the new names to specify parameter values in a custom parameter
-group.
+For snapshot-restore upgrades, the precheck runs during the restore process. If it succeeds, your database will upgrade to the new Aurora MySQL
+version. If errors are found, they're logged in the `upgrade-prechecks.log` file and the upgrade is canceled. Before attempting the
+upgrade again, resolve any errors returned in the `upgrade-prechecks.log` file.
 
-In Aurora MySQL version 3, the value of the `lower_case_table_names` parameter is set permanently at the time the
-cluster is created. If you use a nondefault value for this option, set up your Aurora MySQL version 3 custom parameter group
-before upgrading. Then specify the parameter group during the create cluster or snapshot restore operation.
+For more information, see [Finding the reasons for Aurora MySQL major version upgrade failures](AuroraMySQL.Upgrading.md "AuroraMySQL.Upgrading.md") and [Precheck descriptions reference for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md "AuroraMySQL.upgrade-prechecks.md").
 
-###### Note
+To monitor precheck status, you can view the following events on your DB cluster.
 
-With an Aurora global database based on Aurora MySQL, you can't perform an in-place upgrade from Aurora MySQL version
-2 to version 3 if the `lower_case_table_names` parameter is turned on. Use the snapshot restore method
-instead.
+| Precheck status | Event message                                                                                                                                                                                                                                                                                                                                                                                 | Action                                                                                                  |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Started         | Upgrade preparation in progress: Starting online upgrade prechecks.                                                                                                                                                                                                                                                                                                                           | None                                                                                                    |
+| Failed          | Database cluster is in a state that cannot be upgraded: Upgrade prechecks failed. For more details, see the upgrade-prechecks.log<br>file.<br>For more information on troubleshooting the cause of the upgrade failure, see<br>[https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Upgrading.Troubleshooting.html](AuroraMySQL.Upgrading.md "AuroraMySQL.Upgrading.md") | Review `upgrade-prechecks.log` for errors.<br>Remediate errors.<br>Retry the upgrade.                   |
+| Succeeded       | Upgrade preparation in progress: Completed online upgrade prechecks.                                                                                                                                                                                                                                                                                                                          | Precheck succeeded with no errors returned.<br>Review `upgrade-prechecks.log` for warnings and notices. |
 
-In Aurora MySQL version 3, the `init_connect` and `read_only` parameters don't apply for users who
-have the `CONNECTION_ADMIN` privilege. This includes the Aurora master user. For more information, see [Role-based privilege model](AuroraMySQL.md#AuroraMySQL.privilege-model "AuroraMySQL.md#AuroraMySQL.privilege-model").
+For more information on viewing events, see [Viewing Amazon RDS events](USER_ListEvents.md "USER_ListEvents.md").
 
-For the full list of Aurora MySQL cluster parameters, see [Cluster-level parameters](AuroraMySQL.Reference.md#AuroraMySQL.Reference.Parameters.Cluster "AuroraMySQL.Reference.md#AuroraMySQL.Reference.Parameters.Cluster"). The table covers all the parameters from Aurora MySQL version
-2 and 3. The table includes notes showing which parameters are new in Aurora MySQL version 3 or were removed from Aurora MySQL
-version 3.
+## Precheck log format for Aurora MySQL
 
-For the full list of Aurora MySQL instance parameters, see [Instance-level parameters](AuroraMySQL.Reference.md#AuroraMySQL.Reference.Parameters.Instance "AuroraMySQL.Reference.md#AuroraMySQL.Reference.Parameters.Instance"). The table covers all the parameters from Aurora MySQL version
-2 and 3. The table includes notes showing which parameters are new in Aurora MySQL version 3 and which parameters were removed
-from Aurora MySQL version 3. It also includes notes showing which parameters were modifiable in earlier versions but not
-Aurora MySQL version 3.
+After the upgrade compatibility checks (prechecks) are complete, you can review the `upgrade-prechecks.log` file. The log file
+contains the results, affected objects, and remediation information for each precheck.
 
-For information about parameter names that changed, see [Inclusive language changes for Aurora MySQL version 3](#AuroraMySQL.8.0-inclusive-language "#AuroraMySQL.8.0-inclusive-language").
+Errors block the upgrade. You must resolve them before retrying the upgrade.
 
-## Status variables
+Warnings and notices are less critical, but we still recommend that you review them carefully to make sure that there are no compatibility issues
+with the application workload. Address any identified issues soon.
 
-For information about status variables that aren't applicable to Aurora MySQL, see [MySQL status variables that don't apply to
-Aurora MySQL](AuroraMySQL.Reference.md#AuroraMySQL.Reference.StatusVars.Inapplicable "AuroraMySQL.Reference.md#AuroraMySQL.Reference.StatusVars.Inapplicable").
+The log file has the following format:
 
-## Inclusive language changes for Aurora MySQL version 3
+- `targetVersion` – The MySQL-compatible version of the Aurora MySQL upgrade.
+- `auroraServerVersion` – The Aurora MySQL version on which the precheck was run.
+- `auroraTargetVersion` – The Aurora MySQL version to which you're upgrading.
+- `checksPerformed` – Contains the list of prechecks performed.
+- `id` – The name of the precheck being run.
+- `title` – A description of the precheck being run.
+- `status` – This doesn't indicate whether the precheck succeeded or failed, but shows the status of the precheck query:
+  - `OK` – The precheck query ran and completed successfully.
+  - `ERROR` – The precheck query failed to run. This can occur because of issues such as resource constraints, unexpected
+    instance restarts, or the compatibility precheck query being interrupted.
 
-Aurora MySQL version 3 is compatible with version 8.0.23 from the MySQL community edition. Aurora MySQL version 3 also
-includes changes from MySQL 8.0.26 related to keywords and system schemas for inclusive language. For example, the
-`SHOW REPLICA STATUS` command is now preferred instead of `SHOW SLAVE STATUS`.
+  For more information, see [this example](#precheck-query-failed "#precheck-query-failed").
 
-The following Amazon CloudWatch metrics have new names in Aurora MySQL version 3.
+- `description` – A general description of the incompatibility, and how to remediate the issue.
+- `documentationLink` – Where applicable, a link to relevant Aurora MySQL or MySQL documentation is noted here. For more
+  information, see [Precheck descriptions reference for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md "AuroraMySQL.upgrade-prechecks.md").
+- `detectedProblems` – If the precheck returns an error, warning, or notice, this shows details of the incompatibility, and
+  incompatible objects where applicable:
+  - `level` – The level of the incompatibility detected by the precheck. Valid levels are the following:
+    - `Error` – The upgrade can't proceed until you resolve the incompatibility.
+    - `Warning` – The upgrade can proceed, but a deprecated object, syntax, or configuration was detected. Review warnings
+      carefully, and resolve them soon to avoid issues in future releases.
+    - `Notice` – The upgrade can proceed, but a deprecated object, syntax, or configuration was detected. Review notices
+      carefully, and resolve them soon to avoid issues in future releases.
 
-In Aurora MySQL version 3, only the new metric names are available. Make sure to update any alarms or other automation that
-relies on metric names when you upgrade to Aurora MySQL version 3.
+  - `dbObject` – The name of the database object in which the incompatibility was detected.
+  - `description` – A detailed description of the incompatibility, and how to remediate the issue.
 
-| Old name                        | New name                        |
-| ------------------------------- | ------------------------------- |
-| `ForwardingMasterDMLLatency`    | `ForwardingWriterDMLLatency`    |
-| `ForwardingMasterOpenSessions`  | `ForwardingWriterOpenSessions`  |
-| `AuroraDMLRejectedMasterFull`   | `AuroraDMLRejectedWriterFull`   |
-| `ForwardingMasterDMLThroughput` | `ForwardingWriterDMLThroughput` |
+- `errorCount` – The number of incompatibility errors detected. These block the upgrade.
+- `warningCount` – The number of incompatibility warnings detected. These don't block the upgrade, but address them soon to
+  avoid problems in future releases.
+- `noticeCount` – The number of incompatibility notices detected. These don't block the upgrade, address them soon to avoid
+  problems in future releases.
+- `Summary` – A summary of the precheck compatibility error, warning, and notice counts.
 
-The following status variables have new names in Aurora MySQL version 3.
+## Precheck log output examples for Aurora MySQL
 
-For compatibility, you can use either name in the initial Aurora MySQL version 3 release. The old status variable names are
-to be removed in a future release.
+The following examples show the precheck log output that you might see. For details of the prechecks that are run, see [Precheck descriptions reference for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md "AuroraMySQL.upgrade-prechecks.md").
 
-| Name to be removed                         | New or preferred name                      |
-| ------------------------------------------ | ------------------------------------------ |
-| `Aurora_fwd_master_dml_stmt_duration`      | `Aurora_fwd_writer_dml_stmt_duration`      |
-| `Aurora_fwd_master_dml_stmt_count`         | `Aurora_fwd_writer_dml_stmt_count`         |
-| `Aurora_fwd_master_select_stmt_duration`   | `Aurora_fwd_writer_select_stmt_duration`   |
-| `Aurora_fwd_master_select_stmt_count`      | `Aurora_fwd_writer_select_stmt_count`      |
-| `Aurora_fwd_master_errors_session_timeout` | `Aurora_fwd_writer_errors_session_timeout` |
-| `Aurora_fwd_master_open_sessions`          | `Aurora_fwd_writer_open_sessions`          |
-| `Aurora_fwd_master_errors_session_limit`   | `Aurora_fwd_writer_errors_session_limit`   |
-| `Aurora_fwd_master_errors_rpc_timeout`     | `Aurora_fwd_writer_errors_rpc_timeout`     |
+**Precheck status OK, no incompatibility detected**
 
-The following configuration parameters have new names in Aurora MySQL version 3.
+The precheck query completed successfully. No incompatibilities were detected.
 
-For compatibility, you can check the parameter values in the `mysql` client by using either name in the initial
-Aurora MySQL version 3 release. You can use only the new names when modifying values in a custom parameter group. The old
-parameter names are to be removed in a future release.
+```
+{
+  "id": "auroraUpgradeCheckIndexLengthLimitOnTinytext",
+  "title": "Check for the tables with indexes defined with prefix length greater than 255 bytes on tiny text columns",
+  "status": "OK",
+  "detectedProblems": []
+},
+```
 
-| Name to be removed                      | New or preferred name                   |
-| --------------------------------------- | --------------------------------------- |
-| `aurora_fwd_master_idle_timeout`        | `aurora_fwd_writer_idle_timeout`        |
-| `aurora_fwd_master_max_connections_pct` | `aurora_fwd_writer_max_connections_pct` |
-| `master_verify_checksum`                | `source_verify_checksum`                |
-| `sync_master_info`                      | `sync_source_info`                      |
-| `init_slave`                            | `init_replica`                          |
-| `rpl_stop_slave_timeout`                | `rpl_stop_replica_timeout`              |
-| `log_slow_slave_statements`             | `log_slow_replica_statements`           |
-| `slave_max_allowed_packet`              | `replica_max_allowed_packet`            |
-| `slave_compressed_protocol`             | `replica_compressed_protocol`           |
-| `slave_exec_mode`                       | `replica_exec_mode`                     |
-| `slave_type_conversions`                | `replica_type_conversions`              |
-| `slave_sql_verify_checksum`             | `replica_sql_verify_checksum`           |
-| `slave_parallel_type`                   | `replica_parallel_type`                 |
-| `slave_preserve_commit_order`           | `replica_preserve_commit_order`         |
-| `log_slave_updates`                     | `log_replica_updates`                   |
-| `slave_allow_batching`                  | `replica_allow_batching`                |
-| `slave_load_tmpdir`                     | `replica_load_tmpdir`                   |
-| `slave_net_timeout`                     | `replica_net_timeout`                   |
-| `sql_slave_skip_counter`                | `sql_replica_skip_counter`              |
-| `slave_skip_errors`                     | `replica_skip_errors`                   |
-| `slave_checkpoint_period`               | `replica_checkpoint_period`             |
-| `slave_checkpoint_group`                | `replica_checkpoint_group`              |
-| `slave_transaction_retries`             | `replica_transaction_retries`           |
-| `slave_parallel_workers`                | `replica_parallel_workers`              |
-| `slave_pending_jobs_size_max`           | `replica_pending_jobs_size_max`         |
-| `pseudo_slave_mode`                     | `pseudo_replica_mode`                   |
+**Precheck status OK, error detected**
 
-The following stored procedures have new names in Aurora MySQL version 3.
+The precheck query completed successfully. One error was detected.
 
-For compatibility, you can use either name in the initial Aurora MySQL version 3 release. The old procedure names are to be
-removed in a future release.
+```
+{
+  "id": "auroraUpgradeCheckForPrefixIndexOnGeometryColumns",
+  "title": "Check for geometry columns on prefix indexes",
+  "status": "OK",
+  "description": "Consider dropping the prefix indexes of geometry columns and restart the upgrade.",
+  "detectedProblems": [
+      {
+        "level": "Error",
+        "dbObject": "test25.sbtest1",
+        "description": "Table `test25`.`sbtest1` has an index `idx_t1` on geometry column/s. Mysql 8.0 does not support this type of index on a geometry column https://dev.mysql.com/worklog/task/?id=11808. To upgrade to MySQL 8.0, Run 'DROP INDEX `idx_t1` ON `test25`.`sbtest1`;"
+      },
+ }
+```
 
-| Name to be removed                                 | New or preferred name                              |
-| -------------------------------------------------- | -------------------------------------------------- |
-| `mysql.rds_set_master_auto_position`               | `mysql.rds_set_source_auto_position`               |
-| `mysql.rds_set_external_master`                    | `mysql.rds_set_external_source`                    |
-| `mysql.rds_set_external_master_with_auto_position` | `mysql.rds_set_external_source_with_auto_position` |
-| `mysql.rds_reset_external_master`                  | `mysql.rds_reset_external_source`                  |
-| `mysql.rds_next_master_log`                        | `mysql.rds_next_source_log`                        |
+**Precheck status OK, warning detected**
 
-## AUTO_INCREMENT values
+Warnings can be returned when a precheck is successful or unsuccessful.
 
-In Aurora MySQL version 3, Aurora preserves the `AUTO_INCREMENT` value for each table when it restarts each DB
-instance. In Aurora MySQL version 2, the `AUTO_INCREMENT` value wasn't preserved after a restart.
+Here the precheck query completed successfully. Two warnings were detected.
 
-The `AUTO_INCREMENT` value isn't preserved when you set up a new cluster by restoring from a snapshot,
-performing a point-in-time recovery, and cloning a cluster. In these cases, the `AUTO_INCREMENT` value is
-initialized to the value based on the largest column value in the table at the time the snapshot was created. This behavior
-is different than in RDS for MySQL 8.0, where the `AUTO_INCREMENT` value is preserved during these operations.
+```
+{
+  "id": "zeroDatesCheck",
+  "title": "Zero Date, Datetime, and Timestamp values",
+  "status": "OK",
+  "description": "Warning: By default zero date/datetime/timestamp values are no longer allowed in MySQL, as of 5.7.8 NO_ZERO_IN_DATE and NO_ZERO_DATE are included in SQL_MODE by default. These modes should be used with strict mode as they will be merged with strict mode in a future release. If you do not include these modes in your SQL_MODE setting, you are able to insert date/datetime/timestamp values that contain zeros. It is strongly advised to replace zero values with valid ones, as they may not work correctly in the future.",
+  "documentationLink": "https://lefred.be/content/mysql-8-0-and-wrong-dates/",
+  "detectedProblems": [
+      {
+        "level": "Warning",
+        "dbObject": "global.sql_mode",
+        "description": "does not contain either NO_ZERO_DATE or NO_ZERO_IN_DATE which allows insertion of zero dates"
+      },
+      {
+        "level": "Warning",
+        "dbObject": "session.sql_mode",
+        "description": " of 10 session(s) does not contain either NO_ZERO_DATE or NO_ZERO_IN_DATE which allows insertion of zero dates"
+      }
+    ]
+}
+```
 
-## Binary log replication
+**Precheck status ERROR, no incompatibilities reported**
 
-In MySQL 8.0 community edition, binary log replication is turned on by default. In Aurora MySQL version 3, binary log
-replication is turned off by default.
+The precheck query failed with an error, so incompatibilities couldn't be verified.
 
-###### Tip
+```
+{
+  "id": "auroraUpgradeCheckForDatafilePathInconsistency",
+  "title": "Check for inconsistency related to ibd file path.",
+  "status": "ERROR",
+  "description": "Can't connect to MySQL server on 'localhost:3306' (111) at 13/08/2024 12:22:20 UTC. This failure can occur due to low memory available on the instance for executing upgrade prechecks. Please check 'FreeableMemory' Cloudwatch metric to verify the available memory on the instance while executing prechecks. If instance ran out of memory, we recommend to retry the upgrade on a higher instance class."
+}
+```
 
-If your high availability requirements are fulfilled by the Aurora built-in replication features, you can leave binary
-log replication turned off. That way, you can avoid the performance overhead of binary log replication. You can also
-avoid the associated monitoring and troubleshooting that are needed to manage binary log replication.
+This failure can occur because of an unexpected instance restart or a compatibility precheck query being interrupted on the database while
+running. For example, on smaller DB instance classes, you might experience this when the available memory on the instance runs low.
 
-Aurora supports binary log replication from a MySQL 5.7–compatible source to Aurora MySQL version 3. The source
-system can be an Aurora MySQL DB cluster, an RDS for MySQL DB instance, or an on-premises MySQL instance.
+You can use the `FreeableMemory` Amazon CloudWatch metric to verify the available memory on the instance while running prechecks. If the
+instance ran out of memory, we recommend retrying the upgrade on a larger DB instance class. In some cases, you can use a [Blue/Green deployment](blue-green-deployments-overview.md "blue-green-deployments-overview.md") This allows prechecks and upgrades to run on the “green” DB cluster
+independent of the production workload, which also consumes system resources.
 
-As does community MySQL, Aurora MySQL supports replication from a source running a specific version to a target running the
-same major version or one major version higher. For example, replication from a MySQL 5.6–compatible system to
-Aurora MySQL version 3 isn't supported. Replicating from Aurora MySQL version 3 to a MySQL 5.7–compatible or MySQL
-5.6–compatible system isn't supported. For details about using binary log replication, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB
-cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
+For more information, see [Troubleshooting memory usage issues for Aurora MySQL databases](ams-workload-memory.md "ams-workload-memory.md").
 
-Aurora MySQL version 3 includes improvements to binary log replication in community MySQL 8.0, such as filtered
-replication. For details about the community MySQL 8.0 improvements, see [How Servers Evaluate Replication Filtering
-Rules](https://dev.mysql.com/doc/refman/8.0/en/replication-rules.html "https://dev.mysql.com/doc/refman/8.0/en/replication-rules.html") in the _MySQL Reference Manual_.
+**Precheck summary, one error and three warnings detected**
 
-### Transaction compression for binary log replication
+The compatibility prechecks also contain information on the source and target Aurora MySQL versions, and a summary of error, warning, and notice
+counts at the end of the precheck output.
 
-For usage information about binary log compression, see [Binary Log Transaction
-Compression](https://dev.mysql.com/doc/refman/8.0/en/binary-log-transaction-compression.html "https://dev.mysql.com/doc/refman/8.0/en/binary-log-transaction-compression.html") in the MySQL Reference Manual.
+For example, the following output shows that an attempt was made to upgrade from Aurora MySQL 2.11.6 to Aurora MySQL 3.07.1. The upgrade returned
+one error, three warnings, and no notices. Because upgrades can't proceed when an error is returned, you must resolve the [routineSyntaxCheck](AuroraMySQL.upgrade-prechecks.md#routineSyntaxCheck "AuroraMySQL.upgrade-prechecks.md#routineSyntaxCheck") compatibility issue and retry the upgrade.
 
-The following limitations apply to binary log compression in Aurora MySQL version 3:
+```
+{
+  "serverAddress": "/tmp%2Fmysql.sock",
+  "serverVersion": "5.7.12 - MySQL Community Server (GPL)",
+  "targetVersion": "8.0.36",
+  "auroraServerVersion": "2.11.6",
+  "auroraTargetVersion": "3.07.1",
+  "outfilePath": "/rdsdbdata/tmp/PreChecker.log",
+  "checksPerformed": [{
+      ... output for each individual precheck ...
+      .
+      .
+      {
+        "id": "oldTemporalCheck",
+        "title": "Usage of old temporal type",
+        "status": "OK",
+          "detectedProblems": []
+      },
+      {
+        "id": "routinesSyntaxCheck",
+        "title": "MySQL 8.0 syntax check for routine-like objects",
+        "status": "OK",
+        "description": "The following objects did not pass a syntax check with the latest MySQL 8.0 grammar. A common reason is that they reference names that conflict with new reserved keywords. You must update these routine definitions and `quote` any such references before upgrading.",
+        "documentationLink": "https://dev.mysql.com/doc/refman/en/keywords.html",
+        "detectedProblems": [{
+            "level": "Error",
+            "dbObject": "test.select_res_word",
+            "description": "at line 2,18: unexpected token 'except'"
+        }]
+      },
+      .
+      .
+      .
+      {
+        "id": "zeroDatesCheck",
+        "title": "Zero Date, Datetime, and Timestamp values",
+        "status": "OK",
+        "description": "Warning: By default zero date/datetime/timestamp values are no longer allowed in MySQL, as of 5.7.8 NO_ZERO_IN_DATE and NO_ZERO_DATE are included in SQL_MODE by default. These modes should be used with strict mode as they will be merged with strict mode in a future release. If you do not include these modes in your SQL_MODE setting, you are able to insert date/datetime/timestamp values that contain zeros. It is strongly advised to replace zero values with valid ones, as they may not work correctly in the future.",
+        "documentationLink": "https://lefred.be/content/mysql-8-0-and-wrong-dates/",
+        "detectedProblems": [{
+            "level": "Warning",
+            "dbObject": "global.sql_mode",
+            "description": "does not contain either NO_ZERO_DATE or NO_ZERO_IN_DATE which allows insertion of zero dates"
+            },
+            {
+            "level": "Warning",
+            "dbObject": "session.sql_mode",
+            "description": " of 8 session(s) does not contain either NO_ZERO_DATE or NO_ZERO_IN_DATE which allows insertion of zero dates"
+            }
+          ]
+       },
+       .
+       .
+       .
+  }],
+  "errorCount": 1,
+  "warningCount": 3,
+  "noticeCount": 0,
+  "Summary": "1 errors were found. Please correct these issues before upgrading to avoid compatibility issues."
+}
+```
 
-- Transactions whose binary log data is larger than the maximum allowed
-  packet size aren't compressed. This is true regardless of whether
-  the Aurora MySQL binary log compression setting is turned on. Such
-  transactions are replicated without being compressed.
-- If you use a connector for change data capture (CDC) that
-  doesn't support MySQL 8.0 yet, you can't use this feature. We
-  recommend that you test any third-party connectors thoroughly with
-  binary log compression. Also, we recommend that you do so before turning
-  on binlog compression on systems that use binlog replication for CDC.
+## Precheck performance for Aurora MySQL
+
+The compatibility prechecks run before the DB instance is taken offline for the upgrade, so under regular circumstances they don't cause DB instance
+downtime while running. However, they can impact application workload running on the writer DB instance. The prechecks access the data dictionary through
+[information_schema](https://dev.mysql.com/doc/mysql-infoschema-excerpt/5.7/en/information-schema-introduction.html "https://dev.mysql.com/doc/mysql-infoschema-excerpt/5.7/en/information-schema-introduction.html") tables, which
+can be slow if there are many database objects. Consider the following factors:
+
+- Precheck duration varies with the number of database objects such as tables, columns, routines, and constraints. DB clusters with a large number
+  of objects can take longer to run.
+
+For example, the [removedFunctionsCheck](AuroraMySQL.upgrade-prechecks.md#removedFunctionsCheck "AuroraMySQL.upgrade-prechecks.md#removedFunctionsCheck") can take longer and use more resources based on the number
+of [stored objects](https://dev.mysql.com/doc/refman/5.7/en/stored-objects.html "https://dev.mysql.com/doc/refman/5.7/en/stored-objects.html").
+
+- For in-place upgrades, using a larger DB instance class (for example, db.r5.24xlarge or db.r6g.16xlarge) can help the upgrade complete faster by
+  using more CPU. You can downsize after the upgrade.
+- Queries on the `information_schema` across multiple databases can be slow, especially with many objects and on smaller DB instances.
+  In such cases, consider using cloning, snapshot restore, or a [Blue/Green deployment](blue-green-deployments-overview.md "blue-green-deployments-overview.md") for
+  upgrades.
+- Precheck resource usage (CPU, memory) can increase with more objects, leading to longer run times on smaller DB instances. In such cases,
+  consider testing using cloning, snapshot restore, or a Blue/Green deployment for upgrades.
+
+If the prechecks fail due to lack of resources, you can detect this in the precheck log using the status output:
+
+```
+"status": "ERROR",
+```
+
+For more information, see [How the Aurora MySQL in-place major version upgrade works](AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Sequence "AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Sequence") and [Planning a major version upgrade for an Aurora MySQL cluster](AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Planning "AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Planning").
+
+## Summary of Community MySQL upgrade prechecks
+
+The following is a general list of incompatibilities between MySQL 5.7 and 8.0:
+
+- Your MySQL 5.7–compatible DB cluster must not use features that aren't supported in MySQL 8.0.
+
+For more information, see [Features removed in
+MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals "https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals") in the MySQL documentation.
+
+- There must be no keyword or reserved word violations. Some keywords might be reserved in MySQL 8.0 that were not reserved previously.
+
+For more information, see [Keywords and reserved words](https://dev.mysql.com/doc/refman/8.0/en/keywords.html "https://dev.mysql.com/doc/refman/8.0/en/keywords.html") in the MySQL
+documentation.
+
+- For improved Unicode support, consider converting objects that use the `utf8mb3` charset to use the `utf8mb4` charset. The
+  `utf8mb3` character set is deprecated. Also, consider using `utf8mb4` for character set references instead of
+  `utf8`, because currently `utf8` is an alias for the `utf8mb3` charset.
+
+For more information, see [The utf8mb3 character set (3-byte
+UTF-8 unicode encoding)](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb3.html "https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb3.html") in the MySQL documentation.
+
+- There must be no InnoDB tables with a nondefault row format.
+- There must be no `ZEROFILL` or `display` length type attributes.
+- There must be no partitioned table that uses a storage engine that does not have native partitioning support.
+- There must be no tables in the MySQL 5.7 `mysql` system database that have the same name as a table used by the MySQL 8.0 data
+  dictionary.
+- There must be no tables that use obsolete data types or functions.
+- There must be no foreign key constraint names longer than 64 characters.
+- There must be no obsolete SQL modes defined in your `sql_mode` system variable setting.
+- There must be no tables or stored procedures with individual `ENUM` or `SET` column elements that exceed 255 characters in
+  length.
+- There must be no table partitions that reside in shared InnoDB tablespaces.
+- There must be no circular references in tablespace data file paths.
+- There must be no queries and stored program definitions that use `ASC` or `DESC` qualifiers for `GROUP BY`
+  clauses.
+- There must be no removed system variables, and system variables must use the new default values for MySQL 8.0.
+- There must be no zero (`0`) date, datetime, or timestamp values.
+- There must be no schema inconsistencies resulting from file removal or corruption.
+- There must be no table names that contain the `FTS` character string.
+- There must be no InnoDB tables that belong to a different engine.
+- There must be no table or schema names that are invalid for MySQL 5.7.
+
+For details of the prechecks that are run, see [Precheck descriptions reference for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md "AuroraMySQL.upgrade-prechecks.md").
+
+For more information about upgrading to MySQL 8.0, see [Upgrading MySQL](https://dev.mysql.com/doc/refman/8.0/en/upgrading.html "https://dev.mysql.com/doc/refman/8.0/en/upgrading.html")
+in the MySQL documentation. For a general description of changes in MySQL 8.0, see [What is new in MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html "https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html") in the MySQL documentation.
+
+## Summary of Aurora MySQL upgrade prechecks
+
+Aurora MySQL has its own specific requirements when upgrading from version 2 to version 3, including the following:
+
+- There must be no deprecated SQL syntax, such as `SQL_CACHE`, `SQL_NO_CACHE`, and `QUERY_CACHE`, in views,
+  routines, triggers, and events.
+- There must be no `FTS_DOC_ID` column present on any table without the `FTS` index.
+- There must be no column definition mismatch between the InnoDB data dictionary and the actual table definition.
+- All database and table names must be lowercase when the `lower_case_table_names` parameter is set to `1`.
+- Events and triggers must not have a missing or empty definer or an invalid creation context.
+- All trigger names in a database must be unique.
+- DDL recovery and Fast DDL aren't supported in Aurora MySQL version 3. There must be no artifacts in databases related to these features.
+- Tables with the `REDUNDANT` or `COMPACT` row format can't have indexes larger than 767 bytes.
+- The prefix length of indexes defined on `tiny` text columns can't exceed 255 bytes. With the `utf8mb4` character set, this
+  limits the prefix length supported to 63 characters.
+
+A larger prefix length was allowed in MySQL 5.7 using the `innodb_large_prefix` parameter. This parameter is deprecated in MySQL
+8.0.
+
+- There must be no InnoDB metadata inconsistency in the `mysql.host` table.
+- There must be no column data type mismatch in system tables.
+- There must be no XA transactions in the `prepared` state.
+- Column names in views can't be longer than 64 characters.
+- Special characters in stored procedures can't be inconsistent.
+- Tables can't have data file path inconsistency.
+
+For details of the prechecks that are run, see [Precheck descriptions reference for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md "AuroraMySQL.upgrade-prechecks.md").

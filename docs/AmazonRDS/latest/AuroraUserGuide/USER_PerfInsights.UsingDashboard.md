@@ -1,27 +1,40 @@
-# Analyzing DB load by wait events
+# Viewing a performance analysis
 
-If the **Database load** chart shows a bottleneck, you can find out where the load is
-coming from. To do so, look at the top load items table below the **Database load**
-chart. Choose a particular item, like a SQL query or a user, to drill down into that item and see details about
-it.
+report in Performance Insights
 
-DB load grouped by waits and top SQL queries is the default Performance Insights dashboard view. This
-combination typically provides the most insight into performance issues. DB load grouped by waits shows if there
-are any resource or concurrency bottlenecks in the database. In this case, the **SQL** tab of the top load items table shows which queries are driving that load.
+The **Performance analysis reports - new** tab lists all the reports
+that are created for the DB instance. The following are displayed for each report:
 
-Your typical workflow for diagnosing performance issues is as follows:
+- **ID**: Unique identifier of the report.
+- **Name**: Tag key added to the report.
+- **Report creation time**: Time you created the report.
+- **Analysis start time**: Start time of the analysis in the report.
+- **Analysis end time**: End time of the analysis in the report.
 
-1. Review the **Database load** chart and see if there are any incidents of database load
-   exceeding the **Max CPU** line.
-2. If there is, look at the **Database load** chart and identify which wait state or
-   states are primarily responsible.
-3. Identify the digest queries causing the load by seeing which of the queries the **SQL** tab on the top load items table are contributing most to those wait states. You can
-   identify these by the **DB Load by Wait** column.
-4. Choose one of these digest queries in the **SQL** tab to expand it and see
-   the child queries that it is composed of.
-   For example, in the dashboard following, **log file sync** waits account for most of the DB load.
-   The **LGWR all worker groups** wait is also high. The **Top SQL** chart shows
-   what is causing the **log file sync** waits: frequent `COMMIT` statements. In this
-   case, committing less frequently will reduce DB load.
+###### To view a performance analysis report
 
-![log file sync errors](images/perf_insights_7.png)
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the left navigation pane, choose **Performance Insights**.
+3. Choose a DB instance for which you want to view the analysis report.
+4. Scroll down and choose **Performance analysis reports - new** tab in the Performance Insights dashboard.
+
+All the analysis reports for the different time periods are displayed. 5. Choose **ID** of the report you want to view.
+
+The DB load chart displays the entire analysis period by default if more than one insight is identified.
+If the report has identified one insight then the DB load chart displays the insight by default.
+
+The dashboard also lists the tags for the report in the **Tags** section.
+
+The following example shows the entire analysis period for the report.
+
+![DB load chart showing entire analysis report period](images/PI_EntireAnalysisRep.png) 6. Choose the insight in the **Database load insights** list you want to view if more than one insight is identified in the report.
+
+The dashboard displays the insight message, DB load chart highlighting the time period of the insight,
+analysis and recommendations, and the list of report tags.
+
+The following example shows the DB load insight in the report.
+
+![DB load chart showing insight in the report](images/PI_AnalysisRepInsight_chart.png)
+
+![Report insight analysis and recommendation section](images/PI_AnalysisRepInsight_Recommendations.png)

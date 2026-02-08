@@ -1,12 +1,12 @@
-# Creating an IAM policy to access CloudWatch Logs resources
+# Creating an IAM policy to access AWS KMS resources
 
-Aurora can access CloudWatch Logs to export audit log data from an Aurora DB cluster.
-However, you must first create an IAM policy that provides the log group and log stream
-permissions that allow Aurora to access CloudWatch Logs.
+Aurora can access the AWS KMS keys
+used for encrypting their database backups.
+However, you must first create an IAM policy that provides the
+permissions that allow Aurora to access KMS keys.
 
-The following policy adds the permissions required by Aurora to access Amazon CloudWatch Logs on
-your behalf, and the minimum required permissions to create log groups and export
-data.
+The following policy adds the permissions required by Aurora to access KMS keys on
+your behalf.
 
 JSON
 
@@ -15,80 +15,43 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Sid": "EnableCreationAndManagementOfRDSCloudwatchLogEvents",
+ "Sid": "AllowAuroraToAccessKey",
  "Effect": "Allow",
  "Action": [
- "logs:GetLogEvents",
- "logs:PutLogEvents"
+ "kms:Decrypt"
  ],
- "Resource": "arn:aws:logs:*:*:log-group:/aws/rds/*:log-stream:*"
- },
- {
- "Sid": "EnableCreationAndManagementOfRDSCloudwatchLogGroupsAndStreams",
- "Effect": "Allow",
- "Action": [
- "logs:CreateLogStream",
- "logs:DescribeLogStreams",
- "logs:PutRetentionPolicy",
- "logs:CreateLogGroup"
- ],
- "Resource": "arn:aws:logs:*:*:log-group:/aws/rds/*"
+ "Resource": "arn:aws:kms:`us-east-1`:`123456789012`:key/`key-ID`"
  }
  ]
 }`
 
 ```
 
-You can modify the ARNs in the policy to restrict access to a specific AWS Region and account.
-
 You can use the following steps to create an IAM policy that provides the
-minimum required permissions for Aurora to access CloudWatch Logs on your behalf. To allow
-Aurora full access to CloudWatch Logs, you can skip these steps and use the
-`CloudWatchLogsFullAccess` predefined IAM policy instead of
-creating your own. For more information, see [Using identity-based policies (IAM policies) for CloudWatch Logs](../../../AmazonCloudWatch/latest/monitoring/iam-identity-based-access-control-cwl.md#managed-policies-cwl "../../../AmazonCloudWatch/latest/monitoring/iam-identity-based-access-control-cwl.md#managed-policies-cwl") in
-the _Amazon CloudWatch User Guide._
+minimum required permissions for Aurora to access KMS keys on your behalf.
 
-###### To create an IAM policy to grant access to your CloudWatch Logs resources
+###### To create an IAM policy to grant access to your KMS keys
 
 1. Open the [IAM
    console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home").
 2. In the navigation pane, choose **Policies**.
 3. Choose **Create policy**.
 4. On the **Visual editor** tab, choose **Choose
-   a service**, and then choose **CloudWatch
-   Logs**.
-5. For **Actions**, choose **Expand all** (on the right), and then choose the
-   Amazon CloudWatch Logs permissions needed for the IAM policy.
-
-Ensure that the following permissions are selected:
-
-    * `CreateLogGroup`
-    * `CreateLogStream`
-    * `DescribeLogStreams`
-    * `GetLogEvents`
-    * `PutLogEvents`
-    * `PutRetentionPolicy`
-
-6. Choose **Resources** and choose **Add ARN** for **log-group**.
+   a service**, and then choose **KMS**.
+5. For **Actions**, choose **Write**, and then choose
+   **Decrypt**.
+6. Choose **Resources**, and choose **Add ARN**.
 7. In the **Add ARN(s)** dialog box, enter the following values:
-   - **Region** – An AWS Region or `*`
-   - **Account** – An account number or `*`
-   - **Log Group Name** – `/aws/rds/*`
+   - **Region** – Type the AWS Region, such as `us-west-2`.
+   - **Account** – Type the user account number.
+   - **Log Stream Name** – Type the KMS key identifier.
 
 8. In the **Add ARN(s)** dialog box, choose **Add**.
-9. Choose **Add ARN** for **log-stream**.
-10. In the **Add ARN(s)** dialog box, enter the following values:
-    - **Region** – An AWS Region or `*`
-    - **Account** – An account number or `*`
-    - **Log Group Name** – `/aws/rds/*`
-    - **Log Stream Name** – `*`
-
-11. In the **Add ARN(s)** dialog box, choose **Add**.
-12. Choose **Review policy**.
-13. Set **Name** to a name for your IAM policy, for
-    example `AmazonRDSCloudWatchLogs`. You use this name when you
+9. Choose **Review policy**.
+10. Set **Name** to a name for your IAM policy, for
+    example `AmazonRDSKMSKey`. You use this name when you
     create an IAM role to associate with your Aurora DB cluster. You can also add
     an optional **Description** value.
-14. Choose **Create policy**.
-15. Complete the steps in [Creating an
+11. Choose **Create policy**.
+12. Complete the steps in [Creating an
     IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md").

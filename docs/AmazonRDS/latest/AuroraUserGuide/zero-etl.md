@@ -1,309 +1,421 @@
-# Adding data to a source Aurora DB cluster and querying it
+# Creating Aurora zero-ETL integrations with an Amazon SageMaker lakehouse
 
-To finish creating a zero-ETL integration that replicates data from Amazon Aurora into
-Amazon Redshift, you must create a database in the target destination.
+When you create an Aurora zero-ETL integration with an Amazon SageMaker lakehouse, you specify the source Aurora DB cluster and the target AWS Glue managed catalog. You can also customize encryption settings and add tags. Aurora creates an
+integration between the source DB cluster and its target. Once the integration is active, any data
+that you insert into the source DB cluster will be replicated into the configured target.
 
-For connections with Amazon Redshift, connect to your Amazon Redshift cluster or workgroup and create a database with a
-reference to your integration identifier. Then, you can add data to your source Aurora
-DB cluster and see it replicated in Amazon Redshift or Amazon SageMaker.
+## Prerequisites
 
-###### Topics
+Before you create a zero-ETL integration with an Amazon SageMaker lakehouse, you must create a source DB cluster and a target AWS Glue managed catalog. You also must allow replication
+into the catalog by adding the DB cluster as an authorized
+integration source.
 
-- [Creating a target database](#zero-etl.create-db "#zero-etl.create-db")
-- [Adding data to the source DB cluster](#zero-etl.add-data-rds "#zero-etl.add-data-rds")
-- [Querying your Aurora
-  data in Amazon Redshift](#zero-etl.query-data-redshift "#zero-etl.query-data-redshift")
-- [Data type differences between Aurora and
-  Amazon Redshift databases](#zero-etl.data-type-mapping "#zero-etl.data-type-mapping")
-- [DDL operations for Aurora PostgreSQL](#zero-etl.ddl-postgres "#zero-etl.ddl-postgres")
+For instructions to complete each of these steps, see [Getting started with Aurora zero-ETL integrations](zero-etl.md "zero-etl.md").
 
-## Creating a target database
+## Required permissions
 
-Before you can start replicating data into Amazon Redshift, after you create an integration,
-you must create a database in your target data warehouse. This
-database must include a reference to the integration identifier. You can use the Amazon Redshift
-console or the Query editor v2 to create the database.
+Certain IAM permissions are required to create a zero-ETL integration with an Amazon SageMaker lakehouse. At minimum, you
+need permissions to perform the following actions:
 
-For instructions to create a destination database, see [Create a destination database in Amazon Redshift](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db").
+- Create zero-ETL integrations for the source Aurora DB cluster.
+- View and delete all zero-ETL integrations.
+- Create inbound integrations into the target AWS Glue managed catalog.
+- Access Amazon S3 buckets used by the AWS Glue managed catalog.
+- Use AWS KMS keys for encryption if custom encryption is configured.
+- Register resources with Lake Formation.
+- Put resource policy on the AWS Glue managed catalog to authorize inbound integrations.
 
-## Adding data to the source DB cluster
+The following sample policy demonstrates the [least privilege
+permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") required to create and manage integrations with an Amazon SageMaker lakehouse. You might not need
+these exact permissions if your user or role has broader permissions, such as an
+`AdministratorAccess` managed policy.
 
-After you configure your integration, you can populate the source Aurora DB cluster
-with data that you want to replicate into your data warehouse.
+Additionally, you must configure a resource policy on the target AWS Glue managed catalog to authorize inbound integrations. Use the following AWS CLI command to apply the resource policy.
+
+```
+aws glue put-resource-policy \
+      --policy-in-json  '{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Principal": {
+            "Service": "glue.amazonaws.com"
+        },
+        "Action": [
+            "glue:AuthorizeInboundIntegration"
+        ],
+        "Resource": ["arn:aws:glue:`region`:`account_id`:catalog/`catalog_name`"],
+        "Condition": {
+            "StringEquals": {
+                "aws:SourceArn": "arn:aws:rds:`region`:`account_id`:db:`source_name`"
+            }
+        }
+    },
+    {
+        "Effect": "Allow",
+        "Principal": {
+            "AWS": "`account_id`"
+        },
+        "Action": ["glue:CreateInboundIntegration"],
+        "Resource": ["arn:aws:glue:`region`:`account_id`:catalog/`catalog_name`"]
+    }
+    ]
+}' \
+      --region `region`
+```
 
 ###### Note
 
-There are differences between data types in Amazon Aurora and the target analytics warehouse. For a
-table of data type mappings, see [Data type differences between Aurora and
-Amazon Redshift databases](#zero-etl.data-type-mapping "#zero-etl.data-type-mapping").
+Glue catalog Amazon Resource Names (ARNs) have the following format:
 
-First, connect to the source DB cluster using the MySQL or
-PostgreSQL client of your choice. For instructions, see [Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+- Glue catalog – `arn:aws:**glue**:{region}:{account-id}:catalog**/**`catalog-name``
 
-Then, create a table and insert a row of sample data.
+### Choosing a target AWS Glue managed catalog in a different account
+
+If you plan to specify a target AWS Glue managed catalog that's in another AWS account,
+you must create a role that allows users in the current account to access resources
+in the target account. For more information, see [Providing access
+to an IAM user in another AWS account that you own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md").
+
+The role must have the following permissions, which allow the user to view
+available AWS Glue catalogs in the target account.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "glue:GetCatalog"
+ ],
+ "Resource":[
+ "*"
+ ]
+ }
+ ]
+}`
+
+```
+
+The role must have the following trust policy, which specifies the target account
+ID.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Principal":{
+ "AWS": "arn:aws:iam::`111122223333`:root"
+ },
+ "Action":"sts:AssumeRole"
+ }
+ ]
+}`
+
+```
+
+For instructions to create the role, see [Creating a role using custom trust policies](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md").
+
+## Creating zero-ETL integrations with an Amazon SageMaker lakehouse
+
+You can create a zero-ETL integration with an Amazon SageMaker lakehouse using the AWS Management Console, the AWS CLI, or the RDS API.
 
 ###### Important
 
-Make sure that the table has a primary key. Otherwise, it can't be replicated to
-the target data warehouse.
+Zero-ETL integrations with an Amazon SageMaker lakehouse do not support refresh or resync operations. If you encounter issues with an integration after creation, you must delete the integration and create a new one.
 
-The pg_dump and pg_restore PostgreSQL utilities initially create tables without a primary key and then add it afterwards. If you're using one of these utilities, we recommend first creating a schema and then loading data in a separate command.
+###### To create a zero-ETL integration with an Amazon SageMaker lakehouse
 
-**MySQL**
-
-The following example uses the [MySQL Workbench utility](https://dev.mysql.com/downloads/workbench/ "https://dev.mysql.com/downloads/workbench/").
-
-```
-CREATE DATABASE `my_db`;
-
-USE `my_db`;
-
-CREATE TABLE `books_table` (ID int NOT NULL, Title VARCHAR(50) NOT NULL, Author VARCHAR(50) NOT NULL,
-Copyright INT NOT NULL, Genre VARCHAR(50) NOT NULL, **PRIMARY KEY** (ID));
-
-INSERT INTO `books_table` VALUES (1, 'The Shining', 'Stephen King', 1977, 'Supernatural fiction');
-```
-
-**PostgreSQL**
-
-The following example uses the `psql`
-PostgreSQL interactive terminal. When connecting to the cluster, include the named
-database that you specified when creating the integration.
-
-```
-psql -h `mycluster`.cluster-`123456789012`.us-east-2.rds.amazonaws.com -p 5432 -U `username` -d `named_db`;
-
-named_db=> CREATE TABLE `books_table` (ID int NOT NULL, Title VARCHAR(50) NOT NULL, Author VARCHAR(50) NOT NULL,
-Copyright INT NOT NULL, Genre VARCHAR(50) NOT NULL, **PRIMARY KEY** (ID));
-
-named_db=> INSERT INTO `books_table` VALUES (1, 'The Shining', 'Stephen King', 1977, 'Supernatural fiction');
-```
-
-## Querying your Aurora
-
-data in Amazon Redshift
-
-After you add data to the Aurora DB cluster, it's replicated into the destination database and is ready to be
-queried.
-
-###### To query the replicated data
-
-1. Navigate to the Amazon Redshift console and choose **Query editor
-   v2** from the left navigation pane.
-2. Connect to your cluster or workgroup and choose your destination database
-   (which you created from the integration) from the dropdown menu
-   (**destination_database** in this example). For
-   instructions to create a destination database, see [Create a destination database in Amazon Redshift](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db").
-3. Use a SELECT statement to query your data. In this example, you can run the
-   following command to select all data from the table that you created in the
-   source Aurora DB cluster:
-
-```
-SELECT * from `my_db`."`books_table`";
-```
-
-![Run a SELECT statement within the query editor. The result is a single row of sample data that was added to the Amazon RDS database.](images/zero-etl-redshift-editor.png)
-
-    * ``my_db`` is the Aurora database schema name. This option is only needed for MySQL databases.
-    * ``books_table`` is the Aurora table name.
-
-You can also query the data using the a command line client. For example:
-
-```
-destination_database=# select * from `my_db`."`books_table`";
-
- ID |       Title |        Author |   Copyright |                  Genre |  txn_seq |  txn_id
-----+–------------+---------------+-------------+------------------------+----------+--------+
-  1 | The Shining |  Stephen King |        1977 |   Supernatural fiction |        2 |   12192
-```
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the left navigation pane, choose **Zero-ETL integrations**.
+3. Choose **Create zero-ETL integration**.
+4. For **Integration identifier**, enter a name for the
+   integration. The name can have up to 63 alphanumeric characters and can
+   include hyphens.
+5. Choose **Next**.
+6. For **Source**, select the Aurora DB cluster where
+   the data will originate from.
 
 ###### Note
 
-For case-sensitivity, use double quotes (" ") for schema, table, and column
-names. For more information, see [enable_case_sensitive_identifier](../../../redshift/latest/dg/r_enable_case_sensitive_identifier.md "../../../redshift/latest/dg/r_enable_case_sensitive_identifier.md").
+RDS notifies you if the DB cluster parameters aren't configured correctly. If you
+receive this message, you can either choose **Fix it for
+me**, or configure them manually. For instructions to
+fix them manually, see [Step 1: Create a custom DB cluster parameter group](zero-etl.md#zero-etl.parameters "zero-etl.md#zero-etl.parameters").
 
-## Data type differences between Aurora and
+Modifying DB cluster
+parameters requires a reboot. Before you can create the integration,
+the reboot must be complete and the new parameter values must be
+successfully applied to the cluster. 7. (Optional) Select **Customize data filtering
+options** and add data filters to your integration. You can
+use data filters to define the scope of replication to the target Amazon SageMaker lakehouse. For more information, see [Data filtering for Aurora zero-ETL integrations](zero-etl.md "zero-etl.md"). 8. Once your source DB cluster is
+successfully configured, choose **Next**. 9. For **Target**, do the following:
 
-Amazon Redshift databases
+    1. (Optional) To use a different AWS account for the Amazon SageMaker lakehouse target, choose **Specify a
+     different account**. Then, enter the ARN of an
+     IAM role with permissions to display your AWS Glue catalogs. For
+     instructions to create the IAM role, see [Choosing a target AWS Glue managed catalog in a different account](#zero-etl.create-permissions-cross-account-smlh "#zero-etl.create-permissions-cross-account-smlh").
+    2. For **AWS Glue catalog**, select the target for replicated data from the
+     source DB cluster. You can choose an existing
+     AWS Glue managed catalog as the target.
+    3. The target IAM role needs describe permissions on the target catalog and must have the following permissions:
 
-The following tables show the mappings of
-Aurora MySQL and Aurora PostgreSQL data types to corresponding destination data types.
-_Amazon Aurora currently supports only these data types for
-zero-ETL integrations._
 
-If a table in your source DB cluster includes an unsupported data type, the table goes
-out of sync and isn't consumable by the destination target. Streaming from the source to the
-target continues, but the table with the unsupported data type isn't available. To fix
-the table and make it available in the target destination, you must manually revert the breaking change
-and then refresh the integration by running `ALTER DATABASE...INTEGRATION
- REFRESH`.
+
+    JSON
+
+
+
+
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Sid": "VisualEditor0",
+     "Effect": "Allow",
+     "Action": "glue:GetCatalog",
+     "Resource": [
+     "arn:aws:glue:`us-east-1`:`111122223333`:catalog/*",
+     "arn:aws:glue:`us-east-1`:`111122223333`:catalog"
+     ]
+     }
+     ]
+    }`
+
+    ```
+
+
+
+
+
+    The target IAM role must have the following trust relationship:
+
+
+
+    JSON
+
+
+
+
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Effect": "Allow",
+     "Principal": {
+     "Service": "glue.amazonaws.com"
+     },
+     "Action": "sts:AssumeRole"
+     }
+     ]
+    }`
+
+    ```
+    4. You must grant the target IAM role describe permissions for the target AWS Glue managed catalog with the Lake Formation administrator role created in [Step 3b: Create an AWS Glue catalog for
+     Amazon SageMaker AI zero-ETL integration](zero-etl.md#zero-etl-setting-up.sagemaker "zero-etl.md#zero-etl-setting-up.sagemaker").
 
 ###### Note
 
-You can't refresh zero-ETL integrations with an Amazon SageMaker lakehouse. Instead, delete and
-try to create the integration again.
+RDS notifies you if the resource policy or configuration settings
+for the specified AWS Glue managed catalog aren't configured
+correctly. If you receive this message, you can either choose
+**Fix it for me**, or configure them manually.
 
-###### Topics
+If your selected source and target are in different
+AWS accounts, then Amazon RDS cannot fix these settings for you. You
+must navigate to the other account and fix them manually in
+SageMaker Unified Studio. 10. Once your target AWS Glue managed catalog is configured correctly, choose
+**Next**. 11. (Optional) For **Tags**, add one or more tags to the
+integration. For more information, see [Tagging Amazon Aurora and Amazon RDS resources](USER_Tagging.md "USER_Tagging.md"). 12. For **Encryption**, specify how you want your
+integration to be encrypted. By default, RDS encrypts all integrations with
+an AWS owned key. To choose a customer managed key instead, enable
+**Customize encryption settings** and choose a
+KMS key to use for encryption. For more information, see [Encrypting Amazon Aurora
+resources](Overview.md "Overview.md").
 
-- [Aurora MySQL](#zero-etl.data-type-mapping-mysql "#zero-etl.data-type-mapping-mysql")
-- [Aurora PostgreSQL](#zero-etl.data-type-mapping-postgres "#zero-etl.data-type-mapping-postgres")
+Optionally, add an encryption context. For more information, see
+[Encryption
+context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") in the _AWS Key Management Service Developer
+Guide_.
 
-### Aurora MySQL
+###### Note
 
-| Aurora MySQL data type                           | Target data type | Description                                             | Limitations                                                          |
-| ------------------------------------------------ | ---------------- | ------------------------------------------------------- | -------------------------------------------------------------------- |
-| INT                                              | INTEGER          | Signed four-byte integer                                | None                                                                 |
-| SMALLINT                                         | SMALLINT         | Signed two-byte integer                                 | None                                                                 |
-| TINYINT                                          | SMALLINT         | Signed two-byte integer                                 | None                                                                 |
-| MEDIUMINT                                        | INTEGER          | Signed four-byte integer                                | None                                                                 |
-| BIGINT                                           | BIGINT           | Signed eight-byte integer                               | None                                                                 |
-| INT UNSIGNED                                     | BIGINT           | Signed eight-byte integer                               | None                                                                 |
-| TINYINT UNSIGNED                                 | SMALLINT         | Signed two-byte integer                                 | None                                                                 |
-| MEDIUMINT UNSIGNED                               | INTEGER          | Signed four-byte integer                                | None                                                                 |
-| BIGINT UNSIGNED                                  | DECIMAL(20,0)    | Exact numeric of selectable precision                   | None                                                                 |
-| DECIMAL(p,s) = NUMERIC(p,s)                      | DECIMAL(p,s)     | Exact numeric of selectable precision                   | Precision greater than 38 and scale greater than 37 not<br>supported |
-| DECIMAL(p,s) UNSIGNED = NUMERIC(p,s)<br>UNSIGNED | DECIMAL(p,s)     | Exact numeric of selectable precision                   | Precision greater than 38 and scale greater than 37 not<br>supported |
-| FLOAT4/REAL                                      | REAL             | Single precision floating-point number                  | None                                                                 |
-| FLOAT4/REAL UNSIGNED                             | REAL             | Single precision floating-point number                  | None                                                                 |
-| DOUBLE/REAL/FLOAT8                               | DOUBLE PRECISION | Double precision floating-point number                  | None                                                                 |
-| DOUBLE/REAL/FLOAT8 UNSIGNED                      | DOUBLE PRECISION | Double precision floating-point number                  | None                                                                 |
-| BIT(n)                                           | VARBYTE(8)       | Variable-length binary value                            | None                                                                 |
-| BINARY(n)                                        | VARBYTE(n)       | Variable-length binary value                            | None                                                                 |
-| VARBINARY(n)                                     | VARBYTE(n)       | Variable-length binary value                            | None                                                                 |
-| CHAR(n)                                          | VARCHAR(n)       | Variable-length string value                            | None                                                                 |
-| VARCHAR(n)                                       | VARCHAR(n)       | Variable-length string value                            | None                                                                 |
-| TEXT                                             | VARCHAR(65535)   | Variable-length string value up to 65,535<br>characters | None                                                                 |
-| TINYTEXT                                         | VARCHAR(255)     | Variable-length string value up to 255<br>characters    | None                                                                 |
-| MEDIUMTEXT                                       | VARCHAR(65535)   | Variable-length string value up to 65,535<br>characters | None                                                                 |
-| LONGTEXT                                         | VARCHAR(65535)   | Variable-length string value up to 65,535<br>characters | None                                                                 |
-| ENUM                                             | VARCHAR(1020)    | Variable-length string value up to 1,020<br>characters  | None                                                                 |
-| SET                                              | VARCHAR(1020)    | Variable-length string value up to 1,020<br>characters  | None                                                                 |
-| DATE                                             | DATE             | Calendar date (year, month, day)                        | None                                                                 |
-| DATETIME                                         | TIMESTAMP        | Date and time (without time zone)                       | None                                                                 |
-| TIMESTAMP(p)                                     | TIMESTAMP        | Date and time (without time zone)                       | None                                                                 |
-| TIME                                             | VARCHAR(18)      | Variable-length string value up to 18<br>characters     | None                                                                 |
-| YEAR                                             | VARCHAR(4)       | Variable-length string value up to 4<br>characters      | None                                                                 |
-| JSON                                             | SUPER            | Semistructured data or documents as values              | None                                                                 |
+Amazon RDS adds the following encryption context pairs in addition to
+any that you add:
 
-### Aurora PostgreSQL
+    * `aws:glue:integration:arn` -
+     `IntegrationArn`
+    * `aws:servicename:id` -
+     `glue`This reduces the overall number of pairs that you can add from 8
 
-Zero-ETL integrations for Aurora PostgreSQL don't support custom data types or data
-types created by extensions.
+to 6, and contributes to the overall character limit of the grant
+constraint. For more information, see [Using grant constraints](../../../kms/latest/developerguide/create-grant-overview.md#grant-constraints "../../../kms/latest/developerguide/create-grant-overview.md#grant-constraints") in the _AWS Key Management Service Developer Guide_. 13. Choose **Next**. 14. Review your integration settings and choose **Create zero-ETL integration**.
 
-| Aurora PostgreSQL data type       | Amazon Redshift data type | Description                                                       | Limitations                                                                                                                                                              |
-| --------------------------------- | ------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| array                             | SUPER                     | Semistructured data or documents as values                        | None                                                                                                                                                                     |
-| bigint                            | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
-| bigserial                         | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
-| bit varying(n)                    | VARBYTE(n)                | Variable-length binary value up to 16,777,216<br>bytes            | None                                                                                                                                                                     |
-| bit(n)                            | VARBYTE(n)                | Variable-length binary value up to 16,777,216<br>bytes            | None                                                                                                                                                                     |
-| bit, bit varying                  | VARBYTE(16777216)         | Variable-length binary value up to 16,777,216<br>bytes            | None                                                                                                                                                                     |
-| boolean                           | BOOLEAN                   | Logical boolean (true/false)                                      | None                                                                                                                                                                     |
-| bytea                             | VARBYTE(16777216)         | Variable-length binary value up to 16,777,216<br>bytes            | None                                                                                                                                                                     |
-| char(n)                           | CHAR(n)                   | Fixed-length character string value up to 65,535<br>bytes         | None                                                                                                                                                                     |
-| char varying(n)                   | VARCHAR(65535)            | Variable-length character string value up to<br>65,535 characters | None                                                                                                                                                                     |
-| cid                               | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
-| cidr                              | VARCHAR(19)               | Variable-length string value up to 19 characters                  | None                                                                                                                                                                     |
-| date                              | DATE                      | Calendar date (year, month, day)                                  | Values greater than 294,276 A.D. not supported                                                                                                                           |
-| double precision                  | DOUBLE PRECISION          | Double precision floating-point numbers                           | Subnormal values not fully supported                                                                                                                                     |
-| gtsvector                         | VARCHAR(65535)            | Variable-length string value up to 65,535 characters              | None                                                                                                                                                                     |
-| inet                              | VARCHAR(19)               | Variable-length string value up to 19 characters                  | None                                                                                                                                                                     |
-| integer                           | INTEGER                   | Signed four-byte integer                                          | None                                                                                                                                                                     |
-| int2vector                        | SUPER                     | Semistructured data or documents as<br>values.                    | None                                                                                                                                                                     |
-| interval                          | INTERVAL                  | Duration of time                                                  | Only INTERVAL types that specify either a year to month or a day<br>to second qualifier are supported.                                                                   |
-| json                              | SUPER                     | Semistructured data or documents as values                        | None                                                                                                                                                                     |
-| jsonb                             | SUPER                     | Semistructured data or documents as values                        | None                                                                                                                                                                     |
-| jsonpath                          | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| macaddr                           | VARCHAR(17)               | Variable-length string value up to 17<br>characters               | None                                                                                                                                                                     |
-| macaddr8                          | VARCHAR(23)               | Variable-length string value up to 23<br>characters               | None                                                                                                                                                                     |
-| money                             | DECIMAL(20,3)             | Currency amount                                                   | None                                                                                                                                                                     |
-| name                              | VARCHAR(64)               | Variable-length string value up to 64<br>characters               | None                                                                                                                                                                     |
-| numeric(p,s)                      | DECIMAL(p,s)              | User-defined fixed precision value                                | • `NaN` values not supported<br>• Precision and scale must be explicitly defined and not<br>greater than 38 (precision) and 37 (scale)<br>• Negative scale not supported |
-| oid                               | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
-| oidvector                         | SUPER                     | Semistructured data or documents as<br>values.                    | None                                                                                                                                                                     |
-| pg_brin_bloom_summary             | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| pg_dependencies                   | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| pg_lsn                            | VARCHAR(17)               | Variable-length string value up to 17<br>characters               | None                                                                                                                                                                     |
-| pg_mcv_list                       | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| pg_ndistinct                      | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| pg_node_tree                      | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| pg_snapshot                       | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| real                              | REAL                      | Single precision floating-point number                            | Subnormal values not fully supported                                                                                                                                     |
-| refcursor                         | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| smallint                          | SMALLINT                  | Signed two-byte integer                                           | None                                                                                                                                                                     |
-| smallserial                       | SMALLINT                  | Signed two-byte integer                                           | None                                                                                                                                                                     |
-| serial                            | INTEGER                   | Signed four-byte integer                                          | None                                                                                                                                                                     |
-| text                              | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| tid                               | VARCHAR(23)               | Variable-length string value up to 23<br>characters               | None                                                                                                                                                                     |
-| time [(p)] without time zone      | VARCHAR(19)               | Variable-length string value up to 19<br>characters               | `Infinity` and `-Infinity` values not<br>supported                                                                                                                       |
-| time [(p)] with time zone         | VARCHAR(22)               | Variable-length string value up to 22<br>characters               | `Infinity` and `-Infinity` values not<br>supported                                                                                                                       |
-| timestamp [(p)] without time zone | TIMESTAMP                 | Date and time (without time zone)                                 | • `Infinity` and `-Infinity`<br>values not supported<br>• Values greater than `9999-12-31` not<br>supported<br>• B.C. values not supported                               |
-| timestamp [(p)] with time zone    | TIMESTAMPTZ               | Date and time (with time zone)                                    | • `Infinity` and `-Infinity`<br>values not supported<br>• Values greater than `9999-12-31` not<br>supported<br>• B.C. values not supported                               |
-| tsquery                           | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| tsvector                          | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| txid_snapshot                     | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| uuid                              | VARCHAR(36)               | Variable-length 36 character string                               | None                                                                                                                                                                     |
-| xid                               | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
-| xid8                              | DECIMAL(20, 0)            | Fixed precision decimal                                           | None                                                                                                                                                                     |
-| xml                               | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+If creation fails, see [Troubleshooting Aurora zero-ETL integrations](zero-etl.md "zero-etl.md") for
+troubleshooting steps.
+The integration has a status of `Creating` while it's being created, and the
+target Amazon SageMaker lakehouse has a status of `Modifying`. During this time, you
+can't query the catalog or make any configuration changes on it.
 
-## DDL operations for Aurora PostgreSQL
+When the integration is successfully created, the status of the integration and the target
+Amazon SageMaker lakehouse both change to `Active`.
 
-Amazon Redshift is derived from PostgreSQL, so it shares several features with Aurora PostgreSQL due to their common PostgreSQL architecture. Zero-ETL integrations
-leverage these similarities to streamline data replication from Aurora PostgreSQL to Amazon Redshift, mapping databases by name and utilizing the shared
-database, schema, and table structure.
+To prepare a target AWS Glue managed catalog for zero-ETL integration using the AWS CLI, you must first use the [create-integration-resource-property](../../../cli/latest/reference/rds/create-integration.md "../../../cli/latest/reference/rds/create-integration.md")
+command with the following options:
 
-Consider the following points when managing Aurora PostgreSQL
-zero-ETL integrations:
+- `--resource-arn` – Specify the ARN of the AWS Glue managed catalog
+  that will be the target for the integration.
+- `--target-processing-properties` – Specify the
+  ARN of the IAM role to access the target AWS Glue managed catalog
 
-- Isolation is managed at the database level.
-- Replication occurs at the database level.
-- Aurora PostgreSQL databases are mapped to Amazon Redshift databases by name, with
-  data flowing to the corresponding renamed Redshift database if the original is
-  renamed.
+```
+aws glue create-integration-resource-property --region us-east-1
+ --resource-arn arn:aws:glue:`region`:`account_id`:catalog/`catalog_name` \
+ --target-processing-properties '{"RoleArn" : "arn:aws:iam::`account_id`:role/TargetIamRole"}'
+```
 
-Despite their similarities, Amazon Redshift and Aurora PostgreSQL have important
-differences. The following sections outline Amazon Redshift system responses for common DDL
-operations.
+To create a zero-ETL integration with an Amazon SageMaker lakehouse using the AWS CLI, use the [create-integration](../../../cli/latest/reference/rds/create-integration.md "../../../cli/latest/reference/rds/create-integration.md")
+command with the following options:
 
-###### Topics
+- `--integration-name` – Specify a name for the
+  integration.
+- `--source-arn` – Specify the ARN of the Aurora DB cluster that will be the source for the
+  integration.
+- `--target-arn` – Specify the ARN of the AWS Glue managed catalog that will be the target for the integration.
+  For Linux, macOS, or Unix:
 
-- [Database operations](#zero-etl.ddl-postgres-database "#zero-etl.ddl-postgres-database")
-- [Schema operations](#zero-etl.ddl-postgres-schema "#zero-etl.ddl-postgres-schema")
-- [Table operations](#zero-etl.ddl-postgres-table "#zero-etl.ddl-postgres-table")
+```
+aws rds create-integration \
+    --integration-name `my-sagemaker-integration` \
+    --source-arn arn:aws:rds:`{region}`:`{account-id}`:`cluster:my-db` \
+    --target-arn arn:aws:glue:`{region}`:`{account-id}`:catalog**/**`catalog-name`
+```
 
-### Database operations
+For Windows:
 
-The following table shows the system responses for database DDL operations.
+```
+aws rds create-integration ^
+    --integration-name `my-sagemaker-integration` ^
+    --source-arn arn:aws:rds:`{region}`:`{account-id}`:`cluster:my-db` ^
+    --target-arn arn:aws:glue:`{region}`:`{account-id}`:catalog**/**`catalog-name`
+```
 
-| DDL operation     | Redshift system response                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CREATE DATABASE` | No operation                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `DROP DATABASE`   | Amazon Redshift drops all the data in the target Redshift<br>database.                                                                                                                                                                                                                                                                                                                                                            |
-| `RENAME DATABASE` | Amazon Redshift drops all the data in the original target<br>database and resynchronize the data in the new target database. If<br>the new database doesn't exist, you must manually create it. For<br>instructions, see [Create a destination database in Amazon Redshift](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db"). |
+To create a zero-ETL integration with Amazon SageMaker by using the Amazon RDS API, use the [`CreateIntegration`](../APIReference/API_CreateIntegration.md "../APIReference/API_CreateIntegration.md") operation with the following
+parameters:
 
-### Schema operations
+###### Note
 
-The following table shows the system responses for schema DDL operations.
+Catalog names are limited to 19 characters. Ensure your IntegrationName parameter meets this requirement if it will be used as a catalog name.
 
-| DDL operation   | Redshift system response                                                                     |
-| --------------- | -------------------------------------------------------------------------------------------- |
-| `CREATE SCHEMA` | No operation                                                                                 |
-| `DROP SCHEMA`   | Amazon Redshift drops the original schema.                                                   |
-| `RENAME SCHEMA` | Amazon Redshift drops the original schema then resynchronizes the<br>data in the new schema. |
+- `IntegrationName` – Specify a name for the
+  integration.
+- `SourceArn` – Specify the ARN of the Aurora DB cluster that will be the source for the
+  integration.
+- `TargetArn` – Specify the ARN of the AWS Glue managed catalog that will be the target for the integration.
 
-### Table operations
+## Encrypting integrations with a
 
-The following table shows the system responses for table DDL operations.
+customer managed key
 
-| DDL operation                            | Redshift system response                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `CREATE TABLE`                           | Amazon Redshift creates the table.<br>Some operations cause table creation to fail, such as creating<br>a table without a primary key or performing declarative<br>partitioning. For more information, see [Limitations](zero-etl.md#zero-etl.reqs-lims "zero-etl.md#zero-etl.reqs-lims") and [Troubleshooting Aurora zero-ETL integrations](zero-etl.md "zero-etl.md"). |
-| `DROP TABLE`                             | Amazon Redshift drops the table.                                                                                                                                                                                                                                                                                                                                         |
-| `TRUNCATE TABLE`                         | Amazon Redshift truncates the table.                                                                                                                                                                                                                                                                                                                                     |
-| `ALTER TABLE`<br>(`RENAME...`)           | Amazon Redshift renames the table or column.                                                                                                                                                                                                                                                                                                                             |
-| `ALTER TABLE` (`SET<br>SCHEMA`)          | Amazon Redshift drops the table in the original schema and resynchronizes<br>the table in the new schema.                                                                                                                                                                                                                                                                |
-| `ALTER TABLE` (`ADD PRIMARY<br>KEY`)     | Amazon Redshift adds a primary key and resynchronizes the<br>table.                                                                                                                                                                                                                                                                                                      |
-| `ALTER TABLE` (`ADD<br>COLUMN`)          | Amazon Redshift adds a column to the table.                                                                                                                                                                                                                                                                                                                              |
-| `ALTER TABLE` (`DROP<br>COLUMN`)         | Amazon Redshift drops the column if it's not a primary key column.<br>Otherwise, it resynchronizes the table.                                                                                                                                                                                                                                                            |
-| `ALTER TABLE` (`SET<br>LOGGED/UNLOGGED`) | If you change the table to logged, Amazon Redshift<br>resynchronizes the table. If you change the table to unlogged, Amazon Redshift<br>drops the table.                                                                                                                                                                                                                 |
+If you specify a custom KMS key rather than an AWS owned key when you create an
+integration with Amazon SageMaker, the key policy must provide the SageMaker Unified Studio service principal access to the
+`CreateGrant` action. In addition, it must allow the current user to
+perform to the `DescribeKey` and `CreateGrant` actions.
+
+The following sample policy demonstrates how to provide the required permissions in
+the key policy. It includes context keys to further reduce the scope of
+permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id": "Key policy",
+ "Statement": [
+ {
+ "Sid": "EnablesIAMUserPermissions",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:root"
+ },
+ "Action": "kms:*",
+ "Resource": "*"
+ },
+ {
+ "Sid": "GlueServicePrincipalAddGrant",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "glue.amazonaws.com"
+ },
+ "Action": "kms:CreateGrant",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "kms:EncryptionContext:`{context-key}`":"`{context-value}`"
+ },
+ "ForAllValues:StringEquals": {
+ "kms:GrantOperations": [
+ "Decrypt",
+ "GenerateDataKey",
+ "CreateGrant"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "AllowsCurrentUserRoleAddGrantKMSKey",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`{role-name}`"
+ },
+ "Action": "kms:CreateGrant",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "kms:EncryptionContext:`{context-key}`":"`{context-value}`",
+ "kms:ViaService": "rds.us-east-1.amazonaws.com"
+ },
+ "ForAllValues:StringEquals": {
+ "kms:GrantOperations": [
+ "Decrypt",
+ "GenerateDataKey",
+ "CreateGrant"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "AllowsCurrentUserRoleRetrieveKMSKeyInformation",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`{role-name}`"
+ },
+ "Action": "kms:DescribeKey",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+For more information, see [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") in the _AWS Key Management Service
+Developer Guide_.
+
+## Next steps
+
+After you successfully create a zero-ETL integration with Amazon SageMaker, you can start adding data to the
+source Aurora DB cluster and querying it in your Amazon SageMaker lakehouse. The data will be automatically
+replicated and made available for analytics and machine learning workloads.

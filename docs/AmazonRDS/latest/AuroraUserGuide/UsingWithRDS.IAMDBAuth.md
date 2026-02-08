@@ -1,56 +1,98 @@
-# Connecting to your DB cluster using IAM authentication
+# Enabling and disabling IAM database
 
-With IAM database authentication, you use an authentication token when you connect
-to your DB cluster. An _authentication token_ is a
-string of characters that you use instead of a password. After you generate an
-authentication token, it's valid for 15 minutes before it expires. If you try to
-connect using an expired token, the connection request is denied.
+authentication
 
-Every authentication token must be accompanied by a valid signature, using AWS
-signature version 4. (For more information, see [Signature Version 4 signing
-process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the _AWS General Reference._) The AWS CLI
-and an AWS SDK, such as the AWS SDK for Java or AWS SDK for Python (Boto3), can automatically sign each token you create.
+By default, IAM database authentication is disabled on DB
+clusters.
+You can enable or disable IAM database authentication using the AWS Management Console, AWS CLI, or the API.
 
-You can use an authentication token when you connect to
-Amazon Aurora from another AWS service,
-such as AWS Lambda. By using a token, you can avoid placing a password in your code.
-Alternatively, you can use an AWS SDK to programmatically create and programmatically sign an
-authentication token.
+You can enable IAM database authentication when you perform one of the following actions:
 
-After you have a signed IAM authentication token, you can connect to an Aurora DB
-cluster. Following, you can find out how to do this using either a command
-line tool or an AWS SDK, such as the AWS SDK for Java or AWS SDK for Python (Boto3).
+- To create a new DB cluster with IAM database authentication enabled,
+  see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+- To modify a DB cluster to enable IAM database authentication,
+  see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+- To restore a DB cluster from a snapshot with IAM database authentication enabled, see
+  [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md").
+- To restore a DB cluster to a point in time with IAM database authentication enabled, see [Restoring a DB cluster to a specified time](aurora-pitr.md "aurora-pitr.md").
+  Each creation or modification workflow has a **Database authentication**
+  section, where you can enable or disable IAM database authentication. In that section, choose
+  **Password and IAM database authentication** to enable IAM database authentication.
 
-For more information, see the following blog posts:
+###### To enable or disable IAM database authentication for an existing DB
 
-- [Use IAM authentication to connect with SQL Workbench/J to Aurora MySQL or Amazon RDS for MySQL](https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/ "https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/")
-- [Using IAM authentication to connect with pgAdmin Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL](https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/ "https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/")
+cluster
 
-###### Prerequisites
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the DB cluster
+   that you want to modify.
 
-The following are prerequisites for connecting to your DB cluster using IAM authentication:
+###### Note
 
-- [Enabling and disabling IAM database
-  authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating and using an IAM policy for
-  IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating a database account using
-  IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+You can only enable IAM authentication if all DB instances in the DB cluster are
+compatible with IAM. Check the compatibility requirements in
+[Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability"). 4. Choose **Modify**. 5. In the **Database authentication** section, choose
 
-###### Topics
+**IAM database authentication** to
+enable IAM database authentication. Choose **Password
+authentication** or **Password and Kerberos
+authentication** to disable IAM authentication. 6. You can also choose to enable publishing IAM DB authentication logs to CloudWatch Logs.
+Under **Log exports**, choose the
+**iam-db-auth-error log** option. Publishing your logs to CloudWatch Logs consumes storage
+and you incur charges for that storage. Be sure to delete any CloudWatch Logs that you no longer need. 7. Choose **Continue**. 8. To apply the changes immediately, choose **Immediately** in the
+**Scheduling of modifications** section. 9. Choose
+**Modify cluster**.
+To create a new DB cluster with IAM authentication by using the AWS CLI, use the [`create-db-cluster`](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") command. Specify the `--enable-iam-database-authentication` option.
 
-- [Connecting to your DB cluster using IAM authentication with the AWS drivers](IAMDBAuth.Connecting.md "IAMDBAuth.Connecting.md")
-- [Connecting to your DB
-  cluster using IAM authentication from the command line: AWS CLI and
-  mysql client](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
-- [Connecting to
-  your DB cluster using IAM authentication from the command line: AWS CLI and psql
-  client](UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.md "UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.md")
-- [Connecting to your DB cluster
-  using IAM authentication and the AWS SDK for .NET](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
-- [Connecting to your DB cluster
-  using IAM authentication and the AWS SDK for Go](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
-- [Connecting to your DB cluster
-  using IAM authentication and the AWS SDK for Java](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
-- [Connecting to your DB cluster
-  using IAM authentication and the AWS SDK for Python (Boto3)](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
+To update an existing DB cluster to have or not have IAM
+authentication, use the AWS CLI
+command [`modify-db-cluster`](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md"). Specify either the `--enable-iam-database-authentication` or
+`--no-enable-iam-database-authentication` option, as appropriate.
+
+###### Note
+
+You can only enable IAM authentication if all DB instances in the DB cluster are
+compatible with IAM. Check the compatibility requirements in
+[Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability").
+
+By default,
+Aurora
+performs the modification during the next maintenance window.
+If you want to override this and enable IAM DB authentication as soon as possible,
+use the `--apply-immediately` parameter.
+
+If you are restoring a DB cluster,
+use one of the following AWS CLI commands:
+
+- `restore-db-cluster-to-point-in-time`
+- `restore-db-cluster-from-db-snapshot`
+  The IAM database authentication setting defaults to that of the source snapshot.
+  To change this setting, set the `--enable-iam-database-authentication` or
+  `--no-enable-iam-database-authentication` option, as appropriate.
+
+To create a new DB instance with IAM authentication by
+using the API, use the API operation [`CreateDBCluster`](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md"). Set the `EnableIAMDatabaseAuthentication` parameter to
+`true`.
+
+To update an existing DB cluster to have IAM
+authentication, use the API operation [`ModifyDBCluster`](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md"). Set the
+`EnableIAMDatabaseAuthentication` parameter to `true`
+to enable IAM authentication, or `false` to disable it.
+
+###### Note
+
+You can only enable IAM authentication if all DB instances in the DB cluster are
+compatible with IAM. Check the compatibility requirements in
+[Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability").
+
+If you are restoring a DB cluster,
+use one of the following API operations:
+
+- [`RestoreDBClusterFromSnapshot`](../APIReference/API_RestoreDBClusterFromSnapshot.md "../APIReference/API_RestoreDBClusterFromSnapshot.md")
+- [`RestoreDBClusterToPointInTime`](../APIReference/API_RestoreDBClusterToPointInTime.md "../APIReference/API_RestoreDBClusterToPointInTime.md")
+  The IAM database authentication setting defaults to that of the source
+  snapshot. To change this setting, set the
+  `EnableIAMDatabaseAuthentication` parameter to `true`
+  to enable IAM authentication, or `false` to disable it.

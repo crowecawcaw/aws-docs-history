@@ -1,42 +1,53 @@
-# Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs
+# Migrating data to Amazon Aurora with PostgreSQL
 
-You can configure your Aurora PostgreSQL DB cluster to export log data to Amazon CloudWatch Logs on a
-regular basis. When you do so, events from your Aurora PostgreSQL DB cluster's PostgreSQL
-log are automatically _published_ to Amazon CloudWatch, as Amazon CloudWatch Logs. In CloudWatch, you
-can find the exported log data in a _Log group_ for your Aurora PostgreSQL DB
-cluster. The log group contains one or more _log streams_ that contain
-the events from the PostgreSQL log from each instance in the cluster.
+compatibility
 
-Publishing the logs to CloudWatch Logs allows you to keep your cluster's PostgreSQL log records
-in highly durable storage. With the log data available in CloudWatch Logs, you can evaluate and
-improve your cluster's operations. You can also use CloudWatch to create alarms and view
-metrics. To learn more, see [Monitoring log events in
-Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md").
+You have several options for migrating data from your existing database to an
+Amazon Aurora PostgreSQL-Compatible Edition DB cluster. Your migration options also depend on the database that you
+are migrating from and the size of the data that you are migrating. Following are your
+options:
+
+**[Migrating
+an RDS for PostgreSQL DB instance using a snapshot](AuroraPostgreSQL.Migrating.RDSPostgreSQL.Import.md "AuroraPostgreSQL.Migrating.RDSPostgreSQL.Import.md")**
+
+You can migrate data directly from an RDS for PostgreSQL DB snapshot to an
+Aurora PostgreSQL DB cluster.
+
+**[Migrating an RDS for PostgreSQL DB instance using an Aurora read
+replica](AuroraPostgreSQL.Migrating.RDSPostgreSQL.md "AuroraPostgreSQL.Migrating.RDSPostgreSQL.md")**
+
+You can also migrate from an RDS for PostgreSQL DB instance by creating an
+Aurora PostgreSQL read replica of an RDS for PostgreSQL DB instance. When the replica lag
+between the RDS for PostgreSQL DB instance and the Aurora PostgreSQL read replica is zero,
+you can stop replication. At this point, you can make the Aurora read replica a
+standalone Aurora PostgreSQL DB cluster for reading and writing.
+
+**[Importing data from Amazon S3
+into Aurora PostgreSQL](USER_PostgreSQL.md "USER_PostgreSQL.md")**
+
+You can migrate data by importing it from Amazon S3 into a table belonging to an
+Aurora PostgreSQL DB cluster.
+
+**Migrating from a database that is not PostgreSQL-compatible**
+
+You can use AWS Database Migration Service (AWS DMS) to migrate data from a database that is not PostgreSQL-compatible.
+For more information on AWS DMS, see
+[What is AWS Database Migration Service?](../../../dms/latest/userguide/Welcome.md "../../../dms/latest/userguide/Welcome.md")
+in the _AWS Database Migration Service User Guide_.
 
 ###### Note
 
-Publishing your PostgreSQL logs to CloudWatch Logs consumes storage, and
-you incur charges for that storage. Be sure to delete any CloudWatch Logs
-that you no longer need.
+Enabling Kerberos authentication isn't currently supported on Aurora PostgreSQL DB cluster during migration from RDS for PostgreSQL.
+You can enable Kerberos authentication only on a standalone Aurora PostgreSQL DB cluster.
 
-Turning the export log option off for an existing Aurora PostgreSQL DB cluster doesn't
-affect any data that's already held in CloudWatch Logs. Existing logs remain available in
-CloudWatch Logs based on your log retention settings. To learn more about CloudWatch Logs, see [What
-is Amazon CloudWatch Logs?](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
+For a list of AWS Regions where Aurora is available, see [Amazon Aurora](../../../general/latest/gr/rande.md#aurora "../../../general/latest/gr/rande.md#aurora") in the
+_AWS General Reference_.
 
-Aurora PostgreSQL supports publishing logs to CloudWatch Logs for the following versions.
+###### Important
 
-- 16.1 and all higher versions
-- 15.2 and higher 15 versions
-- 14.3 and higher 14 versions
-- 13.3 and higher 13 versions
-- 12.8 and higher 12 versions
-- 11.9 and higher 11 versions
-  For information about turning on the option to publish logs to CloudWatch Logs, monitoring log events in CloudWatch Logs, and analyzing logs using CloudWatch Logs Insights, see the following topics.
+If you plan to migrate an RDS for PostgreSQL DB instance to an Aurora PostgreSQL DB cluster in
+the near future, we strongly recommend that you turn off auto minor version upgrades for
+the DB instance early in the migration planning phase. Migration to Aurora PostgreSQL might
+be delayed if the RDS for PostgreSQL version isn't yet supported by Aurora PostgreSQL.
 
-###### Topics
-
-- [Turning on the option to publish logs to Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md")
-- [Monitoring log events in
-  Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md")
-- [Analyzing PostgreSQL logs using CloudWatch Logs Insights](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md")
+For information about Aurora PostgreSQL versions, see [Engine versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").

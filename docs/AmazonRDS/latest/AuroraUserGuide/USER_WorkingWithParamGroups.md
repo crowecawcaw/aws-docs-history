@@ -1,24 +1,86 @@
-# Comparing DB parameter groups
+# Creating a DB parameter group in Amazon Aurora
 
-You can use the AWS Management Console to view the differences between two DB parameter groups.
+You can create a new DB parameter group using the AWS Management Console, the AWS CLI, or the RDS API.
 
-The specified parameter groups must both be DB parameter groups, or they both must be DB cluster parameter groups. This is
-true even when the DB engine and version are the same. For example, you can't compare an `aurora-mysql8.0`
-(Aurora MySQL version 3) DB parameter group and an `aurora-mysql8.0` DB cluster parameter group.
+The following limitations apply to the DB parameter group name:
 
-You can compare Aurora MySQL and RDS for MySQL DB parameter groups, even for different versions, but you can't compare
-Aurora PostgreSQL and RDS for PostgreSQL DB parameter groups.
+- The name must be 1 to 255 letters, numbers, or hyphens.
 
-###### To compare two DB parameter groups
+Default parameter group names can include a period, such as
+`default.mysql8.0`. However, custom parameter group names can't
+include a period.
+
+- The first character must be a letter.
+- The name can't end with a hyphen or contain two consecutive hyphens.
+
+###### To create a DB parameter group
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Parameter
    groups**.
-3. In the list, choose the two parameter groups that you want to compare.
+3. Choose **Create parameter group**.
+4. For **Parameter group name**, enter the name of your
+   new DB parameter group.
+5. For **Description**, enter a description for your new
+   DB parameter group.
+6. For **Engine type**, choose your DB engine.
+7. For **Parameter group family**, choose a DB parameter group
+   family.
+8. For **Type**, if applicable, choose **DB
+   Parameter Group**.
+9. Choose **Create**.
+   To create a DB parameter group, use the AWS CLI [`create-db-parameter-group`](../../../cli/latest/reference/rds/create-db-parameter-group.md "../../../cli/latest/reference/rds/create-db-parameter-group.md") command. The following
+   example creates a DB parameter group named _mydbparametergroup_ for MySQL
+   version 8.0 with a description of "_My new parameter
+   group_."
+
+Include the following required parameters:
+
+- `--db-parameter-group-name`
+- `--db-parameter-group-family`
+- `--description`
+  To list all of the available parameter group families, use the following
+  command:
+
+```
+aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
+```
 
 ###### Note
 
-To compare a default parameter group to a custom parameter group, first choose the default parameter group on the
-**Default** tab, then choose the custom parameter group on the **Custom**
-tab. 4. From **Actions**, choose **Compare**.
+The output contains duplicates.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws rds create-db-parameter-group \
+    --db-parameter-group-name `mydbparametergroup` \
+    --db-parameter-group-family `aurora-mysql5.7` \
+    --description `"My new parameter group"`
+```
+
+For Windows:
+
+```
+aws rds create-db-parameter-group ^
+    --db-parameter-group-name `mydbparametergroup` ^
+    --db-parameter-group-family `aurora-mysql5.7` ^
+    --description `"My new parameter group"`
+```
+
+This command produces output similar to the following:
+
+```
+DBPARAMETERGROUP  mydbparametergroup  aurora-mysql5.7  My new parameter group
+```
+
+To create a DB parameter group, use the RDS API [`CreateDBParameterGroup`](../APIReference/API_CreateDBParameterGroup.md "../APIReference/API_CreateDBParameterGroup.md") operation.
+
+Include the following required parameters:
+
+- `DBParameterGroupName`
+- `DBParameterGroupFamily`
+- `Description`
