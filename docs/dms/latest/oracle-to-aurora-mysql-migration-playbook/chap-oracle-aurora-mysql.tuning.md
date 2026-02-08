@@ -1,183 +1,160 @@
-# Database hints
+# Oracle table statistics and MySQL managing statistics
 
-With AWS DMS, you can configure Oracle session parameters and MySQL session variables to optimize performance, control resource usage, and customize database behavior during migration tasks. Oracle session parameters and MySQL session variables are special configuration settings that influence how the database engine operates and processes data. These settings can be crucial for ensuring efficient data transfer, minimizing resource contention, and adhering to organizational policies or regulatory requirements.
+With AWS DMS, you can gather and manage statistics about database tables and indexes to improve query performance. Oracle table statistics and MySQL managing statistics provide mechanisms to collect and update metadata about the distribution of data in tables and associated indexes. This information helps the query optimizer generate efficient run plans.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                          |
-| ------------------------------ | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Two star feature compatibility | N/A                                | N/A                       | Very limited set of hints in MySQL. Use index hints and optimizer hints as comments. Syntax differences. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                       |
+| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | Syntax and option differences, similar functionality. |
 
 ## Oracle usage
 
-Oracle provides users with the ability to influence how the query optimizer behaves and the decisions made to generate query run plans. Controlling the behavior of the database optimizer is performed using database hints. They can be defined as a directive operation to the optimizer and alter the decisions of how run plans are generated.
+Table statistics are one of the important aspects affecting SQL query performance. They turn on the query optimizer to make informed assumptions when deciding how to generate the run plan for each query. Oracle provides the `DBMS_STATS` package to manage and control the table statistics, which you can collected automatically or manually.
 
-Oracle supports over 60 different database hints, and each database hint can have 0 or more arguments. Database hints are divided into different categories such as optimizer hints, join order hints, and parallel run hints.
+The following statistics are usually collected on database tables and indexes:
 
-Database hints are embedded directly into the SQL queries immediately following the `SELECT` keyword using the following format: `/* <DB_HINT> */`.
+- Number of table rows.
+- Number of table blocks.
+- Number of distinct values or nulls.
+- Data distribution histograms.
+
+### Automatic optimizer statistics collection
+
+By default, Oracle collects table and index statistics during predefined maintenance windows using the database scheduler and automated maintenance tasks. The automatic statistics collection mechanism uses Oracle data modification monitoring feature that tracks the approximate number of `INSERT`, `UPDATE`, and `DELETE` statements to determine which table statistics should be collected.
+
+In Oracle 19, you can gather real-time statistics on tables during regular `UPDATE`, `INSERT`, and `DELETE` operations, which ensures that statistics are always up-to-date and are not going stale.
+
+Oracle 19 also introduces high-frequency automatic optimizer statistics collection. Use this feature to set up automatic task that will collect statistics for stale objects.
+
+### Manual optimizer statistics collection
+
+When the automatic statistics collection is not suitable for a particular use case, you can perform the optimizer statistics collection manually at several levels:
+
+| Statistics level          | Description                              |
+| ------------------------- | ---------------------------------------- |
+| `GATHER_INDEX_STATS`      | Index statistics                         |
+| `GATHER_TABLE_STATS`      | Table, column, and index statistics      |
+| `GATHER_SCHEMA_STATS`     | Statistics for all objects in a schema   |
+| `GATHER_DICTIONARY_STATS` | Statistics for all dictionary objects    |
+| `GATHER_DATABASE_STATS`   | Statistics for all objects in a database |
 
 ### Examples
 
-Force the query optimizer to use a specific index for data access.
+Collect statistics at the table level for the `HR` schema and the `EMPLOYEES` table.
 
 ```
-SELECT /* INDEX(EMP, IDX_EMP_HIRE_DATE)*/ * FROM EMPLOYEES EMP
-WHERE HIRE_DATE >= '01-JAN-2010';
+BEGIN
+DBMS_STATS.GATHER_TABLE_STATS('HR','EMPLOYEES');
+END;
+/
 
-Run Plan
-Plan hash value: 3035503638
-| Id | Operation                   | Name          | Rows | Bytes | Cost (%CPU) | Time
-| 0  | SELECT STATEMENT            |               | 1    | 62    | 2 (0)       | 00:00:01
-| 1  | TABLE ACCESS BY INDEX ROWID | EMPLOYEES     | 1    | 62    | 2 (0)       | 00:00:01
-|* 2 | INDEX RANGE SCAN            | IDX_HIRE_DATE | 1    |       | 1 (0)       | 00:00:01
-
-Predicate Information (identified by operation id):
-2 - access("HIRE_DATE">=TO_DATE(' 2010-01-01 00:00:00', 'syyyy-mm-dd hh24:mi:ss'))
+PL/SQL procedure successfully completed.
 ```
 
-For more information, see [Additional Hints](https://docs.oracle.com/cd/E25178_01/server.1111/e16638/hintsref.htm#CHDIDIDI "https://docs.oracle.com/cd/E25178_01/server.1111/e16638/hintsref.htm#CHDIDIDI") and [Influencing the Optimizer](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/influencing-the-optimizer.html#GUID-8758EF88-1CC6-41BD-8581-246702414D1D "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/influencing-the-optimizer.html#GUID-8758EF88-1CC6-41BD-8581-246702414D1D") in the _Oracle documentation_.
+Collect statistics at a specific column level for the `HR` schema, the `EMPLOYEES` table, and the `DEPARTMENT_ID` column.
+
+```
+BEGIN
+DBMS_STATS.GATHER_TABLE_STATS('HR','EMPLOYEES',
+METHOD_OPT=>'FOR COLUMNS department_id');
+END;
+/
+
+PL/SQL procedure successfully completed.
+```
+
+For more information, see [Optimizer Statistics Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/optimizer-statistics-concepts.html#GUID-C0E74ACE-2706-48A1-97A2-33F52207166A "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/optimizer-statistics-concepts.html#GUID-C0E74ACE-2706-48A1-97A2-33F52207166A") in the _Oracle documentation_.
 
 ## MySQL usage
 
-Aurora MySQL supports two types of hints: optimizer hints and index hints.
+Aurora MySQL supports two modes of statistics management: Persistent Optimizer Statistics and Non-Persistent Optimizer Statistics. As the name suggests, persistent statistics are written to disk and survive service restart. Non-persistent statistics are kept in memory and need to be recreated after service restart. It is recommended to use persistent optimizer statistics (the default for Aurora MySQL) for improved plan stability.
 
-### Index hints
+Statistics in Aurora MySQL are created for indexes only. Aurora MySQL does not support independent statistics objects on columns that are not part of an index.
 
-The `USE INDEX` hint limits the optimizer’s choice to one of the indexes listed in the <Index List> white list. Alternatively, indexes can be black listed using the `IGNORE` keyword.
+Typically, administrators change the statistics management mode by setting the global parameter `innodb_stats_persistent = ON`. Therefore, control the statistics management mode by changing the behavior for individual tables using the table option `STATS_PERSISTENT = 1`. There are no column-level or statistics-level options for setting parameter values.
 
-The `FORCE INDEX` hint is similar to `USE INDEX (index_list)`, but with strong favor towards seek against scan. The hints use the actual index names, not column names. You can refer to primary keys using the keyword `PRIMARY`.
+To view statistics metadata, use the `INFORMATION_SCHEMA.STATISTICS` standard view. To view detailed persistent optimizer statistics, use the `innodb_table_stats` and `innodb_index_stats` tables.
 
-**Syntax**
+The following image demonstrates an example of the `mysql.innodb_table_stats` content.
 
-```
-SELECT ...
-FROM <Table Name>
-    USE {INDEX|KEY}
-        [FOR {JOIN|ORDER BY|GROUP BY}] (<Index List>)
-    | IGNORE {INDEX|KEY}
-        [FOR {JOIN|ORDER BY|GROUP BY}] (<Index List>)
-    | FORCE {INDEX|KEY}
-        [FOR {JOIN|ORDER BY|GROUP BY}] (<Index List>)
-...n
-```
+![Table statistics](images/oracle-aurora-mysql-table-stats.png)
 
-###### Note
+The following image demonstrates an example of the `mysql.innodb_index_stats` content.
 
-In Aurora MySQL, the primary key is the clustered index.
+![Index statistics](images/oracle-aurora-mysql-index-stats.png)
 
-The syntax for index hints has the following characteristics: \* You can omit `<Index List>` for `USE INDEX` only. It translates to _don’t use any indexes_, which is equivalent to a clustered index scan. \* Index hints can be further scoped down using the `FOR` clause. Use `FOR JOIN`, `FOR ORDER BY`, or `FOR GROUP BY` to limit the hint applicability to that specific query processing phase. \* Multiple index hints can be specified for the same or different scope.
+Automatic refresh of statistics is controlled by the global parameter `innodb_stats_auto_recalc`, which is set to `ON` in Aurora MySQL. You can set it individually for each table using the `STATS_AUTO_RECALC=1` option.
 
-### Optimizer hints
+To explicitly force a refresh of table statistics, use the `ANALYZE TABLE` statement. It is not possible to refresh individual statistics or columns.
 
-Optimizer hints give developers or administrators control over some of the optimizer decision tree. They are specified within the statement text as a comment with the prefix `+`.
+Use the `NO_WRITE_TO_BINLOG`, or its clearer alias `LOCAL`, to avoid replication to replication secondaries.
 
-Optimizer hints may pertain to different scopes and are valid in only one or two scopes. The available scopes for optimizer hints in descending scope width order are:
-
-- **Global** hints affect the entire statement. Only `MAX_EXECUTION TIME` is a global optimizer hint.
-- **Query-level** hints affect a query block within a composed statement such as UNION or a subquery.
-- **Table-level** hints affect a table within a query block.
-- **Index-level** hints affect an index of a table.
-
-**Syntax**
-
-```
-SELECT /*+ <Optimizer Hints> */ <Select List>...
-```
-
-```
-INSERT /*+ <Optimizer Hints> */ INTO <Table>...
-```
-
-```
-REPLACE /*+ <Optimizer Hints> */ INTO <Table>...
-```
-
-```
-UPDATE /*+ <Optimizer Hints> */ <Table> SET...
-```
-
-```
-DELETE /*+ <Optimizer Hints> */ FROM <Table>...
-```
-
-The following optimizer hints are available in Aurora MySQL.
-
-| Hint Name                 | Description                                               | Applicable Scopes  |
-| ------------------------- | --------------------------------------------------------- | ------------------ |
-| `BKA`, `NO_BKA`           | Turns on or turns off batched key access join processing  | Query block, table |
-| `BNL`, `NO_BNL`           | Turns on or turns off block nested loop join processing   | Query block, table |
-| `MAX_EXECUTION_TIME`      | Limits statement run time                                 | Global             |
-| `MRR`, `NO_MRR`           | Turns on or turns off multi-range read optimization       | Table, index       |
-| `NO_ICP`                  | Turns off index condition push-down optimization          | Table, index       |
-| `NO_RANGE_OPTIMIZATION`   | Turns off range optimization                              | Table, index       |
-| `QB_NAME`                 | Assigns a logical name to a query block                   | Query block        |
-| `SEMIJOIN`, `NO_SEMIJOIN` | Turns on or turns off semi-join strategies                | Query block        |
-| `SUBQUERY`                | Determines `MATERIALIZATION`, and `INTOEXISTS` processing | Query block        |
-
-You can use query block names with `QB_NAME` to distinguish a block for limiting the scope of the table hint. Add `@` to indicate a hint scope for one or more named subqueries. Consider the following example:
-
-```
-SELECT /*+ SEMIJOIN(@SubQuery1 FIRSTMATCH, LOOSESCAN) */ *
-FROM Table1
-WHERE Col1 IN (SELECT /*+ QB_NAME(SubQuery1) */ Col1
-    FROM t3);
-```
-
-Values for `MAX_EXECUTION_TIME` are measured in seconds and are always global for the entire query.
+Use `ALTER TABLE …​ ANALYZE PARTITION` to analyze one or more individual partitions.
 
 ###### Note
 
-This option doesn’t exist in Oracle, where the run time limit pertains to the session scope.
+Amazon Relational Database Service (Amazon RDS) for MySQL version 8 adds new `INFORMATION_SCHEMA.INNODB_CACHED_INDEXES` table which reports the number of index pages cached in the InnoDB buffer pool for each index.
+
+### Syntax
+
+```
+ANALYZE [NO_WRITE_TO_BINLOG | LOCAL] TABLE <Table Name> [,...];
+```
+
+```
+CREATE TABLE ( <Table Definition> ) | ALTER TABLE <Table Name>
+STATS_PERSISTENT = <1|0>,
+STATS_AUTO_RECALC = <1|0>,
+STATS_SAMPLE_PAGES = <Statistics Sampling Size>;
+```
 
 ### Migration considerations
 
-In general, the Aurora MySQL hint framework is relatively limited compared to the granular control provided by Oracle. It is recommended to start migration testing with all hints removed. Then, selectively apply hints as a last resort if other means such as schema, index, and query optimizations have failed.
+Unlike Oracle, Aurora MySQL collects only density information. It does not collect detailed key distribution histograms. This difference is critical for understanding execution plans and troubleshooting performance issues that are not affected by individual values used by query parameters.
 
-Aurora MySQL uses a list of indexes and hints, both white list (USE) and black list (IGNORE), as opposed to Oracle’s explicit index approach.
-
-Index hints are not mandatory instructions. Aurora MySQL may choose alternatives if it cannot use the hinted index.
+Statistics collection is managed at the table level. You cannot manage individual statistics objects or individual columns. In most cases, that should not pose a challenge for successful migration.
 
 ### Examples
 
-Force an index access.
+The following example creates a table with explicitly set statistics options.
 
 ```
-SELECT * FROM Table1 USE INDEX (Index1) ORDER BY Col1;
+CREATE TABLE MyTable
+(Col1 INT NOT NULL AUTO_INCREMENT,
+Col2 VARCHAR(255),
+DateCol DATETIME,
+PRIMARY KEY (Col1),
+INDEX IDX_DATE (DateCol)
+) ENGINE=InnoDB,
+STATS_PERSISTENT=1,
+STATS_AUTO_RECALC=1,
+STATS_SAMPLE_PAGES=25;
 ```
 
-Specify multiple index hints.
+The following example refreshes all statistics for `MyTable1` and `MyTable2`.
 
 ```
-SELECT * FROM Table1
-    USE INDEX (Index1)
-    INNER JOIN Table2
-        IGNORE INDEX(Index2)
-        ON Table1.Col1 = Table2.Col1
-    ORDER BY Col1;
+ANALYZE TABLE MyTable1, MyTable2;
 ```
 
-Specify optimizer hints.
+The following example changes the `MyTable` settings to use non-persistent statistics.
 
 ```
-SELECT /*+ NO_RANGE_OPTIMIZATION(Table1 PRIMARY, Index2) */
-Col1 FROM Table1 WHERE Col2 = 300;
-```
-
-```
-SELECT /*+ BKA(t1) NO_BKA(t2) */ * FROM Table1 INNER JOIN Table2 ON ...;
-```
-
-```
-SELECT /*+ NO_ICP(t1, t2) */ * FROM Table1 INNER JOIN Table2 ON ...;
+ALTER TABLE MyTable STATS_PERSISTENT=0;
 ```
 
 ## Summary
 
-| Feature                          | Oracle                                                                                             | Aurora MySQL                                           |
-| -------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| Force a specific plan            | `DBMS_SPM`                                                                                         | N/A                                                    |
-| Join hints                       | `USE_NL`, `NO_USE_NL`, `USE_NL_WITH_INDEX`, `USE_MERGE`, `NO_USE_MERGE`, `USE_HASH`, `NO_USE_HASH` | `BNL`, `NO_BNL` (Block Nested Loops)                   |
-| Force scan                       | `FULL`                                                                                             | `USE` with no index list forces a clustered index scan |
-| Force an index                   | `INDEX`                                                                                            | `USE`                                                  |
-| Allow list and deny list indexes | `NO_INDEX`                                                                                         | Supported with `USE` and `IGNORE`                      |
-| Parameter value hints            | `opt_param`                                                                                        | N/A                                                    |
+The following table identifies Aurora MySQL features. All of the features are accessed in Oracle using the `DBMS_STATS` package.
 
-For more information, see [Controlling the Query Optimizer](https://dev.mysql.com/doc/refman/5.7/en/controlling-optimizer.html "https://dev.mysql.com/doc/refman/5.7/en/controlling-optimizer.html"), [Optimizer Hints](https://dev.mysql.com/doc/refman/5.7/en/optimizer-hints.html "https://dev.mysql.com/doc/refman/5.7/en/optimizer-hints.html"), [Index Hints](https://dev.mysql.com/doc/refman/5.7/en/index-hints.html "https://dev.mysql.com/doc/refman/5.7/en/index-hints.html"), and [Optimizing Subqueries, Derived Tables, and View References](https://dev.mysql.com/doc/refman/5.7/en/subquery-optimization.html "https://dev.mysql.com/doc/refman/5.7/en/subquery-optimization.html") in the _MySQL documentation_.
+| Feature                      | Aurora MySQL                              | Comments                                                                                  |
+| ---------------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Column statistics            | N/A                                       |                                                                                           |
+| Index statistics             | Implicit with every index                 | Statistics are maintained automatically for every table index.                            |
+| Refresh or update statistics | `ANALYZE TABLE`                           | Minimal scope in Aurora MySQL is the entire table. No control over individual statistics. |
+| Auto create statistics       | N/A                                       |                                                                                           |
+| Auto update statistics       | Use the `STATS_AUTO_RECALC` table option  |                                                                                           |
+| Statistics sampling          | Use the `STATS_SAMPLE_PAGES` table option | Can only use page number, not percentage for `STATS_SAMPLE_PAGES`.                        |
+| Full scan refresh            | N/A                                       | Using a very large `STATS_SAMPLE_PAGES` may serve the same purpose.                       |
+| Non-persistent statistics    | Use the `STATS_PERSISTENT=0` table option |                                                                                           |
+
+For more information, see [The INFORMATION_SCHEMA COLUMN_STATISTICS Table](https://dev.mysql.com/doc/refman/8.0/en/information-schema-column-statistics-table.html "https://dev.mysql.com/doc/refman/8.0/en/information-schema-column-statistics-table.html"), [Configuring Persistent Optimizer Statistics Parameters](https://dev.mysql.com/doc/refman/5.7/en/innodb-persistent-stats.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-persistent-stats.html"), [Configuring Non-Persistent Optimizer Statistics Parameters](https://dev.mysql.com/doc/refman/5.7/en/innodb-statistics-estimation.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-statistics-estimation.html"), and [Configuring Optimizer Statistics for InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html") in the _MySQL documentation_.
