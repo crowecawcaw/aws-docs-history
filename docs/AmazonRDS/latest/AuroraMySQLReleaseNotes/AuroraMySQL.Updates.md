@@ -1,55 +1,42 @@
 # Aurora MySQL database engine updates
 
-2019-05-02 (version 2.04.2) (Deprecated)
+2018-10-08 (version 2.02.5) (Deprecated)
 
-**Version:** 2.04.2
+**Version:** 2.02.5
 
-Aurora MySQL 2.04.2 is generally available. Aurora MySQL 2.x versions are compatible with MySQL 5.7
+Aurora MySQL 2.02.5 is generally available. Aurora MySQL 2.x versions are compatible with MySQL 5.7
 and Aurora MySQL 1.x versions are compatible with MySQL 5.6.
 
-Currently supported Aurora MySQL releases are 1.19.5, 1.19.6, 1.22.\*, 1.23.\*, 2.04.\*, 2.07.\*, 2.08.\*, 2.09.\*, 2.10.\*, 3.01.\* and 3.02.\*.
+When creating a new Aurora MySQL DB cluster, you can choose
+compatibility with either MySQL 5.7 or MySQL 5.6. When restoring a MySQL 5.6-compatible snapshot,
+you can choose compatibility with either MySQL 5.7 or MySQL 5.6.
 
-When creating a new Aurora MySQL DB cluster (including restoring a snapshot), you have the
-option of choosing compatibility with either MySQL 5.7 or MySQL 5.6. We do not allow in-place
-upgrade of Aurora MySQL 1.\* clusters or restore of Aurora MySQL 1.\* clusters from an Amazon S3 backup into Aurora MySQL 2.04.2.
-We plan to remove these restrictions in a later Aurora MySQL 2.\* release.
+You can restore snapshots of Aurora MySQL 1.14.\*, 1.15.\*, 1.16.\*, 1.17.\*, 1.18.\*, 2.01.\*, and 2.02.\* into Aurora MySQL
+2.02.5. You can also perform an in-place upgrade from Aurora MySQL 2.01.\* or 2.02.\* to Aurora MySQL 2.02.5.
 
-You can restore snapshots of Aurora MySQL 1.14.\*, 1.15.\*, 1.16.\*, 1.17.\*, 1.18.\*, 1.19.\*,
-2.01.\*, 2.02.\*, 2.03.\*, 2.04.0, and 2.04.1 into Aurora MySQL 2.04.2.
+We don't allow in-place upgrade of Aurora MySQL 1.\* clusters into Aurora MySQL 2.02.5 or restore
+to Aurora MySQL 2.02.5 from an Amazon S3 backup. We plan to remove these restrictions in a later Aurora MySQL
+2.\* release.
+
+The performance schema is disabled for this release of Aurora MySQL 5.7. Upgrade to Aurora 2.03 for performance schema support.
+
+###### Note
+
+This version is currently not available in the AWS GovCloud (US-West) [us-gov-west-1] and China (Beijing)
+[cn-north-1] regions. There will be a separate announcement once it is made available.
 
 If you have any questions or concerns, AWS Support is available on the community forums and through
 [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support"). For more information, see
 [Maintaining an Amazon Aurora DB cluster](../AuroraUserGuide/USER_UpgradeDBInstance.md "../AuroraUserGuide/USER_UpgradeDBInstance.md") in the _Amazon Aurora User Guide_.
 
-###### Note
-
-This version is currently not available in the AWS GovCloud (US-West) [us-gov-west-1]
-and China (Ningxia) [cn-northwest-1] AWS Regions. There will be a separate announcement once
-it is made available.
-
-###### Note
-
-For information on how to upgrade your Aurora MySQL database cluster, see [Upgrading the minor version or patch level of an Aurora MySQL DB cluster](../AuroraUserGuide/AuroraMySQL.Updates.md "../AuroraUserGuide/AuroraMySQL.Updates.md") in the
-_Amazon Aurora User Guide_.
-
 ## Improvements
 
-- Added support for SSL binlog replication using custom certificates. For information on using SSL binlog replication in Aurora MySQL,
-  see [mysql_rds_import_binlog_ssl_material](../UserGuide/mysql_rds_import_binlog_ssl_material.md "../UserGuide/mysql_rds_import_binlog_ssl_material.md").
-- Fixed a deadlatch on the Aurora primary instance that occurs when a table with a Full Text Search index is being optimized.
-- Fixed an issue on the Aurora Replicas where performance of certain queries using
-  `SELECT(*)` could be impacted on tables that have secondary indexes.
-- Fixed a condition that resulted in Error 1032 being posted.
-- Improved the stability of Aurora Replicas by fixing multiple deadlatches.
-
-## Integration of MySQL bug fixes
-
-- Bug #24829050 - INDEX_MERGE_INTERSECTION OPTIMIZATION CAUSES WRONG QUERY RESULTS
+- Fix an issue where an Aurora Replica might restart when it is doing a reverse scan on a table.
 
 ## Comparison with Aurora MySQL version 1
 
-The following Amazon Aurora MySQL features are supported in Aurora MySQL Version 1 (compatible with
-MySQL 5.6), but these features are currently not supported in Aurora MySQL Version 2 (compatible
+The following Amazon Aurora MySQL features are supported in Aurora MySQL version 1 (compatible with
+MySQL 5.6), but these features are currently not supported in Aurora MySQL version 2 (compatible
 with MySQL 5.7).
 
 - Asynchronous key prefetch (AKP). For more
@@ -67,13 +54,14 @@ with MySQL 5.7).
 
 ## MySQL 5.7 compatibility
 
-Aurora MySQL 2.04.2 is wire-compatible with MySQL 5.7 and includes features such as JSON support, spatial indexes,
+Aurora MySQL 2.02.5 is wire-compatible with MySQL 5.7 and includes features such as JSON support, spatial indexes,
 and generated columns. Aurora MySQL uses a native implementation of spatial indexing using z-order curves to deliver
 
 > 20x better write performance and >10x better read performance than MySQL 5.7 for spatial datasets.
 
-Aurora MySQL 2.04.2 does not currently support the following MySQL 5.7 features:
+Aurora MySQL 2.02.5 does not currently support the following MySQL 5.7 features:
 
+- Global transaction identifiers (GTIDs). Aurora MySQL supports GTIDs in version 2.04 and higher.
 - Group replication plugin
 - Increased page size
 - InnoDB buffer pool loading at startup
@@ -84,3 +72,4 @@ Aurora MySQL 2.04.2 does not currently support the following MySQL 5.7 features:
 - Query rewrite plugins
 - Replication filtering
 - The `CREATE TABLESPACE` SQL statement
+- X Protocol
