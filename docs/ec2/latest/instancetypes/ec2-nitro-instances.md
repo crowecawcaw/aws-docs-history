@@ -103,9 +103,9 @@ The following virtualized instances are built on the Nitro System:
 
 Nitro v6
 
-- **General Purpose**: M8a | M8gb | M8gn | M8i | M8i-flex
-- **Compute Optimized**: C8a | C8gb | C8gn | C8i | C8i-flex
-- **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8i-flex | X8aedz | X8i
+- **General Purpose**: M8a | M8gb | M8gn | M8i | M8id | M8i-flex
+- **Compute Optimized**: C8a | C8gb | C8gn | C8i | C8id | C8i-flex
+- **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8id | R8i-flex | X8aedz | X8i
 - **Storage Optimized**: I8ge
 - **Accelerated Computing**: G7e | P6-B200 | P6-B300
 
@@ -150,9 +150,9 @@ The following bare metal instances are built on the Nitro System:
 
 Nitro v6
 
-- **General Purpose**: M8a | M8i
-- **Compute Optimized**: C8a | C8gb | C8gn | C8i
-- **Memory Optimized**: R8a | R8gb | R8gn | R8i | X8aedz | X8i
+- **General Purpose**: M8a | M8i | M8id
+- **Compute Optimized**: C8a | C8gb | C8gn | C8i | C8id
+- **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8id | X8aedz | X8i
 - **Storage Optimized**: I8ge
 
 Nitro v5
