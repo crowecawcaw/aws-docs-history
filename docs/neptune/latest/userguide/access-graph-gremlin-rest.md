@@ -31,7 +31,7 @@ HTTP **POST**. The query is submitted in JSON format in the body of the
 post as the `gremlin` property.
 
 ```
-curl -X POST -d '{"gremlin":"*g.V().limit(1)*"}' https://`your-neptune-endpoint`:`port`/gremlin
+curl -X POST -d '{"gremlin":"*g.V().limit(1)*"}' -H "Accept: application/json" https://`your-neptune-endpoint`:`port`/gremlin
 ```
 
 This example returns the first vertex in the graph by using the `g.V().limit(1)` traversal.
@@ -51,7 +51,7 @@ Although HTTP **POST** requests are recommended for sending Gremlin
 queries, it is also possible to use HTTP **GET** requests:
 
 ```
-curl -G "https://`your-neptune-endpoint`:`port`?gremlin=*g.V().count()*"
+curl -H "Accept: application/json" -G "https://`your-neptune-endpoint`:`port`?gremlin=*g.V().count()*"
 ```
 
 ###### Note

@@ -40,13 +40,13 @@ to plan your testing and upgrade cycles.
 
 | Version                                                           | Major version | Minor version | Status       | Released              | End of life | Upgrade to: |
 | ----------------------------------------------------------------- | ------------- | ------------- | ------------ | --------------------- | ----------- | ----------- |
-| [1.2.1.2](engine-releases-1.2.1.md "engine-releases-1.2.1.md")    | 1.2           | 1.2           | _active_     | 2024-08-05            | 2026-03-06  | 1.3.0.0     |
-| [1.2.1.1](engine-releases-1.2.1.md "engine-releases-1.2.1.md")    | 1.2           | 1.1           | _active_     | 2024-03-11            | 2026-03-06  | 1.3.0.0     |
-| [1.2.1.0](engine-releases-1.2.1.md "engine-releases-1.2.1.md")    | 1.2           | 1.0           | _active_     | 2023-03-08            | 2026-03-06  | 1.3.0.0     |
-| [1.2.0.2](engine-releases-1.2.0.md "engine-releases-1.2.0.md")    | 1.2           | 0.2           | _active_     | 2022-11-16            | 2026-03-06  | 1.3.0.0     |
-| [1.2.0.1](engine-releases-1.2.0.md "engine-releases-1.2.0.md")    | 1.2           | 0.1           | _active_     | 2022-10-26            | 2026-03-06  | 1.3.0.0     |
-| [1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md")    | 1.2           | 0.0           | _active_     | 2022-07-21            | 2026-03-06  | 1.3.0.0     |
-| [1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md")    | 1.1           | 1.0           | _active_     | 2022-04-19            | 2026-03-06  | 1.2.1.0     |
+| [1.2.1.2](engine-releases-1.2.1.md "engine-releases-1.2.1.md")    | 1.2           | 1.2           | _active_     | 2024-08-05            | 2026-06-30  | 1.3.0.0     |
+| [1.2.1.1](engine-releases-1.2.1.md "engine-releases-1.2.1.md")    | 1.2           | 1.1           | _active_     | 2024-03-11            | 2026-06-30  | 1.3.0.0     |
+| [1.2.1.0](engine-releases-1.2.1.md "engine-releases-1.2.1.md")    | 1.2           | 1.0           | _active_     | 2023-03-08            | 2026-06-30  | 1.3.0.0     |
+| [1.2.0.2](engine-releases-1.2.0.md "engine-releases-1.2.0.md")    | 1.2           | 0.2           | _active_     | 2022-11-16            | 2026-06-30  | 1.3.0.0     |
+| [1.2.0.1](engine-releases-1.2.0.md "engine-releases-1.2.0.md")    | 1.2           | 0.1           | _active_     | 2022-10-26            | 2026-06-30  | 1.3.0.0     |
+| [1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md")    | 1.2           | 0.0           | _active_     | 2022-07-21            | 2026-06-30  | 1.3.0.0     |
+| [1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md")    | 1.1           | 1.0           | _active_     | 2022-04-19            | 2026-06-30  | 1.2.1.0     |
 | [1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md")    | 1.1           | 0.0           | _deprecated_ | 2021-11-19            | 2025-03-15  | 1.1.1.0     |
 | [1.0.5.1](engine-releases-1.0.5.md "engine-releases-1.0.5.md")    | 1.0           | 5.1           | _deprecated_ | 2021-10-01            | 2023-01-30  | 1.1.0.0     |
 | [1.0.5.0](engine-releases-1.0.5.md "engine-releases-1.0.5.md")    | 1.0           | 5.0           | _deprecated_ | 2021-07-27            | 2023-01-30  | 1.1.0.0     |
