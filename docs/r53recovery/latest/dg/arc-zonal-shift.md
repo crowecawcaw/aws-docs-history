@@ -1,29 +1,60 @@
-# Supported resources
+#
 
-Amazon Application Recovery Controller (ARC) currently supports enabling the following resources for zonal shift and zonal autoshift:
+Starting, updating, or canceling a zonal shift
 
-- [Amazon EC2 Auto Scaling groups](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md")
-- [Amazon Elastic Kubernetes Service](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md")
-- [Application Load Balancers](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md") with
-  cross-zone load balancing enabled or disabled
-- [Network Load Balancers](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md") with cross-zone load balancing enabled or disabled
-  For specific requirements for Network Load Balancers and Application Load Balancers, see the additional topics in this section.
+This section provides procedures for working with zonal shifts, including starting a zonal shift
+and canceling a zonal shift.
 
-Review the following conditions for working with zonal shifts, zonal autoshift, and resources in ARC:
+## Starting a zonal shift
 
-- A resource must be active and fully provisioned to shift traffic for it. Before you
-  start a zonal shift for a resource, check to make sure that it's a managed resource in ARC. For example,
-  view the list of managed resources in the AWS Management Console, or use the `get-managed-resource`
-  operation with the resource's identifier.
-- To start a zonal shift with a resource, it must be deployed in the Availability Zone and AWS Region
-  where you start the shift. Make sure that you start a zonal shift in the same Region that the AZ you want to shift away
-  from is in, and that the resource that you're shifting traffic for is in the same AZ and Region as well.
-- Ensure that you have the correct IAM permissions to use zonal shift with a resource. For
-  more information, see [IAM and permissions for zonal shift](security_iam_service-with-iam-zonal-shift.md "security_iam_service-with-iam-zonal-shift.md").
-- When a Network Load Balancer or Application Load Balancer is in a fail open state, a zonal shift will have no effect. This is
-  expected behavior because zonal shift cannot force an AZ to be unhealthy and
-  then shift traffic to the other AZs in a Region when a load balancer is
-  failing open. For more information, see [Using Route 53 DNS failover for your load balancer](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md#r53-dns-failover "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md#r53-dns-failover") in the _Network Load Balancers User Guide_ and [Using Route 53 DNS failover for your load balancer](../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md#r53-dns-failover "../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md#r53-dns-failover") in the _Application Load Balancers User Guide_.
-- If multiple load balancers are forwarding traffic to the same targets, a zonal shift on
-  a cross-zone enabled load balancer drops target capacity for all load balancers, even if their traffic is not
-  shifted by a zonal shift.
+The steps in this section explain how to start a customer-initiated zonal shift on the Amazon Application Recovery Controller (ARC) console.
+To work with zonal shift programmatically, see the [Zonal Shift API Reference Guide](../../../arc-zonal-shift/latest/api/Welcome.md "../../../arc-zonal-shift/latest/api/Welcome.md").
+
+In addition to starting a zonal shift in ARC, you can also start a zonal shift for a load balancer in
+the Elastic Load Balancing console (in supported Regions). For more information, see
+[Zonal shift](../../../elasticloadbalancing/latest/application/zonal-shift.md "../../../elasticloadbalancing/latest/application/zonal-shift.md") in the
+Elastic Load Balancing User Guide.
+
+## To start a zonal shift
+
+1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
+2. Under **Multi-AZ**, choose **Zonal shift**.
+3. On the **Zonal shift** page, choose **Start zonal shift**.
+4. Select the Availability Zone that you want to shift traffic away from.
+5. Select a supported resource from the **Resources** table to shift traffic
+   away for.
+6. For **Set zonal shift expiration**, choose or enter an expiration for the zonal shift. A zonal
+   shift can set to be active initially for 1 minute or up to three days (72 hours).
+
+All zonal shifts are temporary. You must set an expiration, but you can update active shifts later to
+set a new expiration period of up to three days. 7. Enter a comment. You can update the zonal shift later to edit the comment, if you like. 8. Select the checkbox to acknowledge that starting a zonal shift will reduce available capacity for
+your application by shifting traffic away from the Availability Zone. 9. Choose **Start**.
+
+## Updating or canceling a zonal shift
+
+The steps in this section explain how to update a zonal shift that you initiate, or cancel a
+zonal shift, on the Amazon Application Recovery Controller (ARC) console.
+To work with zonal shift programmatically, see the [Zonal Shift API Reference Guide](../../../arc-zonal-shift/latest/api/Welcome.md "../../../arc-zonal-shift/latest/api/Welcome.md").
+
+You can update a zonal shift to set a new expiration, or edit or replace the comment for the zonal shift. You
+can cancel a zonal shift any time before it expires.
+
+You can cancel zonal shifts that you initiate, or zonal shifts that AWS starts for a resource for a practice run
+for zonal autoshift. To learn more about practice shifts in zonal autoshift, see
+[How zonal autoshift and practice runs work](arc-zonal-autoshift.md "arc-zonal-autoshift.md").
+
+## To update a zonal shift
+
+1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
+2. Under **Multi-AZ**, choose **Zonal shift**.
+3. Select a zonal shift that you want to update, and then choose **Update zonal shift**.
+4. For **Set zonal shift expiration**, optionally select or enter an expiration.
+5. For **Comment**, optionally edit the existing comment or enter a new comment.
+6. Choose **Update**.
+
+## To cancel a zonal shift
+
+1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
+2. Under **Multi-AZ**, choose **Zonal shift**.
+3. Select a zonal shift that you want to cancel, and then choose **Cancel zonal shift**.
+4. On the confirmation modal dialog, choose **Confirm**.
