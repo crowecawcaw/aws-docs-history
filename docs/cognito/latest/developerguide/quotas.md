@@ -481,7 +481,8 @@ create in user pools.
 | Resource servers per user pool                                                                                                                   | 25          | Yes        | 300                        |
 | Users per user pool                                                                                                                              | 40,000,000  | Yes        | Contact your account team. |
 | Total combined changes in pre token generation Lambda<br>trigger[1](#cognito-resource-quotas-claims-note "#cognito-resource-quotas-claims-note") | 5,000       | Yes        | Contact your account team. |
-| Managed login branding styles per user pool                                                                                                      | 10          | No         | N/A                        |
+| Managed login branding styles per user pool                                                                                                      | 20          | No         | N/A                        |
+| Managed login terms documents per user pool                                                                                                      | 40          | No         | N/A                        |
 | Custom attributes per user pool                                                                                                                  | 50          | No         | N/A                        |
 | Characters per attribute                                                                                                                         | 2,048 bytes | No         | N/A                        |
 | Characters in custom attribute name                                                                                                              | 20          | No         | N/A                        |
