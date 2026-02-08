@@ -37,7 +37,7 @@ This integration enables you to do the following:
    efficiently.
    The following diagram illustrates this combined workflow:
 
-![Diagram showing CDN integration with both channel assembly and ad insertion](images/ca-ssai-comb-cdn.png)
+![Diagram showing CDN integration with both channel assembly and ad insertion](/images/mediatailor/latest/ug/images/ca-ssai-comb-cdn.png)
 For optimal performance when combining channel assembly and SSAI:
 
 - Configure cache behaviors that distinguish between channel assembly and SSAI
