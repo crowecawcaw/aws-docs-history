@@ -23,7 +23,7 @@ issues, collect and analyze logs, and more.
 SAW runbooks use the **`AWSSupport`** prefix. For
 example, [`AWSSupport-ActivateWindowsWithAmazonLicense`](../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-activatewindowswithamazonlicense.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-activatewindowswithamazonlicense.md").
 
-Additionally, AWS Enterprise and Business Support customers also have access to
+Additionally, customers with Business Support+ and higher AWS Support plans also have access to
 runbooks that use the **`AWSPremiumSupport`** prefix.
 For example, [`AWSPremiumSupport-TroubleshootEC2DiskUsage`](../../../systems-manager-automation-runbooks/latest/userguide/automation-awspremiumsupport-troubleshootEC2diskusage.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awspremiumsupport-troubleshootEC2diskusage.md").
 
