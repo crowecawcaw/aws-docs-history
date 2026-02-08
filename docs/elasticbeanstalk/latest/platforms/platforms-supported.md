@@ -45,7 +45,10 @@ _AWS Elastic Beanstalk Developer Guide_ for more information about the Docker pl
 | **Docker AL2 version 4.5.2**<br>_64bit Amazon Linux 2 v4.5.2 running Docker_       | 2.0.20260120     |           | 25.0.14 | 5.0.2          | nginx 1.28.1 |
 | **ECS AL2 version 3.6.3**<br>_64bit Amazon Linux 2 v3.6.3 running ECS_             | 2.0.20260120     | 1.101.2   | 25.0.14 |                |              |
 
-For information about previous platform versions, see [Docker platform history](platform-history-docker.md "platform-history-docker.md").
+For information
+about platform versions scheduled for retirement as published in [Platform Support
+Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"), see [Docker](platforms-retiring.md#platforms-retiring.docker "platforms-retiring.md#platforms-retiring.docker") on the _Retiring Platform
+Versions_ page. For information about previous platform versions, see [Docker platform history](platform-history-docker.md "platform-history-docker.md").
 
 ## Go
 
@@ -56,6 +59,9 @@ Elastic Beanstalk supports the following Go platform versions.
 | **Go 1 AL2023 version 4.5.3**<br>_64bit Amazon Linux 2023 v4.5.3 running Go 1_ | 2023.10.20260120 | Go 1.24.11 | 3.6.1     | nginx 1.28.1 |
 | **Go 1 AL2 version 3.14.3**<br>_64bit Amazon Linux 2 v3.14.3 running Go 1_     | 2.0.20260120     | Go 1.25.6  | 3.6.1     | nginx 1.28.1 |
 
+For information about platform
+versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
+see [Go](platforms-retiring.md#platforms-retiring.go "platforms-retiring.md#platforms-retiring.go") on the _Retiring Platform Versions_ page.
 For information about previous platform versions, see [Go platform history](platform-history-go.md "platform-history-go.md").
 
 ## Java SE
@@ -73,7 +79,10 @@ Elastic Beanstalk supports the following Java SE platform versions.
 | **Corretto 11 version 3.10.3**<br>_64bit Amazon Linux 2 v3.10.3 running Corretto 11_         | 2.0.20260120     | Corretto 11.0.29.7.1  | Ant 1.10.15, Gradle 8.14.4, Maven 3.9.12 | 3.6.1     | nginx 1.28.1 |
 | **Corretto 8 version 3.10.3**<br>_64bit Amazon Linux 2 v3.10.3 running Corretto 8_           | 2.0.20260120     | Corretto 8.472.08.1   | Ant 1.10.15, Gradle 8.14.4, Maven 3.9.12 | 3.6.1     | nginx 1.28.1 |
 
-For information about previous platform versions, see [Java SE platform history](platform-history-javase.md "platform-history-javase.md").
+For information about platform
+versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
+see [Java SE](platforms-retiring.md#platforms-retiring.javase "platforms-retiring.md#platforms-retiring.javase") on the _Retiring Platform Versions_
+page. For information about previous platform versions, see [Java SE platform history](platform-history-javase.md "platform-history-javase.md").
 
 ## Tomcat
 
@@ -91,6 +100,9 @@ Elastic Beanstalk supports the following Tomcat platform versions.
 | **Corretto 11 with Tomcat 9 AL2 version 4.10.3**<br>_64bit Amazon Linux 2 v4.10.3 running Tomcat 9 Corretto 11_       | 2.0.20260120     | Corretto 11.0.29.7.1  | 3.6.1     | Tomcat 9.0.110     | nginx 1.28.1 (default), Apache 2.4.66 |
 | **Corretto 8 with Tomcat 9 AL2 version 4.10.3**<br>_64bit Amazon Linux 2 v4.10.3 running Tomcat 9 Corretto 8_         | 2.0.20260120     | Corretto 8.472.08.1   | 3.6.1     | Tomcat 9.0.110     | nginx 1.28.1 (default), Apache 2.4.66 |
 
+For information about platform
+versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
+see [Tomcat](platforms-retiring.md#platforms-retiring.java "platforms-retiring.md#platforms-retiring.java") on the _Retiring Platform Versions_ page.
 For information about previous platform versions, see [Tomcat platform history](platform-history-java.md "platform-history-java.md").
 
 ## .NET Core on Linux
@@ -104,7 +116,10 @@ Elastic Beanstalk supports the following .NET Core on Linux platform versions.
 | **.NET 8 on AL2023 version 3.7.2**<br>_64bit Amazon Linux 2023 v3.7.2 running .NET 8_   | .NET 8.0.23, supports 8.0.23 | nginx 1.28.1 | 2023.10.20260120 | 3.6.1     |
 | **.NET Core on AL2 version 2.12.3**<br>_64bit Amazon Linux 2 v2.12.3 running .NET Core_ | .NET 8.0.23, supports 8.0.23 | nginx 1.28.1 | 2.0.20260120     | 3.6.1     |
 
-For information about previous platform versions, see [.NET Core on Linux platform history](platform-history-dotnetlinux.md "platform-history-dotnetlinux.md").
+For information about
+platform versions scheduled for retirement as published in [Platform Support
+Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"), see [.NET Core on Linux](platforms-retiring.md#platforms-retiring.dotnetlinux "platforms-retiring.md#platforms-retiring.dotnetlinux") on the _Retiring
+Platform Versions_ page. For information about previous platform versions, see [.NET Core on Linux platform history](platform-history-dotnetlinux.md "platform-history-dotnetlinux.md").
 
 ## .NET on Windows Server
 
@@ -173,7 +188,10 @@ Elastic Beanstalk supports the following Node.js platform versions.
 | **Node.js 22 AL2023 version 6.7.3**<br>_64bit Amazon Linux 2023 v6.7.3 running Node.js 22_ | 2023.10.20260120 | 22.22.0 (10.9.4)<br>Default version: v22.22.0 | nginx 1.28.1 (default), Apache 2.4.66 | 2.50.1 | 3.6.1     |
 | **Node.js 20 AL2023 version 6.7.3**<br>_64bit Amazon Linux 2023 v6.7.3 running Node.js 20_ | 2023.10.20260120 | 20.19.5 (10.8.2)<br>Default version: 20.19.5  | nginx 1.28.1 (default), Apache 2.4.66 | 2.50.1 | 3.6.1     |
 
-For information about previous platform versions, see [Node.js platform history](platform-history-nodejs.md "platform-history-nodejs.md").
+For information about platform
+versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
+see [Node.js](platforms-retiring.md#platforms-retiring.nodejs "platforms-retiring.md#platforms-retiring.nodejs") on the _Retiring Platform Versions_
+page. For information about previous platform versions, see [Node.js platform history](platform-history-nodejs.md "platform-history-nodejs.md").
 
 ###### Note
 
@@ -201,6 +219,8 @@ Elastic Beanstalk supports the following PHP platform versions.
 | **PHP 8.4 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running PHP 8.4_ | 2023.10.20260120 | PHP 8.4.17 | 2.9.4    | nginx 1.28.1 (default), Apache 2.4.66 |
 | **PHP 8.3 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running PHP 8.3_ | 2023.10.20260120 | PHP 8.3.29 | 2.9.4    | nginx 1.28.1 (default), Apache 2.4.66 |
 | **PHP 8.2 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running PHP 8.2_ | 2023.10.20260120 | PHP 8.2.30 | 2.9.4    | nginx 1.28.1 (default), Apache 2.4.66 |
+| **PHP 8.1 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running PHP 8.1_ | 2023.10.20260120 | PHP 8.1.34 | 2.9.4    | nginx 1.28.1 (default), Apache 2.4.66 |
+| **PHP 8.1 AL2 version 3.12.2**<br>_64bit Amazon Linux 2 v3.12.2 running PHP 8.1_     | 2.0.20260120     | PHP 8.1.33 | 2.9.5    | nginx 1.28.1 (default), Apache 2.4.66 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -219,7 +239,10 @@ Elastic Beanstalk supports the following Python platform versions.
 | **Python 3.11 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running Python 3.11_ | 2023.10.20260120 | Python 3.11.14 | pip 25.3, pipenv 2026.0.3 | 3.6.1     | nginx 1.28.1 (default), Apache 2.4.66 |
 | **Python 3.9 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running Python 3.9_   | 2023.10.20260120 | Python 3.9.25  | pip 25.3, pipenv 2025.0.4 | 3.6.1     | nginx 1.28.1 (default), Apache 2.4.66 |
 
-For information about previous platform versions, see [Python platform history](platform-history-python.md "platform-history-python.md").
+For information about platform
+versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
+see [Python](platforms-retiring.md#platforms-retiring.python "platforms-retiring.md#platforms-retiring.python") on the _Retiring Platform Versions_
+page. For information about previous platform versions, see [Python platform history](platform-history-python.md "platform-history-python.md").
 
 ## Ruby
 
@@ -231,4 +254,7 @@ Elastic Beanstalk supports the following Ruby platform versions.
 | **Ruby 3.3 AL2023 version 4.8.3**<br>_64bit Amazon Linux 2023 v4.8.3 running Ruby 3.3_ | 2023.10.20260120 | Ruby 3.3.10-p183 | RubyGems 3.5.22 | Puma 7.2.0         | 3.6.1     | nginx 1.28.1 |
 | **Ruby 3.2 AL2023 version 4.8.3**<br>_64bit Amazon Linux 2023 v4.8.3 running Ruby 3.2_ | 2023.10.20260120 | Ruby 3.2.8       | RubyGems 3.4.19 | Puma 7.2.0         | 3.6.1     | nginx 1.28.1 |
 
+For information about platform
+versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
+see [Ruby](platforms-retiring.md#platforms-retiring.ruby "platforms-retiring.md#platforms-retiring.ruby") on the _Retiring Platform Versions_ page.
 For information about previous platform versions, see [Ruby platform history](platform-history-ruby.md "platform-history-ruby.md").
