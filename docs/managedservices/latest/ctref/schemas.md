@@ -4173,6 +4173,75 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
+## Schema for Change Type ct-0c2g2npbyyrny
+
+###### Classifications:
+
+- [Management | Advanced stack components | VPC | Associate DHCP Option Set](management-advanced-vpc-associate-dhcp-option-set.md "management-advanced-vpc-associate-dhcp-option-set.md")
+
+```
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "AssociateDhcpOptionSetWithVpc",
+  "description": "This automation document associates a DHCP Option Set with an AWS VPC after validating that domain name servers are within the VPC CIDR range. It lets you specify the VPC ID and the DHCP Option Set ID that you want to associate. This is useful to manage the DHCP configurations of your VPCs while making sure there is network security compliance.",
+  "type": "object",
+  "properties": {
+    "DocumentName": {
+      "description": "Must be AWSManagedServices-AssociateDhcpOptionSetWithVpc",
+      "type": "string",
+      "enum": [
+        "AWSManagedServices-AssociateDhcpOptionSetWithVpc"
+      ],
+      "default": "AWSManagedServices-AssociateDhcpOptionSetWithVpc"
+    },
+    "Region": {
+      "description": "The AWS Region in which the resource is located, in the form us-east-1.",
+      "type": "string",
+      "pattern": "^([a-z]{2}((-gov))?-[a-z]+-\\d{1})$"
+    },
+    "Parameters": {
+      "type": "object",
+      "properties": {
+        "VPCId": {
+          "type": "string",
+          "description": "(Required) The VpcId to associate the DHCP option set with.",
+          "pattern": "^vpc-[0-9a-fA-F]+$"
+        },
+        "DHCPOptionsId": {
+          "type": "string",
+          "description": "(Required) The DhcpOptionSet Id to associate with the VPC.",
+          "pattern": "^dopt-[a-zA-Z0-9]+$"
+        }
+      },
+      "metadata": {
+        "ui:order": [
+          "VPCId",
+          "DHCPOptionsId"
+        ]
+      },
+      "additionalProperties": false,
+      "required": [
+        "VPCId",
+        "DHCPOptionsId"
+      ]
+    }
+  },
+  "metadata": {
+    "ui:order": [
+      "DocumentName",
+      "Region",
+      "Parameters"
+    ]
+  },
+  "additionalProperties": false,
+  "required": [
+    "DocumentName",
+    "Region",
+    "Parameters"
+  ]
+}
+```
+
 ## Schema for Change Type ct-0c38gftq56zj6
 
 ###### Classifications:
@@ -40670,7 +40739,7 @@ Change type schemas specify the execution input parameters for a change type.
           "ParameterName": {
             "description": "The name of the parameter.",
             "type": "string",
-            "pattern": "^[a-zA-Z0-9_.-]+$"
+            "pattern": "^[a-zA-Z0-9_. -]+$"
           },
           "ParameterValue": {
             "description": "The value of the parameter.",

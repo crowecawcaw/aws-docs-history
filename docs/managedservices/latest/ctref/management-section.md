@@ -12,6 +12,7 @@
 - [Directory Service](management-directory-service-section.md "management-directory-service-section.md")
 - [Host Security](management-host-security-section.md "management-host-security-section.md")
 - [Managed Account](management-managed-account-section.md "management-managed-account-section.md")
+- [Managed Network Firewall](management-managed-network-firewall-section.md "management-managed-network-firewall-section.md")
 - [Managed Firewall](management-managed-firewall-section.md "management-managed-firewall-section.md")
 - [Managed Landing Zone](management-managed-landing-zone-section.md "management-managed-landing-zone-section.md")
 - [Monitoring and Notification](management-monitoring-and-notification-section.md "management-monitoring-and-notification-section.md")
