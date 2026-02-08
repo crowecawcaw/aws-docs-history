@@ -11,7 +11,7 @@ facial attributes detected in the image. For more information, see [How Amazon R
 For example, if you choose the following sample image as input, Amazon Rekognition detects it
 as a face and returns confidence scores for the face and the facial attributes detected.
 
-![Smiling woman wearing sunglasses driving a yellow vintage car with open road ahead.](/images/rekognition/latest/dg/images/sample-detect-faces.png)
+![Smiling woman wearing sunglasses driving a yellow vintage car with open road ahead.](images/sample-detect-faces.png)
 The following shows the sample response.
 
 ![Smiling young woman wearing sunglasses and looking happy, with confidence values for labels.](images/detect-faces-confidence-score.png)
