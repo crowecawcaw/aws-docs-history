@@ -37,7 +37,7 @@ time-limited tokens.
 
 The driver automatically handles Aurora DSQL authentication using
 the
-[Aurora DSQL Connector for node-postgres](https://github.com/awslabs/aurora-dsql-nodejs-connector/tree/main/packages/node-postgres "https://github.com/awslabs/aurora-dsql-nodejs-connector/tree/main/packages/node-postgres").
+[Aurora DSQL Connector for node-postgres](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/node-postgres "https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/node-postgres").
 
 For more information on authentication in Aurora DSQL, see the
 [user

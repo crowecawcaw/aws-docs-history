@@ -115,7 +115,7 @@ within a query. For more information, see [inet in the PostgreSQL documentation]
 
 **JSON runtime functions**
 
-Aurora DSQL supports JSON and JSONB as runtime data types for query processing, though these cannot be used as column data types in table schemas. You can store JSON data as `text` and cast it to JSON during query execution to use PostgreSQL JSON functions and operators.
+Aurora DSQL supports JSON and JSONB as runtime data types for query processing. Store JSON data as `text` columns and cast to JSON during query execution to use PostgreSQL JSON functions and operators.
 
 Aurora DSQL supports most PostgreSQL JSON functions from [section 9.1.6 JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html "https://www.postgresql.org/docs/current/functions-json.html") with identical behavior.
 

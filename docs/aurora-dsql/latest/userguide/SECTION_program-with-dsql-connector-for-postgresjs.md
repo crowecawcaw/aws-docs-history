@@ -1,6 +1,6 @@
 # Aurora DSQL Connector for Postgres.js
 
-The Aurora DSQL Connector for Postgres.js is a Node.js connector
+The [Aurora DSQL Connector for Postgres.js](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js "https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js") is a Node.js connector
 built on
 [Postgres.js](https://github.com/porsager/postgres "https://github.com/porsager/postgres")
 that integrates IAM Authentication for connecting JavaScript
@@ -184,4 +184,4 @@ guide](authentication-authorization.md "authentication-authorization.md").
 ## Sample usage
 
 A JavaScript example using the Aurora DSQL Connector for
-Postgres.js is available [here](https://github.com/awslabs/aurora-dsql-nodejs-connector/tree/main/packages/postgres-js/example "https://github.com/awslabs/aurora-dsql-nodejs-connector/tree/main/packages/postgres-js/example").
+Postgres.js is available [here](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js/example "https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js/example").

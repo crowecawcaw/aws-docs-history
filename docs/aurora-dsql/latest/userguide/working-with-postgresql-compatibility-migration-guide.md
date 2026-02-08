@@ -39,7 +39,7 @@ Use `DELETE FROM table_name` instead of `TRUNCATE`.
 
 **System configuration**
 
-Aurora DSQL doesn't support `ALTER SYSTEM` commands because the system is fully managed. Configuration is handled automatically based on workload patterns.
+Aurora DSQL is fully managed, so configuration is handled automatically based on workload patterns. Use the AWS Management Console or API to manage cluster settings.
 
 **Benefit:** No need for database tuning or parameter management.
 
@@ -59,7 +59,7 @@ function but require no coordination.
 
 **Referential integrity patterns**
 
-Aurora DSQL supports table relationships and `JOIN` operations but doesn't yet enforce foreign key constraints. This design choice aligns with modern distributed database patterns where application-layer validation provides more flexibility and avoids performance bottlenecks from cascading operations.
+Aurora DSQL supports table relationships and `JOIN` operations. For referential integrity, implement validation in your application layer. This design aligns with modern distributed database patterns where application-layer validation provides more flexibility and avoids performance bottlenecks from cascading operations.
 
 **Pattern:** Implement referential integrity checks in your application layer using consistent naming conventions, validation logic, and transaction boundaries. Many high-scale applications prefer this approach for better control over error handling and performance.
 
@@ -83,9 +83,7 @@ Aurora DSQL provides one built-in database named `postgres` per cluster.
 
 **No temporary tables**
 
-Temporary tables are not yet supported in Aurora DSQL. Common table
-expressions (CTEs) and subqueries can be
-used as an alternative for complex queries.
+For temporary data handling, you SHOULD use common table expressions (CTEs) and subqueries, which provide flexible alternatives for complex queries.
 
 **Alternative:** Use CTEs with `WITH`
 clauses for temporary result sets, or regular tables with unique
@@ -103,7 +101,7 @@ Aurora DSQL encourages modern application development patterns that improve main
 
 **Application-level logic instead of database triggers**
 
-Aurora DSQL doesn't support triggers.
+For trigger-like functionality, implement event-driven logic in your application layer.
 
 **Migration strategy:** Move trigger logic to application code, use event-driven architectures with AWS services like EventBridge, or implement audit trails using application logging.
 
@@ -126,7 +124,7 @@ Aurora DSQL uses optimistic concurrency control (OCC), a lock-free approach that
 Aurora DSQL supports foreign key relationships between tables,
 including
 `JOIN`
-operations, but foreign key constraints are not yet supported. While
+operations. For referential integrity, implement validation in your application layer. While
 enforcing referential integrity can be valuable, cascading
 operations (like cascading deletes) can create unexpected performance
 issues—for example, deleting an order with 1,000 line items
@@ -141,48 +139,15 @@ Aurora DSQL eliminates many traditional database maintenance tasks, reducing ope
 
 **No manual maintenance required**
 
-Aurora DSQL doesn't require `VACUUM`, `TRUNCATE`, or `ALTER SYSTEM` commands. The system automatically manages storage optimization, statistics collection, and performance tuning.
+Aurora DSQL automatically manages storage optimization, statistics collection, and performance tuning. Traditional maintenance commands like `VACUUM` are handled by the system.
 
 **Benefit:** Eliminates the need for database maintenance windows, vacuum scheduling, and system parameter tuning.
 
 **Automatic partitioning and scaling**
 
-Aurora DSQL automatically partitions and distributes your data based on access patterns. Manual partitioning and sequences are not needed.
+Aurora DSQL automatically partitions and distributes your data based on access patterns. Use UUIDs or application-generated IDs for optimal distribution.
 
 **Migration tip:** Remove manual partitioning logic and let Aurora DSQL handle data distribution. Use UUIDs or application-generated IDs instead of sequences.
-
-## AI-assisted migration
-
-You can leverage AI tools to help migrate your codebase to Aurora DSQL:
-
-### Using Kiro for migration assistance
-
-Coding agents such as [Kiro](https://kiro.dev/ "https://kiro.dev/") can help you analyze and migrate your PostgreSQL code to Aurora DSQL:
-
-- **Schema analysis:** Upload your existing schema files and ask Kiro to identify potential compatibility issues and suggest alternatives
-- **Code transformation:** Provide your application code and ask Kiro to help refactor trigger logic, replace sequences with UUIDs, or modify transaction patterns
-- **Migration planning:** Ask Kiro to create a step-by-step migration plan based on your specific application architecture
-
-**Example Kiro prompts:**
-
-```
-"Analyze this PostgreSQL schema for DSQL compatibility and suggest alternatives for any unsupported features"
-
-"Help me refactor this trigger function into application-level logic for DSQL migration"
-
-"Create a migration checklist for moving my Django application from PostgreSQL to DSQL"
-```
-
-### Aurora DSQL MCP server
-
-The Aurora DSQL Model Context Protocol (MCP) server allows AI assistants like Claude to connect directly to your Aurora DSQL cluster and search Aurora DSQL documentation. This enables the AI to:
-
-- Analyze your existing schema and suggest migration changes
-- Test queries and verify compatibility during migration
-- Provide accurate, up-to-date guidance based on the latest Aurora DSQL documentation
-
-To use the Aurora DSQL MCP server with Claude or other AI assistants, see
-the setup instructions for the [Aurora DSQL MCP server](SECTION_aurora-dsql-mcp-server.md "SECTION_aurora-dsql-mcp-server.md").
 
 ## Aurora DSQL
 
@@ -192,11 +157,8 @@ Aurora DSQL has feature support differences from self-managed PostgreSQL that en
 
 For general considerations, see [Considerations for working with Amazon Aurora DSQL](considerations.md "considerations.md"). For quotas and limits, see [Cluster quotas and database limits in Amazon Aurora DSQL](CHAP_quotas.md "CHAP_quotas.md").
 
-- Aurora DSQL uses a single built-in database named `postgres`. You can't
-  create additional databases or rename or drop the `postgres`
-  database.
-- The `postgres` database uses UTF-8 character encoding. You can't change
-  the server encoding.
+- Aurora DSQL uses a single built-in database named `postgres` per cluster. For logical separation, create separate Aurora DSQL clusters or use schemas within a single cluster.
+- The `postgres` database uses UTF-8 character encoding, which provides broad international character support.
 - The database uses the `C` collation only.
 - Aurora DSQL uses `UTC` as the system timezone. Postgres stores all timezone-aware
   dates and times internally in UTC. You can set the `TimeZone` configuration parameter
@@ -205,7 +167,7 @@ For general considerations, see [Considerations for working with Amazon Aurora D
 - The transaction isolation level is fixed at PostgreSQL `Repeatable
 Read`.
 - Transactions have the following constraints:
-  - A transaction can't mix DDL and DML operations
+  - DDL and DML operations require separate transactions
   - A transaction can include only 1 DDL statement
   - A transaction can modify up to 3,000 rows, regardless of the number of
     secondary indexes
@@ -213,19 +175,8 @@ Read`.
     `UPDATE`, `DELETE`)
 
 - Database connections time out after 1 hour.
-- Aurora DSQL doesn't currently let you run `GRANT [permission] ON DATABASE`.
-  If you attempt to run that statement, Aurora DSQL returns the error message `ERROR:
-unsupported object type in GRANT`.
-- Aurora DSQL doesn't let non-admin user roles to run the `CREATE SCHEMA`
-  command. You can't run the `GRANT [permission] on DATABASE` command and
-  grant `CREATE` permissions on the database. If a non-admin user role tries
-  to create a schema, Aurora DSQL returns with the error message `ERROR: permission
-denied for database postgres`.
-- Non-admin users can't create objects in the public schema. Only admin users can
-  create objects in the public schema. The admin user role has permissions to grant
-  read, write, and modify access to these objects to non-admin users, but it cannot
-  grant `CREATE` permissions to the public schema itself. Non-admin users
-  must use different, user-created schemas for object creation.
+- Aurora DSQL manages permissions through schema-level grants. Admin users create schemas using `CREATE SCHEMA` and grant access using `GRANT USAGE ON SCHEMA`. Admin users manage objects in the public schema, while non-admin users create objects in user-created schemas for clear ownership boundaries. For more information, see [Authorizing
+  database roles to use SQL in your database](using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles-sql "using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles-sql").
 
 ## Need help with migration?
 

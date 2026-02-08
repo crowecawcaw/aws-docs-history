@@ -79,7 +79,7 @@ urllib.request.urlretrieve('https://www.amazontrust.com/repository/AmazonRootCA1
 
 To connect to Aurora DSQL, first install the
 [Aurora
-DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-python-connector "https://github.com/awslabs/aurora-dsql-python-connector") and the Psycopg driver in a Python
+DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector") and the Psycopg driver in a Python
 cell, and then import it:
 
 ```
@@ -145,6 +145,6 @@ samples repository.](https://github.com/aws-samples/aurora-dsql-samples/tree/mai
 [Amazon
 SageMaker AI setup documentation](../../../sagemaker/latest/dg/gs-setup-working-env.md "../../../sagemaker/latest/dg/gs-setup-working-env.md")
 
-[Aurora DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-python-connector "https://github.com/awslabs/aurora-dsql-python-connector")
+[Aurora DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector")
 
 [Pandas documentation](https://pandas.pydata.org/docs/user_guide/index.html "https://pandas.pydata.org/docs/user_guide/index.html")

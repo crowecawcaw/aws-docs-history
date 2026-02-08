@@ -1,8 +1,8 @@
 # Aurora DSQL and PostgreSQL
 
-Aurora DSQL is a PostgreSQL-compatible, distributed relational database designed for transactional
-workloads. Aurora DSQL uses core PostgreSQL components such as the parser, planner, optimizer, and type
-system.
+Aurora DSQL is a distributed relational database that uses the PostgreSQL wire protocol, making it
+familiar to developers with PostgreSQL experience. Aurora DSQL uses core PostgreSQL components such as the
+parser, planner, optimizer, and type system.
 
 The Aurora DSQL design ensures that all supported PostgreSQL syntax provides compatible behavior and
 yields identical query results. For example, Aurora DSQL provides type conversions, arithmetic
@@ -11,21 +11,21 @@ documented.
 
 Aurora DSQL also introduces advanced capabilities such as optimistic concurrency control and
 distributed schema management. With these features, you can use the familiar tooling of PostgreSQL
-while benefiting from the performance and scalability required for modern, cloud-native,
+while benefiting from the performance and scalability of a modern, cloud-native,
 distributed applications.
 
 ## PostgreSQL compatibility highlights
 
-Aurora DSQL is currently based on PostgreSQL version 16. Key compatibilities include the
+Aurora DSQL is currently based on PostgreSQL version 16. Key highlights include the
 following:
 
-**Wire protocol**
+**Wire protocol compatibility**
 
-Aurora DSQL uses the standard PostgreSQL v3 wire protocol. This enables integration with
-standard PostgreSQL clients, drivers, and tools. For example, Aurora DSQL is compatible with
-`psql`, `pgjdbc`, and `psycopg`.
+Aurora DSQL uses the standard PostgreSQL v3 wire protocol, enabling seamless integration with
+existing PostgreSQL clients, drivers, and tools. Connect using familiar tools like
+`psql`, `pgjdbc`, and `psycopg` with no changes required.
 
-**SQL compatibility**
+**Familiar SQL syntax**
 
 Aurora DSQL supports a wide range of standard PostgreSQL expressions and functions commonly
 used in transactional workloads. Supported SQL expressions yield identical results to
@@ -45,11 +45,10 @@ Aurora DSQL preserves the primary characteristics of PostgreSQL, such as ACID tr
 and an isolation level equivalent to PostgreSQL Repeatable Read. For more information, see
 [Concurrency control in Aurora DSQL](working-with-concurrency-control.md "working-with-concurrency-control.md").
 
-## Key architectural differences
+## Distributed architecture benefits
 
-The distributed, shared-nothing design of Aurora DSQL results in a few foundational differences
-from traditional PostgreSQL. These differences are integral to the Aurora DSQL architecture and provide
-many performance and scalability benefits. Key differences include the following:
+The distributed, shared-nothing design of Aurora DSQL provides performance and scalability
+benefits beyond traditional single-node databases. Key capabilities include the following:
 
 **Optimistic Concurrency Control (OCC)**
 

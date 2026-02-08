@@ -72,8 +72,8 @@ Editor](getting-started-query-editor.md "getting-started-query-editor.md"), whic
    the Cluster details page.
 3. Choose **Connect with Query editor**.
 4. Choose Connect as **admin** for the cluster that was just created.
-   - Optionally you can connect with a custom role see [Using database roles
-     and IAM authentication](using-database-and-iam-roles.md "using-database-and-iam-roles.md").
+   - Optionally you can connect with a custom role, see
+     [Using database roles and IAM authentication](using-database-and-iam-roles.md "using-database-and-iam-roles.md").
 
 ## Step 3: Run sample SQL commands in Aurora DSQL
 

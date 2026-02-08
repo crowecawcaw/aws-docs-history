@@ -1,6 +1,6 @@
 # Aurora DSQL Connector for node-postgres
 
-The Aurora DSQL Connector for node-postgres is a Node.js connector
+The [Aurora DSQL Connector for node-postgres](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/node-postgres "https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/node-postgres") is a Node.js connector
 built on
 [node-postgres](https://node-postgres.com/ "https://node-postgres.com/")
 that integrates IAM Authentication for connecting
@@ -62,10 +62,10 @@ authentication tokens when establishing connections.
 ## Example Application
 
 There is an included sample application in
-[example](https://github.com/awslabs/aurora-dsql-nodejs-connector/tree/main/packages/node-postgres/example "https://github.com/awslabs/aurora-dsql-nodejs-connector/tree/main/packages/node-postgres/example")
+[example](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/node-postgres/example "https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/node-postgres/example")
 that shows how to use Aurora DSQL Connector for node-postgres. To
 run the included example please refer to the example
-[README](https://github.com/awslabs/aurora-dsql-nodejs-connector/blob/main/packages/node-postgres/example/README.md "https://github.com/awslabs/aurora-dsql-nodejs-connector/blob/main/packages/node-postgres/example/README.md").
+[README](https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/node-postgres/example/README.md "https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/node-postgres/example/README.md").
 
 ## Quick start guide
 

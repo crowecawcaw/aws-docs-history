@@ -69,11 +69,11 @@ IAM ARNs](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arn
 
 **Role <role> not supported**
 
-Aurora DSQL doesn't support the `GRANT` operation. See [Supported subsets of PostgreSQL commands in Aurora DSQL](working-with-postgresql-compatibility-supported-sql-subsets.md "working-with-postgresql-compatibility-supported-sql-subsets.md").
+Aurora DSQL doesn't support the `GRANT` operation. See [Supported subsets of SQL commands in Aurora DSQL](working-with-postgresql-compatibility-supported-sql-subsets.md "working-with-postgresql-compatibility-supported-sql-subsets.md").
 
 **Cannot establish trust with role <role>**
 
-Aurora DSQL doesn't support the `GRANT` operation. See [Supported subsets of PostgreSQL commands in Aurora DSQL](working-with-postgresql-compatibility-supported-sql-subsets.md "working-with-postgresql-compatibility-supported-sql-subsets.md").
+Aurora DSQL doesn't support the `GRANT` operation. See [Supported subsets of SQL commands in Aurora DSQL](working-with-postgresql-compatibility-supported-sql-subsets.md "working-with-postgresql-compatibility-supported-sql-subsets.md").
 
 **Role <role> does not exist**
 
