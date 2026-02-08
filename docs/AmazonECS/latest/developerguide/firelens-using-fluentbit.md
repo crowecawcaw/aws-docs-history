@@ -37,11 +37,11 @@ The following shows the syntax to use for the Docker CLI.
 `docker pull public.ecr.aws/aws-observability/aws-for-fluent-bit:`tag``
 ```
 
-For example, you can pull the latest stable AWS for Fluent
-Bit image using this Docker CLI command.
+For example, you can pull the latest image in the "3.x" family of AWS for Fluent
+Bit releases using this Docker CLI command.
 
 ```
-`docker pull public.ecr.aws/aws-observability/aws-for-fluent-bit:stable`
+`docker pull public.ecr.aws/aws-observability/aws-for-fluent-bit:3`
 ```
 
 ###### Note
@@ -60,30 +60,20 @@ Bit 3.0.0
 
 In addition to the existing AWS for Fluent
 Bit versions `2.x`, AWS for Fluent Bit supports a new major
-version `3.0.0`. The new major version includes upgrading images from Amazon Linux 2
+version `3.x`. The new major version includes upgrading images from Amazon Linux 2
 to Amazon Linux 2023 and Fluent Bit version `1.9.10` to
 `4.1.1`. For more information, see the [AWS for Fluent Bit repository](https://github.com/aws/aws-for-fluent-bit/blob/mainline/VERSIONS.md "https://github.com/aws/aws-for-fluent-bit/blob/mainline/VERSIONS.md") on
 GitHub.
 
 The following examples demonstrate updated tags for AWS for
 Fluent Bit
-`3.0.0` images:
-
-You can use architecture-specific tags for the AWS for Fluent
-Bit image. For example, you can pull an `ARM64` architecture image
-using a docker command that follows this syntax.
-
-```
-`docker pull public.ecr.aws/aws-observability/aws-for-fluent-bit:arm64-3.0.0`
-```
+`3.x` images:
 
 You can use multi-architecture tags for the AWS for Fluent
-Bit image. For example, you can pull an image with the latest
-debug version and init process using a docker command that follows this
-syntax.
+Bit image.
 
 ```
-`docker pull public.ecr.aws/aws-observability/aws-for-fluent-bit:init-debug-3.0.0`
+`docker pull public.ecr.aws/aws-observability/aws-for-fluent-bit:3`
 ```
 
 ### Windows

@@ -62,7 +62,7 @@ examples](https://github.com/aws-samples/amazon-ecs-firelens-examples "https://g
   "containerDefinitions": [
     {
             "name": "log_router",
-            "image": "public.ecr.aws/aws-observability/aws-for-fluent-bit:stable",
+            "image": "public.ecr.aws/aws-observability/aws-for-fluent-bit:3",
             "cpu": 0,
             "memoryReservation": 51,
             "portMappings": [],
@@ -146,7 +146,11 @@ options are `s3` or `file`.
 ###### Note
 
 Tasks that are hosted on AWS Fargate only support the
-`file` configuration file type.
+`file` configuration file type. However, you can use
+configuration files hosted in Amazon S3 on AWS Fargate by using the AWS for
+Fluent Bit init container. For more information, see
+[Init process for Fluent Bit on ECS, multi-config support](https://github.com/aws/aws-for-fluent-bit/blob/mainline/use_cases/init-process-for-fluent-bit/README.md "https://github.com/aws/aws-for-fluent-bit/blob/mainline/use_cases/init-process-for-fluent-bit/README.md")
+on GitHub.
 
 `config-file-value`
 
@@ -181,7 +185,7 @@ configuration.
   "containerDefinitions": [
     {
       "essential": true,
-      "image": "906394416424.dkr.ecr.`us-west-2`.amazonaws.com/aws-for-fluent-bit:stable",
+      "image": "906394416424.dkr.ecr.`us-west-2`.amazonaws.com/aws-for-fluent-bit:3",
       "name": "log_router",
       "firelensConfiguration": {
         "type": "fluentbit",
@@ -198,4 +202,7 @@ configuration.
 ###### Note
 
 Tasks hosted on AWS Fargate only support the `file` configuration
-file type.
+file type. However, you can use configuration files hosted in Amazon S3 on AWS Fargate by
+using the AWS for Fluent Bit init container. For more information,
+see [Init process for Fluent Bit on ECS, multi-config support](https://github.com/aws/aws-for-fluent-bit/blob/mainline/use_cases/init-process-for-fluent-bit/README.md "https://github.com/aws/aws-for-fluent-bit/blob/mainline/use_cases/init-process-for-fluent-bit/README.md") on
+GitHub.

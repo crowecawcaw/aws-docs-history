@@ -21,16 +21,30 @@ Currently, the Amazon ECS logs collector supports the following operating system
 - Amazon Linux
 - Red Hat Enterprise Linux
 - Ubuntu
-- Debian
 - Windows Server
+
+###### To run the Amazon ECS logs collector for Linux (ECS-optimized AMI)
+
+1. Connect to your container instance.
+2. Run the script to collect the logs and create the archive.
 
 ###### Note
 
-The source code for the Amazon ECS logs collector is available on GitHub for both
-[Linux](https://github.com/awslabs/ecs-logs-collector "https://github.com/awslabs/ecs-logs-collector") and
-[Windows](https://github.com/awslabs/aws-ecs-logs-collector-for-windows "https://github.com/awslabs/aws-ecs-logs-collector-for-windows"). We encourage you to submit pull requests for changes that you
-would like to have included. However, Amazon Web Services doesn't currently support running
-modified copies of this software.
+To enable the debug mode for the Docker daemon and the Amazon ECS container
+agent, add the `--mode=enable-debug` option to the following
+command. This might restart the Docker daemon, which kills all containers
+that are running on the instance. Consider draining the container instance
+and moving any important tasks to other container instances before enabling
+debug mode. For more information, see [Draining Amazon ECS container instances](container-instance-draining.md "container-instance-draining.md").
+
+```
+`[ec2-user ~]$` `sudo /opt/amazon/ecs/ecs-logs-collector.sh`
+```
+
+After you have run the script, you can examine the collected logs in the
+`collect` folder that the script created. The
+`collect.tgz` file is a compressed archive of all of the logs,
+which you can share with AWS Support for diagnostic help.
 
 ###### To download and run the Amazon ECS logs collector for Linux
 
@@ -43,29 +57,9 @@ modified copies of this software.
 
 3. Run the script to collect the logs and create the archive.
 
-###### Note
-
-To enable the debug mode for the Docker daemon and the Amazon ECS container
-agent, add the `--mode=enable-debug` option to the following
-command. This might restart the Docker daemon, which kills all containers
-that are running on the instance. Consider draining the container instance
-and moving any important tasks to other container instances before enabling
-debug mode. For more information, see [Draining Amazon ECS container instances](container-instance-draining.md "container-instance-draining.md").
-
 ```
-`[ec2-user ~]$` `sudo bash ./ecs-logs-collector.sh`
+`$` `sudo bash ./ecs-logs-collector.sh`
 ```
-
-###### Important
-
-We recommend that you edit the logs and remove all sensitive data from the files. You
-can search for known data, and also search for environment variables such as `AWS_ACCESS_KEY_ID` ,
-`AWS_SECRET_ACCESS_KEY` , and `AWS_SESSION_TOKEN` in the file.
-
-After you have run the script, you can examine the collected logs in the
-`collect` folder that the script created. The
-`collect.tgz` file is a compressed archive of all of the logs,
-which you can share with AWS Support for diagnostic help.
 
 ###### To download and run the Amazon ECS logs collector for Windows
 
@@ -91,12 +85,6 @@ more information, see [Draining Amazon ECS container instances](container-instan
 ```
 `.\ecs-logs-collector.ps1`
 ```
-
-###### Important
-
-We recommend that you edit the logs and remove all sensitive data from the files. You
-can search for known data, and also search for environment variables such as `AWS_ACCESS_KEY_ID` ,
-`AWS_SECRET_ACCESS_KEY` , and `AWS_SESSION_TOKEN` in the file.
 
 After you have run the script, you can examine the collected logs in the
 `collect` folder that the script created. The
