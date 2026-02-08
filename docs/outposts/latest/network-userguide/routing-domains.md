@@ -28,12 +28,38 @@ You can create and manage routing domains through the AWS Management Console or 
 
 To create a routing domain:
 
-1. Create a LGW VIF Group.
-2. Retrieve your LAG-ID information.
-3. Create and configure the required LGW VIFs within the group, assigning each to the appropriate LAG with IP addresses, `VLAN` tags, and BGP parameters.
-4. Create a LGW Route Table and specify either CoIP or DVR mode for the routing domain.
-5. Associate the route table with the VIF Group.
-6. Attach VPCs to the routing domain.
+1. **Create an LGW route table**
+
+Create an LGW route table in DVR or CoIP routing mode, and associate your VPC with it.
+
+The route table will show as inactive until both a VPC and VIF group are associated. A VPC can be associated with 1 LGW route table per Outpost. 2. **Create a VIF group**
+
+Create a VIF group for your routing domain.
+
+Every LGW routing domain requires a unique VIF group and LGW route table for network traffic isolation. Second-generation Outposts racks require 4 VIFs per VIF group. Each VIF maps to: 1 VLAN → 1 LAG. VIF group and individual VIF status will show as "Pending" for up to 10 minutes. 3. **Configure each VIF**
+
+Configure each VIF within the group with the required network parameters.
+
+Assign each VIF:
+
+    * IP addresses
+    * VLAN tags (can be unique or the same as existing VLANs, as long as there's no VIF IP conflict on that LAG)
+    * BGP parameters
+    * LAG assignment
+
+4. **Create the routing domain**
+
+Create the LGW routing domain by associating the route table and VIF group.
+
+Your VIF group and route table can only be associated to 1 routing domain. This creates the 1:1 mapping between the VIF group and route table. 5. **Add a route to the VIF group**
+
+Add a route in the LGW route table that directs traffic to the VIF group.
+
+This route enables traffic to flow from your Outpost through the local gateway to your on-premises network via the VIF group. Without this route, the routing domain will not forward traffic even though the VIF group and route table are associated. 6. **Update your Customer Networking Devices (CNDs)**
+
+Update your Customer Networking Devices (CNDs) to allow the VIF VLANs to send traffic across the physical uplinks that correspond to each LAG.
+
+**Note:** This step requires configuration on your on-premises CNDs. Each VLAN must be configured as a trunk port on the physical interface(s) that connect to the Outpost Networking Devices (ONDs) to complete BGP peering setup. Consult your network equipment documentation for VLAN trunking configuration specific to your hardware.
 
 ## Monitoring routing domains
 

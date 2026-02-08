@@ -16,6 +16,10 @@ between your Outposts and the AWS Region:
 
 ![The service link private connection options.](images/outpost-rack2ndgen-sl-private-connection-options.PNG)
 
+###### Note
+
+Second-generation Outposts racks require a larger subnet size (/24 or larger) and a VPC Endpoint for the Outposts service.
+
 ## Prerequisites
 
 The following prerequisites are required before you can configure private connectivity
@@ -118,6 +122,10 @@ on your behalf:
 
 After your Outpost is installed, confirm connectivity to the private IPs in your subnet
 from your Outpost.
+
+###### Note
+
+VPC configuration cannot be changed after order placement. If incorrect VPC specifications are provided during ordering, the Outpost must be decommissioned and a new order placed.
 
 ## Option 1. Private connectivity through Direct Connect
 

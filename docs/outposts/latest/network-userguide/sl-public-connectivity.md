@@ -14,6 +14,10 @@ between your Outposts and the AWS Region:
 
 ![The service link public connection options.](images/outpost-rack2ndgen-sl-public-connection-options.PNG)
 
+###### Note
+
+Second-generation Outposts racks require a /24 or larger subnet for the service link infrastructure. This subnet is customer-provided IP address space used by Outpost networking devices to establish connectivity to AWS Region endpoints.
+
 ## Option 1. Public connectivity through the
 
 internet
