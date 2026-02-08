@@ -19,17 +19,16 @@ the specifications, payment options, and add-ons you can choose for your Amazon 
 ###### To generate an Amazon EC2 estimate
 
 1. Open the **Amazon EC2 estimate** page at [https://calculator.aws/#/createCalculator/ec2-enhancement](https://calculator.aws/#/createCalculator/ec2-enhancement "https://calculator.aws/#/createCalculator/ec2-enhancement")
-   .
-2. Enter the description for your Amazon EC2 estimate.
-3. Choose the **Location type** and **Region** from the dropdown.
-4. (Optional) Choose the parameters you want in your estimate.
-   - [Amazon EC2 instance specifications](#quick-ec2-specifications "#quick-ec2-specifications")
-   - [Payment options](#quick-pricing-strategy "#quick-pricing-strategy")
-   - [Amazon Elastic Block Store (EBS)](#quick-ebs "#quick-ebs")
-   - [Detailed monitoring costs](#ec2-detailed-monitoring "#ec2-detailed-monitoring")
-   - [Data transfer costs](#ec2-data-estimates "#ec2-data-estimates")
-   - [Elastic IP costs](#ec2-elastic "#ec2-elastic")
-   - [Additional costs](#ec2-additional-costs "#ec2-additional-costs")
+
+. 2. Enter the description for your Amazon EC2 estimate. 3. Choose the **Location type** and **Region** from the dropdown. 4. (Optional) Choose the parameters you want in your estimate.
+
+    * [Amazon EC2 instance specifications](#quick-ec2-specifications "#quick-ec2-specifications")
+    * [Payment options](#quick-pricing-strategy "#quick-pricing-strategy")
+    * [Amazon Elastic Block Store (EBS)](#quick-ebs "#quick-ebs")
+    * [Detailed monitoring costs](#ec2-detailed-monitoring "#ec2-detailed-monitoring")
+    * [Data transfer costs](#ec2-data-estimates "#ec2-data-estimates")
+    * [Elastic IP costs](#ec2-elastic "#ec2-elastic")
+    * [Additional costs](#ec2-additional-costs "#ec2-additional-costs")
 
 5. Choose **Save and add service**.
 
@@ -175,6 +174,7 @@ The default value is `30 GB`. You can enter `0
  GB` if you don't attach Amazon EBS volumes to your Amazon EC2 instance.
 You can also estimate additional Amazon EBS volumes by configuring and adding
 a standalone Amazon EBS calculator into your estimate at [https://calculator.aws/#/createCalculator/EBS](https://calculator.aws/#/createCalculator/EBS "https://calculator.aws/#/createCalculator/EBS")
+
 .
 
 ## Detailed monitoring costs

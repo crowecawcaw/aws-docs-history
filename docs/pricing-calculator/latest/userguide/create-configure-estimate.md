@@ -33,9 +33,9 @@ option.
 estimate
 
 1. Open the **Add service** page at [https://calculator.aws/#/addService](https://calculator.aws/#/addService "https://calculator.aws/#/addService")
-   .
-2. Enter `Amazon EC2` in the search bar and choose
-   **Configure**.
+
+. 2. Enter `Amazon EC2` in the search bar and choose
+**Configure**.
 
 ![Configure Amazon EC2](images/ec2-configure.png) 3. In the **Description** field, enter a description for
 your estimate. 4. Choose a **Region**. 5. In the EC2 specifications section, update the parameters based on your use
@@ -59,8 +59,8 @@ For process examples and tutorials that show estimates for specific services, se
 ###### To add more services to your estimate
 
 1. Open the **My estimate** page at [https://calculator.aws/#/estimate](https://calculator.aws/#/estimate "https://calculator.aws/#/estimate")
-   .
-2. Choose **Add Service**.
+
+. 2. Choose **Add Service**.
 
 ![Add services to your estimate](images/add-service.png) 3. Search for a service and choose **Configure**. 4. Enter the service parameters. Then, choose **Save and add service**. 5. Repeat this process as needed.
 
@@ -71,9 +71,9 @@ You can edit the inputs for a service added to your estimate.
 ###### To edit the inputs for a service
 
 1. Open the **My Estimate** page at [https://calculator.aws/#/estimate](https://calculator.aws/#/estimate "https://calculator.aws/#/estimate")
-   .
-2. In the **My Estimate** section, locate the service you want
-   to update. Then, choose the **Edit** icon.
+
+. 2. In the **My Estimate** section, locate the service you want
+to update. Then, choose the **Edit** icon.
 
 ![Choose the Edit icon button](images/edit-inputs.png) 3. Edit your service inputs. Then, choose **Save** to return to your
 **My Estimate** page.

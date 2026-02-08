@@ -32,8 +32,8 @@ architecture, or client.
 ###### To add a group to your estimate
 
 1. Open the **My estimate** page at [https://calculator.aws/#/estimate](https://calculator.aws/#/estimate "https://calculator.aws/#/estimate")
-   .
-2. Choose **Create group**.
+
+. 2. Choose **Create group**.
 
 ![Choose the Create a group button](images/create-group.png) 3. In the prompt that appears, enter a group name. 4. Choose **Create group**.
 
@@ -46,9 +46,8 @@ groups using this process.
 ###### To move a group
 
 1. Open the **My estimate** page at [https://calculator.aws/#/estimate](https://calculator.aws/#/estimate "https://calculator.aws/#/estimate")
-   .
-2. Select the check box of the groups and services you want to move.
-3. Choose **Move to**.
+
+. 2. Select the check box of the groups and services you want to move. 3. Choose **Move to**.
 
 ![Choose the Move to button](images/move-group.png) 4. Choose the destination group from the dropdown. 5. Choose **Move**.
 
