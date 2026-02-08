@@ -9,6 +9,8 @@ To use the **crypto sign ecdsa** command, you must first have an EC private key 
 You can generate an EC private key using the [Generate an asymmetric EC key
 pair with CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md") command with the `sign` attribute set to `true`.
 
+The resulting ECDSA signature is generated in the format `r||s`, where the r and s components are concatenated as raw binary data and returned in base64 encoded format.
+
 ###### Note
 
 Signatures can be verified in AWS CloudHSM with [The crypto verify category in CloudHSM CLI](cloudhsm_cli-crypto-verify.md "cloudhsm_cli-crypto-verify.md") subcommands.

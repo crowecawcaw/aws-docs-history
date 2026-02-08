@@ -28,7 +28,7 @@ the crypto officer (CO).
 ## Crypto officer (CO)
 
 In both the cloud management utility (CMU) and the key management utility (KMU), a crypto officer (CO) can perform user management operations. For example, they can create
-and delete users and change user passwords. For more information about CO users, see the [HSM user permissions table for AWS CloudHSM Management Utility](user-permissions-table-cmu.md "user-permissions-table-cmu.md"). When you activate a new cluster, the user changes from a [Precrypto Officer](#preco "#preco") (PRECO) to a crypto officer (CO).-->
+and delete users and change user passwords. For more information about CO users, see the [HSM user permissions table for AWS CloudHSM Management Utility](user-permissions-table-cmu.md "user-permissions-table-cmu.md"). When you activate a new cluster, the user changes from a [Precrypto Officer](#preco "#preco") (PRECO) to a crypto officer (CO).
 
 ## Crypto user (CU)
 

@@ -8,6 +8,7 @@ following operations:
 - Confirm a file has been signed in the HSM by a given public key.
 - Verify the signature was generated using the ECDSA signing mechanism.
 - Compare a signed file against a source file and determine whether the two are cryptographically related based on a given ecdsa public key and signing mechanism.
+- The ECDSA verification function expects the signature in the format `r||s`, where the r and s components are concatenated as raw binary data.
   To use the **crypto verify ecdsa** command, you must first have an EC public key in your AWS CloudHSM cluster.
   You can import an EC public key using the [Import a PEM format key with CloudHSM CLI](cloudhsm_cli-key-import-pem.md "cloudhsm_cli-key-import-pem.md") command with the `verify` attribute set to `true`.
 
