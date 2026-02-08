@@ -9,8 +9,6 @@ The Slurm REST API provides programmatic access to cluster management functions 
 - **API Versioning**: The API version corresponds to your Slurm installation. For Slurm 25.05, use version **v0.0.43**. The version number changes with each Slurm release. You can find the currently supported API versions in the [Slurm release notes](https://slurm.schedmd.com/release_notes.html "https://slurm.schedmd.com/release_notes.html").
 - **URL Structure**: The URL structure for the Slurm REST API is `http://`<privateIpAddress>`:`<port>`/`<api-version>`/`<endpoint>``. Detailed usage information for REST API endpoints can be found in the [Slurm documentation](https://slurm.schedmd.com/rest_api.html "https://slurm.schedmd.com/rest_api.html").
 
-For specific information on working with the Slurm REST API, see the REST client [Slurm documentation](https://slurm.schedmd.com/rest_clients.html "https://slurm.schedmd.com/rest_clients.html").
-
 ## Prerequisites
 
 Before using the Slurm REST API, ensure you have:
@@ -32,8 +30,7 @@ Before using the Slurm REST API, ensure you have:
     "partition": "compute",
     "nodes": 1,
     "tasks": 1,
-    "script": "#!/bin/bash\necho 'Hello from Slurm REST API'",
-    "environment": ["PATH=/usr/local/bin:/usr/bin:/bin"]
+    "script": "#!/bin/bash\necho 'Hello from Slurm REST API'"
   }
 }
 ```
