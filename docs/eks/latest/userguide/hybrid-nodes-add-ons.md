@@ -18,6 +18,8 @@ The following AWS add-ons are compatible with Amazon EKS Hybrid Nodes.
 | Node monitoring agent                   | v1.2.0-eksbuild.1 and above                                                                              |
 | CSI snapshot controller                 | v8.1.0-eksbuild.1 and above                                                                              |
 | AWS Private CA Connector for Kubernetes | v1.6.0-eksbuild.1 and above                                                                              |
+| Amazon FSx CSI driver                   | v1.7.0-eksbuild.1 and above                                                                              |
+| AWS Secrets Store CSI Driver provider   | v2.1.1-eksbuild.1 and above                                                                              |
 
 The following community add-ons are compatible with Amazon EKS Hybrid Nodes. To learn more about community add-ons, see [Community add-ons](community-addons.md "community-addons.md").
 

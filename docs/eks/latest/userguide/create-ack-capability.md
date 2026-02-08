@@ -39,11 +39,18 @@ When you create an ACK capability:
 
 1. EKS creates the ACK capability service and configures it to monitor and manage resources in your cluster
 2. Custom Resource Definitions (CRDs) are installed in your cluster
-3. The capability assumes the IAM Capability Role you provide
-4. ACK begins watching for its custom resources in your cluster
-5. The capability status changes from `CREATING` to `ACTIVE`
+3. An access entry is automatically created for your IAM Capability Role with capability-specific access entry policies that grant baseline Kubernetes permissions (see [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md"))
+4. The capability assumes the IAM Capability Role you provide
+5. ACK begins watching for its custom resources in your cluster
+6. The capability status changes from `CREATING` to `ACTIVE`
 
 Once active, you can create ACK custom resources in your cluster to manage AWS resources.
+
+###### Note
+
+The automatically created access entry includes the `AmazonEKSACKPolicy` which grants ACK permissions to manage AWS resources.
+Some ACK resources that reference Kubernetes secrets (such as RDS databases with passwords) require additional access entry policies.
+To learn more about access entries and how to configure additional permissions, see [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md").
 
 ## Next steps
 

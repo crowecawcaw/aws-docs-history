@@ -41,11 +41,18 @@ When you create an Argo CD capability:
 
 1. EKS creates the Argo CD capability service in the AWS control plane
 2. Custom Resource Definitions (CRDs) are installed in your cluster
-3. Argo CD begins watching for its custom resources (Applications, ApplicationSets, AppProjects)
-4. The capability status changes from `CREATING` to `ACTIVE`
-5. The Argo CD UI becomes accessible through its URL
+3. An access entry is automatically created for your IAM Capability Role with capability-specific access entry policies that grant baseline Kubernetes permissions (see [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md"))
+4. Argo CD begins watching for its custom resources (Applications, ApplicationSets, AppProjects)
+5. The capability status changes from `CREATING` to `ACTIVE`
+6. The Argo CD UI becomes accessible through its URL
 
 Once active, you can create Argo CD Applications in your cluster to deploy from your declarative sources.
+
+###### Note
+
+The automatically created access entry does not grant permissions to deploy applications to clusters.
+To deploy applications, you must configure additional Kubernetes RBAC permissions for each target cluster.
+See [Register target clusters](argocd-register-clusters.md "argocd-register-clusters.md") for details on registering clusters and configuring access.
 
 ## Next steps
 

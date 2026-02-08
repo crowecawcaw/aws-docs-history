@@ -35,11 +35,18 @@ When you create a kro capability:
 
 1. EKS creates the kro capability service and configures it to monitor and manage resources in your cluster
 2. Custom Resource Definitions (CRDs) are installed in your cluster
-3. The capability assumes the IAM Capability Role you provide (used only for the trust relationship)
-4. kro begins watching for `ResourceGraphDefinition` resources and their instances
-5. The capability status changes from `CREATING` to `ACTIVE`
+3. An access entry is automatically created for your IAM Capability Role with the `AmazonEKSKROPolicy` which grants permissions to manage ResourceGraphDefinitions and their instances (see [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md"))
+4. The capability assumes the IAM Capability Role you provide (used only for the trust relationship)
+5. kro begins watching for `ResourceGraphDefinition` resources and their instances
+6. The capability status changes from `CREATING` to `ACTIVE`
 
 Once active, you can create ResourceGraphDefinitions to define custom APIs and create instances of those APIs.
+
+###### Note
+
+The automatically created access entry includes the `AmazonEKSKROPolicy` which grants kro permissions to manage ResourceGraphDefinitions and their instances.
+To allow kro to create the underlying Kubernetes resources defined in your ResourceGraphDefinitions (such as Deployments, Services, or ACK resources), you must configure additional access entry policies.
+To learn more about access entries and how to configure additional permissions, see [Configure kro permissions](kro-permissions.md "kro-permissions.md") and [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md").
 
 ## Next steps
 

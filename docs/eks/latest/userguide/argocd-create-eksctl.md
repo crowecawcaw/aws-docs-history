@@ -57,9 +57,6 @@ Get your Identity Center instance ARN and user ID for RBAC configuration:
 # Get your Identity Center instance ARN
 aws sso-admin list-instances --query 'Instances[0].InstanceArn' --output text
 
-# Get your Identity Center region
-aws sso-admin list-instances --query 'Instances[0].IdentityStoreId' --output text | cut -d'/' -f1
-
 # Get a user ID for admin access (replace 'your-username' with your Identity Center username)
 aws identitystore list-users \
   --identity-store-id $(aws sso-admin list-instances --query 'Instances[0].IdentityStoreId' --output text) \
@@ -71,7 +68,7 @@ Note these values - you’ll need them in the next step.
 ## Step 3: Create an eksctl configuration file
 
 Create a file named `argocd-capability.yaml` with the following content.
-Replace the placeholder values with your cluster name, region, IAM role ARN, Identity Center instance ARN, Identity Center region, and user ID:
+Replace the placeholder values with your cluster’s name, cluster’s region, IAM role ARN, Identity Center instance ARN, Identity Center region, and user ID:
 
 ```
 apiVersion: eksctl.io/v1alpha5
@@ -79,12 +76,13 @@ kind: ClusterConfig
 
 metadata:
   name: `my-cluster`
-  region: `region-code`
+  region: `cluster-region-code`
 
 capabilities:
   - name: my-argocd
     type: ARGOCD
     roleArn: arn:aws:iam::[.replaceable]`111122223333`:role/ArgoCDCapabilityRole
+    deletePropagationPolicy: RETAIN
     configuration:
       argocd:
         awsIdc:

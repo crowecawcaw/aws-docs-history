@@ -47,7 +47,7 @@ Can update projects and configure project roles, but cannot change global Argo C
 
 - Update existing projects (cannot create or delete projects)
 - Configure project roles and permissions
-- List and access all clusters and repositories
+- View GPG keys and certificates
 - Cannot change global Argo CD configuration
 - Cannot manage clusters or repositories directly
 - Cannot see or manage Applications without project roles
@@ -58,6 +58,7 @@ Read-only access to Argo CD resources:
 
 - View project configurations
 - List all projects (including projects the user is not assigned to)
+- View GPG keys and certificates
 - Cannot list clusters or repositories
 - Cannot make any changes
 - Cannot see or manage Applications without project roles
@@ -295,6 +296,7 @@ spec:
     description: Team A developers - can manage Applications
     policies:
     - p, proj:team-a:developer, applications, *, team-a/*, allow
+    - p, proj:team-a:developer, clusters, get, *, allow  # See cluster names in UI
     groups:
     - 686103e0-f051-7068-b225-e6392b959d9e  # Identity Center group ID
 
@@ -302,9 +304,15 @@ spec:
     description: Team A viewers - read-only Application access
     policies:
     - p, proj:team-a:viewer, applications, get, team-a/*, allow
+    - p, proj:team-a:viewer, clusters, get, *, allow  # See cluster names in UI
     groups:
     - 786203e0-f051-7068-b225-e6392b959d9f  # Identity Center group ID
 ```
+
+###### Note
+
+Include `clusters, get, *, allow` in project roles to allow users to see cluster names in the UI.
+Without this permission, the destination cluster displays as "unknown".
 
 **Understanding project role policies**:
 

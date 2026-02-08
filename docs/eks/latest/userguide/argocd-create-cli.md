@@ -69,7 +69,7 @@ echo "IDC_INSTANCE_ARN=$IDC_INSTANCE_ARN"
 echo "IDC_USER_ID=$IDC_USER_ID"
 ```
 
-Create the capability with Identity Center integration. Replace `region-code` with the AWS Region where your cluster is located and `my-cluster` with your cluster name:
+Create the capability with Identity Center integration. Replace `region-code` with the AWS Region where your cluster is located and `my-cluster` with your cluster name and `idc-region-code` with the region code where you IAM Identity Center has been configured:
 
 ```
 aws eks create-capability \
@@ -83,7 +83,7 @@ aws eks create-capability \
     "argoCd": {
       "awsIdc": {
         "idcInstanceArn": "'$IDC_INSTANCE_ARN'",
-        "idcRegion": "'[.replaceable]`region-code`'"
+        "idcRegion": "'[.replaceable]`idc-region-code`'"
       },
       "rbacRoleMappings": [{
         "role": "ADMIN",

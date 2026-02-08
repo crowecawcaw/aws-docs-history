@@ -5,7 +5,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 # Register target clusters
 
 Register clusters to enable Argo CD to deploy applications to them.
-You can register the same cluster where Argo CD is running (local cluster) or remote clusters in different accounts or regions.
+You can register the same cluster where Argo CD is running (local cluster) or remote clusters in different accounts or regions. Once a cluster is registered, it will remain in an Unknown connection state until you create an application within that cluster. To create an Argo CD application after your cluster is registered, see [Create Applications](argocd-create-application.md "argocd-create-application.md").
 
 ## Prerequisites
 
@@ -299,12 +299,6 @@ Argo CD must be able to read all resource types across the cluster for health ch
 Without cluster-wide read access, Argo CD will show errors when checking application health.
 
 ## Restrict cluster access with Projects
-
-###### Important
-
-In the managed capability, each target cluster can only be associated with one Argo CD Project.
-This differs from open source Argo CD where multiple projects can deploy to the same cluster.
-Specify the project when registering the cluster using the `project` field in the cluster secret.
 
 Use Projects to control which clusters and namespaces Applications can deploy to by configuring the allowed target clusters and namespaces in `spec.destinations`:
 
