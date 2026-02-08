@@ -63,6 +63,8 @@ remediation. These solutions provide a central place for your
 security investigators to monitor for issues and take corrective
 action.
 
+In addition to AWS Security Hub CSPM, AWS introduced [Security Hub Advanced](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"). This service, announced at re:Invent 2025, transforms how organizations prioritize their most critical security issues and respond at scale to protect their cloud environments. The enhanced Security Hub now uses advanced analytics to automatically correlate, enrich, and prioritize security signals across your cloud environment. Security Hub seamlessly integrates with [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/"), [Amazon Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/"), [Amazon Macie](https://aws.amazon.com/macie/ "https://aws.amazon.com/macie/"), and [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/cspm/features/ "https://aws.amazon.com/security-hub/cspm/features/"). Correlated findings in Security Hub can result in a net-new finding, called an exposure finding, which includes an assumed attack path based on vulnerabilities found in each resource.
+
 While some non-compliant resource situations are unique and
 require human judgment to remediate, other situations have a
 standard response that you can define programmatically. For
