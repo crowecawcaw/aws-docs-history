@@ -18,7 +18,7 @@ two separate projects. You can use the Deadline Cloud console to create the test
          user and group.
        - For the queue service role, create a new role named
          `AssetDemoFarm-Q1-Role`
-       - Clear the default Conda queue environment checkbox.
+       - Clear the default conda queue environment checkbox.
 
     2. Create the second queue called `Q2`. Use the following
        configuration, use the defaults for all other items.
@@ -30,7 +30,7 @@ two separate projects. You can use the Deadline Cloud console to create the test
          user and group.
        - For the queue service role, create a new role named
          `AssetDemoFarm-Q2-Role`
-       - Clear the default Conda queue environment checkbox.
+       - Clear the default conda queue environment checkbox.
 
 3.  Create a single customer-managed fleet that runs the jobs from both queues. To create
     the fleet, follow the procedure in [Create a customer-managed

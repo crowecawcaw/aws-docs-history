@@ -693,7 +693,7 @@ Resources:
         - name: CondaPackages
           type: STRING
           description: >
-            This is a space-separated list of Conda package match specifications to install for the job.
+            This is a space-separated list of conda package match specifications to install for the job.
             E.g. "blender=3.6" for a job that renders frames in Blender 3.6.
 
             See https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications
@@ -704,7 +704,7 @@ Resources:
         - name: CondaChannels
           type: STRING
           description: >
-            This is a space-separated list of Conda channels from which to install packages. &ADC; SMF packages are
+            This is a space-separated list of conda channels from which to install packages. &ADC; SMF packages are
             installed from the "deadline-cloud" channel that is configured by &ADC;.
 
             Add "conda-forge" to get packages from the https://conda-forge.org/ community, and "defaults" to get packages

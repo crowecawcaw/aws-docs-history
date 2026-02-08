@@ -207,7 +207,10 @@ JSON
  "sso:GetManagedApplicationInstance",
  "sso:GetSharedSsoConfiguration",
  "sso:ListInstances",
- "sso:GetApplicationAssignmentConfiguration"
+ "sso:GetApplicationAssignmentConfiguration",
+ "sso:GetSSOStatus",
+ "sso:ListRegions",
+ "sso:DescribeRegion"
  ],
  "Resource": "*"
  },

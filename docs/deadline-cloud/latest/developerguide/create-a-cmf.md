@@ -48,14 +48,14 @@ fleet**
 We recommend associating a fleet only with queues that are all in
 the same trust boundary. This recommendation ensures a strong security boundary
 between running jobs on the same worker. 19. Review the queue associations, then choose **Next**. 20. (Optional) For Default Conda queue environment,
-we'll create an environment for your queue that will install Conda packages
+we'll create an environment for your queue that will install conda packages
 requested by jobs.
 
 ###### Note
 
-The Conda queue environment is used to install Conda packages requested by jobs. Typically,
-you should uncheck the Conda queue environment on queues associated with CMFs because
-CMFs won't have the required Conda commands installed by default. 21. (Optional) Add tags to your CMF. For more information, see [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). 22. Review your fleet configuration and make any changes, then choose
+The conda queue environment is used to install conda packages requested by jobs. Typically,
+you should uncheck the conda queue environment on queues associated with CMFs because
+CMFs won't have the required conda commands installed by default. 21. (Optional) Add tags to your CMF. For more information, see [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). 22. Review your fleet configuration and make any changes, then choose
 **Create fleet**. 23. Select the **Fleets** tab, then note the
 **Fleet ID**.
 

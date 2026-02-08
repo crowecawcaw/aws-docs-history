@@ -163,5 +163,5 @@ Here are some ways you can make your job bundle portable.
   - For example, you can use the `CondaPackages` and/or
     `RezPackages` parameters in your job, with a default parameter value that
     lists the application package names and versions the job requires. Then, you can use
-    one of the [sample Conda or Rez queue environments](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments") to provide a virtual environment for
+    one of the [sample conda or Rez queue environments](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments") to provide a virtual environment for
     the job.

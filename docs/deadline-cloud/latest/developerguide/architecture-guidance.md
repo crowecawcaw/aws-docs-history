@@ -48,7 +48,7 @@ Deadline Cloud provides a number of sample job definitions in the [samples repos
 
 After a job is submitted to Deadline Cloud and assigned to a worker, the script from the job definition is executed on the worker. In most cases, this script will invoke an application to perform the actual processing, such as a renderer, composite, encode, filtering or any other of a number of compute-intensive tasks. Application management is the concept of ensuring the necessary version of the required software is available to the workers.
 
-You can manage applications using any package management system you like, but Deadline Cloud provides a number of a tools to easily enable the use of Conda packages. [Conda](https://anaconda.org/anaconda/conda "https://anaconda.org/anaconda/conda") is an open-source, cross-platform, language agnostic package manager and environment management system.
+You can manage applications using any package management system you like, but Deadline Cloud provides a number of a tools to easily enable the use of conda packages. [Conda](https://anaconda.org/anaconda/conda "https://anaconda.org/anaconda/conda") is an open-source, cross-platform, language agnostic package manager and environment management system.
 
 ### Deadline Cloud-managed conda channel for service-managed fleets (SMF)
 
@@ -203,7 +203,7 @@ A Deadline Cloud deployment for ecommerce automation can be implemented using:
 
 - Automated workflow job submission through custom API integration in the existing ecommerce ingestion application
 - Custom job definitions tailored to standardized product visualization
-- Application management via Deadline Cloud-managed Conda channels
+- Application management via Deadline Cloud-managed conda channels
 - Usage-based licensing automatically configured for supported software
 - Direct Amazon S3 integration for asset management
 - Custom monitoring application integrated with existing product management systems

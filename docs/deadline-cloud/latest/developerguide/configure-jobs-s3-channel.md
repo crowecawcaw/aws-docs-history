@@ -177,4 +177,4 @@ is first in the channel list. If a specified package version is not found in the
 channel then subsequent channels will be checked in order for the package version.
 
 For customer-managed fleets, you can enable the use of conda packages by using one of
-the [Conda queue environment samples](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md") in the Deadline Cloud samples GitHub repository.
+the [conda queue environment samples](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md") in the Deadline Cloud samples GitHub repository.
