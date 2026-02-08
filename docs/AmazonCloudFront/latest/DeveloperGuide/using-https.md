@@ -28,7 +28,7 @@ with your origin, here’s what happens when CloudFront receives a request:
 
 To help thwart SSL renegotiation-type attacks, CloudFront does not support renegotiation for viewer and origin requests.
 
-Alternatively, you can turn on mutual authentication for your CloudFront distribution. For more information, see [Mutual TLS (mTLS) viewer](mtls-authentication.md "mtls-authentication.md").
+Alternatively, you can turn on mutual authentication for your CloudFront distribution. For more information, see [Mutual TLS authentication with CloudFront (Viewer mTLS)](mtls-authentication.md "mtls-authentication.md").
 
 For information about how to require HTTPS between viewers and CloudFront, and between CloudFront and your origin, see the following topics.
 

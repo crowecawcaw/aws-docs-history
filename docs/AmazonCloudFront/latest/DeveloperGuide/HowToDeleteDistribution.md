@@ -17,6 +17,7 @@ attached to an S3 bucket](private-content-restricting-access-to-s3.md#delete-oac
   www.example.com), even if another distribution has an alternate domain name
   with a wildcard (\*) that matches the same domain (such as
   \*.example.com).
+- You can't delete a distribution that is subscribed to a [CloudFront flat-rate pricing plan](flat-rate-pricing-plan.md "flat-rate-pricing-plan.md"). You will receive an error that says, "You can't delete this distribution while it's subscribed to a pricing plan." You must first cancel the pricing plan and then after the current billing cycle, delete the distribution.
 
 Multi-tenant
 Before you can delete a multi-tenant distribution, you must first delete all associated distribution tenants from it.

@@ -1,4 +1,4 @@
-# Mutual TLS (mTLS) viewer
+# Mutual TLS authentication with CloudFront (Viewer mTLS)
 
 Mutual TLS Authentication (Mutual Transport Layer Security Authentication — mTLS) is a security protocol that extends standard TLS authentication by requiring bidirectional certificate-based authentication, where both client and server must prove their identity before establishing a secure connection. Using mutual TLS, you can ensure that only clients presenting trusted TLS certificates gain access to your CloudFront distributions.
 

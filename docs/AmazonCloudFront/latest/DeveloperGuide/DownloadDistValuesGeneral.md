@@ -382,7 +382,7 @@ select **Enable IPv6**. For more information, see [Enable IPv6 for CloudFront di
 
 ## Mutual authentication
 
-Optional. You can choose to turn on mutual authentication for your CloudFront distribution. For more information, see [Mutual TLS (mTLS) viewer](mtls-authentication.md "mtls-authentication.md").
+Optional. You can choose to turn on mutual authentication for your CloudFront distribution. For more information, see [Mutual TLS authentication with CloudFront (Viewer mTLS)](mtls-authentication.md "mtls-authentication.md").
 
 ## Enable IPv6 for custom origins (origin requests)
 

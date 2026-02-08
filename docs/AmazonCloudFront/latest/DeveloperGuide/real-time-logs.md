@@ -717,7 +717,7 @@ The ID of the distribution tenant. 70. **`connection-id`**
 A unique identifier for the TLS connection.
 
 You must enable mTLS for your distributions before you can get information
-for this field. For more information, see [Mutual TLS (mTLS) viewer](mtls-authentication.md "mtls-authentication.md").
+for this field. For more information, see [Mutual TLS authentication with CloudFront (Viewer mTLS)](mtls-authentication.md "mtls-authentication.md").
 
 ### Endpoint (Kinesis Data Streams)
 

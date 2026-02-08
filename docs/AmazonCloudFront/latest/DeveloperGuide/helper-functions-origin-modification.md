@@ -481,6 +481,11 @@ the origin name that you defined when setting up the origin.
 If you have a VPC origin configured in your distribution, you can use this method
 to update your origin to your VPC origin. For more information, see [Restrict access with VPC origins](private-content-vpc-origins.md "private-content-vpc-origins.md").
 
+###### Notes
+
+- The `selectRequestOriginById()` function cannot select an origin that has mutual TLS (origin) enabled. Attempting to select a mutual TLS (origin) enabled origin using this function will result in a validation error.
+- If your use case requires dynamic origin selection with mutual TLS (origin), use `updateRequestOrigin()` instead, ensuring all target origins use the same client certificate.
+
 **Request**
 
 ```
@@ -590,6 +595,11 @@ origin to the secondary origin, using the failover criteria.
 
 If you have a VPC origin configured in your distribution, you can use this method
 to create an origin group using a VPC origin. For more information, see [Restrict access with VPC origins](private-content-vpc-origins.md "private-content-vpc-origins.md").
+
+###### Notes
+
+- The `createRequestOriginGroup()` function does not support creating origin groups that include Mutual TLS (origin) enabled origins. Origin groups with Mutual TLS (origin) origins cannot be created dynamically through CloudFront Functions.
+- If you need origin failover capabilities with Mutual TLS (origin), configure origin groups directly in your CloudFront distribution settings rather than creating them dynamically in functions.
 
 ### Request
 
