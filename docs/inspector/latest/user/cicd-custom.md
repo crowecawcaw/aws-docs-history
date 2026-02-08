@@ -130,13 +130,6 @@ format or Amazon Inspector finding JSON. The default can be changed using the
         },
         "references": [
           {
-            "id": "SNYK-JAVA-ORGAPACHELOGGINGLOG4J-2314720",
-            "source": {
-              "name": "SNYK",
-              "url": "https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHELOGGINGLOG4J-2314720"
-            }
-          },
-          {
             "id": "GHSA-jfh8-c2jp-5v3q",
             "source": {
               "name": "GITHUB",
@@ -174,16 +167,6 @@ format or Amazon Inspector finding JSON. The default can be changed using the
             "severity": "none",
             "method": "other",
             "vector": "model:v2023.03.01,date:2023-06-27T00:00:00+0000"
-          },
-          {
-            "source": {
-              "name": "SNYK",
-              "url": "https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHELOGGINGLOG4J-2314720"
-            },
-            "score": 10.0,
-            "severity": "critical",
-            "method": "CVSSv31",
-            "vector": "AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:H"
           },
           {
             "source": {
@@ -317,7 +300,6 @@ format or Amazon Inspector finding JSON. The default can be changed using the
         "severity": "critical",
         "source": "https://nvd.nist.gov/vuln/detail/CVE-2021-44228",
         "related": [
-          "SNYK-JAVA-ORGAPACHELOGGINGLOG4J-2314720",
           "GHSA-jfh8-c2jp-5v3q"
         ],
         "description": "Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases 2.12.2, 2.12.3, and 2.3.1) JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled. From log4j 2.15.0, this behavior has been disabled by default. From version 2.16.0 (along with 2.12.2, 2.12.3, and 2.3.1), this functionality has been completely removed. Note that this vulnerability is specific to log4j-core and does not affect log4net, log4cxx, or other Apache Logging Services projects.",
@@ -359,12 +341,6 @@ format or Amazon Inspector finding JSON. The default can be changed using the
               "cvss3_base_vector": "AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
               "cvss2_base_score": 9.3,
               "cvss2_base_vector": "AC:M/Au:N/C:C/I:C/A:C"
-            },
-            {
-              "source": "SNYK",
-              "severity": "critical",
-              "cvss3_base_score": 10.0,
-              "cvss3_base_vector": "AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H/E:H"
             },
             {
               "source": "GITHUB",

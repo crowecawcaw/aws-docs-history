@@ -53,7 +53,9 @@ None will be visible in Amazon Inspector.
       2. Choose **Enable periodic scanning** or **Disable periodic scanning**.
          If you choose **Enable periodic scanning**, set the scan frequency by choosing the week and day you want code to be scanned.
          You can also scan on event-based triggers.
-         These events include when a pull request is open against the default branch and when a commit is pushed to the default branch.
+         These events include when a new pull request is initially opened against the default branch and when a commit is merged or pushed to the default branch.
+         Scans are not triggered on subsequent updates or revisions to an existing pull request.
+         To trigger a new scan, close and reopen the pull request.
 
 6. Under **Scan analysis**, decide whether to configure a complete scanning analysis or customized scanning analysis:
    1. (Option 1) If you choose **Complete scanning analysis**, you apply all of the following scan analyses:

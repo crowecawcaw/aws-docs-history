@@ -7,6 +7,8 @@ To receive notifications about documentation updates, you can subscribe to an RS
 
 | Change                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Date               |
 | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [New managed policy](doc-history.md "doc-history.md")                                                              | Amazon Inspector has released a new managed policy `AmazonInspector2ManagedTelemetryPolicy` that grants permissions for Amazon Inspector telemetry operations, allowing the service to collect and transmit package inventory data for vulnerability scanning. For information, see [Amazon Inspector updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").                                                                                                                                                                                                                                                                                                          | February 5, 2026   |
+| [Updated policy](doc-history.md "doc-history.md")                                                                  | Amazon Inspector adds new permissions to the service-linked role named [`AmazonInspector2ServiceRolePolicy`](slr-permissions.md "slr-permissions.md").<br>Amazon Inspector has added a new permission that allows Amazon Inspector to describe firewall metadata for network reachability analysis.<br>Additionally, Amazon Inspector has added additional resource scoping to allow Amazon Inspector to create, update, and start SSM associations with SSM document `AWS-ConfigureAWSPackage`.<br>For more information, see [Service-linked role permissions for Amazon Inspector](slr-permissions.md "slr-permissions.md").                                                                                                                                        | February 3, 2026   |
 | [Updates for the Amazon Inspector SSM plugin and Amazon Inspector SBOM Generator](doc-history.md "doc-history.md") | Amazon Inspector is aware of a scenario where the Amazon Inspector SSM plugin and Amazon Inspector SBOM Generator may generate vulnerability findings for `CVE-2025-61728, CVE-2025-61730, and CVE-2025-61726`. These vulnerabilities can be resolved by upgrading the Amazon Inspector SSM plugin version to 1.0.2327.0, or Amazon Inspector SBOM Generator 1.10.1 or later.                                                                                                                                                                                                                                                                                                                                                                                         | January 29, 2026   |
 | [Updates for the Amazon Inspector SSM plugin and Amazon Inspector SBOM Generator](doc-history.md "doc-history.md") | Amazon Inspector is aware of a scenario where the Amazon Inspector SSM plugin and Amazon Inspector SBOM Generator might generate vulnerability findings for `CVE-2025-61729`. It was confirmed these applications are not impacted by this CVE. We are presently working on improvements to resolve this detection. In the mean time, customers may safely ignore or suppress this vulnerability.                                                                                                                                                                                                                                                                                                                                                                     | December 3, 2025   |
 | [Updates for Amazon Inspector SBOM Generator](doc-history.md "doc-history.md")                                     | Amazon Inspector is aware of a scenario where the Amazon Inspector SBOM Generator might generate vulnerability findings for `CVE-2025-47914` and `CVE-2025-58181`. It was confirmed the Amazon Inspector SBOM Generator is not impacted by these CVEs. We are presently working on improvements to resolve these detections. In the mean time, customers may safely ignore or suppress these vulnerabilities.                                                                                                                                                                                                                                                                                                                                                         | November 20, 2025  |
@@ -97,27 +99,27 @@ To receive notifications about documentation updates, you can subscribe to an RS
 
 Amazon Inspector continuously monitors and identifies malicious packages from the NPM registry to protect your applications from supply chain attacks.
 
-**Latest Update:** 2026-01-23 12:00:00 UTC
+**Latest Update:** 2026-02-06 12:00:00 UTC
 
 ### Detection Summary
 
-- **Lifetime Total:** 191,545 malicious packages identified
-- **This Month:** 418 new malicious packages identified
-- **Last Month:** 1,096 new malicious packages identified
-- **This Week:** 138 new malicious packages identified
-- **Last Week:** 115 new malicious packages identified
+- **Lifetime Total:** 191,801 malicious packages identified
+- **This Month:** 147 new malicious packages identified
+- **Last Month:** 527 new malicious packages identified
+- **This Week:** 147 new malicious packages identified
+- **Last Week:** 96 new malicious packages identified
 
 ### Recent Malicious Package Reports (Last 10)
 
-| Package Name                            | MAL-ID       | Detection Date |
-| --------------------------------------- | ------------ | -------------- |
-| @transaction-list/transaction-list-sm   | MAL-2026-475 | 2026-01-22     |
-| @transaction-list/transaction-list-xs   | MAL-2026-476 | 2026-01-22     |
-| bttr-devs                               | MAL-2026-477 | 2026-01-22     |
-| domino-elements                         | MAL-2026-478 | 2026-01-22     |
-| integromat-ui                           | MAL-2026-479 | 2026-01-22     |
-| kwp-shared-components-production-system | MAL-2026-480 | 2026-01-22     |
-| oasis-os-provider-messaging             | MAL-2026-481 | 2026-01-22     |
-| public-site-boostmoney-ui               | MAL-2026-482 | 2026-01-22     |
-| public-site-cms-ui                      | MAL-2026-483 | 2026-01-22     |
-| translation-note                        | MAL-2026-484 | 2026-01-22     |
+| Package Name                  | MAL-ID       | Detection Date |
+| ----------------------------- | ------------ | -------------- |
+| web3-sinon                    | MAL-2026-807 | 2026-02-06     |
+| web3-chain-sinon              | MAL-2026-806 | 2026-02-06     |
+| aligned-arrays                | MAL-2026-805 | 2026-02-06     |
+| breadcrumb-service            | MAL-2026-804 | 2026-02-06     |
+| @sbseg-plugin/qbo-web-app-ui  | MAL-2026-802 | 2026-02-06     |
+| @rsgweb/utils                 | MAL-2026-801 | 2026-02-06     |
+| @rsgweb/tina                  | MAL-2026-800 | 2026-02-06     |
+| @rsgweb/rockstar-account      | MAL-2026-799 | 2026-02-06     |
+| @rsgweb/modules-core-www-page | MAL-2026-798 | 2026-02-06     |
+| @rsgweb/modules-core-feedback | MAL-2026-797 | 2026-02-06     |

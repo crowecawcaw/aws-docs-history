@@ -15,9 +15,7 @@ The version of the programming language compiler used to build the application i
 
 ###### Note
 
-For ECR container images, Amazon Inspector can scan for operating system and programming language package vulnerabilities.
-Amazon Inspector does not scan for toolchain vulnerabilities in Rust.
-The version of the programming language compiler used to build the application introduces these vulnerabilities.
+For ECR container images, Amazon Inspector can scan for operating system and programming language package vulnerabilities. Amazon Inspector also supports hardened images provided by Chainguard and Minimus. Amazon Inspector does not scan for toolchain vulnerabilities in Rust——the version of the programming language compiler used to build the application introduces these vulnerabilities.
 
 - AWS Lambda functions
 
