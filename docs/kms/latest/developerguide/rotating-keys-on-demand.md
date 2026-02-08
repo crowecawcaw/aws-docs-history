@@ -12,7 +12,7 @@ is scheduled to automatically rotate on April 14, 2024, and you perform an on-de
 rotation on April 10, 2024, the key will automatically rotate, as scheduled, on April
 14, 2024 and every 730 days thereafter.
 
-You can perform on-demand key rotation a maximum of 10 times per KMS key. You can
+You can perform on-demand key rotation a maximum of 25 times per KMS key. You can
 use the AWS KMS console to view the number of remaining on-demand rotations available for
 a KMS key.
 

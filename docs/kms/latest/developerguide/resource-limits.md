@@ -23,7 +23,7 @@ Region.
 | [Aliases per KMS key](#aliases-per-key "#aliases-per-key")                                    | 50            | Customer created aliases | Yes        |
 | [Grants per KMS key](#grants-per-key "#grants-per-key")                                       | 50,000        | Customer managed keys    | Yes        |
 | [Custom key store resource quota](#cks-resource-quota "#cks-resource-quota")                  | 10            | AWS account and Region   | Yes        |
-| [On-demand rotation](#on-demand-rotation-resource-quota "#on-demand-rotation-resource-quota") | 10            | Customer managed keys    | No         |
+| [On-demand rotation](#on-demand-rotation-resource-quota "#on-demand-rotation-resource-quota") | 25            | Customer managed keys    | No         |
 
 In addition to resource quotas, AWS KMS uses request quotas to ensure the responsiveness of the
 service. For details, see [Request quotas](requests-per-second.md "requests-per-second.md").
@@ -76,10 +76,10 @@ This quota applies to the total number of custom key stores in each account and 
 including all [AWS CloudHSM key stores](keystore-cloudhsm.md "keystore-cloudhsm.md") and [external key stores](keystore-external.md "keystore-external.md"), regardless of their connection
 state.
 
-## On-demand rotation: 10
+## On-demand rotation: 25
 
 You can perform [on-demand key rotation](rotating-keys-on-demand.md "rotating-keys-on-demand.md") a
-maximum of 10 times per KMS key. If you try to perform more on-demand rotations, the
+maximum of 25 times per KMS key. If you try to perform more on-demand rotations, the
 [RotateKeyOnDemand](../APIReference/API_RotateKeyOnDemand.md "../APIReference/API_RotateKeyOnDemand.md") operation
 fails.
 
