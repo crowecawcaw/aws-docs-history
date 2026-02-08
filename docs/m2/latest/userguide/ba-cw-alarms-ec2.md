@@ -10,26 +10,20 @@ possible errors. This allows you to have more visible notifications whenever you
 applications encounter exceptions. The following sections help you understand and learn
 about the configuration of CloudWatch logging and alarm setup.
 
-## Deployment of CloudWatch logging
+## Enable CloudWatch logging
 
-By default, the AWS Blu Age Runtime contains a logging file named
-`logback-cloudwatch.yml`. This file is referenced in the
-`application-main.yml` file, but this reference is commented
-out.
+To enable CloudWatch logging, create a `logback-cloudwatch.xml` file in the config folder using the configuration template provided in the following section. Then, reference this file in the `application-main.yml` file by uncommenting the following lines:
 
 ```
 # logging:
 #  config: classpath:logback-cloudwatch.xml
 ```
 
-Both files are in the config folder, and by uncommenting the above lines, the feature
-can be activated. CloudWatch logging can be configured, as explained in the following
-sections.
+After uncommenting these lines, CloudWatch logging will be activated and can be further configured as explained in the following sections.
 
 ## Configuration of CloudWatch logging
 
-The default `logback-cloudwatch.xml` file has the following
-contents.
+Use the following template to create the `logback-cloudwatch.xml` file:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>

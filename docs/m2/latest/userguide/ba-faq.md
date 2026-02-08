@@ -408,7 +408,7 @@ refer to the [AWS Mainframe Modernization lifecycle documentation](lifecycle-m2.
 
 See details in [Release Notes](ba-release-notes.md "ba-release-notes.md"). 42. **What does 'Standalone' mean in the context of BAC and JAC ?**
 
-Standalone refers to a special packaging and deployment mode for BAC (Blusam Administration Console) and JAC (JICS Administration Console) that allows these web applications to run independently in their own Tomcat server, separate from your modernized application. The BAC and JAC standalone versions are available into `aws-bluage-webapps-x.y.z.zip`. BAC and JAC non-standalone versions are available into `aws-bluage-runtime-x.y.z.zip` under `webapps-consoles` folder. See [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
+Standalone refers to a special packaging and deployment mode for BAC (Blusam Administration Console) and JAC (JICS Administration Console) that allows these web applications to run independently in their own Tomcat server, separate from your modernized application. The BAC and JAC standalone versions are available into `aws-bluage-webapps-x.y.z.zip`. BAC and JAC non-standalone versions are available into `gapwalk-x.y.z.zip` under `webapps-consoles` folder. See [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
 
 ## Data
 

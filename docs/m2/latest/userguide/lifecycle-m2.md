@@ -68,25 +68,36 @@ components to recent supported versions.
 
 ## Version upgrade
 
-AWS Mainframe Modernization provides newer versions of each supported component so you can stay
-up-to-date with the latest maintenance updates and features. Newer versions can include
-bug fixes, security enhancements, and other improvements for the components. We
-recommend you should upgrade regularly to benefit from security fixes, bug fixes, and
-feature enhancements. When AWS Mainframe Modernization releases a new version, you can choose how and when
-to upgrade your existing deployments. There are two kinds of upgrades: major version
-upgrades and minor version upgrades. In general, a major engine version upgrade can
-introduce changes that aren't compatible with existing applications. In that case,
-substantial application changes may be required for a major version upgrade. In
-contrast, a minor version upgrade includes changes that are mostly backward-compatible
-with existing applications. Little to no changes may be required for a minor version
-upgrade.
+AWS Transform for Mainframe Refactor regularly releases new versions of its transformation engine and supporting components. These updates deliver bug fixes, security improvements, performance enhancements, expanded platform support, and new modernization capabilities.
+We strongly recommend upgrading regularly to take advantage of the latest fixes, features, and security updates. When a new version becomes available, you control if and when to apply it to your transformation projects and generated artifacts.
+Version releases follow a Major.Minor.Patch numbering scheme and fall into three categories:
 
-You should perform non-regression tests prior to performing components’ version
-upgrades. It's best practice to use DevOps test and deployment pipelines. DevOps test
-pipelines can be built during modernization projects, and should be maintained to
-automate application testing when performing component upgrades and application code
-changes. You can also use blue/green deployments or canary deployment during upgrades.
-You can learn more about such deployments and change management at [AWS Well-Architected Reliability Pillar](../../../wellarchitected/latest/reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md#implementation-guidance "../../../wellarchitected/latest/reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md#implementation-guidance").
+- **Major** releases introduce significant new capabilities or structural changes. These typically include:
+
+      + Support for additional legacy platforms (e.g., Fujitsu GS21).
+      + New legacy language support (e.g., Natural).
+      + New legacy database support (e.g., Adabas, Fujitsu NDB).
+      + Major version updates to the target modernization stack (e.g., newer Spring, Java, or PostgreSQL versions).
+
+  Major releases may introduce _breaking changes_ that require adjustments to existing modernized applications, especially when regenerating code or adapting to updated target architecture definitions.
+
+- **Minor** releases deliver evolutionary improvements, bug fixes, and maintenance updates. They keep both the supported legacy platform/language/database definitions
+  and the target modernization stack unchanged.
+
+However, minor releases can still include _breaking changes_ in generated source code or runtime classes with internal usage purpose.
+This may affect already modernized applications that have undergone manual post-generation maintenance and cannot be safely regenerated from the original legacy sources without additional rework.
+
+- **Patch** releases serve as an emergency channel to quickly address critical regressions or urgent fixes introduced in recent versions while preserving compatibility.
+  They are narrowly scoped and aim to restore stability with minimal risk.
+
+To minimize risks during any upgrade:
+
+- Always run comprehensive non-regression tests before applying version changes to live or production-bound projects.
+- Leverage DevOps test and deployment pipelines (ideally built during your modernization initiative) to automate validation of generated code and runtime behavior after upgrades.
+- Consider blue/green or canary deployment strategies for runtime environments when upgrading components.
+
+For more guidance on deployment strategies and change management,
+refer to the [AWS Well-Architected Reliability Pillar](../../../wellarchitected/latest/reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md#implementation-guidance "../../../wellarchitected/latest/reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md#implementation-guidance").
 
 ## AWS Mainframe Modernization Refactor with AWS Blu Age release overview
 

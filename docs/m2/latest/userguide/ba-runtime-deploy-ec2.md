@@ -31,10 +31,7 @@ Throughout this guide, the Tomcat installation path is assumed to be
 `/m2-anywhere/tomcat-gapwalk/velocity`. Ensure you use this path when following the
 instructions below or adapt the following instruction to the path of your choice.
 
-- Download and extract AWS Blu Age Runtime. Copy the contents of the velocity directory to
-  `/m2-anywhere/tomcat-gapwalk/velocity`. Make sure to place the
-  `bluage.bin` file exactly in the location specified by CATALINA_HOME environment
-  variable described under [CATALINA_HOME and CATALINA_BASE](https://tomcat.apache.org/tomcat-8.5-doc/introduction.html#CATALINA_HOME_and_CATALINA_BASE "https://tomcat.apache.org/tomcat-8.5-doc/introduction.html#CATALINA_HOME_and_CATALINA_BASE") in the Apache Tomcat documentation. For
+- Download and extract AWS Blu Age Runtime (on Amazon EC2) directly to the velocity directory `/m2-anywhere/tomcat-gapwalk/velocity` (the Tomcat installation folder). For
   instructions on how to retrieve the AWS Blu Age Runtime artifacts, including information
   about storage, access, and content, see [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
 - Download the [PlanetsDemo
@@ -57,7 +54,7 @@ To set up the PlanetsDemo sample application, complete the following steps.
 common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar","${catalina.home}/shared","${catalina.home}/shared/*.jar","${catalina.home}/extra","${catalina.home}/extra/*.jar"
 ```
 
-2. Navigate to the `/m2-anywhere/tomcat-gapwalk/velocity /webapps/webapps`
+2. Navigate to the `/m2-anywhere/tomcat-gapwalk/velocity/webapps`
    folder.
 3. Copy the PlanetsDemo binaries available at `PlanetsDemo-v1/webapps/` folder from the Amazon S3
    bucket using the following command.
@@ -70,8 +67,8 @@ common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.ho
 
 Replace `path-to-demo-app-webapps` with the correct Amazon S3 URI for the bucket
 where you previously unzipped the PlanetsDemo archive. 4. Copy the content of `PlanetsDemo-v1/config/` folder to
-`/m2-anywhere/tomcat-gapwalk/velocity /config/`. 5. Provide the connection information for the database that you created as part of the
-prerequisites in the following snippet in the `application-main.yml` file.
+`/m2-anywhere/tomcat-gapwalk/velocity/config/`. 5. Provide the connection information for the database that you created as part of the
+prerequisites in the following snippet in the `/m2-anywhere/tomcat-gapwalk/velocity/config/application-main.yml` file.
 For more information see, [Creating and connecting to an Aurora PostgreSQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md#CHAP_GettingStarted.AuroraPostgreSQL.CreateDBCluster").
 
 ```

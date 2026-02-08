@@ -10,6 +10,8 @@ version, how to monitor your deployment by using Amazon CloudWatch alarms, and h
 dependencies with the topics in this section. These instructions are applicable when you create Amazon EC2 instances as well as when
 you use Amazon ECS on Amazon EC2 or Amazon EKS on Amazon EC2.
 
+Starting with alpha version 5.60.0, the AWS Blu Age Runtime distribution includes a deployment folder with a comprehensive README.md file. This guide provides step-by-step Amazon EC2 deployment instructions, configuration options, and troubleshooting tips.
+
 ###### Topics
 
 - [Set up AWS Blu Age Runtime on Amazon EC2](ba-runtime-deploy-ec2.md "ba-runtime-deploy-ec2.md")

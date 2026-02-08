@@ -15,7 +15,7 @@ how to access them.
 
 In both Release and Pre-release buckets, you'll find:
 
-**aws-bluage-runtime-x.y.z.zip**
+**gapwalk-x.y.z.zip**
 
 This archive, where x.y.z represents the version number (see [AWS Blu Age versioning](ba-versioning.md "ba-versioning.md")), contains the core
 AWS Blu Age Runtime components essential for executing AWS Blu Age applications, including:

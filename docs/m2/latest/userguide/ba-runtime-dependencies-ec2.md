@@ -13,16 +13,14 @@ AWS Blu Age Runtime on Amazon EC2.
 ###### Topics
 
 - [Prerequisites](#ba-runtime-dependencies-prereq "#ba-runtime-dependencies-prereq")
-- [Overview](#ba-runtime-dependencies-overview "#ba-runtime-dependencies-overview")
-- [Set up the dependencies for JAC and BAC
-  webapps](#ba-runtime-dependencies-webapps "#ba-runtime-dependencies-webapps")
+- [Installation steps](#ba-runtime-dependencies-overview "#ba-runtime-dependencies-overview")
 
 ## Prerequisites
 
 Before you begin, make sure you complete the following prerequisites.
 
 - Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md") .
-- Make sure that you have an Amazon EC2 instance containing the latest AWS Blu Age Runtime (on Amazon EC2). For more
+- Make sure that you have an Amazon EC2 instance with AWS Blu Age Runtime (on Amazon EC2) installed. For more
   information, see [Get started with Amazon EC2 Linux instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md").
 - Make sure you can connect to the Amazon EC2 instance successfully, for example, by using
   SSM.
@@ -65,7 +63,7 @@ With this dependency version, also supply the following transitive dependencies:
 - commons-beanutils-1.9.4.jar
 - commons-collections-3.2.2.jar
 
-## Overview
+## Installation steps
 
 To install the dependencies, complete the following steps.
 
@@ -83,7 +81,10 @@ cd <your-tomcat-path>/extra/
 ```
 
 3. Copy any of the above dependencies as required at this folder.
-4. Stop and start the tomcat.service by running the following commands.
+
+###### Note
+
+For JAC and BAC webapps with Oracle-hosted databases, ensure you include the Oracle database driver (ojdbc) in this folder. 4. Stop and start the tomcat.service by running the following commands.
 
 ```
 systemctl stop tomcat.service
@@ -100,13 +101,3 @@ systemctl status tomcat.service
 ```
 
 6. Verify the logs.
-
-## Set up the dependencies for JAC and BAC
-
-webapps
-
-1. If your JICS database is hosted on Oracle, then you need to provide the Oracle database
-   driver in `<your-tomcat-path>/extra`.
-2. Create the folder if it is not present already.
-3. Stop and restart your Apache Tomcat server.
-4. Verify the logs.
