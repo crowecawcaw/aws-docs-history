@@ -156,10 +156,14 @@ tiers data based on last access time, thus automatically optimizing costs for le
 - Data that hasn’t been accessed in 90 consecutive days automatically moves to the
   Archive Instant Access tier, and costs less than data in the Infrequent Access tier.
 
-When you access data in the Infrequent Access or Archive Instant Access tiers, the data automatically
-moves back to the Frequent Access tier. All access to non-cached data has the same performance characteristics,
-independent of the data’s tier, and there are no additional IOPS, retrieval, or transition costs beyond your
-normal read/write operation costs.
+When you access data in the Infrequent Access or Archive Instant Access tiers, the data
+automatically moves back to the Frequent Access tier. Additionally, operations like modifying
+throughput capacity (which rebalances data across OSTs), re-striping files or directories, or
+using `lfs migrate` could move some data back to the Frequent Access tier.
+
+All access to non-cached data has the same performance characteristics, independent of the
+data's tier, and there are no additional IOPS, retrieval, or transition costs beyond your normal
+read/write operation costs.
 
 ## Deployment type availability
 
