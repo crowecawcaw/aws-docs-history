@@ -1,45 +1,43 @@
-# Hybrid Networking Lens
+# Hybrid Networking Lens - AWS Well-Architected Framework
 
-Publication date: **November 22, 2021** ([Document history](document-history.md "document-history.md"))
+Publication date: **February 2, 2026** ([Document revisions](document-revisions.md "document-revisions.md"))
 
-This whitepaper describes the Hybrid Networking Lens for the AWS
-Well-Architected Framework, which helps customers review and improve
-their cloud-based architectures and better understand the business
-impact of their design decisions. The document describes general
-design principles, as well as specific best practices and guidance
-for the six pillars of the Well-Architected Framework.
+The AWS Well-Architected Hybrid Networking Lens serves as a valuable resource for
+engineering and implementing secure, efficient, and high-performing hybrid network connectivity.
+This lens caters to various technology professionals such as Chief Technology Officers (CTOs),
+architects, developers, and operational teams. By using this lens, users can acquire best
+practices and effective strategies to optimize their hybrid networking design, thereby adhering
+to [the AWS Well-Architected
+Framework](https://aws.amazon.com/architecture/well-architected/ "https://aws.amazon.com/architecture/well-architected/").
 
-This paper is intended for those in technology roles, such as chief
-technology officers (CTOs), architects, developers, and operations
-team members. After reading this paper, you will understand AWS best
-practices and the strategies to use when designing hybrid networking
-architectures.
+Hybrid networking refers to a network that spans AWS and on-premises data centers, campus
+locations, and remote branch sites. Hybrid networking architectures help organizations integrate
+their on-premises data center and AWS operations to support a broad spectrum of use cases.
 
-## Introduction
+The Hybrid Networking Lens is a tool designed to help cloud architects and technology
+professional create scalable, secure, and efficient connectivity between AWS and on-premises
+data centers. The lens is based on the six pillars of the AWS Well-Architected Framework:
+Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and
+Sustainability.
 
-The
-[AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/ "https://aws.amazon.com/architecture/well-architected/") helps you understand the pros and
-cons of decisions you make while building systems on AWS. Using the
-Framework helps you learn architectural best practices for designing
-and operating reliable, secure, efficient, and cost-effective
-systems in the cloud. The Framework provides a way for you to
-consistently measure your architectures against best practices and
-identify areas for improvement. We believe that having
-well-architected systems greatly increases the likelihood of
-business success.
+These pillars provide a standardized approach to assessing architectures and deploying
+scalable designs that meet diverse application and workload requirements.
 
-In this Lens, we focus on how to design, deploy, and architect
-hybrid networking for workloads in the AWS Cloud. For brevity, we
-only cover details from the Well-Architected Framework that are
-specific to hybrid networking. We recommend that you consider best
-practices and questions from the
-[AWS Well-Architected Framework whitepaper](../framework/welcome.md "../framework/welcome.md") when designing your
-architecture.
+The lens offers best practices, design principles, and assessment questions specifically
+tailored for hybrid networking connectivity. This guidance is informed by extensive experience
+collaborating with customers across various industries, segments, sizes, and geographical
+locations.
+
+By using the Hybrid Networking Lens, you gain a comprehensive understanding of AWS best
+practices and strategies to design and operate optimal architecture for hybrid networking. The
+lens provides actionable advice on recommend design principles aligned with the AWS
+Well-Architected Framework, helping you create highly available, secure, and efficient hybrid
+network connectivity that meet business requirements.
 
 ## Custom lens availability
 
-Custom lenses extend the best practice guidance provided by AWS Well-Architected Tool. AWS WA Tool allows you to
-create your own [custom lenses](../userguide/lenses-custom.md "../userguide/lenses-custom.md"), or to use
+Custom lenses extend the best practice guidance provided by AWS Well-Architected Tool. AWS WA Tool
+allows you to create your own [custom lenses](../userguide/lenses-custom.md "../userguide/lenses-custom.md"), or to use
 lenses created by others that have been shared with you.
 
 To determine if a custom lens is available for the lens described in this whitepaper,
