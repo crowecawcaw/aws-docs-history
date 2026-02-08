@@ -1,121 +1,54 @@
-# Getting started with Internet Monitor using the console
+# Change health event thresholds for a monitor
 
-To help you get started with Internet Monitor, this chapter provides the steps for creating and configuring a _monitor_. You create
-a monitor in Internet Monitor for your application by naming it, and then adding AWS resources that your application uses.
+Internet Monitor uses a default threshold to determine when to create a
+health event for your monitor. Optionally, you can change that default global threshold, to set another value. You
+can also set local threshold. This section describes how global and local thresholds work together, and provides
+steps for setting custom thresholds.
 
-You create a monitor in Internet Monitor for your application by adding AWS resources that it uses, and then setting several configuration options.
-The resources that you add, Amazon Virtual Private Cloud VPCs, Network Load Balancers (NLBs), CloudFront distributions, or WorkSpaces directories,
-provide the information for Internet Monitor to map internet traffic information for your application. After you create your monitor, wait 15-30
-minutes to generate the traffic profile specific to where your application is used.
+You can change the overall threshold that triggers Internet Monitor to create a health event. The default health event threshold,
+for both performance scores and availability scores, is 95%. That is, when the overall performance or availability score for your
+application falls to 95% or below, Internet Monitor creates a health event. For the overall threshold, the health event can be triggered by a
+single large issue, or by the combination of multiple smaller issues.
 
-Then, use the Internet Monitor dashboard, or other tools, to visualize and explore performance and availability about your client usage.
-These tools provide insights for you using your application traffic's measurements gathered for you by the monitor.
+You can also change the local—that is, city-network—threshold, combined with a percentage of the overall level of
+impact, that—in combination—will trigger a health event. By setting a threshold
+that creates a health event when a score drops below the threshold for one or more city-networks (locations and ASNs, typically ISPs),
+you can get insights into when there are issues in locations with lower traffic, for example.
 
-The steps here walk you through setting up your monitor by using the console. To see examples
-of using the AWS Command Line Interface with the Internet Monitor API actions, to create a monitor, view events, and so on, see
-[Examples of using the CLI with Internet Monitor](CloudWatch-IM-get-started-CLI.md "CloudWatch-IM-get-started-CLI.md").
+An additional local threshold option works together with the local threshold for availability or performance scores. The second
+factor is the percentage of your overall traffic that must be impacted before Internet Monitor creates a health event based on the local threshold.
 
-**Tasks**
+By configuring the threshold options for overall traffic and local traffic, you can fine-tune how frequently
+health events are created, to align with your application usage and your needs. Be aware that when you set the local threshold to be lower,
+typically more health events are created, depending on your application and the other threshold configuration values that you set.
 
-- [Step 1: Create a monitor](#CloudWatch-IM-get-started.create "#CloudWatch-IM-get-started.create")
-- [Step 2: Configure the monitor](#CloudWatch-IM-get-started.configure "#CloudWatch-IM-get-started.configure")
-- [Step 3: View metrics and explore history](#CloudWatch-IM-get-started.explore "#CloudWatch-IM-get-started.explore")
-- [Step 4: Get suggestions to improve latency](#CloudWatch-IM-get-started.suggestions "#CloudWatch-IM-get-started.suggestions")
-- [Step 5 (Optional): Delete the monitor](#CloudWatch-IM-get-started.delete "#CloudWatch-IM-get-started.delete")
+In summary, you can configure health event thresholds—for performance scores, availability scores, or both—in the
+following ways:
 
-## Step 1: Create a monitor
+- Choose different global thresholds for triggering a health event.
+- Choose different local thresholds for triggering a health event. With this option, you can also change the percentage
+  of impact on your overall application that must be exceeded before Internet Monitor creates an event.
+- Choose to turn off triggering a health event based on local thresholds, or enable local threshold options.
+  To update health event thresholds for performance scores, availability scores, or both,
+  follow these steps.
 
-###### To create a monitor using the console
+###### To change threshold configuration options
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the left navigation pane, under **Network Monitoring**, choose **Internet monitors**.
-3. Choose **Create monitor**.
-4. For **Monitor name**, enter the name you want to use for this monitor in
-   Internet Monitor.
-5. Choose **Add resources**, and then select the resources to set the monitoring boundaries
-   for Internet Monitor to use for this monitor.
+1. In the AWS Management Console, navigate to CloudWatch, and then, in the left navigation pane, choose Internet Monitor.
+2. On the **Configure** page, in the **Health event thresholds** section,
+   choose **Update thresholds**.
+3. On the **Set health event threshold**page, choose the new values and options that you want for thresholds and other options that
+   trigger Internet Monitor to create a health event. You can do any of the following:
+   - Choose a new value for **Availability score threshold**,
+     **Performance score threshold**, or both.
 
-###### Note
+   The graphs in the sections for each setting display the current threshold setting and the
+   actual recent health event scores, for availability or performance, for your application. By viewing the typical values,
+   you can get an idea of values that you might want to change a threshold to.
 
-Be aware of the following:
+   Tip: To view a larger graph and change the timeframe, choose the expander in the upper right corner of the graph.
+   - Choose to turn on or off a local threshold for availability or performance, or both. When an option is enabled,
+     you can set the threshold and impact level for when you want Internet Monitor to create a health event.
 
-    * To generate meaningful output with Internet Monitor, VPCs that you add must be connected to the internet by having
-     an Internet Gateway configured.
-    * You can add only one type of resource to a single monitor. For example, VPCs or CloudFront distributions or WorkSpaces directories,
-     but not a combination of different types.
-
-6. Leave the default percentage of traffic as 100%, or choose another percentage of your internet traffic to monitor.
-7. Choose **Create monitor**.
-
-## Step 2: Configure the monitor
-
-After you create a monitor, you can edit the monitor at any time, for example, to change the application traffic percentage, update
-the maximum city-networks limit or add or remove resources. To make updates in the Internet Monitor console,
-follow the procedure in this section. Note that you can’t change the name of a monitor.
-
-For more information about configuring a monitor, see [Edit a monitor in Internet Monitor](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md").
-
-###### To configure a monitor using the console
-
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the left navigation pane, under **Network Monitoring**, choose **Internet monitors**.
-3. Choose your monitor, and then choose the **Action** menu.
-4. Choose **Update monitor**.
-5. Make the desired updates. For example, to change the percentage of traffic to monitor, under **Application traffic
-   to monitor**, select or enter a percentage.
-6. Choose **Update**.
-
-## Step 3: View metrics and explore history
-
-Visualize data about your internet traffic, from an overview perspective or by drilling down into details.
-
-###### To visualize data and get insights for application traffic using the console
-
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the left navigation pane, under **Network Monitoring**, choose **Internet monitors**.
-3. Choose a monitor to work with.
-4. Choose from the following tabs:
-   - **Overview** — Review a general summary
-     of your monitor and your application traffic performance.
-   - **Health events** — View current and historical health events that currently impact,
-     or previously impacted, locations where clients access your application.
-   - **Analyze** — See information about top monitored traffic in client
-     locations (by traffic volume), summarized in several customizable ways. Visualize metrics and historical
-     trends for health scores and metrics.
-
-In the next section, learn about how Internet Monitor provides suggestions for improving latency for your application traffic.
-
-## Step 4: Get suggestions to improve latency
-
-Get suggestions for how to optimize latency, so that your clients experience the best internet performance for your application.
-
-Internet Monitor evaluates your monitored application traffic, and then makes suggestion about whether you can reduce latency, for
-example, by changing the AWS Regions that you've configured for your application.
-
-For more information, see [Get suggestions to optimize application performance in Internet Monitor (Optimize page)](CloudWatch-IM-insights.md "CloudWatch-IM-insights.md").
-
-###### To get suggestions for improving application latency using the console
-
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the left navigation pane, under **Network Monitoring**, choose **Internet monitors**.
-3. Choose a monitor to work with.
-4. Choose **Optimize**, and then view the top suggestions.
-
-## Step 5 (Optional): Delete the monitor
-
-If you created a monitor as a test or if you're no longer using a monitor, you can delete it. Before you can delete
-a monitor, you must disable it.
-
-###### To delete a monitor
-
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the left navigation pane, under **Network Monitoring**, choose **Internet monitors**.
-3. Choose your monitor, and then choose the **Action** menu.
-4. Choose **Disable**.
-5. Choose the **Action** menu again, and then choose **Delete**.
-6. Follow the guidance in the modal dialog to confirm deleting the monitor.
+4. After you configure threshold options, save your updates by choosing **Update health event thresholds**.
+   To learn more about how health events work, see [When Internet Monitor creates and resolves health events](CloudWatch-IM-inside-internet-monitor.md#IMHealthEventStartStop "CloudWatch-IM-inside-internet-monitor.md#IMHealthEventStartStop").

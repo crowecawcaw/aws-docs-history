@@ -144,3 +144,7 @@ at t7 and ends at t9.
 
 If you replace the action suppressor alarm, any active `WaitPeriod` or
 `ExtensionPeriod` is discarded.
+
+## Action Suppression and Mute Rules
+
+When both action suppression and alarm mute rules are active for a composite alarm, mute rules take precedence and suppress all alarm actions. After the mute window ends, the composite alarm's action suppression configuration determines whether actions are executed based on the suppressor alarm state and configured wait or extension periods. For more information about alarm mute rules, see [Alarm Mute Rules](alarm-mute-rules.md "alarm-mute-rules.md").

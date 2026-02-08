@@ -1,39 +1,28 @@
-# What is Internet Monitor?
+# Pricing for Internet Monitor
 
-With Internet Monitor, you can monitor your application's internet performance and availability, so that
-you can visualize data and get insights and suggestions about your AWS application's internet
-traffic. You can also get suggestions for ways to reduce latency for your application, by using
-different Regions or AWS services, like Amazon CloudFront.
+With Internet Monitor, there are no upfront costs or long-term commitments. Pricing for Internet Monitor has two components: a per
+monitored resource fee and a per city-network fee. A _city-network_ is the location where clients access your
+application resources from and the network (ASN, such as an internet service provider or ISP) that clients access
+the resources through. Note that you are also charged standard CloudWatch prices for logs and any additional
+metrics, dashboards, alarms, or insights that you create.
 
-**Key features of Internet Monitor**
+You choose a percentage of traffic to monitor when you create a monitor. To help control your bill, you can also set a
+limit for the maximum number of city-networks to monitor. You can update the percentage of traffic to monitor or the maximum
+city-networks limit at any time by editing your monitor. The first 100 city-networks (across all monitors per account) are
+included. After that, you only pay for the actual additional number of city-networks that you monitor, up to the maximum number.
 
-- Internet Monitor suggests insights and recommendations that can help you improve your end users' experience.
-  You can explore, in near real-time, how to improve the projected latency of your application by switching to use
-  other services, or by rerouting traffic to your workload through different AWS Regions.
-- Internet Monitor stores internet measurements for pairs of your client locations and ASNs, or _city-networks_.
-  Internet Monitor also creates aggregated CloudWatch metrics for traffic to your application, and to each AWS Region and edge location.
-  With the Internet Monitor dashboard, you can quickly identify what's impacting your application's performance and availability,
-  so that you can track down and address issues.
-- Internet Monitor also publishes internet measurements to CloudWatch Logs and CloudWatch Metrics,
-  to support using CloudWatch tools to explore data for city-networks that are specific to your monitored application traffic.
-  Optionally, you can also publish internet measurements to Amazon S3.
-- Internet Monitor sends overall (global) health events to Amazon EventBridge so that you can set up notifications.
-  (Local health events are not published to EventBridge.) If an issue is caused by the AWS network,
-  you also automatically receive an AWS Health Dashboard notification with the steps that AWS is taking to mitigate the problem.
-  **How to use Internet Monitor**
+You pay only the actual additional number of city-networks that you monitor, up to the maximum number, with no charge for the first
+100 city-networks (across all monitors per account). A flat amount equivalent to the cost of 100 city-networks is
+deducted from your monthly bill.
 
-To use Internet Monitor, you create a _monitor_ and associate your application's resources
-with it—VPCs, Network Load Balancers, CloudFront distributions, or WorkSpaces directories—to enable Internet Monitor to know
-where your application's internet-facing traffic is. Internet Monitor then publishes internet measurements from AWS that are specific to
-the _city-networks_, that is, the client locations and ASNs (typically internet service providers or ISPs),
-where clients access your application. For more information, see [How Internet Monitor works](CloudWatch-IM-inside-internet-monitor.md "CloudWatch-IM-inside-internet-monitor.md"). To begin working with Internet Monitor, see [Getting started with Internet Monitor using the console](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md").
+For example, a large global company could choose to monitor 100% of its internet-facing traffic, and set a city-networks
+maximum of 50,000, for one monitor with one resource. Assuming the traffic reached 50,000 city-networks, that portion of its bill
+would be around 2,700 USD/month. For another company, in fewer geographic areas, with one monitor with one resource and
+200 city-networks, this portion of the bill would be around 13 USD/month. For more information, see
+[Choose a city-networks maximum limit](IMCityNetworksMaximum.md "IMCityNetworksMaximum.md").
 
-###### Contents
+You can try out different options with the pricing calculator. To explore pricing options, on
+the [Pricing calculator for CloudWatch page](https://calculator.aws/#/addService/CloudWatch "https://calculator.aws/#/addService/CloudWatch"),
+scroll down to Internet Monitor.
 
-- [Supported Regions](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md")
-- [Components](CloudWatch-IM-components.md "CloudWatch-IM-components.md")
-- [How it works](CloudWatch-IM-inside-internet-monitor.md "CloudWatch-IM-inside-internet-monitor.md")
-- [Use cases](CloudWatch-IM-use-cases.md "CloudWatch-IM-use-cases.md")
-- [Internet weather map](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md")
-- [Cross-account observability](cwim-cross-account.md "cwim-cross-account.md")
-- [Pricing](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md")
+For more information about Internet Monitor and CloudWatch pricing, see the [Amazon CloudWatch pricing](https://aws.amazon.com//cloudwatch/pricing/ "https://aws.amazon.com//cloudwatch/pricing/") page.

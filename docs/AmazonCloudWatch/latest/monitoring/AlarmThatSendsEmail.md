@@ -192,6 +192,10 @@ set up Amazon EventBridge to trigger other actions for these state changes. For 
 information, see [What is
 Amazon EventBridge?](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
 
+## Muting Alarm Actions
+
+Alarm mute rules allow you to automatically mute alarm actions during predefined time windows, such as maintenance periods or operational events. CloudWatch continues monitoring alarm states while preventing unwanted notifications. For more information, see [Alarm Mute Rules](alarm-mute-rules.md "alarm-mute-rules.md").
+
 ## Configuring how CloudWatch alarms treat missing
 
 data

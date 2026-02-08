@@ -26,6 +26,7 @@ alarms on metrics in other accounts or Regions from within a monitoring account.
 - [(Optional) Integrate with AWS Organizations](#cross-account-and-AWS-organizations "#cross-account-and-AWS-organizations")
 - [Troubleshooting your CloudWatch cross-account
   setup](#troubleshooting-cross-account-cross-Region "#troubleshooting-cross-account-cross-Region")
+- [Monitoring account permissions for cross-account access](#cross-account-cross-region-limitations "#cross-account-cross-region-limitations")
 - [Disabling and cleaning up after using
   cross-account](#cleanup-cross-account-cross-Region "#cleanup-cross-account-cross-Region")
 
@@ -266,6 +267,34 @@ Check the following:
 First, check that you have created the correct IAM roles, as discussed in the preceding troubleshooting section. If those are set up
 correctly, make sure that you have enabled
 this account to view cross-account data, as described in [Enable Your Account to View Cross-Account Data](#view_cross_account "#view_cross_account").
+
+## Monitoring account permissions for cross-account access
+
+To access an action in source accounts successfully, the user in the monitoring account must have the equivalent permission for all resources (\*) for that action in the monitoring account. This is a local permission requirement in the monitoring account and is unrelated to permissions in the cross-account sharing role in source accounts.
+
+### Example
+
+To start a Logs query in a source account, you must have wildcard (\*) access to StartQuery in the monitoring account. The source account's cross-account role can still restrict access to specific log groups.
+
+**Supported - wildcard resource:**
+
+```
+{
+  "Effect": "Allow",
+  "Action": "logs:StartQuery",
+  "Resource": "*"
+}
+```
+
+**Not supported - specific ARN:**
+
+```
+{
+  "Effect": "Allow",
+  "Action": "logs:StartQuery",
+  "Resource": "arn:aws:logs:us-east-1:123456789012:log-group:/aws/lambda/my-function:*"
+}
+```
 
 ## Disabling and cleaning up after using
 

@@ -131,6 +131,10 @@ composite alarm that reduces alarm noise during a deployment window.
 The expression specifies that the composite alarm goes into `ALARM` when
 at least 2 out of 3 availability zone health alarms are in `ALARM` state and the maintenance window alarm is not in `ALARM`. This combines the AT_LEAST function with other logical operators for more complex monitoring scenarios.
 
+## Muting Composite Alarm Actions
+
+Alarm mute rules allow you to automatically mute composite alarm actions during predefined time windows, such as maintenance periods or operational events. CloudWatch continues monitoring alarm states while preventing unwanted notifications. For more information, see [Alarm Mute Rules](alarm-mute-rules.md "alarm-mute-rules.md").
+
 ###### Topics
 
 - [Create a composite alarm](Create_Composite_Alarm_How_To.md "Create_Composite_Alarm_How_To.md")

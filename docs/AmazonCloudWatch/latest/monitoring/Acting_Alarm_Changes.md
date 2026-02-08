@@ -80,6 +80,18 @@ Additionally, CloudWatch sends events to Amazon EventBridge whenever alarms chan
 are created, deleted, or updated. You can write EventBridge rules to take actions or be notified when
 EventBridge receives these events.
 
+## Muting Alarm Actions
+
+Alarm mute rules allow you to automatically mute alarm actions during predefined time windows, such as maintenance periods or operational events. CloudWatch continues monitoring alarm states while preventing unwanted notifications. For more information, see [Alarm Mute Rules](alarm-mute-rules.md "alarm-mute-rules.md").
+
+###### Mute rules vs. disabling alarm actions
+
+Alarm mute rules temporarily mute actions during scheduled time windows and automatically unmute when the window ends. In contrast, the `DisableAlarmActions` API permanently disables alarm actions until you manually call `EnableAlarmActions`. The `EnableAlarmActions` API does not unmute alarms that are muted by active mute rules.
+
+###### Note
+
+Muting an alarm does not stop CloudWatch from sending alarm events for alarm create, update, delete, and state changes to Amazon EventBridge.
+
 ###### Topics
 
 - [Notifying users on alarm changes](Notify_Users_Alarm_Changes.md "Notify_Users_Alarm_Changes.md")
