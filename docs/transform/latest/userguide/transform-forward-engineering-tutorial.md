@@ -36,10 +36,10 @@ The S3 bucket stores the results of each Transform job in a hierarchical layout 
 ```
 /your-s3-bucket/transform-output/your-jobid/
 ├── 1/
-├── business-documentation/
-├── data_analysis/
-├── decomposition/
-├── documentation/
+    ├── business-documentation/
+    ├── data_analysis/
+    ├── decomposition/
+    ├── documentation/
 ├── inputs/
 ```
 
