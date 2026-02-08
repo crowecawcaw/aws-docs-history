@@ -6,14 +6,6 @@ Before you can use the AWS Management Console, you must sign in to your AWS GovC
 
 If you do not remember your credentials or have trouble signing in using your credentials, see [Troubleshooting AWS GovCloud (US) sign-in or account issues](govcloud-sign-in-issues.md "govcloud-sign-in-issues.md").
 
-###### Topics
-
-- [Sign in as the root user](#sign-in-root-user-govcloud "#sign-in-root-user-govcloud")
-- [Sign in as an IAM user](#sign-in-iam-govcloud "#sign-in-iam-govcloud")
-- [Your AWS GovCloud (US) account ID and its alias](govcloud-account-ID-alias.md "govcloud-account-ID-alias.md")
-- [Troubleshooting AWS GovCloud (US) sign-in or account issues](govcloud-sign-in-issues.md "govcloud-sign-in-issues.md")
-- [AWS GovCloud (US) account root user](govcloud-account-root-user.md "govcloud-account-root-user.md")
-
 ## Sign in as the root user
 
 The AWS Management Console for AWS GovCloud (US) only supports signing in as an IAM user. Signing in to the AWS Management Console for AWS GovCloud (US) as the AWS GovCloud (US) account root user or as the associated standard AWS account

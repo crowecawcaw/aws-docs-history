@@ -2,12 +2,6 @@
 
 Amazon SageMaker AI is a fully managed machine learning service. With Amazon SageMaker AI, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment. It provides an integrated Jupyter authoring notebook instance for easy access to your data sources for exploration and analysis, so you don’t have to manage servers. It also provides common machine learning algorithms that are optimized to run efficiently against extremely large data in a distributed environment. With native support for bring-your-own-algorithms and frameworks, Amazon SageMaker AI provides flexible distributed training options that adjust to your specific workflows.
 
-###### Topics
-
-- [How Amazon SageMaker AI differs for AWS GovCloud (US)](#govcloud-sm-diffs "#govcloud-sm-diffs")
-- [Documentation for Amazon SageMaker AI](#govcloud-sm-docs "#govcloud-sm-docs")
-- [Export-controlled content](#govcloud-sagemaker-itar "#govcloud-sagemaker-itar")
-
 ## How Amazon SageMaker AI differs for AWS GovCloud (US)
 
 - Only the following features are available. API calls to unavailable features will fail with a 4xx message indicating "The requested operation is not supported in the called region".

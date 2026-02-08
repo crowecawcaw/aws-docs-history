@@ -24,19 +24,21 @@ You can find these ARNs on the **Permission sets** tab under the **AWS accounts*
 
 The email address `no-reply@<identitystore_id>.us-gov-home.awsapps.com` is used for sending forgotten password emails.
 
+- Multi-Region support is presently not available.
 - If you filter access to specific AWS domains by using a web content filtering solution such as next-generation firewalls (NGFW) or Secure Web Gateways (SWG), you must add the following domains to your web-content filtering solution allowlists. Doing so enables you to access your AWS access portal.
   - `start.us-gov-home.awsapps.com`
   - `start.[Region].us-gov-home.awsapps.com`
+  - `[IAM-Identity-Center-instance-id].[Region].portal.amazonaws.com`
   - `oidc.[Region].amazonaws.com`
-  - `\\*.sso.amazonaws.com`
-  - `\\*.sso.[Region].amazonaws.com`
-  - `\\*.sso-portal.[Region].amazonaws.com`
+  - `*.sso.amazonaws.com`
+  - `*.sso.[Region].amazonaws.com`
+  - `*.sso-portal.[Region].amazonaws.com`
   - `aws-access-portal-website-prod-pdt-assets.s3.us-gov-west-1.amazonaws.com`
   - `aws-access-portal-website-prod-osu-assets.s3.us-gov-east-1.amazonaws.com`
   - `s3.us-gov-west-1.amazonaws.com/awsconsole-peregrine-portal-prod-pdt-assets`
   - `s3.us-gov-east-1.amazonaws.com/awsconsole-peregrine-portal-prod-osu-assets`
   - `[Region].signin-fips.amazonaws-us-gov.com`
-  - `\\*.cloudfront.net`
+  - `*.cloudfront.net`
   - `opfcaptcha-prod.s3.amazonaws.com`
 
 - If you change an AWS account name or email address, and you want your AWS access portal to show the new value, you’ll need to create a case with Support. In the support case, specify the account ID and the AWS Region of your IAM Identity Center instance. Also include a list of account IDs that require a refresh in your AWS access portal.

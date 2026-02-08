@@ -8,20 +8,6 @@ If you are having trouble signing in to your [associated standard AWS account](g
 
 For security purposes, AWS doesn’t have access to view, provide, or change your credentials.
 
-###### Topics
-
-- [My AWS GovCloud (US) credentials aren’t working](#troubleshoot-my-credentials-are-not-working "#troubleshoot-my-credentials-are-not-working")
-- [I need my AWS GovCloud (US) account ID or account alias](#troubleshoot-need-account-id-alias "#troubleshoot-need-account-id-alias")
-- [I lost or forgot my AWS GovCloud (US)IAM user name or password](#troubleshoot-lost-iam-password "#troubleshoot-lost-iam-password")
-- [I lost or forgot the access keys for my AWS GovCloud (US)IAM user name](#troubleshoot-lost-access-keys "#troubleshoot-lost-access-keys")
-- [I lost or forgot the access keys for my AWS GovCloud (US) root user](#troubleshoot-lost-access-keys-govcloud-root "#troubleshoot-lost-access-keys-govcloud-root")
-- [I forgot the root user password for my standard AWS account](#troubleshoot-forgot-root-standard-password "#troubleshoot-forgot-root-standard-password")
-- [I don’t know the email for my standard AWS account or AWS GovCloud (US) account](#troubleshoot-forgot-email-account "#troubleshoot-forgot-email-account")
-- [I don’t have access to the email for my standard AWS account or AWS GovCloud (US) account](#troubleshoot-no-access-to-email "#troubleshoot-no-access-to-email")
-- [I need to change the credit card for my AWS GovCloud (US) account](#troubleshoot-update-credit-card "#troubleshoot-update-credit-card")
-- [I need to report fraudulent AWS GovCloud (US) account activity](#troubleshoot-report-fraud "#troubleshoot-report-fraud")
-- [I need to close my AWS GovCloud (US) account activity](#troubleshoot-close-account "#troubleshoot-close-account")
-
 ## My AWS GovCloud (US) credentials aren’t working
 
 When you can’t sign in to the AWS Management Console for AWS GovCloud (US), try to remember how you previously accessed AWS.

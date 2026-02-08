@@ -21,20 +21,6 @@ In this guide you will find…​
 
 We strongly recommend that you do not use the root user for your everyday tasks, even the administrative ones. Instead, adhere to the best practice of using the root user only to create your first IAM user. Then securely lock away the root user access keys and use them to perform only a few account and service management tasks. To view the tasks that require root user access keys, see [Tasks in AWS GovCloud (US) Regions that require root user access keys](#govcloud-tasks-require-root-user "#govcloud-tasks-require-root-user")
 
-###### Topics
-
-- [Does my AWS GovCloud (US) account have existing root access keys?](#govcloud-account-existing-root "#govcloud-account-existing-root")
-- [Requesting root access keys for an AWS GovCloud (US) account](#requesting-root-user-keys "#requesting-root-user-keys")
-- [Configure AWS GovCloud (US) account root user access keys in the AWS CLI (AWS CloudShell)](#configure-root-user-access-keys-cli "#configure-root-user-access-keys-cli")
-- [Tasks in AWS GovCloud (US) Regions that require root user access keys](#govcloud-tasks-require-root-user "#govcloud-tasks-require-root-user")
-- [Restore IAM Administrator access to the AWS Management Console for AWS GovCloud (US)](#restore-root-user-keys "#restore-root-user-keys")
-- [Edit or delete an Amazon S3 bucket policy for a bucket where I accidentally denied everyone access](#edit-s3-bucket-denied-access "#edit-s3-bucket-denied-access")
-- [Remediation of AWS Security Hub CSPM findings](#remediate-security-findings "#remediate-security-findings")
-- [Rotate my AWS GovCloud (US) account root user access keys](#rotate-access-keys "#rotate-access-keys")
-- [Deleting my AWS GovCloud (US) account root user access keys](#delete-govcloud-root-access-key "#delete-govcloud-root-access-key")
-- [Securing my AWS GovCloud (US) account root user access keys](#secure-govcloud-root-access-key "#secure-govcloud-root-access-key")
-- [Transferring the root user owner](#trasnfer-root-user-owner "#trasnfer-root-user-owner")
-
 ## Does my AWS GovCloud (US) account have existing root access keys?
 
 As an AWS GovCloud (US) account administrator, you may want to know if there are root access keys in your AWS GovCloud (US) account.

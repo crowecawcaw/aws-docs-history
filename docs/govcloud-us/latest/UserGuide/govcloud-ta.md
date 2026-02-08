@@ -14,15 +14,6 @@ An online resource to help you reduce cost, increase performance, and improve se
 
 The following tables list the Trusted Advisor checks that are available in the AWS GovCloud (US) Regions and the required support level.
 
-###### Topics
-
-- [Cost optimization](#cost-optimization "#cost-optimization")
-- [Fault tolerance](#fault-tolerance "#fault-tolerance")
-- [Operational Excellence](#operation-excellence "#operation-excellence")
-- [Performance](#performance "#performance")
-- [Security](#security "#security")
-- [Service quotas](#service-quotas "#service-quotas")
-
 #### Cost optimization
 
 The following table lists the Trusted Advisor checks for cost optimization that are available in the AWS GovCloud (US) Regions.

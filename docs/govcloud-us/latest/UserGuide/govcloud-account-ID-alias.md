@@ -6,13 +6,6 @@ To sign in to an AWS GovCloud (US) account as an IAM user, you must have an acco
 
 Account aliases are not secrets, and they will appear in your public-facing sign-in page URL. Do not include any sensitive information in your account alias.
 
-###### Topics
-
-- [Finding your AWS GovCloud (US) account ID](#finding-govlcoud-id "#finding-govlcoud-id")
-- [Finding your associated standard AWS account ID](#find-standard-id "#find-standard-id")
-- [About account aliases](#about-account-alias "#about-account-alias")
-- [Creating, deleting, and listing an AWS account alias](#create-account-alias "#create-account-alias")
-
 ## Finding your AWS GovCloud (US) account ID
 
 You can find the account ID for your AWS GovCloud (US) account using the following methods.
