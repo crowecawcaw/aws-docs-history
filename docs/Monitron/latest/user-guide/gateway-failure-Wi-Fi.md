@@ -37,7 +37,7 @@ tips.
   turning the power off, then pressing and holding down the commissioning
   button (located on the side) while you turn the power back on.
 
-![Orange device with smiley face being touched by a finger, connected to a power source.](images/gs-gateway-turnon.png)
+![Orange device with smiley face being touched by a finger, connected to a power source.](/images/Monitron/latest/user-guide/images/gs-gateway-turnon.png)
 
 - **Make sure your smartphone's Bluetooth is
   working.** The gateway connects to your smartphone using
