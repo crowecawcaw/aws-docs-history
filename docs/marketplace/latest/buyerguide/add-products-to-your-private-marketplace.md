@@ -11,8 +11,7 @@ In a private marketplace, customers are automatically entitled to any products w
 EULAs are governed by the AWS Customer Agreement or other agreement with AWS governing
 use of AWS services. Customers are already entitled to these products by default;
 therefore, they are not included in the list of products that you approved within your
-private marketplace. Customers can use Service Catalog to manage the deployment of these
-products.
+private marketplace.
 
 ###### To add products to a private marketplace experience
 
