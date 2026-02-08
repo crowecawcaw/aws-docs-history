@@ -155,7 +155,15 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.7.1, January 16th, 2026](#aurorapostgresql-versions-version1771x-1771 "#aurorapostgresql-versions-version1771x-1771")
 - [Aurora PostgreSQL 17.7, December, 18, 2025](#aurorapostgresql-versions-version177x-177 "#aurorapostgresql-versions-version177x-177")
+
+#### Aurora PostgreSQL 17.7.1, January 16th, 2026
+
+**Critical stability enhancements**
+
+- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
+- Fixed an issue where an UPDATE statement with OUTPUT clause may skip rows when there are concurrent updates on the same row
 
 #### Aurora PostgreSQL 17.7, December, 18, 2025
 
@@ -295,6 +303,8 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.5.4, January 15,
+  2026](#aurorapostgresql-versions-version1754x-1754 "#aurorapostgresql-versions-version1754x-1754")
 - [Aurora PostgreSQL 17.5.3, September 16,
   2025](#aurorapostgresql-versions-version1753x-1753 "#aurorapostgresql-versions-version1753x-1753")
 - [Aurora PostgreSQL 17.5.2, August 8,
@@ -303,6 +313,32 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
   2025](#aurorapostgresql-versions-version1751x-1751 "#aurorapostgresql-versions-version1751x-1751")
 - [Aurora PostgreSQL 17.5, June 30,
   2025](#aurorapostgresql-versions-version175x-175 "#aurorapostgresql-versions-version175x-175")
+
+#### Aurora PostgreSQL 17.5.4, January 15,
+
+2026
+
+**Critical stability enhancements**
+
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Fixed an issue which could cause a restart during the start of logical replication data synchronization.
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+
+  [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+**General enhancements**
+
+- Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 17.5.3, September 16,
 
@@ -747,7 +783,15 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.11.1, January 16th, 2026](#aurorapostgresql-versions-version16111x-16111 "#aurorapostgresql-versions-version16111x-16111")
 - [Aurora PostgreSQL 16.11, December, 18, 2025](#aurorapostgresql-versions-version1611x-1611 "#aurorapostgresql-versions-version1611x-1611")
+
+#### Aurora PostgreSQL 16.11.1, January 16th, 2026
+
+**Critical stability enhancements**
+
+- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
+- Fixed an issue where an UPDATE statement with OUTPUT clause may skip rows when there are concurrent updates on the same row
 
 #### Aurora PostgreSQL 16.11, December, 18, 2025
 
@@ -887,6 +931,8 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.9.4, January 15,
+  2026](#aurorapostgresql-versions-version1694x-1694 "#aurorapostgresql-versions-version1694x-1694")
 - [Aurora PostgreSQL 16.9.3, September 16,
   2025](#aurorapostgresql-versions-version1693x-1693 "#aurorapostgresql-versions-version1693x-1693")
 - [Aurora PostgreSQL 16.9.2, August 8,
@@ -895,6 +941,32 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
   2025](#aurorapostgresql-versions-version1691x-1691 "#aurorapostgresql-versions-version1691x-1691")
 - [Aurora PostgreSQL 16.9, June 30,
   2025](#aurorapostgresql-versions-version169x-169 "#aurorapostgresql-versions-version169x-169")
+
+#### Aurora PostgreSQL 16.9.4, January 15,
+
+2026
+
+**Critical stability enhancements**
+
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Fixed an issue which could cause a restart during the start of logical replication data synchronization.
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+
+  [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+**General enhancements**
+
+- Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 16.9.3, September 16,
 
@@ -1225,6 +1297,8 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.6.7, January 28, 2026](#aurorapostgresql-versions-version1667x-1667 "#aurorapostgresql-versions-version1667x-1667")
+- [Aurora PostgreSQL 16.6.6, November 13, 2025](#aurorapostgresql-versions-version1666x-1666 "#aurorapostgresql-versions-version1666x-1666")
 - [Aurora PostgreSQL 16.6.5, June 24, 2025](#aurorapostgresql-versions-version1665x-1665 "#aurorapostgresql-versions-version1665x-1665")
 - [Aurora PostgreSQL 16.6.4, March 24,
   2025](#aurorapostgresql-versions-version1664x-1664 "#aurorapostgresql-versions-version1664x-1664")
@@ -1236,6 +1310,64 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
   2024](#aurorapostgresql-versions-version1661x-1661 "#aurorapostgresql-versions-version1661x-1661")
 - [Aurora PostgreSQL 16.6, December 27,
   2024](#aurorapostgresql-versions-version166x-166 "#aurorapostgresql-versions-version166x-166")
+
+#### Aurora PostgreSQL 16.6.7, January 28, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that could cause garbage collection to get blocked on a change data capture (CDC) volume.
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+- Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
+
+**General enhancements**
+
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
+
+#### Aurora PostgreSQL 16.6.6, November 13, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue in engine minor and patch upgrades where in rare cases a backend can incorrectly process an interrupt early.
+- Fixed an issue where minor version upgrades and patch upgrades might take a few seconds longer because the runtime process was not exiting gracefully.
+- Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+- Fixed a security issue when altering routine ownership.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
+  - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
+  - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
+
+- Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+  - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
+  - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
+
+- Fixed a race condition where old writer instance may not step down after a new writer instance is promoted and continues to write.
+
+**General enhancements**
+
+- Improved error handling mechanisms during TDS Connection reset operations.
+- Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
+- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
+- Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
+- Fixed an issue that could cause prolonged Serverless v2 scaling time.
+- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed an issue causing a replica restart during the replica join case.
+- Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
+- Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
+- Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
 
 #### Aurora PostgreSQL 16.6.5, June 24, 2025
 
@@ -2173,7 +2305,15 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.15.1, January 16th, 2026](#aurorapostgresql-versions-version15151x-15151 "#aurorapostgresql-versions-version15151x-15151")
 - [Aurora PostgreSQL 15.15, Decemeber, 18, 2025](#aurorapostgresql-versions-version1515x-1515 "#aurorapostgresql-versions-version1515x-1515")
+
+#### Aurora PostgreSQL 15.15.1, January 16th, 2026
+
+**Critical stability enhancements**
+
+- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
+- Fixed an issue where an UPDATE statement with OUTPUT clause may skip rows when there are concurrent updates on the same row
 
 #### Aurora PostgreSQL 15.15, Decemeber, 18, 2025
 
@@ -2299,6 +2439,8 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.13.4, January 15,
+  2026](#aurorapostgresql-versions-version15134x-15134 "#aurorapostgresql-versions-version15134x-15134")
 - [Aurora PostgreSQL 15.13.3, September 16,
   2025](#aurorapostgresql-versions-version15133x-15133 "#aurorapostgresql-versions-version15133x-15133")
 - [Aurora PostgreSQL 15.13.2, August 8,
@@ -2307,6 +2449,32 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
   2025](#aurorapostgresql-versions-version15131x-15131 "#aurorapostgresql-versions-version15131x-15131")
 - [Aurora PostgreSQL 15.13, June 30,
   2025](#aurorapostgresql-versions-version1513x-1513 "#aurorapostgresql-versions-version1513x-1513")
+
+#### Aurora PostgreSQL 15.13.4, January 15,
+
+2026
+
+**Critical stability enhancements**
+
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Fixed an issue which could cause a restart during the start of logical replication data synchronization.
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+
+  [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+**General enhancements**
+
+- Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 15.13.3, September 16,
 
@@ -2625,6 +2793,8 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.10.7, January 28, 2026](#aurorapostgresql-versions-version15107x-15107 "#aurorapostgresql-versions-version15107x-15107")
+- [Aurora PostgreSQL 15.10.6, November 13, 2025](#aurorapostgresql-versions-version15106x-15106 "#aurorapostgresql-versions-version15106x-15106")
 - [Aurora PostgreSQL 15.10.5, June 24, 2025](#aurorapostgresql-versions-version15105x-15105 "#aurorapostgresql-versions-version15105x-15105")
 - [Aurora PostgreSQL 15.10.4, March 24,
   2025](#aurorapostgresql-versions-version15104x-15104 "#aurorapostgresql-versions-version15104x-15104")
@@ -2636,6 +2806,64 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
   27, 2024](#aurorapostgresql-versions-version15101x-15101 "#aurorapostgresql-versions-version15101x-15101")
 - [Aurora PostgreSQL 15.10, December 27,
   2024](#aurorapostgresql-versions-version1510x-1510 "#aurorapostgresql-versions-version1510x-1510")
+
+#### Aurora PostgreSQL 15.10.7, January 28, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that could cause garbage collection to get blocked on a change data capture (CDC) volume.
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+- Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
+
+**General enhancements**
+
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
+
+#### Aurora PostgreSQL 15.10.6, November 13, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue in engine minor and patch upgrades where in rare cases a backend can incorrectly process an interrupt early.
+- Fixed an issue where minor version upgrades and patch upgrades might take a few seconds longer because the runtime process was not exiting gracefully.
+- Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+- Fixed a security issue when altering routine ownership.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
+  - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
+  - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
+
+- Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+  - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
+  - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
+
+- Fixed a race condition where old writer instance may not step down after a new writer instance is promoted and continues to write.
+
+**General enhancements**
+
+- Improved error handling mechanisms during TDS Connection reset operations.
+- Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
+- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
+- Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
+- Fixed an issue that could cause prolonged Serverless v2 scaling time.
+- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed an issue causing a replica restart during the replica join case.
+- Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
+- Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
+- Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
 
 #### Aurora PostgreSQL 15.10.5, June 24, 2025
 
@@ -4236,7 +4464,15 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.20.1, January 16th, 2026](#aurorapostgresql-versions-version14201x-14201 "#aurorapostgresql-versions-version14201x-14201")
 - [Aurora PostgreSQL 14.20, December, 18, 2025](#aurorapostgresql-versions-version1420x-1420 "#aurorapostgresql-versions-version1420x-1420")
+
+#### Aurora PostgreSQL 14.20.1, January 16th, 2026
+
+**Critical stability enhancements**
+
+- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
+- Fixed an issue where an UPDATE statement with OUTPUT clause may skip rows when there are concurrent updates on the same row
 
 #### Aurora PostgreSQL 14.20, December, 18, 2025
 
@@ -4362,6 +4598,8 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.18.4, January 15,
+  2026](#aurorapostgresql-versions-version14184x-14184 "#aurorapostgresql-versions-version14184x-14184")
 - [Aurora PostgreSQL 14.18.3, September 16,
   2025](#aurorapostgresql-versions-version14183x-14183 "#aurorapostgresql-versions-version14183x-14183")
 - [Aurora PostgreSQL 14.18.2, August 8,
@@ -4370,6 +4608,32 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
   2025](#aurorapostgresql-versions-version14181x-14181 "#aurorapostgresql-versions-version14181x-14181")
 - [Aurora PostgreSQL 14.18, June 30,
   2025](#aurorapostgresql-versions-version1418x-1418 "#aurorapostgresql-versions-version1418x-1418")
+
+#### Aurora PostgreSQL 14.18.4, January 15,
+
+2026
+
+**Critical stability enhancements**
+
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Fixed an issue which could cause a restart during the start of logical replication data synchronization.
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+
+  [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+**General enhancements**
+
+- Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 14.18.3, September 16,
 
@@ -4678,6 +4942,8 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.15.7, January 28, 2026](#aurorapostgresql-versions-version14157x-14157 "#aurorapostgresql-versions-version14157x-14157")
+- [Aurora PostgreSQL 14.15.6, November 13, 2025](#aurorapostgresql-versions-version14156x-14156 "#aurorapostgresql-versions-version14156x-14156")
 - [Aurora PostgreSQL 14.15.5, June 24, 2025](#aurorapostgresql-versions-version14155x-14155 "#aurorapostgresql-versions-version14155x-14155")
 - [Aurora PostgreSQL 14.15.4, March 24,
   2025](#aurorapostgresql-versions-version14154x-14154 "#aurorapostgresql-versions-version14154x-14154")
@@ -4689,6 +4955,64 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
   27, 2024](#aurorapostgresql-versions-version14151x-14151 "#aurorapostgresql-versions-version14151x-14151")
 - [Aurora PostgreSQL 14.15, December 27,
   2024](#aurorapostgresql-versions-version1415x-1415 "#aurorapostgresql-versions-version1415x-1415")
+
+#### Aurora PostgreSQL 14.15.7, January 28, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that could cause garbage collection to get blocked on a change data capture (CDC) volume.
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+- Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
+
+**General enhancements**
+
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
+
+#### Aurora PostgreSQL 14.15.6, November 13, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue in engine minor and patch upgrades where in rare cases a backend can incorrectly process an interrupt early.
+- Fixed an issue where minor version upgrades and patch upgrades might take a few seconds longer because the runtime process was not exiting gracefully.
+- Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+- Fixed a security issue when altering routine ownership.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
+  - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
+  - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
+
+- Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+  - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
+  - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
+
+- Fixed a race condition where old writer instance may not step down after a new writer instance is promoted and continues to write.
+
+**General enhancements**
+
+- Improved error handling mechanisms during TDS Connection reset operations.
+- Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
+- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
+- Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
+- Fixed an issue that could cause prolonged Serverless v2 scaling time.
+- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed an issue causing a replica restart during the replica join case.
+- Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
+- Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
+- Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
 
 #### Aurora PostgreSQL 14.15.5, June 24, 2025
 
@@ -6992,7 +7316,15 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 13.23.1, January 16th, 2026](#aurorapostgresql-versions-version13231x-13231 "#aurorapostgresql-versions-version13231x-13231")
 - [Aurora PostgreSQL 13.23, December, 18, 2025](#aurorapostgresql-versions-version1323x-1323 "#aurorapostgresql-versions-version1323x-1323")
+
+#### Aurora PostgreSQL 13.23.1, January 16th, 2026
+
+**Critical stability enhancements**
+
+- Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
+- Fixed an issue where an UPDATE statement with OUTPUT clause may skip rows when there are concurrent updates on the same row
 
 #### Aurora PostgreSQL 13.23, December, 18, 2025
 
@@ -7118,6 +7450,8 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 13.21.4, January 15,
+  2026](#aurorapostgresql-versions-version13214x-13214 "#aurorapostgresql-versions-version13214x-13214")
 - [Aurora PostgreSQL 13.21.3, September 16,
   2025](#aurorapostgresql-versions-version13213x-13213 "#aurorapostgresql-versions-version13213x-13213")
 - [Aurora PostgreSQL 13.21.2, August 8,
@@ -7126,6 +7460,32 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
   2025](#aurorapostgresql-versions-version13211x-13211 "#aurorapostgresql-versions-version13211x-13211")
 - [Aurora PostgreSQL 13.21, June 30,
   2025](#aurorapostgresql-versions-version1321x-1321 "#aurorapostgresql-versions-version1321x-1321")
+
+#### Aurora PostgreSQL 13.21.4, January 15,
+
+2026
+
+**Critical stability enhancements**
+
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Fixed an issue which could cause a restart during the start of logical replication data synchronization.
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+
+  [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+**General enhancements**
+
+- Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 13.21.3, September 16,
 
@@ -7418,6 +7778,8 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 13.18.7, January 28, 2026](#aurorapostgresql-versions-version13187x-13187 "#aurorapostgresql-versions-version13187x-13187")
+- [Aurora PostgreSQL 13.18.6, November 13, 2025](#aurorapostgresql-versions-version13186x-13186 "#aurorapostgresql-versions-version13186x-13186")
 - [Aurora PostgreSQL 13.18.5, June 24, 2025](#aurorapostgresql-versions-version13185x-13185 "#aurorapostgresql-versions-version13185x-13185")
 - [Aurora PostgreSQL 13.18.4, March
   24, 2025](#aurorapostgresql-versions-version13184x-13184 "#aurorapostgresql-versions-version13184x-13184")
@@ -7429,6 +7791,64 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
   December 27, 2024](#aurorapostgresql-versions-version13181x-13181 "#aurorapostgresql-versions-version13181x-13181")
 - [Aurora PostgreSQL 13.18, December
   27, 2024](#aurorapostgresql-versions-version1318x-1318 "#aurorapostgresql-versions-version1318x-1318")
+
+#### Aurora PostgreSQL 13.18.7, January 28, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that could cause garbage collection to get blocked on a change data capture (CDC) volume.
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+- Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
+
+**General enhancements**
+
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
+
+#### Aurora PostgreSQL 13.18.6, November 13, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue in engine minor and patch upgrades where in rare cases a backend can incorrectly process an interrupt early.
+- Fixed an issue where minor version upgrades and patch upgrades might take a few seconds longer because the runtime process was not exiting gracefully.
+- Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+- Fixed a security issue when altering routine ownership.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
+  - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
+  - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
+
+- Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+  - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
+  - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
+
+- Fixed a race condition where old writer instance may not step down after a new writer instance is promoted and continues to write.
+
+**General enhancements**
+
+- Improved error handling mechanisms during TDS Connection reset operations.
+- Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
+- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
+- Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
+- Fixed an issue that could cause prolonged Serverless v2 scaling time.
+- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed an issue causing a replica restart during the replica join case.
+- Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
+- Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
+- Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
 
 #### Aurora PostgreSQL 13.18.5, June 24, 2025
 
@@ -9987,6 +10407,8 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 12.22.7, January 28, 2026](#aurorapostgresql-versions-version12227x-12227 "#aurorapostgresql-versions-version12227x-12227")
+- [Aurora PostgreSQL 12.22.6, November 13, 2025](#aurorapostgresql-versions-version12226x-12226 "#aurorapostgresql-versions-version12226x-12226")
 - [Aurora PostgreSQL 12.22.5, June 24, 2025](#aurorapostgresql-versions-version12225x-12225 "#aurorapostgresql-versions-version12225x-12225")
 - [Aurora PostgreSQL 12.22.4, March 24,
   2025](#aurorapostgresql-versions-version12224x-12224 "#aurorapostgresql-versions-version12224x-12224")
@@ -9998,6 +10420,64 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
   27, 2024](#aurorapostgresql-versions-version12221x-12221 "#aurorapostgresql-versions-version12221x-12221")
 - [Aurora PostgreSQL 12.22, December 27,
   2024](#aurorapostgresql-versions-version1222x-1222 "#aurorapostgresql-versions-version1222x-1222")
+
+#### Aurora PostgreSQL 12.22.7, January 28, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that could cause garbage collection to get blocked on a change data capture (CDC) volume.
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+  - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+- Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
+
+**General enhancements**
+
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
+
+#### Aurora PostgreSQL 12.22.6, November 13, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue in engine minor and patch upgrades where in rare cases a backend can incorrectly process an interrupt early.
+- Fixed an issue where minor version upgrades and patch upgrades might take a few seconds longer because the runtime process was not exiting gracefully.
+- Fixed an issue related to Optimized Reads-enabled tiered cache functionality that might result in longer recovery times after a failover to Aurora replica instances.
+- Fixed a security issue when altering routine ownership.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
+  - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
+  - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
+
+- Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+  - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
+  - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
+
+- Fixed a race condition where old writer instance may not step down after a new writer instance is promoted and continues to write.
+
+**General enhancements**
+
+- Improved error handling mechanisms during TDS Connection reset operations.
+- Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
+- Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
+- Fixed an issue in Query Plan Management with running a utility statement immediately after installing the extension or resetting shared memory.
+- Fixed an issue in enforcing, validating and evolving plans in Query Plan Management.
+- Fixed an issue that could cause prolonged Serverless v2 scaling time.
+- Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
+- Fixed an issue causing a replica restart during the replica join case.
+- Fixed an issue which can cause vacuum operations to become blocked after the restart of an Aurora replica in a Global Database.
+- Fixed an issue causing query execution failure for execution plans using the "bitmap heap scan" access method.
+- Fixed an issue impacting query execution performance for execution plans using the "bitmap heap scan" access method.
 
 #### Aurora PostgreSQL 12.22.5, June 24, 2025
 
@@ -11772,6 +12252,7 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 12.9.18, January 15th, 2026](#aurorapostgresql-versions-version12918x-12918 "#aurorapostgresql-versions-version12918x-12918")
 - [Aurora PostgreSQL 12.9.16, June 18, 2025](#aurorapostgresql-versions-version12916x-12916 "#aurorapostgresql-versions-version12916x-12916")
 - [Aurora PostgreSQL 12.9.15 April 29, 2025](#aurorapostgresql-versions-version12915x-12915 "#aurorapostgresql-versions-version12915x-12915")
 - [Aurora PostgreSQL 12.9.13, November 22, 2024](#aurorapostgresql-versions-version129x-12913 "#aurorapostgresql-versions-version129x-12913")
@@ -11786,6 +12267,34 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 - [Aurora PostgreSQL 12.9.3, April 13, 2022](#AuroraPostgreSQL.Updates.20180305.1293 "#AuroraPostgreSQL.Updates.20180305.1293")
 - [Aurora PostgreSQL 12.9.1](#AuroraPostgreSQL.Updates.20180305.1291 "#AuroraPostgreSQL.Updates.20180305.1291")
 - [Aurora PostgreSQL 12.9.0](#AuroraPostgreSQL.Updates.20180305.1290 "#AuroraPostgreSQL.Updates.20180305.1290")
+
+#### Aurora PostgreSQL 12.9.18, January 15th, 2026
+
+###### Critical stability enhancements
+
+- Fixed a security issue when altering routine ownership.
+
+###### High priority enhancements
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
+
+  [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
+
+  [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
+
+  [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+
+  [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+- Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+  - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
+
+- Fixed a race condition where old writer instance may not step down after a new writer instance is promoted and continues to write.
+
+###### General stability enhancements
+
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
 
 #### Aurora PostgreSQL 12.9.16, June 18, 2025
 
@@ -13955,6 +14464,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 11.9.18, January 15, 2026](#aurorapostgresql-versions-version11918x-11918 "#aurorapostgresql-versions-version11918x-11918")
 - [Aurora PostgreSQL 11.9.16, June 18, 2025](#aurorapostgresql-versions-version11916x-11916 "#aurorapostgresql-versions-version11916x-11916")
 - [Aurora PostgreSQL 11.9.15
   April 29, 2025](#aurorapostgresql-versions-version11915x-11915 "#aurorapostgresql-versions-version11915x-11915")
@@ -13981,6 +14491,34 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
   3.4.1](#AuroraPostgreSQL.Updates.20180305.341 "#AuroraPostgreSQL.Updates.20180305.341")
 - [Aurora PostgreSQL
   3.4.0](#AuroraPostgreSQL.Updates.20180305.340 "#AuroraPostgreSQL.Updates.20180305.340")
+
+#### Aurora PostgreSQL 11.9.18, January 15, 2026
+
+###### Critical stability enhancements
+
+- Fixed a security issue when altering routine ownership.
+
+###### High priority enhancements
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
+
+  [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
+
+  [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
+
+  [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
+
+  [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
+
+- Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+  - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
+
+- Fixed a race condition where old writer instance may not step down after a new writer instance is promoted and continues to write.
+
+###### General stability enhancements
+
+- Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
 
 #### Aurora PostgreSQL 11.9.16, June 18, 2025
 
