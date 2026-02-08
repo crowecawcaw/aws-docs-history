@@ -30,7 +30,7 @@ This section provides guidance for resolving common issues with zero-ETL integra
   integration operations.
 - Verify that the Amazon Redshift resource policy allows inbound integrations from your
   VM cluster.
-- Ensure that Oracle Database@AWS has been granted access to your secrets and KMS key.
+- Ensure that Oracle Database@AWS has been granted access to your secrets and AWS Key Management Service key.
 
 ## Replication issues
 

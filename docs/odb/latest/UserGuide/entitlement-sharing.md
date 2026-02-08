@@ -30,3 +30,4 @@ When sharing Oracle Database@AWS entitlements, keep the following limitations in
 - An account can receive entitlements from only one buyer account (from one private offer)
 - A buyer account cannot share entitlements with another buyer account
 - Recipient accounts must initialize the Oracle Database@AWS service before they can use the shared entitlement
+- Entitlement grant operations can only be performed from the US East (N. Virginia) Region

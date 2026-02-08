@@ -64,6 +64,14 @@ You can use the AZs with the physical IDs `use2-az1` and
 You can use the AZs with the physical IDs `euc1-az1` and
 `euc1-az2`.
 
+**Canada (Central)**
+
+You can use the AZ with the physical ID `cac1-az4`.
+
+**Asia Pacific (Sydney)**
+
+You can use the AZ with the physical ID `apse2-az4`.
+
 To find the logical AZ names in your account that map to the preceding physical AZ IDs, run
 the following command.
 
@@ -225,8 +233,8 @@ or custom backups. You can enter a JSON policy. For more information, see [User-
 
 **Zero-ETL**
 
-Enable real-time analytics and machine learning on transactional data using
-Amazon Redshift.
+Enable real-time analytics and machine learning on transactional data using Amazon Redshift. For
+more information, see [Oracle Database@AWS Zero-ETL integration with Amazon Redshift](zero-etl-integration.md "zero-etl-integration.md").
 
 ###### Note
 

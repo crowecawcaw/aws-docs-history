@@ -42,7 +42,7 @@ The Zero-ETL integration architecture includes the following:
 - **Secure connectivity** – Uses SSL/TLS encryption
   over TLS port 2484 for data transfer
 - **AWS Secrets Manager** – Stores database credentials and
-  certificates securely using AWS KMS
+  certificates securely using AWS Key Management Service
 - **AWS Glue integration** – Provides unified
   management interface for zero-ETL integrations
 

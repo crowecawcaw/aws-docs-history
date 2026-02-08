@@ -86,6 +86,12 @@ GRANT SELECT ON V_$TRANSPORTABLE_PLATFORM TO "ODBZEROETLADMIN";
 GRANT CREATE ANY DIRECTORY TO "ODBZEROETLADMIN";
 GRANT EXECUTE ON DBMS_FILE_TRANSFER TO "ODBZEROETLADMIN";
 GRANT EXECUTE ON DBMS_FILE_GROUP TO "ODBZEROETLADMIN";
+GRANT EXECUTE on DBMSLOGMNR to "ODBZEROETLADMIN";
+GRANT SELECT on V_$LOGMNRLOGS to "ODBZEROETLADMIN";
+GRANT SELECT on V_$LOGMNRCONTENTS to "ODBZEROETLADMIN";
+GRANT LOGMINING to "ODBZEROETLADMIN";
+GRANT SELECT ON GV_$CELL_STATE TO "ODBZEROETLADMIN";
+
 ```
 
 ### Supplemental logging
@@ -130,47 +136,21 @@ required.
 
 The SSL port is fixed as 2484.
 
-### ASM configuration (Oracle Exadata only)
-
-If Automatic Storage Management (ASM) is enabled on your Oracle Exadata system, you must
-create an ASM user.
-
-```
--- Connect to ASM instance
-sqlplus / as sysasm
-
--- Create ASM user
-CREATE USER ODBZEROETLASM IDENTIFIED BY "`secure_password`";
-
--- Grant SYSASM privilege
-GRANT SYSASM TO ODBZEROETLASM;
-
--- Grant additional required privileges
-GRANT SELECT ON V_$TRANSPORTABLE_PLATFORM TO "ODBZEROETLASM";
-GRANT CREATE ANY DIRECTORY TO "ODBZEROETLASM";
-GRANT EXECUTE ON DBMS_FILE_TRANSFER TO "ODBZEROETLASM";
-GRANT EXECUTE ON DBMS_FILE_GROUP TO "ODBZEROETLASM";
-```
-
-###### Note
-
-ASM configuration is not required for Autonomous Databases.
-
-## AWS service prerequisites
+### AWS service prerequisites
 
 Before setting up zero-ETL integration, set up AWS Secrets Manager and configure IAM
 permissions.
 
-### Set up AWS Secrets Manager
+#### Set up AWS Secrets Manager
 
 Store your Oracle database credentials in AWS Secrets Manager as follows:
 
-1. Create a Customer Managed Key (CMK) in AWS KMS.
-2. Store database credentials in Secrets Manager using the CMK.
+1. Create a Customer Managed Key (CMK) in AWS Key Management Service.
+2. Store database credentials in AWS Secrets Manager using the CMK.
 3. Configure resource policies to allow Oracle Database@AWS access.
 
 To get your TDE key ID and password, use the technique described in [Supported
-encryption methods for using Oracle as a source for AWS DMS](../../../dms/latest/userguide/CHAP_Source.md#CHAP_Source.Oracle.Encryption "../../../dms/latest/userguide/CHAP_Source.md#CHAP_Source.Oracle.Encryption"). The following command
+encryption methods for using Oracle as a source for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Source.md#CHAP_Source.Oracle.Encryption "../../../dms/latest/userguide/CHAP_Source.md#CHAP_Source.Oracle.Encryption"). The following command
 generates the base64 wallet.
 
 ```
@@ -189,16 +169,16 @@ SCAN.
       "name": "ODBDB_ZETLPDB",
       "service_name": "ODBDB_ZETLPDB.paas.oracle.com",
       "username": "ODBZEROETLADMIN",
-      "password": "`secure_password`",
-      "tde_key_id": "ORACLE.SECURITY.DB.ENCRYPTION.`key_id`",
-      "tde_password": "`tde_password`",
-      "certificateWallet": "`base64_encoded_wallet_content`"
+      "password": "secure_password",
+      "tde_key_id": "ORACLE.SECURITY.DB.ENCRYPTION.key_id",
+      "tde_password": "tde_password",
+      "certificateWallet": "base64_encoded_wallet_content"
     }
   ],
   "asm_info": {
     "asm_user": "odbzeroetlasm",
-    "asm_password": "Reinvent_2025",
-    "asm_service_name": "`111.11.11.11`:2484/+`ASM`"
+    "asm_password": "secure_password",
+    "asm_service_name": "111.11.11.11:2484/+ASM"
   }
 }
 ```
@@ -220,7 +200,7 @@ Infrastructure.
 }
 ```
 
-### Configure IAM permissions
+#### Configure IAM permissions
 
 Create IAM policies that allow zero-ETL integration operations. The following example
 policy allows describe, create, update, and delete operations for an Exadata VM cluster. For an

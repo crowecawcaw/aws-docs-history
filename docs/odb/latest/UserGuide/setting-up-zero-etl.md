@@ -1,11 +1,11 @@
-# Setting up Zero-ETL integration in Oracle Database@AWS
+# Setting up Oracle Database@AWS integrations with Amazon Redshift
 
 To set up zero-ETL integration between your Oracle database and Amazon Redshift, complete the following
 steps:
 
 1. Enable Zero-ETL on your ODB network.
 2. Configure Oracle database prerequisites.
-3. Set up AWS Secrets Manager and KMS.
+3. Set up AWS Secrets Manager and AWS Key Management Service.
 4. Configure IAM permissions.
 5. Set up Amazon Redshift resource policies.
 6. Create the zero-ETL integration.
@@ -52,11 +52,11 @@ Complete the Oracle database configuration as described in the [Prerequisites](z
 - Configure SSL (Oracle Exadata only).
 - Set up ASM users if applicable (Oracle Exadata only).
 
-## Step 3: Set up AWS Secrets Manager and AWS KMS
+## Step 3: Set up AWS Secrets Manager and AWS Key Management Service
 
 Create a Customer Managed Key (CMK) and store your database credentials.
 
-1. Create a CMK in AWS KMS using the `create-key` command.
+1. Create a CMK in AWS Key Management Service using the `create-key` command.
 
 ```
 aws kms create-key \
@@ -341,11 +341,13 @@ needing to do it manually.
 AWS Glue
 
 Create the zero-ETL integration using the AWS Glue `create-integration`
-command. The following example creates an integration with a PDB named `pdb1`
-running in an Exadata VM cluster. You can also create an Autonomous VM cluster by replacing
-`cloud-vm-cluster` with `cloud-autonomous-vm-cluster` in the source
-ARN. Specifying a KMS key is optional. If you specify a key, it can be different from the
-one that you created in [Step 3: Set up AWS Secrets Manager and AWS KMS](#zero-etl-setup-secrets "#zero-etl-setup-secrets").
+command. In this command, you specify the source VM cluster and the target Amazon Redshift
+namespace.
+
+The following example creates an integration with a PDB named `pdb1` running in
+an Exadata VM cluster. You can also create an Autonomous VM cluster by replacing `cloud-vm-cluster`
+with `cloud-autonomous-vm-cluster` in the source ARN. Specifying a KMS key is
+optional. If you specify a key, it can be different from the one that you created in [Step 3: Set up AWS Secrets Manager and AWS Key Management Service](#zero-etl-setup-secrets "#zero-etl-setup-secrets").
 
 ```
 aws glue create-integration \
@@ -422,5 +424,5 @@ aws glue describe-integrations \
   --integration-identifier `integration-id`
 ```
 
-The status should be `active` or `replicating`. 2. Verify data replication by making changes in your Oracle database and checking that
+The status should be `ACTIVE` or `REPLICATING`. 2. Verify data replication by making changes in your Oracle database and checking that
 they appear in Amazon Redshift. 3. Monitor replication metrics in Amazon CloudWatch (if available).

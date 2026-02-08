@@ -8,7 +8,7 @@ Each zero-ETL integration can only replicate data from one pluggable database (P
 Data filters like `include: pdb1.*.*, include: pdb2.*.*` aren't
 supported.
 
-**Single integration per Autonomous Database**
+**Single integration per Autonomous Database or Exadata Infrastructure**
 
 Each zero-ETL integration can only replicate data from one Autonomous Database on
 Dedicated Infrastructure.

@@ -1,74 +1,82 @@
 # Managing zero-ETL integrations in Oracle Database@AWS
 
-After creating a zero-ETL integration, you can perform various management operations including monitoring, modifying, and deleting integrations. This section covers the ongoing management of your zero-ETL integrations.
-
-## Monitoring zero-ETL integration
-
-Regular monitoring of your zero-ETL integration ensures optimal performance and helps identify issues early.
-
-### Integration status monitoring
-
-Monitor the status of your zero-ETL integrations using AWS Glue APIs.
-
-```
-# Check status of a specific integration
-aws glue describe-integrations \
-  --integration-identifier `integration-id`
-
-# List all integrations in your account
-aws glue describe-integrations
-```
-
-Integration statuses include:
-
-- **creating** – Integration is being set up
-- **active** – Integration is running and replicating data
-- **modifying** – Integration configuration is being updated
-- **needs_attention** – Integration requires manual intervention
-- **failed** – Integration has encountered an error
-- **deleting** – Integration is being removed
-
-### Performance monitoring
-
-Monitor the following aspects of your zero-ETL integration performance:
-
-- **Replication lag** – The time difference between when a change occurs in Oracle and when it appears in Amazon Redshift
-- **Data throughput** – The volume of data being replicated per unit of time
-- **Error rates** – The frequency of replication errors or failures
-- **Resource utilization** – CPU, memory, and network usage on both source and target systems
-
-Use Amazon CloudWatch to monitor these metrics and set up alarms for critical thresholds.
+After creating a zero-ETL integration, you can perform various management operations including modifying and deleting integrations. This section covers the ongoing management of your zero-ETL integrations.
 
 ## Modifying zero-ETL integrations
 
-You can modify certain aspects of your zero-ETL integration after you have created it.
-Supported modifications include the integration name and description.
+You can modify only the name, description, and data filtering options for a zero-ETL integration in a supported data warehouse. You can't modify the AWS Key Management Service key used to encrypt the integration, or the source or target databases.
+
+### Prerequisites for modifying integrations
+
+Before you modify a zero-ETL integration, ensure that you have the following:
+
+- **Required permissions** – Your IAM user or role must
+  have the `odb:UpdateOutboundIntegration` permission in addition to the
+  standard AWS Glue permissions.
+- **Integration in active state** – The integration must be
+  in an `ACTIVE` state, not in `CREATING`, `MODIFYING`, `DELETING`, or
+  `FAILED`.
+- **Valid data filter syntax** – New data filters must follow
+  the supported include/exclude pattern syntax.
 
 ### Modifying data filters
 
-Change which tables or schemas are replicated by modifying the data filter.
+You can change which tables or schemas are replicated by modifying the data filter. In
+this way, you can add or remove database objects from replication without recreating the
+entire integration.
+
+To modify the data filter for an integration, use the `modify-integration` command.
 
 ```
 aws glue modify-integration \
   --integration-identifier `integration-id` \
-  --data-filter "include: `pdb1.new_schema.*`" \
-  --integration-name "Updated Integration Name"
+  --data-filter "include: `pdb1.new_schema.*`"
+```
+
+You can also modify the integration name and description at the same time. In the
+following example, you modify the integration name, descriptions, and filters for two
+schemas in `pdb1`.
+
+```
+aws glue modify-integration \
+  --integration-identifier `integration-id` \
+  --data-filter "include: `pdb1.schema1.*, pdb1.schema2.*`" \
+  --integration-name "`Updated Integration Name`" \
+  --description "`Updated integration description`"
 ```
 
 ###### Important
 
 When you modify the data filter, the integration enters a `modifying` state
-and might require a resynchronization of data. Monitor the integration status to make sure
-the modification completes successfully.
+and performs a resynchronization of data. The integration stops replication, applies the new filter settings, and resumes replication with a reload-target operation. Monitor the integration status to ensure the modification completes successfully.
 
-### Modification limitations
+### Considerations for data filter
+
+modifications to zero-ETL integrations
+
+Consider the following when modifying data filters:
+
+- **Single PDB limitation** – You can only specify one
+  pluggable database (PDB) per integration. Data filters like `include: pdb1.*.*,
+include: pdb2.*.*` aren't supported
+- **Replication interruption** – Data replication stops
+  during the modification process and resumes after the new filter is applied.
+- **Data reload** – The integration performs a full reload of
+  data that matches the new filter criteria.
+- **Performance impact** – Large data filter changes might
+  take significant time to complete and can affect the source database performance during
+  the reload.
+
+### Limitations for modifications to zero-ETL
+
+integration settings
 
 You can't modify the following settings after you create a zero-ETL integration:
 
 - **Secret ARN** – The AWS Secrets Manager secret containing database credentials
-- **KMS key** – The CMK used for encryption
+- **KMS key** – The customer managed key used for encryption
 - **Source ARN** – The Oracle Database@AWS VM cluster
-- **Target ARN** – The Amazon Amazon Redshift cluster or namespace
+- **Target ARN** – The Amazon Redshift cluster or namespace
 
 To change these settings, delete the existing zero-ETL integration and create a new
 one.
@@ -77,7 +85,7 @@ one.
 
 When you no longer need a zero-ETL integration, you can delete it to stop replication and clean up associated resources.
 
-### Deletion process
+### Deletion using AWS Glue
 
 Delete a zero-ETL integration using the AWS Glue API.
 
@@ -99,7 +107,7 @@ When you delete a zero-ETL integration, consider the following effects:
 
 **Replication stops.**
 
-No new changes from Oracle will be replicated to Amazon Redshift.
+Oracle Database@AWS doesn't replicate new changes from Amazon Redshift.
 
 **Existing data is preserved.**
 
@@ -107,12 +115,12 @@ Data already replicated to Amazon Redshift remains available.
 
 **The target database remains.**
 
-The Amazon Redshift database created from the integration isn't automatically deleted
+The Amazon Redshift database created from the integration isn't automatically deleted.
 
 ###### Important
 
 Deletion is irreversible. If you need to resume replication after deletion, create a
-new integration, which will perform a full initial load.
+new integration, which performs a full initial load.
 
 ## Best practices for zero-ETL management
 

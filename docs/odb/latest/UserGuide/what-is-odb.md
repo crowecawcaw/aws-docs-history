@@ -24,7 +24,7 @@ Service on Dedicated Infrastructure or Oracle Autonomous Database on Dedicated E
 Infrastructure within AWS. The migration offers minimal changes, full feature availability,
 architectural compatibility, and the same performance as on-premises Exadata deployments. You
 can use standard Oracle database migration tools such as Recovery Manager (RMAN), Oracle Data
-Guard, transportable tablespaces, Oracle Data Pump, Oracle GoldenGate, AWS DMS, and Oracle Zero
+Guard, transportable tablespaces, Oracle Data Pump, Oracle GoldenGate, AWS Database Migration Service, and Oracle Zero
 Downtime Migration.
 
 **Reduced application latency**
