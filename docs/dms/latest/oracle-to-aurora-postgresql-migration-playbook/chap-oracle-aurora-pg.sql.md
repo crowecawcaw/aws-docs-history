@@ -1,71 +1,45 @@
-# CREATE TABLE AS SELECT statement
+# Oracle UTL_FILE package
 
-With AWS DMS, you can create a new table in a target database by selecting data from one or more tables in a source database using the Oracle and PostgreSQL `CREATE TABLE AS SELECT` statement. This statement defines a new table by querying data from existing tables, providing a way to replicate table structures and data from a source to a target database.
+With AWS DMS, you can access data and read/write files on the server’s file system using the Oracle `UTL_FILE` package. The `UTL_FILE` package provides APIs to operate on server files, allowing applications to read and write operating system files.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Five star feature compatibility | Five star automation level         | N/A                       | N/A             |
+| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                    |
+| --------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------- |
+| No compatibility      | No automation                      | N/A                       | PostgreSQL doesn’t have the `UTL_FILE` equivalent. |
 
 ## Oracle usage
 
-The Create Table As Select (CTAS) statement creates a new table based on an existing table. It copies the table DDL definitions (column names and column datatypes) and data to a new table. The new table is populated from the columns specified in the `SELECT` statement, or all columns if you use `SELECT * FROM`. You can filter specific data using the `WHERE` and `AND` statements. Additionally, you can create a new table having a different structure using joins, `GROUP BY`, and `ORDER BY`.
+Oracle `UTL_FILE` PL/SQL package enables you to access files stored outside of the database such as files stored on the operating system, the database server, or a connected storage volume. `UTL_FILE.FOPEN`, `UTL_FILE.GET_LINE`, and `UTL_FILE.PUT_LINE` are procedures within the `UTL_FILE` package used to open, read, and write files.
 
 **Examples**
 
-Create a table based on an existing table and include data from all columns.
+Run an anonymous PL/SQL block that reads a single line from file1 and writes it to file2.
+
+- Use `UTL_FILE.FILE_TYPE` to create a handle for the file.
+- Use `UTL_FILE.FOPEN` to open streamable access to the file and specify:
+  - The logical Oracle directory object pointing to the O/S folder where the file resides.
+  - The file name.
+  - The file access mode: 'A'=append mode, 'W'=write mode
+
+- Use `UTL_FILE.GET_LINE` to read a line from the input file into a variable.
+- Use `UTL_FILE.PUT_LINE` to write a single line to the output file.
 
 ```
-CREATE TABLE EMPS
-AS
-SELECT * FROM EMPLOYEES;
+DECLARE
+strString1 VARCHAR2(32767);
+fileFile1 UTL_FILE.FILE_TYPE;
+BEGIN
+fileFile1 := UTL_FILE.FOPEN('FILES_DIR','File1.tmp','R');
+UTL_FILE.GET_LINE(fileFile1,strString1);
+UTL_FILE.FCLOSE(fileFile1);
+fileFile1 := UTL_FILE.FOPEN('FILES_DIR','File2.tmp','A');
+utl_file.PUT_LINE(fileFile1,strString1);
+utl_file.fclose(fileFile1);
+END;
+/
 ```
 
-Create a table based on an existing table with select columns.
-
-```
-CREATE TABLE EMPS
-AS
-SELECT EMPLOYEE_ID, FIRST_NAME, SALARY FROM EMPLOYEES
-ORDER BY 3 DESC
-```
-
-For more information, see [CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6") in the _Oracle documentation_.
+For more information, see [UTL_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-PostgreSQL conforms to the ANSI/SQL standard for CTAS functionality and is compatible with an Oracle CTAS statement. For PostgreSQL, the following CTAS standard elements are optional:
-
-- The standard requires parentheses around the `SELECT` statement; PostgreSQL doesn’t.
-- The standard requires the `WITH [ NO ] DATA` clause; PostgreSQL doesn’t.
-
-**PostgreSQL CTAS synopsis**
-
-```
-CREATE
-[ [ GLOBAL | LOCAL ] { TEMPORARY | TEMP } | UNLOGGED ] TABLE [ IF NOT EXISTS ] table_name
-[ (column_name [, ...] ) ]
-[ WITH ( storage_parameter [= value] [, ... ] ) |
-WITH OIDS | WITHOUT OIDS ]
-[ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
-[ TABLESPACE tablespace_name ]
-AS query
-[ WITH [ NO ] DATA ]
-```
-
-**Examples**
-
-PostgreSQL CTAS.
-
-```
-pg_CREATE TABLE EMPS AS SELECT * FROM EMPLOYEES;
-pg_CREATE TABLE EMPS AS
-SELECT EMPLOYEE_ID, FIRST_NAME, SALARY FROM EMPLOYEES ORDER BY 3 DESC;
-```
-
-PostgreSQL CTAS with no data.
-
-```
-pg_CREATE TABLE EMPS AS SELECT * FROM EMPLOYEES WITH NO DATA;
-```
-
-For more information, see [CREATE TABLES](https://www.postgresql.org/docs/13/sql-createtableas.html "https://www.postgresql.org/docs/13/sql-createtableas.html") in the _PostgreSQL documentation_.
+Amazon Aurora PostgreSQL doesn’t currently provides a directly comparable alternative for Oracle `UTL_FILE` package.
