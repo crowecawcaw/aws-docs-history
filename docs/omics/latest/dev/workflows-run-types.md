@@ -4,7 +4,7 @@ When you start a run, HealthOmics allocates temporary run storage for the workfl
 provides the temporary run storage as a file system.
 
 For a given workflow or workflow run, you can choose dynamic or static run storage. By default, HealthOmics provides
-static run storage.
+DYNAMIC run storage.
 
 ###### Note
 

@@ -130,25 +130,25 @@ HealthOmics supports the G6 and G6e instances in these regions: US West (Oregon)
 
 | Instance          | Number of vCPUs | Memory  | Number of GPUs | GPU memory |
 | ----------------- | --------------- | ------- | -------------- | ---------- |
-| omics.g6.xlarge   | 4               | 16 GiB  | 1              | 48 GiB     |
-| omics.g6.2xlarge  | 8               | 32 GiB  | 1              | 48 GiB     |
-| omics.g6.4xlarge  | 16              | 64 GiB  | 1              | 48 GiB     |
-| omics.g6.8xlarge  | 32              | 128 GiB | 1              | 48 GiB     |
-| omics.g6.12xlarge | 48              | 192 GiB | 4              | 192 GiB    |
-| omics.g6.16xlarge | 64              | 256 GiB | 1              | 48 GiB     |
-| omics.g6.24xlarge | 96              | 192 GiB | 4              | 192 GiB    |
+| omics.g6.xlarge   | 4               | 16 GiB  | 1              | 24 GiB     |
+| omics.g6.2xlarge  | 8               | 32 GiB  | 1              | 24 GiB     |
+| omics.g6.4xlarge  | 16              | 64 GiB  | 1              | 24 GiB     |
+| omics.g6.8xlarge  | 32              | 128 GiB | 1              | 24 GiB     |
+| omics.g6.12xlarge | 48              | 192 GiB | 4              | 96 GiB     |
+| omics.g6.16xlarge | 64              | 256 GiB | 1              | 24 GiB     |
+| omics.g6.24xlarge | 96              | 384 GiB | 4              | 96 GiB     |
 
 All omics.g6e instances use Nvidia L40s GPUs.
 
 | Instance           | Number of vCPUs | Memory  | Number of GPUs | GPU memory |
 | ------------------ | --------------- | ------- | -------------- | ---------- |
-| omics.g6e.xlarge   | 4               | 32 GiB  | 1              | 24 GiB     |
-| omics.g6e.2xlarge  | 8               | 64 GiB  | 1              | 24 GiB     |
-| omics.g6e.4xlarge  | 16              | 128 GiB | 1              | 24 GiB     |
-| omics.g6e.8xlarge  | 32              | 256 GiB | 1              | 24 GiB     |
-| omics.g6e.12xlarge | 48              | 384 GiB | 4              | 96 GiB     |
-| omics.g6e.16xlarge | 64              | 512 GiB | 1              | 96 GiB     |
-| omics.g6e.24xlarge | 96              | 768 GiB | 4              | 96 GiB     |
+| omics.g6e.xlarge   | 4               | 32 GiB  | 1              | 48 GiB     |
+| omics.g6e.2xlarge  | 8               | 64 GiB  | 1              | 48 GiB     |
+| omics.g6e.4xlarge  | 16              | 128 GiB | 1              | 48 GiB     |
+| omics.g6e.8xlarge  | 32              | 256 GiB | 1              | 48 GiB     |
+| omics.g6e.12xlarge | 48              | 384 GiB | 4              | 192 GiB    |
+| omics.g6e.16xlarge | 64              | 512 GiB | 1              | 48 GiB     |
+| omics.g6e.24xlarge | 96              | 768 GiB | 4              | 192 GiB    |
 
 ### G4 and G5 instances
 

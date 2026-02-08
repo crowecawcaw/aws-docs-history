@@ -62,10 +62,22 @@ For example, you specify `s3://myfiles/runs/inputs/a/file1.fastq` to input file1
 For example, you can specify `s3://myfiles/runs/inputs/a/` to load all objects whose keys start
 with this prefix.
 
-- For Nextflow, HealthOmics supports the glob pattern for Amazon S3 URIs in input parameters.
+- For Nextflow, HealthOmics paritally supports the glob pattern for Amazon S3 URIs in input parameters.
 
 For example, you can specify `“s3://myfiles/runs/inputs/a/*.gz”` to input all .gz files whose
 keys start with this prefix.
+
+### Nextflow Handling of Glob pattern in Amazon S3 inputs
+
+| Glob Pattern                      | HealthOmics Match Behavior                                                                                                                                                                                                                | Notes                             |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| s3://bucket/directory/\*.txt      | Matches all `.txt` objects at any depth under the prefix s3://bucket/directory/. For example, matches s3://bucket/directory/abc.txt or s3://bucket/directory/subDir/123.txt etc.                                                          |                                   |
+| s3://bucket/directory/\*\*/\*.txt | Matches all `.txt` objects at any depth under the prefix s3://bucket/directory/. For example, matches s3://bucket/directory/abc.txt or s3://bucket/directory/subDir/123.txt etc.                                                          | In S3, `**` is equivalent to `*`. |
+| s3://bucket/directory/{a,b}.txt   | s3://bucket/directory/a.txt, s3://bucket/directory/b.txt                                                                                                                                                                                  |                                   |
+| s3://bucket/directory/?.txt       | Matches objects at the prefix root whose filename is a single character followed by `.txt`. For example, it matches s3://bucket/directory/a.txt but not s3://bucket/directory/someDir/a.txt or s3://bucket/directory/someDir/subDir/a.txt |                                   |
+| s3://bucket/directory/[0-9].txt   | s3://bucket/directory/0.txt, s3://bucket/directory/1.txt, ... ,s3://bucket/directory/9.txt                                                                                                                                                |                                   |
+| s3://bucket/directory/[0-9].txt   | s3://bucket/directory/1.txt, s3://bucket/directory/2.txt, s3://bucket/directory/3.txt                                                                                                                                                     |                                   |
+| s3://bucket/directory/[0-9].txt   | s3://bucket/directory/b.txt, s3://bucket/directory/c.txt, ... ,s3://bucket/directory/Y.txt                                                                                                                                                |                                   |
 
 ### Language-specific handling of double-slash in Amazon S3 inputs
 

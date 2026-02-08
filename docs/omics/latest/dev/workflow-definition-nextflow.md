@@ -41,10 +41,10 @@ it makes the matching object available to the workflow, as long as read access i
 granted. The use of prefixes or directories is allowed for Amazon S3 URIs.
 For examples, see [Amazon S3 input parameter formats](workflows-run-inputs.md#s3-run-input-formats "workflows-run-inputs.md#s3-run-input-formats").
 
-HealthOmics supports the use of glob patterns in Amazon S3 URIs or HealthOmics Storage URIs.
+HealthOmics partially supports the use of glob patterns in Amazon S3 URIs or HealthOmics Storage URIs.
 Use Glob patterns in the
 workflow definition for the creation of `path` or `file`
-channels.
+channels. For the expected behavior and exact cases, see [Nextflow Handling of Glob pattern in Amazon S3 inputs](workflows-run-inputs.md#wd-nextflow-s3-formats "workflows-run-inputs.md#wd-nextflow-s3-formats").
 
 ## Nextflow directives
 
