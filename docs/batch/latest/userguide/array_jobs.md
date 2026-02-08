@@ -48,6 +48,8 @@ corresponding index in Job A. Job B:1 can't start until job A:1 finishes.
 ![Two array jobs, Job-A and Job-B, with 10,000 indexed tasks each, showing N_TO_N dependency.](images/n-to-n-dep.png)
 If you cancel or terminate a parent array job, all the child jobs are cancelled or terminated with it. You can cancel or terminate individual child jobs (which moves them to a `FAILED` status) without affecting the other child jobs. However, if a child array job fails (on its own, or by manually cancelling or terminating the job), the parent job also fails. In this scenario, the parent job transitions to `FAILED` when all child jobs complete.
 
+For more information about searching and filtering array jobs, see [Search for jobs in a job queue](searching-filtering-jobs.md "searching-filtering-jobs.md").
+
 ###### Topics
 
 - [Example of an array job workflow](example_array_job.md "example_array_job.md")

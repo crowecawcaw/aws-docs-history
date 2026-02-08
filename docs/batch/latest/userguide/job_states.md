@@ -16,6 +16,10 @@ there are dependencies, the job is moved to `PENDING`. If there are no dependenc
 A job that resides in the queue and isn't yet able to run due to a dependency on another job or resource.
 After the dependencies are satisfied, the job is moved to `RUNNABLE`.
 
+###### Note
+
+Array job parents are updated to `PENDING` when any child job is updated to `RUNNABLE` and remain in `PENDING` status while child jobs are running. To view these jobs, filter by `PENDING` status until all child jobs reach a terminal state.
+
 `RUNNABLE`
 
 A job that resides in the queue, has no outstanding dependencies, and is therefore ready to be scheduled to a

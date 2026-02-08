@@ -29,6 +29,11 @@ You can search for jobs within only one job queue at a time. 5. For **Search opt
 
     1. For the **Status** dropdown list you can choose one or more
      statuses to filter on. For more information, see [Job states](job_states.md "job_states.md") and [Service job status](service-job-status.md "service-job-status.md").
+
+
+    ###### Note
+
+    Array job parents are updated to `PENDING` when any child job is updated to `RUNNABLE` and remain in `PENDING` status while child jobs are running. To view these jobs, filter by `PENDING` status until all child jobs reach a terminal state.
     2. Choose **Date range** to filter the results based on a date and
      time range.
 
