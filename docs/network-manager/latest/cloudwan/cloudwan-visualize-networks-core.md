@@ -13,6 +13,7 @@ Use the following dashboards to view information about your Cloud WAN core netwo
 - [Topology tree](#cloudwan-visualize-core-topology-tree "#cloudwan-visualize-core-topology-tree")
 - [Logical](#cloudwan-visualize-core-logical "#cloudwan-visualize-core-logical")
 - [Routes](#cloudwan-visualize-core-routes "#cloudwan-visualize-core-routes")
+- [Routing information base](#cloudwan-visualize-core-routing-information-base "#cloudwan-visualize-core-routing-information-base")
 - [Events](#cloudwan-visualize-core-events "#cloudwan-visualize-core-events")
 - [Monitoring](#cloudwan-visualize-core-monitoring "#cloudwan-visualize-core-monitoring")
 
@@ -364,7 +365,7 @@ edge locations.
 6. Choose the **Routes** tab.
 7. In the **Routes filter** section, choose one of the
    following:
-   - Chose **Segment**, and then from the
+   - Choose **Segment**, and then from the
      **Segment** and **Edge** location
      drop-down lists, choose the segment and edge location.
    - Choose **Network function group**, and then from the
@@ -385,6 +386,53 @@ chosen segment and edge location and includes the following:
     * **Route state** — The current state of a route. This
      will be either **ACTIVE** or
      **BLACKHOLE**.
+
+## Routing information base
+
+On the **Routing information base** page, you can search for and view core network
+routing information base entries. The routing information base shows all route candidates before any routing policies have been applied.
+Unlike the [Routes](#cloudwan-visualize-core-routes "#cloudwan-visualize-core-routes") view which shows the final installed routes, the routing information base includes all prefixes
+advertised with their BGP attributes: local preference, AS path, MED, and BGP community tags. This view of your routes with BGP attributes
+can be useful to help you design your routing policies. On this page, you can refine results to show routing information base entries
+for specific segments and edge locations.
+
+###### To access core network routing information base
+
+1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home "https://console.aws.amazon.com/networkmanager/home").
+2. Under **Connectivity**, choose **Global networks**.
+3. On the **Global networks** page, choose the global network ID.
+4. In the navigation pane, choose **Core network**.
+5. The **Overview** page opens by default.
+6. Choose the **Routing information base** tab.
+7. In the **Routing filter** section, from the
+   **Segment** and **Edge location**
+   drop-down lists, choose the segment and edge location that you want the routing information base entries on.
+8. (Optional) In the **Additional filters** section,
+   you can select up to 10 additional attribute values to refine your search. From
+   the **Attribute** drop-down list, choose any number of the following
+   attributes to filter on:
+   - **MED**
+   - **AS Path**
+   - **Community**
+   - **Local Preference**
+   - **Resource ID**
+   - **Resource Type**
+   - **IP Address**
+   - **Attachment ID**
+   - **Next hop segment**
+   - **Next hop edge location**
+
+9. Choose **Get routing information**.
+
+The **Route information base** table updates to display the route information base entries for the
+chosen segment and edge location and includes the following:
+
+    * **Prefix** — The prefix of the route.
+    * **Next Hop** — The destination of the route.
+    * **Local preference** — The local preference BGP attribute of the route.
+    * **AS Path** — The AS path BGP attribute of the route.
+    * **MED** — The Multi-Exit Discriminator BGP attribute of the route.
+    * **Community** — List of BGP community tags for the route.
 
 ## Events
 
