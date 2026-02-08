@@ -5,7 +5,7 @@ Service periods create mutual agreements that prevent unilateral changes to bill
 Service periods support two types of agreements:
 
 - **Minimum notice periods** – Require 14, 30, or 60 days advance notice before either party can modify or terminate the billing transfer relationship
-- **Fixed-term commitments** – Establish binding agreements for 1-5 years that align with service contracts
+- **Fixed-term commitments** – Establish binding agreements for up to 1 year that align with service contracts
 
 ###### Topics
 
