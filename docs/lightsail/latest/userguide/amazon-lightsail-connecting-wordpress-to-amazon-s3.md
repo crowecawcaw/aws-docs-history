@@ -59,7 +59,7 @@ Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail
 ![WP Offload Media Lite plugin for WordPress.](images/amazon-lightsail-wp-offload-media-plugin.png) 5. Choose **Activate** after the plugin is done installing. 6. In the left navigation menu, choose **Settings**, then choose
 **Offload Media**.
 
-![Wordpress dashboard settings.](/images/lightsail/latest/userguide/images/amazon-lightsail-offload-media-menu.png) 7. In the **Offload Media** page, choose **Amazon S3** as
+![Wordpress dashboard settings.](images/amazon-lightsail-offload-media-menu.png) 7. In the **Offload Media** page, choose **Amazon S3** as
 the storage provider, then choose **Define access keys in
 wp-config.php**.
 

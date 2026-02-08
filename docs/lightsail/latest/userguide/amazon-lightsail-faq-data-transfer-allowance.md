@@ -31,6 +31,7 @@ charge for these types of data transfer above the free allowance is as follows.
 - Asia Pacific (Seoul) (ap-northeast-2): $0.13 USD/GB
 - Asia Pacific (Singapore) (ap-southeast-1): $0.12 USD/GB
 - Asia Pacific (Sydney) (ap-southeast-2): $0.17 USD/GB
+- Asia Pacific (Jakarta) (ap-southeast-3): $0.132 USD/GB
 - Asia Pacific (Tokyo) (ap-northeast-1): $0.14 USD/GB
 - Canada (Central) (ca-central-1): $0.09 USD/GB
 - EU (Frankfurt) (eu-central-1): $0.09 USD/GB
@@ -126,7 +127,7 @@ transfer allowance for instances vary by AWS Region?
 
 The regional data transfer allowance for Lightsail instances is found on [Amazon Lightsail pricing](https://aws.amazon.com/lightsail/pricing/ "https://aws.amazon.com/lightsail/pricing/"). The
 allowance is the same for all AWS Regions, with the exception of the Asia Pacific (Mumbai
-& Sydney) Regions. Plans in the Mumbai and Sydney Regions include half the data transfer
+& Sydney & Jakarta) Regions. Plans in the Mumbai, Sydney, and Jakarta Regions include half the data transfer
 allowances of other Regions.
 
 The data transfer allowance for Lightsail managed databases is the same in all

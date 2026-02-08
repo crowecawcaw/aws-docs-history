@@ -367,11 +367,12 @@ sudo chown root:root /etc/gitlab/ssl/server*
 sudo chmod 600 /etc/gitlab/ssl/server*
 ```
 
-13. Enter the following command to restart the application services on your GitLab
+13. Enter the following commands one by one to restart the application services on your GitLab
     CE instance.
 
 ```
 sudo service bitnami start
+sudo service gitlab-runsvdir start
 ```
 
 Next time you browse to your GitLab CE website using the domain you configured, you
