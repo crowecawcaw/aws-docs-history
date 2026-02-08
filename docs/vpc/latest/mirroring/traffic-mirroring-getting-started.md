@@ -15,7 +15,7 @@ Traffic Mirroring applies the filter rules, and then copies the accepted traffic
 of the mirror source to the network interface of the mirror target. You can run your capture and
 analysis tools on the packets delivered to the mirror target.
 
-![A traffic mirror session where the mirror target is an EC2 instance.](/images/vpc/latest/mirroring/images/get-started.png)
+![A traffic mirror session where the mirror target is an EC2 instance.](images/get-started.png)
 
 ###### Tasks
 
