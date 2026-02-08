@@ -268,18 +268,22 @@ Example of response:
 
 ```
 {
-"BackupVaultName": "LOG-AIR-GAP-VAULT-TEST",
-"BackupVaultArn": "arn:aws:backup:us-east-1:234567890123:backup-vault:IAD-LAGV-01",
-"VaultType": "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
-"EncryptionKeyType": "AWS_OWNED_KMS_KEY",
-"CreationDate": "2024-07-25T16:05:23.554000-07:00",
-"NumberOfRecoveryPoints": 0,
-"Locked": true,
-"MinRetentionDays": 8,
-"MaxRetentionDays": 30,
-"LockDate": "2024-07-25T16:05:23.554000-07:00"
+            "BackupVaultName": "LOG-AIR-GAP-VAULT-TEST",
+            "BackupVaultArn": "arn:aws:backup:us-east-1:234567890123:backup-vault:IAD-LAGV-01",
+            "VaultType": "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+            "EncryptionKeyType": "AWS_OWNED_KMS_KEY",
+            "CreationDate": "2024-07-25T16:05:23.554000-07:00",
+            "NumberOfRecoveryPoints": 0,
+            "Locked": true,
+            "MinRetentionDays": 8,
+            "MaxRetentionDays": 30,
+            "LockDate": "2024-07-25T16:05:23.554000-07:00"
 }
 ```
+
+###### Note
+
+The `VaultType` field is not included in the API response in regions where logically air-gapped vaults are not available.
 
 ## Creating backups in a logically air-gapped vault
 
@@ -590,6 +594,10 @@ Example response showing encryption key type information:
     ]
 }
 ```
+
+###### Note
+
+The `VaultType` field is not included in the API response in regions where logically air-gapped vaults are not available.
 
 ## Understanding encryption key types for logically air-gapped vaults
 

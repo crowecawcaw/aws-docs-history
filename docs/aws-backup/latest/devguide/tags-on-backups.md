@@ -14,6 +14,9 @@ resource tags to the resulting snapshot, subject to the following:
   during backup are assigned to recovery points stored in a backup vault, up to a maximum
   of 50 (this is an AWS limitation). Tags that are assigned during backup have priority,
   and both sets of tags are copied in alphabetical order.
+
+For [continuous backup](point-in-time-recovery.md "point-in-time-recovery.md"), tags added to the backups from the primary resource won't be removed if the tags are removed from the primary resource. You will need to remove the tags from backups manually. Make sure that the number of tags on the backup is up to a maximum of 50.
+
 - DynamoDB does not support assigning tags to backups unless you first enable [Advanced DynamoDB backup](advanced-ddb-backup.md "advanced-ddb-backup.md").
 - Amazon EBS volumes that are attached to Amazon EC2 instances are nested resources. Tags on the
   Amazon EBS volumes that are attached to Amazon EC2 instances are nested tags. If AWS Backup can't
