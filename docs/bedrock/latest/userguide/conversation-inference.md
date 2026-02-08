@@ -23,11 +23,11 @@ applications.
 
 ###### Note
 
-With Mistral AI and Meta models, the Converse API embeds your input in
-a model-specific prompt template that enables
-conversations.
-
-For code examples, see the following:
+- With Mistral AI and Meta models, the Converse API embeds your input in
+  a model-specific prompt template that enables
+  conversations.
+- Restrictions apply to the following operations: `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`. See [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md") for details.
+  For code examples, see the following:
 
 - Python examples for this topic – [Converse API
   examples](conversation-inference-examples.md "conversation-inference-examples.md")

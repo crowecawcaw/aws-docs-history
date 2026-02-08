@@ -1,31 +1,16 @@
-# Amazon Titan Image Generator G1 models overview
+# Amazon Titan Image Generator G1 model
 
-Amazon Titan Image Generator G1 is an image generation model. It comes in two versions: v1 and v2.
+Amazon Titan Image Generator G1 is an image generation model that enables users to generate and edit images in versatile ways. Users can create images that match their text-based descriptions by simply inputting natural language prompts. Furthermore, they can upload and edit existing images, including applying text-based prompts without the need for a mask, or editing specific parts of an image using an image mask. The model also supports outpainting, which extends the boundaries of an image, and inpainting, which fills in missing areas. It offers the ability to generate variations of an image based on an optional text prompt, as well as instant customization options that allow users to transfer styles using reference images or combine styles from multiple references, all without requiring any fine-tuning.
 
-Amazon Titan Image Generator v1 enables users to generate and edit images in versatile ways. Users can create images that match their text-based descriptions by simply inputting natural language prompts. Furthermore, they can upload and edit existing images, including applying text-based prompts without the need for a mask, or editing specific parts of an image using an image mask. The model also supports outpainting, which extends the boundaries of an image, and inpainting, which fills in missing areas. It offers the ability to generate variations of an image based on an optional text prompt, as well as instant customization options that allow users to transfer styles using reference images or combine styles from multiple references, all without requiring any fine-tuning.
+Amazon Titan Image Generator G1 v2 adds several advanced capabilities. It allows users to leverage reference images to guide image generation, where the output image aligns with the layout and composition of the reference image while still following the textual prompt. It also includes an automatic background removal feature, which can remove backgrounds from images containing multiple objects without any user input. The model provides precise control over the color palette of generated images, allowing users to preserve a brand's visual identity without the requirement for additional fine-tuning. Additionally, the subject consistency feature enables users to fine-tune the model with reference images to preserve the chosen subject (e.g., pet, shoe or handbag) in generated images. This comprehensive suite of features empowers users to unleash their creative potential and bring their imaginative visions to life.
 
-Titan Image Generator v2 supports all the existing features of Titan Image Generator v1 and adds several new capabilities. It allows users to leverage reference images to guide image generation, where the output image aligns with the layout and composition of the reference image while still following the textual prompt. It also includes an automatic background removal feature, which can remove backgrounds from images containing multiple objects without any user input. The model provides precise control over the color palette of generated images, allowing users to preserve a brand's visual identity without the requirement for additional fine-tuning. Additionally, the subject consistency feature enables users to fine-tune the model with reference images to preserve the chosen subject (e.g., pet, shoe or handbag) in generated images. This comprehensive suite of features empowers users to unleash their creative potential and bring their imaginative visions to life.
-
-For more information on Amazon Titan Image Generator G1 models prompt engineering guidelines, see [Amazon Titan Image Generator Prompt Engineering Best Practices](https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Image+Generator+Prompt+Engineering+Guidelines.pdf "https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Image+Generator+Prompt+Engineering+Guidelines.pdf").
+For more information on Amazon Titan Image Generator G1 model prompt engineering guidelines, see [Amazon Titan Image Generator Prompt Engineering Best Practices](https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Image+Generator+Prompt+Engineering+Guidelines.pdf "https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Image+Generator+Prompt+Engineering+Guidelines.pdf").
 
 To continue supporting best practices in the responsible use of AI, Titan Foundation Models (FMs) are built to detect and remove harmful content in the data, reject inappropriate content in the user input, and filter the models’ outputs that contain inappropriate content (such as hate speech, profanity, and violence). The Titan Image Generator FM adds an invisible watermark and [C2PA](https://c2pa.org/ "https://c2pa.org/") metadata to all generated images.
 
 You can use the watermark detection feature in Amazon Bedrock console or call Amazon Bedrock watermark detection API (preview) to check whether an image contains watermark from Titan Image Generator. You can also use sites like [Content Credentials Verify](https://contentcredentials.org/verify "https://contentcredentials.org/verify") to check if an image was generated by Titan Image Generator.
 
-**Amazon Titan Image Generator v1** overview
-
-- **Model ID** – `amazon.titan-image-generator-v1`
-- **Max input characters** – 512 char
-- **Max input image size** – 5 MB (only some specific resolutions are supported)
-- **Max image size using in/outpainting** – 1,408 x 1,408 px
-  px
-- **Max image size using image variation** – 4,096 x 4,096 px
-- **Languages** – English
-- **Output type** – image
-- **Supported image types** – JPEG, JPG, PNG
-- **Inference types** – On-Demand, Provisioned Throughput
-- **Supported use cases** – image generation, image editing, image variations
-  **Amazon Titan Image Generator v2** overview
+**Amazon Titan Image Generator v2** overview
 
 - **Model ID** – `amazon.titan-image-generator-v2:0`
 - **Max input characters** – 512 char
@@ -64,17 +49,17 @@ if you are using a fine-tuned model, you cannot use inpainting, outpainting or c
 
 ## Parameters
 
-For information on Amazon Amazon Titan Image Generator G1 models inference parameters, see [Amazon Titan Image Generator G1 models inference parameters](model-parameters-titan-image.md "model-parameters-titan-image.md").
+For information on Amazon Amazon Titan Image Generator G1 model inference parameters, see [Amazon Titan Image Generator G1 model inference parameters](model-parameters-titan-image.md "model-parameters-titan-image.md").
 
 ## Fine-tuning
 
-For more information on fine-tuning the Amazon Titan Image Generator G1 models, see the following pages.
+For more information on fine-tuning the Amazon Titan Image Generator G1 model, see the following pages.
 
 - [Prepare your training datasets for fine-tuning and continued
   pre-training](model-customization-prepare.md "model-customization-prepare.md")
 - [Amazon Titan Image Generator G1 models customization hyperparameters](cm-hp-titan-image.md "cm-hp-titan-image.md")
 
-**Amazon Titan Image Generator G1 models fine-tuning and pricing**
+**Amazon Titan Image Generator G1 model fine-tuning and pricing**
 
 The model uses the following example formula to calculate the total price per job:
 
@@ -113,7 +98,7 @@ For more information on the fine-tuning procedure, see [Submit a model customiza
 
 ## Output
 
-Amazon Titan Image Generator G1 models use the output image size and quality to determine how an image is priced. Amazon Titan Image Generator G1 models have two pricing segments based on size: one
+The Amazon Titan Image Generator G1 model uses the output image size and quality to determine how an image is priced. The model has two pricing segments based on size: one
 for 512\*512 images and another for 1024\*1024 images. Pricing is based on image size height\*width, less than or equal to 512\*512 or greater than 512\*512.
 
 For more information on Amazon Bedrock pricing, see [Amazon Bedrock Pricing.](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/")

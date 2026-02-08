@@ -25,8 +25,7 @@ To use Amazon Bedrock Model Distillation, you do the following:
 3. Create a Distillation job. This job creates a smaller, faster, and more cost-effective model for your
    use case. Only you can access the final distilled model. Amazon Bedrock doesn't use your data to train any other
    teacher or student model for public use. For more information, see [Submit a model distillation job in
-   Amazon Bedrock](submit-model-distillation-job.md "submit-model-distillation-job.md"). When your Distillation job completes, you can analyze the results of the customization process. For more information see [Analyze the results of a model customization job](model-customization-analyze.md "model-customization-analyze.md").
-   For information about setting up inference for your model, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").
+   Amazon Bedrock](submit-model-distillation-job.md "submit-model-distillation-job.md"). For more information on setting up on demand inference, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").
 
 ###### Topics
 

@@ -62,6 +62,9 @@ Speech-to-speech models such as Amazon Nova Sonic are only available in chat mod
         + **Images** – Add images to complement the prompt, if the model supports multimodal image and text inputs. For a list of supported file types, see the `format` field in the [ImageBlock](../APIReference/API_runtime_ImageBlock.md "../APIReference/API_runtime_ImageBlock.md").
         + **Videos** – Add videos to complement the prompt, if the model supports multimodal video and text inputs. For a list of supported file types, see the `format` field in the [VideoBlock](../APIReference/API_runtime_VideoBlock.md "../APIReference/API_runtime_VideoBlock.md").
 
+    ###### Note
+
+    Content restrictions vary by underlying API operation and model. For more information, see [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md").
     - Configurations – Settings that you adjust to modify the model response. Configurations include the following:
       - Inference parameters – Values that affect or limit how the model generates the response. For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md"). To see inference parameters for specific models, refer to [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").
       - System prompts – Prompts that provide instructions or context to the model about the task that it should perform or the persona that it should adopt. These are only available in the chat mode of the chat/text playground. For more information and a list of models that support system prompts, see [Carry out a conversation with the

@@ -2,6 +2,10 @@
 
 You can use the Amazon Bedrock API to give a model access to tools that can help it generate responses for messages that you send to the model. For example, you might have a chat application that lets users find out the most popular song played on a radio station. To answer a request for the most popular song, a model needs a tool that can query and return the song information.
 
+###### Note
+
+You can now use structured outputs with tool use. See [Get validated JSON results from models](structured-output.md "structured-output.md") for more details.
+
 In Amazon Bedrock, the model doesn't directly call the tool. Rather, when you send a message to a model, you also supply a definition for one or more tools that could potentially help the model generate a response. In this example, you would supply a definition for a tool that returns the most popular song for a specified radio station. If the model determines that it needs the tool to generate a response for the message, the model, depending on the API used to invoke the model, can perform either client-side calling or ask Bedrock to call the tool using server-side tool calling. Let us discuss these two options in more detail.
 
 **Client-side tool calling**

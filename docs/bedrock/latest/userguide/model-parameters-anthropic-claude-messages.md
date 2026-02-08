@@ -10,9 +10,12 @@ Claude Messages API.
 - [Anthropic Claude Messages API overview](#model-parameters-anthropic-claude-messages-overview "#model-parameters-anthropic-claude-messages-overview")
 - [Tool use](model-parameters-anthropic-claude-messages-tool-use.md "model-parameters-anthropic-claude-messages-tool-use.md")
 - [Extended thinking](claude-messages-extended-thinking.md "claude-messages-extended-thinking.md")
+- [Adaptive thinking](claude-messages-adaptive-thinking.md "claude-messages-adaptive-thinking.md")
 - [Thinking encryption](claude-messages-thinking-encryption.md "claude-messages-thinking-encryption.md")
 - [Differences in thinking
   across model versions](claude-messages-thinking-differences.md "claude-messages-thinking-differences.md")
+- [Compaction](claude-messages-compaction.md "claude-messages-compaction.md")
+- [Get validated JSON results from models](claude-messages-structured-outputs.md "claude-messages-structured-outputs.md")
 - [Request and
   Response](model-parameters-anthropic-claude-messages-request-response.md "model-parameters-anthropic-claude-messages-request-response.md")
 - [Code
@@ -25,14 +28,15 @@ You can use the Messages API to create chat bots or virtual assistant applicatio
 The API manages the conversational exchanges between a user and an Anthropic Claude
 model (assistant).
 
-###### Tip
+###### Note
 
-This topic shows how to use the Anthropic Claude messages API with the base
-inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")). However, we recommend that you use the
-Converse API to implement messages in your application. The
-Converse API provides a unified set of parameters that work
-across all models that support messages. For more information, see [Carry out a conversation with the
-Converse API operations](conversation-inference.md "conversation-inference.md").
+- This topic shows how to use the Anthropic Claude messages API with the base
+  inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")). However, we recommend that you use the
+  Converse API to implement messages in your application. The
+  Converse API provides a unified set of parameters that work
+  across all models that support messages. For more information, see [Carry out a conversation with the
+  Converse API operations](conversation-inference.md "conversation-inference.md").
+- Restrictions apply to the following operations: `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`. See [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md") for details.
 
 Anthropic trains Claude models to operate on alternating user and assistant
 conversational turns. When creating a new message, you specify the prior conversational
@@ -153,14 +157,6 @@ code examples](api-inference-examples-claude-messages-code-examples.md#api-infer
     ]
 }
 ```
-
-###### Note
-
-The following restrictions pertain to the `content` field:
-
-- You can include up to 20 images. Each image's size, height, and width must be no more than 3.75 MB, 8,000 px, and 8,000 px, respectively.
-- You can include up to five documents. Each document's size must be no more than 4.5 MB.
-- You can only include images and documents if the `role` is `user`.
 
 Each image you include in a request counts towards your token usage. For more
 information, see [Image

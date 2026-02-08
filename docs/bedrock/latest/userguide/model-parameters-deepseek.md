@@ -1,6 +1,6 @@
 # DeepSeek models
 
-DeepSeek’s R1 model is a text-to-text model available for use for inferencing through the Invoke API ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md"), [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md"))
+DeepSeek’s R1 and V3.1 models are text-to-text models available for use for inferencing through the Invoke API ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md"), [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md"))
 and the Converse API ([Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") and [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md")).
 
 When you make inference calls with DeepSeek’s models, you must include a prompt for the model. For general information about creating prompts for the DeepSeek models that Amazon Bedrock supports, see [DeepSeek prompt guide](https://api-docs.deepseek.com/guides/reasoning_model.html "https://api-docs.deepseek.com/guides/reasoning_model.html").

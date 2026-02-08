@@ -14,6 +14,10 @@ operation.
 - [Request](#conversation-inference-call-request "#conversation-inference-call-request")
 - [Response](#conversation-inference-call-response "#conversation-inference-call-response")
 
+###### Note
+
+Restrictions apply to the following operations: InvokeModel, InvokeModelWithResponseStream, Converse, and ConverseStream. See [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md") for details.
+
 ## Request
 
 When you make a [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") request with an [Amazon Bedrock runtime endpoint](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt"), you can include the following
@@ -451,15 +455,8 @@ toolResult
 Contains information about the result from the model using a
 tool. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
 
-###### Note
-
-The following restrictions pertain to the `content` field:
-
-- You can include up to 20 images. Each image's size, height, and width must be no more than 3.75 MB, 8,000 px, and 8,000 px, respectively.
-- You can include up to five documents. Each document's size must be no more than 4.5 MB.
-- You can only include images and documents if the `role` is `user`.
-  In the following `messages` example, the user asks for a list
-  of three pop songs, and the model generates a list of songs.
+In the following `messages` example, the user asks for a list
+of three pop songs, and the model generates a list of songs.
 
 ```
 [

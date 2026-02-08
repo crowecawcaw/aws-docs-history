@@ -7,7 +7,12 @@ Amazon Bedrock offers the followingAPI operations for carrying out model inferen
 - [StartAsyncInvoke](../APIReference/API_runtime_StartAsyncInvoke.md "../APIReference/API_runtime_StartAsyncInvoke.md") – Submit a prompt and generate a response asynchronously that can be retrieved later. Used to generate videos.
 - [InvokeModelWithBidirectionalStream](../APIReference/API_runtime_InvokeModelWithBidirectionalStream.md "../APIReference/API_runtime_InvokeModelWithBidirectionalStream.md") –
 - OpenAI Chat completions API – Use the [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat/create "https://platform.openai.com/docs/api-reference/chat/create") with models supported by Amazon Bedrock to generate a response.
-  For model inference, you need to determine the following parameters:
+
+###### Note
+
+Restrictions apply to the following operations: `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`. See [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md") for details.
+
+For model inference, you need to determine the following parameters:
 
 - Model ID – The ID or Amazon Resource Name (ARN) of the model or inference profile to use in the `modelId` field for inference. The following table describes how to find IDs for different types of resources:
 
@@ -28,3 +33,4 @@ Amazon Bedrock offers the followingAPI operations for carrying out model inferen
 - [Invoke a model with the OpenAI Chat Completions API](inference-chat-completions.md "inference-chat-completions.md")
 - [Carry out a conversation with the
   Converse API operations](conversation-inference.md "conversation-inference.md")
+- [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md")

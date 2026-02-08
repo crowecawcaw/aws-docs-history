@@ -24,6 +24,7 @@ Amazon Bedrock offers a suite of foundation models that you can use to generate 
 - [Service tiers for optimizing performance and cost](service-tiers-inference.md "service-tiers-inference.md")
 - [Submit prompts and generate responses using the API](inference-api.md "inference-api.md")
 - [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md")
+- [Get validated JSON results from models](structured-output.md "structured-output.md")
 - [Use a computer use tool to complete an Amazon Bedrock model response](computer-use.md "computer-use.md")
 - [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md")
 - [Generate responses using OpenAI APIs](bedrock-mantle.md "bedrock-mantle.md")

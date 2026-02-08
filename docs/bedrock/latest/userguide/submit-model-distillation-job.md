@@ -11,12 +11,11 @@ request with an [Amazon Bedrock control plane endpoint](../../../general/latest/
   customization training and validation data. You can create this role using the
   AWS Management Console or manually. For more information on the manual option, see [Create an IAM service role for model customization](custom-model-job-access-security.md#custom-model-job-service-role "custom-model-job-access-security.md#custom-model-job-service-role").
 - (Optional) Encrypt input and output data, your customization job, or inference requests made to custom models. For more information, see [Encryption of custom models](encryption-custom-job.md "encryption-custom-job.md").
-- (Optional) Create a virtual private cloud (VPC) to protect your customization job. For
+- (Optional) Create a Virtual Private Cloud (VPC) to protect your customization job. For
   more information, see [(Optional) Protect your model customization jobs
   using a VPC](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization").
 
-When your Distillation job completes, you can analyze the results of the customization process. For more information see [Analyze the results of a model customization job](model-customization-analyze.md "model-customization-analyze.md").
-For information about setting up inference for your model, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").
+For more information on setting up on demand inference, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").
 
 ## Submit your job
 
@@ -166,5 +165,4 @@ The response returns a `jobArn` of the model distillation job.
 ## Next steps
 
 - [Monitor your distillation
-  job](model-customization-monitor.md "model-customization-monitor.md"). When your Distillation job completes, you can analyze the results of the customization process. For more information see [Analyze the results of a model customization job](model-customization-analyze.md "model-customization-analyze.md").
-  For information about setting up inference for your model, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").
+  job](model-customization-monitor.md "model-customization-monitor.md"). For more information on setting up on demand inference, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").

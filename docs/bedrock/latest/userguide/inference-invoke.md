@@ -4,14 +4,11 @@ You run inference on a single prompt by using the [InvokeModel](../APIReference/
 
 - Check the value in the **Input modalities**, **Output modalities**, or **Streaming supported** columns for a model at [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
 - Send a [GetFoundationModel](../APIReference/API_GetFoundationModel.md "../APIReference/API_GetFoundationModel.md") request with the model ID and check the values in the `inputModalities`, `outputModalities`, and `responseStreamingSupported` field.
-
-###### Important
-
-`InvokeModel` and `InvokeModelWithResponseStream` are restricted in the following ways:
-
-- You can't generate a video with these API operations. Instead, you must use the [StartAsyncInvoke](../APIReference/API_runtime_StartAsyncInvoke.md "../APIReference/API_runtime_StartAsyncInvoke.md") API. For an example, see [Use Amazon Nova Reel to generate a video from a text prompt](bedrock-runtime_example_bedrock-runtime_Scenario_AmazonNova_TextToVideo_section.md "bedrock-runtime_example_bedrock-runtime_Scenario_AmazonNova_TextToVideo_section.md").
-- You can't include a document in the request body. To include a document during inference, use the [Chat/text playground](playgrounds.md "playgrounds.md") in the AWS Management Console or send a [Converse](conversation-inference-call.md "conversation-inference-call.md") request.
   Run model inference on a prompt by sending an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") request with an [Amazon Bedrock runtime endpoint](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt").
+
+###### Note
+
+Restrictions apply to the following operations: `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`. See [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md") for details.
 
 The following fields are required:
 
