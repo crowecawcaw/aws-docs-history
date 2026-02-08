@@ -13,6 +13,8 @@ Currently, AWS DevOps Agent supports New Relic users with built-in, 1 way integr
 
 Establish connection to your New Relic remote MCP endpoint with account access credentials
 
+Please use a Full Platform User (not Basic/Core) in New relic to enable New Relic MCP tools.
+
 #### Configuration
 
 1. Open the hamburger menu and select Settings

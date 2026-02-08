@@ -49,10 +49,6 @@ Use this option when you need to limit the services and resources the agent can 
 1. Select **Create a new AWS DevOps Agent role using a policy template**
 2. Follow the instructions to create the new role’s trust policy and inline policy.
 
-### Using AWS tags for resource discovery
-
-By default, all CloudFormation stacks and their resources will be discovered. If your resources were not deployed with CloudFormation, you can have AWS DevOps Agent discover resources with specific AWS tags.
-
 ### Enabling the Agent Space Web App
 
 The Web App is where personnel interact with AWS DevOps Agent for incident investigations and reviewing recommendations. See AWS DevOps Agent Console Architecture[link] to learn more. When enabled, users can access the Agent Space Web App through an IAM authentication link from the AWS Management Console.
