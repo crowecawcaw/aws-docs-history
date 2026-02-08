@@ -21,13 +21,15 @@ To use a metric math function to suppress a CloudWatch alarm, complete the follo
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. Choose **Alarms**, and then locate the alarm that you want to add the metric math function to.
-3. In the metric math section, choose **Edit**.
-4. Choose **Add math**, **Start with empty expression**.
-5. Enter your math expression, then choose **Apply**.
-6. Deselect the existing metric that the alarm monitored.
-7. Select the expression that you just created, and then choose **Select metric**.
-8. Choose **Skip to Preview and create**.
-9. Review your changes to make sure that your metric math function is applied as expected, and then choose **Update alarm**.
+3. Choose **Actions**, then select **Edit** to change
+   the alarm.
+4. Choose **Edit metric** to modify the metric for the alarm.
+5. Choose **Add math**, **Start with empty expression**.
+6. Enter your math expression, then choose **Apply**.
+7. Deselect the existing metric that the alarm monitored.
+8. Select the expression that you just created, and then choose **Select metric**.
+9. Choose **Skip to Preview and create**.
+10. Review your changes to make sure that your metric math function is applied as expected, and then choose **Update alarm**.
 
 For a step by step example of suppressing a CloudWatch alarm with a metric math function, see [Tutorial: Use a metric math function to suppress an alarm](suppress-alarms-tutorial-suppress.md "suppress-alarms-tutorial-suppress.md").
 
