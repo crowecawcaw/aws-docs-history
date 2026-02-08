@@ -27,7 +27,6 @@ regions:
 | Windows Server Core 2019 | `aws/codebuild/windows-base:2019-2.0`                  | N/A                                                                                                                                                                                                                   |
 | Windows Server Core 2019 | `aws/codebuild/windows-base:2019-3.0`                  | N/A                                                                                                                                                                                                                   |
 | Windows Server Core 2022 | `aws/codebuild/windows-base:2022-1.0`                  | N/A                                                                                                                                                                                                                   |
-| macOS                    | `aws/codebuild/macos-arm-base:14`                      | N/A                                                                                                                                                                                                                   |
 
 ###### Note
 

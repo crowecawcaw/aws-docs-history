@@ -180,154 +180,9 @@ to administrative-level users to grant them full control over CodeBuild projects
 report groups, and related resources in your AWS account, including the
 ability to delete projects and report groups.
 
-The `AWSCodeBuildAdminAccess` policy contains the following
-policy statement:
-
-```
-
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AWSServicesAccess",
-      "Action": [
-        "codebuild:*",
-        "codecommit:GetBranch",
-        "codecommit:GetCommit",
-        "codecommit:GetRepository",
-        "codecommit:ListBranches",
-        "codecommit:ListRepositories",
-        "cloudwatch:GetMetricStatistics",
-        "ec2:DescribeVpcs",
-        "ec2:DescribeSecurityGroups",
-        "ec2:DescribeSubnets",
-        "ecr:DescribeRepositories",
-        "ecr:ListImages",
-        "elasticfilesystem:DescribeFileSystems",
-        "events:DeleteRule",
-        "events:DescribeRule",
-        "events:DisableRule",
-        "events:EnableRule",
-        "events:ListTargetsByRule",
-        "events:ListRuleNamesByTarget",
-        "events:PutRule",
-        "events:PutTargets",
-        "events:RemoveTargets",
-        "logs:GetLogEvents",
-        "s3:GetBucketLocation",
-        "s3:ListAllMyBuckets"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    },
-    {
-      "Sid": "CWLDeleteLogGroupAccess",
-      "Action": [
-        "logs:DeleteLogGroup"
-      ],
-      "Effect": "Allow",
-      "Resource": "arn:aws:logs:*:*:log-group:/aws/codebuild/*:log-stream:*"
-    },
-    {
-      "Sid": "SSMParameterWriteAccess",
-      "Effect": "Allow",
-      "Action": [
-        "ssm:PutParameter"
-      ],
-      "Resource": "arn:aws:ssm:*:*:parameter/CodeBuild/*"
-    },
-    {
-      "Sid": "SSMStartSessionAccess",
-      "Effect": "Allow",
-      "Action": [
-        "ssm:StartSession"
-      ],
-      "Resource": "arn:aws:ecs:*:*:task/*/*"
-    },
-    {
-      "Sid": "CodeStarConnectionsReadWriteAccess",
-      "Effect": "Allow",
-      "Action": [
-        "codestar-connections:CreateConnection",
-        "codestar-connections:DeleteConnection",
-        "codestar-connections:UpdateConnectionInstallation",
-        "codestar-connections:TagResource",
-        "codestar-connections:UntagResource",
-        "codestar-connections:ListConnections",
-        "codestar-connections:ListInstallationTargets",
-        "codestar-connections:ListTagsForResource",
-        "codestar-connections:GetConnection",
-        "codestar-connections:GetIndividualAccessToken",
-        "codestar-connections:GetInstallationUrl",
-        "codestar-connections:PassConnection",
-        "codestar-connections:StartOAuthHandshake",
-        "codestar-connections:UseConnection"
-      ],
-      "Resource": [
-        "arn:aws:codestar-connections:*:*:connection/*",
-        "arn:aws:codeconnections:*:*:*"
-      ]
-    },
-    {
-      "Sid": "CodeStarNotificationsReadWriteAccess",
-      "Effect": "Allow",
-      "Action": [
-        "codestar-notifications:CreateNotificationRule",
-        "codestar-notifications:DescribeNotificationRule",
-        "codestar-notifications:UpdateNotificationRule",
-        "codestar-notifications:DeleteNotificationRule",
-        "codestar-notifications:Subscribe",
-        "codestar-notifications:Unsubscribe"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "ArnLike": {
-          "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*:*:project/*"
-        }
-      }
-    },
-    {
-      "Sid": "CodeStarNotificationsListAccess",
-      "Effect": "Allow",
-      "Action": [
-        "codestar-notifications:ListNotificationRules",
-        "codestar-notifications:ListEventTypes",
-        "codestar-notifications:ListTargets",
-        "codestar-notifications:ListTagsforResource"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "CodeStarNotificationsSNSTopicCreateAccess",
-      "Effect": "Allow",
-      "Action": [
-        "sns:CreateTopic",
-        "sns:SetTopicAttributes"
-      ],
-      "Resource": "arn:aws:sns:*:*:codestar-notifications*"
-    },
-    {
-      "Sid": "SNSTopicListAccess",
-      "Effect": "Allow",
-      "Action": [
-        "sns:ListTopics",
-        "sns:GetTopicAttributes"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "CodeStarNotificationsChatbotAccess",
-      "Effect": "Allow",
-      "Action": [
-        "chatbot:DescribeSlackChannelConfigurations",
-        "chatbot:ListMicrosoftTeamsChannelConfigurations"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-
-```
+For the full managed policy, see
+[AWSCodeBuildAdminAccess](../../../aws-managed-policy/latest/reference/AWSCodeBuildAdminAccess.md "../../../aws-managed-policy/latest/reference/AWSCodeBuildAdminAccess.md")
+in the IAM managed policy reference.
 
 ### AWSCodeBuildDeveloperAccess
 
@@ -337,121 +192,9 @@ policy does not allow users to delete CodeBuild projects or report groups, or
 related resources in other AWS services, such as CloudWatch Events. We recommend that you
 apply this policy to most users.
 
-The `AWSCodeBuildDeveloperAccess` policy contains the
-following policy statement:
-
-```
-
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AWSServicesAccess",
-      "Action": [
-        "codebuild:StartBuild",
-        "codebuild:StopBuild",
-        "codebuild:StartBuildBatch",
-        "codebuild:StopBuildBatch",
-        "codebuild:RetryBuild",
-        "codebuild:RetryBuildBatch",
-        "codebuild:BatchGet*",
-        "codebuild:GetResourcePolicy",
-        "codebuild:DescribeTestCases",
-        "codebuild:DescribeCodeCoverages",
-        "codebuild:List*",
-        "codecommit:GetBranch",
-        "codecommit:GetCommit",
-        "codecommit:GetRepository",
-        "codecommit:ListBranches",
-        "cloudwatch:GetMetricStatistics",
-        "events:DescribeRule",
-        "events:ListTargetsByRule",
-        "events:ListRuleNamesByTarget",
-        "logs:GetLogEvents",
-        "s3:GetBucketLocation",
-        "s3:ListAllMyBuckets"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    },
-    {
-      "Sid": "SSMParameterWriteAccess",
-      "Effect": "Allow",
-      "Action": [
-        "ssm:PutParameter"
-      ],
-      "Resource": "arn:aws:ssm:*:*:parameter/CodeBuild/*"
-    },
-    {
-      "Sid": "SSMStartSessionAccess",
-      "Effect": "Allow",
-      "Action": [
-        "ssm:StartSession"
-      ],
-      "Resource": "arn:aws:ecs:*:*:task/*/*"
-    },
-    {
-      "Sid": "CodeStarConnectionsUserAccess",
-      "Effect": "Allow",
-      "Action": [
-        "codestar-connections:ListConnections",
-        "codestar-connections:GetConnection"
-      ],
-      "Resource": [
-        "arn:aws:codestar-connections:*:*:connection/*",
-        "arn:aws:codeconnections:*:*:*"
-      ]
-    },
-    {
-      "Sid": "CodeStarNotificationsReadWriteAccess",
-      "Effect": "Allow",
-      "Action": [
-        "codestar-notifications:CreateNotificationRule",
-        "codestar-notifications:DescribeNotificationRule",
-        "codestar-notifications:UpdateNotificationRule",
-        "codestar-notifications:Subscribe",
-        "codestar-notifications:Unsubscribe"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "ArnLike": {
-          "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*:*:project/*"
-        }
-      }
-    },
-    {
-      "Sid": "CodeStarNotificationsListAccess",
-      "Effect": "Allow",
-      "Action": [
-        "codestar-notifications:ListNotificationRules",
-        "codestar-notifications:ListEventTypes",
-        "codestar-notifications:ListTargets",
-        "codestar-notifications:ListTagsforResource"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "SNSTopicListAccess",
-      "Effect": "Allow",
-      "Action": [
-        "sns:ListTopics",
-        "sns:GetTopicAttributes"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "CodeStarNotificationsChatbotAccess",
-      "Effect": "Allow",
-      "Action": [
-        "chatbot:DescribeSlackChannelConfigurations",
-        "chatbot:ListMicrosoftTeamsChannelConfigurations"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-
-```
+For the full managed policy, see
+[AWSCodeBuildDeveloperAccess](../../../aws-managed-policy/latest/reference/AWSCodeBuildDeveloperAccess.md "../../../aws-managed-policy/latest/reference/AWSCodeBuildDeveloperAccess.md")
+in the IAM managed policy reference.
 
 ### AWSCodeBuildReadOnlyAccess
 
@@ -460,73 +203,9 @@ CodeBuild and related resources in other AWS services. Apply this policy to user
 who can view and run builds, view projects, and view report groups, but cannot
 make any changes to them.
 
-The `AWSCodeBuildReadOnlyAccess` policy contains the
-following policy statement:
-
-```
-
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AWSServicesAccess",
-      "Action": [
-        "codebuild:BatchGet*",
-        "codebuild:GetResourcePolicy",
-        "codebuild:List*",
-        "codebuild:DescribeTestCases",
-        "codebuild:DescribeCodeCoverages",
-        "codecommit:GetBranch",
-        "codecommit:GetCommit",
-        "codecommit:GetRepository",
-        "cloudwatch:GetMetricStatistics",
-        "events:DescribeRule",
-        "events:ListTargetsByRule",
-        "events:ListRuleNamesByTarget",
-        "logs:GetLogEvents"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    },
-    {
-      "Sid": "CodeStarConnectionsUserAccess",
-      "Effect": "Allow",
-      "Action": [
-        "codestar-connections:ListConnections",
-        "codestar-connections:GetConnection"
-      ],
-      "Resource": [
-        "arn:aws:codestar-connections:*:*:connection/*",
-        "arn:aws:codeconnections:*:*:*"
-      ]
-    },
-    {
-      "Sid": "CodeStarNotificationsPowerUserAccess",
-      "Effect": "Allow",
-      "Action": [
-        "codestar-notifications:DescribeNotificationRule"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "ArnLike": {
-          "codestar-notifications:NotificationsForResource": "arn:aws:codebuild:*:*:project/*"
-        }
-      }
-    },
-    {
-      "Sid": "CodeStarNotificationsListAccess",
-      "Effect": "Allow",
-      "Action": [
-        "codestar-notifications:ListNotificationRules",
-        "codestar-notifications:ListEventTypes",
-        "codestar-notifications:ListTargets"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-
-```
+For the full managed policy, see
+[AWSCodeBuildReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCodeBuildReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCodeBuildReadOnlyAccess.md")
+in the IAM managed policy reference.
 
 ## CodeBuild managed policies and
 
@@ -636,12 +315,13 @@ View details about updates to AWS managed policies for CodeBuild since this serv
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
 the RSS feed on [AWS CodeBuild User Guide document history](history.md "history.md") .
 
-| Change                                                                                                                      | Description                                                                                                                                                                                                                                                                                                        | Date              |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| `AWSCodeBuildAdminAccess`, `AWSCodeBuildDeveloperAccess`, and `AWSCodeBuildReadOnlyAccess` –<br>Update to existing policies | CodeBuild updated a resource to these policies.<br>The `AWSCodeBuildAdminAccess`, `AWSCodeBuildDeveloperAccess`, and `AWSCodeBuildReadOnlyAccess` policies have been changed to update an existing resource. The original resource<br>`arn:aws:codebuild:*` has been updated to `arn:aws:codebuild:*:*:project/*`. | November 15, 2024 |
-| `AWSCodeBuildAdminAccess`, `AWSCodeBuildDeveloperAccess`, and `AWSCodeBuildReadOnlyAccess` –<br>Update to existing policies | CodeBuild added a resource to these policies to support the AWS CodeConnections rebranding.<br>The `AWSCodeBuildAdminAccess`, `AWSCodeBuildDeveloperAccess`, and `AWSCodeBuildReadOnlyAccess` policies have been changed to add a resource, `arn:aws:codeconnections:*:*:*`.                                       | April 18, 2024    |
-| `AWSCodeBuildAdminAccess` and `AWSCodeBuildDeveloperAccess` –<br>Update to existing policies                                | CodeBuild added a permission to these policies to support an additional notification type using Amazon Q Developer in chat applications.<br>The `AWSCodeBuildAdminAccess` and `AWSCodeBuildDeveloperAccess` policies have been changed to add a permission, `chatbot:ListMicrosoftTeamsChannelConfigurations`.     | May 16, 2023      |
-| CodeBuild started tracking changes                                                                                          | CodeBuild started tracking changes for its AWS managed policies.                                                                                                                                                                                                                                                   | May 16, 2021      |
+| Change                                                                                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                     | Date              |
+| --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| `AWSCodeBuildAdminAccess` and `AWSCodeBuildDeveloperAccess` –<br>Update to existing policies                                | CodeBuild added the `ssmmessages:OpenDataChannel` permission to these policies to support Session Manager interactive build debugging.<br>The `AWSCodeBuildAdminAccess` and `AWSCodeBuildDeveloperAccess` policies now include the `ssmmessages:OpenDataChannel` action for Session Manager session resources (`arn:aws:ssm:*:*:session/*`) to support SigV4 enforcement on this WebSocket API. | December 1, 2025  |
+| `AWSCodeBuildAdminAccess`, `AWSCodeBuildDeveloperAccess`, and `AWSCodeBuildReadOnlyAccess` –<br>Update to existing policies | CodeBuild updated a resource to these policies.<br>The `AWSCodeBuildAdminAccess`, `AWSCodeBuildDeveloperAccess`, and `AWSCodeBuildReadOnlyAccess` policies have been changed to update an existing resource. The original resource<br>`arn:aws:codebuild:*` has been updated to `arn:aws:codebuild:*:*:project/*`.                                                                              | November 15, 2024 |
+| `AWSCodeBuildAdminAccess`, `AWSCodeBuildDeveloperAccess`, and `AWSCodeBuildReadOnlyAccess` –<br>Update to existing policies | CodeBuild added a resource to these policies to support the AWS CodeConnections rebranding.<br>The `AWSCodeBuildAdminAccess`, `AWSCodeBuildDeveloperAccess`, and `AWSCodeBuildReadOnlyAccess` policies have been changed to add a resource, `arn:aws:codeconnections:*:*:*`.                                                                                                                    | April 18, 2024    |
+| `AWSCodeBuildAdminAccess` and `AWSCodeBuildDeveloperAccess` –<br>Update to existing policies                                | CodeBuild added a permission to these policies to support an additional notification type using Amazon Q Developer in chat applications.<br>The `AWSCodeBuildAdminAccess` and `AWSCodeBuildDeveloperAccess` policies have been changed to add a permission, `chatbot:ListMicrosoftTeamsChannelConfigurations`.                                                                                  | May 16, 2023      |
+| CodeBuild started tracking changes                                                                                          | CodeBuild started tracking changes for its AWS managed policies.                                                                                                                                                                                                                                                                                                                                | May 16, 2021      |
 
 ## Customer-managed policy examples
 
