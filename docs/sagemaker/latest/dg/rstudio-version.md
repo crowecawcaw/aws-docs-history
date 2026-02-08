@@ -95,27 +95,27 @@ The following table lists the image ARNs for both versions for each AWS Region.
 These ARNs are passed as part of an `update-domain` command to set the
 desired version.
 
-| Region         | `2024.04.2+764.pro1` Image ARN                                                | `2025.05.1+513.pro3` Image ARN                                                              |
-| -------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| us-east-1      | arn:aws:sagemaker:us-east-1:081325390199:image/rstudio-workbench-2024.04      | arn:aws:sagemaker:us-east-1:081325390199:image/rstudio-workbench-2025.05-sagemaker-1.0      |
-| us-east-2      | arn:aws:sagemaker:us-east-2:429704687514:image/rstudio-workbench-2024.04      | arn:aws:sagemaker:us-east-2:429704687514:image/rstudio-workbench-2025.05-sagemaker-1.0      |
-| us-west-1      | arn:aws:sagemaker:us-west-1:742091327244:image/rstudio-workbench-2024.04      | arn:aws:sagemaker:us-west-1:742091327244:image/rstudio-workbench-2025.05-sagemaker-1.0      |
-| us-west-2      | arn:aws:sagemaker:us-west-2:236514542706:image/rstudio-workbench-2024.04      | arn:aws:sagemaker:us-west-2:236514542706:image/rstudio-workbench-2025.05-sagemaker-1.0      |
-| af-south-1     | arn:aws:sagemaker:af-south-1:559312083959:image/rstudio-workbench-2024.04     | arn:aws:sagemaker:af-south-1:559312083959:image/rstudio-workbench-2025.05-sagemaker-1.0     |
-| ap-east-1      | arn:aws:sagemaker:ap-east-1:493642496378:image/rstudio-workbench-2024.04      | arn:aws:sagemaker:ap-east-1:493642496378:image/rstudio-workbench-2025.05-sagemaker-1.0      |
-| ap-south-1     | arn:aws:sagemaker:ap-south-1:394103062818:image/rstudio-workbench-2024.04     | arn:aws:sagemaker:ap-south-1:394103062818:image/rstudio-workbench-2025.05-sagemaker-1.0     |
-| ap-northeast-2 | arn:aws:sagemaker:ap-northeast-2:806072073708:image/rstudio-workbench-2024.04 | arn:aws:sagemaker:ap-northeast-2:806072073708:image/rstudio-workbench-2025.05-sagemaker-1.0 |
-| ap-southeast-1 | arn:aws:sagemaker:ap-southeast-1:492261229750:image/rstudio-workbench-2024.04 | arn:aws:sagemaker:ap-southeast-1:492261229750:image/rstudio-workbench-2025.05-sagemaker-1.0 |
-| ap-southeast-2 | arn:aws:sagemaker:ap-southeast-2:452832661640:image/rstudio-workbench-2024.04 | arn:aws:sagemaker:ap-southeast-2:452832661640:image/rstudio-workbench-2025.05-sagemaker-1.0 |
-| ap-northeast-1 | arn:aws:sagemaker:ap-northeast-1:102112518831:image/rstudio-workbench-2024.04 | arn:aws:sagemaker:ap-northeast-1:102112518831:image/rstudio-workbench-2025.05-sagemaker-1.0 |
-| ca-central-1   | arn:aws:sagemaker:ca-central-1:310906938811:image/rstudio-workbench-2024.04   | arn:aws:sagemaker:ca-central-1:310906938811:image/rstudio-workbench-2025.05-sagemaker-1.0   |
-| eu-central-1   | arn:aws:sagemaker:eu-central-1:936697816551:image/rstudio-workbench-2024.04   | arn:aws:sagemaker:eu-central-1:936697816551:image/rstudio-workbench-2025.05-sagemaker-1.0   |
-| eu-west-1      | arn:aws:sagemaker:eu-west-1:470317259841:image/rstudio-workbench-2024.04      | arn:aws:sagemaker:eu-west-1:470317259841:image/rstudio-workbench-2025.05-sagemaker-1.0      |
-| eu-west-2      | arn:aws:sagemaker:eu-west-2:712779665605:image/rstudio-workbench-2024.04      | arn:aws:sagemaker:eu-west-2:712779665605:image/rstudio-workbench-2025.05-sagemaker-1.0      |
-| eu-west-3      | arn:aws:sagemaker:eu-west-3:615547856133:image/rstudio-workbench-2024.04      | arn:aws:sagemaker:eu-west-3:615547856133:image/rstudio-workbench-2025.05-sagemaker-1.0      |
-| eu-north-1     | arn:aws:sagemaker:eu-north-1:243637512696:image/rstudio-workbench-2024.04     | arn:aws:sagemaker:eu-north-1:243637512696:image/rstudio-workbench-2025.05-sagemaker-1.0     |
-| eu-south-1     | arn:aws:sagemaker:eu-south-1:592751261982:image/rstudio-workbench-2024.04     | arn:aws:sagemaker:eu-south-1:592751261982:image/rstudio-workbench-2025.05-sagemaker-1.0     |
-| sa-east-1      | arn:aws:sagemaker:sa-east-1:782484402741:image/rstudio-workbench-2024.04      | arn:aws:sagemaker:sa-east-1:782484402741:image/rstudio-workbench-2025.05-sagemaker-1.0      |
+| Region         | `2024.04.2+764.pro1` Image ARN                                                              | `2025.05.1+513.pro3` Image ARN                                                              |
+| -------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| us-east-1      | arn:aws:sagemaker:us-east-1:081325390199:image/rstudio-workbench-2024.04-sagemaker-1.1      | arn:aws:sagemaker:us-east-1:081325390199:image/rstudio-workbench-2025.05-sagemaker-1.0      |
+| us-east-2      | arn:aws:sagemaker:us-east-2:429704687514:image/rstudio-workbench-2024.04-sagemaker-1.1      | arn:aws:sagemaker:us-east-2:429704687514:image/rstudio-workbench-2025.05-sagemaker-1.0      |
+| us-west-1      | arn:aws:sagemaker:us-west-1:742091327244:image/rstudio-workbench-2024.04-sagemaker-1.1      | arn:aws:sagemaker:us-west-1:742091327244:image/rstudio-workbench-2025.05-sagemaker-1.0      |
+| us-west-2      | arn:aws:sagemaker:us-west-2:236514542706:image/rstudio-workbench-2024.04-sagemaker-1.1      | arn:aws:sagemaker:us-west-2:236514542706:image/rstudio-workbench-2025.05-sagemaker-1.0      |
+| af-south-1     | arn:aws:sagemaker:af-south-1:559312083959:image/rstudio-workbench-2024.04-sagemaker-1.1     | arn:aws:sagemaker:af-south-1:559312083959:image/rstudio-workbench-2025.05-sagemaker-1.0     |
+| ap-east-1      | arn:aws:sagemaker:ap-east-1:493642496378:image/rstudio-workbench-2024.04-sagemaker-1.1      | arn:aws:sagemaker:ap-east-1:493642496378:image/rstudio-workbench-2025.05-sagemaker-1.0      |
+| ap-south-1     | arn:aws:sagemaker:ap-south-1:394103062818:image/rstudio-workbench-2024.04-sagemaker-1.1     | arn:aws:sagemaker:ap-south-1:394103062818:image/rstudio-workbench-2025.05-sagemaker-1.0     |
+| ap-northeast-2 | arn:aws:sagemaker:ap-northeast-2:806072073708:image/rstudio-workbench-2024.04-sagemaker-1.1 | arn:aws:sagemaker:ap-northeast-2:806072073708:image/rstudio-workbench-2025.05-sagemaker-1.0 |
+| ap-southeast-1 | arn:aws:sagemaker:ap-southeast-1:492261229750:image/rstudio-workbench-2024.04-sagemaker-1.1 | arn:aws:sagemaker:ap-southeast-1:492261229750:image/rstudio-workbench-2025.05-sagemaker-1.0 |
+| ap-southeast-2 | arn:aws:sagemaker:ap-southeast-2:452832661640:image/rstudio-workbench-2024.04-sagemaker-1.1 | arn:aws:sagemaker:ap-southeast-2:452832661640:image/rstudio-workbench-2025.05-sagemaker-1.0 |
+| ap-northeast-1 | arn:aws:sagemaker:ap-northeast-1:102112518831:image/rstudio-workbench-2024.04-sagemaker-1.1 | arn:aws:sagemaker:ap-northeast-1:102112518831:image/rstudio-workbench-2025.05-sagemaker-1.0 |
+| ca-central-1   | arn:aws:sagemaker:ca-central-1:310906938811:image/rstudio-workbench-2024.04-sagemaker-1.1   | arn:aws:sagemaker:ca-central-1:310906938811:image/rstudio-workbench-2025.05-sagemaker-1.0   |
+| eu-central-1   | arn:aws:sagemaker:eu-central-1:936697816551:image/rstudio-workbench-2024.04-sagemaker-1.1   | arn:aws:sagemaker:eu-central-1:936697816551:image/rstudio-workbench-2025.05-sagemaker-1.0   |
+| eu-west-1      | arn:aws:sagemaker:eu-west-1:470317259841:image/rstudio-workbench-2024.04-sagemaker-1.1      | arn:aws:sagemaker:eu-west-1:470317259841:image/rstudio-workbench-2025.05-sagemaker-1.0      |
+| eu-west-2      | arn:aws:sagemaker:eu-west-2:712779665605:image/rstudio-workbench-2024.04-sagemaker-1.1      | arn:aws:sagemaker:eu-west-2:712779665605:image/rstudio-workbench-2025.05-sagemaker-1.0      |
+| eu-west-3      | arn:aws:sagemaker:eu-west-3:615547856133:image/rstudio-workbench-2024.04-sagemaker-1.1      | arn:aws:sagemaker:eu-west-3:615547856133:image/rstudio-workbench-2025.05-sagemaker-1.0      |
+| eu-north-1     | arn:aws:sagemaker:eu-north-1:243637512696:image/rstudio-workbench-2024.04-sagemaker-1.1     | arn:aws:sagemaker:eu-north-1:243637512696:image/rstudio-workbench-2025.05-sagemaker-1.0     |
+| eu-south-1     | arn:aws:sagemaker:eu-south-1:592751261982:image/rstudio-workbench-2024.04-sagemaker-1.1     | arn:aws:sagemaker:eu-south-1:592751261982:image/rstudio-workbench-2025.05-sagemaker-1.0     |
+| sa-east-1      | arn:aws:sagemaker:sa-east-1:782484402741:image/rstudio-workbench-2024.04-sagemaker-1.1      | arn:aws:sagemaker:sa-east-1:782484402741:image/rstudio-workbench-2025.05-sagemaker-1.0      |
 
 ### Changes to BYOI Images
 

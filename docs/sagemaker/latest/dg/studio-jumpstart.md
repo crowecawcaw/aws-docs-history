@@ -6,9 +6,9 @@ before deployment. JumpStart also provides solution templates that set up infras
 use cases, and executable example notebooks for machine learning with SageMaker AI.
 
 You can deploy, fine-tune, and evaluate pretrained models from popular models hubs through
-the JumpStart landing page in the updated Studio experience.
+the Models landing page in the updated Studio experience.
 
-You can also access pretrained models, solution templates, and examples through the JumpStart
+You can also access pretrained models, solution templates, and examples through the Models
 landing page in Amazon SageMaker Studio Classic.
 
 The following steps show how to access JumpStart models using Amazon SageMaker Studio and Amazon SageMaker Studio Classic.
@@ -16,32 +16,23 @@ The following steps show how to access JumpStart models using Amazon SageMaker S
 You can also access JumpStart models using the SageMaker Python SDK. For information about how to
 use JumpStart models programmatically, see [Use SageMaker JumpStart Algorithms with Pretrained Models](https://sagemaker.readthedocs.io/en/stable/overview.html#use-sagemaker-jumpstart-algorithms-with-pretrained-models "https://sagemaker.readthedocs.io/en/stable/overview.html#use-sagemaker-jumpstart-algorithms-with-pretrained-models").
 
-## Open and use JumpStart in Studio
+## Open JumpStart in Studio
 
-The following sections give information on how to open, use, and manage JumpStart from the
-Studio UI.
+In Amazon SageMaker Studio, open the Models landing page either through the
+**Home** page or the **Models** item in the left-side
+panel. This opens the **SageMaker Models** landing page where you can explore
+models in the SageMakerPublicHub, models in Private Hubs or Curated Hubs, and customized models.
 
-###### Important
-
-As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named
-Amazon SageMaker Studio Classic. The following section is specific to using the updated Studio
-experience. For information about using the Studio Classic application, see [Amazon SageMaker Studio Classic](studio.md "studio.md").
-
-### Open JumpStart in Studio
-
-In Amazon SageMaker Studio, open the JumpStart landing page either through the
-**Home** page or the **Home** menu on the left-side
-panel. This opens the **SageMaker JumpStart** landing page where you can explore
-model hubs and search for models.
-
-- From the **Home** page, choose **JumpStart** in the
-  **Prebuilt and automated solutions** pane.
-- From the **Home** menu in the left panel, navigate to the
-  **SageMaker JumpStart** node.
+- From the **Home** page, choose **Explore models** in the
+  **Start your model customization workflow** pane.
+- From the menu in the left panel, navigate to the
+  **Models** node.
 
 For more information on getting started with Amazon SageMaker Studio, see [Amazon SageMaker Studio](studio-updated.md "studio-updated.md").
 
-![Amazon SageMaker Studio interface with access to JumpStart.](images/jumpstart/jumpstart-assets-studio.png)
+![Amazon SageMaker Studio interface with access to JumpStart.](images/jumpstart/jumpstart-studio-nav.png)
+
+## Use JumpStart in Studio
 
 ###### Important
 
@@ -49,25 +40,27 @@ Before downloading or using third-party content: You are responsible for reviewi
 complying with any applicable license terms and making sure that they are acceptable for
 your use case.
 
-### Use JumpStart in Studio
+From the **SageMaker Models** landing page in Studio, you can explore
+JumpStart base models from both proprietary and publicly available model providers. You can
+search directly for models, filter by specific model provider, or filter based on a list of
+provided use cases and actions.
 
-From the **SageMaker JumpStart** landing page in Studio, you can explore
-model hubs from providers of both proprietary and publicly available models.
-
-![Amazon SageMaker Studio JumpStart landing page.](images/jumpstart/jumpstart-use-studio.png)
-
-You can find specific hubs or models using the search bar. Within each model hub, you
-can search directly for models, sort by provided attributes, or filter based on a list of
-provided model tasks.
-
-### Manage JumpStart in Studio
+![Amazon SageMaker Studio Models landing page.](images/jumpstart/jumpstart-studio-landing.png)
 
 Choose a model to see its model detail card. In the upper right-hand corner of the model
-detail card, choose **Fine-tune**, **Deploy**, or
-**Evaluate** to start working through the fine-tuning, deployment, or
-evaluation workflows, respectively. Note that not all models are available for fine-tuning
-or evaluation. For more information on each of these options, see [Use foundation
+detail card, choose **Fine-tune**, **Customize**,
+**Deploy**, or **Evaluate** to start working through the fine-tuning,
+deployment, or evaluation workflows, respectively. Note that not all models are available for customization,
+fine-tuning or evaluation. For more information on each of these options, see [Use foundation
 models in Studio](jumpstart-foundation-models-use-studio-updated.md "jumpstart-foundation-models-use-studio-updated.md").
+
+You can also access **Private or Curated Hub** models through a dedicated tab. These
+work exactly like JumpStart base models, and clicking on a model card will take you to the details page, where
+actions are available.
+
+Additionally, select **My models** to access your fine-tuned and registered models. Outputs from
+customization jobs can be found here, under the **Logged** models tab. **Deployable**
+models can also be found here.
 
 ## Open and use JumpStart in Studio Classic
 

@@ -50,6 +50,24 @@ Here is an example of running the replace operation on two Instances of a cluste
         --node-ids i-0123456789abcdef0 i-0fedcba9876543210
 ```
 
+###### Karpenter-managed clusters
+
+For SageMaker HyperPod clusters using Karpenter for node provisioning, the
+`BatchReplaceClusterNodes` API does not guarantee that a replacement
+node will be created. The specified node _will_ be terminated,
+but replacement depends on Karpenter's pod-demand-based provisioning model.
+Karpenter only creates new nodes when there are pods in a `Pending`
+state that cannot be scheduled on existing nodes.
+
+If the workload from the deleted node can be rescheduled onto remaining nodes
+in the cluster (for example, if those nodes have sufficient capacity), Karpenter
+does not provision a replacement. To ensure a replacement node is created, verify
+that your workload configuration (such as pod anti-affinity rules or resource
+requests) requires a new node for the displaced pods.
+
+We are aware of this limitation and are actively working on a solution to
+enforce node replacement when requested through the API.
+
 **To replace a node using kubectl**
 
 Label the node to replace with

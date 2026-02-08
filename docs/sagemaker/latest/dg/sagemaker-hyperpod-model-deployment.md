@@ -62,6 +62,12 @@ better performance.
 
 ###### Note
 
+**Data encryption:** KV cache data (attention keys and values) is stored unencrypted at rest to optimize inference latency and improve performance. For workloads with strict encryption-at-rest requirements, consider application-layer encryption of prompts and responses, or disable caching.
+
+**Data isolation:** When using managed tiered storage as the L2 cache backend, multiple inference deployments within a cluster share cache storage with no isolation. L2 KV cache data (attention keys and values) from different deployments is not separated. For workloads requiring data isolation (multi-tenant scenarios, different data classification levels), deploy to separate clusters or use dedicated Redis instances.
+
+###### Note
+
 We collect certain routine operational metrics to provide essential service availability. The creation of these metrics is fully automated and does not involve human review of the underlying model inference workload. These metrics relate to deployment operations, resource management, and endpoint registration.
 
 ###### Topics
@@ -78,3 +84,4 @@ We collect certain routine operational metrics to provide essential service avai
   deployment on HyperPod](sagemaker-hyperpod-model-deployment-task-gov.md "sagemaker-hyperpod-model-deployment-task-gov.md")
 - [HyperPod inference
   troubleshooting](sagemaker-hyperpod-model-deployment-ts.md "sagemaker-hyperpod-model-deployment-ts.md")
+- [Amazon SageMaker HyperPod Inference release notes](sagemaker-hyperpod-inference-release-notes.md "sagemaker-hyperpod-inference-release-notes.md")

@@ -4,7 +4,7 @@ Fine-tuning trains a pre-trained model on a new dataset without training from
 scratch. This process, also known as transfer learning, can produce accurate
 models with smaller datasets and less training time. To fine-tune JumpStart
 foundation models, navigate to a model detail card in the Studio UI. For
-more information on how to open JumpStart in Studio, see [Open and use JumpStart in Studio](studio-jumpstart.md#jumpstart-open-use-studio "studio-jumpstart.md#jumpstart-open-use-studio"). After navigating to the model
+more information on how to open JumpStart in Studio, see [Open JumpStart in Studio](studio-jumpstart.md#jumpstart-open-studio "studio-jumpstart.md#jumpstart-open-studio"). After navigating to the model
 detail card of your choice, choose **Train** in the upper right
 corner. Note that not all models have fine-tuning available.
 

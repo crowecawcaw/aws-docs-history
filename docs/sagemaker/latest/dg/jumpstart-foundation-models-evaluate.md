@@ -19,7 +19,7 @@ Amazon SageMaker JumpStart has integrations with SageMaker Clarify Foundation Mo
 has built-in evaluation capabilities available, you can choose
 **Evaluate** in the upper right corner of the model detail page in
 the JumpStart Studio UI. For more information on navigating the JumpStart Studio UI, see
-[Open and use JumpStart in Studio](studio-jumpstart.md#jumpstart-open-use-studio "studio-jumpstart.md#jumpstart-open-use-studio"),
+[Open JumpStart in Studio](studio-jumpstart.md#jumpstart-open-studio "studio-jumpstart.md#jumpstart-open-studio"),
 
 Use Amazon SageMaker JumpStart to evaluate text-based foundation models with FMEval. You can use these
 model evaluations to compare model quality and responsibility metrics for one model,
