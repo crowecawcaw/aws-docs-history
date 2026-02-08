@@ -93,7 +93,7 @@ To report batch errors, you will use this JSON schema:
   "batchItemFailures": [
     {
       "itemIdentifier": {
-        "topic-partition": "topic-partition_number",
+        "partition": "topic-partition_number",
         "offset": 100
       }
     },
@@ -131,7 +131,7 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, List[Dict[s
             except Exception as exc:
                 print(f"Failed to process record topic={topic} partition={partition} offset={offset}: {exc}")
                 item_identifier: Dict[str, Any] = {
-                    "topic-partition": f"{topic}-{partition}",
+                    "partition": f"{topic}-{partition}",
                     "offset": int(offset) if offset is not None else None,
                 }
                 failures.append({"itemIdentifier": item_identifier})
@@ -166,7 +166,7 @@ const handler = async (event) => {
       } catch (error) {
         console.error("Failed to process record", { topic, partition, offset, error });
         const itemIdentifier = {
-          "topic-partition": `${topic}-${partition}`,
+          "partition": `${topic}-${partition}`,
           offset: Number(offset),
         };
         failures.push({ itemIdentifier });
