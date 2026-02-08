@@ -26,7 +26,7 @@ uses the following response cards:
 - A response card that lists buttons to confirm a suggested appointment time.
   See the following image for an example:
 
-![Response card asking for confirmation of the time and date of the appointment, with two options: yes and no.](/images/lex/latest/dg/images/respcard-30.png)
+![Response card asking for confirmation of the time and date of the appointment, with two options: yes and no.](images/respcard-30.png)
 The available appointment dates and times vary, which requires you to generate
 response cards at runtime. You use an AWS Lambda function to generate these response
 cards dynamically. The Lambda function returns response cards in its response to Amazon Lex.

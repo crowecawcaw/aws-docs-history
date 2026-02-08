@@ -158,7 +158,7 @@ following steps, see [PostText](API_runtime_PostText.md "API_runtime_PostText.md
        slot and sends the following response back to the
        client:
 
-    ![JSON data containing a request for the FlowerType slot.](images/gs-1-details-10.png)
+    ![JSON data containing a request for the FlowerType slot.](/images/lex/latest/dg/images/gs-1-details-10.png)
 
     The client displays the message in the
     response.
