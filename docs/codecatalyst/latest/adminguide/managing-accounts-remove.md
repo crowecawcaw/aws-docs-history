@@ -23,8 +23,9 @@ space.
 
 ###### Important
 
-While you can use these steps to remove an account, this is not recommended. The account
-might also be set up to support workflows in CodeCatalyst.
+While you can use these steps to remove an account, this is not recommended as the AWS Management Console doesn't show whether your account is connected to
+workflows in your space. Any existing workflows connected to this account won't work after the account
+is removed and must be configured again with another connected account from the CodeCatalyst console.
 
 You must have the **Space administrator** or
 **Power user** role to manage account connections for your
