@@ -92,7 +92,7 @@ If you set the `revealSecrets` parameter to `false`, Step Functions omits all se
 
 The following image shows a test for an HTTP Task that succeeds. The **Inspection level** for this state is set to **TRACE**. The **HTTP request & response** tab in the following image shows the result of the HTTPS API call.
 
-![Screenshot of output at TRACE level for a passed test.](images/test-state-trace-success.png)
+![Screenshot of output at TRACE level for a passed test.](/images/step-functions/latest/dg/images/test-state-trace-success.png)
 
 ## IAM permissions for using TestState API
 
