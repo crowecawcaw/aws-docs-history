@@ -55,9 +55,9 @@ other words, you can attach any number of EBS volumes up to the volume attachmen
 limit, regardless of the number of attached devices, such as NVMe instance store
 volumes and network interfaces.
 
-- **General purpose:** M7a | M7i | M7i-flex | M8a | M8g | M8gb | M8gd | M8gn | M8i | M8i-flex
-- **Compute optimized:** C7a | C7i | C7i-flex | C8a | C8g | C8gb | C8gd | C8gn | C8i | C8i-flex
-- **Memory optimized:** R7a | R7i | R7iz | R8a | R8g | R8gb | R8gd | R8gn | R8i | R8i-flex | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb | U7inh-32tb | X8g | X8aedz | X8i
+- **General purpose:** M7a | M7i | M7i-flex | M8a | M8g | M8gb | M8gd | M8gn | M8i | M8id | M8i-flex
+- **Compute optimized:** C7a | C7i | C7i-flex | C8a | C8g | C8gb | C8gd | C8gn | C8i | C8id | C8i-flex
+- **Memory optimized:** R7a | R7i | R7iz | R8a | R8g | R8gb | R8gd | R8gn | R8i | R8id | R8i-flex | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb | U7inh-32tb | X8g | X8aedz | X8i
 - **Storage optimized:** I7i | I7ie | I8g | I8ge
 - **Accelerated computing:** F2 | G6 | G6e | G6f | Gr6 | Gr6f | G7e | P4d | P4de | P5 | P5e | P5en | P6-B200 | P6-B300 | P6e-GB200 | Trn2 | Trn2u
 - **High performance computing:** Hpc7a

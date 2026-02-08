@@ -207,6 +207,12 @@ General purpose
 | `m8i.96xlarge`    | x86_64       |
 | `m8i.metal-48xl`  | x86_64       |
 | `m8i.metal-96xl`  | x86_64       |
+| `m8id.24xlarge`   | x86_64       |
+| `m8id.32xlarge`   | x86_64       |
+| `m8id.48xlarge`   | x86_64       |
+| `m8id.96xlarge`   | x86_64       |
+| `m8id.metal-48xl` | x86_64       |
+| `m8id.metal-96xl` | x86_64       |
 
 Compute optimized
 
@@ -300,6 +306,12 @@ Compute optimized
 | `c8i.96xlarge`    | x86_64       |
 | `c8i.metal-48xl`  | x86_64       |
 | `c8i.metal-96xl`  | x86_64       |
+| `c8id.24xlarge`   | x86_64       |
+| `c8id.32xlarge`   | x86_64       |
+| `c8id.48xlarge`   | x86_64       |
+| `c8id.96xlarge`   | x86_64       |
+| `c8id.metal-48xl` | x86_64       |
+| `c8id.metal-96xl` | x86_64       |
 
 Memory optimized
 
@@ -396,6 +408,12 @@ Memory optimized
 | `r8i.96xlarge`         | x86_64       |
 | `r8i.metal-48xl`       | x86_64       |
 | `r8i.metal-96xl`       | x86_64       |
+| `r8id.24xlarge`        | x86_64       |
+| `r8id.32xlarge`        | x86_64       |
+| `r8id.48xlarge`        | x86_64       |
+| `r8id.96xlarge`        | x86_64       |
+| `r8id.metal-48xl`      | x86_64       |
+| `r8id.metal-96xl`      | x86_64       |
 | `u7i-6tb.112xlarge`    | x86_64       |
 | `u7i-8tb.112xlarge`    | x86_64       |
 | `u7i-12tb.224xlarge`   | x86_64       |

@@ -58,9 +58,9 @@ and the border bandwidth changes to 25 Gbps.
 
 Instance types in the following instance families support configurable bandwidth weighting.
 
-- **General purpose:** M8a, M8g, M8gd, M8i, M8i-flex
-- **Compute optimized:** C8a, C8g, C8gd, C8i, C8i-flex
-- **Memory optimized:** R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz, X8i
+- **General purpose:** M8a, M8g, M8gd, M8i, M8id, M8i-flex
+- **Compute optimized:** C8a, C8g, C8gd, C8i, C8id, C8i-flex
+- **Memory optimized:** R8a, R8g, R8gd, R8i, R8id, R8i-flex, X8g, X8aedz, X8i
 
 ## Check current bandwidth settings
 
@@ -348,6 +348,19 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | c8i.96xlarge      | 100.0                           | 125.0                         | 80.0                          |
 | c8i.metal-48xl    | 75.0                            | 93.75                         | 60.0                          |
 | c8i.metal-96xl    | 100.0                           | 125.0                         | 80.0                          |
+| c8id.large        | 0.937 / 12.5                    | 1.172 / 12.5                  | 0.774 / 10.0                  |
+| c8id.xlarge       | 1.875 / 12.5                    | 2.344 / 12.5                  | 1.562 / 10.0                  |
+| c8id.2xlarge      | 3.75 / 15.0                     | 4.688 / 15.0                  | 3.125 / 12.5                  |
+| c8id.4xlarge      | 7.5 / 15.0                      | 9.375 / 15.0                  | 6.25 / 12.5                   |
+| c8id.8xlarge      | 15.0                            | 18.75                         | 12.5                          |
+| c8id.12xlarge     | 22.5                            | 28.125                        | 18.75                         |
+| c8id.16xlarge     | 30.0                            | 37.5                          | 25.0                          |
+| c8id.24xlarge     | 40.0                            | 50.0                          | 32.5                          |
+| c8id.32xlarge     | 50.0                            | 62.5                          | 40.0                          |
+| c8id.48xlarge     | 75.0                            | 93.75                         | 60.0                          |
+| c8id.96xlarge     | 100.0                           | 125.0                         | 80.0                          |
+| c8id.metal-48xl   | 75.0                            | 93.75                         | 60.0                          |
+| c8id.metal-96xl   | 100.0                           | 125.0                         | 80.0                          |
 | c8i-flex.large    | 0.468 / 12.5                    | 0.585 / 12.5                  | 0.389 / 10.0                  |
 | c8i-flex.xlarge   | 0.937 / 12.5                    | 1.172 / 12.5                  | 0.779 / 10.0                  |
 | c8i-flex.2xlarge  | 1.875 / 15.0                    | 2.344 / 15.0                  | 1.562 / 12.5                  |
@@ -404,6 +417,19 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | m8i.96xlarge      | 100.0                           | 125.0                         | 80.0                          |
 | m8i.metal-48xl    | 75.0                            | 93.75                         | 60.0                          |
 | m8i.metal-96xl    | 100.0                           | 125.0                         | 80.0                          |
+| m8id.large        | 0.937 / 12.5                    | 1.172 / 12.5                  | 0.774 / 10.0                  |
+| m8id.xlarge       | 1.875 / 12.5                    | 2.344 / 12.5                  | 1.562 / 10.0                  |
+| m8id.2xlarge      | 3.75 / 15.0                     | 4.688 / 15.0                  | 3.125 / 12.5                  |
+| m8id.4xlarge      | 7.5 / 15.0                      | 9.375 / 15.0                  | 6.25 / 12.5                   |
+| m8id.8xlarge      | 15.0                            | 18.75                         | 12.5                          |
+| m8id.12xlarge     | 22.5                            | 28.125                        | 18.75                         |
+| m8id.16xlarge     | 30.0                            | 37.5                          | 25.0                          |
+| m8id.24xlarge     | 40.0                            | 50.0                          | 32.5                          |
+| m8id.32xlarge     | 50.0                            | 62.5                          | 40.0                          |
+| m8id.48xlarge     | 75.0                            | 93.75                         | 60.0                          |
+| m8id.96xlarge     | 100.0                           | 125.0                         | 80.0                          |
+| m8id.metal-48xl   | 75.0                            | 93.75                         | 60.0                          |
+| m8id.metal-96xl   | 100.0                           | 125.0                         | 80.0                          |
 | m8i-flex.large    | 0.468 / 12.5                    | 0.585 / 12.5                  | 0.389 / 10.0                  |
 | m8i-flex.xlarge   | 0.937 / 12.5                    | 1.172 / 12.5                  | 0.779 / 10.0                  |
 | m8i-flex.2xlarge  | 1.875 / 15.0                    | 2.344 / 15.0                  | 1.562 / 12.5                  |
@@ -460,6 +486,19 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | r8i.96xlarge      | 100.0                           | 125.0                         | 80.0                          |
 | r8i.metal-48xl    | 75.0                            | 93.75                         | 60.0                          |
 | r8i.metal-96xl    | 100.0                           | 125.0                         | 80.0                          |
+| r8id.large        | 0.937 / 12.5                    | 1.172 / 12.5                  | 0.774 / 10.0                  |
+| r8id.xlarge       | 1.875 / 12.5                    | 2.344 / 12.5                  | 1.562 / 10.0                  |
+| r8id.2xlarge      | 3.75 / 15.0                     | 4.688 / 15.0                  | 3.125 / 12.5                  |
+| r8id.4xlarge      | 7.5 / 15.0                      | 9.375 / 15.0                  | 6.25 / 12.5                   |
+| r8id.8xlarge      | 15.0                            | 18.75                         | 12.5                          |
+| r8id.12xlarge     | 22.5                            | 28.125                        | 18.75                         |
+| r8id.16xlarge     | 30.0                            | 37.5                          | 25.0                          |
+| r8id.24xlarge     | 40.0                            | 50.0                          | 32.5                          |
+| r8id.32xlarge     | 50.0                            | 62.5                          | 40.0                          |
+| r8id.48xlarge     | 75.0                            | 93.75                         | 60.0                          |
+| r8id.96xlarge     | 100.0                           | 125.0                         | 80.0                          |
+| r8id.metal-48xl   | 75.0                            | 93.75                         | 60.0                          |
+| r8id.metal-96xl   | 100.0                           | 125.0                         | 80.0                          |
 | r8i-flex.large    | 0.468 / 12.5                    | 0.585 / 12.5                  | 0.389 / 10.0                  |
 | r8i-flex.xlarge   | 0.937 / 12.5                    | 1.172 / 12.5                  | 0.779 / 10.0                  |
 | r8i-flex.2xlarge  | 1.875 / 15.0                    | 2.344 / 15.0                  | 1.562 / 12.5                  |
@@ -558,6 +597,19 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | c8i.96xlarge      | 80.0                            | 55.0                          | 100.0                         |
 | c8i.metal-48xl    | 60.0                            | 41.25                         | 75.0                          |
 | c8i.metal-96xl    | 80.0                            | 55.0                          | 100.0                         |
+| c8id.large        | 0.65 / 10.0                     | 0.415 / 6.25                  | 0.813 / 10.0                  |
+| c8id.xlarge       | 1.25 / 10.0                     | 0.781 / 6.25                  | 1.563 / 10.0                  |
+| c8id.2xlarge      | 2.5 / 10.0                      | 1.562 / 6.25                  | 3.125 / 10.0                  |
+| c8id.4xlarge      | 5.0 / 10.0                      | 3.125 / 6.25                  | 6.25 / 10.0                   |
+| c8id.8xlarge      | 10.0                            | 6.25                          | 12.5                          |
+| c8id.12xlarge     | 15.0                            | 9.375                         | 18.75                         |
+| c8id.16xlarge     | 20.0                            | 12.5                          | 25.0                          |
+| c8id.24xlarge     | 30.0                            | 20.0                          | 37.5                          |
+| c8id.32xlarge     | 40.0                            | 27.5                          | 50.0                          |
+| c8id.48xlarge     | 60.0                            | 41.25                         | 75.0                          |
+| c8id.96xlarge     | 80.0                            | 55.0                          | 100.0                         |
+| c8id.metal-48xl   | 60.0                            | 41.25                         | 75.0                          |
+| c8id.metal-96xl   | 80.0                            | 55.0                          | 100.0                         |
 | c8i-flex.large    | 0.315 / 10.0                    | 0.198 / 6.25                  | 0.394 / 10.0                  |
 | c8i-flex.xlarge   | 0.63 / 10.0                     | 0.395 / 6.25                  | 0.788 / 10.0                  |
 | c8i-flex.2xlarge  | 1.25 / 10.0                     | 0.781 / 6.25                  | 1.563 / 10.0                  |
@@ -614,6 +666,19 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | m8i.96xlarge      | 80.0                            | 55.0                          | 100.0                         |
 | m8i.metal-48xl    | 60.0                            | 41.25                         | 75.0                          |
 | m8i.metal-96xl    | 80.0                            | 55.0                          | 100.0                         |
+| m8id.large        | 0.65 / 10.0                     | 0.415 / 6.25                  | 0.813 / 10.0                  |
+| m8id.xlarge       | 1.25 / 10.0                     | 0.781 / 6.25                  | 1.563 / 10.0                  |
+| m8id.2xlarge      | 2.5 / 10.0                      | 1.562 / 6.25                  | 3.125 / 10.0                  |
+| m8id.4xlarge      | 5.0 / 10.0                      | 3.125 / 6.25                  | 6.25 / 10.0                   |
+| m8id.8xlarge      | 10.0                            | 6.25                          | 12.5                          |
+| m8id.12xlarge     | 15.0                            | 9.375                         | 18.75                         |
+| m8id.16xlarge     | 20.0                            | 12.5                          | 25.0                          |
+| m8id.24xlarge     | 30.0                            | 20.0                          | 37.5                          |
+| m8id.32xlarge     | 40.0                            | 27.5                          | 50.0                          |
+| m8id.48xlarge     | 60.0                            | 41.25                         | 75.0                          |
+| m8id.96xlarge     | 80.0                            | 55.0                          | 100.0                         |
+| m8id.metal-48xl   | 60.0                            | 41.25                         | 75.0                          |
+| m8id.metal-96xl   | 80.0                            | 55.0                          | 100.0                         |
 | m8i-flex.large    | 0.315 / 10.0                    | 0.198 / 6.25                  | 0.394 / 10.0                  |
 | m8i-flex.xlarge   | 0.63 / 10.0                     | 0.395 / 6.25                  | 0.788 / 10.0                  |
 | m8i-flex.2xlarge  | 1.25 / 10.0                     | 0.781 / 6.25                  | 1.563 / 10.0                  |
@@ -670,6 +735,19 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | r8i.96xlarge      | 80.0                            | 55.0                          | 100.0                         |
 | r8i.metal-48xl    | 60.0                            | 41.25                         | 75.0                          |
 | r8i.metal-96xl    | 80.0                            | 55.0                          | 100.0                         |
+| r8id.large        | 0.65 / 10.0                     | 0.415 / 6.25                  | 0.813 / 10.0                  |
+| r8id.xlarge       | 1.25 / 10.0                     | 0.781 / 6.25                  | 1.563 / 10.0                  |
+| r8id.2xlarge      | 2.5 / 10.0                      | 1.562 / 6.25                  | 3.125 / 10.0                  |
+| r8id.4xlarge      | 5.0 / 10.0                      | 3.125 / 6.25                  | 6.25 / 10.0                   |
+| r8id.8xlarge      | 10.0                            | 6.25                          | 12.5                          |
+| r8id.12xlarge     | 15.0                            | 9.375                         | 18.75                         |
+| r8id.16xlarge     | 20.0                            | 12.5                          | 25.0                          |
+| r8id.24xlarge     | 30.0                            | 20.0                          | 37.5                          |
+| r8id.32xlarge     | 40.0                            | 27.5                          | 50.0                          |
+| r8id.48xlarge     | 60.0                            | 41.25                         | 75.0                          |
+| r8id.96xlarge     | 80.0                            | 55.0                          | 100.0                         |
+| r8id.metal-48xl   | 60.0                            | 41.25                         | 75.0                          |
+| r8id.metal-96xl   | 80.0                            | 55.0                          | 100.0                         |
 | r8i-flex.large    | 0.315 / 10.0                    | 0.198 / 6.25                  | 0.394 / 10.0                  |
 | r8i-flex.xlarge   | 0.63 / 10.0                     | 0.395 / 6.25                  | 0.788 / 10.0                  |
 | r8i-flex.2xlarge  | 1.25 / 10.0                     | 0.781 / 6.25                  | 1.563 / 10.0                  |

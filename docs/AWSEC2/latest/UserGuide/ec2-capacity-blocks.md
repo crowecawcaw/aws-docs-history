@@ -24,7 +24,7 @@ The following are some common use cases for Capacity Blocks.
 - **ML experiments and prototypes** – Run
   experiments and build prototypes that require GPU instances for short
   durations.
-  Capacity Blocks are availale for select instance types in some AWS Regions. Fore more information,
+  Capacity Blocks are available for select instance types in some AWS Regions. For more information,
   see [Supported instance types and Regions](#capacity-blocks-prerequisites "#capacity-blocks-prerequisites").
 
 You can reserve a Capacity Block with a reservation start time up to eight weeks in the future.
@@ -43,6 +43,7 @@ Capacity Blocks.
 - [Launch instances using Capacity Blocks](capacity-blocks-launch.md "capacity-blocks-launch.md")
 - [View Capacity Blocks](capacity-blocks-view.md "capacity-blocks-view.md")
 - [Extend Capacity Blocks](capacity-blocks-extend.md "capacity-blocks-extend.md")
+- [Share Capacity Blocks](capacity-blocks-share.md "capacity-blocks-share.md")
 - [Create a resource group for UltraServer Capacity Blocks](cb-group.md "cb-group.md")
 - [Monitor Capacity Blocks using EventBridge](capacity-blocks-monitor.md "capacity-blocks-monitor.md")
 - [Logging Capacity Blocks API calls
@@ -175,10 +176,9 @@ Before you use Capacity Blocks, consider the following details and limitations.
 - Capacity Blocks can be reserved with a start time up to 8 weeks in the
   future.
 - Capacity Block cancellations aren't allowed.
+- UltraServer Capacity Blocks can't be shared across AWS accounts or within your AWS Organization.
 - Capacity Block can't be [moved](capacity-reservations-move.md "capacity-reservations-move.md") or
   [split](capacity-reservations-split.md "capacity-reservations-split.md").
-- Capacity Blocks can't be shared across AWS accounts or within your AWS
-  Organization.
 - Only UltraServer Capacity Blocks can be used with resource groups. Instance Capacity Blocks
   can't be used with resource groups. For more information, see [Create a resource group for UltraServer Capacity Blocks](cb-group.md "cb-group.md").
 - The total number of instances that can be reserved in Capacity Blocks across all

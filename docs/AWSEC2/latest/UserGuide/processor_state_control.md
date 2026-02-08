@@ -58,7 +58,11 @@ The following instance types provide the ability for an operating system to cont
   `m8a.48xlarge` | `m8i.large` | `m8i.xlarge` |
   `m8i.2xlarge` | `m8i.4xlarge` | `m8i.8xlarge` |
   `m8i.12xlarge` | `m8i.16xlarge` | `m8i.24xlarge` |
-  `m8i.32xlarge` | `m8i.48xlarge` | `m8i.96xlarge`
+  `m8i.32xlarge` | `m8i.48xlarge` | `m8i.96xlarge` |
+  `m8id.large` | `m8id.xlarge` | `m8id.2xlarge` |
+  `m8id.4xlarge` | `m8id.8xlarge` | `m8id.12xlarge` |
+  `m8id.16xlarge` | `m8id.24xlarge` | `m8id.32xlarge` |
+  `m8id.48xlarge` | `m8id.96xlarge`
 - Compute optimized:
   `c5.9xlarge` | `c5.12xlarge` | `c5.18xlarge` |
   `c5.24xlarge` | `c5a.24xlarge` | `c5ad.24xlarge` |
@@ -80,11 +84,14 @@ The following instance types provide the ability for an operating system to cont
   `c8i.xlarge` | `c8i.2xlarge` | `c8i.4xlarge` |
   `c8i.8xlarge` | `c8i.12xlarge` | `c8i.16xlarge` |
   `c8i.24xlarge` | `c8i.32xlarge` | `c8i.48xlarge` |
-  `c8i.96xlarge` | `x8i.large` | `x8i.xlarge` |
-  `x8i.2xlarge` | `x8i.4xlarge` | `x8i.8xlarge` |
-  `x8i.12xlarge` | `x8i.16xlarge` | `x8i.24xlarge` |
-  `x8i.32xlarge` | `x8i.48xlarge` | `x8i.48xlarge` |
-  `x8i.96xlarge`
+  `c8i.96xlarge` | `c8id.large` | `c8id.xlarge` |
+  `c8id.2xlarge` | `c8id.4xlarge` | `c8id.8xlarge` |
+  `c8id.12xlarge` | `c8id.16xlarge` | `c8id.24xlarge` |
+  `c8id.32xlarge` | `c8id.48xlarge` | `c8id.96xlarge`
+  `x8i.large` | `x8i.xlarge` | `x8i.2xlarge` |
+  `x8i.4xlarge` | `x8i.8xlarge` | `x8i.12xlarge` |
+  `x8i.16xlarge` | `x8i.24xlarge` | `x8i.32xlarge` |
+  `x8i.48xlarge` | `x8i.48xlarge` | `x8i.96xlarge`
 - Memory optimized:
   `r5.12xlarge` | `r5.24xlarge` | `r5b.12xlarge` |
   `r5d.12xlarge` | `r5d.24xlarge` | `r5n.12xlarge` |
@@ -108,15 +115,19 @@ The following instance types provide the ability for an operating system to cont
   `r8i.2xlarge` | `r8i.4xlarge` | `r8i.8xlarge` |
   `r8i.12xlarge` | `r8i.16xlarge` | `r8i.24xlarge` |
   `r8i.32xlarge` | `r8i.48xlarge` | `r8i.96xlarge` |
-  `u-3tb1.56xlarge` | `u-6tb1.56xlarge` | `u-6tb1.112xlarge` |
-  `u-9tb1.112xlarge` | `u-12tb1.112xlarge` | `u-18tb1.112xlarge` |
-  `u-24tb1.112xlarge` | `u7i-6tb.112xlarge` | `u7i-8tb.112xlarge` |
-  `u7i-12tb.224xlarge` | `u7in-16tb.224xlarge` | `u7in-24tb.224xlarge` |
-  `u7in-32tb.224xlarge` | `u7inh-32tb.480xlarge` | `x2idn.32xlarge` |
-  `x2iedn.16xlarge` | `x2iedn.32xlarge` | `x2iezn.12xlarge` |
-  `x8aedz.large` | `x8aedz.xlarge` | `x8aedz.3xlarge` |
-  `x8aedz.6xlarge` | `x8aedz.12xlarge` | `x8aedz.24xlarge` |
-  `z1d.6xlarge` | `z1d.12xlarge`
+  `r8id.large` | `r8id.xlarge` | `r8id.2xlarge` |
+  `r8id.4xlarge` | `r8id.8xlarge` | `r8id.12xlarge` |
+  `r8id.16xlarge` | `r8id.24xlarge` | `r8id.32xlarge` |
+  `r8id.48xlarge` | `r8id.96xlarge` | `u-3tb1.56xlarge` |
+  `u-6tb1.56xlarge` | `u-6tb1.112xlarge` | `u-9tb1.112xlarge` |
+  `u-12tb1.112xlarge` | `u-18tb1.112xlarge` | `u-24tb1.112xlarge` |
+  `u7i-6tb.112xlarge` | `u7i-8tb.112xlarge` | `u7i-12tb.224xlarge` |
+  `u7in-16tb.224xlarge` | `u7in-24tb.224xlarge` | `u7in-32tb.224xlarge` |
+  `u7inh-32tb.480xlarge` | `x2idn.32xlarge` | `x2iedn.16xlarge` |
+  `x2iedn.32xlarge` | `x2iezn.12xlarge` | `x8aedz.large` |
+  `x8aedz.xlarge` | `x8aedz.3xlarge` | `x8aedz.6xlarge` |
+  `x8aedz.12xlarge` | `x8aedz.24xlarge` | `z1d.6xlarge` |
+  `z1d.12xlarge`
 - Storage optimized:
   `d3en.12xlarge` | `dl1.24xlarge` | `i3en.12xlarge` |
   `i3en.24xlarge` | `i4i.16xlarge` | `i7i.large` |

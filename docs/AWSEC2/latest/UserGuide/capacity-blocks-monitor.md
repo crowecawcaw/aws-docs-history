@@ -49,3 +49,29 @@ The following example shows an event for Capacity Block Expiration Warning.
   }
 }
 ```
+
+###### Capacity Reservation Instance Interruption Warning
+
+The following example shows an event for EC2 Capacity Reservation Instance Interruption Warning.
+
+```
+{
+    "version": "0",
+    "id": "12345678-1234-1234-1234-123456789012",
+    "detail_type": "EC2 Capacity Reservation Instance Interruption Warning",
+    "source": "aws.ec2",
+    "account": "[Customer Account ID]",
+    "time": "[Current time]",
+    "region": "[Region]",
+    "resources": [
+        "[Instance ARN]"
+    ],
+    "detail": {
+        "instance-id": "[Instance ID]",
+        "instance-action": "terminate",
+        "instance-termination-time": "[Current time]",
+        "availability-zone-id": "[Availability Zone ID]",
+        "instance-lifecycle": "capacity-block"
+    }
+}
+```

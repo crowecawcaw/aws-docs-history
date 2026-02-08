@@ -58,7 +58,7 @@ to enable EBS optimization and no effect if you disable EBS optimization.
 
 ###### Note
 
-M8a, M8g, M8gd, M8i, M8i-flex instance types support configurable bandwidth weightings. With
+M8a, M8g, M8gd, M8i, M8id, M8i-flex instance types support configurable bandwidth weightings. With
 these instance types, you can optimize an instance's bandwidth for either networking performance
 or Amazon EBS performance. The following table shows the default Amazon EBS bandwidth performance for these
 instance types. For more information, see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighting.md "configure-bandwidth-weighting.md").
@@ -322,6 +322,19 @@ instance types. For more information, see [EC2 instance bandwidth weighting conf
 | m8i.96xlarge 2       | 80000                     | 10000.0                  | 480000                                  |
 | m8i.metal-48xl 2     | 60000                     | 7500.0                   | 240000                                  |
 | m8i.metal-96xl 2     | 80000                     | 10000.0                  | 480000                                  |
+| m8id.large 1         | 650                       | 10000                    | 81.25                                   | 1250.00                                | 3600                       | 40000                     |
+| m8id.xlarge 1        | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |
+| m8id.2xlarge 1       | 2500                      | 10000                    | 312.50                                  | 1250.00                                | 12000                      | 40000                     |
+| m8id.4xlarge 1       | 5000                      | 10000                    | 625.00                                  | 1250.00                                | 20000                      | 40000                     |
+| m8id.8xlarge 2       | 10000                     | 1250.0                   | 40000                                   |
+| m8id.12xlarge 2      | 15000                     | 1875.0                   | 60000                                   |
+| m8id.16xlarge 2      | 20000                     | 2500.0                   | 80000                                   |
+| m8id.24xlarge 2      | 30000                     | 3750.0                   | 120000                                  |
+| m8id.32xlarge 2      | 40000                     | 5000.0                   | 160000                                  |
+| m8id.48xlarge 2      | 60000                     | 7500.0                   | 240000                                  |
+| m8id.96xlarge 2      | 80000                     | 10000.0                  | 480000                                  |
+| m8id.metal-48xl 2    | 60000                     | 7500.0                   | 240000                                  |
+| m8id.metal-96xl 2    | 80000                     | 10000.0                  | 480000                                  |
 | m8i-flex.large 1     | 315                       | 10000                    | 39.38                                   | 1250.00                                | 2500                       | 40000                     |
 | m8i-flex.xlarge 1    | 630                       | 10000                    | 78.75                                   | 1250.00                                | 3600                       | 40000                     |
 | m8i-flex.2xlarge 1   | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |
@@ -369,7 +382,7 @@ these instances.
 
 ###### Note
 
-C8a, C8g, C8gd, C8i, C8i-flex instance types support configurable bandwidth weightings. With these instance types, you can optimize
+C8a, C8g, C8gd, C8i, C8id, C8i-flex instance types support configurable bandwidth weightings. With these instance types, you can optimize
 an instance's bandwidth for either networking performance or Amazon EBS performance. The following table shows the
 default Amazon EBS bandwidth performance for these instance types. For more information,
 see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighting.md "configure-bandwidth-weighting.md").
@@ -619,6 +632,19 @@ see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighti
 | c8i.96xlarge 2      | 80000                     | 10000.0                  | 480000                                  |
 | c8i.metal-48xl 2    | 60000                     | 7500.0                   | 240000                                  |
 | c8i.metal-96xl 2    | 80000                     | 10000.0                  | 480000                                  |
+| c8id.large 1        | 650                       | 10000                    | 81.25                                   | 1250.00                                | 3600                       | 40000                     |
+| c8id.xlarge 1       | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |
+| c8id.2xlarge 1      | 2500                      | 10000                    | 312.50                                  | 1250.00                                | 12000                      | 40000                     |
+| c8id.4xlarge 1      | 5000                      | 10000                    | 625.00                                  | 1250.00                                | 20000                      | 40000                     |
+| c8id.8xlarge 2      | 10000                     | 1250.0                   | 40000                                   |
+| c8id.12xlarge 2     | 15000                     | 1875.0                   | 60000                                   |
+| c8id.16xlarge 2     | 20000                     | 2500.0                   | 80000                                   |
+| c8id.24xlarge 2     | 30000                     | 3750.0                   | 120000                                  |
+| c8id.32xlarge 2     | 40000                     | 5000.0                   | 160000                                  |
+| c8id.48xlarge 2     | 60000                     | 7500.0                   | 240000                                  |
+| c8id.96xlarge 2     | 80000                     | 10000.0                  | 480000                                  |
+| c8id.metal-48xl 2   | 60000                     | 7500.0                   | 240000                                  |
+| c8id.metal-96xl 2   | 80000                     | 10000.0                  | 480000                                  |
 | c8i-flex.large 1    | 315                       | 10000                    | 39.38                                   | 1250.00                                | 2500                       | 40000                     |
 | c8i-flex.xlarge 1   | 630                       | 10000                    | 78.75                                   | 1250.00                                | 3600                       | 40000                     |
 | c8i-flex.2xlarge 1  | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |
@@ -638,7 +664,7 @@ these instances.
 
 ###### Note
 
-- R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz, X8i instance types support configurable bandwidth weightings. With
+- R8a, R8g, R8gd, R8i, R8id, R8i-flex, X8g, X8aedz, X8i instance types support configurable bandwidth weightings. With
   these instance types, you can optimize an instance's bandwidth for either networking performance or
   Amazon EBS performance. The following table shows the default Amazon EBS bandwidth performance for these
   instance types. For more information, see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighting.md "configure-bandwidth-weighting.md").
@@ -907,6 +933,19 @@ these instances.
 | r8i.96xlarge 2         | 80000                     | 10000.0                  | 480000                                  |
 | r8i.metal-48xl 2       | 60000                     | 7500.0                   | 240000                                  |
 | r8i.metal-96xl 2       | 80000                     | 10000.0                  | 480000                                  |
+| r8id.large 1           | 650                       | 10000                    | 81.25                                   | 1250.00                                | 3600                       | 40000                     |
+| r8id.xlarge 1          | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |
+| r8id.2xlarge 1         | 2500                      | 10000                    | 312.50                                  | 1250.00                                | 12000                      | 40000                     |
+| r8id.4xlarge 1         | 5000                      | 10000                    | 625.00                                  | 1250.00                                | 20000                      | 40000                     |
+| r8id.8xlarge 2         | 10000                     | 1250.0                   | 40000                                   |
+| r8id.12xlarge 2        | 15000                     | 1875.0                   | 60000                                   |
+| r8id.16xlarge 2        | 20000                     | 2500.0                   | 80000                                   |
+| r8id.24xlarge 2        | 30000                     | 3750.0                   | 120000                                  |
+| r8id.32xlarge 2        | 40000                     | 5000.0                   | 160000                                  |
+| r8id.48xlarge 2        | 60000                     | 7500.0                   | 240000                                  |
+| r8id.96xlarge 2        | 80000                     | 10000.0                  | 480000                                  |
+| r8id.metal-48xl 2      | 60000                     | 7500.0                   | 240000                                  |
+| r8id.metal-96xl 2      | 80000                     | 10000.0                  | 480000                                  |
 | r8i-flex.large 1       | 315                       | 10000                    | 39.38                                   | 1250.00                                | 2500                       | 40000                     |
 | r8i-flex.xlarge 1      | 630                       | 10000                    | 78.75                                   | 1250.00                                | 3600                       | 40000                     |
 | r8i-flex.2xlarge 1     | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |

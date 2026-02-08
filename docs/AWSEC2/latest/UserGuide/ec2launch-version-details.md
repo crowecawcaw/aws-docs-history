@@ -15,9 +15,10 @@ For more information, see [Subscribe to EC2 Windows launch agent notifications](
 The following EC2Launch agent versions are supported and are available
 for download.
 
-| Version | Details                        | Release date    |
-| ------- | ------------------------------ | --------------- |
-| 1.4.6   | • Updated agent log messaging. | 13 October 2025 |
+| Version | Details                                                                                                                                                        | Release date    |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| 1.4.183 | • Updated installer logic to prevent unsupported installation on Windows Server 2022.<br>• Updated to print EC2WinUtil driver version to instance console log. | 4 February 2026 |
+| 1.4.6   | • Updated agent log messaging.                                                                                                                                 | 13 October 2025 |
 
 The following prior versions of EC2Launch are no longer available for
 download.
