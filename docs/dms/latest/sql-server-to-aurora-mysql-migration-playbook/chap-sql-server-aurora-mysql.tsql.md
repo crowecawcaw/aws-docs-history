@@ -1,160 +1,277 @@
-# Managing statistics for T-SQL
+# DELETE and UPDATE FROM for T-SQL
 
-This topic provides reference information about statistics management in Microsoft SQL Server and Amazon Aurora MySQL, which is crucial for database performance optimization. You can understand the differences and similarities in how these two database systems handle statistics creation, storage, and maintenance.
+This topic provides reference information about the differences in SQL syntax and functionality between Microsoft SQL Server 2019 and Amazon Aurora MySQL, specifically regarding DELETE and UPDATE statements with joins. You can use this information to understand how to adapt your existing SQL Server queries when migrating to Aurora MySQL.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                              |
-| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------- |
-| Three star feature compatibility | No automation                      | N/A                       | Statistics contain only density information, and only for index key columns. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences            |
+| ------------------------------- | ---------------------------------- | ------------------------- | -------------------------- |
+| Four star feature compatibility | Four star automation level         | N/A                       | Rewrite to use subqueries. |
 
 ## SQL Server Usage
 
-Statistics objects in SQL Server are designed to support cost-based query optimizer. It uses statistics to evaluate the various plan options and choose an optimal plan for optimal query performance.
+SQL Server supports an extension to the ANSI standard that allows using an additional `FROM` clause in `UPDATE` and `DELETE` statements.
 
-Statistics are stored as BLOBs in system tables and contain histograms and other statistical information about the distribution of values in one or more columns. A histogram is created for the first column only and samples the occurrence frequency of distinct values. Statistics and histograms are collected by either scanning the entire table or by sampling only a percentage of the rows.
+You can use this additional `FROM` clause to limit the number of modified rows by joining the table being updated, or deleted from, to one or more other tables. This functionality is similar to using a `WHERE` clause with a derived table subquery. For `UPDATE`, you can use this syntax to set multiple column values simultaneously without repeating the subquery for every column.
 
-You can view Statistics manually using the `DBCC SHOW_STATISTICS` statement or the more recent `sys.dm_db_stats_properties` and `sys.dm_db_stats_histogram` system views.
-
-SQL Server provides the capability to create filtered statistics containing a `WHERE` predicate. Filtered statistics are useful for optimizing histogram granularity by eliminating rows whose values are of less interest, for example NULLs.
-
-SQL Server can manage the collection and refresh of statistics automatically, which is the default. Use the `AUTO_CREATE_STATISTICS` and `AUTO_UPDATE_STATISTICS` database options to change the defaults.
-
-When a query is submitted with `AUTO_CREATE_STATISTICS` on, and the query optimizer may benefit from a statistics that doesn’t yet exist, SQL Server creates the statistics automatically. You can use the `AUTO_UPDATE_STATISTICS_ASYNC` database property to set new statistics creation to occur immediately and causing queries to wait or to run asynchronously. When run asynchronously, the triggering run can’t benefit from optimizations the optimizer may derive from it.
-
-After creation of a new statistics object, either automatically or explicitly using the `CREATE STATISTICS` statement, the refresh of the statistics is controlled by the `AUTO_UPDATE_STATISTICS` database option. When set to `ON`, statistics are recalculated when they are stale, which happens when significant data modifications have occurred since the last refresh.
+However, these statements can introduce logical inconsistencies if a row in an updated table is matched to more than one row in a joined table. The current implementation chooses an arbitrary value from the set of potential values and is non deterministic.
 
 ### Syntax
 
 ```
-CREATE STATISTICS <Statistics Name>
-ON <Table Name> (<Column> [,...])
-[WHERE <Filter Predicate>]
-[WITH <Statistics Options>;
+UPDATE <Table Name>
+SET <Column Name> = <Expression> ,...
+FROM <Table Source>
+WHERE <Filter Predicate>;
+```
+
+```
+DELETE FROM <Table Name>
+FROM <Table Source>
+WHERE <Filter Predicate>;
 ```
 
 ### Examples
 
-Create new statistics on multiple columns. Set to use a full scan and to not refresh.
+Delete customers with no orders.
 
 ```
-CREATE STATISTICS MyStatistics
-ON MyTable (Col1, Col2)
-WITH FULLSCAN, NORECOMPUTE;
+CREATE TABLE Customers
+(
+    Customer VARCHAR(20) PRIMARY KEY
+);
 ```
 
-Update statistics with a 50% sampling rate.
-
 ```
-UPDATE STATISTICS MyTable(MyStatistics)
-WITH SAMPLE 50 PERCENT;
-```
-
-View the statistics histogram and data.
-
-```
-DBCC SHOW_STATISTICS ('MyTable','MyStatistics');
+INSERT INTO Customers
+VALUES
+('John'),
+('Jim'),
+('Jack')
 ```
 
-Turn off automatic statistics creation for a database.
+```
+CREATE TABLE Orders
+(
+    OrderID INT NOT NULL PRIMARY KEY,
+    Customer VARCHAR(20) NOT NULL,
+    OrderDate DATE NOT NULL
+);
+```
 
 ```
-ALTER DATABASE MyDB SET AUTO_CREATE_STATS OFF;
+INSERT INTO Orders (OrderID, Customer, OrderDate)
+VALUES
+(1, 'Jim', '20180401'),
+(2, 'Jack', '20180402');
 ```
 
-For more information, see [Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15"), [CREATE STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15"), and [DBCC SHOW_STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+```
+DELETE FROM Customers
+FROM Customers AS C
+    LEFT OUTER JOIN
+    Orders AS O
+    ON O.Customer = C.Customer
+WHERE O.OrderID IS NULL;
+```
+
+```
+SELECT *
+FROM Customers;
+```
+
+For the preceding examples, the result looks as shown following.
+
+```
+Customer
+
+Jim
+Jack
+```
+
+Update multiple columns in `Orders` based on the values in `OrderCorrections`.
+
+```
+CREATE TABLE OrderCorrections
+(
+    OrderID INT NOT NULL PRIMARY KEY,
+    Customer VARCHAR(20) NOT NULL,
+    OrderDate DATE NOT NULL
+);
+```
+
+```
+INSERT INTO OrderCorrections
+VALUES (1, 'Jack', '20180324');
+```
+
+```
+UPDATE O
+SET Customer = OC.Customer,
+    OrderDate = OC.OrderDate
+FROM Orders AS O
+    INNER JOIN
+    OrderCorrections AS OC
+    ON O.OrderID = OD.OrderID;
+```
+
+```
+SELECT *
+FROM Orders;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+Customer  OrderDate
+Jack      2018-03-24
+Jack      2018-04-02
+```
+
+For more information, see [UPDATE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15"), [DELETE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15"), and [FROM clause plus JOIN, APPLY, PIVOT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports two modes of statistics management: persistent optimizer statistics and non-persistent optimizer statistics. As the name suggests, persistent statistics are written to disk and survive service restart. Non-persistent statistics are kept in memory only and need to be recreated after service restart. It is recommended to use persistent optimizer statistics (the default for Aurora MySQL) for improved plan stability.
-
-Statistics in Aurora MySQL are created for indexes only. Aurora MySQL doesn’t support independent statistics objects on columns that aren’t part of an index.
-
-Typically, administrators change the statistics management mode by setting the global parameter `innodb_stats_persistent = ON`. This option isn’t supported for Aurora MySQL because it requires server `SUPER` privileges. Therefore, control the statistics management mode by changing the behavior for individual tables using the table option `STATS_PERSISTENT = 1`. There are no column-level or statistics-level options for setting parameter values.
-
-To view statistics metadata, use the `INFORMATION_SCHEMA.STATISTICS` standard view. To view detailed persistent optimizer statistics, use the `innodb_table_stats` and `innodb_index_stats` tables.
-
-The following image shows an example of `mysql.innodb_table_stats` content.
-
-![Example of mysql innodb table stats](images/pb-sql-server-aurora-mysql-managing-statistics.png)
-
-The following image shows an example of `mysql.innodb_index_stats` content.
-
-![Example of mysql statistics](images/pb-sql-server-aurora-mysql-index-statistics.png)
-
-Automatic refresh of statistics is controlled by the global parameter `innodb_stats_auto_recalc`, which is set to `ON` in Aurora MySQL. You can set it individually for each table using the `STATS_AUTO_RECALC=1` option.
-
-To explicitly force refresh of table statistics, use the `ANALYZE TABLE` statement. It is not possible to refresh individual statistics or columns.
-
-Use the `NO_WRITE_TO_BINLOG` or its clearer alias `LOCAL` to avoid replication to replication replicas.
-
-Use `ALTER TABLE …​ ANALYZE PARTITION` to analyze one or more individual partitions. For more information, see [Storage](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
-
-###### Note
-
-Amazon Relational Database Service (Amazon RDS) for MySQL 8 adds new `INFORMATION_SCHEMA.INNODB_CACHED_INDEXES` table which reports the number of index pages cached in the InnoDB buffer pool for each index.
-
-### Syntax
-
-```
-ANALYZE [NO_WRITE_TO_BINLOG | LOCAL] TABLE <Table Name> [,...];
-```
-
-```
-CREATE TABLE ( <Table Definition> ) | ALTER TABLE <Table Name>
-STATS_PERSISTENT = <1|0>,
-STATS_AUTO_RECALC = <1|0>,
-STATS_SAMPLE_PAGES = <Statistics Sampling Size>;
-```
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t support `DELETE` and `UPDATE FROM` syntax.
 
 ### Migration Considerations
 
-Unlike SQL Server, Aurora MySQL collects only density information. It doesn’t collect detailed key distribution histograms. This difference is critical for understanding run plans and troubleshooting performance issues, which aren’t affected by individual values used by query parameters.
+You can easily rewrite the `DELETE` and `UPDATE FROM` statements as subqueries.
 
-Statistics collection is managed at the table level. You can’t manage individual statistics objects or individual columns. In most cases, that shouldn’t pose a challenge for successful migration.
+For `DELETE`, place the subqueries in the `WHERE` clause.
+
+For `UPDATE`, place the subqueries either in the `WHERE` or `SET` clause.
+
+###### Note
+
+When rewriting `UPDATE FROM` queries, include a `WHERE` clause to limit which rows are updated even if the SQL Server version (where the rows were limited by the join condition) did not have one.
+
+For `DELETE` statements, the workaround is simple and, in most cases, easier to read and understand.
+
+For `UPDATE` statements, the workaround involves repeating the correlated subquery for each column being set.
+
+Although this approach makes the code longer and harder to read, it does solve the logical challenges associated with updates having multiple matched rows in the joined tables.
+
+In the current implementation, the SQL Server engine silently chooses an arbitrary value if more than one value exists for the same row.
+
+When you rewrite the statement to use a correlated subquery, such as in the following example, if more than one value is returned from the sub query, a SQL error will be raised: `SQL Error [1242] [21000]: Subquery returns more than 1 row`.
+
+Consult the documentation for the Aurora MySQL
+`UPDATE` statement as there are significant processing differences from SQL Server. For example:
+
+- In Aurora MySQL, you can update multiple tables in a single `UPDATE` statement.
+- `UPDATE` expressions are evaluated in order from left to right. This behavior differs from SQL Server and the ANSI standard, which require an all-at-once evaluation.
+
+For example, in the statement `UPDATE Table SET Col1 = Col1 + 1, Col2 = Col1`, `Col2` is set to the new value of `Col1`. The end result is `Col1 = Col2`.
 
 ### Examples
 
-Create a table with explicitly set statistics options.
+Delete customers with no orders.
 
 ```
-CREATE TABLE MyTable
+CREATE TABLE Customers
 (
-    Col1 INT NOT NULL AUTO_INCREMENT,
-    Col2 VARCHAR(255),
-    DateCol DATETIME,
-    PRIMARY KEY (Col1),
-    INDEX IDX_DATE (DateCol)
-) ENGINE=InnoDB,
-STATS_PERSISTENT=1,
-STATS_AUTO_RECALC=1,
-STATS_SAMPLE_PAGES=25;
+    Customer VARCHAR(20) PRIMARY KEY
+);
 ```
 
-Refresh all statistics for `MyTable1` and `MyTable2`.
+```
+INSERT INTO Customers
+VALUES
+('John'),
+('Jim'),
+('Jack')
+```
 
 ```
-ANALYZE TABLE MyTable1, MyTable2;
+CREATE TABLE Orders
+(
+    OrderID INT NOT NULL PRIMARY KEY,
+    Customer VARCHAR(20) NOT NULL,
+    OrderDate DATE NOT NULL
+);
 ```
 
-Change `MyTable` to use non persistent statistics.
+```
+INSERT INTO Orders (OrderID, Customer, OrderDate)
+VALUES
+(1, 'Jim', '20180401'),
+(2, 'Jack', '20180402');
+```
 
 ```
-ALTER TABLE MyTable STATS_PERSISTENT=0;
+DELETE FROM Customers
+WHERE Customer NOT IN (
+    SELECT Customer
+    FROM Orders
+);
+```
+
+```
+SELECT *
+FROM Customers;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+Customer
+
+Jim
+Jack
+```
+
+Update multiple columns in `Orders` based on the values in `OrderCorrections`.
+
+```
+CREATE TABLE OrderCorrections
+(
+    OrderID INT NOT NULL PRIMARY KEY,
+    Customer VARCHAR(20) NOT NULL,
+    OrderDate DATE NOT NULL
+);
+```
+
+```
+INSERT INTO OrderCorrections
+VALUES (1, 'Jack', '20180324');
+```
+
+```
+UPDATE Orders
+SET Customer = (
+    SELECT Customer
+    FROM OrderCorrections AS OC
+    WHERE Orders.OrderID = OC.OrderID
+),
+OrderDate = (
+    SELECT OrderDate
+    FROM OrderCorrections AS OC
+    WHERE Orders.OrderID = OC.OrderID
+IN (
+    SELECT OrderID
+    FROM OrderCorrections
+);
+```
+
+```
+SELECT *
+FROM Orders;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+Customer  OrderDate
+Jack      2018-03-24
+Jack      2018-04-02
 ```
 
 ## Summary
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| Feature                     | SQL Server                                                    | Aurora MySQL                          | Comments                                                                                  |
-| --------------------------- | ------------------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Column statistics           | `CREATE STATISTICS`                                           | N/A                                   |                                                                                           |
-| Index statistics            | Implicit with every index                                     | Implicit with every index             | Statistics are maintained automatically for every table index.                            |
-| Refresh / update statistics | `UPDATE STATISTICS`<br>`EXECUTE sp_updatestats`               | `ANALYZE TABLE`                       | Minimal scope in Aurora MySQL is the entire table. No control over individual statistics. |
-| Auto create statistics      | `AUTO_CREATE_STATISTICS` database option                      | N/A                                   |                                                                                           |
-| Auto update statistics      | `AUTO_UPDATE_STATISTICS` database option                      | `STATS_AUTO_RECALC` table option      |                                                                                           |
-| Statistics sampling         | Use the `SAMPLE` option of `CREATE` and `UPDATE STATISTICS`   | `STATS_SAMPLE_PAGES` table option     | Can only use page number, not percentage for `STATS_SAMPLE_PAGES`.                        |
-| Full scan refresh           | Use the `FULLSCAN` option of `CREATE` and `UPDATE STATISTICS` | N/A                                   | Using a very large `STATS_SAMPLE_PAGES` may serve the same purpose.                       |
-| Non-persistent statistics   | N/A                                                           | Use `STATS_PERSISTENT=0` table option |                                                                                           |
+| Feature                  | SQL Server            | Aurora MySQL | Comments                                                                                                |
+| ------------------------ | --------------------- | ------------ | ------------------------------------------------------------------------------------------------------- |
+| Join as part of `DELETE` | `DELETE FROM …​ FROM` | N/A          | Rewrite to use the `WHERE` clause with a subquery.                                                      |
+| Join as part of `UPDATE` | `UPDATE …​ FROM`      | N/A          | Rewrite to use correlated subquery in the `SET` clause and add the `WHERE` clause to limit updates set. |
 
-For more information, see [The INFORMATION_SCHEMA STATISTICS Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-statistics-table.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema-statistics-table.html")
-[Configuring Persistent Optimizer Statistics Parameters](https://dev.mysql.com/doc/refman/5.7/en/innodb-persistent-stats.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-persistent-stats.html"), [Configuring Optimizer Statistics for InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html"), and [Configuring Optimizer Statistics for InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html") in the _MySQL documentation_.
+For more information, see [UPDATE Statement](https://dev.mysql.com/doc/refman/5.7/en/update.html "https://dev.mysql.com/doc/refman/5.7/en/update.html") and [DELETE Statement](https://dev.mysql.com/doc/refman/5.7/en/delete.html "https://dev.mysql.com/doc/refman/5.7/en/delete.html") in the _MySQL documentation_.

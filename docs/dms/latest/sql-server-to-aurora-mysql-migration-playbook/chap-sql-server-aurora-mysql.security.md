@@ -1,155 +1,87 @@
-# Users and roles for Aurora MySQL
+# Transparent data encryption Aurora MySQL
 
-This topic provides reference information comparing security features between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the key differences in user management, authentication methods, and access control between these two database systems.
+This topic provides reference information about data encryption capabilities in Microsoft SQL Server and Amazon Aurora MySQL. You can understand how Transparent Data Encryption (TDE) works in SQL Server to protect data at rest without requiring application changes.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                  |
-| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------ |
-| Two star feature compatibility | N/A                                | N/A                       | No native role support in the database. Use AWS IAM accounts with the AWS Authentication Plugin. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                        |
+| ------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------ |
+| Four star feature compatibility | N/A                                | N/A                       | Enable encryption when creating the database instance. |
 
 ## SQL Server Usage
 
-SQL Server provides two layers of security principals: Logins at the server level and Users at the database level. Logins are mapped to users in one or more databases. Administrators can grant logins server-level permissions that aren’t mapped to particular databases such as Database Creator, System Administrator and Security Administrator.
+Transparent data encryption (TDE) is an SQL Server feature designed to protect data at-rest in the event an attacker obtains the physical media containing database files.
 
-SQL Server also supports Roles for both the server and the database levels. At the database level, administrators can create custom roles in addition to the general purpose built-in roles.
+TDE doesn’t require application changes and is completely transparent to users. The storage engine encrypts and decrypts data on-the-fly. Data isn’t encrypted while in memory or on the network. TDE can be turned on or off individually for each database.
 
-For each database, administrators can create users and associate them with logins. At the database level, the built-in roles include `db_owner`, `db_datareader`, `db_securityadmin`, and others. A database user can belong to one or more roles (users are assigned to the public role by default and can’t be removed). Administrators can grant permissions to roles and then assign individual users to the roles to simplify security management.
+TDE encryption uses a Database Encryption Key (DEK) stored in the database boot record, making it available during database recovery. The DEK is a symmetric key signed with a server certificate from the primary system database.
 
-Logins are authenticated using either Windows Authentication, which uses the Windows Server Active Directory framework for integrated single sign-on, or SQL authentication, which is managed by the SQL Server service and requires a password, certificate, or asymmetric key for identification. Logins using windows authentication can be created for individual users and domain groups.
-
-In previous versions of SQL server, the concepts of user and schema were interchangeable. For backward compatibility, each database has several existing schemas, including a default schema named dbo which is owned by the `db_owner` role. Logins with system administrator privileges are automatically mapped to the dbo user in each database. Typically, you don’t need to migrate these schemas.
+In many instances, security compliance laws require TDE for data at rest.
 
 ### Examples
 
-The following example creates a login.
+The following example demonstrates how to enable TDE for a database.
+
+Create a master key and certificate.
 
 ```
-CREATE LOGIN MyLogin WITH PASSWORD = 'MyPassword'
+USE master;
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'MyPassword';
+CREATE CERTIFICATE TDECert WITH SUBJECT = 'TDE Certificate';
 ```
 
-The following example creates a database user for `MyLogin`.
+Create a database encryption key.
 
 ```
-USE MyDatabase; CREATE USER MyUser FOR LOGIN MyLogin;
+USE MyDatabase;
+CREATE DATABASE ENCRYPTION KEY
+WITH ALGORITHM = AES_128
+ENCRYPTION BY SERVER CERTIFICATE TDECert;
 ```
 
-The following example assigns `MyLogin` to a server role.
+Enable TDE.
 
 ```
-ALTER SERVER ROLE dbcreator ADD MEMBER 'MyLogin'
+ALTER DATABASE MyDatabase SET ENCRYPTION ON;
 ```
 
-The following example assigns `MyUser` to the `db_datareader` role.
-
-```
-ALTER ROLE db_datareader ADD MEMBER 'MyUser';
-```
-
-For more information, see [Database-level roles](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Transparent data encryption (TDE)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports only Users; Roles aren’t supported. Database administrators must specify privileges for individual users. Aurora MySQL uses database user accounts to authenticate sessions and authorize access to specific database objects.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides the ability to encrypt data at rest (data stored in persistent storage) for new database instances. When data encryption is enabled, Amazon Relational Database Service (RDS) automatically encrypts the database server storage, automated backups, read replicas, and snapshots using the AES-256 encryption algorithm.
+
+You can manage the keys used for Amazon Relational Database Service (Amazon RDS) encrypted instances from the Identity and Access Management (IAM) console using the AWS Key Management Service (AWS KMS). If you require full control of a key, you must manage it yourself. You can’t delete, revoke, or rotate default keys provisioned by AWS KMS.
+
+The following limitations exist for Amazon RDS encrypted instances:
+
+- You can only enable encryption for an Amazon RDS database instance when you create it, not afterward. It is possible to encrypt an existing database by creating a snapshot of the database instance and then creating an encrypted copy of the snapshot. You can restore the database from the encrypted snapshot. For more information, see [Copying a snapshot](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md").
+- Encrypted database instances can’t be modified to turn off encryption.
+- Encrypted Read Replicas must be encrypted with the same key as the source database instance.
+- An unencrypted backup or snapshot can’t be restored to an encrypted database instance.
+- KMS encryption keys are specific to the region where they are created. Copying an encrypted snapshot from one region to another requires the KMS key identifier of the destination region.
 
 ###### Note
 
-When granting privileges, you have the option to use wild-card characters for specifying multiple privileges for multiple objects. For more information, see [Data Control Language](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
+Disabling the key for an encrypted database instance prevents reading from, or writing to, that instance. When Amazon RDS encounters a database instance encrypted by a key to which Amazon RDS doesn’t have access, it puts the database instance into a terminal state. In this state, the database instance is no longer available and the current state of the database can’t be recovered. To restore the database instance, you must re-enable access to the encryption key for Amazon RDS and then restore the database instance from a backup.
 
-When using Identity and Access Management (IAM) database authentication, roles are available as part of the IAM framework and can be used for authentication. This authentication method uses tokens in place of passwords. AWS Signature Version 4 generates authentication tokens with a lifetime of 15 minutes. You don’t need to store user credentials in the database because authentication is managed externally. You can use IAM in conjunction with standard database authentication.
+Table encryption can now be managed globally by defining and enforcing encryption defaults. The `default_table_encryption` variable defines an encryption default for newly created schemas and general tablespace. The encryption default for a schema can also be defined using the `DEFAULT ENCRYPTION` clause when creating a schema. By default a table inherits the encryption of the schema or general tablespace it is created in. Encryption defaults are enforced by enabling the `table_encryption_privilege_check` variable. The privilege check occurs when creating or altering a schema or general tablespace with an encryption setting that differs from the `default_table_encryption` setting or when creating or altering a table with an encryption setting that differs from the default schema encryption. The `TABLE_ENCRYPTION_ADMIN` privilege permits overriding default encryption settings when `table_encryption_privilege_check` is enabled. For more information, see [Defining an Encryption Default for Schemas and General Tablespaces](https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html#innodb-schema-tablespace-encryption-default "https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html#innodb-schema-tablespace-encryption-default").
 
-###### Note
+### Creating an Encryption Key
 
-In Aurora MySQL, a database is equivalent to an SQL Server schema.
+To create your own key, browse to the Key Management Service (KMS) and choose **Customer managed keys** and create a new key.
 
-The AWS Authentication Plugin works seamlessly with Aurora MySQL instances. Users logged in with AWS IAM accounts use access tokens to authenticate. This mechanism is similar to the SQL Server windows authentication option.
+1. Choose relevant options and choose **Next**.
+2. Define alias as the name of the key and choose **Next**.
+3. You can skip **Define Key Administrative Permissions** and choose **Next**.
+4. On the next step make sure to assign the key to the relevant users who will need to interact with Amazon Aurora.
+5. On the last step you will be able to see the ARN of the key and its account.
+6. Choose **Finish** and now this key will be listed in under customer managed keys.
 
-IAM database authentication provides the following benefits:
+Now you will be able to set Master encryption key by using the ARN of the key that you have created or picking it from the list.
 
-- Supports roles for simplifying user and access management.
-- Provides a single sign on experience that is safer than using MySQL managed passwords.
-- Encrypts network traffic to and from the database using Secure Sockets Layer (SSL) protocol.
-- Provides centrally managed access to your database resources, alleviating the need to manage access individually for each database instance or database cluster.
+Proceed to finish and launch the instance.
 
-###### Note
+As part of the database settings, you will be prompted to enable encryption and select a master key.
 
-IAM database authentication limits the number of new connections to 20 connections/second.
+Encryption for an Amazon RDS DB instance can be enabled only during the instance creation.
 
-###### Note
-
-Amazon Relational Database Service (Amazon RDS) for MySQL 8 supports roles which are named collections of privileges. Roles can be created and dropped. Roles can have privileges granted to and revoked from them. Roles can be granted to and revoked from user accounts. The active applicable roles for an account can be selected from among those granted to the account and can be changed during sessions for that account. For more information, see [Using Roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html").
-
-```
-CREATE ROLE 'app_developer', 'app_read', 'app_write';
-```
-
-###### Note
-
-Amazon RDS for MySQL 8 incorporates the concept of user account categories with system and regular users distinguished according to whether they have the `SYSTEM_USER` privilege. For more information, see [Account Categories](https://dev.mysql.com/doc/refman/8.0/en/account-categories.html "https://dev.mysql.com/doc/refman/8.0/en/account-categories.html").
-
-```
-CREATE USER u1 IDENTIFIED BY 'password';
-
-GRANT ALL ON *.* TO u1 WITH GRANT OPTION;
-
--- GRANT ALL includes SYSTEM_USER, so at this point
-
--- u1 can manipulate system or regular accounts
-```
-
-### Syntax
-
-Simplified syntax for `CREATE USER` in Aurora MySQL:
-
-```
-CREATE USER <user> [<authentication options>] [REQUIRE {NONE | <TLS options>] }]
-[WITH <resource options> ] [<Password options> | <Lock options>]
-```
-
-```
-<Authentication option>:
-{IDENTIFIED BY 'auth string'|PASSWORD 'hash string'|WITH auth plugin|auth plugin BY
-'auth_string'|auth plugin AS 'hash string'}
-<TLS options>: {SSL| X509| CIPHER 'cipher'| ISSUER 'issuer'| SUBJECT 'subject'}
-<Resource options>: { MAX_QUERIES_PER_HOUR | MAX_UPDATES_PER_HOUR | MAX_CONNECTIONS_
-PER_HOUR | MAX_USER_CONNECTIONS count}
-<Password options>: {PASSWORD EXPIRE | DEFAULT | NEVER | INTERVAL N DAY}
-<Lock options>: {ACCOUNT LOCK | ACCOUNT UNLOCK}
-```
-
-###### Note
-
-In Aurora MySQL, you can assign resource limitations to specific users, similar to SQL Server Resource Governor. For more information, see [Resource Governor](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md").
-
-### Examples
-
-The following example creates a user, forces a password change, and imposes resource limits.
-
-```
-CREATE USER 'Dan'@'localhost'
-IDENTIFIED WITH mysql_native_password BY 'Dan''sPassword'
-WITH MAX_QUERIES_PER_HOUR 500
-PASSWORD EXPIRE;
-```
-
-The following example creates a user with IAM authentication.
-
-```
-CREATE USER LocalUser
-IDENTIFIED WITH AWSAuthenticationPlugin AS 'IAMUser';
-```
-
-## Summary
-
-The following table summarizes common security tasks and the differences between SQL Server and Aurora MySQL.
-
-| Task                       | SQL Server                                                       | Aurora MySQL                                                  |
-| -------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- |
-| View database users        | `<br>SELECT Name FROM sys.sysusers<br>`                          | `<br>SELECT User FROM mysql.user<br>`                         |
-| Create a user and password | `<br>CREATE USER <User Name> WITH<br>PASSWORD = <PassWord>;<br>` | `<br>CREATE USER <User Name><br>IDENTIFIED BY <Password><br>` |
-| Create a role              | `<br>CREATE ROLE <Role Name><br>`                                | Use AWS IAM Roles                                             |
-| Change a user’s password   | `<br>ALTER LOGIN <SQL Login> WITH<br>PASSWORD = <PassWord>;<br>` | `<br>ALTER USER <User Name><br>IDENTIFIED BY <Password><br>`  |
-| External authentication    | Windows Authentication                                           | AWS IAM (Identity and Access Management)                      |
-| Add a user to a role       | `<br>ALTER ROLE <Role Name> ADD MEMBER <User Name><br>`          | Use AWS IAM Roles                                             |
-| Lock a user                | `<br>ALTER LOGIN <Login Name><br>DISABLE<br>`                    | `<br>ALTER User <User Name><br>ACCOUNT LOCK<br>`              |
-| Grant SELECT on a schema   | `<br>GRANT SELECT ON SCHEMA::<Schema Name> to <User Name><br>`   | `<br>GRANT SELECT ON <Schema Name>.<br>• TO <User Name><br>`  |
-
-For more information, see [What is IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") and [IAM Identities (users, user groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md").
+You can select the default key provided for the account or define a specific key based on an IAM KMS ARN from your account or a different account.
