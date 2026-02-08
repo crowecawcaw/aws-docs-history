@@ -1,29 +1,31 @@
-# IS_ODD
+# ROLLING_MAX
 
-Returns a Boolean value in a new column that indicates whether the source column or
-value is odd. If the source column or value is a decimal, the result is false.
+Returns in a new column the rolling maximum of values from a specified number of rows
+before to a specified number of rows after the current row in the specified
+column.
 
 ###### Parameters
 
 - `sourceColumn` – The name of an existing column.
-- `targetColumn` – The name of the new column to be
-  created.
-- `trueString` – A string that indicates whether the value is
-  odd.
-- `falseString` – A string that indicates whether the value is
-  _not_ odd.
+
+`numRowsBefore` – A number of rows before the current source
+row, representing the start of the window.
+
+- `numRowsAfter` – A number of rows after the current source
+  row, representing the end of the window.
+- `targetColumn` – A name for the newly created column.
 
 ###### Example
 
 ```
 {
-    "RecipeAction": {
-        "Operation": "IS_ODD",
+    "Action": {
+        "Operation": "ROLLING_MAX",
         "Parameters": {
-            "falseString": "Value is even",
+            "numRowsAfter": "10",
+            "numRowsBefore": "10",
             "sourceColumn": "weight_kg",
-            "targetColumn": "weight_kg_IS_ODD",
-            "trueString": "Value is odd"
+            "targetColumn": "weight_kg_ROLLING_MAX"
         }
     }
 }
