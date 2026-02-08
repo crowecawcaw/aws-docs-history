@@ -109,3 +109,12 @@ For Miro, the Tenant ID is Organization ID. Organization admins can navigate to 
 
 SUSE Rancher for Amazon Web Services
 For SUSE Rancher for Amazon Web Services, the Tenant ID is tenant-uid. The tenant-uid can be found within the application in the about info in the top right of the screen.
+
+CXone Mpower
+For CXone Mpower, the Tenant ID required for the Amazon Q Business Data Accessor is displayed on your My Profile page. To access this page,
+
+- In the upper‑right corner of any page in the platform, click your initials.
+
+- Select My Profile from the menu.
+
+- On the General tab of the My Profile page, locate your Tenant ID.

@@ -21,3 +21,4 @@ The following are the _verified_ independent software vendors
 - **Webex by CISCO** — [Data accessor configuration registration page](https://help.webex.com/en-us/article/nhq0zj8/Set-up-AI-integrations-in-Control-Hub "https://help.webex.com/en-us/article/nhq0zj8/Set-up-AI-integrations-in-Control-Hub")
 - **Fireflies.ai**
 - **SUSE Rancher for Amazon Web Services**
+- **CXone Mpower**
