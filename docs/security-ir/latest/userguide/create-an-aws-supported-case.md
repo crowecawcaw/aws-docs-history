@@ -3,6 +3,10 @@
 You can create an AWS supported case for AWS Security Incident Response through the Console, the API, or the AWS Command Line Interface.
 AWS supported cases allow you to receive support from Security Incident Response engineers.
 
+###### Important
+
+Demo/simulation-cases are closing after a period of 90 days.
+
 ###### Note
 
 AWS Security Incident Response engineers will respond to your case within 15 minutes. Response time is for a first response

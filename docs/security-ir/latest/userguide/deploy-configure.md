@@ -6,8 +6,8 @@
 ![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](images/AWS_Security_incident_Response.png) 3. Select a **security tooling** account as Delegated
 Administrator from the Management Account.
 
-    * [Security Reference Architecture](../../../prescriptive-guidance/latest/security-reference-architecture/account-structure.md "../../../prescriptive-guidance/latest/security-reference-architecture/account-structure.md")
-    * [Delegated Administrator documentation](../../../prescriptive-guidance/latest/security-reference-architecture/dedicated-accounts.md "../../../prescriptive-guidance/latest/security-reference-architecture/dedicated-accounts.md")
+    * [Security Reference Architecture](../../../prescriptive-guidance/latest/security-reference-architecture/introduction.md "../../../prescriptive-guidance/latest/security-reference-architecture/introduction.md")
+    * [Delegated Administrator documentation](../../../prescriptive-guidance/latest/security-reference-architecture/security-tooling.md "../../../prescriptive-guidance/latest/security-reference-architecture/security-tooling.md")
 
 
 

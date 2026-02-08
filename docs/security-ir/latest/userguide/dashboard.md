@@ -4,7 +4,7 @@ On the AWS Security Incident Response console, the dashboard provides you with a
 
 ###### Incident Response Team
 
-Select View incident response team to access details of your incident response teammates.
+Select **View incident response team** to access details of your incident response teammates.
 
 ###### My Cases
 

@@ -3,12 +3,11 @@
 ## Overview
 
 The AI-powered investigation agent works alongside customers and AWS Security Incident Response engineers
-to expedite security investigations. When a customer creates an AWS-supported case, the agent automatically activates
+to expedite security investigations. When a customer creates an AWS supported case, the agent automatically activates
 in parallel with Security Incident Response engineer engagement, reducing resolution time from days to hours.
 
-Security Incident Response cases can be created by customers or proactively by AWS Security Incident Response during customer escalations.
-The investigative agent is automatically triggered whenever a new AWS-supported case is created, and all cases can be
-managed through the console, API, or Amazon EventBridge integrations.
+During customer escalations, Security Incident Response cases might be created by you or proactively by AWS Security Incident Response.
+When a new AWS supported case is created, the investigative agent automatically triggers. You can manage all cases through the console, API, or Amazon EventBridge integrations.
 
 **Key benefits**
 
@@ -29,11 +28,11 @@ This feature is only available for AWS-supported cases. Self-managed cases do no
 
 ## How it works
 
-The AI investigation agent follows a structured workflow when analyzing AWS-supported security cases:
+The AI investigation agent follows a structured workflow when analyzing AWS supported security cases:
 
 **Investigation workflow**
 
-1. **Case creation** – Customer creates an AWS-supported case in the
+1. **Case creation** – Customer creates an AWS supported case in the
    Security Incident Response console describing the security concern.
 2. **Parallel activation**
    - Security Incident Response engineers engage with the case.
@@ -70,7 +69,7 @@ To view the AI analysis:
 2. Select the **Investigation** tab.
 3. Review the investigation summary with findings, timeline, and context.
 
-The AI investigative agent summary is automatically posted as a comment in the case's Communication section, making it
+The AI investigative agent summary is automatically posted as a comment in the case's **Communication** section, making it
 easy to review alongside other case updates.
 
 **Data access and permissions**
@@ -89,14 +88,14 @@ Before using the AI-powered investigation capabilities, ensure the following:
 
 - **AWS Security Incident Response enabled** – The service must be enabled through the
   AWS Organizations management account.
-- **AWS-supported case type** – AI investigation is only available
-  for AWS-supported cases (not self-managed cases).
+- **AWSsupported case type** – AI investigation is only available
+  for AWS supported cases (not self-managed cases).
 - **AWSServiceRoleForSupport** – This service-linked role is
   automatically created and provides necessary permissions for the investigation agent.
 
 **Required permissions**
 
-To create AWS-supported cases and access investigation results, the IAM principal needs the following permissions:
+To create AWS supported cases and access investigation results, the IAM principal needs the following permissions:
 
 ```
 {
@@ -132,3 +131,7 @@ The AI investigation agent activates automatically when creating an AWS-supporte
 Investigation summaries are generated using AWS Generative AI capabilities. You are responsible for evaluating
 AI-generated recommendations in your specific context, implementing appropriate oversight mechanisms, verifying
 findings independently, and maintaining human oversight of all security decisions.
+
+**Use of customer data**
+
+AI Investigative Agent does not use customer data for model training, and it does not share customer data with third parties.

@@ -8,7 +8,7 @@ preparation and simulation of security events, response to active incidents, and
 well-equipped to handle security challenges at every stage.
 
 [**AWS Security Hub CSPM**](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/") – AWS Security Hub CSPM provides customers with a comprehensive view of high-priority
-security alerts and compliance statuses across AWS accounts. Security Hub CSPM aggregates, organizes, and prioritizes findings
+security alerts and compliance statuses across AWS accounts. Security Hub CSPM aggregates, organizes, and prioritizes threat findings
 from AWS services such as Amazon GuardDuty, Amazon Inspector, Amazon Macie, and AWS Partner solutions. Findings are visually summarized on
 integrated dashboards with actionable graphs and tables. You can also continuously monitor your environment using
 automated compliance checks based on the AWS best practices and industry standards your organization follows.

@@ -1,6 +1,6 @@
 # Monitoring and investigation
 
-AWS Security Incident Response reviews and triages security alerts from Amazon GuardDuty and AWS Security Hub, then configures suppression rules based on your environment to prevent unnecessary alerts. The AWS Security Incident Response Engineering (SIRE) team investigates findings and quickly escalates and guides your team to rapidly contain potential issues. If desired, you can grant AWS Security Incident Response permission to implement containment actions on your behalf.
+AWS Security Incident Response reviews and triages security alerts from Amazon GuardDuty and AWS Security Hub CSPM, then configures suppression rules based on your environment to prevent unnecessary alerts. The AWS Security Incident Response Engineering (SIRE) team investigates findings and quickly escalates and guides your team to rapidly contain potential issues. If desired, you can grant AWS Security Incident Response permission to implement containment actions on your behalf.
 
 AWS Security Incident Response aligns to the NIST 800-61r2
 [Computer
@@ -10,7 +10,7 @@ consistent approach to security event management and adhere to
 best practices in securing and responding to security events in
 your AWS environment.
 
-When the AWS Security Incident Response service identifies a security alert or you request security assistance, the AWS SIRE investigates.
+When AWS Security Incident Response identifies a security alert or you request security assistance, the AWS SIRE investigates.
 The team collects log events and service data such as GuardDuty alerts, triages and analyzes that data, performs
 remediation and containment activities, and provides post-incident reporting.
 
