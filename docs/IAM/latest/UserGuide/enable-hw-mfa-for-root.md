@@ -22,7 +22,7 @@ to the AWS Management Console as the root user](../../../signin/latest/userguide
 Guide_. 2. On the right side of the navigation bar, choose your account name, and then choose
 **Security credentials**.
 
-![Security credentials in the navigation menu](/images/IAM/latest/UserGuide/images/security-credentials-root.shared.console.png) 3. Expand the **Multi-factor authentication (MFA)** section. 4. Choose **Assign MFA device**. 5. In the wizard, type a **Device name**, choose **Hardware
+![Security credentials in the navigation menu](images/security-credentials-root.shared.console.png) 3. Expand the **Multi-factor authentication (MFA)** section. 4. Choose **Assign MFA device**. 5. In the wizard, type a **Device name**, choose **Hardware
 TOTP token**, and then choose **Next**. 6. In the **Serial number** box, type the serial number that is found
 on the back of the MFA device. 7. In the **MFA code 1** box, type the six-digit number displayed by
 the MFA device. You might need to press the button on the front of the device to display
