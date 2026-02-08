@@ -252,7 +252,7 @@ about Lake Formation permissions, see [Lake Formation permissions reference](lf-
       **Data Catalog settings**.
    2. Clear both check boxes and choose **Save**.
 
-   ![The Data Catalog settings dialog box has the subtitle "Default permissions for newly created databases and tables," and has two check boxes, which are described in the text.](images/settings-page.png)
+   ![The Data Catalog settings dialog box has the subtitle "Default permissions for newly created databases and tables," and has two check boxes, which are described in the text.](/images/lake-formation/latest/dg/images/settings-page.png)
 
 3. Revoke `IAMAllowedPrincipals` permission for database creators.
    1. In the navigation pane, under **Administration**, choose **Administrative roles and tasks**.
