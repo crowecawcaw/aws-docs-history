@@ -119,7 +119,7 @@ displays the WorkSpace desktop.
 ###### Note
 
 You cannot use a web browser (Web Access) to connect to Amazon Linux WorkSpaces. 3. Start the client, enter the registration code from the invitation
-email, and choose **Register**. 4. When prompted to sign in, enter the the user's sign-in credentials, and then
+email, and choose **Register**. 4. When prompted to sign in, enter the user's sign-in credentials, and then
 choose **Sign In**. 5. (Optional) When prompted to save your credentials, choose **Yes**.
 
 ###### Note

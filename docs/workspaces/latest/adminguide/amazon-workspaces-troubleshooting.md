@@ -1276,7 +1276,7 @@ following issues:
   before certificate expiry (24 hours). For more information, see [Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 - The userPrincipalName format for the `UserPrincipalName` SAML
   attribute is not formatted properly or does not resolve to the actual domain
-  for the user. For more information, see step 1 in in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites").
+  for the user. For more information, see step 1 in [Prerequisites](certificate-based-authentication.md#cert-based-auth-prerequesites "certificate-based-authentication.md#cert-based-auth-prerequesites").
 - The (optional) `ObjectSid` attribute in your SAML assertion
   does not match the Active Directory security identifier (SID) for user
   specified in the SAML_Subject `NameID`. Confirm that attribute

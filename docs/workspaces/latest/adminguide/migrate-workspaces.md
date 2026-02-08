@@ -16,7 +16,7 @@ user volume. The following are example scenarios:
   2016-powered WorkSpaces bundle to the 64-bit Microsoft Office on Windows Server
   2019 and Windows Server 2022-powered WorkSpaces bundles.
 - You can migrate WorkSpaces from one public or custom bundle to another. For example,
-  you can migrate from GPU-enabled (Graphics.g4dn. GraphicsPro.g4dn, Graphics, and
+  you can migrate from GPU-enabled (Graphics.g6, Graphics.g4dn. GraphicsPro.g4dn, Graphics, and
   GraphicsPro) bundles to non-GPU-enabled bundles, as well as in the other
   direction.
 - You can migrate WorkSpaces from the Windows 10 BYOL to the Windows 11 BYOL but
@@ -68,10 +68,8 @@ new WorkSpace is terminated.
   BYOL bundle.
 - You cannot migrate a WorkSpace created from public or custom bundles to a BYOL
   bundle.
-- Graphics.g4dn, GraphicsPro.g4dn, Graphics, and GraphicsPro bundles are
-  available for the PCoIP protocol on Windows and Ubuntu. Graphics.g4dn and
-  GraphicsPro.g4dn are available for the DCV protocol on Windows and Ubuntu.
-  Graphics and GraphicsPro WorkSpaces can't be migrated to DCV yet.
+- DCV Protocol supports Graphics G6 bundles, Graphics.g4dn, and GraphicsPro.g4dn on Windows. On Ubuntu, only Graphics.g4dn and GraphicsPro.g4dn are available.
+- PCoIP Protocol supports Graphics.g4dn and GraphicsPro.g4dn bundles on Windows only.
 - Migrating Linux WorkSpaces is not currently supported.
 - In AWS Regions that support more than one language, you can migrate WorkSpaces
   between language bundles.

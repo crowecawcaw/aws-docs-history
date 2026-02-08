@@ -3,14 +3,12 @@
 To allow WorkSpaces to use an existing Directory Service directory, you must register it with WorkSpaces.
 After you register a directory, you can launch WorkSpaces in the directory.
 
-###### Requirements
-
-To register a directory for use with WorkSpaces, it must meet the following requirement:
+**Requirements:** To register a directory for use with WorkSpaces, it must meet the following requirement:
 
 - If you're using AWS Managed Microsoft AD or Simple AD, your directory can be in a
   dedicated private subnet, as long as the directory has access to the VPC where
   the WorkSpaces are located.
-  For more information about directory and VPC design, see the
+- For more information about directory and VPC design, see the
   [_Best Practices for Deploying Amazon WorkSpaces_](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf "https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf") whitepaper.
 
 ###### Note

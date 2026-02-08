@@ -78,7 +78,7 @@ The following table shows the list of supported and unsupported application and 
   for Microsoft Visual Studio 2022 Enterprise/Professional. Performance bundles
   can be used for Visual Studio workloads that are less resource intensive.
   However, for best results, we recommended using Visual Studio with quad-core or
-  higher bundle types. The bundle types Power, PowerPro, General Purpose.4xlarge, General Purpose.8xlarge, Graphics.g4dn, and
+  higher bundle types. The bundle types Power, PowerPro, General Purpose.4xlarge, General Purpose.8xlarge, Graphics.g6, Graphics.g4dn, and
   GraphicsPro.g4dn meet this requirement. For more information, see [Visual Studio 2022 Product Family System Requirements](https://learn.microsoft.com/en-us/visualstudio/releases/2022/system-requirements "https://learn.microsoft.com/en-us/visualstudio/releases/2022/system-requirements").
 - When you uninstall **Plus applications bundle for Microsoft Office 2016** from your WorkSpaces,
   you will lose access to any Trend Micro solutions that were included as part of that Amazon WorkSpaces bundle. If you want

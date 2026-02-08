@@ -63,20 +63,9 @@ gateway in the public subnet.
 
 ###### IPv6 CIDR blocks
 
-You can associate IPv6 CIDR blocks with your VPC and subnets. However, if you
-configure your subnets to automatically assign IPv6 addresses to instances launched in the
-subnet, then you cannot use Graphics bundles. (You can use Graphics.g4dn, GraphicsPro.g4dn,
-and GraphicsPro bundles, however.) This restriction arises from a hardware limitation of
-previous-generation instance types that do not support IPv6.
-
-To work around this issue, you can temporarily disable the **auto-assign IPv6 addresses**
-setting on the WorkSpaces subnets before launching Graphics bundles, and then reenable
-this setting (if needed) after launching Graphics bundles so that any other bundles receive
-the desired IP addresses.
-
-By default, the **auto-assign IPv6 addresses** setting is disabled.
-To check this setting from the Amazon VPC console, in the navigation pane, choose **Subnets**.
-Select the subnet, and choose **Actions**, **Modify auto-assign IP settings**.
+You can associate IPv6 CIDR blocks with your VPC and its subnets, and configure those subnets to automatically assign IPv6 addresses to newly launched instances.
+For customer-created subnets, auto-assign IPv6 addressing is disabled by default.
+To view or update this setting in the Amazon VPC console, choose Subnets in the navigation pane, select the target subnet, and then choose **Actions**, **Modify auto-assign IP settings**.
 
 ## Configure a VPC with public subnets
 
@@ -113,20 +102,9 @@ Create a VPC with one public subnet as follows.
 
 ###### IPv6 CIDR blocks
 
-You can associate an IPv6 CIDR block with your VPC and subnets. However, if you
-configure your subnets to automatically assign IPv6 addresses to instances launched in the
-subnet, then you cannot use Graphics bundles. (You can use GraphicsPro bundles, however.)
-This restriction arises from a hardware limitation of previous-generation instance types
-that do not support IPv6.
-
-To work around this issue, you can temporarily disable the **auto-assign IPv6 addresses**
-setting on the WorkSpaces subnets before launching Graphics bundles, and then reenable
-this setting (if needed) after launching Graphics bundles so that any other bundles receive
-the desired IP addresses.
-
-By default, the **auto-assign IPv6 addresses** setting is disabled.
-To check this setting from the Amazon VPC console, in the navigation pane, choose **Subnets**.
-Select the subnet, and choose **Actions**, **Modify auto-assign IP settings**.
+You can associate IPv6 CIDR blocks with your VPC and its subnets, and configure those subnets to automatically assign IPv6 addresses to newly launched instances.
+For customer-created subnets, auto-assign IPv6 addressing is disabled by default.
+To view or update this setting in the Amazon VPC console, choose Subnets in the navigation pane, select the target subnet, and then choose **Actions**, **Modify auto-assign IP settings**.
 
 ### Step 2: Assign public IP addresses to your WorkSpaces
 

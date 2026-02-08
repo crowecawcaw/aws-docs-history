@@ -31,8 +31,7 @@ volume of the WorkSpace. The WorkSpace resumes when a user logs in. All open doc
 and running programs return to their saved state with all WorkSpaces operating systems
 supporting hibernation.
 
-AutoStop Graphics.g4dn, GraphicsPro.g4dn, Graphics, GraphicsPro, and
-GeneralPurpose.4xlarge or GeneralPurpose.8xlarge do not support hibernation.
+AutoStop GPU-enabled WorkSpaces and GeneralPurpose.4xlarge or GeneralPurpose.8xlarge do not support hibernation.
 Windows 11 24H2 AutoStop WorkSpaces do not support hibernation and the state of of applications/data
 is not preserved. We recommend saving your work when you're done using your WorkSpaces each time to
 avoid data loss.

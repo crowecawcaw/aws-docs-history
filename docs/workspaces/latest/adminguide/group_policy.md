@@ -1127,7 +1127,7 @@ WorkSpaces
         2. In an administrative command prompt, enter `gpupdate
          /force`.
 
-    By default, WorkSpaces supports supports using Indirect Display Driver (IDD). If
+    By default, WorkSpaces supports using Indirect Display Driver (IDD). If
     needed for Windows WorkSpaces, you can use Group Policy settings to disable this
     feature.
 

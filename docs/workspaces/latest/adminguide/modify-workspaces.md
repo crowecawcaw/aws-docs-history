@@ -57,9 +57,9 @@ volumes when launching a WorkSpace.
 - You can launch a GeneralPurpose.4xlarge or GeneralPurpose.8xlarge
   WorkSpace with a minimum of 175GB for the root volume and 100 GB
   for the user volume.
-- You can launch a Graphics.g4dn, GraphicsPro.g4dn,
-  Graphics, or GraphicsPro WorkSpace with a minimum of 100 GB for
-  the root volume and 100 GB for the user volume.
+- You can launch a Graphics.g6, Graphics.g4dn, GraphicsPro.g4dn,
+  or GraphicsPro WorkSpace with a minimum of 100 GB for
+  the root volume and 100 GB for the user volume. Volume sizing requirements vary based on larger graphics instance types.
 
 While a WorkSpace disk size increase is in progress, users can perform most tasks on
 their WorkSpace. However, they can't change their WorkSpace compute type, switch the
@@ -98,10 +98,9 @@ volumes
 If you want to increase both volumes, you must wait 20-30 minutes for the
 first operation to finish before you can start the second operation.
 
-- Unless the WorkSpace is a Graphics.g4dn, GraphicsPro.g4dn, Graphics, or
-  GraphicsPro WorkSpace, the root volume cannot be less than 175 GB when the user
-  volume is 100 GB. Graphics.g4dn, GraphicsPro.g4dn, Graphics, and GraphicsPro WorkSpaces
-  can have the root and user volumes both set to 100 GB minimum.
+- Non-GPU-enabled WorkSpaces’ root volume cannot be less than 175 GB when the user volume is 100 GB. Storage requirements for GPU-enabled WorkSpaces scale proportionally with instance sizing. As you select larger GPU-enabled WorkSpaces configurations,
+  you must allocate correspondingly larger storage volumes to maintain optimal performance and accommodate increased workload demands.
+  For the smallest instance size, begin with the following storage allocation: Root: 100 GB, User: 100 GB. GPU-enabled WorkSpaces support a minimum of 100 GB for the root volume and 100 GB for the user volume.
 - If the user volume is 50 GB, you cannot update the root volume to anything
   other than 80 GB. If the root volume is 80 GB, the user volume can only be 10, 50,
   or 100 GB.
@@ -153,12 +152,9 @@ Bundles](https://aws.amazon.com/workspaces/features/#Amazon_WorkSpaces_Bundles "
   GeneralPurpose.4xlarge or GeneralPurpose.8xlarge, your WorkSpaces must meet
   the minimum root volume size of 175 GB and user volume size of 100 GB. To
   increase the volume size of your WorkSpaces, see [Modify volume sizes](#modify_volume_sizes "#modify_volume_sizes").
-- You can change the compute type from Graphics.g4dn to GraphicsPro.g4dn, or
-  from GraphicsPro.g4dn to Graphics.g4dn. You cannot change the compute type of
-  Graphics.g4dn and GraphicsPro.g4dn to any other value.
-- Graphics bundle is no longer supported after November 30, 2023. We recommend migrating your WorkSpaces
-  to Graphics.g4dn bundle. For more information, see
-  [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md").
+- GPU-enabled WorkSpaces support compute type modifications within the same instance family but do not support cross-family modifications.
+  For example, you can modify the compute type between G4dn instances or between G6 instances, but you cannot change from a G4dn instance to a G6 instance family.
+  To move between GPU-enabled WorkSpace bundles powered by different instance families, use Migrate a WorkSpace feature. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md")
 - GraphicsPro bundle reaches end-of-life on October 31, 2025. We recommend
   migrating your GraphicsPro WorkSpaces to supported bundles before October 31, 2025.
   For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md").

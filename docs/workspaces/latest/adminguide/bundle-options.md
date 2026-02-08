@@ -30,7 +30,7 @@ about protocols, see [Protocols for Amazon WorkSpaces](amazon-workspaces-protoco
 2025. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md").
 
 - The Graphics bundle will no longer be supported after November 30, 2023.
-  We recommend switching to the Graphics.g4dn bundle for WorkSpaces using the
+  We recommend switching to a supported GPU enabled bundle for WorkSpaces using the
   Graphics bundle.
 - Graphics and GraphicsPro bundles aren't currently available in the
   Asia Pacific (Mumbai) Region.
@@ -115,21 +115,17 @@ are well-suited for the following:
   This bundle is not recommended for 3D rendering, photo-realistic design,
   game streaming, or ML model training for complex models.
 
-This bundle offers a baseline level of graphics performance, and high level of CPU
-performance and memory for your WorkSpaces. It is well-suited for the following:
+The G6 WorkSpace bundles utilize NVIDIA L4 GPUs with 3rd generation AMD EPYC (Milan) processors and are available in three variants: G6, Gr6, and G6f. The G6 WorkSpaces feature a standard 1:4 vCPU-to-memory ratio, providing balanced compute and memory resources for general graphics workloads. The Gr6 WorkSpaces offer a 1:8 vCPU-to-memory ratio, delivering double the memory per vCPU for graphics applications with higher memory requirements.
+The G6f WorkSpaces provide fractional GPU allocation, making them suitable for workloads that do not require full GPU processing capacity for computationally intensive operations.
+Refer to [Amazon EC2 G6 Instances page](https://aws.amazon.com/ec2/instance-types/g6/ "https://aws.amazon.com/ec2/instance-types/g6/") for more information.
+The G6 WorkSpace bundles support all use cases that existing bundles support, such as daily tasks, data processing and analysis, audio conferencing and software development. Additionally, they enable the followiing use cases:
 
-- Web browsing
-- Word processing
-- Email
-- Instant messaging
-- Spreadsheets
-- Audio conferencing
-- Software development (Integrated Development Environment (IDE))
-- Data warehousing
-- Business intelligence applications
 - Graphic design
-- Image processing
-  This bundle is not recommended for audio and video conferencing, 3D rendering, and photo-realistic design.
+- CAD/CAM (computer-aided design/computer-aided manufacturing)
+- Video transcoding
+- 3D rendering
+- Game streaming
+- ML (machine learning) model training and ML inference
 
 This bundle offers a high level of graphics performance, and moderate level of CPU
 performance and memory for your WorkSpaces and is well-suited for the following:

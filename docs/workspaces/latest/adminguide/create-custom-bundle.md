@@ -30,16 +30,14 @@ different compute and storage options for each bundle.
 - After January 14, 2020, images cannot be created from public Windows 7
   bundles. You might want to consider migrating your Windows 7 WorkSpaces to
   Windows 10. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md").
-- Graphics bundle is no longer supported after November 30, 2023. We
-  recommend migrating your WorkSpaces to Graphics.g4dn bundle. For more
+- The Graphics bundle is no longer supported as of November 30, 2023, and the GraphicsPro bundle reaches end-of-life on October 31, 2025. We
+  recommend migrating your WorkSpaces to a supported GPU bundle. For more
   information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md").
 - GraphicsPro bundle reaches end-of-life on October 31, 2025. We recommend
-  migrating your GraphicsPro WorkSpaces to supported bundles before October 31,
+  migrating your GraphicsPro WorkSpaces to supported GPU bundle before October 31,
 
 2025. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md").
 
-- Graphics and GraphicsPro bundles aren't currently available in the
-  Asia Pacific (Mumbai) Region.
 - Custom bundle storage volumes can't be smaller than image storage volumes.
 - Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office version to use Office 2021. For more information, see, [Manage applications in WorkSpaces Personal](manage-applications.md "manage-applications.md").
   Custom bundles cost the same as the public bundles they are created from. For more
@@ -792,9 +790,9 @@ _Amazon WorkSpaces API Reference_. 9. Enter a bundle name and a description, and
 
     	+ Root: 80 GB, User: 10 GB, 50 GB, or 100 GB
     	+ Root: 175 GB, User: 100 GB
-    	+ For Graphics.g4dn, GraphicsPro.g4dn, Graphics, and
-    	 GraphicsPro WorkSpaces only: Root: 100 GB, User: 100
-    	 GB
+    	+ Storage requirements for GPU-enabled WorkSpaces scale proportionally with instance sizing. As you select larger GPU-enabled WorkSpaces configurations,
+    	 you must allocate correspondingly larger storage volumes to maintain optimal performance and accommodate increased workload demands.
+    	 For the smallest instance size, begin with the following storage allocation: Root: 100 GB, User: 100 GB
     Alternatively, you can expand the root and user volumes up to 2000
      GB each.
 
@@ -814,9 +812,6 @@ _Amazon WorkSpaces API Reference_. 9. Enter a bundle name and a description, and
     	+ You can launch a GeneralPurpose.4xlarge or GeneralPurpose.8xlarge
     	 WorkSpace with a minimum of 175GB for the root volume and 100 GB
     	 for the user volume.
-    	+ You can launch a Graphics.g4dn, GraphicsPro.g4dn,
-    	 Graphics, or GraphicsPro WorkSpace with a minimum of 100 GB for
-    	 the root volume and 100 GB for the user volume.
 
 10. Choose **Create bundle**.
 11. To confirm that your bundle has been created, choose

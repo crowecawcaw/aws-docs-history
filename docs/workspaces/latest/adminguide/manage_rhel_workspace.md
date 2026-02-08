@@ -1,14 +1,7 @@
 # Manage your Red Hat Enterprise Linux WorkSpaces
 
-As with Windows and Amazon Linux WorkSpaces, Red Hat Enterprise Linux WorkSpaces are domain joined, so you can use Active
-Directory Users and Groups to:
-
-- Administer your Red Hat Enterprise Linux WorkSpaces
-- Provide access to those WorkSpaces for users
-  You can manage Red Hat Enterprise Linux WorkSpaces with Group Policy by using ADsys. See the
-  [Red Hat Enterprise Linux Active Directory integration FAQ](https://ubuntu.com/blog/new-active-directory-integration-features-in-ubuntu-22-04-faq "https://ubuntu.com/blog/new-active-directory-integration-features-in-ubuntu-22-04-faq")
-  for more information. You can also use other configuration and management solutions, such as
-  [Landscape](https://ubuntu.com/landscape "https://ubuntu.com/landscape") and [Ansible](https://www.ansible.com/ "https://www.ansible.com/").
+You can manage Red Hat Enterprise Linux WorkSpaces with configuration and management solutions, such as
+[Ansible](https://www.ansible.com/ "https://www.ansible.com/").
 
 ## Control DCV behavior on Red Hat Enterprise Linux WorkSpaces
 

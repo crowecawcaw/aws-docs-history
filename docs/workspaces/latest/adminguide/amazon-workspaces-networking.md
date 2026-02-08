@@ -44,14 +44,14 @@ For more information about how to check your WorkSpace client version and host a
 - If you need to use Web Access with the Windows Server 2022-powered WorkSpaces bundle.
 - If you need to use Ubuntu WorkSpaces.
 - If you need to use Windows 11 BYOL WorkSpaces.
-- If you need to use Windows or Ubuntu GPU-based bundles (Graphics.g4dn and GraphicsPro.g4dn).
+- If you need to use GPU-enabled WorkSpaces bundles with Windows.
+- If you need to use Windows GPU-based bundles (Graphics.g6, Graphics.g4dn and GraphicsPro.g4dn) or Ubuntu GPU-based bundles (Graphics.g4dn and GraphicsPro.g4dn).
 - If you need your users to authenticate in-session with WebAuthn authenticators such as YubiKey or Windows Hello.
 
 ### When to use PCoIP
 
 - If you want to use the iPad or Android Linux clients.
 - If you use Teradici zero client devices.
-- If you need to use GPU-based bundles (Graphics.g4dn, GraphicsPro.g4dn, Graphics, or GraphicsPro).
 - If you need to use a Linux bundle for non-smart card use cases.
 - If you need to use WorkSpaces in the China (Ningxia) Region.
 

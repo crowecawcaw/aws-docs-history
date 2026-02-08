@@ -24,7 +24,7 @@ secondary WorkSpace.
 
 - [Prerequisites](#multi-region-resilience-prerequisites "#multi-region-resilience-prerequisites")
 - [Limitations](#multi-region-resilience-limitations "#multi-region-resilience-limitations")
-- [Configure your Multi-Region Resilience standby WorkSpace](#w2aac11c35c19c15 "#w2aac11c35c19c15")
+- [Configure your Multi-Region Resilience standby WorkSpace](#multi-region-resilience-congfigurations "#multi-region-resilience-congfigurations")
 - [Create a standby WorkSpace](#create-standby-workspace "#create-standby-workspace")
 - [Manage a standby WorkSpace](#manage-standby-workspace "#manage-standby-workspace")
 - [Delete a standby WorkSpace](#delete-standby-workspace "#delete-standby-workspace")
@@ -97,9 +97,7 @@ secondary WorkSpace.
 
 - WorkSpaces Multi-Region Resilience is only supported on version 3.0.9 or later of the Linux, macOS, and Windows WorkSpaces
   client applications. You can also use Multi-Region Resilience with Web Access.
-- WorkSpaces Multi-Region Resilience supports Windows and Bring Your Own License (BYOL) WorkSpaces.
-  It doesn't support Amazon Linux 2, Ubuntu WorkSpaces, Red Hat Enterprise Linux, GeneralPurpose.4xlarge, GeneralPurpose.8xlarge,
-  or GPU-enabled WorkSpaces (e.g. Graphics, GraphicsPro, Graphics.g4dn, or GraphicsPro.g4dn).
+- WorkSpaces Multi-Region Resilience supports Windows and Bring Your Own License (BYOL) WorkSpaces. It doesn't support Amazon Linux 2, Ubuntu, Red Hat Enterprise Linux, GeneralPurpose.4xlarge, GeneralPurpose.8xlarge, or GPU-enabled WorkSpaces (e.g., Graphics G6, Graphics.g4dn, or GraphicsPro.g4dn).
 - After failover or failback completes, wait 15 to 30 minutes before connecting to your WorkSpace.
 
 ## Configure your Multi-Region Resilience standby WorkSpace

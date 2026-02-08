@@ -1,6 +1,6 @@
 # Common error messages and their solutions
 
-Microsoft Office must be uninstalled before import. For more information, see
+Standalone Microsoft Office (Non Microsoft Office 365) must be uninstalled before import. For more information, see
 [Uninstall Office from a PC](https://support.microsoft.com/en-au/office/uninstall-office-from-a-pc-9dd49b83-264a-477a-8fcc-2fdf5dbf61d8 "https://support.microsoft.com/en-au/office/uninstall-office-from-a-pc-9dd49b83-264a-477a-8fcc-2fdf5dbf61d8").
 
 Uninstall the PCoIP Agent. For information about uninstalling the PCoIP agent, see

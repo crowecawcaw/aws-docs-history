@@ -277,7 +277,7 @@ setting up multiple monitors or using peripheral devices, see [WorkSpaces Client
 Support](../userguide/peripheral_devices.md "../userguide/peripheral_devices.md") in the _Amazon WorkSpaces User Guide_.
 
 In this tutorial, you learn how to provision a virtual, cloud-based Microsoft
-Windows, Amazon Linux, Ubuntu Linux, or Red Hat Enterprise Linux desktop desktop, known as a
+Windows, Amazon Linux, Ubuntu Linux, or Red Hat Enterprise Linux desktop, known as a
 _WorkSpace_, by using WorkSpaces and Directory Service.
 
 This tutorial uses the advanced setup option to launch your WorkSpace.

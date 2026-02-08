@@ -228,9 +228,7 @@ of your smart cards.
 To enable the use of smart cards on Ubuntu, Rocky Linux, and Red Hat Enterprise Linux WorkSpaces, you need to include the root and all intermediate CA certificates in the WorkSpace image
 for all CAs issuing smart cards, and for all CAs issuing domain controller certificates.
 
-###### To obtain your CA certificate
-
-You can obtain your CA certificate in several ways:
+**To obtain your CA certificate:** You can obtain your CA certificate in several ways:
 
 - You can use a CA certificate bundle of a third-party certification authority.
 - You can export your own CA certificate by using the Web Enrollment site, which is either
@@ -315,11 +313,11 @@ apt install krb5-pkinit opensc
    from the WorkSpace.
 6. Use the new custom bundle to launch WorkSpaces for your users.
 
-###### To enable users to use smart cards in Firefox
-
 You can enable your users to use smart cards in Firefox by adding a SecurityDevices policy to your
 Linux WorkSpace image. For more information about adding system-wide policies to Firefox, see the
 [Mozilla policy templates](https://github.com/mozilla/policy-templates/releases "https://github.com/mozilla/policy-templates/releases") on GitHub.
+
+###### To enable users to use smart cards in Firefox
 
 1. On the WorkSpace that you're using to create your WorkSpace image, create a new file named `policies.json`
    in ``PREFIX`/firefox/distribution/`, where ``PREFIX``is`/usr/lib64`on Fedora-based systems (Amazon Linux 2, Red Hat Enterprise Linux, and Rocky Linux WorkSpaces), and`/usr/lib` on Debian-based systems (Ubuntu WorkSpaces).
@@ -390,9 +388,7 @@ Amazon Linux 2 WorkSpaces on DCV currently have the following limitations:
 To enable the use of smart cards on Amazon Linux 2 WorkSpaces, you need to include a root CA
 certificate file in the PEM format in the WorkSpace image.
 
-###### To obtain your root CA certificate
-
-You can obtain your root CA certificate in several ways:
+**To obtain your root CA certificate:** You can obtain your root CA certificate in several ways:
 
 - You can use a root CA certificate operated by a third-party certification authority.
 - You can export your own root CA certificate by using the Web Enrollment site, which is either
@@ -468,11 +464,11 @@ policy to [enable users to use smart cards in Firefox](#smart-cards-firefox-amaz
 [Smart Card Support](../userguide/smart_card_support.md "../userguide/smart_card_support.md") in the _Amazon WorkSpaces User Guide_.) 5. [Create a custom WorkSpace image and bundle](create-custom-bundle.md "create-custom-bundle.md")
 from the WorkSpace. 6. Use the new custom bundle to launch WorkSpaces for your users.
 
-###### To enable users to use smart cards in Firefox
-
 You can enable your users to use smart cards in Firefox by adding a SecurityDevices policy to your
 Amazon Linux 2 WorkSpace image. For more information about adding system-wide policies to Firefox, see the
 [Mozilla policy templates](https://github.com/mozilla/policy-templates/releases "https://github.com/mozilla/policy-templates/releases") on GitHub.
+
+###### To enable users to use smart cards in Firefox
 
 1. On the WorkSpace that you're using to create your WorkSpace image, create a new file named `policies.json`
    in `/usr/lib64/firefox/distribution/`.
@@ -490,9 +486,7 @@ Amazon Linux 2 WorkSpace image. For more information about adding system-wide po
 }
 ```
 
-###### Troubleshooting
-
-For troubleshooting, we recommend adding the `pkcs11-tools` utility. This utility allows you to perform
+**Troubleshooting:** For troubleshooting, we recommend adding the `pkcs11-tools` utility. This utility allows you to perform
 the following actions:
 
 - List each smart card.

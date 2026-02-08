@@ -11,16 +11,15 @@ and you will be charged for this directory as per the
 If you delete your Simple AD or AD Connector directory, you can always create a new one
 when you want to start using WorkSpaces again.
 
-###### What happens when you delete a directory
+**What happens when you delete a directory:** When you delete a directory, the following occurs:
 
-When a Simple AD or AWS Directory Service for Microsoft Active Directory directory is deleted, all of the directory data and snapshots
-are deleted and cannot be recovered. After the directory is deleted, any Amazon EC2 instances that are joined to the
-directory remain intact. You cannot, however, use your directory credentials to log in to these instances.
-You need to log in to these instances with an AWS account that is local to the instance.
-
-When an AD Connector directory is deleted, your on-premises directory remains intact. Any Amazon EC2 instances
-that are joined to the directory also remain intact and remain joined to your on-premises directory. You
-can still use your directory credentials to log in to these instances.
+- When a Simple AD or AWS Directory Service for Microsoft Active Directory directory is deleted, all of the directory data and snapshots
+  are deleted and cannot be recovered. After the directory is deleted, any Amazon EC2 instances that are joined to the
+  directory remain intact. You cannot, however, use your directory credentials to log in to these instances.
+  You need to log in to these instances with an AWS account that is local to the instance.
+- When an AD Connector directory is deleted, your on-premises directory remains intact. Any Amazon EC2 instances
+  that are joined to the directory also remain intact and remain joined to your on-premises directory. You
+  can still use your directory credentials to log in to these instances.
 
 ## Delete an Entra ID or Custom WorkSpaces directory
 

@@ -25,10 +25,10 @@ WorkSpaces Pools supports several different operating systems (OS), streaming pr
 bundles. The following table provides information about the licensing, streaming protocols,
 and bundles that are supported by each OS.
 
-| Operating System    | Licenses | Streaming protocols | Supported bundles                                                       | Lifecycle policy / retirement date                                                                                                                                      |
-| ------------------- | -------- | ------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows Server 2019 | Included | DCV                 | Value, Standard, Performance, Power, PowerPro                           | [January 9, 2029](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019")  |
-| Windows Server 2022 | Included | DCV                 | Standard, Performance, Power, PowerPro, Graphics.G4dn, GraphicsPro.G4dn | [October 14, 2031](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022") |
+| Operating System    | Licenses | Streaming protocols | Supported bundles                                                                    | Lifecycle policy / retirement date                                                                                                                                      |
+| ------------------- | -------- | ------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Windows Server 2019 | Included | DCV                 | Value, Standard, Performance, Power, PowerPro                                        | [January 9, 2029](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019")  |
+| Windows Server 2022 | Included | DCV                 | Standard, Performance, Power, PowerPro, Graphics.g6, Graphics.G4dn, GraphicsPro.G4dn | [October 14, 2031](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022") |
 
 ###### Note
 

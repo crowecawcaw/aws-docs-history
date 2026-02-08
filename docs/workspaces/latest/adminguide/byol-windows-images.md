@@ -34,24 +34,21 @@ Before you begin, verify the following:
 
 - Your Microsoft licensing agreement allows Windows to run in a virtual hosted
   environment.
-- If you will be using non-GPU-enabled bundles (bundles other than Graphics.g4dn, GraphicsPro.g4dn, Graphics, and
-  GraphicsPro), verify that you will use a minimum of 50 WorkSpaces per Region. These 50
-  WorkSpaces can be any mix of AlwaysOn and AutoStop WorkSpaces. Using a minimum
-  of 50 WorkSpaces per Region is a requirement for running your WorkSpaces on dedicated hardware.
-  Running your WorkSpaces on dedicated hardware is necessary to comply with Microsoft
-  licensing requirements. The dedicated hardware is provisioned on the AWS side,
-  so your VPC can stay on default tenancy.
+- If you are using non-GPU-enabled bundles, verify that you use a minimum of 50 WorkSpaces per region in any mix of AlwaysOn and AutoStop configurations.
+  This minimum is required to run WorkSpaces on dedicated hardware, which is necessary to comply with Microsoft licensing requirements.
+  The dedicated hardware is provisioned by AWS, so your VPC can remain on default tenancy.
 
-If you plan to use GPU-enabled (Graphics.g4dn, GraphicsPro.g4dn, Graphics, and GraphicsPro) bundles, verify that
-you will run a minimum of 4 AlwaysOn or 20 AutoStop GPU-enabled WorkSpaces in a
-Region per month on dedicated hardware.
+If you plan to use GPU-enabled bundles, verify that you run a minimum of 4 AlwaysOn or 20 AutoStop GPU-enabled WorkSpaces per region per month on dedicated hardware.
 
 ###### Note
 
+Consider the following when importing BYOL images:
+
+    + GPU-enabled bundles are not available in the Africa (Cape Town) Region Region and the Israel (Tel Aviv) Region Region.
     + As part of the image import process, AWS automatically retrieves
      system logs to resolve image import errors, provide troubleshooting
      help, and provide accurate error messages to users.
-    + Graphics.g4dn, GraphicsPro.g4dn, Graphics, and GraphicsPro bundles are not available in the Africa (Cape Town) Region and the Israel (Tel Aviv) Region.
+    + GPU-enabled bundles are not available in the Africa (Cape Town) Region and the Israel (Tel Aviv) Region.
     + To run your WorkSpaces in the Africa (Cape Town) Region, you are required to run a minimum of 400 WorkSpaces in the Africa (Cape Town) Region.
     + Value bundles are not available for Windows 11 and WorkSpaces Pools. For more information about migrating your existing value bundle WorkSpaces
      see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md").
