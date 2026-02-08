@@ -1,46 +1,123 @@
-# Monitoring application health
+# Adding an Amazon RDS DB instance to your .NET application
 
-When you are running a production website, it is important to know that your application is
-available and responding to requests. To assist with monitoring your application’s
-responsiveness, Elastic Beanstalk provides features where you can monitor statistics about your application
-and create alerts that trigger when thresholds are exceeded.
+environment
 
-For information about the health monitoring provided by Elastic Beanstalk, see [Basic health reporting](using-features.md "using-features.md").
+This topic provides instructions to create an Amazon RDS using the Elastic Beanstalk console.
+You can use an Amazon Relational Database Service (Amazon RDS) DB instance to store data gathered and modified by your
+application. The database can be coupled to your environment and managed by Elastic Beanstalk, or it can be created as decoupled
+and managed externally by another service.
+In these instructions the database is coupled to your environment and managed by Elastic Beanstalk. For more information about integrating an Amazon RDS with
+Elastic Beanstalk, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
 
-You can access operational information about your application by using either the AWS
-Toolkit for Visual Studio or the AWS Management Console.
+###### Sections
 
-The toolkit displays your environment's status and application health in the
-**Status** field.
+- [Adding a DB instance to your environment](#dotnet-rds-create "#dotnet-rds-create")
+- [Downloading a driver](#dotnet-rds-drivers "#dotnet-rds-drivers")
+- [Connecting to a database](#dotnet-rds-connect "#dotnet-rds-connect")
 
-![Elastic Beanstalk health status](images/aeb-vs-env-status.png)
+## Adding a DB instance to your environment
 
-###### To monitor application health
+###### To add a DB instance to your environment
 
-1. In the AWS Toolkit for Visual Studio, in **AWS Explorer**, expand
-   the Elastic Beanstalk node, and then expand your application node.
-2. Right-click your Elastic Beanstalk environment, and then click **View
-   Status**.
-3. On your application environment tab, click **Monitoring**.
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Configuration**.
+4. In the **Database** configuration category, choose **Edit**.
+5. Choose a DB engine, and enter a user name and password.
+6. To save the changes choose **Apply** at the bottom of the page.
 
-The **Monitoring** panel includes a set of graphs showing resource
-usage for your particular application environment.
+Adding a DB instance takes about 10 minutes. When the environment update is complete, the
+DB instance's hostname and other connection information are available to your application
+through the following environment properties:
 
-![Elastic Beanstalk monitoring panel](images/aeb-vs-monitoring.png)
+| Property name  | Description                                                                                    | Property value                                                                         |
+| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
+| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
+| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
+| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
+| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
 
-###### Note
+For more information about configuring a database instance coupled with an Elastic Beanstalk environment,
+see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
 
-By default, the time range is set to the last hour. To modify this setting, in the
-**Time Range** list, click a different time range.
-You can use the AWS Toolkit for Visual Studio or the AWS Management Console to view events
-associated with your application.
+## Downloading a driver
 
-###### To view application events
+Download and install the `EntityFramework` package and a database driver for
+your development environment with `NuGet`.
 
-1. In the AWS Toolkit for Visual Studio, in **AWS Explorer**, expand
-   the Elastic Beanstalk node and your application node.
-2. Right-click your Elastic Beanstalk environment in **AWS Explorer** and then
-   click **View Status**.
-3. In your application environment tab, click **Events**.
+###### Common entity framework database providers for .NET
 
-![Elastic Beanstalk events panel](images/aeb-vs-events.png)
+- **SQL Server** –
+  `Microsoft.EntityFrameworkCore.SqlServer`
+- **MySQL** –
+  `Pomelo.EntityFrameworkCore.MySql`
+- **PostgreSQL** –
+  `Npgsql.EntityFrameworkCore.PostgreSQL`
+
+## Connecting to a database
+
+Elastic Beanstalk provides connection information for attached DB instances in environment properties.
+Use `ConfigurationManager.AppSettings` to read the properties and configure a
+database connection.
+
+###### Example Helpers.cs - connection string method
+
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Web;
+
+namespace MVC5App.Models
+{
+  public class Helpers
+  {
+    public static string GetRDSConnectionString()
+    {
+      var appConfig = ConfigurationManager.AppSettings;
+
+      string dbname = appConfig["RDS_DB_NAME"];
+
+      if (string.IsNullOrEmpty(dbname)) return null;
+
+      string username = appConfig["RDS_USERNAME"];
+      string password = appConfig["RDS_PASSWORD"];
+      string hostname = appConfig["RDS_HOSTNAME"];
+      string port = appConfig["RDS_PORT"];
+
+      return "Data Source=" + hostname + ";Initial Catalog=" + dbname + ";User ID=" + username + ";Password=" + password + ";";
+    }
+  }
+}
+```
+
+Use the connection string to initialize your database context.
+
+###### Example DBContext.cs
+
+```
+using System.Data.Entity;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+
+namespace MVC5App.Models
+{
+  public class RDSContext : DbContext
+  {
+    public RDSContext()
+      : base(`GetRDSConnectionString()`)
+    {
+    }
+
+    public static RDSContext Create()
+    {
+      return new RDSContext();
+    }
+  }
+}
+```

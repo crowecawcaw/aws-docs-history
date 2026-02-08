@@ -109,7 +109,7 @@ other resources in the same security group.
     associated with the Auto Scaling group that's used with your Elastic Beanstalk environment. This is so that Amazon EC2 instances in the environment can have access to the
     database.
 
-![Screen image to edit the inbound rules for a security group in the Amazon EC2 console.](/images/elasticbeanstalk/latest/dg/images/ec2-securitygroup-rds.png) 11. Choose **Save**.
+![Screen image to edit the inbound rules for a security group in the Amazon EC2 console.](images/ec2-securitygroup-rds.png) 11. Choose **Save**.
 
 Creating a DB instance takes about 10 minutes. In the meantime, download WordPress and create your Elastic Beanstalk environment.
 
