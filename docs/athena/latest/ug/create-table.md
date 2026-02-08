@@ -21,7 +21,7 @@ CREATE EXTERNAL TABLE [IF NOT EXISTS]
  [STORED AS file_format]
  [WITH SERDEPROPERTIES (...)]
  [LOCATION 's3://amzn-s3-demo-bucket/[folder]/']
- [TBLPROPERTIES ( ['has_encrypted_data'='true | false',] ['classification'='aws_glue_classification',] property_name=property_value [, ...] ) ]
+ [TBLPROPERTIES ( ['has_encrypted_data'='true | false',] ['encryption_option'='SSE_S3 | SSE_KMS | CSE_KMS',] ['kms_key'='aws_kms_key_arn',] ['classification'='aws_glue_classification',] property_name=property_value [, ...] ) ]
 ```
 
 ## Parameters
@@ -260,6 +260,7 @@ glob characters.
 `s3://amzn-s3-demo-bucket/`mydatafile.dat``
 
 **[TBLPROPERTIES ( ['has\_encrypted\_data'='true | false',]
+['encryption\_option'='SSE\_S3 | SSE\_KMS | CSE\_KMS',] ['kms\_key'='aws\_kms\_key\_arn',]
 ['classification'='classification\_value',] property_name=property_value [, ...]
 ) ]**
 
@@ -270,10 +271,22 @@ addition to predefined table properties, such as
 has_encrypted_data – Athena has a
 built-in property, `has_encrypted_data`. Set this property to
 `true` to indicate that the underlying dataset specified by
-`LOCATION` is encrypted. If omitted and if the workgroup's
+`LOCATION` is CSE-KMS encrypted. If omitted and if the workgroup's
 settings do not override client-side settings, `false` is
 assumed. If omitted or set to `false` when underlying data is
 encrypted, the query results in an error. For more information, see [Encryption at rest](encryption.md "encryption.md").
+
+encryption_option –
+Set this property to either `SSE_S3`, `SSE_KMS`, or `CSE_KMS`
+to indicate the highest level of encryption used in the underlying dataset specified by
+`LOCATION`. For more information, see [Encryption at rest](encryption.md "encryption.md").
+
+kms_key –
+Set this property to the AWS KMS key ARN used for encrypting and decrypting table data files.
+Athena uses this key to encrypt table data files when writing with `SSE_KMS` or `CSE_KMS`
+encryption, and to decrypt CSE-KMS encrypted table data files. This property
+is only required when `encryption_option` is set to `SSE_KMS` or `CSE_KMS`.
+For more information, see [Encryption at rest](encryption.md "encryption.md").
 
 classification – Tables created for
 Athena in the CloudTrail console add `cloudtrail` as a value for the

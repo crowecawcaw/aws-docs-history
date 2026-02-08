@@ -17,32 +17,15 @@ Deploy the connector to your AWS account using the Athena console or the `Create
 - In a multiplexer setup, the spill bucket and prefix are shared across all
   database instances.
 - Any relevant Lambda limits. For more information, see [Lambda quotas](../../../lambda/latest/dg/gettingstarted-limits.md "../../../lambda/latest/dg/gettingstarted-limits.md") in the _AWS Lambda Developer Guide_.
+- Only legacy connections support multiplexer setup.
 - Currently, Snowflake views with single split are supported.
-- In Snowflake, because object names are case sensitive, two tables can have the
-  same name in lower and upper case (for example, `EMPLOYEE` and
-  `employee`). In Athena Federated Query, schema table names are provided to the
-  Lambda function in lower case. To work around this issue, you can provide
-  `@schemaCase` query hints to retrieve the data from the tables
-  that have case sensitive names. Following are two sample queries with query
-  hints.
-
-```
-SELECT * FROM "lambda:snowflakeconnector".SYSTEM."MY_TABLE@schemaCase=upper&tableCase=upper"
-```
-
-```
-SELECT * FROM "lambda:snowflakeconnector".SYSTEM."MY_TABLE@schemaCase=upper&tableCase=lower"
-```
-
-- If you migrate your Snowflake connections to Glue Catalog and Lake Formation, Athena will not default
-  all requests to upper case or support annotation. The default behavior for Glue
-  Connection will not adjust casing.
-
-Snowflake supports the following casing modes:
-
-    + NONE (default for connector with Glue Connection)
-    + CASE\_INSENSITIVE\_SEARCH
-    + ANNOTATION (default for connector without Glue Connection)
+- In Snowflake, object names are case-sensitive. Athena accepts mixed case in DDL and DML queries, but by default
+  [lower cases](tables-databases-columns-names.md#table-names-and-table-column-names-in-ate-must-be-lowercase "tables-databases-columns-names.md#table-names-and-table-column-names-in-ate-must-be-lowercase")
+  the object names when it executes the query. The Snowflake connector supports only
+  lower case when Glue Catalog/Lake Formation are used. When the Athena Catalog is used, customers can
+  control the casing behavior using the `casing_mode` Lambda environment variable whose possible values
+  are listed in the [Parameters](#connectors-snowflake-parameters "#connectors-snowflake-parameters")
+  section (for example, `key=casing_mode, value = CASE_INSENSITIVE_SEARCH`).
 
 ## Terms
 
@@ -94,21 +77,22 @@ aws glue describe-connection-type --connection-type SNOWFLAKE
   how to handle casing for schema and table names. The
   `casing_mode` parameter uses the following values to specify
   the behavior of casing:
-  - **none** – Do not change case
-    of the given schema and table names. This is the default for
-    connectors that have an associated glue connection.
-  - **annotation** – Adjusts the
-    table name if an annotation is present. This is the default for
-    connectors that do not have an associated glue connection.
-  - **case_insensitive_search** –
-    Perform case insensitive searches against schema and tables names in
-    Snowflake. Use this value if your query contains schema or table
-    names that do not match the default casing for your
-    connector.
-  - **upper** –
-    Upper case all given schema and table names.
-  - **lower** –
-    Lower case all given schema and table names.
+  - **NONE** – Do not change case
+    of the given schema and table names (run the query as is against Snowflake).
+    This is the default value when **casing_mode**
+    is not specified.
+  - **UPPER** –
+    Upper case all given schema and table names in the query before running it against
+    Snowflake.
+  - **LOWER** –
+    Lower case all given schema and table names in the query before running it against
+    Snowflake.
+  - **CASE_INSENSITIVE_SEARCH** –
+    Perform case insensitive searches against schema and tables names in Snowflake. For
+    example, you can use this mode when you have a query like `SELECT * FROM EMPLOYEE`
+    and Snowflake contains a table called `Employee`. However, in the presence
+    of name collisions, such as having a table called `EMPLOYEE` and another
+    table called `Employee` in Snowflake, the query will fail.
 
 ###### Note
 
@@ -131,6 +115,27 @@ specified.
 
 - default – The JDBC connection string to use to connect to the Snowflake database instance. For example, `snowflake://${jdbc_connection_string}`
 - catalog_connection_string – Used by the Multiplexing handler (not supported when using a glue connection). A database instance connection string. Prefix the environment variable with the name of the catalog used in Athena. For example, if the catalog registered with Athena is mysnowflakecatalog, then the environment variable name is mysnowflakecatalog_connection_string.
+- **casing_mode** – (Optional) Specifies
+  how to handle casing for schema and table names. The
+  `casing_mode` parameter uses the following values to specify
+  the behavior of casing:
+  - **NONE** – Do not change case
+    of the given schema and table names (run the query as is against Snowflake).
+    This is the default value when **casing_mode**
+    is not specified.
+  - **UPPER** –
+    Upper case all given schema and table names in the query before running it against
+    Snowflake.
+  - **LOWER** –
+    Lower case all given schema and table names in the query before running it against
+    Snowflake.
+  - **CASE_INSENSITIVE_SEARCH** –
+    Perform case insensitive searches against schema and tables names in Snowflake. For
+    example, you can use this mode when you have a query like `SELECT * FROM EMPLOYEE`
+    and Snowflake contains a table called `Employee`. However, in the presence
+    of name collisions, such as having a table called `EMPLOYEE` and another
+    table called `Employee` in Snowflake, the query will fail.
+
 - spill_bucket – Specifies the Amazon S3 bucket
   for data that exceeds Lambda function limits.
 - spill_prefix – (Optional) Defaults to a
