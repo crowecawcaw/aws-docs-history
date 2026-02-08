@@ -44,6 +44,5 @@ Other conversion settings are different for each pair of source and target datab
   to PostgreSQL conversion settings](schema-conversion-sql-server-postgresql.md "schema-conversion-sql-server-postgresql.md")
 - [Understanding PostgreSQL to
   MySQL conversion settings](schema-conversion-postgresql-mysql.md "schema-conversion-postgresql-mysql.md")
-- [Understanding IBM Db2 for Linux, UNIX and Windows to Amazon RDS for PostgreSQL conversion settings](schema-conversion-db2-luw-postgresql.md "schema-conversion-db2-luw-postgresql.md")
 - [Understanding IBM Db2 for z/OS to Amazon RDS for Db2 conversion settings](schema-conversion-db2-zos-db2.md "schema-conversion-db2-zos-db2.md")
 - [Understanding SAP ASE (Sybase ASE) to PostgreSQL conversion settings](schema-conversion--sybase-ASE.md "schema-conversion--sybase-ASE.md")

@@ -1,99 +1,129 @@
-# Diagnostic support scripts for MySQL-compatible
-
-databases
+# Oracle diagnostic support scripts
 
 Following, you can find the diagnostic support scripts available to analyze an on-premises
-or Amazon RDS for MySQL-compatible database in your AWS DMS migration configuration. These scripts
-work with either a source or target endpoint. The scripts are all written to run on the MySQL
-SQL command line.
+or Amazon RDS for Oracle database in your AWS DMS migration configuration. These scripts work with
+either a source or target endpoint. The scripts are all written to run in the SQL\*Plus
+command-line utility. For more information on using this utility, see [A Using SQL Command Line](https://docs.oracle.com/cd/B25329_01/doc/appdev.102/b25108/xedev_sqlplus.htm "https://docs.oracle.com/cd/B25329_01/doc/appdev.102/b25108/xedev_sqlplus.htm") in the Oracle documentation.
 
-For information about installing the MySQL client, see [Installing
-MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html") in the MySQL documentation. For information about using the MySQL
-client, see [Using MySQL
-Shell Commands](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-configuring.html "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-configuring.html") in the MySQL documentation.
-
-Before running a script, ensure that the user account that you use has the necessary
-permissions to access your MySQL-compatible database. Use the following procedure to create a
-user account and provide the minimum permissions needed to run this script.
-
-###### To set up a user account with the minimum permissions to run these scripts
-
-1. Create the user to run the scripts.
+Before running the script, ensure that the user account that you use has the necessary
+permissions to access your Oracle database. The permissions settings shown assume a user created
+as follows.
 
 ```
-create user '`username`'@'`hostname`' identified by `password`;
+CREATE USER `script_user` IDENTIFIED BY `password`;
 ```
 
-2. Grant the `select` command on databases to analyze them.
+For an on-premises database, set the minimum permissions as shown following for
+`script_user`.
 
 ```
-grant select on `database-name`.* to `username`;
-grant replication client on *.* to `username`;
+GRANT CREATE SESSION TO `script_user`;
+GRANT SELECT on V$DATABASE to `script_user`;
+GRANT SELECT on V$VERSION to `script_user`;
+GRANT SELECT on GV$SGA to `script_user`;
+GRANT SELECT on GV$INSTANCE to `script_user`;
+GRANT SELECT on GV$DATAGUARD_CONFIG to `script_user`;
+GRANT SELECT on GV$LOG to `script_user`;
+GRANT SELECT on DBA_TABLESPACES to `script_user`;
+GRANT SELECT on DBA_DATA_FILES to `script_user`;
+GRANT SELECT on DBA_SEGMENTS to `script_user`;
+GRANT SELECT on DBA_LOBS to `script_user`;
+GRANT SELECT on V$ARCHIVED_LOG to `script_user`;
+GRANT SELECT on DBA_TAB_MODIFICATIONS to `script_user`;
+GRANT SELECT on DBA_TABLES to `script_user`;
+GRANT SELECT on DBA_TAB_PARTITIONS to `script_user`;
+GRANT SELECT on DBA_MVIEWS to `script_user`;
+GRANT SELECT on DBA_OBJECTS to `script_user`;
+GRANT SELECT on DBA_TAB_COLUMNS to `script_user`;
+GRANT SELECT on DBA_LOG_GROUPS to `script_user`;
+GRANT SELECT on DBA_LOG_GROUP_COLUMNS to `script_user`;
+GRANT SELECT on V$ARCHIVE_DEST to `script_user`;
+GRANT SELECT on DBA_SYS_PRIVS to `script_user`;
+GRANT SELECT on DBA_TAB_PRIVS to `script_user`;
+GRANT SELECT on DBA_TYPES to `script_user`;
+GRANT SELECT on DBA_CONSTRAINTS to `script_user`;
+GRANT SELECT on V$TRANSACTION to `script_user`;
+GRANT SELECT on GV$ASM_DISK_STAT to `script_user`;
+GRANT SELECT on GV$SESSION to `script_user`;
+GRANT SELECT on GV$SQL to `script_user`;
+GRANT SELECT on DBA_ENCRYPTED_COLUMNS to `script_user`;
+GRANT SELECT on DBA_PDBS to `script_user`;
+
+GRANT EXECUTE on dbms_utility to `script_user`;
 ```
 
-3. ```
-   grant execute on procedure mysql.rds_show_configuration to `username`;
-   ```
+For an Amazon RDS database, set the minimum permissions as shown following.
 
 ```
-The following topics describe how to download, review, and run each support script
- available for a MySQL-compatible database. They also describe how to review and upload the
- script output to your AWS Support case.
+GRANT CREATE SESSION TO `script_user`;
+exec rdsadmin.rdsadmin_util.grant_sys_object('V_$DATABASE','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('V_$VERSION','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$SGA','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$INSTANCE','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$DATAGUARD_CONFIG','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$LOG','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TABLESPACES','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_DATA_FILES','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_SEGMENTS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_LOBS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('V_$ARCHIVED_LOG','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_MODIFICATIONS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TABLES','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_PARTITIONS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_MVIEWS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_OBJECTS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_COLUMNS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_LOG_GROUPS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_LOG_GROUP_COLUMNS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('V_$ARCHIVE_DEST','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_SYS_PRIVS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_PRIVS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TYPES','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_CONSTRAINTS','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('V_$TRANSACTION','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$ASM_DISK_STAT','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$SESSION','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$SQL','`script_user`','SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_ENCRYPTED_COLUMNS','`script_user`','SELECT');
+
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_PDBS','`script_user`','SELECT');
+
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBMS_UTILITY','`script_user`','EXECUTE');
+
+```
+
+Following, you can find descriptions how to download, review, and run each SQL\*Plus support
+script available for Oracle. You can also find how to review and upload the output to your AWS
+Support case.
 
 ###### Topics
 
-* [awsdms\_support\_collector\_MySQL.sql script](#CHAP_SupportScripts.MySQL.Awsdms_Support_Collector_MySQL_Script "#CHAP_SupportScripts.MySQL.Awsdms_Support_Collector_MySQL_Script")
+- [awsdms_support_collector_oracle.sql script](#CHAP_SupportScripts.Oracle.Awsdms_Support_Collector_Oracle_Script "#CHAP_SupportScripts.Oracle.Awsdms_Support_Collector_Oracle_Script")
 
-## awsdms\_support\_collector\_MySQL.sql script
+## awsdms_support_collector_oracle.sql script
 
+Download the [`awsdms_support_collector_oracle.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_oracle.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_oracle.sql") script.
 
-Download the [`awsdms_support_collector_MySQL.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_MySQL.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_MySQL.sql") script.
+This script collects information about your Oracle database configuration. Remember to
+verify the checksum on the script, and if the checksum verifies, review the SQL code in the
+script to comment out any of the code that you are uncomfortable running. After you are
+satisfied with the integrity and content of the script, you can run it.
 
+###### To run the script and upload the results to your support case
 
-This script collects information about your MySQL-compatible database configuration.
- Remember to verify the checksum on the script, and if the checksum verifies, review the SQL
- code in the script to comment out any of the code that you are uncomfortable running. After
- you are satisfied with the integrity and content of the script, you can run it.
-
-
-Run the script after connecting to your database environment using the command
- line.
-
-
-###### To run this script and upload the results to your support case
-
-1. Connect to your database using the following `mysql` command.
-
-
+1. Run the script from your database environment using the following SQL\*Plus command line.
 
 ```
-
-mysql -p -h `hostname` -P port -u `username` `database-name`
-
-```
-2. Run the script using the following mysql `source` command.
-
-
-
+SQL> @awsdms_support_collector_oracle.sql
 ```
 
-source awsdms_support_collector_MySQL.sql
-
-```
-
-Review the generated report and remove any information that you are uncomfortable
- sharing. When the content is acceptable for you to share, upload the file to your AWS
- Support case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").
-
-###### Note
-
-
-* If you already have a user account with required privileges described in [Diagnostic support scripts for MySQL-compatible
- databases](CHAP_SupportScripts.md "CHAP_SupportScripts.md") , you
- can use the existing user account as well to run the script.
-* Remember to connect to your database before running the script.
-* The script generates its output in text format.
-* Keeping security best practices in mind, if you create a new user account only to
- execute this MySQL diagnostic support script, we recommend that you delete this user
- account after successful execution of the script.
-```
+2. At the following prompt, enter the name of only one of the schemas that you want to
+   migrate.
+3. At the following prompt, enter the name of the user
+   (`script_user`) that you have defined to connect to the
+   database.
+4. At the following prompt, enter the number of days of data you want to examine, or accept
+   the default. The script then collects the specified data from your database.
+5. Review this HTML file and remove any information that you are uncomfortable sharing. When
+   the HTML is acceptable for you to share, upload the file to your AWS Support case. For more
+   information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").

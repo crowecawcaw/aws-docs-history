@@ -1,27 +1,27 @@
-# Creating database migration assessment reports with
+# Creating a database migration assessment
 
-DMS Schema Conversion
+report for DMS Schema Conversion
 
-An important part of DMS Schema Conversion is the report that it generates to help you convert your
-schema. This _database migration assessment report_ summarizes all of the
-schema conversion tasks. It also details the action items for schema that can't be converted
-to the DB engine of your target DB instance. You can view the report in the AWS DMS console or
-save a copy of this report as a PDF or comma-separated value (CSV) files.
+After you create a migration project, use the following procedure to create a database
+migration assessment report.
 
-The migration assessment report includes the following:
+###### To create a database migration assessment report
 
-- An executive summary
-- Recommendations, including conversion of server objects, backup suggestions, and
-  linked server changes
-  When you have items that DMS Schema Conversion can't convert automatically, the report provides
-  estimates showing how much effort is required to write the equivalent code for your target
-  DB instance.
-
-###### Topics
-
-- [Creating a database migration assessment
-  report for DMS Schema Conversion](assessment-reports.md "assessment-reports.md")
-- [Viewing your database migration assessment
-  report for DMS Schema Conversion](assessment-reports-view.md "assessment-reports-view.md")
-- [Saving your database migration assessment
-  report for DMS Schema Conversion](assessment-reports-save.md "assessment-reports-save.md")
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+2. Choose **Migration projects**. The **Migration
+   projects** page opens.
+3. Choose your migration project, and then choose **Schema
+   conversion**.
+4. Choose **Launch schema conversion**. The **Schema
+   conversion** page opens.
+5. In the source database pane, choose the database schema or schema items that
+   you want to assess. To include multiple objects in the report, make sure that
+   you select all items.
+6. After you select the check boxes for all schema objects that you want to
+   assess, you must choose the parent node for the selected objects. The
+   **Actions** menu in the source database pane is now
+   available.
+7. Choose **Assess** in the **Actions** menu. A
+   confirmation dialog box appears.
+8. Choose **Assess** in the dialog box to confirm your
+   choice.

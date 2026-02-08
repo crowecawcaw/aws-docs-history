@@ -1,81 +1,109 @@
-# Security group configuration
+# Configuring AWS DMS secrets
 
-for AWS DMS
+manager VPC Endpoint
 
-Security group in AWS DMS must allow inbound and outbound connections for your
-replication instances on the appropriate database port. If you are using Amazon RDS, you
-must configure the security group between DMS and RDS for your instances.
+You must create a VPC endpoint to access the AWS Secrets Manager from a
+replication instance in a private subnet. This allows the replication instance
+access the Secrets Manager directly through the private network without sending
+traffic over the public internet.
 
-You must perform the following steps:
+To configure, you must follow the following steps:
 
-###### Configure the RDS instance security group
-
-1. Navigate to the [Amazon
-   VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the navigation pane on the left under **Security**,
-   select **Security Groups**.
-3. Select the RDS Security Group associated with your RDS instance.
-4. Edit the inbound rules:
-   1. Click **Actions** and select **Edit
-      inbound rules**.
-   2. Click **Add Rule** to create a new rule.
-   3. Configure the rule as follows:
-      - **Type**: Select your
-        database type (Example: MySQL/Aurora for port 3306,
-        PostgreSQL for port 5432).
-      - **Protocol**: This
-        auto-populates based on your database type.
-      - **Port Range**: this
-        auto-populates based on your database type.
-      - **Source**: Choose
-        **Custom**, and paste the security
-        group ID associated with your DMS instance. This allows
-        traffic from any resource within that security group. You
-        can also specify the IP range (CIDR block) of your DMS
-        instance.
-
-   4. Click **Save rules**.
-
-###### Configure the DMS replication instance security group
+###### Create a security group for the VPC endpoint.
 
 1. Navigate to the [Amazon
    VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the navigation pane on the left under **Security**,
-   select **Security Groups**.
-3. In the **Security Group** list find and select the
-   security group associated with your DMS replication instance.
-4. Edit the outbound rules:
-   1. Click **Actions** and select **Edit
-      outbound rules**.
-   2. Click **Add Rule** to create a new rule.
-   3. Configure the rule as follows:
-      - Type: Select your database type (Example: MySQL/Aurora,
-        PostgreSQL).
-      - Protocol: This auto-populates based on your database
-        type.
-      - Port Range: this auto-populates based on your database
-        type.
-      - Source: Choose **Custom**, and paste the
-        security group ID associated with your RDS instance. This
-        allows traffic from any resource within that security group.
-        You can also specify the IP range (CIDR block) of your RDS
-        instance.
+2. In the navigation pane on the left, select **Security
+   groups**, and choose **Create security
+   group**.
+3. Configure security group details:
+   - **Security group name**: Example:
+     `SecretsManagerEndpointSG`
+   - **Description**: Enter an appropriate
+     description. (Example: Security group for secrets manager VPC
+     endpoint).
+   - **VPC**: Select the VPC where your
+     replication instance and endpoints reside.
 
-   4. Click **Save rules**.
+4. Click **Add Rule** to set inbound rules and configure the
+   following:
+   - Type: HTTPS (As the secrets manager uses HTTPS on port
+     443).
+   - Source: Choose **Custom**, and enter the securty
+     group ID of your replication instance. This ensures that any
+     instance associated with that security group can access the VPC
+     endpoint.
 
-## Additional
+5. Review the changes and click **Create security
+   group**.
 
-Considerations
+###### Create a VPC endpoint for secrets manager
 
-You must consider the following additional configuration information:
+###### Note
 
-- **Use Security Group References**:
-  Referencing security groups in the source or destional instances allows
-  for dynamic management and is more secure than using IP addresses as it
-  automatically included all resources within the group.
-- **Database Ports**: Ensure you are using
-  the correct port for your database.
-- **Security Best Practices**: Only open
-  the necessary ports to minimize security risks. you must also regular
-  review of your security group rules to ensure they meed your security
-  standards and requirements.
+Create an interface VPC endpoint as outline in the [Creating an Interface Endpoint documentation](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") topic in the
+_Amazon Virtual Private Cloud user
+guide_. When following this procedure, ensure the
+following:
+
+- For **Service Category**, you should select
+  **AWS services.**
+- For **Service name**, search
+  `seretsmanager` and select the secretes manager
+  service.
+
+1. Select **VPC and Subnets** and configure the
+   following:
+   - **VPC**: Ensure it is the same VPC as
+     your replication instance.
+   - **Subnets**: Select the subnets where
+     your replication instance resides.
+
+2. In **Additional Settings**, ensure that the
+   **Enable DNS name** is enabled by default for the
+   interface endpoints
+3. Under **Security group**, select the appropriate security
+   group name. Example: `SecretsManagerEndpointSG` as created
+   earlier).
+4. Review all the settings and Click **Create
+   endpoint**.
+
+###### Retrieve the VPC endpoint DNS name
+
+1. Access the VPC endpoint details:
+   1. Navigate to the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") and choose
+      **Endpoints**.
+   2. Select the appropriate endpoint you created.
+
+2. Copy the DNS name:
+   1. Under the **Details** tab, navigate to the
+      **DNS Names** section.
+   2. Copy the first DNS name listed. (Example:
+      `vpce-0abc123def456789g-secretsmanager.us-east-1.vpce.amazonaws.com`).
+      This is the regional DNS name.
+
+###### Update your DMS endpoint
+
+1. Navigate to the [AWS DMS](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2") console.
+2. Modify the DMS endpoint:
+   1. In the navigation pane on the left, select
+      **Endpoints**.
+   2. Choose the appropriate endpoint you want to configure.
+   3. Click **Actions** and select
+      **Modify**.
+
+3. Configure endpoint settings:
+   1. Navigate to **Endpoint settings** and select
+      **Use endpoint connection attributes**
+      checkbox.
+   2. In the **Connection attributes** field, add:
+      `secretsManagerEndpointOverride=<copied DNS
+name>`.
+
+   ###### Note
+
+   If you have multiple connection attributes, you can separate
+   them with a semicolon ";". For example:
+   `datePartitionEnabled=false;secretsManagerEndpointOverride=vpce-0abc123def456789g-secretsmanager.us-east-1.vpce.amazonaws.com`
+
+4. Click **Modify endpoint** to save your changes.

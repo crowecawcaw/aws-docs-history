@@ -1,49 +1,76 @@
-#
+# Specifying table
 
-Specifying table selection and transformations rules using
-JSON
+selection and transformations rules from the console
 
-To specify the table mappings that you want to apply during migration, you can
-create a JSON file. If you create a migration task using the console, you can browse
-for this JSON file or enter the JSON directly into the table mapping box. If you use
-the CLI or API to perform migrations, you can specify this file using the
-`TableMappings` parameter of the `CreateReplicationTask` or `ModifyReplicationTask` API operation.
+You can use the AWS Management Console to perform table mapping, including specifying table
+selection and transformations. On the console, use the **Where**
+section to specify the schema, table, and action (include or exclude). Use the
+**Filter** section to specify the column name in a table and
+the conditions that you want to apply to a replication task. Together, these two
+actions create a selection rule.
 
-AWS DMS can only process table mapping JSON files up to 2 MB in size. We recommend that you keep the mapping rule JSON file size
-below the 2 MB limit while working with DMS tasks. This prevents unexpected errors during task creation or modification. When a mapping rule
-file exceeds the 2 MB limit, we recommend that you split the tables across multiple tasks to reduce the size of the mapping rule file so that it stays
-below this limit.
-
-You can specify what tables, views, and schemas you want to work with. You can
-also perform table, view, and schema transformations and specify settings for how
-AWS DMS loads individual tables and views. You create table-mapping rules for these
-options using the following rule types:
-
-- `selection` rules – Identify the types and names of
-  source tables, views, and schemas to load. For more information, see [Selection rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
-- `transformation` rules – Specify certain changes or
-  additions to particular source tables and schemas on the source before they
-  are loaded on the target. For more information, see [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
-
-Also, to define content of new and existing columns, you can use an
-expression within a transformation rule. For more information, see [Using transformation rule expressions to define column content](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
-
-- `table-settings` rules – Specify how DMS tasks load the
-  data for individual tables. For more information, see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+You can include transformations in a table mapping after you have specified at
+least one selection rule. You can use transformations to rename a schema or table,
+add a prefix or suffix to a schema or table, or remove a table column.
 
 ###### Note
 
-For Amazon S3 targets, you can also tag S3 objects mapped to selected tables and
-schemas using the `post-processing` rule type and the
-`add-tag` rule action. For more information, see [Amazon S3 object tagging](CHAP_Target.md#CHAP_Target.S3.Tagging "CHAP_Target.md#CHAP_Target.S3.Tagging").
+AWS DMS doesn't support more than one transformation rule per schema level, table
+level, or column level.
 
-For the targets following, you can specify how and where selected schemas and
-tables are migrated to the target using the `object-mapping` rule
-type:
+The following procedure shows how to set up selection rules, based on a table
+called `Customers` in a schema called
+`EntertainmentAgencySample`.
 
-- Amazon DynamoDB – For more information, see [Using object mapping to migrate
-  data to DynamoDB](CHAP_Target.md#CHAP_Target.DynamoDB.ObjectMapping "CHAP_Target.md#CHAP_Target.DynamoDB.ObjectMapping").
-- Amazon Kinesis – For more information, see [Using object mapping to migrate
-  data to a Kinesis data stream](CHAP_Target.md#CHAP_Target.Kinesis.ObjectMapping "CHAP_Target.md#CHAP_Target.Kinesis.ObjectMapping").
-- Apache Kafka – For more information, see [Using object mapping to migrate
-  data to a Kafka topic](CHAP_Target.md#CHAP_Target.Kafka.ObjectMapping "CHAP_Target.md#CHAP_Target.Kafka.ObjectMapping").
+###### To specify a table selection, filter criteria, and transformations using the
+
+console
+
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+
+If you are signed in as an IAM user, make sure that you have the
+appropriate permissions to access AWS DMS. For more information about the permissions
+required, see [IAM permissions needed to use
+AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. On the **Dashboard** page, choose
+**Database migration tasks**. 3. Choose **Create Task**. 4. In the **Task configuration** section, enter the task
+information, including **Task identifier**,
+**Replication instance**, **Source database
+endpoint**, **Target database endpoint**, and
+**Migration type**.
+
+![Schema and table selection](images/datarep-create-task-20.png) 5. In the **Table mapping** section, enter the schema name
+and table name. You can use "%" as a wildcard value when
+specifying the schema name or the table name. For information about other wildcards you can use, see
+[Wildcards in table mapping](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+Specify the action to be taken, to include or
+exclude data defined by the filter.
+
+![Schema and table selection](images/datarep-Tasks-selecttransfrm.png) 6. Specify filter information using the **Add column
+filter** and the **Add condition** links.
+
+    1. Choose **Add column filter** to specify a column
+     and conditions.
+    2. Choose **Add condition**  to add additional
+     conditions. The following example shows a filter for the
+
+`Customers` table that includes
+`AgencyIDs` between `01` and
+`85`.
+
+![Schema and table selection](images/datarep-Tasks-filter.png) 7. When you have created the selections you want, choose **Add
+new selection rule**. 8. After you have created at least one selection rule, you can add a
+transformation to the task. Choose **add transformation
+rule**.
+
+![transformation rule](images/datarep-Tasks-transform1.png) 9. Choose the target that you want to transform, and enter the additional
+information requested. The following example shows a transformation that
+deletes the `AgencyStatus` column from the
+`Customer` table.
+
+![transformation rule](images/datarep-Tasks-transform2.png) 10. Choose **Add transformation rule**. 11. Choose **Create
+task**.
+
+###### Note
+
+AWS DMS doesn't support more than one transformation rule per schema level, table
+level, or column level.

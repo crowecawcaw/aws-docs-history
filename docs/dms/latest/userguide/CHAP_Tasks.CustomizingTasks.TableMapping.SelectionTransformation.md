@@ -1,196 +1,183 @@
-# Selection rules and actions
+# Using data masking to hide sensitive information
 
-Using table mapping, you can specify what tables, views, and schemas you want
-to work with by using selection rules and actions. For table-mapping rules that
-use the selection rule type, you can apply the following values.
+To conceal sensitive data stored in one or more columns of the tables being migrated, you can leverage Data Masking transformation rule actions.
+Starting from version 3.5.4, AWS DMS allows the use of data masking transformation rule actions in table mapping, enabling you to alter the contents of
+one or more columns during the migration process. AWS DMS loads the modified data into the target tables.
 
-###### Warning
+AWS Database Migration Service provides three options for data masking transformation rule actions:
 
-Do not to include any sensitive data within these rules.
+- Data Masking: Digits Mask
+- Data Masking: Digits Randomize
+- Data Masking: Hashing Mask
+  These data masking transformation rule actions can be configured in the table mapping of your replication task, similar to other transformation rules.
+  The rule target should be set to the column level.
 
-| Parameter        | Possible values                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                     |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `rule-type`      | `selection`                                                                                                                                                                  | A selection rule. Define at least one selection<br>rule when specifying a table mapping.                                                                                                                                                                                                                        |
-| `rule-id`        | A numeric value.                                                                                                                                                             | A unique numeric value to identify the<br>rule. If you create the rule using the console, the console creates this value for you.                                                                                                                                                                               |
-| `rule-name`      | An alphanumeric value.                                                                                                                                                       | A unique name to identify the rule. If you create the rule using the console,<br>the console creates this value for you.                                                                                                                                                                                        |
-| `rule-action`    | `include`, `exclude`,<br>`explicit`                                                                                                                                          | A value that includes or excludes the object or<br>objects selected by the rule. If `explicit` is specified,<br>you can select and include only one object that corresponds to an<br>explicitly specified table and schema.                                                                                     |
-| `object-locator` | An object with the following parameters:<br>• `schema-name` – The name of the<br>schema.<br>• `table-name` – The name of the<br>table.<br>• (Optional) `table-type` – `table | <br>view                                                                                                                                                                                                                                                                                                        | all`, to indicate if<br>`table-name` refers only to tables, views, or<br>both tables and views. The default is<br>`table`.<br>AWS DMS loads views only in a full-load task. If you have<br>only full-load and change data capture (CDC) tasks,<br>configure at least one full-load-only task to load your<br>views.<br>Not all target endpoints accept views as a source of<br>replication, even in full load (e.g. Amazon OpenSearch Service). Check the<br>limitations of your target endpoint.<br>WarningDMS selection rules are case-sensitive. However, the selection<br>result also depends on the source endpoint database<br>configuration. If the source endpoint is configured as<br>case-insensitive, the case of the object locator value does not<br>matter. Ensure that correct object identifiers are used in DMS<br>selection rules on a case-insensitive endpoint. | The name of each schema and table or view to<br>which the rule applies. You can also specify if a rule includes<br>only tables, only views, or both tables and views. If the<br>`rule-action` is either `include` or<br>`exclude`, you can use the "%" percent<br>sign as a wildcard for all or part of the value for the<br>`schema-name` and `table-name`<br>parameter. For information about other wildcards you can use, see<br>[Wildcards in table mapping](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").<br>Thus, you can match these items:<br>• A single table, view, or collection in a single<br>schema<br>• A single table, view, or collection in some or all<br>schemas<br>• Some or all tables and views in a single schema, or<br>collections in a single database<br>• Some or all tables and views in some or all schemas,<br>or collections in some or all databases<br>If the `rule-action` is<br>`explicit`, you can only specify the exact name<br>of a single table or view and its schema (with no<br>wildcards).<br>The supported sources for views include:<br>• Oracle<br>• Microsoft SQL Server<br>• PostgreSQL<br>• IBM Db2 LUW<br>• IBM Db2 z/OS<br>• SAP Adaptive Server Enterprise (ASE)<br>• MySQL<br>• AURORA MySQL<br>• MariaDB<br>NoteAWS DMS never loads a source view to a target view. A source<br>view is loaded to an equivalent table on the target with the<br>same name as the view on the source.<br>The supported sources for databases containing collections include:<br>• MongoDB<br>• Amazon DocumentDB |
-| `load-order`     | A positive integer. The maximum value is<br>2,147,483,647.                                                                                                                   | The priority for loading tables and views. Tables<br>and views with higher values are loaded first.                                                                                                                                                                                                             |
-| `filters`        | An array of objects.                                                                                                                                                         | One or more objects for filtering the source. You<br>specify object parameters to filter on a single column in the<br>source. You specify multiple objects to filter on multiple columns.<br>For more information, see [Using source filters](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md"). |
+## Masking numbers in column data with a masking character
 
-###### Example Migrate all tables in a schema
+The "Data Masking: Digits Mask" transformation rule action allows you to mask numerical data in one or more columns by replacing digits with a single
+ASCII printable character that you specify (excluding empty or whitespace characters).
 
-The following example migrates all tables from a schema named
-`Test` in your source to your target endpoint.
+Here's an example that masks all digits in the `cust_passport_no` column of the `customer_master` table with the masking character `'#'`
+and loads the masked data into the target table:
 
 ```
-{
+
+                {
     "rules": [
         {
             "rule-type": "selection",
             "rule-id": "1",
             "rule-name": "1",
             "object-locator": {
-                "schema-name": "Test",
-                "table-name": "%"
-            },
-            "rule-action": "include"
-        }
-    ]
-}
-```
-
-###### Example Migrate some tables in a schema
-
-The following example migrates all tables except those starting with
-`DMS` from a schema named `Test` in your source to
-your target endpoint.
-
-```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "Test",
+                "schema-name": "cust_schema",
                 "table-name": "%"
             },
             "rule-action": "include"
         },
         {
-            "rule-type": "selection",
+            "rule-type": "transformation",
             "rule-id": "2",
             "rule-name": "2",
+            "rule-target": "column",
             "object-locator": {
-                "schema-name": "Test",
-                "table-name": "DMS%"
+                "schema-name": "cust_schema",
+                "table-name": "customer_master",
+                "column-name": "cust_passport_no"
             },
-            "rule-action": "exclude"
+            "rule-action": "data-masking-digits-mask",
+            "value": "#"
         }
     ]
 }
-```
-
-###### Example Migrate a specified single table in single schema
-
-The following example migrates the `Customer` table from the
-`NewCust` schema in your source to your target
-endpoint.
 
 ```
-{
+
+For example, if the column `cust_passport_no` in the source table contains the record "C6BGJ566669K", the AWS DMS task will write this data to
+the target table as `"C#BGJ######K"`.
+
+## Replacing numbers in the column with random numbers
+
+The transformation rule "Data Masking: Digits Randomize" allows you to replace each numerical digit in one or more columns with a random number.
+In the following example, AWS DMS replaces every digit in the `cust_passport_no` column of the source table `customer_master` with a
+random number and writes the modified data to the target table:
+
+```
+
+            {
     "rules": [
         {
             "rule-type": "selection",
             "rule-id": "1",
             "rule-name": "1",
             "object-locator": {
-                "schema-name": "NewCust",
-                "table-name": "Customer"
+                "schema-name": "cust_schema",
+                "table-name": "%"
             },
-            "rule-action": "explicit"
-        }
-    ]
-}
-```
-
-###### Note
-
-You can explicitly select on multiple tables and schemas by specifying
-multiple selection rules.
-
-###### Example Migrate tables in a set order
-
-Tables and views are migrated according to their load-order values, with higher
-values receiving priority in the migration sequence. The following example migrates
-two tables, `loadfirst` with a priority value of 2 and
-`loadsecond` with a priority value of 1, the migration task would
-first process the `loadfirst` table before proceeding to the
-`loadsecond` table. This prioritization mechanism ensures that
-dependencies between database objects are respected during the migration
-process.
-
-```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "object-locator": {
-                "schema-name": "Test",
-                "table-name": "loadsecond"
-            },
-            "rule-action": "include",
-            "load-order": "1"
+            "rule-action": "include"
         },
         {
-            "rule-type": "selection",
+            "rule-type": "transformation",
             "rule-id": "2",
             "rule-name": "2",
+            "rule-target": "column",
             "object-locator": {
-                "schema-name": "Test",
-                "table-name": "loadfirst"
+                "schema-name": "cust_schema",
+                "table-name": "customer_master",
+                "column-name": "cust_passport_no"
             },
-            "rule-action": "include",
-            "load-order": "2"
+            "rule-action": "data-masking-digits-randomize"
         }
     ]
 }
-```
-
-###### Note
-
-`load-order` is applicable for table initialization. The load of a successive
-table won't wait for a previous table load to complete if `MaxFullLoadSubTasks`
-is greater than 1.
-
-###### Example Migrate some views in a schema
-
-The following example migrates some views from a schema named
-`Test` in your source to equivalent tables in your
-target.
 
 ```
+
+For example, the AWS DMS task will transform the value `"C6BGJ566669K"` in the `cust_passport_no` column of the source table to `"C1BGJ842170K"` and write it to the target database.
+
+## Replacing column data with hash value
+
+The transformation rule "Data Masking: Hashing Mask" allows you to replace the column data with a hash generated using the `SHA256` algorithm.
+The length of the hash will always be 64 characters, hence the target table column length should be 64 characters at minimum. Alternatively, you can add a
+`change-data-type` transformation rule action to the column to increase the width of the column in the target table.
+
+The following example generates a 64-character long hash value for the data in the `cust_passport_no` column of the source table
+`customer_master` and loads the transformed data to the target table after increasing the column length:
+
+```
+
 {
-   "rules": [
-        {
-           "rule-type": "selection",
-           "rule-id": "2",
-           "rule-name": "2",
-           "object-locator": {
-               "schema-name": "Test",
-               "table-name": "view_DMS%",
-               "table-type": "view"
-            },
-           "rule-action": "include"
-        }
-    ]
-}
-```
-
-###### Example Migrate all tables and views in a schema
-
-The following example migrates all tables and views from a schema named
-`report` in your source to equivalent tables in your
-target.
-
-```
+"rules": [
 {
-   "rules": [
-        {
-           "rule-type": "selection",
-           "rule-id": "3",
-           "rule-name": "3",
-           "object-locator": {
-               "schema-name": "report",
-               "table-name": "%",
-               "table-type": "all"
-            },
-           "rule-action": "include"
-        }
-    ]
+"rule-type": "selection",
+"rule-id": "1",
+"rule-name": "1",
+"object-locator": {
+"schema-name": "cust_schema",
+"table-name": "%"
+},
+"rule-action": "include"
+},
+{
+"rule-type": "transformation",
+"rule-id": "2",
+"rule-name": "2",
+"rule-target": "column",
+"object-locator": {
+"schema-name": "cust_schema",
+"table-name": "customer_master",
+"column-name": "cust_passport_no"
+},
+"rule-action": "change-data-type",
+"data-type": {
+"type": "string",
+"length": "100",
+"scale": ""
 }
+},
+{
+"rule-type": "transformation",
+"rule-id": "3",
+"rule-name": "3",
+"rule-target": "column",
+"object-locator": {
+"schema-name": "cust_schema",
+"table-name": "customer_master",
+"column-name": "cust_passport_no"
+},
+"rule-action": "data-masking-hash-mask"
+}
+]
+}
+
 ```
+
+For example, if the column `cust_passport_no` of the source table contains value `“C6BGJ566669K”`, AWS DMS task will write a hash
+`“7CB06784764C9030CCC41E25C15339FEB293FFE9B329A72B5FED564E99900C75”` to the target table.
+
+## Limitations
+
+- Each Data Masking transformation rule option is supported for specific AWS DMS data types only:
+
+      + Data Masking: Digits Mask is supported for columns of data types: `WSTRING` and `STRING`.
+      + Data Masking: Digits Randomize is supported for columns of data types: `WSTRING, STRING; NUMERIC, INT1, INT2, INT4, and INT8`
+       with unsigned counterparts.
+      + Data Masking: Hashing Mask is supported for columns of data types: `WSTRING` and `STRING`.
+
+  To learn more about the mapping of AWS DMS data types to your source engine's data types, refer to the data type mapping of your source engine with AWS DMS data types.
+  See source data types for [Source data types for Oracle](CHAP_Source.md#CHAP_Source.Oracle.DataTypes "CHAP_Source.md#CHAP_Source.Oracle.DataTypes"), [Source data types for SQL
+  Server](CHAP_Source.md#CHAP_Source.SQLServer.DataTypes "CHAP_Source.md#CHAP_Source.SQLServer.DataTypes"), [Source data types for
+  PostgreSQL](CHAP_Source.md#CHAP_Source-PostgreSQL-DataTypes "CHAP_Source.md#CHAP_Source-PostgreSQL-DataTypes"), and [Source data types for MySQL](CHAP_Source.md#CHAP_Source.MySQL.DataTypes "CHAP_Source.md#CHAP_Source.MySQL.DataTypes").
+
+- Using a Data Masking rule action for a column with an incompatible data type will cause an error in the DMS task. Refer to DataMaskingErrorPolicy in DMS task settings to specify the error handling behavior.
+  For more information about `DataMaskingErrorPolicy`, see [Error
+  handling task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+- You may add a change-data-type transformation rule action to change the data type of the column to a compatible type if your source column type is not supported for the masking option you plan to use.
+  The `rule-id` of the `change-data-type` transformation should be a smaller number than the rule-id of the masking transformation so
+  that the data type change happens before masking.
+- Use Data Masking: Hashing Mask action for masking Primary Key/ Unique Key/ Foreign Key columns, as the generated hash value will be unique and
+  consistent. Other two masking options cannot guarantee uniqueness.
+- While Data Masking: Digits Mask and Data Masking: Digits Randomize affect only the digits in the column data and does not affect the length of
+  data, Data Masking: Hashing Mask modifies the entire column, length of data changes to 64 characters. Hence, the target table to be created accordingly or
+  a change-data-type transformation rule should be added for the column which is being masked.
+- Columns with Data Masking transformation rule action specified are excluded from data validation in AWS DMS. If the Primary Key/ Unique Key
+  columns are masked, data validation will not be run for this table; validation status of such table will be equal to `No Primary key`.

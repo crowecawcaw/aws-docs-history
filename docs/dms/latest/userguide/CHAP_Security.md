@@ -1,106 +1,205 @@
-# Data protection in AWS Database Migration Service
+# Using Kerberos Authentication with AWS Database Migration Service
 
-## Data
+Starting with DMS v3.5.3, you can configure your Oracle or SQL Server source endpoint to connect to your
+database instance using Kerberos authentication. DMS supports Directory Service for Microsoft Active Directory and
+Kerberos authentication. For more information about AWS-managed access to Microsoft Active Directory Services, see
+[What is Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md").
 
-encryption
+## AWS DMS Kerberos Authentication Architecture Overview
 
-You can enable encryption for data resources of supported AWS DMS target endpoints.
-AWS DMS also encrypts connections to AWS DMS and between AWS DMS and all its source and
-target endpoints. In addition, you can manage the keys that AWS DMS and its supported
-target endpoints use to enable this encryption.
+The following diagram provides a high level overview of the AWS DMS Kerberos authentication workflow.
 
-###### Topics
+![Kerberos Authentication Architecture](images/datarep-kerberos-architecture.jpg)
 
-- [Encryption at rest](#CHAP_Security.DataProtection.DataEncryption.EncryptionAtRest "#CHAP_Security.DataProtection.DataEncryption.EncryptionAtRest")
-- [Encryption in transit](#CHAP_Security.DataProtection.DataEncryption.EncryptionInTransit "#CHAP_Security.DataProtection.DataEncryption.EncryptionInTransit")
-- [Key
-  management](#CHAP_Security.DataProtection.DataEncryption.KeyManagement "#CHAP_Security.DataProtection.DataEncryption.KeyManagement")
+## Limitations on using Kerberos authentication
 
-### Encryption at rest
+with AWS DMS
 
-AWS DMS supports encryption at rest by allowing you to specify the server-side
-encryption mode that you want used to push your replicated data to Amazon S3 before it is
-copied to supported AWS DMS target endpoints. You can specify this encryption mode by
-setting the `encryptionMode` extra connection attribute for the endpoint.
-If this `encryptionMode` setting specifies KMS key encryption mode, you
-can also create custom AWS KMS keys specifically to encrypt the target data for the
-following AWS DMS target endpoints:
+The following limitations apply when using Kerberos authentication with AWS DMS:
 
-- Amazon Redshift – For more information about setting
-  `encryptionMode`, see [Endpoint settings
-  when using Amazon Redshift as a target for AWS DMS](CHAP_Target.md#CHAP_Target.Redshift.ConnectionAttrib "CHAP_Target.md#CHAP_Target.Redshift.ConnectionAttrib"). For more
-  information about creating a custom AWS KMS encryption key, see [Creating and using AWS KMS keys to
-  encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys").
-- Amazon S3 – For more information about setting
-  `encryptionMode`, see [Endpoint settings when using
-  Amazon S3 as a target for AWS DMS](CHAP_Target.md#CHAP_Target.S3.Configuring "CHAP_Target.md#CHAP_Target.S3.Configuring"). For more information about
-  creating a custom AWS KMS encryption key, see [Creating AWS KMS keys to encrypt Amazon S3 target
-  objects](CHAP_Target.md#CHAP_Target.S3.KMSKeys "CHAP_Target.md#CHAP_Target.S3.KMSKeys").
+- DMS replication instances support one Kerberos `krb5.conf` file and one keycache file.
+- You must update the Kerberos keycache file in Secrets Manager at least 30 minutes prior to
+  the ticket expiring.
+- A Kerberos-enabled DMS endpoint only works with a Kerberos-enabled DMS replication instance.
 
-### Encryption in transit
+## Prerequisites
 
-AWS DMS supports encryption in transit by ensuring that the data it replicates
-moves securely from the source endpoint to the target endpoint. This includes
-encrypting an S3 bucket on the replication instance that your replication task
-uses for intermediate storage as the data moves through the replication
-pipeline. To encrypt task connections to source and target endpoints AWS DMS uses
-Secure Socket Layer (SSL) or Transport Layer Security (TLS). By encrypting
-connections to both endpoints, AWS DMS ensures that your data is secure as it
-moves both from the source endpoint to your replication task and from your task
-to the target endpoint. For more information about using SSL/TLS with AWS DMS, see
-[Using SSL with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md")
+To start, you must complete the following prerequisites from an existing Active Directory or Kerberos-authenticated host:
 
-AWS DMS supports both default and custom keys to encrypt both intermediate
-replication storage and connection information. You manage these keys by using
-AWS KMS. For more information, see [Setting an encryption key and
-specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey "CHAP_Security.md#CHAP_Security.EncryptionKey").
+- Establish an Active Directory trust relationship with your on-premise AD. For more information,
+  see [Tutorial: Create a trust relationship between your AWS Managed Microsoft AD and your self-managed Active Directory domain](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md").
+- Prepare a simplified version of the Kerberos `krb5.conf` configuration file. Include information about the realm, the location of the domain admin servers, and mappings of hostnames onto a Kerberos realm. You need to verify that the `krb5.conf` content is formatted with the correct mixed casing for the realms and domain realm names. For example:
 
-### Key
+```
+[libdefaults]
+ dns_lookup_realm = true
+ dns_lookup_kdc = true
+ forwardable = true
+ default_realm = MYDOMAIN.ORG
+[realms]
+MYDOMAIN.ORG = {
+kdc = mydomain.org
+admin_server = mydomain.org
+}
+[domain_realm]
+.mydomain.org = MYDOMAIN.ORG
+mydomain.org = MYDOMAIN.ORG
+```
 
-management
+- Prepare a Kerberos keycache file. The file contains a temporary Kerberos credential of the client
+  principal information. The file does not store the client's password. Your DMS task uses this cache ticket
+  information to get additional credentials without a password. Run the following steps on an existing Active
+  Directory or Kerberos-authenticated host to generate a keycache file.
+  - Create a Kerberos keytab file. You can generate a keytab file using the
+    **kutil** or **ktpass** utility.
 
-AWS DMS supports default or custom keys to encrypt replication storage,
-connection information, and the target data storage for certain target
-endpoints. You manage these keys by using AWS KMS. For more information, see [Setting an encryption key and
-specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey "CHAP_Security.md#CHAP_Security.EncryptionKey").
+  For more information about the Microsoft **ktpass** utility, see
+  [ktpass](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass")
+  in the _Windows Server documentation_.
 
-## Internetwork
+  For more information about the MIT **kutil** utility, see
+  [kutil](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html")
+  in the _MIT Kerberos Documentation_.
+  - Create a Kerberos keycache file from keytab file using the **kinit** utility. For more information about the **kinit** utility, see [kinit](https://web.mit.edu/kerberos/krb5-1.12/doc/user/user_commands/kinit.html "https://web.mit.edu/kerberos/krb5-1.12/doc/user/user_commands/kinit.html")
+    in the _MIT Kerberos Documentation_.
 
-traffic privacy
+- Store the Kerberos keycache file in Secrets Manager using the `SecretBinary` parameter. When you upload the
+  keycache file to Secrets Manager, DMS retrieves it, and then updates the local cache file about
+  every 30 minutes. When the local keycache file exceeds the predefined expiration timestamp, DMS
+  gracefully stops the task. To avoid authentication failures during an ongoing replication task,
+  update the keycache file in Secrets Manager at least 30 minutes before the ticket expiration. For more information,
+  see
+  [createsecret](../../../secretsmanager/latest/apireference/API_CreateSecret.md "../../../secretsmanager/latest/apireference/API_CreateSecret.md")
+  in the _Secrets Manager API Reference_. The following AWS CLI sample shows how to store the keycache file
+  in binary format in Secrets Manager:
 
-Connections are provided with protection between AWS DMS and source and target
-endpoints in the same AWS Region, whether running on premises or as part of an
-AWS service in the cloud. (At least one endpoint, source or target, must run as
-part of an AWS service in the cloud.) This protection applies whether these
-components share the same virtual private cloud (VPC) or exist in separate VPCs, if
-the VPCs are all in the same AWS Region. For more information about the supported
-network configurations for AWS DMS, see [Setting up a network for a replication
-instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md"). For more information about the
-security considerations when using these network configurations, see [Network security for AWS Database Migration Service](CHAP_Security.md#CHAP_Security.Network "CHAP_Security.md#CHAP_Security.Network").
+```
+aws secretsmanager create-secret —name keycache —secret-binary fileb:`//keycachefile`
 
-## Data protection in DMS Fleet Advisor
+```
 
-DMS Fleet Advisor collects and analyzes your database metadata to determine the right size of
-the migration target. DMS Fleet Advisor doesn't access data in your tables and doesn't transfer
-it. Also, DMS Fleet Advisor doesn't track database feature usage and doesn't access your usage
-statistics.
+- Grant an IAM role the `GetSecretValue` and `DescribeSecret` permissions to get
+  the keycache file from Secrets Manager. Ensure that the IAM role includes the `dms-vpc-role` trust policy. For
+  more information about the `dms-vpc-role` trust policy, see
+  [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole "security-iam.md#CHAP_Security.APIRole").
 
-You control access to your databases when you create database users which DMS Fleet Advisor
-uses to work with your databases. You grant the required privileges to these users.
-To use DMS Fleet Advisor, you grant your database users with read permissions. DMS Fleet Advisor doesn't
-modify your databases and doesn't require write permissions. For more information, see
-[Creating database users for AWS DMS Fleet Advisor](fa-database-users.md "fa-database-users.md").
+The following example shows an IAM role policy with the Secrets Manager `GetSecretValue` and
+`DescribeSecret` permissions. The `<keycache_secretsmanager_arn>`
+value is the Keycache Secrets Manager ARN you created in the previous step.
 
-You can use data encryption in your databases. AWS DMS also encrypts connections
-within DMS Fleet Advisor and within its data collectors.
+JSON
 
-DMS data collector uses the Data Protection application programming interface (DPAPI) to encrypt,
-protect, and store information about customer's environment and database credentials.
-DMS Fleet Advisor stores this encrypted data in a file on the server where your DMS data collector works.
-DMS Fleet Advisor doesn't transfer this data from this server. For more information about
-DPAPI, see [How to: Use Data Protection](https://learn.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection "https://learn.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection").
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetSecretValue",
+ "secretsmanager:DescribeSecret"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
 
-After you install the DMS data collector, you can view all queries that this application runs
-to collect metrics. You can run the DMS data collector in an offline mode and then review the
-collected data on your server. Also, you can review this collected data in your Amazon S3
-bucket. For more information, see [How does DMS data collector work?](fa-collecting.md#fa-data-collectors-how-it-works "fa-collecting.md#fa-data-collectors-how-it-works").
+```
+
+## Enabling Kerberos support on an AWS DMS
+
+replication instance
+
+Kerberos realms are identical to domains in Windows. In order to resolve a principle realm, Kerberos relies
+on a Domain Name Service (DNS). When you set the `dns-name-servers` parameter, your replication instance
+will use your predefined custom set of DNS servers to resolve the Kerberos domain realms. Another alternative
+option to resolve Kerberos realm queries is to configure Amazon Route 53 on the replication instance
+virtual private cloud (VPC). For more information, see [Route 53](../../../route53.md "../../../route53.md").
+
+### Enabling Kerberos support on a DMS
+
+replication instance using the AWS Management Console
+
+To enable Kerberos support using the console, enter the following information in the
+**Kerberos authentication** section of the **Create Replication Instance**
+or **Modify Replication Instance** page:
+
+- The content from your `krb5.conf` file
+- The ARN of the Secrets Manager secret that contains the keycache file
+- The ARN of the IAM role that has access to the secret manager ARN and permissions to
+  retrieve the keycache file
+
+### Enabling Kerberos support on a DMS
+
+replication instance using the AWS CLI
+
+The following AWS CLI sample call creates a private DMS replication instance with Kerberos support.
+The replication instance uses a custom DNS to resolve the Kerberos realm. For more information,
+see [create-replication-instance](../../../cli/latest/reference/dms/create-replication-instance.md "../../../cli/latest/reference/dms/create-replication-instance.md").
+
+```
+aws dms create-replication-instance
+--replication-instance-identifier my-replication-instance
+--replication-instance-class dms.t2.micro
+--allocated-storage 50
+--vpc-security-group-ids sg-12345678
+--engine-version 3.5.4
+--no-auto-minor-version-upgrade
+--kerberos-authentication-settings'{"KeyCacheSecretId":<secret-id>,"KeyCacheSecretIamArn":<secret-iam-role-arn>,"Krb5FileContents":<krb5.conf file contents>}'
+--dns-name-servers `<custom dns server>`
+--no-publicly-accessible
+```
+
+## Enabling Kerberos support on a source endpoint
+
+Before enabling Kerberos authentication on a DMS Oracle or SQL server source endpoint, make sure
+you can authenticate to the source database using the Kerberos protocol from a client machine.
+You can use the AWS DMS Diagnostic AMI to launch an Amazon EC2 instance on the same VPC as the replication
+instance, and then test the kerberos authentication. For more information about the AMI, see
+[Working with the AWS DMS diagnostic support AMI](CHAP_SupportAmi.md "CHAP_SupportAmi.md").
+
+### Using the AWS DMS console
+
+Under **Access to endpoint database**, choose **Kerberos authentication**.
+
+### Using the AWS CLI
+
+Specify the endpoint setting parameter and set `AuthenticationMethod` option as kerberos. For example:
+
+**Oracle**
+
+```
+aws dms create-endpoint
+--endpoint-identifier my-endpoint
+--endpoint-type source
+--engine-name oracle
+--username dmsuser@MYDOMAIN.ORG
+--server-name `mydatabaseserver`
+--port 1521
+--database-name `mydatabase`
+--oracle-settings "{\"AuthenticationMethod\": \"kerberos\"}"
+```
+
+**SQL Server**
+
+```
+aws dms create-endpoint
+--endpoint-identifier my-endpoint
+--endpoint-type source
+--engine-name sqlserver
+--username dmsuser@MYDOMAIN.ORG
+--server-name `mydatabaseserver`
+--port 1433
+--database-name `mydatabase`
+--microsoft-sql-server-settings "{\"AuthenticationMethod\": \"kerberos\"}"
+```
+
+## Testing a source
+
+endpoint
+
+You must test the Kerberos-enabled endpoint against a Kerberos-enabled replication instance.
+When you don't properly confiugure the replication instance or source endpoint for Kerberos
+authentication, the endpoint `test-connection` action will fail, and might return Kerberos-related
+errors. For more information, see
+[test-connection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dms/test-connection.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dms/test-connection.html").
