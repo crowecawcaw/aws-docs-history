@@ -1,24 +1,31 @@
 # Implement the AWS.ActivateUser operation
 
-The `AWS.ActivateUser` operation is required for managed integrations for AWS IoT Device Management to retrieve
-a user identifier from an end user's OAuth2.0 token. Managed integrations for AWS IoT Device Management will pass the OAuth
-token within the request header, and expects your connector to include the globally unique
-user identifier in the response payload. This operation occurs after a successful account
-linking flow.
+The `AWS.ActivateUser` operation is required for Managed integrations for AWS IoT Device Management to retrieve
+a user identifier from an end user. For OAuth 2.0, Managed integrations for AWS IoT Device Management will pass the OAuth
+token within the request header. For General Authorization, Managed integrations for AWS IoT Device Management will pass the
+AWS Secrets Manager reference. Your connector must include the globally unique
+user identifier in the response payload.
+
+###### Requirements
 
 The following list outlines the requirements for your connector to facilitate a
-successful `AWS.Activate` user flow.
+successful `AWS.ActivateUser` flow:
 
 - Your C2C connector Lambda can process an `AWS.ActivateUser` operation
-  request message from managed integrations for AWS IoT Device Management.
-- Your C2C connector Lambda can determine a unique user identifier from a provided
-  OAuth2.0 token. Normally, it can be extracted either from the token itself, if it's a
-  JWT token, or requested from the Authorization server by the token.
+  request message from Managed integrations for AWS IoT Device Management.
+- Your C2C connector Lambda can determine a unique user identifier. For OAuth 2.0,
+  this can be extracted from the token itself if it's a JWT token, or requested from the
+  authorization server. For General Authorization, this may be retrieved from your
+  third-party platform or derived from the authorization context.
 
-###### `AWS.ActivateUser` workflow
+###### `AWS.ActivateUser` Workflow
 
-1. Managed integrations for AWS IoT Device Management invokes your C2C connector Lambda with the following
-   payload:
+**Step 1: Managed Integrations Invokes Your Lambda**
+
+Managed integrations for AWS IoT Device Management invokes your C2C connector Lambda with one of the following
+payloads, depending on the authorization type:
+
+**OAuth 2.0 Request:**
 
 ```
 {
@@ -31,18 +38,49 @@ successful `AWS.Activate` user flow.
    "payload": {
         "operationName": "AWS.ActivateUser",
         "operationVersion": "1.0.0",
-        "connectorId": "`Your-Connector-ID`",
-}
+        "connectorId": "`Your-Connector-ID`"
+   }
 }
 
 ```
 
-2. The C2C connector determines the user ID, either from the token or by querying
-   your third-party resource server, to include in the `AWS.ActivateUser`
-   response.
-3. The C2C connector responds to `AWS.ActivateUser` operation Lambda
-   invocation, including the default payload as well as the corresponding user identifier
-   within the `userId` field.
+**General Authorization request:**
+
+```
+{
+   "header": {
+        "auth": {
+            "secretsManager": {
+                "arn": "string",
+                "versionId": "string"
+            },
+            "type": "GeneralAuthorization"
+        }
+   },
+   "payload": {
+        "operationName": "AWS.ActivateUser",
+        "operationVersion": "1.0.0",
+        "connectorId": "`Your-Connector-ID`"
+   }
+}
+
+```
+
+**Step 2: Determine User ID**
+
+The C2C connector determines the user ID to include in the `AWS.ActivateUser`
+response.
+
+- **For OAuth 2.0:** This is retrieved from the token or by querying your authorization server.
+- **For General Authorization:** This may be retrieved from your third-party platform
+  or derived from the authorization context.
+  **Step 3: Respond with User Identifier**
+
+The C2C connector responds to `AWS.ActivateUser` operation Lambda
+invocation, including the default payload as well as the corresponding user identifier
+within the `userId` field.
+
+**Response Format:**
 
 ```
 {

@@ -47,7 +47,7 @@ The following table illustrates the required parameters from your OAuth authoriz
 server for managed integrations for AWS IoT Device Management to perform [account linking](account-linking-flow.md "account-linking-flow.md"):
 
 OAuth Server Parameters| **Field** | **Required** | **Comment** |
-| `clientId` | Yes | A public identifier for your application. It's used to initiate authentication flows and can be shared publicly. |
+| `clientId` | Yes | A public identifier for your application. It's used to initiate authorization flows and can be shared publicly. |
 | `clientSecret` | Yes | A secret key used to authenticate the application with the authorization server, especially when exchanging an authorization code<br>for an access token. It should be kept confidential and not shared publicly. |
 | `authorizationType` | Yes | The type of authorization supported by this authorization configuration.<br>Currently, "OAuth 2.0" is the only value supported. |
 | `authUrl` | Yes | The authorization URL for the third-party cloud provider. |

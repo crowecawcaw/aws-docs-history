@@ -222,7 +222,7 @@ notifications:
                 "messageType":"DEVICE_COMMAND",
                 "source":"aws.iotmanagedintegrations",
                 "customerAccountId":"123456789012",
-                "timestamp":"2017-12-22T18:43:48Z",
+                "timestamp":"1731623291671",
                 "region":"ca-central-1",
                 "resources":[
                       "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/6a7e8feb-b491-4cf7-a9f1-bf3703467718"
@@ -251,7 +251,7 @@ notifications:
                 "messageType":"DEVICE_COMMAND_REQUEST",
                 "source":"aws.iotmanagedintegrations",
                 "customerAccountId":"123456789012",
-                "timestamp":"2017-12-22T18:43:48Z",
+                "timestamp":"1731623291671",
                 "region":"ca-central-1",
                 "resources":[
                     "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/6a7e8feb-b491-4cf7-a9f1-bf3703467718"
@@ -470,5 +470,60 @@ Reflects changes in status of device life cycle (this includes onboarding status
             ]}
           ]}
         }
+  }
+  ```
+
+- `ACCOUNT_ASSOCIATION`
+  - A notification when an account association state changes to IN_PROGRESS.
+
+  ```
+  {
+      "version": "1.0.0",
+      "messageId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+      "messageType": "ACCOUNT_ASSOCIATION",
+      "source": "aws.iotmanagedintegrations",
+      "customerAccountId": "123456789012",
+      "timestamp": "2026-01-20T23:59:34.009284802Z",
+      "region": "ca-central-1",
+      "resources": ["arn:aws:iotmanagedintegrations:ca-central-1:123456789012:account-association/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"],
+      "payload": {
+          "traceId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+          "logLevel": "INFO",
+          "resourceType": "account-association",
+          "resourceId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+          "connectorDestinationId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+          "associationArn": "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:account-association/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+          "state": "ASSOCIATION_IN_PROGRESS",
+          "isServiceError": false,
+          "isCustomerError": false,
+          "details": "AccountAssociation State is updated to IN_PROGRESS during StartAccountAssociationRefresh"
+      }
+  }
+  ```
+
+  - A notification when an account association completes successfully.
+
+  ```
+  {
+      "version": "1.0.0",
+      "messageId": "b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7",
+      "messageType": "ACCOUNT_ASSOCIATION",
+      "source": "aws.iotmanagedintegrations",
+      "customerAccountId": "123456789012",
+      "timestamp": "2026-01-20T23:59:44.672304821Z",
+      "region": "ca-central-1",
+      "resources": ["arn:aws:iotmanagedintegrations:ca-central-1:123456789012:account-association/b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7"],
+      "payload": {
+          "traceId": "b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7",
+          "logLevel": "INFO",
+          "resourceType": "account-association",
+          "resourceId": "b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7",
+          "connectorDestinationId": "b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7",
+          "associationArn": "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:account-association/b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7",
+          "state": "ASSOCIATION_SUCCEEDED",
+          "isServiceError": false,
+          "isCustomerError": false,
+          "details": "AccountAssociation has completed successfully"
+      }
   }
   ```

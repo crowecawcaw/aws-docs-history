@@ -4,26 +4,32 @@ Managed integrations for AWS IoT Device Management defines four operations your 
 connector. Your C2C connector must implement each of the following operations:
 
 1. `AWS.ActivateUser` - Managed integrations for AWS IoT Device Management service calls this API to retrieve
-   a globally unique user identifier associated with the provided OAuth2.0 token. This
-   operation can optionally be used to perform any additional requirements for the account
-   linking process.
-2. `AWS.DiscoverDevices` - managed integrations for AWS IoT Device Management service calls this API to your
+   a globally unique user identifier. For OAuth 2.0, this is associated with the provided
+   OAuth 2.0 token. This operation can optionally be used to perform any additional
+   requirements for the account linking process.
+2. `AWS.DiscoverDevices` - Managed integrations for AWS IoT Device Management service calls this API to your
    connector for discovering user’s devices
-3. `AWS.SendCommand` - managed integrations for AWS IoT Device Management service calls this API to your
+3. `AWS.SendCommand` - Managed integrations for AWS IoT Device Management service calls this API to your
    connector for sending commands for user’s devices
-4. `AWS.DeactivateUser` - managed integrations for AWS IoT Device Management service calls this API to your
-   connector for deactivating user’s access token to delink in your authorization
+4. `AWS.DeactivateUser` - Managed integrations for AWS IoT Device Management service calls this API to your
+   connector for deactivating user's access token to delink in your authorization
    server.
-   Managed integrations for AWS IoT Device Management always invokes the
-   Lambda function with a JSON string payload through the AWS Lambda `invokeFunction` action.
-   Request operations are must include an `operationName` field in
-   every request payload. For more, see [Invoke](../../../lambda/latest/api/API_Invoke.md "../../../lambda/latest/api/API_Invoke.md") in AWS Lambda API Reference.
 
-Each invocation timeout is set to two seconds, and if the invocation
-failes it will be retried five times.
+## Invocation Details
+
+Managed integrations for AWS IoT Device Management always invokes the Lambda function with a JSON string payload through the
+AWS Lambda `invokeFunction` action. Request operations must include an
+`operationName` field in every request payload.
+
+**Invocation Settings:**
+
+- **Timeout:** 2 seconds per invocation
+- **Retries:** 5 retry attempts on failure
+
+## Implementation Example
 
 The Lambda you implement for your connector will parse an `operationName` from
-the request payload, and implement the corresponding functionality to map to the third-party
+the request payload and implement the corresponding functionality to map to the third-party
 cloud:
 
 ```
@@ -56,58 +62,104 @@ The developer of the connector must implement the `activateUserManager.activateU
 `sendCommandManager.sendCommand(request)`, and
 `deactivateUser.deactivateUser` operations listed in the preceding example.
 
-The following example details a generic connector request from managed integrations, in which common
-fields to every required interface are present. From the example, you can see there is both a
+## Request Format Examples
+
+The following examples detail generic connector requests from managed integrations, in which common
+fields to every required interface are present. From the examples, you can see there is both a
 request header and request payload. Request headers are common throughout every operation
 interface.
 
+**OAuth 2.0 example:**
+
 ```
 {
- 	"header": {
- 		"auth": {
- 			"token": “ashriu32yr97feqy7afsaf”,
- 			"type": “OAuth2.0"
- 		}
- 	},
- 	"payload":{
- 		"operationName": "AWS.SendCommand",
- 		"operationVersion": "1.0",
- 		"connectorId": “exampleId”,
- 	…
- 	}
+        "header": {
+                "auth": {
+                        "token": "ashriu32yr97feqy7afsaf",
+                        "type": "OAuth2.0"
+                }
+        },
+        "payload":{
+                "operationName": "AWS.SendCommand",
+                "operationVersion": "1.0",
+                "connectorId": "exampleId",
+        …
+        }
+}
+
+```
+
+**General Authorization example:**
+
+```
+{
+        "header": {
+                "auth": {
+                        "secretsManager": {
+                                "arn": "string",
+                                "versionId": "string"
+                        },
+                        "type": "GeneralAuthorization"
+                }
+        },
+        "payload":{
+                "operationName": "AWS.SendCommand",
+                "operationVersion": "1.0",
+                "connectorId": "exampleId",
+        …
+        }
 }
 
 ```
 
 ## Default request headers
 
-The default header fields are as follows.
+The default header fields vary depending on the authorization type. Your connector must handle both OAuth 2.0 and General Authorization request headers.
+
+**OAuth 2.0 default header:**
 
 ```
 {
     "header": {
         "auth": {
-            "token": string,    // end user's Access Token
-            "type": ENUM ["OAuth2.0"],
+            "token": string,    // End user's Access Token
+            "type": "OAuth2.0"
         }
     }
 }
 
 ```
 
-Any API hosted by a connector must process the following header parameters:
+**General Authorization default header:**
 
-Default headers and fields| **Field** | **Required/Optional** | **Description** |
+```
+{
+    "header": {
+        "auth": {
+            "secretsManager": {
+                "arn": "string",
+                "versionId": "string"
+            },
+            "type": "GeneralAuthorization"
+        }
+    }
+}
+
+```
+
+Header Parameters| **Field** | **Required/Optional** | **Description** |
 | `header:auth` | Yes | Authorization information provided by the C2C connector builder during their<br>connector registration. |
-| `header:auth:token` | Yes | Authorization token of user generated by the third-party cloud provider and<br>linked to `connectorAssociationID`. |
-| `header:auth:type` | Yes | The type of authorization needed. |
+| `header:auth:token` | Conditional | Authorization token of user generated by the third-party cloud provider and<br>linked to `connectorAssociationID`. Required for OAuth 2.0, not present for General Authorization. |
+| `header:auth:secretsManager` | Conditional | AWS Secrets Manager ARN and version ID containing authorization credentials. Required for General Authorization, not present for OAuth 2.0. |
+| `header:auth:type` | Yes | The type of authorization: `OAuth2.0` or `GeneralAuthorization`. |
 
 ###### Note
 
-All requests to your connector will have the end user's access token attached. You can assume that account linking between the
-end user and the managed integrations customer has already happened.
+All requests to your connector will include authorization information. For OAuth 2.0, this includes the end user's access token.
+For General Authorization, this includes the AWS Secrets Manager ARN and version ID. You can assume that the appropriate
+authorization has already been established.
 
-## Request payload
+## Request Payload
 
 In addition to common headers, every request will have a payload. While this payload
 will have unique fields for every operation type, each payload has a set of default fields
@@ -124,11 +176,12 @@ that will always be present.
 - `connectorId`: The ID of the connector in which the request has been sent
   to.
 
-## Default response headers
+## Default Response Headers
 
 Every operation will respond with an `ACK` to managed integrations for AWS IoT Device Management that confirms
-your C2C connector has received the request and begun to process it. The following is a
-generic example of said response:
+your C2C connector has received the request and begun to process it.
+
+###### Example Generic Response Example
 
 ```
 {
@@ -142,7 +195,7 @@ generic example of said response:
 
 ```
 
-Every operation response must have the following common header:
+###### Example Response Header Format
 
 ```
 {
@@ -153,7 +206,7 @@ Every operation response must have the following common header:
 
 ```
 
-The following table lists the default response header:
+###### Response Header Field
 
 Default response header and field| **Field** | **Required/Optional** | **Comment** |
 | `header:responseCode` | Yes | ENUM of values that indicate the execution status of the request. |
@@ -172,18 +225,19 @@ that the initial response to these operations, simply “acknowledges” that yo
 C2C connector has received the request.
 
 Using the `SendConnectorEvent` API, your connector is expected to send the
-event types from the list below to for `AWS.DiscoverDevices` and
+event types from the list below for `AWS.DiscoverDevices` and
 `AWS.SendCommand` operations, as well as proactive device events (such as a
-light being manually turned on and off). To read a detailed explanation of these event types
-and their use cases, see [Implement the AWS.DiscoverDevices operation](discover-devices-op.md "discover-devices-op.md"), [Implement the AWS.SendCommand operation](send-command-op.md "send-command-op.md"), and [Send device events with the SendConnectorEvent
-API](send-connector-events.md "send-connector-events.md").
+light being manually turned on and off).
 
-For example, if your C2C connector receives a `DiscoverDevices` request,
-managed integrations for AWS IoT Device Management expects it to respond synchronously with the response format defined above.
-Then, you must invoke the `SendConnectorEvent`API with the request structure
-defined in [Implement the AWS.DiscoverDevices operation](discover-devices-op.md "discover-devices-op.md"), for a
-DEVICE_DISCOVERY event. The `SendConnectorEvent` on
-API call can take place anywhere
+###### Example Workflow
+
+If your C2C connector receives a `DiscoverDevices` request,
+Managed integrations for AWS IoT Device Management expects it to:
+
+- Respond synchronously with the response format defined above
+- Invoke the `SendConnectorEvent` API with a DEVICE_DISCOVERY event
+
+The `SendConnectorEvent` API call can take place anywhere
 you have access to your C2C connector Lambda AWS account credentials. The device
 discovery flow is not successful until managed integrations for AWS IoT Device Management receives this event.
 
@@ -193,16 +247,14 @@ Alternatively, the `SendConnectorEvent` API call can occur before the
 C2C connector Lambda invocation response if necessary. However, this flow contradicts the
 asynchronous model for software development.
 
-- **SendConnectorEvent** - Your connector calls this managed integrations for AWS IoT Device Management API
-  to send device events to managed integrations for AWS IoT Device Management. Only 3 types of events accepted by
-  managed integrations:
-  - "**DEVICE_DISCOVERY**" – This event operation shall
-    be used to send list of discovered devices within third-party cloud for a specific
-    access token.
-  - **"DEVICE_COMMAND_RESPONSE**" – This event
-    operation shall be used to send a specific device event as a result of command
-    execution.
-  - **"DEVICE_EVENT**" – This event operation shall be
-    used for any event that originates from the device which is not the direct result of
-    a user-based command. This can serve as a general event type to proactively report
-    device state changes or notifications.
+###### SendConnectorEvent API
+
+Your connector calls this managed integrations for AWS IoT Device Management API to send device events. Only 3 types of events are accepted:
+
+- **"DEVICE_DISCOVERY"** - Used to send list of discovered devices within third-party cloud for a specific
+  access token
+- **"DEVICE_COMMAND_RESPONSE"** - Used to send a specific device event as a result of command
+  execution
+- **"DEVICE_EVENT"** - Used for any event that originates from the device which is not the direct result of
+  a user-based command. This can serve as a general event type to proactively report
+  device state changes or notifications

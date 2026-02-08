@@ -1,75 +1,74 @@
 # Implement the AWS.SendCommand operation
 
-The `AWS.SendCommand` operation allows managed integrations for AWS IoT Device Management to send commands
+The `AWS.SendCommand` operation allows Managed integrations for AWS IoT Device Management to send commands
 initiated by the end user via the AWS customer to your resource server. Your resource
 server may support multiple types of devices, where each type has its own response model.
-Command execution is an asynchronous process where managed integrations for AWS IoT Device Management sends a request for command
+
+Command execution is an asynchronous process where Managed integrations for AWS IoT Device Management sends a request for command
 execution with a `traceId`, which your connector will include in a command response sent
-back to managed integrations via the `SendConnectorEvent` API. managed integrations for AWS IoT Device Management expects the resource server to
+back to Managed integrations for AWS IoT Device Management via the `SendConnectorEvent` API. Managed integrations for AWS IoT Device Management expects the resource server to
 return a response acknowledging that command was received, but not necessarily indicating
 that command was executed.
+
+###### Device Command Execution Workflow
 
 The following diagram illustrates the command execution flow with an example where the
 end user tries to turn on the lights of their house:
 
 ![Device command execution workflow](images/send-command-workflow.png)
 
-###### Device command execution workflow
+###### Workflow Steps
 
-1. An end user sends a command to turn on a light using the AWS customer's
+1. **End user sends command** - An end user sends a command to turn on a light using the AWS customer's
    application.
-2. The customer relays the command information to managed integrations for AWS IoT Device Management with the end user's
+2. **Customer relays command** - The customer relays the command information to Managed integrations for AWS IoT Device Management with the end user's
    device information.
-3. Managed integrations generates "traceId" that your connector will use while sending
+3. **Managed integrations generates traceId** - Managed integrations for AWS IoT Device Management generates "traceId" that your connector will use while sending
    command responses back to service.
-4. managed integrations for AWS IoT Device Management sends the command request to your connector, using the
+4. **Command request sent to connector** - Managed integrations for AWS IoT Device Management sends the command request to your connector, using the
    `AWS.SendCommand` operation interface.
-   1. The payload defined by this interface consists of the device identifier,
-      device commands formulated as Matter endpoints/clusters/commands, the end user's
-      access token, and other required parameters.
+   - The payload defined by this interface consists of the device identifier,
+     device commands formulated as Matter endpoints/clusters/commands, the end user's
+     access token, and other required parameters.
 
-5. Your connector stores the `traceId` to be included in the command
+5. **Connector stores traceId** - Your connector stores the `traceId` to be included in the command
    response.
-   1. Your connector translates Managed integrations command request into your resource
-      server's appropriate format.
+   - Your connector translates Managed integrations for AWS IoT Device Management command request into your resource
+     server's appropriate format.
 
-6. Your connector gets `UserId` from the provided end user's access token and associates it
+6. **Connector gets UserId** - Your connector gets `UserId` from the provided end user's access token and associates it
    with the command.
-   1. The `UserId` may be either retrieved from you resource server using a separate
-      call or extracted from the access token in case of JWT and similar tokens.
-   2. Implementation depends on your resource server and access token
-      details.
+   - The `UserId` may be either retrieved from your resource server using a separate
+     call or extracted from the access token in case of JWT and similar tokens.
+   - Implementation depends on your resource server and access token
+     details.
 
-7. Your connector calls the resource server to "Turn On" end user's light.
-8. The resource server interacts with the device.
-   1. The connector relays to managed integrations for AWS IoT Device Management that the resource server has
-      delivered the command, responding with an ACK as the
-      initial, synchronous command response.
-   2. Managed integrations then relays it back to customer application.
+7. **Connector calls resource server** - Your connector calls the resource server to "Turn On" end user's light.
+8. **Resource server interacts with device** - The resource server interacts with the device.
+   - The connector relays to Managed integrations for AWS IoT Device Management that the resource server has
+     delivered the command, responding with an ACK as the
+     initial, synchronous command response.
+   - Managed integrations for AWS IoT Device Management then relays it back to customer application.
 
-9. After the device turns on the light, that device event is captured by your
+9. **Device executes command** - After the device turns on the light, that device event is captured by your
    resource server.
-10. Your resource server sends the device event to connector.
-11. Your connector transforms the device event generated by resource server into
-    managed integrations DEVICE_COMMAND_RESPONSE event operation type.
-12. Your connector calls the `SendConnectorEvent` API with operation as
+10. **Resource server sends device event** - Your resource server sends the device event to connector.
+11. **Connector transforms event** - Your connector transforms the device event generated by resource server into
+    Managed integrations for AWS IoT Device Management DEVICE_COMMAND_RESPONSE event operation type.
+12. **Connector calls SendConnectorEvent** - Your connector calls the `SendConnectorEvent` API with operation as
     "DEVICE_COMMAND_RESPONSE".
-    1. It attaches the `traceId` provided by managed integrations for AWS IoT Device Management in the
-       initial request.
+    - It attaches the `traceId` provided by Managed integrations for AWS IoT Device Management in the
+      initial request.
 
-13. Managed integrations notifies the customer about end user's device state
+13. **Managed integrations notifies customer** - Managed integrations for AWS IoT Device Management notifies the customer about end user's device state
     change.
-14. Customer notifies the end user that the device's light has turned on.
+14. **Customer notifies end user** - Customer notifies the end user that the device's light has turned on.
 
 ###### Note
 
-Your resource server configuration determines the logic for handling failed
-device command request and response messages. This includes message retry attempts
-using the same referenceId for the command.
+Your resource server configuration determines the logic for handling failed device command request and response messages. This includes message retry attempts using the same referenceId for the command.
 
-## C2C connector requirements for
-
-device command execution
+###### C2C connector Requirements for Device Command Execution
 
 The following list outlines the requirements for your C2C connector to facilitate a
 successful device command execution.
@@ -81,68 +80,104 @@ successful device command execution.
 - You can call managed integrations for AWS IoT Device Management service API's via SigV4 using AWS credentials of
   AWS account used for registering the C2C connector.
 
-1. Managed integrations sends command to connector (Refer to step 4 in prior
-   diagram).
-   1. ```
-      /Send-Command
-      {
-           "header": {
-                "auth": {
-                    "token": "ashriu32yr97feqy7afsaf",
-                    "type": "OAuth2.0"
-                }
-           },
-           "payload": {
-                "operationName": "AWS.SendCommand",
-                "operationVersion": "1.0",
-                "connectorId": "`Your-Connector-Id`",
-                "connectorDeviceId": "`Your_Device_Id`",
-                "traceId": "traceId-3241u78123419",
-                "endpoints": [{
-                    "id": "1",
-                    "clusters": [{
-                        "id": "0x0202",
-                        "commands": [{
-                            "0xff01":
-                                {
-                                    "0x0000": "3”
-                        		}
-                        }]
-                    }]
-                }]
-           }
-        }
-      ```
+###### Command Execution Process
 
-   ```
+**Step 1: Managed Integrations Sends Command to Connector**
 
-   ```
+Send a POST request with one of the following payloads, depending on the authorization type:
 
-2. C2C connector ACK command (Refer to step 7 in prior diagram where connector
-   sends ACK to the managed integrations for AWS IoT Device Management Service).
-   1. ```
-      {
-           "header":{
-                "responseCode":200
-           },
-           "payload":{
-                "responseMessage": "Successfully received send-command request for connector '`Your-Connector-Id`' and connector-device-id '`Your_Device_Id`'"
-           }
-        }
-      ```
+**OAuth 2.0 Request:**
 
-   ```
+```
+/Send-Command
+{
+     "header": {
+          "auth": {
+              "token": "ashriu32yr97feqy7afsaf",
+              "type": "OAuth2.0"
+          }
+     },
+     "payload": {
+          "operationName": "AWS.SendCommand",
+          "operationVersion": "1.0",
+          "connectorId": "`Your-Connector-Id`",
+          "connectorDeviceId": "`Your_Device_Id`",
+          "traceId": "traceId-3241u78123419",
+          "endpoints": [{
+              "id": "1",
+              "clusters": [{
+                  "id": "0x0202",
+                  "commands": [{
+                      "0xff01":
+                          {
+                              "0x0000": "3”
+                  		}
+                  }]
+              }]
+          }]
+     }
+  }
 
-   ```
+```
 
-3. Connector sends Device Command Response event (Refer to step 11 in prior
-   diagram).
-   1. ```
-      AWS-API: /SendConnectorEvent
-      URI: POST /connector-event/{`Your-Connector-Id`}
-      ```
+**General Authorization request:**
 
-   {
+```
+/Send-Command
+{
+     "header": {
+          "auth": {
+              "secretsManager": {
+                  "arn": "string",
+                  "versionId": "string"
+              },
+              "type": "GeneralAuthorization"
+          }
+     },
+     "payload": {
+          "operationName": "AWS.SendCommand",
+          "operationVersion": "1.0",
+          "connectorId": "`Your-Connector-Id`",
+          "connectorDeviceId": "`Your_Device_Id`",
+          "traceId": "traceId-3241u78123419",
+          "endpoints": [{
+              "id": "1",
+              "clusters": [{
+                  "id": "0x0202",
+                  "commands": [{
+                      "0xff01":
+                          {
+                              "0x0000": "3"
+                  		}
+                  }]
+              }]
+          }]
+     }
+}
+
+```
+
+**Step 2: C2C Connector ACK Command**
+
+```
+{
+     "header":{
+          "responseCode":200
+     },
+     "payload":{
+          "responseMessage": "Successfully received send-command request for connector '`Your-Connector-Id`' and connector-device-id '`Your_Device_Id`'"
+     }
+  }
+
+```
+
+**Step 3: Connector Sends Device Command Response Event**
+
+```
+AWS-API: /SendConnectorEvent
+URI: POST /connector-event/{`Your-Connector-Id`}
+
+{
    "UserId": "End-User-Id",
    "Operation": "DEVICE_COMMAND_RESPONSE",
    "OperationVersion": "1.0",
@@ -151,31 +186,31 @@ successful device command execution.
    "ConnectorDeviceId": "`Your_Device_Id`",
    "TraceId": "traceId-3241u78123419",
    "MatterEndpoint": {
-   "id": "1",  
-    "clusters": [{
-   "id": "0x0202",
-   "attributes": [
-   {
-   "0x0000": “3”
-   }
-   ],
-   "commands": [
-   "0xff01":
-   {
-   "0x0000": "3”
-   }
-    ]
-   }]
-   }
-   }
+        "id": "1",
+        "clusters": [{
+            "id": "0x0202",
+            "attributes": [
+                {
+                    "0x0000": “3”
+                }
+            ],
+            "commands": [
+                "0xff01":
+                {
+                    "0x0000": "3”
+                }
+ 		]
+        }]
+    }
+}
 
-   ```###### Note
+```
 
-   ```
+###### Note
 
 Device state changes as a result of a command execution will not be reflected in
-managed integrations for AWS IoT Device Management until the corresponding DEVICE_COMMAND_RESPONSE event has been received
-through the SendConnectorEvent API. This means that until managed integrations receives the
+Managed integrations for AWS IoT Device Management until the corresponding DEVICE_COMMAND_RESPONSE event has been received
+through the SendConnectorEvent API. This means that until Managed integrations for AWS IoT Device Management receives the
 event from prior step 3, regardless of whether or not your connector invocation
 response denotes success, the device state will not be updated.
 
