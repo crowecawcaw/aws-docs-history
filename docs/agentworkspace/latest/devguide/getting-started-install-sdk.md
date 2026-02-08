@@ -25,3 +25,8 @@ Install the app package from NPM by installing **@amazon-connect/app**.
 % npm install --save @amazon-connect/app
 
 ```
+
+###### Note
+
+If you do not use NPM, refer to [Using
+Amazon Connect SDK without pacakage manager](sdk-without-package-manager.md "sdk-without-package-manager.md")

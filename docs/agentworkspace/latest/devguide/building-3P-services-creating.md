@@ -10,6 +10,11 @@ agent workspace. First, install the app package:
 % npm install --save @amazon-connect/app
 ```
 
+###### Note
+
+If you do not use NPM, refer to [Using
+Amazon Connect SDK without pacakage manager](sdk-without-package-manager.md "sdk-without-package-manager.md")
+
 Then, add the following initialization code to your app:
 
 ```

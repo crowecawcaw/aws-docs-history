@@ -13,7 +13,10 @@ over application access through Security Profiles.
 
 Streams
 
-Amazon Connect Streams is a JavaScript library that integrates the Contact Control Panel (CCP) and other agent functionality into existing web applications. This library enables you to embed the CCP user interface as well as handle agent and contact state events so that you can build a custom agent application. See the [Amazon
+Amazon Connect Streams is a JavaScript library that integrates the Contact Control
+Panel (CCP) and other agent functionality into existing web applications. This
+library enables you to embed the CCP user interface as well as handle agent and
+contact state events so that you can build a custom agent application. See the [Amazon
 Connect Streams documentation](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md "https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md").
 
 ## AWS-managed applications
@@ -23,7 +26,10 @@ Connect agent workspace](../../../connect/latest/adminguide/agent-workspace.md "
 
 ## Amazon Connect SDK
 
-The Amazon Connect SDK is a collection of packages that helps you build applications applications that interact with and extend Amazon Connect’s native functionality. See the [Amazon Connect SDK repository on GitHub.](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK") .
+The Amazon Connect SDK is a collection of packages that helps you build
+applications applications that interact with and extend Amazon Connect’s native
+functionality. See the [Amazon Connect SDK
+repository on GitHub.](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK") .
 
 ## AppManager
 
@@ -33,7 +39,8 @@ package.
 
 ## Integration architecture
 
-The following diagram illustrates the components and integration flow for AWS-managed applications using Streams and AppManager.
+The following diagram illustrates the components and integration flow for
+AWS-managed applications using Streams and AppManager.
 
 ![Integration architecture diagram showing AWS-managed applications with Streams and AppManager.](images/integrate-aws-managed-apps-with-streams.png)
 

@@ -1,6 +1,7 @@
 # Implementation guide
 
-This section describes the steps to integrate AWS-managed applications using Streams and AppManager. The [Worklist](../../../connect/latest/adminguide/worklist-app.md "../../../connect/latest/adminguide/worklist-app.md") AWS-managed application is used for demonstration purposes.
+This section describes the steps to integrate AWS-managed applications using Streams
+and AppManager. The [Worklist](../../../connect/latest/adminguide/worklist-app.md "../../../connect/latest/adminguide/worklist-app.md") AWS-managed application is used for demonstration purposes.
 
 ## Prerequisites
 
@@ -19,6 +20,11 @@ Install the Amazon Connect AppManager package from npm into your web application
 
 npm install @amazon-connect/app-manager
 ```
+
+###### Note
+
+If you do not use NPM, refer to [Using
+Amazon Connect SDK without pacakage manager](sdk-without-package-manager.md "sdk-without-package-manager.md")
 
 ## Step 2: Add the AppManager plugin
 
@@ -66,9 +72,12 @@ const provider = connect.core.getSDKClientConfig().provider;
 - Replace `<connect-instance-alias>` with your Amazon
   Connect instance alias.
 
-## Step 3: Embed a page for AWS-managed application
+## Step 3: Embed a page for
 
-Add an iframe element to the desired location for displaying the Worklist AWS-managed application:
+AWS-managed application
+
+Add an iframe element to the desired location for displaying the Worklist
+AWS-managed application:
 
 ```
 

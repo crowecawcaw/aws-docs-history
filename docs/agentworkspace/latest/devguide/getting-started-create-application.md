@@ -13,6 +13,7 @@ allowing the application to receive events and data from the workspace.
 
 - [Install the Amazon Connect
   SDK](getting-started-install-sdk.md "getting-started-install-sdk.md")
+- [Using Connect SDK without package manager](sdk-without-package-manager.md "sdk-without-package-manager.md")
 - [Initialize the Amazon
   Connect SDK in
   your application](getting-started-initialize-sdk.md "getting-started-initialize-sdk.md")

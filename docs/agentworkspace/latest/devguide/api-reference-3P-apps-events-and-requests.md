@@ -1,9 +1,7 @@
 # Amazon Connect Agent Workspace API reference
 
-for third-party applications
-
-This Amazon Connect agent workspace API reference enumerates the agent events, agent requests, contact
-events, and contact requests that are supported by the [Amazon Connect SDK](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK").
+This Amazon Connect agent workspace API reference enumerates the agent events, agent requests,
+contact events, and contact requests that are supported by the [Amazon Connect SDK](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK").
 
 ###### Contents
 

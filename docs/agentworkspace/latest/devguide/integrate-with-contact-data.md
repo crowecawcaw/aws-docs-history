@@ -27,13 +27,16 @@ make requests.
 
 ## Contact scope
 
-All ContactClient methods include an optional `contactId` parameter. If no value is provided, the client automatically defaults to the contact context from which the app was launched. Note that this requires the app to be opened within a contact's context.
+All ContactClient methods include an optional `contactId`
+parameter. If no value is provided, the client automatically defaults to the
+contact context from which the app was launched. Note that this requires the app
+to be opened within a contact's context.
 
 - **Applications configured with Per Contact scope**
 
-For Per Contact scoped applications, the `contactId` of the current
-contact is provided in the `AppCreateEvent` which is supplied
-in the `onCreate` callback.
+For Per Contact scoped applications, the `contactId` of the
+current contact is provided in the `AppCreateEvent` which is
+supplied in the `onCreate` callback.
 
 ```
 
@@ -57,8 +60,9 @@ const provider =  AmazonConnectApp.init({
 
 - **Applications configured with Cross Contact scope**
 
-Cross Contact scoped applications can retrieve the `contactId` by
-subscribing to any of the contact events like `onConnected` or `onIncomming`
+Cross Contact scoped applications can retrieve the `contactId`
+by subscribing to any of the contact events like `onConnected`
+or `onIncomming`
 
 ```
 
