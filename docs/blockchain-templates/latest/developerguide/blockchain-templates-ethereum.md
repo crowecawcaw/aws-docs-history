@@ -194,7 +194,7 @@ you can search for the role name.
 ![AWSIAM console showing a role named "ECSRoleForEtherum" with its description.](images/ecs-role-list.png) 10. Copy the **Role ARN** value and save it so that you can copy it again.
 You need this ARN when you create the Ethereum network.
 
-![AWSIAM role summary page showing role ARN, description, and attached policies.](images/ecs-role-arn.png)
+![AWSIAM role summary page showing role ARN, description, and attached policies.](/images/blockchain-templates/latest/developerguide/images/ecs-role-arn.png)
 
 ## Connecting to Ethereum Resources
 
