@@ -53,6 +53,8 @@ Collection Account.
 
 ## Deployment
 
+###### Example
+
 CloudFormation
 
 ###### Note

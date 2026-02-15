@@ -138,6 +138,8 @@ This customization requires several manual steps:
    different accounts with different currencies (ex: China and Global) you
    can check Multi Currency option below.
 
+###### Example
+
 Simple Conversion
 
 ```
@@ -161,6 +163,8 @@ switch( ${Currency},
 ![Cost in USD](images/customizations/currency-conversion/cost-usd.png)
 
 1. Do the same for Amortized Cost
+
+###### Example
 
 Simple Conversion
 

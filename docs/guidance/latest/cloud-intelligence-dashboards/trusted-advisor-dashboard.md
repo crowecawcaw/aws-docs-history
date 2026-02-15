@@ -46,6 +46,8 @@ higher required.
 
 ## Deployment
 
+###### Example
+
 CloudFormation
 If you already have CUDOS, Cost Intelligence Dashboard or KPI Dashboard
 installed via CloudFormation as described [here](deployment-in-global-regions.md "deployment-in-global-regions.md"), you can update

@@ -50,7 +50,7 @@ the next step is to map them to the appropriate technical data.
 
 | Name                     | Level                           | Source                    | Prerequisite                   | Comment                                                                                                                                                                                                                                                                |
 | ------------------------ | ------------------------------- | ------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Account Tag              | Account Level                   | AWS Organizations         | CID Data Collection            | Very common use case                                                                                                                                                                                                                                                   |
+| Account Tag              | Account Level                   | AWS Organizations or CUR2 | CID Data Collection or CUR2    | A simple way to achieve account level taxonomy and cost allocation from CUR2 or AWS Organizations                                                                                                                                                                      |
 | OU Name                  | Account Level                   | AWS Organizations         | CID Data Collection            |                                                                                                                                                                                                                                                                        |
 | OU Tag                   | Account Level                   | AWS Organizations         | CID Data Collection            | [RECOMMENDED] More flexible then Account Tag. CID Data Collection<br>allows collecting Hierarchical Tags when the lower level Tags can<br>override higher level. This can create a flexible system that do not<br>require setting tags on the individual Account level |
 | Account Name             | Account Level                   | AWS Organizations or CUR2 | CID Data<br>Collection or CUR2 | Some organizations can have an established naming<br>convention for AWS Accounts. A part of this name can be used for a<br>business unit taxonomy.                                                                                                                     |
@@ -77,6 +77,31 @@ Additional recommendations:
    granularity.
 
 ## Account Level Cost Allocation
+
+### Using Account Tags as Cost Allocation Tags in CUR2
+
+Since December 2025, AWS added support of Account Tags in AWS Organizations to be enabled as Cost Allocation Tags.
+
+The main benefit of Account Tags as Cost Allocation Tags is simplicity: all required information comes directly from CUR2, eliminating the need for additional data sources or collection mechanisms.
+
+**Implementation Steps:**
+
+1. In AWS Organizations, add tags to your AWS accounts (e.g., `Owner`, `BusinessUnit`, `CostCenter`)
+2. In the AWS Billing Console, activate these account tags as Cost Allocation Tags
+3. Upgrade your data export stack on payer account(s) to `v0.9.0` or later if you are running an older version
+4. Wait 24 hours for the tags to appear in your Cost and Usage Report
+5. Run `cid-cmd update --force --recursive` to discover and configure the tags
+6. Select the account-level tags you want to use as taxonomy dimensions when prompted
+
+**When to Use Data Collection Method Instead:**
+
+While Account Tags as Cost Allocation Tags in CUR2 are recommended for simple account level taxonomy use cases, you should use the [Advanced account map](#add-org-taxonomy-account-map-based-on-org-example "#add-org-taxonomy-account-map-based-on-org-example") method if:
+
+- You need to use OU Tags as part of your taxonomy (OU Tags as Cost Allocation Tags are not yet supported)
+- You require hierarchical tag inheritance from OUs to accounts
+- You need more complex organizational hierarchy mapping
+
+### Using Static Account Map View
 
 To implement account level mapping CID provides a special View in Amazon
 Athena called `account_map`. This Athena view is specifically designed

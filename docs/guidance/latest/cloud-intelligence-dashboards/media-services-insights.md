@@ -42,6 +42,8 @@ This will enable your CUR, Amazon Athena and Quick Sight resources required for 
 
 ## Deployment
 
+###### Example
+
 CloudFormation
 
 ###### Note
@@ -52,7 +54,7 @@ you need to install the [Data Exports Lab](data-exports.md "data-exports.md")
 1. Log in to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Media-Services-Insights-Hub&param_DashboardId=media-services-insights&param_RequiresDataExports=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Media-Services-Insights-Hub¶m_DashboardId=media-services-insights¶m_RequiresDataExports=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** 7. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Media-Services-Insights-Hub&param_DashboardId=media-services-insights&param_RequiresDataExports=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Media-Services-Insights-Hub¶m_DashboardId=media-services-insights¶m_RequiresDataExports=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** 7. You can check the stack output for dashboard URLs.
 
 ###### Note
 
@@ -100,6 +102,8 @@ cid-cmd update --dashboard-id media-services-insights
 ## Usage Guide
 
 There are multiple tabs available in this dashboard.
+
+###### Example
 
 Executive Summary Tab
 Start with the Executive Summary to get a high-level view of your media services spending and usage patterns. This tab provides:
@@ -174,6 +178,8 @@ Examine ad insertion costs and session analytics:
 ## Cost Optimization Recommendations
 
 There are a several ways to optimize your Elemental costs. Below are some of them.
+
+###### Example
 
 Reserved Capacity
 

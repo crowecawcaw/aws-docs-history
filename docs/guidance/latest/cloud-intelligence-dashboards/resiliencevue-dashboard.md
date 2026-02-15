@@ -35,6 +35,8 @@ Get more familiar with Dashboard using the live, interactive demo dashboard foll
 
 ## Deployment
 
+###### Example
+
 CloudFormation
 
 ###### Note

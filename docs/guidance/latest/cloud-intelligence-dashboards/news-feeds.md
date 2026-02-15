@@ -24,6 +24,8 @@ Feeds Module is selected. Version 3.0.8 or higher required.
 
 ## Deployment
 
+###### Example
+
 CloudFormation
 
 ###### Note

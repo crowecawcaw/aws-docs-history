@@ -77,6 +77,8 @@ The dashboard has six tabs:
 
 ## Deployment
 
+###### Example
+
 CloudFormation
 
 ###### Note

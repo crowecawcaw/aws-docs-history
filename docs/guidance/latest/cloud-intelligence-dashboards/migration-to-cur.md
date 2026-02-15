@@ -36,6 +36,8 @@ with CUR2 available in Athena.
 
 You can query the data to make sure that the data are identical.
 
+###### Example
+
 CUR 2.0
 
 ```

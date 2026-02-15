@@ -37,6 +37,8 @@ dashboard is refreshed every night to provide case summary and insights.
 
 ## Deployment
 
+###### Example
+
 CloudFormation
 
 ###### Note

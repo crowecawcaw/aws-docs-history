@@ -18,6 +18,8 @@ Get more familiar with the Sustainability Proxy Metrics and Carbon Emissions Das
 
 ## Deployment
 
+###### Example
+
 Command Line
 Install the dashboard using the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") tool:
 

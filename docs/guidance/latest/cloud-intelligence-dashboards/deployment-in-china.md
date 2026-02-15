@@ -102,17 +102,17 @@ Deployment process consists of 3 main steps:
 
 ### Step 3. [Data Collection Account] Deploy Dashboards
 
-#### 3.1 - Prepare Amazon Quick Sight
+#### 3.1 - Prepare Amazon Quick Sight (Quick Suite)
 
 ###### Note
 
-Quick Sight is only available in cn-north-1 Beijing region for AWS China
+Quick Suite is only available in cn-north-1 Beijing region for AWS China
 
 1.  Sign in to your Data Collection Account and navigate to the AWS
-    Management Console and search for **Quick Sight** in the services menu.
-2.  Select **Sign up for Quick Sight** if this is your first time accessing
+    Management Console and search for **Quick Suite** in the services menu.
+2.  Select **Sign up for Quick Suite** if this is your first time accessing
     the service.
-3.  On the Quick Sight setup page, you’ll need to choose an authentication
+3.  On the Quick Suite setup page, you’ll need to choose an authentication
     method:
 
         * **IAM Identity Center** - Recommended for simplified user management and
@@ -122,11 +122,11 @@ Quick Sight is only available in cn-north-1 Beijing region for AWS China
 
 
         You cannot change authentication method after the initial setup. You
-        will need to re-create the Amazon Quick Sight account.
+        will need to re-create the Amazon Quick Suite account.
 
 4.  If selecting IAM Identity Center:
 
-        * Configure user groups for Quick Sight access levels (Admin/Reader)
+        * Configure user groups for Quick Suite access levels (Admin/Reader)
         * Follow the
         [IAM
         Identity Center user management guide](../../../singlesignon/latest/userguide/addusers.md "../../../singlesignon/latest/userguide/addusers.md") to set up groups and permissions
@@ -143,7 +143,7 @@ Make sure to uncheck Pixel-Perfect Reports option unless specifically needed, as
 
 1. Complete the account creation:
    - Select the appropriate Authentication method
-   - Enter a unique name for your Quick Sight account
+   - Enter a unique name for your Quick Suite account
    - Enter an email address for notifications
    - (Optional) Click Select S3 buckets and choose all cid buckets (cid-\*)
    - Click Finish and wait for the congratulations screen
@@ -153,7 +153,7 @@ Make sure to uncheck Pixel-Perfect Reports option unless specifically needed, as
 ###### Note
 
 To avoid cross-region data transfer costs, use the Beijing
-Region (cn-north-1) - the only region where Quick Sight is available in
+Region (cn-north-1) - the only region where Quick Suite is available in
 China.
 
 1. Sign in to your Data Collection Account.

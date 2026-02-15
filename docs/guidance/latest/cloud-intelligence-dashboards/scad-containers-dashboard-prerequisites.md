@@ -25,6 +25,8 @@ Split Cost Allocation Data cannot be enabled or disabled in an existing CUR 2.0.
 
 1. Make sure that the following AWS-generated cost allocation tags are active:
 
+###### Example
+
 Amazon EKS
 
 ![SCAD EKS Cost Allocation Tags](images/scad_eks_cost_allocation_tags.png)
@@ -64,6 +66,8 @@ data for the current month._
 
 To validate that the new Split Cost Allocation Data columns exist in
 CUR:
+
+###### Example
 
 Legacy CUR
 

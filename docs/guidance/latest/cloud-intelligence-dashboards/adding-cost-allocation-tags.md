@@ -50,6 +50,8 @@ Queries that you can modify to enable tags are:
 
 Follow instructions depending on the CUR version you use:
 
+###### Example
+
 Legacy CUR
 
 1. Navigate in the AWS Console to the **Athena** service

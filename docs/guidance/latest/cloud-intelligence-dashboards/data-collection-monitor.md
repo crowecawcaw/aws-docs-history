@@ -18,6 +18,8 @@ Deploy or update the [Data Collection Lab](data-collection.md "data-collection.m
 
 ## Deployment
 
+###### Example
+
 CloudFormation
 
 ###### Note

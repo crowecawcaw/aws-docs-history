@@ -155,20 +155,20 @@ Management/Payer Accounts).
 
 ## Step 3. [Data Collection Account] Deploy Dashboards
 
-### 3.1 - Prepare Amazon Quick Sight
+### 3.1 - Prepare Amazon Quick Sight (Quick Suite)
 
-Amazon Quick Sight is the AWS Business Intelligence tool. You can install
+Amazon Quick Sight is the AWS Business Intelligence tool, part of Amazon Quick Suite service. You can install
 Dashboards into your Amazon Quick Sight account and customize them to
 your needs. If you are already a regular Amazon Quick Sight user you can
 skip these steps and move on to the next step. If not, complete the
 steps below.
 
-1. Log into your Destination Linked Account and search for **Quick Sight**
+1. Log into your Destination Linked Account and search for **Quick Suite**
    in the list of Services
 2. You will be asked to **Sign up** before you will be able to use it
    - Ensure you select the **Region** that is most appropriate based on where you plan to deploy the dashboards.
-   - Enter a **name** for your Quick Sight account. This must be unique across all Quick Sight accounts.
-   - Enter an **email address** for notifications to be sent to. This email will be linked to your Quick Sight user account so it can be your email.
+   - Enter a **name** for your Quick Suite account. This must be unique across all Quick Suite accounts.
+   - Enter an **email address** for notifications to be sent to. This email will be linked to your Quick Suite user account so it can be your email.
 
 3. You will then need to fill in a series of options in order to finish creating your account:
    - Please select the appropriate **Authentication** method
@@ -198,6 +198,8 @@ finally the Dashboards. The template uses a custom resource (a Lambda
 with
 [this
 CLI tool](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md")) to create, delete, or update assets.
+
+###### Example
 
 CloudFormation
 
