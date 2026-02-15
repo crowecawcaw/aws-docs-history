@@ -47,14 +47,14 @@ Use these steps to use the AWS Management Console to create a CPU usage alarm.
        consecutive periods are breaching.
 
     To create an M out of N alarm, specify a lower number for the first value than
-    you specify for the second value. For more information, see [Evaluating an alarm](AlarmThatSendsEmail.md#alarm-evaluation "AlarmThatSendsEmail.md#alarm-evaluation"). 4. For **Missing data treatment**, choose how to have the alarm
+    you specify for the second value. For more information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md"). 4. For **Missing data treatment**, choose how to have the alarm
     behave when some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing
-    data](AlarmThatSendsEmail.md#alarms-and-missing-data "AlarmThatSendsEmail.md#alarms-and-missing-data"). 5. If the alarm uses a percentile as the monitored statistic, a
+    data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 5. If the alarm uses a percentile as the monitored statistic, a
     **Percentiles with low samples** box appears. Use it to choose
     whether to evaluate or ignore cases with low sample rates. If you choose
     **ignore (maintain alarm state)**, the current alarm state is
-    always maintained when the sample size is too low. For more information, see [Percentile-based CloudWatch alarms and low data
-    samples](AlarmThatSendsEmail.md#percentiles-with-low-samples "AlarmThatSendsEmail.md#percentiles-with-low-samples").
+    always maintained when the sample size is too low. For more information, see [Percentile-based alarms and low data
+    samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
 
 11. Choose **Next**.
 12. Under **Notification**, choose **In alarm** and

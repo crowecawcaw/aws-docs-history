@@ -103,7 +103,7 @@ CloudWatch agent
 After importing StatsD metrics into CloudWatch, you can view these metrics as time series
 graphs, and create alarms that can watch these metrics and notify you if they breach a
 threshold that you specify. The following procedure shows how to view StatsD metrics as
-a time series graph. For more information about setting alarms, see [Using Amazon CloudWatch alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md").
+a time series graph. For more information about setting alarms, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md").
 
 ###### To view StatsD metrics in the CloudWatch console
 

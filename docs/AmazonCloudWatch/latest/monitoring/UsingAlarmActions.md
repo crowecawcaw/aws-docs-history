@@ -1,4 +1,4 @@
-# Create alarms to stop, terminate, reboot, or recover an EC2
+# Stop, terminate, reboot, or recover an EC2
 
 instance
 
@@ -33,7 +33,7 @@ alarms to treat missing data as `missing`, and to have these alarms trigger only
 
 For more information about how you can configure CloudWatch to act on missing metrics that have alarms set
 on them, see [Configuring how CloudWatch alarms treat missing
-data](AlarmThatSendsEmail.md#alarms-and-missing-data "AlarmThatSendsEmail.md#alarms-and-missing-data").
+data](alarms-and-missing-data.md "alarms-and-missing-data.md").
 
 To set up a CloudWatch alarm action that can reboot, stop, or terminate an instance, you must use a service-linked IAM role,
 _AWSServiceRoleForCloudWatchEvents_. The AWSServiceRoleForCloudWatchEvents IAM

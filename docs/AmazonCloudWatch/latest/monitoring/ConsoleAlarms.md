@@ -49,14 +49,14 @@ linked to this monitoring account. For more information, see [CloudWatch cross-a
       are breaching.
 
    To create an M out of N alarm, specify a lower number for the first value than you
-   specify for the second value. For more information, see [Evaluating an alarm](AlarmThatSendsEmail.md#alarm-evaluation "AlarmThatSendsEmail.md#alarm-evaluation"). 3. For **Missing data treatment**, choose how to have the alarm
+   specify for the second value. For more information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md"). 3. For **Missing data treatment**, choose how to have the alarm
    behave when some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing
-   data](AlarmThatSendsEmail.md#alarms-and-missing-data "AlarmThatSendsEmail.md#alarms-and-missing-data"). 4. If the alarm uses a percentile as the monitored statistic, a **Percentiles
+   data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 4. If the alarm uses a percentile as the monitored statistic, a **Percentiles
    with low samples** box appears. Use it to choose whether to evaluate or
    ignore cases with low sample rates. If you choose **ignore (maintain alarm
    state)**, the current alarm state is always maintained when the sample size
-   is too low. For more information, see [Percentile-based CloudWatch alarms and low data
-   samples](AlarmThatSendsEmail.md#percentiles-with-low-samples "AlarmThatSendsEmail.md#percentiles-with-low-samples").
+   is too low. For more information, see [Percentile-based alarms and low data
+   samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
 
 8. Choose **Next**.
 9. Under **Notification**, select an SNS topic to notify when the alarm
@@ -77,7 +77,7 @@ more information about Systems Manager actions, see [Configuring CloudWatch to c
 
 To have the alarm start an investigation, choose **Add investigation
 action** and then select your investigation group. For more information about
-CloudWatch investigations, see [CloudWatch investigations](Investigations.md "Investigations.md").
+, see [CloudWatch investigations](Investigations.md "Investigations.md").
 
 ###### Note
 

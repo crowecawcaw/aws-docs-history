@@ -307,19 +307,19 @@ To edit an alarm for a single metric, perform the following steps:
       state if the designated number of consecutive periods are exceeded.
       To create an `m` out of `n` alarm, specify a
       lower value for the first data point than for the second. For more
-      information about evaluating alarms, see [Evaluating an alarm](AlarmThatSendsEmail.md#alarm-evaluation "AlarmThatSendsEmail.md#alarm-evaluation").
+      information about evaluating alarms, see [Evaluating an alarm](CloudWatch_Alarms.md#alarm-evaluation "CloudWatch_Alarms.md#alarm-evaluation").
    2. Under **Missing data treatment**, choose the
       behavior of the alarm when some data points are missing. For more
       information about missing data treatment, see [Configuring how CloudWatch alarms treat missing
-      data](AlarmThatSendsEmail.md#alarms-and-missing-data "AlarmThatSendsEmail.md#alarms-and-missing-data").
+      data](CloudWatch_Alarms.md#alarms-and-missing-data "CloudWatch_Alarms.md#alarms-and-missing-data").
    3. If the alarm uses a percentile as the monitored statistic, a
       **Percentiles with low samples** box appears.
       Choose whether to evaluate or ignore cases with low sample rates. If
       you choose **ignore (maintain alarm state)**, the
       current alarm state is always maintained when the sample size is too
       low. For more information about percentiles with low samples, see
-      [Percentile-based CloudWatch alarms and low data
-      samples](AlarmThatSendsEmail.md#percentiles-with-low-samples "AlarmThatSendsEmail.md#percentiles-with-low-samples").
+      [Percentile-based alarms and low data
+      samples](percentiles-with-low-samples.md "percentiles-with-low-samples.md").
 
 7. Choose **Next**.
 8. Under **Notification**, select an SNS topic to notify

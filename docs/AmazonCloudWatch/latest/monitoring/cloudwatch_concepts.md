@@ -349,4 +349,4 @@ alarm with a period of 10 seconds or 30 seconds, or you can set a regular alarm 
 period of any multiple of 60 seconds. There is a higher charge for high-resolution alarms.
 For more information about high-resolution metrics, see [Publish custom metrics](publishingMetrics.md "publishingMetrics.md").
 
-For more information, see [Using Amazon CloudWatch alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md") and [Create an alarm from a metric on a graph](create_alarm_metric_graph.md "create_alarm_metric_graph.md").
+For more information, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md") and [Create an alarm from a metric on a graph](create_alarm_metric_graph.md "create_alarm_metric_graph.md").

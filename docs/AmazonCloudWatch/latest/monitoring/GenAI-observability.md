@@ -21,7 +21,7 @@ CloudWatch generative AI observability enables you to:
 - Identify source of errors quickly using end-to-end prompt tracing, curated
   metrics, and logs
 - Troubleshoot issues across your entire GenAI application and underlying
-  infrastructure, leveraging existing CloudWatch observability tools such as [Application Signals](CloudWatch-Application-Monitoring-Sections.md "CloudWatch-Application-Monitoring-Sections.md"), [Alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md"), [Dashboards](CloudWatch_Dashboards.md "CloudWatch_Dashboards.md"), [Sensitive data protection](../logs/cloudwatch-logs-data-protection-policies.md "../logs/cloudwatch-logs-data-protection-policies.md"), and [Logs
+  infrastructure, leveraging existing CloudWatch observability tools such as [Application Signals](CloudWatch-Application-Monitoring-Sections.md "CloudWatch-Application-Monitoring-Sections.md"), [Alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md"), [Dashboards](CloudWatch_Dashboards.md "CloudWatch_Dashboards.md"), [Sensitive data protection](../logs/cloudwatch-logs-data-protection-policies.md "../logs/cloudwatch-logs-data-protection-policies.md"), and [Logs
   Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md")
 - Access prompt traces while using Amazon Bedrock, and send structured traces of
   third-party models to CloudWatch using ADOT SDK. For information about adding

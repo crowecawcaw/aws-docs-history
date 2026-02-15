@@ -45,7 +45,7 @@ an alarm based on a log group-metric filter, you must complete the following act
       values, your alarm goes into the `ALARM` state if that many consecutive
       periods are breaching. To create an M-out-of-N alarm, specify a number for the first
       value that's lower than the number you specify for the second value. For more
-      information, see [Using Amazon CloudWatch alarms](AlarmThatSendsEmail.md#alarm-evaluation "AlarmThatSendsEmail.md#alarm-evaluation").
+      information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md").
    2. For **Missing data treatment**, select an option to specify
       how to treat missing data when your alarm is evaluated.
 

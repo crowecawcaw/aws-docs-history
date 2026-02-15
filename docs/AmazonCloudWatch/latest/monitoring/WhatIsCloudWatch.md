@@ -27,7 +27,7 @@ custom metrics](publishingMetrics.md "publishingMetrics.md") in CloudWatch from 
 [share dashboards](cloudwatch-dashboard-sharing.md "cloudwatch-dashboard-sharing.md") across accounts and Regions for enhanced operational awareness. CloudWatch provides [curated automatic dashboards](GettingStarted.md "GettingStarted.md") for many AWS services,
 so that you don't have to build them yourself.
 
-You can set up [alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md") that continuously monitor CloudWatch metrics against user-defined thresholds. They can automatically alert you to breaches of the thresholds, and
+You can set up [alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md") that continuously monitor CloudWatch metrics against user-defined thresholds. They can automatically alert you to breaches of the thresholds, and
 can also automatically respond to changes in your resources' behavior by [triggering automated actions](Acting_Alarm_Changes.md "Acting_Alarm_Changes.md").
 
 ## Application performance monitoring (APM)

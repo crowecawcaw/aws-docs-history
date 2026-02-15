@@ -50,4 +50,4 @@ investigation from a CloudWatch alarm action
 When you create a CloudWatch alarm, you can specify for it to automatically start an
 investigation when it goes into ALARM state. You can do this for both metric alarms
 and composite alarms. For more information, see [Start a CloudWatch investigations from an alarm](Start-Investigation-Alarm.md "Start-Investigation-Alarm.md"),
-[Create a CloudWatch alarm based on a static threshold](ConsoleAlarms.md "ConsoleAlarms.md") and [Create a composite alarm](Create_Composite_Alarm_How_To.md "Create_Composite_Alarm_How_To.md").
+[Create a CloudWatch alarm based on a static threshold](ConsoleAlarms.md "ConsoleAlarms.md") and [Create a composite alarm](Create_Composite_Alarm.md "Create_Composite_Alarm.md").

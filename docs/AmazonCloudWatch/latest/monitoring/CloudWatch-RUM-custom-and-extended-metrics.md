@@ -149,7 +149,7 @@ This number is calculated by multiplying the number of chosen metric names by th
 8. When you are finished with your choices, choose **Send metrics**.
 9. (Optional) In the **Extended metrics** list, to create an alarm that watches one of the metrics, choose **Create alarm** in that metric's row.
 
-For general information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md"). For a tutorial for setting an alarm on a CloudWatch RUM extended metric, see [Tutorial: create an extended metric and alarm it](#CloudWatch-RUM-extended-metrics-alarmtutorial "#CloudWatch-RUM-extended-metrics-alarmtutorial").
+For general information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md"). For a tutorial for setting an alarm on a CloudWatch RUM extended metric, see [Tutorial: create an extended metric and alarm it](#CloudWatch-RUM-extended-metrics-alarmtutorial "#CloudWatch-RUM-extended-metrics-alarmtutorial").
 
 **Stop sending extended metrics**
 
@@ -222,7 +222,7 @@ over the threshold, or 2 out of 3 to have the alarm trigger if any
 two of three consecutive 5-minute periods are over the threshold.
 
 For more information about this type of alarm evaluation, see
-[Evaluating an alarm](AlarmThatSendsEmail.md#alarm-evaluation "AlarmThatSendsEmail.md#alarm-evaluation"). 15. Choose **Next**. 16. For **Configure actions**, specify what should
+[Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md"). 15. Choose **Next**. 16. For **Configure actions**, specify what should
 happen when the alarm goes into alarm state. To receive a
 notification with Amazon SNS, do the following:
 

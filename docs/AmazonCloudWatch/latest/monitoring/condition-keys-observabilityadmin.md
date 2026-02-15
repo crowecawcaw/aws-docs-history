@@ -22,9 +22,7 @@ rules.
   following resource types: organization-centralization-rule
 - _Value type_ – String
 
-###### Example JSON policy with
-
-observabilityadmin:CentralizationBackupRegion
+###### Example JSON policy with observabilityadmin:CentralizationBackupRegion
 
 JSON
 
@@ -56,9 +54,7 @@ rules.
   following resource types: organization-centralization-rule
 - _Value type_ – String
 
-###### Example JSON policy with
-
-observabilityadmin:CentralizationDestinationRegion
+###### Example JSON policy with observabilityadmin:CentralizationDestinationRegion
 
 JSON
 
@@ -90,9 +86,7 @@ rules.
   following resource types: organization-centralization-rule
 - _Value type_ – List of strings
 
-###### Example JSON policy with
-
-observabilityadmin:CentralizationSourceRegions
+###### Example JSON policy with observabilityadmin:CentralizationSourceRegions
 
 JSON
 

@@ -31,5 +31,3 @@ Tag-based alarms automatically adapt as you add or remove resources with matchin
 
 - [Creating a Metrics Insights
   CloudWatch alarm](cloudwatch-metrics-insights-alarm-create.md "cloudwatch-metrics-insights-alarm-create.md")
-- [How partial data from a
-  Metrics Insights query is evaluated](cloudwatch-metrics-insights-alarms-partial-data.md "cloudwatch-metrics-insights-alarms-partial-data.md")

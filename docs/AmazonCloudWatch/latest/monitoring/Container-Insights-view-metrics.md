@@ -20,7 +20,7 @@ granularity.
 3. Use the drop-down boxes near the top to select the type of resource to view, as well
    as the specific resource.
    You can set a CloudWatch alarm on any metric that Container Insights collects. For more
-   information, see [Using Amazon CloudWatch alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md")
+   information, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md")
 
 ###### Note
 

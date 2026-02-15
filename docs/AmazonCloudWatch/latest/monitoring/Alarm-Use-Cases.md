@@ -14,7 +14,3 @@ cases.
   email](US_AlarmAtThresholdEBS.md "US_AlarmAtThresholdEBS.md")
 - [Create an alarm on
   Performance Insights counter metrics from an AWS database](CloudWatch_alarm_database_performance_insights.md "CloudWatch_alarm_database_performance_insights.md")
-- [Create a fleet monitoring alarm using multiple
-  time series](multi-time-series-alarm.md "multi-time-series-alarm.md")
-- [Create alarms to stop, terminate, reboot, or recover an EC2
-  instance](UsingAlarmActions.md "UsingAlarmActions.md")

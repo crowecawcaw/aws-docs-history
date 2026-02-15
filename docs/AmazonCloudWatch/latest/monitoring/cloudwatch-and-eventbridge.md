@@ -61,6 +61,11 @@ alarm's evaluation results.
             "reasonData": "{\"version\":\"1.0\",\"queryDate\":\"2019-10-02T17:04:40.985+0000\",\"startDate\":\"2019-10-02T16:59:00.000+0000\",\"statistic\":\"Average\",\"period\":300,\"recentDatapoints\":[99.50160229693434],\"threshold\":50.0}",
             "timestamp": "2019-10-02T17:04:40.989+0000",
             "value": "ALARM"
+        },
+        "muteDetail": {
+            "mutedByArn": "arn:aws:cloudwatch:us-east-1:1234567890:alarm-mute-rule:testMute",
+            "muteWindowStart": "2026-01-01T10:00:00.000+0000",
+            "muteWindowEnd": "2026-01-01T12:00:00.000+0000"
         }
     }
 }
@@ -136,6 +141,11 @@ field.
             "reasonData": "{\"version\":\"1.0\",\"queryDate\":\"2019-10-02T17:20:48.551+0000\",\"startDate\":\"2019-10-02T17:10:00.000+0000\",\"period\":300,\"recentDatapoints\":[45628.0],\"threshold\":10000.0}",
             "timestamp": "2019-10-02T17:20:48.554+0000",
             "value": "ALARM"
+        },
+        "muteDetail": {
+            "mutedByArn": "arn:aws:cloudwatch:us-east-1:1234567890:alarm-mute-rule:testMute",
+            "muteWindowStart": "2026-01-01T10:00:00.000+0000",
+            "muteWindowEnd": "2026-01-01T12:00:00.000+0000"
         }
     }
 }
@@ -169,6 +179,11 @@ events include upper and lower threshold bounds in the
             "reason": "Thresholds Crossed: 1 out of the last 1 datapoints [0.166666666664241 (03/10/19 15:57:00)] was not less than the lower thresholds [0.0206719426210418] or not greater than the upper thresholds [0.30076870222143803] (minimum 1 datapoint for ALARM -> OK transition).",
             "reasonData": "{\"version\":\"1.0\",\"queryDate\":\"2019-10-03T15:59:04.670+0000\",\"startDate\":\"2019-10-03T15:57:00.000+0000\",\"period\":60,\"recentDatapoints\":[0.166666666664241],\"recentLowerThresholds\":[0.0206719426210418],\"recentUpperThresholds\":[0.30076870222143803]}",
             "timestamp": "2019-10-03T15:59:04.672+0000"
+        },
+        "muteDetail": {
+            "mutedByArn": "arn:aws:cloudwatch:us-east-1:1234567890:alarm-mute-rule:testMute",
+            "muteWindowStart": "2026-01-01T10:00:00.000+0000",
+            "muteWindowEnd": "2026-01-01T12:00:00.000+0000"
         },
         "configuration": {
             "description": "Goes into alarm if CPU Utilization is out of band",
@@ -235,6 +250,11 @@ include suppression information in the `actionsSuppressedBy` and
             "actionsSuppressor": "ServiceMaintenanceAlarm",
             "actionsSuppressorWaitPeriod": 120,
             "actionsSuppressorExtensionPeriod": 180
+        },
+        "muteDetail": {
+            "mutedByArn": "arn:aws:cloudwatch:us-east-1:1234567890:alarm-mute-rule:testMute",
+            "muteWindowStart": "2026-01-01T10:00:00.000+0000",
+            "muteWindowEnd": "2026-01-01T12:00:00.000+0000"
         }
     }
 }
@@ -284,6 +304,11 @@ summary of the number of contributors that caused the alarm to transition in the
         }
       ],
       "description": "Metrics Insights alarm for DynamoDB ConsumedWriteCapacity per TableName"
+    },
+    "muteDetail": {
+        "mutedByArn": "arn:aws:cloudwatch:us-east-1:1234567890:alarm-mute-rule:testMute",
+        "muteWindowStart": "2026-01-01T10:00:00.000+0000",
+        "muteWindowEnd": "2026-01-01T12:00:00.000+0000"
     }
   }
 }

@@ -1,4 +1,21 @@
-# Suppressing composite alarm actions
+# Alarm suppression
+
+Composite alarm action suppression allows you to temporarily disable alarm actions without deleting or modifying the alarm configuration. This is useful during planned maintenance, deployments, or when investigating known issues.
+
+With composite alarm action suppression, you define alarms as suppressor alarms. Suppressor alarms prevent composite alarms from taking actions. For example, you can specify a suppressor alarm that represents the status of a supporting resource. If the supporting resource is down, the suppressor alarm prevents the composite alarm from sending notifications.
+
+## When to use alarm suppression
+
+Common situations where alarm suppression is useful:
+
+- Maintenance windows of your application
+- Application deployments
+- Ongoing incident investigation
+- Testing and development activities
+
+## How suppressor alarms work
+
+You specify suppressor alarms when you configure composite alarms. Any alarm can function as a suppressor alarm. When a suppressor alarm changes states from `OK` to `ALARM`, its composite alarm stops taking actions. When a suppressor alarm changes states from `ALARM` to `OK`, its composite alarm resumes taking actions.
 
 Because composite alarms allow you to get an aggregated view of your health across
 multiple alarms, there are common situations where it is expected for those alarms to
@@ -20,7 +37,7 @@ to `ALARM`, its composite alarm stops taking actions. When a suppressor alarm
 changes states from `ALARM` to `OK`, its composite alarm resumes
 taking actions.
 
-## `WaitPeriod` and `ExtensionPeriod`
+### `WaitPeriod` and `ExtensionPeriod`
 
 When you specify a suppressor alarm, you set the parameters `WaitPeriod`
 and `ExtensionPeriod`. These parameters prevent composite alarms from taking
@@ -54,7 +71,7 @@ Composite alarms don't take actions when `WaitPeriod` and
 `ExtensionPeriod` become active. Composite alarms take actions that are based
 on their currents states when `ExtensionPeriod` and `WaitPeriod`
 become inactive. We recommend that you set the value for each parameter to 60
-seconds, as CloudWatch evaluates metric alarms every minute. You can set the parameters to any
+seconds, as evaluates metric alarms every minute. You can set the parameters to any
 integer in seconds.
 
 The following examples describe in more detail how `WaitPeriod` and
@@ -65,7 +82,7 @@ The following examples describe in more detail how `WaitPeriod` and
 In the following examples, `WaitPeriod` is configured as 2 time units,
 and `ExtensionPeriod` is configured as 3 time units.
 
-### Examples
+#### Examples
 
 **Example 1: Actions are not suppressed after `WaitPeriod`**
 

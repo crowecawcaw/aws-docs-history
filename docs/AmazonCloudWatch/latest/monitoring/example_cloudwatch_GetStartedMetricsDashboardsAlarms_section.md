@@ -1285,6 +1285,103 @@ public class CloudWatchWrapper
 
 ```
 
+Example settings.json values for the scenario.
+
+```
+{
+  "dashboardName": "example-new-dashboard",
+  "exampleAlarmName": "example-metric-alarm",
+  "accountId": "1234567890",
+  "region": "us-east-1",
+  "emailTopic": "Default_CloudWatch_Alarms_Topic",
+  "customMetricNamespace": "example-namespace",
+  "customMetricName": "example-custom-metric",
+  "dashboardExampleBody": {
+    "widgets": [
+      {
+        "height": 6,
+        "width": 6,
+        "y": 0,
+        "x": 0,
+        "type": "text",
+        "properties": {
+          "markdown": "# Code Example Dashboard \nThis dashboard was created by example code.\n"
+        }
+      },
+      {
+        "height": 8,
+        "width": 8,
+        "y": 0,
+        "x": 6,
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [
+              "AWS/Billing",
+              "EstimatedCharges",
+              "Currency",
+              "USD",
+              { "region": "us-east-1" }
+            ]
+          ],
+          "view": "timeSeries",
+          "region": "us-east-1",
+          "stat": "Maximum",
+          "period": 86400,
+          "yAxis": {
+            "left": {
+              "min": 0,
+              "max": 100
+            }
+          },
+          "stacked": false,
+          "title": "Estimated Billing",
+          "setPeriodToTimeRange": false,
+          "liveData": true,
+          "sparkline": true,
+          "trend": true
+        }
+      },
+      {
+        "height": 8,
+        "width": 8,
+        "y": 0,
+        "x": 14,
+        "type": "metric",
+        "properties": {
+          "metrics": [
+            [ "AWS/Usage", "CallCount", "Type", "API", "Resource", "ListMetrics", "Service", "CloudWatch", "Class", "None" ],
+            [ "...", "GetMetricStatistics", ".", ".", ".", "." ],
+            [ "...", "GetMetricData", ".", ".", ".", "." ],
+            [ "...", "PutDashboard", ".", ".", ".", "." ],
+            [ "...", "PutMetricData", ".", ".", ".", "." ]
+          ],
+          "view": "timeSeries",
+          "yAxis": {
+            "left": {
+              "min": 0,
+              "max": 200
+            }
+          },
+          "stacked": false,
+          "region": "us-east-1",
+          "stat": "Sum",
+          "period": 300,
+          "title": "CloudWatch Usage",
+          "setPeriodToTimeRange": false,
+          "liveData": true,
+          "sparkline": true,
+          "trend": true
+        }
+      }
+    ]
+  }
+}
+
+
+
+```
+
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
   - [DeleteAlarms](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAlarms.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAlarms.md")
   - [DeleteAnomalyDetector](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector.md")

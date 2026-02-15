@@ -66,7 +66,7 @@ details along with all the operations performed during that span.
 The Evaluations dashboard also includes a bar graph for each evaluator. The graphs show
 the trends for each evaluator over time, and enable you to set alarms for specific metric
 values. To set an alarm, click a bar in the graph, and then choose **Alarm**
-(bell) icon. For more information, see [Using Amazon CloudWatch alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md").
+(bell) icon. For more information, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md").
 
 ![Evaluations graphs](images/evals_graphs.png)
 
@@ -137,7 +137,7 @@ You can set alarms to notify you when evaluation metrics cross specified thresho
 4. Select the metric you want to monitor.
 5. Configure the threshold conditions (dynamic anomaly detection threshold available where you don't need to specified a static number threshold) and notification actions.
 
-For detailed instructions, see [Using CloudWatch Alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md")
+For detailed instructions, see [Using CloudWatch Alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md")
 and [Creating a CloudWatch Alarm Based on a Static Threshold](ConsoleAlarms.md "ConsoleAlarms.md").
 
 ### Additional Resources

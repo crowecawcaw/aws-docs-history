@@ -5,6 +5,24 @@ history.
 
 For more information about CloudWatch investigations, see [CloudWatch investigations](Investigations.md "Investigations.md").
 
+## Prerequisites
+
+Before you can start a CloudWatch investigations from a CloudWatch alarm, you must create a resource policy for
+the function to allow the CloudWatch service principal to start the investigation. To do this
+using the AWS CLI, use a command similar to the following example:
+
+```
+
+aws aiops put-investigation-group-policy \
+    --identifier arn:aws:aiops:us-east-1:111122223333:investigation-group/investigation_group_id \
+    --policy "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"aiops.alarms.cloudwatch.amazonaws.com\"},\"Action\":[\"aiops:CreateInvestigation\",\"aiops:CreateInvestigationEvent\"],\"Resource\":\"*\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"111122223333\"},\"ArnLike\":{\"aws:SourceArn\":\"arn:aws:cloudwatch:us-east-1:111122223333:alarm:*\"}}}]}" \
+    --region eu-north-1
+
+```
+
+Replace the example values with your own AWS account ID, region, and investigation
+group ID.
+
 ###### Start an investigation from a CloudWatch alarm
 
 1. Open the CloudWatch console at
@@ -18,55 +36,45 @@ For more information about CloudWatch investigations, see [CloudWatch investigat
 6. For **New investigation title**, enter a name for the
    investigation. Then choose **Start investigation**.
 
-The CloudWatch investigations assistant starts. It scans your telemetry data to find data that might be
+The CloudWatch investigations assistant starts and scans your telemetry data to find data that might be
 associated with this situation. 7. In the CloudWatch console's navigation pane, choose **Investigations**,
 then choose the name of the investigation that you just started.
 
 The **Findings** section displays a natural-language summary of the
-alarm's status and the reason that it was triggered. 8. (Optional) In the graph of the alarm, you can right-click and then choose to
-deep-dive into the alarm or the metric that it watches. 9. On the right side of the screen, choose the **Suggestions**
+alarm's status and the reason that it was triggered. 8. (Optional) In the graph of the alarm, right-click and choose to deep-dive into the
+alarm or the metric that it watches. 9. On the right side of the screen, choose the **Suggestions**
 tab.
 
-You see a list of other telemetry that CloudWatch investigations has discovered and that might be
-relevant to the investigation. These findings can include other metrics and CloudWatch Logs
-Insights query results. CloudWatch investigations ran these queries based on the alarm.
+A list of other telemetry that CloudWatch investigations has discovered and that might be relevant to
+the investigation appears. These findings can include other metrics and CloudWatch Logs Insights
+query results. CloudWatch investigations ran these queries based on the alarm.
 
-    * For each finding, you can choose **Add to findings** or
+    * For each finding, choose **Add to findings** or
      **Discard**.
 
 
     When you choose **Add to findings**, the telemetry is added to
      the **Findings** section, and CloudWatch investigations uses this information to direct
-     it's further scanning and suggestions.
+     its further scanning and suggestions.
     * For a CloudWatch Logs Insights query result, to change or edit the query and re-run it,
-     you can open the context (right-click) menu for by the results, and then choose
-     **Open in Logs Insights**. For more information, see [Analyzing log data with CloudWatch Logs Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md").
+     open the context (right-click) menu for the results, and then choose **Open
+     in Logs Insights**. For more information, see [Analyzing log data with
+     CloudWatch Logs Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md").
 
 
-    If you want to run a different query, when you get to the Logs Insights page you
-     can choose to use query assist to be able to use natural language to form a query.
-     For more information, see [Use
+    To run a different query, when you get to the Logs Insights page, choose to use
+     query assist to form a query using natural language. For more information, see
+     [Use
      natural language to generate and update CloudWatch Logs Insights queries](../logs/CloudWatchLogs-Insights-Query-Assist.md "../logs/CloudWatchLogs-Insights-Query-Assist.md").
     * (Optional) If you know of telemetry in another AWS service that might apply to
-     this investigation, you can go to that service's console and add the telemetry to
-     the investigation. For example, to add a Lambda metric to the investigation, you can
-     do the following:
-
-
-
-
-    	1. Open the Lambda console.
-    	2. In the **Monitor** section, find the metric.
-    	3. Open the context menu for the metric, choose
-    	 **Investigate**, **Add to investigation**
-    	 Then, in the **Investigate** pane, select the name of the
-    	 investigation.
+     this investigation, go to that service's console and add the telemetry to the
+     investigation.
 
 10. CloudWatch investigations might also add hypotheses to the list in the **Suggestions**
     tab. These hypotheses are generated by the investigation in natural language.
 
-For each hyypotheses, you can choose **Add to findings** or
+For each hypothesis, choose **Add to findings** or
 **Discard**. 11. When you think you have completed the investigation and found the root cause of the
-issue, you can choose the **Overview** tab and then choose
+issue, choose the **Overview** tab and then choose
 **Investigation summary**. CloudWatch investigations then creates a natural-language
 summary of the important findings and hypotheses from the investigation.

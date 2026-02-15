@@ -50,7 +50,7 @@ When you delete a canary, you should also delete the following:
   `cwsyn-*MyCanaryName*`.
 - CloudWatch alarms created for this canary. These alarms have a name that starts with
   `Synthetics-Alarm-*MyCanaryName*`. For more
-  information about deleting alarms, see [Edit or delete a CloudWatch alarm](Manage-CloudWatch-Alarm.md#Edit-CloudWatch-Alarm "Manage-CloudWatch-Alarm.md#Edit-CloudWatch-Alarm").
+  information about deleting alarms, see [Edit or delete a CloudWatch alarm](Edit-CloudWatch-Alarm.md "Edit-CloudWatch-Alarm.md").
 - Amazon S3 objects and buckets, such as the canary's results location and artifact
   location.
 - IAM roles created for the canary. These have the name

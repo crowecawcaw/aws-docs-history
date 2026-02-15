@@ -600,7 +600,7 @@ When you create a metric alarm, your costs are based on your alarm’s resolutio
 setting and the number of metrics that your alarm references. For example, a metric
 alarm that references one metric incurs one alarm-metric cost per hour. For more
 information, see [Using Amazon CloudWatch
-alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md").
+alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md").
 
 If you create a metric alarm that contains a metric math expression, which
 references multiple metrics, you incur a cost for each alarm-metric that’s
@@ -672,9 +672,7 @@ The best way to reduce costs is to remove all unnecessary or unused alarms.
 For example, you can delete alarms that evaluate metrics emitted by AWS
 resources that no longer exist.
 
-###### Example of using `DescribeAlarms` to check for alarms in
-
-`INSUFFICIENT_DATA` state
+###### Example of using DescribeAlarms to check for alarms in INSUFFICIENT_DATA state
 
 If you delete a resource, but not the metric alarms that the resource
 emits, the alarms still exist and typically will go into the

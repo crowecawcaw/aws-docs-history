@@ -15,7 +15,7 @@ number of consecutive periods have values that breach the threshold. If **Datapo
 periods**, then it is an "M out of N" alarm and the alarm goes into ALARM state
 if at least **Datapoints to alarm** data points are breaching
 within any **Evaluation periods** set of data points. For more
-information, see [Evaluating an alarm](AlarmThatSendsEmail.md#alarm-evaluation "AlarmThatSendsEmail.md#alarm-evaluation").
+information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md").
 
 ###### Topics
 

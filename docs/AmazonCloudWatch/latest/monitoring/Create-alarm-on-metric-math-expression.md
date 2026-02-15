@@ -80,9 +80,9 @@ an alarm that goes to `ALARM` state if that many consecutive periods are
 breaching.
 
 To create an M out of N alarm, specify a lower number for the first value than you
-specify for the second value. For more information, see [Evaluating an alarm](AlarmThatSendsEmail.md#alarm-evaluation "AlarmThatSendsEmail.md#alarm-evaluation"). 13. For **Missing data treatment**, choose how to have the alarm behave
+specify for the second value. For more information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md"). 13. For **Missing data treatment**, choose how to have the alarm behave
 when some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing
-data](AlarmThatSendsEmail.md#alarms-and-missing-data "AlarmThatSendsEmail.md#alarms-and-missing-data"). 14. Choose **Next**. 15. Under **Notification**, select an SNS topic to notify when the alarm
+data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 14. Choose **Next**. 15. Under **Notification**, select an SNS topic to notify when the alarm
 is in `ALARM` state, `OK` state, or `INSUFFICIENT_DATA`
 state.
 

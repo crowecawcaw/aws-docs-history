@@ -286,12 +286,12 @@ detect smaller error rate increases that eventually deplete the error budget if 
 
 Additionally, you could set a _composite alarm_ on a burn rate with long window and on a burn rate with a short window (1/12th of the long window),
 and be informed only when both of the burn rates breach a threshold. This way, you can ensure that you get alerted only for situations that are still happening.
-For more information about composite alarms in CloudWatch, see [Combining alarms](Create_Composite_Alarm.md "Create_Composite_Alarm.md").
+For more information about composite alarms in CloudWatch, see [Create a composite alarm](Create_Composite_Alarm.md "Create_Composite_Alarm.md").
 
 ###### Note
 
 You can set a metric alarm on a burn rate when you create the burn rate. To set a compoaite alarm on multiple burn rate alarms, you must
-use the instructions in [Create a composite alarm](Create_Composite_Alarm_How_To.md "Create_Composite_Alarm_How_To.md").
+use the instructions in [Create a composite alarm](Create_Composite_Alarm.md "Create_Composite_Alarm.md").
 
 One composite alarm strategy recommended in the
 [Google Site Reliability Engineering workbook](https://sre.google/workbook/alerting-on-slos/ "https://sre.google/workbook/alerting-on-slos/")
@@ -311,7 +311,7 @@ The steps to do this set up are the following:
    - Alarms on the 3-day and 6-hour burn rates (the threshold is determined by 10% of the total budget)
 
 3. For each of these pairs, create a composite alarm to get alerted when both of the individual alarms go into ALARM state. For more information about
-   creating composite alarms, see [Create a composite alarm](Create_Composite_Alarm_How_To.md "Create_Composite_Alarm_How_To.md").
+   creating composite alarms, see [Create a composite alarm](Create_Composite_Alarm.md "Create_Composite_Alarm.md").
 
 For example, if your alarms for the first pair (one-hour window and five-minute window) are named `OneHourBurnRate` and `FiveMinuteBurnRate`,
 the CloudWatch composite alarm rule would be `ALARM(OneHourBurnRate) AND ALARM(FiveMinuteBurnRate)`
@@ -435,7 +435,7 @@ Use the following procedure to create a period-based SLO.
 
     To create an alarm, select one of the alarm check boxes and enter or create the Amazon SNS topic to
     use for notifications when the alarm goes into `ALARM` state. For more
-    information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md"). Creating alarms incurs charges. For more
+    information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md"). Creating alarms incurs charges. For more
     information about CloudWatch pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). 2. If you set a warning threshold, it appears in Application Signals screens to help you identify
     SLOs that are in danger of being unmet, even if they're currently healthy.
 
@@ -561,7 +561,7 @@ Use the following procedure to create a request-based SLO.
 
    To create an alarm, select one of the alarm check boxes and enter or create the Amazon SNS topic to
    use for notifications when the alarm goes into `ALARM` state. For more
-   information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md"). Creating alarms incurs charges. For more
+   information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md"). Creating alarms incurs charges. For more
    information about CloudWatch pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). 2. If you set a warning threshold, it appears in Application Signals screens to help you identify
    SLOs that are in danger of being unmet, even if they're currently healthy.
 

@@ -38,9 +38,9 @@ information about creating connections to these other data sources, see [Query m
     are breaching.
 
 To create an M out of N alarm, specify a number for the first value that is lower
-than the number for the second value. For more information, see [Evaluating an alarm](AlarmThatSendsEmail.md#alarm-evaluation "AlarmThatSendsEmail.md#alarm-evaluation"). 12. For **Missing data treatment**, choose how the alarm behaves when
+than the number for the second value. For more information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md"). 12. For **Missing data treatment**, choose how the alarm behaves when
 some data points are missing. For more information, see [Configuring how CloudWatch alarms treat missing
-data](AlarmThatSendsEmail.md#alarms-and-missing-data "AlarmThatSendsEmail.md#alarms-and-missing-data"). 13. Choose **Next**. 14. For **Notification**, specify an Amazon SNS topic to notify when your
+data](alarms-and-missing-data.md "alarms-and-missing-data.md"). 13. Choose **Next**. 14. For **Notification**, specify an Amazon SNS topic to notify when your
 alarm transitions to the `ALARM`, `OK`, or
 `INSUFFICIENT_DATA` state.
 
@@ -82,74 +82,3 @@ internal resources.
 The alarm name must contain only UTF-8 characters. It can't contain ASCII control
 characters. 18. Under **Preview and create**, confirm that your alarm's
 information and conditions are correct, and choose **Create alarm**.
-
-## Details about alarms for connected data
-
-sources
-
-- When CloudWatch evaluates an alarm, it does so every minute, even if the period for the
-  alarm is longer than one minute. For the alarm to work, the Lambda function must be
-  able to return a list of timestamps starting on any minute, not only on multiples of
-  the period length. These timestamps must be spaced one period length apart.
-
-Therefore, if the data source queried by the Lambda can only return timestamps that
-are multiples of the period length, the function should "re-sample" the fetched data
-to match the timestamps expected by the `GetMetricData` request.
-
-For example, an alarm with a five-minute period is evaluated every minute using
-five-minute windows that shift by one minute each time. In this case:
-
-    + For the alarm evaluation at 12:15:00, CloudWatch expects data points with timestamps
-     of `12:00:00`, `12:05:00`, and `12:10:00`.
-    + Then for the alarm evaluation at 12:16:00, CloudWatch expects data points with
-     timestamps of `12:01:00`, `12:06:00`, and
-     `12:11:00`.
-
-- When CloudWatch evaluates an alarm, any data points returned by the Lambda function that
-  don't align with the expected timestamps are dropped, and the alarm is evaluated using
-  the remaining expected data points. For example, when the alarm is evaluated at
-  `12:15:00` it expects data with timestamps of `12:00:00`,
-  `12:05:00`, and `12:10:00`. If it receives data with
-  timestamps of `12:00:00`, `12:05:00`, `12:06:00`, and
-  `12:10:00`, the data from `12:06:00` is dropped and CloudWatch
-  evaluates the alarm using the other timestamps.
-
-Then for the next evaluation at `12:16:00`, it expects data with
-timestamps of `12:01:00`, `12:06:00`, and `12:11:00`.
-If it only has the data with timestamps of `12:00:00`,
-`12:05:00`, and `12:10:00`, all of these data points are
-ignored at 12:16:00 and the alarm transitions into the state according to how you
-specified the alarm to treat missing data. For more information, see [Evaluating an alarm](AlarmThatSendsEmail.md#alarm-evaluation "AlarmThatSendsEmail.md#alarm-evaluation").
-
-- We recommend that you create these alarms to take actions when they transition to
-  the `INSUFFICIENT_DATA` state, because several Lambda function failure use
-  cases will transition the alarm to `INSUFFICIENT_DATA` regardless of the
-  way that you set the alarm to treat missing data.
-- If the Lambda function returns an error:
-  - If there is a permission problem with calling the Lambda function, the alarm
-    begins having missing data transitions according to how you specified the alarm to
-    treat missing data when you created it.
-  - Any other error coming from the Lambda function causes the alarm to transition
-    to `INSUFFICIENT_DATA`.
-
-- If the Lambda function returns partial data:
-  - The alarm continues to be evaluated on the data points that are
-    returned.
-  - You can use the following methods to find whether an alarm on a Lambda function
-    is currently evaluating its alarm state based on partial data:
-    - In the console, choose an alarm and choose the
-      **Details** page. If you see the message
-      **Evaluation warning: Not evaluating all data appears on that
-      page**, it is evaluating on partial data.
-    - If you see the value `PARTIAL_DATA` in the
-      `EvaluationState` field when you use the
-      `describe-alarms` AWS CLI command or the DescribeAlarms API, it is
-      evaluating on partial data.
-
-  - An alarm also publishes events to Amazon EventBridge when it goes into the partial data
-    state.
-
-- If the metric requested by the Lambda function has some delay so that the last data
-  point is always missing, you should use a workaround. You can create an M out of N
-  alarm or increase the evaluation period of the alarm. For more information about M out
-  of N alarms, see [Evaluating an alarm](AlarmThatSendsEmail.md#alarm-evaluation "AlarmThatSendsEmail.md#alarm-evaluation").

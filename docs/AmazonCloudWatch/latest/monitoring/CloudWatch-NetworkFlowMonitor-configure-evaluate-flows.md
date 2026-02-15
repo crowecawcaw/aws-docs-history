@@ -24,23 +24,23 @@ receiving performance information for; that is, network flows for all of the
 resources in your scope with Network Flow Monitor agents installed.
 
 **Network flow classifications**
-Network Flow Monitor classifies metrics into designated local-remote categories. Metrics are
-only shown in **Workload insights** for traffic flows in these categories.
-Metrics are displayed for the following categories of flows:
+Network Flow Monitor classifies metrics into designated local-remote categories.
+Metrics are grouped into two types of flows:
 
-- Between AZs (`INTER_AZ`). Always within the same VPC.
-- Within AZs (`INTRA_AZ`). Always within the same VPC.
-- Between VPCs (`INTER_VPC`). Crosses the boundary between VPCs.
-- Between Regions
-  (`INTER_REGION`. This means performance for network flows between resources
-  in your Region and the edge of another Region
-- Toward Amazon S3 buckets (`AMAZON_S3`)
-- Toward Amazon DynamoDB (`AMAZON_DYNAMODB`)
+- **Network Health Indicator (NHI) Flows:** Flows which contribute to Network Health Indicator (NHI) calculations:
+  - Between AZs (`INTER_AZ`). Always within the same VPC.
+  - Within AZs (`INTRA_AZ`). Always within the same VPC.
+  - Between VPCs (`INTER_VPC`). Crosses the boundary between VPCs.
+  - Between Regions (`INTER_REGION`). This means performance for network flows between resources in your Region and the edge of another Region.
+  - Toward Amazon S3 buckets (`AMAZON_S3`)
+  - Toward Amazon DynamoDB (`AMAZON_DYNAMODB`)
 
-Flows that can't be classified into one of these destination categories
-are included in the `UNCLASSIFIED` category. For example, traffic
-that goes to the internet is included in the `UNCLASSIFIED` category.
-Unclassified flows are not included in **Workload insights**.
+- **Non Network Health Indicator (NHI) Flows:** Flows which do not contribute to Network Health Indicator (NHI) calcuations:
+  - Toward the Internet (`INTERNET`). Flows that traverse an Internet Gateway and end on the public Internet.
+  - Towards AWS Services (`AWS_SERVICE`). Flows that end at an AWS service that is not fully monitored (like CloudFront or API Gateway).
+  - Towards a Transit Gateway (`TRANSIT_GATEWAY`). Flows in this classification are flows that arrive at a Transit Gateway, but the final destination of the flow is unknown.
+  - Towards a local zone (`LOCAL_ZONE`). Flows that start or end in a local zone
+  - Any other flow that cannot be otherwise classified (`UNCLASSIFIED`).
 
 **Performance metrics**
 Performance metrics on **Workload insights** are shown in separate tables for

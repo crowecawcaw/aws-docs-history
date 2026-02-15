@@ -1,20 +1,18 @@
-# Create a fleet monitoring alarm using multiple
-
-time series
+# Create an alarm based on a Multi Time Series Metrics Insights query
 
 You can create an alarm that monitors multiple time series across a fleet of resources.
 Unlike single-instance alarms that trigger actions on individual instances, fleet monitoring
 alarms let you aggregate metrics across multiple resources and trigger based on fleet-wide
 conditions.
 
-## Setting up a fleet monitoring alarm
+## Setting up a Multi Time Series alarm
 
 using the AWS Management Console
 
 This example shows how to create an alarm that monitors memory utilization across a
 fleet of instances and alerts you when more than two instances exceed a threshold.
 
-###### To create a fleet monitoring alarm
+###### To create a multi time series alarm
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

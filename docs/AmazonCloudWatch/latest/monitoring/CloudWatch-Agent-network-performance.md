@@ -152,7 +152,7 @@ After importing network performance metrics into CloudWatch, you can view these 
 time series graphs, and create alarms that can watch these metrics and notify you if
 they breach a threshold that you specify. The following procedure shows how to view
 ethtool metrics as a time series graph. For more information about setting alarms, see
-[Using Amazon CloudWatch alarms](AlarmThatSendsEmail.md "AlarmThatSendsEmail.md").
+[Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md").
 
 Because all of these metrics are aggregate counters, you can use CloudWatch metric math
 functions such as `RATE(METRICS())` to calculate the rate for these metrics

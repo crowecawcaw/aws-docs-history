@@ -1,23 +1,24 @@
-# How partial data from a
+# How partial data is handled
 
-Metrics Insights query is evaluated
+## How partial data from a Metrics Insights query is evaluated
 
 If the Metrics Insights query used for the alarm matches more than 10,000 metrics, the
 alarm is evaluated based on the first 10,000 metrics that the query finds. This means that
 the alarm is being evaluated on partial data.
 
-You can use the following methods to find whether a Metrics Insights alarm is
-currently evaluating its alarm state based on partial data:
+You can use the following methods to find whether a Metrics Insights alarm is currently
+evaluating its alarm state based on partial data:
 
-- In the console, if you choose an alarm to see the **Details**
-  page, the message **Evaluation warning: Not evaluating all data**
-  appears on that page.
+- In the console, if you choose an alarm to see the **Details** page,
+  the message **Evaluation warning: Not evaluating all data** appears on
+  that page.
 - You see the value `PARTIAL_DATA` in the `EvaluationState`
   field when you use the [describe-alarms](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms.html?highlight=describe%20alarms "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms.html?highlight=describe%20alarms") AWS CLI command or the [DescribeAlarms](../APIReference/API_DescribeAlarms.md "../APIReference/API_DescribeAlarms.md") API.
-  Alarms also publish events to Amazon EventBridge when it goes into the partial data state, so
-  you can create an EventBridge rule to watch for these events. In these events, the
-  `evaluationState` field has the value `PARTIAL_DATA`. The
-  following is an example.
+
+Alarms also publish events to Amazon EventBridge when it goes into the partial data state, so you
+can create an EventBridge rule to watch for these events. In these events, the
+`evaluationState` field has the value `PARTIAL_DATA`. The following
+is an example.
 
 ```
 {
@@ -61,6 +62,26 @@ currently evaluating its alarm state based on partial data:
 
 If the query for the alarm includes a GROUP BY statement that initially returns more
 than 500 time series, the alarm is evaluated based on the first 500 time series that the
-query finds. However, if you use an ORDER BY clause, then all the time series that the
-query finds are sorted, and the 500 that have the highest or lowest values according to
-your ORDER BY clause are used to evaluate the alarm.
+query finds. However, if you use an ORDER BY clause, then all the time series that the query
+finds are sorted, and the 500 that have the highest or lowest values according to your ORDER
+BY clause are used to evaluate the alarm.
+
+## How partial data from a multi data source alarm is evaluated
+
+If the Lambda function returns partial data:
+
+- The alarm continues to be evaluated on the data points that are
+  returned.
+- You can use the following methods to find whether an alarm on a Lambda function
+  is currently evaluating its alarm state based on partial data:
+  - In the console, choose an alarm and choose the
+    **Details** page. If you see the message
+    **Evaluation warning: Not evaluating all data appears on that
+    page**, it is evaluating on partial data.
+  - If you see the value `PARTIAL_DATA` in the
+    `EvaluationState` field when you use the
+    `describe-alarms` AWS CLI command or the DescribeAlarms API, it is
+    evaluating on partial data.
+
+- An alarm also publishes events to Amazon EventBridge when it goes into the partial data
+  state.
