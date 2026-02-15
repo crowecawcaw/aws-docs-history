@@ -140,9 +140,7 @@ JSON
 
 ```
 
-###### Example 4: Limit CodeBuild actions to
-
-AWSCodeBuildDeveloperAccess based on resource tags
+###### Example 4: Limit CodeBuild actions to AWSCodeBuildDeveloperAccess based on resource tags
 
 You can create policies that allow CodeBuild actions on all report groups and projects that are not tagged
 with specific tags. For example, the following policy allows the equivalent of [AWSCodeBuildDeveloperAccess](auth-and-access-control-iam-identity-based-access-control.md#developer-access-policy "auth-and-access-control-iam-identity-based-access-control.md#developer-access-policy") permissions for all

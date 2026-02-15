@@ -66,7 +66,7 @@ stage** in the stage, and then skip to step 8 of this procedure. To
 add the build stage somewhere else, choose **Add stage** in the
 desired place.
 
-![How to add a build stage between the Source and Beta stages to your pipeline.](images/create-stage.png) 8. For **Stage name**, enter the name of the build stage (for
+![How to add a build stage between the Source and Beta stages to your pipeline.](/images/codebuild/latest/userguide/images/create-stage.png) 8. For **Stage name**, enter the name of the build stage (for
 example, `Build`). If you choose a different name, use it
 throughout this procedure. 9. Inside of the selected stage, choose **Add action**.
 

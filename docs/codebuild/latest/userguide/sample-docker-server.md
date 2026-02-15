@@ -110,7 +110,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - docker buildx build .
+      - docker buildx build -t helloworld --load .
       - docker run helloworld echo "Hello, World!"
 ```
 
