@@ -15,7 +15,7 @@ Amazon Translate autodetects the source language, or you can choose a source lan
 Enter the text that you want to translate in the left-hand text box.
 The translated text appears in the right-hand text box.
 
-![The translate text page of the Amazon Translate API Explorer.](images/gs-10.png)
+![The translate text page of the Amazon Translate API Explorer.](/images/translate/latest/dg/images/gs-10.png)
 In the **Application integration** section you can see the JSON input and
 output for the [TranslateText](../APIReference/API_TranslateText.md "../APIReference/API_TranslateText.md") operation.
 

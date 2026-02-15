@@ -167,6 +167,8 @@ resources in a policy:
 You can use the wildcard character to specify multiple resources in the policy. The
 following example policy allows all custom terminology resources for all Amazon Translate actions.
 
+###### Example
+
 ```
 {
         "Sid": "Example1",
@@ -179,6 +181,8 @@ following example policy allows all custom terminology resources for all Amazon 
 ```
 
 The following example policy denies access to a specific parallel data resource for the **GetParallelData** action.
+
+###### Example
 
 ```
 {
