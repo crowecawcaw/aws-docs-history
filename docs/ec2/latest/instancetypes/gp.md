@@ -24,33 +24,34 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance families and instance types
 
 | Instance family | Available instance types |
-| --------------- | ------------------------ | ----------------- | ------------------ | ------------------ | ------------------ | ------------------- | ------------------- | ---------------- | ---------------- | ---------------- | ----------------- | ----------------- | ----------------- |
-| M5              | `m5.large`               | `m5.xlarge`       | `m5.2xlarge`       | `m5.4xlarge`       | `m5.8xlarge`       | `m5.12xlarge`       | `m5.16xlarge`       | `m5.24xlarge`    | `m5.metal`       |
-| M5a             | `m5a.large`              | `m5a.xlarge`      | `m5a.2xlarge`      | `m5a.4xlarge`      | `m5a.8xlarge`      | `m5a.12xlarge`      | `m5a.16xlarge`      | `m5a.24xlarge`   |
-| M5ad            | `m5ad.large`             | `m5ad.xlarge`     | `m5ad.2xlarge`     | `m5ad.4xlarge`     | `m5ad.8xlarge`     | `m5ad.12xlarge`     | `m5ad.16xlarge`     | `m5ad.24xlarge`  |
-| M5d             | `m5d.large`              | `m5d.xlarge`      | `m5d.2xlarge`      | `m5d.4xlarge`      | `m5d.8xlarge`      | `m5d.12xlarge`      | `m5d.16xlarge`      | `m5d.24xlarge`   | `m5d.metal`      |
-| M5dn            | `m5dn.large`             | `m5dn.xlarge`     | `m5dn.2xlarge`     | `m5dn.4xlarge`     | `m5dn.8xlarge`     | `m5dn.12xlarge`     | `m5dn.16xlarge`     | `m5dn.24xlarge`  | `m5dn.metal`     |
-| M5n             | `m5n.large`              | `m5n.xlarge`      | `m5n.2xlarge`      | `m5n.4xlarge`      | `m5n.8xlarge`      | `m5n.12xlarge`      | `m5n.16xlarge`      | `m5n.24xlarge`   | `m5n.metal`      |
+| --------------- | ------------------------ | ----------------- | ------------------ | ------------------ | ------------------ | ------------------- | ------------------- | ------------------ | ------------------ | ---------------- | ----------------- | ----------------- | ----------------- |
+| M5              | `m5.large`               | `m5.xlarge`       | `m5.2xlarge`       | `m5.4xlarge`       | `m5.8xlarge`       | `m5.12xlarge`       | `m5.16xlarge`       | `m5.24xlarge`      | `m5.metal`         |
+| M5a             | `m5a.large`              | `m5a.xlarge`      | `m5a.2xlarge`      | `m5a.4xlarge`      | `m5a.8xlarge`      | `m5a.12xlarge`      | `m5a.16xlarge`      | `m5a.24xlarge`     |
+| M5ad            | `m5ad.large`             | `m5ad.xlarge`     | `m5ad.2xlarge`     | `m5ad.4xlarge`     | `m5ad.8xlarge`     | `m5ad.12xlarge`     | `m5ad.16xlarge`     | `m5ad.24xlarge`    |
+| M5d             | `m5d.large`              | `m5d.xlarge`      | `m5d.2xlarge`      | `m5d.4xlarge`      | `m5d.8xlarge`      | `m5d.12xlarge`      | `m5d.16xlarge`      | `m5d.24xlarge`     | `m5d.metal`        |
+| M5dn            | `m5dn.large`             | `m5dn.xlarge`     | `m5dn.2xlarge`     | `m5dn.4xlarge`     | `m5dn.8xlarge`     | `m5dn.12xlarge`     | `m5dn.16xlarge`     | `m5dn.24xlarge`    | `m5dn.metal`       |
+| M5n             | `m5n.large`              | `m5n.xlarge`      | `m5n.2xlarge`      | `m5n.4xlarge`      | `m5n.8xlarge`      | `m5n.12xlarge`      | `m5n.16xlarge`      | `m5n.24xlarge`     | `m5n.metal`        |
 | M5zn            | `m5zn.large`             | `m5zn.xlarge`     | `m5zn.2xlarge`     | `m5zn.3xlarge`     | `m5zn.6xlarge`     | `m5zn.12xlarge`     | `m5zn.metal`        |
-| M6a             | `m6a.large`              | `m6a.xlarge`      | `m6a.2xlarge`      | `m6a.4xlarge`      | `m6a.8xlarge`      | `m6a.12xlarge`      | `m6a.16xlarge`      | `m6a.24xlarge`   | `m6a.32xlarge`   | `m6a.48xlarge`   | `m6a.metal`       |
-| M6g             | `m6g.medium`             | `m6g.large`       | `m6g.xlarge`       | `m6g.2xlarge`      | `m6g.4xlarge`      | `m6g.8xlarge`       | `m6g.12xlarge`      | `m6g.16xlarge`   | `m6g.metal`      |
-| M6gd            | `m6gd.medium`            | `m6gd.large`      | `m6gd.xlarge`      | `m6gd.2xlarge`     | `m6gd.4xlarge`     | `m6gd.8xlarge`      | `m6gd.12xlarge`     | `m6gd.16xlarge`  | `m6gd.metal`     |
-| M6i             | `m6i.large`              | `m6i.xlarge`      | `m6i.2xlarge`      | `m6i.4xlarge`      | `m6i.8xlarge`      | `m6i.12xlarge`      | `m6i.16xlarge`      | `m6i.24xlarge`   | `m6i.32xlarge`   | `m6i.metal`      |
-| M6id            | `m6id.large`             | `m6id.xlarge`     | `m6id.2xlarge`     | `m6id.4xlarge`     | `m6id.8xlarge`     | `m6id.12xlarge`     | `m6id.16xlarge`     | `m6id.24xlarge`  | `m6id.32xlarge`  | `m6id.metal`     |
-| M6idn           | `m6idn.large`            | `m6idn.xlarge`    | `m6idn.2xlarge`    | `m6idn.4xlarge`    | `m6idn.8xlarge`    | `m6idn.12xlarge`    | `m6idn.16xlarge`    | `m6idn.24xlarge` | `m6idn.32xlarge` | `m6idn.metal`    |
-| M6in            | `m6in.large`             | `m6in.xlarge`     | `m6in.2xlarge`     | `m6in.4xlarge`     | `m6in.8xlarge`     | `m6in.12xlarge`     | `m6in.16xlarge`     | `m6in.24xlarge`  | `m6in.32xlarge`  | `m6in.metal`     |
-| M7a             | `m7a.medium`             | `m7a.large`       | `m7a.xlarge`       | `m7a.2xlarge`      | `m7a.4xlarge`      | `m7a.8xlarge`       | `m7a.12xlarge`      | `m7a.16xlarge`   | `m7a.24xlarge`   | `m7a.32xlarge`   | `m7a.48xlarge`    | `m7a.metal-48xl`  |
-| M7g             | `m7g.medium`             | `m7g.large`       | `m7g.xlarge`       | `m7g.2xlarge`      | `m7g.4xlarge`      | `m7g.8xlarge`       | `m7g.12xlarge`      | `m7g.16xlarge`   | `m7g.metal`      |
-| M7gd            | `m7gd.medium`            | `m7gd.large`      | `m7gd.xlarge`      | `m7gd.2xlarge`     | `m7gd.4xlarge`     | `m7gd.8xlarge`      | `m7gd.12xlarge`     | `m7gd.16xlarge`  | `m7gd.metal`     |
-| M7i             | `m7i.large`              | `m7i.xlarge`      | `m7i.2xlarge`      | `m7i.4xlarge`      | `m7i.8xlarge`      | `m7i.12xlarge`      | `m7i.16xlarge`      | `m7i.24xlarge`   | `m7i.48xlarge`   | `m7i.metal-24xl` | `m7i.metal-48xl`  |
+| M6a             | `m6a.large`              | `m6a.xlarge`      | `m6a.2xlarge`      | `m6a.4xlarge`      | `m6a.8xlarge`      | `m6a.12xlarge`      | `m6a.16xlarge`      | `m6a.24xlarge`     | `m6a.32xlarge`     | `m6a.48xlarge`   | `m6a.metal`       |
+| M6g             | `m6g.medium`             | `m6g.large`       | `m6g.xlarge`       | `m6g.2xlarge`      | `m6g.4xlarge`      | `m6g.8xlarge`       | `m6g.12xlarge`      | `m6g.16xlarge`     | `m6g.metal`        |
+| M6gd            | `m6gd.medium`            | `m6gd.large`      | `m6gd.xlarge`      | `m6gd.2xlarge`     | `m6gd.4xlarge`     | `m6gd.8xlarge`      | `m6gd.12xlarge`     | `m6gd.16xlarge`    | `m6gd.metal`       |
+| M6i             | `m6i.large`              | `m6i.xlarge`      | `m6i.2xlarge`      | `m6i.4xlarge`      | `m6i.8xlarge`      | `m6i.12xlarge`      | `m6i.16xlarge`      | `m6i.24xlarge`     | `m6i.32xlarge`     | `m6i.metal`      |
+| M6id            | `m6id.large`             | `m6id.xlarge`     | `m6id.2xlarge`     | `m6id.4xlarge`     | `m6id.8xlarge`     | `m6id.12xlarge`     | `m6id.16xlarge`     | `m6id.24xlarge`    | `m6id.32xlarge`    | `m6id.metal`     |
+| M6idn           | `m6idn.large`            | `m6idn.xlarge`    | `m6idn.2xlarge`    | `m6idn.4xlarge`    | `m6idn.8xlarge`    | `m6idn.12xlarge`    | `m6idn.16xlarge`    | `m6idn.24xlarge`   | `m6idn.32xlarge`   | `m6idn.metal`    |
+| M6in            | `m6in.large`             | `m6in.xlarge`     | `m6in.2xlarge`     | `m6in.4xlarge`     | `m6in.8xlarge`     | `m6in.12xlarge`     | `m6in.16xlarge`     | `m6in.24xlarge`    | `m6in.32xlarge`    | `m6in.metal`     |
+| M7a             | `m7a.medium`             | `m7a.large`       | `m7a.xlarge`       | `m7a.2xlarge`      | `m7a.4xlarge`      | `m7a.8xlarge`       | `m7a.12xlarge`      | `m7a.16xlarge`     | `m7a.24xlarge`     | `m7a.32xlarge`   | `m7a.48xlarge`    | `m7a.metal-48xl`  |
+| M7g             | `m7g.medium`             | `m7g.large`       | `m7g.xlarge`       | `m7g.2xlarge`      | `m7g.4xlarge`      | `m7g.8xlarge`       | `m7g.12xlarge`      | `m7g.16xlarge`     | `m7g.metal`        |
+| M7gd            | `m7gd.medium`            | `m7gd.large`      | `m7gd.xlarge`      | `m7gd.2xlarge`     | `m7gd.4xlarge`     | `m7gd.8xlarge`      | `m7gd.12xlarge`     | `m7gd.16xlarge`    | `m7gd.metal`       |
+| M7i             | `m7i.large`              | `m7i.xlarge`      | `m7i.2xlarge`      | `m7i.4xlarge`      | `m7i.8xlarge`      | `m7i.12xlarge`      | `m7i.16xlarge`      | `m7i.24xlarge`     | `m7i.48xlarge`     | `m7i.metal-24xl` | `m7i.metal-48xl`  |
 | M7i-flex        | `m7i-flex.large`         | `m7i-flex.xlarge` | `m7i-flex.2xlarge` | `m7i-flex.4xlarge` | `m7i-flex.8xlarge` | `m7i-flex.12xlarge` | `m7i-flex.16xlarge` |
-| M8a             | `m8a.medium`             | `m8a.large`       | `m8a.xlarge`       | `m8a.2xlarge`      | `m8a.4xlarge`      | `m8a.8xlarge`       | `m8a.12xlarge`      | `m8a.16xlarge`   | `m8a.24xlarge`   | `m8a.48xlarge`   | `m8a.metal-24xl`  | `m8a.metal-48xl`  |
-| M8g             | `m8g.medium`             | `m8g.large`       | `m8g.xlarge`       | `m8g.2xlarge`      | `m8g.4xlarge`      | `m8g.8xlarge`       | `m8g.12xlarge`      | `m8g.16xlarge`   | `m8g.24xlarge`   | `m8g.48xlarge`   | `m8g.metal-24xl`  | `m8g.metal-48xl`  |
-| M8gb            | `m8gb.medium`            | `m8gb.large`      | `m8gb.xlarge`      | `m8gb.2xlarge`     | `m8gb.4xlarge`     | `m8gb.8xlarge`      | `m8gb.12xlarge`     | `m8gb.16xlarge`  | `m8gb.24xlarge`  | `m8gb.48xlarge`  |
-| M8gd            | `m8gd.medium`            | `m8gd.large`      | `m8gd.xlarge`      | `m8gd.2xlarge`     | `m8gd.4xlarge`     | `m8gd.8xlarge`      | `m8gd.12xlarge`     | `m8gd.16xlarge`  | `m8gd.24xlarge`  | `m8gd.48xlarge`  | `m8gd.metal-24xl` | `m8gd.metal-48xl` |
-| M8gn            | `m8gn.medium`            | `m8gn.large`      | `m8gn.xlarge`      | `m8gn.2xlarge`     | `m8gn.4xlarge`     | `m8gn.8xlarge`      | `m8gn.12xlarge`     | `m8gn.16xlarge`  | `m8gn.24xlarge`  | `m8gn.48xlarge`  |
-| M8i             | `m8i.large`              | `m8i.xlarge`      | `m8i.2xlarge`      | `m8i.4xlarge`      | `m8i.8xlarge`      | `m8i.12xlarge`      | `m8i.16xlarge`      | `m8i.24xlarge`   | `m8i.32xlarge`   | `m8i.48xlarge`   | `m8i.96xlarge`    | `m8i.metal-48xl`  | `m8i.metal-96xl`  |
-| M8id            | `m8id.large`             | `m8id.xlarge`     | `m8id.2xlarge`     | `m8id.4xlarge`     | `m8id.8xlarge`     | `m8id.12xlarge`     | `m8id.16xlarge`     | `m8id.24xlarge`  | `m8id.32xlarge`  | `m8id.48xlarge`  | `m8id.96xlarge`   | `m8id.metal-48xl` | `m8id.metal-96xl` |
+| M8a             | `m8a.medium`             | `m8a.large`       | `m8a.xlarge`       | `m8a.2xlarge`      | `m8a.4xlarge`      | `m8a.8xlarge`       | `m8a.12xlarge`      | `m8a.16xlarge`     | `m8a.24xlarge`     | `m8a.48xlarge`   | `m8a.metal-24xl`  | `m8a.metal-48xl`  |
+| M8azn           | `m8azn.medium`           | `m8azn.large`     | `m8azn.xlarge`     | `m8azn.3xlarge`    | `m8azn.6xlarge`    | `m8azn.12xlarge`    | `m8azn.24xlarge`    | `m8azn.metal-12xl` | `m8azn.metal-24xl` |
+| M8g             | `m8g.medium`             | `m8g.large`       | `m8g.xlarge`       | `m8g.2xlarge`      | `m8g.4xlarge`      | `m8g.8xlarge`       | `m8g.12xlarge`      | `m8g.16xlarge`     | `m8g.24xlarge`     | `m8g.48xlarge`   | `m8g.metal-24xl`  | `m8g.metal-48xl`  |
+| M8gb            | `m8gb.medium`            | `m8gb.large`      | `m8gb.xlarge`      | `m8gb.2xlarge`     | `m8gb.4xlarge`     | `m8gb.8xlarge`      | `m8gb.12xlarge`     | `m8gb.16xlarge`    | `m8gb.24xlarge`    | `m8gb.48xlarge`  |
+| M8gd            | `m8gd.medium`            | `m8gd.large`      | `m8gd.xlarge`      | `m8gd.2xlarge`     | `m8gd.4xlarge`     | `m8gd.8xlarge`      | `m8gd.12xlarge`     | `m8gd.16xlarge`    | `m8gd.24xlarge`    | `m8gd.48xlarge`  | `m8gd.metal-24xl` | `m8gd.metal-48xl` |
+| M8gn            | `m8gn.medium`            | `m8gn.large`      | `m8gn.xlarge`      | `m8gn.2xlarge`     | `m8gn.4xlarge`     | `m8gn.8xlarge`      | `m8gn.12xlarge`     | `m8gn.16xlarge`    | `m8gn.24xlarge`    | `m8gn.48xlarge`  |
+| M8i             | `m8i.large`              | `m8i.xlarge`      | `m8i.2xlarge`      | `m8i.4xlarge`      | `m8i.8xlarge`      | `m8i.12xlarge`      | `m8i.16xlarge`      | `m8i.24xlarge`     | `m8i.32xlarge`     | `m8i.48xlarge`   | `m8i.96xlarge`    | `m8i.metal-48xl`  | `m8i.metal-96xl`  |
+| M8id            | `m8id.large`             | `m8id.xlarge`     | `m8id.2xlarge`     | `m8id.4xlarge`     | `m8id.8xlarge`     | `m8id.12xlarge`     | `m8id.16xlarge`     | `m8id.24xlarge`    | `m8id.32xlarge`    | `m8id.48xlarge`  | `m8id.96xlarge`   | `m8id.metal-48xl` | `m8id.metal-96xl` |
 | M8i-flex        | `m8i-flex.large`         | `m8i-flex.xlarge` | `m8i-flex.2xlarge` | `m8i-flex.4xlarge` | `m8i-flex.8xlarge` | `m8i-flex.12xlarge` | `m8i-flex.16xlarge` |
 | Mac1            | `mac1.metal`             |
 | Mac2            | `mac2.metal`             |
@@ -88,6 +89,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M7i             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M7i-flex        | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M8a             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| M8azn           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M8g             | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
 | M8gb            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
 | M8gd            | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
@@ -319,6 +321,16 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | m8a.48xlarge       | 768.00       | AMD EPYC 9R45                   | 192   | 192       | 1                | ✗ No         | ✗ No               |
 | m8a.metal-24xl     | 384.00       | AMD EPYC 9R45                   | 96    | 96        | 1                | ✗ No         | ✗ No               |
 | m8a.metal-48xl     | 768.00       | AMD EPYC 9R45                   | 192   | 192       | 1                | ✗ No         | ✗ No               |
+| **M8azn**          |
+| m8azn.medium       | 4.00         | AMD EPYC 9R05                   | 1     | 1         | 1                | ✗ No         | ✗ No               |
+| m8azn.large        | 8.00         | AMD EPYC 9R05                   | 2     | 2         | 1                | ✗ No         | ✗ No               |
+| m8azn.xlarge       | 16.00        | AMD EPYC 9R05                   | 4     | 4         | 1                | ✗ No         | ✗ No               |
+| m8azn.3xlarge      | 48.00        | AMD EPYC 9R05                   | 12    | 12        | 1                | ✗ No         | ✗ No               |
+| m8azn.6xlarge      | 96.00        | AMD EPYC 9R05                   | 24    | 24        | 1                | ✗ No         | ✗ No               |
+| m8azn.12xlarge     | 192.00       | AMD EPYC 9R05                   | 48    | 48        | 1                | ✗ No         | ✗ No               |
+| m8azn.24xlarge     | 384.00       | AMD EPYC 9R05                   | 96    | 96        | 1                | ✗ No         | ✗ No               |
+| m8azn.metal-12xl   | 192.00       | AMD EPYC 9R05                   | 48    | 48        | 1                | ✗ No         | ✗ No               |
+| m8azn.metal-24xl   | 384.00       | AMD EPYC 9R05                   | 96    | 96        | 1                | ✗ No         | ✗ No               |
 | **M8g**            |
 | m8g.medium         | 4.00         | AWS Graviton4 Processor         | 1     | 1         | 1                | ✗ No         | ✗ No               |
 | m8g.large          | 8.00         | AWS Graviton4 Processor         | 2     | 2         | 1                | ✗ No         | ✗ No               |
@@ -675,6 +687,16 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8a.48xlarge        | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | m8a.metal-24xl      | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8a.metal-48xl      | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| **M8azn**           |
+| m8azn.medium 1      | 2.08 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 4                          | ✓ Yes |
+| m8azn.large 1       | 4.17 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| m8azn.xlarge 1      | 8.33 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| m8azn.3xlarge 1     | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 40                         | ✓ Yes |
+| m8azn.6xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 40                         | ✓ Yes |
+| m8azn.12xlarge      | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m8azn.24xlarge      | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m8azn.metal-12xl    | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m8azn.metal-24xl    | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | **M8g**             |
 | m8g.medium 1        | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
 | m8g.large 1         | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
@@ -1055,6 +1077,16 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8a.48xlarge        | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | m8a.metal-24xl      | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8a.metal-48xl      | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **M8azn**           |
+| m8azn.medium 1      | 625.00 / 15000.00                   | 78.12 / 1875.00                                   | 2500.00 / 60000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8azn.large 1       | 1250.00 / 15000.00                  | 156.25 / 1875.00                                  | 5000.00 / 60000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8azn.xlarge 1      | 2500.00 / 15000.00                  | 312.50 / 1875.00                                  | 10000.00 / 60000.00                  | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8azn.3xlarge 1     | 7500.00 / 15000.00                  | 937.50 / 1875.00                                  | 30000.00 / 60000.00                  | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8azn.6xlarge       | 15000.00                            | 1875.00                                           | 60000.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8azn.12xlarge      | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8azn.24xlarge      | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| m8azn.metal-12xl    | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8azn.metal-24xl    | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **M8g**             |
 | m8g.medium 1        | 315.00 / 10000.00                   | 39.38 / 1250.00                                   | 2500.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8g.large 1         | 630.00 / 10000.00                   | 78.75 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1515,6 +1547,16 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | m8a.48xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8a.metal-24xl     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | m8a.metal-48xl     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| **M8azn**          |
+| m8azn.medium       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| m8azn.large        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8azn.xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8azn.3xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8azn.6xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8azn.12xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8azn.24xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8azn.metal-12xl   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| m8azn.metal-24xl   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **M8g**            |
 | m8g.medium         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | m8g.large          | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
