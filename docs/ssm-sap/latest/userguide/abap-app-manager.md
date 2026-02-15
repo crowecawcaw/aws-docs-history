@@ -28,6 +28,8 @@ Follow along these steps to register either a single node or a multi node (distr
 
 On registration completion, you can see your application in the list of applications. You can see the following tabs for each application.
 
+###### Example
+
 Overview
 For more information, see [Viewing overview information about an application](../../../systems-manager/latest/userguide/application-manager-working-viewing-overview.md "../../../systems-manager/latest/userguide/application-manager-working-viewing-overview.md").
 

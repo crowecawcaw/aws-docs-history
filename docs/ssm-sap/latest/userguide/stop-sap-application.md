@@ -40,6 +40,8 @@ The following parameters are optional:
 
 The following are examples of the stop operation on a single node SAP ABAP setup and an SAP HANA setup with AWS Systems Manager for SAP:
 
+###### Example
+
 SAP ABAP
 
 **Command template**

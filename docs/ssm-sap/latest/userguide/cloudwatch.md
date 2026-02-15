@@ -2,6 +2,8 @@
 
 You can view CloudTrail metrics for AWS Systems Manager for SAP via AWS Management Console or AWS CLI.
 
+###### Example
+
 AWS Management Console
 Metrics are grouped first by the service namespace, and then by the various dimension combination within each namespace. Use the following steps to view the metrics in AWS Management Console.
 

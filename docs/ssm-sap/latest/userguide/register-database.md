@@ -165,6 +165,8 @@ Systems Manager for SAP provides two types of components for an SAP HANA applica
 
 See the following table for examples of single node and high availability SAP HANA database setup with Systems Manager for SAP.
 
+###### Example
+
 Single node
 
 **GetComponent API output for parent component**
