@@ -29,6 +29,9 @@ can assign access points to it.
    policy** section.
 
 For more information, see [Setting up IAM with S3 on Outposts](S3OutpostsIAM.md "S3OutpostsIAM.md").
+
+###### Example
+
 The following AWS CLI example creates an access point for an Outposts bucket. To run this command,
 replace the `user input placeholders` with your own
 information.
@@ -36,5 +39,7 @@ information.
 ```
 aws s3control create-access-point --account-id `123456789012` --name `example-outposts-access-point` --bucket "arn:aws:s3-outposts:``region``:`123456789012`:outpost/`op-01ac5d28a6a232904`/bucket/`example-outposts-bucket`" --vpc-configuration VpcId=`example-vpc-12345`
 ```
+
+###### Example
 
 For examples of how to create an access point for an S3 Outposts bucket with the AWS SDK for Java, see [CreateOutpostsAccessPoint.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsAccessPoint.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsAccessPoint.java") in the _AWS SDK for Java 2.x Code Examples_.

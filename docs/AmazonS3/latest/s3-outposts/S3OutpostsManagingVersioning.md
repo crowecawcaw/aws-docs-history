@@ -69,13 +69,13 @@ accessing the objects in the bucket, and other metadata. For more information, s
 
 For more information, see [put-bucket-versioning](../../../cli/latest/reference/s3control/put-bucket-versioning.md "../../../cli/latest/reference/s3control/put-bucket-versioning.md") in the _AWS CLI Reference_.
 
-###### Example : To enable S3 Versioning
+###### Example: To enable S3 Versioning
 
 ```
 aws s3control put-bucket-versioning --account-id `123456789012` --bucket arn:aws:s3-outposts:`region`:`123456789012`:outpost/`op-01ac5d28a6a232904`/bucket/`example-outposts-bucket` --versioning-configuration Status=Enabled
 ```
 
-###### Example : To suspend S3 Versioning
+###### Example: To suspend S3 Versioning
 
 ```
 aws s3control put-bucket-versioning --account-id `123456789012` --bucket arn:aws:s3-outposts:`region`:`123456789012`:outpost/`op-01ac5d28a6a232904`/bucket/`example-outposts-bucket` --versioning-configuration Status=Suspended

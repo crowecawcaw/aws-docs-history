@@ -238,7 +238,7 @@ to S3 on Outposts.
     the tag key and the tag value.
 12. Choose **Create endpoint**.
 
-###### Example – S3 on Outposts bucket policy
+###### Example– S3 on Outposts bucket policy
 
 To allow S3 on Outposts to interact with your VPC endpoints, you can then update
 your S3 on Outposts policy like this:

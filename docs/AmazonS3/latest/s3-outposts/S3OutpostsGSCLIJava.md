@@ -29,6 +29,9 @@ The following AWS CLI and SDK for Java examples show you how to create an S3 on 
 bucket.
 
 AWS CLI
+
+###### Example
+
 The following example creates an S3 on Outposts bucket (`s3-outposts:CreateBucket`)
 by using the AWS CLI. To run this command, replace the `user input
  placeholders` with your own information.
@@ -38,6 +41,9 @@ aws s3control create-bucket --bucket `example-outposts-bucket` --outpost-id `op-
 ```
 
 SDK for Java
+
+###### Example
+
 For examples of how to create an S3 Outposts bucket with the AWS SDK for Java, see [CreateOutpostsBucket.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsBucket.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsBucket.java") in the _AWS SDK for Java 2.x Code Examples_.
 
 ## Step 2: Create an access point
@@ -52,6 +58,9 @@ attached to buckets that you can use to perform Amazon S3 object operations, suc
 points support only virtual-host-style addressing.
 
 AWS CLI
+
+###### Example
+
 The following AWS CLI example creates an access point for an Outposts bucket. To run this command,
 replace the `user input placeholders` with your own
 information.
@@ -61,6 +70,9 @@ aws s3control create-access-point --account-id `123456789012` --name `example-ou
 ```
 
 SDK for Java
+
+###### Example
+
 For examples of how to create an access point for an S3 Outposts bucket with the AWS SDK for Java, see [CreateOutpostsAccessPoint.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsAccessPoint.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsAccessPoint.java") in the _AWS SDK for Java 2.x Code Examples_.
 
 ## Step 3: Create an endpoint
@@ -76,6 +88,9 @@ For more information about the permissions required to create and manage endpoin
 endpoints](S3OutpostsIAM.md#S3OutpostsEndpointPermissions "S3OutpostsIAM.md#S3OutpostsEndpointPermissions").
 
 AWS CLI
+
+###### Example
+
 The following AWS CLI example creates an endpoint for an Outpost by using the VPC resource
 access type. The VPC is derived from the subnet. To run this command, replace the
 `user input placeholders` with your own
@@ -95,6 +110,9 @@ aws s3outposts create-endpoint --outpost-id `op-01ac5d28a6a232904` --subnet-id s
 ```
 
 SDK for Java
+
+###### Example
+
 For examples of how to create an endpoint for an S3 Outpost with the AWS SDK for Java, see [CreateOutpostsEndPoint.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsEndPoint.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsEndPoint.java") in the _AWS SDK for Java 2.x Code Examples_.
 
 ## Step 4: Upload an object to an S3 on Outposts

@@ -59,7 +59,7 @@ can manage buckets and objects on your Outpost. If you shared the
 you created. The following examples demonstrate how a user can use the AWS CLI to interact
 with your Outpost after you share these resources.
 
-###### Example : Create a bucket
+###### Example: Create a bucket
 
 The following example creates a bucket named `amzn-s3-demo-bucket1` on the Outpost
 `op-01ac5d28a6a232904`.
@@ -73,7 +73,7 @@ aws s3control create-bucket --bucket ``amzn-s3-demo-bucket1`` --outpost-id `op-0
 
 For more information about this command, see [create-bucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/create-bucket.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/create-bucket.html") in the _AWS CLI Reference_.
 
-###### Example : Create an access point
+###### Example: Create an access point
 
 The following example creates an access point on an Outpost by using the example
 parameters in the following table. Before using this command, replace these
@@ -101,7 +101,7 @@ aws s3control create-access-point --account-id `111122223333` --name `example-ou
 
 For more information about this command, see [create-access-point](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/create-access-point.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/create-access-point.html") in the _AWS CLI Reference_.
 
-###### Example : Upload an object
+###### Example: Upload an object
 
 The following example uploads the file
 `my_image.jpg` from the user's local file
@@ -131,7 +131,7 @@ endpoint, work with the Outpost owner to create one. For more information, see
 [ListSharedEndpoints](../API/API_s3outposts_ListSharedEndpoints.md "../API/API_s3outposts_ListSharedEndpoints.md") in the
 _Amazon Simple Storage Service API Reference_.
 
-###### Example : Create an endpoint
+###### Example: Create an endpoint
 
 The following example creates an endpoint on a shared Outpost. Before using this
 command, replace the `user input placeholder`

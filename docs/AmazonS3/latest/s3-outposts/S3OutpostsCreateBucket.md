@@ -112,6 +112,9 @@ traffic. 12. (Optional for an existing VPC) Choose the **Endpoint access type**:
 It can take up to 5 minutes for your Outpost endpoint to be created and your
 bucket to be ready to use. To configure additional bucket settings, choose
 **View details**.
+
+###### Example
+
 The following example creates an S3 on Outposts bucket (`s3-outposts:CreateBucket`)
 by using the AWS CLI. To run this command, replace the `user input
  placeholders` with your own information.
@@ -119,5 +122,7 @@ by using the AWS CLI. To run this command, replace the `user input
 ```
 aws s3control create-bucket --bucket `example-outposts-bucket` --outpost-id `op-01ac5d28a6a232904`
 ```
+
+###### Example
 
 For examples of how to create an S3 Outposts bucket with the AWS SDK for Java, see [CreateOutpostsBucket.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsBucket.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsBucket.java") in the _AWS SDK for Java 2.x Code Examples_.

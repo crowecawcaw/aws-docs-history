@@ -93,7 +93,7 @@ parameter for all bucket and endpoint management APIs.
 Use the `--region` and `--endpoint-url` parameters to access
 bucket management and endpoint management APIs through S3 on Outposts interface endpoints.
 
-###### Example : Use the endpoint URL to list buckets with the S3 control API
+###### Example: Use the endpoint URL to list buckets with the S3 control API
 
 In the following example, replace the Region
 `us-east-1`, VPC endpoint URL
@@ -114,7 +114,7 @@ URL for accessing the S3 control API for S3 on Outposts interface endpoints.
 
 SDK for Python (Boto3)
 
-###### Example : Use an endpoint URL to access the S3 control API
+###### Example: Use an endpoint URL to access the S3 control API
 
 In the following example, replace the Region
 `us-east-1` and VPC
@@ -135,7 +135,7 @@ guide_.
 
 SDK for Java 2.x
 
-###### Example : Use an endpoint URL to access the S3 control API
+###### Example: Use an endpoint URL to access the S3 control API
 
 In the following example, replace the VPC endpoint URL
 `vpce-1a2b3c4d-5e6f.s3-outposts.us-east-1.vpce.amazonaws.com`

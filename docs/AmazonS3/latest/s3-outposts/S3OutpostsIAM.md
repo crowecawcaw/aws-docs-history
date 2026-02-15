@@ -125,13 +125,13 @@ The following table shows S3 on Outposts ARN formats.
 
 ## Example policies for S3 on Outposts
 
-###### Example : S3 on Outposts bucket policy with an AWS account principal
+###### Example: S3 on Outposts bucket policy with an AWS account principal
 
 The following bucket policy uses an AWS account principal to grant access to an
 S3 on Outposts bucket. To use this bucket policy, replace the `user
  input placeholders` with your own information.
 
-###### Example : S3 on Outposts bucket policy with a wildcard principal (`*`) and
+###### Example: S3 on Outposts bucket policy with a wildcard principal (`*`) and
 
 condition key to limit access to a specific IP address range
 

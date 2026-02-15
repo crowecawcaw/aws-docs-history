@@ -23,7 +23,7 @@ examples that use Signature Version 4-related condition keys
 To use the following examples, replace the `user input
  placeholders` with your own information.
 
-###### Example : `s3-outposts:signatureAge`
+###### Example: `s3-outposts:signatureAge`
 
 The following bucket policy denies any S3 on Outposts presigned URL request on objects
 in `example-outpost-bucket` if the signature is more than 10 minutes old.
@@ -50,7 +50,7 @@ JSON
 
 ```
 
-###### Example : `s3-outposts:authType`
+###### Example: `s3-outposts:authType`
 
 The following bucket policy allows only requests that use the
 `Authorization` header for request authentication. Any presigned URL
@@ -81,7 +81,7 @@ JSON
 
 ```
 
-###### Example : `s3-outposts:x-amz-content-sha256`
+###### Example: `s3-outposts:x-amz-content-sha256`
 
 The following bucket policy denies any uploads with unsigned payloads, such as uploads
 that are using presigned URLs. For more information, see [Authenticating requests](../API/sigv4-query-string-auth.md#query-string-auth-v4-signing "../API/sigv4-query-string-auth.md#query-string-auth-v4-signing") and [Authentication

@@ -88,7 +88,7 @@ The following examples show how to use the `S3ControlClient` and
 creating an S3 on Outposts client using the AWS SDK for Java 2.x. For instructions on creating
 and testing a working Java example for Amazon S3 on Outposts, see [Getting started by using the AWS CLI and SDK for Java](S3OutpostsGSCLIJava.md "S3OutpostsGSCLIJava.md").
 
-###### Example – Create an `S3ControlClient` class with dual-stack endpoints enabled
+###### Example– Create an `S3ControlClient` class with dual-stack endpoints enabled
 
 ```
 import com.amazonaws.AmazonServiceException;
@@ -137,7 +137,7 @@ public class DualStackEndpointsExample1 {
 }
 ```
 
-###### Example – Create an `S3OutpostsClient` with dual-stack endpoints enabled
+###### Example– Create an `S3OutpostsClient` with dual-stack endpoints enabled
 
 ```
 import com.amazonaws.AmazonServiceException;

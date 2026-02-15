@@ -50,7 +50,7 @@ access point alias
 The following examples show you how to find an access point alias by using the Amazon S3 console and
 the AWS CLI.
 
-###### Example : Find and copy an access point alias in the Amazon S3 console
+###### Example: Find and copy an access point alias in the Amazon S3 console
 
 After you create an access point in the console, you can get the access point alias from the
 **Access Point alias** column in the **Access
@@ -69,7 +69,7 @@ Points** list.
    - Choose the access point name. Then, under **Outposts access
      point overview**, copy the access point alias.
 
-###### Example : Create an access point by using the AWS CLI and find the access point alias in the
+###### Example: Create an access point by using the AWS CLI and find the access point alias in the
 
 response
 
@@ -89,7 +89,7 @@ command, replace the `user input
 
 ```
 
-###### Example : Get an access point alias by using the AWS CLI
+###### Example: Get an access point alias by using the AWS CLI
 
 The following AWS CLI example for the `get-access-point` command
 returns information about the specified access point. This information includes the
@@ -117,7 +117,7 @@ access point alias. To run this command, replace the `user input
 }`
 ````
 
-###### Example : List access points to find an access point alias by using the AWS CLI
+###### Example: List access points to find an access point alias by using the AWS CLI
 
 The following AWS CLI example for the `list-access-points` command
 lists information about the specified access point. This information includes the access point alias.

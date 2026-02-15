@@ -17,6 +17,8 @@ your rules only if you have trails (optionally with event selectors) configured 
 receive those events. For more information, see [Working with CloudTrail log files](../../../awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.md "../../../awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.md") in the _AWS CloudTrail
 User Guide_.
 
+###### Example
+
 The following is a sample rule for the `DeleteObject` operation. To use
 this sample rule, replace `amzn-s3-demo-bucket1` with the name of your S3 on Outposts
 bucket.

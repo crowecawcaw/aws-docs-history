@@ -37,6 +37,9 @@ infrastructure of AWS.
 If you don’t have a VPC, choose **Create VPC**. For more information,
 see [Creating access points restricted to a virtual private cloud (VPC)](../userguide/access-points-vpc.md "../userguide/access-points-vpc.md") in the
 _Amazon S3 User Guide_. 7. Choose **Create Outposts endpoint**.
+
+###### Example
+
 The following AWS CLI example creates an endpoint for an Outpost by using the VPC resource
 access type. The VPC is derived from the subnet. To run this command, replace the
 `user input placeholders` with your own
@@ -54,5 +57,7 @@ information.
 ```
 aws s3outposts create-endpoint --outpost-id `op-01ac5d28a6a232904` --subnet-id subnet-`8c7a57c5` --security-group-id `sg-ab19e0d1` --access-type CustomerOwnedIp --customer-owned-ipv4-pool `ipv4pool-coip-12345678901234567`
 ```
+
+###### Example
 
 For examples of how to create an endpoint for an S3 Outpost with the AWS SDK for Java, see [CreateOutpostsEndPoint.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsEndPoint.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsEndPoint.java") in the _AWS SDK for Java 2.x Code Examples_.

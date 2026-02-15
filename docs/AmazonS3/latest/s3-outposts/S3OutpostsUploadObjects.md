@@ -26,6 +26,9 @@ The following AWS CLI and AWS SDK for Java examples show you how to upload an ob
 S3 on Outposts bucket by using an access point.
 
 AWS CLI
+
+###### Example
+
 The following example puts an object named `sample-object.xml` into
 an S3 on Outposts bucket (`s3-outposts:PutObject`) by using the AWS CLI. To use this
 command, replace each `user input placeholder` with
@@ -36,4 +39,7 @@ aws s3api put-object --bucket arn:aws:s3-outposts:`Region`:``123456789012``:outp
 ```
 
 SDK for Java
+
+###### Example
+
 For examples of how to upload an object to an S3 Outposts bucket with the AWS SDK for Java, see [PutObjectOnOutpost.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/PutObjectOnOutpost.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/PutObjectOnOutpost.java") in the _AWS SDK for Java 2.x Code Examples_.

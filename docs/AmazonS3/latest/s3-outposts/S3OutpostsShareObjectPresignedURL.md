@@ -50,6 +50,9 @@ When you use the AWS SDKs to generate a presigned URL, the maximum
 expiration time for a presigned URL is 7 days from the time of creation.
 
 Java
+
+###### Example
+
 The following example generates a presigned URL that you can give
 to others so that they can retrieve an object from an S3 on Outposts
 bucket. For more information, see [Using presigned URLs for S3 on Outposts](S3OutpostsPresignedURL.md "S3OutpostsPresignedURL.md"). To use this example,
@@ -113,6 +116,9 @@ public class GeneratePresignedURL {
 ```
 
 .NET
+
+###### Example
+
 The following example generates a presigned URL that you can give
 to others so that they can retrieve an object from an S3 on Outposts
 bucket. For more information, see [Using presigned URLs for S3 on Outposts](S3OutpostsPresignedURL.md "S3OutpostsPresignedURL.md"). To use this example,
