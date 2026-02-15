@@ -88,7 +88,7 @@ following:
    1. In **Solve now**, select
       **Next**.
 
-   ![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](images/s3-export-7.png) 2. In **Contact us**, choose your
+   ![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](/images/Monitron/latest/user-guide/images/s3-export-7.png) 2. In **Contact us**, choose your
    **Preferred contact language** and
    preferred method of contact. 3. Choose **Submit**. A confirmation screen with
    your case ID and details will be displayed.

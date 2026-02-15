@@ -52,7 +52,7 @@ list** page.
 1. Sign in to your web app and select the project you want to add an
    asset to.
 
-![Projects page showing two projects with options to add, remove, or search projects.](images/add-asset-1.png) 2. From the left navigation menu, choose **Sites**, and
+![Projects page showing two projects with options to add, remove, or search projects.](/images/Monitron/latest/user-guide/images/add-asset-1.png) 2. From the left navigation menu, choose **Sites**, and
 then select the site you want to the asset to.
 
 ![Amazon Monitron interface showing Sites page with one site listed and options to manage sites.](images/add-asset-2.png)

@@ -66,7 +66,7 @@ asset**.
 name**, add a name for the asset you want to create and then
 select **Add asset**.
 
-![Dialog box for adding an asset, with fields for asset name and buttons to cancel or add.](images/add-asset-4.png)
+![Dialog box for adding an asset, with fields for asset name and buttons to cancel or add.](/images/Monitron/latest/user-guide/images/add-asset-4.png)
 
 When you've added your first asset, it's displayed on the **Assets
 list** page.

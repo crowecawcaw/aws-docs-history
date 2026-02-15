@@ -304,7 +304,7 @@ following:
       4. the ARN of the role you created (for example:
          "arn:aws:iam::273771705212:role/role-for-monitron")
 
-   ![Form for Amazon Monitron data export request with fields for account and bucket details.](images/s3-export-6.png) 3. Choose **Next step: Solve now or contact
+   ![Form for Amazon Monitron data export request with fields for account and bucket details.](/images/Monitron/latest/user-guide/images/s3-export-6.png) 3. Choose **Next step: Solve now or contact
    us**.
 
 5. In **Solve now or contact us** do the
