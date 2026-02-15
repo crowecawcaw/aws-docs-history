@@ -44,6 +44,8 @@ deletes the VPC endpoint automatically.
 For example, when you attempt to delete the VPC endpoint that GuardDuty created on your
 behalf, you will get an error similar to the following examples.
 
+###### Example
+
 **Error example when using CDK**
 
 ```
@@ -52,6 +54,8 @@ Resource handler returned message: "The subnet 'subnet-`APKAEIVFHP46CEXAMPLE`' h
 ```
 
 [Show moreShow less](# "#")
+
+###### Example
 
 **Error example when using Terraform**
 

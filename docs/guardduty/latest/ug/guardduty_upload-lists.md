@@ -112,7 +112,7 @@ GuardDuty accepts multiple file formats for your lists and entity lists, with a 
 This format supports IP addresses, CIDR ranges, and domain names. Each entry
 must appear on a separate line.
 
-###### **Example for entity list**
+###### Example for entity list
 
 ```
 192.0.2.1
@@ -122,7 +122,7 @@ example.org
 *.example.org
 ```
 
-###### **Example for IP address list**
+###### Example for IP address list
 
 ```
 192.0.2.0/24
@@ -134,7 +134,7 @@ This format supports IP addresses, CIDR block, and domain names. STIX allows
 you to include additional context with your threat intelligence. GuardDuty processes
 IP addresses, CIDR ranges, and domain names from the STIX indicators.
 
-###### **Example for an entity list**
+###### Example for an entity list
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -169,7 +169,7 @@ IP addresses, CIDR ranges, and domain names from the STIX indicators.
 </stix:STIX_Package>
 ```
 
-###### **Example for an IP address list**
+###### Example for an IP address list
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -221,7 +221,7 @@ IP addresses, CIDR ranges, and domain names from the STIX indicators.
 This format supports CIDR block, individual IP addresses, and domains. This
 file format has comma-separated values.
 
-###### **Example for entity list**
+###### Example for entity list
 
 ```
 Indicator type, Indicator, Description
@@ -231,7 +231,7 @@ IPv4, 203.0.113.1, example
 Domain name, example.net, example
 ```
 
-###### **Example for IP address list**
+###### Example for IP address list
 
 ```
 Indicator type, Indicator, Description
@@ -244,7 +244,7 @@ This format supports CIDR block, individual IP addresses, and domains. The
 following sample lists uses a `FireEyeTM`
 CSV format.
 
-###### **Example for entity list**
+###### Example for entity list
 
 ```
 reportId, title, threatScape, audience, intelligenceType, publishDate, reportLink, webLink, emailIdentifier, senderAddress, senderName, sourceDomain, sourceIp, subject, recipient, emailLanguage, fileName, fileSize, fuzzyHash, fileIdentifier, md5, sha1, sha256, description, fileType, packer, userAgent, registry, fileCompilationDateTime, filePath, asn, cidr, domain, domainTimeOfLookup, networkIdentifier, ip, port, protocol, registrantEmail, registrantName, networkType, url, malwareFamily, malwareFamilyId, actor, actorId, observationTime
@@ -258,7 +258,7 @@ reportId, title, threatScape, audience, intelligenceType, publishDate, reportLin
  01-00000002, Malicious domain observed in test, Test, Operational, threat, 1494944400, https://www.example.com/report/01-00000002,https://www.example.com/report/01-00000002,,,,,,,,,,,,,,,,,,,,,,,, 203.0.113.0/24, example.com,, Related, 203.0.113.0, 8080, UDP,,, network,, Ursnif, fc13984c-c767-40c9-8329-f4c59557f73b,,, 1494944400
 ```
 
-###### **Example for IP address list**
+###### Example for IP address list
 
 ```
 reportId, title, threatScape, audience, intelligenceType, publishDate, reportLink, webLink, emailIdentifier, senderAddress, senderName, sourceDomain, sourceIp, subject, recipient, emailLanguage, fileName, fileSize, fuzzyHash, fileIdentifier, md5, sha1, sha256, description, fileType, packer, userAgent, registry, fileCompilationDateTime, filePath, asn, cidr, domain, domainTimeOfLookup, networkIdentifier, ip, port, protocol, registrantEmail, registrantName, networkType, url, malwareFamily, malwareFamilyId, actor, actorId, observationTime
@@ -275,7 +275,7 @@ one list. The following sample list uses the `Proofpoint` CSV format.
 Providing value for the `ports` parameter is optional. When you
 don't provide it, leave a trailing comma (,) at the end.
 
-###### **Example for entity list**
+###### Example for entity list
 
 ```
 domain, category, score, first_seen, last_seen, ports (|)
@@ -283,7 +283,7 @@ domain, category, score, first_seen, last_seen, ports (|)
 203.0.113.1, 1, 100, 2000-01-01, 2000-01-01, 80
 ```
 
-###### **Example for IP address list**
+###### Example for IP address list
 
 ```
 ip, category, score, first_seen, last_seen, ports (|)
@@ -293,7 +293,7 @@ ip, category, score, first_seen, last_seen, ports (|)
 
 The following sample list uses the `AlienVault` format.
 
-###### **Example for entity list**
+###### Example for entity list
 
 ```
 192.0.2.1#4#2#Malicious Host#KR##37.5111999512,126.974098206#3
@@ -303,7 +303,7 @@ www.test.org#4#2#Malicious Host#CA#Brossard#45.4673995972,-73.4832000732#3
 www.example.com#4#2#Malicious Host#PL##52.2393989563,21.0361995697#3
 ```
 
-###### **Example for IP address list**
+###### Example for IP address list
 
 ```
 198.51.100.1#4#2#Malicious Host#US##0.0,0.0#3
