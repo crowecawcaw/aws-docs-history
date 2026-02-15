@@ -44,7 +44,7 @@ Currently, you can’t delete notifications for events that appear in your
 AWS Health Dashboard. After an AWS service resolves an event, the notification is removed
 from your dashboard view.
 
-###### Example : Operational issue event for Amazon Elastic Compute Cloud (Amazon EC2)
+###### Example: Operational issue event for Amazon Elastic Compute Cloud (Amazon EC2)
 
 The following image shows an event for launch failures and connectivity issues
 for Amazon EC2 instances.
@@ -92,7 +92,7 @@ You can choose the following filter options to narrow your results:
 - Start time
 - Status
 
-###### Example : Event log
+###### Example: Event log
 
 The following image shows recent events for the US East (N. Virginia) and
 US East (Ohio) Regions.
@@ -127,7 +127,7 @@ about any AWS resources that are affected by the event:
 You can filter the items that appear in the resources. You can narrow your results
 by resource ID or ARN.
 
-###### Example : AWS Health event for AWS Lambda
+###### Example: AWS Health event for AWS Lambda
 
 The following screenshot shows an example event for Lambda.
 
@@ -257,7 +257,7 @@ as those for Amazon EC2, Amazon Relational Database Service (Amazon RDS), AWS Id
 Choose the bell icon to see if recent events affect your account. You can then
 choose an event to navigate to your AWS Health Dashboard for more information.
 
-###### Example : Open events
+###### Example: Open events
 
 The following image shows open and notification events for an account.
 

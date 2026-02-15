@@ -84,7 +84,7 @@ following:
 - View information about accounts that are part of your AWS organization
 - View the organizational units (OU) of the management account
 
-###### Example : AWSHealthFullAccess
+###### Example: AWSHealthFullAccess
 
 JSON
 
@@ -243,7 +243,7 @@ This policy statement grants access to Health Dashboard and any of the
 with this policy can access the Health Dashboard in the AWS Management Console and call the AWS Health
 `DescribeEvents` API operation.
 
-###### Example : Describe access
+###### Example: Describe access
 
 JSON
 
@@ -268,7 +268,7 @@ This policy statement denies access to Health Dashboard and the AWS Health API. 
 user with this policy can't view the Health Dashboard in the AWS Management Console and can't call any of
 the AWS Health API operations.
 
-###### Example : Deny access
+###### Example: Deny access
 
 JSON
 
@@ -318,7 +318,7 @@ organizational view
 This policy statement grants access to all AWS Health and AWS Organizations actions
 that you need for the organizational view feature.
 
-###### Example : Allow AWS Health organizational view access
+###### Example: Allow AWS Health organizational view access
 
 JSON
 
@@ -367,7 +367,7 @@ organizational view
 This policy statement denies access to the AWS Organizations actions but allows access
 to the AWS Health actions for an individual account.
 
-###### Example : Deny AWS Health organizational view access
+###### Example: Deny AWS Health organizational view access
 
 JSON
 
@@ -448,7 +448,7 @@ policy:
 - For more information, see [Actions, resources, and condition keys for AWS Health APIs and
   Notifications](../../../service-authorization/latest/reference/list_awshealthapisandnotifications.md "../../../service-authorization/latest/reference/list_awshealthapisandnotifications.md") in the _Service Authorization Reference_.
 
-###### Example : Action-based condition
+###### Example: Action-based condition
 
 This policy statement grants access to Health Dashboard and the AWS Health
 `Describe*` API operations, but denies access to any AWS Health events
@@ -483,7 +483,7 @@ JSON
 
 ```
 
-###### Example : Resource-based condition
+###### Example: Resource-based condition
 
 The following policy has the same effect, but uses the `Resource`
 element instead.
@@ -513,7 +513,7 @@ JSON
 
 ```
 
-###### Example : eventTypeCode condition
+###### Example: eventTypeCode condition
 
 This policy statement grants access to Health Dashboard and the AWS Health
 `Describe*` API operations, but denies access to any AWS Health events

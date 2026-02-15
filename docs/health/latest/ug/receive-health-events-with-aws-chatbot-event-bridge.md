@@ -43,7 +43,7 @@ Before you get started, you must have the following:
 When AWS Health sends an event to EventBridge that matches your rule, the AWS Health event
 will appear in your chat client. 6. Choose the event name to see more information in your AWS Health Dashboard.
 
-###### Example : AWS Health events sent to Slack
+###### Example: AWS Health events sent to Slack
 
 The following is an example of two AWS Health events for Amazon EC2 and Amazon Simple Storage Service (Amazon S3) in
 the US East (N. Virginia) Region that appear in the Slack channel.

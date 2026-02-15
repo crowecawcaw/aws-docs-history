@@ -24,6 +24,9 @@ IAM API, or AWS Command Line Interface (AWS CLI). For more information, see [Del
 _IAM User Guide_.
 
 Disabling organizational view events (CLI)
+
+###### Example
+
 The following AWS CLI command disables this feature from your
 account.
 

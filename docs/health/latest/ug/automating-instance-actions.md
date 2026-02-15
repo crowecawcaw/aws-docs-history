@@ -206,6 +206,8 @@ For Amazon EC2 instance store-backed instances, choose
 Your **Event pattern** will look similar to the following
 example.
 
+###### Example
+
 ```
 {
   "source": [

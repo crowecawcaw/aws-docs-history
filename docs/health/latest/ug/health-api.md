@@ -80,7 +80,7 @@ To determine if an endpoint is the _active endpoint_,
 do a DNS lookup on the _global endpoint_ CNAME, and
 then extract the AWS Region from the resolved name.
 
-###### Example : DNS lookup on global endpoint
+###### Example: DNS lookup on global endpoint
 
 The following command completes a DNS lookup on the global.health.amazonaws.com endpoint. The command then
 returns the us-east-1 Region endpoint. This output tells you which endpoint

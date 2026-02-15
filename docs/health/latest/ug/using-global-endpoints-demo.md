@@ -48,7 +48,7 @@ export AWS_SESSION_TOKEN="`your-aws-token`"
 `gradle run`
 ```
 
-###### Example : AWS Health event output
+###### Example: AWS Health event output
 
 The code example returns the recent AWS Health event in the last
 seven days in your AWS account. In the following example, the output
@@ -178,7 +178,7 @@ export AWS_SESSION_TOKEN="`your-aws-token`"
 `python3 main.py`
 ```
 
-###### Example : AWS Health event output
+###### Example: AWS Health event output
 
 The code example returns the recent AWS Health event in the last
 seven days in your AWS account. The following output returns an

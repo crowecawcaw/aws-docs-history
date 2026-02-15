@@ -92,14 +92,14 @@ you create event rules for AWS Health, do the following:
     that it meets your event monitoring requirements.
 20. Choose **Create rule**.
 
-###### Example : Rule for all Amazon EC2 events
+###### Example: Rule for all Amazon EC2 events
 
 The following example creates a rule so that EventBridge monitors for all Amazon EC2 events,
 including the event type categories, event codes, and resources.
 
 ![Screenshot of how to create a EventBridge rule for all Amazon EC2 events only.](images/event-bridge-event-pattern.png)
 
-###### Example : Rule for specific Amazon EC2 events
+###### Example: Rule for specific Amazon EC2 events
 
 The following example creates a rule so that EventBridge monitors the following:
 

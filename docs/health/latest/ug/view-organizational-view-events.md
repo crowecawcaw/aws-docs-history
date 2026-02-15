@@ -176,7 +176,7 @@ For customers in the AWS GovCloud (US) Regions:
 You can use the AWS Health API operations to return events from
 organizational view.
 
-###### Example : Describe organizational view events
+###### Example: Describe organizational view events
 
 The following AWS CLI command returns health events for AWS accounts in
 your organization.

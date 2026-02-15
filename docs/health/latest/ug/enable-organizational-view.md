@@ -56,6 +56,8 @@ You can use the AWS Command Line Interface (AWS CLI) or your own code to call th
   plan to call the AWS Health API.
 - You must use the US East (N. Virginia) Region endpoint.
 
+###### Example
+
 The following AWS CLI command enables this feature from your AWS account.
 You can use this command from the management account or from an account that
 can assume the role with the required permissions.
