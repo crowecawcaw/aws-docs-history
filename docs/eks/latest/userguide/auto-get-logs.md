@@ -43,8 +43,8 @@ You must use the AWS API or a SDK to create the pre-signed S3 upload URL for EKS
 ```
 import boto3; print(boto3.client('s3').generate_presigned_url(
    ClientMethod='put_object',
-   Params={'Bucket': '[.replaceable]`<bucket-name>`', 'Key': '[.replaceable]`<key>`'},
-   ExpiresIn=`1000`
+   Params={'Bucket': '<bucket-name>', 'Key': '<key>'},
+   ExpiresIn=1000
 ))
 ```
 

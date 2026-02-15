@@ -12,6 +12,10 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## Feburary 2, 2026
+
+**Feature**: Added support to disable v4Egress traffic from IPv6 pods in EKS Auto Mode IPv6 clusters. For more information, see [Disable IPv4 egress from IPv6 pods in IPv6 clusters.](create-node-class.md#enableV4Egress "create-node-class.md#enableV4Egress").
+
 ## December 19, 2025
 
 **Feature**: Added support for secondary IP mode that provisions secondary IP addresses instead of prefix to Auto nodes. The mode maintains a one secondary IP as MinimalIPTarget and save IP resources for customers who don’t need to warm up more secondary IPs or prefixes. For more information, see [Node Class Specification](create-node-class.md#auto-node-class-spec "create-node-class.md#auto-node-class-spec") and [Secondary IP Mode for Pods](create-node-class.md#secondary-IP-mode "create-node-class.md#secondary-IP-mode").

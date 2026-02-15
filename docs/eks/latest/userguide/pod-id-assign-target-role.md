@@ -148,4 +148,10 @@ In this step, you will create an association between the Target IAM role and the
 6. Choose the Target IAM role in **Target IAM role** that will be assumed by the [EKS Pod Identity role](pod-id-role.md "pod-id-role.md").
 7. In the **Kubernetes namespace** field, enter the name of the namespace where you want to create the association (e.g., `my-app-namespace`). This defines where the service account resides.
 8. In the **Kubernetes service account** field, enter the name of the service account (e.g., `my-service-account`) that will use the IAM credentials. This links the IAM role to the service account.
-9. Choose **Create** to create the association.
+9. (Optional) Select **Disable session tags** to disable the default session tags that Pod Identity automatically adds when it assumes the role.
+10. (Optional) Toggle **Configure session policy** to configure an IAM policy to apply additional restrictions to this Pod Identity association beyond the permissions defined in the IAM policy attached to the **Target IAM role**.
+
+###### Note
+
+1. A session policy can only be applied when the **Disable session tags** setting is checked. 2. If you specify a session policy, then the policy restrictions apply to the **Target IAM role**'s permissions and not the **IAM role** associated with this Pod Identity association.
+2. Choose **Create** to create the association.

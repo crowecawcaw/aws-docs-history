@@ -124,6 +124,12 @@ are scrapable from your EKS cluster’s Prometheus endpoint (see [here](promethe
 | **Pod scheduling rate**     | scheduler_schedule_attempts_total             | scheduler_schedule_attempts_total, scheduler_schedule_attempts_SCHEDULED, scheduler_schedule_attempts_UNSCHEDULABLE |
 | **Cluster database size**   | apiserver_storage_size_bytes                  | apiserver_storage_size_bytes                                                                                        |
 
+You can view control plane utilization in the Amazon EKS console. From your cluster’s overview page, choose **Monitor cluster** to access the observability dashboard, then select the **Control plane monitoring** tab to view control plane utilization under the **Control plane scaling** section.
+
+![Monitor EKS cluster](images/monitor-cluster.png)
+
+![EKS Control Plane Monitoring](images/control-plane-monitoring.png)
+
 ### Understanding Tier capacity versus actual performance
 
 When you select a Provisioned Control Plane scaling tier, the tier attributes represent the underlying configurations that Amazon EKS applies to your control plane. However, the actual performance you achieve depends on your specific workload patterns, configurations, and adherence to Kubernetes best practices. For example, while a 4XL tier configures API Priority and Fairness (APF) with 6,800 concurrent request seats, the actual request throughput you obtain from the control plane depends on the types of operations being performed. For example, Kubernetes penalizes list requests more than get, and hence the effective number of list requests processed concurrently by control plane is lower than get requests (see [here](../best-practices/scale-control-plane.md#_api_priority_and_fairness "../best-practices/scale-control-plane.md#_api_priority_and_fairness")). Similarly, although the default scheduler QPS is set to 400 for a 4XL tier, your actual pod scheduling rate depends on factors like nodes being ready and health for scheduling. To achieve optimal performance, ensure your applications follow Kubernetes best practices (see [here](../best-practices/scalability.md "../best-practices/scalability.md")) and are properly configured for your workload characteristics.

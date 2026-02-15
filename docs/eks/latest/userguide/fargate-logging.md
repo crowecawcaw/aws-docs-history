@@ -93,6 +93,8 @@ When creating the `ConfigMap`, take into account the following rules that Fargat
 
     You can also use Amazon Kinesis Data Streams for your log destination. If you use Kinesis Data Streams, make sure that the pod execution role has been granted the `kinesis:PutRecords` permission. For more information, see Amazon Kinesis Data Streams [Permissions](https://docs.fluentbit.io/manual/pipeline/outputs/kinesis#permissions "https://docs.fluentbit.io/manual/pipeline/outputs/kinesis#permissions") in the *Fluent Bit: Official Manual*.
 
+###### Example
+
 CloudWatch
 You have two output options when using CloudWatch:
 
@@ -225,6 +227,8 @@ You have two output options when sending logs to Firehose:
 
 3. Set up permissions for the Fargate Pod execution role to send logs to your destination.
    1. Download the IAM policy for your destination to your computer.
+
+   ###### Example
 
    CloudWatch
    Download the CloudWatch IAM policy to your computer. You can also [view the policy](https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/cloudwatchlogs/permissions.json "https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/cloudwatchlogs/permissions.json") on GitHub.

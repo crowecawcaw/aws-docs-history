@@ -8,6 +8,8 @@ You can configure cross-account IAM permissions either by creating an identity p
 
 ###### Example Create an identity provider from another account’s cluster
 
+###### Example
+
 In this example, Account A provides Account B with the OpenID Connect (OIDC) issuer URL from their cluster. Account B follows the instructions in [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md") and [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md "associate-service-account-role.md") using the OIDC issuer URL from Account A’s cluster. Then, a cluster administrator annotates the service account in Account A’s cluster to use the role from Account B (`444455556666`).
 
 ```
@@ -19,6 +21,8 @@ metadata:
 ```
 
 ###### Example Use chained `AssumeRole` operations
+
+###### Example
 
 In this example, Account B creates an IAM policy with the permissions to give to Pods in Account A’s cluster. Account B (`444455556666`) attaches that policy to an IAM role with a trust relationship that allows `AssumeRole` permissions to Account A (`111122223333`).
 

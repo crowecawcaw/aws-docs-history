@@ -248,16 +248,6 @@ Complete the following steps to run a two node NCCL Performance Test. In the exa
                 env:
                  - name: PATH
                    value: $PATH:/opt/amazon/efa/bin:/usr/bin
-                 - name: LD_LIBRARY_PATH
-                   value: /opt/amazon/openmpi/lib:/opt/nccl/build/lib:/opt/amazon/efa/lib:/opt/aws-ofi-nccl/install/lib:/usr/local/nvidia/lib:$LD_LIBRARY_PATH
-                 - name: NCCL_DEBUG
-                   value: INFO
-                 - name: NCCL_BUFFSIZE
-                   value: '8388608'
-                 - name: NCCL_P2P_NET_CHUNKSIZE
-                   value: '524288'
-                 - name: NCCL_TUNER_PLUGIN
-                   value: /opt/aws-ofi-nccl/install/lib/libnccl-ofi-tuner.so
                 command:
                 - /opt/amazon/openmpi/bin/mpirun
                 - --allow-run-as-root
@@ -275,11 +265,11 @@ Complete the following steps to run a two node NCCL Performance Test. In the exa
                 - -x
                 - NCCL_DEBUG=INFO
                 - -x
-                - NCCL_BUFFSIZE
+                - NCCL_BUFFSIZE=8388608
                 - -x
-                - NCCL_P2P_NET_CHUNKSIZE
+                - NCCL_P2P_NET_CHUNKSIZE=524288
                 - -x
-                - NCCL_TUNER_PLUGIN
+                - NCCL_TUNER_PLUGIN=/opt/amazon/ofi-nccl/lib/x86_64-linux-gnu/libnccl-ofi-tuner.so
                 - --mca
                 - pml
                 - ^cm,ucx

@@ -157,7 +157,7 @@ EKS Capabilities have the following resource limits:
 
 **Resource configuration limits**:
 
-- Maximum 64 Kubernetes resources per `Application` resource in Argo CD
+- Maximum 150 Kubernetes resources per `Application` resource in Argo CD
 - Maximum 64 Kubernetes resources per `ResourceGraphDefinition` in kro
 
 ###### Note

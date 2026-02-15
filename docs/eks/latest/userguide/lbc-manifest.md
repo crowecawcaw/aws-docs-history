@@ -38,6 +38,8 @@ The following steps refer to the AWS Load Balancer Controller **v2.14.1** releas
 
 1. Download an IAM policy for the AWS Load Balancer Controller that allows it to make calls to AWS APIs on your behalf.
 
+###### Example
+
 AWS
 
 ```
@@ -65,6 +67,8 @@ aws iam create-policy \
 ###### Note
 
 If you view the policy in the AWS Management Console, the console shows warnings for the **ELB** service, but not for the **ELB v2** service. This happens because some of the actions in the policy exist for **ELB v2**, but not for **ELB**. You can ignore the warnings for **ELB**.
+
+###### Example
 
 eksctl
 
@@ -161,6 +165,8 @@ kubectl apply -f aws-load-balancer-controller-service-account.yaml
 Install `cert-manager` using one of the following methods to inject certificate configuration into the webhooks. For more information, see [Getting Started](https://cert-manager.io/docs/installation/#getting-started "https://cert-manager.io/docs/installation/#getting-started") in the _cert-manager Documentation_.
 
 We recommend using the `quay.io` container registry to install `cert-manager`. If your nodes do not have access to the `quay.io` container registry, Install `cert-manager` using Amazon ECR (see below).
+
+###### Example
 
 Quay.io
 

@@ -12,6 +12,8 @@ When you create a new cluster, Amazon EKS creates an endpoint for the managed Ku
 
 EKS creates a unique dual-stack endpoint in the following format for new `IPv6` clusters that are made after October 2024. An _IPv6 cluster_ is a cluster that you select `IPv6` in the IP family (`ipFamily`) setting of the cluster.
 
+###### Example
+
 AWS
 
 EKS cluster public/private endpoint:
@@ -32,6 +34,8 @@ The dual-stack cluster endpoint was introduced in October 2024. For more informa
 ## `IPv4` cluster endpoint format
 
 EKS creates a unique endpoint in the following format for each cluster that select `IPv4` in the IP family (ipFamily) setting of the cluster:
+
+###### Example
 
 AWS
 

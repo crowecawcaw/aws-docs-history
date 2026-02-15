@@ -14,6 +14,7 @@ When you deploy [AWS Amazon EKS add-ons](workloads-add-ons-available-eks.md "wor
 | ap-southeast-3 | 296578399912.dkr.ecr.ap-southeast-3.amazonaws.com    |
 | ap-south-2     | 900889452093.dkr.ecr.ap-south-2.amazonaws.com        |
 | ap-southeast-4 | 491585149902.dkr.ecr.ap-southeast-4.amazonaws.com    |
+| ap-southeast-5 | 151610086707.dkr.ecr.ap-southeast-5.amazonaws.com    |
 | ap-southeast-6 | 333609536671.dkr.ecr.ap-southeast-6.amazonaws.com    |
 | ap-south-1     | 602401143452.dkr.ecr.ap-south-1.amazonaws.com        |
 | ap-northeast-3 | 602401143452.dkr.ecr.ap-northeast-3.amazonaws.com    |
@@ -45,3 +46,4 @@ When you deploy [AWS Amazon EKS add-ons](workloads-add-ons-available-eks.md "wor
 | sa-east-1      | 602401143452.dkr.ecr.sa-east-1.amazonaws.com         |
 | us-gov-east-1  | 151742754352.dkr.ecr.us-gov-east-1.amazonaws.com     |
 | us-gov-west-1  | 013241004608.dkr.ecr.us-gov-west-1.amazonaws.com     |
+| eusc-de-east-1 | 877088126301.dkr.ecr.eusc-de-east-1.amazonaws.eu     |

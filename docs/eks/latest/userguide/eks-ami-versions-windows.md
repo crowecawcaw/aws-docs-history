@@ -24,13 +24,11 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/nodes/eks-ami-versions-windows.adoc.atom
 ```
 
-###### Note
-
-Amazon EKS managed node groups currently do not support Windows Server 2025. Support will be added in a future release.
-
 ## Amazon EKS optimized Windows Server 2025 Core AMI
 
 The following tables list the current and previous versions of the Amazon EKS optimized Windows Server 2025 Core AMI.
+
+###### Example
 
 **Kubernetes version 1.35**
 
@@ -42,6 +40,8 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 The following tables list the current and previous versions of the Amazon EKS optimized Windows Server 2025 Full AMI.
 
+###### Example
+
 **Kubernetes version 1.35**
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
@@ -51,6 +51,8 @@ The following tables list the current and previous versions of the Amazon EKS op
 ## Amazon EKS optimized Windows Server 2022 Core AMI
 
 The following tables list the current and previous versions of the Amazon EKS optimized Windows Server 2022 Core AMI.
+
+###### Example
 
 **Kubernetes version 1.35**
 
@@ -221,6 +223,8 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 The following tables list the current and previous versions of the Amazon EKS optimized Windows Server 2022 Full AMI.
 
+###### Example
+
 **Kubernetes version 1.35**
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
@@ -390,6 +394,8 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 The following tables list the current and previous versions of the Amazon EKS optimized Windows Server 2019 Core AMI.
 
+###### Example
+
 **Kubernetes version 1.35**
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
@@ -558,6 +564,8 @@ The following tables list the current and previous versions of the Amazon EKS op
 ## Amazon EKS optimized Windows Server 2019 Full AMI
 
 The following tables list the current and previous versions of the Amazon EKS optimized Windows Server 2019 Full AMI.
+
+###### Example
 
 **Kubernetes version 1.35**
 

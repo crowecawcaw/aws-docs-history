@@ -31,6 +31,8 @@ You can create a cluster with one of the following node types. To learn more abo
 
 Create your Amazon EKS cluster with the following command. You can replace `my-cluster` with your own value. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in. Replace `region-code` with any AWS Region that is supported by Amazon EKS. For a list of AWS Regions, see [Amazon EKS endpoints and quotas](../../../general/latest/gr/eks.md "../../../general/latest/gr/eks.md") in the AWS General Reference guide.
 
+###### Example
+
 Fargate - Linux
 
 ```
@@ -64,6 +66,8 @@ kubectl get nodes -o wide
 
 An example output is as follows.
 
+###### Example
+
 Fargate - Linux
 
 ```
@@ -87,6 +91,8 @@ kubectl get pods -A -o wide
 ```
 
 An example output is as follows.
+
+###### Example
 
 Fargate - Linux
 

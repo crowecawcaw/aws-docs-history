@@ -6,6 +6,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 Amazon EKS control plane logging provides audit and diagnostic logs directly from the Amazon EKS control plane to CloudWatch Logs in your account. These logs make it easy for you to secure and run your clusters. You can select the exact log types you need, and logs are sent as log streams to a group for each Amazon EKS cluster in CloudWatch. You can use CloudWatch subscription filters to do real time analysis on the logs or to forward them to other services (the logs will be Base64 encoded and compressed with the gzip format). For more information, see [Amazon CloudWatch logging](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
 
+###### Note
+
+Amazon EKS control plane logs are delivered to CloudWatch Logs within a few minutes. However, log delivery is best effort, so logs may be delayed beyond the typical delivery times.
+
 You can start using Amazon EKS control plane logging by choosing which log types you want to enable for each new or existing Amazon EKS cluster. You can enable or disable each log type on a per-cluster basis using the AWS Management Console, AWS CLI (version `1.16.139` or higher), or through the Amazon EKS API. When enabled, logs are automatically sent from the Amazon EKS cluster to CloudWatch Logs in the same account.
 
 When you use Amazon EKS control plane logging, you’re charged standard Amazon EKS pricing for each cluster that you run. You are charged the standard CloudWatch Logs data ingestion and storage costs for any logs sent to CloudWatch Logs from your clusters. You are also charged for any AWS resources, such as Amazon EC2 instances or Amazon EBS volumes, that you provision as part of your cluster.
