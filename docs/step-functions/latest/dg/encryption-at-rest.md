@@ -304,9 +304,13 @@ operations, where the key is `aws:states:stateMachineArn` for State Machines or 
 resource [Amazon Resource
 Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN).
 
+###### Example
+
 ```
 "encryptionContext": {"aws:states:stateMachineArn": "arn:aws:states:`region`:`account-id`:stateMachine:stateMachineName"}
 ```
+
+###### Example
 
 ```
 "encryptionContext": {"aws:states:activityArn": "arn:aws:states:`region`:`account-id`:activity:activityName"}

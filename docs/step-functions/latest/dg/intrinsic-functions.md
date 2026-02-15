@@ -621,7 +621,7 @@ string into an array of values. This function takes two arguments. The first
 argument is a string and the second argument is the delimiting character
 that the function will use to divide the string.
 
-###### Example - Split an input string using a single delimiting character
+###### Example- Split an input string using a single delimiting character
 
 For this example, use `States.StringSplit` to divide the
 following `inputString`, which contains a series of comma
@@ -649,7 +649,7 @@ array as result:
 {"array":  ["1","2","3","4","5"] }
 ```
 
-###### Example - Split an input string using multiple delimiting characters
+###### Example- Split an input string using multiple delimiting characters
 
 For this example, use `States.StringSplit` to divide the following `inputString`, which contains multiple delimiting characters:
 
