@@ -32,6 +32,18 @@ s3://`amzn-s3-demo-bucket`/`optional-prefix/`AWSLogs/`O-ID`/`aws-account-id`/Clo
     `aws-account-id`_CloudTrail-Digest_`region_trail-name`_`region_digest`_`end_timestamp`.json.gz
 ```
 
+###### Note
+
+Backfill digest files are delivered when CloudTrail needs to include log files that
+were not referenced in the original digest due to processing delays. Backfill digest
+files use the `_backfill` suffix in their filename, as follows:
+
+```
+s3://`amzn-s3-demo-bucket`/`optional-prefix/`AWSLogs/`aws-account-id`/CloudTrail-Digest/
+    `region`/`digest-end-year`/`digest-end-month`/`digest-end-date`/
+    `aws-account-id`_CloudTrail-Digest_`region_trail-name`_`region_digest`_`end_timestamp`_backfill.json.gz
+```
+
 ## Sample digest file
 
 contents
@@ -263,6 +275,14 @@ The following shows an example value of the algorithm used to generate the
 digest signature:
 
 `SHA256withRSA`
+
+- `x-amz-meta-backfill-generation-timestamp`
+
+The UTC timestamp when the backfill digest was generated. This metadata property
+is present only in backfill digest files and is used to identify the correct public key
+for signature validation. The following is an example timestamp:
+
+`2025-05-20T00:00:00.000Z`
 
 ## Digest file
 

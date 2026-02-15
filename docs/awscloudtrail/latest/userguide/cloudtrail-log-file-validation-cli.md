@@ -148,7 +148,11 @@ the logs referenced in the digest file. The command then goes back in time,
 validating the previous digest files and their referenced log files in succession.
 It continues until the specified value for `start-time` is reached, or
 until the digest chain ends. If a digest file is missing or not valid, the time
-range that cannot be validated is indicated in the output.
+range that cannot be validated is indicated in the output. The
+`validate-logs` command first operates on the standard digest chain.
+After completing standard digest validation, it validates backfill digest files,
+if present. Backfill digests form a separate validation chain and are processed
+independently from standard digests.
 
 ## Validation results
 
@@ -160,10 +164,11 @@ Validating log files for trail `trail_ARN`  between `time_stamp` and `time_stamp
 
 Each line of the main output contains the validation results for a single digest or
 log file in the following
-format:
+format. Lines prefixed with `(backfill)` indicate backfill digest files,
+which form a separate validation chain from the standard digest files.
 
 ```
-<Digest file | Log file> <`S3 path`> <`Validation Message`>
+<optional (backfill)> <Digest file | Log file> <`S3 path`> <`Validation Message`>
 ```
 
 The following table describes the possible validation messages for log and digest files.
@@ -214,7 +219,7 @@ Log file       s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail/us-east-
 
 Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2015/09/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20150901T101728Z.json.gz	INVALID: signature verification failed
 
-Digest file    s3://amzn-s3-demo-bucketAWSLogs/144218288521/CloudTrail-Digest/us-east-2/2015/09/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20150901T091728Z.json.gz	valid
+Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2015/09/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20150901T091728Z.json.gz	valid
 Log file       s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail/us-east-2/2015/09/01/144218288521_CloudTrail_us-east-2_20150901T0830Z_eaFvO3dwHo4NCqqc.json.gz	valid
 Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2015/09/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20150901T081728Z.json.gz	valid
 Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2015/09/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20150901T071728Z.json.gz	valid
@@ -232,6 +237,63 @@ Results found for 2015-08-31T22:17:28Z to 2015-09-01T20:17:28Z:
 63/63 log files valid
 ```
 
+The following example `validate-logs` command uses the `--verbose` flag on a period when backfill digest files are present and produces the sample output that follows.
+Backfill digests appear with the `(backfill)` prefix and are validated separately from the standard digest chain.
+`[...]` indicates the sample output has been abbreviated.
+
+```
+aws cloudtrail validate-logs --trail-arn arn:aws:cloudtrail:us-east-2:111111111111:trail/example-trail-name --start-time 2024-07-31T22:00:00Z --end-time 2024-08-01T19:17:29Z --verbose
+```
+
+```
+Validating log files for trail arn:aws:cloudtrail:us-east-2:111111111111:trail/example-trail-name between 2024-07-31T22:00:00Z and 2024-08-01T19:17:29Z
+
+Digest file    s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail-Digest/us-east-2/2024/08/01/111111111111_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T201728Z.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/08/01/111111111111_CloudTrail_us-east-2_20240801T1925Z_Xm3pK9vN2wQ5rT8h.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/08/01/111111111111_CloudTrail_us-east-2_20240801T1915Z_Bj7cL4nM6pR9sU2v.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/08/01/111111111111_CloudTrail_us-east-2_20240801T1930Z_Fy1dG8kN3qT6wX0z.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/08/01/111111111111_CloudTrail_us-east-2_20240801T1920Z_Hn5jM2pQ7sV9yB4e.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/08/01/111111111111_CloudTrail_us-east-2_20240801T1950Z_Kp8rN1tW4xZ7aC3f.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/08/01/111111111111_CloudTrail_us-east-2_20240801T1920Z_Mq6sP9uX2yB5dE8g.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/08/01/111111111111_CloudTrail_us-east-2_20240801T1915Z_Rt4vQ7wZ0aC3fG6h.json.gz	valid
+Digest file    s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail-Digest/us-east-2/2024/08/01/111111111111_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T191728Z.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/08/01/111111111111_CloudTrail_us-east-2_20240801T1910Z_Uw9xR2yB5dH8jK1m.json.gz	valid
+[...]
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail/us-east-2/2024/08/01/144218288521_CloudTrail_us-east-2_20240801T1055Z_Vz3aS6cE9fL2nP5q.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail/us-east-2/2024/08/01/144218288521_CloudTrail_us-east-2_20240801T1040Z_Xy7bT0dG3hM6pR9s.json.gz	valid
+
+Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2024/08/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T101728Z.json.gz	INVALID: signature verification failed
+
+Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2024/08/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T091728Z.json.gz	valid
+Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2024/08/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T081728Z.json.gz	valid
+Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2024/08/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T071728Z.json.gz	valid
+[...]
+Digest file    s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail-Digest/us-east-2/2024/07/31/111111111111_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240731T221728Z.json.gz	valid
+(backfill) Digest file    s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail-Digest/us-east-2/2024/08/01/111111111111_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T201728Z_backfill.json.gz	valid
+(backfill) Digest file    s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail-Digest/us-east-2/2024/08/01/111111111111_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T191728Z_backfill.json.gz	valid
+[...]
+
+(backfill) Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2024/08/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T101728Z_backfill.json.gz	INVALID: signature verification failed
+
+(backfill) Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2024/08/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T091728Z_backfill.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail/us-east-2/2024/08/01/144218288521_CloudTrail_us-east-2_20240801T0830Z_Rn6uk0wY5aD9fJ3n.json.gz	valid
+(backfill) Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2024/08/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T081728Z_backfill.json.gz	valid
+(backfill) Digest file    s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2024/08/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T071728Z_backfill.json.gz	valid
+[...]
+(backfill) Digest file    s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail-Digest/us-east-2/2024/07/31/111111111111_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240731T221728Z_backfill.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/07/31/111111111111_CloudTrail_us-east-2_20240731T2145Z_Sp3vm7xZ2bE6gK0p.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/07/31/111111111111_CloudTrail_us-east-2_20240731T2125Z_Tq0wn4ya9cF3hL7q.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/07/31/111111111111_CloudTrail_us-east-2_20240731T2130Z_Ur7xp1zb6dG0jM4r.json.gz	valid
+Log file       s3://amzn-s3-demo-bucket/AWSLogs/111111111111/CloudTrail/us-east-2/2024/07/31/111111111111_CloudTrail_us-east-2_20240731T2155Z_Vs4yq8ac3eH7kN1s.json.gz	valid
+
+Results requested for 2024-07-31T22:00:00Z to 2024-08-01T19:17:29Z
+Results found for 2024-07-31T22:17:28Z to 2024-08-01T20:17:28Z:
+
+22/23 digest files valid, 1/23 digest files INVALID
+22/23 backfill digest files valid, 1/23 backfill digest files INVALID
+63/63 log files valid
+```
+
 ### Non-verbose
 
 The following example `validate-logs` command does not use the `--verbose` flag. In the sample output that follows, one error was found. Only the header, error,
@@ -246,10 +308,13 @@ Validating log files for trail arn:aws:cloudtrail:us-east-2:111111111111:trail/e
 
 Digest file	s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2015/09/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20150901T101728Z.json.gz	INVALID: signature verification failed
 
+(backfill) Digest file	s3://amzn-s3-demo-bucket/AWSLogs/144218288521/CloudTrail-Digest/us-east-2/2024/08/01/144218288521_CloudTrail-Digest_us-east-2_example-trail-name_us-east-2_20240801T101728Z_backfill.json.gz	INVALID: signature verification failed
+
 Results requested for 2015-08-31T22:00:00Z to 2015-09-01T19:17:29Z
 Results found for 2015-08-31T22:17:28Z to 2015-09-01T20:17:28Z:
 
 22/23 digest files valid, 1/23 digest files INVALID
+22/23 backfill digest files valid, 1/23 backfill digest files INVALID
 63/63 log files valid
 ```
 

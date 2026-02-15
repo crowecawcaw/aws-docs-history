@@ -132,6 +132,8 @@ for a specific trail or trails.
 }
 ```
 
+###### Example
+
 The following example policy statement illustrates how another account can use
 your KMS key to encrypt CloudTrail log files and digest files.
 
