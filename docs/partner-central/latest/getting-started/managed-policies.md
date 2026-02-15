@@ -32,6 +32,8 @@ for AWS Marketplace sellers](../../../marketplace/latest/userguide/security-iam-
   managed policy: AWSPartnerCentralChannelHandshakeApprovalManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement "#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement")
 - [AWS
   managed policy: AWSPartnerCentralMarketingManagement](#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement "#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement")
+- [AWS
+  managed policy: PartnerCentralIncentiveBenefitManagement](#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement "#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement")
 - [AWS Partner Central updates to AWS
   managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
@@ -158,6 +160,20 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
+## AWS
+
+managed policy: `PartnerCentralIncentiveBenefitManagement`
+
+You can attach the `PartnerCentralIncentiveBenefitManagement` policy to your
+IAM identities.
+
+This policy grants access to manage all the incentive benefits in AWS Partner Central.
+
+To view the permissions for this policy, see
+[PartnerCentralIncentiveBenefitManagement](../../../aws-managed-policy/latest/reference/PartnerCentralIncentiveBenefitManagement.md "../../../aws-managed-policy/latest/reference/PartnerCentralIncentiveBenefitManagement.md")
+in the _AWS Managed Policy
+Reference_.
+
 ## AWS Partner Central updates to AWS
 
 managed policies
@@ -169,6 +185,7 @@ Guide](doc-history.md "doc-history.md") page.
 
 | Change                                                                                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                  | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| [PartnerCentralIncentiveBenefitManagement](#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement "#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement") —<br>New policy                                                                   | AWS Partner Central added a new policy to grant access to all the incentive benefits functionality.                                                                                                                                                          | February 11, 2026 |
 | [AWSPartnerCentralFullAccess](#security-iam-awsmanpol-AWSPartnerCentralFullAccess "#security-iam-awsmanpol-AWSPartnerCentralFullAccess") —<br>Update to an existing policy                                                                                        | AWS Partner Central updated a policy to add Amazon Q permissions for Partner Assistant chatbot functionality and to add AWS Marketplace Agreements read access for MPOPP benefits functionality.                                                             | February 4, 2026  |
 | [AWSPartnerCentralMarketingManagement](#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement "#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement")<br>— New policy                                                                               | AWS Partner Central added a new policy to grant access to manage partner central marketing and campaigns.                                                                                                                                                    | November 30, 2025 |
 | [AWSPartnerCentralFullAccess](#security-iam-awsmanpol-AWSPartnerCentralFullAccess "#security-iam-awsmanpol-AWSPartnerCentralFullAccess") —<br>Update to an existing policy                                                                                        | AWS Partner Central updated a policy to add legacy Partner Central access, put files into S3, and get AWS Marketplace entities.                                                                                                                              | November 30, 2025 |
