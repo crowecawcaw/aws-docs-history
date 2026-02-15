@@ -3,6 +3,44 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## February 13, 2026
+
+### Amazon IVS Broadcast SDK:
+
+Android 1.39.0, iOS 1.39.0 (Low-Latency Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android Broadcast SDK<br>1.39.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/android/")<br>• Updated core Android build tools and NDK<br>version.<br>• Fixed rare deadlock when stopping a<br>`MixedImageDevice`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| [iOS Broadcast SDK<br>1.39.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/ios/")<br>• Updated Xcode to version 26.2.<br>• Effective with this release, the IVS SDKs are no<br>longer distributed via CocoaPods.<br>CocoaPods announced<br>its deprecation in 2024 and will enter read-only state<br>later this year. Swift Package Manager (SPM) replaces<br>CocoaPods as Apple’s supported dependency-management<br>solution and is the standard way to integrate SDKs in<br>modern Xcode projects.<br>We recommend that you migrate to SPM or integrate the<br>IVS SDK frameworks directly into your project. IVS SDKs<br>are fully supported via both approaches.<br>Related documentation changes were made in [iOS Broadcast SDK<br>Guide](broadcast-ios-getting-started.md#broadcast-ios-install "broadcast-ios-getting-started.md#broadcast-ios-install") (in "Install the Library"). |
+
+#### Broadcast SDK Size:
+
+Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 1.969 MB        | 5.353 MB          |
+| armeabi-v7a  | 1.726 MB        | 3.704 MB          |
+| x86_64       | 2.049 MB        | 5.682 MB          |
+| x86          | 2.072 MB        | 5.463 MB          |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 1.016 MB        | 2.230 MB          |
+
+## February 12, 2026
+
+### IVS Broadcast SDK: Web 1.32.0
+
+(Low-Latency Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web Broadcast SDK<br>1.32.0](broadcast-web.md "broadcast-web.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference/](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Bug fixes and stability improvements. |
+
 ## January 13, 2026
 
 ### Amazon IVS Broadcast SDK:
@@ -71,10 +109,10 @@ logic:
   is clearer than comparing it to `20401`.
 - Any error where `UID` had a value (i.e. was not
   `-1` on Android or `"-1"` on iOS) will now
-  have the `code` field set to what the existing `UID` value
-  was. If you have conditionals comparing the `UID` field,
-  you can keep the constants but compare them against the
-  `code` field going forward.
+  have the `code` field set to what the existing
+  `UID` value was. If you have conditionals comparing
+  the `UID` field, you can keep the constants but compare
+  them against the `code` field going forward.
 - Some legacy errors did not contain a `code` or a
   `UID` value. These were commonly matched based on the
   `message` (Android) or `description` (iOS)
@@ -97,12 +135,14 @@ migrated as follows:
 
 The most important part of an error is still
 `BroadcastException.getPlatformCode()` (Android) and
-`NSError.userInfo[IVSBroadcastPlatformCodeDescriptionErrorKey]` (iOS), but in
-version 1.38.0 and beyond, the `code` field uniquely identifies errors and
-allows immediate lookup of the error name and description in the
-`BroadcastErrorCode` (Android) and `IVSBroadcastErrorCode` (iOS) enums. As a
-result, other fields like `UID`, `source`, and `detail` should not be used in
-lookup logic; they exist only as supplemental information.
+`NSError.userInfo[IVSBroadcastPlatformCodeDescriptionErrorKey]`
+(iOS), but in version 1.38.0 and beyond, the `code` field
+uniquely identifies errors and allows immediate lookup of the error name and
+description in the `BroadcastErrorCode` (Android) and
+`IVSBroadcastErrorCode` (iOS) enums. As a result, other
+fields like `UID`, `source`, and `detail`
+should not be used in lookup logic; they exist only as supplemental
+information.
 
 ## December 18, 2025
 
@@ -120,7 +160,7 @@ lookup logic; they exist only as supplemental information.
 
 | Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Android player<br>1.48.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.48.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.48.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.48.0/android/")<br>• The public constructor for the `UnavailableQuality` class has been removed. (This was previously made public in error.)<br>• Bug fixes and stability improvements.                                                                                            |
+| [Android player<br>1.48.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.48.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.48.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.48.0/android/")<br>• The public constructor for the<br>`UnavailableQuality` class has been<br>removed. (This was previously made public in<br>error.)<br>• Bug fixes and stability improvements.                                                                                   |
 | [iOS Player 1.48.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.48.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.48.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.48.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.48.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.48.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.48.0/ios/")<br>• Bug fixes and stability improvements. |
 
 #### Mobile SDK Size:

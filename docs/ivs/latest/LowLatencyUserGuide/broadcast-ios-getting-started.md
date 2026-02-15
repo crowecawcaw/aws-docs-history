@@ -8,14 +8,14 @@ IVS low-latency streaming iOS broadcast SDK.
 ## Install the Library
 
 We recommend that you integrate broadcast SDK via Swift Package Manager.
-(Alternatively, you can integrate via CocoaPods or manually add the framework to
+(Alternatively, you can manually add the framework to
 your project.)
 
 ### Recommended: Integrate the
 
 Broadcast SDK (Swift Package Manager)
 
-1. Download the Package.swift file from [https://broadcast.live-video.net/1.38.0/Package.swift](https://broadcast.live-video.net/1.38.0/Package.swift "https://broadcast.live-video.net/1.38.0/Package.swift").
+1. Download the Package.swift file from [https://broadcast.live-video.net/1.39.0/Package.swift](https://broadcast.live-video.net/1.39.0/Package.swift "https://broadcast.live-video.net/1.39.0/Package.swift").
 2. In your project, create a new directory named AmazonIVSBroadcast and
    add it to version control.
 3. Place the downloaded Package.swift file in the new directory.
@@ -30,31 +30,11 @@ Broadcast SDK (Swift Package Manager)
    **Add to Target** section.
 7. Select **Add Package**.
 
-### Alternate Approach: Integrate
-
-the Broadcast SDK (CocoaPods)
-
-**Important**: CocoaPods is in maintenance mode
-(security fixes only) and after December 2026, no new packages or updates can be
-published to the CocoaPods repository. Existing packages will remain available
-but frozen. We recommend using Swift Package Manager for all new
-projects.
-
-Releases are published via CocoaPods under the name
-`AmazonIVSBroadcast`. Add this dependency to your Podfile:
-
-```
-pod 'AmazonIVSBroadcast'
-```
-
-Run `pod install` and the SDK will be available in your
-`.xcworkspace`.
-
 ### Alternate Approach: Install the
 
 Framework Manually
 
-1. Download the latest version from [https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast.xcframework.zip").
+1. Download the latest version from [https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast.xcframework.zip").
 2. Extract the contents of the archive.
    `AmazonIVSBroadcast.xcframework` contains the SDK for
    both device and simulator.

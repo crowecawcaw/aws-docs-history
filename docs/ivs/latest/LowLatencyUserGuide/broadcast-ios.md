@@ -12,11 +12,11 @@ document. The following operations are supported:
 - Manage a composition session.
 - Receive events.
 - Receive errors.
-  **Latest version of iOS broadcast SDK:** 1.38.0 ([Release Notes](release-notes.md#jan13-26-broadcast-mobile-ll "release-notes.md#jan13-26-broadcast-mobile-ll"))
+  **Latest version of iOS broadcast SDK:** 1.39.0 ([Release Notes](release-notes.md#feb13-26-broadcast-mobile-ll "release-notes.md#feb13-26-broadcast-mobile-ll"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS iOS broadcast SDK, see the reference
-documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/ios/").
+documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.39.0/ios/").
 
 **Sample code:** See the iOS sample repository on GitHub:
 [https://github.com/aws-samples/amazon-ivs-broadcast-ios-sample](https://github.com/aws-samples/amazon-ivs-broadcast-ios-sample "https://github.com/aws-samples/amazon-ivs-broadcast-ios-sample").
