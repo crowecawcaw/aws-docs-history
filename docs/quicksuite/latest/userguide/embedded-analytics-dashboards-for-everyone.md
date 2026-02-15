@@ -332,6 +332,8 @@ The following example shows the JavaScript (Node.js) that you can use on
 the app server to generate the URL for the embedded dashboard. You can use
 this URL in your website or app to display the dashboard.
 
+###### Example
+
 ```
 const AWS = require('aws-sdk');
     const https = require('https');
@@ -358,6 +360,8 @@ const AWS = require('aws-sdk');
     });
 ```
 
+###### Example
+
 ```
 //The URL returned is over 900 characters. For this example, we've shortened the string for
     //readability and added ellipsis to indicate that it's incomplete.
@@ -371,6 +375,8 @@ const AWS = require('aws-sdk');
 The following example shows the .NET/C# code that you can use on the app
 server to generate the URL for the embedded dashboard. You can use this URL
 in your website or app to display the dashboard.
+
+###### Example
 
 ```
 using System;

@@ -26,6 +26,8 @@ configured. The symptoms can include the following:
 The following steps walk through troubleshooting a connection where SSL is
 suspect. The administrator in this example has already installed OpenSSL.
 
+###### Example
+
 1. The user finds an issue connecting to the database. The user verifies
    that they can connect a different database in another AWS Region. They
    check other versions of the same database and can connect easily.

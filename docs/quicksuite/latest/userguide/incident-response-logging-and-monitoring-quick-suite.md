@@ -183,6 +183,26 @@ This section provides insights into resource utilization including:
 Use these insights to guide content strategy and resource allocation
 decisions.
 
+### Automations, flows, and research agent hours usage
+
+Monitor agent hours usage to manage subscription limits and optimize resource allocation across different subscription tiers.
+
+This section includes the following tabs:
+
+- **Automation and Flows Agent hours** – Provides insights into agent hours consumed by automations and flows
+- **Research Agent hours** – Provides insights into agent hours consumed by research activities
+
+Agent hours consumption metrics include:
+
+- **Total Professional hours** – Agent hours consumed by Professional tier users
+- **Total Enterprise hours** – Agent hours consumed by Enterprise tier users
+- **Additional hours** – Overage hours used beyond included monthly allocations
+- **Hours used by subscription type chart** – Horizontal bar chart showing user distribution by percentage of included hours consumed (25-49%, 50-74%, 75-99%, >100%) for both Enterprise (4hrs/mo) and Professional (2hrs/mo) tiers
+- **Additional agent hours used by week** – Weekly trend chart showing additional hours consumed by Enterprise users after exceeding their included hours
+
+Use these metrics to understand user adoption patterns and identify engagement
+opportunities.
+
 ## Accessing the analytics dashboard
 
 You can access the analytics dashboard from the Amazon Quick Suite console if you have the

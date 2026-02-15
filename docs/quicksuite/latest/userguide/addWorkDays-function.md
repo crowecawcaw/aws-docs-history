@@ -25,6 +25,8 @@ calculation.
   example `parseDate`, `epochDate`,
   `addDateTime`., and so on.
 
+###### Example
+
 ```
 addWorkDays(`epochDate(1659484800)`, `numWorkDays`)
 ```
@@ -33,6 +35,8 @@ addWorkDays(`epochDate(1659484800)`, `numWorkDays`)
   Any Quick Suite calculated field that returns a
   `date` value.
 
+###### Example
+
 ```
 calcFieldStartDate = addDateTime(`10`, “`DD`”, `startDate`)
 addWorkDays(`calcFieldStartDate`, `numWorkDays`)
@@ -40,6 +44,8 @@ addWorkDays(`calcFieldStartDate`, `numWorkDays`)
 
 - Parameters – Any
   Quick Suite `datetime` parameter.
+
+###### Example
 
 ```
 addWorkDays($`paramStartDate`, `numWorkDays`)
@@ -54,13 +60,21 @@ A non-NULL integer that acts as the end date for the calculation.
 
 - Literal – An integer
   literal directly typed in the expression editor.
+
+###### Example
+
 - Dataset field – Any
   date field from the dataset
+
+###### Example
+
 - Scalar function or
   calculation – Any scalar
   Quick Suite function that returns an integer output
   from another, for example `decimalToInt`,
   `abs`, and so on.
+
+###### Example
 
 ```
 addWorkDays(`initDate`, `decimalToInt(sqrt (abs(numWorkDays)) )` )
@@ -70,6 +84,8 @@ addWorkDays(`initDate`, `decimalToInt(sqrt (abs(numWorkDays)) )` )
   Any Quick Suite calculated field that returns a
   `date` value.
 
+###### Example
+
 ```
 someOtherIntegerCalcField = `(num_days * 2) + 12`
 addWorkDays(`initDate`, `someOtherIntegerCalcField`)
@@ -77,6 +93,8 @@ addWorkDays(`initDate`, `someOtherIntegerCalcField`)
 
 - Parameter – Any
   Quick Suite `datetime` parameter.
+
+###### Example
 
 ```
 addWorkDays(`initDate`, $`param_numWorkDays`)
@@ -106,9 +124,13 @@ examples.
 - Using a literal NULL as an argument in the expression is
   disallowed.
 
+###### Example
+
 ```
 addWorkDays(`NULL`, `numWorkDays`)
 ```
+
+###### Example
 
 ```
 `Error`
@@ -122,9 +144,13 @@ Correct the expression and choose Create again.
   is actually a string. To use it, you would have to use a function that
   converts to a date data type.
 
+###### Example
+
 ```
 addWorkDays(`"2022-08-10"`, `10`)
 ```
+
+###### Example
 
 ```
 `Error`

@@ -171,9 +171,13 @@ learn how.
 
 ###### Important
 
-Make this API call only from your secure, trusted environment.
-A secure, trusted environment has access controls that you implement.
-These controls ensure that only your server or authorized users can add or modify session tags.
+When configuring session tags in the API call,
+
+- Treat session tags as security credentials. Do not expose session tags to end users or client-side code.
+- Implement server-side controls. Ensure that session tags are set exclusively by your trusted backend services, not by parameters that end users can modify.
+- Protect session tags from enumeration. Ensure that users in one tenant cannot discover or guess sessionTag values belonging to other tenants.
+- Review your architecture. If downstream customers or partners are allowed to call the API directly,
+  evaluate whether those parties could specify sessionTag values for tenants they should not access.
 
 CreateDataSet
 The following is an example for creating a dataset that uses RLS
@@ -363,9 +367,13 @@ using the `GenerateEmbedUrlForAnonymousUser` API operation.
 
 ###### Important
 
-Make this API call only from your secure, trusted environment.
-A secure, trusted environment has access controls that you implement.
-These controls ensure that only your server or authorized users can add or modify session tags.
+When configuring session tags in the API call,
+
+- Treat session tags as security credentials. Do not expose session tags to end users or client-side code.
+- Implement server-side controls. Ensure that session tags are set exclusively by your trusted backend services, not by parameters that end users can modify.
+- Protect session tags from enumeration. Ensure that users in one tenant cannot discover or guess sessionTag values belonging to other tenants.
+- Review your architecture. If downstream customers or partners are allowed to call the API directly,
+  evaluate whether those parties could specify sessionTag values for tenants they should not access.
 
 The following example shows how to assign values to RLS tags that were defined in
 the dataset in the previous step.

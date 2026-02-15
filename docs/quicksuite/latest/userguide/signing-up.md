@@ -1,6 +1,6 @@
 # Signing up for an Amazon Quick Suite subscription
 
-When you first sign up for Amazon Quick Suite, you get a free trial subscription for four
+When you first sign up for Amazon Quick Suite, you get a free trial subscription for twenty-five
 users for 30 days. During the process of signing up, you may set options for your
 identity provider.
 

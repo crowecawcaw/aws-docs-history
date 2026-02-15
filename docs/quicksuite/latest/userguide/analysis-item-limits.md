@@ -17,7 +17,7 @@ contains more than the supported number of analysis items.
 | [Custom<br>actions](custom-actions.md "custom-actions.md")                                 | 10 per visual                          |
 | [Filter<br>groups](add-a-compound-filter.md "add-a-compound-filter.md")                    | 2000 per analysis                      |
 | [Filters](adding-a-filter.md "adding-a-filter.md")                                         | 20 filters per filter group            |
-| [Parameters](parameters-in-quicksight.md "parameters-in-quicksight.md")                    | 200 per analysis                       |
+| [Parameters](parameters-in-quicksight.md "parameters-in-quicksight.md")                    | 400 per analysis                       |
 | [Controls](filter-controls.md "filter-controls.md")                                        | 200 per sheet                          |
 | [Text boxes](textbox.md "textbox.md")                                                      | 100 per sheet                          |
 | [Image<br>components](image-component.md "image-component.md")                             | 10 per sheet                           |
