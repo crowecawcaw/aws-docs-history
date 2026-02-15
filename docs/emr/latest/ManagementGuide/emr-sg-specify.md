@@ -56,7 +56,7 @@ option:
 | `AdditionalPrimarySecurityGroups` | Use this parameter to specify up to four additional security<br>groups for the primary instance.                                                                                                                                                                                                                                                                                                       |
 | `AdditionalCoreSecurityGroups`    | Use this parameter to specify up to four additional security<br>groups for core and task instances.                                                                                                                                                                                                                                                                                                    |
 
-###### Example — specify custom Amazon EMR-managed security groups and additional security
+###### Example— specify custom Amazon EMR-managed security groups and additional security
 
 groups
 

@@ -102,7 +102,7 @@ separate arguments with whitespace and surround string arguments that consist of
 characters _and_ whitespace with quotation
 marks.
 
-###### Example : Correct arguments
+###### Example: Correct arguments
 
 The following example arguments are formatted correctly for the AWS Management Console,
 with quotation marks around the final string argument.
@@ -120,7 +120,7 @@ bash
 "aws s3 cp s3://amzn-s3-demo-bucket/my-script.sh ."
 ```
 
-###### Example : Incorrect arguments
+###### Example: Incorrect arguments
 
 The following example arguments are improperly formatted for the AWS Management Console.
 Notice that the final string argument, `aws s3 cp

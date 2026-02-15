@@ -324,7 +324,7 @@ scenarios for using keys to limit allowed actions using EMR Notebooks. As long a
 no other policy associated with the principal (user) allows the actions, the
 condition context keys limit allowed actions as indicated.
 
-###### Example – Allow access only to EMR Notebooks that a user creates based on
+###### Example– Allow access only to EMR Notebooks that a user creates based on
 
 tagging
 
@@ -372,7 +372,7 @@ JSON
 
 ```
 
-###### Example –Require notebook tagging when a notebook is created
+###### Example–Require notebook tagging when a notebook is created
 
 In this example, the `RequestTag` context key is used. The
 `CreateEditor` action is allowed only if the user does not
@@ -444,7 +444,7 @@ JSON
 
 ```
 
-###### Example –Limit notebook creation to tagged clusters, and require notebook
+###### Example–Limit notebook creation to tagged clusters, and require notebook
 
 tags
 
@@ -488,7 +488,7 @@ JSON
 
 ```
 
-###### Example –Limit the ability to start a notebook based on tags
+###### Example–Limit the ability to start a notebook based on tags
 
 This example limits the ability to start notebooks only to those notebooks
 that have a tag with the key string `owner` set to one of the
@@ -615,7 +615,7 @@ JSON
 
 ```
 
-###### Example –Limit the ability to open the notebook editor based on
+###### Example–Limit the ability to open the notebook editor based on
 
 tags
 

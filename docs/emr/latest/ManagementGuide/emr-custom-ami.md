@@ -211,7 +211,7 @@ To create a cluster using multiple custom AMIs, use one of the following:
 The AWS Management Console currently does not support creating a cluster using
 multiple custom AMIs.
 
-###### Example - Use the AWS CLI to create an instance group cluster using multiple custom
+###### Example- Use the AWS CLI to create an instance group cluster using multiple custom
 
 AMIs
 
@@ -244,7 +244,7 @@ InstanceGroupType=TASK,InstanceType=`m6g.xlarge`,InstanceCount=`1`,CustomAmiId=`
 InstanceGroupType=TASK,InstanceType=`m5.xlarge`,InstanceCount=`1`,CustomAmiId=`ami-456789`
 ```
 
-###### Example - Use the AWS CLI version 1.20.21 or higher to add a task node to a running
+###### Example- Use the AWS CLI version 1.20.21 or higher to add a task node to a running
 
 instance group cluster with multiple instance types and multiple custom
 AMIs
@@ -270,7 +270,7 @@ InstanceGroupType=TASK,InstanceType=m5.xlarge,InstanceCount=1,CustomAmiId=ami-23
 aws emr add-instance-groups --cluster-id j-123456 --instance-groups InstanceGroupType=Task,InstanceType=m6g.xlarge,InstanceCount=1,CustomAmiId=ami-345678
 ```
 
-###### Example - Use the AWS CLI version 1.20.21 or higher to create an instance fleet
+###### Example- Use the AWS CLI version 1.20.21 or higher to create an instance fleet
 
 cluster, multiple custom AMIs, multiple instance types, On-Demand primary,
 On-Demand core, multiple core and task nodes
@@ -283,7 +283,7 @@ InstanceFleetType=TASK,TargetSpotCapacity=1,InstanceTypeConfigs=['{InstanceType=
 
 ```
 
-###### Example - Use the AWS CLI version 1.20.21 or higher to add task nodes to a running
+###### Example- Use the AWS CLI version 1.20.21 or higher to add task nodes to a running
 
 cluster with multiple instance types and multiple custom AMIs
 

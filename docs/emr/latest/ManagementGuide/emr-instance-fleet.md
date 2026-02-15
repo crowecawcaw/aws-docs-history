@@ -425,6 +425,8 @@ JSON
 
 ```
 
+###### Example
+
 To use targeted capacity reservations, you must include the following additional
 permissions.
 
@@ -552,9 +554,7 @@ If you have not previously created the default Amazon EMR service role and
 EC2 instance profile, use `aws emr create-default-roles` to
 create them before using the `create-cluster` command.
 
-###### Example: On-Demand primary, On-Demand core with single instance type,
-
-Default VPC
+###### Example: On-Demand primary, On-Demand core with single instance type, Default VPC
 
 ```
 aws emr create-cluster --release-label `emr-5.3.1` --service-role EMR_DefaultRole \
@@ -564,9 +564,7 @@ aws emr create-cluster --release-label `emr-5.3.1` --service-role EMR_DefaultRol
     InstanceFleetType=CORE,TargetOnDemandCapacity=1,InstanceTypeConfigs=['{InstanceType=m5.xlarge}']
 ```
 
-###### Example: Spot primary, Spot core with single instance type, default
-
-VPC
+###### Example: Spot primary, Spot core with single instance type, default VPC
 
 ```
 aws emr create-cluster --release-label emr-5.3.1 --service-role EMR_DefaultRole \
@@ -578,9 +576,7 @@ InstanceTypeConfigs=['{InstanceType=m5.xlarge,BidPrice=0.5}'] \
 InstanceTypeConfigs=['{InstanceType=m5.xlarge,BidPrice=0.5}']
 ```
 
-###### Example: On-Demand primary, mixed core with single instance type,
-
-single EC2 subnet
+###### Example: On-Demand primary, mixed core with single instance type, single EC2 subnet
 
 ```
 aws emr create-cluster --release-label emr-5.3.1 --service-role EMR_DefaultRole \
@@ -592,9 +588,7 @@ InstanceTypeConfigs=['{InstanceType=m5.xlarge}'] \
 InstanceTypeConfigs=['{InstanceType=m5.xlarge,BidPrice=0.5,WeightedCapacity=2}']
 ```
 
-###### Example: On-Demand primary, spot core with multiple weighted instance
-
-Types, Timeout for Spot, Range of EC2 Subnets
+###### Example: On-Demand primary, spot core with multiple weighted instance Types, Timeout for Spot, Range of EC2 Subnets
 
 ```
 aws emr create-cluster --release-label emr-5.3.1 --service-role EMR_DefaultRole \
@@ -608,10 +602,7 @@ InstanceTypeConfigs=['{InstanceType=m5.xlarge,BidPrice=0.5,WeightedCapacity=3}',
 LaunchSpecifications={SpotSpecification='{TimeoutDurationMinutes=120,TimeoutAction=SWITCH_TO_ON_DEMAND}'}
 ```
 
-###### Example: On-Demand primary, mixed core and task with multiple
-
-weighted instance types, timeout for core Spot Instances, range of EC2
-subnets
+###### Example: On-Demand primary, mixed core and task with multiple weighted instance types, timeout for core Spot Instances, range of EC2 subnets
 
 ```
 aws emr create-cluster --release-label emr-5.3.1 --service-role EMR_DefaultRole \
@@ -626,9 +617,7 @@ LaunchSpecifications={SpotSpecification='{TimeoutDurationMinutes=120,TimeoutActi
 InstanceTypeConfigs=['{InstanceType=m5.xlarge,BidPrice=0.5,WeightedCapacity=3}']
 ```
 
-###### Example: Spot primary, no core or task, Amazon EBS configuration, default
-
-VPC
+###### Example: Spot primary, no core or task, Amazon EBS configuration, default VPC
 
 ```
 aws emr create-cluster --release-label Amazon EMR 5.3.1 --service-role EMR_DefaultRole \
@@ -641,9 +630,7 @@ EbsConfiguration={EbsOptimized=true,EbsBlockDeviceConfigs=[{VolumeSpecification=
 SizeIn GB=100}},{VolumeSpecification={VolumeType=io1,SizeInGB=100,Iop s=100},VolumesPerInstance=4}]}}']
 ```
 
-###### Example: Multiple custom AMIs, multiple instance types, on-demand
-
-primary, on-demand core
+###### Example: Multiple custom AMIs, multiple instance types, on-demand primary, on-demand core
 
 ```
 aws emr create-cluster --release-label Amazon EMR 5.3.1 --service-role EMR_DefaultRole \
@@ -655,9 +642,7 @@ InstanceTypeConfigs=['{InstanceType=m5.xlarge,CustomAmiId=ami-123456},{InstanceT
 InstanceTypeConfigs=['{InstanceType=m5.xlarge,CustomAmiId=ami-123456},{InstanceType=m6g.xlarge, CustomAmiId=ami-234567}']
 ```
 
-###### Example: Add a task node to a running cluster with multiple instance
-
-types and multiple custom AMIs
+###### Example: Add a task node to a running cluster with multiple instance types and multiple custom AMIs
 
 ```
 aws emr add-instance-fleet --cluster-id j-123456 --release-label Amazon EMR 5.3.1 \

@@ -118,9 +118,7 @@ The EncryptionMaterialsProvider class gets encryption materials by encryption
 context. Amazon EMR populates encryption context information at runtime to help the caller
 determine the correct encryption materials to return.
 
-###### Example: Using a custom key provider for
-
-Amazon S3 encryption with EMRFS
+###### Example: Using a custom key provider for Amazon S3 encryption with EMRFS
 
 When Amazon EMR fetches the encryption materials from the
 EncryptionMaterialsProvider class to perform encryption, EMRFS optionally

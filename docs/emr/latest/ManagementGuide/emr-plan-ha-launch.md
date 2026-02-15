@@ -60,9 +60,7 @@ the AWS CLI. Replace `22XXXX01` and `22XXXX02` with your subnet ID in the follow
 
 Default AMI, instance groups
 
-###### Example – Launching an Amazon EMR instance group cluster with
-
-multiple primary nodes using a default AMI
+###### Example – Launching an Amazon EMR instance group cluster with multiple primary nodes using a default AMI
 
 ```
 aws emr create-cluster \
@@ -76,9 +74,7 @@ aws emr create-cluster \
 
 Default AMI, instance fleets
 
-###### Example – Launching an Amazon EMR instance fleet cluster with
-
-multiple primary nodes using a default AMI
+###### Example – Launching an Amazon EMR instance fleet cluster with multiple primary nodes using a default AMI
 
 ```
 aws emr create-cluster \
@@ -149,9 +145,7 @@ aws emr create-cluster \
 
 Custom AMI, instance groups
 
-###### Example – Launching an Amazon EMR instance group cluster
-
-with multiple primary nodes using a custom AMI
+###### Example – Launching an Amazon EMR instance group cluster with multiple primary nodes using a custom AMI
 
 ```
 aws emr create-cluster \
@@ -166,9 +160,7 @@ aws emr create-cluster \
 
 Custom AMI, instance fleets
 
-###### Example – Launching an Amazon EMR instance fleet cluster with
-
-multiple primary nodes using a custom AMI
+###### Example – Launching an Amazon EMR instance fleet cluster with multiple primary nodes using a custom AMI
 
 ```
 aws emr create-cluster \

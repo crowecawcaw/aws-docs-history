@@ -107,10 +107,7 @@ nodes start fails.
 
 Amazon EMR API
 
-###### Example – Use a placement group strategy to launch an
-
-instance group cluster with multiple primary nodes from the
-Amazon EMR API
+###### Example – Use a placement group strategy to launch an instance group cluster with multiple primary nodes from the Amazon EMR API
 
 When you use the RunJobFlow action to create an Amazon EMR cluster with
 multiple primary nodes, set the `PlacementGroupConfigs`
@@ -159,10 +156,7 @@ placement group strategy.
 
 AWS CLI
 
-###### Example – Use a placement group strategy to launch an
-
-instance fleet cluster with multiple primary nodes from the
-AWS Command Line Interface
+###### Example – Use a placement group strategy to launch an instance fleet cluster with multiple primary nodes from the AWS Command Line Interface
 
 When you use the RunJobFlow action to create an Amazon EMR cluster with
 multiple primary nodes, set the `PlacementGroupConfigs`
@@ -271,7 +265,7 @@ group strategy, you need to do one of the following:
 
 Amazon EMR API
 
-###### Example – Launching a cluster with multiple primary nodes without placement group
+###### Example– Launching a cluster with multiple primary nodes without placement group
 
 strategy using the Amazon EMRAPI.
 
@@ -321,7 +315,7 @@ following.
 
 Amazon EMR CLI
 
-###### Example – Launching a cluster with multiple primary nodes without a placement group
+###### Example– Launching a cluster with multiple primary nodes without a placement group
 
 strategy using the Amazon EMRCLI.
 
@@ -355,6 +349,8 @@ configuration attached to the cluster with multiple primary nodes
 
 You can use the Amazon EMR describe cluster API to see the placement group strategy
 configuration attached to the cluster with multiple primary nodes.
+
+###### Example
 
 ```
 aws emr describe-cluster --cluster-id "j-xxxxx"

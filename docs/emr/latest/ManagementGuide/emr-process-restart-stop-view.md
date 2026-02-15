@@ -21,7 +21,7 @@ Amazon EMR version you use.
 
 EMR 5.30.0 and 6.0.0 and later
 
-###### Example : List all running processes
+###### Example: List all running processes
 
 The following example uses `systemctl` and specifies
 `--type` to view all processes.
@@ -30,7 +30,7 @@ The following example uses `systemctl` and specifies
 systemctl --type=service
 ```
 
-###### Example : List specific processes
+###### Example: List specific processes
 
 The following example lists all processes with names that contain
 `hadoop`.
@@ -52,7 +52,7 @@ Example output:
  hadoop-yarn-timelineserver.service     loaded active running Hadoop timelineserver
 ```
 
-###### Example : See a detailed status report for a specific process
+###### Example: See a detailed status report for a specific process
 
 The following example displays a detailed status report for the
 `hadoop-hdfs-namenode` service.
@@ -83,7 +83,7 @@ Hint: Some lines were ellipsized, use -l to show in full.
 
 EMR 4.x - 5.29.0
 
-###### Example : List all running processes
+###### Example: List all running processes
 
 The following example lists all running processes.
 
@@ -93,7 +93,7 @@ initctl list
 
 EMR 2.x - 3.x
 
-###### Example : List all running processes
+###### Example: List all running processes
 
 The following example lists all running processes.
 
@@ -108,7 +108,7 @@ necessary.
 
 EMR 5.30.0 and 6.0.0 and later
 
-###### Example : Stop a process
+###### Example: Stop a process
 
 The following example stops the `hadoop-hdfs-namenode`
 process.
@@ -133,7 +133,7 @@ hadoop-hdfs-namenode.service - Hadoop namenode
 Main PID: 9733 (code=exited, status=143)
 ```
 
-###### Example : Start a process
+###### Example: Start a process
 
 The following example starts the `hadoop-hdfs-namenode`
 process.
@@ -164,7 +164,7 @@ hadoop-hdfs-namenode.service - Hadoop namenode
 
 EMR 4.x - 5.29.0
 
-###### Example : Stop a running process
+###### Example: Stop a running process
 
 The following example stops the `hadoop-hdfs-namenode`
 service.
@@ -173,7 +173,7 @@ service.
 sudo stop `hadoop-hdfs-namenode`
 ```
 
-###### Example : Restart a stopped process
+###### Example: Restart a stopped process
 
 The following example restarts the `hadoop-hdfs-namenode`
 service. You must use the `start` command and not
@@ -183,7 +183,7 @@ service. You must use the `start` command and not
 sudo start `hadoop-hdfs-namenode`
 ```
 
-###### Example : Check the process status
+###### Example: Check the process status
 
 The following fetches the status for
 `hadoop-hdfs-namenode`. You can use the `status`
@@ -195,7 +195,7 @@ sudo status `hadoop-hdfs-namenode`
 
 EMR 2.x - 3.x
 
-###### Example : Stop an application process
+###### Example: Stop an application process
 
 The following example stops the `hadoop-hdfs-namenode`
 service, which is associated with the version of Amazon EMR installed on the
@@ -205,7 +205,7 @@ cluster.
 sudo /etc/init.d/`hadoop-hdfs-namenode` stop
 ```
 
-###### Example : Restart an application process
+###### Example: Restart an application process
 
 The following example command restarts the
 `hadoop-hdfs-namenode` process:
@@ -214,7 +214,7 @@ The following example command restarts the
 sudo /etc/init.d/`hadoop-hdfs-namenode` start
 ```
 
-###### Example : Stop an Amazon EMR process
+###### Example: Stop an Amazon EMR process
 
 The following example stops a process, such as instance-controller,
 which is not associated with the version of Amazon EMR on the cluster.
@@ -223,7 +223,7 @@ which is not associated with the version of Amazon EMR on the cluster.
 sudo /sbin/stop `instance-controller`
 ```
 
-###### Example : Restart an Amazon EMR process
+###### Example: Restart an Amazon EMR process
 
 The following example restarts a process, such as instance-controller,
 which is not associated with the version of Amazon EMR on the cluster.

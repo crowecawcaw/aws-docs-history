@@ -83,7 +83,7 @@ Spark-related kernel that's supported by Sparkmagic.
 }
 ```
 
-###### Example : Configure Hudi
+###### Example: Configure Hudi
 
 You can use the notebook editor to configure your EMR notebook to use
 Hudi.

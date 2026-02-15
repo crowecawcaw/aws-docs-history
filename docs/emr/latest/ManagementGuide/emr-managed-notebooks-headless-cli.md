@@ -28,7 +28,7 @@ You can use the AWS CLI to run your notebook with the
 `start-notebook-execution` action, as the following examples
 demonstrate.
 
-###### Example – Executing an EMR notebook in an EMR Studio
+###### Example– Executing an EMR notebook in an EMR Studio
 
 Workspace with an Amazon EMR (running on Amazon EC2) cluster
 
@@ -47,7 +47,7 @@ start-notebook-execution \
 }
 ```
 
-###### Example – Executing an EMR notebook in an EMR Studio
+###### Example– Executing an EMR notebook in an EMR Studio
 
 Workspace with an EMR Notebooks cluster
 
@@ -62,7 +62,7 @@ aws emr start-notebook-execution \
     --relative-path `EMRonEKS-spark_python.ipynb`
 ```
 
-###### Example – Executing an EMR notebook specifying its Amazon S3
+###### Example– Executing an EMR notebook specifying its Amazon S3
 
 location
 

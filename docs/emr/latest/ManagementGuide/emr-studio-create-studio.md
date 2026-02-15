@@ -110,7 +110,7 @@ CLI###### Note
 
 Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
 
-###### Example – Create an EMR Studio that uses IAM for authentication
+###### Example– Create an EMR Studio that uses IAM for authentication
 
 The following example AWS CLI command creates an EMR Studio with IAM
 authentication mode. When you use IAM authentication or federation for the
@@ -137,7 +137,7 @@ aws emr create-studio \
 --idp-relay-state-parameter-name `<example-RelayState>`
 ```
 
-###### Example – Create an EMR Studio that uses Identity Center for
+###### Example– Create an EMR Studio that uses Identity Center for
 
 authentication
 
@@ -164,7 +164,7 @@ aws emr create-studio \
 --idc-instance-arn `<iam-identity-center-instance-arn>`
 ```
 
-###### Example – CLI output for `aws emr create-studio`
+###### Example– CLI output for `aws emr create-studio`
 
 The following is an example of the output that appears after you create a
 Studio.

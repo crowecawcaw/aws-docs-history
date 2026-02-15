@@ -68,7 +68,7 @@ using the AWS CLI](add-step-cli.md "add-step-cli.md").
 You can install kernels and libraries using `pip` or `conda`
 in the `/emr/notebook-env/bin` directory on the primary node.
 
-###### Example – Installing Python libraries
+###### Example– Installing Python libraries
 
 From the Python3 kernel, run the `%pip` magic as a command from
 within a notebook cell to install Python libraries.
@@ -146,7 +146,7 @@ with SSH, and then run `conda` from the terminal. For more
 information, see [Connect to the Amazon EMR cluster primary node using
 SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
 
-###### Example – Installing kernels
+###### Example– Installing kernels
 
 The following example demonstrates installing the Kotlin kernel using a
 terminal command while connected to the primary node of a cluster:
@@ -195,7 +195,7 @@ libraries from within a notebook cell using the PySpark kernel and APIs. For
 additional examples, see [Install Python libraries on a running cluster with EMR Notebooks](https://aws.amazon.com/blogs/big-data/install-python-libraries-on-a-running-cluster-with-emr-notebooks/ "https://aws.amazon.com/blogs/big-data/install-python-libraries-on-a-running-cluster-with-emr-notebooks/") post on
 the AWS Big Data Blog.
 
-###### Example – Listing current libraries
+###### Example– Listing current libraries
 
 The following command lists the Python packages available for the current
 Spark notebook session. This lists libraries installed on the cluster and
@@ -205,7 +205,7 @@ notebook-scoped libraries.
 sc.list_packages()
 ```
 
-###### Example – Installing the Celery library
+###### Example– Installing the Celery library
 
 The following command installs the [Celery](https://pypi.org/project/celery/ "https://pypi.org/project/celery/") library as a
 notebook-scoped library.
@@ -222,7 +222,7 @@ import celery
 sc.range(1,10000,1,100).map(lambda x: celery.__version__).collect()
 ```
 
-###### Example – Installing the Arrow library, specifying the version and
+###### Example– Installing the Arrow library, specifying the version and
 
 repository
 
@@ -234,7 +234,7 @@ repository URL.
 sc.install_pypi_package("arrow==0.14.0", "https://pypi.org/simple")
 ```
 
-###### Example – Uninstalling a library
+###### Example– Uninstalling a library
 
 The following command uninstalls the Arrow library, removing it as a
 notebook-scoped library from the current session.

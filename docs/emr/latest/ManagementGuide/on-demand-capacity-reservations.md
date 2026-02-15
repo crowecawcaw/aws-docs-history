@@ -287,10 +287,7 @@ all core nodes are provisioned.
 | Targeted capacity reservation used          | -                               | -         | 100       |
 | Available targeted capacity<br>reservations | -                               | -         | 50        |
 
-###### Example 2: Instance pool with available targeted capacity
-
-reservations in launch request does not have sufficient capacity for
-core nodes
+###### Example 2: Instance pool with available targeted capacity reservations in launch request does not have sufficient capacity for core nodes
 
 |                                             |                                 |
 | ------------------------------------------- | ------------------------------- | --------- | --------- |
@@ -365,6 +362,8 @@ Where,
 ## Avoid using
 
 available open capacity reservations
+
+###### Example
 
 If you want to avoid unexpectedly using any of your open capacity
 reservations when launching an Amazon EMR cluster, set the On-Demand

@@ -52,9 +52,7 @@ contains more diversified instance types than the original request. In this exam
 the `Spot Provisioning timeout` event emitted for task nodes will trigger
 the execution of the Lambda function.
 
-###### Example function to respond to `Spot Provisioning timeout`
-
-event
+###### Example function to respond to Spot Provisioning timeout event
 
 ```
 // Lambda code with Python 3.10 and handler is lambda_function.lambda_handler
