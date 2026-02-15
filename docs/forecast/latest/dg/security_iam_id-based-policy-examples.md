@@ -22,6 +22,8 @@ Whenever an operation is invoked, Amazon Forecast performs a set of authenticati
 - If a role is provided within an operation, Amazon Forecast validates the PassRole permission for the role.
 - If a KMS key is provided in the encryption configuration, then kms:Decrypt and kms:GenerateDataKey validation is performed on the caller's permissions. This key can differ for each operation performed in Amazon Forecast. You will receive an AccessDeniedException in the event that you do not have the relevant permissions. The key policy should resemble the following code:
 
+###### Example
+
 ```
 "Effect": "Allow",
 "Principal": {
