@@ -7,6 +7,8 @@ for version 1 of the theme `exampleTheme`. You can use the theme alias
 exampleTheme in a `DescribeTheme` API operation, as in the following
 example.
 
+###### Example
+
 ```
 aws quicksight describe-theme
     --aws-account-id `AWSACCOUNTID`
