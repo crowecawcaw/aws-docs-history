@@ -189,7 +189,7 @@ Spark
 To query data from the DynamoDB table that you created in the previous
 step, use either Spark SQL or the Spark MapReduce API.
 
-###### Example – Query your DynamoDB table with Spark SQL
+###### Example– Query your DynamoDB table with Spark SQL
 
 The following Spark SQL query returns a list of all the feature
 types in alphabetical order.
@@ -223,7 +223,7 @@ val dataFrame = sparkSession.dql("SELECT state_alpha, feature_class, COUNT(*) \
     ORDER BY state_alpha, feature_class;")
 ```
 
-###### Example – Query your DynamoDB table with the Spark MapReduce
+###### Example– Query your DynamoDB table with the Spark MapReduce
 
 API
 
