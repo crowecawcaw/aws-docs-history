@@ -6,6 +6,8 @@ to start building more advanced applications powered by the Amazon DCV API.
 
 In this example, we'll show you how to do this by using the `DescribeSessions` API.
 
+###### Example
+
 First we import the models needed for the application.
 
 Then we declare variables for the client ID (`__CLIENT_ID`), client password
