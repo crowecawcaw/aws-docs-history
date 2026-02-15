@@ -27,6 +27,8 @@ the end of the avail.
   - type: SpliceOut
   - time: The PTS time for the ad avail, in fractional seconds.
 
+###### Example
+
 The following is the tag for an ad avail lasting 414.171 PTS.
 
 ```
@@ -50,6 +52,8 @@ manifest for AWS Elemental ad marker
 - CUE-OUT contains Duration.
 - CUE-OUT-CONT contains Elapsed time and Duration.
 - CUE-IN has no content.
+
+###### Example
 
 ```
 #EXT-X-CUE-OUT:30.000
@@ -96,6 +100,8 @@ manifest for AWS Elemental ad marker
   These lines repeat until the ad avail ends.
 
 - CUE-IN to indicate the end of the avail.
+
+###### Example
 
 ```
 #EXT-OATCLS-SCTE35:/DA0AAAAAAAAAAAABQb+ADAQ6QAeAhxDVUVJQAAAO3/PAAEUrEoICAAAAAAg+2UBNAAANvrtoQ==
