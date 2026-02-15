@@ -48,7 +48,7 @@ Configuration identifier for the guardrail settings.
 Guardrail ARN, followed by `:version`, the Guardrail version.
 
 - The Guardrail must be owned by the Management account. You cannot create a policy using a Guardrail from another account.
-- The Guardrail must have a version, and that version cannot be DRAFT. To create a version of your guardrail, see "Creating a Guardrail Version" in the Amazon Bedrock user guide.
+- The Guardrail must have a version, and that version cannot be DRAFT. To create a version of your guardrail, see [Create a version of a guardrail](../../../bedrock/latest/userguide/guardrails-versions-create.md "../../../bedrock/latest/userguide/guardrails-versions-create.md") in the Amazon Bedrock user guide.
 - The Guardrail must have a Resource Based Policy that allows organization members to call `ApplyGuardrail`.
 - The Guardrail must be created and used in the specified region.
 
@@ -56,5 +56,5 @@ Guardrail ARN, followed by `:version`, the Guardrail version.
 
 Specifies how guardrails handle tagged content:
 
-- `"honor"`: If a request contains guardrails-tagged content (see "Content for Guardrails" in the Amazon Bedrock user guide), only guard against content within the input tags.
+- `"honor"`: If a request contains guardrails-tagged content (see [Apply tags to user input to filter content](../../../bedrock/latest/userguide/guardrails-tagging.md "../../../bedrock/latest/userguide/guardrails-tagging.md") in the Amazon Bedrock user guide), only guard against content within the input tags.
 - `"ignore"`: Guard against all content in the request, even if there are guardrail input tags.

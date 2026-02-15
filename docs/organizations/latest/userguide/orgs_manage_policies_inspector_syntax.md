@@ -54,35 +54,75 @@ Create a file `inspector-policy-enable.json`:
 
 ```
 {
-    "inspector": {
-        "enablement": {
-            "lambda_standard_scanning": {
-                "enable_in_regions": {
-                    "@@assign": ["us-east-1", "us-west-2"]
-                },
-                "lambda_code_scanning": {
-                    "enable_in_regions": {
-                        "@@assign": ["us-east-1", "us-west-2"]
-                    }
-                }
-            },
-            "ec2_scanning": {
-                "enable_in_regions": {
-                    "@@assign": ["us-east-1", "us-west-2"]
-                }
-            },
-            "ecr_scanning": {
-                "enable_in_regions": {
-                    "@@assign": ["us-east-1", "us-west-2"]
-                }
-            },
-            "code_repository_scanning": {
-                "enable_in_regions": {
-                    "@@assign": ["us-east-1", "us-west-2"]
-                }
-            }
+  "inspector": {
+    "enablement": {
+      "lambda_standard_scanning": {
+        "enable_in_regions": {
+          "@@assign": [
+            "us-east-1",
+            "us-west-2"
+          ]
+        },
+        "disable_in_regions": {
+          "@@assign": [
+            "eu-west-1"
+          ]
+        },
+        "lambda_code_scanning": {
+          "enable_in_regions": {
+            "@@assign": [
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "disable_in_regions": {
+            "@@assign": [
+              "eu-west-1"
+            ]
+          }
         }
+      },
+      "ec2_scanning": {
+        "enable_in_regions": {
+          "@@assign": [
+            "us-east-1",
+            "us-west-2"
+          ]
+        },
+        "disable_in_regions": {
+          "@@assign": [
+            "eu-west-1"
+          ]
+        }
+      },
+      "ecr_scanning": {
+        "enable_in_regions": {
+          "@@assign": [
+            "us-east-1",
+            "us-west-2"
+          ]
+        },
+        "disable_in_regions": {
+          "@@assign": [
+            "eu-west-1"
+          ]
+        }
+      },
+      "code_repository_scanning": {
+        "enable_in_regions": {
+          "@@assign": [
+            "us-east-1",
+            "us-west-2"
+          ]
+        },
+        "disable_in_regions": {
+          "@@assign": [
+            "eu-west-1"
+          ]
+        }
+      }
     }
+  }
 }
 ```
 
@@ -115,35 +155,70 @@ Create a file `inspector-policy-eu-west-1.json`:
 
 ```
 {
-    "inspector": {
-        "enablement": {
-            "lambda_standard_scanning": {
-                "enable_in_regions": {
-                    "@@assign": ["eu-west-1"]
-                },
-                "lambda_code_scanning": {
-                    "enable_in_regions": {
-                        "@@assign": ["eu-west-1"]
-                    }
-                }
-            },
-            "ec2_scanning": {
-                "enable_in_regions": {
-                    "@@assign": ["eu-west-1"]
-                }
-            },
-            "ecr_scanning": {
-                "enable_in_regions": {
-                    "@@assign": ["eu-west-1"]
-                }
-            },
-            "code_repository_scanning": {
-                "enable_in_regions": {
-                    "@@assign": ["us-east-1", "us-west-2"]
-                }
-            }
+  "inspector": {
+    "enablement": {
+      "lambda_standard_scanning": {
+        "enable_in_regions": {
+          "@@assign": [
+            "eu-west-1"
+          ]
+        },
+        "disable_in_regions": {
+          "@@assign": [
+            "eu-west-2"
+          ]
+        },
+        "lambda_code_scanning": {
+          "enable_in_regions": {
+            "@@assign": [
+              "eu-west-1"
+            ]
+          },
+          "disable_in_regions": {
+            "@@assign": [
+              "eu-west-2"
+            ]
+          }
         }
+      },
+      "ec2_scanning": {
+        "enable_in_regions": {
+          "@@assign": [
+            "eu-west-1"
+          ]
+        },
+        "disable_in_regions": {
+          "@@assign": [
+            "eu-west-2"
+          ]
+        }
+      },
+      "ecr_scanning": {
+        "enable_in_regions": {
+          "@@assign": [
+            "eu-west-1"
+          ]
+        },
+        "disable_in_regions": {
+          "@@assign": [
+            "eu-west-2"
+          ]
+        }
+      },
+      "code_repository_scanning": {
+        "enable_in_regions": {
+          "@@assign": [
+            "eu-west-1"
+          ]
+        },
+        "disable_in_regions": {
+          "@@assign": [
+            "eu-west-2"
+          ]
+        }
+      }
     }
+  }
 }
 ```
 

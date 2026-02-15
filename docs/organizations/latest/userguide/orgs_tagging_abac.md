@@ -181,7 +181,7 @@ JSON
  "ForAnyValue:StringEquals": {
  "aws:TagKeys": [
  "stage",
- "region",
+ "us-east-1",
  "domain"
  ]
  }

@@ -60,6 +60,7 @@ RCPs apply to actions for the following AWS services:
 - [AWS Secrets Manager](../../../secretsmanager.md "../../../secretsmanager.md")
 - [Amazon Cognito](../../../cognito.md "../../../cognito.md")
 - [Amazon CloudWatch Logs](../../../cloudwatch.md "../../../cloudwatch.md")
+- [Amazon DynamoDB](../../../dynamodb.md "../../../dynamodb.md")
 - [Amazon Elastic Container Registry](../../../ecr.md "../../../ecr.md")
 - [Amazon OpenSearch Serverless](../../../opensearch-service.md "../../../opensearch-service.md")
 
