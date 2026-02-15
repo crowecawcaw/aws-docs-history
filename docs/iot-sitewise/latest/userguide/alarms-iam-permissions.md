@@ -63,7 +63,42 @@ The following policy allows AWS IoT SiteWise to send values of a specified asset
 JSON
 
 ```
-
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iotevents:CreateAlarmModel",
+ "iotevents:UpdateAlarmModel"
+ ],
+ "Resource": "arn:aws:iotevents:`us-east-1`:123456789012:alarmModel/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iotsitewise:DescribeAssetModel",
+ "iotsitewise:ListAssetModels"
+ ],
+ "Resource": "arn:aws:iotsitewise:`us-east-1`:123456789012:asset-model/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iotsitewise:UpdateAssetModelPropertyRouting"
+ ],
+ "Resource": [
+ "arn:aws:iotsitewise:`us-east-1`:123456789012:asset-model/12345678-90ab-cdef-1234-567890abcdef"
+ ],
+ **"Condition": {
+ "StringLike": {
+ "iotsitewise:propertyId": "abcdef12-3456-7890-abcd-ef1234567890",
+ "aws:ResourceTag/AlarmModel": "arn:aws:iotevents:`us-east-1`:123456789012:alarmModel/MyAlarmModel"
+ }
+ }**
+ }
+ ]
+}`
 
 ```
 

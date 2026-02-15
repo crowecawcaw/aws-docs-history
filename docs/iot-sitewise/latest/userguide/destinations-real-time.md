@@ -82,7 +82,7 @@ For more information, see [Destination types](gw-destinations.md#destination-typ
 
 AWS CLI
 
-###### Example : Create a new AWS IoT SiteWise real-time destination
+###### Example: Create a new AWS IoT SiteWise real-time destination
 
 Use the [UpdateGatewayCapabilityConfiguration](../APIReference/API_UpdateGatewayCapabilityConfiguration.md "../APIReference/API_UpdateGatewayCapabilityConfiguration.md") API to configure the publisher.
 
@@ -125,7 +125,7 @@ To update an existing AWS IoT SiteWise real-time destination, first use the
 `DescribeGatewayCapabilityConfiguration` API to find the
 `destinationId`.
 
-###### Example : Update an AWS IoT SiteWise real-time destination
+###### Example: Update an AWS IoT SiteWise real-time destination
 
 Use the [UpdateGatewayCapabilityConfiguration](../APIReference/API_UpdateGatewayCapabilityConfiguration.md "../APIReference/API_UpdateGatewayCapabilityConfiguration.md") API to configure the publisher.
 

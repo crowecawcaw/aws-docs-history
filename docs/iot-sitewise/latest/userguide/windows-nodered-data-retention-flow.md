@@ -28,7 +28,7 @@ client
 - Configure the MQTT subscription client in Node-RED to receive data from the
   MQTT EMQX broker in AWS IoT SiteWise by importing the example below.
 
-###### Example : MQTT in node
+###### Example: MQTT in node
 
 ```
 [
@@ -109,7 +109,7 @@ two groups:
 - Tags – Quality and name properties for efficient indexing
 - Fields – Timestamp (in milliseconds since epoch) and value
 
-###### Example : Function node of translating to an InfluxDB payload
+###### Example: Function node of translating to an InfluxDB payload
 
 ```
 [

@@ -18,6 +18,8 @@ expressions, the following rules apply:
 
 - Each argument can have only one variable.
 
+###### Example
+
 For example, `avg(x*(x-1))` and `sum(x/2 )/avg(y^2 )`
 are supported.
 
@@ -25,9 +27,13 @@ For example, `min(x/y)` isn't supported.
 
 - Each argument can have multilevel nested expressions.
 
+###### Example
+
 For example, `sum(avg(x^2 )/2)` is supported.
 
 - Different arguments can have different variables.
+
+###### Example
 
 For example, `sum(x/2, y*2)` is supported.
 

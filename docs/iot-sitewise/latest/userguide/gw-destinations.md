@@ -275,7 +275,7 @@ This encoding ensures that source data containing these special MQTT characters 
 safely used as MQTT topic names while preserving the original industrial naming
 conventions.
 
-###### Example : Special characters in path filter names
+###### Example: Special characters in path filter names
 
 Here are examples of how industrial topic names might appear in AWS IoT SiteWise path
 filters:

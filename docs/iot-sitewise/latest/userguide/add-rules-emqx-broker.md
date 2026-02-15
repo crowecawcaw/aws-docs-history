@@ -76,7 +76,7 @@ This example shows how to add rules for a user named
     all deny "#"
 ```
 
-###### Example : View authorization rules for a user
+###### Example: View authorization rules for a user
 
 To view authorization rules for the `system1`
 users, run the following command:
@@ -85,7 +85,7 @@ users, run the following command:
 /greengrass/v2/bin/swe-emqx-cli auth list system1
 ```
 
-###### Example : View all existing authorization rules
+###### Example: View all existing authorization rules
 
 To view all of the authorization rules you currently have,
 run the following command:
@@ -94,7 +94,7 @@ run the following command:
 /greengrass/v2/bin/swe-emqx-cli auth list
 ```
 
-###### Example : Delete all authorization rules for a user
+###### Example: Delete all authorization rules for a user
 
 To delete all of the authorization rules applied to a
 particular user, run the following command:
@@ -118,7 +118,7 @@ tool in Windows PowerShell:
 C:\greengrass\v2\bin\swe-emqx-cli.ps1 auth add `your-username` `your-action` `your-permission` `your-topic` [`your-action-permission-topic`]
 ```
 
-###### Example : Add authorization rules for a user
+###### Example: Add authorization rules for a user
 
 This example shows how to add rules for a user named
 `system1`:
@@ -130,7 +130,7 @@ C:\greengrass\v2\bin\swe-emqx-cli.ps1 auth add system1 `
     all deny "#"
 ```
 
-###### Example : View authorization rules for a user
+###### Example: View authorization rules for a user
 
 To view authorization rules for the `system1`
 users, run the following command:
@@ -139,7 +139,7 @@ users, run the following command:
 C:\greengrass\v2\bin\swe-emqx-cli.ps1 auth list system1
 ```
 
-###### Example : View all existing authorization rules
+###### Example: View all existing authorization rules
 
 To view all of the authorization rules you currently have,
 run the following command:
@@ -148,7 +148,7 @@ run the following command:
 C:\greengrass\v2\bin\swe-emqx-cli.ps1 auth list
 ```
 
-###### Example : Delete all authorization rules for a user
+###### Example: Delete all authorization rules for a user
 
 To delete all of the authorization rules applied to a
 particular user, run the following command:

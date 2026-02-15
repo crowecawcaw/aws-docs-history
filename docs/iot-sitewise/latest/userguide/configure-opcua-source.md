@@ -1068,7 +1068,7 @@ aws iotsitewise update-gateway-capability-configuration \
 --capability-configuration file://opc-ua-configuration.json
 ```
 
-###### Example : OPC UA source configuration
+###### Example: OPC UA source configuration
 
 The following `opc-ua-configuration.json` file
 defines a basic, insecure OPC UA source configuration.
@@ -1096,7 +1096,7 @@ defines a basic, insecure OPC UA source configuration.
 }
 ```
 
-###### Example : OPC UA source configuration with defined property
+###### Example: OPC UA source configuration with defined property
 
 groups
 
@@ -1184,7 +1184,7 @@ property groups.
 }
 ```
 
-###### Example : OPC UA source configuration with properties
+###### Example: OPC UA source configuration with properties
 
 The following JSON example for
 `opc-ua-configuration.json` defines an OPC UA
@@ -1235,7 +1235,7 @@ source configuration with the following properties:
 }
 ```
 
-###### Example : OPC UA source configuration with certificate trust
+###### Example: OPC UA source configuration with certificate trust
 
 The following JSON example for
 `opc-ua-configuration.json` defines an OPC UA

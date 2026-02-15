@@ -36,7 +36,7 @@ resources, use the `aws:SourceArn` global context condition key with wildcards
 (`*`) for the unknown portions of the ARN. For example,
 `arn:aws:`servicename`:*:`123456789012`:*`.
 
-###### Example – Confused Deputy Prevention
+###### Example– Confused Deputy Prevention
 
 The following example shows how you can use the `aws:SourceArn` and
 `aws:SourceAccount` global condition context keys in AWS IoT SiteWise to prevent

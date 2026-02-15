@@ -32,7 +32,7 @@ If you configure a source with a broad filter and then later change the
 source to use a more restrictive filter, AWS IoT SiteWise stops storing data that
 doesn't match the new filter.
 
-###### Example : Scenario using node filters
+###### Example: Scenario using node filters
 
 Consider the following hypothetical data streams:
 

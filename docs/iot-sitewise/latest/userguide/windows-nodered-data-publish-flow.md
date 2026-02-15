@@ -40,7 +40,7 @@ _Node-RED Documentation_.
 The turbine simulator generates wind speed data every second in this standardized
 JSON format:
 
-###### Example : Turbine data payload
+###### Example: Turbine data payload
 
 ```
 {
@@ -62,7 +62,7 @@ This format provides several benefits:
 - The flexible `value` field supports different data types to
   accommodate various sensor outputs
 
-###### Example : Inject node of a turbine simulator
+###### Example: Inject node of a turbine simulator
 
 ```
 [
@@ -123,7 +123,7 @@ By standardizing the data format at this stage, you enable integration between y
 edge devices and the cloud service where you can use asset modeling, analytics, and
 visualization capabilities. Use this structure:
 
-###### Example : Payload structure for SiteWise Edge data parsing
+###### Example: Payload structure for SiteWise Edge data parsing
 
 ```
 {
@@ -216,6 +216,8 @@ broker:
    message routing.
 
 Import the example `mqtt out` node.
+
+###### Example
 
 ```
 [

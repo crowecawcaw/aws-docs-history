@@ -29,7 +29,7 @@ Console
 
 AWS CLI for self-hosted gateways
 
-###### Example : Path filter configuration
+###### Example: Path filter configuration
 
 ```
 
@@ -57,7 +57,7 @@ AWS CLI for self-hosted gateways
 
 AWS CLI for Siemens IEgateways
 
-###### Example : Prefix configuration for path filters
+###### Example: Prefix configuration for path filters
 
 Capture all data by using both the data (`ie/d`) and metadata
 (`ie/m`) prefixes for each path filter.

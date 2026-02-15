@@ -56,7 +56,7 @@ Use the AWS Management Console to add an AWS IoT SiteWise destination buffered u
 
 AWS CLI
 
-###### Example : Create a new AWS IoT SiteWise destination buffered using Amazon S3
+###### Example: Create a new AWS IoT SiteWise destination buffered using Amazon S3
 
 Use the [UpdateGatewayCapabilityConfiguration](../APIReference/API_UpdateGatewayCapabilityConfiguration.md "../APIReference/API_UpdateGatewayCapabilityConfiguration.md") API to configure the publisher.
 
@@ -102,7 +102,7 @@ Set the `capabilityNamespace` parameter to
 
 ```
 
-###### Example : Update an AWS IoT SiteWise destination buffered using Amazon S3
+###### Example: Update an AWS IoT SiteWise destination buffered using Amazon S3
 
 To update an existing AWS IoT SiteWise real-time destination, first use the
 `DescribeGatewayCapabilityConfiguration` API to find the

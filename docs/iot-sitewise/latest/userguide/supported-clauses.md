@@ -5,6 +5,8 @@ AWS IoT SiteWise supports the `JOIN` and `INNER JOIN` operations.
 
 Views are joined with an explicit `JOIN` syntax, or with comma-separated notations in the `FROM` clause.
 
+###### Example
+
 A general `SELECT` statement:
 
 ```
@@ -17,6 +19,8 @@ SELECT expression [, ...]
   [ LIMIT expression ]
 
 ```
+
+###### Example
 
 A SELECT statement with the different clauses:
 

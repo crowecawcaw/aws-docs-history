@@ -5,7 +5,7 @@ destinations: channels in AWS IoT Analytics, streams in Amazon Kinesis Data Stre
 or objects in Amazon Simple Storage Service (Amazon S3). For more information, see [Manage data streams on the AWS IoT Greengrass
 Core](../../../greengrass/v2/developerguide/manage-data-streams.md "../../../greengrass/v2/developerguide/manage-data-streams.md") in _AWS IoT Greengrass Version 2 Developer Guide_.
 
-###### Example : Data stream message structure
+###### Example: Data stream message structure
 
 The following example shows the required data stream message structure
 transmitted by the AWS IoT Greengrass stream manager.

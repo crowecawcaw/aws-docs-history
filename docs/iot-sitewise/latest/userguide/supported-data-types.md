@@ -14,6 +14,8 @@ AWS IoT SiteWise query language supports the following data types.
 
 `Null`: A boolean `true` indicating a lack of defined data.
 
+###### Example
+
 `TIMESTAMP` value examples:
 
 ```
