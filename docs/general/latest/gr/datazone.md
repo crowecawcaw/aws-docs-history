@@ -16,6 +16,7 @@ The following are the service endpoints and service quotas for this service.
 | US East (Ohio)            | us-east-2      | datazone.us-east-2.api.aws<br>datazone-fips.us-east-2.amazonaws.com       | HTTPS<br>HTTPS |
 | US East (N. Virginia)     | us-east-1      | datazone.us-east-1.api.aws<br>datazone-fips.us-east-1.amazonaws.com       | HTTPS<br>HTTPS |
 | US West (Oregon)          | us-west-2      | datazone.us-west-2.api.aws<br>datazone-fips.us-west-2.amazonaws.com       | HTTPS<br>HTTPS |
+| Africa (Cape Town)        | af-south-1     | datazone.af-south-1.api.aws                                               | HTTPS          |
 | Asia Pacific (Hong Kong)  | ap-east-1      | datazone.ap-east-1.api.aws                                                | HTTPS          |
 | Asia Pacific (Malaysia)   | ap-southeast-5 | datazone.ap-southeast-5.api.aws                                           | HTTPS          |
 | Asia Pacific (Mumbai)     | ap-south-1     | datazone.ap-south-1.api.aws                                               | HTTPS          |
@@ -29,6 +30,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Ireland)          | eu-west-1      | datazone.eu-west-1.api.aws                                                | HTTPS          |
 | Europe (London)           | eu-west-2      | datazone.eu-west-2.api.aws                                                | HTTPS          |
 | Europe (Paris)            | eu-west-3      | datazone.eu-west-3.api.aws                                                | HTTPS          |
+| Europe (Spain)            | eu-south-2     | datazone.eu-south-2.api.aws                                               | HTTPS          |
 | Europe (Stockholm)        | eu-north-1     | datazone.eu-north-1.api.aws                                               | HTTPS          |
 | Europe (Zurich)           | eu-central-2   | datazone.eu-central-2.api.aws                                             | HTTPS          |
 | South America (São Paulo) | sa-east-1      | datazone.sa-east-1.api.aws                                                | HTTPS          |
