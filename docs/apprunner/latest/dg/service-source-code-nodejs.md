@@ -111,6 +111,8 @@ file](https://docs.npmjs.com/creating-a-package-json-file "https://docs.npmjs.co
   command, you can use it as a **run** command in your App Runner configuration
   file, as the following example shows.
 
+###### Example
+
 package.json
 
 ```

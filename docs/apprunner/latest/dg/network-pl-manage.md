@@ -179,6 +179,8 @@ _Amazon VPC User Guide_: [Control
 network traffic](../../../vpc/latest/userguide/infrastructure-security.md#control-network-traffic "../../../vpc/latest/userguide/infrastructure-security.md#control-network-traffic") and [Control traffic to your AWS resources using
 security groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md").
 
+###### Example
+
 ```
 `aws ec2 create-vpc-endpoint
  --vpc-endpoint-type: Interface
@@ -194,6 +196,8 @@ security groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../
    parameter. Optionally you can set the `IpAddressType` field to
    `IPV4` or `DUAL_STACK`. If not set, this value defaults to IPV4.
    The following example references the VPC interface endpoint.
+
+###### Example
 
 ```
 `aws apprunner create-service

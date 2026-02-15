@@ -108,6 +108,8 @@ _IAM User Guide_.
 The following is an example of the updated IAM policy for AWS WAF. This IAM policy includes the necessary permissions to work with an App Runner
 service.
 
+###### Example
+
 JSON
 
 ```
