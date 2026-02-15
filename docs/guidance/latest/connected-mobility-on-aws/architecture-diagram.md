@@ -2,7 +2,7 @@
 
 The following diagram illustrates the complete architecture for the Guidance for Connected Mobility on AWS, showing the data flow from connected vehicles through ingestion, processing, storage, and visualization layers.
 
-![Connected Mobility Complete Architecture](/images/guidance/latest/connected-mobility-on-aws/images/architecture_final.png)
+![Connected Mobility Complete Architecture](images/architecture_final.png)
 
 _Figure 1: Connected Mobility Guidance Architecture on AWS_
 
