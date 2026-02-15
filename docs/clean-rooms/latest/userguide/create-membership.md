@@ -91,6 +91,8 @@ defaults**:
      list of available S3 buckets.
 
 
+    ###### Example
+
     For example: `s3://bucket/prefix`
 
 
@@ -188,6 +190,8 @@ defaults**:
      destination or choose **Browse S3** to select from a
      list of available S3 buckets.
 
+
+    ###### Example
 
     For example: `s3://bucket/prefix`
 

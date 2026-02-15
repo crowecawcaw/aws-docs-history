@@ -37,6 +37,8 @@ was delivered. They confirm that a query or job was submitted by the member who 
 Query logs also confirm that the query contains supported SQL in AWS Clean Rooms and references
 configured tables associated to the collaboration.
 
+###### Example
+
 For example, a log isn't produced if the query was cancelled after AWS Clean Rooms validated
 its compliance with analysis rules and during query processing.
 
