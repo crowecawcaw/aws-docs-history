@@ -23,3 +23,5 @@ the overall hardware requirements for a Wickr Enterprise installation by providi
 - [Multi-Node installation](multi-node-installation.md "multi-node-installation.md")
 - [KOTS admin console configuration](kots-admin-console-config.md "kots-admin-console-config.md")
 - [Additional Common Installation Requirements](common-installation-requirements.md "common-installation-requirements.md")
+- [Troubleshooting Wickr embedded cluster
+  installations](troubleshooting-installation.md "troubleshooting-installation.md")
