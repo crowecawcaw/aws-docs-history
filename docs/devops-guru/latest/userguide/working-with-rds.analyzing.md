@@ -1,164 +1,43 @@
-# Viewing reactive anomalies
+# Responding to recommendations
 
-Within an insight, you can view anomalies for Amazon RDS resources. On a reactive insight page, in the **Aggregated metrics** section, you can view a list of anomalies with corresponding timelines.
-There are also sections that display information about log groups and events related to the anomalies. Causal anomalies in a reactive insight each have a corresponding page with details about the anomaly.
+Recommendations are the most important part of the insight. In this stage of the analysis, you act
+to resolve the performance issue. Typically, you take the following steps:
 
-## Viewing the detailed analysis of an RDS reactive anomaly
+1. Decide whether the reported performance issue indicates a real problem.
 
-In this stage, drill down in the anomaly to get the detailed analysis and recommendations for your Amazon RDS DB
-instances.
+In some cases, an issue might be expected and benign. For example, if you
+subject a test database to an extreme DB load, DevOps Guru for RDS reports the
+load as a performance anomaly. However, you don't need to remedy this
+anomaly because it's an expected result of your testing.
 
-The detailed analysis is only available for Amazon RDS DB instances that have Performance Insights turned
-on.
+If you determine that the issue needs a response, go to the next step. 2. Decide whether to implement the recommendation.
 
-###### To drill down to the anomaly details page
+In the table of recommendations, a column shows the recommended actions. For reactive insights, this is the **What we
+recommend** column on a reactive anomaly detail page. For proactive insights, this is the **Recommended custom change** column on a proactive insight page.
 
-1. On the insight page, find an aggregated metric with the resource type
-   **AWS/RDS**.
-2. Choose **View details**.
+DevOps Guru for RDS offers a list of recommendations that cover several potential problematic scenarios.
+After reviewing this list, determine which recommendation is more relevant to your current situation and consider applying it. If a recommendation works for your situation, go to the next step. If not, skip
+the remaining step and troubleshoot the issue using manual techniques. 3. Perform the recommended actions.
 
-The anomaly details page appears. The title begins with **Database performance
-anomaly** and names the resource show. The console defaults to the anomaly with the
-highest severity, regardless of when the anomaly occurred. 3. (Optional) If multiple resources are affected, choose a different resource from the list at the top
-of the page.
+DevOps Guru for RDS recommends that you do either of the following:
 
-Following, you can find descriptions for the components of the details page.
+    * Perform a specific corrective action.
 
-## Resource overview
 
-The top section of the details page is **Resource overview**. This section summarizes the
-performance anomaly experienced by your Amazon RDS DB instance.
+    For example, DevOps Guru for RDS might recommend that you upgrade CPU capacity, tune application pool
+     settings, or enable the Performance Schema.
+    * Investigate the cause of the issue.
 
-![The overview of the anomaly details page](images/rds-insight-overview.png)
 
-This section has the following fields:
+    Typically, DevOps Guru for RDS recommends that you investigate specific SQL statements or wait
+     events. For example, a recommendation might be to investigate the wait event
+     `io/table/sql/handler`. Look up the listed wait event in [Tuning with wait events for Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md") or [Tuning with wait
+     events for Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md") in the *Amazon Aurora User Guide*, or in [Tuning with wait
+     events for RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/PostgreSQL.md "../../../AmazonRDS/latest/UserGuide/PostgreSQL.md") in the *Amazon RDS User Guide*. Then perform
+     the recommended actions.
 
-- **Resource name** – The name of the DB instance that is experiencing the anomaly.
-  In this example, the resource is named **prod_db_678**.
-- **DB engine** – The name of the DB instance that experiencing the anomaly. In
-  this example, the engine is **Aurora MySQL**.
-- **Anomaly severity** – The measure of the negative impact of the anomaly on your
-  instance. Possible severities are **High**, **Medium**, and
-  **Low**.
-- **Anomaly summary** – A brief summary of the issue. A typical summary is
-  **Unusually high DB load**.
-- **Start time** and **End time** – The time when the anomaly
-  began and ended. If the end time is **Ongoing**, the anomaly is still
-  occurring.
-- **Duration** – The duration of the anomalous behavior. In this example, the
-  anomaly is ongoing and has been occurring for 3 hours and 2 minutes.
 
-## Primary metric
+    ###### Important
 
-The **Primary metric** section summarizes the casual anomaly, which is the top-level
-anomaly within the insight. You can think of the causal anomaly as the general problem experienced by
-your DB instance.
-
-![The What we found section of the anomaly details page](images/rds-primary-metric.png)
-
-The left panel provides more details about the issue. In this example, the summary includes the following
-information:
-
-- **Database load (DB load)** – A categorization of the anomaly as a database load
-  issue. The corresponding metric in Performance Insights is `DBLoad`. This metric is
-  also published to Amazon CloudWatch.
-- **db.r5.4xlarge** – The DB instance class. The number of vCPUs, which is 16 in
-  this example, corresponds to the dotted line in the **Average active sessions
-  (AAS)** chart.
-- **24 (6x spike)** – The DB load, measured in average
-  active sessions (AAS) during the time interval reported in the insight.
-  Thus, at any given time during the period of the anomaly, an average of
-  24 sessions were active on the database. The DB load is 6 times the
-  normal DB load for this instance.
-- **Typically: DB load up to 4** – The baseline of DB load,
-  measured in AAS, during a typical workload. The value 4 means that,
-  during normal operations, an average of 4 or fewer sessions are active
-  on the database at any given time.
-
-By default, the load chart is sliced by wait events. This means that for each bar in the chart, the largest
-colored area represents the wait event that is contributing most to total DB load. The chart shows the
-time (in red) when the issue began. Focus your attention on the wait events that take up the most space
-in the bar:
-
-- `CPU`
-- `IO:wait/io/sql/table/handler`
-
-The preceding wait events appear more than normal for this Aurora MySQL database. To learn how to tune
-performance using wait events in Amazon Aurora, see [Tuning with wait events for
-Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md") and [Tuning with wait events for
-Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md") in the _Amazon Aurora User Guide_.
-To learn how to tune performance using wait events in RDS for PostgreSQL, see [Tuning with wait events for
-RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/PostgreSQL.md "../../../AmazonRDS/latest/UserGuide/PostgreSQL.md") in the _Amazon RDS User Guide_.
-
-## Related metrics
-
-The **Related metrics** section lists the contextual anomalies, which are specific
-findings within the causal anomaly. These findings give additional information about the performance
-issues.
-
-![The Related metrics section of the details page](images/rds-related-metrics.png)
-
-The **Related metrics** table has two columns: **Metrics name** and
-**Timeline (UTC)**. Every row in the table corresponds to a specific metric.
-
-The first column of every row has the following pieces of information:
-
-- **_`Name`_**
-  – The name of the metric. The first row identifies the metric as
-  **CPU running tasks**.
-- **Currently** – The current value of the metric. In the first row, the current
-  value is **162 processes (3x)**.
-- **Normally** – The baseline of this metric for this database when it is
-  functioning normally. DevOps Guru for RDS calculates the baseline as the 95th percentile value over 1
-  week of history. The first row indicates that 56 processes are typically running on the
-  CPU.
-- **Contributing to** – The finding associated with this metric. In the first
-  row, the **CPU running tasks** metric is associated with the **CPU
-  capacity exceeded** anomaly.
-
-The **Timeline** column shows a line chart for the metric. The shaded area shows the
-time interval when DevOps Guru for RDS designated the finding as high severity.
-
-## Analysis and recommendations
-
-Whereas the causal anomaly describes the overall issue, a contextual anomaly describes a specific finding
-that requires investigation. Each finding corresponds to a set of related metrics.
-
-In the following example of an **Analysis and
-recommendations** section, the high DB load anomaly has two
-findings.
-
-![The Analysis and recommendations section of the details page](images/rds-analysis-recs.png)
-
-The table has the following columns:
-
-- **Anomaly** – A general description of this contextual anomaly. In this example,
-  the first anomaly is high-load wait events, and the second is CPU capacity exceeded.
-- **Analysis** – A detailed explanation of the anomaly.
-
-In the first anomaly, three wait types contribute to 90% of DB load. In
-the second anomaly, the CPU run queue exceeded 150, which means that at
-any given time, more than 150 sessions were waiting for CPU time. CPU
-utilization was over 97%, which means that for the duration of the
-issue, the CPU was busy 97% of the time. Thus, the CPU was almost
-continually occupied while an average of 150 sessions waited to run on
-the CPU.
-
-- **Recommendations** – The suggested user response to the anomaly.
-
-In the first anomaly, DevOps Guru for RDS recommends that you investigate the wait events
-`cpu` and `io/table/sql/handler`. To learn how to tune your database
-performance based on these events, see [cpu](../../../AmazonRDS/latest/AuroraUserGuide/ams-waits.md "../../../AmazonRDS/latest/AuroraUserGuide/ams-waits.md") and [io/table/sql/handler](../../../AmazonRDS/latest/AuroraUserGuide/ams-waits.md "../../../AmazonRDS/latest/AuroraUserGuide/ams-waits.md") in the _Amazon Aurora User Guide_.
-
-In the second anomaly, DevOps Guru for RDS recommends that you reduce CPU
-consumption by tuning three SQL statements. You can hover over the links
-to see the SQL text.
-
-- **Related metrics** – Metrics that give you specific measurements for the anomaly.
-  For more information about these metrics, see [Metrics reference for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/metrics-reference.md "../../../AmazonRDS/latest/AuroraUserGuide/metrics-reference.md")
-  in the _Amazon Aurora User Guide_ or [Metrics reference for Amazon RDS](../../../AmazonRDS/latest/UserGuide/metrics-reference.md "../../../AmazonRDS/latest/UserGuide/metrics-reference.md")
-  in the _Amazon RDS User Guide_.
-
-In the first anomaly, DevOps Guru for RDS recommends that compare DB load to the maximum CPU for your
-instance. In the second anomaly, the recommendation is to look at CPU run queue, CPU utilization,
-and SQL execution rate.
+    We recommend that you test any changes on a test instance before modifying a production
+     instance. In this way, you understand the impact of the change.
