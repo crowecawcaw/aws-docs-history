@@ -1,249 +1,408 @@
-# Window functions for ANSI SQL
+# Creating tables for ANSI SQL
 
-This topic provides reference information comparing window functions in Microsoft SQL Server and PostgreSQL, which is valuable for database migration projects. You can gain insights into the similarities and differences between these two database systems' analytical capabilities. The topic highlights the types of window functions available in SQL Server, including ranking, aggregate, and analytic functions, and compares them to PostgreSQL’s window function support.
+This topic provides reference information comparing the creation of tables in Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can understand the similarities and differences in table creation syntax, features, and capabilities between these two database systems. The topic highlights key aspects such as table and column naming, data types, constraints, and auto-generated values.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Five star feature compatibility | Five star automation level         | N/A                       | N/A             |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                      | Key differences                                                                                                                 |
+| -------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Three star feature compatibility | Four star automation level         | [Creating Tables](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.tables "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.tables") | Auto generated value column is different. Can’t use physical attribute `ON`. Missing table variable and memory-optimized table. |
 
 ## SQL Server Usage
 
-Window functions use an `OVER` clause to define the window and frame for a data set to be processed. They are part of the ANSI standard and are typically compatible among various SQL dialects. However, most RDBMS don’t yet support the full ANSI specification.
+### ANSI Syntax Conformity
 
-Window functions are a relatively new, advanced, and efficient T-SQL programming tool. They are highly utilized by developers to solve numerous programming challenges.
+You can create tables in SQL Server using the `CREATE TABLE` statement and conform to the ANSI/ISO entry level standard. The basic features of `CREATE TABLE` are similar for most relational database management engines and are well defined in the ANSI/ISO standards.
 
-SQL Server currently supports the following window functions:
+In its most basic form, the `CREATE TABLE` statement in SQL Server is used to define:
 
-- Ranking functions: `ROW_NUMBER`, `RANK`, `DENSE_RANK`, and `NTILE`.
-- Aggregate functions: `AVG`, `MIN`, `MAX`, `SUM`, `COUNT`, `COUNT_BIG`, `VAR`, `STDEV`, `STDEVP`, `STRING_AGG`, `GROUPING`, `GROUPING_ID`, `VAR`, `VARP`, and `CHECKSUM_AGG`.
-- Analytic functions: `LAG`, `LEAD`, `FIRST_Value`, `LAST_VALUE`, `PERCENT_RANK`, `PERCENTILE_CONT`, `PERCENTILE_DISC`, and `CUME_DIST`.
-- Other functions: `NEXT_VALUE_FOR`. For more information, see [Sequences and Identity](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md").
+- Table names, the containing security schema, and database.
+- Column names.
+- Column data types.
+- Column and table constraints.
+- Column default values.
+- Primary, candidate (UNIQUE), and foreign keys.
+
+### T-SQL Extensions
+
+SQL Server extends the basic syntax and provides many additional options for the `CREATE TABLE` or `ALTER TABLE` statements. The most often used options are:
+
+- Supporting index types for primary keys and unique constraints, clustered or non-clustered, and index properties such as `FILLFACTOR`.
+- Physical table data storage containers using the `ON <File Group>` clause.
+- Defining `IDENTITY` auto-enumerator columns.
+- Encryption.
+- Compression.
+- Indexes.
+
+For more information, see [Data Types](chap-sql-server-aurora-pg.sql.md "chap-sql-server-aurora-pg.sql.md"), [Column Encryption](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md"), and [Databases and Schemas](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md").
+
+### Table Scope
+
+SQL Server provides five scopes for tables
+
+- Standard tables are created on disk, globally visible, and persist through connection resets and server restarts.
+- Temporary tables are designated with the "# " prefix. They are persisted in TempDB and are visible to the run scope and any sub-scopes where they were created. Temporary tables are cleaned up by the server when the run scope terminates and when the server restarts.
+- Global temporary tables are designated by the "## " prefix. They are similar in scope to temporary tables, but are also visible to concurrent scopes.
+- Table variables are defined with the `DECLARE` statement, not with `CREATE TABLE`. They are visible only to the run scope where they were created.
+- Memory-optimized tables are special types of tables used by the In-Memory Online Transaction Processing (OLTP) engine. They use a non-standard `CREATE TABLE` syntax.
+
+### Creating a Table Based on an Existing Table or Query
+
+In SQL Server, you can create new tables based on `SELECT` queries as an alternate to the `CREATE TABLE` statement. You can use a `SELECT` statement that returns a valid set with unique column names to create a new table and populate data.
+
+`SELECT INTO` is a combination of DML and DDL. The simplified syntax for `SELECT INTO` is shown following.
+
+```
+SELECT <Expression List>
+INTO <Table Name>
+[FROM <Table Source>]
+[WHERE <Filter>]
+[GROUP BY <Grouping Expressions>...];
+```
+
+When you create a new table using `SELECT INTO`, the only attributes created for the new table are column names, column order, and the data types of the expressions. Even a straight forward statement such as` SELECT \* INTO <New Table> FROM <Source Table>` doesn’t copy constraints, keys, indexes, identity property, default values, or any other related objects.
+
+### TIMESTAMP Syntax for ROWVERSION Deprecated Syntax
+
+The `TIMESTAMP` syntax synonym for `ROWVERSION` has been deprecated as of SQL Server 2008R2 in accordance with [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)").
+
+Previously, you could use either the `TIMESTAMP` or the `ROWVERSION` keywords to denote a special data type that exposes an auto-enumerator. The auto-enumerator generates unique eight-byte binary numbers typically used to version-stamp table rows. Clients read the row, process it, and check the `ROWVERSION` value against the current row in the table before modifying it. If they are different, the row has been modified since the client read it. The client can then apply different processing logic.
+
+Note that when migrating to Aurora PostgreSQL using the AWS Schema Conversion Tool, neither `ROWVERSION` nor `TIMESTAMP` are supported. You must add customer logic, potentially in the form of a trigger, to maintain this functionality.
+
+### Syntax
+
+Simplified syntax for `CREATE TABLE` is shown following.
+
+```
+CREATE TABLE [<Database Name>.<Schema Name>].<Table Name> (<Column Definitions>)
+  [ON{<Partition Scheme Name> (<Partition Column Name>)];
+```
+
+```
+<Column Definition>:
+<Column Name> <Data Type>
+[CONSTRAINT <Column Constraint>
+[DEFAULT <Default Value>]]
+[IDENTITY [(<Seed Value>, <Increment Value>)]
+[NULL | NOT NULL]
+[ENCRYPTED WITH (<Encryption Specifications>)
+[<Column Constraints>]
+[<Column Index Specifications>]
+```
+
+```
+<Column Constraint>:
+[CONSTRAINT <Constraint Name>]
+{{PRIMARY KEY | UNIQUE} [CLUSTERED | NONCLUSTERED]
+[WITH FILLFACTOR = <Fill Factor>]
+| [FOREIGN KEY]
+REFERENCES <Referenced Table> (<Referenced Columns>)]
+```
+
+```
+<Column Index Specifications>:
+INDEX <Index Name> [CLUSTERED | NONCLUSTERED]
+[WITH(<Index Options>]
+```
+
+### Examples
+
+Create a basic table.
+
+```
+CREATE TABLE MyTable
+(
+Col1 INT NOT NULL PRIMARY KEY,
+Col2 VARCHAR(20) NOT NULL
+);
+```
+
+Create a table with column constraints and an identity.
+
+```
+CREATE TABLE MyTable
+(
+Col1 INT NOT NULL PRIMARY KEY IDENTITY (1,1),
+Col2 VARCHAR(20) NOT NULL CHECK (Col2 <> ''),
+Col3 VARCHAR(100) NULL
+REFERENCES MyOtherTable (Col3)
+);
+```
+
+Create a table with an additional index.
+
+```
+CREATE TABLE MyTable
+(
+Col1 INT NOT NULL PRIMARY KEY,
+Col2 VARCHAR(20) NOT NULL
+INDEX IDX_Col2 NONCLUSTERED
+);
+```
+
+For more information, see [CREATE TABLE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+
+## PostgreSQL Usage
+
+As SQL Server, Aurora PostgreSQL provides ANSI/ISO syntax entry level conformity for `CREATE TABLE` and custom extensions to support Aurora PostgreSQL specific functionality.
+
+In its most basic form, and very similar to SQL Server, the `CREATE TABLE` statement in Aurora PostgreSQL is used to define:
+
+- Table names containing security schema and/or database.
+- Column names.
+- Column data types.
+- Column and table constraints.
+- Column default values.
+- Primary, candidate (UNIQUE), and foreign keys.
+
+Starting with PostgreSQL 12 support for generated columns has been added. Generated columns can be either calculated from other columns values on the fly or calculated and stored.
+
+```
+CREATE TABLE tst_gen(
+n NUMERIC,
+n_gen GENERATED ALWAYS AS (n*0.01)
+);
+```
+
+### Aurora PostgreSQL Extensions
+
+Aurora PostgreSQL extends the basic syntax and allows many additional options to be defined as part of the `CREATE TABLE` or `ALTER TABLE` statements. The most often used option is in-line index definition.
+
+### Table Scope
+
+Aurora PostgreSQL provides two table scopes:
+
+- Standard tables are created on disk, visible globally, and persist through connection resets and server restarts.
+- Temporary tables are created using the `CREATE GLOBAL TEMPORARY TABLE` statement. A `TEMPORARY` table is visible only to the session that creates it and is dropped automatically when the session is closed.
+
+### Creating a Table Based on an Existing Table or Query
+
+Aurora PostgreSQL provides two ways to create standard or temporary tables based on existing tables and queries: `CREATE TABLE <New Table> LIKE <Source Table>` and `CREATE TABLE …​ AS <Query Expression>`.
+
+`CREATE TABLE <New Table> LIKE <Source Table>` creates an empty table based on the definition of another table including any column attributes and indexes defined in the original table.
+
+`CREATE TABLE …​ AS <Query Expression>` is very similar to `SELECT INTO` in SQL Server. You can use this query to create a new table and populate data in a single step.
+
+The following code example creates a new empty table based on the definition of the SourceTable table.
+
+```
+CREATE TABLE SourceTable(Col1 INT);
+
+INSERT INTO SourceTable VALUES (1);
+
+CREATE TABLE NewTable AS SELECT Col1 AS Col2 FROM SourceTable;
+
+INSERT INTO NewTable (Col2) VALUES (2);
+
+SELECT * FROM NewTable;
+Col2
+1
+2
+```
+
+### Converting TIMESTAMP and ROWVERSION Columns
+
+The following code example shows how you can use SQL server to provide an automatic mechanism for stamping row versions for application concurrency control.
+
+```
+CREATE TABLE WorkItems
+(
+WorkItemID INT IDENTITY(1,1) PRIMARY KEY,
+WorkItemDescription XML NOT NULL,
+Status VARCHAR(10) NOT NULL DEFAULT ('Pending'),
+-- other columns...
+VersionNumber ROWVERSION
+);
+```
+
+The VersionNumber column automatically updates when a row is modified. The actual value is meaningless. Just the fact that it changed is what indicates a row modification. The client can now read a work item row, process it, and ensure no other clients updated the row before updating the status.
+
+```
+SELECT @WorkItemDescription = WorkItemDescription,
+@Status = Status,
+@VersionNumber = VersionNumber
+FROM WorkItems
+WHERE WorkItemID = @WorkItemID;
+
+EXECUTE ProcessWorkItem @WorkItemID, @WorkItemDescription, @Status OUTPUT;
+
+IF (
+  SELECT VersionNumber
+  FROM WorkItems
+  WHERE WorkItemID = @WorkItemID
+  ) = @VersionNumber;
+EXECUTE UpdateWorkItems @WorkItemID, 'Completed'; -- Success
+ELSE
+EXECUTE ConcurrencyExceptionWorkItem; -- Row updated while processing
+```
+
+In Aurora PostgreSQL, you can add a trigger to maintain the updated stamp for each row.
+
+```
+CREATE OR REPLACE FUNCTION IncByOne()
+  RETURNS TRIGGER
+  AS $$
+  BEGIN
+    UPDATE WorkItems SET VersionNumber = VersionNumber+1
+    WHERE WorkItemID = OLD.WorkItemID;
+  END; $$
+  LANGUAGE PLPGSQL;
+
+CREATE TRIGGER MaintainWorkItemVersionNumber
+  AFTER UPDATE OF WorkItems
+  FOR EACH ROW
+  EXECUTE PROCEDURE IncByOne();
+```
+
+For more information, see [Triggers](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md").
 
 ### Syntax
 
 ```
-<Function()>
-OVER
-(
-[ <PARTITION BY clause> ]
-[ <ORDER BY clause> ]
-[ <ROW or RANGE clause> ]
-)
+CREATE [ [ GLOBAL | LOCAL ] { TEMPORARY | TEMP } | UNLOGGED ] TABLE [ IF NOT EXISTS ]
+table_name ( [
+{ column_name data_type [ COLLATE collation ] [ column_constraint [ ... ] ]
+| table_constraint
+| LIKE source_table [ like_option ... ] }
+[, ... ]
+] )
+[ INHERITS ( parent_table [, ... ] ) ]
+[ PARTITION BY { RANGE | LIST } ( { column_name | ( expression ) } [ COLLATE collation
+] [ opclass ] [, ... ] ) ]
+[ WITH ( storage_parameter [= value] [, ... ] ) | WITH OIDS | WITHOUT OIDS ]
+[ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
+[ TABLESPACE tablespace_name ]
+```
+
+```
+CREATE [ [ GLOBAL | LOCAL ] { TEMPORARY | TEMP } | UNLOGGED ] TABLE [ IF NOT EXISTS ]
+table_name
+OF type_name [ (
+{ column_name [ WITH OPTIONS ] [ column_constraint [ ... ] ]
+| table_constraint }
+[, ... ]
+) ]
+[ PARTITION BY { RANGE | LIST } ( { column_name | ( expression ) } [ COLLATE collation
+] [ opclass ] [, ... ] ) ]
+[ WITH ( storage_parameter [= value] [, ... ] ) | WITH OIDS | WITHOUT OIDS ]
+[ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
+[ TABLESPACE tablespace_name ]
+```
+
+```
+CREATE [ [ GLOBAL | LOCAL ] { TEMPORARY | TEMP } | UNLOGGED ] TABLE [ IF NOT EXISTS ]
+table_name
+PARTITION OF parent_table [ (
+{ column_name [ WITH OPTIONS ] [ column_constraint [ ... ] ]
+| table_constraint }
+[, ... ]
+) ] FOR VALUES partition_bound_spec
+[ PARTITION BY { RANGE | LIST } ( { column_name | ( expression ) } [ COLLATE collation
+] [ opclass ] [, ... ] ) ]
+[ WITH ( storage_parameter [= value] [, ... ] ) | WITH OIDS | WITHOUT OIDS ]
+[ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
+[ TABLESPACE tablespace_name ]
+```
+
+The `column_constraint` is:
+
+```
+[ CONSTRAINT constraint_name ]
+{ NOT NULL |
+NULL |
+CHECK ( expression ) [ NO INHERIT ] |
+DEFAULT default_expr |
+GENERATED { ALWAYS | BY DEFAULT } AS IDENTITY [ ( sequence_options ) ] |
+UNIQUE index_parameters |
+PRIMARY KEY index_parameters |
+REFERENCES reftable [ ( refcolumn ) ] [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
+[ ON DELETE action ] [ ON UPDATE action ] }
+[ DEFERRABLE | NOT DEFERRABLE ] [ INITIALLY DEFERRED | INITIALLY IMMEDIATE ]
+```
+
+The `table_constraint` is:
+
+```
+[ CONSTRAINT constraint_name ]
+{ CHECK ( expression ) [ NO INHERIT ] |
+UNIQUE ( column_name [, ... ] ) index_parameters |
+PRIMARY KEY ( column_name [, ... ] ) index_parameters |
+EXCLUDE [ USING index_method ] ( exclude_element WITH operator [, ... ] ) index_parameters
+[ WHERE ( predicate ) ] |
+FOREIGN KEY ( column_name [, ... ] ) REFERENCES reftable [ ( refcolumn [, ... ] ) ]
+[ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ] [ ON DELETE action ] [ ON UPDATE
+action ] }
+[ DEFERRABLE | NOT DEFERRABLE ] [ INITIALLY DEFERRED | INITIALLY IMMEDIATE ]
+```
+
+The `like_option` is:
+
+```
+{ INCLUDING | EXCLUDING } { COMMENTSDEFAULTS | CONSTRAINTS | DEFAULTS | IDENTITY |
+INDEXES | STATISTICS | STORAGE |COMMENTS | ALL }
+```
+
+The `partition_bound_spec` is:
+
+```
+IN ( { numeric_literal | string_literal | TRUE | FALSE | NULL } [, ...] ) |
+FROM ( { numeric_literal | string_literal | TRUE | FALSE | MINVALUE | MAXVALUE } [,
+...] )
+TO ( { numeric_literal | string_literal | TRUE | FALSE | MINVALUE | MAXVALUE } [,
+...] )
+```
+
+The `index_parameters` in `UNIQUE`, `PRIMARY KEY`, and `EXCLUDE` constraints are:
+
+```
+[ WITH ( storage_parameter [= value] [, ... ] ) ]
+[ USING INDEX TABLESPACE tablespace_name ]
+```
+
+The `exclude_element` in an `EXCLUDE` constraint is:
+
+```
+{ column_name | ( expression ) } [ opclass ] [ ASC | DESC ] [ NULLS { FIRST | LAST } ]
 ```
 
 ### Examples
 
-The following example creates and populates an OrderItems table.
+Create a basic table.
 
 ```
-CREATE TABLE OrderItems
+CREATE TABLE MyTable
 (
-  OrderID INT NOT NULL,
-  Item VARCHAR(20) NOT NULL,
-  Quantity SMALLINT NOT NULL,
-  PRIMARY KEY(OrderID, Item)
+Col1 INT PRIMARY KEY,
+Col2 VARCHAR(20) NOT NULL
 );
 ```
 
-```
-INSERT INTO OrderItems (OrderID, Item, Quantity)
-VALUES
-(1, 'M8 Bolt', 100),
-(2, 'M8 Nut', 100),
-(3, 'M8 Washer', 200),
-(3, 'M6 Locking Nut', 300);
-```
-
-The following example uses a window ranking function to rank items based on the ordered quantity.
+Create a table with column constraints.
 
 ```
-SELECT Item,
-  Quantity,
-RANK() OVER(ORDER BY Quantity) AS QtyRank
-FROM OrderItems;
-```
-
-The preceding example produces the following results.
-
-```
-Item            Quantity  QtyRank
-M8 Bolt         100       1
-M8 Nut          100       1
-M8 Washer       200       3
-M6 Locking Nut  300       4
-```
-
-The following example uses a partitioned window aggregate function to calculate the total quantity for each order. This statement doesn’t use a `GROUP BY` clause.
-
-```
-SELECT Item,
-Quantity,
-OrderID,
-SUM(Quantity)
-OVER (PARTITION BY OrderID) AS TotalOrderQty
-FROM OrderItems;
-```
-
-The preceding example produces the following results.
-
-```
-Item            Quantity  QtyRank  TotalOrderQty
-M8 Bolt         100       1        100
-M8 Nut          100       2        100
-M6 Locking Nut  300       3        500
-M8 Washer       200       3        500
-```
-
-The following example uses an analytic `LEAD` function to get the next largest quantity for the order.
-
-```
-SELECT Item,
-  Quantity,
-  OrderID,
-  LEAD(Quantity)
-  OVER (PARTITION BY OrderID ORDER BY Quantity) AS NextQtyOrder
-FROM OrderItems;
-```
-
-The preceding example produces the following results.
-
-```
-Item            Quantity  OrderID  NextQtyOrder
-M8 Bolt         100       1        NULL
-M8 Nut          100       2        NULL
-M8 Washer       200       3        300
-M6 Locking Nut  300       3        NULL
-```
-
-For more information, see [SELECT - OVER Clause (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
-
-## PostgreSQL Usage
-
-PostgreSQL refers to ANSI SQL analytical functions as window functions. They provide the same core functionality as SQL Server analytical functions. Window functions in PostgreSQL operate on a logical partition or window of the result set and return a value for rows in that window.
-
-From a database migration perspective, you should examine PostgreSQL window functions by type and compare them with the equivalent SQL Server window functions to verify compatibility of syntax and output.
-
-###### Note
-
-Even if a PostgreSQL window function provides the same functionality of a specific SQL Server window function, the returned data type may be different and require application changes.
-
-PostgreSQL provides support for two main types of window functions: aggregation functions and ranking functions.
-
-### PostgreSQL Window Functions by Type
-
-| Function type | Related functions                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Aggregate     | `avg`, `count`, `max`, `min`, `sum`, `string_agg`                                                                                 |
-| Ranking       | `row_number`, `rank`, `dense_rank`, `percent_rank`, `cume_dist`, `ntile`, `lag`, `lead`, `first_value`, `last_value`, `nth_value` |
-
-### PostgreSQL Window Functions
-
-| PostgreSQL window function | Returned data type                                        | Compatible syntax |
-| -------------------------- | --------------------------------------------------------- | ----------------- |
-| Count                      | bigint                                                    | Yes               |
-| Max                        | numeric, string, date/time, network or enum type          | Yes               |
-| Min                        | numeric, string, date/time, network or enum type          | Yes               |
-| Avg                        | numeric, double, otherwise same data type as the argument | Yes               |
-| Sum                        | bigint, otherwise same data type as the argument          | Yes               |
-| rank()                     | bigint                                                    | Yes               |
-| row_number()               | bigint                                                    | Yes               |
-| dense_rank()               | bigint                                                    | Yes               |
-| percent_rank()             | double                                                    | Yes               |
-| cume_dist()                | double                                                    | Yes               |
-| ntile()                    | integer                                                   | Yes               |
-| lag()                      | Same type as value                                        | Yes               |
-| lead()                     | Same type as value                                        | Yes               |
-| first_value()              | Same type as value                                        | Yes               |
-| last_value()               | Same type as value                                        | Yes               |
-
-### Examples
-
-The following example uses he PostgreSQL `rank()` function.
-
-```
-SELECT department_id, last_name, salary, commission_pct,
-RANK() OVER (PARTITION BY department_id
-ORDER BY salary DESC, commission_pct) "Rank"
-FROM employees WHERE department_id = 80;
-
-DEPARTMENT_ID  LAST_NAME  SALARY    COMMISSION_PCT  Rank
-80             Russell    14000.00  0.40            1
-80             Partners   13500.00  0.30            2
-80             Errazuriz  12000.00  0.30            3
-```
-
-The returned formatting for certain numeric data types is different.
-
-The following example calculates the total salary for the department 80.
-
-```
-SELECT SUM(salary)
-FROM employees WHERE department_id = 80;
-
-SUM(SALARY)
-39500.00
-```
-
-The following example creates and populates an OrderItems table.
-
-```
-CREATE TABLE OrderItems
+CREATE TABLE MyTable
 (
-  OrderID INT NOT NULL,
-  Item VARCHAR(20) NOT NULL,
-  Quantity SMALLINT NOT NULL,
-  PRIMARY KEY(OrderID, Item)
+Col1 INT PRIMARY KEY,
+Col2 VARCHAR(20) NOT NULL
+  CHECK (Col2 <> ''),
+Col3 VARCHAR(100) NULL
+  REFERENCES MyOtherTable (Col3)
 );
 ```
 
-```
-INSERT INTO OrderItems (OrderID, Item, Quantity) VALUES
-(1, 'M8 Bolt', 100),
-(2, 'M8 Nut', 100),
-(3, 'M8 Washer', 200),
-(3, 'M6 Locking Nut', 300);
-```
+## Summary
 
-The following example uses a window ranking function to rank items based on the ordered quantity.
+| Feature                     | SQL Server                    | Aurora PostgreSQL                                                           |
+| --------------------------- | ----------------------------- | --------------------------------------------------------------------------- |
+| ANSI compliance             | Entry level                   | Entry level                                                                 |
+| Auto generated enumerator   | `IDENTITY`                    | `SERIAL`                                                                    |
+| Reseed auto generated value | `DBCC CHECKIDENT`             | N/A                                                                         |
+| Index types                 | `CLUSTERED` or `NONCLUSTERED` | See [Indexes](chap-sql-server-aurora-pg.md "chap-sql-server-aurora-pg.md"). |
+| Physical storage location   | `ON <File Group>`             | Not supported                                                               |
+| Temporary tables            | `#TempTable`                  | `CREATE TEMPORARY TABLE`                                                    |
+| Global temporary tables     | `##GlobalTempTable`           | `CREATE GLOBAL TEMPORARY TABLE`                                             |
+| Table variables             | `DECLARE @Table`              | Not supported                                                               |
+| Create table as query       | `SELECT…​ INTO`               | `CREATE TABLE…​ AS`                                                         |
+| Copy table structure        | Not supported                 | `CREATE TABLE…​ LIKE`                                                       |
+| Memory-optimized tables     | Supported                     | N/A                                                                         |
 
-```
-SELECT Item, Quantity, RANK()
-  OVER(ORDER BY Quantity) AS QtyRank
-FROM OrderItems;
-
-Item            Quantity  QtyRank
-M8 Bolt         100       1
-M8 Nut          100       1
-M8 Washer       200       3
-M6 Locking Nut  300       4
-```
-
-The following example uses a partitioned window aggregate function to calculate the total quantity for each order. This statement doesn’t use a `GROUP BY` clause.
-
-```
-SELECT Item, Quantity, OrderID, SUM(Quantity)
-  OVER (PARTITION BY OrderID) AS TotalOrderQty
-FROM OrderItems;
-
-Item            Quantity  OrderID  TotalOrderQty
-M8 Bolt         100       1        100
-M8 Nut          100       2        100
-M6 Locking Nut  300       3        500
-M8 Washer       200       3        500
-```
-
-The following example uses an analytic `LEAD` function to get the next largest quantity for the order.
-
-```
-SELECT Item, Quantity, OrderID, LEAD(Quantity)
-  OVER (PARTITION BY OrderID ORDER BY Quantity) AS NextQtyOrder
-FROM OrderItems;
-
-Item            Quantity  OrderID  NextQtyOrder
-M8 Bolt         100       1        NULL
-M8 Nut          100       2        NULL
-M8 Washer       200       3        300
-M6 Locking Nut  300       3        NULL
-```
-
-For more information, see [Window Functions](https://www.postgresql.org/docs/13/tutorial-window.html "https://www.postgresql.org/docs/13/tutorial-window.html") in the _PostgreSQL documentation_.
+For more information, see [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the _PostgreSQL documentation_.

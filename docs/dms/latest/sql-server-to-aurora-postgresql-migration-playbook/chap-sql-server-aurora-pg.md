@@ -1,31 +1,12 @@
-# Migrating T-SQL features
+# Migration tools and services overview
 
-This topic provides conceptual content comparing various features and functionalities between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can gain valuable insights into the differences and similarities between these two database systems, which is crucial for planning and executing a successful migration. The content covers a wide range of topics, including data types, cursors, stored procedures, error handling, full-text search, and more. By understanding these concepts, database administrators and developers can anticipate challenges, identify potential workarounds, and make informed decisions when transitioning their databases and applications from SQL Server to Aurora PostgreSQL. This knowledge enables smoother migrations and helps maintain data integrity and functionality in the new PostgreSQL environment.
+This topic provides conceptual content about migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It introduces you to the AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS), explaining how these tools can streamline your database migration process. The content covers various aspects of the migration, including schema conversion, data transfer, and handling different database features. It also touches on related services like Amazon RDS on Outposts, Amazon RDS Proxy, and Amazon Aurora Serverless v1, providing a comprehensive overview of the AWS database ecosystem. By understanding these concepts, you can better plan and execute your database migration strategy, anticipate potential challenges, and leverage AWS tools and services to ensure a smooth transition to Aurora PostgreSQL.
 
 ###### Topics
 
-- [Service Broker functionality for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [SQL Server cast and convert for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Common Language Runtime for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Collations for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Cursors for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Date and time functions for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [String functions for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Databases and schemas for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Dynamic SQL for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Transactions for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Synonyms for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Delete and update from for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Stored procedures for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Error handling for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Flow control for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Full-text search for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [SQL server graph features for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [JSON and XML for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Merge for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Pivot and unpivot for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Triggers for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Top fetch for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [User-defined functions for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [User-defined types for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
-- [Identity and sequences for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [AWS Schema Conversion Tool overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [AWS SCT Action Code Index overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [AWS Database Migration Service overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [Amazon RDS on Outposts overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [Amazon RDS Proxy overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [Amazon Aurora Serverless v1 overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
