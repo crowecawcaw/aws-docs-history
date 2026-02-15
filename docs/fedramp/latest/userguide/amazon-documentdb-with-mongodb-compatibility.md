@@ -362,7 +362,43 @@ Within DocumentDB you have two layers of privileged access. One layer is at the 
 
 Sample IAM policies for least privilege access to Amazon DocumentDB
 
-**Read Only Policy:**
+### Policy Selection Guide
+
+Choose the appropriate policy based on your role:
+
+| Policy        | Use Case                                              | MFA Required     |
+| ------------- | ----------------------------------------------------- | ---------------- |
+| Read Only     | Auditors, compliance reviewers, monitoring dashboards | No               |
+| Operator      | Day-to-day operators managing resources               | Yes              |
+| Administrator | Service administrators with full management access    | Yes (1-hour max) |
+
+### Read Only Policy
+
+**Use this for:** Auditors, compliance reviewers, monitoring dashboards
+
+**Grants access to:**
+
+- View resource configurations
+- List resources
+- Describe resource details
+
+**Does NOT grant:**
+
+- Create or modify resources
+- Delete resources
+- Change configurations
+
+**Testing this policy:**
+
+```
+# Verify access works
+aws documentdb-with-mongodb-compatibility describe-* / list-*
+
+# Verify restricted access is denied (should fail)
+aws documentdb-with-mongodb-compatibility create-* / delete-*
+```
+
+**Policy JSON:**
 
 ```
 {
@@ -380,7 +416,33 @@ Sample IAM policies for least privilege access to Amazon DocumentDB
 }
 ```
 
-**Operator Policy:**
+### Operator Policy
+
+**Use this for:** Day-to-day operators managing resources
+
+**Grants access to:**
+
+- All read-only permissions
+- Create and modify resources
+- Perform operational tasks
+
+**Does NOT grant:**
+
+- Delete critical resources
+- Change security configurations
+- Manage access policies
+
+**Testing this policy:**
+
+```
+# Verify access works
+aws documentdb-with-mongodb-compatibility create-* / update-*
+
+# Verify restricted access is denied (should fail)
+aws documentdb-with-mongodb-compatibility delete-* / put-*-policy
+```
+
+**Policy JSON:**
 
 ```
 {
@@ -408,7 +470,29 @@ Sample IAM policies for least privilege access to Amazon DocumentDB
 }
 ```
 
-**Administrator Policy:**
+### Administrator Policy
+
+**Use this for:** Service administrators with full management access
+
+**Grants access to:**
+
+- All operator permissions
+- Delete resources
+- Manage access policies
+- Configure security settings
+
+**Requires:**
+
+- MFA with maximum 1-hour session duration
+
+**Testing this policy:**
+
+```
+# Verify access works
+aws documentdb-with-mongodb-compatibility * (all operations)
+```
+
+**Policy JSON:**
 
 ```
 {

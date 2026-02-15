@@ -18,7 +18,7 @@ FedRAMP Revision 5 introduces 10 new Recommended Secure Configuration (FRR-RSC) 
 
 - **Administrative Account Protection:** Specific guidance for securing top-level administrative accounts
 - **Machine-Readable Formats:** OSCAL-compliant exports automation
-- **API-Driven Configuration:** Docuemntation on security settings configurable via AWS CLI and APIs where applicable
+- **API-Driven Configuration:** Documentation on security settings configurable via AWS CLI and APIs where applicable
 
 ## Complete FRR-RSC Coverage
 
@@ -37,11 +37,11 @@ FedRAMP Revision 5 introduces 10 new Recommended Secure Configuration (FRR-RSC) 
 
 ## Get Started
 
-### 1. Review & Implement Guidance
+### Review & Implement Guidance
 
-Explore security configuration guidance for administrative accounts and all 161 AWS services, Implement gudiance from examples provided in each service guidance doc.
+Explore security configuration guidance for administrative accounts and all avaialble AWS services. Use the examples provided to help implement security configurations of your AWS accounts and AWS services.
 
-### 3. Export & Automate
+### Export & Automate
 
 Download OSCAL files to integrate with your compliance automation tools for continued usage
 

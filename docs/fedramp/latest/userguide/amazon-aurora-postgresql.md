@@ -317,7 +317,44 @@ Within Aurora you have two layers of privileged access. One layer is at the IAM 
 
 Sample IAM policies for least privilege access to Amazon Aurora PostgreSQL
 
-**Read Only Policy:**
+### Policy Selection Guide
+
+Choose the appropriate policy based on your role:
+
+| Policy        | Use Case                                              | MFA Required     |
+| ------------- | ----------------------------------------------------- | ---------------- |
+| Read Only     | Auditors, compliance reviewers, monitoring dashboards | No               |
+| Operator      | Day-to-day operators managing resources               | Yes              |
+| Administrator | Service administrators with full management access    | Yes (1-hour max) |
+
+### Read Only Policy
+
+**Use this for:** Auditors, compliance reviewers, monitoring dashboards
+
+**Grants access to:**
+
+- View resource configurations
+- List resources
+- Describe resource details
+
+**Does NOT grant:**
+
+- Create or modify resources
+- Delete resources
+- Change configurations
+
+**Testing this policy:**
+
+```
+# Verify read access works
+aws rds describe-db-instances
+aws rds describe-db-clusters
+
+# Verify write access is denied (should fail)
+aws rds modify-db-instance --db-instance-identifier test-db
+```
+
+**Policy JSON:**
 
 ```
 {
@@ -336,7 +373,33 @@ Sample IAM policies for least privilege access to Amazon Aurora PostgreSQL
 }
 ```
 
-**Operator Policy:**
+### Operator Policy
+
+**Use this for:** Day-to-day operators managing resources
+
+**Grants access to:**
+
+- All read-only permissions
+- Create and modify resources
+- Perform operational tasks
+
+**Does NOT grant:**
+
+- Delete critical resources
+- Change security configurations
+- Manage access policies
+
+**Testing this policy:**
+
+```
+# Verify operator access works (requires MFA)
+aws rds modify-db-cluster --db-cluster-identifier <cluster-id> --apply-immediately
+
+# Verify admin access is denied (should fail)
+aws rds delete-db-cluster --db-cluster-identifier <cluster-id>
+```
+
+**Policy JSON:**
 
 ```
 {
@@ -363,7 +426,30 @@ Sample IAM policies for least privilege access to Amazon Aurora PostgreSQL
 }
 ```
 
-**Administrator Policy:**
+### Administrator Policy
+
+**Use this for:** Service administrators with full management access
+
+**Grants access to:**
+
+- All operator permissions
+- Delete resources
+- Manage access policies
+- Configure security settings
+
+**Requires:**
+
+- MFA with maximum 1-hour session duration
+
+**Testing this policy:**
+
+```
+# Verify full admin access works (requires MFA)
+aws rds create-db-cluster --db-cluster-identifier new-cluster --engine aurora-postgresql
+aws rds delete-db-cluster --db-cluster-identifier old-cluster --skip-final-snapshot
+```
+
+**Policy JSON:**
 
 ```
 {

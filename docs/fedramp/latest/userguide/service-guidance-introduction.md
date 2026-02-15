@@ -8,7 +8,7 @@ For the most up-to-date service features and security configurations, always rev
 
 Each individual service guidance page offers service specific security suggesitons to meet security needs of AWS customers operating within the FedRAMP space, and aligns many recommendations to FedRAMP controls and FRR-RSC specific guidances for how to secuire AWS services. These are provided as is and only as a recommendation on how you could potentially secure your AWS environment. You should always consult your organization security standard and requirements to assure the recommendations align with your organizations requirements.
 
-## 3 Export & Automate
+## Export & Automate
 
 Each page has a corresponding OSCAL document to align with the FRR-RSC-08 to provide guidances in machine readable format. Download the OSCAL files bundle to integrate with your compliance automation tools
 

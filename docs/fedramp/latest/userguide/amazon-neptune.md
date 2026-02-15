@@ -352,7 +352,43 @@ Within Neptune you have two layers of privileged access. One layer is at the IAM
 
 Sample IAM policies for least privilege access to Amazon Neptune
 
-**Read Only Policy:**
+### Policy Selection Guide
+
+Choose the appropriate policy based on your role:
+
+| Policy        | Use Case                                              | MFA Required     |
+| ------------- | ----------------------------------------------------- | ---------------- |
+| Read Only     | Auditors, compliance reviewers, monitoring dashboards | No               |
+| Operator      | Day-to-day operators managing resources               | Yes              |
+| Administrator | Service administrators with full management access    | Yes (1-hour max) |
+
+### Read Only Policy
+
+**Use this for:** Auditors, compliance reviewers, monitoring dashboards
+
+**Grants access to:**
+
+- View resource configurations
+- List resources
+- Describe resource details
+
+**Does NOT grant:**
+
+- Create or modify resources
+- Delete resources
+- Change configurations
+
+**Testing this policy:**
+
+```
+# Verify access works
+aws neptune describe-* / list-*
+
+# Verify restricted access is denied (should fail)
+aws neptune create-* / delete-*
+```
+
+**Policy JSON:**
 
 ```
 {
@@ -371,7 +407,33 @@ Sample IAM policies for least privilege access to Amazon Neptune
 }
 ```
 
-**Operator Policy:**
+### Operator Policy
+
+**Use this for:** Day-to-day operators managing resources
+
+**Grants access to:**
+
+- All read-only permissions
+- Create and modify resources
+- Perform operational tasks
+
+**Does NOT grant:**
+
+- Delete critical resources
+- Change security configurations
+- Manage access policies
+
+**Testing this policy:**
+
+```
+# Verify access works
+aws neptune create-* / update-*
+
+# Verify restricted access is denied (should fail)
+aws neptune delete-* / put-*-policy
+```
+
+**Policy JSON:**
 
 ```
 {
@@ -397,7 +459,29 @@ Sample IAM policies for least privilege access to Amazon Neptune
 }
 ```
 
-**Administrator Policy:**
+### Administrator Policy
+
+**Use this for:** Service administrators with full management access
+
+**Grants access to:**
+
+- All operator permissions
+- Delete resources
+- Manage access policies
+- Configure security settings
+
+**Requires:**
+
+- MFA with maximum 1-hour session duration
+
+**Testing this policy:**
+
+```
+# Verify access works
+aws neptune * (all operations)
+```
+
+**Policy JSON:**
 
 ```
 {
@@ -702,8 +786,17 @@ Deploy AWS Config rules to continuously monitor Amazon Neptune compliance
 **Comparison Commands:**
 
 ```
-aws neptune describe-* --query 'relevant-fields'
-Compare output against baseline configuration files
+# List all Neptune DB clusters
+aws neptune describe-db-clusters --output json
+# List all Neptune DB instances
+aws neptune describe-db-instances --output json
+# List all Neptune DB cluster parameter groups
+aws neptune describe-db-cluster-parameter-groups --output json
+# List all Neptune DB parameter groups
+aws neptune describe-db-parameter-groups --output json
+# List all Neptune DB subnet groups
+aws neptune describe-db-subnet-groups --output json
+# Compare output against baseline configuration files
 ```
 
 ### Automation
@@ -723,7 +816,18 @@ JSON via AWS CLI
 **Export Commands:**
 
 ```
-aws neptune describe-* --output json > amazon_neptune_config.json
+# Export all Neptune DB clusters
+aws neptune describe-db-clusters --output json > amazon_neptune_clusters.json
+# Export all Neptune DB instances
+aws neptune describe-db-instances --output json > amazon_neptune_instances.json
+# Export all Neptune DB cluster parameter groups
+aws neptune describe-db-cluster-parameter-groups --output json > amazon_neptune_cluster_parameter_groups.json
+# Export all Neptune DB parameter groups
+aws neptune describe-db-parameter-groups --output json > amazon_neptune_parameter_groups.json
+# Export all Neptune DB subnet groups
+aws neptune describe-db-subnet-groups --output json > amazon_neptune_subnet_groups.json
+# Export all Neptune event subscriptions
+aws neptune describe-event-subscriptions --output json > amazon_neptune_event_subscriptions.json
 ```
 
 **Use Cases:**

@@ -413,7 +413,43 @@ Within EC2 you have two layers of privileged access. One layer is at the IAM lay
 
 Sample IAM policies for least privilege access to Amazon Elastic Compute Cloud (EC2)
 
-**Read Only Policy:**
+### Policy Selection Guide
+
+Choose the appropriate policy based on your role:
+
+| Policy        | Use Case                                              | MFA Required     |
+| ------------- | ----------------------------------------------------- | ---------------- |
+| Read Only     | Auditors, compliance reviewers, monitoring dashboards | No               |
+| Operator      | Day-to-day operators managing resources               | Yes              |
+| Administrator | Service administrators with full management access    | Yes (1-hour max) |
+
+### Read Only Policy
+
+**Use this for:** Auditors, compliance reviewers, monitoring dashboards
+
+**Grants access to:**
+
+- View resource configurations
+- List resources
+- Describe resource details
+
+**Does NOT grant:**
+
+- Create or modify resources
+- Delete resources
+- Change configurations
+
+**Testing this policy:**
+
+```
+# Verify access works
+aws elastic-cloud-compute-ec2 describe-* / list-*
+
+# Verify restricted access is denied (should fail)
+aws elastic-cloud-compute-ec2 create-* / delete-*
+```
+
+**Policy JSON:**
 
 ```
 {
@@ -432,7 +468,33 @@ Sample IAM policies for least privilege access to Amazon Elastic Compute Cloud (
 }
 ```
 
-**Operator Policy:**
+### Operator Policy
+
+**Use this for:** Day-to-day operators managing resources
+
+**Grants access to:**
+
+- All read-only permissions
+- Create and modify resources
+- Perform operational tasks
+
+**Does NOT grant:**
+
+- Delete critical resources
+- Change security configurations
+- Manage access policies
+
+**Testing this policy:**
+
+```
+# Verify access works
+aws elastic-cloud-compute-ec2 create-* / update-*
+
+# Verify restricted access is denied (should fail)
+aws elastic-cloud-compute-ec2 delete-* / put-*-policy
+```
+
+**Policy JSON:**
 
 ```
 {
@@ -459,7 +521,29 @@ Sample IAM policies for least privilege access to Amazon Elastic Compute Cloud (
 }
 ```
 
-**Administrator Policy:**
+### Administrator Policy
+
+**Use this for:** Service administrators with full management access
+
+**Grants access to:**
+
+- All operator permissions
+- Delete resources
+- Manage access policies
+- Configure security settings
+
+**Requires:**
+
+- MFA with maximum 1-hour session duration
+
+**Testing this policy:**
+
+```
+# Verify access works
+aws elastic-cloud-compute-ec2 * (all operations)
+```
+
+**Policy JSON:**
 
 ```
 {
@@ -609,8 +693,19 @@ Deploy AWS Config rules to continuously monitor Amazon Elastic Compute Cloud (EC
 **Comparison Commands:**
 
 ```
-aws elastic describe-* --query 'relevant-fields'
-Compare output against baseline configuration files
+# List all EC2 instances
+aws ec2 describe-instances --output json
+# List all security groups
+aws ec2 describe-security-groups --output json
+# List all volumes
+aws ec2 describe-volumes --output json
+# List all snapshots owned by self
+aws ec2 describe-snapshots --owner-ids self --output json
+# List all VPCs
+aws ec2 describe-vpcs --output json
+# List all subnets
+aws ec2 describe-subnets --output json
+# Compare output against baseline configuration files
 ```
 
 ### Automation
@@ -630,7 +725,20 @@ JSON via AWS CLI
 **Export Commands:**
 
 ```
-aws elastic describe-* --output json > amazon_elastic_compute_cloud_(ec2)_config.json
+# Export all EC2 instances
+aws ec2 describe-instances --output json > amazon_ec2_instances.json
+# Export all security groups
+aws ec2 describe-security-groups --output json > amazon_ec2_security_groups.json
+# Export all volumes
+aws ec2 describe-volumes --output json > amazon_ec2_volumes.json
+# Export all snapshots
+aws ec2 describe-snapshots --owner-ids self --output json > amazon_ec2_snapshots.json
+# Export all AMIs
+aws ec2 describe-images --owners self --output json > amazon_ec2_amis.json
+# Export all key pairs
+aws ec2 describe-key-pairs --output json > amazon_ec2_key_pairs.json
+# Export all VPCs
+aws ec2 describe-vpcs --output json > amazon_ec2_vpcs.json
 ```
 
 **Use Cases:**

@@ -614,7 +614,44 @@ Within RDS you have two layers of privileged access. One layer is at the IAM lay
 
 This section provides sample IAM policies for implementing least privilege access to Amazon RDS resources across different operational roles and responsibilities.
 
+### Policy Selection Guide
+
+Choose the appropriate policy based on your role:
+
+| Policy               | Use Case                                               | MFA Required     |
+| -------------------- | ------------------------------------------------------ | ---------------- |
+| Read-Only Access     | Auditors, compliance reviewers, monitoring dashboards  | No               |
+| Operator Access      | Database operators performing routine management tasks | Yes              |
+| Administrator Access | Database administrators with full management access    | Yes (1-hour max) |
+
 ### Read-Only Access Policy
+
+**Use this for:** Auditors, compliance reviewers, monitoring dashboards
+
+**Grants access to:**
+
+- View database instance configurations
+- List all RDS resources
+- Describe database parameters and options
+- Monitor database metrics
+
+**Does NOT grant:**
+
+- Start, stop, or reboot instances
+- Modify database configurations
+- Create or delete databases
+
+**Testing this policy:**
+
+```
+# Verify read access works
+aws rds describe-db-instances
+
+# Verify write access is denied (should fail)
+aws rds create-db-instance --db-instance-identifier test-db
+```
+
+**Policy JSON:**
 
 **Purpose:** Provides read-only access to RDS resources for monitoring and auditing purposes.
 
@@ -636,6 +673,33 @@ This section provides sample IAM policies for implementing least privilege acces
 ```
 
 ### Operator Access Policy
+
+**Use this for:** Database operators performing routine management tasks
+
+**Grants access to:**
+
+- All read-only permissions
+- Start, stop, and reboot database instances
+- Modify database instance configurations
+- Create and restore snapshots
+
+**Does NOT grant:**
+
+- Delete database instances
+- Modify security groups
+- Change master passwords without proper authorization
+
+**Testing this policy:**
+
+```
+# Verify operator access works (requires MFA)
+aws rds stop-db-instance --db-instance-identifier my-database
+
+# Verify admin access is denied (should fail)
+aws rds delete-db-instance --db-instance-identifier my-database
+```
+
+**Policy JSON:**
 
 **Purpose:** Provides operational access for routine database management tasks with MFA requirement.
 
@@ -666,6 +730,30 @@ This section provides sample IAM policies for implementing least privilege acces
 ```
 
 ### Administrator Access Policy
+
+**Use this for:** Database administrators with full management access
+
+**Grants access to:**
+
+- All operator permissions
+- Create and delete database instances
+- Modify security groups and parameter groups
+- Manage master passwords and encryption keys
+- Configure cross-region replication
+
+**Requires:**
+
+- MFA with maximum 1-hour session duration
+
+**Testing this policy:**
+
+```
+# Verify full admin access works (requires MFA)
+aws rds create-db-instance --db-instance-identifier new-database --db-instance-class db.t3.micro --engine postgres
+aws rds delete-db-instance --db-instance-identifier old-database --skip-final-snapshot
+```
+
+**Policy JSON:**
 
 **Purpose:** Provides full administrative access with MFA and session time restrictions.
 
