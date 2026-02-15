@@ -7,6 +7,7 @@ Use the following sections to help troubleshoot file system, volume mounting, an
 - [Troubleshooting file system issues](#troubleshooting-file-system-issues "#troubleshooting-file-system-issues")
 - [Troubleshooting volume mounting issues](#fs-mount-fails "#fs-mount-fails")
 - [Troubleshooting storage issues](#storage-issues "#storage-issues")
+- [Troubleshooting I/O errors and NFS lock reclaim failures](#nfs-failover-issues "#nfs-failover-issues")
 
 ## Troubleshooting file system issues
 
@@ -125,3 +126,81 @@ OpenZFS snapshot that you created previously. Snapshots minimize the amount of s
 only storing each data block once, including blocks used in the most recent version of the file. This means that
 if you delete the file but the data blocks are still part of a non-deleted snapshot, those data blocks will be
 retained. To reduce your used storage capacity, consider deleting snapshots that you no longer need.
+
+## Troubleshooting I/O errors and NFS lock reclaim failures
+
+During failovers on FSx for OpenZFS Single-AZ (HA) file systems, NFS clients may experience transient I/O errors or extended pauses.
+For NFSv4+ clients, you may see kernel log messages like:
+
+```
+NFS: __nfs4_reclaim_open_state: Lock reclaim failed!
+```
+
+These messages indicate that the client was unable to successfully reclaim NFS locks during the failover window.
+
+###### To reduce I/O errors during failover events
+
+On Linux, you can configure network settings on your clients to reduce failover detection time from 55-60 seconds to 15-20 seconds.
+
+###### Important
+
+Always test these configurations in a non-production environment first. These settings increase Address Resolution Protocol (ARP) traffic,
+which is used to map IP addresses to physical (MAC) addresses on a local network, and may not be suitable for network-constrained environments.
+
+###### To configure optimized network settings for NFS clients
+
+1. Create a sysctl configuration file on each NFS client. The following example uses `default` to apply settings to all network interfaces.
+   If your instance has multiple network interfaces, you can replace `default` with the specific interface name
+   (for example, `eth0` or `ens5`) used to connect to your FSx for OpenZFS Single-AZ (HA) file system:
+
+```
+`$` `sudo tee /etc/sysctl.d/99-fsx-failover.conf > /dev/null << 'EOF'
+# NFS client optimizations for faster failover detection
+# Replace 'default' with your interface name (e.g., eth0, ens5) to target a specific interface
+net.ipv4.neigh.default.base_reachable_time_ms=5000
+net.ipv4.neigh.default.delay_first_probe_time=1
+net.ipv4.neigh.default.ucast_solicit=0
+net.ipv4.tcp_syn_retries=3
+EOF`
+```
+
+2. Apply the settings immediately:
+
+```
+`$` `sudo sysctl -p /etc/sysctl.d/99-fsx-failover.conf`
+```
+
+3. Verify the configuration is active. If you used `default`, you can verify with the following commands.
+   If you specified a specific interface, replace `default` with your interface name (for example, `eth0` or `ens5`):
+
+```
+`$` `sysctl net.ipv4.neigh.default.base_reachable_time_ms`
+`$` `sysctl net.ipv4.neigh.default.delay_first_probe_time`
+`$` `sysctl net.ipv4.neigh.default.ucast_solicit`
+`$` `sysctl net.ipv4.tcp_syn_retries`
+```
+
+Ensure that these settings are applied consistently across all NFS clients that connect to your FSx for OpenZFS file system
+within the same Availability Zone. When using these network optimizations, keep the following in mind:
+
+- **base_reachable_time_ms=5000** – Reduces ARP cache entry validity from 30 seconds to 5 seconds,
+  allowing clients to detect IP ownership changes more quickly during a failover event.
+- **delay_first_probe_time=1** – Reduces the delay before probing a stale network entry from 5 seconds to 1 second.
+- **ucast_solicit=0** – Skips unicast neighbor probes and immediately issues broadcast ARP requests,
+  accelerating rediscovery of the active file server.
+- **tcp_syn_retries=3** – Reduces TCP connection retry duration from 127 seconds to 15 seconds.
+
+After the network settings are in place, you should monitor your environment to validate the changes.
+
+###### Monitoring your environment after applying changes
+
+- **Monitor system logs for NFS errors** to view NFS-related kernel log messages.
+
+```
+`$` `sudo journalctl -f | grep -i nfs`
+```
+
+Verify that there are fewer occurrences of messages such as `Lock reclaim failed`.
+
+- **Monitor application logs** to confirm fewer I/O timeouts, connection errors, and retry-related failures during failover events.
+- **Validate network impact** to ensure that the increased ARP traffic does not adversely affect network performance in your environment.

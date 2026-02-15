@@ -23,6 +23,8 @@ You can retrieve an access point's network origin using the AWS CLI, AWS SDKs, o
 access point has a Amazon VPC configuration specified, its network origin is `VPC`. Otherwise,
 the access point's network origin is `Internet`.
 
+###### Example
+
 **_Example: Create an access point that's restricted to
 Amazon VPC access_**
 
