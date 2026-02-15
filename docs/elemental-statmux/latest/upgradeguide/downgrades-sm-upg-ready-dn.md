@@ -20,6 +20,8 @@ Every time that you downgrade, a backup of the database is automatically made an
 /home/elemental/database_backups/elemental-db-backup_statmux_n.n.n.n_yyyy-mm-dd_hh-mm-ss.tar
 ```
 
+###### Example
+
 `elemental-db-backup_statmux_2.17.8_2018-02-08_21-01-36.tar`
 
 When you perform a downgrade, you must specify a database to restore. You should
