@@ -32,9 +32,12 @@ To delete a scaling policy from your ElastiCache for Valkey and Redis OSS cluste
 - --service-namespace – Set this value to elasticache.
 - --scalable-dimension – Set this value to
   `elasticache:replication-group:Replicas`.
-  In the following example, you delete a target-tracking scaling policy named
-  `myscalablepolicy` from an ELC; cluster named
-  `myscalablecluster`.
+
+###### Example
+
+In the following example, you delete a target-tracking scaling policy named
+`myscalablepolicy` from an ELC; cluster named
+`myscalablecluster`.
 
 For Linux, macOS, or Unix:
 

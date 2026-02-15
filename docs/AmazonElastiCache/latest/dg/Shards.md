@@ -83,6 +83,8 @@ optional parameter.
   which when used limits the output to the details of the specified replication group. If this
   parameter is omitted, the details of up to 100 replication groups is returned.
 
+###### Example
+
 This command returns the details for `sample-repl-group`.
 
 For Linux, macOS, or Unix:
@@ -175,7 +177,10 @@ optional parameter.
   which when used limits the output to the details of the specified replication group. If this
   parameter is omitted, the details of up to `xxx` replication groups is
   returned.
-  This command returns the details for `sample-repl-group`.
+
+###### Example
+
+This command returns the details for `sample-repl-group`.
 
 For Linux, macOS, or Unix:
 

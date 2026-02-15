@@ -208,6 +208,8 @@ For Memcached clusters, the command returns the configuration endpoint.
 If you include the optional parameter `--show-cache-node-info`,
 the command will also return the endpoints of the individual nodes in the cluster.
 
+###### Example
+
 The following command retrieves the configuration endpoint (`ConfigurationEndpoint`) and
 individual node endpoints (`Endpoint`) for the Memcached cluster _mycluster_.
 
@@ -303,6 +305,8 @@ If you choose to create a CNAME for your Memcached configuration endpoint,
 in order for your auto discovery client to recognize the CNAME as a configuration endpoint,
 you must include `.cfg.` in the CNAME. For example, `mycluster`.cfg.`local`
 in your php.ini file for the `session.save_path` parameter.
+
+###### Example
 
 For Valkey and Redis OSS, the following command retrieves the cluster information for the single-node
 cluster _mycluster_.
@@ -502,6 +506,8 @@ For Memcached clusters, the command returns the configuration endpoint.
 
 If you include the optional parameter `ShowCacheNodeInfo`,
 the action also returns the endpoints of the individual nodes in the cluster.
+
+###### Example
 
 For Memcached, the following command retrieves the configuration endpoint (`ConfigurationEndpoint`) and
 individual node endpoints (`Endpoint`) for the Memcached cluster _mycluster_.

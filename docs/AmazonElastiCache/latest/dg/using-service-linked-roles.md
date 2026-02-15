@@ -156,6 +156,8 @@ You can use IAM operations from the AWS Command Line Interface to edit a service
 
 1. (Optional) To view the current description for a role, use the AWS CLI for IAM operation `get-role`.
 
+###### Example
+
 ```
 `$` `aws iam get-role --role-name AWSServiceRoleForElastiCache`
 ```
@@ -188,6 +190,8 @@ You can use the IAM API to edit a service-linked role description.
 
 1. (Optional) To view the current description for a role, use the IAM API operation GetRole.
 
+###### Example
+
 ```
 https://iam.amazonaws.com/
    ?Action=GetRole
@@ -197,6 +201,8 @@ https://iam.amazonaws.com/
 ```
 
 2. To update a role's description, use the IAM API operation UpdateRoleDescription.
+
+###### Example
 
 ```
 https://iam.amazonaws.com/

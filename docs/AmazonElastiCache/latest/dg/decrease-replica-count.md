@@ -97,6 +97,8 @@ You must include one and only one of the `--new-replica-count`,
 `--replicas-to-remove`, or `--replica-configuration`
 parameters.
 
+###### Example
+
 The following example uses `--new-replica-count` to decrease the
 number of replicas in the replication group `sample-repl-group` to one.
 When the example is finished, there is one replica in each node group. This number
@@ -225,6 +227,8 @@ To decrease the number of replicas in a Valkey or Redis OSS shard, use the
 
 You must include one and only one of the `NewReplicaCount`, `ReplicasToRemove`,
 or `ReplicaConfiguration` parameters.
+
+###### Example
 
 The following example uses `NewReplicaCount` to decrease the number
 of replicas in the replication group `sample-repl-group` to one. When

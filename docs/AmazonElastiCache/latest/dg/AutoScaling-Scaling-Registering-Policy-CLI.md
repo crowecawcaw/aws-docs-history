@@ -29,9 +29,12 @@ To register your ElastiCache for Valkey and Redis OSS cluster, use the [register
   by ElastiCache auto scaling. For information about the relationship between
   `--min-capacity`, `--max-capacity`, and the number
   of shards in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax "AutoScaling-Policies.md#AutoScaling-MinMax").
-  In the following example, you register an ElastiCache cluster named
-  `myscalablecluster`. The registration indicates that the cluster
-  should be dynamically scaled to have from one to ten shards.
+
+###### Example
+
+In the following example, you register an ElastiCache cluster named
+`myscalablecluster`. The registration indicates that the cluster
+should be dynamically scaled to have from one to ten shards.
 
 For Linux, macOS, or Unix:
 
@@ -64,7 +67,10 @@ To register your ElastiCache cluster, use the [register-scalable-target](../../.
 - ScalableDimension – Set this value to `elasticache:replication-group:NodeGroups`.
 - MinCapacity – The minimum number of shards to be managed by ElastiCache auto scaling. For information about the relationship between --min-capacity, --max-capacity, and the number of replicas in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax "AutoScaling-Policies.md#AutoScaling-MinMax").
 - MaxCapacity – The maximum number of shards to be managed by ElastiCache auto scaling. For information about the relationship between --min-capacity, --max-capacity, and the number of replicas in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax "AutoScaling-Policies.md#AutoScaling-MinMax").
-  In the following example, you register an ElastiCache cluster named `myscalablecluster` with the Application Auto Scaling API. This registration indicates that the cluster should be dynamically scaled to have from one to 5 replicas.
+
+###### Example
+
+In the following example, you register an ElastiCache cluster named `myscalablecluster` with the Application Auto Scaling API. This registration indicates that the cluster should be dynamically scaled to have from one to 5 replicas.
 
 ```
 POST / HTTP/1.1

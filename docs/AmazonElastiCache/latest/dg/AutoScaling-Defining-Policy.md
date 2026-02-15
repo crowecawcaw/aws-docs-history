@@ -58,6 +58,8 @@ Not all ElastiCache metrics work for target tracking. The metric must be a valid
 The value of the metric must increase or decrease in proportion to the number of replicas in the cluster.
 This proportional increase or decrease is necessary to use the metric data to proportionally increase or decrease the number of replicas.
 
+###### Example
+
 The following example describes a target-tracking configuration for a scaling policy. In this configuration, a custom metric adjusts
 a cluster based on an average CPU utilization of 50 percent across all replicas in an cluster named `my-db-cluster`.
 
@@ -117,6 +119,8 @@ disable scale in activity for your cluster. For more information about
 `DisableScaleIn`, see [TargetTrackingScalingPolicyConfiguration](../../../ApplicationAutoScaling/latest/APIReference/API_TargetTrackingScalingPolicyConfiguration.md "../../../ApplicationAutoScaling/latest/APIReference/API_TargetTrackingScalingPolicyConfiguration.md") in the
 _Application Auto Scaling API Reference_.
 
+###### Example
+
 The following example describes a target-tracking configuration for a
 scaling policy. In this configuration, the
 `ElastiCacheReplicaEngineCPUUtilization` predefined metric
@@ -158,6 +162,8 @@ To apply a scaling policy to your ElastiCache for Valkey and Redis OSS cluster, 
   `elasticache:replication-group:Replicas`.
 - --target-tracking-scaling-policy-configuration – The target-tracking
   scaling policy configuration to use for the cluster.
+
+###### Example
 
 In the following example, you apply a target-tracking scaling policy named
 `myscalablepolicy` to a cluster named
@@ -217,6 +223,8 @@ following parameters:
   `elasticache:replication-group:Replicas`.
 - TargetTrackingScalingPolicyConfiguration – The target-tracking scaling
   policy configuration to use for the cluster.
+
+###### Example
 
 In the following example, you apply a target-tracking scaling policy named
 `scalablepolicy` to an cluster named

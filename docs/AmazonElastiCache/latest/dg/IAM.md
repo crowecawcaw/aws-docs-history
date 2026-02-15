@@ -1,111 +1,201 @@
-# Identity and Access Management for Amazon ElastiCache
+# Overview of managing access permissions to your ElastiCache resources
 
-AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
-to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
-(have permissions) to use ElastiCache resources. IAM is an AWS service that you can
-use with no additional charge.
+Every AWS resource is owned by an AWS account, and permissions to create or access a
+resource are governed by permissions policies. An account administrator can attach
+permissions policies to IAM identities (that is, users, groups, and roles). In addition,
+Amazon ElastiCache also supports attaching permissions policies to
+resources.
+
+###### Note
+
+An _account administrator_ (or administrator user) is a user
+with administrator privileges. For more information, see [IAM Best
+Practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
+
+To provide access, add permissions to your users, groups, or roles:
+
+- Users and groups in AWS IAM Identity Center:
+
+Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the _AWS IAM Identity Center User Guide_.
+
+- Users managed in IAM through an identity provider:
+
+Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md")
+in the _IAM User Guide_.
+
+- IAM users:
+  - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
+  - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
 ###### Topics
 
-- [Audience](#security_iam_audience "#security_iam_audience")
-- [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
-- [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [How Amazon ElastiCache works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Identity-based policy examples for Amazon ElastiCache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Troubleshooting Amazon ElastiCache identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
-- [Access control](#iam.accesscontrol "#iam.accesscontrol")
-- [Overview of managing access permissions to your ElastiCache resources](IAM.md "IAM.md")
-
-## Audience
-
-How you use AWS Identity and Access Management (IAM) differs based on your role:
-
-- **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting Amazon ElastiCache identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
-- **Service administrator** - determine user access and
-  submit permission requests (see [How Amazon ElastiCache works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
-- **IAM administrator** - write policies to manage
-  access (see [Identity-based policy examples for Amazon ElastiCache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
-
-## Authenticating with identities
-
-Authentication is how you sign in to AWS using your identity credentials. You must be authenticated as the AWS account root user, an IAM user, or by assuming an IAM role.
-
-You can sign in as a federated identity using credentials from an identity source like AWS IAM Identity Center (IAM Identity Center), single sign-on authentication, or Google/Facebook credentials. For more information about signing in, see [How to sign in to your AWS account](../../../signin/latest/userguide/how-to-sign-in.md "../../../signin/latest/userguide/how-to-sign-in.md") in the _AWS Sign-In User Guide_.
-
-For programmatic access, AWS provides an SDK and CLI to cryptographically sign requests. For more information, see [AWS Signature Version 4 for API requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") in the _IAM User Guide_.
-
-### AWS account root user
-
-When you create an AWS account, you begin with one sign-in identity called the AWS account _root user_ that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks") in the _IAM User Guide_.
-
-### Federated identity
-
-As a best practice, require human users to use federation with an identity provider to access AWS services using temporary credentials.
-
-A _federated identity_ is a user from your enterprise directory, web identity provider, or Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
-
-For centralized access management, we recommend AWS IAM Identity Center. For more information, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the _AWS IAM Identity Center User Guide_.
-
-### IAM users and groups
-
-An _[IAM user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md")_ is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
-
-An [_IAM group_](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md") specifies a collection of IAM users and makes permissions easier to manage for large sets of users. For more information, see [Use cases for IAM users](../../../IAM/latest/UserGuide/gs-identities-iam-users.md "../../../IAM/latest/UserGuide/gs-identities-iam-users.md") in the _IAM User Guide_.
-
-### IAM roles
-
-An _[IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")_ is an identity with specific permissions that provides temporary credentials. You can assume a role by [switching from a user to an IAM role (console)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md") or by calling an AWS CLI or AWS API operation. For more information, see [Methods to assume a role](../../../IAM/latest/UserGuide/id_roles_manage-assume.md "../../../IAM/latest/UserGuide/id_roles_manage-assume.md") in the _IAM User Guide_.
-
-IAM roles are useful for federated user access, temporary IAM user permissions, cross-account access, cross-service access, and applications running on Amazon EC2. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the _IAM User Guide_.
-
-## Managing access using policies
-
-You control access in AWS by creating policies and attaching them to AWS identities or resources. A policy defines permissions when associated with an identity or resource. AWS evaluates these policies when a principal makes a request. Most policies are stored in AWS as JSON documents. For more information about JSON policy documents, see [Overview of JSON policies](../../../IAM/latest/UserGuide/access_policies.md#access_policies-json "../../../IAM/latest/UserGuide/access_policies.md#access_policies-json") in the _IAM User Guide_.
-
-Using policies, administrators specify who has access to what by defining which **principal** can perform **actions** on what **resources**, and under what **conditions**.
-
-By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
-
-### Identity-based
-
-policies
-
-Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
-
-Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
-
-### Resource-based
-
-policies
-
-Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
-
-Resource-based policies are inline policies that are located in that service. You can't use AWS managed policies from IAM in a resource-based policy.
-
-### Other policy types
-
-AWS supports additional policy types that can set the maximum permissions granted by more common policy types:
-
-- **Permissions boundaries** – Set the maximum permissions that an identity-based policy can grant to an IAM entity. For more information, see [Permissions boundaries for IAM entities](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md") in the _IAM User Guide_.
-- **Service control policies (SCPs)** – Specify the maximum permissions for an organization or organizational unit in AWS Organizations. For more information, see [Service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in the _AWS Organizations User Guide_.
-- **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
-- **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
-
-### Multiple policy
-
-types
-
-When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
-
-## Access control
-
-You can have valid credentials to authenticate your requests, but unless you have
-permissions you cannot create or access ElastiCache resources. For example, you must have
-permissions to create an ElastiCache cluster.
-
-The following sections describe how to manage permissions for ElastiCache. We recommend
-that you read the overview first.
-
-- [Overview of managing access permissions to your ElastiCache resources](IAM.md "IAM.md")
+- [Amazon ElastiCache resources and operations](#IAM.Overview.ResourcesAndOperations "#IAM.Overview.ResourcesAndOperations")
+- [Understanding resource ownership](#access-control-resource-ownership "#access-control-resource-ownership")
+- [Managing access to resources](#IAM.Overview.ManagingAccess "#IAM.Overview.ManagingAccess")
+- [AWS managed policies for Amazon ElastiCache](IAM.IdentityBasedPolicies.md "IAM.IdentityBasedPolicies.md")
 - [Using identity-based policies (IAM policies) for Amazon ElastiCache](IAM.md "IAM.md")
+- [Resource-level permissions](IAM.md "IAM.md")
+- [Using condition keys](IAM.md "IAM.md")
+- [Using Service-Linked Roles for
+  Amazon ElastiCache](using-service-linked-roles.md "using-service-linked-roles.md")
+- [ElastiCache API permissions: Actions, resources, and conditions reference](IAM.md "IAM.md")
+
+## Amazon ElastiCache resources and operations
+
+To see a list of ElastiCache resource types and their ARNs, see [Resources Defined by Amazon ElastiCache](../../../service-authorization/latest/reference/list_amazonelasticache.md#amazonelasticache-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonelasticache.md#amazonelasticache-resources-for-iam-policies") in the
+_Service Authorization Reference_. To learn with which actions you can specify the ARN of each resource, see
+[Actions Defined by Amazon ElastiCache](../../../service-authorization/latest/reference/list_amazonelasticache.md#amazonelasticache-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelasticache.md#amazonelasticache-actions-as-permissions").
+
+## Understanding resource ownership
+
+A _resource owner_ is the AWS account that created the resource. That
+is, the resource owner is the AWS account of the principal
+entity that authenticates the request that creates the resource. A
+_principal entity_ can be the root account, an IAM user, or
+an IAM role). The following examples illustrate how this works:
+
+- Suppose that you use the root account credentials of your AWS account to create a cache
+  cluster. In this case, your AWS account is the owner of the resource. In
+  ElastiCache, the resource is the cluster.
+- Suppose that you create an IAM user in your AWS account and grant permissions to
+  create a cluster to that user. In this case, the user can create a
+  cluster. However, your AWS account, to which the user belongs, owns
+  the cluster resource.
+- Suppose that you create an IAM role in your AWS account with permissions to create a
+  cluster. In this case, anyone who can assume the role can create a
+  cluster. Your AWS account, to which the role belongs, owns the cache
+  cluster resource.
+
+## Managing access to resources
+
+A _permissions policy_ describes who has access to what. The
+following section explains the available options for creating permissions
+policies.
+
+###### Note
+
+This section discusses using IAM in the context of Amazon ElastiCache. It doesn't
+provide detailed information about the IAM service. For complete IAM
+documentation, see [What Is
+IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the _IAM User Guide_. For information
+about IAM policy syntax and descriptions, see [AWS IAM
+Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_.
+
+Policies attached to an IAM identity are referred to as
+_identity-based_ policies (IAM policies). Policies attached
+to a resource are referred to as _resource-based_ policies.
+
+###### Topics
+
+- [Identity-based policies (IAM policies)](#IAM.Overview.ManagingAccess.IdentityBasedPolicies "#IAM.Overview.ManagingAccess.IdentityBasedPolicies")
+- [Specifying policy elements: Actions, effects, resources, and principals](#IAM.Overview.PolicyElements "#IAM.Overview.PolicyElements")
+- [Specifying conditions in a policy](#IAM.Overview.Conditions "#IAM.Overview.Conditions")
+
+### Identity-based policies (IAM policies)
+
+You can attach policies to IAM identities. For example, you can do the following:
+
+- **Attach a permissions policy to a user or a group in your
+  account** – An account administrator can use a
+  permissions policy that is associated with a particular user to grant
+  permissions. In this case, the permissions are for that user to create
+  an ElastiCache resource, such as a cluster, parameter group, or security
+  group.
+- **Attach a permissions policy to a role
+  (grant cross-account permissions)** – You can attach an
+  identity-based permissions policy to an IAM role to grant cross-account
+  permissions. For example, the administrator in Account A can create a
+  role to grant cross-account permissions to another AWS account (for
+  example, Account B) or an AWS service as follows:
+
+      1. Account A administrator creates an IAM role and attaches a
+       permissions policy to the role that grants permissions on
+       resources in Account A.
+      2. Account A administrator attaches a trust policy to the role
+       identifying Account B as the principal who can assume the role.
+      3. Account B administrator can then delegate permissions to assume the role to any users
+       in Account B. Doing this allows users in Account B to create or
+       access resources in Account A. In some cases, you might want to
+       grant an AWS service permissions to assume the role. To support
+       this approach, the principal in the trust policy can also be an
+       AWS service principal.
+
+  For more information about using IAM to delegate permissions, see
+  [Access
+  Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the _IAM User Guide_.
+
+The following is an example policy that allows a user to perform the
+`DescribeCacheClusters` action for your AWS account. ElastiCache also supports identifying specific resources
+using the resource ARNs for API actions. (This approach is also referred to as
+resource-level permissions).
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DescribeCacheClusters",
+ "Effect": "Allow",
+ "Action": [
+ "elasticache:DescribeCacheClusters"
+ ],
+ "Resource": "arn:aws:iam::*:role/*"
+ }
+ ]
+}`
+
+```
+
+For more information about using identity-based policies with ElastiCache, see [Using identity-based policies (IAM policies) for Amazon ElastiCache](IAM.md "IAM.md"). For more information about
+users, groups, roles, and permissions, see [Identities (Users,
+Groups, and Roles](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the _IAM User Guide_.
+
+### Specifying policy elements: Actions, effects, resources, and principals
+
+For each Amazon ElastiCache resource (see [Amazon ElastiCache resources and operations](#IAM.Overview.ResourcesAndOperations "#IAM.Overview.ResourcesAndOperations")), the service defines a
+set of API operations (see [Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md")). To grant permissions for these API operations, ElastiCache defines
+a set of actions that you can specify in a policy. For example, for the ElastiCache
+cluster resource, the following actions are defined:
+`CreateCacheCluster`, `DeleteCacheCluster`, and
+`DescribeCacheCluster`. Performing an API operation can require
+permissions for more than one action.
+
+The following are the most basic policy elements:
+
+- **Resource** – In a policy, you use
+  an Amazon Resource Name (ARN) to identify the resource to which the policy
+  applies. For more information, see [Amazon ElastiCache resources and operations](#IAM.Overview.ResourcesAndOperations "#IAM.Overview.ResourcesAndOperations").
+- **Action** – You use action keywords
+  to identify resource operations that you want to allow or deny. For example,
+  depending on the specified `Effect`, the
+  `elasticache:CreateCacheCluster`
+  permission allows or denies the user permissions to perform the Amazon ElastiCache
+  `CreateCacheCluster` operation.
+- **Effect** – You specify the effect when the user
+  requests the specific action—this can be either allow or deny. If you
+  don't explicitly grant access to (allow) a resource, access is implicitly
+  denied. You can also explicitly deny access to a resource. For example, you
+  might do this to make sure that a user can't access a resource, even if
+  a different policy grants access.
+- **Principal** – In
+  identity-based policies (IAM policies), the user that the policy is
+  attached to is the implicit principal. For resource-based
+  policies, you specify the user, account, service, or other entity that you
+  want to receive permissions (applies to resource-based policies only).
+
+To learn more about IAM policy syntax and descriptions, see [AWS IAM
+Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_.
+
+For a table showing all of the Amazon ElastiCache API actions, see [ElastiCache API permissions: Actions, resources, and conditions reference](IAM.md "IAM.md").
+
+### Specifying conditions in a policy
+
+When you grant permissions, you can use the IAM policy language to specify the
+conditions when a policy should take effect. For example, you might want a policy to
+be applied only after a specific date. For more information about specifying
+conditions in a policy language, see [Condition](../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition "../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition") in the _IAM User Guide_.
+
+To express conditions, you use predefined condition keys. To use ElastiCache-specific condition keys, see [Using condition keys](IAM.md "IAM.md"). There are AWS-wide condition keys that you can
+use as appropriate. For a complete list of AWS-wide keys, see [Available Keys for Conditions](../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys") in the _IAM User Guide_.

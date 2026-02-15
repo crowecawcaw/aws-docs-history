@@ -1,204 +1,169 @@
-# Viewing ElastiCache events
+# Managing ElastiCache Amazon SNS notifications
 
-ElastiCache logs events that relate to your cluster instances, security groups, and parameter groups.
-This information includes the date and time of the event,
-the source name and source type of the event,
-and a description of the event.
-You can easily retrieve events from the log using
-the ElastiCache console,
-the AWS CLI `describe-events` command, or
-the ElastiCache API action `DescribeEvents`.
+You can configure ElastiCache to send notifications for important cluster events using
+Amazon Simple Notification Service (Amazon SNS). In these examples, you will configure a cluster with the Amazon
+Resource Name (ARN) of an Amazon SNS topic to receive notifications.
 
-The following procedures show you how to view all ElastiCache events for the past 24 hours (1440 minutes).
+###### Note
 
-## Viewing ElastiCache events (Console)
+- This topic assumes that you've signed up for Amazon SNS and have set up and subscribed to an
+  Amazon SNS topic. For information on how to do this, see the [Amazon Simple Notification Service Developer Guide](../../../sns/latest/dg.md "../../../sns/latest/dg.md").
+- By default, the `API modify-replication-group` affects all groups in a Region
+  and not just the current specified group. If you want to configure one specific group in a Region
+  differently than the other groups, you can use the `--notification-topic-arn` option
+  to create a separate topic for that group.
 
-The following procedure displays events using the ElastiCache console.
+## Adding an Amazon SNS topic
 
-###### To view events using the ElastiCache console
+The following sections show you how to add an Amazon SNS topic using the AWS Console, the AWS CLI, or
+the ElastiCache API.
+
+### Adding an Amazon SNS topic (Console)
+
+The following procedure shows you how to add an Amazon SNS topic for a cluster. When using Valkey or Redis OSS
+to add an Amazon SNS topic for a replication group in step 2, instead of choosing a cluster,
+choose a replication group. Then follow the same remaining steps.
+
+###### Note
+
+This process can also be used to modify the Amazon SNS topic.
+
+###### To add or modify an Amazon SNS topic for a cluster (Console)
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at
    [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. To see a list of all available events, in the navigation pane, choose **Events**.
+2. In **Clusters**,
+   choose the cluster for which you want to add or modify an Amazon SNS topic ARN.
+3. Choose **Modify**.
+4. In **Modify Cluster** under **Topic for SNS Notification**, choose the SNS topic
+   you want to add, or choose **Manual ARN input**
+   and type the ARN of the Amazon SNS topic.
+5. Choose **Modify**.
 
-On the _Events_ screen each row of the list represents one event and displays
-the event source,
-the event type (cache-cluster, cache-parameter-group, cache-security-group, or cache-subnet-group),
-the GMT time of the event, and a description of the event.
+### Adding an Amazon SNS topic (AWS CLI)
 
-Using the **Filter** you can specify whether you want to see all events, or
-just events of a specific type in the event list.
+To add or modify an Amazon SNS topic for a cluster,
+use the AWS CLI command `modify-cache-cluster`.
 
-## Viewing ElastiCache events (AWS CLI)
+The following code example adds an Amazon SNS topic arn to _my-cluster_.
 
-To generate a list of ElastiCache events using the AWS CLI,
-use the command `describe-events`.
-You can use optional parameters to control
-the type of events listed,
-the time frame of the events listed,
-the maximum number of events to list, and more.
-
-The following code lists up to 40 cluster events.
+For Linux, macOS, or Unix:
 
 ```
-aws elasticache describe-events --source-type `cache-cluster` --max-items `40`
+aws elasticache modify-cache-cluster \
+    --cache-cluster-id `my-cluster` \
+    --notification-topic-arn `arn:aws:sns:us-west-2:123456789xxx:ElastiCacheNotifications`
 ```
 
-The following code lists all events for the past 24 hours (1440 minutes).
+For Windows:
 
 ```
-aws elasticache describe-events --source-type cache-cluster --duration 1440
+aws elasticache modify-cache-cluster ^
+    --cache-cluster-id `my-cluster` ^
+    --notification-topic-arn `arn:aws:sns:us-west-2:123456789xx:ElastiCacheNotifications`
 ```
 
-The output from the `describe-events` command looks something like this.
+For more information, see [modify-cache-cluster](../../../cli/latest/reference/elasticache/modify-cache-cluster.md "../../../cli/latest/reference/elasticache/modify-cache-cluster.md").
+
+### Adding an Amazon SNS topic (ElastiCache API)
+
+To add or modify an Amazon SNS topic for a cluster, call the
+`ModifyCacheCluster` action with the following parameters:
+
+- `CacheClusterId``=my-cluster`
+- `TopicArn``=arn%3Aaws%3Asns%3Aus-west-2%3A565419523791%3AElastiCacheNotifications`
+
+###### Example
 
 ```
-aws elasticache describe-events --source-type cache-cluster --max-items 40
-{
-    "Events": [
-        {
-            "SourceIdentifier": "my-mem-cluster",
-            "SourceType": "cache-cluster",
-            "Message": "Finished modifying number of nodes from 1 to 3",
-            "Date": "2020-06-09T02:01:21.772Z"
-        },
-        {
-            "SourceIdentifier": "my-mem-cluster",
-            "SourceType": "cache-cluster",
-            "Message": "Added cache node 0002 in availability zone us-west-2a",
-            "Date": "2020-06-09T02:01:21.716Z"
-        },
-        {
-            "SourceIdentifier": "my-mem-cluster",
-            "SourceType": "cache-cluster",
-            "Message": "Added cache node 0003 in availability zone us-west-2a",
-            "Date": "2020-06-09T02:01:21.706Z"
-        },
-        {
-            "SourceIdentifier": "my-mem-cluster",
-            "SourceType": "cache-cluster",
-            "Message": "Increasing number of requested nodes",
-            "Date": "2020-06-09T01:58:34.178Z"
-        },
-        {
-            "SourceIdentifier": "mycluster-0003-004",
-            "SourceType": "cache-cluster",
-            "Message": "Added cache node 0001 in availability zone us-west-2c",
-            "Date": "2020-06-09T01:51:14.120Z"
-        },
-        {
-            "SourceIdentifier": "mycluster-0003-004",
-            "SourceType": "cache-cluster",
-            "Message": "This cluster does not support persistence (ex: 'appendonly').  Please use a different instance type to enable persistence.",
-            "Date": "2020-06-09T01:51:14.095Z"
-        },
-        {
-            "SourceIdentifier": "mycluster-0003-004",
-            "SourceType": "cache-cluster",
-            "Message": "Cache cluster created",
-            "Date": "2020-06-09T01:51:14.094Z"
-        },
-        {
-            "SourceIdentifier": "mycluster-0001-005",
-            "SourceType": "cache-cluster",
-            "Message": "Added cache node 0001 in availability zone us-west-2b",
-            "Date": "2020-06-09T01:42:55.603Z"
-        },
-        {
-            "SourceIdentifier": "mycluster-0001-005",
-            "SourceType": "cache-cluster",
-            "Message": "This cluster does not support persistence (ex: 'appendonly').  Please use a different instance type to enable persistence.",
-            "Date": "2020-06-09T01:42:55.576Z"
-        },
-        {
-            "SourceIdentifier": "mycluster-0001-005",
-            "SourceType": "cache-cluster",
-            "Message": "Cache cluster created",
-            "Date": "2020-06-09T01:42:55.574Z"
-        },
-        {
-            "SourceIdentifier": "mycluster-0001-004",
-            "SourceType": "cache-cluster",
-            "Message": "Added cache node 0001 in availability zone us-west-2b",
-            "Date": "2020-06-09T01:28:40.798Z"
-        },
-        {
-            "SourceIdentifier": "mycluster-0001-004",
-            "SourceType": "cache-cluster",
-            "Message": "This cluster does not support persistence (ex: 'appendonly').  Please use a different instance type to enable persistence.",
-            "Date": "2020-06-09T01:28:40.775Z"
-        },
-        {
-            "SourceIdentifier": "mycluster-0001-004",
-            "SourceType": "cache-cluster",
-            "Message": "Cache cluster created",
-            "Date": "2020-06-09T01:28:40.773Z"
-        }
-    ]
-}
-
+https://elasticache.amazon.com/
+    ?Action=ModifyCacheCluster
+    &ApplyImmediately=false
+    &CacheClusterId=my-cluster
+    &NotificationTopicArn=arn%3Aaws%3Asns%3Aus-west-2%3A565419523791%3AElastiCacheNotifications
+    &Version=2014-12-01
+    &SignatureVersion=4
+    &SignatureMethod=HmacSHA256
+    &Timestamp=20141201T220302Z
+    &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
+    &X-Amz-Date=20141201T220302Z
+    &X-Amz-SignedHeaders=Host
+    &X-Amz-Expires=20141201T220302Z
+    &X-Amz-Credential=<credential>
+    &X-Amz-Signature=<signature>
 ```
 
-For more information, such as available parameters and permitted parameter values, see [`describe-events`](../../../cli/latest/reference/elasticache/describe-events.md "../../../cli/latest/reference/elasticache/describe-events.md").
+For more information, see [ModifyCacheCluster](../APIReference/API_ModifyCacheCluster.md "../APIReference/API_ModifyCacheCluster.md").
 
-## Viewing ElastiCache events (ElastiCache API)
+## Enabling and disabling Amazon SNS notifications
 
-To generate a list of ElastiCache events using the ElastiCache API,
-use the `DescribeEvents` action.
-You can use optional parameters to control
-the type of events listed,
-the time frame of the events listed,
-the maximum number of events to list, and more.
+You can turn notifications on or off for a cluster. The following
+procedures show you how to disable Amazon SNS notifications.
 
-The following code lists the 40 most recent cache-cluster events.
+### Enabling and disabling Amazon SNS notifications (Console)
+
+###### To disable Amazon SNS notifications using the AWS Management Console
+
+1. Sign in to the AWS Management Console and open the ElastiCache console at
+   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. To see a list of your clusters running Memcached, in the navigation pane
+   choose **Memcached**.
+
+To see a list of your clusters running Valkey or Redis OSS, in the navigation pane
+choose **Valkey** or **Redis OSS**. 3. Choose the box to the left of the cluster you want to modify notification for. 4. Choose **Modify**. 5. In **Modify Cluster** under **Topic for SNS Notification**,
+choose _Disable Notifications_. 6. Choose **Modify**.
+
+### Enabling and disabling Amazon SNS notifications (AWS CLI)
+
+To disable Amazon SNS notifications, use the command `modify-cache-cluster`
+with the following parameters:
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache modify-cache-cluster \
+    --cache-cluster-id `my-cluster` \
+    --notification-topic-status `inactive`
+```
+
+For Windows:
+
+```
+aws elasticache modify-cache-cluster ^
+    --cache-cluster-id `my-cluster` ^
+    --notification-topic-status `inactive`
+```
+
+###### Note
+
+When the cluster belongs to a replication group, you must use the CLI command `modify-replication-group` to enable or disable SNS notifications.
+
+### Enabling and disabling Amazon SNS notifications (ElastiCache API)
+
+To disable Amazon SNS notifications, call the `ModifyCacheCluster` action with the
+following parameters:
+
+- `CacheClusterId``=my-cluster`
+- `NotificationTopicStatus``=inactive`
+
+This call returns output similar to the following:
+
+###### Example
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
-   ?Action=DescribeEvents
-   &MaxRecords=40
-   &SignatureVersion=4
-   &SignatureMethod=HmacSHA256
-   &SourceType=cache-cluster
-   &Timestamp=20150202T192317Z
-   &Version=2015-02-02
-   &X-Amz-Credential=<credential>
+    ?Action=ModifyCacheCluster
+    &ApplyImmediately=false
+    &CacheClusterId=my-cluster
+    &NotificationTopicStatus=inactive
+    &Version=2014-12-01
+    &SignatureVersion=4
+    &SignatureMethod=HmacSHA256
+    &Timestamp=20141201T220302Z
+    &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
+    &X-Amz-Date=20141201T220302Z
+    &X-Amz-SignedHeaders=Host
+    &X-Amz-Expires=20141201T220302Z
+    &X-Amz-Credential=<credential>
+    &X-Amz-Signature=<signature>
 ```
-
-The following code lists the cache-cluster events for the past 24 hours (1440 minutes).
-
-```
-https://elasticache.us-west-2.amazonaws.com/
-   ?Action=DescribeEvents
-   &Duration=1440
-   &SignatureVersion=4
-   &SignatureMethod=HmacSHA256
-   &SourceType=cache-cluster
-   &Timestamp=20150202T192317Z
-   &Version=2015-02-02
-   &X-Amz-Credential=<credential>
-```
-
-The above actions should produce output similar to the following.
-
-```
-<DescribeEventsResponse xmlns="http://elasticache.amazonaws.com/doc/2015-02-02/">
-    <DescribeEventsResult>
-        <Events>
-            <Event>
-                <Message>Cache cluster created</Message>
-                <SourceType>cache-cluster</SourceType>
-                <Date>2015-02-02T18:22:18.202Z</Date>
-                <SourceIdentifier>mem01</SourceIdentifier>
-            </Event>
-
- (...output omitted...)
-
-        </Events>
-    </DescribeEventsResult>
-    <ResponseMetadata>
-        <RequestId>e21c81b4-b9cd-11e3-8a16-7978bb24ffdf</RequestId>
-    </ResponseMetadata>
-</DescribeEventsResponse>
-```
-
-For more information, such as available parameters and permitted parameter values, see [`DescribeEvents`](../APIReference/API_DescribeEvents.md "../APIReference/API_DescribeEvents.md").

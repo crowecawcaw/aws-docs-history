@@ -250,7 +250,7 @@ group using `--resharding-configuration`.
   cluster named `my-cluster`. The example also specifies the Availability
   Zone for each node in each shard. The operation begins immediately.
 
-###### Example - Adding Shards
+###### Example- Adding Shards
 
 For Linux, macOS, or Unix:
 
@@ -313,7 +313,7 @@ group using `ReshardingConfiguration`.
   The following process describes how to reconfigure the shards in your Valkey or Redis OSS (cluster mode enabled)
   cluster by adding shards using the ElastiCache API.
 
-###### Example - Adding Shards
+###### Example- Adding Shards
 
 The following example adds node groups to the Valkey or Redis OSS (cluster mode enabled) cluster
 `my-cluster`, so there are a total of four node groups
@@ -429,7 +429,7 @@ Use the following parameters with `modify-replication-group-shard-configuration`
 
 The following procedure describes the process for deleting one or more shards.
 
-###### Example - Removing Shards
+###### Example- Removing Shards
 
 The following example removes two node groups from the Valkey or Redis OSS (cluster mode enabled) cluster
 `my-cluster`, so there are a total of two node groups
@@ -499,7 +499,7 @@ Use the following parameters with `ModifyReplicationGroupShardConfiguration`.
 
 The following procedure describes the process for deleting one or more shards.
 
-###### Example - Removing Shards
+###### Example- Removing Shards
 
 The following example removes two node groups from the Valkey or Redis OSS (cluster mode enabled) cluster
 `my-cluster`, so there are a total of two node groups
@@ -575,7 +575,7 @@ Use the following parameters with `modify-replication-group-shard-configuration`
 The following process describes how to reconfigure the shards in your Valkey or Redis OSS (cluster mode enabled)
 cluster by rebalancing shards using the AWS CLI.
 
-###### Example - Rebalancing the Shards in a Cluster
+###### Example- Rebalancing the Shards in a Cluster
 
 The following example rebalances the slots in the Valkey or Redis OSS (cluster mode enabled) cluster `my-cluster`
 so that the slots are distributed as equally as possible.
@@ -622,7 +622,7 @@ Use the following parameters with `ModifyReplicationGroupShardConfiguration`.
 The following process describes how to reconfigure the shards in your Valkey or Redis OSS (cluster mode enabled)
 cluster by rebalancing the shards using the ElastiCache API.
 
-###### Example - Rebalancing a Cluster
+###### Example- Rebalancing a Cluster
 
 The following example rebalances the slots in the Valkey or Redis OSS (cluster mode enabled) cluster `my-cluster`
 so that the slots are distributed as equally as possible.

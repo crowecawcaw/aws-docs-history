@@ -52,6 +52,8 @@ configuration for your scaling policy. This configuration must include a
 `PredefinedMetricSpecification` for the predefined metric and a
 TargetValue for the target value of that metric.
 
+###### Example
+
 The following example describes a typical policy configuration for
 target-tracking scaling for an ElastiCache for Valkey and Redis OSS cluster. In this configuration, the
 `ElastiCachePrimaryEngineCPUUtilization` predefined metric is
@@ -80,6 +82,8 @@ describe how busy an instance is. The value of the metric must increase or
 decrease in proportion to the number of Shards in the cluster. This proportional
 increase or decrease is necessary to use the metric data to proportionally scale
 out or in the number of shards.
+
+###### Example
 
 The following example describes a target-tracking configuration for a
 scaling policy. In this configuration, a custom metric adjusts an ElastiCache for Redis OSS

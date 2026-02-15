@@ -164,7 +164,7 @@ To cancel a subscription, you unsubscribe from the channel specified when you
 subscribed to it. Or, if you subscribed using pattern matching, you unsubscribe
 using the same pattern that you used before.
 
-###### Example - Subscription to a Single Channel
+###### Example- Subscription to a Single Channel
 
 To subscribe to a single channel, use the SUBSCRIBE command specifying the channel you want to subscribe to.
 In the following example, a client subscribes to the _news.sports.golf_ channel.
@@ -180,7 +180,7 @@ specifying the channel to unsubscribe from.
 UNSUBSCRIBE news.sports.golf
 ```
 
-###### Example - Subscriptions to Multiple Specified Channels
+###### Example- Subscriptions to Multiple Specified Channels
 
 To subscribe to multiple specific channels, list the channels with the SUBSCRIBE command.
 In the following example, a client subscribes to the
@@ -219,7 +219,7 @@ or
 UNSUBSCRIBE
 ```
 
-###### Example - Subscriptions Using Pattern Matching
+###### Example- Subscriptions Using Pattern Matching
 
 Clients can subscribe to all channels that match a pattern by using the PSUBSCRIBE command.
 
@@ -272,7 +272,7 @@ counter. Each time a user "dislikes" a product, you increment an
 _item:productID:dislike_ counter. Using hashes, you can
 also maintain a list of everyone who has liked or disliked a product.
 
-###### Example - Likes and Dislikes
+###### Example- Likes and Dislikes
 
 ```
 INCR item:38923:likes

@@ -88,6 +88,8 @@ To increase the number of replicas in a Valkey or Redis OSS shard, use the
 You must include either the `--new-replica-count` or `--replica-configuration` parameter,
 but not both, in your call.
 
+###### Example
+
 The following example increases the number of replicas in the replication group
 `sample-repl-group` to three. When the example is finished, there
 are three replicas in each node group. This number applies whether this is a
@@ -191,6 +193,8 @@ To increase the number of replicas in a Valkey or Redis OSS shard, use the
 
 You must include either the `NewReplicaCount` or `ReplicaConfiguration` parameter,
 but not both, in your call.
+
+###### Example
 
 The following example increases the number of replicas in the replication group
 `sample-repl-group` to three. When the example is finished, there
