@@ -74,7 +74,7 @@ JSON
  "Action": "sts:AssumeRoleWithWebIdentity",
  "Condition": {
  "ForAnyValue:StringLike": {
- "openid-license-manager.amazonaws.com:amr": "aws:license-manager:token-issuer-account-id:`123456789012`"
+ "openid-license-manager.amazonaws.com:amr": "aws:license-manager:token-issuer-123456789012:`123456789012`"
  }
  }
  }
