@@ -28,6 +28,8 @@ US East (N. Virginia) Region. Note the following features that store data differ
 
 ###### Note
 
+When you use Amazon Q artifacts, your visualizations-related content is stored in a US Region.
+
 When you use [Console to Code with Amazon Q](console-to-code.md "console-to-code.md"), content is stored in your console Region and processed in a US Region.
 
 When you use Amazon Q generative SQL in Amazon Redshift, your content is stored and processed in your console Region. For more information, see [Interacting with Amazon Q generative SQL](../../../redshift/latest/mgmt/query-editor-v2-generative-ai.md "../../../redshift/latest/mgmt/query-editor-v2-generative-ai.md") in the _Amazon Redshift Management Guide_.

@@ -11,6 +11,8 @@ With Amazon Q Developer, you can:
 - **Analyze your costs** – Ask questions about your historical spending patterns, cost trends, and forecasted costs. For example, "What were my EC2 costs last month?" or "Why did my costs increase last week?"
 - **Find optimization opportunities** – Discover ways to reduce your AWS spending by asking about recommendations from Cost Optimization Hub, AWS Compute Optimizer, and Savings Plans. For example, "What are my top cost optimization opportunities?" or "Which EC2 instances are over-provisioned?"
 - **Understand pricing** – Get instant answers about AWS service pricing. For example, "How much does a c8g.2xlarge instance cost in us-east-1?" or "What would it cost to store 1 PB in S3 in Dublin?"
+- **Check payment status** – List recent invoices and check payment balance. For example, “List my invoices for the last 6 months” and “Do I have an outstanding payment balance?”
+- **Visualize your costs** – Generate custom charts and graphs of historical costs and usage, service pricing, budgets, and more. For example, “Show me a graph of how much we’re spending in each region” or “Create a chart breaking down EC2-Other costs last month”.
 
 Amazon Q Developer adapts to however you phrase your questions. You can ask specific questions when you know exactly what you want, or ask open-ended exploratory questions and let Q investigate on your behalf. Q maintains context throughout your conversation, so you can ask follow-up questions to dive deeper or guide the analysis in a specific direction.
 
@@ -36,6 +38,7 @@ To get started:
    - "What were my costs last month?"
    - "What are my top cost optimization opportunities?"
    - "How much does a c8g.2xlarge instance running Linux cost in us-east-1?"
+   - “Show me a pie chart of my costs by region last week”
 
 You can also configure Amazon Q Developer in chat applications such as Slack and Microsoft Teams. For more information about using Amazon Q Developer in chat applications, see [Chatting with Amazon Q Developer in chat applications](q-in-chat-applications.md "q-in-chat-applications.md").
 
@@ -69,3 +72,11 @@ Following are example questions about costs that you can ask Amazon Q Developer:
 - "What would it cost to store 1 PB in S3 in Dublin?"
 - "What's the monthly cost of a t4g.xlarge RDS instance with Multi-AZ and 300 GB gp2 storage?"
 - "What would be the price to build a basic three tier web app, with a small EC2 instance, API gateway, a ~5GB SQL database, and a basic JS front-end hosted in CloudFront?"
+
+**Cost visualization**
+
+- “Graph my support charges by month for the last 12 months”
+- “Show me an area chart of EC2 costs by instance type by day this month”
+- “Create a chart of S3 storage pricing by tier in us-east-1”"
+- “Line chart of Savings Plans coverage and utilization % over the last 3 months”
+- “Graph EC2 cost per vCPU hour over the last 3 weeks”

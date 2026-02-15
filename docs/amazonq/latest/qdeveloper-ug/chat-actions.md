@@ -42,6 +42,10 @@ taking to further your understanding of your AWS environment. If the initial pla
 Amazon Q attempts alternative methods or prompts you for any additional information
 required to continue.
 
+Amazon Q can provide answers to questions enriched with read-only Q artifacts. For example,
+when you ask a question about your resources or cost and billing, Amazon Q generates visualizations
+like tables and charts to help you quickly understand the state of your account resources.
+
 Amazon Q can’t answer questions about the data stored in your resources, such as listing
 objects in an Amazon S3 bucket, or questions related to your account security, identity,
 credentials, or cryptography.
@@ -92,6 +96,11 @@ Following are example questions you can ask Amazon Q about your resources:
   `<name>`
 - What alarms are configured for instance `<instance
 ID>`?
+- List RDS databases without CloudWatch alarms
+- List S3 buckets with tag value `<tag value>`
+- Show me chart of my costs by service last week
+- Show me a bar chart of my top 10 most expensive resources
+- Create a chart showing budget vs forecasted spend
 
 ## Count resources with AWS Resource Explorer
 
