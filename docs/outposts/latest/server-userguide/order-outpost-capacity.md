@@ -66,6 +66,11 @@ You'll specify this Outpost when you place the order.
 6. For **Site ID**, choose your site.
 7. Choose **Create Outpost**.
 
+###### Note
+
+You won't be able to modify the AZ anchor or physical location of your Outpost after you
+complete the order.
+
 ## Step 3: Place the order
 
 Place an order for the Outposts servers that you need.
@@ -168,6 +173,8 @@ Upload JSON file
 3. On the **Upload capacity configuration plan** page, upload the JSON
    file that specifies the instance type, size, and quantity.
 
+###### Example
+
 Example JSON file:
 
 ```
@@ -214,3 +221,8 @@ responsible for providing and managing this access. For more information, see th
 The installation is complete when Amazon EC2 capacity for your Outpost is available from your
 AWS account. After the capacity is available, you can launch Amazon EC2 instances on your Outposts server.
 For more information, see [Launch an instance on your Outposts server](launch-instance.md "launch-instance.md").
+
+###### Note
+
+You won't be able to modify the service link configuration after you complete the
+order.
