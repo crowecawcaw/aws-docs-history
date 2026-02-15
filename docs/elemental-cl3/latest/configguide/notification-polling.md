@@ -30,6 +30,8 @@ snmpget -c elemental_snmp -v2c -m `<MIB>`
         localhost `MIBvariable`
 ```
 
+###### Example
+
 ```
 snmpget -c elemental_snmp -v2c -m `ELEMENTAL-MIB`
           localhost `serviceStatus`
