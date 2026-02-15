@@ -8,6 +8,8 @@ conversation with the Amazon Nova 2 Sonic model.
 You can access the following example in our [Nova samples GitHub
 repo](https://github.com/aws-samples/amazon-nova-samples "https://github.com/aws-samples/amazon-nova-samples").
 
+There is a connection limit of 8 minutes, with connection renewal and conversation continuation pattern available on [GitHub](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/amazon-nova-2-sonic/repeatable-patterns/session-continuation/console-python "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/amazon-nova-2-sonic/repeatable-patterns/session-continuation/console-python") .
+
 ## State the imports and configuration
 
 This section imports necessary libraries and sets audio configuration

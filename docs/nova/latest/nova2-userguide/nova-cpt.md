@@ -1,0 +1,39 @@
+# Continued pre-training (CPT)
+
+Continued pre-training (CPT) is a training technique that extends the pre-training phase
+of a foundation model by exposing it to additional unlabeled text from
+specific domains or corpora. Unlike supervised fine-tuning, which requires labeled
+input-output pairs, CPT trains on raw documents to help the model acquire deeper knowledge of
+new domains, learn domain-specific terminology and writing patterns, and adapt to particular
+content types or subject areas.
+
+This approach is particularly valuable when you have large volumes (tens of billions of
+tokens) of domain-specific text data, such as legal documents, medical literature, technical
+documentation, or proprietary business content, and you want the model to develop native
+fluency in that domain. Generally, after the CPT stage, the model needs to undergo additional
+instruction tuning stages to enable the model to use the newly acquired knowledge and complete
+useful tasks.
+
+###### Supported models
+
+CPT is available for the following Amazon Nova models:
+
+- Nova 1.0 (Micro, Lite, Pro)
+- Nova 2.0 (Lite)
+
+###### When to use Nova 1.0 versus Nova 2.0
+
+The Amazon Nova family of models offers multiple price-performance operating points to
+optimize between accuracy, speed, and cost.
+
+Choose Nova 2.0 when you need the following:
+
+- Advanced reasoning capabilities for complex analytical tasks
+- Superior performance on coding, math, and scientific problem-solving
+- Longer context length support
+- Better multilingual performance
+
+###### Note
+
+The larger model is not always better. Consider the cost-performance tradeoff and your
+specific business requirements when selecting between Nova 1.0 and Nova 2.0 models.

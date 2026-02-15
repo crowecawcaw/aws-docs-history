@@ -121,4 +121,4 @@ For current pricing information, see [Amazon Bedrock Pricing](https://aws.amazon
 - To learn about new features in Amazon Nova 2, see [What's new in Amazon Nova 2](whats-new.md "whats-new.md").
 - To start using Amazon Nova, see [Getting started with Amazon Nova 2](getting-started-nova-2.md "getting-started-nova-2.md").
 - To learn about core inference capabilities, see [Core inference](core-inference.md "core-inference.md").
-- To customize models for your use case, see [Customizing Amazon Nova 2.0 models](customization.md "customization.md").
+- To customize models for your use case, see [Customizing Amazon Nova models on SageMaker AI](nova-model.md "nova-model.md").

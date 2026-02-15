@@ -9,7 +9,7 @@ conversation seamlessly.
 Refer to the following resources for more information on managing chat
 history:
 
-1. [Logging chat history](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/chat-history-logger "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/chat-history-logger")
+1. [Logging chat history](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/amazon-nova-2-sonic/repeatable-patterns/chat-history-logger "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/amazon-nova-2-sonic/repeatable-patterns/chat-history-logger")
 2. [Resuming conversations](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/resume-conversation "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/resume-conversation")
 
 ## Sending chat history

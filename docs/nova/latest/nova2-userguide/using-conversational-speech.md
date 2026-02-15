@@ -43,3 +43,4 @@ Amazon Nova 2 Sonic provides the following capabilities:
   process in the background.
 - Cross-modal input support for both audio and text inputs within the same
   conversation, enabling flexible interaction patterns.
+- Connection limit of 8 minutes, with connection renewal and session continuation pattern available in code samples.
