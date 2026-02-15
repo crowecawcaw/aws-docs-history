@@ -87,12 +87,16 @@ arn:aws:sns:`region`:`account_ID`:`topic_name`
 For more information about ARNs, go to [ARNs](../../../IAM/latest/UserGuide/Using_Identifiers.md#Identifiers_ARNs "../../../IAM/latest/UserGuide/Using_Identifiers.md#Identifiers_ARNs") in
 _IAM User Guide_.
 
+###### Example
+
 The following is an ARN for a topic named MyTopic in the us-east-2 region,
 belonging to AWS account 123456789012.
 
 ```
 arn:aws:sns:us-east-2:123456789012:MyTopic
 ```
+
+###### Example
 
 If you had a topic named MyTopic in each of the different Regions that Amazon SNS supports,
 you could specify the topics with the following ARN.
