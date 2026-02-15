@@ -22,7 +22,7 @@ source to a target.
     **Rule-based**. 3. (Optional) To process only new, updated, or deleted records in the workflow,
     select **Enable incremental processing**.
 
-    ![The ID mapping section of the Specify ID mapping workflow page with the Enable incremental process checkbox selected.](/images/entityresolution/latest/userguide/images/id-mapping-method-enable-inc-proc.png)
+    ![The ID mapping section of the Specify ID mapping workflow page with the Enable incremental process checkbox selected.](images/id-mapping-method-enable-inc-proc.png)
 
     AWS Entity Resolution processes only new, updated, or deleted records in either the Source or
     Target ID namespace, rather than recreating the entire ID mapping table.

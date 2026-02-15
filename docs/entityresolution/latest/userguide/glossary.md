@@ -645,6 +645,8 @@ The Amazon Resource Name (ARN) generated for the [schema mapping](#schema-mappin
 A unique identifier that you designate and that must be assigned to each row of input data
 that AWS Entity Resolution reads.
 
+###### Example
+
 For example: `Primary_key`, `Row_ID`, or
 `Record_ID`.
 

@@ -43,6 +43,8 @@ Import from AWS Glue
     Guide_. 6. For **Unique ID**, specify the column that distinctly
     references each row of your data.
 
+    ###### Example
+
     For example: `Primary_key`,
     `Row_ID`, or `Record_ID`.
 
@@ -288,6 +290,8 @@ option
       schema**.
    3. For **Unique ID**, enter a unique ID to identify each row
       of your data.
+
+   ###### Example
 
    For example: `Primary_key`,
    `Row_ID`, or `Record_ID`.

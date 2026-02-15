@@ -190,7 +190,9 @@ For more information, see [PutDeliverySource](../../../AmazonCloudWatchLogs/late
 
     1. Pass the `resourceArn`.
     2. For `logType`, the type of logs that are collected are
-     `WORKFLOW_LOGS`:Example `PutDeliverySource` API operation
+     `WORKFLOW_LOGS`:###### Example
+
+Example `PutDeliverySource` API operation
 
 ```
 {
@@ -207,6 +209,8 @@ You can choose either CloudWatch Logs, Amazon S3, or Firehose as the destination
 the ARN of one of the destination options for where your logs will be stored.
 
 For more information, see [PutDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md") in the Amazon CloudWatch Logs API Reference.
+
+###### Example
 
 Example `PutDeliveryDestination` API operation
 
@@ -231,6 +235,8 @@ the destination that you created in the earlier steps. This API operation associ
 the delivery source with the end destination.
 
 For more information, see [PutDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md") in the Amazon CloudWatch Logs API Reference.
+
+###### Example
 
 Example `CreateDelivery` API operation
 
