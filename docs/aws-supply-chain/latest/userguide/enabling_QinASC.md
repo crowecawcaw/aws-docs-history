@@ -30,4 +30,11 @@ To update the instance role in the IAM console, perform the following steps:
 2. In the IAM console, find the instance role with the AWS Supply Chain _InstanceId_. You can find the AWS Supply Chain _InstanceId_ in the AWS Supply Chain console.
 3. Attach the following policy as an inline policy to the role.
 
+JSON
+
+```
+
+
+```
+
 Replace the `kmsKeyArn` with the actual AWS KMS Key Arn used in the AWS Supply Chain instance.
