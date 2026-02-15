@@ -44,6 +44,8 @@ For more information, see [VPC sizing](../../../vpc/latest/userguide/configure-y
 
 If Amazon VPC requirements are not met, cluster creation fails.
 
+###### Example
+
 Amazon VPC console
 
 1. Open the [Amazon VPC console](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc").

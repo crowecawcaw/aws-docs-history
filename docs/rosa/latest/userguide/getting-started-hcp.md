@@ -47,6 +47,8 @@ For more information, see [VPC sizing](../../../vpc/latest/userguide/configure-y
 
 If Amazon VPC requirements are not met, cluster creation fails.
 
+###### Example
+
 Terraform
 
 1. Install the Terraform CLI.
@@ -328,6 +330,8 @@ rosa list oidc-config
 ```
 
 5. Create the required IAM operator roles, replacing `<OIDC_CONFIG_ID>` with the OIDC config ID copied previously.
+
+###### Example
 
 ###### Important
 
