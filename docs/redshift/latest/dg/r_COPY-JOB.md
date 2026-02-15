@@ -137,6 +137,8 @@ To query COPY command files loaded and load errors, see [STL_LOAD_COMMITS](r_STL
 For more information, see [Verifying that the data loaded
 correctly](verifying-that-data-loaded-correctly.md "verifying-that-data-loaded-correctly.md").
 
+COPY JOBS are not supported on zero-ETL databases as they operate in read-only mode.
+
 ## Examples
 
 The following example shows creating a COPY JOB to load data from an Amazon S3 bucket.
