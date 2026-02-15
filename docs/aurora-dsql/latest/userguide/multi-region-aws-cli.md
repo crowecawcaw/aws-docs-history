@@ -114,6 +114,8 @@ To peer your US East (Ohio) cluster with your US East (N. Virginia) cluster, use
 `update-cluster` command. Specify your US East (Ohio) cluster name and a
 JSON string with the ARN of the US East (N. Virginia) cluster.
 
+###### Example
+
 ```
 aws dsql update-cluster \
 --region us-east-2 \
@@ -143,6 +145,8 @@ properties
 
 When you describe a cluster, you can view multi-Region properties for clusters
 in different AWS Regions.
+
+###### Example
 
 ```
 aws dsql get-cluster \
@@ -176,6 +180,8 @@ aws dsql get-cluster \
 #### Peer clusters during creation
 
 You can reduce the number of steps by including peering information during cluster creation. After creating your first cluster in US East (N. Virginia) (Step 1), you can create your second cluster in US East (Ohio) while simultaneously initiating the peering process by including the ARN of the first cluster.
+
+###### Example
 
 ```
 aws dsql create-cluster \

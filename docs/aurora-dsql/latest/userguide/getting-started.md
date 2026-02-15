@@ -213,6 +213,8 @@ endpoints.
 5. Choose **Connect as admin**.
 6. Query the data that you inserted into the second cluster.
 
+###### Example
+
 ```
 SELECT * FROM test.hello_world;
 ```

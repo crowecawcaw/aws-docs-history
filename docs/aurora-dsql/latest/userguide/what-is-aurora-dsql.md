@@ -9,8 +9,8 @@ infrastructure. The active-active highly available architecture provides 99.99% 
 
 Aurora DSQL is optimized for transactional workloads that benefit from ACID transactions and a
 relational data model. Because it's serverless, Aurora DSQL is ideal for application patterns of
-microservice, serverless, and event-driven architectures. Aurora DSQL uses the PostgreSQL wire protocol, so you
-can use familiar drivers, object-relational mappings (ORMs), frameworks, and SQL syntax.
+microservice, serverless, and event-driven architectures. Aurora DSQL is PostgreSQL-compatible, so you
+can use familiar drivers, object-relational mappings (ORMs), frameworks, and SQL features.
 
 Aurora DSQL automatically manages system infrastructure and scales compute, I/O, and storage
 based on your workload. Because you have no servers to provision or manage, you don't have to
@@ -64,11 +64,11 @@ operations, and provide strong data consistency. You can build applications that
 multiple Regions at the same time for performance and resilience—and know that readers
 always see the same data.
 
-**PostgreSQL wire protocol**
+**Compatibility with PostgreSQL**
 
 The distributed database layer (compute) in Aurora DSQL is based on a current major version of
-PostgreSQL. Connect to Aurora DSQL with familiar PostgreSQL drivers and tools, such as
-`psql`. Aurora DSQL is currently based on PostgreSQL version 16 and supports a
+PostgreSQL. You can connect to Aurora DSQL with familiar PostgreSQL drivers and tools, such as
+`psql`. Aurora DSQL is currently compatible with PostgreSQL version 16 and supports a
 wide range of PostgreSQL features, expressions, and data types. For more information about the
 supported SQL features, see [SQL feature compatibility in
 Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md").
@@ -87,18 +87,22 @@ locations for compliance.
 The following table shows the AWS Regions where Aurora DSQL is currently available and the
 endpoint for each AWS Region.
 
-| Region Name           | Region         | Endpoint                                              | Protocol       |
-| --------------------- | -------------- | ----------------------------------------------------- | -------------- |
-| US East (Ohio)        | us-east-2      | dsql.us-east-2.api.aws<br>dsql-fips.us-east-2.api.aws | HTTPS<br>HTTPS |
-| US East (N. Virginia) | us-east-1      | dsql.us-east-1.api.aws<br>dsql-fips.us-east-1.api.aws | HTTPS<br>HTTPS |
-| US West (Oregon)      | us-west-2      | dsql.us-west-2.api.aws<br>dsql-fips.us-west-2.api.aws | HTTPS<br>HTTPS |
-| Asia Pacific (Osaka)  | ap-northeast-3 | dsql.ap-northeast-3.api.aws                           | HTTPS          |
-| Asia Pacific (Seoul)  | ap-northeast-2 | dsql.ap-northeast-2.api.aws                           | HTTPS          |
-| Asia Pacific (Tokyo)  | ap-northeast-1 | dsql.ap-northeast-1.api.aws                           | HTTPS          |
-| Europe (Frankfurt)    | eu-central-1   | dsql.eu-central-1.api.aws                             | HTTPS          |
-| Europe (Ireland)      | eu-west-1      | dsql.eu-west-1.api.aws                                | HTTPS          |
-| Europe (London)       | eu-west-2      | dsql.eu-west-2.api.aws                                | HTTPS          |
-| Europe (Paris)        | eu-west-3      | dsql.eu-west-3.api.aws                                | HTTPS          |
+| Region Name              | Region         | Endpoint                                                    | Protocol       |
+| ------------------------ | -------------- | ----------------------------------------------------------- | -------------- |
+| US East (Ohio)           | us-east-2      | dsql.us-east-2.api.aws<br>dsql-fips.us-east-2.api.aws       | HTTPS<br>HTTPS |
+| US East (N. Virginia)    | us-east-1      | dsql.us-east-1.api.aws<br>dsql-fips.us-east-1.api.aws       | HTTPS<br>HTTPS |
+| US West (Oregon)         | us-west-2      | dsql.us-west-2.api.aws<br>dsql-fips.us-west-2.api.aws       | HTTPS<br>HTTPS |
+| Asia Pacific (Melbourne) | ap-southeast-4 | dsql.ap-southeast-4.api.aws                                 | HTTPS          |
+| Asia Pacific (Osaka)     | ap-northeast-3 | dsql.ap-northeast-3.api.aws                                 | HTTPS          |
+| Asia Pacific (Seoul)     | ap-northeast-2 | dsql.ap-northeast-2.api.aws                                 | HTTPS          |
+| Asia Pacific (Sydney)    | ap-southeast-2 | dsql.ap-southeast-2.api.aws                                 | HTTPS          |
+| Asia Pacific (Tokyo)     | ap-northeast-1 | dsql.ap-northeast-1.api.aws                                 | HTTPS          |
+| Canada (Central)         | ca-central-1   | dsql.ca-central-1.api.aws<br>dsql-fips.ca-central-1.api.aws | HTTPS<br>HTTPS |
+| Canada West (Calgary)    | ca-west-1      | dsql.ca-west-1.api.aws<br>dsql-fips.ca-west-1.api.aws       | HTTPS<br>HTTPS |
+| Europe (Frankfurt)       | eu-central-1   | dsql.eu-central-1.api.aws                                   | HTTPS          |
+| Europe (Ireland)         | eu-west-1      | dsql.eu-west-1.api.aws                                      | HTTPS          |
+| Europe (London)          | eu-west-2      | dsql.eu-west-2.api.aws                                      | HTTPS          |
+| Europe (Paris)           | eu-west-3      | dsql.eu-west-3.api.aws                                      | HTTPS          |
 
 ### Multi-Region cluster availability
 

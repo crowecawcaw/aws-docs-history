@@ -47,16 +47,6 @@ Aurora DSQL is fully managed, so configuration is handled automatically based on
 
 Adapt these common PostgreSQL patterns for Aurora DSQL compatibility:
 
-**Sequences for keys**
-
-Use UUIDs or composite keys instead of auto-incrementing
-sequences. Auto-incrementing sequences lead to a high amount
-of conflicts in a distributed system as multiple writers are
-trying to update the same data. UUIDs provide the same
-function but require no coordination.
-
-**Example:** `id UUID PRIMARY KEY DEFAULT gen_random_uuid()`
-
 **Referential integrity patterns**
 
 Aurora DSQL supports table relationships and `JOIN` operations. For referential integrity, implement validation in your application layer. This design aligns with modern distributed database patterns where application-layer validation provides more flexibility and avoids performance bottlenecks from cascading operations.
@@ -147,7 +137,7 @@ Aurora DSQL automatically manages storage optimization, statistics collection, a
 
 Aurora DSQL automatically partitions and distributes your data based on access patterns. Use UUIDs or application-generated IDs for optimal distribution.
 
-**Migration tip:** Remove manual partitioning logic and let Aurora DSQL handle data distribution. Use UUIDs or application-generated IDs instead of sequences.
+**Migration tip:** Remove manual partitioning logic and let Aurora DSQL handle data distribution. Use UUIDs or application-generated IDs for optimal distribution. If your application requires sequential identifiers, see [Sequences and identity columns](sequences-identity-columns.md "sequences-identity-columns.md").
 
 ## Aurora DSQL
 

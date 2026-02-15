@@ -1,6 +1,6 @@
 # Aurora DSQL cluster lifecycle
 
-Understanding the Aurora DSQL cluster lifecycle helps you manage your clusters effectively. This chapter covers cluster status definitions and the scale to zero feature that optimizes costs.
+Understanding the Aurora DSQL cluster lifecycle helps you manage your clusters effectively. This section covers cluster status definitions and the scale to zero feature that optimizes costs.
 
 ## Defining Aurora DSQL cluster status
 
@@ -20,9 +20,9 @@ status means.
 | **Updating**       | A cluster transitions to the \*_Updating_<br>• status when you make<br>changes to the cluster configuration.                                                                                                                                                                                                                                                                                            |
 | **Deleting**       | A cluster transitions to the \*_Deleting_<br>• status when you submit<br>a request to delete it.                                                                                                                                                                                                                                                                                                        |
 | **Deleted**        | The cluster has been successfully deleted.                                                                                                                                                                                                                                                                                                                                                              |
-| **Failed**         | Aurora DSQL could not create the cluster because it encountered an error.                                                                                                                                                                                                                                                                                                                               |
+| **Failed**         | Aurora DSQL couldn't create the cluster because it encountered an error.                                                                                                                                                                                                                                                                                                                                |
 | **Pending Setup**  | For multi-Region clusters only. A multi-Region cluster enters the<br>\*_Pending Setup_<br>• status when you create a multi-Region cluster in<br>your first Region with a witness Region. Cluster creation pauses until you create<br>another cluster in a secondary Region and peer the two clusters together.                                                                                          |
-| **Pending Delete** | For multi-Region clusters only. A multi-Region cluster enters the<br>**Pending Delete\*<br>• status when you delete a cluster from it. The<br>cluster moves to the **Deleting\*<br>• state once you delete the last peer<br>cluster.                                                                                                                                                                    |
+| **Pending Delete** | For multi-Region clusters only. A multi-Region cluster enters the<br>**Pending Delete\*<br>• status when you delete a cluster from it. The<br>cluster moves to the **Deleting\*<br>• state after you delete the last peer<br>cluster.                                                                                                                                                                   |
 
 ### Working with Idle and Inactive clusters
 
@@ -44,17 +44,17 @@ slower than usual.
 
 Some operations require your cluster to be in an Active state. To perform these
 operations on an **Idle** or **Inactive** cluster,
-you need to transition your cluster back to Active by simply connecting to your cluster.
+you need to transition your cluster back to Active by connecting to your cluster.
 
 ###### Backup operations
 
 Taking a backup requires an Active cluster state. If your cluster is **Idle** or **Inactive**,
-backups will fail with the following error:
+backups fail with the following error:
 
 ```
 "Error": {
     "Code": "FailedPrecondition",
-    "Message": "Cluster 'cluster-id' is in state 'IDLE' and cannot be backed up.
+    "Message": "Cluster 'cluster-id' is in state 'IDLE' and can't be backed up.
     In order to take a backup of your cluster, it must be in Active state. Please
     connect to your cluster to transition it to Active to perform the backup."
 }
@@ -64,11 +64,11 @@ To proceed with a backup:
 
 1. Connect to the cluster using your preferred database client or the Aurora DSQL console to wake it up.
 2. Wait for automatic transition to **Active** state.
-3. Initiate the backup once the cluster is fully operational.
+3. Initiate the backup after the cluster is fully operational.
 
 ###### Note
 
-Existing backups taken before the cluster was transitioned to Idle or Inactive remain valid and unaffected. New backup attempts on the cluster will fail until the cluster is connected to for auto wake up.
+Existing backups taken before the cluster was Idle or Inactive remain valid and unaffected. New backup attempts on the cluster will fail until the cluster is connected to for auto wake up.
 
 ## Viewing your Aurora DSQL cluster status
 

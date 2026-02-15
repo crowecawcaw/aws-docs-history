@@ -1,8 +1,8 @@
 # Aurora DSQL and PostgreSQL
 
-Aurora DSQL is a distributed relational database that uses the PostgreSQL wire protocol, making it
-familiar to developers with PostgreSQL experience. Aurora DSQL uses core PostgreSQL components such as the
-parser, planner, optimizer, and type system.
+Aurora DSQL is a PostgreSQL-compatible, distributed relational database designed for transactional
+workloads. Aurora DSQL uses core PostgreSQL components such as the parser, planner, optimizer, and type
+system.
 
 The Aurora DSQL design ensures that all supported PostgreSQL syntax provides compatible behavior and
 yields identical query results. For example, Aurora DSQL provides type conversions, arithmetic
@@ -19,13 +19,13 @@ distributed applications.
 Aurora DSQL is currently based on PostgreSQL version 16. Key highlights include the
 following:
 
-**Wire protocol compatibility**
+**Wire protocol**
 
-Aurora DSQL uses the standard PostgreSQL v3 wire protocol, enabling seamless integration with
-existing PostgreSQL clients, drivers, and tools. Connect using familiar tools like
-`psql`, `pgjdbc`, and `psycopg` with no changes required.
+Aurora DSQL uses the standard PostgreSQL v3 wire protocol. This enables integration with
+standard PostgreSQL clients, drivers, and tools. For example, Aurora DSQL is compatible with
+`psql`, `pgjdbc`, and `psycopg`.
 
-**Familiar SQL syntax**
+**SQL syntax**
 
 Aurora DSQL supports a wide range of standard PostgreSQL expressions and functions commonly
 used in transactional workloads. Supported SQL expressions yield identical results to
