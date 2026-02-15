@@ -1,277 +1,456 @@
-# DELETE and UPDATE FROM for T-SQL
+# Identity and sequences for T-SQL
 
-This topic provides reference information about the differences in SQL syntax and functionality between Microsoft SQL Server 2019 and Amazon Aurora MySQL, specifically regarding DELETE and UPDATE statements with joins. You can use this information to understand how to adapt your existing SQL Server queries when migrating to Aurora MySQL.
+This topic provides reference content comparing identity and sequence features between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the key differences and similarities in how these database systems handle automatic enumeration functions and columns, which are commonly used for generating surrogate keys.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences            |
-| ------------------------------- | ---------------------------------- | ------------------------- | -------------------------- |
-| Four star feature compatibility | Four star automation level         | N/A                       | Rewrite to use subqueries. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                               | Key differences                                                                                                                                          |
+| ------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Two star feature compatibility | Three star automation level        | [Identity and Sequences](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.identitysequences "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.identitysequences") | MySQL doesn’t support `SEQUENCE` objects. Rewrite `IDENTITY` to `AUTO_INCREMENT`. Last value is evaluated as `MAX(Existing Value) + 1` on every restart. |
 
 ## SQL Server Usage
 
-SQL Server supports an extension to the ANSI standard that allows using an additional `FROM` clause in `UPDATE` and `DELETE` statements.
+Automatic enumeration functions and columns are common with relational database management systems and are often used for generating surrogate keys.
 
-You can use this additional `FROM` clause to limit the number of modified rows by joining the table being updated, or deleted from, to one or more other tables. This functionality is similar to using a `WHERE` clause with a derived table subquery. For `UPDATE`, you can use this syntax to set multiple column values simultaneously without repeating the subquery for every column.
+SQL Server provides several features that support automatic generation of monotonously increasing value generators:
 
-However, these statements can introduce logical inconsistencies if a row in an updated table is matched to more than one row in a joined table. The current implementation chooses an arbitrary value from the set of potential values and is non deterministic.
+- The `IDENTITY` property of a table column.
+- The `SEQUENCE` objects framework.
+- The numeric functions such as `IDENTITY` and `NEWSEQUENTIALID`.
+
+### Identity
+
+The `IDENTITY` property is probably the most widely used means of generating surrogate primary keys in SQL Server applications. Each table may have a single numeric column assigned as an `IDENTITY` using the `CREATE TABLE` or `ALTER TABLE` DDL statements. You can explicitly specify a starting value and increment.
+
+###### Note
+
+The identity property doesn’t enforce uniqueness of column values, indexing, or any other property. Additional constraints such as primary or unique keys, explicit index specifications, or other properties must be specified in addition to the `IDENTITY` property.
+
+The `IDENTITY` value is generated as part of the transaction that inserts table rows. Applications can obtain `IDENTITY` values using the `@@IDENTITY`, `SCOPE_IDENTITY`, and `IDENT_CURRENT` functions.
+
+`IDENTITY` columns may be used as primary keys by themselves, as part of a compound key, or as non-key columns.
+
+You can manage `IDENTITY` columns using the `DBCC CHECKIDENT` command, which provides functionality for reseeding and altering properties.
+
+#### Syntax
+
+```
+IDENTITY [(<Seed Value>, <Increment Value>)]
+```
+
+View the original seed value of an `IDENTITY` column with the `IDENT_SEED` system function.
+
+```
+SELECT IDENT_SEED (<Table>)
+```
+
+Reseed an `IDENTITY` column.
+
+```
+DBCC CHECKIDENT (<Table>, RESEED, <Seed Value>)
+```
+
+#### Examples
+
+Create a table with an `IDENTITY` primary key column.
+
+```
+CREATE TABLE MyTABLE
+(
+    Col1 INT NOT NULL
+    PRIMARY KEY NONCLUSTERED IDENTITY(1,1),
+    Col2 VARCHAR(20) NOT NULL
+);
+```
+
+Insert a row and retrieve the generated `IDENTITY` value.
+
+```
+DECLARE @LastIdent INT;
+INSERT INTO MyTable(Col2)
+VALUES('SomeString');
+SET @LastIdent = SCOPE_IDENTITY()
+```
+
+Create a table with a non-key `IDENTITY` column and an increment of 10.
+
+```
+CREATE TABLE MyTABLE
+(
+    Col1 VARCHAR(20) NOT NULL
+        PRIMARY KEY,
+    Col2 INT NOT NULL
+        IDENTITY(1,10),
+);
+```
+
+Create a table with a compound PK including an `IDENTITY` column.
+
+```
+CREATE TABLE MyTABLE
+(
+    Col1 VARCHAR(20) NOT NULL,
+    Col2 INT NOT NULL
+        IDENTITY(1,10),
+    PRIMARY KEY (Col1, Col2)
+);
+```
+
+### SEQUENCE
+
+Sequences are objects that are independent of a particular table or column and are defined using the `CREATE SEQUENCE` DDL statement. You can manage sequences using the `ALTER SEQUENCE` statement. Multiple tables and multiple columns from the same table may use the values from one or more `SEQUENCE` objects.
+
+You can retrieve a value from a `SEQUENCE` object using the `NEXT VALUE FOR` function. For example, a `SEQUENCE` value can be used as a default value for a surrogate key column.
+
+`SEQUENCE` objects provide several advantages over `IDENTITY` columns:
+
+- Can be used to obtain a value before the actual `INSERT` takes place.
+- Value series can be shared among columns and tables.
+- Easier management, restart, and modification of sequence properties.
+- Allow assignment of value ranges using `sp_sequence_get_range` and not just per-row values.
+
+#### Syntax
+
+```
+CREATE SEQUENCE <Sequence Name> [AS <Integer Data Type> ]
+START WITH <Seed Value>
+INCREMENT BY <Increment Value>;
+```
+
+```
+ALTER SEQUENCE <Sequence Name>
+RESTART [WITH <Reseed Value>]
+INCREMENT BY <New Increment Value>;
+```
+
+#### Examples
+
+Create a sequence for use as a primary key default.
+
+```
+CREATE SEQUENCE MySequence AS INT START WITH 1 INCREMENT BY 1;
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL
+        PRIMARY KEY NONCLUSTERED DEFAULT (NEXT VALUE FOR MySequence),
+    Col2 VARCHAR(20) NULL
+);
+```
+
+```
+INSERT MyTable (Col1, Col2) VALUES (DEFAULT, 'cde'), (DEFAULT, 'xyz');
+```
+
+```
+SELECT * FROM MyTable;
+```
+
+```
+Col1  Col2
+1     cde
+2     xyz
+```
+
+### Sequential Enumeration Functions
+
+SQL Server provides two sequential generation functions: `IDENTITY` and `NEWSEQUENTIALID`.
+
+###### Note
+
+The `IDENTITY` function shouldn’t be confused with the `IDENTITY` property of a column.
+
+You can use the `IDENTITY` function only in a `SELECT …​ INTO` statement to insert `IDENTITY` column values into a new table.
+
+The `NEWSEQUNTIALID` function generates a hexadecimal GUID, which is an integer. While the `NEWID` function generates a random GUID, the `NEWSEQUENTIALID` function guarantees that every GUID created is greater in numeric value than any other GUID previously generated by the same function on the same server since the operating system restart.
+
+###### Note
+
+You can use `NEWSEQUENTIALID` only with `DEFAULT` constraints associated with columns having a `UNIQUEIDENTIFIER` data type.
+
+#### Syntax
+
+```
+IDENTITY (<Data Type> [, <Seed Value>, <Increment Value>]) [AS <Alias>]
+```
+
+```
+NEWSEQUENTIALID()
+```
+
+#### Examples
+
+Use the `IDENTITY` function as surrogate key for a new table based on an existing table.
+
+```
+CREATE TABLE MySourceTable
+(
+    Col1 INT NOT NULL PRIMARY KEY,
+    Col2 VARCHAR(10) NOT NULL,
+    Col3 VARCHAR(10) NOT NULL
+);
+```
+
+```
+INSERT INTO MySourceTable
+VALUES
+(12, 'String12', 'String12'),
+(25, 'String25', 'String25'),
+(95, 'String95', 'String95');
+```
+
+```
+SELECT IDENTITY(INT, 100, 1) AS SurrogateKey,
+    Col1,
+    Col2,
+    Col3
+INTO MyNewTable
+FROM MySourceTable
+ORDER BY Col1 DESC;
+```
+
+```
+SELECT *
+FROM MyNewTable;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+SurrogateKey  Col1  Col2      Col3
+100           95    String95  String95
+101           25    String25  String25
+102           12    String12  String12
+```
+
+Use `NEWSEQUENTIALID` as a surrogate key for a new table.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 UNIQUEIDENTIFIER NOT NULL
+    PRIMARY KEY NONCLUSTERED DEFAULT NEWSEQUENTIALID()
+);
+```
+
+```
+INSERT INTO MyTable
+DEFAULT VALUES;
+```
+
+```
+SELECT *
+FROM MyTable;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+Col1
+
+9CC01320-C5AA-E811-8440-305B3A017068
+```
+
+For more information, see [Sequence Numbers](https://docs.microsoft.com/en-us/sql/relational-databases/sequence-numbers/sequence-numbers?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/sequence-numbers/sequence-numbers?view=sql-server-ver15") and [CREATE TABLE (Transact-SQL) IDENTITY (Property)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15") in the _SQL Server documentation_.
+
+## MySQL Usage
+
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports automatic sequence generation using the `AUTO_INCREMENT` column property, similar to the `IDENTITY` column property in SQL Server.
+
+Aurora MySQL doesn’t support table-independent sequence objects.
+
+Any numeric column may be assigned the `AUTO_INCREMENT` property. To make the system generate the next sequence value, the application must not mention the relevant column’s name in the insert command, in case the column was created with the NOT NULL definition then also inserting a NULL value into an `AUTO_INCREMENT` column will increment it. In most cases, the seed value is 1 and the increment is 1.
+
+Client applications use the `LAST_INSERT_ID` function to obtain the last generated value.
+
+Each table can have only one `AUTO_INCREMENT` column. The column must be explicitly indexed or be a primary key, which is indexed by default.
+
+The `AUTO_INCREMENT` mechanism is designed to be used with positive numbers only. Do not use negative values because they will be misinterpreted as a complementary positive value. This limitation is due to precision issues with sequences crossing a zero boundary.
+
+There are two server parameters used to alter the default values for new `AUTO_INCREMENT` columns:
+
+- `auto_increment_increment` — Controls the sequence interval.
+- `auto_increment_offset` — Determines the starting point for the sequence.
+
+To reseed the `AUTO_INCREMENT` value, use `ALTER TABLE <Table Name> AUTO_INCREMENT = <New Seed Value>`.
 
 ### Syntax
 
 ```
-UPDATE <Table Name>
-SET <Column Name> = <Expression> ,...
-FROM <Table Source>
-WHERE <Filter Predicate>;
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] <Table Name>
+(<Column Name> <Data Type> [NOT NULL | NULL]
+AUTO_INCREMENT [UNIQUE [KEY]] [[PRIMARY] KEY]...
 ```
-
-```
-DELETE FROM <Table Name>
-FROM <Table Source>
-WHERE <Filter Predicate>;
-```
-
-### Examples
-
-Delete customers with no orders.
-
-```
-CREATE TABLE Customers
-(
-    Customer VARCHAR(20) PRIMARY KEY
-);
-```
-
-```
-INSERT INTO Customers
-VALUES
-('John'),
-('Jim'),
-('Jack')
-```
-
-```
-CREATE TABLE Orders
-(
-    OrderID INT NOT NULL PRIMARY KEY,
-    Customer VARCHAR(20) NOT NULL,
-    OrderDate DATE NOT NULL
-);
-```
-
-```
-INSERT INTO Orders (OrderID, Customer, OrderDate)
-VALUES
-(1, 'Jim', '20180401'),
-(2, 'Jack', '20180402');
-```
-
-```
-DELETE FROM Customers
-FROM Customers AS C
-    LEFT OUTER JOIN
-    Orders AS O
-    ON O.Customer = C.Customer
-WHERE O.OrderID IS NULL;
-```
-
-```
-SELECT *
-FROM Customers;
-```
-
-For the preceding examples, the result looks as shown following.
-
-```
-Customer
-
-Jim
-Jack
-```
-
-Update multiple columns in `Orders` based on the values in `OrderCorrections`.
-
-```
-CREATE TABLE OrderCorrections
-(
-    OrderID INT NOT NULL PRIMARY KEY,
-    Customer VARCHAR(20) NOT NULL,
-    OrderDate DATE NOT NULL
-);
-```
-
-```
-INSERT INTO OrderCorrections
-VALUES (1, 'Jack', '20180324');
-```
-
-```
-UPDATE O
-SET Customer = OC.Customer,
-    OrderDate = OC.OrderDate
-FROM Orders AS O
-    INNER JOIN
-    OrderCorrections AS OC
-    ON O.OrderID = OD.OrderID;
-```
-
-```
-SELECT *
-FROM Orders;
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-Customer  OrderDate
-Jack      2018-03-24
-Jack      2018-04-02
-```
-
-For more information, see [UPDATE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15"), [DELETE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15"), and [FROM clause plus JOIN, APPLY, PIVOT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
-
-## MySQL Usage
-
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t support `DELETE` and `UPDATE FROM` syntax.
 
 ### Migration Considerations
 
-You can easily rewrite the `DELETE` and `UPDATE FROM` statements as subqueries.
+Since Aurora MySQL doesn’t support table-independent `SEQUENCE` objects, applications that rely on its properties must use a custom solution to meet their requirements.
 
-For `DELETE`, place the subqueries in the `WHERE` clause.
-
-For `UPDATE`, place the subqueries either in the `WHERE` or `SET` clause.
+In Aurora MySQL, you can use `AUTO_INCREMENT` instead of `IDENTITY` in SQL Server for most cases. For `AUTO_INCREMENT` columns, the application must explicitly `INSERT` a NULL or a 0.
 
 ###### Note
 
-When rewriting `UPDATE FROM` queries, include a `WHERE` clause to limit which rows are updated even if the SQL Server version (where the rows were limited by the join condition) did not have one.
+Omitting the `AUTO_INCREMENT` column from the `INSERT` column list has the same effect as inserting a NULL value.
 
-For `DELETE` statements, the workaround is simple and, in most cases, easier to read and understand.
+Make sure that your `AUTO_INCREMENT` columns are indexed and don’t have default constraints assigned to the same column. There is a critical difference between `IDENTITY` and `AUTO_INCREMENT` in the way the sequence values are maintained upon service restart. Application developers must be aware of this difference.
 
-For `UPDATE` statements, the workaround involves repeating the correlated subquery for each column being set.
+### Sequence Value Initialization
 
-Although this approach makes the code longer and harder to read, it does solve the logical challenges associated with updates having multiple matched rows in the joined tables.
+SQL Server stores the `IDENTITY` metadata in system tables on disk. Although some values may be cached and lost when the service is restarted, the next time the server restarts, the sequence value continues after the last block of values that was assigned to cache. If you run out of values, you can explicitly set the sequence value to start the cycle over. As long as there are no key conflicts, it can be reused after the range has been exhausted.
 
-In the current implementation, the SQL Server engine silently chooses an arbitrary value if more than one value exists for the same row.
+In Aurora MySQL, an `AUTO_INCREMENT` column for a table uses a special counter called the auto-increment counter to assign new values for the column. This counter is stored in cache memory only and isn’t persisted to disk. After a service restart, and when Aurora MySQL encounters an `INSERT` to a table containing an `AUTO_INCREMENT` column, it issues an equivalent of the following statement:
 
-When you rewrite the statement to use a correlated subquery, such as in the following example, if more than one value is returned from the sub query, a SQL error will be raised: `SQL Error [1242] [21000]: Subquery returns more than 1 row`.
+```
+SELECT MAX(<Auto Increment Column>) FROM <Table Name> FOR UPDATE;
+```
 
-Consult the documentation for the Aurora MySQL
-`UPDATE` statement as there are significant processing differences from SQL Server. For example:
+###### Note
 
-- In Aurora MySQL, you can update multiple tables in a single `UPDATE` statement.
-- `UPDATE` expressions are evaluated in order from left to right. This behavior differs from SQL Server and the ANSI standard, which require an all-at-once evaluation.
+The `FOR UPDATE CLAUSE` is required to maintain locks on the column until the read completes.
 
-For example, in the statement `UPDATE Table SET Col1 = Col1 + 1, Col2 = Col1`, `Col2` is set to the new value of `Col1`. The end result is `Col1 = Col2`.
+Aurora MySQL then increments the value retrieved by the preceding statement and assigns it to the in-memory autoincrement counter for the table. By default, the value is incremented by one. You can change the default using the `auto_increment_increment` configuration setting. If the table has no values, Aurora MySQL uses the value 1. You can change the default using the `auto_increment_offset` configuration setting.
+
+Every server restart effectively cancels any `AUTO_INCREMENT = <Value>` table option in `CREATE TABLE` and `ALTER TABLE` statements.
+
+Unlike `IDENTITY` columns in SQL Server, which by default don’t allow inserting explicit values, Aurora MySQL allows explicit values to be set. If a row has an explicitly specified `AUTO_INCREMENT` column value and the value is greater than the current counter value, the counter is set to the specified column value.
 
 ### Examples
 
-Delete customers with no orders.
+Create a table with an `AUTO_INCREMENT` column.
 
 ```
-CREATE TABLE Customers
+CREATE TABLE MyTable
 (
-    Customer VARCHAR(20) PRIMARY KEY
+    Col1 INT NOT NULL
+    AUTO_INCREMENT PRIMARY KEY,
+    Col2 VARCHAR(20) NOT NULL
 );
 ```
 
+Insert `AUTO_INCREMENT` values.
+
 ```
-INSERT INTO Customers
-VALUES
-('John'),
-('Jim'),
-('Jack')
+INSERT INTO MyTable (Col2)
+VALUES ('AI column omitted');
 ```
 
 ```
-CREATE TABLE Orders
-(
-    OrderID INT NOT NULL PRIMARY KEY,
-    Customer VARCHAR(20) NOT NULL,
-    OrderDate DATE NOT NULL
-);
+INSERT INTO MyTable (Col1, Col2)
+VALUES (NULL, 'Explicit NULL');
 ```
 
 ```
-INSERT INTO Orders (OrderID, Customer, OrderDate)
-VALUES
-(1, 'Jim', '20180401'),
-(2, 'Jack', '20180402');
+INSERT INTO MyTable (Col1, Col2)
+VALUES (10, 'Explicit value');
 ```
 
 ```
-DELETE FROM Customers
-WHERE Customer NOT IN (
-    SELECT Customer
-    FROM Orders
-);
+INSERT INTO MyTable (Col2)
+VALUES ('Post explicit value');
 ```
 
 ```
 SELECT *
-FROM Customers;
+FROM MyTable;
 ```
 
 For the preceding example, the result looks as shown following.
 
 ```
-Customer
-
-Jim
-Jack
+Col1  Col2
+1     AI column omitted
+2     Explicit NULL
+10    Explicit value
+11    Post explicit value
 ```
 
-Update multiple columns in `Orders` based on the values in `OrderCorrections`.
+Reseed `AUTO_INCREMENT`.
 
 ```
-CREATE TABLE OrderCorrections
-(
-    OrderID INT NOT NULL PRIMARY KEY,
-    Customer VARCHAR(20) NOT NULL,
-    OrderDate DATE NOT NULL
-);
+ALTER TABLE MyTable AUTO_INCREMENT = 30;
 ```
 
 ```
-INSERT INTO OrderCorrections
-VALUES (1, 'Jack', '20180324');
-```
-
-```
-UPDATE Orders
-SET Customer = (
-    SELECT Customer
-    FROM OrderCorrections AS OC
-    WHERE Orders.OrderID = OC.OrderID
-),
-OrderDate = (
-    SELECT OrderDate
-    FROM OrderCorrections AS OC
-    WHERE Orders.OrderID = OC.OrderID
-IN (
-    SELECT OrderID
-    FROM OrderCorrections
-);
+INSERT INTO MyTable (Col2)
+VALUES ('Post ALTER TABLE');
 ```
 
 ```
 SELECT *
-FROM Orders;
+FROM MyTable;
 ```
 
 For the preceding example, the result looks as shown following.
 
 ```
-Customer  OrderDate
-Jack      2018-03-24
-Jack      2018-04-02
+1     AI column omitted
+2     Explicit NULL
+10    Explicit value
+11    Post explicit value
+30    Post ALTER TABLE
+```
+
+Change the increment value to 10.
+
+###### Note
+
+Changing the `@@auto_increment_increment` value to 10 impacts all `AUTO_INCREMENT` enumerators in the database.
+
+```
+SET @@auto_increment_increment=10;
+```
+
+Verify variable change.
+
+```
+SHOW VARIABLES LIKE 'auto_inc%';
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+Variable_name             Value
+auto_increment_increment  10
+auto_increment_offset     1
+```
+
+Insert several rows and then read.
+
+```
+INSERT INTO MyTable (Col1, Col2)
+VALUES (NULL, 'Row1'), (NULL, 'Row2'), (NULL, 'Row3'), (NULL, 'Row4');
+```
+
+```
+SELECT Col1, Col2
+FROM MyTable;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+1     AI column omitted
+2     Explicit NULL
+10    Explicit value
+11    Post explicit value
+30    Post ALTER TABLE
+40    Row1
+50    Row2
+60    Row3
+70    Row4
 ```
 
 ## Summary
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| Feature                  | SQL Server            | Aurora MySQL | Comments                                                                                                |
-| ------------------------ | --------------------- | ------------ | ------------------------------------------------------------------------------------------------------- |
-| Join as part of `DELETE` | `DELETE FROM …​ FROM` | N/A          | Rewrite to use the `WHERE` clause with a subquery.                                                      |
-| Join as part of `UPDATE` | `UPDATE …​ FROM`      | N/A          | Rewrite to use correlated subquery in the `SET` clause and add the `WHERE` clause to limit updates set. |
+| Feature                                 | SQL Server                                                | Aurora MySQL                                                 | Comments                                                                                                                                                                                                          |
+| --------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Independent `SEQUENCE` object           | `CREATE SEQUENCE`                                         | Not supported                                                |                                                                                                                                                                                                                   |
+| Automatic enumerator column property    | `IDENTITY`                                                | `AUTO_INCREMENT`                                             |                                                                                                                                                                                                                   |
+| Reseed sequence value                   | `DBCC CHECKIDENT`                                         | `ALTER TABLE <Table Name> AUTO_INCREMENT = <New Seed Value>` |                                                                                                                                                                                                                   |
+| Column restrictions                     | Numeric                                                   | Numeric, indexed, and no `DEFAULT`                           |                                                                                                                                                                                                                   |
+| Controlling seed and interval values    | `CREATE/ALTER TABLE`                                      | `auto_increment_increment`<br>`auto_increment_offset`        | Aurora MySQL settings are global and can’t be customized for each column as in SQL Server.                                                                                                                        |
+| Sequence setting initialization         | Maintained through service restarts                       | Re-initialized every service restart                         | For more information, see [Sequence Value Initialization](#chap-sql-server-aurora-mysql.tsql.identitysequences.mysql.initialization "#chap-sql-server-aurora-mysql.tsql.identitysequences.mysql.initialization"). |
+| Explicit values to column               | Not allowed by default, `SET IDENTITY_INSERT ON` required | Supported                                                    | Aurora MySQL requires explicit NULL or 0 to trigger sequence value assignment. Inserting an explicit value larger than all others will reinitialize the sequence.                                                 |
+| Non PK auto enumerator column           | Supported                                                 | Not Supported                                                | Implement an application enumerator.                                                                                                                                                                              |
+| Compound PK with auto enumerator column | Supported                                                 | Not Supported                                                | Implement an application enumerator.                                                                                                                                                                              |
 
-For more information, see [UPDATE Statement](https://dev.mysql.com/doc/refman/5.7/en/update.html "https://dev.mysql.com/doc/refman/5.7/en/update.html") and [DELETE Statement](https://dev.mysql.com/doc/refman/5.7/en/delete.html "https://dev.mysql.com/doc/refman/5.7/en/delete.html") in the _MySQL documentation_.
+For more information, see [Using AUTO_INCREMENT](https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html "https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html"), [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), and [AUTO_INCREMENT Handling in InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization.html") in the _MySQL documentation_.

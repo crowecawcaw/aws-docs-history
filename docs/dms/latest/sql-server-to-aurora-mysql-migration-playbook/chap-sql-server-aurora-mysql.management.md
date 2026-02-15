@@ -1,132 +1,150 @@
-# Scripting features
+# Database mail features
 
-This topic provides reference information about the differences in scripting and automation capabilities between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the contrasting tool sets and scripting languages used in these database systems.
+This topic provides reference information about migrating the Database Mail feature from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can understand the key differences in email functionality between these two database systems and learn about alternative approaches for sending emails from Aurora MySQL.
 
-| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                             |
-| ------------------------ | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| No feature compatibility | N/A                                | N/A                       | Non-compatible tool sets and scripting languages. Use MySQL Workbench, Amazon RDS API, AWS Management Console, and AWS CLI. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                       | Key differences                                                                                                                                                                                                                                                         |
+| ------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| One star feature compatibility | No automation                      | [SQL Server Database Mail](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.mail "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.mail") | Use AWS Lambda integration. For more information, see [Invoking a Lambda function from an Amazon Aurora MySQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md"). |
 
 ## SQL Server Usage
 
-SQL Server supports T-SQL and XQuery scripting within multiple run frameworks such as SQL Server Agent, and stored procedures.
+The Database Mail framework is an email client solution for sending messages directly from SQL Server. Email capabilities and APIs within the database server provide easy management of the following messages:
 
-The `SQLCMD` command line utility can also be used to run T-SQL scripts. However, the most extensive and feature-rich scripting environment is PowerShell.
-
-SQL Server provides two PowerShell snap-ins that implement a provider exposing the entire SQL Server Management Object Model (SMO) as PowerShell paths. Additionally, you can use `cmd` in SQL Server to run specific SQL Server commands.
-
-###### Note
-
-You can use `Invoke-Sqlcmd` to run scripts using the SQLCMD utility.
-
-The `sqlps` utility launches the PowerShell scripting environment and automatically loads the SQL Server modules. You can launch `sqlps` from a command prompt or from the Object Explorer pane of SQL Server Management Studio. You can run one-time PowerShell commands and script files (for example, `.\SomeFolder\SomeScript.ps1`).
+- Server administration messages such as alerts, logs, status reports, and process confirmations.
+- Application messages such as user registration confirmation and action verifications.
 
 ###### Note
 
-SQL Server Agent supports running PowerShell scripts in job steps. For more information, see [SQL Server Agent and MySQL Agent](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md").
+Database Mail is turned off by default.
 
-SQL Server also supports three types of direct database engine queries: T-SQL, XQuery, and the SQLCMD utility. You can call T-SQL and XQuery from stored procedures, SQL Server Management Studio (or other IDE), and SQL Server agent jobs. The SQLCMD utility also supports commands and variables.
+The main features of the Database Mail framework are:
+
+- Database Mail sends messages using the standard and secure Simple Mail Transfer Protocol (SMTP).
+- The email client engine runs asynchronously and sends messages in a separate process to minimize dependencies.
+- Database Mail supports multiple SMTP Servers for redundancy.
+- Full support and awareness of Windows Server Failover Cluster for high availability environments.
+- Multi-profile support with multiple failover accounts in each profile.
+- Enhanced security management with separate roles in MSDB.
+- Security is enforced for mail profiles.
+- Attachment sizes are monitored and can be capped by the administrator.
+- Attachment file types can be added to the deny list.
+- Email activity can be logged to SQL Server, the Windows application event log, and to a set of system tables in MSDB.
+- Supports full auditing capabilities with configurable retention policies.
+- Supports both plain text and HTML messages.
+
+### Architecture
+
+Database Mail is built on top of the Microsoft SQL Server Service Broker queue management framework.
+
+The system stored procedure `sp_send_dbmail` sends email messages. When this stored procedure runs, it inserts an row to the mail queue and records the email message.
+
+The queue insert operation triggers the run of the Database Mail process (DatabaseMail.exe). The Database Mail process then reads the email information and sends the message to the SMTP servers.
+
+When the SMTP servers acknowledge or reject the message, the Database Mail process inserts a status row into the status queue, including the result of the send attempt. This insert operation triggers the run of a system stored procedure that updates the status of the Email message send attempt.
+
+Database Mail records all Email attachments in the system tables. SQL Server provides a set of system views and stored procedures for troubleshooting and administration of the Database Mail queue.
+
+### Deprecated SQL Mail Framework
+
+The old SQL Mail framework using `xp_sendmail` has been deprecated as of SQL Server 2008 R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
+
+The legacy mail system has been completely replaced by the greatly enhanced DB mail framework described here. The old system has been out-of-use for many years because it was prone to synchronous run issues and windows mail profile quirks.
+
+### Syntax
+
+```
+EXECUTE sp_send_dbmail
+    [[,@profile_name =] '<Profile Name>']
+    [,[,@recipients =] '<Recipients>']
+    [,[,@copy_recipients =] '<CC Recipients>']
+    [,[,@blind_copy_recipients =] '<BCC Recipients>']
+    [,[,@from_address =] '<From Address>']
+    [,[,@reply_to =] '<Reply-to Address>']
+    [,[,@subject =] '<Subject>']
+    [,[,@body =] '<Message Body>']
+    [,[,@body_format =] '<Message Body Format>']
+    [,[,@importance =] '<Importance>']
+    [,[,@sensitivity =] '<Sensitivity>']
+    [,[,@file_attachments =] '<Attachments>']
+    [,[,@query =] '<SQL Query>']
+    [,[,@execute_query_database =] '<Execute Query Database>']
+    [,[,@attach_query_result_as_file =] <Attach Query Result as File>]
+    [,[,@query_attachment_filename =] <Query Attachment Filename>]
+    [,[,@query_result_header =] <Query Result Header>]
+    [,[,@query_result_width =] <Query Result Width>]
+    [,[,@query_result_separator =] '<Query Result Separator>']
+    [,[,@exclude_query_output =] <Exclude Query Output>]
+    [,[,@append_query_error =] <Append Query Error>]
+    [,[,@query_no_truncate =] <Query No Truncate>]
+    [,[,@query_result_no_padding =] @<Parameter for Query Result No Padding>]
+    [,[,@mailitem_id =] <Mail item id>] [,OUTPUT]
+```
 
 ### Examples
 
-Backup a database with PowerShell using the default backup options.
+Create a Database Mail account.
 
 ```
-PS C:\> Backup-SqlDatabase -ServerInstance "MyServer\SQLServerInstance" -Database "MyDB"
+EXECUTE msdb.dbo.sysmail_add_account_sp
+    @account_name = 'MailAccount1',
+    @description = 'Mail account for testing DB Mail',
+    @email_address = 'Address@MyDomain.com',
+    @replyto_address = 'ReplyAddress@MyDomain.com',
+    @display_name = 'Mailer for registration messages',
+    @mailserver_name = 'smtp.MyDomain.com' ;
 ```
 
-Get all rows from the `MyTable` table in the `MyDB` database.
+Create a Database Mail profile.
 
 ```
-PS C:\> Read-SqlTableData -ServerInstance MyServer\SQLServerInstance" -DatabaseName "MyDB" -TableName "MyTable"
+EXECUTE msdb.dbo.sysmail_add_profile_sp
+    @profile_name = 'MailAccount1 Profile',
+    @description = 'Mail Profile for testing DB Mail' ;
 ```
 
-For more information, see [SQL Server PowerShell](https://docs.microsoft.com/en-us/sql/powershell/sql-server-powershell?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/powershell/sql-server-powershell?view=sql-server-ver15"), [Database Engine Scripting](https://docs.microsoft.com/en-us/sql/ssms/scripting/database-engine-scripting?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/ssms/scripting/database-engine-scripting?view=sql-server-ver15"), and [sqlcmd Utility](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15") in the _SQL Server documentation_.
+Associate the account with the profile.
+
+```
+EXECUTE msdb.dbo.sysmail_add_profileaccount_sp
+    @profile_name = 'MailAccount1 Profile',
+    @account_name = 'MailAccount1',
+    @sequence_number =1 ;
+```
+
+Grant the profile access to the `DBMailUsers` role.
+
+```
+EXECUTE msdb.dbo.sysmail_add_principalprofile_sp
+    @profile_name = 'MailAccount1 Profile',
+    @principal_name = 'ApplicationUser',
+    @is_default = 1 ;
+```
+
+Send a message with `sp_db_sendmail`.
+
+```
+EXEC msdb.dbo.sp_send_dbmail
+    @profile_name = 'MailAccount1 Profile',
+    @recipients = 'Recipient@Mydomain.com',
+    @query = 'SELECT * FROM fn_WeeklySalesReport(GETDATE())',
+    @subject = 'Weekly Sales Report',
+    @attach_query_result_as_file = 1 ;
+```
+
+For more information, see [Database Mail](https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/database-mail?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/database-mail?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-As a Platform as a Service (PaaS), Aurora MySQL accepts connections from any compatible client, but you can’t access the MySQL command line utility typically used for database administration. However, you can use MySQL tools installed on a network host and the Amazon RDS API. The most common tools for Aurora MySQL scripting and automation include MySQL Workbench, MySQL Utilities, and the Amazon RDS API. The following sections describe each tool.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t provide native support sending mail from the database.
 
-### MySQL Workbench
+For alerting purposes, use the event notification subscription feature to send email notifications to operators. For more information, see [Alerting](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md").
 
-MySQL Workbench is the most commonly used tool for development and administration of MySQL servers. It is available as a free Community Edition and a paid Commercial Edition that adds enterprise features such as database documentation features. MySQL Workbench is an integrated IDE with the following features:
+For application email requirements, consider using a dedicated email framework. If the code generating email messages must be in the database, consider using a queue table. Replace all occurrences of `sp_send_dbmail` with an `INSERT` into the queue table. Design external applications to connect, read the queue, send email an message, and then update the status periodically. With this approach, messages can be populated with a query result similar to `sp_send_dbmail` with the query option.
 
-- **SQL Development** — Manage and configure connections to aurora MySQL clusters and run SQL queries using the SQL editor.
-- **Data Modeling** — Reverse and forward engineer graphical database schema models and manage schemas with the Table Editor.
-- **Server Administration** — Not applicable to Aurora MySQL. Use the Amazon RDS console to administer servers.
+The only way to send email from the database, is to use the AWS Lambda integration.
 
-The MySQL Workbench also supports a Python scripting shell that you can use interactively and programmatically.
-
-### MySQL Utilities
-
-MySQL Utilities are a set of Python command line tools used for common maintenance and administration of MySQL servers tasks. They can reduce the need to write custom code for common tasks and can be easily customized.
-
-The following tools are included in the MySQL Utilities set. Note that some tools will not work with Aurora MySQL because you don’t have root access to the underlying server.
-
-- **Admin utilities** — Clone, Copy, Compare, Diff, Export, Import, and User Management.
-- **Replication utilities** — Setup, Configuration, and Verification
-- **General utilities** — Disk Usage, Redundant Indexes, Manage Metadata, and Manage Audit Data
-
-### Amazon RDS API
-
-The Amazon RDS API is a web service for managing and maintaining Aurora PostgreSQL and other relational databases. You can use Amazon RDS API to setup, operate, scale, backup, and perform many common administration tasks. The Amazon RDS API supports multiple database platforms and can integrate administration seamlessly for heterogeneous environments.
-
-###### Note
-
-The Amazon RDS API is asynchronous. Some interfaces may require polling or callback functions to receive command status and results.
-
-You can access Amazon RDS using the AWS Management Console, the AWS Command Line Interface (CLI), and the Amazon RDS Programmatic API as described in the following sections.
-
-### AWS Management Console
-
-The AWS Management Console is a simple web-based set of tools for interactive management of Aurora PostgreSQL and other Amazon RDS services. To access the AWS Management Console, sign in to your AWS account, and choose **RDS**.
-
-### AWS Command Line Interface
-
-The AWS Command Line Interface is an open source tool that runs on Linux, Windows, or macOS having Python 2 version 2.6.5 and higher or Python 3 version 3.3 and higher.
-
-The AWS CLI is built on top of the AWS SDK for Python (Boto), which provides commands for interacting with AWS services. With minimal configuration, you can start using all AWS Management Console functionality from your favorite terminal application.
-
-- **Linux shells** — Use common shell programs such as Bash, Zsh, or tsch.
-- **Windows command line** — Run commands in PowerShell or the Windows Command Processor.
-- **Remotely** — Run commands on Amazon EC2 instances through a remote terminal such as PuTTY or SSH.
-
-The AWS Tools for Windows PowerShell and AWS Tools for PowerShell Core are PowerShell modules built on the functionality exposed by the AWS SDK for .NET. These Tools enable scripting operations for AWS resources using the PowerShell command line.
-
-###### Note
-
-You can’t use SQL Server cmdlets in PowerShell.
-
-### Amazon RDS Programmatic API
-
-You can use the Amazon RDS API to automate management of database instances and other Amazon RDS objects.
-
-For more information, see [Actions](../../../AmazonRDS/latest/APIReference/API_Operations.md "../../../AmazonRDS/latest/APIReference/API_Operations.md"), [Data Types](../../../AmazonRDS/latest/APIReference/API_Types.md "../../../AmazonRDS/latest/APIReference/API_Types.md"), [Common Parameters](../../../AmazonRDS/latest/APIReference/CommonParameters.md "../../../AmazonRDS/latest/APIReference/CommonParameters.md"), and [Common Errors](../../../AmazonRDS/latest/APIReference/CommonErrors.md "../../../AmazonRDS/latest/APIReference/CommonErrors.md") in the _Amazon Relational Database Service API Reference_.
+For more information, see [AWS Lambda](https://aws.amazon.com/lambda "https://aws.amazon.com/lambda").
 
 ### Examples
 
-The following walkthrough describes how to connect to an Aurora MySQL database instance using the MySQL utility.
-
-1. Sign in to your AWS account, choose **RDS**, and then choose **Databases**.
-2. Choose the MySQL database you want to connect to and copy the cluster endpoint address.
-
-###### Note
-
-You can also connect to individual database instances. For more information, see [High Availability Essentials](chap-sql-server-aurora-mysql.hadr.md "chap-sql-server-aurora-mysql.hadr.md"). 3. In the command shell, enter the following:
-
-```
-mysql -h <mysql-instance-endpoint-address> -P 3306 -u MasterUser
-```
-
-In the preceding example, the `-h` parameter is the endpoint Domain Name System (DNS) name of the Aurora MySQL database cluster.
-
-In the preceding example, the `-P` parameter is the port number. 4. Provide the password when prompted. The system displays the following (or similar) message.
-
-```
-Welcome to the MySQL monitor. Commands end with ; or \g.
-Your MySQL connection id is 350
-Server version: 5.6.27-log MySQL Community Server (GPL)
-Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
-mysql>
-```
-
-For more information, see [MySQL Product Archives](https://downloads.mysql.com/archives/utilities/ "https://downloads.mysql.com/archives/utilities/"), [MySQL Workbench 8.0.29](https://dev.mysql.com/downloads/workbench/ "https://dev.mysql.com/downloads/workbench/"), [Command Line Interface](../../../cli/latest/reference.md "../../../cli/latest/reference.md"), and [Amazon Relational Database Service API Reference](../../../AmazonRDS/latest/APIReference/Welcome.md "../../../AmazonRDS/latest/APIReference/Welcome.md").
+You can send emails from Aurora MySQL using AWS Lambda integration. For more information, see [Invoking a Lambda function from an Amazon Aurora MySQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md").
