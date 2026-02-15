@@ -213,7 +213,10 @@ provider before following this procedure.
 example.yourdomain.com
 ```
 
-    1. If you use Amazon Route 53, create an Alias record. For
+    1. ###### Example
+
+
+    If you use Amazon Route 53, create an Alias record. For
      more information, see [Creating records by using the Amazon Route 53
      console](../../../Route53/latest/DeveloperGuide/resource-record-sets-creating.md "../../../Route53/latest/DeveloperGuide/resource-record-sets-creating.md") in the *Amazon Route 53 Developer Guide*.
     2. If you use a different DNS provider, create a CNAME record
