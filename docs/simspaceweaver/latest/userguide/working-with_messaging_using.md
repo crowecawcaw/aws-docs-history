@@ -126,6 +126,8 @@ generic message. This example sends 16 individual messages. Each message
 contains a payload with a value betwen 0 and 15, and the current simulation
 tick.
 
+###### Example
+
 C++
 
 ```
@@ -242,6 +244,8 @@ SimSpace Weaver delivers messages into a partition’s inbound message queue. Us
 from the queue. Process each message with the
 `ExtractMessage` API to get the message data.
 
+###### Example
+
 C++
 
 ```
@@ -291,6 +295,8 @@ def _process_incoming_messages(self, txn):
 Every received message contains a message header with information about the
 message’s original sender. You can use the message.header.source_endpoint to send a
 reply.
+
+###### Example
 
 C++
 

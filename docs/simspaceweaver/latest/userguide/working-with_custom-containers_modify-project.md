@@ -55,6 +55,8 @@ more efficient.
          under `WeaverAppRole`. The value is the name
          of your project's simulation app role.
 
+      ###### Example
+
       ```
       AWSTemplateFormatVersion: "2010-09-09"
       Resources:
