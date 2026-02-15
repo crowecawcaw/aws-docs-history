@@ -20,10 +20,11 @@ Your MediaConnect implementation is dependent on your use case:
 
 ###### Topics
 
-- [MediaConnect use case: distribution](use-cases-distribution.md "use-cases-distribution.md")
+- [MediaConnect use case: distributing content](distribute-content.md "distribute-content.md")
 - [MediaConnect use case: entitlements](use-cases-entitlements.md "use-cases-entitlements.md")
 - [MediaConnect use case: contribution for transport stream
   flows](use-cases-contribution.md "use-cases-contribution.md")
-- [MediaConnect use case: Contribution for CDI flows](use-cases-cdi.md "use-cases-cdi.md")
+- [MediaConnect use case: contribution for CDI flows](use-cases-cdi.md "use-cases-cdi.md")
 - [MediaConnect use case: replication and
   monitoring for CDI flows](use-cases-cdi-replication-monitoring.md "use-cases-cdi-replication-monitoring.md")
+- [MediaConnect use case: receiving SRT content from MediaLive](receiving_srt_output_from_medialive.md "receiving_srt_output_from_medialive.md")

@@ -1,4 +1,4 @@
-# Distributing content using AWS Elemental MediaConnect
+# MediaConnect use case: distributing content
 
 You can use AWS Elemental MediaConnect to distribute content to different geographical locations.
 For example, suppose that your source is an on-premises contribution encoder that is located

@@ -1,4 +1,4 @@
-# Media streams in AWS Elemental MediaConnect
+# Media streams in MediaConnect
 
 A media stream is an essential component in a CDI flow, which you can use to ingest
 content into and transport content within the AWS Cloud via the SMPTE 2110, part 22

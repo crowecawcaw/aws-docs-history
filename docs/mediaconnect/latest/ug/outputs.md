@@ -1,4 +1,4 @@
-# Outputs in MediaConnect
+# Managing outputs in MediaConnect
 
 Outputs are the different destinations where you want MediaConnect to send the content of your
 flow. You can add, remove, and disable outputs at any time, even when the flow is active. A

@@ -196,7 +196,7 @@ You manage these functions through the MediaConnect console, where you can:
 
 MediaConnect manages router I/O maintenance through automated scheduling, with restarts occurring
 every 60-66 days from the time when you start the I/O. You can customize these maintenance
-windows by selecting your preferred day and start hour when you creating or updating your
+windows by selecting your preferred day and start hour when you create or update your
 I/Os. You can monitor when your next maintenance window begins by checking the countdown timer
 in the console.
 

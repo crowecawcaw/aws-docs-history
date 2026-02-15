@@ -1,4 +1,4 @@
-# Sources in AWS Elemental MediaConnect
+# Managing sources in MediaConnect
 
 A source in MediaConnect can be anything that provides a live video feed, such as the
 following:

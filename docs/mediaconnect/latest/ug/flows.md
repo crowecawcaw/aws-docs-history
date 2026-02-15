@@ -1,11 +1,11 @@
-# Flows in AWS Elemental MediaConnect
+# Managing flows in MediaConnect
 
 A flow is a transport between a source and one or more destinations. When you create a
 flow, you specify the source, a name, and an Availability Zone. After you create a flow, you
 can add outputs to indicate where you want your content to be sent and how you want it
 transported.
 
-MediaConnect supports two types of flows:
+MediaConnect supports three types of flows:
 
 - **Transport stream flows** transport compressed
   content that is muxed (audio, video, and ancillary data are combined) into a single
@@ -35,6 +35,9 @@ service created for the subscribing flows). When the 11th subscriber tries to cr
 a flow using `BasketballGame` as a source, the service returns
 an error.
 
+- **NDI flows** take transport stream compressed content into your
+  Virtual Private Cloud (VPC) and convert it to NDI®, or convert your NDI content to a compresesed transport
+  stream for distribution outside of your VPC.
 - **CDI flows** transport high-quality uncompressed or
   lightly compressed content into and out of the AWS Cloud. You can configure a CDI
   flow to use JPEG XS to transport lightly compressed content. The content is demuxed

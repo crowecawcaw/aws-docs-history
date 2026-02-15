@@ -1,4 +1,4 @@
-# Best practices for MediaConnect
+# Best practices for MediaConnect flows
 
 For the best performance and availability, follow best practices when you configure your AWS Elemental MediaConnect flows.
 

@@ -1,4 +1,4 @@
-# MediaConnect use case: Contribution for CDI flows
+# MediaConnect use case: contribution for CDI flows
 
 With
 AWS Elemental MediaConnect and Direct Connect, you can bridge your on-premises live video network (SDI,
