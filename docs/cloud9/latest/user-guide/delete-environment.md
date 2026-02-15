@@ -30,7 +30,7 @@ environments can't be recovered.
 2. In the top navigation bar, choose the AWS Region where the environment is
    located.
 
-![AWS Region selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/consolas_region_new_UX.png) 3. In the list of environments, for the environment that you want to delete, do one of the
+![AWS Region selector in the AWS Cloud9 console](images/consolas_region_new_UX.png) 3. In the list of environments, for the environment that you want to delete, do one of the
 following actions.
 
     * Choose the title of the card for the environment. Then, choose

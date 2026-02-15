@@ -114,6 +114,8 @@ program. Before you can push that image to your Amazon ECR instance, first build
 docker images --filter reference=hello-world
 ```
 
+###### Example
+
 The output is as follows.
 
 ```
@@ -145,6 +147,8 @@ as the dockerfile.
 docker build -t hello-world .
 docker run --rm hello-world
 ```
+
+###### Example
 
 The output is as follows.
 
@@ -220,6 +224,8 @@ repository.
 docker images
 ```
 
+###### Example
+
 The output is as follows.
 
 ```
@@ -249,6 +255,8 @@ docker, see [Pushing a Docker image](../../../AmazonECR/latest/userguide/docker-
 docker push `AWS_account_id`.dkr.ecr.`region`.amazonaws.com/hello-world:latest
 ```
 
+###### Example
+
 The output is as follows.
 
 ```
@@ -274,6 +282,8 @@ It's then visible in the AWS Explorer menu in AWS Cloud9 IDE.
 ```
 docker pull `AWS_account_id`.dkr.ecr.`region`.amazonaws.com/hello-world:latest
 ```
+
+###### Example
 
 The output is as follows.
 
@@ -308,6 +318,8 @@ aws ecr batch-delete-image \
       --image-ids imageTag=latest
 
 ```
+
+###### Example
 
 The output is as follows.
 
@@ -352,6 +364,8 @@ you can delete a repository and all of its images in one step.
       --force
 
 ```
+
+###### Example
 
 The output is as follows.
 
