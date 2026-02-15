@@ -132,7 +132,57 @@ IAM Policies with AWS KMS](../../../kms/latest/developerguide/iam-policies.md ".
 Your Kinesis video stream producers must have the `kms:GenerateDataKey`
 permission:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:GenerateDataKey"
+ ],
+ "Resource": "arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kinesisvideo:PutMedia"
+ ],
+ "Resource": "arn:aws:kinesisvideo:*:123456789012:stream/MyStream/*"
+ }
+ ]
+}`
+
+```
+
 ### Example consumer Permissions
 
 Your Kinesis video stream consumers must have the `kms:Decrypt`
 permission:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:Decrypt"
+ ],
+ "Resource": "arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kinesisvideo:GetMedia"
+ ],
+ "Resource": "arn:aws:kinesisvideo:*:123456789012:stream/MyStream/*"
+ }
+ ]
+}`
+
+```

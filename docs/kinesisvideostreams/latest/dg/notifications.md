@@ -155,9 +155,55 @@ To publish Amazon SNS notifications to a topic in a different AWS account, you n
 
 The IAM role or user that calls the `PutMedia` API must have `sns:Publish` permissions for the cross-account Amazon SNS topic. Add the following policy statement to the identity-based policy:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "kinesisvideo:PutMedia",
+ "Resource": "arn:aws:kinesisvideo:us-east-1:123456789012:stream/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sns:Publish"
+ ],
+ "Resource": [
+ "arn:aws:sns:us-east-1:123456789012:*"
+ ]
+ }
+ ]
+}`
+
+```
+
 ### Resource-based policy configuration
 
 The Amazon SNS topic in the destination account must have a resource-based access policy that allows the source account to publish messages. Configure the Amazon SNS topic access policy as follows:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id": "__default_policy_ID",
+ "Statement": [
+ {
+ "Sid": "__default_statement_ID",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::123456789012:root"
+ },
+ "Action": "SNS:Publish",
+ "Resource": "arn:aws:sns:us-east-1:123456789012:topic-name"
+ }
+ ]
+}`
+
+```
 
 Replace `<kvs_streams_account_id>` with the AWS account ID where your Kinesis Video Streams streams are located, and `<sns_topic_arn>` with the ARN of your Amazon SNS topic.
 

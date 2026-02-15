@@ -235,7 +235,7 @@ your image from. You must get authentication tokens for each registry used.
 Tokens are valid for 12 hours. For more information, see [Registry
 Authentication](../../../AmazonECR/latest/userguide/Registries.md#registry_auth "../../../AmazonECR/latest/userguide/Registries.md#registry_auth") in the _Amazon Elastic Container Registry User Guide_.
 
-###### Example : Authenticate with Amazon
+###### Example: Authenticate with Amazon
 
 ECR
 

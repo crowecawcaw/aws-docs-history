@@ -34,6 +34,8 @@ JSON
 6. Enter a role name or role name suffix to help you identify the purpose of
    this role.
 
+###### Example
+
 **Example:**
 `KvsEdgeAgentRole` 7. (Optional) For **Description**, enter a description for
 the new role. 8. (Optional) Add metadata to the role by attaching tags as key/value

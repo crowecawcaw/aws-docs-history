@@ -34,14 +34,16 @@ list of the following
 `key`=`value`
 pairs.
 
-| Key              | Required | Description                                                                                                                                                                                                                                                                                                                                          |
-| ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ca-path`        | Yes      | File path to the CA certificate used to<br>establish trust with the backend service through<br>TLS.<br>**Example:**<br>`/`file`/`path`/`to`/certificate.pem`                                                                                                                                                                                         |
-| `cert-path`      | Yes      | File path to the X.509 certificate.<br>**Example:**<br>`/`file`/`path`/`to`/`certificateID`-certificate.pem.crt`                                                                                                                                                                                                                                     |
-| `endpoint`       | Yes      | The AWS IoT Core credential endpoint provider<br>endpoint for your AWS account. See the [AWS IoT Developer Guide](../../../iot/latest/developerguide/authorizing-direct-aws.md "../../../iot/latest/developerguide/authorizing-direct-aws.md").<br>**Example:**<br>``credential-account-specific-prefix`.credentials.iot.`aws-region`.amazonaws.com` |
-| `key-path`       | Yes      | File path to the private key used in the<br>public/private key pair.<br>**Example:**<br>`/`file`/`path`/`to`/`certificateID`-private.pem.key`                                                                                                                                                                                                        |
-| `role-aliases`   | Yes      | The name of the role alias pointing to the<br>AWS IAM role to use when connecting to<br>AWS IoT Core.<br>**Example:**<br>`KvsCameraIoTRoleAlias`                                                                                                                                                                                                     |
-| `iot-thing-name` | No       | The `iot-thing-name` is optional. If<br>`iot-thing-name` is not provided, the<br>`stream-name` parameter value is<br>used.<br>**Example:**<br>`kvs_example_camera`                                                                                                                                                                                   |
+| Key              | Required | Description                                                                                                                                                                                                                                                                                                                                                 |
+| ---------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ca-path`        | Yes      | File path to the CA certificate used to<br>establish trust with the backend service through<br>TLS.<br>Example**Example:**<br>`/`file`/`path`/`to`/certificate.pem`                                                                                                                                                                                         |
+| `cert-path`      | Yes      | File path to the X.509 certificate.<br>Example**Example:**<br>`/`file`/`path`/`to`/`certificateID`-certificate.pem.crt`                                                                                                                                                                                                                                     |
+| `endpoint`       | Yes      | The AWS IoT Core credential endpoint provider<br>endpoint for your AWS account. See the [AWS IoT Developer Guide](../../../iot/latest/developerguide/authorizing-direct-aws.md "../../../iot/latest/developerguide/authorizing-direct-aws.md").<br>Example**Example:**<br>``credential-account-specific-prefix`.credentials.iot.`aws-region`.amazonaws.com` |
+| `key-path`       | Yes      | File path to the private key used in the<br>public/private key pair.<br>Example**Example:**<br>`/`file`/`path`/`to`/`certificateID`-private.pem.key`                                                                                                                                                                                                        |
+| `role-aliases`   | Yes      | The name of the role alias pointing to the<br>AWS IAM role to use when connecting to<br>AWS IoT Core.<br>Example**Example:**<br>`KvsCameraIoTRoleAlias`                                                                                                                                                                                                     |
+| `iot-thing-name` | No       | The `iot-thing-name` is optional. If<br>`iot-thing-name` is not provided, the<br>`stream-name` parameter value is<br>used.<br>Example**Example:**<br>`kvs_example_camera`                                                                                                                                                                                   |
+
+###### Example
 
 **Example:**
 
@@ -72,11 +74,15 @@ set the following parameters:
 | `secret-key`             | Yes      | The AWS secret key associated with the access<br>key.                                                                        |
 | `session-token`          | No       | Specifies the required session token value if you use<br>temporary security credentials directly from AWS STS<br>operations. |
 
+###### Example
+
 **Using static credentials:**
 
 ```
 gst-launch-1.0 -v ... ! kvssink stream-name="`YourStream`" aws-region="`YourRegion`" access-key="`AKIDEXAMPLE`" secret-key="`SKEXAMPLE`"
 ```
+
+###### Example
 
 **Using temporary
 credentials:**
@@ -104,8 +110,11 @@ formats:
   `Expiration`
   `YourSecretKey`
   `SessionToken`
-  **Example:** Your
-  ``credentials`.txt`file
+
+###### Example
+
+**Example:** Your
+``credentials`.txt`file
  is located at`/home/ubuntu` and contains the following:
 
 `CREDENTIALS `AKIDEXAMPLE 2023-08-10T22:43:00Z

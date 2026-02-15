@@ -41,6 +41,8 @@ Verify that the appropriate Region is selected.
       **Value**:
       `Your MediaURI`.
 
+      ###### Example
+
       **Example:**
       `rtsp://<YourCameraIPAddress>:<YourCameraRTSPPort>/YourCameraMediaURI`.
 

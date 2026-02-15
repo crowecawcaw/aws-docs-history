@@ -23,10 +23,42 @@ following:
 3. Choose **Create policy**.
 4. Enter a name for your policy.
 
+###### Example
+
 An example of a policy name is **KvsEdgeAccessIoTPolicy**. 5. (Optional) Add metadata to the policy by attaching tags as key-value
 pairs.
 
 For more information about using tags in IAM, see [Tagging your AWS IoT resources](../../../iot/latest/developerguide/tagging-iot.md "../../../iot/latest/developerguide/tagging-iot.md") in the _AWS IoT Core Developer Guide_. 6. Choose the **JSON** tab. 7. Paste the following JSON policy document:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Connect",
+ "iot:Publish",
+ "iot:Subscribe",
+ "iot:Receive"
+ ],
+ "Resource": [
+ "*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sts:AssumeRoleWithWebIdentity"
+ ],
+ "Resource": "arn:aws:iot:us-west-2:123456789012:rolealias/`your-role-alias`"
+ }
+ ]
+}`
+
+```
 
 ###### Note
 

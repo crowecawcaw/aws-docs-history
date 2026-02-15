@@ -16,6 +16,8 @@ credentials from the AWS Security Token Service (AWS STS). For more information,
 4. Choose **Create role alias**.
 5. Enter a name for your role alias.
 
+###### Example
+
 **Example:**
 `KvsEdgeAgentRoleAlias` 6. In the **Role** dropdown, select the IAM role you
 created in [Create an IAM role](gs-create-role.md "gs-create-role.md"). 7. Choose **Create**. On the next page, you see a note that
