@@ -44,9 +44,7 @@ JSON
 
 ```
 
-###### Example 2: Prevent any member account from modifying alternate contacts for any other
-
-member account in the organization
+###### Example 2: Prevent any member account from modifying alternate contacts for any other member account in the organization
 
 The following example generalizes the `Resource` element to "\*", which
 means that it applies to both [standalone mode requests and organizations mode requests](manage-acct-api-modes-of-operation.md "manage-acct-api-modes-of-operation.md"). This means that
@@ -73,9 +71,7 @@ JSON
 
 ```
 
-###### Example 3: Prevent a member account in an OU from modifying its own alternate
-
-contacts
+###### Example 3: Prevent a member account in an OU from modifying its own alternate contacts
 
 The following example SCP includes a condition that compares the account's
 organization path to a list of two OUs. This results in blocking a principal in any

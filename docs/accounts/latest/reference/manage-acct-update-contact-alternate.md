@@ -140,6 +140,8 @@ operation:
   the ability to only read the contact information, and grant others
   the ability to both read and write.
 
+###### Example
+
 The following example retrieves the current Billing alternate
 contact for the caller's account.
 
@@ -156,6 +158,8 @@ contact for the caller's account.
 }`
 ```
 
+###### Example
+
 The following example sets a new Operations alternate contact for
 the caller's account.
 
@@ -170,6 +174,8 @@ the caller's account.
 
 This command produces no output if it's successful.
 
+###### Example
+
 ###### Note
 
 If you perform multiple `PutAlternateContact`
@@ -177,6 +183,8 @@ operations on the same AWS account and the same contact type,
 the first adds the new contact, and all successive calls to the
 same AWS account and contact type update the existing
 contact.
+
+###### Example
 
 The following example deletes the Security alternate contact for
 the caller's account.
@@ -283,6 +291,8 @@ operation:
   the ability to only read the contact information, and grant others
   the ability to both read and write.
 
+###### Example
+
 The following example retrieves the current Billing alternate
 contact for the caller's account in an organization. The credentials
 used must be from either the organization's management account, or
@@ -301,6 +311,8 @@ from the Account Management's delegated admin account.
  }
 }`
 ```
+
+###### Example
 
 The following example sets the Operations alternate contact for
 the specified member account in an organization. The credentials
@@ -327,6 +339,8 @@ the first adds the new contact, and all successive calls to the
 same AWS account and contact type update the existing
 contact.
 
+###### Example
+
 The following example deletes the Security alternate contact for
 the specified member account in an organization. The credentials
 used must be from either the organization's management account, or
@@ -339,6 +353,8 @@ from the Account Management's delegated admin account.
 ```
 
 This command produces no output if it's successful.
+
+###### Example
 
 ###### Note
 

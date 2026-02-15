@@ -116,6 +116,8 @@ operation:
   the ability to only read the contact information, and grant others
   the ability to both read and write.
 
+###### Example
+
 The following example retrieves the current primary contact
 information for the caller's account.
 
@@ -135,6 +137,8 @@ information for the caller's account.
  }
 }`
 ```
+
+###### Example
 
 The following example sets new primary contact information for the
 caller's account.
@@ -214,6 +218,8 @@ that operation:
   users the ability to only read the contact information, and
   grant others the ability to both read and write.
 
+###### Example
+
 The following example retrieves the current primary contact
 information for the specified member account in an organization.
 The credentials used must be from either the organization's
@@ -236,6 +242,8 @@ admin account.
  }
 }`
 ```
+
+###### Example
 
 The following example sets the primary contact information for
 the specified member account in an organization. The credentials
