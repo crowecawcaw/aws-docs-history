@@ -36,6 +36,8 @@ credentials.
 
 WebSocket and HTTP connections using Signature Version 4
 
+###### Example
+
 An Ethereum node created using AMB Access Ethereum hosts one endpoint for WebSocket connections and another for HTTP connections. These endpoints conform to the following patterns.
 
 ###### Note
@@ -76,6 +78,8 @@ call.
 
 #### Prerequisites
 
+###### Example
+
 Running the example scripts requires the following prerequisites. Prerequisites for both HTTP and WebSocket connections are included.
 
 1. You must have node version manager (nvm) and Node.js installed on your machine. If
@@ -108,6 +112,8 @@ export AMB_HTTP_ENDPOINT="https://`nd-6eaj5va43jggnpxouzp7y47e4y`.ethereum.manag
 ```
 export AMB_WS_ENDPOINT="wss://`nd-6eaj5va43jggnpxouzp7y47e4y`.wss.ethereum.managedblockchain.us-east-1.amazonaws.com/"
 ```
+
+###### Example
 
 ###### To make an Ethereum API call using web3.js over HTTP to your Ethereum node in the AMB Access
 
@@ -448,6 +454,8 @@ sent request
 
 ### Making JSON-RPC API calls using awscurl over HTTP
 
+###### Example
+
 The example that follows uses [awscurl](https://pypi.org/project/awscurl/0.6/ "https://pypi.org/project/awscurl/0.6/"), which sends a signed HTTP request based on the current credentials you have set for the AWS CLI. If you construct your own HTTP requests, see [Signing AWS requests with Signature Version 4](../../../general/latest/gr/sigv4_signing.md "../../../general/latest/gr/sigv4_signing.md") in the _AWS General Reference_.
 
 Replace `your-node-id-lowercase` with the ID of a
@@ -495,6 +503,8 @@ using token based access.
 
 ### Endpoint format for WebSocket and HTTP connections using token based access
 
+###### Example
+
 Each Ethereum node hosts one endpoint for WebSocket connections and another for HTTP connections.
 For token based access, these endpoints conform to the following patterns:
 
@@ -519,6 +529,8 @@ https://`your-node-id-lowercase`.t.ethereum.managedblockchain.`us-east-1`.amazon
 For example, `https://nd-6eaj5va43jggnpxouzp7y47e4y.t.ethereum.managedblockchain.us-east-1.amazonaws.com?billingtoken=n-MWY63ZJZU5HGNCMBQER7IN6OIU`
 
 ### Using wscat to connect and JSON-RPC API calls to your Ethereum node over WebSocket connection using token based access
+
+###### Example
 
 This section describes how you can use a third party utility, [wscat](https://www.npmjs.com/package/wscat "https://www.npmjs.com/package/wscat"), to connect to your node using a token.
 
@@ -565,6 +577,8 @@ ID from the initial response.
 ```
 
 ### Using awscurl to make JSON-RPC API calls to your Ethereum node over HTTP using token based access
+
+###### Example
 
 The following example uses [awscurl](https://pypi.org/project/awscurl/0.6/ "https://pypi.org/project/awscurl/0.6/"), which sends a signed HTTP request based on the credentials that you
 set for the AWS CLI.

@@ -77,7 +77,7 @@ npm install aws-sdk
 Otherwise, the alternative is that the ~/.aws/credentials file is
 populated.
 
-###### Example — Make a Consensus API call using AWS SDK for JavaScript with an HTTP connection to an Ethereum
+###### Example— Make a Consensus API call using AWS SDK for JavaScript with an HTTP connection to an Ethereum
 
 node in Amazon Managed Blockchain (AMB)
 
@@ -237,7 +237,7 @@ npm install aws-sdk
 Otherwise, the alternative is that the ~/.aws/credentials file is
 populated.
 
-###### Example — Make a Consensus API call using AWS SDK for JavaScript with an HTTP connection using token based access to an Ethereum
+###### Example— Make a Consensus API call using AWS SDK for JavaScript with an HTTP connection using token based access to an Ethereum
 
 node in Amazon Managed Blockchain (AMB)
 
