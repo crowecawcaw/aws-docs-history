@@ -95,7 +95,7 @@ shadow:
  "Effect": "Allow",
  "Action": "iot:GetThingShadow",
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:thing/`thing`"
+ "arn:aws:iot:`us-east-1`:123456789012:thing/`thing`"
  ]
  }
  ]
@@ -155,7 +155,7 @@ shadow:
  "Effect": "Allow",
  "Action": "iot:UpdateThingShadow",
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:thing/`thing`"
+ "arn:aws:iot:`us-east-1`:123456789012:thing/`thing`"
  ]
  }
  ]
@@ -209,7 +209,7 @@ shadow:
  "Effect": "Allow",
  "Action": "iot:DeleteThingShadow",
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:thing/`thing`"
+ "arn:aws:iot:`us-east-1`:123456789012:thing/`thing`"
  ]
  }
  ]
@@ -281,7 +281,7 @@ shadows:
  "Effect": "Allow",
  "Action": "iot:ListNamedShadowsForThing",
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:thing/`thing`"
+ "arn:aws:iot:`us-east-1`:123456789012:thing/`thing`"
  ]
  }
  ]

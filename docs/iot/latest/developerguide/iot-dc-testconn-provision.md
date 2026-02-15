@@ -167,7 +167,7 @@ a response like this.
     "iot:Connect"
     ],
     "Resource": [
-    "arn:aws:iot:`us-west-2:111122223333`:client/PubSubTestThing"
+    "arn:aws:iot:`us-west-2:123456789012`:client/PubSubTestThing"
     ]
     },
     {
@@ -176,7 +176,7 @@ a response like this.
     "iot:Publish"
     ],
     "Resource": [
-    "arn:aws:iot:`us-west-2:111122223333`:topic/test/dc/pubtopic"
+    "arn:aws:iot:`us-west-2:123456789012`:topic/test/dc/pubtopic"
     ]
     },
     {
@@ -185,7 +185,7 @@ a response like this.
     "iot:Subscribe"
     ],
     "Resource": [
-    "arn:aws:iot:`us-west-2:111122223333`:topicfilter/test/dc/subtopic"
+    "arn:aws:iot:`us-west-2:123456789012`:topicfilter/test/dc/subtopic"
     ]
     },
     {
@@ -194,7 +194,7 @@ a response like this.
     "iot:Receive"
     ],
     "Resource": [
-    "arn:aws:iot:`us-west-2:111122223333`:topic/test/dc/subtopic"
+    "arn:aws:iot:`us-west-2:123456789012`:topic/test/dc/subtopic"
     ]
     }
     ]

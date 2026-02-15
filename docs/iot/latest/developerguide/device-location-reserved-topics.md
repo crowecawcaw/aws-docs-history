@@ -64,7 +64,7 @@ various topics.
  "iot:Publish"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/device_location/`customer_device_id`/get_position_estimate"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/device_location/device-123/get_position_estimate"
  ]
  },
  {
@@ -73,8 +73,8 @@ various topics.
  "iot:Receive"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/device_location/`customer_device_id`/get_position_estimate/accepted",
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/device_location/`customer_device_id`/get_position_estimate/rejected"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/device_location/device-123/get_position_estimate/accepted",
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/device_location/device-123/get_position_estimate/rejected"
  ]
  },
  {
@@ -83,8 +83,8 @@ various topics.
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/device_location/`customer_device_id`/get_position_estimate/accepted",
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/device_location/`customer_device_id`/get_position_estimate/rejected"
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/device_location/device-123/get_position_estimate/accepted",
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/device_location/device-123/get_position_estimate/rejected"
  ]
  }
  ]
@@ -182,7 +182,7 @@ The following is an example of the required policy:
  "iot:Publish"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/device_location/`customer_device_id`/get_position_estimate"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/device_location/device-123/get_position_estimate"
  ]
  }
  ]
@@ -242,7 +242,7 @@ The following is an example of the required policy:
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/device_location/`customer_device_id`/get_position_estimate/accepted"
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/device_location/device-123/get_position_estimate/accepted"
  ]
  },
  {
@@ -251,7 +251,7 @@ The following is an example of the required policy:
  "iot:Receive"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/device_location/`customer_device_id`/get_position_estimate/accepted"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/device_location/device-123/get_position_estimate/accepted"
  ]
  }
  ]
@@ -290,6 +290,28 @@ will be returned in the message payload.
 The following is an example of the required policy:
 
 ```
-
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Subscribe"
+ ],
+ "Resource": [
+ "arn:aws:iot:us-east-1:123456789012:topicfilter/$aws/device_location/device-123/get_position_estimate/rejected"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Receive"
+ ],
+ "Resource": [
+ "arn:aws:iot:us-east-1:123456789012:topic/$aws/device_location/device-123/get_position_estimate/rejected"
+ ]
+ }
+ ]
+}`
 
 ```

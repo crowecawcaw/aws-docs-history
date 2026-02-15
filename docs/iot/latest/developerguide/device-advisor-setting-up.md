@@ -133,10 +133,10 @@ For more information, see [Cross-service confused deputy prevention](security-be
  "Action": "sts:AssumeRole",
  "Condition": {
  "StringEquals": {
- "aws:SourceAccount": "111122223333"
+ "aws:SourceAccount": "123456789012"
  },
  "ArnLike": {
- "aws:SourceArn": "arn:aws:iotdeviceadvisor:*:`111122223333`:suitedefinition/*"
+ "aws:SourceArn": "arn:aws:iotdeviceadvisor:*:123456789012:suitedefinition/*"
  }
  }
  }

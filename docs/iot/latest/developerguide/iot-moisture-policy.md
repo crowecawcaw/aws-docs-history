@@ -24,37 +24,37 @@ to AWS IoT.
  {
  "Effect": "Allow",
  "Action": "iot:Connect",
- "Resource": "arn:aws:iot:`us-east-1`:`111122223333`:client/RaspberryPi"
+ "Resource": "arn:aws:iot:`us-east-1`:123456789012:client/RaspberryPi"
  },
  {
  "Effect": "Allow",
  "Action": "iot:Publish",
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/RaspberryPi/shadow/update",
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/RaspberryPi/shadow/delete",
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/RaspberryPi/shadow/get"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/RaspberryPi/shadow/update",
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/RaspberryPi/shadow/delete",
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/RaspberryPi/shadow/get"
  ]
  },
  {
  "Effect": "Allow",
  "Action": "iot:Receive",
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/RaspberryPi/shadow/update/accepted",
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/RaspberryPi/shadow/delete/accepted",
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/RaspberryPi/shadow/get/accepted",
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/RaspberryPi/shadow/update/rejected",
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/RaspberryPi/shadow/delete/rejected"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/RaspberryPi/shadow/update/accepted",
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/RaspberryPi/shadow/delete/accepted",
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/RaspberryPi/shadow/get/accepted",
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/RaspberryPi/shadow/update/rejected",
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/RaspberryPi/shadow/delete/rejected"
  ]
  },
  {
  "Effect": "Allow",
  "Action": "iot:Subscribe",
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/RaspberryPi/shadow/update/accepted",
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/RaspberryPi/shadow/delete/accepted",
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/RaspberryPi/shadow/get/accepted",
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/RaspberryPi/shadow/update/rejected",
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/RaspberryPi/shadow/delete/rejected"
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/RaspberryPi/shadow/update/accepted",
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/RaspberryPi/shadow/delete/accepted",
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/RaspberryPi/shadow/get/accepted",
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/RaspberryPi/shadow/update/rejected",
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/RaspberryPi/shadow/delete/rejected"
  ]
  },
  {
@@ -64,7 +64,7 @@ to AWS IoT.
  "iot:UpdateThingShadow",
  "iot:DeleteThingShadow"
  ],
- "Resource": "arn:aws:iot:`us-east-1`:`111122223333`:thing/RaspberryPi"
+ "Resource": "arn:aws:iot:`us-east-1`:123456789012:thing/RaspberryPi"
  }
  ]
 }`

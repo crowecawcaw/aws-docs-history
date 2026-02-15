@@ -51,8 +51,7 @@ configurations (console)
 2. To configure TLS settings when you create a new domain configuration,
    follow these steps.
    1. In the left navigation pane, choose
-      **Settings**, and then, from the
-      **Domain configurations** section, choose
+      **Domain configurations**, and then choose
       **Create domain configuration**.
    2. In the **Create domain configuration** page,
       in the **Custom domain settings - _optional_** section,
@@ -65,8 +64,7 @@ configurations (console)
 3. To update TLS settings in an existing domain configuration, follow
    these steps.
    1. In the left navigation pane, choose
-      **Settings**, and then, under
-      **Domain configurations**, choose a domain
+      **Domain configurations**, and then choose a domain
       configuration.
    2. In the **Domain configuration details** page,
       choose **Edit**. Then, in the **Custom

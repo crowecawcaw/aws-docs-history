@@ -36,7 +36,7 @@ The following is an example of the policy required for receiving lifecycle event
  "iot:Receive"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:/$aws/events/*"
+ "arn:aws:iot:`us-east-1`:123456789012:/$aws/events/*"
  ]
  }
  ]

@@ -392,7 +392,7 @@ Output:
 ```
 `{
  "policyName": "MyIotThingPolicy",
- "policyArn": "arn:aws:iot:`your-region`:`your-aws-account`:policy/MyIotThingPolicy",
+ "policyArn": "arn:aws:iot:us-east-1:`your-aws-account`:policy/MyIotThingPolicy",
  "policyDocument": "{
  \"Version\": \"2012-10-17\",
  \"Statement\": [

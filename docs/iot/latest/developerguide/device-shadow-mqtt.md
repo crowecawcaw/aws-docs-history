@@ -65,7 +65,7 @@ The following is an example of the required policy:
  "iot:Publish"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/get"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/`thingName`/shadow/get"
  ]
  }
  ]
@@ -99,7 +99,7 @@ The following is an example of the required policy:
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/get/accepted"
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/`thingName`/shadow/get/accepted"
  ]
  },
  {
@@ -108,7 +108,7 @@ The following is an example of the required policy:
  "iot:Receive"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/get/accepted"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/`thingName`/shadow/get/accepted"
  ]
  }
  ]
@@ -133,7 +133,29 @@ document](device-shadow-document.md#device-shadow-example-error-json "device-sha
 The following is an example of the required policy:
 
 ```
-
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Subscribe"
+ ],
+ "Resource": [
+ "arn:aws:iot:us-east-1:123456789012:topicfilter/$aws/things/`thingName`/shadow/get/rejected"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Receive"
+ ],
+ "Resource": [
+ "arn:aws:iot:us-east-1:123456789012:topic/$aws/things/`thingName`/shadow/get/rejected"
+ ]
+ }
+ ]
+}`
 
 ```
 
@@ -192,7 +214,7 @@ The following is an example of the required policy:
  "iot:Publish"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/`thingName`/shadow/update"
  ]
  }
  ]
@@ -244,7 +266,7 @@ The following is an example of the required policy:
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/delta"
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/`thingName`/shadow/update/delta"
  ]
  },
  {
@@ -253,7 +275,7 @@ The following is an example of the required policy:
  "iot:Receive"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/delta"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/`thingName`/shadow/update/delta"
  ]
  }
  ]
@@ -287,7 +309,7 @@ The following is an example of the required policy:
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/accepted"
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/`thingName`/shadow/update/accepted"
  ]
  },
  {
@@ -296,7 +318,7 @@ The following is an example of the required policy:
  "iot:Receive"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/accepted"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/`thingName`/shadow/update/accepted"
  ]
  }
  ]
@@ -330,7 +352,7 @@ The following is an example of the required policy:
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/documents"
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/`thingName`/shadow/update/documents"
  ]
  },
  {
@@ -339,7 +361,7 @@ The following is an example of the required policy:
  "iot:Receive"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/documents"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/`thingName`/shadow/update/documents"
  ]
  }
  ]
@@ -373,7 +395,7 @@ The following is an example of the required policy:
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/rejected"
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/`thingName`/shadow/update/rejected"
  ]
  },
  {
@@ -382,7 +404,7 @@ The following is an example of the required policy:
  "iot:Receive"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/rejected"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/`thingName`/shadow/update/rejected"
  ]
  }
  ]
@@ -418,7 +440,7 @@ The following is an example of the required policy:
  "iot:Publish"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/delete"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/`thingName`/shadow/delete"
  ]
  }
  ]
@@ -448,7 +470,7 @@ The following is an example of the required policy:
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/delete/accepted"
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/`thingName`/shadow/delete/accepted"
  ]
  },
  {
@@ -457,7 +479,7 @@ The following is an example of the required policy:
  "iot:Receive"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/delete/accepted"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/`thingName`/shadow/delete/accepted"
  ]
  }
  ]
@@ -491,7 +513,7 @@ The following is an example of the required policy:
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/delete/rejected"
+ "arn:aws:iot:`us-east-1`:123456789012:topicfilter/$aws/things/`thingName`/shadow/delete/rejected"
  ]
  },
  {
@@ -500,7 +522,7 @@ The following is an example of the required policy:
  "iot:Receive"
  ],
  "Resource": [
- "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/delete/rejected"
+ "arn:aws:iot:`us-east-1`:123456789012:topic/$aws/things/`thingName`/shadow/delete/rejected"
  ]
  }
  ]

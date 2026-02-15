@@ -228,7 +228,7 @@ trusts the principal of another account.
  "Effect": "Allow",
  "Principal": {
  "AWS": [
- "arn:aws:iam::`111122223333`:root"
+ "arn:aws:iam::123456789012:root"
  ]
  },
  "Action": "s3:PutObject",

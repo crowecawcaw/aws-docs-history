@@ -54,6 +54,8 @@ JSON objects. With SQL version `2015-10-08`, you can select only one item.
 With SQL version `2016-03-23` or later, you can also select an array to
 output as a top-level object.
 
+###### Example
+
 ```
 Incoming payload published on topic `'topic/subtopic'`: `{"color":"red", "temperature":50}`
 SQL: `SELECT VALUE color FROM 'topic/subtopic'`

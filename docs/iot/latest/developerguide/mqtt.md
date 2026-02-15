@@ -743,6 +743,15 @@ the message retention period, regardless of the Persistent Session expiry period
 
 Message queue rates are limited according to the [`Queued messages per second per account`](../../../general/latest/gr/iot-core.md#message-broker-limits "../../../general/latest/gr/iot-core.md#message-broker-limits") quota,
 and the number of messages is limited by the [`Maximum number of queued messages per shared subscription group`](../../../general/latest/gr/iot-core.md#message-broker-limits "../../../general/latest/gr/iot-core.md#message-broker-limits") quota.
+To view and manage your quotas, access the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home").
+
+You can monitor the Queue CloudWatch by searching for
+`ApproximateQueueDepth` under the `AWS/Usage` namespace, or you can use
+the following CLI command to list the metrics associated with each shared subscription group's queue depth.
+
+```
+aws cloudwatch list-metrics --namespace "AWS/Usage" --dimensions Name=Resource,Value='ApproximateQueueDepth'
+```
 
 When these limits are exceeded, only the messages that were already queued before reaching the limit are retained. New incoming messages that would exceed the limits are dropped. The system does not replace older queued messages with newer ones.
 

@@ -109,7 +109,7 @@ In the example, replace:
  ],
  "Effect": "Allow",
  "Resource": [
- "arn:aws:iot:`us-east-1`:`123456789012`:thing/`thing-name`",
+ "arn:aws:iot:`us-east-1`:`123456789012`:thing/thing-123",
  "arn:aws:iot:`us-east-1`:`123456789012`:job/*"
  ]
  }
@@ -212,7 +212,7 @@ The following shows a sample IAM policy that authorizes this action:
  "iotjobsdata:DescribeJobExecution"
  ],
  "Effect": "Allow",
- "Resource": "arn:aws:iot:`us-east-1`:`123456789012`:thing/`thing-name`"
+ "Resource": "arn:aws:iot:`us-east-1`:`123456789012`:thing/thing-123"
  }
 }`
 
@@ -318,7 +318,7 @@ In the example, replace:
  "iotjobsdata:DescribeJobExecution"
  ],
  "Effect": "Allow",
- "Resource": "arn:aws:iot:`us-east-1`:`123456789012`:thing/`thing-name`"
+ "Resource": "arn:aws:iot:`us-east-1`:`123456789012`:thing/thing-123"
  },
  {
  "Action": [
@@ -328,7 +328,7 @@ In the example, replace:
  ],
  "Effect": "Allow",
  "Resource": [
- "arn:aws:iot:`us-east-1`:`123456789012`:thing/`thing-name`",
+ "arn:aws:iot:`us-east-1`:`123456789012`:thing/thing-123",
  "arn:aws:iot:`us-east-1`:`123456789012`:job/*"
  ]
  }

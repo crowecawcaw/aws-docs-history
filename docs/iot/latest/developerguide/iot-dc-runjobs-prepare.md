@@ -199,7 +199,7 @@ for use later when you create the job to run on this device.
     "iot:Connect"
     ],
     "Resource": [
-    "arn:aws:iot:`us-west-2:111122223333`:client/`uniqueThingName`"
+    "arn:aws:iot:`us-west-2:123456789012`:client/`uniqueThingName`"
     ]
     },
     {
@@ -208,10 +208,10 @@ for use later when you create the job to run on this device.
     "iot:Publish"
     ],
     "Resource": [
-    "arn:aws:iot:`us-west-2:111122223333`:topic/test/dc/pubtopic",
-    "arn:aws:iot:`us-west-2:111122223333`:topic/$aws/events/job/*",
-    "arn:aws:iot:`us-west-2:111122223333`:topic/$aws/events/jobExecution/*",
-    "arn:aws:iot:`us-west-2:111122223333`:topic/$aws/things/`uniqueThingName`/jobs/*"
+    "arn:aws:iot:`us-west-2:123456789012`:topic/test/dc/pubtopic",
+    "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/events/job/*",
+    "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/events/jobExecution/*",
+    "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/things/`uniqueThingName`/jobs/*"
     ]
     },
     {
@@ -220,9 +220,9 @@ for use later when you create the job to run on this device.
     "iot:Subscribe"
     ],
     "Resource": [
-    "arn:aws:iot:`us-west-2:111122223333`:topicfilter/test/dc/subtopic",
-    "arn:aws:iot:`us-west-2:111122223333`:topic/$aws/events/jobExecution/*",
-    "arn:aws:iot:`us-west-2:111122223333`:topicfilter/$aws/things/`uniqueThingName`/jobs/*"
+    "arn:aws:iot:`us-west-2:123456789012`:topicfilter/test/dc/subtopic",
+    "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/events/jobExecution/*",
+    "arn:aws:iot:`us-west-2:123456789012`:topicfilter/$aws/things/`uniqueThingName`/jobs/*"
     ]
     },
     {
@@ -231,8 +231,8 @@ for use later when you create the job to run on this device.
     "iot:Receive"
     ],
     "Resource": [
-    "arn:aws:iot:`us-west-2:111122223333`:topic/test/dc/subtopic",
-    "arn:aws:iot:`us-west-2:111122223333`:topic/$aws/things/`uniqueThingName`/jobs/*"
+    "arn:aws:iot:`us-west-2:123456789012`:topic/test/dc/subtopic",
+    "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/things/`uniqueThingName`/jobs/*"
     ]
     },
     {
@@ -244,7 +244,7 @@ for use later when you create the job to run on this device.
     "iot:UpdateJobExecution"
     ],
     "Resource": [
-    "arn:aws:iot:`us-west-2:111122223333`:topic/$aws/things/`uniqueThingName`"
+    "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/things/`uniqueThingName`"
     ]
     }
     ]

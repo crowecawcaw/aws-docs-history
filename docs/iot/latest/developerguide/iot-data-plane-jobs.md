@@ -66,7 +66,7 @@ In the example, replace:
  "Resource": [
  "arn:aws:iot:`us-east-1`:`123456789012`:topic/$aws/events/job/*",
  "arn:aws:iot:`us-east-1`:`123456789012`:topic/$aws/events/jobExecution/*",
- "arn:aws:iot:`us-east-1`:`123456789012`:topic/$aws/things/`thing-name`/jobs/*"
+ "arn:aws:iot:`us-east-1`:`123456789012`:topic/$aws/things/thing-123/jobs/*"
  ]
  }
  ]
@@ -132,7 +132,7 @@ thing. In your example, replace:
  "iotjobsdata:UpdateJobExecution"
  ],
  "Effect": "Allow",
- "Resource": "arn:aws:iot:`us-east-1`:`123456789012`:thing/`thing-name`"
+ "Resource": "arn:aws:iot:`us-east-1`:`123456789012`:thing/thing-123"
  }
  ]
 }`
