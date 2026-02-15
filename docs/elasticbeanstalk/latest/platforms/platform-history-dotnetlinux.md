@@ -6,9 +6,20 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## January 30, 2026 – present
+## February 12, 2026 – present
 
-The following Elastic Beanstalk platform versions for .NET Core on Linux have been current since January 30, 2026:
+The following Elastic Beanstalk platform versions for .NET Core on Linux have been current since February 12, 2026:
+
+| Platform Version and _Solution Stack Name_                                              | Framework                    | Proxy Server | AMI              | AWS X-Ray |
+| --------------------------------------------------------------------------------------- | ---------------------------- | ------------ | ---------------- | --------- |
+| **.NET 10 on AL2023 version 3.7.3**<br>_64bit Amazon Linux 2023 v3.7.3 running .NET 10_ | .NET 10.0.3, supports 10.0.3 | nginx 1.28.1 | 2023.10.20260202 | 3.6.1     |
+| **.NET 9 on AL2023 version 3.7.3**<br>_64bit Amazon Linux 2023 v3.7.3 running .NET 9_   | .NET 9.0.13, supports 9.0.13 | nginx 1.28.1 | 2023.10.20260202 | 3.6.1     |
+| **.NET 8 on AL2023 version 3.7.3**<br>_64bit Amazon Linux 2023 v3.7.3 running .NET 8_   | .NET 8.0.24, supports 8.0.24 | nginx 1.28.1 | 2023.10.20260202 | 3.6.1     |
+| **.NET Core on AL2 version 2.12.4**<br>_64bit Amazon Linux 2 v2.12.4 running .NET Core_ | .NET 8.0.24, supports 8.0.24 | nginx 1.28.1 | 2.0.20260202     | 3.6.1     |
+
+## January 30, 2026 – February 11, 2026
+
+The following Elastic Beanstalk platform versions for .NET Core on Linux were current between January 30, 2026 and February 11, 2026:
 
 | Platform Version and _Solution Stack Name_                                              | Framework                    | Proxy Server | AMI              | AWS X-Ray |
 | --------------------------------------------------------------------------------------- | ---------------------------- | ------------ | ---------------- | --------- |

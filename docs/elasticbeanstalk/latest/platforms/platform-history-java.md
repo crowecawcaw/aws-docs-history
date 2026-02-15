@@ -6,9 +6,26 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## January 30, 2026 – present
+## February 12, 2026 – present
 
-The following Elastic Beanstalk platform versions for Tomcat have been current since January 30, 2026:
+The following Elastic Beanstalk platform versions for Tomcat have been current since February 12, 2026:
+
+| Platform Version and _Solution Stack Name_                                                                              | AMI              | Language             | AWS X-Ray | Application Server | Proxy Server                          |
+| ----------------------------------------------------------------------------------------------------------------------- | ---------------- | -------------------- | --------- | ------------------ | ------------------------------------- |
+| **Corretto 8 with Tomcat 9 AL2023 version 5.10.0**<br>_64bit Amazon Linux 2023 v5.10.0 running Tomcat 9 Corretto 8_     | 2023.10.20260202 | Corretto 8.482.08.1  | 3.6.1     | Tomcat None        | nginx 1.28.1 (default), Apache 2.4.66 |
+| **Corretto 25 with Tomcat 11 AL2023 version 5.10.0**<br>_64bit Amazon Linux 2023 v5.10.0 running Tomcat 11 Corretto 25_ | 2023.10.20260202 | Corretto 25.0.2.10.1 | 3.6.1     | Tomcat 11.0.18     | nginx 1.28.1 (default), Apache 2.4.66 |
+| **Corretto 21 with Tomcat 11 AL2023 version 5.10.0**<br>_64bit Amazon Linux 2023 v5.10.0 running Tomcat 11 Corretto 21_ | 2023.10.20260202 | Corretto 21.0.10.7.1 | 3.6.1     | Tomcat 11.0.18     | nginx 1.28.1 (default), Apache 2.4.66 |
+| **Corretto 17 with Tomcat 11 AL2023 version 5.10.0**<br>_64bit Amazon Linux 2023 v5.10.0 running Tomcat 11 Corretto 17_ | 2023.10.20260202 | Corretto 17.0.18.9.1 | 3.6.1     | Tomcat 11.0.18     | nginx 1.28.1 (default), Apache 2.4.66 |
+| **Corretto 21 with Tomcat 10 AL2023 version 5.10.0**<br>_64bit Amazon Linux 2023 v5.10.0 running Tomcat 10 Corretto 21_ | 2023.10.20260202 | Corretto 21.0.10.7.1 | 3.6.1     | Tomcat 10.1.52     | nginx 1.28.1 (default), Apache 2.4.66 |
+| **Corretto 17 with Tomcat 10 AL2023 version 5.10.0**<br>_64bit Amazon Linux 2023 v5.10.0 running Tomcat 10 Corretto 17_ | 2023.10.20260202 | Corretto 17.0.18.9.1 | 3.6.1     | Tomcat 10.1.52     | nginx 1.28.1 (default), Apache 2.4.66 |
+| **Corretto 17 with Tomcat 9 AL2023 version 5.10.0**<br>_64bit Amazon Linux 2023 v5.10.0 running Tomcat 9 Corretto 17_   | 2023.10.20260202 | Corretto 17.0.18.9.1 | 3.6.1     | Tomcat 9.0.111     | nginx 1.28.1 (default), Apache 2.4.66 |
+| **Corretto 11 with Tomcat 9 AL2023 version 5.10.0**<br>_64bit Amazon Linux 2023 v5.10.0 running Tomcat 9 Corretto 11_   | 2023.10.20260202 | Corretto 11.0.30.7.1 | 3.6.1     | Tomcat 9.0.111     | nginx 1.28.1 (default), Apache 2.4.66 |
+| **Corretto 11 with Tomcat 9 AL2 version 4.10.4**<br>_64bit Amazon Linux 2 v4.10.4 running Tomcat 9 Corretto 11_         | 2.0.20260202     | Corretto 11.0.30.7.1 | 3.6.1     | Tomcat 9.0.110     | nginx 1.28.1 (default), Apache 2.4.66 |
+| **Corretto 8 with Tomcat 9 AL2 version 4.10.4**<br>_64bit Amazon Linux 2 v4.10.4 running Tomcat 9 Corretto 8_           | 2.0.20260202     | Corretto 8.482.08.1  | 3.6.1     | Tomcat 9.0.110     | nginx 1.28.1 (default), Apache 2.4.66 |
+
+## January 30, 2026 – February 11, 2026
+
+The following Elastic Beanstalk platform versions for Tomcat were current between January 30, 2026 and February 11, 2026:
 
 | Platform Version and _Solution Stack Name_                                                                            | AMI              | Language              | AWS X-Ray | Application Server | Proxy Server                          |
 | --------------------------------------------------------------------------------------------------------------------- | ---------------- | --------------------- | --------- | ------------------ | ------------------------------------- |
