@@ -41,6 +41,8 @@ provide the permission to use `ssm:SendCommand` and `ssm:StartAutomation` on the
 
 For example, if you have shared the SSM documents MyCommand (command) and MyAutomation (automation) from account 111111111111, you should attach these permissions to you your IAM entities:
 
+###### Example
+
 ```
 
                 {

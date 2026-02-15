@@ -55,6 +55,8 @@ and failed over, this recovery instance should be protected by DRS.
 - You must start the replication from the new Recovery EC2 Instance instead of the
   original EC2 instance.
 
+###### Example
+
 If a recovery instance was created and the underlying EC2 instance is hosted
 on availability zone "eu-west-1**b**",
 the replication settings and launch template can be modified to use a subnet hosted

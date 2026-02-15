@@ -34,7 +34,7 @@ https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/lates
 - If you are using a Windows Servers of versions 2016 or older, and are using PowerShell to download the installer,
   you need to enable TLS 1.2:
   `[System.Net.ServicePointManager]::SecurityProtocol = 'TLS12'`
-- Microsoft Windows Server versions 2003, 2003 R2, 2008, and 2008 R2 use a version of the AWS
+- Microsoft Windows Server versions 2008 and 2008 R2 use a version of the AWS
   Replication Agent that is only valid for those versions - `AwsReplicationWindowsLegacyInstaller.exe`. DO NOT use this installer file to
   install the agent on any other OS types. You can download it from
   `https://aws-elastic-disaster-recovery-<REGION>.s3.amazonaws.com/latest/windows_legacy/AwsReplicationWindowsLegacyInstaller.exe`

@@ -946,8 +946,6 @@ several steps you can take to attempt to mitigate the issue:
   AWS](#Windows-License-Activation "#Windows-License-Activation")
 - [Replicating Instance Store Volumes](#Replicating-Instance-Stores "#Replicating-Instance-Stores")
 - [Replication lag issues](#Replication-Lag-Issues "#Replication-Lag-Issues")
-- [Turning driver signing off in Windows
-  2003](#Turning-Off-Driver-Signing "#Turning-Off-Driver-Signing")
 - [Windows Drive changes](#Windows-Drive-Changes "#Windows-Drive-Changes")
 - [Error: Failed to connect using HTTP channel](#Error-Failed-to-connect-using-HTTP-channel "#Error-Failed-to-connect-using-HTTP-channel")
 - [Windows Dynamic Disk troubleshooting](#Windows-Dynamic-Disk "#Windows-Dynamic-Disk")
@@ -1000,28 +998,6 @@ Potential solutions:
 - If the source machine had a spike of write operations, the lag will grow
   until AWS Elastic Disaster Recovery service manages to flush all the written data to the drill
   or recovery instance replication server.
-
-### Turning driver signing off in Windows
-
-2003
-
-When installing on Windows 2003, ensure that **Driver
-Signing** is **Off**.
-
-1. Right-click **My Computer**.
-
-2. Select **Properties** to open **System Properties**.
-
-3. In the **System Properties** dialog box, select the
-   **Hardware**
-   tab.
-
-4. Click on the **Driver Signing** button.
-
-5. Select **Ignore – Install the software anyway and don't ask
-   for my approval**.
-
-6. Select **Make this action the system default**.
 
 ### Windows Drive changes
 
