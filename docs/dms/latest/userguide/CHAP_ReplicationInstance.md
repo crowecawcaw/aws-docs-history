@@ -1,126 +1,77 @@
 #
 
-Rebooting a replication instance
+Modifying a replication instance
 
-You can reboot an AWS DMS replication instance to restart the replication engine. A
-reboot results in a momentary outage for the replication instance, during which the
-instance status is set to **Rebooting**. If the AWS DMS instance is
-configured for Multi-AZ, the reboot can be conducted with a failover. An AWS DMS event is
-created when the reboot is completed.
+You can modify the settings for a replication instance to, for example, change the
+instance class or to increase storage.
 
-If your AWS DMS instance is a Multi-AZ deployment, you can force a planned failover from
-one AWS Availability Zone to another when you reboot. When you force a planned failover of
-your AWS DMS instance, AWS DMS closes out active connections on the current instance prior to
-automatically switching to a standby instance in another Availability Zone. Rebooting with a
-planned failover helps you simulate a planned failover event of an AWS DMS instance, such as
-when scaling the replication instance class.
+When you modify a replication instance, you can apply the changes immediately. To
+apply changes immediately, choose the **Apply changes immediately**
+option in the AWS Management Console. Or use the `--apply-immediately` parameter when
+calling the AWS CLI, or set the `ApplyImmediately` parameter to
+`true` when using the DMS API.
+
+If you don't choose to apply changes immediately, the changes are put into the pending
+modifications queue. During the next maintenance window, any pending changes in the
+queue are applied.
 
 ###### Note
 
-After a reboot forces a failover from one Availability Zone to another, the
-Availability Zone change might not be reflected for several minutes. This lag
-appears in the AWS Management Console, and in calls to the AWS CLI and AWS DMS API.
+If you choose to apply changes immediately, any changes in the pending modifications queue are
+also applied. If any of the pending modifications require downtime, choosing
+**Apply changes immediately** can cause unexpected downtime.
 
-If migration tasks are running on the replication instance when a reboot occurs,
-no data loss occurs but the task stops, and the task status changes to an error state.
-
-If the tables in the migration task are in the middle of a bulk load (full load phase)
-and haven't yet started, they go into an error state. But tables that are complete
-at that time, remain in a complete state. When a reboot happens during the full load phase,
-we recommended that you perform either one of the steps below.
-
-- Remove the tables that are in a complete state from the task, and restart the task
-  with the remaining tables.
-- Create a new task with tables in an error state, and with tables that are pending.
-  If tables in the migration task are in the ongoing replication phase, the task resumes
-  once the reboot is completed.
-
-You can't reboot your AWS DMS replication instance if its status is not in the
-**Available** state. Your AWS DMS instance can be unavailable for
-several reasons, such as a previously requested modification or a maintenance-window
-action. The time required to reboot an AWS DMS replication instance is typically small
-(under 5 minutes).
-
-To reboot a replication instance, use the AWS console.
-
-###### To reboot a replication instance using the AWS console
+###### To modify a replication instance by using the AWS console
 
 1. Sign in to the AWS Management Console and open the AWS DMS console at
    [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 2. In the navigation pane, choose **Replication instances**.
 3. Choose
-   the replication instance you want to reboot.
-4. Choose **Reboot**. The **Reboot replication instance**
-   dialog box opens.
-5. Select the check box for **Reboot with planned failover?** if you have
-   configured your replication instance for Multi-AZ deployment and you want to fail over to another
-   AWS Availability Zone.
-6. Choose **Reboot**.
-   To reboot a replication instance, use the AWS CLI [`reboot-replication-instance`](../../../cli/latest/reference/dms/reboot-replication-instance.md "../../../cli/latest/reference/dms/reboot-replication-instance.md") command with the following
-   parameter:
+   the replication instance you want to modify. The following table describes the
+   modifications you can make.
 
-- `--replication-instance-arn`
+| Option                                                     | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                                                   | You can change the name of the replication instance. Enter<br>a name for the replication instance that contains from 8 to<br>16 printable ASCII characters (excluding /,", and @).<br>The name should be unique for your account for the AWS<br>Region you selected. You can choose to add some intelligence<br>to the name, such as including the AWS Region and task you<br>are performing, for example<br>`west2-mysql2mysql-instance1`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Description**                                            | Revise or enter a brief description of the replication<br>instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Instance class**                                         | You can change the instance class. Choose an instance<br>class with the configuration you need for your migration.<br>Changing the instance class causes the replication instance<br>to reboot. This reboot occurs during the next maintenance<br>window or can occur immediately if you choose the<br>**Apply changes immediately**<br>option.<br>For more information on how to determine which<br>instance class is best for your migration, see<br>[Working with an AWS DMS replication<br>instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Engine version**                                         | You can upgrade the engine version that is used<br>by the replication instance. Upgrading the replication<br>engine version causes the replication instance to<br>shut down while it is being upgraded.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Multi-AZ**                                               | You can change this option to create a standby<br>replica of your replication instance in another<br>Availability Zone for failover support or remove<br>this option. If you<br>intend to use change data capture (CDC),<br>ongoing replication, you should enable<br>this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Allocated storage (GiB)**                                | Storage is primarily consumed by log files and cached<br>transactions. For caches transactions, storage is used only<br>when the cached transactions need to be written to disk.<br>Therefore, AWS DMS doesn't use a significant amount of<br>storage. Some exceptions include the following:<br>• Very large tables that incur a significant<br>transaction load. Loading a large table can take<br>some time, so cached transactions are more likely to<br>be written to disk during a large table load.<br>• Tasks that are configured to pause before loading<br>cached transactions. In this case, all transactions<br>are cached until the full load completes for all<br>tables. With this configuration, a fair amount of<br>storage might be consumed by cached<br>transactions.<br>• Tasks configured with tables being loaded into<br>Amazon Redshift. However, this configuration isn't an<br>issue when Amazon Aurora is the target.<br>In most cases, the default allocation of storage is<br>sufficient. However, it's always a good idea to pay<br>attention to storage related metrics and scale up your<br>storage if you find you are consuming more than the default<br>allocation. |
+| **Network type**                                           | DMS supports the **IPv4\*<br>• addressing<br>protocol network type, and supports both IPv4 and IPv6<br>addressing protocol network types in<br>**Dual-stack*<br>• mode. When you have<br>resources that must communicate to your replication instance<br>using an IPv6 addressing protocol network type, choose<br>\*\*Dual-stack*<br>• mode. For information<br>about limitations in dual-stack mode, see [Limitations for dual-stack network DB instances](../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.IP_addressing.dual-stack-limitations "../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.IP_addressing.dual-stack-limitations") in the [Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/Welcome.md "../../../AmazonRDS/latest/UserGuide/Welcome.md") userguide.                                                                                                                                                                                                                                                                                                                                                                                     |
+| **VPC Security Group(s)**                                  | The replication instance is created in a VPC. If your<br>source database is in a VPC, choose the VPC security group<br>that provides access to the DB instance where the database<br>resides.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Automatic version upgrade**                              | AWS DMS doesn't differentiate between major and minor versions.<br>For example, upgrading from version 3.4.x to 3.5.x isn't considered<br>a major upgrade, so all changes should be backward-compatible. When<br>**Automatic version upgrade\*<br>• is enabled, DMS<br>automatically upgrades the replication instance's version during the<br>maintenance window if it is deprecated.<br>When **Automatic version upgrade*<br>• is enabled, DMS uses the current<br>default engine version when you create a replication instance. For example, if you set<br>\*\*Engine version*<br>• to a lower version number than the current default<br>version, DMS uses the default version.<br>If **Automatic version upgrade\*<br>• isn't enabled when you create<br>a replication instance, DMS uses the engine version specified by the<br>**Engine version\*<br>• parameter.                                                                                                                                                                                                                                                                                                                               |
+| **Maintenance window**                                     | Choose a weekly time range during which system maintenance<br>can occur, in Universal Coordinated Time (UTC).<br>Default: A 30-minute window selected at random from an<br>8-hour block of time per AWS Region, occurring on a random<br>day of the week.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Apply changes immediately**                              | Choose this option to apply any modifications<br>you made immediately. Depending on the settings you choose,<br>choosing this option could cause an immediate reboot of the<br>replication instance.<br>If you choose **Test connection\*<br>• while<br>AWS DMS applies changes, then you will see an error message.<br>After AWS DMS applies changes to your replication instance,<br>choose **Test connection\*<br>• again.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Apply changes during next scheduled maintenance window** | Choose this option if you want DMS to wait until the next<br>scheduled maintenance window to apply your changes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
-###### Example simple reboot
+## Best practices
 
-The following AWS CLI example reboots a replication instance.
+when modifying a replication instance
 
-```
-aws dms reboot-replication-instance \
---replication-instance-arn `arn of my rep instance`
-```
+When modifying a replication instance, following these best practices helps ensure
+a successful update with minimal impact to your migration workflows. Take the
+following key steps before, during, and after modifications to maintain data
+integrity and operational efficiency throughout the process.
 
-###### Example simple reboot with failover
+**Plan modification timing:**
 
-The following AWS CLI example reboots a replication instance with failover.
+- You can either apply changes immediately or schedule them for
+  the next maintenance window.
+- Schedule during low-traffic periods to minimize impact.
 
-```
-aws dms reboot-replication-instance \
---replication-instance-arn `arn of my rep instance` \
---force-planned-failover
+**Pre-modification steps:**
 
-```
+- Stop all active replication tasks.
+- Verify all tasks have successfully stopped.
+- Document current configuration task settings.
 
-To reboot a replication instance, use the AWS DMS API [`RebootReplicationInstance`](../../../AmazonRDS/latest/APIReference/API_ModifyDBInstance.md "../../../AmazonRDS/latest/APIReference/API_ModifyDBInstance.md") action with the following
-parameters:
+**During modification:**
 
-- `ReplicationInstanceArn = `arn of my rep
-  instance``
+- Monitor the modification progress.
+- Wait for "Available" status before proceeding.
 
-###### Example simple reboot
+**Post-modification steps:**
 
-The following code example reboots a replication instance.
-
-```
-https://dms.us-west-2.amazonaws.com/
-?Action=RebootReplicationInstance
-&DBInstanceArn=`arn of my rep instance`
-&SignatureMethod=HmacSHA256
-&SignatureVersion=4
-&Version=2014-09-01
-&X-Amz-Algorithm=AWS4-HMAC-SHA256
-&X-Amz-Credential=AKIADQKE4SARGYLE/20140425/us-east-1/dms/aws4_request
-&X-Amz-Date=20140425T192732Z
-&X-Amz-SignedHeaders=content-type;host;user-agent;x-amz-content-sha256;x-amz-date
-&X-Amz-Signature=1dc9dd716f4855e9bdf188c70f1cf9f6251b070b68b81103b59ec70c3e7854b3
-```
-
-###### Example simple reboot with failover
-
-The following code example reboots a replication instance and fails over to
-another AWS Availability Zone.
-
-```
-https://dms.us-west-2.amazonaws.com/
-?Action=RebootReplicationInstance
-&DBInstanceArn=`arn of my rep instance`
-&ForcePlannedFailover=true
-&SignatureMethod=HmacSHA256
-&SignatureVersion=4
-&Version=2014-09-01
-&X-Amz-Algorithm=AWS4-HMAC-SHA256
-&X-Amz-Credential=AKIADQKE4SARGYLE/20140425/us-east-1/dms/aws4_request
-&X-Amz-Date=20140425T192732Z
-&X-Amz-SignedHeaders=content-type;host;user-agent;x-amz-content-sha256;x-amz-date
-&X-Amz-Signature=1dc9dd716f4855e9bdf188c70f1cf9f6251b070b68b81103b59ec70c3e7854b3
-```
+- Resume all previously stopped tasks.
+- Confirm tasks are running correctly.

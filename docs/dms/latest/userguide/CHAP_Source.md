@@ -1,584 +1,1768 @@
-# Using Amazon S3 as a source for AWS DMS
+# Using IBM Db2 for z/OS databases as a source for AWS DMS
 
-You can migrate data from an Amazon S3 bucket using AWS DMS. To do this, provide access to an
-Amazon S3 bucket containing one or more data files. In that S3 bucket, include a JSON file
-that describes the mapping between the data and the database tables of the data in those
-files.
+You can migrate data from an IBM for z/OS database to any supported target database using
+AWS Database Migration Service (AWS DMS).
 
-The source data files must be present in the Amazon S3 bucket before the full load starts.
-You specify the bucket name using the `bucketName` parameter.
+For information about versions of Db2 for z/OS that AWS DMS supports as a source,
+see [Sources for AWS DMS](CHAP_Introduction.md "CHAP_Introduction.md").
 
-The source data files can be in the following formats:
+## Prerequisites when using Db2 for z/OS as
 
-- Comma-separated value (.csv)
-- Parquet (DMS version 3.5.3 and later). For information about using Parquet-format files,
-  see [Using Parquet-format files in Amazon S3
-  as a source for AWS DMS](#CHAP_Source.S3.Parquet "#CHAP_Source.S3.Parquet").
-  For source data files in comma-separated value (.csv) format, name them using
-  the following naming convention. In this convention,
-  `schemaName` is the source schema and
-  `tableName` is the name of a table within
-  that schema.
+a source for AWS DMS
+
+To use an IBM Db2 for z/OS database as a source in AWS DMS, grant the following
+privileges to the Db2 for z/OS user specified in the source endpoint connection
+settings.
 
 ```
-/`schemaName`/`tableName`/LOAD001.csv
-/`schemaName`/`tableName`/LOAD002.csv
-/`schemaName`/`tableName`/LOAD003.csv
-...
-```
-
-For example, suppose that your data files are in `amzn-s3-demo-bucket`, at the
-following Amazon S3 path.
+GRANT SELECT ON SYSIBM.SYSTABLES TO `Db2USER`;
+GRANT SELECT ON SYSIBM.SYSTABLESPACE TO `Db2USER`;
+GRANT SELECT ON SYSIBM.SYSTABLEPART TO `Db2USER`;
+GRANT SELECT ON SYSIBM.SYSCOLUMNS TO `Db2USER`;
+GRANT SELECT ON SYSIBM.SYSDATABASE TO `Db2USER`;
+GRANT SELECT ON SYSIBM.SYSDUMMY1 TO `Db2USER`
 
 ```
-s3://amzn-s3-demo-bucket/hr/employee
-```
 
-At load time, AWS DMS assumes that the source schema name is `hr`, and that
-the source table name is `employee`.
+Also grant SELECT ON `user defined`
+source tables.
 
-In addition to `bucketName` (which is required), you can optionally provide
-a `bucketFolder` parameter to specify where AWS DMS should look for data files
-in the Amazon S3 bucket. Continuing the previous example, if you set
-`bucketFolder` to `sourcedata`, then AWS DMS reads the data
-files at the following path.
+An AWS DMS IBM Db2 for z/OS source endpoint relies on the IBM Data Server
+Driver for ODBC to access data. The database server must have a valid
+IBM ODBC Connect license for DMS to connect to this endpoint.
 
-```
-s3://amzn-s3-demo-bucket/sourcedata/hr/employee
-```
-
-You can specify the column delimiter, row delimiter, null value indicator, and other
-parameters using extra connection attributes. For more information, see [Endpoint settings for Amazon S3 as
-a source for AWS DMS](#CHAP_Source.S3.Configuring "#CHAP_Source.S3.Configuring").
-
-You can specify a bucket owner and prevent sniping by using the
-`ExpectedBucketOwner` Amazon S3 endpoint setting, as shown following. Then, when you
-make a request to test a connection or perform a migration, S3 checks the account
-ID of the bucket owner against the specified parameter.
-
-```
---s3-settings='{"ExpectedBucketOwner": "*AWS\_Account\_ID*"}'
-```
-
-###### Topics
-
-- [Defining external tables for Amazon S3
-  as a source for AWS DMS](#CHAP_Source.S3.ExternalTableDef "#CHAP_Source.S3.ExternalTableDef")
-- [Using CDC with Amazon S3 as a source for
-  AWS DMS](#CHAP_Source.S3.CDC "#CHAP_Source.S3.CDC")
-- [Prerequisites when using Amazon S3 as a
-  source for AWS DMS](#CHAP_Source.S3.Prerequisites "#CHAP_Source.S3.Prerequisites")
-- [Limitations when using Amazon S3 as
-  a source for AWS DMS](#CHAP_Source.S3.Limitations "#CHAP_Source.S3.Limitations")
-- [Endpoint settings for Amazon S3 as
-  a source for AWS DMS](#CHAP_Source.S3.Configuring "#CHAP_Source.S3.Configuring")
-- [Source data types for Amazon S3](#CHAP_Source.S3.DataTypes "#CHAP_Source.S3.DataTypes")
-- [Using Parquet-format files in Amazon S3
-  as a source for AWS DMS](#CHAP_Source.S3.Parquet "#CHAP_Source.S3.Parquet")
-
-## Defining external tables for Amazon S3
-
-as a source for AWS DMS
-
-In addition to the data files, you must also provide an external table definition.
-An _external table definition_ is a JSON document that describes
-how AWS DMS should interpret the data from Amazon S3. The maximum size of this document is
-2 MB. If you create a source endpoint using the AWS DMS Management Console, you can
-enter the JSON directly into the table-mapping box. If you use the AWS Command Line Interface (AWS CLI)
-or AWS DMS API to perform migrations, you can create a JSON file to specify the
-external table definition.
-
-Suppose that you have a data file that includes the following.
-
-```
-101,Smith,Bob,2014-06-04,New York
-102,Smith,Bob,2015-10-08,Los Angeles
-103,Smith,Bob,2017-03-13,Dallas
-104,Smith,Bob,2017-03-13,Dallas
-```
-
-Following is an example external table definition for this data.
-
-```
-{
-    "TableCount": "1",
-    "Tables": [
-        {
-            "TableName": "employee",
-            "TablePath": "hr/employee/",
-            "TableOwner": "hr",
-            "TableColumns": [
-                {
-                    "ColumnName": "Id",
-                    "ColumnType": "INT8",
-                    "ColumnNullable": "false",
-                    "ColumnIsPk": "true"
-                },
-                {
-                    "ColumnName": "LastName",
-                    "ColumnType": "STRING",
-                    "ColumnLength": "20"
-                },
-                {
-                    "ColumnName": "FirstName",
-                    "ColumnType": "STRING",
-                    "ColumnLength": "30"
-                },
-                {
-                    "ColumnName": "HireDate",
-                    "ColumnType": "DATETIME"
-                },
-                {
-                    "ColumnName": "OfficeLocation",
-                    "ColumnType": "STRING",
-                    "ColumnLength": "20"
-                }
-            ],
-            "TableColumnsTotal": "5"
-        }
-    ]
-}
-```
-
-The elements in this JSON document are as follows:
-
-`TableCount` – the number of source tables. In this example,
-there is only one table.
-
-`Tables` – an array consisting of one JSON map per source table.
-In this example, there is only one map. Each map consists of the following
-elements:
-
-- `TableName` – the name of the source table.
-- `TablePath` – the path in your Amazon S3 bucket where AWS DMS
-  can find the full data load file. If a `bucketFolder` value is
-  specified, its value is prepended to the path.
-- `TableOwner` – the schema name for this table.
-- `TableColumns` – an array of one or more maps, each of
-  which describes a column in the source table:
-  - `ColumnName` – the name of a column in the
-    source table.
-  - `ColumnType` – the data type for the column. For
-    valid data types, see [Source data types for Amazon S3](#CHAP_Source.S3.DataTypes "#CHAP_Source.S3.DataTypes").
-  - `ColumnLength` – the number of bytes in this
-    column. Maximum column length is limited to2147483647 Bytes (2,047
-    MegaBytes) since an S3 source doesn't support FULL LOB
-
-  mode. `ColumnLength` is valid for the following data types:
-
-      - BYTE
-      - STRING
-
-  - `ColumnNullable` – a Boolean value that is
-    `true` if this column can contain NULL values
-    (default=`false`).
-  - `ColumnIsPk` – a Boolean value that is
-    `true` if this column is part of the primary key
-    (default=`false`).
-  - `ColumnDateFormat` – the input date format for a column with
-    DATE, TIME, and DATETIME types, and used to parse a data string into a date object.
-    Possible values include:
-
-  ```
-  - YYYY-MM-dd HH:mm:ss
-  - YYYY-MM-dd HH:mm:ss.F
-  - YYYY/MM/dd HH:mm:ss
-  - YYYY/MM/dd HH:mm:ss.F
-  - MM/dd/YYYY HH:mm:ss
-  - MM/dd/YYYY HH:mm:ss.F
-  - YYYYMMdd HH:mm:ss
-  - YYYYMMdd HH:mm:ss.F
-  ```
-
-- `TableColumnsTotal` – the total number of columns. This
-  number must match the number of elements in the `TableColumns`
-  array.
-
-If you don't specify otherwise, AWS DMS assumes that `ColumnLength`
-is zero.
-
-###### Note
-
-In supported versions of AWS DMS, the S3 source data can also contain an
-optional operation column as the first column before the `TableName`
-column value. This operation column identifies the operation
-(`INSERT`) used to migrate the data to an S3 target endpoint
-during a full load.
-
-If present, the value of this column is the initial character of the
-`INSERT` operation keyword (`I`). If specified, this
-column generally indicates that the S3 source was created by DMS as an S3 target
-during a previous migration.
-
-In DMS versions prior to 3.4.2, this column wasn't present in S3 source data
-created from a previous DMS full load. Adding this column to S3 target data
-allows the format of all rows written to the S3 target to be consistent whether
-they are written during a full load or during a CDC load. For more information
-on the options for formatting S3 target data, see [Indicating source DB
-operations in migrated S3 data](CHAP_Target.md#CHAP_Target.S3.Configuring.InsertOps "CHAP_Target.md#CHAP_Target.S3.Configuring.InsertOps").
-
-For a column of the NUMERIC type, specify the precision and scale.
-_Precision_ is the total number of digits in a number, and
-_scale_ is the number of digits to the right of the decimal
-point. You use the `ColumnPrecision` and `ColumnScale`
-elements for this, as shown following.
-
-```
-...
-    {
-        "ColumnName": "HourlyRate",
-        "ColumnType": "NUMERIC",
-        "ColumnPrecision": "5"
-        "ColumnScale": "2"
-    }
-...
-```
-
-For a column of the DATETIME type with data that contains fractional seconds,
-specify the scale. _Scale_ is the number of digits for the
-fractional seconds, and can range from 0 to 9. You use the `ColumnScale`
-element for this, as shown following.
-
-```
-...
-{
-      "ColumnName": "HireDate",
-      "ColumnType": "DATETIME",
-      "ColumnScale": "3"
-}
-...
-```
-
-If you don't specify otherwise, AWS DMS assumes `ColumnScale` is zero and
-truncates the fractional seconds.
-
-## Using CDC with Amazon S3 as a source for
-
-AWS DMS
-
-After AWS DMS performs a full data load, it can optionally replicate data changes to
-the target endpoint. To do this, you upload change data capture files (CDC files) to
-your Amazon S3 bucket. AWS DMS reads these CDC files when you upload them, and then applies
-the changes at the target endpoint.
-
-The CDC files are named as follows:
-
-```
-CDC00001.csv
-CDC00002.csv
-CDC00003.csv
-...
-```
-
-###### Note
-
-To replicate CDC files in the change data folder successfully upload them in a
-lexical (sequential) order. For example, upload the file CDC00002.csv before the
-file CDC00003.csv. Otherwise, CDC00002.csv is skipped and isn't replicated
-if you load it after CDC00003.csv. But the file CDC00004.csv replicates
-successfully if loaded after CDC00003.csv.
-
-To indicate where AWS DMS can find the files, specify the
-`cdcPath` parameter. Continuing the previous example, if you set
-`cdcPath` to `changedata`, then
-AWS DMS reads the CDC files at the following path.
-
-```
-s3://`amzn-s3-demo-bucket`/`changedata`
-```
-
-If you set
-`cdcPath` to `changedata` and `bucketFolder`
-to `myFolder`, then
-AWS DMS reads the CDC files at the following path.
-
-```
-s3://`amzn-s3-demo-bucket`/`myFolder`/`changedata`
-```
-
-The records in a CDC file are formatted as follows:
-
-- Operation – the change operation to be performed:
-  `INSERT` or `I`, `UPDATE` or
-  `U`, or `DELETE` or `D`. These keyword
-  and character values are case-insensitive.
-
-###### Note
-
-In supported AWS DMS versions, AWS DMS can identify the operation to
-perform for each load record in two ways. AWS DMS can do this from the
-record's keyword value (for example, `INSERT`) or from
-its keyword initial character (for example, `I`). In prior
-versions, AWS DMS recognized the load operation only from the full keyword
-value.
-
-In prior versions of AWS DMS, the full keyword value was written to log
-the CDC data. Also, prior versions wrote the operation value to any S3
-target using only the keyword initial.
-
-Recognizing both formats allows AWS DMS to handle the operation
-regardless of how the operation column is written to create the S3
-source data. This approach supports using S3 target data as the source
-for a later migration. With this approach, you don't need to change
-the format of any keyword initial value that appears in the operation
-column of the later S3 source.
-
-- Table name – the name of the source table.
-- Schema name – the name of the source schema.
-- Data – one or more columns that represent the data to be
-  changed.
-
-Following is an example CDC file for a table named `employee`.
-
-```
-INSERT,employee,hr,101,Smith,Bob,2014-06-04,New York
-UPDATE,employee,hr,101,Smith,Bob,2015-10-08,Los Angeles
-UPDATE,employee,hr,101,Smith,Bob,2017-03-13,Dallas
-DELETE,employee,hr,101,Smith,Bob,2017-03-13,Dallas
-```
-
-## Prerequisites when using Amazon S3 as a
+## Limitations when using Db2 for z/OS as a
 
 source for AWS DMS
 
-To use Amazon S3 as a source for AWS DMS, your source S3 bucket must be in the same AWS
-Region as the DMS replication instance that migrates your data. In addition, the
-AWS account you use for the migration must have read access to the source bucket.
-For AWS DMS version 3.4.7 and higher, DMS must access the source bucket through a VPC endpoint or a public route. For
-information about VPC endpoints, see [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md "CHAP_VPC_Endpoints.md").
+The following limitations apply when using an IBM Db2 for z/OS database as a source for
+AWS DMS:
 
-The AWS Identity and Access Management (IAM) role assigned to the user account used to create the migration
-task must have the following set of permissions.
+- Only Full Load replication tasks are supported. Change data capture (CDC)
+  isn't supported.
+- Parallel load isn't supported.
+- Data validation of views are not supported.
+- Schema, table, and columns names must be specified in UPPER case in table
+  mappings for Column/table level transformations and row level selection filters.
 
-JSON
+## Source data types for IBM Db2
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "s3:GetObject"
- ],
- "Resource": [
- "arn:aws:s3:::amzn-s3-demo-bucket*/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "s3:ListBucket"
- ],
- "Resource": [
- "arn:aws:s3:::amzn-s3-demo-bucket*"
- ]
- }
- ]
-}`
+for z/OS
 
-```
+Data migrations that use Db2 for z/OS as a source for AWS DMS support most Db2 for
+z/OS data types. The following table shows the Db2 for z/OS source data types that are
+supported when using AWS DMS, and the default mapping from AWS DMS data types.
 
-The AWS Identity and Access Management (IAM) role assigned to the user account used to create the migration
-task must have the following set of permissions if versioning is enabled on the Amazon S3 bucket.
+For more information about Db2 for z/OS data types, see the
+[IBM Db2 for z/OS documentation](https://www.ibm.com/docs/en/db2-for-zos/12?topic=elements-data-types "https://www.ibm.com/docs/en/db2-for-zos/12?topic=elements-data-types").
 
-JSON
+For information on how to view the data type that is mapped in the target, see the section for the
+target endpoint that you're using.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "s3:GetObject",
- "s3:GetObjectVersion"
- ],
- "Resource": [
- "arn:aws:s3:::amzn-s3-demo-bucket*/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "s3:ListBucket"
- ],
- "Resource": [
- "arn:aws:s3:::amzn-s3-demo-bucket*"
- ]
- }
- ]
-}`
+For additional information about AWS DMS data types, see
+[Data types for AWS Database Migration Service](CHAP_Reference.md "CHAP_Reference.md").
 
-```
+| Db2 for z/OS data types   | AWS DMS data types                                                                                                                             |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| INTEGER                   | INT4                                                                                                                                           |
+| SMALLINT                  | INT2                                                                                                                                           |
+| BIGINT                    | INT8                                                                                                                                           |
+| DECIMAL (p,s)             | NUMERIC (p,s)<br>If a decimal point is set to a comma (,) in the DB2 configuration, configure Replicate<br>to support the DB2 setting.         |
+| FLOAT                     | REAL8                                                                                                                                          |
+| DOUBLE                    | REAL8                                                                                                                                          |
+| REAL                      | REAL4                                                                                                                                          |
+| DECFLOAT (p)              | If precision is 16, then REAL8; if precision is 34, then<br>STRING                                                                             |
+| GRAPHIC (n)               | If n>=127 then WSTRING, for fixed-length graphic strings of double byte chars<br>with a length greater than 0 and less than or equal to<br>127 |
+| VARGRAPHIC (n)            | WSTRING, for varying-length graphic strings with a length<br>greater than 0 and less than or equal to16,352 double byte<br>chars               |
+| LONG VARGRAPHIC (n)       | CLOB, for varying-length graphic strings with a length greater<br>than 0 and less than or equal to16,352 double byte chars                     |
+| CHARACTER (n)             | STRING, for fixed-length strings of double byte chars with a<br>length greater than 0 and less than or equal to 255                            |
+| VARCHAR (n)               | STRING, for varying-length strings of double byte chars with a<br>length greater than 0 and less than or equal to 32,704                       |
+| LONG VARCHAR (n)          | CLOB, for varying-length strings of double byte chars with a<br>length greater than 0 and less than or equal to 32,704                         |
+| CHAR (n) FOR BIT DATA     | BYTES                                                                                                                                          |
+| VARCHAR (n) FOR BIT DATA  | BYTES                                                                                                                                          |
+| LONG VARCHAR FOR BIT DATA | BYTES                                                                                                                                          |
+| DATE                      | DATE                                                                                                                                           |
+| TIME                      | TIME                                                                                                                                           |
+| TIMESTAMP                 | DATETIME                                                                                                                                       |
+| BLOB (n)                  | BLOB<br>Maximum length is 2,147,483,647 bytes                                                                                                  |
+| CLOB (n)                  | CLOB<br>Maximum length is 2,147,483,647 bytes                                                                                                  |
+| DBCLOB (n)                | CLOB<br>Maximum length is 1,073,741,824 double byte chars                                                                                      |
+| XML                       | CLOB                                                                                                                                           |
+| BINARY                    | BYTES                                                                                                                                          |
+| VARBINARY                 | BYTES                                                                                                                                          |
+| ROWID                     | BYTES. For more information about working with ROWID, see<br>following.                                                                        |
+| TIMESTAMP WITH TIME ZONE  | Not supported.                                                                                                                                 |
 
-## Limitations when using Amazon S3 as
+ROWID columns are migrated by default when the target table prep mode for the task
+is set to DROP_AND_CREATE (the default). Data validation ignores these columns because
+the rows are meaningless outside the specific database and table. To turn off migration
+of these columns, you can do one of the following preparatory steps:
 
-a source for AWS DMS
+- Precreate the target table without these columns. Then, set the target
+  table prep mode of the task to either DO_NOTHING or TRUNCATE_BEFORE_LOAD. You
+  can use AWS Schema Conversion Tool (AWS SCT) to precreate the target table without the
+  columns.
+- Add a table mapping rule to a task that filters out these columns so
+  that they're ignored. For more information, see [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
 
-The following limitations apply when using Amazon S3 as a source:
+## EBCDIC collations in PostgreSQL for AWS Mainframe Modernization service
 
-- Don’t enable versioning for S3. If you need S3 versioning, use lifecycle policies to actively
-  delete old versions. Otherwise, you might encounter endpoint test connection failures because of
-  an S3 `list-object` call timeout. To create a lifecycle policy for an S3 bucket, see
-  [Managing your storage lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md").
-  To delete a version of an S3 object, see
-  [Deleting object versions from a versioning-enabled bucket](../../../AmazonS3/latest/dev/DeletingObjectVersions.md "../../../AmazonS3/latest/dev/DeletingObjectVersions.md").
-- A VPC-enabled (gateway VPC) S3 bucket is supported in versions 3.4.7 and higher.
-- MySQL converts the `time` datatype to `string`. To see `time`
-  data type values in MySQL, define the column in the target table as `string`, and set the task's
-  **Target table preparation mode** setting to **Truncate**.
-- AWS DMS uses the `BYTE` data type internally for data in both `BYTE` and
-  `BYTES` data types.
-- S3 source endpoints do not support the DMS table reload feature.
-- AWS DMS doesn't support Full LOB mode with Amazon S3 as a Source.
+AWS Mainframe Modernization program helps you modernize your mainframe applications
+to AWS managed runtime environments. It provides tools and resources that help you
+plan and implement your migration and modernization projects. For more information about
+mainframe modernization and migration, see
+[Mainframe Modernization with AWS](https://aws.amazon.com/mainframe/ "https://aws.amazon.com/mainframe/").
 
-The following limitations apply when using Parquet-format files in Amazon S3 as a source:
+Some IBM Db2 for z/OS data sets are encoded in the Extended Binary Coded Decimal Interchange (EBCDIC) character set.
+This is a character set that was developed before ASCII (American Standard Code for Information Interchange)
+became commonly used. A _code page_ maps each character of text to the characters in a character set.
+A traditional code page contains the mapping information between a code point and a character ID.
+A _character ID_ is an 8-byte character data string. A _code point_ is an 8-bit
+binary number that represents a character. Code points are usually shown as hexadecimal representations of their
+binary values.
 
-- Dates in `MMYYYYDD`, or `DDMMYYYY` are not supported for the S3 Parquet Source date-partitioning feature.
-
-## Endpoint settings for Amazon S3 as
-
-a source for AWS DMS
-
-You can use endpoint settings to configure your Amazon S3 source database similar to using
-extra connection attributes. You specify the settings when you create the source
-endpoint using the AWS DMS console, or by using the `create-endpoint` command in the
-[AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"), with the
-`--s3-settings '{"`EndpointSetting"`:
- `"value"`, `...`}'` JSON syntax.
-
-###### Note
-
-AWS DMS defaults to a secure connection to the Amazon S3 endpoint without requiring to
-specify SSL mode or certificate.
-
-The following table shows the endpoint settings that you can use with
-Amazon S3 as a source.
-
-| **Option**         | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BucketFolder`     | (Optional) A folder name in the S3 bucket. If this attribute<br>is provided, source data files and CDC files are read from the<br>path<br>`s3://`amzn-s3-demo-bucket`/`bucketFolder`/`schemaName`/`tableName`/`<br>and<br>`s3://`amzn-s3-demo-bucket`/`bucketFolder`/` respectively.<br>If this attribute isn't specified, then the path used is<br>``schemaName`/`tableName`/`.<br>`'{"BucketFolder": "`sourceData`"}'`                                                                                                                                            |
-| `BucketName`       | The name of the S3 bucket.<br>`'{"BucketName": "`amzn-s3-demo-bucket`"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `CdcPath`          | The location of CDC files. This attribute is required if a task<br>captures change data; otherwise, it's optional. If<br>`CdcPath` is present, then AWS DMS reads CDC files from<br>this path and replicates the data changes to the target endpoint.<br>For more information, see [Using CDC with Amazon S3 as a source for<br>AWS DMS](#CHAP_Source.S3.CDC "#CHAP_Source.S3.CDC").<br>`'{"CdcPath": "`changeData`"}'`                                                                                                                                             |
-| `CsvDelimiter`     | The delimiter used to separate columns in the source files.<br>The default is a comma. An example follows.<br>`'{"CsvDelimiter": ","}'`                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `CsvNullValue`     | A user-defined string that AWS DMS treats as null when reading from the source.<br>The default is an empty string. If you do not set this parameter, AWS DMS treats<br>an empty string as a null value. If you set this parameter to a string<br>such as "\N", AWS DMS treats this string as the null value, and treats empty strings<br>as an empty string value.                                                                                                                                                                                                  |
-| `CsvRowDelimiter`  | The delimiter used to separate rows in the source files. The<br>default is a newline (`\n`).<br>`'{"CsvRowDelimiter": "\n"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `DataFormat`       | Set this value to `Parquet` to read data in Parquet format.<br>`'{"DataFormat": "Parquet"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `IgnoreHeaderRows` | When this value is set to 1, AWS DMS ignores the first row<br>header in a .csv file. A value of 1 enables the feature, a value<br>of 0 disables the feature.<br>The default is 0.<br>`'{"IgnoreHeaderRows": 1}'`                                                                                                                                                                                                                                                                                                                                                    |
-| `Rfc4180`          | When this value is set to `true` or `y`,<br>each leading double quotation mark has to be followed by an<br>ending double quotation mark. This formatting complies with RFC<br>4180. When this value is set to `false` or<br>`n`, string literals are copied to the target as<br>is. In this case, a delimiter (row or column) signals the end of<br>the field. Thus, you can't use a delimiter as part of the<br>string, because it signals the end of the value.<br>The default is `true`.<br>Valid values: `true`, `false`,<br>`y`, `n`<br>`'{"Rfc4180": false}'` |
-
-## Source data types for Amazon S3
-
-Data migration that uses Amazon S3 as a source for AWS DMS needs to map data from Amazon S3 to
-AWS DMS data types. For more information, see [Defining external tables for Amazon S3
-as a source for AWS DMS](#CHAP_Source.S3.ExternalTableDef "#CHAP_Source.S3.ExternalTableDef").
-
-For information on how to view the data type that is mapped in the target, see the
-section for the target endpoint you are using.
-
-For additional information about AWS DMS data types, see [Data types for AWS Database Migration Service](CHAP_Reference.md "CHAP_Reference.md").
-
-The following AWS DMS data types are used with Amazon S3 as a source:
-
-- BYTE – Requires `ColumnLength`. For more information,
-  see [Defining external tables for Amazon S3
-  as a source for AWS DMS](#CHAP_Source.S3.ExternalTableDef "#CHAP_Source.S3.ExternalTableDef").
-- DATE
-- TIME
-- DATETIME – For more information and an example, see the DATETIME
-  type example in [Defining external tables for Amazon S3
-  as a source for AWS DMS](#CHAP_Source.S3.ExternalTableDef "#CHAP_Source.S3.ExternalTableDef").
-- INT1
-- INT2
-- INT4
-- INT8
-- NUMERIC – Requires `ColumnPrecision` and
-  `ColumnScale`. AWS DMS supports the following maximum values:
-
-      + **ColumnPrecision: 38**
-      + **ColumnScale: 31**
-
-  For more information and an example, see the
-  NUMERIC type example in [Defining external tables for Amazon S3
-  as a source for AWS DMS](#CHAP_Source.S3.ExternalTableDef "#CHAP_Source.S3.ExternalTableDef").
-
-- REAL4
-- REAL8
-- STRING – Requires `ColumnLength`. For more information,
-  see [Defining external tables for Amazon S3
-  as a source for AWS DMS](#CHAP_Source.S3.ExternalTableDef "#CHAP_Source.S3.ExternalTableDef").
-- UINT1
-- UINT2
-- UINT4
-- UINT8
-- BLOB
-- CLOB
-- BOOLEAN
-
-## Using Parquet-format files in Amazon S3
-
-as a source for AWS DMS
-
-In AWS DMS version 3.5.3 and later, you can use Parquet-format files in an S3 bucket as a source for
-both Full-Load or CDC replication.
-
-DMS only supports Parquet format files as a source that DMS generates by migrating data to an S3 target endpoint.
-File names must be in the supported format, or DMS won't include them in the migration.
-
-For source data files in Parquet format, they must be in the following folder and naming convention.
+If you currently use either the Micro Focus or BluAge component of the Mainframe Modernization
+service, you must tell AWS DMS to _shift_ (translate) certain code
+points. You can use AWS DMS task settings to perform the shifts. The following example
+shows how to use the AWS DMS `CharacterSetSettings` operation to map the shifts in
+a DMS task setting.
 
 ```
-schema/table1/LOAD00001.parquet
-schema/table2/LOAD00002.parquet
-schema/table2/LOAD00003.parquet
+"CharacterSetSettings": {
+        "CharacterSetSupport": null,
+        "CharacterReplacements": [
+{"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "00B8","TargetCharacterCodePoint": "0160"}
+,{"SourceCharacterCodePoint": "00BC","TargetCharacterCodePoint": "0161"}
+,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "017D"}
+,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "017E"}
+,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0152"}
+,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0153"}
+,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0178"}
+            }
+        ]
+    }
+
 ```
 
-For source data files for CDC data in Parquet format, name and store them using the following folder
-and naming convention.
+Some EBCDIC collations already exist for PostgreSQL that understand the shifting
+that's needed. Several different code pages are supported. The sections following
+provide JSON samples of what you must shift for all the supported code pages. You can
+simply copy-and-past the necessary JSON that you need in your DMS task.
+
+### Micro Focus specific EBCDIC collations
+
+For Micro Focus, shift a subset of characters as needed for the following
+collations.
 
 ```
-schema/table/20230405-094615814.parquet
-schema/table/20230405-094615853.parquet
-schema/table/20230405-094615922.parquet
+ da-DK-cp1142m-x-icu
+ de-DE-cp1141m-x-icu
+ en-GB-cp1146m-x-icu
+ en-US-cp1140m-x-icu
+ es-ES-cp1145m-x-icu
+ fi-FI-cp1143m-x-icu
+ fr-FR-cp1147m-x-icu
+ it-IT-cp1144m-x-icu
+ nl-BE-cp1148m-x-icu
+
 ```
 
-To access files in Parquet format, set the following endpoint settings:
+###### Example Micro Focus data shifts per collation:
 
-- Set `DataFormat` to `Parquet`.
-- Do not set the `cdcPath` setting. Make sure that you create your Parquet-format
-  files in the specified schema/ table folders.
+**en_us_cp1140m**
 
-For
-more information about settings for S3 endpoints, see
-[S3Settings](../APIReference/API_S3Settings.md "../APIReference/API_S3Settings.md") in the
-_AWS Database Migration Service API Reference_.
+Code Shift:
 
-### Supported datatypes for Parquet-format files
+```
+0000    0180
+00A6    0160
+00B8    0161
+00BC    017D
+00BD    017E
+00BE    0152
+00A8    0153
+00B4    0178
 
-AWS DMS supports the following source and target data types when migrating data from Parquet-format files.
-Ensure that your target table has columns of the correct data types before migrating.
+```
 
-| Source data type | Target data type |
-| ---------------- | ---------------- |
-| `BYTE`           | `BINARY`         |
-| `DATE`           | `DATE32`         |
-| `TIME`           | `TIME32`         |
-| `DATETIME`       | `TIMESTAMP`      |
-| `INT1`           | `INT8`           |
-| `INT2`           | `INT16`          |
-| `INT4`           | `INT32`          |
-| `INT8`           | `INT64`          |
-| `NUMERIC`        | `DECIMAL`        |
-| `REAL4`          | `FLOAT`          |
-| `REAL8`          | `DOUBLE`         |
-| `STRING`         | `STRING`         |
-| `UINT1`          | `UINT8`          |
-| `UINT2`          | `UINT16`         |
-| `UINT4`          | `UINT32`         |
-| `UINT8`          | `UINT`           |
-| `WSTRING`        | `STRING`         |
-| `BLOB`           | `BINARY`         |
-| `NCLOB`          | `STRING`         |
-| `CLOB`           | `STRING`         |
-| `BOOLEAN`        | `BOOL`           |
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0160"}
+,{"SourceCharacterCodePoint": "00B8","TargetCharacterCodePoint": "0161"}
+,{"SourceCharacterCodePoint": "00BC","TargetCharacterCodePoint": "017D"}
+,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "017E"}
+,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0152"}
+,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0153"}
+,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0178"}
+
+```
+
+**en_us_cp1141m**
+
+Code Shift:
+
+```
+0000    0180
+00B8    0160
+00BC    0161
+00BD    017D
+00BE    017E
+00A8    0152
+00B4    0153
+00A6    0178
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "00B8","TargetCharacterCodePoint": "0160"}
+,{"SourceCharacterCodePoint": "00BC","TargetCharacterCodePoint": "0161"}
+,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "017D"}
+,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "017E"}
+,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0152"}
+,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0153"}
+,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0178"}
+
+```
+
+**en_us_cp1142m**
+
+Code Shift:
+
+```
+0000    0180
+00A6    0160
+00B8    0161
+00BC    017D
+00BD    017E
+00BE    0152
+00A8    0153
+00B4    0178
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0160"}
+,{"SourceCharacterCodePoint": "00B8","TargetCharacterCodePoint": "0161"}
+,{"SourceCharacterCodePoint": "00BC","TargetCharacterCodePoint": "017D"}
+,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "017E"}
+,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0152"}
+,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0153"}
+,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0178"}
+
+```
+
+**en_us_cp1143m**
+
+Code Shift:
+
+```
+0000    0180
+00B8    0160
+00BC    0161
+00BD    017D
+00BE    017E
+00A8    0152
+00B4    0153
+00A6    0178
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "00B8","TargetCharacterCodePoint": "0160"}
+,{"SourceCharacterCodePoint": "00BC","TargetCharacterCodePoint": "0161"}
+,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "017D"}
+,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "017E"}
+,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0152"}
+,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0153"}
+,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0178"}
+
+```
+
+**en_us_cp1144m**
+
+Code Shift:
+
+```
+0000    0180
+00B8    0160
+00BC    0161
+00BD    017D
+00BE    017E
+00A8    0152
+00B4    0153
+00A6    0178
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "00B8","TargetCharacterCodePoint": "0160"}
+,{"SourceCharacterCodePoint": "00BC","TargetCharacterCodePoint": "0161"}
+,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "017D"}
+,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "017E"}
+,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0152"}
+,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0153"}
+,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0178"}
+
+```
+
+**en_us_cp1145m**
+
+Code Shift:
+
+```
+0000    0180
+00A6    0160
+00B8    0161
+00A8    017D
+00BC    017E
+00BD    0152
+00BE    0153
+00B4    0178
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0160"}
+,{"SourceCharacterCodePoint": "00B8","TargetCharacterCodePoint": "0161"}
+,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "017D"}
+,{"SourceCharacterCodePoint": "00BC","TargetCharacterCodePoint": "017E"}
+,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "0152"}
+,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0153"}
+,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0178"}
+
+```
+
+**en_us_cp1146m**
+
+Code Shift:
+
+```
+0000    0180
+00A6    0160
+00B8    0161
+00BC    017D
+00BD    017E
+00BE    0152
+00A8    0153
+00B4    0178
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0160"}
+,{"SourceCharacterCodePoint": "00B8","TargetCharacterCodePoint": "0161"}
+,{"SourceCharacterCodePoint": "00BC","TargetCharacterCodePoint": "017D"}
+,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "017E"}
+,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0152"}
+,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0153"}
+,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0178"}
+
+```
+
+**en_us_cp1147m**
+
+Code Shift:
+
+```
+0000    0180
+00B8    0160
+00A8    0161
+00BC    017D
+00BD    017E
+00BE    0152
+00B4    0153
+00A6    0178
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "00B8","TargetCharacterCodePoint": "0160"}
+,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0161"}
+,{"SourceCharacterCodePoint": "00BC","TargetCharacterCodePoint": "017D"}
+,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "017E"}
+,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0152"}
+,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0153"}
+,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0178"}
+
+```
+
+**en_us_cp1148m**
+
+Code Shift:
+
+```
+0000    0180
+00A6    0160
+00B8    0161
+00BC    017D
+00BD    017E
+00BE    0152
+00A8    0153
+00B4    0178
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0000","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "00A6","TargetCharacterCodePoint": "0160"}
+,{"SourceCharacterCodePoint": "00B8","TargetCharacterCodePoint": "0161"}
+,{"SourceCharacterCodePoint": "00BC","TargetCharacterCodePoint": "017D"}
+,{"SourceCharacterCodePoint": "00BD","TargetCharacterCodePoint": "017E"}
+,{"SourceCharacterCodePoint": "00BE","TargetCharacterCodePoint": "0152"}
+,{"SourceCharacterCodePoint": "00A8","TargetCharacterCodePoint": "0153"}
+,{"SourceCharacterCodePoint": "00B4","TargetCharacterCodePoint": "0178"}
+
+```
+
+### BluAge specific EBCDIC
+
+collations
+
+For BluAge, shift all of the following _low values_ and _high values_ as needed.
+These collations should only be used to support the Mainframe Migration BluAge service.
+
+```
+da-DK-cp1142b-x-icu
+ da-DK-cp277b-x-icu
+ de-DE-cp1141b-x-icu
+ de-DE-cp273b-x-icu
+ en-GB-cp1146b-x-icu
+ en-GB-cp285b-x-icu
+ en-US-cp037b-x-icu
+ en-US-cp1140b-x-icu
+ es-ES-cp1145b-x-icu
+ es-ES-cp284b-x-icu
+ fi-FI-cp1143b-x-icu
+ fi-FI-cp278b-x-icu
+ fr-FR-cp1147b-x-icu
+ fr-FR-cp297b-x-icu
+ it-IT-cp1144b-x-icu
+ it-IT-cp280b-x-icu
+ nl-BE-cp1148b-x-icu
+ nl-BE-cp500b-x-icu
+
+```
+
+###### Example BluAge Data Shifts:
+
+**da-DK-cp277b** and **da-DK-cp1142b**
+
+Code Shift:
+
+```
+0180    0180
+0001    0181
+0002    0182
+0003    0183
+009C    0184
+0009    0185
+0086    0186
+007F    0187
+0097    0188
+008D    0189
+008E    018A
+000B    018B
+000C    018C
+000D    018D
+000E    018E
+000F    018F
+0010    0190
+0011    0191
+0012    0192
+0013    0193
+009D    0194
+0085    0195
+0008    0196
+0087    0197
+0018    0198
+0019    0199
+0092    019A
+008F    019B
+001C    019C
+001D    019D
+001E    019E
+001F    019F
+0080    01A0
+0081    01A1
+0082    01A2
+0083    01A3
+0084    01A4
+000A    01A5
+0017    01A6
+001B    01A7
+0088    01A8
+0089    01A9
+008A    01AA
+008B    01AB
+008C    01AC
+0005    01AD
+0006    01AE
+0007    01AF
+0090    01B0
+0091    01B1
+0016    01B2
+0093    01B3
+0094    01B4
+0095    01B5
+0096    01B6
+0004    01B7
+0098    01B8
+0099    01B9
+009A    01BA
+009B    01BB
+0014    01BC
+0015    01BD
+009E    01BE
+001A    01BF
+009F    027F
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "0001","TargetCharacterCodePoint": "0181"}
+,{"SourceCharacterCodePoint": "0002","TargetCharacterCodePoint": "0182"}
+,{"SourceCharacterCodePoint": "0003","TargetCharacterCodePoint": "0183"}
+,{"SourceCharacterCodePoint": "009C","TargetCharacterCodePoint": "0184"}
+,{"SourceCharacterCodePoint": "0009","TargetCharacterCodePoint": "0185"}
+,{"SourceCharacterCodePoint": "0086","TargetCharacterCodePoint": "0186"}
+,{"SourceCharacterCodePoint": "007F","TargetCharacterCodePoint": "0187"}
+,{"SourceCharacterCodePoint": "0097","TargetCharacterCodePoint": "0188"}
+,{"SourceCharacterCodePoint": "008D","TargetCharacterCodePoint": "0189"}
+,{"SourceCharacterCodePoint": "008E","TargetCharacterCodePoint": "018A"}
+,{"SourceCharacterCodePoint": "000B","TargetCharacterCodePoint": "018B"}
+,{"SourceCharacterCodePoint": "000C","TargetCharacterCodePoint": "018C"}
+,{"SourceCharacterCodePoint": "000D","TargetCharacterCodePoint": "018D"}
+,{"SourceCharacterCodePoint": "000E","TargetCharacterCodePoint": "018E"}
+,{"SourceCharacterCodePoint": "000F","TargetCharacterCodePoint": "018F"}
+,{"SourceCharacterCodePoint": "0010","TargetCharacterCodePoint": "0190"}
+,{"SourceCharacterCodePoint": "0011","TargetCharacterCodePoint": "0191"}
+,{"SourceCharacterCodePoint": "0012","TargetCharacterCodePoint": "0192"}
+,{"SourceCharacterCodePoint": "0013","TargetCharacterCodePoint": "0193"}
+,{"SourceCharacterCodePoint": "009D","TargetCharacterCodePoint": "0194"}
+,{"SourceCharacterCodePoint": "0085","TargetCharacterCodePoint": "0195"}
+,{"SourceCharacterCodePoint": "0008","TargetCharacterCodePoint": "0196"}
+,{"SourceCharacterCodePoint": "0087","TargetCharacterCodePoint": "0197"}
+,{"SourceCharacterCodePoint": "0018","TargetCharacterCodePoint": "0198"}
+,{"SourceCharacterCodePoint": "0019","TargetCharacterCodePoint": "0199"}
+,{"SourceCharacterCodePoint": "0092","TargetCharacterCodePoint": "019A"}
+,{"SourceCharacterCodePoint": "008F","TargetCharacterCodePoint": "019B"}
+,{"SourceCharacterCodePoint": "001C","TargetCharacterCodePoint": "019C"}
+,{"SourceCharacterCodePoint": "001D","TargetCharacterCodePoint": "019D"}
+,{"SourceCharacterCodePoint": "001E","TargetCharacterCodePoint": "019E"}
+,{"SourceCharacterCodePoint": "001F","TargetCharacterCodePoint": "019F"}
+,{"SourceCharacterCodePoint": "0080","TargetCharacterCodePoint": "01A0"}
+,{"SourceCharacterCodePoint": "0081","TargetCharacterCodePoint": "01A1"}
+,{"SourceCharacterCodePoint": "0082","TargetCharacterCodePoint": "01A2"}
+,{"SourceCharacterCodePoint": "0083","TargetCharacterCodePoint": "01A3"}
+,{"SourceCharacterCodePoint": "0084","TargetCharacterCodePoint": "01A4"}
+,{"SourceCharacterCodePoint": "000A","TargetCharacterCodePoint": "01A5"}
+,{"SourceCharacterCodePoint": "0017","TargetCharacterCodePoint": "01A6"}
+,{"SourceCharacterCodePoint": "001B","TargetCharacterCodePoint": "01A7"}
+,{"SourceCharacterCodePoint": "0088","TargetCharacterCodePoint": "01A8"}
+,{"SourceCharacterCodePoint": "0089","TargetCharacterCodePoint": "01A9"}
+,{"SourceCharacterCodePoint": "008A","TargetCharacterCodePoint": "01AA"}
+,{"SourceCharacterCodePoint": "008B","TargetCharacterCodePoint": "01AB"}
+,{"SourceCharacterCodePoint": "008C","TargetCharacterCodePoint": "01AC"}
+,{"SourceCharacterCodePoint": "0005","TargetCharacterCodePoint": "01AD"}
+,{"SourceCharacterCodePoint": "0006","TargetCharacterCodePoint": "01AE"}
+,{"SourceCharacterCodePoint": "0007","TargetCharacterCodePoint": "01AF"}
+,{"SourceCharacterCodePoint": "0090","TargetCharacterCodePoint": "01B0"}
+,{"SourceCharacterCodePoint": "0091","TargetCharacterCodePoint": "01B1"}
+,{"SourceCharacterCodePoint": "0016","TargetCharacterCodePoint": "01B2"}
+,{"SourceCharacterCodePoint": "0093","TargetCharacterCodePoint": "01B3"}
+,{"SourceCharacterCodePoint": "0094","TargetCharacterCodePoint": "01B4"}
+,{"SourceCharacterCodePoint": "0095","TargetCharacterCodePoint": "01B5"}
+,{"SourceCharacterCodePoint": "0096","TargetCharacterCodePoint": "01B6"}
+,{"SourceCharacterCodePoint": "0004","TargetCharacterCodePoint": "01B7"}
+,{"SourceCharacterCodePoint": "0098","TargetCharacterCodePoint": "01B8"}
+,{"SourceCharacterCodePoint": "0099","TargetCharacterCodePoint": "01B9"}
+,{"SourceCharacterCodePoint": "009A","TargetCharacterCodePoint": "01BA"}
+,{"SourceCharacterCodePoint": "009B","TargetCharacterCodePoint": "01BB"}
+,{"SourceCharacterCodePoint": "0014","TargetCharacterCodePoint": "01BC"}
+,{"SourceCharacterCodePoint": "0015","TargetCharacterCodePoint": "01BD"}
+,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
+,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
+,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
+
+```
+
+**de-DE-273b** and **de-DE-1141b**
+
+Code Shift:
+
+```
+0180    0180
+0001    0181
+0002    0182
+0003    0183
+009C    0184
+0009    0185
+0086    0186
+007F    0187
+0097    0188
+008D    0189
+008E    018A
+000B    018B
+000C    018C
+000D    018D
+000E    018E
+000F    018F
+0010    0190
+0011    0191
+0012    0192
+0013    0193
+009D    0194
+0085    0195
+0008    0196
+0087    0197
+0018    0198
+0019    0199
+0092    019A
+008F    019B
+001C    019C
+001D    019D
+001E    019E
+001F    019F
+0080    01A0
+0081    01A1
+0082    01A2
+0083    01A3
+0084    01A4
+000A    01A5
+0017    01A6
+001B    01A7
+0088    01A8
+0089    01A9
+008A    01AA
+008B    01AB
+008C    01AC
+0005    01AD
+0006    01AE
+0007    01AF
+0090    01B0
+0091    01B1
+0016    01B2
+0093    01B3
+0094    01B4
+0095    01B5
+0096    01B6
+0004    01B7
+0098    01B8
+0099    01B9
+009A    01BA
+009B    01BB
+0014    01BC
+0015    01BD
+009E    01BE
+001A    01BF
+009F    027F
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "0001","TargetCharacterCodePoint": "0181"}
+,{"SourceCharacterCodePoint": "0002","TargetCharacterCodePoint": "0182"}
+,{"SourceCharacterCodePoint": "0003","TargetCharacterCodePoint": "0183"}
+,{"SourceCharacterCodePoint": "009C","TargetCharacterCodePoint": "0184"}
+,{"SourceCharacterCodePoint": "0009","TargetCharacterCodePoint": "0185"}
+,{"SourceCharacterCodePoint": "0086","TargetCharacterCodePoint": "0186"}
+,{"SourceCharacterCodePoint": "007F","TargetCharacterCodePoint": "0187"}
+,{"SourceCharacterCodePoint": "0097","TargetCharacterCodePoint": "0188"}
+,{"SourceCharacterCodePoint": "008D","TargetCharacterCodePoint": "0189"}
+,{"SourceCharacterCodePoint": "008E","TargetCharacterCodePoint": "018A"}
+,{"SourceCharacterCodePoint": "000B","TargetCharacterCodePoint": "018B"}
+,{"SourceCharacterCodePoint": "000C","TargetCharacterCodePoint": "018C"}
+,{"SourceCharacterCodePoint": "000D","TargetCharacterCodePoint": "018D"}
+,{"SourceCharacterCodePoint": "000E","TargetCharacterCodePoint": "018E"}
+,{"SourceCharacterCodePoint": "000F","TargetCharacterCodePoint": "018F"}
+,{"SourceCharacterCodePoint": "0010","TargetCharacterCodePoint": "0190"}
+,{"SourceCharacterCodePoint": "0011","TargetCharacterCodePoint": "0191"}
+,{"SourceCharacterCodePoint": "0012","TargetCharacterCodePoint": "0192"}
+,{"SourceCharacterCodePoint": "0013","TargetCharacterCodePoint": "0193"}
+,{"SourceCharacterCodePoint": "009D","TargetCharacterCodePoint": "0194"}
+,{"SourceCharacterCodePoint": "0085","TargetCharacterCodePoint": "0195"}
+,{"SourceCharacterCodePoint": "0008","TargetCharacterCodePoint": "0196"}
+,{"SourceCharacterCodePoint": "0087","TargetCharacterCodePoint": "0197"}
+,{"SourceCharacterCodePoint": "0018","TargetCharacterCodePoint": "0198"}
+,{"SourceCharacterCodePoint": "0019","TargetCharacterCodePoint": "0199"}
+,{"SourceCharacterCodePoint": "0092","TargetCharacterCodePoint": "019A"}
+,{"SourceCharacterCodePoint": "008F","TargetCharacterCodePoint": "019B"}
+,{"SourceCharacterCodePoint": "001C","TargetCharacterCodePoint": "019C"}
+,{"SourceCharacterCodePoint": "001D","TargetCharacterCodePoint": "019D"}
+,{"SourceCharacterCodePoint": "001E","TargetCharacterCodePoint": "019E"}
+,{"SourceCharacterCodePoint": "001F","TargetCharacterCodePoint": "019F"}
+,{"SourceCharacterCodePoint": "0080","TargetCharacterCodePoint": "01A0"}
+,{"SourceCharacterCodePoint": "0081","TargetCharacterCodePoint": "01A1"}
+,{"SourceCharacterCodePoint": "0082","TargetCharacterCodePoint": "01A2"}
+,{"SourceCharacterCodePoint": "0083","TargetCharacterCodePoint": "01A3"}
+,{"SourceCharacterCodePoint": "0084","TargetCharacterCodePoint": "01A4"}
+,{"SourceCharacterCodePoint": "000A","TargetCharacterCodePoint": "01A5"}
+,{"SourceCharacterCodePoint": "0017","TargetCharacterCodePoint": "01A6"}
+,{"SourceCharacterCodePoint": "001B","TargetCharacterCodePoint": "01A7"}
+,{"SourceCharacterCodePoint": "0088","TargetCharacterCodePoint": "01A8"}
+,{"SourceCharacterCodePoint": "0089","TargetCharacterCodePoint": "01A9"}
+,{"SourceCharacterCodePoint": "008A","TargetCharacterCodePoint": "01AA"}
+,{"SourceCharacterCodePoint": "008B","TargetCharacterCodePoint": "01AB"}
+,{"SourceCharacterCodePoint": "008C","TargetCharacterCodePoint": "01AC"}
+,{"SourceCharacterCodePoint": "0005","TargetCharacterCodePoint": "01AD"}
+,{"SourceCharacterCodePoint": "0006","TargetCharacterCodePoint": "01AE"}
+,{"SourceCharacterCodePoint": "0007","TargetCharacterCodePoint": "01AF"}
+,{"SourceCharacterCodePoint": "0090","TargetCharacterCodePoint": "01B0"}
+,{"SourceCharacterCodePoint": "0091","TargetCharacterCodePoint": "01B1"}
+,{"SourceCharacterCodePoint": "0016","TargetCharacterCodePoint": "01B2"}
+,{"SourceCharacterCodePoint": "0093","TargetCharacterCodePoint": "01B3"}
+,{"SourceCharacterCodePoint": "0094","TargetCharacterCodePoint": "01B4"}
+,{"SourceCharacterCodePoint": "0095","TargetCharacterCodePoint": "01B5"}
+,{"SourceCharacterCodePoint": "0096","TargetCharacterCodePoint": "01B6"}
+,{"SourceCharacterCodePoint": "0004","TargetCharacterCodePoint": "01B7"}
+,{"SourceCharacterCodePoint": "0098","TargetCharacterCodePoint": "01B8"}
+,{"SourceCharacterCodePoint": "0099","TargetCharacterCodePoint": "01B9"}
+,{"SourceCharacterCodePoint": "009A","TargetCharacterCodePoint": "01BA"}
+,{"SourceCharacterCodePoint": "009B","TargetCharacterCodePoint": "01BB"}
+,{"SourceCharacterCodePoint": "0014","TargetCharacterCodePoint": "01BC"}
+,{"SourceCharacterCodePoint": "0015","TargetCharacterCodePoint": "01BD"}
+,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
+,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
+,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
+
+```
+
+**en-GB-285b** and **en-GB-1146b**
+
+Code Shift:
+
+```
+0180    0180
+0001    0181
+0002    0182
+0003    0183
+009C    0184
+0009    0185
+0086    0186
+007F    0187
+0097    0188
+008D    0189
+008E    018A
+000B    018B
+000C    018C
+000D    018D
+000E    018E
+000F    018F
+0010    0190
+0011    0191
+0012    0192
+0013    0193
+009D    0194
+0085    0195
+0008    0196
+0087    0197
+0018    0198
+0019    0199
+0092    019A
+008F    019B
+001C    019C
+001D    019D
+001E    019E
+001F    019F
+0080    01A0
+0081    01A1
+0082    01A2
+0083    01A3
+0084    01A4
+000A    01A5
+0017    01A6
+001B    01A7
+0088    01A8
+0089    01A9
+008A    01AA
+008B    01AB
+008C    01AC
+0005    01AD
+0006    01AE
+0007    01AF
+0090    01B0
+0091    01B1
+0016    01B2
+0093    01B3
+0094    01B4
+0095    01B5
+0096    01B6
+0004    01B7
+0098    01B8
+0099    01B9
+009A    01BA
+009B    01BB
+0014    01BC
+0015    01BD
+009E    01BE
+001A    01BF
+009F    027F
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+{"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "0001","TargetCharacterCodePoint": "0181"}
+,{"SourceCharacterCodePoint": "0002","TargetCharacterCodePoint": "0182"}
+,{"SourceCharacterCodePoint": "0003","TargetCharacterCodePoint": "0183"}
+,{"SourceCharacterCodePoint": "009C","TargetCharacterCodePoint": "0184"}
+,{"SourceCharacterCodePoint": "0009","TargetCharacterCodePoint": "0185"}
+,{"SourceCharacterCodePoint": "0086","TargetCharacterCodePoint": "0186"}
+,{"SourceCharacterCodePoint": "007F","TargetCharacterCodePoint": "0187"}
+,{"SourceCharacterCodePoint": "0097","TargetCharacterCodePoint": "0188"}
+,{"SourceCharacterCodePoint": "008D","TargetCharacterCodePoint": "0189"}
+,{"SourceCharacterCodePoint": "008E","TargetCharacterCodePoint": "018A"}
+,{"SourceCharacterCodePoint": "000B","TargetCharacterCodePoint": "018B"}
+,{"SourceCharacterCodePoint": "000C","TargetCharacterCodePoint": "018C"}
+,{"SourceCharacterCodePoint": "000D","TargetCharacterCodePoint": "018D"}
+,{"SourceCharacterCodePoint": "000E","TargetCharacterCodePoint": "018E"}
+,{"SourceCharacterCodePoint": "000F","TargetCharacterCodePoint": "018F"}
+,{"SourceCharacterCodePoint": "0010","TargetCharacterCodePoint": "0190"}
+,{"SourceCharacterCodePoint": "0011","TargetCharacterCodePoint": "0191"}
+,{"SourceCharacterCodePoint": "0012","TargetCharacterCodePoint": "0192"}
+,{"SourceCharacterCodePoint": "0013","TargetCharacterCodePoint": "0193"}
+,{"SourceCharacterCodePoint": "009D","TargetCharacterCodePoint": "0194"}
+,{"SourceCharacterCodePoint": "0085","TargetCharacterCodePoint": "0195"}
+,{"SourceCharacterCodePoint": "0008","TargetCharacterCodePoint": "0196"}
+,{"SourceCharacterCodePoint": "0087","TargetCharacterCodePoint": "0197"}
+,{"SourceCharacterCodePoint": "0018","TargetCharacterCodePoint": "0198"}
+,{"SourceCharacterCodePoint": "0019","TargetCharacterCodePoint": "0199"}
+,{"SourceCharacterCodePoint": "0092","TargetCharacterCodePoint": "019A"}
+,{"SourceCharacterCodePoint": "008F","TargetCharacterCodePoint": "019B"}
+,{"SourceCharacterCodePoint": "001C","TargetCharacterCodePoint": "019C"}
+,{"SourceCharacterCodePoint": "001D","TargetCharacterCodePoint": "019D"}
+,{"SourceCharacterCodePoint": "001E","TargetCharacterCodePoint": "019E"}
+,{"SourceCharacterCodePoint": "001F","TargetCharacterCodePoint": "019F"}
+,{"SourceCharacterCodePoint": "0080","TargetCharacterCodePoint": "01A0"}
+,{"SourceCharacterCodePoint": "0081","TargetCharacterCodePoint": "01A1"}
+,{"SourceCharacterCodePoint": "0082","TargetCharacterCodePoint": "01A2"}
+,{"SourceCharacterCodePoint": "0083","TargetCharacterCodePoint": "01A3"}
+,{"SourceCharacterCodePoint": "0084","TargetCharacterCodePoint": "01A4"}
+,{"SourceCharacterCodePoint": "000A","TargetCharacterCodePoint": "01A5"}
+,{"SourceCharacterCodePoint": "0017","TargetCharacterCodePoint": "01A6"}
+,{"SourceCharacterCodePoint": "001B","TargetCharacterCodePoint": "01A7"}
+,{"SourceCharacterCodePoint": "0088","TargetCharacterCodePoint": "01A8"}
+,{"SourceCharacterCodePoint": "0089","TargetCharacterCodePoint": "01A9"}
+,{"SourceCharacterCodePoint": "008A","TargetCharacterCodePoint": "01AA"}
+,{"SourceCharacterCodePoint": "008B","TargetCharacterCodePoint": "01AB"}
+,{"SourceCharacterCodePoint": "008C","TargetCharacterCodePoint": "01AC"}
+,{"SourceCharacterCodePoint": "0005","TargetCharacterCodePoint": "01AD"}
+,{"SourceCharacterCodePoint": "0006","TargetCharacterCodePoint": "01AE"}
+,{"SourceCharacterCodePoint": "0007","TargetCharacterCodePoint": "01AF"}
+,{"SourceCharacterCodePoint": "0090","TargetCharacterCodePoint": "01B0"}
+,{"SourceCharacterCodePoint": "0091","TargetCharacterCodePoint": "01B1"}
+,{"SourceCharacterCodePoint": "0016","TargetCharacterCodePoint": "01B2"}
+,{"SourceCharacterCodePoint": "0093","TargetCharacterCodePoint": "01B3"}
+,{"SourceCharacterCodePoint": "0094","TargetCharacterCodePoint": "01B4"}
+,{"SourceCharacterCodePoint": "0095","TargetCharacterCodePoint": "01B5"}
+,{"SourceCharacterCodePoint": "0096","TargetCharacterCodePoint": "01B6"}
+,{"SourceCharacterCodePoint": "0004","TargetCharacterCodePoint": "01B7"}
+,{"SourceCharacterCodePoint": "0098","TargetCharacterCodePoint": "01B8"}
+,{"SourceCharacterCodePoint": "0099","TargetCharacterCodePoint": "01B9"}
+,{"SourceCharacterCodePoint": "009A","TargetCharacterCodePoint": "01BA"}
+,{"SourceCharacterCodePoint": "009B","TargetCharacterCodePoint": "01BB"}
+,{"SourceCharacterCodePoint": "0014","TargetCharacterCodePoint": "01BC"}
+,{"SourceCharacterCodePoint": "0015","TargetCharacterCodePoint": "01BD"}
+,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
+,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
+,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
+
+```
+
+**en-us-037b** and **en-us-1140b**
+
+Code Shift:
+
+```
+0180    0180
+0001    0181
+0002    0182
+0003    0183
+009C    0184
+0009    0185
+0086    0186
+007F    0187
+0097    0188
+008D    0189
+008E    018A
+000B    018B
+000C    018C
+000D    018D
+000E    018E
+000F    018F
+0010    0190
+0011    0191
+0012    0192
+0013    0193
+009D    0194
+0085    0195
+0008    0196
+0087    0197
+0018    0198
+0019    0199
+0092    019A
+008F    019B
+001C    019C
+001D    019D
+001E    019E
+001F    019F
+0080    01A0
+0081    01A1
+0082    01A2
+0083    01A3
+0084    01A4
+000A    01A5
+0017    01A6
+001B    01A7
+0088    01A8
+0089    01A9
+008A    01AA
+008B    01AB
+008C    01AC
+0005    01AD
+0006    01AE
+0007    01AF
+0090    01B0
+0091    01B1
+0016    01B2
+0093    01B3
+0094    01B4
+0095    01B5
+0096    01B6
+0004    01B7
+0098    01B8
+0099    01B9
+009A    01BA
+009B    01BB
+0014    01BC
+0015    01BD
+009E    01BE
+001A    01BF
+009F    027F
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+{"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "0001","TargetCharacterCodePoint": "0181"}
+,{"SourceCharacterCodePoint": "0002","TargetCharacterCodePoint": "0182"}
+,{"SourceCharacterCodePoint": "0003","TargetCharacterCodePoint": "0183"}
+,{"SourceCharacterCodePoint": "009C","TargetCharacterCodePoint": "0184"}
+,{"SourceCharacterCodePoint": "0009","TargetCharacterCodePoint": "0185"}
+,{"SourceCharacterCodePoint": "0086","TargetCharacterCodePoint": "0186"}
+,{"SourceCharacterCodePoint": "007F","TargetCharacterCodePoint": "0187"}
+,{"SourceCharacterCodePoint": "0097","TargetCharacterCodePoint": "0188"}
+,{"SourceCharacterCodePoint": "008D","TargetCharacterCodePoint": "0189"}
+,{"SourceCharacterCodePoint": "008E","TargetCharacterCodePoint": "018A"}
+,{"SourceCharacterCodePoint": "000B","TargetCharacterCodePoint": "018B"}
+,{"SourceCharacterCodePoint": "000C","TargetCharacterCodePoint": "018C"}
+,{"SourceCharacterCodePoint": "000D","TargetCharacterCodePoint": "018D"}
+,{"SourceCharacterCodePoint": "000E","TargetCharacterCodePoint": "018E"}
+,{"SourceCharacterCodePoint": "000F","TargetCharacterCodePoint": "018F"}
+,{"SourceCharacterCodePoint": "0010","TargetCharacterCodePoint": "0190"}
+,{"SourceCharacterCodePoint": "0011","TargetCharacterCodePoint": "0191"}
+,{"SourceCharacterCodePoint": "0012","TargetCharacterCodePoint": "0192"}
+,{"SourceCharacterCodePoint": "0013","TargetCharacterCodePoint": "0193"}
+,{"SourceCharacterCodePoint": "009D","TargetCharacterCodePoint": "0194"}
+,{"SourceCharacterCodePoint": "0085","TargetCharacterCodePoint": "0195"}
+,{"SourceCharacterCodePoint": "0008","TargetCharacterCodePoint": "0196"}
+,{"SourceCharacterCodePoint": "0087","TargetCharacterCodePoint": "0197"}
+,{"SourceCharacterCodePoint": "0018","TargetCharacterCodePoint": "0198"}
+,{"SourceCharacterCodePoint": "0019","TargetCharacterCodePoint": "0199"}
+,{"SourceCharacterCodePoint": "0092","TargetCharacterCodePoint": "019A"}
+,{"SourceCharacterCodePoint": "008F","TargetCharacterCodePoint": "019B"}
+,{"SourceCharacterCodePoint": "001C","TargetCharacterCodePoint": "019C"}
+,{"SourceCharacterCodePoint": "001D","TargetCharacterCodePoint": "019D"}
+,{"SourceCharacterCodePoint": "001E","TargetCharacterCodePoint": "019E"}
+,{"SourceCharacterCodePoint": "001F","TargetCharacterCodePoint": "019F"}
+,{"SourceCharacterCodePoint": "0080","TargetCharacterCodePoint": "01A0"}
+,{"SourceCharacterCodePoint": "0081","TargetCharacterCodePoint": "01A1"}
+,{"SourceCharacterCodePoint": "0082","TargetCharacterCodePoint": "01A2"}
+,{"SourceCharacterCodePoint": "0083","TargetCharacterCodePoint": "01A3"}
+,{"SourceCharacterCodePoint": "0084","TargetCharacterCodePoint": "01A4"}
+,{"SourceCharacterCodePoint": "000A","TargetCharacterCodePoint": "01A5"}
+,{"SourceCharacterCodePoint": "0017","TargetCharacterCodePoint": "01A6"}
+,{"SourceCharacterCodePoint": "001B","TargetCharacterCodePoint": "01A7"}
+,{"SourceCharacterCodePoint": "0088","TargetCharacterCodePoint": "01A8"}
+,{"SourceCharacterCodePoint": "0089","TargetCharacterCodePoint": "01A9"}
+,{"SourceCharacterCodePoint": "008A","TargetCharacterCodePoint": "01AA"}
+,{"SourceCharacterCodePoint": "008B","TargetCharacterCodePoint": "01AB"}
+,{"SourceCharacterCodePoint": "008C","TargetCharacterCodePoint": "01AC"}
+,{"SourceCharacterCodePoint": "0005","TargetCharacterCodePoint": "01AD"}
+,{"SourceCharacterCodePoint": "0006","TargetCharacterCodePoint": "01AE"}
+,{"SourceCharacterCodePoint": "0007","TargetCharacterCodePoint": "01AF"}
+,{"SourceCharacterCodePoint": "0090","TargetCharacterCodePoint": "01B0"}
+,{"SourceCharacterCodePoint": "0091","TargetCharacterCodePoint": "01B1"}
+,{"SourceCharacterCodePoint": "0016","TargetCharacterCodePoint": "01B2"}
+,{"SourceCharacterCodePoint": "0093","TargetCharacterCodePoint": "01B3"}
+,{"SourceCharacterCodePoint": "0094","TargetCharacterCodePoint": "01B4"}
+,{"SourceCharacterCodePoint": "0095","TargetCharacterCodePoint": "01B5"}
+,{"SourceCharacterCodePoint": "0096","TargetCharacterCodePoint": "01B6"}
+,{"SourceCharacterCodePoint": "0004","TargetCharacterCodePoint": "01B7"}
+,{"SourceCharacterCodePoint": "0098","TargetCharacterCodePoint": "01B8"}
+,{"SourceCharacterCodePoint": "0099","TargetCharacterCodePoint": "01B9"}
+,{"SourceCharacterCodePoint": "009A","TargetCharacterCodePoint": "01BA"}
+,{"SourceCharacterCodePoint": "009B","TargetCharacterCodePoint": "01BB"}
+,{"SourceCharacterCodePoint": "0014","TargetCharacterCodePoint": "01BC"}
+,{"SourceCharacterCodePoint": "0015","TargetCharacterCodePoint": "01BD"}
+,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
+,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
+,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
+
+```
+
+**es-ES-284b** and **es-ES-1145b**
+
+Code Shift:
+
+```
+0180    0180
+0001    0181
+0002    0182
+0003    0183
+009C    0184
+0009    0185
+0086    0186
+007F    0187
+0097    0188
+008D    0189
+008E    018A
+000B    018B
+000C    018C
+000D    018D
+000E    018E
+000F    018F
+0010    0190
+0011    0191
+0012    0192
+0013    0193
+009D    0194
+0085    0195
+0008    0196
+0087    0197
+0018    0198
+0019    0199
+0092    019A
+008F    019B
+001C    019C
+001D    019D
+001E    019E
+001F    019F
+0080    01A0
+0081    01A1
+0082    01A2
+0083    01A3
+0084    01A4
+000A    01A5
+0017    01A6
+001B    01A7
+0088    01A8
+0089    01A9
+008A    01AA
+008B    01AB
+008C    01AC
+0005    01AD
+0006    01AE
+0007    01AF
+0090    01B0
+0091    01B1
+0016    01B2
+0093    01B3
+0094    01B4
+0095    01B5
+0096    01B6
+0004    01B7
+0098    01B8
+0099    01B9
+009A    01BA
+009B    01BB
+0014    01BC
+0015    01BD
+009E    01BE
+001A    01BF
+009F    027F
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "0001","TargetCharacterCodePoint": "0181"}
+,{"SourceCharacterCodePoint": "0002","TargetCharacterCodePoint": "0182"}
+,{"SourceCharacterCodePoint": "0003","TargetCharacterCodePoint": "0183"}
+,{"SourceCharacterCodePoint": "009C","TargetCharacterCodePoint": "0184"}
+,{"SourceCharacterCodePoint": "0009","TargetCharacterCodePoint": "0185"}
+,{"SourceCharacterCodePoint": "0086","TargetCharacterCodePoint": "0186"}
+,{"SourceCharacterCodePoint": "007F","TargetCharacterCodePoint": "0187"}
+,{"SourceCharacterCodePoint": "0097","TargetCharacterCodePoint": "0188"}
+,{"SourceCharacterCodePoint": "008D","TargetCharacterCodePoint": "0189"}
+,{"SourceCharacterCodePoint": "008E","TargetCharacterCodePoint": "018A"}
+,{"SourceCharacterCodePoint": "000B","TargetCharacterCodePoint": "018B"}
+,{"SourceCharacterCodePoint": "000C","TargetCharacterCodePoint": "018C"}
+,{"SourceCharacterCodePoint": "000D","TargetCharacterCodePoint": "018D"}
+,{"SourceCharacterCodePoint": "000E","TargetCharacterCodePoint": "018E"}
+,{"SourceCharacterCodePoint": "000F","TargetCharacterCodePoint": "018F"}
+,{"SourceCharacterCodePoint": "0010","TargetCharacterCodePoint": "0190"}
+,{"SourceCharacterCodePoint": "0011","TargetCharacterCodePoint": "0191"}
+,{"SourceCharacterCodePoint": "0012","TargetCharacterCodePoint": "0192"}
+,{"SourceCharacterCodePoint": "0013","TargetCharacterCodePoint": "0193"}
+,{"SourceCharacterCodePoint": "009D","TargetCharacterCodePoint": "0194"}
+,{"SourceCharacterCodePoint": "0085","TargetCharacterCodePoint": "0195"}
+,{"SourceCharacterCodePoint": "0008","TargetCharacterCodePoint": "0196"}
+,{"SourceCharacterCodePoint": "0087","TargetCharacterCodePoint": "0197"}
+,{"SourceCharacterCodePoint": "0018","TargetCharacterCodePoint": "0198"}
+,{"SourceCharacterCodePoint": "0019","TargetCharacterCodePoint": "0199"}
+,{"SourceCharacterCodePoint": "0092","TargetCharacterCodePoint": "019A"}
+,{"SourceCharacterCodePoint": "008F","TargetCharacterCodePoint": "019B"}
+,{"SourceCharacterCodePoint": "001C","TargetCharacterCodePoint": "019C"}
+,{"SourceCharacterCodePoint": "001D","TargetCharacterCodePoint": "019D"}
+,{"SourceCharacterCodePoint": "001E","TargetCharacterCodePoint": "019E"}
+,{"SourceCharacterCodePoint": "001F","TargetCharacterCodePoint": "019F"}
+,{"SourceCharacterCodePoint": "0080","TargetCharacterCodePoint": "01A0"}
+,{"SourceCharacterCodePoint": "0081","TargetCharacterCodePoint": "01A1"}
+,{"SourceCharacterCodePoint": "0082","TargetCharacterCodePoint": "01A2"}
+,{"SourceCharacterCodePoint": "0083","TargetCharacterCodePoint": "01A3"}
+,{"SourceCharacterCodePoint": "0084","TargetCharacterCodePoint": "01A4"}
+,{"SourceCharacterCodePoint": "000A","TargetCharacterCodePoint": "01A5"}
+,{"SourceCharacterCodePoint": "0017","TargetCharacterCodePoint": "01A6"}
+,{"SourceCharacterCodePoint": "001B","TargetCharacterCodePoint": "01A7"}
+,{"SourceCharacterCodePoint": "0088","TargetCharacterCodePoint": "01A8"}
+,{"SourceCharacterCodePoint": "0089","TargetCharacterCodePoint": "01A9"}
+,{"SourceCharacterCodePoint": "008A","TargetCharacterCodePoint": "01AA"}
+,{"SourceCharacterCodePoint": "008B","TargetCharacterCodePoint": "01AB"}
+,{"SourceCharacterCodePoint": "008C","TargetCharacterCodePoint": "01AC"}
+,{"SourceCharacterCodePoint": "0005","TargetCharacterCodePoint": "01AD"}
+,{"SourceCharacterCodePoint": "0006","TargetCharacterCodePoint": "01AE"}
+,{"SourceCharacterCodePoint": "0007","TargetCharacterCodePoint": "01AF"}
+,{"SourceCharacterCodePoint": "0090","TargetCharacterCodePoint": "01B0"}
+,{"SourceCharacterCodePoint": "0091","TargetCharacterCodePoint": "01B1"}
+,{"SourceCharacterCodePoint": "0016","TargetCharacterCodePoint": "01B2"}
+,{"SourceCharacterCodePoint": "0093","TargetCharacterCodePoint": "01B3"}
+,{"SourceCharacterCodePoint": "0094","TargetCharacterCodePoint": "01B4"}
+,{"SourceCharacterCodePoint": "0095","TargetCharacterCodePoint": "01B5"}
+,{"SourceCharacterCodePoint": "0096","TargetCharacterCodePoint": "01B6"}
+,{"SourceCharacterCodePoint": "0004","TargetCharacterCodePoint": "01B7"}
+,{"SourceCharacterCodePoint": "0098","TargetCharacterCodePoint": "01B8"}
+,{"SourceCharacterCodePoint": "0099","TargetCharacterCodePoint": "01B9"}
+,{"SourceCharacterCodePoint": "009A","TargetCharacterCodePoint": "01BA"}
+,{"SourceCharacterCodePoint": "009B","TargetCharacterCodePoint": "01BB"}
+,{"SourceCharacterCodePoint": "0014","TargetCharacterCodePoint": "01BC"}
+,{"SourceCharacterCodePoint": "0015","TargetCharacterCodePoint": "01BD"}
+,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
+,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
+,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
+
+```
+
+**fi_FI-278b** and **fi-FI-1143b**
+
+Code Shift:
+
+```
+0180    0180
+0001    0181
+0002    0182
+0003    0183
+009C    0184
+0009    0185
+0086    0186
+007F    0187
+0097    0188
+008D    0189
+008E    018A
+000B    018B
+000C    018C
+000D    018D
+000E    018E
+000F    018F
+0010    0190
+0011    0191
+0012    0192
+0013    0193
+009D    0194
+0085    0195
+0008    0196
+0087    0197
+0018    0198
+0019    0199
+0092    019A
+008F    019B
+001C    019C
+001D    019D
+001E    019E
+001F    019F
+0080    01A0
+0081    01A1
+0082    01A2
+0083    01A3
+0084    01A4
+000A    01A5
+0017    01A6
+001B    01A7
+0088    01A8
+0089    01A9
+008A    01AA
+008B    01AB
+008C    01AC
+0005    01AD
+0006    01AE
+0007    01AF
+0090    01B0
+0091    01B1
+0016    01B2
+0093    01B3
+0094    01B4
+0095    01B5
+0096    01B6
+0004    01B7
+0098    01B8
+0099    01B9
+009A    01BA
+009B    01BB
+0014    01BC
+0015    01BD
+009E    01BE
+001A    01BF
+009F    027F
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "0001","TargetCharacterCodePoint": "0181"}
+,{"SourceCharacterCodePoint": "0002","TargetCharacterCodePoint": "0182"}
+,{"SourceCharacterCodePoint": "0003","TargetCharacterCodePoint": "0183"}
+,{"SourceCharacterCodePoint": "009C","TargetCharacterCodePoint": "0184"}
+,{"SourceCharacterCodePoint": "0009","TargetCharacterCodePoint": "0185"}
+,{"SourceCharacterCodePoint": "0086","TargetCharacterCodePoint": "0186"}
+,{"SourceCharacterCodePoint": "007F","TargetCharacterCodePoint": "0187"}
+,{"SourceCharacterCodePoint": "0097","TargetCharacterCodePoint": "0188"}
+,{"SourceCharacterCodePoint": "008D","TargetCharacterCodePoint": "0189"}
+,{"SourceCharacterCodePoint": "008E","TargetCharacterCodePoint": "018A"}
+,{"SourceCharacterCodePoint": "000B","TargetCharacterCodePoint": "018B"}
+,{"SourceCharacterCodePoint": "000C","TargetCharacterCodePoint": "018C"}
+,{"SourceCharacterCodePoint": "000D","TargetCharacterCodePoint": "018D"}
+,{"SourceCharacterCodePoint": "000E","TargetCharacterCodePoint": "018E"}
+,{"SourceCharacterCodePoint": "000F","TargetCharacterCodePoint": "018F"}
+,{"SourceCharacterCodePoint": "0010","TargetCharacterCodePoint": "0190"}
+,{"SourceCharacterCodePoint": "0011","TargetCharacterCodePoint": "0191"}
+,{"SourceCharacterCodePoint": "0012","TargetCharacterCodePoint": "0192"}
+,{"SourceCharacterCodePoint": "0013","TargetCharacterCodePoint": "0193"}
+,{"SourceCharacterCodePoint": "009D","TargetCharacterCodePoint": "0194"}
+,{"SourceCharacterCodePoint": "0085","TargetCharacterCodePoint": "0195"}
+,{"SourceCharacterCodePoint": "0008","TargetCharacterCodePoint": "0196"}
+,{"SourceCharacterCodePoint": "0087","TargetCharacterCodePoint": "0197"}
+,{"SourceCharacterCodePoint": "0018","TargetCharacterCodePoint": "0198"}
+,{"SourceCharacterCodePoint": "0019","TargetCharacterCodePoint": "0199"}
+,{"SourceCharacterCodePoint": "0092","TargetCharacterCodePoint": "019A"}
+,{"SourceCharacterCodePoint": "008F","TargetCharacterCodePoint": "019B"}
+,{"SourceCharacterCodePoint": "001C","TargetCharacterCodePoint": "019C"}
+,{"SourceCharacterCodePoint": "001D","TargetCharacterCodePoint": "019D"}
+,{"SourceCharacterCodePoint": "001E","TargetCharacterCodePoint": "019E"}
+,{"SourceCharacterCodePoint": "001F","TargetCharacterCodePoint": "019F"}
+,{"SourceCharacterCodePoint": "0080","TargetCharacterCodePoint": "01A0"}
+,{"SourceCharacterCodePoint": "0081","TargetCharacterCodePoint": "01A1"}
+,{"SourceCharacterCodePoint": "0082","TargetCharacterCodePoint": "01A2"}
+,{"SourceCharacterCodePoint": "0083","TargetCharacterCodePoint": "01A3"}
+,{"SourceCharacterCodePoint": "0084","TargetCharacterCodePoint": "01A4"}
+,{"SourceCharacterCodePoint": "000A","TargetCharacterCodePoint": "01A5"}
+,{"SourceCharacterCodePoint": "0017","TargetCharacterCodePoint": "01A6"}
+,{"SourceCharacterCodePoint": "001B","TargetCharacterCodePoint": "01A7"}
+,{"SourceCharacterCodePoint": "0088","TargetCharacterCodePoint": "01A8"}
+,{"SourceCharacterCodePoint": "0089","TargetCharacterCodePoint": "01A9"}
+,{"SourceCharacterCodePoint": "008A","TargetCharacterCodePoint": "01AA"}
+,{"SourceCharacterCodePoint": "008B","TargetCharacterCodePoint": "01AB"}
+,{"SourceCharacterCodePoint": "008C","TargetCharacterCodePoint": "01AC"}
+,{"SourceCharacterCodePoint": "0005","TargetCharacterCodePoint": "01AD"}
+,{"SourceCharacterCodePoint": "0006","TargetCharacterCodePoint": "01AE"}
+,{"SourceCharacterCodePoint": "0007","TargetCharacterCodePoint": "01AF"}
+,{"SourceCharacterCodePoint": "0090","TargetCharacterCodePoint": "01B0"}
+,{"SourceCharacterCodePoint": "0091","TargetCharacterCodePoint": "01B1"}
+,{"SourceCharacterCodePoint": "0016","TargetCharacterCodePoint": "01B2"}
+,{"SourceCharacterCodePoint": "0093","TargetCharacterCodePoint": "01B3"}
+,{"SourceCharacterCodePoint": "0094","TargetCharacterCodePoint": "01B4"}
+,{"SourceCharacterCodePoint": "0095","TargetCharacterCodePoint": "01B5"}
+,{"SourceCharacterCodePoint": "0096","TargetCharacterCodePoint": "01B6"}
+,{"SourceCharacterCodePoint": "0004","TargetCharacterCodePoint": "01B7"}
+,{"SourceCharacterCodePoint": "0098","TargetCharacterCodePoint": "01B8"}
+,{"SourceCharacterCodePoint": "0099","TargetCharacterCodePoint": "01B9"}
+,{"SourceCharacterCodePoint": "009A","TargetCharacterCodePoint": "01BA"}
+,{"SourceCharacterCodePoint": "009B","TargetCharacterCodePoint": "01BB"}
+,{"SourceCharacterCodePoint": "0014","TargetCharacterCodePoint": "01BC"}
+,{"SourceCharacterCodePoint": "0015","TargetCharacterCodePoint": "01BD"}
+,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
+,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
+,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
+
+```
+
+**fr-FR-297b** and **fr-FR-1147b**
+
+Code Shift:
+
+```
+0180    0180
+0001    0181
+0002    0182
+0003    0183
+009C    0184
+0009    0185
+0086    0186
+007F    0187
+0097    0188
+008D    0189
+008E    018A
+000B    018B
+000C    018C
+000D    018D
+000E    018E
+000F    018F
+0010    0190
+0011    0191
+0012    0192
+0013    0193
+009D    0194
+0085    0195
+0008    0196
+0087    0197
+0018    0198
+0019    0199
+0092    019A
+008F    019B
+001C    019C
+001D    019D
+001E    019E
+001F    019F
+0080    01A0
+0081    01A1
+0082    01A2
+0083    01A3
+0084    01A4
+000A    01A5
+0017    01A6
+001B    01A7
+0088    01A8
+0089    01A9
+008A    01AA
+008B    01AB
+008C    01AC
+0005    01AD
+0006    01AE
+0007    01AF
+0090    01B0
+0091    01B1
+0016    01B2
+0093    01B3
+0094    01B4
+0095    01B5
+0096    01B6
+0004    01B7
+0098    01B8
+0099    01B9
+009A    01BA
+009B    01BB
+0014    01BC
+0015    01BD
+009E    01BE
+001A    01BF
+009F    027F
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+{"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "0001","TargetCharacterCodePoint": "0181"}
+,{"SourceCharacterCodePoint": "0002","TargetCharacterCodePoint": "0182"}
+,{"SourceCharacterCodePoint": "0003","TargetCharacterCodePoint": "0183"}
+,{"SourceCharacterCodePoint": "009C","TargetCharacterCodePoint": "0184"}
+,{"SourceCharacterCodePoint": "0009","TargetCharacterCodePoint": "0185"}
+,{"SourceCharacterCodePoint": "0086","TargetCharacterCodePoint": "0186"}
+,{"SourceCharacterCodePoint": "007F","TargetCharacterCodePoint": "0187"}
+,{"SourceCharacterCodePoint": "0097","TargetCharacterCodePoint": "0188"}
+,{"SourceCharacterCodePoint": "008D","TargetCharacterCodePoint": "0189"}
+,{"SourceCharacterCodePoint": "008E","TargetCharacterCodePoint": "018A"}
+,{"SourceCharacterCodePoint": "000B","TargetCharacterCodePoint": "018B"}
+,{"SourceCharacterCodePoint": "000C","TargetCharacterCodePoint": "018C"}
+,{"SourceCharacterCodePoint": "000D","TargetCharacterCodePoint": "018D"}
+,{"SourceCharacterCodePoint": "000E","TargetCharacterCodePoint": "018E"}
+,{"SourceCharacterCodePoint": "000F","TargetCharacterCodePoint": "018F"}
+,{"SourceCharacterCodePoint": "0010","TargetCharacterCodePoint": "0190"}
+,{"SourceCharacterCodePoint": "0011","TargetCharacterCodePoint": "0191"}
+,{"SourceCharacterCodePoint": "0012","TargetCharacterCodePoint": "0192"}
+,{"SourceCharacterCodePoint": "0013","TargetCharacterCodePoint": "0193"}
+,{"SourceCharacterCodePoint": "009D","TargetCharacterCodePoint": "0194"}
+,{"SourceCharacterCodePoint": "0085","TargetCharacterCodePoint": "0195"}
+,{"SourceCharacterCodePoint": "0008","TargetCharacterCodePoint": "0196"}
+,{"SourceCharacterCodePoint": "0087","TargetCharacterCodePoint": "0197"}
+,{"SourceCharacterCodePoint": "0018","TargetCharacterCodePoint": "0198"}
+,{"SourceCharacterCodePoint": "0019","TargetCharacterCodePoint": "0199"}
+,{"SourceCharacterCodePoint": "0092","TargetCharacterCodePoint": "019A"}
+,{"SourceCharacterCodePoint": "008F","TargetCharacterCodePoint": "019B"}
+,{"SourceCharacterCodePoint": "001C","TargetCharacterCodePoint": "019C"}
+,{"SourceCharacterCodePoint": "001D","TargetCharacterCodePoint": "019D"}
+,{"SourceCharacterCodePoint": "001E","TargetCharacterCodePoint": "019E"}
+,{"SourceCharacterCodePoint": "001F","TargetCharacterCodePoint": "019F"}
+,{"SourceCharacterCodePoint": "0080","TargetCharacterCodePoint": "01A0"}
+,{"SourceCharacterCodePoint": "0081","TargetCharacterCodePoint": "01A1"}
+,{"SourceCharacterCodePoint": "0082","TargetCharacterCodePoint": "01A2"}
+,{"SourceCharacterCodePoint": "0083","TargetCharacterCodePoint": "01A3"}
+,{"SourceCharacterCodePoint": "0084","TargetCharacterCodePoint": "01A4"}
+,{"SourceCharacterCodePoint": "000A","TargetCharacterCodePoint": "01A5"}
+,{"SourceCharacterCodePoint": "0017","TargetCharacterCodePoint": "01A6"}
+,{"SourceCharacterCodePoint": "001B","TargetCharacterCodePoint": "01A7"}
+,{"SourceCharacterCodePoint": "0088","TargetCharacterCodePoint": "01A8"}
+,{"SourceCharacterCodePoint": "0089","TargetCharacterCodePoint": "01A9"}
+,{"SourceCharacterCodePoint": "008A","TargetCharacterCodePoint": "01AA"}
+,{"SourceCharacterCodePoint": "008B","TargetCharacterCodePoint": "01AB"}
+,{"SourceCharacterCodePoint": "008C","TargetCharacterCodePoint": "01AC"}
+,{"SourceCharacterCodePoint": "0005","TargetCharacterCodePoint": "01AD"}
+,{"SourceCharacterCodePoint": "0006","TargetCharacterCodePoint": "01AE"}
+,{"SourceCharacterCodePoint": "0007","TargetCharacterCodePoint": "01AF"}
+,{"SourceCharacterCodePoint": "0090","TargetCharacterCodePoint": "01B0"}
+,{"SourceCharacterCodePoint": "0091","TargetCharacterCodePoint": "01B1"}
+,{"SourceCharacterCodePoint": "0016","TargetCharacterCodePoint": "01B2"}
+,{"SourceCharacterCodePoint": "0093","TargetCharacterCodePoint": "01B3"}
+,{"SourceCharacterCodePoint": "0094","TargetCharacterCodePoint": "01B4"}
+,{"SourceCharacterCodePoint": "0095","TargetCharacterCodePoint": "01B5"}
+,{"SourceCharacterCodePoint": "0096","TargetCharacterCodePoint": "01B6"}
+,{"SourceCharacterCodePoint": "0004","TargetCharacterCodePoint": "01B7"}
+,{"SourceCharacterCodePoint": "0098","TargetCharacterCodePoint": "01B8"}
+,{"SourceCharacterCodePoint": "0099","TargetCharacterCodePoint": "01B9"}
+,{"SourceCharacterCodePoint": "009A","TargetCharacterCodePoint": "01BA"}
+,{"SourceCharacterCodePoint": "009B","TargetCharacterCodePoint": "01BB"}
+,{"SourceCharacterCodePoint": "0014","TargetCharacterCodePoint": "01BC"}
+,{"SourceCharacterCodePoint": "0015","TargetCharacterCodePoint": "01BD"}
+,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
+,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
+,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
+
+```
+
+**it-IT-280b** and **it-IT-1144b**
+
+Code Shift:
+
+```
+0180    0180
+0001    0181
+0002    0182
+0003    0183
+009C    0184
+0009    0185
+0086    0186
+007F    0187
+0097    0188
+008D    0189
+008E    018A
+000B    018B
+000C    018C
+000D    018D
+000E    018E
+000F    018F
+0010    0190
+0011    0191
+0012    0192
+0013    0193
+009D    0194
+0085    0195
+0008    0196
+0087    0197
+0018    0198
+0019    0199
+0092    019A
+008F    019B
+001C    019C
+001D    019D
+001E    019E
+001F    019F
+0080    01A0
+0081    01A1
+0082    01A2
+0083    01A3
+0084    01A4
+000A    01A5
+0017    01A6
+001B    01A7
+0088    01A8
+0089    01A9
+008A    01AA
+008B    01AB
+008C    01AC
+0005    01AD
+0006    01AE
+0007    01AF
+0090    01B0
+0091    01B1
+0016    01B2
+0093    01B3
+0094    01B4
+0095    01B5
+0096    01B6
+0004    01B7
+0098    01B8
+0099    01B9
+009A    01BA
+009B    01BB
+0014    01BC
+0015    01BD
+009E    01BE
+001A    01BF
+009F    027F
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "0001","TargetCharacterCodePoint": "0181"}
+,{"SourceCharacterCodePoint": "0002","TargetCharacterCodePoint": "0182"}
+,{"SourceCharacterCodePoint": "0003","TargetCharacterCodePoint": "0183"}
+,{"SourceCharacterCodePoint": "009C","TargetCharacterCodePoint": "0184"}
+,{"SourceCharacterCodePoint": "0009","TargetCharacterCodePoint": "0185"}
+,{"SourceCharacterCodePoint": "0086","TargetCharacterCodePoint": "0186"}
+,{"SourceCharacterCodePoint": "007F","TargetCharacterCodePoint": "0187"}
+,{"SourceCharacterCodePoint": "0097","TargetCharacterCodePoint": "0188"}
+,{"SourceCharacterCodePoint": "008D","TargetCharacterCodePoint": "0189"}
+,{"SourceCharacterCodePoint": "008E","TargetCharacterCodePoint": "018A"}
+,{"SourceCharacterCodePoint": "000B","TargetCharacterCodePoint": "018B"}
+,{"SourceCharacterCodePoint": "000C","TargetCharacterCodePoint": "018C"}
+,{"SourceCharacterCodePoint": "000D","TargetCharacterCodePoint": "018D"}
+,{"SourceCharacterCodePoint": "000E","TargetCharacterCodePoint": "018E"}
+,{"SourceCharacterCodePoint": "000F","TargetCharacterCodePoint": "018F"}
+,{"SourceCharacterCodePoint": "0010","TargetCharacterCodePoint": "0190"}
+,{"SourceCharacterCodePoint": "0011","TargetCharacterCodePoint": "0191"}
+,{"SourceCharacterCodePoint": "0012","TargetCharacterCodePoint": "0192"}
+,{"SourceCharacterCodePoint": "0013","TargetCharacterCodePoint": "0193"}
+,{"SourceCharacterCodePoint": "009D","TargetCharacterCodePoint": "0194"}
+,{"SourceCharacterCodePoint": "0085","TargetCharacterCodePoint": "0195"}
+,{"SourceCharacterCodePoint": "0008","TargetCharacterCodePoint": "0196"}
+,{"SourceCharacterCodePoint": "0087","TargetCharacterCodePoint": "0197"}
+,{"SourceCharacterCodePoint": "0018","TargetCharacterCodePoint": "0198"}
+,{"SourceCharacterCodePoint": "0019","TargetCharacterCodePoint": "0199"}
+,{"SourceCharacterCodePoint": "0092","TargetCharacterCodePoint": "019A"}
+,{"SourceCharacterCodePoint": "008F","TargetCharacterCodePoint": "019B"}
+,{"SourceCharacterCodePoint": "001C","TargetCharacterCodePoint": "019C"}
+,{"SourceCharacterCodePoint": "001D","TargetCharacterCodePoint": "019D"}
+,{"SourceCharacterCodePoint": "001E","TargetCharacterCodePoint": "019E"}
+,{"SourceCharacterCodePoint": "001F","TargetCharacterCodePoint": "019F"}
+,{"SourceCharacterCodePoint": "0080","TargetCharacterCodePoint": "01A0"}
+,{"SourceCharacterCodePoint": "0081","TargetCharacterCodePoint": "01A1"}
+,{"SourceCharacterCodePoint": "0082","TargetCharacterCodePoint": "01A2"}
+,{"SourceCharacterCodePoint": "0083","TargetCharacterCodePoint": "01A3"}
+,{"SourceCharacterCodePoint": "0084","TargetCharacterCodePoint": "01A4"}
+,{"SourceCharacterCodePoint": "000A","TargetCharacterCodePoint": "01A5"}
+,{"SourceCharacterCodePoint": "0017","TargetCharacterCodePoint": "01A6"}
+,{"SourceCharacterCodePoint": "001B","TargetCharacterCodePoint": "01A7"}
+,{"SourceCharacterCodePoint": "0088","TargetCharacterCodePoint": "01A8"}
+,{"SourceCharacterCodePoint": "0089","TargetCharacterCodePoint": "01A9"}
+,{"SourceCharacterCodePoint": "008A","TargetCharacterCodePoint": "01AA"}
+,{"SourceCharacterCodePoint": "008B","TargetCharacterCodePoint": "01AB"}
+,{"SourceCharacterCodePoint": "008C","TargetCharacterCodePoint": "01AC"}
+,{"SourceCharacterCodePoint": "0005","TargetCharacterCodePoint": "01AD"}
+,{"SourceCharacterCodePoint": "0006","TargetCharacterCodePoint": "01AE"}
+,{"SourceCharacterCodePoint": "0007","TargetCharacterCodePoint": "01AF"}
+,{"SourceCharacterCodePoint": "0090","TargetCharacterCodePoint": "01B0"}
+,{"SourceCharacterCodePoint": "0091","TargetCharacterCodePoint": "01B1"}
+,{"SourceCharacterCodePoint": "0016","TargetCharacterCodePoint": "01B2"}
+,{"SourceCharacterCodePoint": "0093","TargetCharacterCodePoint": "01B3"}
+,{"SourceCharacterCodePoint": "0094","TargetCharacterCodePoint": "01B4"}
+,{"SourceCharacterCodePoint": "0095","TargetCharacterCodePoint": "01B5"}
+,{"SourceCharacterCodePoint": "0096","TargetCharacterCodePoint": "01B6"}
+,{"SourceCharacterCodePoint": "0004","TargetCharacterCodePoint": "01B7"}
+,{"SourceCharacterCodePoint": "0098","TargetCharacterCodePoint": "01B8"}
+,{"SourceCharacterCodePoint": "0099","TargetCharacterCodePoint": "01B9"}
+,{"SourceCharacterCodePoint": "009A","TargetCharacterCodePoint": "01BA"}
+,{"SourceCharacterCodePoint": "009B","TargetCharacterCodePoint": "01BB"}
+,{"SourceCharacterCodePoint": "0014","TargetCharacterCodePoint": "01BC"}
+,{"SourceCharacterCodePoint": "0015","TargetCharacterCodePoint": "01BD"}
+,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
+,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
+,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
+
+```
+
+**nl-BE-500b** and **nl-BE-1148b**
+
+Code Shift:
+
+```
+0180    0180
+0001    0181
+0002    0182
+0003    0183
+009C    0184
+0009    0185
+0086    0186
+007F    0187
+0097    0188
+008D    0189
+008E    018A
+000B    018B
+000C    018C
+000D    018D
+000E    018E
+000F    018F
+0010    0190
+0011    0191
+0012    0192
+0013    0193
+009D    0194
+0085    0195
+0008    0196
+0087    0197
+0018    0198
+0019    0199
+0092    019A
+008F    019B
+001C    019C
+001D    019D
+001E    019E
+001F    019F
+0080    01A0
+0081    01A1
+0082    01A2
+0083    01A3
+0084    01A4
+000A    01A5
+0017    01A6
+001B    01A7
+0088    01A8
+0089    01A9
+008A    01AA
+008B    01AB
+008C    01AC
+0005    01AD
+0006    01AE
+0007    01AF
+0090    01B0
+0091    01B1
+0016    01B2
+0093    01B3
+0094    01B4
+0095    01B5
+0096    01B6
+0004    01B7
+0098    01B8
+0099    01B9
+009A    01BA
+009B    01BB
+0014    01BC
+0015    01BD
+009E    01BE
+001A    01BF
+009F    027F
+
+```
+
+Corresponding input mapping for an AWS DMS task:
+
+```
+ {"SourceCharacterCodePoint": "0180","TargetCharacterCodePoint": "0180"}
+,{"SourceCharacterCodePoint": "0001","TargetCharacterCodePoint": "0181"}
+,{"SourceCharacterCodePoint": "0002","TargetCharacterCodePoint": "0182"}
+,{"SourceCharacterCodePoint": "0003","TargetCharacterCodePoint": "0183"}
+,{"SourceCharacterCodePoint": "009C","TargetCharacterCodePoint": "0184"}
+,{"SourceCharacterCodePoint": "0009","TargetCharacterCodePoint": "0185"}
+,{"SourceCharacterCodePoint": "0086","TargetCharacterCodePoint": "0186"}
+,{"SourceCharacterCodePoint": "007F","TargetCharacterCodePoint": "0187"}
+,{"SourceCharacterCodePoint": "0097","TargetCharacterCodePoint": "0188"}
+,{"SourceCharacterCodePoint": "008D","TargetCharacterCodePoint": "0189"}
+,{"SourceCharacterCodePoint": "008E","TargetCharacterCodePoint": "018A"}
+,{"SourceCharacterCodePoint": "000B","TargetCharacterCodePoint": "018B"}
+,{"SourceCharacterCodePoint": "000C","TargetCharacterCodePoint": "018C"}
+,{"SourceCharacterCodePoint": "000D","TargetCharacterCodePoint": "018D"}
+,{"SourceCharacterCodePoint": "000E","TargetCharacterCodePoint": "018E"}
+,{"SourceCharacterCodePoint": "000F","TargetCharacterCodePoint": "018F"}
+,{"SourceCharacterCodePoint": "0010","TargetCharacterCodePoint": "0190"}
+,{"SourceCharacterCodePoint": "0011","TargetCharacterCodePoint": "0191"}
+,{"SourceCharacterCodePoint": "0012","TargetCharacterCodePoint": "0192"}
+,{"SourceCharacterCodePoint": "0013","TargetCharacterCodePoint": "0193"}
+,{"SourceCharacterCodePoint": "009D","TargetCharacterCodePoint": "0194"}
+,{"SourceCharacterCodePoint": "0085","TargetCharacterCodePoint": "0195"}
+,{"SourceCharacterCodePoint": "0008","TargetCharacterCodePoint": "0196"}
+,{"SourceCharacterCodePoint": "0087","TargetCharacterCodePoint": "0197"}
+,{"SourceCharacterCodePoint": "0018","TargetCharacterCodePoint": "0198"}
+,{"SourceCharacterCodePoint": "0019","TargetCharacterCodePoint": "0199"}
+,{"SourceCharacterCodePoint": "0092","TargetCharacterCodePoint": "019A"}
+,{"SourceCharacterCodePoint": "008F","TargetCharacterCodePoint": "019B"}
+,{"SourceCharacterCodePoint": "001C","TargetCharacterCodePoint": "019C"}
+,{"SourceCharacterCodePoint": "001D","TargetCharacterCodePoint": "019D"}
+,{"SourceCharacterCodePoint": "001E","TargetCharacterCodePoint": "019E"}
+,{"SourceCharacterCodePoint": "001F","TargetCharacterCodePoint": "019F"}
+,{"SourceCharacterCodePoint": "0080","TargetCharacterCodePoint": "01A0"}
+,{"SourceCharacterCodePoint": "0081","TargetCharacterCodePoint": "01A1"}
+,{"SourceCharacterCodePoint": "0082","TargetCharacterCodePoint": "01A2"}
+,{"SourceCharacterCodePoint": "0083","TargetCharacterCodePoint": "01A3"}
+,{"SourceCharacterCodePoint": "0084","TargetCharacterCodePoint": "01A4"}
+,{"SourceCharacterCodePoint": "000A","TargetCharacterCodePoint": "01A5"}
+,{"SourceCharacterCodePoint": "0017","TargetCharacterCodePoint": "01A6"}
+,{"SourceCharacterCodePoint": "001B","TargetCharacterCodePoint": "01A7"}
+,{"SourceCharacterCodePoint": "0088","TargetCharacterCodePoint": "01A8"}
+,{"SourceCharacterCodePoint": "0089","TargetCharacterCodePoint": "01A9"}
+,{"SourceCharacterCodePoint": "008A","TargetCharacterCodePoint": "01AA"}
+,{"SourceCharacterCodePoint": "008B","TargetCharacterCodePoint": "01AB"}
+,{"SourceCharacterCodePoint": "008C","TargetCharacterCodePoint": "01AC"}
+,{"SourceCharacterCodePoint": "0005","TargetCharacterCodePoint": "01AD"}
+,{"SourceCharacterCodePoint": "0006","TargetCharacterCodePoint": "01AE"}
+,{"SourceCharacterCodePoint": "0007","TargetCharacterCodePoint": "01AF"}
+,{"SourceCharacterCodePoint": "0090","TargetCharacterCodePoint": "01B0"}
+,{"SourceCharacterCodePoint": "0091","TargetCharacterCodePoint": "01B1"}
+,{"SourceCharacterCodePoint": "0016","TargetCharacterCodePoint": "01B2"}
+,{"SourceCharacterCodePoint": "0093","TargetCharacterCodePoint": "01B3"}
+,{"SourceCharacterCodePoint": "0094","TargetCharacterCodePoint": "01B4"}
+,{"SourceCharacterCodePoint": "0095","TargetCharacterCodePoint": "01B5"}
+,{"SourceCharacterCodePoint": "0096","TargetCharacterCodePoint": "01B6"}
+,{"SourceCharacterCodePoint": "0004","TargetCharacterCodePoint": "01B7"}
+,{"SourceCharacterCodePoint": "0098","TargetCharacterCodePoint": "01B8"}
+,{"SourceCharacterCodePoint": "0099","TargetCharacterCodePoint": "01B9"}
+,{"SourceCharacterCodePoint": "009A","TargetCharacterCodePoint": "01BA"}
+,{"SourceCharacterCodePoint": "009B","TargetCharacterCodePoint": "01BB"}
+,{"SourceCharacterCodePoint": "0014","TargetCharacterCodePoint": "01BC"}
+,{"SourceCharacterCodePoint": "0015","TargetCharacterCodePoint": "01BD"}
+,{"SourceCharacterCodePoint": "009E","TargetCharacterCodePoint": "01BE"}
+,{"SourceCharacterCodePoint": "001A","TargetCharacterCodePoint": "01BF"}
+,{"SourceCharacterCodePoint": "009F","TargetCharacterCodePoint": "027F"}
+
+```

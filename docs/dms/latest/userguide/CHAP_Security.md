@@ -1,91 +1,20 @@
-# Using Kerberos Authentication with AWS Database Migration Service
+# Fine-grained access control
 
-Starting with DMS v3.5.3, you can configure your Oracle or SQL Server source endpoint to connect to your
-database instance using Kerberos authentication. DMS supports Directory Service for Microsoft Active Directory and
-Kerberos authentication. For more information about AWS-managed access to Microsoft Active Directory Services, see
-[What is Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md").
+using resource names and tags
 
-## AWS DMS Kerberos Authentication Architecture Overview
+You can use resource names and resource tags based on Amazon Resource Names (ARNs) to
+manage access to AWS DMS resources. You do this by defining permitted action or including
+conditional statements in IAM policies.
 
-The following diagram provides a high level overview of the AWS DMS Kerberos authentication workflow.
+## Using resource names
 
-![Kerberos Authentication Architecture](images/datarep-kerberos-architecture.jpg)
+to control access
 
-## Limitations on using Kerberos authentication
+You can create an IAM user account and assign a policy based on the AWS DMS
+resource's ARN.
 
-with AWS DMS
-
-The following limitations apply when using Kerberos authentication with AWS DMS:
-
-- DMS replication instances support one Kerberos `krb5.conf` file and one keycache file.
-- You must update the Kerberos keycache file in Secrets Manager at least 30 minutes prior to
-  the ticket expiring.
-- A Kerberos-enabled DMS endpoint only works with a Kerberos-enabled DMS replication instance.
-
-## Prerequisites
-
-To start, you must complete the following prerequisites from an existing Active Directory or Kerberos-authenticated host:
-
-- Establish an Active Directory trust relationship with your on-premise AD. For more information,
-  see [Tutorial: Create a trust relationship between your AWS Managed Microsoft AD and your self-managed Active Directory domain](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md").
-- Prepare a simplified version of the Kerberos `krb5.conf` configuration file. Include information about the realm, the location of the domain admin servers, and mappings of hostnames onto a Kerberos realm. You need to verify that the `krb5.conf` content is formatted with the correct mixed casing for the realms and domain realm names. For example:
-
-```
-[libdefaults]
- dns_lookup_realm = true
- dns_lookup_kdc = true
- forwardable = true
- default_realm = MYDOMAIN.ORG
-[realms]
-MYDOMAIN.ORG = {
-kdc = mydomain.org
-admin_server = mydomain.org
-}
-[domain_realm]
-.mydomain.org = MYDOMAIN.ORG
-mydomain.org = MYDOMAIN.ORG
-```
-
-- Prepare a Kerberos keycache file. The file contains a temporary Kerberos credential of the client
-  principal information. The file does not store the client's password. Your DMS task uses this cache ticket
-  information to get additional credentials without a password. Run the following steps on an existing Active
-  Directory or Kerberos-authenticated host to generate a keycache file.
-  - Create a Kerberos keytab file. You can generate a keytab file using the
-    **kutil** or **ktpass** utility.
-
-  For more information about the Microsoft **ktpass** utility, see
-  [ktpass](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass")
-  in the _Windows Server documentation_.
-
-  For more information about the MIT **kutil** utility, see
-  [kutil](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html")
-  in the _MIT Kerberos Documentation_.
-  - Create a Kerberos keycache file from keytab file using the **kinit** utility. For more information about the **kinit** utility, see [kinit](https://web.mit.edu/kerberos/krb5-1.12/doc/user/user_commands/kinit.html "https://web.mit.edu/kerberos/krb5-1.12/doc/user/user_commands/kinit.html")
-    in the _MIT Kerberos Documentation_.
-
-- Store the Kerberos keycache file in Secrets Manager using the `SecretBinary` parameter. When you upload the
-  keycache file to Secrets Manager, DMS retrieves it, and then updates the local cache file about
-  every 30 minutes. When the local keycache file exceeds the predefined expiration timestamp, DMS
-  gracefully stops the task. To avoid authentication failures during an ongoing replication task,
-  update the keycache file in Secrets Manager at least 30 minutes before the ticket expiration. For more information,
-  see
-  [createsecret](../../../secretsmanager/latest/apireference/API_CreateSecret.md "../../../secretsmanager/latest/apireference/API_CreateSecret.md")
-  in the _Secrets Manager API Reference_. The following AWS CLI sample shows how to store the keycache file
-  in binary format in Secrets Manager:
-
-```
-aws secretsmanager create-secret —name keycache —secret-binary fileb:`//keycachefile`
-
-```
-
-- Grant an IAM role the `GetSecretValue` and `DescribeSecret` permissions to get
-  the keycache file from Secrets Manager. Ensure that the IAM role includes the `dms-vpc-role` trust policy. For
-  more information about the `dms-vpc-role` trust policy, see
-  [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole "security-iam.md#CHAP_Security.APIRole").
-
-The following example shows an IAM role policy with the Secrets Manager `GetSecretValue` and
-`DescribeSecret` permissions. The `<keycache_secretsmanager_arn>`
-value is the Keycache Secrets Manager ARN you created in the previous step.
+The following policy denies access to the AWS DMS replication instance with the ARN
+_arn:aws:dms:us-east-1:152683116:rep:DOH67ZTOXGLIXMIHKITV_:
 
 JSON
 
@@ -94,112 +23,418 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Effect": "Allow",
  "Action": [
- "secretsmanager:GetSecretValue",
- "secretsmanager:DescribeSecret"
+ "dms:*"
  ],
- "Resource": "*"
+ "Effect": "Deny",
+ "Resource": "arn:aws:dms:us-east-1:`111122223333`:rep:DOH67ZTOXGLIXMIHKITV"
  }
  ]
 }`
 
 ```
 
-## Enabling Kerberos support on an AWS DMS
-
-replication instance
-
-Kerberos realms are identical to domains in Windows. In order to resolve a principle realm, Kerberos relies
-on a Domain Name Service (DNS). When you set the `dns-name-servers` parameter, your replication instance
-will use your predefined custom set of DNS servers to resolve the Kerberos domain realms. Another alternative
-option to resolve Kerberos realm queries is to configure Amazon Route 53 on the replication instance
-virtual private cloud (VPC). For more information, see [Route 53](../../../route53.md "../../../route53.md").
-
-### Enabling Kerberos support on a DMS
-
-replication instance using the AWS Management Console
-
-To enable Kerberos support using the console, enter the following information in the
-**Kerberos authentication** section of the **Create Replication Instance**
-or **Modify Replication Instance** page:
-
-- The content from your `krb5.conf` file
-- The ARN of the Secrets Manager secret that contains the keycache file
-- The ARN of the IAM role that has access to the secret manager ARN and permissions to
-  retrieve the keycache file
-
-### Enabling Kerberos support on a DMS
-
-replication instance using the AWS CLI
-
-The following AWS CLI sample call creates a private DMS replication instance with Kerberos support.
-The replication instance uses a custom DNS to resolve the Kerberos realm. For more information,
-see [create-replication-instance](../../../cli/latest/reference/dms/create-replication-instance.md "../../../cli/latest/reference/dms/create-replication-instance.md").
+For example, the following commands fail when the policy is in effect.
 
 ```
-aws dms create-replication-instance
---replication-instance-identifier my-replication-instance
---replication-instance-class dms.t2.micro
---allocated-storage 50
---vpc-security-group-ids sg-12345678
---engine-version 3.5.4
---no-auto-minor-version-upgrade
---kerberos-authentication-settings'{"KeyCacheSecretId":<secret-id>,"KeyCacheSecretIamArn":<secret-iam-role-arn>,"Krb5FileContents":<krb5.conf file contents>}'
---dns-name-servers `<custom dns server>`
---no-publicly-accessible
-```
 
-## Enabling Kerberos support on a source endpoint
+$ aws dms delete-replication-instance
+   --replication-instance-arn "arn:aws:dms:us-east-1:152683116:rep:DOH67ZTOXGLIXMIHKITV"
 
-Before enabling Kerberos authentication on a DMS Oracle or SQL server source endpoint, make sure
-you can authenticate to the source database using the Kerberos protocol from a client machine.
-You can use the AWS DMS Diagnostic AMI to launch an Amazon EC2 instance on the same VPC as the replication
-instance, and then test the kerberos authentication. For more information about the AMI, see
-[Working with the AWS DMS diagnostic support AMI](CHAP_SupportAmi.md "CHAP_SupportAmi.md").
+A client error (AccessDeniedException) occurred when calling the DeleteReplicationInstance
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:DeleteReplicationInstance on resource: arn:aws:dms:us-east-1:152683116:rep:DOH67ZTOXGLIXMIHKITV
 
-### Using the AWS DMS console
+$ aws dms modify-replication-instance
+   --replication-instance-arn "arn:aws:dms:us-east-1:152683116:rep:DOH67ZTOXGLIXMIHKITV"
 
-Under **Access to endpoint database**, choose **Kerberos authentication**.
-
-### Using the AWS CLI
-
-Specify the endpoint setting parameter and set `AuthenticationMethod` option as kerberos. For example:
-
-**Oracle**
+A client error (AccessDeniedException) occurred when calling the ModifyReplicationInstance
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:ModifyReplicationInstance on resource: arn:aws:dms:us-east-1:152683116:rep:DOH67ZTOXGLIXMIHKITV
 
 ```
-aws dms create-endpoint
---endpoint-identifier my-endpoint
---endpoint-type source
---engine-name oracle
---username dmsuser@MYDOMAIN.ORG
---server-name `mydatabaseserver`
---port 1521
---database-name `mydatabase`
---oracle-settings "{\"AuthenticationMethod\": \"kerberos\"}"
-```
 
-**SQL Server**
+You can also specify IAM policies that limit access to AWS DMS endpoints and
+replication tasks.
+
+The following policy limits access to an AWS DMS endpoint using the endpoint's
+ARN.
+
+JSON
 
 ```
-aws dms create-endpoint
---endpoint-identifier my-endpoint
---endpoint-type source
---engine-name sqlserver
---username dmsuser@MYDOMAIN.ORG
---server-name `mydatabaseserver`
---port 1433
---database-name `mydatabase`
---microsoft-sql-server-settings "{\"AuthenticationMethod\": \"kerberos\"}"
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "dms:*"
+ ],
+ "Effect": "Deny",
+ "Resource": "arn:aws:dms:us-east-1:`111122223333`:endpoint:D6E37YBXTNHOA6XRQSZCUGX"
+ }
+ ]
+}`
+
 ```
 
-## Testing a source
+For example, the following commands fail when the policy using the endpoint's ARN
+is in effect.
 
-endpoint
+```
 
-You must test the Kerberos-enabled endpoint against a Kerberos-enabled replication instance.
-When you don't properly confiugure the replication instance or source endpoint for Kerberos
-authentication, the endpoint `test-connection` action will fail, and might return Kerberos-related
-errors. For more information, see
-[test-connection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dms/test-connection.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dms/test-connection.html").
+$ aws dms delete-endpoint
+   --endpoint-arn "arn:aws:dms:us-east-1:152683116:endpoint:D6E37YBXTNHOA6XRQSZCUGX"
+
+A client error (AccessDeniedException) occurred when calling the DeleteEndpoint operation:
+User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform: dms:DeleteEndpoint
+on resource: arn:aws:dms:us-east-1:152683116:endpoint:D6E37YBXTNHOA6XRQSZCUGX
+
+$ aws dms modify-endpoint
+   --endpoint-arn "arn:aws:dms:us-east-1:152683116:endpoint:D6E37YBXTNHOA6XRQSZCUGX"
+
+A client error (AccessDeniedException) occurred when calling the ModifyEndpoint operation:
+User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform: dms:ModifyEndpoint
+on resource: arn:aws:dms:us-east-1:152683116:endpoint:D6E37YBXTNHOA6XRQSZCUGX
+
+```
+
+The following policy limits access to an AWS DMS task using the task's ARN.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "dms:*"
+ ],
+ "Effect": "Deny",
+ "Resource": "arn:aws:dms:us-east-1:`111122223333`:task:UO3YR4N47DXH3ATT4YMWOIT"
+ }
+ ]
+}`
+
+```
+
+For example, the following commands fail when the policy using the task's ARN is
+in effect.
+
+```
+
+$ aws dms delete-replication-task
+   --replication-task-arn "arn:aws:dms:us-east-1:152683116:task:UO3YR4N47DXH3ATT4YMWOIT"
+
+A client error (AccessDeniedException) occurred when calling the DeleteReplicationTask operation:
+User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform: dms:DeleteReplicationTask
+on resource: arn:aws:dms:us-east-1:152683116:task:UO3YR4N47DXH3ATT4YMWOIT
+
+```
+
+## Using tags to control
+
+access
+
+AWS DMS defines a set of common key-value pairs that are available for use in
+customer defined policies without any additional tagging requirements. For more
+information about tagging AWS DMS resources, see [Tagging resources in AWS Database Migration Service](CHAP_Tagging.md "CHAP_Tagging.md").
+
+The following lists the standard tags available for use with AWS DMS:
+
+- aws:CurrentTime – Represents the request date and time, allowing the
+  restriction of access based on temporal criteria.
+- aws:EpochTime – This tag is similar to the aws:CurrentTime tag preceding,
+  except that the current time is represented as the number of seconds elapsed
+  since the Unix epoch.
+- aws:MultiFactorAuthPresent – This is a Boolean tag that indicates whether
+  or not the request was signed via multi-factor authentication.
+- aws:MultiFactorAuthAge – Provides access to the age of the multi-factor
+  authentication token (in seconds).
+- aws:principaltype – Provides access to the type of principal (user,
+  account, federated user, etc.) for the current request.
+- aws:SourceIp – Represents the source ip address for the user issuing the
+  request.
+- aws:UserAgent – Provides information about the client application
+  requesting a resource.
+- aws:userid – Provides access to the ID of the user issuing the request.
+- aws:username – Provides access to the name of the user issuing the
+  request.
+- dms:InstanceClass – Provides access to the compute size of the
+  replication instance host(s).
+- dms:StorageSize – Provides access to the storage volume size (in GB).
+
+You can also define your own tags. Customer-defined tags are simple key-value
+pairs that are persisted in the AWS tagging service. You can add these to AWS DMS
+resources, including replication instances, endpoints, and tasks. These tags are
+matched by using IAM "Conditional" statements in policies, and are referenced using
+a specific conditional tag. The tag keys are prefixed with "dms", the resource type,
+and the "tag" prefix. The following shows the tag format.
+
+```
+dms:{resource type}-tag/{tag key}={tag value}
+```
+
+For example, suppose that you want to define a policy that only allows an API call
+to succeed for a replication instance that contains the tag "stage=production". The
+following conditional statement matches a resource with the given tag.
+
+```
+"Condition":
+{
+    "streq":
+        {
+            "dms:rep-tag/stage":"production"
+        }
+}
+```
+
+You add the following tag to a replication instance that matches this policy
+condition.
+
+```
+stage production
+```
+
+In addition to tags already assigned to AWS DMS resources, policies can also be
+written to limit the tag keys and values that can be applied to a given resource. In
+this case, the tag prefix is "req".
+
+For example, the following policy statement limits the tags that a user can assign
+to a given resource to a specific list of allowed values.
+
+```
+
+ "Condition":
+{
+    "streq":
+        {
+            "dms:rep-tag/stage": [ "production", "development", "testing" ]
+        }
+}
+```
+
+The following policy examples limit access to an AWS DMS resource based on resource
+tags.
+
+The following policy limits access to a replication instance where the tag value
+is "Desktop" and the tag key is "Env":
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "dms:*"
+ ],
+ "Effect": "Deny",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "dms:rep-tag/Env": [
+ "Desktop"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+The following commands succeed or fail based on the IAM policy that restricts
+access when the tag value is "Desktop" and the tag key is "Env".
+
+```
+
+$ aws dms list-tags-for-resource
+   --resource-name arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+   --endpoint-url http://localhost:8000
+{
+    "TagList": [
+        {
+            "Value": "Desktop",
+            "Key": "Env"
+        }
+    ]
+}
+
+$ aws dms delete-replication-instance
+   --replication-instance-arn "arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN"
+A client error (AccessDeniedException) occurred when calling the DeleteReplicationInstance
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:DeleteReplicationInstance on resource: arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+
+$ aws dms modify-replication-instance
+   --replication-instance-arn "arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN"
+
+A client error (AccessDeniedException) occurred when calling the ModifyReplicationInstance
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:ModifyReplicationInstance on resource: arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+
+$ aws dms add-tags-to-resource
+   --resource-name arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+   --tags Key=CostCenter,Value=1234
+
+A client error (AccessDeniedException) occurred when calling the AddTagsToResource
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:AddTagsToResource on resource: arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+
+$ aws dms remove-tags-from-resource
+   --resource-name arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+   --tag-keys Env
+
+A client error (AccessDeniedException) occurred when calling the RemoveTagsFromResource
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:RemoveTagsFromResource on resource: arn:aws:dms:us-east-1:152683116:rep:46DHOU7JOJYOJXWDOZNFEN
+
+```
+
+The following policy limits access to an AWS DMS endpoint where the tag value is
+"Desktop" and the tag key is "Env".
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "dms:*"
+ ],
+ "Effect": "Deny",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "dms:endpoint-tag/Env": [
+ "Desktop"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+The following commands succeed or fail based on the IAM policy that restricts
+access when the tag value is "Desktop" and the tag key is "Env".
+
+```
+
+$ aws dms list-tags-for-resource
+   --resource-name arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+{
+    "TagList": [
+        {
+            "Value": "Desktop",
+            "Key": "Env"
+        }
+    ]
+}
+
+$ aws dms delete-endpoint
+   --endpoint-arn "arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I"
+
+A client error (AccessDeniedException) occurred when calling the DeleteEndpoint
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:DeleteEndpoint on resource: arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+
+$ aws dms modify-endpoint
+   --endpoint-arn "arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I"
+
+A client error (AccessDeniedException) occurred when calling the ModifyEndpoint
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:ModifyEndpoint on resource: arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+
+$ aws dms add-tags-to-resource
+   --resource-name arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+   --tags Key=CostCenter,Value=1234
+
+A client error (AccessDeniedException) occurred when calling the AddTagsToResource
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:AddTagsToResource on resource: arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+
+$ aws dms remove-tags-from-resource
+   --resource-name arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+   --tag-keys Env
+
+A client error (AccessDeniedException) occurred when calling the RemoveTagsFromResource
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:RemoveTagsFromResource on resource: arn:aws:dms:us-east-1:152683116:endpoint:J2YCZPNGOLFY52344IZWA6I
+
+```
+
+The following policy limits access to a replication task where the tag value is
+"Desktop" and the tag key is "Env".
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "dms:*"
+ ],
+ "Effect": "Deny",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "dms:task-tag/Env": [
+ "Desktop"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+The following commands succeed or fail based on the IAM policy that restricts
+access when the tag value is "Desktop" and the tag key is "Env".
+
+```
+
+$ aws dms list-tags-for-resource
+   --resource-name arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+{
+    "TagList": [
+        {
+            "Value": "Desktop",
+            "Key": "Env"
+        }
+    ]
+}
+
+$ aws dms delete-replication-task
+   --replication-task-arn "arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3"
+
+A client error (AccessDeniedException) occurred when calling the DeleteReplicationTask
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:DeleteReplicationTask on resource: arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+
+$ aws dms add-tags-to-resource
+   --resource-name arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+   --tags Key=CostCenter,Value=1234
+
+A client error (AccessDeniedException) occurred when calling the AddTagsToResource
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:AddTagsToResource on resource: arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+
+$ aws dms remove-tags-from-resource
+   --resource-name arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+   --tag-keys Env
+
+A client error (AccessDeniedException) occurred when calling the RemoveTagsFromResource
+operation: User: arn:aws:iam::152683116:user/dmstestusr is not authorized to perform:
+dms:RemoveTagsFromResource on resource: arn:aws:dms:us-east-1:152683116:task:RB7N24J2XBUPS3RFABZTG3
+
+```

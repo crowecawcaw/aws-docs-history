@@ -1,59 +1,80 @@
-# Set up for AWS Database Migration Service
+# Migrating your source schema to your target database using AWS SCT
 
-## Sign up for an AWS account
+In this section, you use the AWS Schema Conversion Tool to migrate your source schema to your target database.
+Alternatively, you can use DMS Schema Conversion to convert your source database schemas. For more information,
+see [Getting started with DMS Schema Conversion](getting-started.md "getting-started.md").
 
-If you do not have an AWS account, complete the following steps to create one.
+###### To migrate your source schema to your target database with AWS SCT
 
-###### To sign up for an AWS account
+1. Install the AWS Schema Conversion Tool. For more information, see [Installing, verifying, and updating the AWS SCT](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.Procedure "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.Procedure") in the
+   _AWS Schema Conversion Tool User Guide_.
 
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
+When you download JDBC drivers for MySQL and PostgreSQL, note where you save the drivers,
+in case the tool prompts you for their locations. 2. Open the AWS Schema Conversion Tool. Choose **File**,
+then choose **New project**. 3. In the **New project** window, set the following values:
 
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
+    * Set **Project name** to `DMSProject`.
+    * Keep **Location** as it is to store your AWS SCT project in the default folder.
 
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
+Choose **OK**. 4. Choose **Add source** to add a source MySQL database to your project,
+then choose **MySQL**, and choose **Next**. 5. In the **Add source** page, set the following values:
 
-AWS sends you a confirmation email after the sign-up process is
-complete. At any time, you can view your current account activity and manage your account by
-going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
-Account**.
+    * **Connection name**: `source`
+    * **Server name**: Enter the endpoint for the MySQL database that you noted
+     previously.
+    * **Server port**: `3306`
+    * **User name**: `admin`
+    * **Password**: `changeit`
 
-## Create a user with administrative access
+6. Choose **Add target** to add a target Amazon RDS for PostgreSQL
+   database to your project, then choose **Amazon RDS for PostgreSQL**.
+   Choose **Next**.
+7. In the **Add target** page, set the following values:
+   - **Connection name**: `target`
+   - **Server name**: Enter the endpoint for the PostgreSQL database that you
+     noted previously.
+   - **Server port**: `5432`
+   - **Database**: Enter the name of your PostgreSQL database.
+   - **User name**: `postgres`
+   - **Password**: `changeit`
 
-After you sign up for an AWS account, secure your AWS account root user, enable AWS IAM Identity Center, and create an administrative user so that you
-don't use the root user for everyday tasks.
+8. In the left pane, choose **dms_sample** under **Schemas**.
+   In the right pane, choose your target Amazon RDS for PostgreSQL database. Choose
+   **Create mapping**. You can add multiple mapping rules to a
+   single AWS SCT project. For more information about mapping rules, see [Creating
+   mapping rules](../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md "../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md").
+9. Choose **Main view**.
+10. In the left pane, choose **dms_sample** under **Schemas**.
+    Open the context (right-click) menu and choose **Convert schema**.
+    Confirm the action.
 
-###### Secure your AWS account root user
+After the tool converts the schema, the **dms_sample** schema appears
+in the right pane. 11. In the right pane, under **Schemas**, open the context (right-click) menu for
+**dms_sample** and choose **Apply to database**.
+Confirm the action.
+Verify that the schema migration completed. Perform the following steps.
 
-1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") as the account owner by choosing **Root user** and entering your AWS account email address. On the next page, enter your password.
+###### To check your schema migration
 
-For help signing in by using root user, see [Signing in as the root user](../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial "../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial") in the _AWS Sign-In User Guide_. 2. Turn on multi-factor authentication (MFA) for your root user.
+1. Connect to your Amazon EC2 client.
+2. Start the PSQL client with the following command. Specify your PostgreSQL database endpoint,
+   and provide the database password when prompted.
 
-For instructions, see [Enable a virtual MFA device for your AWS account root user (console)](../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md "../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md") in the _IAM User Guide_.
+```
+psql \
+   --host=dms-postgresql.`abcdefg12345`.us-west-2.rds.amazonaws.com \
+   --port=5432 \
+   --username=postgres \
+   --password \
+   --dbname=dms_sample
+```
 
-###### Create a user with administrative access
+3. Query one of the (empty) tables to verify that AWS SCT applied the schema correctly,
 
-1. Enable IAM Identity Center.
+```
+dms_sample=> SELECT * from dms_sample.player;
+ id | sport_team_id | last_name | first_name | full_name
+----+---------------+-----------+------------+-----------
+(0 rows)
 
-For instructions, see [Enabling
-AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md") in the
-_AWS IAM Identity Center User Guide_. 2. In IAM Identity Center, grant administrative access to a user.
-
-For a tutorial about using the IAM Identity Center directory as your identity source, see [Configure user access with the default IAM Identity Center directory](../../../singlesignon/latest/userguide/quick-start-default-idc.md "../../../singlesignon/latest/userguide/quick-start-default-idc.md") in the
-_AWS IAM Identity Center User Guide_.
-
-###### Sign in as the user with administrative access
-
-- To sign in with your IAM Identity Center user, use the sign-in URL that was sent to your email address when you created the IAM Identity Center user.
-
-For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md "../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md") in the _AWS Sign-In User Guide_.
-
-###### Assign access to additional users
-
-1. In IAM Identity Center, create a permission set that follows the best practice of applying least-privilege permissions.
-
-For instructions, see [Create a permission set](../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md "../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md") in the _AWS IAM Identity Center User Guide_. 2. Assign users to a group, and then assign single sign-on access to the group.
-
-For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
+```

@@ -1,35 +1,28 @@
-# Task
+# Stream
 
-settings for change processing DDL handling
+buffer task settings
 
-The following settings determine how AWS DMS handles data definition language
-(DDL) changes for target tables during change data capture (CDC). For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+You can set stream buffer settings using the AWS CLI, including the
+following. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
 
-Task settings to handle change processing DDL include the following:
-
-- `HandleSourceTableDropped –` Set this option to
-  `true` to drop the target table when the source table is
-  dropped.
-- `HandleSourceTableTruncated` – Set this option to
-  `true` to truncate the target table when the source table
-  is truncated.
-- `HandleSourceTableAltered` – Set this option to
-  `true` to alter the target table when the source table is
-  altered.
-  Following is an example of how task settings that handle change processing
-  DDL appear in a task setting JSON file:
-
-```
-
-                "ChangeProcessingDdlHandlingPolicy": {
-                   "HandleSourceTableDropped": true,
-                   "HandleSourceTableTruncated": true,
-                   "HandleSourceTableAltered": true
-                },
-
-```
-
-###### Note
-
-For information about which DDL statements are supported for
-a specific endpoint, see the topic describing that endpoint.
+- `StreamBufferCount` – Use this option to specify the
+  number of data stream buffers for the migration task. The default stream
+  buffer number is 3. Increasing the value of this setting might increase
+  the speed of data extraction. However, this performance increase is
+  highly dependent on the migration environment, including the source
+  system and instance class of the replication server. The default is
+  sufficient for most situations.
+- `StreamBufferSizeInMB` – Use this option to indicate
+  the maximum size of each data stream buffer. The default size is 8 MB.
+  You might need to increase the value for this option when you work with
+  very large LOBs. You also might need to increase the value if you
+  receive a message in the log files that the stream buffer size is
+  insufficient. When calculating the size of this option, you can use the
+  following equation: `[Max LOB size (or LOB chunk size)]*[number of
+LOB columns]*[number of stream buffers]*[number of tables loading in
+parallel per task(MaxFullLoadSubTasks)]*3`
+- `CtrlStreamBufferSizeInMB` – Use this option to set
+  the size of the control stream buffer. The value is in megabytes, and
+  can be 1–8. The default value is 5. You might need to increase
+  this when working with a very large number of tables, such as tens of
+  thousands of tables.
