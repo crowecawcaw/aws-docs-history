@@ -1,45 +1,128 @@
-# Oracle UTL_FILE package
+# INSERT FROM SELECT statement
 
-With AWS DMS, you can access data and read/write files on the server’s file system using the Oracle `UTL_FILE` package. The `UTL_FILE` package provides APIs to operate on server files, allowing applications to read and write operating system files.
+The following sections provide details on running the `INSERT FROM SELECT` statement, including syntax examples and best practices for efficient data transfer.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                    |
-| --------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------- |
-| No compatibility      | No automation                      | N/A                       | PostgreSQL doesn’t have the `UTL_FILE` equivalent. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
+| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
+| Four star feature compatibility | Four star automation level         | N/A                       | N/A             |
 
 ## Oracle usage
 
-Oracle `UTL_FILE` PL/SQL package enables you to access files stored outside of the database such as files stored on the operating system, the database server, or a connected storage volume. `UTL_FILE.FOPEN`, `UTL_FILE.GET_LINE`, and `UTL_FILE.PUT_LINE` are procedures within the `UTL_FILE` package used to open, read, and write files.
+You can insert multiple records into a table from another table using the `INSERT FROM SELECT` statement, which is a derivative of the basic `INSERT` statement. The column ordering and data types must match between the target and the source tables.
 
 **Examples**
 
-Run an anonymous PL/SQL block that reads a single line from file1 and writes it to file2.
-
-- Use `UTL_FILE.FILE_TYPE` to create a handle for the file.
-- Use `UTL_FILE.FOPEN` to open streamable access to the file and specify:
-  - The logical Oracle directory object pointing to the O/S folder where the file resides.
-  - The file name.
-  - The file access mode: 'A'=append mode, 'W'=write mode
-
-- Use `UTL_FILE.GET_LINE` to read a line from the input file into a variable.
-- Use `UTL_FILE.PUT_LINE` to write a single line to the output file.
+Simple `INSERT FROM SELECT` (explicit).
 
 ```
-DECLARE
-strString1 VARCHAR2(32767);
-fileFile1 UTL_FILE.FILE_TYPE;
-BEGIN
-fileFile1 := UTL_FILE.FOPEN('FILES_DIR','File1.tmp','R');
-UTL_FILE.GET_LINE(fileFile1,strString1);
-UTL_FILE.FCLOSE(fileFile1);
-fileFile1 := UTL_FILE.FOPEN('FILES_DIR','File2.tmp','A');
-utl_file.PUT_LINE(fileFile1,strString1);
-utl_file.fclose(fileFile1);
-END;
-/
+INSERT INTO EMPS (EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID) SELECT EMPLOYEE_ID,
+FIRST_NAME, SALARY, DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE SALARY > 10000;
 ```
 
-For more information, see [UTL_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4") in the _Oracle documentation_.
+Simple `INSERT FROM SELECT` (implicit).
+
+```
+INSERT INTO EMPS
+SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE SALARY > 10000;
+```
+
+This example produces the same result as the preceding example but uses a subquery in the `DML_table_expression_clause`.
+
+```
+INSERT INTO
+(SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID FROM EMPS)
+VALUES (120, 'Kenny', 10000, 90);
+```
+
+Log errors with the Oracle error_logging_clause.
+
+```
+ALTER TABLE EMPS ADD CONSTRAINT PK_EMP_ID PRIMARY KEY(employee_id);
+EXECUTE DBMS_ERRLOG.CREATE_ERROR_LOG('EMPS', 'ERRLOG');
+INSERT INTO EMPS
+SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE SALARY > 10000
+LOG ERRORS INTO errlog ('Cannot Perform Insert') REJECT LIMIT 100;
+0 rows inserted
+```
+
+When inserting an existing `EMPLOYEE ID` into the `EMPS` table, the insert doesn’t fail because the invalid records are redirected to the `ERRLOG` table.
+
+For more information, see [INSERT](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/INSERT.html#GUID-903F8043-0254-4EE9-ACC1-CB8AC0AF3423 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/INSERT.html#GUID-903F8043-0254-4EE9-ACC1-CB8AC0AF3423") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-Amazon Aurora PostgreSQL doesn’t currently provides a directly comparable alternative for Oracle `UTL_FILE` package.
+PostgreSQL `INSERT FROM SELECT` syntax is mostly compatible with the Oracle syntax, except for a few Oracle-only features such as the conditional_insert_clause (`ALL|FIRST|ELSE`). Also, PostgreSQL doesn’t support the Oracle error_logging_clause. As an alternative, PostgreSQL provides the ON CONFLICT clause to capture errors, perform corrective measures, or log errors.
+
+**Syntax**
+
+```
+[ WITH [ RECURSIVE ] with_query [, ...] ]
+INSERT INTO table_name [ AS alias ] [ ( column_name [, ...] ) ]
+[ OVERRIDING { SYSTEM | USER} VALUE ]
+{ DEFAULT VALUES | VALUES ( { expression | DEFAULT } [, ...] ) [, ...] | query }
+[ ON CONFLICT [ conflict_target ] conflict_action ]
+[ RETURNING * | output_expression [ [ AS ] output_name ] [, ...] ]
+where conflict_target can be one of:
+( { index_column_name | ( index_expression ) } [ COLLATE collation ] [ opclass ]
+[, ...] ) [ WHERE index_predicate ]
+ON CONSTRAINT constraint_name
+and conflict_action is one of:
+DO NOTHING
+DO UPDATE SET { column_name = { expression | DEFAULT } |
+( column_name [, ...] ) = [ ROW ]( { expression | DEFAULT } [, ...] ) |
+( column_name [, ...] ) = ( sub-SELECT )
+} [, ...]
+[ WHERE condition ]
+```
+
+###### Note
+
+`OVERRIDING` is a new option since PostgreSQL 10 and relevant for identity columns. `SYSTEM VALUE` is only for identity column where `GENERATE ALWAYS` exists; if it’s not there and it was specified, then PostgreSQL just ignores it.
+
+**Examples**
+
+Simple `INSERT FROM SELECT` (explicit).
+
+```
+INSERT INTO EMPS (EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID)
+SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE SALARY > 10000;
+```
+
+Simple `INSERT FROM SELECT` (implicit).
+
+```
+INSERT INTO EMPS
+SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE SALARY > 10000;
+```
+
+The following example isn’t compatible with PostgreSQL.
+
+```
+INSERT INTO
+(SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID FROM EMPS)
+VALUES (120, 'Kenny', 10000, 90);
+```
+
+The following example demonstrates using the `ON DUPLICATE KEY UPDATE` clause to update specific columns when a `UNIQUE` violation occurs.
+
+```
+ALTER TABLE EMPS ADD CONSTRAINT PK_EMP_ID PRIMARY KEY(employee_id);
+INSERT INTO EMPS
+SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE SALARY > 10000
+ON CONFLICT on constraint PK_EMP_ID DO NOTHING;
+INSERT 0
+```
+
+For more information, see [INSERT](https://www.postgresql.org/docs/13/sql-insert.html "https://www.postgresql.org/docs/13/sql-insert.html") in the _PostgreSQL documentation_.
