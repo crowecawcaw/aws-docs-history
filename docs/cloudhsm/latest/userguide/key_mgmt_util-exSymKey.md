@@ -43,7 +43,7 @@ exSymKey -k `<key-to-export>`
 These examples show how to use **exSymKey** to export symmetric keys that
 you own from your HSMs.
 
-###### Example : Export a 3DES symmetric key
+###### Example: Export a 3DES symmetric key
 
 This command exports a Triple DES (3DES) symmetric key (key handle `7`). It
 uses an existing AES key (key handle `6`) in the HSM as the wrapping key. Then it
@@ -68,7 +68,7 @@ file, the output file contains a plaintext (unwrapped) key.
 Wrapped Symmetric Key written to file "3DES.key"`
 ```
 
-###### Example : Exporting with session-only wrapping key
+###### Example: Exporting with session-only wrapping key
 
 This example shows how to use a key that exists only in the session as the wrapping key.
 Because the key to be exported is wrapped, immediately unwrapped, and delivered as
@@ -156,7 +156,7 @@ Wrapped Symmetric Key written to file "aes256_H8.key"`
 
 ```
 
-###### Example : Use an external unwrapping key
+###### Example: Use an external unwrapping key
 
 This example shows how to use an external unwrapping key to export a key from the
 HSM.

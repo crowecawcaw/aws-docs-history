@@ -44,7 +44,7 @@ genDSAKeyPair -m `<modulus length>`
 These examples show how to use **genDSAKeyPair** to create a DSA key
 pair.
 
-###### Example : Create a DSA key pair
+###### Example: Create a DSA key pair
 
 This command creates a DSA key pair with a `DSA` label. The output shows that
 the key handle of the public key is `19` and the handle of the private key is
@@ -61,7 +61,7 @@ the key handle of the public key is `19` and the handle of the private key is
  Node id 0 and err state 0x00000000 : HSM Return: SUCCESS`
 ```
 
-###### Example : Create a session-only DSA key pair
+###### Example: Create a session-only DSA key pair
 
 This command creates a DSA key pair that is valid only in the current session. The
 command assigns a unique ID of `DSA_temp_pair` in addition to the required
@@ -98,7 +98,7 @@ parameter of [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") with
  Cfm3FindKey returned: 0x00 : HSM Return: SUCCESS`
 ```
 
-###### Example : Create a shared, nonextractable DSA key pair
+###### Example: Create a shared, nonextractable DSA key pair
 
 This command creates a DSA key pair. The private key is shared with three other users,
 and it cannot be exported from the HSM. Public keys can be used by any user and can always
@@ -115,7 +115,7 @@ be extracted.
  Node id 0 and err state 0x00000000 : HSM Return: SUCCESS`
 ```
 
-###### Example : Create a quorum-controlled key pair
+###### Example: Create a quorum-controlled key pair
 
 This command creates a DSA key pair with the label `DSA-mV2`. The command
 uses the `-u` parameter to share the private key with user 4 and 6. It uses the

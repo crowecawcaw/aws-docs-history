@@ -37,7 +37,7 @@ the following steps:
 There are many different ways to create and protect a key pair. The following examples
 show how to do it with [OpenSSL](https://www.openssl.org/ "https://www.openssl.org/").
 
-###### Example – Create a private key with OpenSSL
+###### Example– Create a private key with OpenSSL
 
 The following example demonstrates how to use OpenSSL to create a 2048-bit RSA key. To use this example, replace
 `<crypto_user1.key>` with the name of the file where you want to store the key.
@@ -51,7 +51,7 @@ e is 65537 (0x10001)`
 
 Next, generate the public key using the private key that you just created.
 
-###### Example – Create a public key with OpenSSL
+###### Example– Create a public key with OpenSSL
 
 The following example demonstrates how to use OpenSSL to create a public key from the
 private key you just created.
@@ -191,7 +191,7 @@ Windows
    using CloudHSM CLI](cloudhsm_cli-user-chqm-token-reg.md "cloudhsm_cli-user-chqm-token-reg.md")**. For more
    information, see the following example or use the **help user change-quorum token-sign register** command.
 
-###### Example – Register a public key with AWS CloudHSM cluster
+###### Example– Register a public key with AWS CloudHSM cluster
 
 The following example shows how to use the **user change-quorum token-sign register**
 command in CloudHSM CLI to register a crypto-user public key with the HSM. To use this command, the crypto-user must be logged in to the HSM. Replace

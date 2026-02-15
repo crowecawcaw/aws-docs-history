@@ -2,7 +2,7 @@
 
 These examples show how to use the **configure** tool for AWS CloudHSM Client SDK 3.
 
-###### Example : Update the HSM data for the AWS CloudHSM client and key_mgmt_util
+###### Example: Update the HSM data for the AWS CloudHSM client and key_mgmt_util
 
 This example uses the `-a` parameter of **configure** to
 update the HSM data for the AWS CloudHSM client and key_mgmt_util. To use the `-a` parameter,
@@ -239,7 +239,7 @@ Windows
 When the command completes, the HSM data that the AWS CloudHSM client and key_mgmt_util use is
 complete and accurate.
 
-###### Example : Update the HSM Data for CMU from client SDK 3.2.1 and earlier
+###### Example: Update the HSM Data for CMU from client SDK 3.2.1 and earlier
 
 This example uses the `-m`
 **configure** command to copy the updated HSM data from the
@@ -264,7 +264,7 @@ Windows
 `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\configure.exe" -m`
 ```
 
-###### Example : Update the HSM Data for CMU from client SDK 3.3.0 and later
+###### Example: Update the HSM Data for CMU from client SDK 3.3.0 and later
 
 This example uses the `--cmu` parameter of the **configure**
 command to update HSM data for CMU. Use this with CMU that ships with Client SDK 3.3.0 and

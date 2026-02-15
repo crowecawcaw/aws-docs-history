@@ -53,6 +53,8 @@ Options:
 
 This example shows how to use the **key wrap rsa-oaep** command using an RSA public key with the `wrap` attribute value set to `true`.
 
+###### Example
+
 ```
 `aws-cloudhsm >` `key wrap rsa-oaep --payload-filter attr.label=payload-key --wrapping-filter attr.label=rsa-public-key-example --hash-function sha256 --mgf mgf1-sha256``{
  "error_code": 0,

@@ -37,7 +37,7 @@ getAttribute -o `<key handle>`
 These examples show how to use **getAttribute** to get the attributes of keys in
 your HSMs.
 
-###### Example : Get the key type
+###### Example: Get the key type
 
 This example gets the type of the key, such an AES, 3DES, or generic key, or an RSA or
 elliptic curve key pair.
@@ -95,7 +95,7 @@ Reference](key-attribute-table.md "key-attribute-table.md").
 0x00000015`
 ```
 
-###### Example : Get all attributes of a key
+###### Example: Get all attributes of a key
 
 This command gets all attributes of the key with key handle `6` and writes
 them to the `attr_6` file. It uses an attribute value of

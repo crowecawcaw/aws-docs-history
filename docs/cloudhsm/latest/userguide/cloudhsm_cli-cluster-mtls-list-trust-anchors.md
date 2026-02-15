@@ -26,6 +26,8 @@ Options:
 
 ## Example
 
+###### Example
+
 In the following example, this command lists all the registered trust anchors from the AWS CloudHSM.
 
 ```

@@ -37,7 +37,7 @@ exportPrivateKey -k `<private-key-handle>`
 This example shows how to use **exportPrivateKey** to export a private
 key out of an HSM.
 
-###### Example : Export a private key
+###### Example: Export a private key
 
 This command exports a private key with handle `15` using a wrapping
 key with handle `16` to a PEM file called `exportKey.pem`.

@@ -24,7 +24,7 @@ deleteKey -k
 These examples show how to use **deleteKey** to delete keys from your
 HSMs.
 
-###### Example : Delete a key
+###### Example: Delete a key
 
 This command deletes the key with key handle `6`. When the command succeeds,
 **deleteKey** returns success messages from each HSM in the cluster.
@@ -39,7 +39,7 @@ This command deletes the key with key handle `6`. When the command succeeds,
  Node id 2 and err state 0x00000000 : HSM Return: SUCCESS`
 ```
 
-###### Example : Delete a key (failure)
+###### Example: Delete a key (failure)
 
 When the command fails because no key has the specified key handle,
 **deleteKey** returns an invalid object handle error message.

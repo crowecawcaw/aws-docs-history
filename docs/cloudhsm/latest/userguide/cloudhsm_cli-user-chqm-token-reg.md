@@ -26,6 +26,8 @@ Options:
 
 ## Example
 
+###### Example
+
 To run this command you will need to be logged in as the user you wish to **register quorum token-sign** for.
 
 ```

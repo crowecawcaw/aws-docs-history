@@ -66,7 +66,7 @@ the following steps:
 There are many different ways to create and protect a key pair. The following examples
 show how to do it with [OpenSSL](https://www.openssl.org/ "https://www.openssl.org/").
 
-###### Example – Create a private key with OpenSSL
+###### Example– Create a private key with OpenSSL
 
 The following example demonstrates how to use OpenSSL to create a 2048-bit RSA key
 that is protected by a pass phrase. To use this example, replace
@@ -84,7 +84,7 @@ Verifying - Enter pass phrase for officer1.key:`
 
 Next, generate the public key using the private key that you just created.
 
-###### Example – Create a public key with OpenSSL
+###### Example– Create a public key with OpenSSL
 
 The following example demonstrates how to use OpenSSL to create a public key from the
 private key you just created.
@@ -99,7 +99,7 @@ writing RSA key`
 You create a token and sign it with the private key you just generated in the previous
 step.
 
-###### Example – Create a token
+###### Example– Create a token
 
 The registration token is just a file with any random data that doesn't exceed the
 maximum size of 245 bytes. You sign the token with the private key to demonstrate that you
@@ -113,7 +113,7 @@ file.
 Sign the token and save it to a signature file. You will need the signed token, the
 unsigned token, and the public key to register the CO as an MofN user with the HSM.
 
-###### Example – Sign the token
+###### Example– Sign the token
 
 Use OpenSSL and the private key to sign the registration token and create the
 signature file.
@@ -144,7 +144,7 @@ with the HSM.
    information, see the following example or use the **help
    registerQuorumPubKey** command.
 
-###### Example – Register a public key with the HSM
+###### Example– Register a public key with the HSM
 
 The following example shows how to use the **registerQuorumPubKey**
 command in the cloudhsm_mgmt_util command line tool to register a CO's
@@ -240,7 +240,7 @@ the minimum value](quorum-authentication-crypto-officers-change-minimum-value.md
    more information, see the following example or use the **help setMValue**
    command.
 
-###### Example – Set the quorum minimum value on the HSM
+###### Example– Set the quorum minimum value on the HSM
 
 This example uses a quorum minimum value of two. You can choose any value from two (2) to
 eight (8), up to the total number of COs on the HSM. In this example, the HSM has six COs, so the maximum possible

@@ -64,6 +64,8 @@ OPTIONS:
 
 ## Example
 
+###### Example
+
 This command logs you in to all HSMs in a cluster with the credentials of an admin
 user named `admin1`.
 

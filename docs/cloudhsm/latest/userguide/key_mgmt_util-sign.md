@@ -29,7 +29,7 @@ sign -f `<file name>`
 
 This example shows how to use **sign** to sign a file.
 
-###### Example : Sign a file
+###### Example: Sign a file
 
 This command signs a file named `messageFile` with a private key with
 handle `266309`. It uses the `SHA256_RSA_PKCS`

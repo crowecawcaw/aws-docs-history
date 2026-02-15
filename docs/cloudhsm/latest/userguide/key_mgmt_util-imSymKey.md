@@ -63,7 +63,7 @@ imSymKey -f <key-file>
 These examples show how to use **imSymKey** to import symmetric keys into
 your HSMs.
 
-###### Example : Import an AES symmetric key
+###### Example: Import an AES symmetric key
 
 This example uses **imSymKey** to import an AES symmetric key into the
 HSMs.
@@ -122,7 +122,7 @@ not generated in the HSM.
 0x00000000`
 ```
 
-###### Example : Move a symmetric key between clusters
+###### Example: Move a symmetric key between clusters
 
 This example shows how to use [exSymKey](key_mgmt_util-exSymKey.md "key_mgmt_util-exSymKey.md") and
 **imSymKey** to move a plaintext AES key between clusters. You might use a
@@ -218,7 +218,7 @@ you can use the `wrapKey` command with wrapping key 14 to export an encrypted ke
 from cluster 1, and then use `unWrapKey` with wrapping key 21 to import the
 encrypted key into cluster 2.
 
-###### Example : Import a session key
+###### Example: Import a session key
 
 This command uses the `-sess` parameters of **imSymKey** to
 import a 192-bit Triple DES key that is valid only in the current session.

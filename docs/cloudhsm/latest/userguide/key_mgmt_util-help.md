@@ -16,6 +16,8 @@ help
 
 This example shows the output of the `help` command.
 
+###### Example
+
 ```
 `Command:`  `help`
 

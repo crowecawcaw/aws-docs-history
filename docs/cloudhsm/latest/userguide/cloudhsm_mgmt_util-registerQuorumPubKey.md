@@ -38,7 +38,7 @@ officers (CO) as approvers on quorum authentication requests. To run this comman
 have an asymmetric RSA-2048 key pair, a signed token, and an unsigned token. For more
 information about these requirements, see [Arguments](#registerQuorumPubKey-params "#registerQuorumPubKey-params").
 
-###### Example : Register an HSM user for quorum authentication
+###### Example: Register an HSM user for quorum authentication
 
 This example registers a CO named `quorum_officer` as an approver for quorum
 authentication.

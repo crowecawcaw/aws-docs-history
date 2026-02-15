@@ -30,7 +30,7 @@ aesWrapUnwrap -m `<wrap-unwrap mode>`
 These examples show how to use **aesWrapUnwrap** to encrypt and decrypt an
 encryption key in a file.
 
-###### Example : Wrap an encryption key
+###### Example: Wrap an encryption key
 
 This command uses **aesWrapUnwrap** to wrap a Triple DES symmetric key that was
 [exported from the HSM in plaintext](key_mgmt_util-exSymKey.md "key_mgmt_util-exSymKey.md") into the
@@ -61,7 +61,7 @@ result written to file 3DES.key.wrapped
         Cfm3WrapHostKey returned: 0x00 : HSM Return: SUCCESS
 ```
 
-###### Example : Unwrap an encryption key
+###### Example: Unwrap an encryption key
 
 This example shows how to use **aesWrapUnwrap** to unwrap (decrypt) a wrapped
 (encrypted) key in a file. You might want to do an operation like this one before importing

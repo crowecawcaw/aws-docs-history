@@ -42,6 +42,8 @@ Options:
 
 ## Example
 
+###### Example
+
 In the following example, this command writes one unsigned token per HSM in your cluster to the file specified by token. When you are prompted, sign the tokens in the file.
 
 ```

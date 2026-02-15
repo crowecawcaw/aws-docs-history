@@ -103,3 +103,10 @@ in the event there is a regional outage, shift your traffic to the other cluster
 - [Connecting to multiple clusters with CloudHSM CLI](cloudhsm_cli-configs-multi-cluster.md "cloudhsm_cli-configs-multi-cluster.md")
 
 **Restore a cluster from a backup**: You can create a new Cluster from a backup of an existing Cluster. For more information, see [Cluster backups in AWS CloudHSM](manage-backups.md "manage-backups.md").
+
+## Stagger your application deployment
+
+Follow staggered deployment strategies such as progressive wave-based deployments,
+one-box deployments, and rolling deployments for your client application deployments and restarts.
+This approach minimizes the potential impact of changes while also ensuring there is enough capacity
+to serve production traffic during the deployment.

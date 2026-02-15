@@ -31,7 +31,7 @@ loginHSM -u `<user type>`
 This example shows how to log in and out of the HSMs in a cluster with the
 `loginHSM` and `logoutHSM` commands.
 
-###### Example : Log in to the HSMs
+###### Example: Log in to the HSMs
 
 This command logs you into the HSMs as a crypto user (`CU`) with the
 username `example_user` and password `aws`. The output shows
@@ -48,7 +48,7 @@ Node id 1 and err state 0x00000000 : HSM Return: SUCCESS
 Node id 2 and err state 0x00000000 : HSM Return: SUCCESS`
 ```
 
-###### Example : Log in with a hidden password
+###### Example: Log in with a hidden password
 
 This command is the same as the example above, except this time you specify that
 the system should hide the password.
@@ -74,7 +74,7 @@ Node id 2 and err state 0x00000000 : HSM Return: SUCCESS
 `Command:``
 ```
 
-###### Example : Log out of the HSMs
+###### Example: Log out of the HSMs
 
 This command logs you out of the HSMs. The output shows that you have logged out
 of all HSMs in the cluster.

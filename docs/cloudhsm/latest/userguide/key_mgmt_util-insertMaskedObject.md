@@ -34,7 +34,7 @@ insertMaskedObject -f `<filename>`
 This example shows how to use **insertMaskedObject** to insert a masked
 object file into an HSM.
 
-###### Example : Insert a masked object
+###### Example: Insert a masked object
 
 This command inserts a masked object into an HSM from a file named
 `maskedObj`. When the command succeeds,

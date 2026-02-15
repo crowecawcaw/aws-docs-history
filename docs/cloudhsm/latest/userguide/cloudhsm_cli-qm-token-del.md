@@ -33,7 +33,7 @@ Options:
 
 The following example shows how the **quorum token-sign delete** command in CloudHSM CLI can be used to delete one or more tokens for a quorum authorized service.
 
-###### Example : Delete one or more tokens for a quorum authorized service
+###### Example: Delete one or more tokens for a quorum authorized service
 
 ```
 `aws-cloudhsm >` `quorum token-sign delete --scope all``{

@@ -15,6 +15,7 @@ The following issues impact all AWS CloudHSM hsm2m.medium instances.
 - [Issue: Client SDK 5.8 and above do not perform automatic retries
   for HSM throttled operations in some scenarios on hsm2m.medium](#ki-hsm2m-medium-9 "#ki-hsm2m-medium-9")
 - [Issue: AES/CBC unwrap operations with all zero IV fails on hsm2m.medium](#ki-hsm2m-medium-10 "#ki-hsm2m-medium-10")
+- [Issue: Failure to initialize HSM connection during application cold starts on hsm2m.medium](#ki-hsm2m-medium-11 "#ki-hsm2m-medium-11")
 
 ## Issue: Increased login latency on hsm2m.medium
 
@@ -80,3 +81,16 @@ for HSM throttled operations in some scenarios on hsm2m.medium
 
 - **Impact:** When using AES/CBC mechanism for unwrapping keys using the AWS CloudHSM JCE provider, operations with a 16-byte zero-filled IV fails on hsm2m.medium instances, due to an added validation check that was not in hsm1.medium instances.
 - **Resolution Status:** We are working on a fix that will allow zero-byte IVs to be accepted during AES/CBC unwrap operations.
+
+## Issue: Failure to initialize HSM connection during application cold starts on hsm2m.medium
+
+- **Impact:** This issue affects cold starts such as client application
+  deployments or restarts. The hsm2m.medium HSM instance has improved fair share architecture which
+  ensures more consistent performance, throughput, and latency for all customers. At present on hsm1.medium,
+  you may observe higher than intended performance for concurrent HSM connection initialization. However,
+  hsm1.medium connection initialization performance will vary based on underlying system updates.
+- **Resolution:** Follow [best practices](bp-application-integration.md#bp-stagger-deployment "bp-application-integration.md#bp-stagger-deployment")
+  and stagger client application deployments and restarts to limit the amount of client applications
+  initializing HSM connections concurrently. We also recommend that you implement application level retries
+  for client application initialization. In addition, bootstrap using configure tool with
+  `--cluster-id <cluster ID>` to add all HSM IP's to the client configuration file.

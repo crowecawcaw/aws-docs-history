@@ -44,7 +44,7 @@ getKeyInfo -k `<key-handle>` [`<output file>`]
 These examples show how to use **getKeyInfo** to get information about the
 users of a key.
 
-###### Example : Get the users for an asymmetric key
+###### Example: Get the users for an asymmetric key
 
 This command gets the users who can use the AES (asymmetric) key with key handle
 `262162`. The output shows that user 3 owns the key and has shares it with users
@@ -76,7 +76,7 @@ Key Info on server 1(10.0.0.2):
                  6
 ```
 
-###### Example : Get the users for a symmetric key pair
+###### Example: Get the users for a symmetric key pair
 
 These commands use **getKeyInfo** to get the users who can use the keys
 in an [ECC (symmetric) key pair](key_mgmt_util-genSymKey.md "key_mgmt_util-genSymKey.md"). The public
@@ -144,7 +144,7 @@ private keys that they have created or that have been shared with them.
  Cfm3FindKey returned: 0x00 : HSM Return: SUCCESS`
 ```
 
-###### Example : Get the quorum authentication value (m_value) for a key
+###### Example: Get the quorum authentication value (m_value) for a key
 
 This example shows how to get the `m_value` for a key. The m_value is the
 number of users in the quorum who must approve any cryptographic operations that use the key

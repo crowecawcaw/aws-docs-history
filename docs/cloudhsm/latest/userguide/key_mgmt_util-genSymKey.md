@@ -41,7 +41,7 @@ To use the keys you make with these examples for HMAC operations, you must set
 generate the key. To set these values, use **setAttribute** in CloudHSM
 Management Utility (CMU). For more information, see [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md").
 
-###### Example : Generate an AES key
+###### Example: Generate an AES key
 
 This command creates a 256-bit AES key with an `aes256` label. The output
 shows that the key handle of the new key is `6`.
@@ -57,7 +57,7 @@ shows that the key handle of the new key is `6`.
  Node id 0 and err state 0x00000000 : HSM Return: SUCCESS`
 ```
 
-###### Example : Create a session key
+###### Example: Create a session key
 
 This command creates a nonextractable 192-bit AES key that is valid only in the current
 session. You might want to create a key like this to wrap (and then immediately unwrap) a
@@ -67,7 +67,7 @@ key that is being exported.
 `Command:` `genSymKey -t 31 -s 24 -l tmpAES -id wrap01 -nex -sess`
 ```
 
-###### Example : Return quickly
+###### Example: Return quickly
 
 This command creates a generic 512-byte key with a label of `IT_test_key`.
 The command does not wait for the key to be synchronized to all HSMs in the cluster.
@@ -85,7 +85,7 @@ like the `for` loop in the following example.
  done;`
 ```
 
-###### Example : Create a quorum authorized generic key
+###### Example: Create a quorum authorized generic key
 
 This command creates a 2048-bit generic secret key with the label
 `generic-mV2`. The command uses the `-u` parameter to share the key
@@ -113,7 +113,7 @@ that the attestation check on the cluster firmware passed.
 
 ```
 
-###### Example : Create and examine a key
+###### Example: Create and examine a key
 
 This command creates a Triple DES key with a `3DES_shared` label and an ID of
 `IT-02`. The key can be used by the current user, and users 4 and 5. The command

@@ -49,6 +49,8 @@ Options:
 
 This example shows how to use the **key wrap rsa-pkcs** command using an RSA public key.
 
+###### Example
+
 ```
 `aws-cloudhsm >` `key wrap rsa-pkcs --payload-filter attr.label=payload-key --wrapping-filter attr.label=rsa-public-key-example``{
  "error_code": 0,

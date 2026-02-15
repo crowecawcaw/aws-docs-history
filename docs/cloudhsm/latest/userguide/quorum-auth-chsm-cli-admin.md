@@ -71,7 +71,7 @@ Windows
    information, see the following example or use the **help quorum token-sign generate**
    command.
 
-###### Example – Generate a quorum token
+###### Example– Generate a quorum token
 
 This example gets a quorum token for the admin with user name `admin` and saves the token
 to a file named `admin.token`. To use the example command, replace
@@ -174,7 +174,7 @@ with [OpenSSL](https://www.openssl.org/ "https://www.openssl.org/"). To use a di
 make sure that the tool uses the admin's private key (signing key) to sign a SHA-256 digest of the
 token.
 
-###### Example – Get signatures from approving admins
+###### Example– Get signatures from approving admins
 
 In this example, the admin that has the token (`admin`) needs at least two (2) approvals. The
 following example commands show how two (2) admins can use OpenSSL to cryptographically sign the

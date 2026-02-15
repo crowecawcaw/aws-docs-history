@@ -46,7 +46,7 @@ importPrivateKey -l `<label>`
 This example shows how to use **importPrivateKey** to import a private
 key into an HSM.
 
-###### Example : Import a private key
+###### Example: Import a private key
 
 This command imports the private key from a file named `rsa2048.key`
 with the label `rsa2048-imported` and a wrapping key with handle

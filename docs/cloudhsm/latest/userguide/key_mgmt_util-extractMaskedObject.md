@@ -44,7 +44,7 @@ extractMaskedObject -o `<object-handle>`
 This example shows how to use **extractMaskedObject** to extract a key
 from an HSM as a masked object.
 
-###### Example : Extract a masked object
+###### Example: Extract a masked object
 
 This command extracts a masked object out of an HSM from a key with handle
 `524295` and saves it as a file called `maskedObj`. When

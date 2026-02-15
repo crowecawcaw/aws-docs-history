@@ -51,6 +51,8 @@ Options:
 
 The following example shows how to use the **key unshare** command to unshare a key with the CU `alice`.
 
+###### Example
+
 1. Run the **key list** command and filter by the specific key you want to unshare with `alice`.
 
 ```

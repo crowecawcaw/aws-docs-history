@@ -31,6 +31,8 @@ Options:
 
 ## Example
 
+###### Example
+
 In the following example, this command lists the mtls enforcement level of the AWS CloudHSM.
 
 ```

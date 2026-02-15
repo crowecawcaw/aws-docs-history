@@ -28,7 +28,7 @@ importPubKey -l `<label>`
 This example shows how to use **importPubKey** to import a public key
 into an HSM.
 
-###### Example : Import a public key
+###### Example: Import a public key
 
 This command imports a public key from a file named `public.pem` with
 the label `importedPublicKey`. When the command succeeds,

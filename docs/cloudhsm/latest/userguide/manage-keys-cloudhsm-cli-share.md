@@ -13,6 +13,8 @@ Before you can share a key, you must log in to the HSM as the crypto user (CU) w
 
 ## Example: Sharing and unsharing a key
 
+###### Example
+
 The following example shows how to share and unshare a key with crypto user (CU) `alice`. Along with the **key share** and **key unshare** commands, sharing and unsharing commands
 also requires a specific key using [CloudHSM CLI key filters](manage-keys-cloudhsm-cli-filtering.md "manage-keys-cloudhsm-cli-filtering.md") and the specific username of the user whom the key will be shared or unshared with.
 

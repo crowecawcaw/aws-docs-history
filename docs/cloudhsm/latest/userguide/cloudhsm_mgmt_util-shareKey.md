@@ -40,7 +40,7 @@ shareKey `<key handle>` `<user id>` `<(share/unshare key?) 1/0>`
 The following examples show how to use **shareKey** to share and unshare
 keys that you own with other crypto users.
 
-###### Example : Share a key
+###### Example: Share a key
 
 This example uses **shareKey** to share an [ECC private key](key_mgmt_util-genSymKey.md "key_mgmt_util-genSymKey.md") that the current user owns with
 another crypto user on the HSMs. Public keys are available to all users of the HSM, so you
@@ -117,7 +117,7 @@ Key Info on server 1(10.0.3.6):
  4`
 ```
 
-###### Example : Unshare a key
+###### Example: Unshare a key
 
 This example unshares a symmetric key, that is, it removes a crypto user from the list
 of shared users for the key.

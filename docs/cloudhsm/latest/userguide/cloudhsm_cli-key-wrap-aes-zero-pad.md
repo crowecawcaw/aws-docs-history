@@ -50,6 +50,8 @@ Options:
 
 This example shows how to use the **key wrap aes-zero-pad** command using an AES key with the `wrap` attribute value set to `true`.
 
+###### Example
+
 ```
 `aws-cloudhsm >` `key wrap aes-zero-pad --payload-filter attr.label=payload-key --wrapping-filter attr.label=aes-example``{
  "error_code": 0,

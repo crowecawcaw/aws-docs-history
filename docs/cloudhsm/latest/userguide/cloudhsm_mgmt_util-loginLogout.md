@@ -56,7 +56,7 @@ logoutHSM
 These examples show how to use **loginHSM** and
 **logoutHSM** to log in and out of all HSMs in a cluster.
 
-###### Example : Log in to the HSMs in a cluster
+###### Example: Log in to the HSMs in a cluster
 
 This command logs you in to all HSMs in a cluster with the credentials of a CO
 user named `admin` and a password of `co12345`. The output
@@ -70,7 +70,7 @@ shows that the command was successful and that you have connected to the HSMs
 loginHSM success on server 1(10.0.3.11)`
 ```
 
-###### Example : Log in with a hidden password
+###### Example: Log in with a hidden password
 
 This command is the same as the example above, except this time you specify that
 the system should hide the password.
@@ -92,7 +92,7 @@ loginHSM success on server 1(10.0.3.11)`
 `aws-cloudhsm>`
 ```
 
-###### Example : Log out of an HSM
+###### Example: Log out of an HSM
 
 This command logs you out of the HSMs that you are currently logged in to (which,
 in this case, are `server 0` and `server 1`). The output shows

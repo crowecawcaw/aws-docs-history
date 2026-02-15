@@ -39,6 +39,8 @@ Options:
 
 The following example shows how to use the **key set-attribute** command to set the label.
 
+###### Example
+
 1. Use the key with the label `my_key`, as shown here:
 
 ```

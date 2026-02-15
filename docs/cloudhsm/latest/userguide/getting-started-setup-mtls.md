@@ -51,7 +51,7 @@ root certificate to sign the client certificate in the [enable mTLS for AWS Clou
 The following examples show how to create a private key and self-signed root
 certificate with [OpenSSL](https://www.openssl.org/ "https://www.openssl.org/").
 
-###### Example – Create a private key with OpenSSL
+###### Example– Create a private key with OpenSSL
 
 Use the following command to create a 4096-bit RSA key encrypted with the
 AES-256 algorithm. To use this example, replace
@@ -67,7 +67,7 @@ Enter pass phrase for mtls_ca_root_1.key:
 Verifying - Enter pass phrase for mtls_ca_root_1.key:`
 ```
 
-###### Example – Create a self-signed root certificate with OpenSSL
+###### Example– Create a self-signed root certificate with OpenSSL
 
 Use the following command to create a self-signed root certificate named
 `mtls_ca_root_1.crt` from the private key you just
@@ -134,7 +134,7 @@ Windows
    the following example or use the **help cluster mtls
    register-trust-anchor** command.
 
-###### Example – Register a trust anchor with AWS CloudHSM cluster
+###### Example– Register a trust anchor with AWS CloudHSM cluster
 
 The following example shows how to use the **cluster mtls
 register-trust-anchor** command in CloudHSM CLI to register an trust
@@ -205,7 +205,7 @@ setup the private key path and client certificate chain path.
 
 chain
 
-###### Example – Create a private key with OpenSSL
+###### Example– Create a private key with OpenSSL
 
 Use the following command to create a 4096-bit RSA key. To use this example,
 replace `<ssl-client.key>` with the name of the
@@ -219,7 +219,7 @@ file where you want to store the key.
 e is 65537 (0x10001)`
 ```
 
-###### Example – Generate a certificate signing request (CSR) with OpenSSL
+###### Example– Generate a certificate signing request (CSR) with OpenSSL
 
 Use the following command to generate a certificate signing request (CSR) from
 the private key you just created. Read the on-screen instructions and follow the
@@ -243,7 +243,7 @@ Common Name (e.g. server FQDN or YOUR name) []:
 Email Address []:`
 ```
 
-###### Example – Sign the CSR with the root certificate
+###### Example– Sign the CSR with the root certificate
 
 Use the following command to sign the CSR with the root certificate we created
 and registered in [Create and register a trust anchor onto the HSM](#setup-mtls-create-and-register-trust-anchor "#setup-mtls-create-and-register-trust-anchor") and create a client
@@ -255,7 +255,7 @@ for 5 years (1826 days).
 
 ```
 
-###### Example – Create a client certificate chain
+###### Example– Create a client certificate chain
 
 Use the following command to combine the client certificate and root
 certificate we created and registered in [Create and register a
@@ -476,7 +476,7 @@ Windows
     following example or use the **help cluster mtls
     set-enforcement** command.
 
-###### Example – Set mTLS enforcement with AWS CloudHSM cluster
+###### Example– Set mTLS enforcement with AWS CloudHSM cluster
 
 The following example shows how to use the **cluster mtls
 set-enforcement** command in CloudHSM CLI to set the mTLS

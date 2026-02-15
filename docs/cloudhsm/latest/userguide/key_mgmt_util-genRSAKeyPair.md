@@ -44,7 +44,7 @@ genRSAKeyPair -m `<modulus length>`
 These examples show how to use **genRSAKeyPair** to create asymmetric key
 pairs in your HSMs.
 
-###### Example : Create and examine an RSA key pair
+###### Example: Create and examine an RSA key pair
 
 This command creates an RSA key pair with a 2048-bit modulus and an exponent of 65537.
 The output shows that the public key handle is `2100177` and the private key
@@ -142,7 +142,7 @@ OBJ_ATTR_NEVER_EXTRACTABLE
 0x00`
 ```
 
-###### Example : Generate a shared RSA key pair
+###### Example: Generate a shared RSA key pair
 
 This command generates an RSA key pair and shares the private key with user 4, another
 CU on the HSM. The command uses the `m_value` parameter to require at least two

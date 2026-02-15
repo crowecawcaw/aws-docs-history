@@ -51,6 +51,8 @@ Options:
 
 This example shows how to use **key generate-file** to generate a key file in your AWS CloudHSM cluster.
 
+###### Example
+
 ```
 `aws-cloudhsm >` `key generate-file --encoding reference-pem --path /tmp/ec-private-key.pem --filter attr.label="ec-test-private-key"``{
  "error_code": 0,
@@ -144,6 +146,8 @@ using an attribute filter of a private key
 
 The following example generates a KSP key reference for a private key with a specific label.
 
+###### Example
+
 ```
 `aws-cloudhsm >` `key generate-file --encoding ksp-key-reference --path --filter attr.label="ec-test-private-key"``{
  "error_code": 0,
@@ -158,6 +162,8 @@ The following example generates a KSP key reference for a private key with a spe
 all key pairs
 
 The following example generates KSP key references for all key pairs in your cluster.
+
+###### Example
 
 ```
 `aws-cloudhsm >` `key generate-file --encoding ksp-key-reference --all``{

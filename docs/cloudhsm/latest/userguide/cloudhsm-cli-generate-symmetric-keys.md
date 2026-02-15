@@ -11,6 +11,8 @@ generate-symmetric** command.
 
 Use the **key generate-symmetric aes** command to generate AES keys. To see all available options, use the **help key generate-symmetric aes** command.
 
+###### Example
+
 The following example generates a 32-byte AES key.
 
 ```
@@ -60,6 +62,8 @@ Required: No
 ### Generate generic secret key
 
 Use the **key generate-symmetric generic-secret** command to generate generic secret keys. To see all available options, use the **help key generate-symmetric generic-secret** command.
+
+###### Example
 
 The following example generates a 32-byte generic secret key.
 

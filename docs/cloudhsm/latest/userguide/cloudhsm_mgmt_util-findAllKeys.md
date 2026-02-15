@@ -50,7 +50,7 @@ findAllKeys `<user id>` `<key hash (0/1)>` [`<output file>`]
 These examples show how to use `findAllKeys` to find all keys for a user and
 get a hash of key user information on each of the HSMs.
 
-###### Example : Find the keys for a CU
+###### Example: Find the keys for a CU
 
 This example uses **findAllKeys** to find the keys in the HSMs that user
 4 owns and shares. The command uses a value of `0` for the second argument to
@@ -82,7 +82,7 @@ number of keys matched from start index 0::6
 findAllKeys success on server 1(10.0.0.3)`
 ```
 
-###### Example : Verify that user data is synchronized
+###### Example: Verify that user data is synchronized
 
 This example uses **findAllKeys** to verify that all of the HSMs in the
 cluster contain the same users, key ownership, and key sharing values. To do this, it gets a

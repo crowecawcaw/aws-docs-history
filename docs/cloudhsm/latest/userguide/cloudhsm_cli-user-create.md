@@ -48,7 +48,7 @@ Options:
 These examples show how to use **user create** to create new users in your
 HSMs.
 
-###### Example : Create a crypto user
+###### Example: Create a crypto user
 
 This example creates an account in your AWS CloudHSM cluster with the crypto user role.
 

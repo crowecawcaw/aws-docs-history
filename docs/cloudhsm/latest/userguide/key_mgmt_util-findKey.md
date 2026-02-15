@@ -36,7 +36,7 @@ findKey [-c `<key class>`]
 These examples show how to use **findKey** to find and identify keys in your
 HSMs.
 
-###### Example : Find all keys
+###### Example: Find all keys
 
 This command finds all keys for the current user in the HSM. The output includes keys
 that the user owns and shares, and all public keys in the HSMs.
@@ -60,7 +60,7 @@ cloudhsm_mgmt_util.
  Cfm3FindKey returned: 0x00 : HSM Return: SUCCESS`
 ```
 
-###### Example : Find keys by type, user, and session
+###### Example: Find keys by type, user, and session
 
 This command finds persistent AES keys that the current user and user 3 can use. (User 3
 might be able to use other keys that the current user cannot see.)
@@ -69,7 +69,7 @@ might be able to use other keys that the current user cannot see.)
 `Command:` `findKey -t 31 -sess 0 -u 3`
 ```
 
-###### Example : Find keys by class and label
+###### Example: Find keys by class and label
 
 This command finds all public keys for the current user with the `2018-sept`
 label.
@@ -78,7 +78,7 @@ label.
 `Command:` `findKey -c 2 -l 2018-sept`
 ```
 
-###### Example : Find RSA keys by modulus
+###### Example: Find RSA keys by modulus
 
 This command finds RSA keys (type 0) for the current user that were created by using the
 modulus in the `m4.txt` file.

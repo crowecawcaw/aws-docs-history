@@ -29,7 +29,7 @@ getCaviumPrivKey -k `<private-key-handle>`
 This example shows how to use **getCaviumPrivKey** to export a private
 key in fake PEM format.
 
-###### Example : Export a fake PEM file
+###### Example: Export a fake PEM file
 
 This command creates and exports a fake PEM version of a private key with handle
 `15` and saves it to a file called `cavKey.pem`. When the

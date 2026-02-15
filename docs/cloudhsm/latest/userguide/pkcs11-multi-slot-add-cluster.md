@@ -21,6 +21,8 @@ to add a cluster to your configuration.
 
 ## Examples
 
+###### Example
+
 Use the **configure-pkcs11 add-cluster** along with the `cluster-id` parameter to add a cluster (with the ID of `cluster-1234567`) to your configuration.
 
 Linux
@@ -41,6 +43,8 @@ If using **configure-pkcs11 add-cluster** with the `cluster-id` parameter doesn'
 of this command that also requires `--region` and `--endpoint` parameters to identify the cluster being added. If, for example, the region of the cluster is different than the one configured as your AWS CLI default,
 you should use the `--region` parameter to use the correct region. Additionally, you have the ability to specify the AWS CloudHSM API endpoint to use for the call, which may be necessary for
 various network setups, such as using VPC interface endpoints that don’t use the default DNS hostname for AWS CloudHSM.
+
+###### Example
 
 Use the **configure-pkcs11 add-cluster** along with the `cluster-id`, `endpoint`, and `region` parameters to add a cluster (with the ID of `cluster-1234567`) to your configuration.
 

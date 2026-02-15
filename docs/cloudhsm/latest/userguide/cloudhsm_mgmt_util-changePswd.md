@@ -40,7 +40,7 @@ changePswd `<user-type>` `<user-name>` <`password` |-hpswd> [-2fa `</path/to/aut
 
 The following examples show how to use **changePassword** to reset the password for the current user or any other user in your HSMs.
 
-###### Example : Change your password
+###### Example: Change your password
 
 Any user on the HSMs can use **changePswd** to change their own password. Before you change the password, use [info](cloudhsm_mgmt_util-info.md "cloudhsm_mgmt_util-info.md") to get information about each of the HSMs in the cluster, including the username and the user type of the logged in user.
 
@@ -74,7 +74,7 @@ Do you want to continue(y/n)?`y`
 Changing password for bob(CU) on 2 nodes`
 ```
 
-###### Example : Change the password of another user
+###### Example: Change the password of another user
 
 You must be a CO or PCO to change the password of another CO, or CU on the HSMs. Before
 you change the password for another user, use the [info](cloudhsm_mgmt_util-info.md "cloudhsm_mgmt_util-info.md") command to confirm that your user type is either CO or PCO.

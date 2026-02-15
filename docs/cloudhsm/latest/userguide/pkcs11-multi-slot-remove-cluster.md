@@ -15,6 +15,8 @@ use the **configure-pkcs11 remove-cluster** command to remove a cluster from ava
 
 ## Examples
 
+###### Example
+
 Use the **configure-pkcs11 remove-cluster** along with the `cluster-id` parameter to remove a cluster (with the ID of `cluster-1234567`) from your configuration.
 
 Linux

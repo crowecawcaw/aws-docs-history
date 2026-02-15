@@ -17,6 +17,8 @@ findSingleKey -k `<key-handle>`
 
 ## Example
 
+###### Example
+
 This command verifies that key `252136` exists on all three HSMs in the
 cluster.
 

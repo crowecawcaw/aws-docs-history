@@ -2,6 +2,8 @@
 
 These examples show how to use the configure tool for AWS CloudHSM Client SDK 5.
 
+###### Example
+
 This example uses the `-a` parameter to update the HSM data for
 Client SDK 5. To use the `-a` parameter, you must have the IP address
 for one of the HSMs in your cluster.
@@ -104,6 +106,8 @@ CloudHSM CLI
 you can use the `–-cluster-id` parameter in place of `-a <HSM_IP_ADDRESSES>`. To see requirements for using `–-cluster-id`, see [AWS CloudHSM Client SDK 5 configure tool](configure-sdk-5.md "configure-sdk-5.md").
 
 For more information about the `-a` parameter, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md "configure-tool-params5.md").
+
+###### Example
 
 This example uses the `cluster-id` parameter to bootstrap Client SDK 5 by making
 a `DescribeClusters` call.
@@ -283,6 +287,8 @@ CloudHSM CLI
 For more information about the `--cluster-id`, `--region`,
 and `--endpoint` parameters, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md "configure-tool-params5.md").
 
+###### Example
+
 This examples shows how to use the `--client-cert-hsm-tls-file` and `--client-key-hsm-tls-file` parameters to reconfigure
 SSL by specifying a custom key and SSL certificate for AWS CloudHSM
 
@@ -435,6 +441,8 @@ cp ssl-client.key `<C:\ProgramData\Amazon\CloudHSM\ssl-client.key>``
 For more information about the `--client-cert-hsm-tls-file` and
 `--client-key-hsm-tls-file` parameters, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md "configure-tool-params5.md").
 
+###### Example
+
 This example uses the `--disable-key-availability-check` parameter to
 disable client key durability settings. To run a cluster with a single HSM, you must
 disable client key durability settings.
@@ -525,6 +533,8 @@ CloudHSM CLI
 
 For more information about the `--disable-key-availability-check`
 parameter, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md "configure-tool-params5.md").
+
+###### Example
 
 Client SDK 5 uses the `log-file`, `log-level`,
 `log-rotation`, and `log-type` parameters to manage logging.
@@ -771,6 +781,8 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-cli.log
 
 For more information about the `log-file`, `log-level`,
 `log-rotation`,and `log-type` parameters, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md "configure-tool-params5.md").
+
+###### Example
 
 This example uses the `--hsm-ca-cert` parameter to update the location of the
 issuing certificate for Client SDK 5.

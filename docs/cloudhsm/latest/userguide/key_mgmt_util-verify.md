@@ -30,7 +30,7 @@ verify -f `<message-file>`
 These examples show how to use **verify** to check whether a certain
 public key was used to sign a given file.
 
-###### Example : Verify a file signature
+###### Example: Verify a file signature
 
 This command attempts to verify whether a file named `hardwarCert.crt`
 was signed by public key `262276` using the `SHA256_RSA_PKCS`
@@ -46,7 +46,7 @@ success message.
 Cfm3Verify returned: 0x00 : HSM Return: SUCCESS`
 ```
 
-###### Example : Prove false signing relationship
+###### Example: Prove false signing relationship
 
 This command verifies whether a file named `hardwareCert.crt` was signed by
 public key `262276` using the `SHA256_RSA_PKCS` signing mechanism to

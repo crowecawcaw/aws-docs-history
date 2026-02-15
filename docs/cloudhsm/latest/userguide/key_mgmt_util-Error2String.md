@@ -21,7 +21,7 @@ Error2String -r `<response-code>`
 These examples show how to use **Error2String** to get the error string for
 a key_mgmt_util error code.
 
-###### Example : Get an error description
+###### Example: Get an error description
 
 This command gets the error description for the `0xdb` error code. The
 description explains that an attempt to log in to key_mgmt_util failed because the user has the
@@ -33,7 +33,7 @@ wrong user type. Only crypto users (CU) can log in to key_mgmt_util.
         `Error Code db maps to HSM Error: Invalid User Type.`
 ```
 
-###### Example : Find the error code
+###### Example: Find the error code
 
 This example shows where to find the error code in a key_mgmt_util error. The error code,
 `0xc6`, appears after the string:

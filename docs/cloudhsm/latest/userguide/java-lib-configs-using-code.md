@@ -5,6 +5,8 @@ The way to do this is using an object of `CloudHsmProviderConfig` class. You can
 
 `CloudHsmProvider` has another constructor which takes the `CloudHsmProviderConfig` object, as the following sample shows.
 
+###### Example
+
 ```
 CloudHsmProviderConfig config = CloudHsmProviderConfig.builder()
                                     .withCluster(
@@ -18,6 +20,8 @@ CloudHsmProvider provider = new CloudHsmProvider(config);
 ```
 
 In this example, the name of the JCE provider is `CloudHsmCluster1`. This is the name that application can then use to interact with JCE:
+
+###### Example
 
 ```
 Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding", "CloudHsmCluster1");

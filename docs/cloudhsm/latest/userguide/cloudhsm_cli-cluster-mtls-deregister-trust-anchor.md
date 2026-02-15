@@ -32,6 +32,8 @@ Options:
 
 ## Example
 
+###### Example
+
 In the following example, this command removes a trust anchor from the HSM.
 
 ```

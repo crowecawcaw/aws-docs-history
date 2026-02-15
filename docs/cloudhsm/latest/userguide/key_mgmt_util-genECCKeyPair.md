@@ -43,7 +43,7 @@ genECCKeyPair -i <EC curve id>
 The following examples show how to use **genECCKeyPair** to create ECC key pairs in
 your HSMs.
 
-###### Example : Create and examine an ECC key pair
+###### Example: Create and examine an ECC key pair
 
 This command uses an NID_secp384r1 elliptic curve and an
 `ecc14` label to create an ECC key pair. The output shows that the key handle of the private key is

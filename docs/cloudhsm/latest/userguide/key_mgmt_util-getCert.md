@@ -26,7 +26,7 @@ getCert -f `<file-name>`
 This example shows how to use **getCert** to retrieve a cluster's
 customer root certificate and save it as a file.
 
-###### Example : Retrieve a customer root certificate
+###### Example: Retrieve a customer root certificate
 
 This command exports a customer root certificate (represented by integer
 `4`) and saves it to a file called `userRoot.crt`. When

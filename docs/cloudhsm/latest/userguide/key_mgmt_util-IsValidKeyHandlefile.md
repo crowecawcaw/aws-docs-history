@@ -32,7 +32,7 @@ IsValidKeyHandlefile -f `<rsa-private-key-file>`
 These examples show how to use **IsValidKeyHandlefile** to determine
 whether a given key file contains the real key material or fake PEM key material.
 
-###### Example : Validate a real private key
+###### Example: Validate a real private key
 
 This command confirms that the file called `privateKey.pem` contains
 real key material.
@@ -43,7 +43,7 @@ real key material.
 `Input key file has real private key`
 ```
 
-###### Example : Invalidate a fake PEM key
+###### Example: Invalidate a fake PEM key
 
 This command confirms that the file called `caviumKey.pem` contains
 fake PEM key material made from key handle `15`.

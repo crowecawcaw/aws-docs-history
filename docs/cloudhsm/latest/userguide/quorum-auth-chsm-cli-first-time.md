@@ -39,7 +39,7 @@ the following steps:
 There are many different ways to create and protect a key pair. The following examples
 show how to do it with [OpenSSL](https://www.openssl.org/ "https://www.openssl.org/").
 
-###### Example – Create a private key with OpenSSL
+###### Example– Create a private key with OpenSSL
 
 The following example demonstrates how to use OpenSSL to create a 2048-bit RSA key. To use this example, replace
 `<admin.key>` with the name of the file where you want to store the key.
@@ -53,7 +53,7 @@ e is 65537 (0x10001)`
 
 Next, generate the public key using the private key that you just created.
 
-###### Example – Create a public key with OpenSSL
+###### Example– Create a public key with OpenSSL
 
 The following example demonstrates how to use OpenSSL to create a public key from the
 private key you just created.
@@ -67,7 +67,7 @@ private key you just created.
 You create a token and sign it with the private key you just generated in the previous
 step.
 
-###### Example – Create a registration token
+###### Example– Create a registration token
 
 1. Use the following command to start the CloudHSM CLI:
 
@@ -118,7 +118,7 @@ The token file consists of the following:
 You sign the unsigned token with the private key to demonstrate that you have access to the private key. You will need the registration token file fully populated with a signature and
 the public key to register the admin as a quorum user with the AWS CloudHSM cluster.
 
-###### Example – Sign the unsigned registration token
+###### Example– Sign the unsigned registration token
 
 1. Decode the base64 encoded unsigned token and place it into a binary file:
 
@@ -195,7 +195,7 @@ Windows
    using CloudHSM CLI](cloudhsm_cli-user-chqm-token-reg.md "cloudhsm_cli-user-chqm-token-reg.md")** command to register the public key. For more
    information, see the following example or use the **help user change-quorum token-sign register** command.
 
-###### Example – Register a public key with AWS CloudHSM cluster
+###### Example– Register a public key with AWS CloudHSM cluster
 
 The following example shows how to use the **user change-quorum token-sign
 register** command in CloudHSM CLI to register an admin' public key with the HSM.
@@ -345,7 +345,7 @@ Windows
 
 3. Use the **[Update a quorum value using CloudHSM CLI](cloudhsm_cli-qm-token-set-qm.md "cloudhsm_cli-qm-token-set-qm.md")** command to set the quorum minimum value. The `--service` flag identifies the HSM service that you're setting values for. See the following example or use the **help quorum token-sign set-quorum-value** command for more information.
 
-###### Example – Set the quorum minimum value on the HSM
+###### Example– Set the quorum minimum value on the HSM
 
 This example uses a quorum minimum value of two (2). You can choose any value from two (2) to
 eight (8), up to the total number of admins on the HSM. In this example, the HSM has four (4) admins, so the maximum possible

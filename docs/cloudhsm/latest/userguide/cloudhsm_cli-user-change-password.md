@@ -66,7 +66,7 @@ the **user change-mfa** command.
 
 The following examples show how to use **user change-password** to reset the password for the current user or any other user in your cluster.
 
-###### Example : Change your password
+###### Example: Change your password
 
 Any user in the cluster can use **user change-password** to change their own password.
 

@@ -38,7 +38,7 @@ createUser `<user-type>` `<user-name>` `<password>` |-hpswd> [-2fa `</path/to/au
 These examples show how to use **createUser** to create new users in your
 HSMs.
 
-###### Example : Create a crypto officer
+###### Example: Create a crypto officer
 
 This example creates a crypto officer (CO) on the HSMs in a cluster. The first command
 uses [loginHSM](cloudhsm_mgmt_util-loginLogout.md "cloudhsm_mgmt_util-loginLogout.md") to log in to the HSM as
@@ -112,7 +112,7 @@ Number of users found:3
          3              CO              alice                                    NO               0               NO
 ```
 
-###### Example : Create a crypto user
+###### Example: Create a crypto user
 
 This example creates a crypto user (CU), `bob`, on the HSM. Crypto users can
 create and manage keys, but they cannot manage users.

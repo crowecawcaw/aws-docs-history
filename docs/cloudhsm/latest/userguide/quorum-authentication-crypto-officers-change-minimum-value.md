@@ -52,7 +52,7 @@ descriptions, and the commands that are included in the service.
 9. Use the **setMValue** command to change quorum minimum value for
    service 3 (user management operations performed by COs).
 
-###### Example – Get quorum minimum values and change the value for service 4
+###### Example– Get quorum minimum values and change the value for service 4
 
 The following example command shows that the quorum minimum value for service 3 is
 currently two.

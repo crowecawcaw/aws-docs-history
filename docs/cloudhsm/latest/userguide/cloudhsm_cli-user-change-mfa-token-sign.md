@@ -74,7 +74,7 @@ Options:
 
 This command will write one unsigned token per HSM in your cluster to the file specified by `token`. When you are prompted, sign the tokens in the file.
 
-###### Example : Write one unsigned token per HSM in your cluster
+###### Example: Write one unsigned token per HSM in your cluster
 
 ```
 `aws-cloudhsm >` `user change-mfa token-sign --username cu1 --change-password password --role crypto-user --token /path/myfile``Enter signed token file path (press enter if same as the unsigned token file):

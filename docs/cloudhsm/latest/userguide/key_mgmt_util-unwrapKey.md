@@ -55,7 +55,7 @@ file into the HSMs. In the first example, we unwrap a key that was wrapped with 
 thus has a header. In the second example, we unwrap a key that was wrapped outside of key_mgmt_util,
 and thus does not have a header.
 
-###### Example : Unwrap a key (with header)
+###### Example: Unwrap a key (with header)
 
 This command imports a wrapped copy of a 3DES symmetric key into an HSM. The key is
 unwrapped with an AES key with label `6`, which is cryptographically identical to
@@ -74,7 +74,7 @@ unwrapped and imported, and that the imported key's handle is `29`.
  Node id 0 and err state 0x00000000 : HSM Return: SUCCESS`
 ```
 
-###### Example : Unwrap a key (no header)
+###### Example: Unwrap a key (no header)
 
 This command imports a wrapped copy of a 3DES symmetric key into an HSM. The key is
 unwrapped with an AES key with label `6`, which is cryptographically identical to

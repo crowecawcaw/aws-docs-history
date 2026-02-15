@@ -26,6 +26,8 @@ OPTIONS:
 
 ## Example
 
+###### Example
+
 This command logs you out of all HSMs in a cluster.
 
 ```

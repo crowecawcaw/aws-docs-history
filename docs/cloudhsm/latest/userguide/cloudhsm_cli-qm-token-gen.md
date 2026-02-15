@@ -72,7 +72,7 @@ Options:
 
 This command will write one unsigned token per HSM in your cluster to the file specified by `token`.
 
-###### Example : Write one unsigned token per HSM in your cluster
+###### Example: Write one unsigned token per HSM in your cluster
 
 ```
 `aws-cloudhsm >` `quorum token-sign generate --service user --token /home/tfile``{

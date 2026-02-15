@@ -24,6 +24,8 @@ Options:
 
 This command lists quorum values set in your AWS CloudHSM cluster for each service.
 
+###### Example
+
 **hsm1.medium**:
 
 ```

@@ -4,6 +4,8 @@ Each `CloudHsmProvider` represents a connection to your AWS CloudHSM Cluster. If
 can create another object of `CloudHsmProvider` with configurations for your other cluster and you can interact with this other cluster either using the provider object
 or using the provider name, as shown in the following example.
 
+###### Example
+
 ```
 CloudHsmProviderConfig config = CloudHsmProviderConfig.builder()
                                     .withCluster(

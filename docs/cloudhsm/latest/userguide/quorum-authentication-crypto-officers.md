@@ -63,7 +63,7 @@ _quorum token_.
    information, see the following example or use the **help getToken**
    command.
 
-###### Example – Get a quorum token
+###### Example– Get a quorum token
 
 This example gets a quorum token for the CO with user name officer1 and saves the token
 to a file named `officer1.token`. To use the example command, replace
@@ -109,7 +109,7 @@ with [OpenSSL](https://www.openssl.org/ "https://www.openssl.org/"). To use a di
 make sure that the tool uses the CO's private key (signing key) to sign a SHA-256 digest of the
 token.
 
-###### Example – Get signatures from approving COs
+###### Example– Get signatures from approving COs
 
 In this example, the CO that has the token (officer1) needs at least two approvals. The
 following example commands show how two COs can use OpenSSL to cryptographically sign the
@@ -158,7 +158,7 @@ must approve the signed token on the HSM.
 4. Use the **approveToken** command to approve the signed token, passing
    the token approval file. For more information, see the following example.
 
-###### Example – Create a token approval file and approve the signed token on the HSM
+###### Example– Create a token approval file and approve the signed token on the HSM
 
 The token approval file is a text file in a particular format that the HSM requires. The
 file contains information about the token, its approvers, and the approvers' signatures. The

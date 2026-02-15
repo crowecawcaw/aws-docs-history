@@ -10,6 +10,8 @@ asymmetric key pairs for AWS CloudHSM clusters.
 
 Use the **key generate-asymmetric-pair rsa** command to generate an RSA key pair. To see all available options, use the **help key generate-asymmetric-pair rsa** command.
 
+###### Example
+
 The following example generates an RSA 2048-bit key pair.
 
 ```
@@ -70,6 +72,8 @@ Required: No
 
 Use the **key generate-asymmetric-pair ec** command to generate an EC key pair.
 To see all available options,including a list of the supported elliptic curves, use the **help key generate-asymmetric-pair ec** command.
+
+###### Example
 
 The following example generates an EC key pair using the Secp384r1 elliptic curve.
 

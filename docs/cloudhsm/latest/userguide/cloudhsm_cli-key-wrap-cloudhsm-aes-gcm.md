@@ -53,6 +53,8 @@ Options:
 
 This example shows how to use the **key wrap cloudhsm-aes-gcm** command using an AES key.
 
+###### Example
+
 ```
 `aws-cloudhsm >` `key wrap cloudhsm-aes-gcm --payload-filter attr.label=payload-key --wrapping-filter attr.label=aes-example --tag-length-bits 64 --aad 0x10``{
  "error_code": 0,

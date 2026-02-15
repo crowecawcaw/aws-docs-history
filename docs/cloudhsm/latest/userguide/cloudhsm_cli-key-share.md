@@ -51,6 +51,8 @@ Options:
 
 The following example shows how to use the **key share** command to share a key with the CU `alice`.
 
+###### Example
+
 1. Run the **key share** command to share the key with `alice`.
 
 ```

@@ -37,6 +37,8 @@ wrapKey -k `<exported-key-handle>`
 
 ## Example
 
+###### Example
+
 This command exports a 192-bit Triple DES (3DES) symmetric key (key handle
 `7`). It uses a 256-bit AES key in the HSM (key handle `14`) to wrap
 key `7`. Then, it writes the encrypted 3DES key to the

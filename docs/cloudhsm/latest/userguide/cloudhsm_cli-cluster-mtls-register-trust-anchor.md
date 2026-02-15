@@ -37,6 +37,8 @@ Options:
 
 ## Example
 
+###### Example
+
 In the following example, this command registers a trust anchor onto the HSM. The maximum number of trust anchors can be registered is two (2).
 
 ```

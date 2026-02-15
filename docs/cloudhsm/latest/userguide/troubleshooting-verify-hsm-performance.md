@@ -153,7 +153,7 @@ If `n` is entered, a new key is generated.
 The following examples show the options that you can choose with pkpspeed (Linux) or
 pkpspeed_blocking (Windows) to test the HSM's performance for RSA and AES operations.
 
-###### Example – Using pkpspeed to test RSA performance
+###### Example– Using pkpspeed to test RSA performance
 
 You can run this example on Windows, Linux, and compatible operating systems.
 
@@ -227,7 +227,7 @@ OPERATIONS/second                837/
 
 ```
 
-###### Example – Using pkpspeed to test AES performance
+###### Example– Using pkpspeed to test AES performance
 
 Linux
 Use these instructions for Linux and compatible operating systems.
