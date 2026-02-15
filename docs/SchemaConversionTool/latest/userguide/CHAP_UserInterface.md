@@ -1,34 +1,17 @@
-# Converting Schemas in AWS Schema Conversion Tool
+# Starting and managing Projects in AWS SCT
 
-After you added source and target databases to your project and created mapping rules, you can convert your source database schemas. Use the following procedure to convert schema.
+To start the AWS Schema Conversion Tool, double-click the application icon.
 
-###### To convert your schema
+Use the following procedure to create an AWS Schema Conversion Tool project.
 
-1. Choose **View**,
-   and then choose **Main view**.
+###### To create your project
 
-![Select main view](images/select_main_view.png) 2. In the left panel that displays the schema from your source database, select
-the check box for the name of the object to convert. Next, choose this object.
-AWS SCT highlights the object name in blue. Open the context (right-click) menu
-for the object, and choose **Convert schema**.
+1. Start the AWS Schema Conversion Tool.
+2. On the **File** menu, choose **New
+   project**. The **New project** dialog box appears.
 
-To convert several database objects, select the check boxes for all objects.
-Next, choose the parent node. For example, for tables, the parent node is
-**Tables**. Make sure that AWS SCT highlights the name of
-the parent node in blue. Open the context (right-click) menu
-for the parent node, and choose **Convert schema**.
+![New Project dialog box](images/file-new-project.png) 3. Enter a name for your project, which is stored locally on your computer. 4. Enter the location for your local project file. 5. Choose **OK** to create your AWS SCT project. 6. Choose **Add source** to add a new source database to your AWS SCT project. You can add multiple source databases to your AWS SCT project. 7. Choose **Add target** to add a new target platform in your AWS SCT project. You can add multiple target platforms to your AWS SCT project. 8. Choose the source database schema in the left panel. 9. In the right panel, specify the target database platform for the selected source schema. 10. Choose **Create mapping**. This button becomes active after you
+choose the source database schema and the target database platform. For more information,
+see [Data type mapping](CHAP_Mapping.md "CHAP_Mapping.md").
 
-![Convert schema](images/transform_schema.png) 3. When AWS SCT finishes converting the schema,
-you can view the proposed schema in the panel on the right of your project.
-
-At this point, no schema is applied to your target database instance. The
-planned schema is part of your project. If you choose a converted schema item,
-you can see the planned schema command in the panel at lower center for your
-target database instance.
-
-You can edit the schema in this window.
-The edited schema is stored as part of your project
-and is written to the target database instance
-when you choose to apply your converted schema.
-
-![View the converted schema](images/view_transformed_schema.png)
+Now, your AWS SCT project is set up. You can save your project, create database migration assessment report, and convert your source database schemas.

@@ -1,133 +1,60 @@
-# Converting SQL Server to MySQL
+#
 
-To emulate Microsoft SQL Server database functions in your converted MySQL code, use
-the SQL Server to MySQL extension pack in AWS SCT. For more information about extension
-packs, see [Using extension packs with AWS Schema Conversion Tool](CHAP_ExtensionPack.md "CHAP_ExtensionPack.md").
+Migrating from SQL Server to Amazon RDS for SQL Server with AWS Schema Conversion Tool
 
-###### Topics
+Some things to consider when migrating SQL Server schema and code to Amazon RDS for
+SQL Server:
 
-- [Privileges for MySQL as a target database](#CHAP_Source.SQLServer.ToMySQL.ConfigureTarget "#CHAP_Source.SQLServer.ToMySQL.ConfigureTarget")
-- [SQL Server to MySQL conversion settings](#CHAP_Source.SQLServer.ToMySQL.ConversionSettings "#CHAP_Source.SQLServer.ToMySQL.ConversionSettings")
-- [Migration considerations](#CHAP_Source.SQLServer.ToMySQL.MigrationConsiderations "#CHAP_Source.SQLServer.ToMySQL.MigrationConsiderations")
+- AWS SCT can convert SQL Server Agent to provide schedules, alerts, and jobs on
+  an Amazon RDS for SQL Server DB instance. After conversion, you can use an Amazon RDS
+  for SQL Server DB instance with SQL Server Reporting Services (SSRS), SQL Server
+  Analysis Services (SSAS), and SQL Server Integration Services (SSIS).
+- Amazon RDS currently doesn’t support SQL Server Service Broker or additional
+  T-SQL endpoints that require you to run the CREATE ENDPOINT command.
+- Amazon RDS has limited support for linked servers. When converting SQL Server
+  application code that uses linked servers, AWS SCT converts the application
+  code. However, make sure to review the behavior of objects that use linked servers
+  before you run the converted code.
+- Always on is used.
+- The AWS SCT assessment report provides server metrics for the conversion.
+  These metrics about your SQL Server instance include the following:
+  - Data mirroring is used.
+  - SQL Server Log Shipping is configured.
+  - Failover cluster is used.
+  - Database Mail is configured.
+  - Full Text Search Service is used. Amazon RDS for SQL Server has a
+    limited full text search, and it does not support semantic
+    search.
+  - Data Quality Service (DQS) is installed. Amazon RDS doesn't support
+    DQS so we recommend that you install SQL Server on an Amazon EC2
+    instance.
 
-## Privileges for MySQL as a target database
+## Privileges for RDS for SQL Server as a target
 
-The privileges required for MySQL as a target are as follows:
-
-- CREATE ON \*.\*
-- ALTER ON \*.\*
-- DROP ON \*.\*
-- INDEX ON \*.\*
-- REFERENCES ON \*.\*
-- SELECT ON \*.\*
-- CREATE VIEW ON \*.\*
-- SHOW VIEW ON \*.\*
-- TRIGGER ON \*.\*
-- CREATE ROUTINE ON \*.\*
-- ALTER ROUTINE ON \*.\*
-- EXECUTE ON \*.\*
-- INSERT, UPDATE ON AWS_SQLSERVER_EXT.\*
-- INSERT, UPDATE, DELETE ON AWS_SQLSERVER_EXT_DATA.\*
-- CREATE TEMPORARY TABLES ON AWS_SQLSERVER_EXT_DATA.\*
-
-You can use the following code example to create a database user and grant the privileges.
+To migrate to RDS for SQL Server, create a database user and then grant the required privileges for each database.
+You can use the following code example.
 
 ```
-CREATE USER '`user_name`' IDENTIFIED BY '`your_password`';
-GRANT CREATE ON *.* TO '`user_name`';
-GRANT ALTER ON *.* TO '`user_name`';
-GRANT DROP ON *.* TO '`user_name`';
-GRANT INDEX ON *.* TO '`user_name`';
-GRANT REFERENCES ON *.* TO '`user_name`';
-GRANT SELECT ON *.* TO '`user_name`';
-GRANT CREATE VIEW ON *.* TO '`user_name`';
-GRANT SHOW VIEW ON *.* TO '`user_name`';
-GRANT TRIGGER ON *.* TO '`user_name`';
-GRANT CREATE ROUTINE ON *.* TO '`user_name`';
-GRANT ALTER ROUTINE ON *.* TO '`user_name`';
-GRANT EXECUTE ON *.* TO '`user_name`';
-GRANT INSERT, UPDATE ON AWS_SQLSERVER_EXT.* TO '`user_name`';
-GRANT INSERT, UPDATE, DELETE ON AWS_SQLSERVER_EXT_DATA.* TO '`user_name`';
-GRANT CREATE TEMPORARY TABLES ON AWS_SQLSERVER_EXT_DATA.* TO '`user_name`';
+CREATE LOGIN `user_name` WITH PASSWORD '`your_password`';
+
+USE `db_name`
+CREATE USER `user_name` FOR LOGIN `user_name`
+GRANT VIEW DEFINITION TO `user_name`
+GRANT VIEW DATABASE STATE TO `user_name`
+GRANT CREATE SCHEMA TO `user_name`;
+GRANT CREATE TABLE TO `user_name`;
+GRANT CREATE VIEW TO `user_name`;
+GRANT CREATE TYPE TO `user_name`;
+GRANT CREATE DEFAULT TO `user_name`;
+GRANT CREATE FUNCTION TO `user_name`;
+GRANT CREATE PROCEDURE TO `user_name`;
+GRANT CREATE ASSEMBLY TO `user_name`;
+GRANT CREATE AGGREGATE TO `user_name`;
+GRANT CREATE FULLTEXT CATALOG TO `user_name`;
+GRANT CREATE SYNONYM TO `user_name`;
+GRANT CREATE XML SCHEMA COLLECTION TO `user_name`;
 ```
 
 In the preceding example, replace `user_name` with the name of your user.
-Then, replace `your_password` with a secure password.
-
-If you use a MySQL database version 5.7 or lower as a target, then run the following command.
-For MySQL databases version 8.0 and higher, this command is deprecated.
-
-```
-GRANT SELECT ON mysql.proc TO '`user_name`';
-```
-
-To use Amazon RDS for MySQL or Aurora MySQL as a target, set the `lower_case_table_names` parameter
-to `1`. This value means that the MySQL server handles identifiers of such object names as tables,
-indexes, triggers, and databases as case insensitive.
-If you have turned on binary logging in your target instance, then set the
-`log_bin_trust_function_creators` parameter to `1`.
-In this case, you don't need to use the `DETERMINISTIC`,
-`READS SQL DATA` or `NO SQL` characteristics to create stored functions.
-To configure these parameters, create a new DB parameter group or modify an existing DB parameter group.
-
-## SQL Server to MySQL conversion settings
-
-To edit SQL Server to MySQL conversion settings, in AWS SCT choose
-**Settings**, and then choose **Conversion
-settings**. From the upper list, choose **SQL
-Server**, and then choose **SQL Server – MySQL**.
-AWS SCT displays all available settings for SQL Server to MySQL conversion.
-
-SQL Server to MySQL conversion settings in AWS SCT include options for the
-following:
-
-- To limit the number of comments with action items in the converted
-  code.
-
-For **Add comments in the converted code for the action items of selected severity and higher**,
-choose the severity of action items. AWS SCT adds comments in the converted code
-for action items of the selected severity and higher.
-
-For example, to minimize the number of comments in your converted code, choose
-**Errors only**. To include comments for all action items in your
-converted code, choose **All messages**.
-
-- To allow your source SQL Server database to store the output of
-  `EXEC` in a table. AWS SCT creates temporary tables and an
-  additional procedure to emulate this feature. To use this emulation, select
-  **Create additional routines for handling open
-  datasets**.
-
-## Migration considerations
-
-Consider these things when migrating a SQL Server schema to MySQL:
-
-- MySQL doesn’t support the `MERGE` statement. However, AWS SCT can emulate the
-  `MERGE` statement during conversion by using the `INSERT
-ON DUPLICATE KEY` clause and the `UPDATE FROM and DELETE
-FROM` statements.
-
-For correct emulation using `INSERT ON DUPLICATE KEY`, make sure that a unique
-constraint or primary key exists on the target MySQL database.
-
-- You can use a `GOTO` statement and a label to change the order that statements are
-  run in. Any Transact-SQL statements that follow a `GOTO`
-  statement are skipped, and processing continues at the label. You can use
-  `GOTO` statements and labels anywhere within a procedure,
-  batch, or statement block. You can also nest `GOTO`
-  statements.
-
-MySQL doesn’t use `GOTO` statements. When AWS SCT converts code that contains a
-`GOTO` statement, it converts the statement to use a `BEGIN…END` or
-`LOOP…END LOOP` statement. You can find examples of how AWS SCT converts `GOTO`
-statements in the table following.
-
-| SQL Server statement                                                                                                                                  | MySQL statement                                                                                                                                                                                |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>GOTO label1;<br>statement2;<br>....<br>label1:<br>Statement3;<br>....<br>END<br>`                        | `<br>BEGIN<br>label1:<br>BEGIN<br>....<br>statement1;<br>....<br>LEAVE label1;<br>statement2;<br>....<br>END;<br>Statement3;<br>....<br>END<br>`                                               |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>GOTO label1;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>LOOP<br>statement2;<br>....<br>ITERATE label1;<br>LEAVE label1;<br>END LOOP;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END<br>`                 | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>BEGIN<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END;<br>END<br>`                                         |
-
-- MySQL doesn't support multistatement table-valued functions. AWS SCT simulates table-valued
-  functions during a conversion by creating temporary tables and rewriting
-  statements to use these temporary tables.
+Then, replace `db_name` with the name of your target database.
+Finally, replace `your_password` with a secure password.

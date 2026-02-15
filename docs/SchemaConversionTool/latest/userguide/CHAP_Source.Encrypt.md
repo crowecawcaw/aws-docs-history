@@ -59,6 +59,8 @@ downloaded the certificate, and run the following command for every
 keytool -importcert -file `<filename>`.pem -alias `<filename>`.pem -keystore `storename`
 ```
 
+###### Example
+
 The following example assumes that you downloaded the
 `eu-west-1-bundle.pem` file.
 

@@ -1,74 +1,104 @@
-# Converting database schemas in AWS Schema Conversion Tool
+# Applying migration rules in AWS Schema Conversion Tool
 
-You can use the AWS Schema Conversion Tool (AWS SCT) to convert your existing database schemas from one
-database engine to another. Converting a database using the AWS SCT user interface can be
-fairly simple, but there are several things to consider before you do the conversion.
+Before you convert your schema with AWS SCT, you can set up migration rules.
+_Migration rules_ in AWS SCT can do such transformations as change the data type of columns, move objects from one schema to another,
+and change the names of objects. For example, suppose that you have a set of tables in
+your source schema named `test_TABLE_NAME`. You can set up a rule that
+changes the prefix `test_` to the prefix `demo_` in the target
+schema.
 
-For example, you can use AWS SCT to do the following:
+###### Note
 
-- You can use AWS SCT to copy an existing on-premises database schema to an Amazon RDS DB instance
-  running the same engine. You can use this feature to analyze potential cost savings
-  of moving to the cloud and of changing your license type.
-- In some cases, database features can't be converted to equivalent Amazon RDS features. If you host
-  and self-manage a database on the Amazon Elastic Compute Cloud (Amazon EC2) platform, you can emulate these
-  features by substituting AWS services for them.
-- AWS SCT automates much of the process of converting your
-  online transaction processing (OLTP) database schema to an
-  Amazon Relational Database Service (Amazon RDS) MySQL DB instance, an Amazon Aurora DB cluster, or a PostgreSQL DB
-  instance.
-  The source and target database engines contain many different features and capabilities,
-  and AWS SCT attempts to create an equivalent schema in your Amazon RDS DB instance
-  wherever possible. If no direct conversion is possible, AWS SCT provides a list of
-  possible actions for you to take.
+You can only create migration rules for different source and target database engines.
 
-###### Topics
+You can create migration rules that perform the following tasks:
 
-- [Applying migration rules in AWS Schema Conversion Tool](CHAP_Converting.md "CHAP_Converting.md")
-- [Converting schemas using AWS SCT](CHAP_Converting.md "CHAP_Converting.md")
-- [Manually converting schemas in AWS SCT](CHAP_Converting.md "CHAP_Converting.md")
-- [Updating and refreshing converted schemas in AWS SCT](CHAP_Converting.md "CHAP_Converting.md")
-- [Saving and applying converted schemas in AWS SCT](CHAP_Converting.md "CHAP_Converting.md")
-- [Comparing schemas in AWS Schema Conversion Tool](CHAP_Converting.md "CHAP_Converting.md")
-- [Viewing related transformed objects in AWS Schema Conversion Tool](CHAP_Converting.md "CHAP_Converting.md")
-  AWS SCT supports the following online transaction processing (OLTP) conversions.
+- Add, remove, or replace a prefix
+- Add, remove, or replace a suffix
+- Change column collation
+- Change data type
+- Change the length of `char`, `varchar`,
+  `nvarchar`, and `string` data types
+- Move objects
+- Rename objects
+  You can create migration rules for the following objects:
 
-| Source database                                            | Target database                                                                                                                                                                                                                                                                                                      |
-| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IBM Db2 for z/OS (version 12)                              | Amazon Aurora MySQL-Compatible Edition, Amazon Aurora PostgreSQL-Compatible Edition, MySQL, PostgreSQL                                                                                                                                                                                                               |
-| IBM Db2 LUW (versions 9.1, 9.5, 9.7, 10.5, 11.1, and 11.5) | Aurora MySQL, Aurora PostgreSQL, MariaDB, MySQL, PostgreSQL                                                                                                                                                                                                                                                          |
-| Microsoft Azure SQL Database                               | Aurora MySQL, Aurora PostgreSQL, MySQL, PostgreSQL                                                                                                                                                                                                                                                                   |
-| Microsoft SQL Server (version 2008 R2 and higher)          | Aurora MySQL, Aurora PostgreSQL, Babelfish for Aurora PostgreSQL, MariaDB,<br>Microsoft SQL Server, MySQL, PostgreSQL                                                                                                                                                                                                |
-| MySQL (version 5.5 and higher)                             | Aurora PostgreSQL, MySQL, PostgreSQL<br>You can migrate schema and data from MySQL to an Aurora MySQL<br>DB cluster without using AWS SCT. For more information, see [Migrating data to an Amazon Aurora DB cluster](../../../AmazonRDS/latest/UserGuide/Aurora.md "../../../AmazonRDS/latest/UserGuide/Aurora.md"). |
-| Oracle (version 10.2 and higher)                           | Aurora MySQL, Aurora PostgreSQL, MariaDB, MySQL, Oracle, PostgreSQL                                                                                                                                                                                                                                                  |
-| PostgreSQL (version 9.1 and higher)                        | Aurora MySQL, Aurora PostgreSQL, MySQL, PostgreSQL                                                                                                                                                                                                                                                                   |
-| SAP ASE (12.5, 15.0, 15.5, 15.7, and 16.0)                 | Aurora MySQL, Aurora PostgreSQL, MariaDB, MySQL, PostgreSQL                                                                                                                                                                                                                                                          |
+- Database
+- Schema
+- Table
+- Column
 
-For information about converting a data warehouse schema, see [Converting data warehouse schemas to Amazon RDS using AWS SCT](CHAP_Converting.md "CHAP_Converting.md").
+## Creating migration rules
 
-To convert your database schema to Amazon RDS, you take the following high-level steps:
+You can create migration rules and save the rules as part of your project.
+With your project open, use the following procedure to create migration rules.
 
-- [Creating migration rules in AWS SCT](CHAP_Converting.md "CHAP_Converting.md") –
-  Before you convert your schema with AWS SCT,
-  you can set up rules that
-  change the data type of columns,
-  move objects from one schema to another,
-  and change the names of objects.
-- [Converting schemas using AWS SCT](CHAP_Converting.md "CHAP_Converting.md") –
-  AWS SCT creates a local version of the converted schema for you to review,
-  but it doesn't apply it to your target DB instance until you are ready.
-- [Using the assessment report in the AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md") –
-  AWS SCT creates a database migration assessment report
-  that details the schema elements that can't be converted automatically.
-  You can use this report to identify where you need to create a schema
-  in your Amazon RDS DB instance that is compatible with your source database.
-- [Converting schemas using AWS SCT](CHAP_Converting.md "CHAP_Converting.md") –
-  If you have schema elements that can't be converted automatically, you have two
-  choices: update the source schema and then convert again, or create equivalent
-  schema elements in your target Amazon RDS DB instance.
-- [Updating and refreshing converted schemas in AWS SCT](CHAP_Converting.md "CHAP_Converting.md") –
-  You can update your AWS SCT project with the most
-  recent schema from your source database.
-- [Saving and applying converted schemas in AWS SCT](CHAP_Converting.md "CHAP_Converting.md") –
-  When you are ready,
-  have AWS SCT apply the converted schema
-  in your local project to your target Amazon RDS DB instance.
+###### To create migration rules
+
+1. On the **View** menu, choose **Mapping
+   view**.
+2. In **Server mappings**, choose a pair of source and target servers.
+3. Choose **New migration rule**.
+   The **Transformation rules** dialog box appears.
+4. Choose **Add new rule**.
+   A new row is added to the list of rules.
+5. Configure your rule:
+   1. For **Name**, enter a name for your rule.
+   2. For **For**,
+      choose the type of object that the rule applies to.
+   3. For **where**, enter a filter to apply to objects
+      before applying the migration rule. The where clause is evaluated by
+      using a like clause. You can enter an exact name to select one
+      object, or you can enter a pattern to select multiple objects.
+
+   The fields available for the **where** clause
+   are different depending on the type of the object.
+   For example, if the object type is schema
+   there is only one field available, for the schema name. 4. For **Actions**, choose the type of migration
+   rule that you want to create. 5. Depending on the rule type, enter one or two additional values.
+   For example, to rename an object, enter the new name of the object.
+   To replace a prefix, enter the old prefix and the new prefix.
+
+   For char, varchar, nvarchar, and string data types, you can change
+   the data type length using the multiplication operator. For example,
+   the `%*4` value transforms the `varchar(10)`
+   data type into `varchar(40)`.
+
+6. After you have configured your migration rule,
+   choose **Save** to save your rule.
+   You can also choose **Cancel** to cancel your changes.
+
+![The transformation rules dialog box](images/transformation-rules.png) 7. After you are done adding, editing, and deleting rules,
+choose **Save All** to save all your changes. 8. Choose **Close**
+to close the **Transformation rules** dialog box.
+
+You can use the toggle icon
+to turn off a migration rule without deleting it.
+You can use the copy icon
+to duplicate an existing migration rule.
+You can use the pencil icon
+to edit an existing migration rule.
+You can use the delete icon
+to delete an existing migration rule.
+To save any changes
+you make to your migration rules,
+choose **Save All**.
+
+## Exporting migration rules
+
+If you use AWS DMS to migrate your data from your source database to your target
+database, you can provide information about your migration rules to AWS DMS. For more
+information about tasks, see [Working with
+AWS Database Migration Service replication tasks](../../../dms/latest/userguide/CHAP_Tasks.md "../../../dms/latest/userguide/CHAP_Tasks.md").
+
+###### To export migration rules
+
+1. In the AWS Schema Conversion Tool, choose **Mapping View** on the
+   **View** menu.
+2. In **Migration rules**, choose a migration rule and then choose
+   **Modify migration rule**.
+3. Choose **Export script for AWS DMS**.
+4. Browse to the location where you want to save your script,
+   and then choose **Save**.
+   Your migration rules are saved as a JSON script
+   that can be consumed by AWS DMS.
