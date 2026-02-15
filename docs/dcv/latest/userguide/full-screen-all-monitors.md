@@ -10,6 +10,8 @@ With the web browser client, the session display can be extended to up to two sc
 a new browser window. The second extends the display to the right of the original screen.
 Ensure that you position the screens accordingly.
 
+###### Example
+
 For example, three monitors are connected to your local computer. The server extends the display for a session across all three monitors and matches the specific screen resolutions of your display.
 
 To enable this feature, do one of the following depending on your client.

@@ -53,6 +53,8 @@ Authorization](../adminguide/security-authorization.md "../adminguide/security-a
 
 - Open a terminal and launch the application using the `dcvscrun` command followed by the application name and arguments.
 
+###### Example
+
 For example, to
 launch `firefox` with smart card support, use the following command:
 
@@ -115,6 +117,8 @@ see [Configuring Smart Card Caching](../adminguide/manage-smart-card.md "../admi
 
 Make sure to run the following command in the same terminal that you intend to
 launch the application. 2. Open a terminal window where you ran the applicaiton with `dcvscrun`. 3. Export the `DCV_PCSC_ENABLE_CACHE` with the value `1`.
+
+###### Example
 
 For example, you might run the command:
 
