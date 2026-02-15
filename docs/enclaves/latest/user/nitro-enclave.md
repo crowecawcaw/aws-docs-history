@@ -58,33 +58,34 @@ Nitro Enclaves has the following requirements:
 
   General purpose
 
-  | Instance family | Instance types                                |
-  | --------------- | --------------------------------------------- | ----------------- | ----------------- |
-  | M5              | All instance types, **except**: `m5.large`    | `m5.metal`        |
-  | M5a             | All instance types, **except**: `m5a.large`   |
-  | M5ad            | All instance types, **except**: `m5ad.large`  |
-  | M5d             | All instance types, **except**: `m5d.large`   | `m5d.metal`       |
-  | M5dn            | All instance types, **except**: `m5dn.large`  | `m5dn.metal`      |
-  | M5n             | All instance types, **except**: `m5n.large`   | `m5n.metal`       |
-  | M5zn            | All instance types, **except**: `m5zn.large`  | `m5zn.metal`      |
-  | M6a             | All instance types, **except**: `m6a.large`   | `m6a.metal`       |
-  | M6g             | All instance types, **except**: `m6g.medium`  | `m6g.metal`       |
-  | M6gd            | All instance types, **except**: `m6gd.medium` | `m6gd.metal`      |
-  | M6i             | All instance types, **except**: `m6i.large`   | `m6i.metal`       |
-  | M6id            | All instance types, **except**: `m6id.large`  | `m6id.metal`      |
-  | M6idn           | All instance types, **except**: `m6idn.large` | `m6idn.metal`     |
-  | M6in            | All instance types, **except**: `m6in.large`  | `m6in.metal`      |
-  | M7a             | All instance types, **except**: `m7a.medium`  | `m7a.large`       | `m7a.metal-48xl`  |
-  | M7g             | All instance types, **except**: `m7g.medium`  | `m7g.metal`       |
-  | M7gd            | All instance types, **except**: `m7gd.medium` | `m7gd.metal`      |
-  | M7i             | All instance types, **except**: `m7i.large`   | `m7i.metal-24xl`  | `m7i.metal-48xl`  |
-  | M8a             | All instance types, **except**: `m8a.medium`  | `m8a.metal-24xl`  | `m8a.metal-48xl`  |
-  | M8g             | All instance types, **except**: `m8g.medium`  | `m8g.metal-24xl`  | `m8g.metal-48xl`  |
-  | M8gb            | All instance types, **except**: `m8gb.medium` |
-  | M8gd            | All instance types, **except**: `m8gd.medium` | `m8gd.metal-24xl` | `m8gd.metal-48xl` |
-  | M8gn            | All instance types, **except**: `m8gn.medium` |
-  | M8i             | All instance types, **except**: `m8i.large`   | `m8i.metal-48xl`  | `m8i.metal-96xl`  |
-  | M8id            | All instance types, **except**: `m8id.large`  | `m8id.metal-48xl` | `m8id.metal-96xl` |
+  | Instance family | Instance types                                 |
+  | --------------- | ---------------------------------------------- | ------------------ | ------------------ |
+  | M5              | All instance types, **except**: `m5.large`     | `m5.metal`         |
+  | M5a             | All instance types, **except**: `m5a.large`    |
+  | M5ad            | All instance types, **except**: `m5ad.large`   |
+  | M5d             | All instance types, **except**: `m5d.large`    | `m5d.metal`        |
+  | M5dn            | All instance types, **except**: `m5dn.large`   | `m5dn.metal`       |
+  | M5n             | All instance types, **except**: `m5n.large`    | `m5n.metal`        |
+  | M5zn            | All instance types, **except**: `m5zn.large`   | `m5zn.metal`       |
+  | M6a             | All instance types, **except**: `m6a.large`    | `m6a.metal`        |
+  | M6g             | All instance types, **except**: `m6g.medium`   | `m6g.metal`        |
+  | M6gd            | All instance types, **except**: `m6gd.medium`  | `m6gd.metal`       |
+  | M6i             | All instance types, **except**: `m6i.large`    | `m6i.metal`        |
+  | M6id            | All instance types, **except**: `m6id.large`   | `m6id.metal`       |
+  | M6idn           | All instance types, **except**: `m6idn.large`  | `m6idn.metal`      |
+  | M6in            | All instance types, **except**: `m6in.large`   | `m6in.metal`       |
+  | M7a             | All instance types, **except**: `m7a.medium`   | `m7a.large`        | `m7a.metal-48xl`   |
+  | M7g             | All instance types, **except**: `m7g.medium`   | `m7g.metal`        |
+  | M7gd            | All instance types, **except**: `m7gd.medium`  | `m7gd.metal`       |
+  | M7i             | All instance types, **except**: `m7i.large`    | `m7i.metal-24xl`   | `m7i.metal-48xl`   |
+  | M8a             | All instance types, **except**: `m8a.medium`   | `m8a.metal-24xl`   | `m8a.metal-48xl`   |
+  | M8azn           | All instance types, **except**: `m8azn.medium` | `m8azn.metal-12xl` | `m8azn.metal-24xl` |
+  | M8g             | All instance types, **except**: `m8g.medium`   | `m8g.metal-24xl`   | `m8g.metal-48xl`   |
+  | M8gb            | All instance types, **except**: `m8gb.medium`  |
+  | M8gd            | All instance types, **except**: `m8gd.medium`  | `m8gd.metal-24xl`  | `m8gd.metal-48xl`  |
+  | M8gn            | All instance types, **except**: `m8gn.medium`  |
+  | M8i             | All instance types, **except**: `m8i.large`    | `m8i.metal-48xl`   | `m8i.metal-96xl`   |
+  | M8id            | All instance types, **except**: `m8id.large`   | `m8id.metal-48xl`  | `m8id.metal-96xl`  |
 
   Compute optimized
 
