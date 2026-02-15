@@ -131,6 +131,8 @@ SES uses the same encryption context in all AWS KMS cryptographic operations,
 where the key is `aws:ses:arn` and the value is the resource [Amazon
 Resource Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN).
 
+###### Example
+
 ```
 "encryptionContext": {
     "aws:ses:arn": "arn:aws:ses:us-west-2:111122223333:ExampleResourceName/ExampleResourceID"
@@ -154,6 +156,8 @@ encryption context constraints in a grant.
 SES uses an encryption context constraint in grants to control access to the
 customer managed key in your account or region. The grant constraint requires that the operations that
 the grant allows use the specified encryption context.
+
+###### Example
 
 The following are example key policy statements to grant access to a customer managed key for a
 specific encryption context. The condition in this policy statement requires that the

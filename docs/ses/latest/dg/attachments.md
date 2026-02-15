@@ -84,7 +84,7 @@ attachments with the SES API v2 [`SendEmail`](../APIReference-V2/API_SendEmail.m
 operations using the AWS CLI referencing a JSON file containing attachment object
 elements.
 
-###### Example – SendEmail with simple content
+###### Example– SendEmail with simple content
 
 ```
 aws sesv2 send-email --cli-input-json file://request-send-email-simple.json
@@ -127,7 +127,7 @@ aws sesv2 send-email --cli-input-json file://request-send-email-simple.json
 }
 ```
 
-###### Example – SendEmail with simple content and inline attachment
+###### Example– SendEmail with simple content and inline attachment
 
 ```
 aws sesv2 send-email --cli-input-json file://request-send-email-simple-inline-attachment.json
@@ -167,7 +167,7 @@ aws sesv2 send-email --cli-input-json file://request-send-email-simple-inline-at
 }
 ```
 
-###### Example – SendEmail with template content
+###### Example– SendEmail with template content
 
 ```
 aws sesv2 send-email --cli-input-json file://request-send-email-template.json
@@ -201,7 +201,7 @@ aws sesv2 send-email --cli-input-json file://request-send-email-template.json
 }
 ```
 
-###### Example – SendBulkEmail with attachment content
+###### Example– SendBulkEmail with attachment content
 
 ```
 aws sesv2 send-bulk-email --cli-input-json file://request-send-bulk-email.json

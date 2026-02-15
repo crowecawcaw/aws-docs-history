@@ -132,9 +132,7 @@ bits.`
 selector.`
 - `BIMI has malformed TXT record.`
 
-###### Example: Virtual Deliverability Manager advisor
-
-status event
+###### Example: Virtual Deliverability Manager advisor status event
 
 The following is an example Virtual Deliverability Manager advisor status event for the event type
 `Advisor Recommendation Status Open`. The detail event value in
@@ -219,9 +217,7 @@ event `Email Rendering Failed`:
   }
 ```
 
-###### Example: Email
-
-sending status event
+###### Example: Email sending status event
 
 The following is an example of the full email sending status event for the
 event type `Email Rendering Failed`. The detail event value in this
