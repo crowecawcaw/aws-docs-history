@@ -229,9 +229,7 @@ AWS Systems Manager console:
 https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootRDP?region=`region_code`#documentVersion
 ```
 
-###### Example: Set RDP Service Startup Type to Automatic and start the RDP
-
-service
+###### Example: Set RDP Service Startup Type to Automatic and start the RDP service
 
 AWS CLI:
 

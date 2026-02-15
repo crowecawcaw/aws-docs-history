@@ -55,7 +55,9 @@ The following instance types provide the ability for an operating system to cont
   `m8a.medium` | `m8a.large` | `m8a.xlarge` |
   `m8a.2xlarge` | `m8a.4xlarge` | `m8a.8xlarge` |
   `m8a.12xlarge` | `m8a.16xlarge` | `m8a.24xlarge` |
-  `m8a.48xlarge` | `m8i.large` | `m8i.xlarge` |
+  `m8a.48xlarge` | `m8azn.medium` | `m8azn.large` |
+  `m8azn.xlarge` | `m8azn.3xlarge` | `m8azn.6xlarge` | `m8azn.12xlarge` |
+  `m8azn.24xlarge` | `m8i.large` | `m8i.xlarge` |
   `m8i.2xlarge` | `m8i.4xlarge` | `m8i.8xlarge` |
   `m8i.12xlarge` | `m8i.16xlarge` | `m8i.24xlarge` |
   `m8i.32xlarge` | `m8i.48xlarge` | `m8i.96xlarge` |

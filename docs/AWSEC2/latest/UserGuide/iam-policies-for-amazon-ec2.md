@@ -321,7 +321,7 @@ JSON
  {
  "Effect": "Allow",
  "Action": "ec2:ModifyImageAttribute",
- "Resource": "arn:aws:ec2:us-east-1::image/ami-*",
+ "Resource": "arn:aws:ec2:`us-east-1`::image/ami-*",
  "Condition": {
  "StringEquals": {
  "ec2:Attribute/Description": [
@@ -349,7 +349,7 @@ JSON
  {
  "Effect": "Deny",
  "Action": "ec2:ModifyImageAttribute",
- "Resource": "arn:aws:ec2:us-east-1::image/ami-*",
+ "Resource": "arn:aws:ec2:`us-east-1`::image/ami-*",
  "Condition": {
  "StringEquals": {
  "ec2:Attribute": "Description"
@@ -383,7 +383,7 @@ JSON
  {
  "Effect": "Allow",
  "Action": "ec2:CopyImage",
- "Resource": "arn:aws:ec2:us-east-1::image/ami-*",
+ "Resource": "arn:aws:ec2:`us-east-1`::image/ami-*",
  "Condition": {
  "StringEquals": {
  "ec2:ImageID": "*"
@@ -426,7 +426,7 @@ JSON
  {
  "Effect": "Allow",
  "Action": "ec2:CopyImage",
- "Resource": "arn:aws:ec2:us-east-1::image/ami-01234567890abcdef"
+ "Resource": "arn:aws:ec2:`us-east-1`::image/ami-01234567890abcdef"
  }
  ]
 }`

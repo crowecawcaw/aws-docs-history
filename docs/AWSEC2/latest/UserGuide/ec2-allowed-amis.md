@@ -376,7 +376,7 @@ security policies, compliance requirements, and operational needs.
 
 ###### Note
 
-When using AWS managed services like Amazon ECS or Amazon EKS, we recommend specifying the
+When using AWS managed services, such as Amazon ECS, Amazon EKS, or AWS Lambda Managed Instances, we recommend specifying the
 `amazon` alias to allow AMIs created by AWS. These services
 depend on Amazon-published AMIs to launch instances.
 

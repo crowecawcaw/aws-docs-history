@@ -71,6 +71,8 @@ credit usage for Standard instances
 
 Mathematically, this is captured by the following equation:
 
+###### Example
+
 ```
 CPUCreditBalance = prior CPUCreditBalance + [Credits earned per hour * (5/60) - CPUCreditUsage]
 ```
@@ -103,6 +105,8 @@ as follows:
 Using these values, you can calculate the `CPUCreditBalance`
 value:
 
+###### Example
+
 ```
 CPUCreditBalance = 2 + [0.5 - 1] = 1.5
 ```
@@ -122,6 +126,8 @@ reflect the activity that occurs in this five-minute interval. We use this value
 arrive at the values for the `CPUCreditBalance` and
 `CPUSurplusCreditBalance` CloudWatch metrics.
 
+###### Example
+
 ```
 Adjusted balance = [prior CPUCreditBalance - prior CPUSurplusCreditBalance] + [Credits earned per hour * (5/60) - CPUCreditUsage]
 ```
@@ -137,6 +143,8 @@ the `Adjusted balance` value is assigned to `CPUCreditBalance`,
 and the `CPUSurplusCreditBalance` is set to `0`. The instance
 size determines the [maximum number of credits](burstable-credits-baseline-concepts.md#burstable-performance-instances-credit-table "burstable-credits-baseline-concepts.md#burstable-performance-instances-credit-table") that it can accrue.
 
+###### Example
+
 ```
 CPUCreditBalance = min [max earned credit balance, Adjusted balance]
 CPUSurplusCreditBalance = 0
@@ -149,6 +157,8 @@ for bursting. As a result, the `Adjusted balance` value is assigned to
 `0`. Again, the instance size determines the [maximum number of
 credits](burstable-credits-baseline-concepts.md#burstable-performance-instances-credit-table "burstable-credits-baseline-concepts.md#burstable-performance-instances-credit-table") that it can accrue.
 
+###### Example
+
 ```
 CPUSurplusCreditBalance = min [max earned credit balance, -Adjusted balance]
 CPUCreditBalance = 0
@@ -158,6 +168,8 @@ If the surplus credits spent exceed the maximum credits that the instance can
 accrue, the surplus credit balance is set to the maximum, as shown in the preceding
 equation. The remaining surplus credits are charged as represented by the
 `CPUSurplusCreditsCharged` metric.
+
+###### Example
 
 ```
 CPUSurplusCreditsCharged = max [-Adjusted balance - max earned credit balance, 0]

@@ -118,6 +118,8 @@ Nitro v6
 | General Purpose       |
 | m8a.48xlarge          | Yes               | Yes                |
 | m8a.metal-48xl        | Yes               | Yes                |
+| m8azn.24xlarge        | Yes               | Yes                |
+| m8azn.metal-24xl      | Yes               | Yes                |
 | m8gb.16xlarge         | Yes               | Yes                |
 | m8gb.24xlarge         | Yes               | Yes                |
 | m8gb.48xlarge         | Yes               | Yes                |
