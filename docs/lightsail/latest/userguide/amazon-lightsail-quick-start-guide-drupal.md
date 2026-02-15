@@ -264,7 +264,7 @@ press **Enter**.
 ![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
 **Enter** to accept the agreement and continue.
 
-![Review the Let's Encrypt subscriber agreement](/images/lightsail/latest/userguide/images/bncert-lets-ecrypt-agreement.png)
+![Review the Let's Encrypt subscriber agreement](images/bncert-lets-ecrypt-agreement.png)
 
 The actions are performed to enable HTTPS on your instance, including
 requesting the certificate and configuring the redirections you

@@ -85,7 +85,7 @@ cat ~/bitnami_application_password
 You should see a response similar to this, which contains the application
 password:
 
-![Bitnami default application password.](/images/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-password.png) 5. In the terminal screen, highlight the password, then choose the clipboard icon in the
+![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png) 5. In the terminal screen, highlight the password, then choose the clipboard icon in the
 bottom right corner of the browser-based SSH client window. 6. In the clipboard text box, highlight the text you want to copy, then press
 **Ctrl+C** or **Cmd+C** to copy the text to your local
 clipboard.
