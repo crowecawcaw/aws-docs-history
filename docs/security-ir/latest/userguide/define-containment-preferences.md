@@ -10,11 +10,11 @@ To authorize Security Incident Response engineers to perform containment actions
 
 **Prerequisites:** You must have permissions to create AWS Support cases.
 
-**Containment Options:**
+**Containment options:**
 
-- **No containment actions** (default) - Security Incident Response engineers will not perform any containment actions on your behalf.
-- **Containment with approval** - Security Incident Response engineers will request your approval before executing containment actions.
-- **Automatic containment** - Security Incident Response engineers can execute containment actions immediately without prior approval during active incidents.
+- **Approval required** (default): Do not perform proactive containment of any resource without explicit authorization on a case-by-case basis.
+- **Contain confirmed**: Perform proactive containment of a resource confirmed to be compromised.
+- **Contain suspected**: Perform proactive containment of a resource with a high likelihood of having been compromised, based on analysis performed by AWS Security Incident Response engineering.
 
 To define containment preferences:
 

@@ -14,12 +14,6 @@ _AWSSecurityIncidentResponseContainmentExecution_ roles.
 
 ```
 
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        ...
-    ]
-}
 
 
 AWSTemplateFormatVersion: '2010-09-09'
@@ -29,7 +23,7 @@ Resources:
   ContainmentRolesStackSet:
     Type: AWS::CloudFormation::StackSet
     Properties:
-StackSetName: SecurityIRContainmentRoles
+      StackSetName: SecurityIRContainmentRoles
       Description: Deploy security incident response containment roles across organization
       PermissionModel: SERVICE_MANAGED
       AutoDeployment:

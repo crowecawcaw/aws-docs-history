@@ -10,7 +10,7 @@ Response membership account using AWS Organizations. You can either create a
 membership in the Organizations management account or in an Organizations delegated administrator account.
 
 **Use the delegated administrator
-account:** AWS Security Incident Response administrative
+account:** AWS Security Incident Response administrative
 tasks and case management are located in the delegated
 administrator account. We recommend using the same delegated
 administrator you've set for other AWS security and compliance
