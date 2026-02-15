@@ -201,6 +201,15 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | m8a.48xlarge       | 23                              | 120                          |
 | m8a.metal-24xl     | 15                              | 120                          |
 | m8a.metal-48xl     | 23                              | 120                          |
+| m8azn.medium       | 2                               | 4                            |
+| m8azn.large        | 3                               | 10                           |
+| m8azn.xlarge       | 3                               | 20                           |
+| m8azn.3xlarge      | 7                               | 40                           |
+| m8azn.6xlarge      | 7                               | 60                           |
+| m8azn.12xlarge     | 15                              | 120                          |
+| m8azn.24xlarge     | 15                              | 120                          |
+| m8azn.metal-12xl   | 15                              | 120                          |
+| m8azn.metal-24xl   | 15                              | 120                          |
 | m8g.medium         | 1                               | 4                            |
 | m8g.large          | 2                               | 10                           |
 | m8g.xlarge         | 3                               | 20                           |

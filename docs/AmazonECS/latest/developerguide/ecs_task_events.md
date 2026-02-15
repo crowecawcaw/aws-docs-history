@@ -240,6 +240,8 @@ events](ecs_cwet2.md "ecs_cwet2.md")
 }
 ```
 
+###### Example
+
 The following is an example of a task state change event for EC2.
 
 ```

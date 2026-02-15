@@ -114,7 +114,7 @@ The Amazon ECS container agent uses the Docker `ReadMemInfo()` function to query
 total memory available to the operating system. Both Linux
 and Windows provide command line utilities to determine the total memory.
 
-###### Example - Determine Linux total memory
+###### Example- Determine Linux total memory
 
 The **free** command returns the total memory that is recognized by the
 operating system.
@@ -135,7 +135,7 @@ Mem:    `8373026816`  348180480 8024846336      90112   25534464  205418496
 This instance has 8373026816 bytes of total memory, which translates to 7985 MiB
 available for tasks.
 
-###### Example - Determine Windows total memory
+###### Example- Determine Windows total memory
 
 The **wmic** command returns the total memory that is recognized by the
 operating system.
