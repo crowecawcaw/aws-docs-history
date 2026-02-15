@@ -314,7 +314,7 @@ To quickly test application streaming without setting up users, complete the fol
 5. To view the user ID and URL, choose **Get URL**.
 6. To copy the link to the clipboard, choose **Copy Link**.
 
-After you provide your users with access to WorkSpaces Applications, they can start WorkSpaces Applications streaming sessions. If you provide access through the WorkSpaces Applications user pool, they must use a web browser for streaming sessions.
+After you provide your users with access to WorkSpaces Applications, they can start WorkSpaces Applications streaming sessions.
 
 If you plan to use SAML 2.0 [single sign-on (SSO)] or the WorkSpaces Applications API to provide access
 to your users, you can make the WorkSpaces Applications client available to them. The WorkSpaces Applications client is a

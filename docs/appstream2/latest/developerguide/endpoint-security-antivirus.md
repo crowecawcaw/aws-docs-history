@@ -69,6 +69,8 @@ following processes._
 If security software is installed in WorkSpaces Applications instances,
 the software must not interfere with the following folders:
 
+###### Example
+
 ```
 
 

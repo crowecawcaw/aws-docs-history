@@ -17,7 +17,7 @@ JSON
  "Effect": "Deny",
  "Principal": "*",
  "Action": "s3:DeleteBucket",
- "Resource": "arn:aws:s3:::appstream2-36fb080bb8-`region-code`-`account-id-without-hyphens`"
+ "Resource": "arn:aws:s3:::appstream2-36fb080bb8-`region-code`-`123456789012-without-hyphens`"
  }
  ]
 }`
@@ -37,7 +37,7 @@ JSON
  "Effect": "Deny",
  "Principal": "*",
  "Action": "s3:DeleteBucket",
- "Resource": "arn:aws:s3:::appstream-app-settings-`region-code`-`account-id-without-hyphens`-`unique-identifier`"
+ "Resource": "arn:aws:s3:::appstream-app-settings-`region-code`-`123456789012-without-hyphens`-`unique-identifier`"
  }
  ]
 }`

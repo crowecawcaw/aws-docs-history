@@ -5,7 +5,3 @@ WorkSpaces Applications stack, WorkSpaces Applications sends email to users on y
 choose **Connect**.
 
 For more information, see [Amazon WorkSpaces Applications User Pools](user-pool.md "user-pool.md").
-
-###### Note
-
-Users in the user pool can't access WorkSpaces Applications from the WorkSpaces Applications macOS client.

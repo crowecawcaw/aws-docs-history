@@ -75,6 +75,8 @@ application
 **[ImageBuilderAdmin]$ ps -ef | grep chromium** 3. Find the root parent PID from the output of the command above. The following
 is an example output, and the root parent PID is 16712:
 
+###### Example
+
 ```
 [ImageBuilderAdmin]$ ps -ef | grep chromium
 
