@@ -330,6 +330,8 @@ AWS Mainframe Modernization uses the same encryption context in all AWS KMS cryp
 an application (create application and create deployment), where the key is
 `aws:m2:app` and the value is the unique identifier of the application.
 
+###### Example
+
 ```
 "encryptionContextSubset": {
         "aws:m2:app": "a1bc2defabc3defabc4defabcd"
