@@ -1,75 +1,45 @@
-# Understanding Neptune log file
+# Neptune Information in CloudTrail
 
-entries
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in
+Amazon Neptune, that activity is recorded in a CloudTrail event along with other AWS service events
+in **Event history**. You can view, search, and download recent events in
+your AWS account. For more information, see [Viewing Events with CloudTrail Event
+History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files are not an ordered stack trace of
-the public API calls, so they do not appear in any specific order.
+For an ongoing record of events in your AWS account, including events for
+Neptune, create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3
+bucket. By default, when you create a trail in the console, the trail applies to all
+Regions. The trail logs events from all Regions in the AWS partition and delivers the
+log files to the Amazon S3 bucket that you specify. Additionally, you can configure other
+AWS services to further analyze and act upon the event data collected in CloudTrail logs.
+For more information, see:
 
-The following example shows a CloudTrail log for a user that created a snapshot of a DB instance
-and then deleted that instance using the Neptune console. The console is identified by the
-`userAgent` element. The requested API calls made by the console
-(`CreateDBSnapshot` and `DeleteDBInstance`) are found in the
-`eventName` element for each record. Information about the user
-(`Alice`) can be found in the `userIdentity` element.
+- [Overview for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
+- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
+- [Configuring Amazon SNS Notifications
+  for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
+- [Receiving CloudTrail Log
+  Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log
+  Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+  If an action is taken on behalf of your AWS account using the Neptune console, the
+  Neptune command line interface, or the Neptune SDK APIs, AWS CloudTrail logs the action as
+  calls made to the Amazon RDS API. For example, if you use the Neptune console to modify a
+  DB instance or call the AWS CLI [modify-db-instance](../../../cli/latest/reference/neptune/modify-db-instance.md "../../../cli/latest/reference/neptune/modify-db-instance.md") command, the AWS CloudTrail log shows a call to the Amazon RDS API
+  [ModifyDBInstance](API_ModifyDBInstance.md "API_ModifyDBInstance.md") action. For a list
+  of the Neptune API actions that are logged by AWS CloudTrail, see the [Neptune API Reference](neptune-api-reference.md "neptune-api-reference.md").
 
-```
-{
-  Records:[
-  {
-    "awsRegion":"us-west-2",
-    "eventName":"CreateDBSnapshot",
-    "eventSource":"domainSource",
-    "eventTime":"2014-01-14T16:23:49Z",
-    "eventVersion":"1.0",
-    "sourceIPAddress":"192.0.2.01",
-    "userAgent":"AWS Console, aws-sdk-java\/unknown-version Linux\/2.6.18-kaos_fleet-1108-prod.2 Java_HotSpot(TM)_64-Bit_Server_VM\/24.45-b08",
-    "userIdentity":
-    {
-      "accessKeyId":"0123456789012",
-      "accountId":"123456789012",
-      "arn":"arn:aws:iam::123456789012:user/Alice",
-      "principalId":"AIDAI2JXM4FBZZEXAMPLE",
-      "sessionContext":
-      {
-        "attributes":
-        {
-          "creationDate":"2014-01-14T15:55:59Z",
-          "mfaAuthenticated":false
-        }
-      },
-      "type":"IAMUser",
-      "userName":"Alice"
-    }
-  },
-  {
-    "awsRegion":"us-west-2",
-    "eventName":"DeleteDBInstance",
-    "eventSource":"domainSource",
-    "eventTime":"2014-01-14T16:28:27Z",
-    "eventVersion":"1.0",
-    "sourceIPAddress":"192.0.2.01",
-    "userAgent":"AWS Console, aws-sdk-java\/unknown-version Linux\/2.6.18-kaos_fleet-1108-prod.2 Java_HotSpot(TM)_64-Bit_Server_VM\/24.45-b08",
-    "userIdentity":
-    {
-      "accessKeyId":"0123456789012",
-      "accountId":"123456789012",
-      "arn":"arn:aws:iam::123456789012:user/Alice",
-      "principalId":"AIDAI2JXM4FBZZEXAMPLE",
-      "sessionContext":
-      {
-        "attributes":
-        {
-          "creationDate":"2014-01-14T15:55:59Z",
-          "mfaAuthenticated":false
-        }
-      },
-      "type":"IAMUser",
-      "userName":"Alice"
-    }
-  }
-  ]
-}
-```
+###### Note
+
+AWS CloudTrail only logs events for Neptune Management API calls, such as creating an
+instance or cluster. If you want to audit changes to your graph, you can use audit
+logs. For more information, see [Using Audit Logs with Amazon Neptune Clusters](auditing.md "auditing.md").
+
+Every event or log entry contains information about who generated the request. The
+identity information helps you determine the following:
+
+- Whether the request was made with root or IAM user credentials.
+- Whether the request was made with temporary security credentials for a role or
+  federated user.
+- Whether the request was made by another AWS service.
+  For more information, see the [CloudTrail userIdentity
+  Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").

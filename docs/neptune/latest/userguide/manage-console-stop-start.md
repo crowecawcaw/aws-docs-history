@@ -69,6 +69,8 @@ To stop a DB instance by using the AWS CLI, call the [stop-db-cluster](api-clust
 command, using the `--db-cluster-identifier` parameter to identify the DB
 cluster you want to stop.
 
+###### Example
+
 ```
 aws neptune stop-db-cluster --db-cluster-identifier `mydbcluster`
 ```
@@ -122,6 +124,8 @@ command using the `--db-cluster-identifier` parameter to specify the stopped
 DB cluster that you want to start. Provide either the cluster name that you chose when
 creating the DB cluster, or use a DB instance name that you chose with `-cluster`
 appended to the end of it.
+
+###### Example
 
 ```
 aws neptune start-db-cluster --db-cluster-identifier `mydbcluster`

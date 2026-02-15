@@ -44,6 +44,8 @@ and `Job-B` to be finished before it begins, proceed as follows:
     2. Submit `load-job-C` with the load-ids of the two jobs in its
      `dependencies` field:
 
+###### Example
+
 ```
   "dependencies" : ["(job_A_load_id)", "(job_B_load_id)"]
 ```
@@ -364,6 +366,8 @@ Only valid when the `errors` parameter is set to `TRUE`.
 
 Status information about the load job, in a layout that could look like
 this:
+
+###### Example
 
 ```
 {

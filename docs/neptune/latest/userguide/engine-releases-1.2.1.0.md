@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.2.1.0.R5 (2023-09-02)
+# Amazon Neptune Engine Version 1.2.1.0.R2 (2023-05-02)
 
-As of 2023-09-02, engine version 1.2.1.0.R5 is being generally deployed. Please note
+As of 2023-05-02, engine version 1.2.1.0.R2 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
@@ -39,26 +39,39 @@ a support case may help you explore additional strategies for bringing it down.
   In other languages, the `/openCypher` can be appended to the endpoint
   URI. See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
 
-## New Features in This Engine Release
+## Improvements in This Engine Release
 
-- Released the [Neptune data API](data-api.md "data-api.md").
-
-The Amazon Neptune data API provides SDK support for loading data, running
-queries, getting information about your data, and running machine-learning
-operations. It supports the Gremlin and openCypher query languages in Neptune
-and is available in all SDK languages. It automatically signs API requests and
-greatly simplifies integrating Neptune into applications.
+- Added an `enableInterContainerTrafficEncryption`
+  parameter to all [Neptune
+  ML APIs](machine-learning-api-reference.md "machine-learning-api-reference.md"), that you can use to enable and disable inter-container traffic
+  encryption in training or hyper-parameter tuning jobs.
+- Added multi-label support for Gremlin `mergeV()` and
+  `mergeE()`.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug where adding an edge and its properties followed by
-  `inV()` or `outV()` raised an `InternalFailureException`.
-- Fixed several issues with IAM role chaining that caused degraded
-  bulk-loader performance in some cases.
+- Fixed an openCypher bug where update and return queries did not handle
+  `orderBy`, `limit`, or `skip` properly.
+- Fixed an openCypher bug that allowed parameters contained in one request
+  to be overridden by parameters contained in another simultaneous request.
+- Fixed an openCypher bug where slow query logs did not contain correct
+  query times.
+- Fixed a Gremlin bug where a transaction leak could occur when a query
+  containing `GroupCountStep` was submitted as a string.
+- Fixed a Gremlin bug where WebSocket queries were failing when
+  slow query logs were enabled.
+- Fixed a Gremlin bug where storage-counter debug logs were missing
+  in the slow query logs for WebSocket requests.
+- Fixed several Gremlin bugs involving `mergeV()`
+  and `mergeE()`.
+- Fixed a SPARQL bug where named graph query costs were mis-estimated,
+  leading to sub-optimal query plans and out-of-memory errors.
+- Fixed a bug that affected authorization for Gremlin
+  and openCypher queries on an IAM-enabled cluster.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.1.0.R5, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.1.0.R2, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.6.2`
@@ -66,9 +79,11 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
+## Upgrade Paths to Engine Release 1.2.1.0.R2
+
 ## Upgrading to This Release
 
-Amazon Neptune 1.2.1.0.R5 is now generally available.
+Amazon Neptune 1.2.1.0.R2 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

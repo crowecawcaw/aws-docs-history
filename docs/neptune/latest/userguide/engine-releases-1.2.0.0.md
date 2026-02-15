@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.2.0.0.R2 (2022-10-14)
+# Amazon Neptune Engine Version 1.2.0.0.R3 (2022-12-15)
 
-As of 2022-10-14, engine version 1.2.0.0.R2 is being generally deployed. Please note
+As of 2022-12-15, engine version 1.2.0.0.R3 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
@@ -41,53 +41,39 @@ a support case may help you explore additional strategies for bringing it down.
 
 ## Improvements in This Engine Release
 
-- Improved performance of Gremlin `order-by` queries. Gremlin
-  queries with an `order-by` at the end of a `NeptuneGraphQueryStep`
-  now use a larger chunk size for better performance. This does not apply to
-  `order-by` on an internal (non-root) node of the query plan.
-- Improved performance of Gremlin update queries. Vertices and edges
-  must now be locked against deletion while adding edges or properties. This change
-  eliminates duplicate locks within a transaction, which improves performance.
-- Improved performance of Gremlin queries that use `dedup()`
-  inside of a `repeat()` subquery by pushing the `dedup` down
-  to the native execution layer.
-- Added the Gremlin `Neptune#cardinalityEstimates` query
-  hint. When set to `false`, this disables cardinality estimates.
-- Added user-friendly error messages for IAM authentication errors. These
-  messages now show the your IAM user or role ARN, the resource ARN, and a list of
-  unauthorized actions for the request. The list of unauthorized actions helps you
-  see what might be missing or explicitly denied in the IAM policy that you're using.
+- Improved performance of openCypher queries involving `MERGE`
+  and `OPTIONAL MATCH`.
+- Improved the performance of openCypher queries that involve
+  `UNWIND` on a list of maps of literal values.
+- Improved performance of openCypher queries that have an `IN`
+  filter for `id`. For example:
+
+```
+MATCH (n) WHERE id(n) IN ['1', '2', '3'] RETURN n
+```
+
+- Performance improvements and correctness fixes for various Gremlin
+  operators, including `repeat`, `coalesce`, `store`,
+  and `aggregate`.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin correctness bug involving `WherePredicateStep`
-  translation, where Neptune's query engine was producing incorrect results for queries
-  using `where(P.neq('x'))` and variations of that.
-- Fixed a Gremlin bug where using `PartitionStrategy` after
-  upgrading to TinkerPop 3.5 incorrectly resulted an error with the message,
-  "PartitionStrategy does not work with anonymous Traversals," which prevented
-  the traversal from being executed.
-- Fixed various Gremlin bugs related to the `joinTime` of
-  a final join and to statistics inside of `Project.ASK` subgroups.
-- Fixed an openCypher bug in the `MERGE` clause that in some
-  cases caused duplicate node and edge creation.
-- Fixed a transaction bug where a session could insert graph data
-  and commit even when the corresponding concurrent dictionary inserts got rolled back.
-- Fixed a bulk loader bug that caused performance regressions under heavy
-  insertion loads.
-- Fixed a SPARQL bug in the handling of queries that contain
-  `(NOT) EXISTS` within an `OPTIONAL` clause, where
-  in some cases query results were missing.
-- Fixed a bug where drivers could appear to hang in cases where requests
-  were cancelled due to a timeout prior to their start of evaluation. It was possible
-  to get into this state if all query processing threads on the server were consumed
-  while timeouts occurred to items in the request queue. Because the timeouts from the
-  request queue were not immediately sending messages, the responses appeared to the
-  client to remain pending.
+- Fixed an openCypher bug where queries returned the string, `"null"`,
+  instead of a null value in Bolt and SPARQL-JSON.
+- Fixed an openCypher bug so as to be able to interpret the parameter
+  type correctly when the value is a list or a list of maps.
+- Fixed an audit log bug that caused unnecessary information to
+  be logged and certain fields to be missing from the logs.
+- Fixed an audit log bug where the IAM ARN of HTTP requests to an
+  IAM-enabled DB cluster were not recorded.
+- Fixed a lookup-cache bug so as to cap the incremental memory
+  used for writes to the cache.
+- Fixed a lookup-cache bug that involved setting read-only mode
+  for the lookup cache when writes failed.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.0.0.R2, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.0.0.R3, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
@@ -95,7 +81,7 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.0.0.R2
+## Upgrade Paths to Engine Release 1.2.0.0.R3
 
 Your cluster will be upgraded to this patch release automatically during your next
 maintenance window if you are running engine version `1.2.0.0`.

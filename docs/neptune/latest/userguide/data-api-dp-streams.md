@@ -107,6 +107,8 @@ An event ID is composed of two fields: a `commitNum`, which
 identifies a transaction that changed the graph, and an `opNum`,
 which identifies a specific operation within that transaction:
 
+###### Example
+
 ```
 "eventId": {
           "commitNum": 12,
@@ -217,6 +219,8 @@ The type of this Gremlin or openCypher element. Must be one of:
 
 This is a JSON object that contains a value field for the value itself, and
 a datatype field for the JSON data type of that value:
+
+###### Example
 
 ```
 "value": {

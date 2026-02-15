@@ -217,6 +217,8 @@ the next maintenance window unless `ApplyImmediately` is enabled.
 To list all of the available Neptune engine versions, use the following
 command:
 
+###### Example
+
 ```
 aws neptune describe-db-engine-versions \
           --engine neptune \

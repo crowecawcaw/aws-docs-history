@@ -1,6 +1,6 @@
-# Amazon Neptune Engine version 1.3.2.0 (2024-06-10)
+# Amazon Neptune Engine version 1.3.2.1 (2024-06-20)
 
-As of 2024-06-10, engine version 1.3.2.0 is being generally deployed. Please note
+As of 2024-06-20, engine version 1.3.2.1 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
@@ -18,22 +18,83 @@ information.
 
 ###### Warning
 
-Engine release 1.3.2.0 introduced some potential issues that you should be aware of. See the section below on
-[Mitigating issues in release 1.3.2.0](#1.3.2.0-mitigation "#1.3.2.0-mitigation") for more information.
+Engine release 1.3.2.1 introduced some potential issues that you should be aware of. See the section below on
+[Mitigating issues in release 1.3.2.1](#1.3.2.1-mitigation "#1.3.2.1-mitigation") for more information.
 
-## Improvements in this engine release
+## Defects fixed in this engine release
+
+###### openCypher fixes
+
+- A bug was detected in the query plan cache feature for parameterized queries that contain an inner `WITH`
+  clause having `SKIP` and `LIMIT` as parameters. The SKIP/LIMIT values were not properly
+  parameterized, and as a result, subsequent executions of the same cached query plan with different parameter values
+  would still return the same results as the first execution. This has been fixed.
+
+```
+# insert some nodes
+UNWIND range(1, 10) as i CREATE (s {name: i}) RETURN s
+
+# sample query
+MATCH (p)
+WITH p ORDER BY p.name SKIP $s LIMIT $l
+RETURN p.name as res
+
+# first time executing with {"s": 2, "l": 1}
+{
+  "results" : [ {
+    "res" : 3
+  } ]
+}
+
+# second time executing with {"s": 2, "l": 10}
+# due to bug, produces
+{
+  "results" : [ {
+    "res" : 3
+  } ]
+}
+# with fix, produces correct results:
+{
+  "results" : [ {
+    "res" : 3
+  }, {
+    "res" : 4
+  }, {
+    "res" : 5
+  }, {
+    "res" : 6
+  }, {
+    "res" : 7
+  }, {
+    "res" : 8
+  }, {
+    "res" : 9
+  }, {
+    "res" : 10
+  } ]
+}%
+```
+
+- Fixed a bug where parameterized mutation queries throw an `InternalFailureException` when the parameter that
+  was passed is not already present in the database.
+- Fixed a bug where parameterized Bolt queries get stuck after hitting a race condition during query resource cleanup.
+
+## Changes in 1.3.2.1 carried over from 1.3.2.0
+
+### Improvements carried over from engine release 1.3.2.0
 
 ###### General improvements
 
 - Support for TLS version 1.3 including cipher suites TLS_AES_128_GCM_SHA256 and TLS_AES_256_GCM_SHA384.
   TLS 1.3 is an option - TLS 1.2 is still the minimum.
+- openCypher extended support for dateime format is in lab_mode for this version. We encourage you to test it.
 
 ###### Gremlin improvements
 
 - TinkerPop 3.7.x upgrade
   - Provides a large expansion of the Gremlin language.
     - New steps for processing strings, lists and dates.
-    - New syntax for specifying cardinality withing the `mergeV()` step.
+    - New syntax for specifying cardinality within the `mergeV()` step.
     - `union()` can now be used as a start step.
     - To learn more about the changes in 3.7.x, see the [TinkerPop upgrade documentation](https://tinkerpop.apache.org/docs/3.7.1/upgrade/#_tinkerpop_3_7_1 "https://tinkerpop.apache.org/docs/3.7.1/upgrade/#_tinkerpop_3_7_1").
 
@@ -46,8 +107,8 @@ Engine release 1.3.2.0 introduced some potential issues that you should be aware
   `StrictTimeoutValidation` parameter has a value of `enabled`, a per-query timeout value
   specified as a request option or a query hint cannot exceed the value set globally in the parameter group.
   In such a case, Neptune will throw a `InvalidParameterException`. This setting can be confirmed in
-  a response on the `/status` endpoint when the value is `disabled`, and in Neptune version
-  1.3.2.0 the default value of this parameter is `Disabled`.
+  a response on the `/status` endpoint when the value is `disabled`, and in Neptune versions
+  1.3.2.0 and 1.3.2.1 the default value of this parameter is `Disabled`.
 
 ###### openCypher improvements
 
@@ -59,7 +120,8 @@ Engine release 1.3.2.0 introduced some potential issues that you should be aware
 - Support for Query Plan Cache: When a query is submitted to Neptune, the query string is parsed, optimized, and
   transformed into a query plan, which then gets executed by the engine. Applications are often backed by common
   query patterns that are instantiated with different values. Query plan cache can reduce the overall latency by
-  caching the query plans and thereby avoiding parsing and optimization for such repeated patterns.
+  caching the query plans and thereby avoiding parsing and optimization for such repeated patterns. See
+  [Query plan cache in Amazon Neptune](access-graph-qpc.md "access-graph-qpc.md") for more details.
 - Performance Improvement for DISTINCT aggregation queries.
 - Performance improvement for joins involving nullable variables.
 - Performance improvement for queries involving not equals to id(node/relationship) predicate.
@@ -67,7 +129,7 @@ Engine release 1.3.2.0 introduced some potential issues that you should be aware
   `DatetimeMillisecond=enabled`. For more information, see [Temporal support in the Neptune openCypher implementation
   (Neptune Analytics and Neptune Database 1.3.2.0 and above)](feature-opencypher-compliance.md#opencypher-compliance-time-na "feature-opencypher-compliance.md#opencypher-compliance-time-na").
 
-## Defects fixed in this engine release
+### Defect fixes carried over from engine release 1.3.2.0
 
 ###### General improvements
 
@@ -158,47 +220,7 @@ RETURN null AS group, sum(n.num) AS result
 - Fixed the SPARQL parser to improve parsing time for large queries like INSERT DATA containing many triples and
   large tokens.
 
-## Mitigating issues in release 1.3.2.0
-
-- For version 1.3.2.0, we have detected an issue in query plan cache when `skip`
-  or `limit` is used in an inner `WITH` clause and are parameterized. For example:
-
-```
-MATCH (n:Person)
-WHERE n.age > $age
-WITH n skip $skip LIMIT $limit
-RETURN n.name, n.age
-
-parameters={"age": 21, "skip": 2, "limit": 3}
-```
-
-In this case, the parameter values for skip and limit from the first plan will be applied to subsequent queries, too, leading to unexpected results.
-
-**Mitigation**
-
-To prevent this issue, add the query hint `QUERY:PLANCACHE "disabled"` when submitting a query that includes a parameterized skip and/or limit sub-clause. Alternatively, you can hard-code the values into the query.
-
-**Option 1:** Using the Query Hint to disable plan cache:
-
-```
-Using QUERY:PLANCACHE "disabled"
-MATCH (n:Person) WHERE n.age > $age
-WITH n skip $skip LIMIT $limit
-RETURN n.name, n.age
-
-parameters={"age": 21, "skip": 2, "limit": 3}
-```
-
-**Option 2:** Using hard-coded values for skip and limit:
-
-```
-MATCH (n:Person)
-WHERE n.age > $age
-WITH n skip 2 LIMIT 3
-RETURN n.name, n.age
-
-parameters={"age": 21}
-```
+### Mitigating issues in release 1.3.2.1
 
 - Queries using numerical filter values can return incorrect results when using the query plan cache. To avoid the issue, use
   the query hint `QUERY:PLANCACHE "disabled"` to skip the query plan cache. For example, use:
@@ -239,9 +261,9 @@ parameters={"rt_min":130, "dur_min":130}
   To avoid the issue, consider executing the particular query with the HTTP endpoint. Alternatively, execute each part
   of the union separately when using the Bolt protocol.
 
-## Query-Language Versions Supported in This Release
+### Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.3.2.0, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.3.2.1, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.7.1`
@@ -249,7 +271,7 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade paths to engine release 1.3.2.0
+## Upgrade paths to engine release 1.3.2.1
 
 You can upgrade to this release from [engine
 release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") or above.
@@ -266,7 +288,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.3.2.0 \
+    --engine-version 1.3.2.1 \
     --allow-major-version-upgrade \
     --apply-immediately
 ```
@@ -276,7 +298,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.3.2.0 ^
+    --engine-version 1.3.2.1 ^
     --allow-major-version-upgrade ^
     --apply-immediately
 ```

@@ -2483,6 +2483,8 @@ Supported filters:
 For example, to invoke this API from the Amazon CLI and filter so that only
 Neptune DB clusters are returned, you could use the following command:
 
+###### Example
+
 ```
 aws neptune describe-db-clusters \
             --filters  Name=engine,Values=neptune

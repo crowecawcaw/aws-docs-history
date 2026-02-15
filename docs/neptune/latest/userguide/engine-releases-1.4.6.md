@@ -1,57 +1,23 @@
-# Amazon Neptune Engine version 1.4.6.0 (2025-09-02)
+# Amazon Neptune Engine version 1.4.6.1 (2025-09-18)
 
-As of 2025-09-02, engine version 1.4.6.0 is being generally deployed. Please note
+As of 2025-09-18, engine version 1.4.6.1 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
-
-###### Warning
-
-The 1.4.6.0 engine version includes new network checks for clusters that are using non-RFC 1918 conforming private IP
-ranges for database VPC without IAM authentication. If you have this VPC and IAM configuration, you will need to
-update your database VPC to use RFC 1918 private IP ranges and/or enable IAM authentication to avoid errors with
-queries after upgrading to 1.4.6.0.
-
-## New features in this engine release
-
-- Connect to Neptune using public endpoints. For more information see
-  [Neptune public endpoints](neptune-public-endpoints.md "neptune-public-endpoints.md").
-
-## Improvements in this engine release
-
-###### General Improvements
-
-- Improved SPARQL performance for update operations.
-- Improved OpenCypher performance for `CREATE`, `MERGE`, and `SET` (mutations) operations.
-- Improved OpenCypher performance for CALL Subquery operations.
-
-###### openCypher improvements
-
-- Added new query hint to support [query level timeout](opencypher-query-hints-timeout-hint.md "opencypher-query-hints-timeout-hint.md").
 
 ## Defects fixed in this engine release
 
+###### General fixes
+
+- Removed the network checks for clusters that are using non-RFC 1918 conforming private IP ranges that was
+  introduced in Release .
+
 ###### Gremlin fixes
 
-- Connections to Gremlin sessions must occur on the same channel that created
-  them, meaning that it is not possible to connect multiple client instances to the same session.
-- Gremlin sessions have always closed when the client closes, but they will now
-  also close for a server initiated close of the connection which prevents an unintended or unexpected re-connection.
-- Fixed memory leaks for Gremlin queries reading large blob type data.
-
-###### openCypher fixes
-
-- Fixed variable handling after a `CALL` subquery.
-- Fixed an issue with `reduce` function to correctly handle arithmetic overflow scenarios.
-- Fixed a memory leak affecting parameterized queries when the Query Plan Cache is enabled.
-- Fixed an issue with `NOT EXISTS` used in complex `WHERE` clauses.
-- Fix for Cuncurrent Memory Exception (CMEs) being misreported as BadRequestException.
-
-###### SPARQL fixes
-
-- Fixed an error message for SPARQL `LOAD/UNLOAD` when the remote source is unavailable.
+- Fixed websocket connection management issue with transactions.
+- Fixed a rare instance restart issue when using gremlin DFE mode
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.4.6.0, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.4.6.1, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.7.1`
@@ -59,7 +25,7 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade paths to engine release 1.4.6.0
+## Upgrade paths to engine release 1.4.6.1
 
 You can upgrade to this release from [engine
 release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") or above.
@@ -76,7 +42,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.4.6.0 \
+    --engine-version 1.4.6.1 \
     --allow-major-version-upgrade \
     --apply-immediately
 ```
@@ -86,7 +52,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.4.6.0 ^
+    --engine-version 1.4.6.1 ^
     --allow-major-version-upgrade ^
     --apply-immediately
 ```

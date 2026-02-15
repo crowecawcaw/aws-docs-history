@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.1.1.0.R7 (2023-01-23)
+# Amazon Neptune Engine Version 1.1.1.0.R6 (2022-09-23)
 
-As of 2023-01-23, engine version 1.1.1.0.R7 is being generally deployed. Please note
+As of 2022-09-23, engine version 1.1.1.0.R6 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Important
@@ -41,51 +41,60 @@ This process generates the following events:
   - `Finished applying off-line patches to DB instance`
   - `DB instance restarted`
 
+###### Note
+
+There is a breaking change in this release for code that uses openCypher with IAM
+authentication. Up to now, the host string in the IAM signature included the protocol,
+such as `bolt://`, like this:
+
+```
+"Host":"bolt://`(host URL)`:`(port)`"
+```
+
+Starting with engine release `1.1.1.0`, the protocol must be omitted:
+
+```
+"Host":"`(host URL)`:`(port)`"
+```
+
+See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
+
 ## Improvements in This Engine Release
 
-- Improved performance of openCypher queries involving `MERGE`
-  and `OPTIONAL MATCH`.
-- Improved performance of openCypher queries involving `UNWIND`
-  of a list of maps of literal values.
-- Improved performance of openCypher queries that have an `IN`
-  filter for `id`. For example:
-
-```
-MATCH (n) WHERE id(n) IN ['1', '2', '3'] RETURN n
-```
-
-- Performance improvements and correctness fixes for various Gremlin
-  operators, including `repeat`, `coalesce`, `store`,
-  and `aggregate`.
+- Improved performance of Gremlin `order-by` queries. Gremlin
+  queries with an `order-by` at the end of a `NeptuneGraphQueryStep`
+  now use a larger chunk size for better performance. This does not apply to
+  `order-by` on an internal (non-root) node of the query plan.
+- Improved performance of Gremlin update queries. Vertices and edges
+  must now be locked against deletion while adding edges or properties. This change
+  eliminates duplicate locks within a transaction, which improves performance.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed an openCypher bug where a request using HTTP keep-alive could
-  be incorrectly closed if it was submitted after a failed request.
-- Fixed an openCypher bug where the parameter type was not always correctly
-  interpreted for a list or a list of maps.
-- Fixed an openCypher bug where queries returned the string, `"null"`,
-  instead of a null value in Bolt and SPARQL-JSON.
-- Fixed openCypher error codes and error messages for query timeout
-  failures and out-of-memory errors.
-- Fixed a Gremlin bug that caused `valueMap()` not to be
-  optimized under a `by()` traversal in the DFE engine.
-- Fixed an issue with deadlock detector logic that occasionally made
-  the engine unresponsive.
-- Fixed an audit log bug that caused unnecessary information to be logged
-  and certain fields to be missing from the logs.
+- Fixed an openCypher bug in the `MERGE` clause that in some
+  cases caused duplicate node and edge creation.
+- Fixed a bug in the handling of SPARQL queries that contain
+  `(NOT) EXISTS` within an `OPTIONAL` clause, where in some
+  cases query results would be missing.
+- Fixed a bug that delayed server restart when a bulk load was in
+  progress.
+- Fixed a bug where an openCypher variable-length pattern bi-directional
+  traversal with a filter on the relationship property would result in an error.
+  An example of such a variable-length pattern is `(n)-[r*1..2]->(m)`.
+- Fixed a bug related to how cached data is sent back to the client,
+  that in some cases resulted in unexpectedly long latency.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.1.1.0.R7, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.1.1.0.R6, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
-- _Gremlin latest version supported:_ `3.5.3`
+- _Gremlin latest version supported:_ `3.5.4`
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade paths to engine release 1.1.1.0.R7
+## Upgrade paths to engine release 1.1.1.0.R6
 
 Your cluster will be upgraded to this patch release automatically during your next
 maintenance window if you are running engine version `1.1.1.0`.
