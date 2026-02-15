@@ -49,6 +49,8 @@ To delete a scaling policy from a variant, use the [delete-scaling-policy](../..
 - `--scalable-dimension`—Set this value to
   `sagemaker:variant:DesiredInstanceCount`.
 
+###### Example
+
 The following example deletes a target tracking scaling policy named
 `my-scaling-policy` from a
 variant named `my-variant`, running on
@@ -78,6 +80,8 @@ parameters:
   `endpoint/`my-endpoint`/variant/`my-variant``.
 - `ScalableDimension`—Set this value to
   `sagemaker:variant:DesiredInstanceCount`.
+
+###### Example
 
 The following example deletes a target tracking scaling policy named
 `my-scaling-policy` from a

@@ -121,9 +121,7 @@ use a different prompt for a different dataset (using the same task type and eva
 dimension), you can use the python packages provided by FMEval. For details, see
 [Customize your workflow using the fmeval library](clarify-foundation-model-evaluate-auto-lib-custom.md "clarify-foundation-model-evaluate-auto-lib-custom.md").
 
-###### Example of an updated prompt template using \*\*Prompt
-
-template\*\*
+###### Example of an updated prompt template using Prompt template
 
 Imagine a simple scenario where you have a simple dataset made up of only two
 prompts, and you want to evaluate them using

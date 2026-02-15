@@ -443,7 +443,7 @@ worker. This object contains the following properties.
   image.
 - width – The width, in pixels, of the image.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following are samples of outputs from common use scenarios for this element.
 
@@ -743,7 +743,7 @@ Provides a JSON object. The `name` string is the object name and the
 `value`string is the property name for a Boolean value based on the check box state;
 true if checked, false if not checked.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 **Using the same `name` value for multiple boxes.**
 
@@ -888,7 +888,7 @@ Important task-specific instructions that are displayed in a prominent place.
 
 The output of this element is an object using the specified `name` value as a property name, and a string from the `categories` as the property's value.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following is a sample of output from this element.
 
@@ -1009,7 +1009,7 @@ The output of this element is an object that uses the specified `name`
 value as a property name, and a string from `categories` as the property's
 value.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following is a sample of output from this element.
 
@@ -1106,6 +1106,8 @@ for the worker.
 
 A JSON formatted array of objects, each of which defines an annotation to apply to the text at initialization. Objects contain a `label` value that matches one in the `labels` attribute, an integer `startOffset` value for labeled span's starting unicode offset, and an integer `endOffset` value for the ending unicode offset.
 
+###### Example
+
 ```
 [
   {
@@ -1129,6 +1131,8 @@ A JSON formatted array of objects, each of which contains:
 ###### shortDisplayName is highly recommended
 
 Values displayed above the selections can overlap and create difficulty managing labeled entities in the workspace. Providing a 3-4 character `shortDisplayName` for each label is highly recommended to prevent overlap and keep the workspace manageable for your workers.
+
+###### Example
 
 ```
 [
@@ -1180,7 +1184,7 @@ A JSON object that specifies the start, end, and label of an annotation. This ob
 - endOffset – The Unicode offset of the first
   character after the selection.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following is a sample of the output from this element.
 
@@ -1675,7 +1679,7 @@ Optional. Defaults to blank.
 The output of this element is a string that specifies one of the values defined in the
 _categories_ attribute of the <crowd-image-classifier> element.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following is a sample of output from this element.
 
@@ -1790,7 +1794,7 @@ The output of this element is a string that specifies one or more of the values
 defined in the `categories` attribute of the
 `<crowd-image-classifier-multi-select>` element.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following is a sample of output from this element.
 
@@ -1923,7 +1927,7 @@ This element has the following parent and child elements.
 Provides a `name` string as the property name, and the text that was entered in
 the field as its value.
 
-###### Example : Sample JSON Output
+###### Example: Sample JSON Output
 
 The values for multiple elements are output in the same object, with their `name` attribute value as their property name. Elements with no input do not appear in the output. For example, let's use three inputs:
 
@@ -2145,7 +2149,7 @@ worker. This object contains the following properties.
   image.
 - width – The width, in pixels, of the image.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following is an example of output from this element.
 
@@ -2454,7 +2458,7 @@ An array of JSON objects containing the coordinates and label of a keypoint. Eac
 
 X and Y coordinates are based on 0,0 being the top left corner of the image.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following is a sample output from using this element.
 
@@ -2673,7 +2677,7 @@ A JSON Array containing objects with the line labels and vertices.
   of the start point and end point of the line, relative to the top-left
   corner of the image.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following is an example of output from this element.
 
@@ -2842,6 +2846,8 @@ Each JSON object in the array contains the following properties.
 - vertices – An array of JSON objects. Each object
   contains an x and y coordinate value for a point in the polygon.
 
+###### Example
+
 An `initial-value` attribute might look something like this.
 
 ```
@@ -2910,7 +2916,7 @@ worker. This object contains the following properties.
   image.
 - width – The width, in pixels, of the image.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following are samples of outputs from common use scenarios for this element.
 
@@ -3297,7 +3303,7 @@ A JSON Array containing objects with polylines' labels and vertices.
   of the vertices of a polyline, relative to the top-left corner of the
   image.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following is an example of output from this element.
 
@@ -3747,7 +3753,7 @@ worker. This object contains the following properties.
   image.
 - width – The width, in pixels, of the image.
 
-###### Example : Sample Element Outputs
+###### Example: Sample Element Outputs
 
 The following is a sample of output from this element.
 

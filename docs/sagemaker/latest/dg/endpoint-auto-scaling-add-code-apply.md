@@ -31,6 +31,8 @@ To apply a scaling policy to your model, use the [put-scaling-policy](../../../c
 - `--target-tracking-scaling-policy-configuration`—The
   target-tracking scaling policy configuration to use for the model.
 
+###### Example
+
 The following example applies a target tracking scaling policy named
 `my-scaling-policy` to a variant
 named `my-variant`, running on the
@@ -68,6 +70,8 @@ parameters:
   `TargetTrackingScaling`.
 - `TargetTrackingScalingPolicyConfiguration`—The
   target-tracking scaling policy configuration to use for the variant.
+
+###### Example
 
 The following example applies a target tracking scaling policy named
 `my-scaling-policy` to a variant

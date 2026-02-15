@@ -94,7 +94,7 @@ Each of the variable names come from the JSON object in the response from your p
 
 If a field will not change, you can remove that variable from the template and replace it with that text, otherwise you have to repeat that text as a value in each object in your manifest or code it into your pre-annotation Lambda function.
 
-###### Example : Final Customized Bounding Box Template
+###### Example: Final Customized Bounding Box Template
 
 To keep things simple, this template will have one variable, one label, and very basic instructions. Assuming your manifest has an "animal" property in each data object, that value can be re-used in two parts of the template.
 
@@ -241,7 +241,7 @@ For a bounding box task, the output you find in the output manifest will look a
 bit like the demo below. The example has been cleaned up for printing. The actual
 output will be a single line per record.
 
-###### Example : JSON in your output manifest
+###### Example: JSON in your output manifest
 
 ```
 {

@@ -1533,6 +1533,9 @@ To add a Fail step to your pipeline, do the following:
    **Fail** step to the step to create an edge.
 
 SageMaker Python SDK
+
+###### Example
+
 The following example code snippet uses a `FailStep` with an
 `ErrorMessage` configured with Pipeline Parameters and a
 `Join` operation.

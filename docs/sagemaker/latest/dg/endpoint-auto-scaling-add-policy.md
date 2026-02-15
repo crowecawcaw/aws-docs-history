@@ -32,6 +32,8 @@ To register your production variant, use the [register-scalable-target](../../..
   value must be set to at least 1 and must be equal to or greater than the
   value specified for `min-capacity`.
 
+###### Example
+
 The following example shows how to register a variant named
 `my-variant`, running on the
 `my-endpoint` endpoint, that can
@@ -67,6 +69,8 @@ parameters:
 - `MaxCapacity`—The maximum number of instances. This
   value must be set to at least 1 and must be equal to or greater than the
   value specified for `MinCapacity`.
+
+###### Example
 
 The following example shows how to register a variant named
 `my-variant`, running on the

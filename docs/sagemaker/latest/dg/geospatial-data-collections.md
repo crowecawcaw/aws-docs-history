@@ -17,7 +17,7 @@ Observation Job (EOJ). To learn more about the EOJs, see [Earth Observation Jobs
   `ListRasterDataCollections`. In the [`ListRasterDataCollections` response](../APIReference/API_geospatial_ListRasterDataCollections.md#API_geospatial_ListRasterDataCollections_ResponseSyntax "../APIReference/API_geospatial_ListRasterDataCollections.md#API_geospatial_ListRasterDataCollections_ResponseSyntax"), you get a [`RasterDataCollectionMetadata`](../APIReference/API_geospatial_ListRasterDataCollections.md#API_geospatial_ListRasterDataCollections_ResponseSyntax "../APIReference/API_geospatial_ListRasterDataCollections.md#API_geospatial_ListRasterDataCollections_ResponseSyntax") object that contains details
   about the available raster data collections.
 
-###### Example – Calling the `ListRasterDataCollections` API using the AWS SDK for Python (Boto3)
+###### Example – Calling the ListRasterDataCollections API using the AWS SDK for Python (Boto3)
 
 When you use the SDK for Python (Boto3) and SageMaker geospatial, you must create a geospatial client,
 `geospatial_client`. Use the following Python snippet to

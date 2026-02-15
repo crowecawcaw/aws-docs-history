@@ -10,6 +10,8 @@ scaling):
   both `DynamicScalingInSuspended` and
   `DynamicScalingOutSuspended`.
 
+###### Example
+
 The following example shows how to suspend scaling policies for a variant
 named `my-variant`, running on the
 `my-endpoint` endpoint.
@@ -30,6 +32,8 @@ aws application-autoscaling register-scalable-target \
 Temporarily disable and then enable scale-in activities by editing the policy
 using the [put-scaling-policy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md") CLI command or the [PutScalingPolicy](../../../autoscaling/application/APIReference/API_PutScalingPolicy.md "../../../autoscaling/application/APIReference/API_PutScalingPolicy.md") API action, specifying a Boolean value for
 `DisableScaleIn`.
+
+###### Example
 
 The following is an example of a target tracking configuration for a
 scaling policy that will scale out but not scale in.

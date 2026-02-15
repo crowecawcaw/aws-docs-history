@@ -35,6 +35,8 @@ Variables will not be parsed. You may need to replace them with sample content w
 
 The following example code snippet loads the necessary code to render the custom HTML elements. Use this if you want to develop your template's look and feel in your preferred editor rather than in the console.
 
+###### Example
+
 ```
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 ```
@@ -171,6 +173,8 @@ The following is the expected response from the Lambda function when `isHumanAnn
 ### Using External Assets
 
 Amazon SageMaker Ground Truth custom templates allow external scripts and style sheets to be embedded. For example, the following code block demonstrates how you would add a style sheet located at `https://www.example.com/my-enhancement-styles.css` to your template.
+
+###### Example
 
 ```
 <script src="https://www.example.com/my-enhancment-script.js"></script>

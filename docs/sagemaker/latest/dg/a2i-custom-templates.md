@@ -34,6 +34,8 @@ example, the following header embeds a `text/css` style sheet name
 `https://www.example.com/my-enhancement-styles.css` into the custom
 template.
 
+###### Example
+
 ```
 <script src="https://www.example.com/my-enhancment-script.js"></script>
 <link rel="stylesheet" type="text/css" href="https://www.example.com/my-enhancement-styles.css">
@@ -101,6 +103,8 @@ you must have two Regions. You can use arbitrary HTML and CSS elements in these 
   provide complete instructions to get better results.
 
 An Amazon Textract template would look similar to the following.
+
+###### Example
 
 ```
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
@@ -328,6 +332,8 @@ the `moderationLabels` attributes `name` and
 
 In addition to the standard [Liquid filters](https://shopify.github.io/liquid/filters/abs/ "https://shopify.github.io/liquid/filters/abs/") and actions, Amazon Augmented AI (Amazon A2I) offers additional filters. You apply filters by placing a pipe (`|`) character after the variable name, and then specifying a filter name. To chain filters, use the following format.
 
+###### Example
+
 ```
 {{ <content> | <filter> | <filter> }}
 ```
@@ -390,6 +396,8 @@ grant_read_access: {{ "s3://amzn-s3-demo-bucket/myphoto.png" | grant_read_access
 s3_presign: {{ "s3://amzn-s3-demo-bucket/myphoto.png" | s3_presign }}
 ```
 
+###### Example
+
 Output
 
 ```
@@ -402,7 +410,7 @@ grant_read_access: https://s3.amazonaws.com/amzn-s3-demo-bucket/myphoto.png?`<ac
 s3_presign: https://s3.amazonaws.com/amzn-s3-demo-bucket/myphoto.png?`<access token and other params>`
 ```
 
-###### Example Example of an automated classification template.
+###### Example of an automated classification template.
 
 To automate this simple text classification sample, include the Liquid tag
 `{{ task.input.`source` }}`. This example

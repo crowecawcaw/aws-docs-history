@@ -49,6 +49,8 @@ For more information and documentation, visit the [Liquid homepage](https://shop
 
 In addition to the standard [Liquid filters](https://shopify.github.io/liquid/filters/abs/ "https://shopify.github.io/liquid/filters/abs/") and actions, Ground Truth offers a few additional filters. Filters are applied by placing a pipe (`|`) character after the variable name, then specifying a filter name. Filters can be chained in the form of:
 
+###### Example
+
 ```
 {{ <content> | <filter> | <filter> }}
 ```
@@ -94,6 +96,8 @@ to_json: {{ jsObject | to_json }}
 grant_read_access: {{ "s3://amzn-s3-demo-bucket/myphoto.png" | grant_read_access }}
 s3_presign: {{ "s3://amzn-s3-demo-bucket/myphoto.png" | s3_presign }}
 ```
+
+###### Example
 
 Output
 

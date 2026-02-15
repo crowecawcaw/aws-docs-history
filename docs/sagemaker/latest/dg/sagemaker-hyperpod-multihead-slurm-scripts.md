@@ -62,6 +62,10 @@ EOF
 aws s3 cp /tmp/provisioning_parameters.json s3://${ROOT_BUCKET_NAME}/LifeCycleScripts/base-config/provisioning_parameters.json
 ```
 
+###### Note
+
+If you are using API-driven configuration, the `provisioning_parameters.json` file is not required. With API-driven configuration, you define Slurm node types, partitions, and FSx mounting directly in the CreateCluster API payload. For details, see [Getting started with SageMaker HyperPod using the AWS CLI](smcluster-getting-started-slurm-cli.md "smcluster-getting-started-slurm-cli.md").
+
 ## Verify files in
 
 Amazon S3 bucket

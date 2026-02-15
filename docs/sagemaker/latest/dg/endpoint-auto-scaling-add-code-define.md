@@ -26,6 +26,8 @@ your custom metric.
 
 metric (CloudWatch metric: InvocationsPerInstance)
 
+###### Example
+
 The following is an example target tracking policy configuration for a variant
 that keeps the average invocations per instance at 70. Save this configuration
 in a file named `config.json`.
@@ -105,6 +107,8 @@ metric's name, namespace, unit, statistic, and zero or more dimensions. A dimens
 consists of a dimension name and a dimension value. You can use any production
 variant metric that changes in proportion to capacity.
 
+###### Example
+
 The following example configuration shows a target tracking scaling policy
 with a custom metric. The policy scales the variant based on an average CPU
 utilization of 50 percent across all instances. Save this configuration in a
@@ -150,6 +154,8 @@ return an explanation because of the threshold value set in the
 `InvocationsPerInstance` policy. If there is a large number of
 explanations, the endpoint can use the `ExplanationsPerInstance` policy.
 
+###### Example
+
 The following example configuration shows a target tracking scaling policy
 with a custom metric. The policy scale adjusts the number of variant instances
 so that each instance has an `ExplanationsPerInstance` metric of 20.
@@ -181,6 +187,8 @@ periods
 You can optionally define cooldown periods in your target tracking scaling policy
 by specifying the `ScaleOutCooldown` and `ScaleInCooldown`
 parameters.
+
+###### Example
 
 The following is an example target tracking policy configuration for a variant
 that keeps the average invocations per instance at 70. The policy configuration

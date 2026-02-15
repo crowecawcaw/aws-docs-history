@@ -71,7 +71,7 @@ You can not only use HTML, CSS, and JavaScript in these sections, you are encour
 
 Try out an [example `<crowd-classifier>` task](https://jsfiddle.net/MTGT_Fiddle_Manager/bjc0y1vd/35/ "https://jsfiddle.net/MTGT_Fiddle_Manager/bjc0y1vd/35/"). The example is rendered by JSFiddle, therefore all the template variables are replaced with hard-coded values. Click the "View full instructions" link to see a set of examples with extended CSS styling. You can fork the project to experiment with your own changes to the CSS, adding sample images, or adding extended JavaScript functionality.
 
-###### Example : Final Customized Intent Detection Template
+###### Example: Final Customized Intent Detection Template
 
 This uses the [example `<crowd-classifier>` task](https://jsfiddle.net/MTGT_Fiddle_Manager/bjc0y1vd/35/ "https://jsfiddle.net/MTGT_Fiddle_Manager/bjc0y1vd/35/"), but with a variable for the `<classification-target>`. If you are trying to keep a consistent CSS design among a series of different labeling jobs, you can include an external stylesheet using a `<link rel...>` element the same way you'd do in any other HTML document.
 
@@ -199,7 +199,7 @@ This uses the [example `<crowd-classifier>` task](https://jsfiddle.net/MTGT_Fidd
 </style>
 ```
 
-###### Example : Your manifest file
+###### Example: Your manifest file
 
 If you are preparing your manifest file manually for a text-classification
 task like this, have your data formatted in the following manner.
@@ -311,7 +311,7 @@ like the demo below. The example has been cleaned up and spaced out to be easier
 humans to read. The actual output will be more compressed for machine
 reading.
 
-###### Example : JSON in your output manifest
+###### Example: JSON in your output manifest
 
 ```
 [

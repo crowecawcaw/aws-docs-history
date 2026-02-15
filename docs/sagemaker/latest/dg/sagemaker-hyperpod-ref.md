@@ -7,7 +7,7 @@ topics.
 
 - [SageMaker HyperPod pricing](#sagemaker-hyperpod-ref-pricing "#sagemaker-hyperpod-ref-pricing")
 - [SageMaker HyperPod APIs](#sagemaker-hyperpod-ref-api "#sagemaker-hyperpod-ref-api")
-- [SageMaker HyperPod forms](#sagemaker-hyperpod-ref-provisioning-forms "#sagemaker-hyperpod-ref-provisioning-forms")
+- [SageMaker HyperPod Slurm configuration](#sagemaker-hyperpod-ref-slurm-configuration "#sagemaker-hyperpod-ref-slurm-configuration")
 - [SageMaker HyperPod DLAMI](#sagemaker-hyperpod-ref-hyperpod-ami "#sagemaker-hyperpod-ref-hyperpod-ami")
 - [SageMaker HyperPod API permissions
   reference](#sagemaker-hyperpod-ref-api-permissions "#sagemaker-hyperpod-ref-api-permissions")
@@ -52,14 +52,340 @@ in JSON format to SageMaker AI through AWS CLI or AWS SDK for Python (Boto3).
 - [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md")
 - [UpdateClusterSoftware](../APIReference/API_UpdateClusterSoftware.md "../APIReference/API_UpdateClusterSoftware.md")
 
-## SageMaker HyperPod forms
+## SageMaker HyperPod Slurm configuration
 
-To configure the Slurm workload manager tool on HyperPod, you should create a
-Slurm configuration file required by HyperPod using the provided form.
+HyperPod supports two approaches for configuring Slurm on your cluster. Choose the
+approach that best fits your needs.
 
-### Configuration form
+|                          |                                                                                         |                                           |
+| ------------------------ | --------------------------------------------------------------------------------------- | ----------------------------------------- |
+| **Approach**             | **Description**                                                                         | **Recommended For**                       |
+| API-driven configuration | Define Slurm configuration directly in the CreateCluster and UpdateCluster API requests | New clusters; simplified management       |
+| Legacy configuration     | Use a separate `provisioning_parameters.json` file stored in Amazon S3                  | Existing clusters; backward compatibility |
 
-for provisioning Slurm nodes on HyperPod
+### API-driven Slurm configuration (Recommended)
+
+With API-driven configuration, you define Slurm node types, partition assignments, and
+filesystem mounts directly in the CreateCluster and UpdateCluster API requests. This approach provides:
+
+- **Single source of truth** – All configuration in the API request
+- **No S3 file management** – No need to create or maintain `provisioning_parameters.json`
+- **Built-in validation** – API validates Slurm topology before cluster creation
+- **Drift detection** – Detects unauthorized changes to `slurm.conf`
+- **Per-instance-group storage** – Configure different FSx filesystems for different instance groups
+- **FSx for OpenZFS support** – Mount OpenZFS filesystems in addition to FSx for Lustre
+
+#### SlurmConfig (per instance group)
+
+Add `SlurmConfig` to each instance group to define the Slurm node type and partition assignment.
+
+```
+"SlurmConfig": {
+    "NodeType": "Controller | Login | Compute",
+    "PartitionNames": ["`string`"]
+}
+```
+
+**Parameters:**
+
+- `NodeType` – Required. The Slurm node type for this instance group. Valid values:
+  - `Controller` – Slurm controller (head) node. Runs the `slurmctld` daemon. Exactly one instance group must have this node type.
+  - `Login` – Login node for user access. Optional. At most one instance group can have this node type.
+  - `Compute` – Worker nodes that execute jobs. Can have multiple instance groups with this node type.
+
+###### Important
+
+`NodeType` is immutable. Once set during cluster creation, it cannot be changed. To use a different node type, create a new instance group.
+
+- `PartitionNames` – Conditional. An array of Slurm partition names. Required for `Compute` node types; not allowed for `Controller` or `Login` node types. Currently supports a single partition name per instance group.
+
+###### Note
+
+All nodes are automatically added to the universal `dev` partition in addition to their specified partition.
+
+**Example:**
+
+```
+{
+    "InstanceGroupName": "gpu-compute",
+    "InstanceType": "ml.p4d.24xlarge",
+    "InstanceCount": 8,
+    "SlurmConfig": {
+        "NodeType": "Compute",
+        "PartitionNames": ["gpu-training"]
+    },
+    "LifeCycleConfig": {
+        "SourceS3Uri": "s3://sagemaker-bucket/lifecycle/src/",
+        "OnCreate": "on_create.sh"
+    },
+    "ExecutionRole": "arn:aws:iam::111122223333:role/HyperPodRole"
+}
+```
+
+#### Orchestrator.Slurm (cluster level)
+
+Add `Orchestrator.Slurm` to the cluster configuration to specify how HyperPod manages the `slurm.conf` file.
+
+```
+"Orchestrator": {
+    "Slurm": {
+        "SlurmConfigStrategy": "Managed | Overwrite | Merge"
+    }
+}
+```
+
+**Parameters:**
+
+- `SlurmConfigStrategy` – Required when `Orchestrator.Slurm` is provided. Controls how HyperPod manages the `slurm.conf` file on the controller node. Valid values:
+  - `Managed` (default) – HyperPod fully controls the partition-node mappings in `slurm.conf`. Drift detection is enabled: if the current `slurm.conf` differs from the expected configuration, UpdateCluster fails with an error. Use this strategy when you want HyperPod to be the single source of truth for Slurm configuration.
+  - `Overwrite` – HyperPod forces the API configuration to be applied, overwriting any manual changes to `slurm.conf`. Drift detection is disabled. Use this strategy to recover from drift or reset the cluster to a known state.
+  - `Merge` – HyperPod preserves manual `slurm.conf` changes and merges them with the API configuration. Drift detection is disabled. Use this strategy if you need to make manual Slurm configuration changes that should persist across updates.
+
+###### Note
+
+If `Orchestrator.Slurm` is omitted from the request, the default behavior is `Managed` strategy.
+
+###### Tip
+
+You can change `SlurmConfigStrategy` at any time using UpdateCluster. There is no lock-in to a specific strategy.
+
+**Example:**
+
+```
+{
+    "ClusterName": "my-hyperpod-cluster",
+    "InstanceGroups": [...],
+    "Orchestrator": {
+        "Slurm": {
+            "SlurmConfigStrategy": "Managed"
+        }
+    }
+}
+```
+
+#### SlurmConfigStrategy comparison
+
+|              |                                            |                    |                                               |
+| ------------ | ------------------------------------------ | ------------------ | --------------------------------------------- |
+| **Strategy** | **Drift Detection**                        | **Manual Changes** | **Use Case**                                  |
+| `Managed`    | Enabled – blocks updates if drift detected | Blocked            | HyperPod managed                              |
+| `Overwrite`  | Disabled                                   | Overwritten        | Recovery from drift; reset to known state     |
+| `Merge`      | Disabled                                   | Preserved          | Advanced users with custom `slurm.conf` needs |
+
+#### FSx configuration via InstanceStorageConfigs
+
+With API-driven configuration, you can configure FSx filesystems per instance group using `InstanceStorageConfigs`. This allows different instance groups to mount different filesystems.
+
+**Prerequisites:**
+
+- Your cluster must use a custom VPC (via `VpcConfig`). FSx filesystems reside in your VPC, and the platform-managed VPC cannot reach them.
+- At least one instance group must have `SlurmConfig` with `NodeType: Controller`.
+
+##### FsxLustreConfig
+
+Configure FSx for Lustre filesystem mounting for an instance group.
+
+```
+"InstanceStorageConfigs": [
+    {
+        "FsxLustreConfig": {
+            "DnsName": "`string`",
+            "MountPath": "`string`",
+            "MountName": "`string`"
+        }
+    }
+]
+```
+
+**Parameters:**
+
+- `DnsName` – Required. The DNS name of the FSx for Lustre filesystem. Example: `fs-0abc123def456789.fsx.us-west-2.amazonaws.com`
+- `MountPath` – Optional. The local mount path on the instance. Default: `/fsx`
+- `MountName` – Required. The mount name of the FSx for Lustre filesystem. You can find this in the Amazon FSx console or by running `aws fsx describe-file-systems`.
+
+##### FsxOpenZfsConfig
+
+Configure FSx for OpenZFS filesystem mounting for an instance group.
+
+```
+"InstanceStorageConfigs": [
+    {
+        "FsxOpenZfsConfig": {
+            "DnsName": "`string`",
+            "MountPath": "`string`"
+        }
+    }
+]
+```
+
+**Parameters:**
+
+- `DnsName` – Required. The DNS name of the FSx for OpenZFS filesystem. Example: `fs-0xyz987654321.fsx.us-west-2.amazonaws.com`
+- `MountPath` – Optional. The local mount path on the instance. Default: `/home`
+
+###### Note
+
+Each instance group can have at most one `FsxLustreConfig` and one `FsxOpenZfsConfig`.
+
+**Example with multiple filesystems:**
+
+```
+{
+    "InstanceGroupName": "gpu-compute",
+    "InstanceType": "ml.p4d.24xlarge",
+    "InstanceCount": 4,
+    "SlurmConfig": {
+        "NodeType": "Compute",
+        "PartitionNames": ["gpu-training"]
+    },
+    "InstanceStorageConfigs": [
+        {
+            "FsxLustreConfig": {
+                "DnsName": "fs-0abc123def456789.fsx.us-west-2.amazonaws.com",
+                "MountPath": "/fsx",
+                "MountName": "abcdefgh"
+            }
+        },
+        {
+            "FsxOpenZfsConfig": {
+                "DnsName": "fs-0xyz987654321.fsx.us-west-2.amazonaws.com",
+                "MountPath": "/shared"
+            }
+        },
+        {
+            "EbsVolumeConfig": {
+                "VolumeSizeInGB": 500
+            }
+        }
+    ],
+    "LifeCycleConfig": {
+        "SourceS3Uri": "s3://sagemaker-bucket/lifecycle/src/",
+        "OnCreate": "on_create.sh"
+    },
+    "ExecutionRole": "arn:aws:iam::111122223333:role/HyperPodRole"
+}
+```
+
+###### Important
+
+FSx configuration changes only apply during node provisioning. Existing nodes retain their original FSx configuration. To apply new FSx configuration to all nodes, scale down the instance group to 0, then scale back up.
+
+#### Complete API-driven configuration example
+
+The following example shows a complete CreateCluster request using API-driven Slurm configuration:
+
+```
+{
+    "ClusterName": "ml-training-cluster",
+    "InstanceGroups": [
+        {
+            "InstanceGroupName": "controller",
+            "InstanceType": "ml.c5.xlarge",
+            "InstanceCount": 1,
+            "SlurmConfig": {
+                "NodeType": "Controller"
+            },
+            "LifeCycleConfig": {
+                "SourceS3Uri": "s3://sagemaker-us-west-2-111122223333/lifecycle/src/",
+                "OnCreate": "on_create.sh"
+            },
+            "ExecutionRole": "arn:aws:iam::111122223333:role/HyperPodRole",
+            "ThreadsPerCore": 2
+        },
+        {
+            "InstanceGroupName": "login",
+            "InstanceType": "ml.m5.xlarge",
+            "InstanceCount": 1,
+            "SlurmConfig": {
+                "NodeType": "Login"
+            },
+            "LifeCycleConfig": {
+                "SourceS3Uri": "s3://sagemaker-us-west-2-111122223333/lifecycle/src/",
+                "OnCreate": "on_create.sh"
+            },
+            "ExecutionRole": "arn:aws:iam::111122223333:role/HyperPodRole",
+            "ThreadsPerCore": 2
+        },
+        {
+            "InstanceGroupName": "gpu-compute",
+            "InstanceType": "ml.p4d.24xlarge",
+            "InstanceCount": 8,
+            "SlurmConfig": {
+                "NodeType": "Compute",
+                "PartitionNames": ["gpu-training"]
+            },
+            "InstanceStorageConfigs": [
+                {
+                    "FsxLustreConfig": {
+                        "DnsName": "fs-0abc123def456789.fsx.us-west-2.amazonaws.com",
+                        "MountPath": "/fsx",
+                        "MountName": "abcdefgh"
+                    }
+                }
+            ],
+            "LifeCycleConfig": {
+                "SourceS3Uri": "s3://sagemaker-us-west-2-111122223333/lifecycle/src/",
+                "OnCreate": "on_create.sh"
+            },
+            "ExecutionRole": "arn:aws:iam::111122223333:role/HyperPodRole",
+            "ThreadsPerCore": 2,
+            "OnStartDeepHealthChecks": ["InstanceStress", "InstanceConnectivity"]
+        },
+        {
+            "InstanceGroupName": "cpu-compute",
+            "InstanceType": "ml.c5.18xlarge",
+            "InstanceCount": 4,
+            "SlurmConfig": {
+                "NodeType": "Compute",
+                "PartitionNames": ["cpu-preprocessing"]
+            },
+            "InstanceStorageConfigs": [
+                {
+                    "FsxLustreConfig": {
+                        "DnsName": "fs-0abc123def456789.fsx.us-west-2.amazonaws.com",
+                        "MountPath": "/fsx",
+                        "MountName": "abcdefgh"
+                    }
+                }
+            ],
+            "LifeCycleConfig": {
+                "SourceS3Uri": "s3://sagemaker-us-west-2-111122223333/lifecycle/src/",
+                "OnCreate": "on_create.sh"
+            },
+            "ExecutionRole": "arn:aws:iam::111122223333:role/HyperPodRole",
+            "ThreadsPerCore": 2
+        }
+    ],
+    "Orchestrator": {
+        "Slurm": {
+            "SlurmConfigStrategy": "Managed"
+        }
+    },
+    "VpcConfig": {
+        "SecurityGroupIds": ["sg-0abc123def456789a"],
+        "Subnets": ["subnet-0abc123def456789a", "subnet-0abc123def456789b"]
+    },
+    "Tags": [
+        {
+            "Key": "Project",
+            "Value": "ML-Training"
+        }
+    ]
+}
+```
+
+To learn more about using API-driven configuration, see [Customizing SageMaker HyperPod
+clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
+
+### Legacy configuration: provisioning_parameters.json
+
+###### Note
+
+The `provisioning_parameters.json` approach is the legacy method for configuring Slurm on HyperPod. For new clusters, we recommend using the API-driven configuration approach described above. The legacy approach remains fully supported for backward compatibility.
+
+With the legacy approach, you create a Slurm configuration file named `provisioning_parameters.json` and upload it to Amazon S3 as part of your lifecycle scripts. HyperPod reads this file during cluster creation to configure Slurm nodes.
+
+#### Configuration form for provisioning_parameters.json
 
 The following code is the Slurm configuration form you should prepare to properly
 set up Slurm nodes on your HyperPod cluster. You should complete this form
@@ -85,6 +411,8 @@ clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-sl
     "fsx_mountname": "`string`"
 }
 ```
+
+**Parameters:**
 
 - `version` – Required. This is the version of the
   HyperPod provisioning parameter form. Keep it to
@@ -112,6 +440,19 @@ clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-sl
 - `fsx_mountname` – Optional. If you want to set up your
   Slurm nodes on the HyperPod cluster to communicate with Amazon FSx,
   specify the FSx mount name.
+
+### Comparison: API-driven vs. legacy configuration
+
+|                             |                              |                                           |
+| --------------------------- | ---------------------------- | ----------------------------------------- |
+| **Feature**                 | **API-driven (Recommended)** | **Legacy (provisioning_parameters.json)** |
+| Configuration location      | CreateCluster API request    | S3 file                                   |
+| FSx for Lustre              | Yes – Per instance group     | Yes – Cluster-wide only                   |
+| FSx for OpenZFS             | Yes – Per instance group     | No – Not supported                        |
+| Built-in validation         | Yes                          | No                                        |
+| Drift detection             | Yes – (Managed strategy)     | No                                        |
+| S3 file management          | Not required                 | Required                                  |
+| Lifecycle script complexity | Simplified                   | Full SLURM setup required                 |
 
 ## SageMaker HyperPod DLAMI
 

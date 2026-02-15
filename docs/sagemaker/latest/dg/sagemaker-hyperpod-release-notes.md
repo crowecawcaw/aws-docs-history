@@ -637,7 +637,7 @@ Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md").
 - HyperPod now properly supports passing partition names provided
   through `provisioning_parameters.json` and creates partitions
   appropriately based on provided inputs. For more information about
-  `provisioning_parameters.json`, see [SageMaker HyperPod forms](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms") and [Customizing SageMaker HyperPod
+  `provisioning_parameters.json`, see [Legacy configuration: provisioning_parameters.json](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms") and [Customizing SageMaker HyperPod
   clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
 
 **AMI releases**

@@ -91,8 +91,7 @@ location you specify in `create_cluster.json`. You should also
 place your `provisioning_parameters.json` in the same
 location.
 
-    1. `provisioning_parameters.json` – This is a [Configuration form
-     for provisioning Slurm nodes on HyperPod](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms-slurm "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms-slurm"). The
+    1. `provisioning_parameters.json` – This is a [Configuration form for provisioning\_parameters.json](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms-slurm "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms-slurm"). The
      `on_create.sh` script finds this JSON file and defines
      environment variable for identifying the path to it. Through this JSON
      file, you can configure Slurm nodes and storage options such as
