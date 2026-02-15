@@ -22,10 +22,10 @@ JSON
  "Service": "iotmanagedintegrations.amazonaws.com"
  },
  "Action": "lambda:InvokeFunction",
- "Resource": "arn:aws:lambda:`ca-central-1`:`444455556666`:function:connector-lambda-name",
+ "Resource": "arn:aws:lambda:`ca-central-1`:`123456789012`:function:connector-lambda-name",
  "Condition": {
  "StringEquals": {
- "aws:SourceArn": "arn:aws:iotmanagedintegrations:`ca-central-1`:`444455556666`:`account-association`/`account-association-id`"
+ "aws:SourceArn": "arn:aws:iotmanagedintegrations:`ca-central-1`:`123456789012`:`account-association`/`account-association-id`"
  }
  }
  }

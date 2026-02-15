@@ -46,7 +46,7 @@ JSON
  "Resource" : "*" ,
  "Condition": {
  "StringEquals": {
- "aws:SourceArn": "arn:aws:iotmanagedintegrations:`AWS Region`:`account-id`:account-association:`account-association-id`"
+ "aws:SourceArn": "arn:aws:iotmanagedintegrations:`AWS Region`:`123456789012`:account-association:`account-association-id`"
 
  }
  }
