@@ -107,6 +107,50 @@ These AWS SDK code examples perform the following tasks:
 
 .NET
 
+**SDK for .NET (v4)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
+
+```
+
+    /// <summary>
+    /// Shows how to create a new Amazon S3 bucket.
+    /// </summary>
+    /// <param name="bucketName">The name of the bucket to create.</param>
+    /// <returns>A boolean value representing the success or failure of
+    /// the bucket creation process.</returns>
+    public async Task<bool> CreateBucketAsync(string bucketName)
+    {
+        try
+        {
+            var request = new PutBucketRequest
+            {
+                BucketName = bucketName,
+                UseClientRegion = true,
+            };
+
+            var response = await _amazonS3.PutBucketAsync(request);
+            return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+        }
+        catch (AmazonS3Exception ex)
+        {
+            Console.WriteLine($"Error creating bucket: '{ex.Message}'");
+            return false;
+        }
+    }
+
+
+
+```
+
+- For API details, see
+  [CreateBucket](../../../goto/DotNetSDKV4/s3-2006-03-01/CreateBucket.md "../../../goto/DotNetSDKV4/s3-2006-03-01/CreateBucket.md")
+  in _AWS SDK for .NET API Reference_.
+
 **SDK for .NET**
 
 ###### Note
@@ -114,39 +158,6 @@ These AWS SDK code examples perform the following tasks:
 There's more on GitHub. Find the complete example and learn how to set up and run in the
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
-
-```
-
-        /// <summary>
-        /// Shows how to create a new Amazon S3 bucket.
-        /// </summary>
-        /// <param name="client">An initialized Amazon S3 client object.</param>
-        /// <param name="bucketName">The name of the bucket to create.</param>
-        /// <returns>A boolean value representing the success or failure of
-        /// the bucket creation process.</returns>
-        public static async Task<bool> CreateBucketAsync(IAmazonS3 client, string bucketName)
-        {
-            try
-            {
-                var request = new PutBucketRequest
-                {
-                    BucketName = bucketName,
-                    UseClientRegion = true,
-                };
-
-                var response = await client.PutBucketAsync(request);
-                return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
-            }
-            catch (AmazonS3Exception ex)
-            {
-                Console.WriteLine($"Error creating bucket: '{ex.Message}'");
-                return false;
-            }
-        }
-
-
-
-```
 
 Create a bucket with object lock enabled.
 
