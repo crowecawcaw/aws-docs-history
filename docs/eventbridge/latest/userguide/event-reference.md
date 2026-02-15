@@ -57,9 +57,7 @@ Required: Yes
 
 There are no required fields in this object for `Scheduled Event` events.
 
-###### Example Scheduled Event
-
-event
+###### Example Scheduled Event event
 
 ```
 {
@@ -162,9 +160,7 @@ For `Schema Created` events, this value will always be `1`.
 
 Required: Yes
 
-###### Example Schema Created
-
-event
+###### Example Schema Created event
 
 ```
 {
@@ -268,9 +264,7 @@ The version of the schema.
 
 Required: Yes
 
-###### Example Schema Version
-
-Created event
+###### Example Schema Version Created event
 
 ```
 {

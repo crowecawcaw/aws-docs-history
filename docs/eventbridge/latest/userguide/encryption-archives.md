@@ -87,7 +87,7 @@ JSON
  "Resource": "*",
  "Condition": {
  "StringEquals": {
- "kms:EncryptionContext:aws:events:event-bus:arn": "arn:aws:events:region:account-id:event-bus/event-bus-arn"
+ "kms:EncryptionContext:aws:events:event-bus:arn": "arn:aws:events:us-east-1:123456789012:event-bus/event-bus-arn"
  }
  }
  }
