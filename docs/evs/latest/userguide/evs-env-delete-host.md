@@ -18,6 +18,8 @@ Deleting hosts from the EC2 console may leave your environment in an inconsisten
 
 Follow these steps to delete an Amazon EVS host.
 
+###### Example
+
 SDDC Managuer UI and Amazon EVS console
 
 1. Go to SDDC Manager.

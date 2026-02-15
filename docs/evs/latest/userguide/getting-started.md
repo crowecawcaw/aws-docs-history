@@ -42,6 +42,8 @@ Before getting started, you must complete the Amazon EVS prerequisite tasks. For
 The VPC, subnets, and Amazon EVS environment must all be created in the same account.
 Amazon EVS does not support cross-account sharing of VPC subnets or Amazon EVS environments.
 
+###### Example
+
 Amazon VPC console
 
 1. Open the [Amazon VPC console](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc").
@@ -700,6 +702,8 @@ Amazon EVS environments must be deployed into the same Region and Availability Z
 
 Complete this step to create an Amazon EVS environment with hosts and VLAN subnets.
 
+###### Example
+
 Amazon EVS console
 
 1. Go to the Amazon EVS console.
@@ -1084,6 +1088,8 @@ Environment deployment can take several hours.
 
 ## Verify Amazon EVS environment creation
 
+###### Example
+
 Amazon EVS console
 
 1. Go to the Amazon EVS console.
@@ -1163,6 +1169,8 @@ The following is a sample response.
 Explicitly associate each of the Amazon EVS VLAN subnets with a route table in your VPC.
 This route table is used to allow AWS resources to communicate with virtual machines on NSX network segments, running with Amazon EVS.
 If you’ve created a public HCX VLAN, be sure to explicitly associate the public HCX VLAN subnet with a public route table in your VPC that routes to an internet gateway.
+
+###### Example
 
 Amazon VPC console
 
@@ -1337,6 +1345,8 @@ This action deletes the VMware VCF installation that runs in your Amazon EVS env
 
 To delete an Amazon EVS environment, you must first delete all hosts within the environment.
 An environment cannot be deleted if there are hosts associated with the environment.
+
+###### Example
 
 Amazon EVS console
 

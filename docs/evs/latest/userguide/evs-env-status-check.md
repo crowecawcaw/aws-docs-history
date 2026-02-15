@@ -13,6 +13,8 @@ For information about using SDDC Manager to monitor VMware Cloud Foundation (VCF
 The environment status helps you determine if your environment is experiencing issues that require attention.
 Follow this procedure to check your environment’s status and view underlying resources.
 
+###### Example
+
 Amazon EVS console
 
 1. Open the [Amazon EVS console](https://console.aws.amazon.com/evs "https://console.aws.amazon.com/evs").

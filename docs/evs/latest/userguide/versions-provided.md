@@ -6,6 +6,8 @@ Amazon EVS provides multiple versions of VMware Cloud Foundation (VCF), ESX, and
 
 The AWS console shows the list of VCF versions provided by Amazon EVS in the create environment wizard. The available ESX versions are visible when you select an instance type while adding a host to an existing environment. You can also view VCF versions, ESX versions, and EC2 instance types using the CLI.
 
+###### Example
+
 Amazon EVS console
 
 1. Go to the [Amazon EVS console](https://console.aws.amazon.com/evs "https://console.aws.amazon.com/evs").

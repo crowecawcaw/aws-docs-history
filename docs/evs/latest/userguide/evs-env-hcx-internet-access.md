@@ -99,6 +99,8 @@ Ensure that you have the following:
 - Elastic IP address is allocated from the Amazon-owned public IPAM pool.
 - Amazon EVS environment is already created.
 
+###### Example
+
 Amazon EVS console
 
 1. Go to the [Amazon EVS console](https://console.aws.amazon.com/evs "https://console.aws.amazon.com/evs").
@@ -172,6 +174,8 @@ Ensure that you have the following:
 
 - Amazon EVS environment is already created.
 - EIP is associated with the Amazon EVS environment.
+
+###### Example
 
 Amazon EVS console
 

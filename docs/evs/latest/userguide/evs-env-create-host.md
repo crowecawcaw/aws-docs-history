@@ -45,6 +45,8 @@ Upgrades may require host reboots and increase the time it takes to commission t
 A host with an ESX version newer than your vSphere cluster image ESX version cannot be downgraded.
 You will need to delete the host and recreate it with the correct ESX version.
 
+###### Example
+
 Amazon EVS console and SDDC Managuer UI
 
 1. Go to the [Amazon EVS console](https://console.aws.amazon.com/evs "https://console.aws.amazon.com/evs").

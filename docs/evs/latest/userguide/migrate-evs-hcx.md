@@ -102,6 +102,8 @@ If you need HCX public connectivity, you must meet the following requirements:
 A VLAN is created for HCX as a part of the standard Amazon EVS deployment.
 Follow these steps to check that the HCX VLAN subnet is properly configured.
 
+###### Example
+
 Amazon EVS console
 
 1. Go to the Amazon EVS console.
@@ -179,6 +181,8 @@ Ensure that you have appropriate network access control lists configured to rest
 EC2 security groups do not function on elastic network interfaces that are attached to Amazon EVS VLAN subnets.
 To control traffic to and from Amazon EVS VLAN subnets, you must use a network access control list (ACL).
 
+###### Example
+
 Amazon VPC console
 
 1. Go to the Amazon VPC console.
@@ -202,6 +206,8 @@ aws ec2 describe-network-acls --filters "Name=subnet-id,Values=subnet-abcdefg987
 Amazon EVS requires that all of the EVS VLAN subnets be explicitly associated with a route table in your VPC.
 For HCX internet connectivity, your HCX public VLAN subnet must be explicitly associated with a public route table in your VPC that routes to an internet gateway.
 Follow these steps to check the explicit route table association.
+
+###### Example
 
 Amazon VPC console
 
@@ -251,6 +257,8 @@ HCX public internet connectivity fails if you do not associate at least two EIPs
 You cannot associate the first two EIPs or the last EIP from the public IPAM CIDR block with a VLAN subnet.
 These EIPs are reserved as network,default gateway, and broadcast addresses.
 Amazon EVS throws a validation error if you attempt to associate these EIPs with a VLAN subnet.
+
+###### Example
 
 Amazon EVS console
 

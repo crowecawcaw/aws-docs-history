@@ -61,6 +61,8 @@ Follow these steps to create an IAM role with a permissions policy that allows a
 
 Amazon EVS does not support the use of an instance profile to pass an IAM role to an EC2 instance.
 
+###### Example
+
 IAM console
 
 1. Go the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
