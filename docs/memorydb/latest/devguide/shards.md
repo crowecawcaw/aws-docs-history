@@ -135,7 +135,10 @@ optional parameter.
   parameter is omitted, the details of up to 100 clusters is
   returned.
 - **`ShowShardDetails`**—Returns details of the shards, including their names.
-  This command returns the details for `my-cluster`.
+
+###### Example
+
+This command returns the details for `my-cluster`.
 
 For Linux, macOS, or Unix:
 

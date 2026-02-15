@@ -67,11 +67,12 @@ Use the following parameters with `update-cluster`.
   the shard reconfiguration operation is to be performed on.
 - `--shard-configuration` – Required. Allows you to set
   the number of shards.
+  - `ShardCount` – Set this property to specify the number of shards you want.
 
-      + `ShardCount` – Set this property to specify the number of shards you want.
+###### Example
 
-  The following example modifies the number of shards in the cluster
-  `my-cluster` to 2.
+The following example modifies the number of shards in the cluster
+`my-cluster` to 2.
 
 For Linux, macOS, or Unix:
 
@@ -306,6 +307,9 @@ Use the following parameters with `update-cluster`.
   the number of shards using the `ShardCount` property:
 
 `ShardCount` – Set this property to specify the number of shards you want.
+
+###### Example
+
 The following example modifies the number of shards in the cluster
 `my-cluster` to 2.
 

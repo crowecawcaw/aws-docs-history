@@ -1,25 +1,17 @@
-# MemoryDB reserved nodes
+# MemoryDB nodes and shards
 
-Reserved nodes provide you with a significant discount compared to on-demand node pricing.
-Reserved nodes are not physical nodes, but rather a billing discount applied to the use of
-on-demand nodes in your account. Discounts for reserved nodes are tied to node type and
-AWS Region.
+A shard is a hierarchical arrangement of nodes, each
+wrapped in a cluster. Shards support replication. Within a shard, one node functions as
+the read/write primary node. All the other nodes in a shard function as read-only
+replicas of the primary node. MemoryDB supports multiple shards within
+a cluster. This support enables partitioning of
+your data in a MemoryDB cluster.
 
-###### Note
+MemoryDB supports replication via shards. The API operation
+[DescribeClusters](../APIReference/API_DescribeClusters.md "../APIReference/API_DescribeClusters.md") lists the shards with the member nodes,
+the node names, endpoints and also other information.
 
-All current MemoryDB reserved nodes are based on the pricing for and provide coverage for nodes running the Redis OSS engine. These reserved nodes can be applied to the Valkey engine as documented in [Size flexible reserved nodes](reserved-nodes-size.md "reserved-nodes-size.md"), but Valkey-specific reserved nodes are not available.
+After a MemoryDB cluster is created, it can be altered (scaled in or out). For more information, see [Scaling](scaling.md "scaling.md") and [Replacing nodes](nodes.md "nodes.md").
 
-The general process for working with reserved nodes is as follows:
-
-- Review information about available reserved node offerings
-- Purchase a reserved node offering using the AWS Management Console, AWS Command Line Interface or SDK
-- Review information about your existing reserved nodes
-
-###### Topics
-
-- [Overview of reserved nodes](reserved-nodes-overview.md "reserved-nodes-overview.md")
-- [Offering types](reserved-nodes-offerings.md "reserved-nodes-offerings.md")
-- [Size flexible reserved nodes](reserved-nodes-size.md "reserved-nodes-size.md")
-- [Upgrading nodes from Redis OSS to Valkey](reserved-nodes.md "reserved-nodes.md")
-- [Deleting a reserved node](reserved-nodes-deleting.md "reserved-nodes-deleting.md")
-- [Working with reserved nodes](reserved-nodes-working-with.md "reserved-nodes-working-with.md")
+When you create a new cluster, you can seed it with data from the old cluster so it doesn't
+start out empty. Doing this can be helpful if you need change your node type, engine version or migrate from Amazon ElastiCache (Redis OSS). For more information, see [Making manual snapshots](snapshots-manual.md "snapshots-manual.md") and [Restoring from a snapshot](snapshots-restoring.md "snapshots-restoring.md").

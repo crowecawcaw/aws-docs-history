@@ -31,6 +31,8 @@ To increase the number of replicas in a MemoryDB cluster, use the
   the number of replicas. To increase the replica count, set the `ReplicaCount` property to the number of replicas that you
   want in this shard at the end of this operation.
 
+###### Example
+
 The following example increases the number of replicas in the cluster
 `my-cluster` to 2.
 
@@ -189,6 +191,8 @@ To increase the number of replicas in a MemoryDB shard, use the
   number of replicas. To increase the replica count, set the `ReplicaCount` property to the number of replicas that you
   want in this shard at the end of this operation.
 
+###### Example
+
 The following example increases the number of replicas in the cluster
 `sample-cluster` to three. When the example is finished, there
 are three replicas in each shard. This number applies whether this is a MemoryDB cluster with a single shard or a MemoryDB cluster with
@@ -237,6 +241,8 @@ To decrease the number of replicas in a MemoryDB cluster, use the
 - `--replica-configuration` – Required.
 
 `ReplicaCount` – Set this property to specify the number of replica nodes you want.
+
+###### Example
 
 The following example uses `--replica-configuration` to decrease the
 number of replicas in the cluster `my-cluster` to the
@@ -385,6 +391,8 @@ To decrease the number of replicas in a MemoryDB cluster, use the
   the number of replicas.
 
 `ReplicaCount` – Set this property to specify the number of replica nodes you want.
+
+###### Example
 
 The following example uses `ReplicaCount` to decrease the number
 of replicas in the cluster `sample-cluster` to one. When

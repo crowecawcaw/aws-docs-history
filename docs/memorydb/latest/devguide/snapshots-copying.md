@@ -72,6 +72,8 @@ operation with the following parameters:
   For more information, see [Exporting a snapshot](snapshots-exporting.md "snapshots-exporting.md").
   The following example makes a copy of an automatic snapshot.
 
+###### Example
+
 ```
 https://memory-db.us-east-1.amazonaws.com/
     ?Action=CopySnapshot

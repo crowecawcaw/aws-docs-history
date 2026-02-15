@@ -336,6 +336,8 @@ For more information, see [Step 2: Grant MemoryDB access to your
 Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access").
 The following example makes a copy of an automatic snapshot to the Amazon S3 bucket `amzn-s3-demo-bucket`.
 
+###### Example
+
 ```
 https://memory-db.us-east-1.amazonaws.com/
     ?Action=CopySnapshot
