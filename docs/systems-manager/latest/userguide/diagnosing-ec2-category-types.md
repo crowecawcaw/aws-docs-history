@@ -27,6 +27,7 @@ the virtual private cloud (VPC) they belong to.
   DNS host name configuration](#unmanaged-ec2-issue-dns-configuration "#unmanaged-ec2-issue-dns-configuration")
 - [Problem
   category: VPC endpoint configuration](#unmanaged-ec2-issue-vpc-endpoint-configuration "#unmanaged-ec2-issue-vpc-endpoint-configuration")
+- [Problem category: Network ACL configuration](#unmanaged-ec2-issue-nacl-configuration "#unmanaged-ec2-issue-nacl-configuration")
 
 ## Problem category: Security
 
@@ -121,3 +122,23 @@ manually for these issues.
   endpoint.
 
 For more information, see [Verify your VPC configuration](troubleshooting-ssm-agent.md#agent-ts-vpc-configuration "troubleshooting-ssm-agent.md#agent-ts-vpc-configuration") in the topic [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md").
+
+## Problem category: Network ACL configuration
+
+A diagnosis operation might find that network access control lists (NACLs) aren't properly configured for the VPC, blocking necessary traffic for Systems Manager communication. NACLs are stateless, so both outbound and inbound rules must permit Systems Manager traffic.
+
+Systems Manager can identify NACL configuration issues and provide guidance for manual remediation.
+
+###### Supported issue types
+
+- **Instance subnet NACL**: Outbound traffic is not allowed on port 443 to Systems Manager endpoints
+- **Instance subnet NACL**: Inbound traffic is not allowed on ephemeral ports (1024-65535) for Systems Manager responses
+
+###### Diagnosable issue types
+
+Systems Manager can diagnose the following NACL configuration issues, but manual remediation is required:
+
+- An instance's subnet NACL blocks outbound HTTPS (port 443) traffic to Systems Manager endpoints
+- An instance's subnet NACL blocks inbound ephemeral port traffic (1024-65535) required for Systems Manager responses
+
+For more information, see [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md"), and [Custom network ACLs for your VPC](../../../vpc/latest/userguide/custom-network-acl.md#nacl-ephemeral-ports "../../../vpc/latest/userguide/custom-network-acl.md#nacl-ephemeral-ports").

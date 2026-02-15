@@ -102,10 +102,10 @@ JSON
  },
  "ArnLike": {
  "aws:PrincipalArn": [
- "arn:aws:iam::*:role/AWS-SSM-DiagnosisExecutionRole-`operational-account-id-home-region`",
- "arn:aws:iam::*:role/AWS-SSM-DiagnosisAdminRole-`operational-account-id-home-region`",
- "arn:aws:iam::*:role/AWS-SSM-RemediationExecutionRole-`operational-account-id-home-region`",
- "arn:aws:iam::*:role/AWS-SSM-RemediationAdminRole-`operational-account-id-home-region`"
+ "arn:aws:iam::*:role/AWS-SSM-DiagnosisExecutionRole-`operational-123456789012-home-region`",
+ "arn:aws:iam::*:role/AWS-SSM-DiagnosisAdminRole-`operational-123456789012-home-region`",
+ "arn:aws:iam::*:role/AWS-SSM-RemediationExecutionRole-`operational-123456789012-home-region`",
+ "arn:aws:iam::*:role/AWS-SSM-RemediationAdminRole-`operational-123456789012-home-region`"
  ]
  }
  }
