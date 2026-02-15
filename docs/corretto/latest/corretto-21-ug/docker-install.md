@@ -8,11 +8,15 @@ must have the latest version of Docker installed.
 Amazon Corretto 21 is available as an [official image on Docker Hub](https://hub.docker.com/_/amazoncorretto "https://hub.docker.com/_/amazoncorretto"). The following example runs a container and
 displays Corretto 21's version.
 
+###### Example
+
 ```
 docker run amazoncorretto:21 java -version
 ```
 
 Output:
+
+###### Example
 
 ```
 openjdk version "21.0.10" 2026-01-20 LTS
@@ -23,6 +27,8 @@ OpenJDK 64-Bit Server VM Corretto-21.0.10.7.1 (build 21.0.10+7-LTS, mixed mode, 
 ## Using the Corretto ECR Instance
 
 To use the Corretto ECR instance, run the following commands:
+
+###### Example
 
 ```
 docker pull public.ecr.aws/amazoncorretto/amazoncorretto:21
@@ -39,6 +45,8 @@ Amazon Corretto on Alpine Linux images are available on
 
 Using dockerhub
 
+###### Example
+
 ```
 docker pull amazoncorretto:21-alpine-jdk
 docker run -it amazoncorretto:21-alpine-jdk /bin/sh
@@ -48,6 +56,8 @@ docker run -it amazoncorretto:21-alpine-jdk /bin/sh
 
 Run the following command to build an image that uses Amazon Corretto 21.
 
+###### Example
+
 ```
 docker build -t amazon-corretto-21 github.com/corretto/corretto-docker#main:21/jdk/al2023
 ```
@@ -56,6 +66,8 @@ After the command completes, you have an image called
 _amazon-corretto-21_.
 
 To launch this image locally, run the following command.
+
+###### Example
 
 ```
 docker run -it amazon-corretto-21
@@ -74,6 +86,8 @@ You can create a new Docker image using
 
 1. Create a Dockerfile with the following content.
 
+###### Example
+
 ```
 FROM amazoncorretto:21
 RUN echo $' \
@@ -88,11 +102,15 @@ CMD ["java", "Hello"]
 
 2. Build the new image.
 
+###### Example
+
 ```
 docker build -t hello-app .
 ```
 
 3. Run the new image.
+
+###### Example
 
 ```
 docker run hello-app

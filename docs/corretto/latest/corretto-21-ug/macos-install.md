@@ -16,6 +16,8 @@ and uninstall Amazon Corretto 21.
 
 You can run the following command in a terminal to get the complete installation path.
 
+###### Example
+
 ```
 /usr/libexec/java_home --verbose
 ```
@@ -24,6 +26,8 @@ You can run the following command in a terminal to get the complete installation
    variable to the Amazon Corretto 21 version of the JDK. If this was set to another version
    previously, it is overridden.
 
+###### Example
+
 ```
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home
 ```
@@ -31,6 +35,8 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Conten
 ## Uninstall Amazon Corretto 21
 
 You can uninstall Amazon Corretto 21 by running the following commands in a terminal.
+
+###### Example
 
 ```
 cd /Library/Java/JavaVirtualMachines/
