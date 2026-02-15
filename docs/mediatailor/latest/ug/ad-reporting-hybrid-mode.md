@@ -8,7 +8,7 @@ To enable hybrid tracking using playback prefixes, from the player
 initialize a new MediaTailor playback session using a request in one of the
 following formats, according to your protocol:
 
-###### Example : HLS format
+###### Example: HLS format
 
 ```
 POST master.m3u8
@@ -20,7 +20,7 @@ POST master.m3u8
     }
 ```
 
-###### Example : DASH format
+###### Example: DASH format
 
 ```
 POST manifest.mpd

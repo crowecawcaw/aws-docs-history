@@ -35,7 +35,7 @@ player SDKs](#ad-reporting-client-side-ad-tracking-integrations-dz "#ad-reportin
 
 MediaTailor currently supports VAST version 3 only.
 
-###### Example : Verification node in VAST 3, prior to Version 4.1
+###### Example: Verification node in VAST 3, prior to Version 4.1
 
 ```
 ...
@@ -64,7 +64,7 @@ MediaTailor extracts the `AdVerifications` data from the
 `<Extensions>` node and places it into the
 `adVerifications` array in the client-side tracking response.
 
-###### Example : adVerifications array in client-side tracking response
+###### Example: adVerifications array in client-side tracking response
 
 ```
 {

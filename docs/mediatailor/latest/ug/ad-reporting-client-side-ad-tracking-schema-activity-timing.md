@@ -36,7 +36,7 @@ activities, such as tracking events, with playback position:
     payload. The `PeriodId` also corresponds to the `adId` or
     `eventId` in the client-side tracking response.
 
-###### Example : HLS
+###### Example: HLS
 
 In the following example, the MediaTailor session started, and the following manifest is the
 first one served to the client:
@@ -82,7 +82,7 @@ In the client-side tracking JSON payload, the following values apply:
 - `availProgramDateTime`: `"2023-05-03T21:24:41.453Z"`
 - `adId`: `4603269`
 
-###### Example : DASH
+###### Example: DASH
 
 In the following example, the MediaTailor session gets a midroll in the manifest. Note that the
 `@start` attribute value of the second period, which is the ad period, has a

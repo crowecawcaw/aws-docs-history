@@ -158,7 +158,7 @@ additional metadata cannot be added for the duration of the session. Use SCTE-35
 markers to carry data that changes during the session. For more information, see
 [MediaTailor session variables for ADS requests](variables-session.md "variables-session.md").
 
-###### Example : Performing client-side ad tracking for HLS
+###### Example: Performing client-side ad tracking for HLS
 
 ```
 POST `mediatailorURL`/v1/session/`hashed-account-id`/`origin-id`/`asset-id`.m3u8
@@ -171,7 +171,7 @@ POST `mediatailorURL`/v1/session/`hashed-account-id`/`origin-id`/`asset-id`.m3u8
         }
 ```
 
-###### Example : Performing client-side ad tracking for DASH
+###### Example: Performing client-side ad tracking for DASH
 
 ```
 POST `mediatailorURL`/v1/session/`hashed-account-id`/`origin-id`/`asset-id`.mpd

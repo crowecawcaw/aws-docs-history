@@ -33,7 +33,7 @@ level.
     `[player_params.param]` settings in the ADS template URL of the MediaTailor
     configuration.
 
-###### Example : HLS
+###### Example: HLS
 
 ```
 POST master.m3u8
@@ -46,7 +46,7 @@ POST master.m3u8
 
 ```
 
-###### Example : DASH
+###### Example: DASH
 
 ```
 POST manifest.mpd

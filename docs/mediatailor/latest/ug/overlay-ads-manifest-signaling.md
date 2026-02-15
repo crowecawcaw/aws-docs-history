@@ -72,7 +72,7 @@ The following example shows the SCTE-35 signal represented as a binary (base
 The following examples shows the SCTE-35 marker in both HLS and DASH
 manifests.
 
-###### Example : HLS manifest
+###### Example: HLS manifest
 
 ```
 #EXTM3U
@@ -111,7 +111,7 @@ https://aws.cloudfront.net/media/asset1/index1_00006.ts
 https://aws.cloudfront.net/media/asset1/index1_00007.ts
 ```
 
-###### Example : DASH manifest
+###### Example: DASH manifest
 
 ```
 <?xml version="1.0"?>
