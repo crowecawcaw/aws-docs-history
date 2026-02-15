@@ -246,6 +246,8 @@ keys to. For example, you should use [String condition operators](#Conditions_St
 to string values. Similarly, you should use [Amazon Resource Name (ARN) condition operators](#Conditions_ARN "#Conditions_ARN") when comparing
 keys to ARN values.
 
+###### Example
+
 This example shows how you might create a boundary around resources in your
 organization. The condition in this policy denies access to Amazon S3 actions unless the
 resource being accessed is in a specific set of organizational units (OUs) in AWS Organizations. An

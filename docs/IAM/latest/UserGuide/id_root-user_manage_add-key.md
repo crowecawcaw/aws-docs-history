@@ -71,6 +71,8 @@ key.
 - AWS CLI: [aws iam
   create-access-key](../../../cli/latest/reference/iam/create-access-key.md "../../../cli/latest/reference/iam/create-access-key.md")
 
+###### Example
+
 ```
 `$` `aws iam create-access-key``{
  "AccessKey": {

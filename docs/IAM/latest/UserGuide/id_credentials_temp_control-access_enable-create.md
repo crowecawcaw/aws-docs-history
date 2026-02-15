@@ -49,9 +49,7 @@ JSON
 
 ```
 
-###### Example policy that grants permission to create temporary security credentials for a
-
-federated user
+###### Example policy that grants permission to create temporary security credentials for a federated user
 
 The following example policy grants permission to access
 `GetFederationToken`.
@@ -80,9 +78,7 @@ access](id_roles_create_policy-examples.md "id_roles_create_policy-examples.md")
 permissions in temporary security credentials, see [Permissions for temporary security
 credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").
 
-###### Example policy that grants a user limited permission to create temporary security
-
-credentials for federated users
+###### Example policy that grants a user limited permission to create temporary security credentials for federated users
 
 When you let an IAM user call `GetFederationToken`, it is a best practice to
 restrict the permissions that the IAM user can delegate. For example, the following policy

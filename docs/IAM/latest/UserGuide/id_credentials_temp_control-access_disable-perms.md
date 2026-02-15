@@ -306,7 +306,7 @@ JSON
  "`AIDAXUSER1`",
  "`AROAXROLE1`:`*`",
  "`AROAXROLE2`:<`caller-specified-role-session-name`>",
- "`account-id`:<`federated-user-caller-specified-name`>"
+ "`123456789012`:<`federated-user-caller-specified-name`>"
  ]
  }
  }

@@ -1,6 +1,6 @@
-# Policy to enable Automation across your organization
+# Policy to grant read-only access to Compute Optimizer Automation for a management account of an organization
 
-The following code example shows how to This permission-based policy enables Automation across your organization
+The following code example shows how to This permission-based policy grants read-only access to Compute Optimizer Automation for a management account of an organization
 
 JSON
 
@@ -10,36 +10,22 @@ JSON
  "Statement": [
  {
  "Effect": "Allow",
- "Action": "iam:CreateServiceLinkedRole",
- "Resource": "arn:aws:iam::*:role/aws-service-role/aco-automation.amazonaws.com/AWSServiceRoleForComputeOptimizerAutomation",
- "Condition": {"StringLike": {"iam:AWSServiceName": "aco-automation.amazonaws.com"}}
- },
- {
- "Effect": "Allow",
  "Action": [
- "iam:PutRolePolicy",
- "iam:AttachRolePolicy"
+ "aco-automation:GetEnrollmentConfiguration",
+ "aco-automation:GetAutomationEvent",
+ "aco-automation:GetAutomationRule",
+ "aco-automation:ListAccounts",
+ "aco-automation:ListAutomationEvents",
+ "aco-automation:ListAutomationEventSteps",
+ "aco-automation:ListAutomationEventSummaries",
+ "aco-automation:ListAutomationRules",
+ "aco-automation:ListAutomationRulePreview",
+ "aco-automation:ListAutomationRulePreviewSummaries",
+ "aco-automation:ListRecommendedActions",
+ "aco-automation:ListRecommendedActionSummaries",
+ "aco-automation:ListTagsForResource",
+ "ec2:DescribeVolumes"
  ],
- "Resource": "arn:aws:iam::*:role/aws-service-role/aco-automation.amazonaws.com/AWSServiceRoleForComputeOptimizerAutomation"
- },
- {
- "Effect": "Allow",
- "Action": "aco-automation:UpdateEnrollmentConfiguration",
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": "aco-automation:AssociateAccounts",
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": "aco-automation:DisassociateAccounts",
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": "aco-automation:ListAccounts",
  "Resource": "*"
  }
  ]

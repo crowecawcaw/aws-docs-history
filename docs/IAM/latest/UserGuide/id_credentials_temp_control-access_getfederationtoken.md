@@ -59,9 +59,7 @@ need. Note that the `sts:GetFederationToken` permission is required for your
 authentication service to obtain temporary security credentials for the AWS STS federated
 users.
 
-###### Example policy attached to IAM user `token-app` that calls
-
-`GetFederationToken`
+###### Example policy attached to IAM user token-app that calls GetFederationToken
 
 JSON
 
@@ -126,9 +124,7 @@ S3 bucket except `productionapp`. These actions are denied even though those
 permissions are granted to the IAM user that is associated with the
 `GetFederationToken` call.
 
-###### Example session policy passed as parameter of `GetFederationToken` API
-
-call
+###### Example session policy passed as parameter of GetFederationToken API call
 
 JSON
 

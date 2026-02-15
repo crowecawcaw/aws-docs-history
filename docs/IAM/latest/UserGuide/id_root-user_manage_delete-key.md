@@ -49,6 +49,8 @@ To perform the following steps, you must have at least the following IAM permiss
 - AWS CLI: [aws iam
   delete-access-key](../../../cli/latest/reference/iam/delete-access-key.md "../../../cli/latest/reference/iam/delete-access-key.md")
 
+###### Example
+
 ```
 `$` aws iam delete-access-key \
     --access-key-id AKIAIOSFODNN7EXAMPLE

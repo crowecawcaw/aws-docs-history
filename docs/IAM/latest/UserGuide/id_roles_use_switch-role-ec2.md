@@ -130,9 +130,7 @@ role. The policy includes wildcards (`*`) to allow a user to pass any role and t
 perform the listed Amazon EC2 actions. The `ListInstanceProfiles` action allows users to
 view all of the roles available in the AWS account.
 
-###### Example policy that grants a user permission to use the Amazon EC2 console to launch an
-
-instance with any role
+###### Example policy that grants a user permission to use the Amazon EC2 console to launch an instance with any role
 
 JSON
 
@@ -198,9 +196,7 @@ the console does this on the user's behalf). It helps an administrator to contro
 roles can be passed by which users. In this case, it ensures that the user is allowed to
 attach a specific role to an Amazon EC2 instance.
 
-###### Example policy that grants a user permission to launch an Amazon EC2 instance with a
-
-specific role
+###### Example policy that grants a user permission to launch an Amazon EC2 instance with a specific role
 
 The following sample policy allows users to use the Amazon EC2 API to launch an instance
 with a role. The `Resource` element specifies the Amazon Resource Name (ARN) of

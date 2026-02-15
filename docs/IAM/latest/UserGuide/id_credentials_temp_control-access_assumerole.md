@@ -96,7 +96,7 @@ out and the assumed session is not granted the `s3:DeleteObject` permission. The
 policy sets the maximum permissions for the role session so that it overrides any existing
 permissions policies on the role.
 
-###### Example session policy passed with `AssumeRole` API call
+###### Example session policy passed with AssumeRole API call
 
 JSON
 

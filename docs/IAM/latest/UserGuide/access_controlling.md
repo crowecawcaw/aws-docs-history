@@ -309,9 +309,7 @@ and get policies. To learn how to create a policy using this example JSON policy
 document, see [Creating policies using the JSON
 editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
-###### Example policy that allows creating, updating, deleting, listing, getting, and
-
-setting the default version for all policies
+###### Example policy that allows creating, updating, deleting, listing, getting, and setting the default version for all policies
 
 JSON
 
@@ -355,9 +353,7 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 For more information about using paths in the names of customer managed policies, see
 [Friendly names and paths](reference_identifiers.md#identifiers-friendly-names "reference_identifiers.md#identifiers-friendly-names").
 
-###### Example policy that allows deleting policy versions and setting the default
-
-version for only specific policies
+###### Example policy that allows deleting policy versions and setting the default version for only specific policies
 
 JSON
 
@@ -408,9 +404,7 @@ include the path /TEAM-A/). To learn how to create a policy using this example J
 policy document, see [Creating policies using the JSON
 editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
-###### Example policy that allows attaching managed policies to only specific user
-
-groups or roles
+###### Example policy that allows attaching managed policies to only specific user groups or roles
 
 JSON
 

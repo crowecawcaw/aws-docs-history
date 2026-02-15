@@ -251,6 +251,7 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [AWS Import Export Disk Service](list_awsimportexportdiskservice.md "list_awsimportexportdiskservice.md")
 - [Amazon Inspector](list_amazoninspector.md "list_amazoninspector.md")
 - [Amazon Inspector2](list_amazoninspector2.md "list_amazoninspector2.md")
+- [Amazon Inspector2 Telemetry Channel](list_amazoninspector2telemetrychannel.md "list_amazoninspector2telemetrychannel.md")
 - [Amazon InspectorScan](list_amazoninspectorscan.md "list_amazoninspectorscan.md")
 - [Amazon Interactive Video Service](list_amazoninteractivevideoservice.md "list_amazoninteractivevideoservice.md")
 - [Amazon Interactive Video Service Chat](list_amazoninteractivevideoservicechat.md "list_amazoninteractivevideoservicechat.md")

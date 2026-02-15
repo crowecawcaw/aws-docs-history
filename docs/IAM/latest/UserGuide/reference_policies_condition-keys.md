@@ -56,9 +56,9 @@ operators only with multivalued condition keys. Do not use set operators with
 single-valued condition keys. For more information, see [Set operators
 for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
-| Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                          | Properties of the network                                                                                                                                      | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                                                           |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aws:PrincipalArn`<br>`aws:PrincipalAccount`<br>`aws:PrincipalOrgPaths`<br>`aws:PrincipalOrgID`<br>`aws:PrincipalTag/tag-key`<br>`aws:PrincipalIsAWSService`<br>`aws:PrincipalServiceName`<br>`aws:PrincipalServiceNamesList`<br>`aws:PrincipalType`<br>`aws:userid`<br>`aws:username` | `aws:AssumedRoot`<br>`aws:FederatedProvider`<br>`aws:TokenIssueTime`<br>`aws:MultiFactorAuthAge`<br>`aws:MultiFactorAuthPresent`<br>`aws:ChatbotSourceArn`<br>`aws:Ec2InstanceSourceVpc`<br>`aws:Ec2InstanceSourcePrivateIPv4`<br>`aws:SourceIdentity`<br>`ec2:RoleDelivery`<br>`ec2:SourceInstanceArn`<br>`glue:RoleAssumedBy`<br>`glue:CredentialIssuingService`<br>`lambda:SourceFunctionArn`<br>`ssm:SourceInstanceArn`<br>`identitystore:UserId` | `aws:SourceIp`<br>`aws:SourceVpc`<br>`aws:SourceVpcArn`<br>`aws:SourceVpce`<br>`aws:VpceAccount`<br>`aws:VpceOrgID`<br>`aws:VpceOrgPaths`<br>`aws:VpcSourceIp` | `aws:ResourceAccount`<br>`aws:ResourceOrgID`<br>`aws:ResourceOrgPaths`<br>`aws:ResourceTag/tag-key` | `aws:CalledVia`<br>`aws:CalledViaFirst`<br>`aws:CalledViaLast`<br>`aws:ViaAWSService`<br>`aws:CurrentTime`<br>`aws:EpochTime`<br>`aws:referer`<br>`aws:RequestedRegion`<br>`aws:RequestTag/tag-key`<br>`aws:TagKeys`<br>`aws:SecureTransport`<br>`aws:SourceAccount`<br>`aws:SourceArn`<br>`aws:SourceOrgID`<br>`aws:SourceOrgPaths`<br>`aws:UserAgent`<br>`aws:IsMcpServiceAction` |
+| Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                          | Properties of the network                                                                                                                                      | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aws:PrincipalArn`<br>`aws:PrincipalAccount`<br>`aws:PrincipalOrgPaths`<br>`aws:PrincipalOrgID`<br>`aws:PrincipalTag/tag-key`<br>`aws:PrincipalIsAWSService`<br>`aws:PrincipalServiceName`<br>`aws:PrincipalServiceNamesList`<br>`aws:PrincipalType`<br>`aws:userid`<br>`aws:username` | `aws:AssumedRoot`<br>`aws:FederatedProvider`<br>`aws:TokenIssueTime`<br>`aws:MultiFactorAuthAge`<br>`aws:MultiFactorAuthPresent`<br>`aws:ChatbotSourceArn`<br>`aws:Ec2InstanceSourceVpc`<br>`aws:Ec2InstanceSourcePrivateIPv4`<br>`aws:SourceIdentity`<br>`ec2:RoleDelivery`<br>`ec2:SourceInstanceArn`<br>`glue:RoleAssumedBy`<br>`glue:CredentialIssuingService`<br>`lambda:SourceFunctionArn`<br>`ssm:SourceInstanceArn`<br>`identitystore:UserId` | `aws:SourceIp`<br>`aws:SourceVpc`<br>`aws:SourceVpcArn`<br>`aws:SourceVpce`<br>`aws:VpceAccount`<br>`aws:VpceOrgID`<br>`aws:VpceOrgPaths`<br>`aws:VpcSourceIp` | `aws:ResourceAccount`<br>`aws:ResourceOrgID`<br>`aws:ResourceOrgPaths`<br>`aws:ResourceTag/tag-key` | `aws:CalledVia`<br>`aws:CalledViaFirst`<br>`aws:CalledViaLast`<br>`aws:CalledViaAWSMCP`<br>`aws:ViaAWSService`<br>`aws:ViaAWSMCPService`<br>`aws:CurrentTime`<br>`aws:EpochTime`<br>`aws:referer`<br>`aws:RequestedRegion`<br>`aws:RequestTag/tag-key`<br>`aws:TagKeys`<br>`aws:SecureTransport`<br>`aws:SourceAccount`<br>`aws:SourceArn`<br>`aws:SourceOrgID`<br>`aws:SourceOrgPaths`<br>`aws:UserAgent`<br>`aws:IsMcpServiceAction` |
 
 ## Sensitive condition keys
 
@@ -1955,7 +1955,6 @@ based on the account that owns the resource.
     - `ec2:AcceptTransitGatewayPeeringAttachment`
     - `ec2:AcceptVpcEndpointConnections`
     - `ec2:AcceptVpcPeeringConnection`
-    - `ec2:CopySnapshot`
     - `ec2:CreateTransitGatewayPeeringAttachment`
     - `ec2:CreateVpcEndpoint`
     - `ec2:CreateVpcPeeringConnection`
@@ -2105,7 +2104,6 @@ AWS Organizations entity path](access_policies_last-accessed-view-data-orgs.md#a
     - `ec2:AcceptTransitGatewayPeeringAttachment`
     - `ec2:AcceptVpcEndpointConnections`
     - `ec2:AcceptVpcPeeringConnection`
-    - `ec2:CopySnapshot`
     - `ec2:CreateTransitGatewayPeeringAttachment`
     - `ec2:CreateVpcEndpoint`
     - `ec2:CreateVpcPeeringConnection`
@@ -2228,7 +2226,6 @@ the requested resource belongs with the identifier specified in the policy.
     - `ec2:AcceptTransitGatewayPeeringAttachment`
     - `ec2:AcceptVpcEndpointConnections`
     - `ec2:AcceptVpcPeeringConnection`
-    - `ec2:CopySnapshot`
     - `ec2:CreateTransitGatewayPeeringAttachment`
     - `ec2:CreateVpcEndpoint`
     - `ec2:CreateVpcPeeringConnection`
@@ -2550,6 +2547,92 @@ call directly.
   included in the request context.
 - **Data type** – [Boolean](reference_policies_elements_condition_operators.md#Conditions_Boolean "reference_policies_elements_condition_operators.md#Conditions_Boolean")
 - **Value type** – Single-valued
+
+### aws:CalledViaAWSMCP
+
+Use this key to compare the services in the policy with the AWS MCP services
+that made requests on behalf of the IAM principal (user or role). When a principal
+makes a request to an AWS MCP service, that service uses the principal's
+credentials to make subsequent requests to other services. When the request is made
+using an AWS MCP service, this key is set with the value of the service principal.
+The `aws:CalledViaAWSMCP` key contains the service principal name of the
+MCP service that made requests on the principal's behalf.
+
+- **Availability** – This key is present
+  in the request when an AWS MCP service uses the credentials of an IAM
+  principal to make a request to an AWS service. This key is also not present
+  when the principal makes the call directly.
+- **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
+- **Value type** – Single-valued
+
+You can use this condition key to allow or deny access based on which specific MCP
+server initiated the request. For example, the following policy denies sensitive
+delete operations when they are initiated through a specific MCP server:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenySensitiveActionsViaSpecificMCP",
+            "Effect": "Deny",
+            "Action": [
+                "s3:DeleteBucket",
+                "s3:DeleteObject",
+                "dynamodb:DeleteTable"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:CalledViaAWSMCP": "aws-mcp.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+### aws:ViaAWSMCPService
+
+Use this key to check whether an AWS MCP service makes a request to another
+AWS service on your behalf using forward access sessions (FAS). The request
+context key returns `true` when an AWS MCP service forwards a request
+to an AWS service on behalf of the original IAM principal. The request context
+key also returns `false` when the principal makes the call
+directly.
+
+- **Availability** – This key is included
+  in the request context when an AWS MCP server makes a request to a
+  downstream AWS service on behalf of an IAM principal.
+- **Data type** – [Boolean](reference_policies_elements_condition_operators.md#Conditions_Boolean "reference_policies_elements_condition_operators.md#Conditions_Boolean")
+- **Value type** – Single-valued
+
+You can use this key to restrict specific actions when they come through MCP
+servers. For example, the following policy denies sensitive delete operations when
+initiated through any AWS MCP server:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenySensitiveActionsViaMCP",
+            "Effect": "Deny",
+            "Action": [
+                "s3:DeleteBucket",
+                "s3:DeleteObject",
+                "dynamodb:DeleteTable"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "aws:ViaAWSMCPService": "true"
+                }
+            }
+        }
+    ]
+}
+```
 
 ### aws:CurrentTime
 
