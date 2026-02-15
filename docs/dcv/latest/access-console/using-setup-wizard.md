@@ -49,6 +49,8 @@ When in non-interactive mode, the Setup Wizard supports several ways of inputtin
 You can specify the input parameters by loading a JSON file to the Setup Wizard, where the key-value pairs are the name of the parameter and specified value. Two starter files
 are provided with the Setup Wizard: `wizard_input.json` for setting up on multiple hosts and `onebox_wizard_input.json` for setting up on a single host.
 
+###### Example
+
 For example, this file specifies the `broker-client-id` and the `broker-client-password`:
 
 ```
