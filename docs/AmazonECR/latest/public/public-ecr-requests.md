@@ -53,6 +53,8 @@ If you are using use Linux/Unix or Mac OS X, you can test whether you can access
 endpoint over IPv6 by using the `curl` command as shown in the following
 example:
 
+###### Example
+
 ```
 curl -v https://ecr-public.us-east-1.api.aws
 ```
