@@ -381,6 +381,8 @@ JSON
 
 ```
 
+###### Example
+
 When you use CloudFormation to create these resources, your pipeline is triggered when
 files in your repository are created or updated.
 

@@ -1059,7 +1059,9 @@ pipelines/stages/actions and states.
 For more detailed event patterns, you can copy and paste the following example event
 patterns into the **Event pattern** window.
 
-    * Use this sample event pattern to capture failed deploy and build actions
+    * ###### Example
+
+    Use this sample event pattern to capture failed deploy and build actions
      across all the pipelines.
 
 
@@ -1082,7 +1084,9 @@ patterns into the **Event pattern** window.
       }
     }
     ```
-    * Use this sample event pattern to capture all rejected or failed approval
+    * ###### Example
+
+    Use this sample event pattern to capture all rejected or failed approval
      actions across all the pipelines.
 
 
@@ -1105,7 +1109,9 @@ patterns into the **Event pattern** window.
       }
     }
     ```
-    * Use this sample event pattern to capture all the events from the specified
+    * ###### Example
+
+    Use this sample event pattern to capture all the events from the specified
      pipelines.
 
 

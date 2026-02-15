@@ -961,6 +961,8 @@ JSON
 
 ```
 
+###### Example
+
 When you create these resources with CloudFormation, your pipeline is triggered when
 files in your repository are created or updated. Here is the final template
 snippet:
@@ -1820,6 +1822,8 @@ JSON
   }
 
 ```
+
+###### Example
 
 When you use CloudFormation to create these resources, your pipeline is triggered when
 files in your repository are created or updated.
@@ -3032,6 +3036,8 @@ JSON
 
 ...
 ```
+
+###### Example
 
 When you use CloudFormation to create these resources, your pipeline is triggered when
 files in your repository are created or updated.
@@ -4394,6 +4400,8 @@ JSON
 	"RunOrder": 1
     }]
 ```
+
+###### Example
 
 When you create these resources with CloudFormation, the webhook defined is created in
 the specified GitHub repository. Your pipeline is triggered on commit.
