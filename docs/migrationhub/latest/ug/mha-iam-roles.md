@@ -64,7 +64,7 @@ JSON
  "Action": "sts:AssumeRole",
  "Condition": {
  "StringEquals": {
- "aws:SourceAccount": "`account-id`"
+ "aws:SourceAccount": "`123456789012`"
  }
  }
  }
@@ -114,7 +114,7 @@ JSON
  "Action": "sts:AssumeRole",
  "Condition": {
  "StringEquals": {
- "aws:SourceAccount": "`account-id`"
+ "aws:SourceAccount": "`123456789012`"
  }
  }
  }
@@ -148,7 +148,7 @@ JSON
  "Action": "sts:AssumeRole",
  "Condition": {
  "StringEquals": {
- "aws:SourceAccount": "`account-id`"
+ "aws:SourceAccount": "`123456789012`"
  }
  }
  }
