@@ -12,6 +12,8 @@ You cannot delete pools if the pools have CIDRs provisioned, and you cannot depr
   resource CIDR. For more information, see [Change the monitoring state of VPC CIDRs](change-monitoring-state-ipam.md "change-monitoring-state-ipam.md"). After some time, Amazon VPC
   IPAM will automatically release the allocation on your behalf.
 
+###### Example
+
 **Example**
 
 If you have a VPC CIDR in a private scope, to release the allocation you

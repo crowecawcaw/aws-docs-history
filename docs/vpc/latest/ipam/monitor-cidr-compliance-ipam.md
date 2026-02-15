@@ -96,6 +96,8 @@ AWS Management Console
         resource CIDR does not comply with one or more of the
         allocation rules of the IPAM pool.
 
+      ###### Example
+
       If a VPC has a CIDR that does not meet the netmask
       length parameters of the IPAM pool, or if the
       resource is not in the same AWS Region as the IPAM

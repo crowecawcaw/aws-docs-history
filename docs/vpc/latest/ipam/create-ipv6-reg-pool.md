@@ -53,6 +53,8 @@ information about sharing pools with RAM, see [Share an IPAM pool using AWS RAM]
 The following example shows how you might use allocation rules to control access to an
 IPAM pool:
 
+###### Example
+
 When you create your pools based on routing and security needs, you might want to allow only
 certain resources to use a pool. In such cases, you can set an allocation rule stating
 that any resource that wants a CIDR from this pool must have a tag that matches the

@@ -62,6 +62,8 @@ The results of the search are organized into the following columns:
   periodic snapshots, so the start time might have occurred before this specific
   time.
 
+###### Example
+
 To help explain the times that you see under Sampled start time and Sampled end time, let’s look at an example use case:
 
 At 2:00 PM, a VPC was created with CIDR 10.0.0.0/16. At 3:00 PM, you create an
@@ -89,6 +91,8 @@ is when the VPC was deleted.
   - **Noncompliant**: The
     resource CIDR does not comply with one or more of the
     allocation rules of the IPAM pool.
+
+  ###### Example
 
   If a VPC has a CIDR that does not meet the netmask
   length parameters of the IPAM pool, or if the
