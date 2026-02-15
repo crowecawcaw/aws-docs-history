@@ -1,78 +1,106 @@
-# Oracle DBMS_OUTPUT and MySQL SELECT
+# Oracle DBMS_RANDOM and MySQL RAND function
 
-Oracle `DBMS_OUTPUT` is a package that lets you send messages from stored procedures, functions, and anonymous blocks to a message buffer. MySQL `SELECT` is a statement used to retrieve data from one or more tables in a MySQL database. The following sections will provide details on using `DBMS_OUTPUT` in Oracle and `SELECT` statements in MySQL with AWS DMS.
+With AWS DMS, you can generate random numbers or values during data migration from Oracle to MySQL or vice versa. Oracle’s `DBMS_RANDOM` package and MySQL’s `RAND` function provide methods for generating random data, which can be useful for tasks like creating test data, simulating real-world scenarios, or introducing randomness into algorithms.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                              | Key differences                                                         |
-| -------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Three star feature compatibility | No automation                      | [DBMS_OUTPUT](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.output "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.output") | Different paradigm and syntax requires application and drivers rewrite. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                |
+| -------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------------- |
+| Three star feature compatibility | No automation                      | N/A                       | Different syntax and missing options may require code rewrite. |
 
 ## Oracle usage
 
-The Oracle `DBMS_OUTPUT` package is typically used for debugging or for displaying output messages from PL/SQL procedures.
+Oracle `DBMS_RANDOM` package provides functionality for generating random numbers or strings as part of an SQL statement or PL/SQL procedure.
+
+The `DBMS_RANDOM` Package stored procedures include:
+
+- **NORMAL** — Returns random numbers in a standard normal distribution.
+- **SEED** — Resets the seed that generates random numbers or strings.
+- **STRING** — Returns a random string.
+- **VALUE** — Returns a number greater than or equal to 0 and less than 1 with 38 digits to the right of the decimal. Alternatively, you could generate a random number greater than or equal to a low parameter and less than a high parameter.
+
+`DBMS_RANDOM.RANDOM` produces integers in the range [-2^^31, 2^^31].
+
+`DBMS_RANDOM.VALUE` produces numbers in the range [0,1] with 38 digits of precision.
 
 ### Examples
 
-In the following example, `DBMS_OUTPUT` with `PUT_LINE` is used with a combination of bind variables to dynamically construct a string and print a notification to the screen from within an Oracle PL/SQL procedure. In order to display notifications on to the screen, you must configure the session with `SET SERVEROUPUT ON`.
+Generate a random number.
 
 ```
-SET SERVEROUTPUT ON
-DECLARE
-CURSOR c1 IS
-SELECT last_name, job_id FROM employees
-WHERE REGEXP_LIKE (job_id, 'S[HT]_CLERK')
-ORDER BY last_name;
-v_lastname employees.last_name%TYPE; -- variable to store last_name
-v_jobid employees.job_id%TYPE; -- variable to store job_id
-BEGIN
-OPEN c1;
-LOOP -- Fetches 2 columns into variables
-FETCH c1 INTO v_lastname, v_jobid;
-DBMS_OUTPUT.PUT_LINE ('The employee id is:' || v_jobid || ' and his last name is:' ||
-v_lastname);
-EXIT WHEN c1%NOTFOUND;
-END LOOP;
-CLOSE c1;
-END;
+select dbms_random.value() from dual;
+
+DBMS_RANDOM.VALUE()
+.859251508
+
+select dbms_random.value() from dual;
+
+DBMS_RANDOM.VALUE()
+.364792387
 ```
 
-In addition to the output of information on the screen, the `PUT` and `PUT_LINE` procedures in the `DBMS_OUTPUT` package enable you to place information in a buffer that can be read later by another PL/SQL procedure or package. You can display the previously buffered information using the `GET_LINE` and `GET_LINES` procedures.
+Generate a random string. The first character determines the returned string type and the number specifies the length.
 
-For more information, see [DBMS_OUTPUT](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_OUTPUT.html#GUID-C1400094-18D5-4F36-A2C9-D28B0E12FD8C "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_OUTPUT.html#GUID-C1400094-18D5-4F36-A2C9-D28B0E12FD8C") in the _Oracle documentation_.
+```
+select dbms_random.string('p',10) from dual;
+DBMS_RANDOM.STRING('P',10)
+
+la'?z[Q&/2
+
+select dbms_random.string('p',10) from dual;
+DBMS_RANDOM.STRING('P',10)
+
+t?!Gf2M60q
+```
+
+For more information, see [DBMS_RANDOM](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F") in the _Oracle documentation_.
 
 ## MySQL usage
 
-You can use `SELECT` to display output messages in Aurora MySQL.
+The MySQL `RAND` function is not fully equivalent to Oracle `DBMS_RANDOM` because it does not generate string values. However, there are other functions in that can be used in combination to achieve full functionality.
+
+`RAND` function returns a random floating-point value `v` in the range `0 ⇐ v < 1.0`.
+
+You can use the `RAND` function with a seed value to reset the seed. If an integer argument N is specified, it is used as the seed value:
+
+- With a constant initializer argument, the seed is initialized once when the statement is prepared and prior to execution.
+- With a non-constant initializer argument such as a column name, the seed is initialized with the value for each invocation of `RAND()`.
 
 ### Examples
 
+Generate a random number.
+
 ```
-delimiter //
+select RAND();
 
-CREATE PROCEDURE emp_counter (param1 INTEGER)
-BEGIN
-SELECT "" 'OUTPUT: Before count';
-SELECT COUNT(*) INTO param1 FROM EMPS;
-SELECT concat('Employees count: ', param1) as '';
-SELECT "" 'OUTPUT: After count';
-END//
-
-delimiter ;
-call simpleproc1(1);
-
-OUTPUT: Before count
-1 row in set (0.19 sec)
-
-Employees count: 8
-1 row in set (0.20 sec)
-
-OUTPUT: After count
-1 row in set (0.21 sec)
-
-Query OK, 0 rows affected (0.22 sec)
+RAND()
+0.30244802525494996
 ```
 
-###### Note
+To obtain a random integer `R` in the range `i ⇐ R < j`, use the expression `FLOOR(i + RAND() * (j − i))`. For example, to obtain a random integer in the range `7 ⇐ R < 12`, use:
 
-Use double quotation marks with `SELECT` for cleaner display. Otherwise, messages are displayed twice, both as header and value.
+```
+SELECT FLOOR(7 + (RAND() * 5));
 
-For more information, see [SELECT Statement](https://dev.mysql.com/doc/refman/5.7/en/select.html "https://dev.mysql.com/doc/refman/5.7/en/select.html") in the _MySQL documentation_.
+FLOOR(7 + (RAND() * 5))
+8
+```
+
+Generate an eight-character string of digits.
+
+```
+SELECT SUBSTRING(MD5(RAND()) FROM 1 FOR 8);
+```
+
+Generate an eight-character string containing characters only.
+
+```
+SELECT concat(substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', rand()*52+1, 1),
+substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', rand()*52+1, 1),
+substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', rand()*52+1, 1),
+substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', rand()*52+1, 1),
+substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', rand()*52+1, 1),
+substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', rand()*52+1, 1),
+substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', rand()*52+1, 1),
+substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', rand()*52+1, 1))
+```
+
+For more information, see [RAND()](https://dev.mysql.com/doc/refman/5.7/en/mathematical-functions.html#function_rand "https://dev.mysql.com/doc/refman/5.7/en/mathematical-functions.html#function_rand") in the _MySQL documentation_.
