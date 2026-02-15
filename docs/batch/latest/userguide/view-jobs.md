@@ -20,10 +20,10 @@ you specify.
 ###### Note
 
 You can search for jobs within only one job queue at a time. 4. In the **Filter results** field, enter keywords to include in the
-search results. You can use this field to search by **Job name**,
-**Status**, or **Job ID**. Depending on the property,
-there may be additional operators, such as equals (=) or contains (:) that you must
-define.
+results. You can use this field to filter by **Job name**,
+**Status**, or **Job ID**. Depending on the
+property, there may be additional operators, such as equals (=) or contains (:) that
+you must define.
 
 ###### Note
 

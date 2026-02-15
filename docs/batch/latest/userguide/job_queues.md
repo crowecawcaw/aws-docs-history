@@ -9,7 +9,7 @@ first.
 ###### Topics
 
 - [Create a job queue](create-job-queue.md "create-job-queue.md")
-- [View job queue status](job_queue_viewing_status.md "job_queue_viewing_status.md")
+- [View a job queue in AWS Batch](job_queue_viewing_status.md "job_queue_viewing_status.md")
 - [Delete a job queue in AWS Batch](delete-job-queue.md "delete-job-queue.md")
 - [Fair-share scheduling policies](job_scheduling.md "job_scheduling.md")
 - [Resource-aware scheduling](resource-aware-scheduling.md "resource-aware-scheduling.md")

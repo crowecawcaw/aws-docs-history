@@ -15,6 +15,8 @@ The following are example MIME multi-part files that you can use to create your 
 
 system
 
+###### Example
+
 This example MIME multi-part file configures the compute resource to install the `amazon-efs-utils`
 package and mount an existing Amazon EFS file system at `/mnt/efs`.
 
@@ -43,6 +45,8 @@ runcmd:
 
 container agent configuration
 
+###### Example
+
 This example MIME multi-part file overrides the default Docker image cleanup settings for a compute
 resource.
 
@@ -63,6 +67,8 @@ echo ECS_IMAGE_MINIMUM_CLEANUP_AGE=60m >> /etc/ecs/ecs.config
 ## Example: Mount an existing
 
 Amazon FSx for Lustre file system
+
+###### Example
 
 This example MIME multi-part file configures the compute resource to install the `lustre2.10`
 package from the Extras Library and mount an existing FSx for Lustre file system at `/scratch` and

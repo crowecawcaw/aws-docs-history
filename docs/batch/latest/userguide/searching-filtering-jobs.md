@@ -47,8 +47,8 @@ You can search for jobs within only one job queue at a time. 5. For **Search opt
     	 created date within a date and time range that you specify.
     3. In the **Additional criteria** field, enter keywords to include
      in the search results. For example, you can use this field to search by **Job
-     name**, **Job definition**, or **Job
-     ID**. Depending on the property, there may be additional operators, such as
+     name**, **Job definition**, **Job
+     ID**, or **Share identifier**. Depending on the property, there may be additional operators, such as
      equals (=) or contains (:) that you must define.
 
 
@@ -56,6 +56,13 @@ You can search for jobs within only one job queue at a time. 5. For **Search opt
 
     SageMaker Training job queues only support filtering by **Job
      name** and **Job ID**
+
+
+    ###### Note
+
+    When filtering by **Share identifier**, you can also specify a
+     job status. This is an exception to the restriction where other filters exclude job
+     status filtering.
 
 6. Choose **Search**.
 
@@ -77,10 +84,28 @@ aws batch list-jobs \
     --filters name=JOB_NAME,values="`my-job`"
 ```
 
+Filter jobs by share identifier:
+
+```
+aws batch list-jobs \
+    --job-queue `my-job-queue` \
+    --filters name=SHARE_IDENTIFIER,values="`my-share`"
+```
+
+When filtering by share identifier, you can include job status:
+
+```
+aws batch list-jobs \
+    --job-queue `my-job-queue` \
+    --job-status RUNNING \
+    --filters name=SHARE_IDENTIFIER,values="`my-share`"
+```
+
 In the preceding command, make the following changes:
 
 - Replace `my-job-queue` with the name of your job queue.
 - Replace `my-job` with the name of your job.
+- Replace `my-share` with the share identifier you want to filter by.
 
 Search service job queue (AWS CLI)
 You can use the [list-service-jobs](../../../cli/latest/reference/batch/list-service-jobs.md "../../../cli/latest/reference/batch/list-service-jobs.md")
@@ -94,7 +119,16 @@ aws batch list-service-jobs \
     --filters name=JOB_NAME,values="`my-sm-job`"
 ```
 
+Filter service jobs by share identifier:
+
+```
+aws batch list-service-jobs \
+    --job-queue `my-sm-queue` \
+    --filters name=SHARE_IDENTIFIER,values="`my-share`"
+```
+
 In the preceding command, make the following changes:
 
 - Replace `my-sm-queue` with the name of your service job queue.
 - Replace `my-sm-job` with the name of your service job.
+- Replace `my-share` with the share identifier you want to filter by.

@@ -16,7 +16,7 @@ critical system processes. This memory isn't available for job allocation. For m
 The Amazon ECS container agent uses the Docker `ReadMemInfo()` function to query the total memory available
 to the operating system. Linux provides command line utilities to determine the total memory.
 
-###### Example - Determine Linux total memory
+###### Example- Determine Linux total memory
 
 The **free** command returns the total memory that's recognized by the operating system.
 

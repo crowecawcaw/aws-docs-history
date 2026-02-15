@@ -11,7 +11,7 @@ only when the specified resource dependencies are available.
 If a consumable resource for the job is not available when the job reaches
 the head of the queue, the job will wait in `RUNNABLE` state until
 all the required resources become available or the job state time limit is reached
-(see [View job queue status](job_queue_viewing_status.md "job_queue_viewing_status.md")).
+(see [View a job queue in AWS Batch](job_queue_viewing_status.md "job_queue_viewing_status.md")).
 Once Batch has validated that all the resources are available, the job transitions
 to the `STARTING` state and then to `RUNNING`. Resources are
 locked once the job moves to `STARTING` and are then unlocked when the

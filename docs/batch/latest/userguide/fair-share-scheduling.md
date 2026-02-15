@@ -38,4 +38,4 @@ share identifier is considered inactive.
 
 You only need to define this attribute when you need to update the default weight
 factor of 1.
-When the job queue is active and processing jobs, you can review a list of the first 100 `RUNNABLE` jobs through the Job queue snapshot. For more information, see [View job queue status](job_queue_viewing_status.md "job_queue_viewing_status.md").
+When the job queue is active and processing jobs, you can review a list of the first 100 `RUNNABLE` jobs through the Job queue snapshot. For more information, see [View a job queue in AWS Batch](job_queue_viewing_status.md "job_queue_viewing_status.md").

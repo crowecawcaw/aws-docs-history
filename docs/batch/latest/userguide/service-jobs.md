@@ -33,3 +33,4 @@ Service jobs differ from containerized jobs in several key ways:
   status](service-job-status.md "service-job-status.md")
 - [Service job retry strategies in AWS Batch](service-job-retries.md "service-job-retries.md")
 - [Monitor service jobs in an AWS Batch queue](monitor-sagemaker-job-queue.md "monitor-sagemaker-job-queue.md")
+- [Terminate service jobs](terminate-service-jobs.md "terminate-service-jobs.md")
