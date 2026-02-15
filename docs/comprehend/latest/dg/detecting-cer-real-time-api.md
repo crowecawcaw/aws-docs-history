@@ -64,7 +64,7 @@ AWS CLI
 To detect custom entities in text, run the `detect-entities`
 command with the input text in the `text` parameter.
 
-###### Example :
+###### Example:
 
 Use
 the CLI to detect entities in input text
@@ -88,7 +88,7 @@ AWS CLI
 To detect custom entities in PDF, Word, or image file, run the `detect-entities`
 command with the input file in the `bytes` parameter.
 
-###### Example : Use the CLI to detect entities in an image file
+###### Example: Use the CLI to detect entities in an image file
 
 This example shows how to pass in the image file using the `fileb` option to base64 encode the
 image bytes. For more information, see [Binary large objects](../../../cli/latest/userguide/cli-usage-parameters-types.md#parameter-type-blob "../../../cli/latest/userguide/cli-usage-parameters-types.md#parameter-type-blob")

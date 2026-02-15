@@ -126,6 +126,8 @@ For image files and PDF files, you can override the default extraction actions u
 The following example defines a JSON file named myInputDataConfig.json to set the `InputDataConfig` values.
 It sets `DocumentReadConfig` to use the Amazon Textract `DetectDocumentText` API for all PDF files.
 
+###### Example
+
 ```
 "InputDataConfig": {
   "S3Uri": s3://`Bucket Name`/`Bucket Path`",

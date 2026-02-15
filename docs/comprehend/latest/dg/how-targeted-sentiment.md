@@ -70,6 +70,8 @@ belong in any other category. Each entity mention in the output file includes th
 Targeted sentiment identifies co-reference groups in each input document. A co-reference group is a group of
 mentions in a document that correspond to one real-world entity.
 
+###### Example
+
 In the following example of a customer review, “spa” is the entity, which has entity type
 `FACILITY`. The entity has two additional mentions as a pronoun ("it").
 

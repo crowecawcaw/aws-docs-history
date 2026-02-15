@@ -32,6 +32,8 @@ lake.
 
 You can use the [CreateDataset](../APIReference/API_CreateDataset.md "../APIReference/API_CreateDataset.md") operation to create a dataset.
 
+###### Example
+
 ```
 aws comprehend create-dataset \
     --flywheel-arn "myFlywheel2" \

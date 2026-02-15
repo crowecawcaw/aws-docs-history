@@ -15,6 +15,8 @@ Review the information in section [Flywheel creation](flywheels-about.md#flywhee
 
 Use the [CreateFlywheel](../APIReference/API_CreateFlywheel.md "../APIReference/API_CreateFlywheel.md") operation to create a flywheel for an existing model.
 
+###### Example
+
 ```
 aws comprehend create-flywheel  \
     --flywheel-name "myFlywheel2"  \
@@ -35,6 +37,8 @@ If the operation is successful, the response includes the flywheel ARN.
 ## Create a flywheel for a new model
 
 Use the [CreateFlywheel](../APIReference/API_CreateFlywheel.md "../APIReference/API_CreateFlywheel.md") operation to create a flywheel for a new custom classification model.
+
+###### Example
 
 ```
 aws comprehend create-flywheel \
