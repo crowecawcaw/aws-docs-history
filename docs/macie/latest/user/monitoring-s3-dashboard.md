@@ -83,7 +83,7 @@ much of that data Macie can analyze to detect sensitive data. The following
 image shows an example of these statistics for an organization with seven
 accounts.
 
-![The Storage and sensitive data discovery section of the dashboard. Each field contains example data.](images/scrn-summary-dashboard-storage.png)
+![The Storage and sensitive data discovery section of the dashboard. Each field contains example data.](/images/macie/latest/user/images/scrn-summary-dashboard-storage.png)
 
 Individual statistics in this section are:
 
