@@ -19,7 +19,7 @@ This command displays the disk usage statistics for the Amazon File Caches curre
 your Linux-based Amazon EC2 instance. If the cache that you want to unmount isn’t listed in the
 `df` command output, this means that the cache is unmounted.
 
-###### Example – Identify the mount status of an Amazon File Cache resource and unmount it
+###### Example– Identify the mount status of an Amazon File Cache resource and unmount it
 
 ```
 $ df -T
