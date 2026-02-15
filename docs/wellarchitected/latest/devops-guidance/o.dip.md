@@ -1,30 +1,23 @@
-# [O.DIP.1] Aggregate logs and events across workloads
+# [O.DIP.4] Aggregate health and status metrics across workloads
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Logs and events should be aggregated across multiple workloads
-to provide a comprehensive view of the entire system. This
-enables teams to troubleshoot, identify patterns, and resolve
-operational issues.
+Aggregate health and status metrics across all workloads for a
+unified view of the system's overall health. Aggregated health
+metrics provide a snapshot of the system's overall health and
+performance, aiding in proactive issue detection and efficient
+resource management.
 
-Implement a log aggregation solution that supports collecting logs from various
-sources and provides functions for filtering, searching, visualizing, and alerting. Make
-sure the solution provides real-time data collection, supports necessary data sources, and
-offers visualization options. The tool should be accessible to application teams, allowing
-them to monitor and troubleshoot their system as needed.
+Use a monitoring solution that allows aggregation of health
+metrics across all applications, supports real-time data
+collection, and provides intuitive visualization of metrics
+data. Integration with the logging, events, and tracing tools
+can provide a comprehensive view of overall system health.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL11-BP01 Monitor
-  all components of the workload to detect failures](../reliability-pillar/rel_withstand_component_failures_monitoring_health.md "../reliability-pillar/rel_withstand_component_failures_monitoring_health.md")
-- [Cross-account
-  cross-Region CloudWatch console](../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md "../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md")
-- [Collect,
-  analyze, and display Amazon CloudWatch Logs in a single
-  dashboard with the Centralized Logging on AWS solution](../../../solutions/latest/centralized-logging-on-aws/welcome.md "../../../solutions/latest/centralized-logging-on-aws/welcome.md")
-- [Centralized
-  Logging with OpenSearch](https://aws.amazon.com/solutions/implementations/centralized-logging-with-opensearch/ "https://aws.amazon.com/solutions/implementations/centralized-logging-with-opensearch/")
-- [Sending
-  Logs Directly to Amazon S3](../../../AmazonCloudWatch/latest/logs/Sending-Logs-Directly-To-S3.md "../../../AmazonCloudWatch/latest/logs/Sending-Logs-Directly-To-S3.md")
-- [One
-  Observability Workshop](https://observability.workshop.aws/ "https://observability.workshop.aws/")
+- [Amazon Managed Grafana](https://aws.amazon.com/grafana/ "https://aws.amazon.com/grafana/")
+- [Amazon Managed Service for Prometheus](https://aws.amazon.com/prometheus/ "https://aws.amazon.com/prometheus/")
+- [Application
+  Monitoring with Amazon CloudWatch](https://aws.amazon.com/solutions/implementations/application-monitoring-with-cloudwatch/ "https://aws.amazon.com/solutions/implementations/application-monitoring-with-cloudwatch/")
+- [AWS Health Aware](https://github.com/aws-samples/aws-health-aware/ "https://github.com/aws-samples/aws-health-aware/")

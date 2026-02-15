@@ -1,34 +1,35 @@
-# [AG.SAD.1] Centralize and federate access with temporary credential vending
+# [AG.SAD.4] Limit human access with just-in-time access
 
 **Category:** FOUNDATIONAL
 
-Implement a centralized subsystem for federated access and temporary credential
-vending to maintain secure and controlled access to your environments, workloads, and
-resources. By implementing a federated access solution, you can leverage your existing
-identity systems, provide single sign-on (SSO) capabilities, and avoid the need to maintain
-separate user identities across multiple systems which makes scaling in a DevOps model more
-tenable. Centralizing identity onboarding and permission management eliminate the
-inefficiencies of manual processes, reduce human error, and enable scalability as your
-organization grows.
+As pipelines take on a more prominent role in the software
+development lifecycle in a DevOps model, the necessity for
+extensive human access to environments decreases. Human users
+should be granted minimal access necessary for their role,
+which is usually read-only access that does not allow any
+modifications or access to sensitive data. For experimentation
+which is typically hands-on and exploratory, teams should be
+granted access to sandbox environments which are isolated from
+system workloads.
 
-Grant users and services fine-grained access to help ensure secure, granular control
-as they interact with resources and systems. By applying the least privilege principle, you
-can minimize the risk of unauthorized access and reduce the potential damage from
-compromised keys while retaining full control over access to resources and environments. To
-reduce the likelihood of keys being compromised, always vend short-lived, temporary
-credentials that are scoped for specific tasks to help ensure that privileges are granted
-only for the duration needed.
+In some cases, where things go wrong or a process cannot yet be automated, elevated
+permissions might be required. To accommodate these needs without compromising security,
+implement a just-in-time (JIT) access control strategy where permissions are temporarily
+escalated for a specific duration and purpose, upon explicit request and approval. This
+approach maintains the principle of least privilege, allowing necessary operational
+functions to be performed efficiently when needed, while also ensuring that the access is
+revoked once the task is complete.
+
+By enforcing limited human permissions and using JIT access, you can improve your
+organization's security posture and reduce the risk of accidental or deliberate misuse of
+access rights. This restrictive and controlled model supports modern, secure DevOps
+practices where pipelines, treating everything as code, and automation should take
+precedence over manual actions.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST02-BP04
-  Implement groups and roles](../cost-optimization-pillar/cost_govern_usage_groups_roles.md "../cost-optimization-pillar/cost_govern_usage_groups_roles.md")
-- [Security
-  best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md")
-- [AWS Well-Architected Security Pillar: SEC02-BP04 Rely on a
-  centralized identity provider](../security-pillar/sec_identities_identity_provider.md "../security-pillar/sec_identities_identity_provider.md")
-- [IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md")
-- [What
-  is SSO (Single-Sign-On)?](https://aws.amazon.com/what-is/sso/ "https://aws.amazon.com/what-is/sso/")
-- [Identity
-  providers and federation](../../../IAM/latest/UserGuide/id_roles_providers.md "../../../IAM/latest/UserGuide/id_roles_providers.md")
+- [Eliminate
+  the need for human access](../financial-services-industry-lens/use-immutable-infrastructure-with-no-human-access.md "../financial-services-industry-lens/use-immutable-infrastructure-with-no-human-access.md")
+- [AWS Samples: AWS IAM Temporary Elevated Access Broker](https://github.com/aws-samples/aws-iam-temporary-elevated-access-broker "https://github.com/aws-samples/aws-iam-temporary-elevated-access-broker")
+- [Blog: Managing
+  temporary elevated access to your AWS environment](https://aws.amazon.com/blogs/security/managing-temporary-elevated-access-to-your-aws-environment/ "https://aws.amazon.com/blogs/security/managing-temporary-elevated-access-to-your-aws-environment/")

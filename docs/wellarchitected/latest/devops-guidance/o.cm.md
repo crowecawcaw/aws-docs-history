@@ -1,44 +1,40 @@
-# [O.CM.4] Report on business metrics to drive data-driven decision making
+# [O.CM.10] Proactively detect issues using AI/ML
 
-**Category:** FOUNDATIONAL
+**Category:** OPTIONAL
 
-Business metrics for all systems should be accessible and
-comprehensible to leaders and key stakeholders. These metrics
-should inform key performance indicators (KPIs), service level
-objectives (SLOs), service level agreement (SLA) adherence,
-user engagement, conversion rates, and other metrics relevant
-to the business sides of your operations.
+Adopt data-driven AI/ML monitoring tools and techniques like Artificial Intelligence
+Operations (AIOps), ML-powered anomaly detection, and predictive analytics solutions, to
+detect issues and performance bottlenecks proactively—even before system performance is
+impacted.
 
-Just like with technology metrics, continuous monitoring tools
-should be used to detect when business metrics cross
-predefined thresholds, triggering alerts that highlight
-significant deviations or potential issues. These alerts
-should inform timely and data-driven decision-making, helping
-identify areas for improvement, optimizing system performance,
-and aligning actions with overarching business goals.
+Choose a tool that can leverage data and analytics to
+automatically infer predictions, and begin to feed data to it
+and inject failure to test the validity of the tool. These
+tools should have access to both historical and real-time
+data. Once operational, the tool can automatically detect
+issues, predict impending resource exhaustion, detail likely
+causes, and recommend remediation actions to the team. Ensure
+that there is a feedback loop to continuously train and refine
+these models based on real-world data and incidents.
 
-Create dashboards or reports that present these metrics, as well as how they are
-tracking against KPIs and SLAs, in a user-friendly, non-technical format. Ensure the data is
-up-to-date, accurate, and accessible to less technical leaders so that it can be used to
-make informed business decisions. Observability isn't merely about data collection—it is
-about turning that data into actionable insights that drive better outcomes for both the
-technology and business sides of the organization.
-
-Fast feedback leads to success. Continuously monitoring and
-alerting on business metrics is becoming foundational for
-organizations committed to maximizing the value they get from
-their technology investments and for maintaining the quality
-of their digital services.
+Start small when setting up alerts from these tools to avoid
+alert fatigue and maintain trust in the system. As the tool
+becomes more familiar with the data patterns, teams can
+gradually increase the alerting scope. Regularly validate the
+tool's predictions by injecting failures and observing the
+responses.
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF07-BP05 Review
-  metrics at regular intervals](../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics_collected.md "../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics_collected.md")
-- [Operational
-  observability](../../../whitepapers/latest/tagging-best-practices/operational-observability.md "../../../whitepapers/latest/tagging-best-practices/operational-observability.md")
-- [The
-  Amazon Software Development Process: Measure
-  Everything](https://youtu.be/52SC80SFPOw?t=1922 "https://youtu.be/52SC80SFPOw?t=1922")
-- [Using
-  Cloud Fitness Functions to Drive Evolutionary
-  Architecture](https://aws.amazon.com/blogs/architecture/using-cloud-fitness-functions-to-drive-evolutionary-architecture/ "https://aws.amazon.com/blogs/architecture/using-cloud-fitness-functions-to-drive-evolutionary-architecture/")
+- [Machine-Learning-Powered
+  DevOps - Amazon DevOps Guru](https://aws.amazon.com/devops-guru/ "https://aws.amazon.com/devops-guru/")
+- [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/")
+- [Continuous
+  Monitoring and Threat Detection](https://aws.amazon.com/security/continuous-monitoring-threat-detection/ "https://aws.amazon.com/security/continuous-monitoring-threat-detection/")
+- [Gaining
+  operational insights with AIOps using Amazon DevOps Guru
+  Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/f92df379-6add-4101-8b4b-38b788e1222b/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/f92df379-6add-4101-8b4b-38b788e1222b/en-US")
+- [What
+  Is Anomaly Detection?](https://aws.amazon.com/what-is/anomaly-detection "https://aws.amazon.com/what-is/anomaly-detection")
+- [What
+  Is Predictive Analytics?](https://aws.amazon.com/what-is/predictive-analytics "https://aws.amazon.com/what-is/predictive-analytics")

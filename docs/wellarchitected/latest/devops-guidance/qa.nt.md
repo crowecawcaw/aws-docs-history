@@ -1,55 +1,58 @@
-# [QA.NT.3] Prioritize user experience with UX testing
+# [QA.NT.2] Validate system reliability with performance testing
 
-**Category:** RECOMMENDED
+**Category:** RECOMMENDED
 
-User experience (UX) testing provides insight into the
-system's user interface and overall user experience, ensuring
-that they align with the diverse requirements of its user
-base. Adopting UX testing ensures that as the system evolves,
-its design remains intuitive, functional, and inclusive for
-end users.
+Performance testing evaluates the responsiveness, throughput, reliability, and
+scalability of a system under a specific load. It helps ensure that the application
+performs adequately when it is subjected to both expected and peak loads without impacting
+user experience. Different performance tests should be run based on the nature of changes
+made to the system:
 
-Recognize that UX is subjective and can vary based on
-demographics, tech proficiency, and individual preferences.
-Segment your tests to understand the diverse needs and
-preferences of your user base. This means creating different
-user profiles and scenarios, ensuring that the software is
-tested from multiple perspectives. There are various forms of
-non-functional UX tests which should be utilized to target
-specific improvements:
+- **Load testing:** Performance tests evaluating the
+  system's behavior under expected load, such as the typical number of concurrent users
+  or transactions. Integrate automated load testing into your deployment pipeline,
+  ensuring every change undergoes validation of system behavior under expected
+  scenarios.
+- **Stress testing:** Performance tests challenging the
+  system by increasing the load beyond its normal operational capacity. Stress tests
+  identify the system's breaking points, ensuring that even under extreme conditions,
+  the system maintains functionality without abrupt crashes. Schedule stress tests after
+  significant application changes, infrastructure modifications, or periodically—such as
+  once a month—to prepare for unpredictable spikes in traffic or potential DDoS attacks.
+- **Endurance testing:** Performance tests that monitor
+  system behavior over extended periods of time under a specific load. Endurance tests
+  help ensure that there are no latent issues, such as slow memory leaks or performance
+  degradation, which might occur after prolonged operations. Monitor key performance
+  indicators over time and compare against established benchmarks to identify latent
+  issues. Schedule endurance tests after significant changes to the system, especially
+  those that might introduce memory leaks or other long-term issues. Consider running
+  them periodically—such as quarterly or biannually—to ensure system health over
+  prolonged operations.
 
-- **Usability testing:** UX tests determines the ease with
-  which users can perform tasks using the application and evaluates if the interface is
-  intuitive and user-friendly. Usability testing helps identify issues related to the
-  application's design, navigation, and overall ease of use, ultimately leading to
-  building a better product. Conduct usability testing by recruiting a diverse group of
-  testing participants that represent the broader user base. Provide these users with
-  typical tasks they would perform when using the application. Observe the testing
-  participants and their interactions, note areas where they encounter challenges,
-  confusion, or get frustrated. During observation, encourage the participants to
-  verbalize their thought process as they perform the tasks. After the tasks are
-  completed, conduct a brief feedback session to gather additional perspective on their
-  use of the application. Use this data to drive user experience improvements and to fix
-  any bugs that were discovered. To continuously gather feedback over time, ensure that
-  there are mechanisms for users to provide feedback as they interact with the system.
-- **Accessibility testing:** UX tests that evaluate the
-  application to ensure that it can be accessed and used by everyone. Regularly review
-  web content accessibility guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/ "https://www.w3.org/WAI/standards-guidelines/wcag/")) to ensure
-  compliance with the latest standards. To get started quickly, consider adopting an
-  existing design system which incorporates accessibility best practices and a framework
-  to create accessible applications, such as the [Cloudscape Design System](https://cloudscape.design/ "https://cloudscape.design/"). Automate accessibility tests as a part of the
-  development lifecycle using tools like [Axe](https://www.deque.com/axe/ "https://www.deque.com/axe/") or [WAVE](https://wave.webaim.org/ "https://wave.webaim.org/"). Adopt tools that
-  evaluate specific accessibility standards, such as color contrast analyzing tools like
-  [WebAim](https://webaim.org/resources/contrastchecker/ "https://webaim.org/resources/contrastchecker/"). Consider
-  regularly conducting manual exploratory tests using assistive technologies to capture
-  issues that automated tools might miss.
-  **Related information:**
+All performance tests should be run against a test
+environment mirroring the production setup. Use tailored
+performance testing tools for your application's architecture
+and deployment environment. Regularly analyze test results
+against historical benchmarks and take proactive measures to
+counteract performance regressions.
 
-- [Usability
-  Evaluation Methods](https://www.usability.gov/how-to-and-tools/methods/usability-evaluation/index.html "https://www.usability.gov/how-to-and-tools/methods/usability-evaluation/index.html")
-- [W3C
-  standards](https://www.w3.org/WAI/fundamentals/accessibility-principles/ "https://www.w3.org/WAI/fundamentals/accessibility-principles/")
-- [WCAG
-  2.1 AA](https://www.w3.org/WAI/WCAG21/Understanding/conformance#levels "https://www.w3.org/WAI/WCAG21/Understanding/conformance#levels")
-- [Web
-  Accessibility Initiative (WAI)](https://www.w3.org/WAI/design-develop/ "https://www.w3.org/WAI/design-develop/")
+**Related information:**
+
+- [AWS Well-Architected Performance Pillar: PERF01-BP07 Load test
+  your workload](../performance-efficiency-pillar/perf_performing_architecture_load_test.md "../performance-efficiency-pillar/perf_performing_architecture_load_test.md")
+- [AWS Well-Architected Sustainability Pillar: SUS03-BP03
+  Optimize areas of code that consume the most time or resources](../sustainability-pillar/sus_sus_software_a4.md "../sustainability-pillar/sus_sus_software_a4.md")
+- [AWS Well-Architected Reliability Pillar: REL07-BP04 Load test
+  your workload](../reliability-pillar/rel_adapt_to_changes_load_tested_adapt.md "../reliability-pillar/rel_adapt_to_changes_load_tested_adapt.md")
+- [AWS Well-Architected Reliability Pillar: REL12-BP04 Test
+  scaling and performance requirements](../reliability-pillar/rel_testing_resiliency_test_non_functional.md "../reliability-pillar/rel_testing_resiliency_test_non_functional.md")
+- [Ensure
+  Optimal Application Performance with Distributed Load
+  Testing on AWS](https://aws.amazon.com/blogs/architecture/ensure-optimal-application-performance-with-distributed-load-testing-on-aws/ "https://aws.amazon.com/blogs/architecture/ensure-optimal-application-performance-with-distributed-load-testing-on-aws/")
+- [Stress
+  Testing Tools - AWS Fault Injection Service](https://aws.amazon.com/fis/ "https://aws.amazon.com/fis/")
+- [Find
+  Expensive Code – Amazon CodeGuru Profiler](https://aws.amazon.com/codeguru/features/ "https://aws.amazon.com/codeguru/features/")
+- [Load
+  test your applications in a CI/CD pipeline using CDK
+  pipelines and AWS Distributed Load Testing Solution](https://aws.amazon.com/blogs/devops/load-test-applications-in-cicd-pipeline/ "https://aws.amazon.com/blogs/devops/load-test-applications-in-cicd-pipeline/")

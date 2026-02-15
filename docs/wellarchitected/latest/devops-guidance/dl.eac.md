@@ -1,31 +1,40 @@
-# [DL.EAC.3] Codify data operations
+# [DL.EAC.2] Modernize networks through infrastructure as code
 
-**Category:** FOUNDATIONAL
+**Category:** FOUNDATIONAL
 
-Codifying data operations in a DevOps environment extends the infrastructure as code
-(IaC) principle to data management, which involves treating database schemas, data
-transformations, and data pipelines as code. Codifying data operations enables other DevOps
-capabilities including the use of data management pipelines for data lifecycle management,
-enforcing quality assurance and governance standards, providing auditability of changes, and
-the ability to rollback changes when necessary.
+The practice of managing networking configurations through code, including network
+automation, version control, and rigorous testing to ensure quality and stability. Apply
+DevOps practices to networking systems to streamline network operations, reduce human
+errors, and speed up network deployments. _Networking as code_ enables
+the predictable and repeatable provisioning of networking components, making
+infrastructure more modular and less prone to error.
 
-Store database schemas, along with any related procedures,
-views, and triggers, in version control systems alongside your
-application code. This enables the ability to track, review,
-and test schema changes before deploying them to your
-production environment. To start managing existing data source
-schemas as code, database migration and event analysis tools
-like
-[AWS DMS Schema Conversion Tool](https://aws.amazon.com/dms/schema-conversion-tool/ "https://aws.amazon.com/dms/schema-conversion-tool/") and
-[Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/") can help to infer schemas from existing
-data sources.
+Managing networking components as code requires cultural, process, and tool changes.
+Shift from a centralized, manual model of network management to a more autonomous model
+where individual teams can operate independently. Loosely couple networking architectures
+to create modular components that can be managed, maintained, and scaled individually. Use
+infrastructure as code (IaC) tools to define network infrastructure and configurations and
+use development lifecycle capabilities like continuous integration and continuous delivery
+(CI/CD) for deploying networking changes. Like other systems, networking changes should
+undergo automated testing to provide assurance that they meet functional, non-functional,
+and security requirements before deployment.
+
+Often, platform teams manage network components on behalf of
+individual teams when possible so that all teams do not need
+to become networking experts. However, for cases where this is
+not possible, use shared resources or predefined network
+configuration templates which have embedded best practices and
+secure defaults. This approach encourages predictable and
+repeatable provisioning of self-service networking components.
+Have guardrails in place within the environment to enforce
+compliance of networking requirements.
 
 **Related information:**
 
-- [Converting
-  database schemas using DMS Schema Conversion](../../../dms/latest/userguide/CHAP_SchemaConversion.md "../../../dms/latest/userguide/CHAP_SchemaConversion.md")
-- [Creating
-  an Amazon EventBridge schema](../../../eventbridge/latest/userguide/eb-schema-create.md "../../../eventbridge/latest/userguide/eb-schema-create.md")
-- [Using
-  Amazon RDS Blue/Green Deployments for database
-  updates](../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md "../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md")
+- [NetDevOps:
+  A modern approach to AWS networking deployments](https://aws.amazon.com/blogs/networking-and-content-delivery/netdevops-a-modern-approach-to-aws-networking-deployments/ "https://aws.amazon.com/blogs/networking-and-content-delivery/netdevops-a-modern-approach-to-aws-networking-deployments/")
+- [NetDevSecOps
+  to modernize AWS networking deployments](https://aws.amazon.com/blogs/networking-and-content-delivery/netdevsecops-to-modernize-aws-networking-deployments/ "https://aws.amazon.com/blogs/networking-and-content-delivery/netdevsecops-to-modernize-aws-networking-deployments/")
+- [Field
+  Notes: Using Infrastructure as Code to Manage Your AWS
+  Networking Environment](https://aws.amazon.com/blogs/architecture/field-notes-using-infrastructure-as-code-to-manage-your-aws-networking-environment/ "https://aws.amazon.com/blogs/architecture/field-notes-using-infrastructure-as-code-to-manage-your-aws-networking-environment/")

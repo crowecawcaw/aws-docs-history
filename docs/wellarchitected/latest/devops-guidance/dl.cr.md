@@ -1,22 +1,39 @@
-# [DL.CR.3] Establish clear completion criteria for code tasks
+# [DL.CR.2] Perform peer review for code changes
 
-**Category:** FOUNDATIONAL
+**Category:** FOUNDATIONAL
 
-A clear definition of done ensures that developers understand
-the requirements of their task, can consistently meet those
-requirements, and that reviewers have a sense of what they are
-reviewing. It provides the team with shared clarity of purpose
-for each change that they will be making to the code base.
+A peer review process for code changes is a strategy for
+ensuring code quality and shared responsibility. To support
+separation of duties in a DevOps environment, every change
+should be reviewed and approved by at least one other person
+before merging. Once approved, a pipeline with sufficient
+access will deploy the change.
 
-To implement a clear definition of done, initiate discussions among all team members
-during the design phase to identify and agree on the criteria that should be included.  The
-done criteria should include the types of testing that need to be done (like functional,
-non-functional, or security tests), any required documentation (like code comments or user
-manuals), and the standards the code needs to meet (such as performance, availability, or
-team style guides).
+Most version control systems support protection rules
+enforcing certain workflows, like requiring at least one peer
+review, before merging into designated branches. Use these
+rules to enforce this workflow and provide assurance that all
+code changes adhere to this mandatory review process. 
 
-Once these criteria are defined and agreed upon, document them, and make this
-definition of done available and visible to all team members. It should be used as a
-checklist during the code review process to ensure that all changes meet the established
-criteria. Having a clear definition of done can streamline the review process and reduce the
-number of issues that need to be addressed in later stages of the development lifecycle.
+Incorporating [pair
+programming](https://www.agilealliance.org/glossary/pair-programming/ "https://www.agilealliance.org/glossary/pair-programming/"), where two programmers collaboratively work side-by-side or through
+screen sharing, is method of peer review. By integrating this approach, reviews can be
+integrated into the development lifecycle earlier—while the code is being written, reducing
+the time taken to identify and fix issues. This accelerates review timelines, reduces the
+introduction of bugs or issues, promotes knowledge sharing, and creates a culture
+of quality and continuous improvement.
+
+Some companies require multiple reviewers, or require more
+proof than just pair-programming to adhere to compliance
+requirements. Pick a code review process that works for your
+organization, and enforce it through policies, processes, and
+technology.
+
+**Related information:**
+
+- [AWS Well-Architected Security Pillar: SEC11-BP04 Manual code
+  reviews](../framework/sec_appsec_manual_code_reviews.md "../framework/sec_appsec_manual_code_reviews.md")
+- [Team
+  Collaboration with Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/")
+- [Code
+  review](https://en.wikipedia.org/wiki/Code_review "https://en.wikipedia.org/wiki/Code_review")

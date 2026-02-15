@@ -1,28 +1,45 @@
-# [DL.CI.6] Refine integration pipelines with build metrics
+# [DL.CI.7] Validate the reproducibility of builds
 
-**Category:** RECOMMENDED
+**Category:** OPTIONAL
 
-Use key metrics—whether sourced from this guidance, established frameworks
-like [DORA](https://dora.dev/ "https://dora.dev/") or [SPACE](https://queue.acm.org/detail.cfm?id=3454124 "https://queue.acm.org/detail.cfm?id=3454124"), or custom to your
-organization—to optimize your continuous integration process. Metrics such as deployment
-frequency, change lead time, failure rate, and time to recover serve as outcome-based
-lagging indicators. These indicators span many DevOps capabilities to provide insights
-into the efficiency and reliability of the full delivery process. While individual metrics
-offer granular insights to optimize specific continuous integration capabilities, these
-aggregated metrics present a holistic overview of the end-to-end development lifecycle.
-Both granular and holistic metrics are important for continuous improvement.
+Every build for a specific version of source code should
+ideally be able to generate the same outputs from the same
+inputs. The implementation of reproducible builds primarily
+involves the creation of an immutable and consistently created
+build environment and controlling the inputs for each and
+every build.
 
-Embed observability practices into your integration pipelines,
-incorporating monitoring and logging observability
-capabilities. By transforming logs into metrics, you gain
-actionable insights into areas needing refinement. Prioritize
-making these metrics accessible to all team members to create
-an environment where teams can proactively monitor, analyze,
-and improve based on these metrics.
+Between each build, the environment should be destroyed and recreated so that it is
+immutable. Use infrastructure as code (IaC) and containerization to help with automating
+the creation of the environment in a repeatable and consistent way. Have controls in place
+to detect and prevent configuration drift that may alter the build environment
+post-creation. All dependencies and software components used to create the environment and
+perform the build should be version pinned and recorded.
 
-Putting an emphasis on continually optimizing pipelines using
-metrics is recommended. When getting started with DevOps
-adoption, initial efforts should prioritize the establishment
-of a stable and effective integration pipeline, with
-subsequent enhancements to the pipeline being driven by
-metrics.
+Any manual intervention during the build can introduce
+variability. Every step in the build process needs to be
+automated. Factors that can render the build nondeterministic,
+such as unrestricted network access and the use of random
+generators or timestamps that modify the build artifact, must
+be limited.
+
+Verify the reproducibility by establishing processes that
+regularly check the reproducibility of the builds. This can
+involve triggering builds from the same source code in
+different environments and comparing the results. Adopt
+mechanisms like binary diffing or checksum comparison to
+validate the reproducibility of the build. Set up alarms that
+raise alerts when discrepancies occur to provide fast feedback
+when there are inconsistencies.
+
+Having reproducible builds is optional and not recommended for
+all organizations or workloads. While striving for
+reproducibility is encouraged, it may not be achievable in
+every context. For example, some builds may depend on specific
+environmental parameters or timing elements that make
+reproducibility difficult.
+
+**Related information:**
+
+- [Reproducible
+  builds](https://reproducible-builds.org/ "https://reproducible-builds.org/")

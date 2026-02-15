@@ -1,32 +1,47 @@
-# [DL.LD.3] Commit local changes early and often
+# [DL.LD.7] Establish sandbox environments with spend limits
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-While developing locally, developers should begin to make
-small, frequent commits to save versions of their code changes
-as they develop. Unlike pushing code changes so that they are
-accessible to other team members, local commits deal
-specifically with a developer's individual progress as they
-develop locally. This practice makes local development safer,
-enabling developers to freely innovate without fear of losing
-completed work by capturing snapshots of iterative changes to
-the code base.
+Sandbox environments are dedicated spaces for developers to
+explore, experiment, and innovate with new technologies or
+ideas. Unlike development environments, which are meant for
+more structured day-to-day development, they allow more fewer controls, while ensuring no connectivity to
+internal networks or other environments.
 
-Use version control tools, like Git, local testing tools for fast feedback,
-and [conventional
-commit](https://www.conventionalcommits.org/en/v1.0.0/ "https://www.conventionalcommits.org/en/v1.0.0/") messages that describe the nature and rationale behind the changes for.
-Strive to make it a habit to locally commit changes as soon as a logical unit of work is
-completed. This can be after fixing a bug, adding a new function, or refining an existing
-piece of code.
+Create a comprehensive sandbox usage policy. This policy must
+set clear boundaries on the kinds of data permissible with the
+sandbox, ensuring no leakage of sensitive information or
+code. Establish rules for access controls. Some environments
+might be tailored for individual developers, while others
+could serve small teams. Rules regarding network connectivity
+should ensure that the sandbox remains isolated, preventing
+any unintended interactions with other internal networks or
+environments. Set tagging strategies which can aid in managing
+automation and cost tracking. Overall, ensure that this policy
+makes a distinction between sandbox environments and
+development environments, and lays out the use cases best
+suited for each.
 
-Placing emphasis on the significance of making frequent local commits adapts
-developers to the idea of breaking down work into smaller, more manageable batches of work.
-This translates into streamlined integration processes when working in a team and is
-critical for practicing [continuous integration](https://aws.amazon.com/devops/continuous-integration/ "https://aws.amazon.com/devops/continuous-integration/") and [continuous delivery](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/") (CI/CD).
+Educate developers on the sandbox usage policy, including
+responsible and cost-effective resource management techniques.
+Encourage shutting down or deleting unnecessary resources,
+especially when they're not in active use. Sandbox
+environments should be treated ephemerally, with automated
+governance processes managing the lifecycle to create, manage,
+clean up resources, and destroy sandbox environments as
+required.
 
 **Related information:**
 
-- [Git
-  Basics - Recording Changes to the Repository](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository")
-- [Continuous
-  Integration - Martin Fowler](https://martinfowler.com/articles/continuousIntegration.html "https://martinfowler.com/articles/continuousIntegration.html")
+- [AWS Well-Architected Cost Optimization Pillar: COST02-BP05
+  Implement cost controls](../cost-optimization-pillar/cost_govern_usage_controls.md "../cost-optimization-pillar/cost_govern_usage_controls.md")
+- [Sandbox
+  per builder or team with spend limits](../../../whitepapers/latest/organizing-your-aws-environment/sandbox-ou.md#sandbox-per-builder-or-team-with-spend-limits "../../../whitepapers/latest/organizing-your-aws-environment/sandbox-ou.md#sandbox-per-builder-or-team-with-spend-limits")
+- [AWS Innovation Sandbox](https://aws.amazon.com/solutions/implementations/aws-innovation-sandbox/ "https://aws.amazon.com/solutions/implementations/aws-innovation-sandbox/")
+- [Cloud
+  Financial Management with AWS](https://aws.amazon.com/aws-cost-management/ "https://aws.amazon.com/aws-cost-management/")
+- [Sandbox
+  Accounts for Events](https://github.com/awslabs/sandbox-accounts-for-events "https://github.com/awslabs/sandbox-accounts-for-events")
+- [Best
+  practices for creating and managing sandbox accounts in
+  AWS](https://aws.amazon.com/blogs/mt/best-practices-creating-managing-sandbox-accounts-aws/ "https://aws.amazon.com/blogs/mt/best-practices-creating-managing-sandbox-accounts-aws/")
