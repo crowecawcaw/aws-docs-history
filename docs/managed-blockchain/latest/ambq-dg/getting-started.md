@@ -80,7 +80,7 @@ The following examples use the `ListTransactions` and the
 externally owned address (EOA) on the Ethereum Mainnet, and then the next example retrieves the
 transaction details for a single transaction from the list.
 
-###### Example — Make the `ListTransactions` API action using Go
+###### Example— Make the `ListTransactions` API action using Go
 
 Copy the following code to a file named `listTransactions.go` in the
 _ListTransactions_ directory.
@@ -174,7 +174,7 @@ The output that follows resembles the following:
 }
 ```
 
-###### Example — Make the `GetTransaction` API action by using Go
+###### Example— Make the `GetTransaction` API action by using Go
 
 This example uses a transaction hash from the previous output. Copy the following
 code to a file named `GetTransaction.go` in the
@@ -257,7 +257,7 @@ The `GetTokenBalance` API provides a way for you to get the balance of
 native tokens (ETH and BTC), which can be used to get the current balance of an
 externally owned account (EOA) at a point in time.
 
-###### Example — Use the `GetTokenBalance` API action to get the balance
+###### Example— Use the `GetTokenBalance` API action to get the balance
 
 of a native token in Go
 
@@ -395,7 +395,7 @@ file into your local environment's working directory:
 }
 ```
 
-###### Example — Retrieve the historical token balance from a specific externally owned address
+###### Example— Retrieve the historical token balance from a specific externally owned address
 
 (EOA) by using AMB Query `GetTokenBalance` API
 
@@ -587,6 +587,8 @@ similar to the following:
 ## Use Amazon Managed Blockchain (AMB) Query on the AWS Management Console to run the GetTokenBalance operation
 
 The following example shows how to get a token's balance on the _Ethereum Mainnet_ using Amazon Managed Blockchain (AMB) Query on the AWS Management Console
+
+###### Example
 
 1. Open the Amazon Managed Blockchain console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/ "https://console.aws.amazon.com/managedblockchain/").
 2. Choose **Query editor** from the **Query** section.
