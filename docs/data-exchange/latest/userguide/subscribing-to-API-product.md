@@ -31,6 +31,8 @@ effect on the first day of the month, 90 days after the price increase was submi
 renewal (whichever is sooner). An email message is sent to existing subscribers when the
 price change is submitted.
 
+###### Example
+
 For example, assume that a provider submits a metered cost price increase on May 10.
 Existing subscribers receive an email message about the price change. The price increase
 goes into effect on September 1.
