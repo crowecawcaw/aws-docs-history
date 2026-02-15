@@ -52,7 +52,7 @@ A details page opens with information on the service request--such as **Type**, 
 **Created**, **ID**, and **Status**--and a **Correspondence** area
 that includes the description of the request you created.
 
-![Service request detail showing type, subject, creation date, ID, and resolved status.](images/guiSRdetail.png)
+![Service request detail showing type, subject, creation date, ID, and resolved status.](/images/managedservices/latest/userguide/images/guiSRdetail.png)
 
 Additionally, your service request displays on the **Service Request** list page. Use this when you have an alert but have not yet heard from AMS.
 

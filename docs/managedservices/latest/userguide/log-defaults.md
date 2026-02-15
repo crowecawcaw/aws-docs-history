@@ -10,7 +10,7 @@ This section describes AMS log management defaults; for more information, see
   [Data protection in Amazon S3](../../../AmazonS3/latest/userguide/DataDurability.md "../../../AmazonS3/latest/userguide/DataDurability.md").
 
 You can request a change to log retention for all logs, except AWS CloudTrail logs, which are
-kept indefinitely for audit and security reasons.
+kept for 10 years for audit and security reasons.
 
 Log rotation is configured inside the instances. By default, operating system and security logs rotate hourly if they reach over 100MB, this is
 done to ensure that you don't run short on disk in the instances.
