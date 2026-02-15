@@ -25,6 +25,8 @@ http://man7.org/linux/man-pages/man7/capabilities.7.html.
 
 `CAP_AUDIT_WRITE, CAP_CHOWN, CAP_DAC_OVERRIDE, CAP_FOWNER, CAP_FSETID, CAP_KILL, CAP_MKNOD, CAP_NET_BIND_SERVICE, CAP_NET_RAW, CAP_SETGID, CAP_SETUID, CAP_SETFCAP, CAP_SETPCAP, CAP_SYS_CHROOT`
 
+###### Example
+
 EC2 and Fargate pods are assigned the aforementioned capabilities by default. Additionally, Linux capabilities can only be dropped from Fargate pods.
 
 Pods that are run as privileged, inherit _all_ of the Linux capabilities
@@ -676,6 +678,8 @@ For pods that do not need to access the Kubernetes API, you can disable
 the automatic mounting of a ServiceAccount token on a pod spec, or for
 all pods that use a particular ServiceAccount.
 
+###### Example
+
 ```
 apiVersion: v1
 kind: Pod
@@ -707,6 +711,8 @@ underlying node’s DNS resolution. See the
 [Kubernetes
 docs on Pod DNS policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy") for more information.
 
+###### Example
+
 ```
 apiVersion: v1
 kind: Pod
@@ -734,6 +740,8 @@ securityContext:
 
 Policy-as-code and Pod Security Standards can be used to enforce this
 behavior.
+
+###### Example
 
 As per [Windows containers in Kubernetes](https://kubernetes.io/docs/concepts/windows/intro/ "https://kubernetes.io/docs/concepts/windows/intro/")
 `securityContext.readOnlyRootFilesystem` cannot be set to `true` for a container running on Windows as write access is required for registry and system processes to run inside the container.

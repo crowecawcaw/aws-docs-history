@@ -16,6 +16,8 @@ Configure your [general purpose buckets](../../../AmazonS3/latest/userguide/Usin
 Note that [Amazon S3 Express One Zone](https://aws.amazon.com/s3/storage-classes/express-one-zone/ "https://aws.amazon.com/s3/storage-classes/express-one-zone/") uses a specific type of bucket called an _S3 directory bucket_. Directory buckets are exclusively for the S3 Express One Zone storage class and enable high-performance, low-latency access.
 To [configure default bucket encryption on an S3 directory bucket](../../../AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.md "../../../AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.md"), use the AWS CLI, and specify the KMS key ID or ARN, not the alias, as in the following example:
 
+###### Example
+
 ```
 aws s3api put-bucket-encryption --bucket my-directory-bucket --server-side-encryption-configuration \
    '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "aws:kms", "KMSMasterKeyID": "1234abcd-12ab-34cd-56ef-1234567890ab"}}]}'

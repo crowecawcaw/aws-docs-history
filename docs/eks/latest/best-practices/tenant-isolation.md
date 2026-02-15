@@ -300,6 +300,8 @@ scheduling could be impacted.
 
 The label prefix of `node-restriction.kubernetes.io/` has special meaning in Kubernetes. [NodeRestriction](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#noderestriction "https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#noderestriction") which is enabled for EKS clusters prevents `kubelet` from adding/removing/updating labels with this prefix. Attackers aren’t able to use the `kubelet’s credentials to update the node object or modify the system setup to pass these labels into `kubelet`as`kubelet` isn’t allowed to modify these labels. If this prefix is used for all pod to node scheduling, it prevents scenarios where an attacker may want to attract a different set of workloads to a node by modifying the node labels.
 
+###### Example
+
 Instead of node affinity, we could have used the [node selector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector"). However, node affinity is more expressive and allows for more conditions to be considered during pod scheduling. For additional information about the differences and more advanced scheduling choices, please see this CNCF blog post on [Advanced Kubernetes pod to node scheduling](https://www.cncf.io/blog/2021/07/27/advanced-kubernetes-pod-to-node-scheduling/ "https://www.cncf.io/blog/2021/07/27/advanced-kubernetes-pod-to-node-scheduling/").
 
 #### Part 2 - Taints and tolerations

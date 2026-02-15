@@ -114,12 +114,16 @@ Learn how create a new page and update the guide table of contents.
 2. Determine the ID of the page. This must be unique within the EKS Best Practices Guide. The convention is to use all lowercase, and separate words with `-`.
 3. Create a new asciidoc file, in a folder if needed, and add the following text to the file:
 
+###### Example
+
 [."topic"]
 [#<page-id>]
 = <page-title>
 :info_titleabbrev: <page-short-title>
 
 For example,
+
+###### Example
 
 [."topic"]
 [#scalability]
@@ -131,9 +135,13 @@ For example,
 1. Open the file for the parent page in the table of contents. For new top level guide sections, the parent file is `book.adoc`.
 2. At the bottom of the parent file, update and insert the following directive:
 
+###### Example
+
 include::<new-filename>[leveloffset=+1]
 
 For Example,
+
+###### Example
 
 include::dataplane.adoc[leveloffset=+1]
 
@@ -144,9 +152,13 @@ include::dataplane.adoc[leveloffset=+1]
 3. Determine appropriate alt-text for you image. Write a short high-level description of the image. For example, "diagram of VPC with three availability zones" is appropriate alt-text.
 4. Update the following example with the alt-text and image filename. Insert at the desired location.
 
+###### Example
+
 image::<image-filename>[<image-alt-text>]
 
 For example,
+
+###### Example
 
 image::eks-data-plane-connectivity.jpeg[Network diagram]
 
