@@ -38,6 +38,8 @@ Set the preference for timestamp.
 
 Example:
 
+###### Example
+
 UTC - 09/20/22 16:39 UTC
 
 Local - 09/20/2022 9:39 (UTC-07:00) 5. Choose **Save**.
