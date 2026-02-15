@@ -425,10 +425,10 @@ JSON
  "Effect": "Allow",
  "Condition": {
  "StringLike": {
- "aws:SourceArn": "arn:aws:qbusiness:`your-region`:`your-account-id`:application/<`application-id`>/index/<`index-id`>"
+ "aws:SourceArn": "arn:aws:qbusiness:`your-region`:`123456789012`:application/<`application-id`>/index/<`index-id`>"
  },
  "StringEquals": {
- "aws:SourceAccount": "your-account-id"
+ "aws:SourceAccount": "123456789012"
  }
  },
  "Principal": {
