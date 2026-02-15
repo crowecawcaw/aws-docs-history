@@ -12,3 +12,29 @@ We recommend using the [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference
 The value of `aws:SourceArn` must be the ARN of the affected data store. If you don't know the full ARN of the data store, or if you are specifying multiple data stores, use the `aws:SourceArn` global context condition key with the \* wildcard for the unknown portions of the ARN. For example, you can set `aws:SourceArn` to `arn:aws:medical-imaging:us-west-2:111122223333:datastore/*`.
 
 In the following trust policy example, we use the `aws:SourceArn` and `aws:SourceAccount` condition key to restrict access to the service principal based on the data store's ARN to prevent the confused deputy problem.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "medical-imaging.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole",
+ "Condition": {
+ "ArnLike": {
+ "aws:SourceArn": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/*"
+ },
+ "StringEquals": {
+ "aws:SourceAccount": "123456789012"
+ }
+ }
+ }
+ ]
+}`
+
+```

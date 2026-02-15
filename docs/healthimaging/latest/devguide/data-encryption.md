@@ -86,6 +86,28 @@ The IAM user, IAM role, or AWS account creating your repositories must have
 permissions for the policy below, plus the necessary permissions for
 AWS HealthImaging.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:CreateGrant",
+ "kms:GenerateDataKey",
+ "kms:RetireGrant",
+ "kms:Decrypt",
+ "kms:ReEncrypt*"
+ ],
+ "Resource": "arn:aws:kms:us-east-1:123456789012:key/bec71d48-3462-4cdd-9514-77a7226e001f"
+ }
+ ]
+}`
+
+```
+
 ### How HealthImaging uses grants in AWS KMS
 
 HealthImaging requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your

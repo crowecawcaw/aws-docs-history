@@ -23,7 +23,7 @@ Data imported with the `StoreDICOM` and `StoreDICOMStudy` actions will be organi
 3. Determine the content length of the DICOM P10 file using your preferred command, for example `$(stat -f %z $FILENAME)`.
 4. Prepare and send your request. `StoreDICOM` uses a HTTP POST request with [AWS Signature Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") signing protocol.
 
-###### Example 1: To store a DICOM P10 file using the `StoreDICOM` action
+###### Example 1: To store a DICOM P10 file using the StoreDICOM action
 
 Shell
 
@@ -41,7 +41,7 @@ curl -X POST -v \
 
 ```
 
-###### Example 2: To store a DICOM P10 file using the `StoreDICOMStudy` action
+###### Example 2: To store a DICOM P10 file using the StoreDICOMStudy action
 
 The only difference between StoreDICOM and StoreDICOMStudy is that a Study Instance UID is passed as a parameter to StoreDICOMStudy, and the uploaded instances must be members of the specified study.
 

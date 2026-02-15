@@ -18,11 +18,24 @@ _IAM User Guide_.
 ###### Topics
 
 - [AWS managed policy:
+  AWSHealthImagingServiceRolePolicy](#security-iam-awsmanpol-AWSHealthImagingServiceRolePolicy "#security-iam-awsmanpol-AWSHealthImagingServiceRolePolicy")
+- [AWS managed policy:
   AWSHealthImagingFullAccess](#security-iam-awsmanpol-AWSHealthImagingFullAccess "#security-iam-awsmanpol-AWSHealthImagingFullAccess")
 - [AWS managed
   policy: AWSHealthImagingReadOnlyAccess](#security-iam-awsmanpol-AWSHealthImagingReadOnlyAccess "#security-iam-awsmanpol-AWSHealthImagingReadOnlyAccess")
 - [HealthImaging updates to AWS managed
   policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+
+## AWS managed policy:
+
+AWSHealthImagingServiceRolePolicy
+
+This policy is attached to service-linked role `AWSServiceRoleForHealthImaging`.
+It grants permissions for HealthImaging to manage service operations and publish service metrics.
+
+For more information about this policy, including the JSON policy document,
+see [AWSHealthImagingServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSHealthImagingServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSHealthImagingServiceRolePolicy.md")
+in the _AWS Managed Policy Reference Guide_.
 
 ## AWS managed policy:
 
@@ -103,6 +116,7 @@ View details about updates to AWS managed policies for HealthImaging since this 
 tracking these changes. For automatic alerts about changes to this page, subscribe to the
 RSS feed on the [Releases](releases.md "releases.md") page.
 
-| Change                                 | Description                                                          | Date          |
-| -------------------------------------- | -------------------------------------------------------------------- | ------------- |
-| HealthImaging started tracking changes | HealthImaging started tracking changes for its AWS managed policies. | July 19, 2023 |
+| Change                                 | Description                                                                                                                                                                          | Date             |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
+| AWSHealthImagingServiceRolePolicy      | AWS HealthImaging added a new managed policy for the service-linked role<br>that provides permissions for HealthImaging to manage service operations and<br>publish service metrics. | February 9, 2026 |
+| HealthImaging started tracking changes | HealthImaging started tracking changes for its AWS managed policies.                                                                                                                 | July 19, 2023    |

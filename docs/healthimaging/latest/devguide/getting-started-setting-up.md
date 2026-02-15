@@ -226,6 +226,24 @@ confused deputy problem by ensuring that only your specific AWS HealthImaging da
 store can be accessed. For more information about this security measure, see
 [Cross-service confused deputy prevention in HealthImaging](security-iam-deputy.md "security-iam-deputy.md").
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "medical-imaging.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
+```
+
 To learn more about creating and using IAM policies with AWS HealthImaging, see [Identity and Access Management for AWS HealthImaging](security-iam.md "security-iam.md").
 
 To learn more about IAM roles in general, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the

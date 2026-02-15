@@ -18,6 +18,33 @@ the requests with appropriate permissions.
 
 Here is an example of a policy allowing associated roles to access to HealthImaging DICOMWeb read-only API:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "MedicalImagingDicomWebOperations",
+ "Effect": "Allow",
+ "Action": [
+ "medical-imaging:SearchDICOMInstances",
+ "medical-imaging:GetImageSetMetadata",
+ "medical-imaging:GetDICOMSeriesMetadata",
+ "medical-imaging:SearchDICOMStudies",
+ "medical-imaging:GetDICOMBulkdata",
+ "medical-imaging:SearchDICOMSeries",
+ "medical-imaging:GetDICOMInstanceMetadata",
+ "medical-imaging:GetDICOMInstance",
+ "medical-imaging:GetDICOMInstanceFrames"
+ ],
+ "Resource": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/datastore-123"
+ }
+ ]
+}`
+
+```
+
 Here is an example of the trust relationship policy that should be associated to the role(s):
 
 JSON
@@ -105,6 +132,32 @@ The lambda resource policy can be updated later on with an "ArnLike" condition m
 datastore.
 
 Here is an example of lambda resource policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id": "default",
+ "Statement": [
+ {
+ "Sid": "LambaAuthorizer-HealthImagingInvokePermission",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "medical-imaging.amazonaws.com"
+ },
+ "Action": "lambda:InvokeFunction",
+ "Resource": "arn:aws:lambda:us-east-1:123456789012::function:{`LambdaAuthorizerFunctionName`}",
+ "Condition": {
+ "ArnLike": {
+ "AWS:SourceArn": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/datastore-123"
+ }
+ }
+ }
+ ]
+}`
+
+```
 
 ## 3. Create a New Datastore with OIDC Authentication
 
