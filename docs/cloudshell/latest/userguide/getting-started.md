@@ -120,6 +120,8 @@ console, then the default Region is set to a Region that's closest to the select
 Region. You can run the command that provides permissions to manage resources in a
 different Region than the default Region. For more information, see [Working in AWS Regions](working-with-aws-cloudshell.md#region-selection "working-with-aws-cloudshell.md#region-selection").
 
+###### Example
+
 **Example**
 
 If you choose Europe (Spain) eu-south-2 but

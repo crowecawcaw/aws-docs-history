@@ -258,6 +258,10 @@ is replaced by the per-service AWS.Tools modules in AWS CloudShell.
 longer be required or need to be changed to the related per-service AWS.Tools
 module.
 
+###### Example
+
+###### Example
+
 - For most cases, as long as no .Net types are used, you don’t need any
   explicit import statement. The following are examples of import
   statements.
