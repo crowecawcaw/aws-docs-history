@@ -62,7 +62,7 @@ JSON
  },
  "StringLike": {
  "iam:AssociatedResourceARN": [
- "arn:aws:ec2:region:source-account:transit-gateway/tgw-0fb8421e2da853bf"
+ "arn:aws:ec2:us-east-1:source-account:transit-gateway/tgw-0fb8421e2da853bf"
  ]
  }
  }
