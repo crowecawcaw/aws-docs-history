@@ -114,6 +114,8 @@ to refresh its cache.
 
 Additionally, you must log out of any active SFTP sessions, and then log back in after the 10-minute waiting period to see the changes.
 
+###### Example
+
 ```
 # Execute a workflow
 > sftp bob@s-1234567890abcdef0.server.transfer.us-east-1.amazonaws.com

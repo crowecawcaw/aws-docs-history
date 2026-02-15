@@ -111,7 +111,7 @@ Range 8192–8200 (Data Channel).
      (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/") .
     3. Choose **Next**.
 
-![The Choose an endpoint console section with VPC hosted selected.](images/create-server-choose-endpoint-vpc-internal.png) 6. On the **Choose domain** page, choose the AWS storage
+![The Choose an endpoint console section with VPC hosted selected.](/images/transfer/latest/userguide/images/create-server-choose-endpoint-vpc-internal.png) 6. On the **Choose domain** page, choose the AWS storage
 service that you want to use to store and access your data over the selected
 protocol:
 
@@ -139,7 +139,7 @@ following:
 
 
 
-    ![The Managed workflows console section.](images/workflows-addtoserver.png)
+    ![The Managed workflows console section.](/images/transfer/latest/userguide/images/workflows-addtoserver.png)
     3. For **Cryptographic algorithm options**, choose a
      security policy that contains the cryptographic algorithms enabled
      for use by your server. Our latest security policy is the default: for details, see
@@ -189,7 +189,7 @@ following:
     	 For additional details,
     	 see the `PassiveIp` documentation in the [ProtocolDetails](../APIReference/API_ProtocolDetails.md "../APIReference/API_ProtocolDetails.md") topic.
 
-    ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](images/create-server-configure-additional-items-all.png)
+    ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](/images/transfer/latest/userguide/images/create-server-configure-additional-items-all.png)
 
 8.  In **Review and create**, review your choices.
 

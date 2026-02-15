@@ -52,8 +52,8 @@ to your identity provider. The policy is escaped JSON as a string.
  \"Effect\":\"Allow\",
  \"Principal\":{\"Service\":\"transfer.amazonaws.com\"},
  \"Action\":\"lambda:InvokeFunction\",
- \"Resource\":\"arn:aws:lambda:`region`:`account-id`:function:`my-lambda-auth-function`\",
- \"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:transfer:`region`:`account-id`:server/`server-id`\"}}}
+ \"Resource\":\"arn:aws:lambda:`region`:`123456789012`:function:`my-lambda-auth-function`\",
+ \"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:transfer:`region`:`123456789012`:server/`server-id`\"}}}
 ]}"`
 
 ```

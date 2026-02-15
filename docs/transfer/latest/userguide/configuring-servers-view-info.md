@@ -22,7 +22,7 @@ differs slightly. For AS2 servers, see [View AS2 server details](view-as2-server
 ![The server details console page for a server, showing the list of service-managed users.](images/edit-server-details-endpoints.png)
 ![The server details console page for a server, showing the Agreements details.](images/edit-server-details-users.png)
 ![The server details console page, showing the Server host keys for a server.](images/edit-server-details-agreements.png)
-![The server details console page, showing the Server host keys for a server.](/images/transfer/latest/userguide/images/edit-server-details-hostkeys.png)
+![The server details console page, showing the Server host keys for a server.](images/edit-server-details-hostkeys.png)
 
 ###### Note
 
@@ -43,6 +43,6 @@ has a description that makes it easy to identify it as having been migrated.
 The migration occurred between September 2 and September 13. The actual migration date
 within this range depends on the Region of your server.
 
-![Server details screen showing the Monitoring section..](images/edit-server-details-additional.png)
+![Server details screen showing the Monitoring section..](/images/transfer/latest/userguide/images/edit-server-details-additional.png)
 ![Server details screen showing the Tags section.](images/edit-server-details-monitoring.png)
 ![Server details screen showing the Tags section.](images/edit-server-details-tags.png)
