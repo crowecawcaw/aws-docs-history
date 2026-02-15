@@ -1,41 +1,42 @@
-# .com
+# .com.br (Brazil)
 
-Used for commercial websites. It is the most popular extension on the
-internet.
+###### Important
+
+You can no longer use Route 53 to register new .com.br domains or transfer
+.com.br domains to Route 53. We'll continue to support .com.br domains that are
+already registered with Route 53.
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
-**Lease period for registration and renewal**
+**Renewal period**
 
-One to ten years.
+One year.
 
 **Privacy protection**
 
-All information is hidden.
+Not supported.
 
 **Domain locking to prevent unauthorized transfers**
 
 Supported.
 
-**Internationalized domain names**
-
-Supported.
-
 **Authorization code required for transfers**
 
-Yes
+Not supported. You can no longer transfer .com.br domains to
+Route 53.
 
 **DNSSEC**
 
-Supported for domain registration. For more information, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md").
+Not supported.
 
 **Deadlines for renewing and restoring domains**
 
-- Renewal is possible: Until the expiration date
-- Late renewal with Route 53 is possible: Until 44 days after
+- Renewal is possible: Between 30 days before expiration and
+  the expiration date
+- Late renewal with Route 53 is possible: Until 119 days after
   expiration
-- Domain is deleted from Route 53: 45 days after expiration
-- Restoration with the registry is possible: Between 45 days and
-  75 days after expiration
-- Domain is deleted from the registry: 75 days after
+- Domain is deleted from Route 53: 119 days after
+  expiration
+- Restoration with the registry is possible: No
+- Domain is deleted from the registry: 119 days after
   expiration
