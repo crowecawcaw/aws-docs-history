@@ -200,6 +200,10 @@ Here are a few important items to consider when decreasing a file system's SSD s
     requested SSD capacity). If your provisioned IOPS are higher than the maximum supported
     by the smaller aggregate, reduce IOPS before decreasing SSD capacity.
 
+- **Unsupported volume types** – Amazon FSx does not support decreasing storage capacity on file systems with SnapLock volumes, FlexClones, offline volumes, or data protection (DP) volumes that do not contain any snapshots.
+- **Unsupported Operations During Shrink** – You cannot offline volumes, move volumes, create FlexClones, create SnapLock volumes,
+  or modify storage efficiency settings of volumes during the decrease operation.
+
 ## Limitations for decreasing SSD storage capacity
 
 The following limitations apply while decreasing SSD storage capacity of your file system:
@@ -217,5 +221,3 @@ The following limitations apply while decreasing SSD storage capacity of your fi
 - You cannot revert a volume to a previous state (using `volume snapshot restore`) while data in
   that volume is being moved to the new aggregate. However, you can run `volume snapshot restore`
   on other volumes that aren't being moved currently.
-- You cannot offline volumes, move volumes, create FlexClones, create SnapLock volumes,
-  or modify storage efficiency settings of volumes during the decrease operation.

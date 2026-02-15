@@ -120,9 +120,7 @@ specific tag key-value pair, in this example, `key=Department`,
 }
 ```
 
-###### Example policy – Create backups only of Amazon FSx for NetApp ONTAP volumes with a specific
-
-tag
+###### Example policy – Create backups only of Amazon FSx for NetApp ONTAP volumes with a specific tag
 
 This policy allows users to create backups only of FSx for ONTAP volumes that are tagged
 with the key-value pair `key=Department`, `value=Finance`. The

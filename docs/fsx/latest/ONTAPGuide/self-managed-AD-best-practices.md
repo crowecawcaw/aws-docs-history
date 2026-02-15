@@ -154,10 +154,9 @@ For **Encryption Key**, create a new key, don't use the AWS default KMS key. Be 
         "kms:Decrypt",
         "kms:DescribeKey"
     ],
-    "Resource": "arn:aws:kms:`us-west-2`:`123456789012`:key:*",
+    "Resource": "arn:aws:kms:`us-west-2`:`123456789012`:key/*",
     "Condition": {
         "StringEquals": {
-            "kms:EncryptionContext:SecretARN": "arn:aws:secretsmanager:`us-west-2`:`123456789012`:secret:*",
             "kms:ViaService": "secretsmanager.`us-west-2`.amazonaws.com",
             "aws:SourceAccount": "`123456789012`"
         },
