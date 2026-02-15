@@ -64,6 +64,8 @@ deletion, and the service deletes the key.
 
 ###### Examples
 
+###### Example
+
 In this example, a key is requested to be deleted. Besides the basic key information,
 two relevant fields are that key state has been changed to DELETE_PENDING and
 deletePendingTimestamp represents when the key is currently scheduled to delete.
@@ -107,6 +109,8 @@ deletePendingTimestamp represents when the key is currently scheduled to delete.
  }
 }`
 ```
+
+###### Example
 
 In this example, a pending deletion is cancelled. Once completed successfully, a key
 will no longer be deleted per the previous schedule. The response contains the basic key

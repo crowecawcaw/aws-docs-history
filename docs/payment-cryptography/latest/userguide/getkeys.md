@@ -3,6 +3,8 @@
 An AWS Payment Cryptography key represents a single unit of cryptographic material and can only be used for cryptographic operations for this service.
 The GetKeys API takes a KeyIdentifier as input and returns key metadata including attributes, state, and timestamps, but does not return actual cryptographic key material.
 
+###### Example
+
 ```
 `$` `aws payment-cryptography get-key --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/kwapwa6qaifllw2h`
 

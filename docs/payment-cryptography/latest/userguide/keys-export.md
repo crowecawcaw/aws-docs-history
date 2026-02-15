@@ -47,6 +47,8 @@ duration specified in `ParametersValidUntilTimestamp`.
 
 All certificates are in base64 encoding.
 
+###### Example
+
 ```
 `$` `aws payment-cryptography **get-parameters-for-export** \
  `--signing-key-algorithm` RSA_2048 \
@@ -100,6 +102,8 @@ need to provide:
     * The keyARN (or alias) of the key you want to export as the
      `--export-key-identifier`
     * The export-token from step 1
+
+###### Example
 
 ```
 `$` `aws payment-cryptography **export-key** \
@@ -192,6 +196,8 @@ for a single derived-key type.
 
 Call `get-public-key-certificate` to receive the public key as an X.509
 certificate signed by your account's CA that is specific to AWS Payment Cryptography in a specific region.
+
+###### Example
 
 ```
 `$` `aws payment-cryptography **get-public-key-certificate** \
@@ -624,6 +630,8 @@ Both certificates are in base64 encoding.
 
 This operation is not idempotent—subsequent calls might generate different certificates
 even when using the same underlying key.
+
+###### Example
 
 ```
 `$` `aws payment-cryptography **get-public-key-certificate** \

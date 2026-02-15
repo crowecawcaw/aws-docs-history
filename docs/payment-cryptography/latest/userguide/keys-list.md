@@ -3,6 +3,8 @@
 Use the **ListKeys** operation to get a list of keys accessible to you
 in your account and Region.
 
+###### Example
+
 ```
 `$` `aws payment-cryptography list-keys`
 ```

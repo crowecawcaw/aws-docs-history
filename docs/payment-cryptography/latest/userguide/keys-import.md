@@ -234,6 +234,8 @@ for a single derived-key type.
 Call `get-public-key-certificate` to receive the public key as an X.509 certificate
 signed by your account's CA that is specific to AWS Payment Cryptography in a specific region.
 
+###### Example
+
 ```
 `$` `aws payment-cryptography **get-public-key-certificate** \
  `--key-identifier` arn:aws:payment-cryptography:us-east-2:111122223333:key/wc3rjsssguhxtilv`
@@ -521,6 +523,8 @@ When calling the **import-key** command, use the keyARN (or alias)
 of your key encryption key for `WrappingKeyIdentifier`. Use the
 output from the source platform for `WrappedKeyBlock`.
 
+###### Example
+
 ```
 `$` `aws payment-cryptography **import-key** \
  `--key-material`='{"`Tr31KeyBlock`": { \
@@ -579,6 +583,8 @@ time of import. The certificate should be in PEM format and base64 encoded.
 
 Use the following command to import the root certificate:
 
+###### Example
+
 ```
 `$` `aws payment-cryptography **import-key** \
  `--key-material`='{"`RootCertificatePublicKey`": { \
@@ -628,6 +634,8 @@ You can now import a public key. As TR-34 and ECDH rely on passing the leaf cert
 this option is only used when encrypting data using a public key from another system. KeyUsage will be
 set to TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION.
 
+###### Example
+
 ```
 `$` `aws payment-cryptography **import-key** \
  `--key-material`='{"`Tr31KeyBlock`": { \
@@ -676,6 +684,8 @@ The certificate should be in PEM format and base64 encoded.
 
 Use the following command to import the root certificate:
 
+###### Example
+
 ```
 `$` `aws payment-cryptography **import-key** \
  `--key-material`='{"`RootCertificatePublicKey`": { \
@@ -721,6 +731,8 @@ Use the following command to import the root certificate:
 2. ###### **Import Intermediate Certificate into AWS Payment Cryptography**
 
 Use the following command to import an intermediate certificate:
+
+###### Example
 
 ```
 `$` `aws payment-cryptography **import-key** \

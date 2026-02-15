@@ -29,6 +29,8 @@ command. For more information, see [How Multi-Region key replication works](keys
 
 key
 
+###### Example
+
 This command creates creates a 3KEY TDES derivation key that will be
 [replicated](keys-multi-region-replication.md#how-mrr-works "keys-multi-region-replication.md#how-mrr-works") to US East (Ohio) and US West (Oregon) regions.
 The response includes the reques parameters, an Amazon Resource Name (ARN) for
@@ -77,6 +79,8 @@ Example output:
 
 ## Creating a 2KEY TDES key for CVV/CVV2
 
+###### Example
+
 This command creates a 2KEY TDES key for generating and verifying CVV/CVV2
 values. The response includes the request parameters, an Amazon Resource Name
 (ARN) for subsequent calls, and a Key Check Value (KCV).
@@ -123,6 +127,8 @@ Example output:
 
 ## Creating an HMAC key
 
+###### Example
+
 HMAC keys are used for generating or verifying hash message authentication codes (HMAC). With HMAC keys,
 the hash type is assigned at the time of key creation (such as HMAC_SHA224 and HMAC_SHA512) and cannot be modified.
 
@@ -165,6 +171,8 @@ Example output:
 ```
 
 ## Creating an AES-256 key
+
+###### Example
 
 This command creates an AES-256 symmetric key for data encryption and decryption.
 AES keys provide strong encryption for sensitive data and are commonly used in payment processing
@@ -209,6 +217,8 @@ Example output:
 ```
 
 ## Creating a PIN Encryption Key (PEK)
+
+###### Example
 
 This command creates a 3KEY TDES key for encrypting PIN values although pin keys can also be AES depending
 on your need for interoperability. You can use
@@ -258,6 +268,8 @@ Example output:
 
 ## Creating an asymmetric (RSA) key
 
+###### Example
+
 This command generates a new asymmetric RSA 2048-bit key pair. It creates a
 new private key and its matching public key. You can retrieve the public key
 using the [getPublicCertificate](keys.md "keys.md") API.
@@ -303,6 +315,8 @@ Example output:
 ```
 
 ## Creating a PIN Verification Value (PVV) Key
+
+###### Example
 
 This command creates a 3KEY TDES key for generating PVV values. You can use
 this key to generate a PVV that can be compared against a subsequently
@@ -350,6 +364,8 @@ Example output:
 ```
 
 ## Creating an asymmetric ECC key
+
+###### Example
 
 This command generates an ECC key pair for establishing an ECDH (Elliptic
 Curve Diffie-Hellman) key agreement between two parties. With ECDH, each party

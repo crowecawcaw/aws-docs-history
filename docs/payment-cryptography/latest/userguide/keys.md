@@ -13,6 +13,8 @@ The service returns public keys as a public certificate. The API result contains
 The public certificate returned is intended to be short lived and is not intended to be idempotent. You may receive a different certificate on each API call even
 the public key itself is unchanged.
 
+###### Example
+
 ```
 `$` `aws payment-cryptography get-public-key-certificate --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/nsq2i3mbg6sn775f`
 

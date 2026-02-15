@@ -22,6 +22,8 @@ Key usage must be enabled in order to use a key for cryptographic operations. If
 operation to make it usable. The field `UsageStartTimestamp` will represent when the key became/will become
 active. This will be in the past for an enabled token, and in the future if pending activation.
 
+###### Example
+
 In this example, a key is requested to be enabled for key usage. The response includes the key information
 and the enable flag has been transitioned to true. This will also be reflected in list-keys response object.
 
@@ -66,6 +68,8 @@ and the enable flag has been transitioned to true. This will also be reflected i
 If you no longer plan to use a key, you can stop the key usage to prevent further cryptographic operations.
 This operation is not permanent, so you are able to reverse it using [starting key usage](#keys-startusage "#keys-startusage"). You can also set a key to be disabled in the future. The field `UsageStopTimestamp`
 will represent when the key became/will become disabled.
+
+###### Example
 
 In this example, it's requested to stop key usage in the future. After execution, this key cannot be used
 for cryptographic operations unless re-enabled via [start key usage](#keys-startusage "#keys-startusage") The response includes the key information

@@ -20,6 +20,8 @@ with a message indicating that `Mac verification failed`.
 In this example, we will verify a HMAC (Hash-Based Message Authentication Code) for card data authentication using HMAC algorithm
 `HMAC_SHA256` and HMAC encryption key. The key must have KeyUsage set to `TR31_M7_HMAC_KEY` and KeyModesOfUse `Verify` set to true.
 
+###### Example
+
 ```
 `$` `aws payment-cryptography-data verify-mac \
  --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/qnobl5lghrzunce6 \
@@ -45,6 +47,8 @@ The key must have KeyUsage set to `TR31_B0_BASE_DERIVATION_KEY` and KeyModesOfUs
 DUKPT keys derive a unique key for each transaction using a Base Derivation Key (BDK) and a Key Serial Number (KSN). The value of DukptKeyVariant
 must match between sender and receiver. REQUEST will typically be used from terminal to backend, VERIFY from backend to terminal and BIDIRECTIONAL when a
 single key is used in both directions.
+
+###### Example
 
 ```
 `$` `aws payment-cryptography-data verify-mac \

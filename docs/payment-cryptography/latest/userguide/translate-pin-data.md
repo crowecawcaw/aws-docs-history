@@ -19,6 +19,8 @@ For PCI compliance, the incoming and outgoing PrimaryAccountNumber values must m
 
 ## PIN from PEK to DUKPT
 
+###### Example
+
 In this example, we will translate a PIN from an AES ISO 4 PIN Block using the [DUKPT](terminology.md#terms.dukpt "terminology.md#terms.dukpt") to PEK TDES encryption using ISO 0 PIN block.
 This is common where a payment terminal encrypts a pin in ISO 4 and then it may be translated back to TDES for downstream processing if the next connection
 doesn't yet support AES.
@@ -39,6 +41,8 @@ doesn't yet support AES.
 ```
 
 ## PIN from PEK to PEK
+
+###### Example
 
 In this example, we translate a PIN encrypted under one PEK (PIN Encryption Key) to another PEK.
 This is commonly used when routing transactions between different systems or partners that

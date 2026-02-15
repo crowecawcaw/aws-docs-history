@@ -40,6 +40,8 @@ the `Pin Encryption Key` and the `PIN block format`.
 
 This command requires that the pin generation key is of type `TR31_V1_IBM3624_PIN_VERIFICATION_KEY` and the encryption key is of type `TR31_P0_PIN_ENCRYPTION_KEY`
 
+###### Example
+
 The following example shows generating a random pin then outputting the encrypted pin block and IBM3624 offset value using Ibm3624RandomPin
 
 ```

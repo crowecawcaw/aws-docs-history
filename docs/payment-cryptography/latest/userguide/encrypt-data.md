@@ -30,6 +30,8 @@ The primary outputs include the encrypted data as ciphertext in hexBinary format
 
 All examples assume the relevant key already exists. Keys can be created using the [CreateKey](create-keys.md "create-keys.md") operation or imported using the [ImportKey](keys-import.md "keys-import.md") operation.
 
+###### Example
+
 In this example, we will encrypt plaintext data using a symmetric key which has been created using the [CreateKey](create-keys.md "create-keys.md") Operation or imported using the [ImportKey](keys-import.md "keys-import.md") Operation.
 For this operation, the key must have KeyModesOfUse set to `Encrypt` and KeyUsage set to `TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY`. Please see [Keys for Cryptographic Operations](crypto-ops-validkeys-ops.md "crypto-ops-validkeys-ops.md") for more options.
 
@@ -49,6 +51,8 @@ For this operation, the key must have KeyModesOfUse set to `Encrypt` and KeyUsag
 ```
 
 ## Encrypt data using DUKPT key
+
+###### Example
 
 In this example, we will encrypt plaintext data using a [DUKPT](terminology.md#terms.dukpt "terminology.md#terms.dukpt") key. AWS Payment Cryptography supports `TDES` and `AES` DUKPT keys.
 For this operation, the key must have KeyModesOfUse set to `DeriveKey` and KeyUsage set to `TR31_B0_BASE_DERIVATION_KEY`. Please see [Keys for Cryptographic Operations](crypto-ops-validkeys-ops.md "crypto-ops-validkeys-ops.md") for more options.
@@ -70,6 +74,8 @@ For this operation, the key must have KeyModesOfUse set to `DeriveKey` and KeyUs
 
 ## Encrypt data using EMV-derived symmetric key
 
+###### Example
+
 In this example, we will encrypt clear text data using an EMV-derived symmetric key which has already been created. You might use a command such as this to send data to an EMV card.
 For this operation, the key must have KeyModesOfUse set to `Derive` and KeyUsage set to `TR31_E1_EMV_MKEY_CONFIDENTIALITY` or `TR31_E6_EMV_MKEY_OTHER`. Please see [Keys for Cryptographic Operations](crypto-ops-validkeys-ops.md "crypto-ops-validkeys-ops.md") for more details.
 
@@ -86,6 +92,8 @@ For this operation, the key must have KeyModesOfUse set to `Derive` and KeyUsage
 ```
 
 ## Encrypt data using an RSA key
+
+###### Example
 
 In this example, we will encrypt plaintext data using an [RSA public key](terminology.md#terms.publickey "terminology.md#terms.publickey") which has been imported using the [ImportKey](keys-import.md "keys-import.md") operation.
 For this operation, the key must have KeyModesOfUse set to `Encrypt` and KeyUsage set to `TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION`. Please see [Keys for Cryptographic Operations](crypto-ops-validkeys-ops.md "crypto-ops-validkeys-ops.md") for more options.

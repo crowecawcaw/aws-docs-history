@@ -43,6 +43,8 @@ and KeyModesOfUse to `Generate`. The hash length (e.g. 256) is defined when the 
 The optional mac-length parameter will trim the output MAC, although this can be performed outside the service as well. This value
 is in bytes, so a value of 16 will expect a hex string of length 32.
 
+###### Example
+
 ```
 `$` `aws payment-cryptography-data generate-mac \
  --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/qnobl5lghrzunce6 \
@@ -65,6 +67,8 @@ is in bytes, so a value of 16 will expect a hex string of length 32.
 
 In this example, we will generate a MAC using ISO 9797-1 Algorithm 3 (Retail MAC) for card data authentication.
 The key must have KeyUsage set to `TR31_M3_ISO_9797_3_MAC_KEY` and KeyModesOfUse to `Generate`.
+
+###### Example
 
 ```
 `$` `aws payment-cryptography-data generate-mac \
@@ -90,6 +94,8 @@ CMAC is most commonly used when the keys are AES but it also supports TDES.
 In this example, we will generate a MAC using CMAC (ISO 9797-1 Algorithm 5) for card data authentication with an AES key.
 The key must have KeyUsage set to `TR31_M6_ISO_9797_5_CMAC_KEY` and KeyModesOfUse to `Generate`.
 
+###### Example
+
 ```
 `$` `aws payment-cryptography-data generate-mac \
  --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/tqv5yij6wtxx64pi \
@@ -113,6 +119,8 @@ The key must have KeyUsage set to `TR31_M6_ISO_9797_5_CMAC_KEY` and KeyModesOfUs
 In this example, we will generate a MAC using DUKPT (Derived Unique Key Per Transaction) with CMAC for card data authentication.
 The key must have KeyUsage set to `TR31_B0_BASE_DERIVATION_KEY` and KeyModesOfUse `DeriveKey` set to true.
 DUKPT keys derive a unique key for each transaction using a Base Derivation Key (BDK) and a Key Serial Number (KSN).
+
+###### Example
 
 ```
 `$` `aws payment-cryptography-data generate-mac --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/qnobl5lghrzunce6 --message-data "3b313038383439303031303733393431353d32343038323236303030373030303f33" --generation-attributes="DukptCmac={KeySerialNumber="932A6E954ABB32DD00000001",Direction=BIDIRECTIONAL}"`
