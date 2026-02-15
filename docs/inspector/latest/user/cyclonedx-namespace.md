@@ -30,30 +30,53 @@ The Amazon Inspector Scan API uses the `amazon:inspector:sbom_scanner` namespace
 
 The Amazon Inspector SBOM Generator uses the `amazon:inspector:sbom_generator` namespace and has the following properties:
 
-| **Property**                                                                | **Description**                                                                                         |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `amazon:inspector:sbom_generator:cpu_architecture`                          | The CPU architecture of the system being inventoried (x86_64).                                          |
-| `amazon:inspector:sbom_generator:ec2:instance_id`                           | The Amazon EC2 instance ID.                                                                             |
-| `amazon:inspector:sbom_generator:ec2:instance_type`                         | The Amazon EC2 Instance type                                                                            |
-| `amazon:inspector:sbom_generator:live_patching_enabled`                     | A boolean value indicating whether live patching is enabled on Amazon EC2 Amazon Linux.                 |
-| `amazon:inspector:sbom_generator:live_patched_cves`                         | A list of CVEs patched through live patching on Amazon EC2 Amazon Linux.                                |
-| `amazon:inspector:sbom_generator:dockerfile_finding:`inspector_finding_id`` | Indicates that an Amazon Inspector finding in a component is related to Dockerfile checks.              |
-| `amazon:inspector:sbom_generator:image_id`                                  | The hash belonging to the container image config file (also known as the Image ID).                     |
-| `amazon:inspector:sbom_generator:image_arch`                                | The architecture of the container image.                                                                |
-| `amazon:inspector:sbom_generator:image_author`                              | The author of the container image.                                                                      |
-| `amazon:inspector:sbom_generator:image_docker_version`                      | The docker version used to build the container image.                                                   |
-| `amazon:inspector:sbom_generator:is_duplicate_package`                      | Indicates that the subject package was found by more than one file scanner.                             |
-| `amazon:inspector:sbom_generator:duplicate_purl`                            | Indicates the duplicated package PURL found by another scanner.                                         |
-| `amazon:inspector:sbom_generator:kernel_name`                               | The kernel name of the system being inventoried.                                                        |
-| `amazon:inspector:sbom_generator:kernel_version`                            | The kernel version of the system being inventoried.                                                     |
-| `amazon:inspector:sbom_generator:kernel_component`                          | A boolean value indicating whether a subject package is a kernel component                              |
-| `amazon:inspector:sbom_generator:running_kernel`                            | A boolean value that indicates if a subject package is the running kernel                               |
-| `amazon:inspector:sbom_generator:layer_diff_id`                             | The hash of the uncompressed container image layer.                                                     |
-| `amazon:inspector:sbom_generator:replaced_by`                               | The value that replaces the current Go module.                                                          |
-| `amazon:inspector:sbom_generator:os_hostname`                               | The hostname of the system being inventoried.                                                           |
-| `amazon:inspector:sbom_generator:source_file_scanner`                       | The scanner that found the file that contains package information, for example: `/var/lib/dpkg/status`. |
-| `amazon:inspector:sbom_generator:source_package_collector`                  | The collector that extracted the package name and version from a specific file.                         |
-| `amazon:inspector:sbom_generator:source_path`                               | The path to the file that the subject package information was extracted from.                           |
-| `amazon:inspector:sbom_generator:file_size_bytes`                           | Indicates file size of a given artifact.                                                                |
-| `amazon:inspector:sbom_generator:unresolved_version`                        | Indicates a version string that has not been resolved by package manager..                              |
-| `amazon:inspector:sbom_generator:experimental:transitive_dependency`        | Indicates indirect dependencies from a package manager.                                                 |
+| **Property**                                                                       | **Description**                                                                                         |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `amazon:inspector:sbom_generator:cpu_architecture`                                 | The CPU architecture of the system being inventoried (x86_64).                                          |
+| `amazon:inspector:sbom_generator:ec2:instance_id`                                  | The Amazon EC2 instance ID.                                                                             |
+| `amazon:inspector:sbom_generator:ec2:instance_type`                                | The Amazon EC2 Instance type                                                                            |
+| `amazon:inspector:sbom_generator:live_patching_enabled`                            | A boolean value indicating whether live patching is enabled on Amazon EC2 Amazon Linux.                 |
+| `amazon:inspector:sbom_generator:live_patched_cves`                                | A list of CVEs patched through live patching on Amazon EC2 Amazon Linux.                                |
+| `amazon:inspector:sbom_generator:dockerfile_finding:`inspector_finding_id``        | Indicates that an Amazon Inspector finding in a component is related to Dockerfile checks.              |
+| `amazon:inspector:sbom_generator:image_id`                                         | The hash belonging to the container image config file (also known as the Image ID).                     |
+| `amazon:inspector:sbom_generator:image_arch`                                       | The architecture of the container image.                                                                |
+| `amazon:inspector:sbom_generator:image_author`                                     | The author of the container image.                                                                      |
+| `amazon:inspector:sbom_generator:image_docker_version`                             | The docker version used to build the container image.                                                   |
+| `amazon:inspector:sbom_generator:is_duplicate_package`                             | Indicates that the subject package was found by more than one file scanner.                             |
+| `amazon:inspector:sbom_generator:duplicate_purl`                                   | Indicates the duplicated package PURL found by another scanner.                                         |
+| `amazon:inspector:sbom_generator:kernel_name`                                      | The kernel name of the system being inventoried.                                                        |
+| `amazon:inspector:sbom_generator:kernel_version`                                   | The kernel version of the system being inventoried.                                                     |
+| `amazon:inspector:sbom_generator:kernel_component`                                 | A boolean value indicating whether a subject package is a kernel component                              |
+| `amazon:inspector:sbom_generator:running_kernel`                                   | A boolean value that indicates if a subject package is the running kernel                               |
+| `amazon:inspector:sbom_generator:layer_diff_id`                                    | The hash of the uncompressed container image layer.                                                     |
+| `amazon:inspector:sbom_generator:replaced_by`                                      | The value that replaces the current Go module.                                                          |
+| `amazon:inspector:sbom_generator:os_hostname`                                      | The hostname of the system being inventoried.                                                           |
+| `amazon:inspector:sbom_generator:source_file_scanner`                              | The scanner that found the file that contains package information, for example: `/var/lib/dpkg/status`. |
+| `amazon:inspector:sbom_generator:source_package_collector`                         | The collector that extracted the package name and version from a specific file.                         |
+| `amazon:inspector:sbom_generator:source_path`                                      | The path to the file that the subject package information was extracted from.                           |
+| `amazon:inspector:sbom_generator:file_size_bytes`                                  | Indicates file size of a given artifact.                                                                |
+| `amazon:inspector:sbom_generator:unresolved_version`                               | Indicates a version string that has not been resolved by package manager..                              |
+| `amazon:inspector:sbom_generator:experimental:transitive_dependency`               | Indicates indirect dependencies from a package manager.                                                 |
+| `amazon:inspector:sbom_generator:metadata:host:hostname`                           | The hostname of the scanned system.                                                                     |
+| `amazon:inspector:sbom_generator:metadata:host:kernel_name`                        | The kernel name of the operating system (e.g., Linux, Darwin, Windows_NT).                              |
+| `amazon:inspector:sbom_generator:metadata:host:kernel_version`                     | The kernel version string of the operating system.                                                      |
+| `amazon:inspector:sbom_generator:metadata:host:cpu_architecture`                   | The CPU architecture of the system (e.g., x86_64, arm64).                                               |
+| `amazon:inspector:sbom_generator:metadata:host:bootdisk_id`                        | Unique identifier of the boot disk.                                                                     |
+| `amazon:inspector:sbom_generator:metadata:host:boot_id`                            | Unique identifier for the current boot session.                                                         |
+| `amazon:inspector:sbom_generator:metadata:host:boot_time`                          | System boot time in ISO 8601 format.                                                                    |
+| `amazon:inspector:sbom_generator:metadata:host:system_id`                          | Persistent system identifier (machine-id on Linux, MachineGuid on Windows).                             |
+| `amazon:inspector:sbom_generator:metadata:host:system_serial`                      | Hardware serial number from system firmware.                                                            |
+| `amazon:inspector:sbom_generator:metadata:host:network_interfaces:`name`:hardware` | MAC address of the network interface.                                                                   |
+| `amazon:inspector:sbom_generator:metadata:host:network_interfaces:`name`:ipv4`     | IPv4 address(es) assigned to the interface.                                                             |
+| `amazon:inspector:sbom_generator:metadata:host:network_interfaces:`name`:ipv6`     | IPv6 address(es) assigned to the interface.                                                             |
+| `amazon:inspector:sbom_generator:metadata:host:sbomgen_tag:`key``                  | Custom user-defined tags passed via the --tag CLI argument.                                             |
+| `amazon:inspector:sbom_generator:metadata:imds:provider`                           | The cloud provider detected via IMDS (aws, azure).                                                      |
+| `amazon:inspector:sbom_generator:metadata:imds:instance_id`                        | The Amazon EC2 instance ID or Azure VM name.                                                            |
+| `amazon:inspector:sbom_generator:metadata:imds:instance_type`                      | The instance type (e.g., t3.micro, Standard_D2s_v3).                                                    |
+| `amazon:inspector:sbom_generator:metadata:imds:instance_location`                  | The region/location of the instance.                                                                    |
+| `amazon:inspector:sbom_generator:metadata:imds:instance_partition`                 | The cloud partition (aws, aws-cn, aws-us-gov for AWS, or AzurePublicCloud for Azure).                   |
+| `amazon:inspector:sbom_generator:metadata:imds:instance_managed_id`                | Amazon EC2 Systems Manager managed instance ID (AWS only).                                              |
+| `amazon:inspector:sbom_generator:metadata:imds:tenant_id`                          | Azure tenant ID (Azure only).                                                                           |
+| `amazon:inspector:sbom_generator:metadata:imds:vm_id`                              | Azure VM unique identifier (Azure only).                                                                |
+| `amazon:inspector:sbom_generator:metadata:host:open_port:`port`:`protocol``        | Indicates an open port of a runtime resource (i.e. EC2)                                                 |
+| `amazon:inspector:sbom_generator:hardened_image:vendor`                            | The vendor of a hardened container image                                                                |

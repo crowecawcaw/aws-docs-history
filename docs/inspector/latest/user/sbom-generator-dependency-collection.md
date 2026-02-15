@@ -1175,7 +1175,7 @@ Floating versions and version ranges allow developers to specify a range of acce
 ### Go binaries
 
 The Amazon Inspector SBOM Generator doesn't scan Go binaries that are built with build flags configured to exclude the build ID.
-These build flags prevent Bomerman from accurately mapping the binary to its original source.
+These build flags prevent Amazon Inspector SBOM Generator from accurately mapping the binary to its original source.
 Unclear Go binaries aren't supported due to the inability to extract package information.
 For accurate dependency scanning, make sure that Go binaries are built with default settings, including the build ID.
 

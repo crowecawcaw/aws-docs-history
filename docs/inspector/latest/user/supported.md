@@ -83,7 +83,6 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Rocky Linux                         | 8               | Errata CVE                             | Yes                    | Yes                      |
 | Rocky Linux                         | 9               | Errata CVE                             | Yes                    | Yes                      |
 | Rocky Linux                         | 10              | Errata CVE                             | Yes                    | Yes                      |
-| SUSE Linux Enterprise Server (SLES) | 15.6            | SUSE CVE                               | Yes                    | Yes                      |
 | SUSE Linux Enterprise Server (SLES) | 15.7            | SUSE CVE                               | Yes                    | Yes                      |
 | Ubuntu (Xenial)                     | 16.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Bionic)                     | 18.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
@@ -137,7 +136,6 @@ It also specifies the vendor security advisory for each operating system.
 | Rocky Linux                         | 8       | Errata CVE                             |
 | Rocky Linux                         | 9       | Errata CVE                             |
 | Rocky Linux                         | 10      | Errata CVE                             |
-| SUSE Linux Enterprise Server (SLES) | 15.6    | SUSE CVE                               |
 | SUSE Linux Enterprise Server (SLES) | 15.7    | SUSE CVE                               |
 | Ubuntu (Xenial)                     | 16.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
 | Ubuntu (Bionic)                     | 18.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
@@ -213,7 +211,6 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Rocky Linux              | 8       |
 | Rocky Linux              | 9       |
 | Rocky Linux              | 10      |
-| SUSE Server              | 15.6    |
 | SUSE Server              | 15.7    |
 | Ubuntu                   | 16.04   |
 | Ubuntu                   | 18.04   |
@@ -293,6 +290,7 @@ As a result, Amazon Inspector can stop generating findings for known CVEs.
 | SUSE Linux Enterprise Server (SLES) | 15.3    | December 31, 2022 |
 | SUSE Linux Enterprise Server (SLES) | 15.4    | December 31, 2023 |
 | SUSE Linux Enterprise Server (SLES) | 15.5    | December 31, 2024 |
+| SUSE Linux Enterprise Server (SLES) | 15.6    | December 31, 2025 |
 | Ubuntu (Trusty)                     | 12.04   | April 28, 2017    |
 | Ubuntu (Trusty)                     | 14.04   | April 1, 2024     |
 | Ubuntu (Groovy)                     | 20.10   | July 22, 2021     |
@@ -396,6 +394,7 @@ The version of the programming language compiler used to build the application i
 - .NET
   - .NET 6
   - .NET 8
+  - .NET 10
 
 - Node.js
   - nodejs12.x
@@ -404,6 +403,7 @@ The version of the programming language compiler used to build the application i
   - nodejs18.x
   - nodejs20.x
   - nodejs22.x
+  - nodejs24.x
 
 - Python
   - python3.7

@@ -296,7 +296,7 @@ instances.
 ## Excluding instances from Amazon Inspector scans
 
 You can exclude Linux and Windows instances from Amazon Inspector scans by tagging these instances with the `InspectorEc2Exclusion` key.
-Including a tag value is optional.
+Tag key is case-insensitive. Including a tag value is optional.
 For information about adding tags, see [Tag your Amazon EC2 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md").
 
 When you tag an instance for exclusion from Amazon Inspector scans, Amazon Inspector marks the instance as excluded and won't create findings for it.
