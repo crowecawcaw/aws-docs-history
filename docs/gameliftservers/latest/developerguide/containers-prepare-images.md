@@ -137,11 +137,15 @@ Login Succeeded`
 2. Copy the URI of the [Amazon ECR private repository](https://console.aws.amazon.com/ecr/private-registry/repositories "https://console.aws.amazon.com/ecr/private-registry/repositories") you want to use.
 3. Apply an Amazon ECR tag to your container image.
 
+###### Example
+
 ```
 ``[~/work/glc]$` docker tag `<IMAGE ID from above>` `<Amazon ECR private repository URI>`:`<optional tag>``
 ```
 
 4. Push your container image to Amazon ECR
+
+###### Example
 
 ```
 ``[~/work/glc]$` docker image push `<Amazon ECR private repository URI>``

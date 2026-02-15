@@ -173,6 +173,8 @@ your container group definitions, you can reference the file in the command.
    Reference_.
 3. Save the file locally so that you can refer to it in an AWS CLI command.
 
+###### Example
+
 This example describes the essential container for your game server container group.
 The essential replica container includes your game server application, the Amazon GameLift Servers Agent,
 and can include other supporting software for your game hosting. The definition must

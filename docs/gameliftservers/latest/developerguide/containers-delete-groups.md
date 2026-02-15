@@ -47,6 +47,8 @@ AWS CLI
 This example illustrates a request to delete all versions of game server container
 group definition older than version 5.
 
+###### Example
+
 ```
 aws gamelift delete-container-group-definition \
     --name MyAdventureGameContainerGroup \

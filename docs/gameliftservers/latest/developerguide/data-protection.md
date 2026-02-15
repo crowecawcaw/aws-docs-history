@@ -85,10 +85,25 @@ Direct communication between game clients and game servers is as follows:
   the customer. You can use TLS-enabled fleets to have your game clients authenticate
   the game server on connection and to encrypt all communication between your game
   client and game server.
+- Certificates for TLS-enabled fleets are created at the same time as the fleet,
+  and their expiration dates are based on the fleet creation date.
 - For Amazon GameLift Servers Realtime with TLS certificate generation enabled, traffic between game client and
   Realtime servers using the client SDK for Realtime is encrypted in flight. TCP
   traffic is encrypted using TLS 1.2, and UDP traffic is encrypted using DTLS
   1.2.
+
+###### Note
+
+To meet Certificate Authority requirements for TLS certificates, Amazon GameLift Servers will
+adjust the maximum certificate lifetimes for fleets configured to generate a certificate.
+Certificate lifetimes begin on fleet creation and will be changed on the following schedule:
+
+- Until March 11, 2026, the maximum lifetime for a TLS certificate issued is 398 days.
+- As of March 1, 2026, the maximum lifetime for a TLS certificate issued will be 200 days.
+- As of March 1, 2027, the maximum lifetime for a TLS certificate issued will be 100 days.
+- As of March 1, 2029, the maximum lifetime for a TLS certificate issued will be 47 days.
+  To ensure that your certificates are renewed, and to maintain up-to-date game server runtime
+  environments, Amazon GameLift Servers recommends regularly replacing your game server fleets.
 
 ## Internetwork traffic privacy
 

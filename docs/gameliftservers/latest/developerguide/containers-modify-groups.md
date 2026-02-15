@@ -83,7 +83,7 @@ To update a new container group definition, use the
 about this command, see [update-container-group-definition](../../../cli/latest/reference/gamelift/update-container-group-definition.md "../../../cli/latest/reference/gamelift/update-container-group-definition.md") in the _AWS
 CLI Command Reference_.
 
-###### Example : game server container group
+###### Example: game server container group
 
 You can specify a container group definition version when retrieving,
 updating, or deleting a container group definition, or when creating or updating
