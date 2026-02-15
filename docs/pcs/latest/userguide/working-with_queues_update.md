@@ -62,7 +62,7 @@ aws pcs update-queue --region `region-code` \
     computeNodeGroupId=`computeNodeGroupExampleID1`
 ```
 
-###### Example – Updating a queue with custom Slurm settings
+###### Example– Updating a queue with custom Slurm settings
 
 ```
 aws pcs update-queue --region `region-code` \

@@ -40,6 +40,8 @@ cluster.
 source ./activate-pcs-`cluster-name`
 ```
 
+###### Example
+
 ```
 # Activate cluster environment for cluster 'my-cluster'
 source ./activate-pcs-my-cluster
@@ -67,6 +69,8 @@ sbatch my-job.sh
 ```
 deactivate-pcs-`cluster-name`
 ```
+
+###### Example
 
 ```
 # After activating a cluster

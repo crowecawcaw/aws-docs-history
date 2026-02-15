@@ -32,7 +32,7 @@ To unset a custom setting
 AWS CLI
 For programmatic management of custom settings, use the `SlurmCustomSettings` field in create or update operations.
 
-###### Example – Updating the `Prolog` parameter on a cluster
+###### Example– Updating the `Prolog` parameter on a cluster
 
 ```
 aws pcs update-cluster --cluster-identifier `my-cluster` \
@@ -40,7 +40,7 @@ aws pcs update-cluster --cluster-identifier `my-cluster` \
 'SlurmCustomSettings=[{parameterName=Prolog,parameterValue="`/path/to/prolog.sh`"}]'
 ```
 
-###### Example – Setting a queue to be the `Default` on a cluster
+###### Example– Setting a queue to be the `Default` on a cluster
 
 ```
 aws pcs update-queue \
@@ -49,7 +49,7 @@ aws pcs update-queue \
     --slurm-configuration 'SlurmCustomSettings=[{parameterName=Default,parameterValue=YES}]'
 ```
 
-###### Example – Setting custom `Features` on a compute node group
+###### Example– Setting custom `Features` on a compute node group
 
 ```
 aws pcs update-compute-node-group \

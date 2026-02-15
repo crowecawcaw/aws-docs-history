@@ -180,7 +180,7 @@ aws pcs create-compute-node-group --region `region` \
     --instance-configs instanceType=`t3.large`
 ```
 
-###### Example – Creating a compute node group with custom Slurm settings
+###### Example– Creating a compute node group with custom Slurm settings
 
 ```
 aws pcs create-compute-node-group --region `region` \

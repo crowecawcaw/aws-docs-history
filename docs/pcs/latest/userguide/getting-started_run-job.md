@@ -41,6 +41,8 @@ sbatch -p demo job.sh
 squeue --job `job-id`
 ```
 
+###### Example
+
 ```
 squeue --job 1
 ```

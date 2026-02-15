@@ -106,7 +106,7 @@ aws pcs update-compute-node-group --region `region-code` \
     --compute-node-group-identifier `my-node-group`
 ```
 
-###### Example – Updating a compute node group with custom Slurm settings
+###### Example– Updating a compute node group with custom Slurm settings
 
 ```
 aws pcs update-compute-node-group --region `region-code` \

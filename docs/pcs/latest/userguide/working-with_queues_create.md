@@ -76,7 +76,7 @@ aws pcs create-queue --region `region-code` \
     computeNodeGroupId=`compute-node-group-id`
 ```
 
-###### Example – Creating a queue with custom Slurm settings
+###### Example– Creating a queue with custom Slurm settings
 
 ```
 aws pcs create-queue --region `region-code` \

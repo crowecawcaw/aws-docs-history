@@ -4,7 +4,7 @@ Cluster secret rotation fails if the environment isn't properly prepared. The mo
 
 1. Set all node groups to 0 capacity.
 2. Wait for nodes to stop.
-3. Verify your cluster isn't in these states: `CREATE_FAILED`, `DELETE_FAILED`, `SUSPENDING`, or `SUSPENDED`.
+3. Verify your cluster isn't in these states: `CREATE_FAILED`, `DELETE_FAILED`, `RESUMING`, `SUSPENDING`, or `SUSPENDED`.
    If rotation fails:
 
 - A RotationFailed CloudTrail event appears

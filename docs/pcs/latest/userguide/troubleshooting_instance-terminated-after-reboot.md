@@ -23,6 +23,8 @@ and [Monitoring AWS PCS instances using
 Amazon CloudWatch](monitoring-cloudwatch_instances.md "monitoring-cloudwatch_instances.md").
 The following example `slurmctld` log entry indicates that the instance rebooted:
 
+###### Example
+
 ```
 [2024-09-12T06:42:50.393+00:00] validate_node_specs: Node Login-1 unexpectedly rebooted boot_time=1726123354 last response=1726123285
 ```

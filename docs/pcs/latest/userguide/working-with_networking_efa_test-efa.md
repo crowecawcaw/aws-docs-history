@@ -29,7 +29,7 @@ NodeName=hpc7g-1 Arch=aarch64 CoresPerSocket=1
    AvailableFeatures=hpc7g
    ActiveFeatures=hpc7g
    Gres=(null)
-   NodeAddr=10.3.140.69 NodeHostName=ip-10-3-140-69 Version=25.05.4
+   NodeAddr=10.3.140.69 NodeHostName=ip-10-3-140-69 Version=25.05.5
    OS=Linux 5.10.218-208.862.amzn2.aarch64 #1 SMP Tue Jun 4 16:52:10 UTC 2024
    RealMemory=124518 AllocMem=0 FreeMem=110763 Sockets=64 Boards=1
    State=IDLE+CLOUD ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
@@ -49,7 +49,7 @@ NodeName=hpc7g-2 Arch=aarch64 CoresPerSocket=1
    AvailableFeatures=hpc7g
    ActiveFeatures=hpc7g
    Gres=(null)
-   NodeAddr=10.3.132.211 NodeHostName=ip-10-3-132-211 Version=25.05.4
+   NodeAddr=10.3.132.211 NodeHostName=ip-10-3-132-211 Version=25.05.5
    OS=Linux 5.10.218-208.862.amzn2.aarch64 #1 SMP Tue Jun 4 16:52:10 UTC 2024
    RealMemory=124518 AllocMem=0 FreeMem=110759 Sockets=64 Boards=1
    State=IDLE+CLOUD ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
