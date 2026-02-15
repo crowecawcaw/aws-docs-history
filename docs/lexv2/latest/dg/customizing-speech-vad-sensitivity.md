@@ -20,7 +20,7 @@ Maximum tolerance for high levels of background noise. Use this setting for very
 
 ###### Note
 
-Higher noise tolerance levels may result in the system being more permissive about what it considers speech, which could potentially lead to false positives in very quiet environments. Choose the sensitivity level that best matches your expected acoustic environment.
+Higher noise tolerance levels may result in the system being more permissive about what it considers speech, which could potentially lead to false negatives in very quiet environments. Choose the sensitivity level that best matches your expected acoustic environment.
 
 ## Configuring VAD sensitivity
 

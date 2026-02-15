@@ -167,7 +167,7 @@ JSON
  "iam:PassedToService": "lexv2.amazonaws.com"
  },
  "StringLike": {
- "iam:AssociatedResourceARN": "arn:aws:lex:`region`:`account-id`:bot:`bot-name`:`bot-alias`"
+ "iam:AssociatedResourceARN": "arn:aws:lex:`region`:`123456789012`:bot:`bot-name`:`bot-alias`"
  }
  }
  }
