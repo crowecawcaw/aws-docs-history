@@ -5,6 +5,8 @@ SDK for Python (Boto3)
 You can retrieve an SDK for Python (Boto3) AWS client initialized with the connection's
 credentials.
 
+###### Example
+
 The following example shows how to create a Redshift client using
 create_client() from Redshift connection.
 
@@ -26,6 +28,8 @@ Those connections are listed in the following table.
 | S3_FOLDER       | s3               |
 
 For other connection types, you must specify an AWS service name.
+
+###### Example
 
 See the following example for details.
 

@@ -15,12 +15,16 @@ appears in Amazon SageMaker Unified Studio under the aws-sagemaker-catalog bucke
 
 ###### Note
 
-In the current release, you can enable exporting asset metadata only for one domain
-per AWS account per region. If you disable exporting asset metadata feature for a
-domain where it's already enabled, you cannot enable this feature for another domain in
-the same AWS account and region.
+You can enable asset metadata export for only one domain per AWS account per Region.
+To enable export for a different domain, complete the following steps:
 
-Also, encryption configuration for the exported asset table cannot be updated.
+1. Delete the export configuration for the currently enabled domain using
+   the DeleteDataExportConfiguration operation.
+2. Delete the asset S3 table under the aws-sagemaker-catalog S3 table bucket.
+   We recommend backing up the S3 table before deletion.
+3. Call the PutDataExportConfiguration API to enable export for the new
+   domain.
+   Also, encryption configuration for the exported asset table cannot be updated.
 
 This capability is available in all AWS Regions where Amazon SageMaker Catalog is
 supported at no additional charge. You pay only for underlying services including S3 Tables

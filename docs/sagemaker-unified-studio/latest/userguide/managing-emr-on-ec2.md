@@ -8,7 +8,10 @@ Spark UI.
 
 ## Spark History Server
 
-You can use the live Spark UI in a notebook session to view details such as tasks, executors and logs about Spark jobs.
+You can use the live Spark UI in a notebook session to view details such as tasks,
+executors and logs about Spark jobs.
 
-You can explore the Spark History Server for a cluster at any time. To do this, select your cluster from the list of all clusters assigned to a project,
-which brings up the Detail view for the cluster. On the Detail page view, select the **Applications** tab and choose the '**Spark History Server** link.
+You can explore the Spark History Server for a cluster at any time. To do this, select
+your cluster from the list of all clusters assigned to a project, which brings up the Detail
+view for the cluster. On the Detail page view, select the **Applications**
+tab and choose the '**Spark History Server** link.

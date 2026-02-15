@@ -218,7 +218,7 @@ generates. For more information, see [Reuse and share Amazon Bedrock prompts](pr
 
 9. Choose **Save** to save the flow. The flow should look similar to the following.
 
-![Knowledge Base and prompt node in an Amazon Bedrock in SageMaker Unified Studio flow app.](/images/sagemaker-unified-studio/latest/userguide/images/bedrock/create-flow-kb-prompt-out.png) 10. Test your prompt by doing the following:
+![Knowledge Base and prompt node in an Amazon Bedrock in SageMaker Unified Studio flow app.](images/bedrock/create-flow-kb-prompt-out.png) 10. Test your prompt by doing the following:
 
     1. On right side of the app flow page, choose **<** to open the test pane.
     2. For the **Text** box, enter `Cosmic Rock`.
