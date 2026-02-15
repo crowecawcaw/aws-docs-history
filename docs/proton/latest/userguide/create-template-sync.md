@@ -261,7 +261,7 @@ Specify one or more environment template / major version combinations. Specifyin
 `supported_component_sources` is optional, and the only supported value is
 `DIRECTLY_DEFINED`.
 
-###### Example .template-registration.yaml
+###### Example.template-registration.yaml
 
 In this example, the service template version is compatible with major versions 1 and
 2 of the `my-env-template` environment template. It's also compatible with the
