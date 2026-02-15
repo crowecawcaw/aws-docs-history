@@ -165,14 +165,14 @@ _IAM User Guide_. You set up the IAM role for Amazon ECS and the EC2 instance pr
 5. Under **Select your use case**, choose **Elastic Container
    Service**, **Next:Permissions**.
 
-![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](images/ecs-role.png) 6. For **Permissions policy**, leave the default policy
+![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](/images/blockchain-templates/latest/developerguide/images/ecs-role.png) 6. For **Permissions policy**, leave the default policy
 (**AmazonEC2ContainerServiceRole**) selected, and choose
 **Next:Review**. 7. For **Role name**, enter a value that helps you identify the role,
 such as _ECSRoleForEthereum_. For **Role Description**,
 enter a brief summary. Note the role name for later. 8. Choose **Create role**. 9. Select the role that you just created from the list. If your account has many roles,
 you can search for the role name.
 
-![AWSIAM console showing a role named "ECSRoleForEtherum" with its description.](/images/blockchain-templates/latest/developerguide/images/ecs-role-list.png) 10. Copy the **Role ARN** value and save it so that you can copy it again.
+![AWSIAM console showing a role named "ECSRoleForEtherum" with its description.](images/ecs-role-list.png) 10. Copy the **Role ARN** value and save it so that you can copy it again.
 You need this ARN when you create the Ethereum network.
 
 ![AWSIAM role summary page showing role ARN, description, and attached policies.](images/ecs-role-arn.png)
