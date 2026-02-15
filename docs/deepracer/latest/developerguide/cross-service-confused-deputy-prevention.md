@@ -55,7 +55,7 @@ JSON
  ],
  "Condition": {
  "StringEquals": {
- "aws:SourceArn": "arn:${Partition}:deepracer:${Region}:${Account}:model/reinforcement_learning/${ResourceId}"
+ "aws:SourceArn": "arn:${Partition}:deepracer:$us-east-1:${Account}:model/reinforcement_learning/${ResourceId}"
  }
  }
  }
