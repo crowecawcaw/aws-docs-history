@@ -47,7 +47,7 @@ exchangeService.getHttpHeaders().put("Authorization", "Bearer " + response.token
 exchangeService.setImpersonatedUserId(new ImpersonatedUserId(ConnectingIdType.SmtpAddress, EMAIL_ADDRESS));
 ```
 
-###### Example .Net – [EWS Managed API](https://github.com/OfficeDev/ews-managed-api "https://github.com/OfficeDev/ews-managed-api")
+###### Example.Net – [EWS Managed API](https://github.com/OfficeDev/ews-managed-api "https://github.com/OfficeDev/ews-managed-api")
 
 ```
 using Amazon.WorkMail;

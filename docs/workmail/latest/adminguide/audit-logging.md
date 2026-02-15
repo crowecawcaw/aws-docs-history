@@ -297,7 +297,7 @@ JSON
  "Condition": {
  "StringEquals": {
  "aws:SourceAccount": [
- "`account-id`"
+ "`123456789012`"
  ]
  },
  "ArnLike": {
@@ -319,7 +319,7 @@ JSON
  "StringEquals": {
  "s3:x-amz-acl": "bucket-owner-full-control",
  "aws:SourceAccount": [
- "`account-id`"
+ "`123456789012`"
  ]
  },
  "ArnLike": {

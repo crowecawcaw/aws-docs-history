@@ -340,7 +340,7 @@ Lambda\*\* responses
 The following examples demonstrate the structure of common synchronous
 **Run Lambda** responses.
 
-###### Example : Remove specified recipients from an email message
+###### Example: Remove specified recipients from an email message
 
 The following example demonstrates the structure of a synchronous
 **Run Lambda** response for removing recipients from
@@ -367,7 +367,7 @@ an email message.
 }
 ```
 
-###### Example : Bounce with a custom email message
+###### Example: Bounce with a custom email message
 
 The following example demonstrates the structure of a synchronous
 **Run Lambda** response for bouncing with a custom
@@ -389,7 +389,7 @@ email message.
 }
 ```
 
-###### Example : Add recipients to an email message
+###### Example: Add recipients to an email message
 
 The following example demonstrates the structure of a synchronous
 **Run Lambda** response for adding recipients to the
