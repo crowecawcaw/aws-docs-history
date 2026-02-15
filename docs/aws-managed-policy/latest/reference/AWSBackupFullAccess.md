@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 18, 2019, 22:21 UTC
-- **Edited time:** November 20, 2025, 03:34 UTC
+- **Edited time:** February 12, 2026, 18:02 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSBackupFullAccess`
 
 ## Policy version
 
-**Policy version:** v22 (default)
+**Policy version:** v30 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

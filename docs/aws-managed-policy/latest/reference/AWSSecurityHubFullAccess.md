@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 27, 2018, 23:54 UTC
-- **Edited time:** November 21, 2025, 21:19 UTC
+- **Edited time:** February 12, 2026, 17:58 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSSecurityHubFullAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

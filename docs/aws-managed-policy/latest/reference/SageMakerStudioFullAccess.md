@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 28, 2024, 00:06 UTC
-- **Edited time:** July 23, 2025, 19:22 UTC
+- **Edited time:** February 12, 2026, 18:00 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioFullAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v15 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

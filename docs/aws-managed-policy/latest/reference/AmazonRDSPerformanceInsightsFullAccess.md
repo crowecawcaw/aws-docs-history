@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 15, 2023, 23:41 UTC
-- **Edited time:** November 20, 2025, 22:04 UTC
+- **Edited time:** February 12, 2026, 18:02 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonRDSPerformanceInsightsFullAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

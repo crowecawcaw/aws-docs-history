@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 15, 2024, 22:53 UTC
-- **Edited time:** October 27, 2025, 11:49 UTC
+- **Edited time:** February 12, 2026, 17:58 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSQuickSetupSSMDeploymentRolePolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: June 05, 2023, 22:04 UTC
-- **Edited time:** December 31, 2025, 19:49 UTC
+- **Edited time:** February 12, 2026, 18:01 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSControlTowerAccountServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

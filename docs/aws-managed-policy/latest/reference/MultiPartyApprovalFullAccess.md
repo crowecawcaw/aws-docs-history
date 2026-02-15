@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 18, 2025, 20:22 UTC
-- **Edited time:** September 08, 2025, 17:04 UTC
+- **Edited time:** February 12, 2026, 18:02 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/MultiPartyApprovalFullAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

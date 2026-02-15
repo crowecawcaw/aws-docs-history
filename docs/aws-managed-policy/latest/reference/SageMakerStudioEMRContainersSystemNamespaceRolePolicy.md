@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: October 23, 2025, 18:34 UTC
-- **Edited time:** October 30, 2025, 20:34 UTC
+- **Edited time:** February 12, 2026, 18:01 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRContainersSystemNamespaceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 04, 2024, 14:06 UTC
-- **Edited time:** January 13, 2025, 22:52 UTC
+- **Edited time:** February 12, 2026, 18:02 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonSageMakerCanvasSMDataScienceAssistantAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

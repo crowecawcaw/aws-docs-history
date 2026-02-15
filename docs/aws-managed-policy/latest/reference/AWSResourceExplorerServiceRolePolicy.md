@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 25, 2022, 20:35 UTC
-- **Edited time:** December 16, 2025, 20:19 UTC
+- **Edited time:** February 12, 2026, 17:58 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSResourceExplorerServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v22 (default)
+**Policy version:** v49 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -810,6 +810,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "iam:ListAttachedRolePolicies",
         "iam:ListRolePolicies",
         "kinesis:DescribeStreamSummary",
+        "kinesis:ListTagsForResource",
         "kinesis:ListTagsForStream",
         "lambda:GetEventSourceMapping",
         "lambda:GetFunction",

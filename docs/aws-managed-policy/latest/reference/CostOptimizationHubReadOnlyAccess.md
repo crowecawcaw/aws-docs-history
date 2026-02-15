@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 13, 2023, 18:04 UTC
-- **Edited time:** November 19, 2025, 16:49 UTC
+- **Edited time:** February 12, 2026, 18:00 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CostOptimizationHubReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

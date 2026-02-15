@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: April 20, 2023, 22:35 UTC
-- **Edited time:** March 20, 2025, 23:07 UTC
+- **Edited time:** February 12, 2026, 18:00 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/ROSAWorkerInstancePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

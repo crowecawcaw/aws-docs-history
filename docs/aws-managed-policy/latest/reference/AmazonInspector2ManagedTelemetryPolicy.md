@@ -1,26 +1,26 @@
-# AccountManagementFromVercel
+# AmazonInspector2ManagedTelemetryPolicy
 
-**Description**: For use with accounts created through the Vercel Marketplace integration with AWS. Provides access to account management, notification, cost and usage analysis, and identity provider management.
+**Description**: Grants permissions to communicate with Inspector2 Telemetry Channel
 
-`AccountManagementFromVercel` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AmazonInspector2ManagedTelemetryPolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AccountManagementFromVercel` to your users, groups, and roles.
+You can attach `AmazonInspector2ManagedTelemetryPolicy` to your users, groups, and roles.
 
 ## Policy
 
 details
 
 - **Type**: AWS managed policy
-- **Creation time**: December 11, 2025, 16:34 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Creation time**: February 13, 2026, 17:12 UTC
+- **Edited time:** February 13, 2026, 17:12 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AccountManagementFromVercel`
+  `arn:aws:iam::aws:policy/AmazonInspector2ManagedTelemetryPolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -32,30 +32,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "PermissionsForInspector2Telemetry",
       "Effect" : "Allow",
       "Action" : [
-        "account:CloseAccount",
-        "bcm-recommended-actions:ListRecommendedActions",
-        "ce:GetCostAndUsage",
-        "cur:GetUsageReport",
-        "iam:ListSAMLProviders",
-        "freetier:GetFreeTierUsage",
-        "freetier:GetAccountPlanState"
+        "inspector2-telemetry:StartSession",
+        "inspector2-telemetry:StopSession",
+        "inspector2-telemetry:SendTelemetry",
+        "inspector2-telemetry:NotifyHeartbeat"
       ],
       "Resource" : "*"
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
-        "iam:UpdateSamlProvider",
-        "iam:GetSamlProvider"
-      ],
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/VercelInstallId" : "${aws:PrincipalTag/VercelInstallId}"
-        }
-      }
     }
   ]
 }

@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 16, 2021, 20:27 UTC
-- **Edited time:** November 10, 2025, 18:19 UTC
+- **Edited time:** February 13, 2026, 17:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonInspector2ServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v17 (default)
+**Policy version:** v26 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -81,6 +81,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "elasticloadbalancing:DescribeTargetGroupAttributes",
         "elasticloadbalancing:DescribeTargetHealth",
         "network-firewall:DescribeFirewall",
+        "network-firewall:DescribeFirewallMetadata",
         "network-firewall:DescribeFirewallPolicy",
         "network-firewall:DescribeResourcePolicy",
         "network-firewall:DescribeRuleGroup",
@@ -141,6 +142,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : [
         "arn:aws:ec2:*:*:instance/*",
+        "arn:aws:ssm:*:*:document/AWS-ConfigureAWSPackage",
         "arn:aws:ssm:*:*:document/AmazonInspector2-*",
         "arn:aws:ssm:*:*:document/AWS-GatherSoftwareInventory",
         "arn:aws:ssm:*:*:managed-instance/*",

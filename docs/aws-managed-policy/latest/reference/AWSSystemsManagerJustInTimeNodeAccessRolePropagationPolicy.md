@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 21, 2025, 20:52 UTC
-- **Edited time:** April 23, 2025, 21:07 UTC
+- **Edited time:** February 12, 2026, 17:59 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

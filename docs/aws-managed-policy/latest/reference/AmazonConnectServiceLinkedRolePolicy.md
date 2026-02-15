@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: September 07, 2018, 00:21 UTC
-- **Edited time:** November 18, 2025, 20:49 UTC
+- **Edited time:** February 12, 2026, 17:59 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectServiceLinkedRolePolicy`
 
 ## Policy version
 
-**Policy version:** v31 (default)
+**Policy version:** v53 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

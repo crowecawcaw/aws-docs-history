@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 06, 2015, 20:44 UTC
-- **Edited time:** May 05, 2025, 21:07 UTC
+- **Edited time:** February 12, 2026, 18:01 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSWAFFullAccess`
 
 ## Policy version
 
-**Policy version:** v12 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

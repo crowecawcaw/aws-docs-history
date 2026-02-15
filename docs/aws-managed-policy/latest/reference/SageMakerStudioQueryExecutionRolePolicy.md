@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: January 31, 2025, 19:52 UTC
-- **Edited time:** September 04, 2025, 17:49 UTC
+- **Edited time:** February 12, 2026, 18:02 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioQueryExecutionRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

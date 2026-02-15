@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 14, 2024, 19:09 UTC
-- **Edited time:** December 01, 2025, 00:49 UTC
+- **Edited time:** February 14, 2026, 00:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSPartnerCentralOpportunityManagement`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -175,6 +175,18 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "AmazonQPartnerAssistantAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "q:StartConversation",
+        "q:SendMessage",
+        "q:GetConversation",
+        "q:ListConversations",
+        "q:PassRequest"
+      ],
+      "Resource" : "*"
     }
   ]
 }

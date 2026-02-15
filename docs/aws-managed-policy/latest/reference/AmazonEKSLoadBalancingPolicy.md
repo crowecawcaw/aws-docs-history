@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 30, 2024, 20:18 UTC
-- **Edited time:** January 09, 2025, 22:37 UTC
+- **Edited time:** February 12, 2026, 17:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

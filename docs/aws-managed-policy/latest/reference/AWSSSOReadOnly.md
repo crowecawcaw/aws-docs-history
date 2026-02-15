@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 27, 2018, 20:24 UTC
-- **Edited time:** September 16, 2025, 19:49 UTC
+- **Edited time:** February 12, 2026, 17:59 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSSSOReadOnly`
 
 ## Policy version
 
-**Policy version:** v10 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

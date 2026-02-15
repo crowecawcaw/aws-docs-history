@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: December 09, 2016, 02:31 UTC
-- **Edited time:** January 03, 2025, 00:22 UTC
+- **Edited time:** February 12, 2026, 17:58 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSQuicksightAthenaAccess`
 
 ## Policy version
 
-**Policy version:** v11 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

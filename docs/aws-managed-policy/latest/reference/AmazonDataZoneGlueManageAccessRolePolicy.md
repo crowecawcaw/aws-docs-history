@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: September 22, 2023, 20:21 UTC
-- **Edited time:** June 19, 2025, 19:37 UTC
+- **Edited time:** February 12, 2026, 18:00 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AmazonDataZoneGlueManageAccessRolePolicy`
 
 ## Policy version
 
-**Policy version:** v10 (default)
+**Policy version:** v18 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

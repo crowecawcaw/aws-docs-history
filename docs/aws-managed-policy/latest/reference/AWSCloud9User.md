@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 30, 2017, 16:16 UTC
-- **Edited time:** September 25, 2025, 11:49 UTC
+- **Edited time:** February 12, 2026, 18:00 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSCloud9User`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

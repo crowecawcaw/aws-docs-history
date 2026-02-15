@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: January 10, 2024, 22:56 UTC
-- **Edited time:** May 28, 2025, 20:52 UTC
+- **Edited time:** February 12, 2026, 18:02 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AmazonECSInfrastructureRolePolicyForVolumes`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

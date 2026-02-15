@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 16, 2022, 01:18 UTC
-- **Edited time:** August 12, 2025, 23:04 UTC
+- **Edited time:** February 12, 2026, 18:03 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSSSMForSAPServiceLinkedRolePolicy`
 
 ## Policy version
 
-**Policy version:** v13 (default)
+**Policy version:** v21 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

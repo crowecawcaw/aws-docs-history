@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 12, 2023, 17:01 UTC
-- **Edited time:** June 27, 2025, 22:22 UTC
+- **Edited time:** February 12, 2026, 18:02 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonKeyspacesReadOnlyAccess_v2`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

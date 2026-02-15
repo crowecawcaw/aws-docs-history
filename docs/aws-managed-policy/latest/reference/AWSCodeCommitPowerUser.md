@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 09, 2015, 17:06 UTC
-- **Edited time:** January 10, 2025, 20:07 UTC
+- **Edited time:** February 12, 2026, 17:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSCodeCommitPowerUser`
 
 ## Policy version
 
-**Policy version:** v16 (default)
+**Policy version:** v18 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

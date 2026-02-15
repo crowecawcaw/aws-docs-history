@@ -14,13 +14,13 @@ details
 
 - **Type**: Job function policy
 - **Creation time**: November 10, 2016, 17:31 UTC
-- **Edited time:** December 19, 2024, 22:52 UTC
+- **Edited time:** February 12, 2026, 17:59 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/NetworkAdministrator`
 
 ## Policy version
 
-**Policy version:** v13 (default)
+**Policy version:** v15 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

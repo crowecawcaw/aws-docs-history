@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: October 20, 2021, 12:14 UTC
-- **Edited time:** December 10, 2024, 20:06 UTC
+- **Edited time:** February 12, 2026, 18:02 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSPanoramaApplianceServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

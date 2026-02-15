@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: November 20, 2024, 21:58 UTC
-- **Edited time:** January 27, 2026, 21:04 UTC
+- **Edited time:** February 12, 2026, 18:03 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 
-**Policy version:** v25 (default)
+**Policy version:** v76 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -57,7 +57,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "CfnManage",
+      "Sid" : "CfnMng",
       "Effect" : "Allow",
       "Action" : [
         "cloudformation:DescribeStacks",
@@ -93,13 +93,37 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ValidateCfn",
+      "Sid" : "Discovery",
       "Effect" : "Allow",
-      "Action" : "cloudformation:ValidateTemplate",
+      "Action" : [
+        "airflow:GetEnvironment",
+        "bedrock:ListEvaluationJobs",
+        "cloudformation:ValidateTemplate",
+        "codecommit:ListRepositories",
+        "eks:DescribeCluster",
+        "elasticmapreduce:CreateSecurityConfiguration",
+        "elasticmapreduce:DeleteSecurityConfiguration",
+        "elasticmapreduce:DescribeSecurityConfiguration",
+        "glue:DescribeConnectionType",
+        "glue:ListConnectionTypes",
+        "glue:*GlueIdentityCenterConfiguration",
+        "iam:ListPolicies",
+        "logs:DescribeLogGroups",
+        "redshift-data:DescribeStatement",
+        "redshift-data:GetStatementResult",
+        "redshift-serverless:ListNamespaces",
+        "redshift-serverless:ListWorkgroups",
+        "redshift:DescribeDataShares",
+        "redshift:DescribeDataSharesForConsumer",
+        "redshift:GetResourcePolicy",
+        "sagemaker:DescribeDomain",
+        "sagemaker:ListDomains",
+        "secretsmanager:GetRandomPassword"
+      ],
       "Resource" : "*"
     },
     {
-      "Sid" : "LFManage",
+      "Sid" : "LFMng",
       "Effect" : "Allow",
       "Action" : [
         "lakeformation:GetDataLakeSettings",
@@ -196,14 +220,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "CcList",
-      "Effect" : "Allow",
-      "Action" : [
-        "codecommit:ListRepositories"
-      ],
-      "Resource" : "*"
-    },
-    {
       "Sid" : "CcKms",
       "Effect" : "Allow",
       "Action" : [
@@ -240,7 +256,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "IAMManage",
+      "Sid" : "IAMMng",
       "Effect" : "Allow",
       "Action" : [
         "iam:CreateRole",
@@ -266,7 +282,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "IamDzManage",
+      "Sid" : "IamDzMng",
       "Effect" : "Allow",
       "Action" : [
         "iam:DeleteRolePolicy",
@@ -301,7 +317,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "IamManage",
+      "Sid" : "IamMng",
       "Effect" : "Allow",
       "Action" : [
         "iam:DetachRolePolicy",
@@ -330,7 +346,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "IamManageAdmin",
+      "Sid" : "IamMngAdmin",
       "Effect" : "Allow",
       "Action" : [
         "iam:DetachRolePolicy",
@@ -351,7 +367,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "IamManageBR",
+      "Sid" : "IamMngBR",
       "Effect" : "Allow",
       "Action" : [
         "iam:AttachRolePolicy",
@@ -423,7 +439,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AdminProjectTagRoleManagement",
+      "Sid" : "AdminProjectTagRoleMng",
       "Effect" : "Allow",
       "Action" : [
         "iam:TagRole",
@@ -538,7 +554,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageRoles",
+      "Sid" : "MngRoles",
       "Effect" : "Allow",
       "Action" : [
         "iam:DeleteRole",
@@ -559,7 +575,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "DzManageRoles",
+      "Sid" : "DzMngRoles",
       "Effect" : "Allow",
       "Action" : [
         "iam:GetRole",
@@ -605,7 +621,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "DzManagePolicy",
+      "Sid" : "DzMngPolicy",
       "Effect" : "Allow",
       "Action" : [
         "iam:DeletePolicy",
@@ -622,24 +638,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:policy/connector-manage-access-policy*",
         "arn:aws:iam::*:policy/SageMakerStudioQueryExecutionRolePolicy"
       ]
-    },
-    {
-      "Sid" : "ListPolicy",
-      "Effect" : "Allow",
-      "Action" : [
-        "iam:ListPolicies"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "GlueConnection",
-      "Effect" : "Allow",
-      "Action" : [
-        "glue:ListConnectionTypes",
-        "glue:DescribeConnectionType",
-        "glue:*GlueIdentityCenterConfiguration"
-      ],
-      "Resource" : "*"
     },
     {
       "Sid" : "InstanceProfile",
@@ -883,7 +881,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GlueConnManage",
+      "Sid" : "GlueConnMng",
       "Effect" : "Allow",
       "Action" : [
         "glue:CreateConnection",
@@ -981,7 +979,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageConnection",
+      "Sid" : "MngConnection",
       "Effect" : "Allow",
       "Action" : [
         "glue:DeleteConnection",
@@ -1000,7 +998,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageCatalogConn",
+      "Sid" : "MngCatalogConn",
       "Effect" : "Allow",
       "Action" : [
         "glue:DeleteConnection",
@@ -1090,11 +1088,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "LambdaManage",
+      "Sid" : "LambdaMng",
       "Effect" : "Allow",
       "Action" : [
         "lambda:CreateFunction",
-        "lambda:DeleteFunction"
+        "lambda:DeleteFunction",
+        "lambda:GetFunctionConfiguration",
+        "lambda:UpdateFunctionConfiguration"
       ],
       "Resource" : [
         "arn:aws:lambda:*:*:function:athenafederatedcatalog*"
@@ -1124,25 +1124,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "athena.amazonaws.com",
             "cloudformation.amazonaws.com"
           ]
-        }
-      }
-    },
-    {
-      "Sid" : "LambdaUpdate",
-      "Effect" : "Allow",
-      "Action" : [
-        "lambda:GetFunctionConfiguration",
-        "lambda:UpdateFunctionConfiguration"
-      ],
-      "Resource" : [
-        "arn:aws:lambda:*:*:function:athenafederatedcatalog*"
-      ],
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
       }
     },
@@ -1352,7 +1333,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "RSManage",
+      "Sid" : "RSMng",
       "Effect" : "Allow",
       "Action" : [
         "redshift-serverless:CreateNamespace",
@@ -1476,7 +1457,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "SGManage",
+      "Sid" : "SGMng",
       "Effect" : "Allow",
       "Action" : [
         "ec2:DeleteSecurityGroup",
@@ -1526,7 +1507,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "EC2Describe",
+      "Sid" : "EC2Mng",
       "Effect" : "Allow",
       "Action" : [
         "ec2:DescribeVpcs",
@@ -1537,12 +1518,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeAccountAttributes",
         "ec2:DescribeAvailabilityZones"
       ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "DescribeLG",
-      "Effect" : "Allow",
-      "Action" : "logs:DescribeLogGroups",
       "Resource" : "*"
     },
     {
@@ -1586,7 +1561,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageLG",
+      "Sid" : "MngLG",
       "Effect" : "Allow",
       "Action" : [
         "logs:DeleteLogGroup",
@@ -1613,7 +1588,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AthenaManage",
+      "Sid" : "AthenaMng",
       "Effect" : "Allow",
       "Action" : [
         "athena:CreateWorkGroup",
@@ -1698,7 +1673,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageSecret",
+      "Sid" : "MngSecret",
       "Effect" : "Allow",
       "Action" : [
         "secretsmanager:CreateSecret",
@@ -1786,6 +1761,34 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
+      "Sid" : "SsoKms",
+      "Effect" : "Allow",
+      "Action" : "kms:Decrypt",
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:sso:instance-arn" : "arn:*:sso:::instance/*"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "sso.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "IdStoreKms",
+      "Effect" : "Allow",
+      "Action" : "kms:Decrypt",
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:identitystore:identitystore-arn" : "arn:*:identitystore::*:identitystore/*"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "identitystore.*.amazonaws.com"
+        }
+      }
+    },
+    {
       "Sid" : "CreateSLR",
       "Effect" : "Allow",
       "Action" : "iam:CreateServiceLinkedRole",
@@ -1800,54 +1803,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "RedshiftList",
-      "Effect" : "Allow",
-      "Action" : [
-        "redshift-serverless:ListNamespaces",
-        "redshift-serverless:ListWorkgroups",
-        "redshift:GetResourcePolicy"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "RssDbRole",
+      "Sid" : "RssMng",
       "Effect" : "Allow",
       "Action" : [
         "redshift-data:ExecuteStatement",
-        "redshift:GetResourcePolicy",
-        "redshift-serverless:GetCredentials"
-      ],
-      "Resource" : [
-        "arn:aws:redshift-serverless:*:*:namespace/*",
-        "arn:aws:redshift-serverless:*:*:workgroup/*"
-      ],
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        }
-      }
-    },
-    {
-      "Sid" : "RedshiftData",
-      "Effect" : "Allow",
-      "Action" : [
-        "redshift-data:DescribeStatement",
-        "redshift-data:GetStatementResult",
-        "redshift:DescribeDataSharesForConsumer",
-        "redshift:DescribeDataShares"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "RedshiftManage",
-      "Effect" : "Allow",
-      "Action" : [
+        "redshift-serverless:GetCredentials",
+        "redshift-serverless:UntagResource",
         "redshift-serverless:UpdateNamespace",
-        "redshift-serverless:UpdateWorkgroup",
-        "redshift-serverless:UntagResource"
+        "redshift-serverless:UpdateWorkgroup"
       ],
       "Resource" : [
         "arn:aws:redshift-serverless:*:*:namespace/*",
@@ -1884,12 +1847,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "kms:EncryptionContext:aws:redshift-serverless:arn" : "false"
         }
       }
-    },
-    {
-      "Sid" : "GetRandom",
-      "Effect" : "Allow",
-      "Action" : "secretsmanager:GetRandomPassword",
-      "Resource" : "*"
     },
     {
       "Sid" : "BRSecret",
@@ -1998,7 +1955,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageSMD",
+      "Sid" : "MngSMD",
       "Effect" : "Allow",
       "Action" : [
         "sagemaker:UpdateDomain",
@@ -2013,15 +1970,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
       }
-    },
-    {
-      "Sid" : "SMDManage",
-      "Effect" : "Allow",
-      "Action" : [
-        "sagemaker:ListDomains",
-        "sagemaker:DescribeDomain"
-      ],
-      "Resource" : "*"
     },
     {
       "Sid" : "SMAppDelete",
@@ -2096,34 +2044,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "EmrSManage",
+      "Sid" : "EmrSMng",
       "Effect" : "Allow",
       "Action" : [
-        "emr-serverless:UpdateApplication",
-        "emr-serverless:DeleteApplication"
-      ],
-      "Resource" : [
-        "*"
-      ],
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        }
-      }
-    },
-    {
-      "Sid" : "EmrSGetStop",
-      "Effect" : "Allow",
-      "Action" : [
+        "emr-serverless:DeleteApplication",
         "emr-serverless:GetApplication",
-        "emr-serverless:StopApplication"
+        "emr-serverless:StopApplication",
+        "emr-serverless:UpdateApplication"
       ],
-      "Resource" : [
-        "*"
-      ],
+      "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
@@ -2228,7 +2157,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AossManage",
+      "Sid" : "AossMng",
       "Effect" : "Allow",
       "Action" : [
         "aoss:GetAccessPolicy",
@@ -2245,7 +2174,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageAossPolicies",
+      "Sid" : "MngAossPolicies",
       "Effect" : "Allow",
       "Action" : [
         "aoss:GetSecurityPolicy",
@@ -2291,7 +2220,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageNeptune",
+      "Sid" : "MngNeptune",
       "Effect" : "Allow",
       "Action" : [
         "neptune-graph:CreateGraph",
@@ -2308,7 +2237,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "S3VectorsManage",
+      "Sid" : "S3VectorsMng",
       "Effect" : "Allow",
       "Action" : [
         "s3vectors:CreateVectorBucket",
@@ -2380,7 +2309,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "BRManage",
+      "Sid" : "BRMng",
       "Effect" : "Allow",
       "Action" : [
         "bedrock:CreateAgent",
@@ -2465,13 +2394,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ListBRJobs",
-      "Effect" : "Allow",
-      "Action" : "bedrock:ListEvaluationJobs",
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "ManageBRJobs",
+      "Sid" : "MngBRJobs",
       "Effect" : "Allow",
       "Action" : "bedrock:BatchDeleteEvaluationJob",
       "Resource" : "*",
@@ -2511,7 +2434,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageBRLambda",
+      "Sid" : "MngBRLambda",
       "Effect" : "Allow",
       "Action" : [
         "lambda:GetFunction",
@@ -2526,17 +2449,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "EMRManage",
-      "Effect" : "Allow",
-      "Action" : [
-        "elasticmapreduce:CreateSecurityConfiguration",
-        "elasticmapreduce:DeleteSecurityConfiguration",
-        "elasticmapreduce:DescribeSecurityConfiguration"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "EMRClusterManage",
+      "Sid" : "EMRClusterMng",
       "Effect" : "Allow",
       "Action" : [
         "elasticmapreduce:AddJobFlowSteps",
@@ -2571,14 +2484,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
       }
-    },
-    {
-      "Sid" : "AirflowGet",
-      "Effect" : "Allow",
-      "Action" : [
-        "airflow:GetEnvironment"
-      ],
-      "Resource" : "*"
     },
     {
       "Sid" : "AirflowS3",
@@ -2656,7 +2561,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "QueryRoleManage",
+      "Sid" : "QueryRoleMng",
       "Effect" : "Allow",
       "Action" : [
         "iam:GetRole",
@@ -2844,7 +2749,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageQSFolder",
+      "Sid" : "MngQSFolder",
       "Effect" : "Allow",
       "Action" : [
         "quicksight:CreateDataSource",
@@ -2965,7 +2870,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageEventRules",
+      "Sid" : "MngEventRules",
       "Effect" : "Allow",
       "Action" : [
         "events:DeleteRule",
@@ -3038,7 +2943,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "SSOManage",
+      "Sid" : "SSOMng",
       "Effect" : "Allow",
       "Action" : [
         "sso:CreateApplication",
@@ -3066,15 +2971,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "EksClusterDiscovery",
-      "Effect" : "Allow",
-      "Action" : [
-        "eks:DescribeCluster"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "EmrContainersManage",
+      "Sid" : "EmrContainersMng",
       "Effect" : "Allow",
       "Action" : [
         "emr-containers:CreateManagedEndpoint",
@@ -3096,7 +2993,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageViaEmrContainers",
+      "Sid" : "MngViaEmrContainers",
       "Effect" : "Allow",
       "Action" : [
         "ec2:AuthorizeSecurityGroupEgress",

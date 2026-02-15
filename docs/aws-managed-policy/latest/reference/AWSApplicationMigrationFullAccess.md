@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 07, 2021, 06:56 UTC
-- **Edited time:** July 02, 2025, 15:37 UTC
+- **Edited time:** February 12, 2026, 18:03 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSApplicationMigrationFullAccess`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

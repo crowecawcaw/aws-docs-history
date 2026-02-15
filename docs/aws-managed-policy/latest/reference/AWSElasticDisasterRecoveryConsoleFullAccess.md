@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 17, 2021, 10:46 UTC
-- **Edited time:** January 12, 2025, 07:52 UTC
+- **Edited time:** February 12, 2026, 17:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryConsoleFullAccess`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.

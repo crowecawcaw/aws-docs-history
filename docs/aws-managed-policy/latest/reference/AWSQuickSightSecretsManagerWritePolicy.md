@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 12, 2025, 19:22 UTC
-- **Edited time:** May 12, 2025, 19:22 UTC
+- **Edited time:** February 12, 2026, 17:59 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSQuickSightSecretsManagerWritePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
