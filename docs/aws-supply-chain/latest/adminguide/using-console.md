@@ -20,5 +20,12 @@ the API operation that they're trying to perform.
 The following permissions are needed by the Console Admin to create and update
 AWS Supply Chain instances successfully.
 
+JSON
+
+```
+
+
+```
+
 `key_arn` specifies the key you would like to use for the AWS Supply Chain instance. For best practices and to restrict access to only the keys you would like to use for AWS Supply Chain,
 see [Specifying KMS keys in IAM policy statements](../../../kms/latest/developerguide/cmks-in-iam-policies.md "../../../kms/latest/developerguide/cmks-in-iam-policies.md"). To represent all KMS keys, use a wildcard character alone ("\*").

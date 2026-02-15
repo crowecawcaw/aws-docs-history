@@ -10,7 +10,7 @@ follow these steps.
 
 1. Select **Create**.
 
-![Interface for creating AWS Supply Chain application with options to create or edit setup.](images/create-instance.png)
+![Interface for creating AWS Supply Chain application with options to create or edit setup.](/images/aws-supply-chain/latest/adminguide/images/create-instance.png)
 
 A confirmation will appear.
 
