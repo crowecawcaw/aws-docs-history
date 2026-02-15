@@ -244,6 +244,8 @@ documentation](https://activemq.apache.org/kahadb "https://activemq.apache.org/k
 
 ### Example Configuration
 
+###### Example
+
 ```
 <broker xmlns="http://activemq.apache.org/schema/core">
                                 <persistenceAdapter>
@@ -299,6 +301,8 @@ method until space becomes available. For more information, see the [schema](htt
 `null`
 
 #### Example Configuration
+
+###### Example
 
 ```
 <broker xmlns="http://activemq.apache.org/schema/core">
