@@ -1,75 +1,53 @@
-# Aurora MySQL database engine updates
+# Aurora MySQL database engine updates 2024-07-23 (version 3.07.1) (Deprecated)
 
-2018-10-08 (version 2.02.5) (Deprecated)
+**Version:** 3.07.1
 
-**Version:** 2.02.5
+Aurora MySQL 3.07.1 is generally available. Aurora MySQL 3.07 versions are compatible with MySQL 8.0.36. For more information on the
+community changes that have occurred, see [MySQL 8.0 Release Notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/ "https://dev.mysql.com/doc/relnotes/mysql/8.0/en/").
 
-Aurora MySQL 2.02.5 is generally available. Aurora MySQL 2.x versions are compatible with MySQL 5.7
-and Aurora MySQL 1.x versions are compatible with MySQL 5.6.
+For details of the new features in Aurora MySQL version 3, see [Aurora MySQL version 3 compatible with MySQL 8.0](../AuroraUserGuide/AuroraMySQL.md "../AuroraUserGuide/AuroraMySQL.md"). For
+differences between Aurora MySQL version 3 and Aurora MySQL version 2, see [Comparing Aurora MySQL version 2 and Aurora MySQL version
+3](../AuroraUserGuide/AuroraMySQL.md "../AuroraUserGuide/AuroraMySQL.md"). For a comparison of Aurora MySQL version 3 and MySQL 8.0 Community Edition, see [Comparing Aurora MySQL version 3 and MySQL 8.0 Community
+Edition](../AuroraUserGuide/AuroraMySQL.md "../AuroraUserGuide/AuroraMySQL.md") in the _Amazon Aurora User Guide_.
 
-When creating a new Aurora MySQL DB cluster, you can choose
-compatibility with either MySQL 5.7 or MySQL 5.6. When restoring a MySQL 5.6-compatible snapshot,
-you can choose compatibility with either MySQL 5.7 or MySQL 5.6.
+Currently supported Aurora MySQL releases are 2.11.\*, 2.12.\*, 3.03.\*, 3.04.\*, 3.05.\*, 3.06.\*, and 3.07.\*.
 
-You can restore snapshots of Aurora MySQL 1.14.\*, 1.15.\*, 1.16.\*, 1.17.\*, 1.18.\*, 2.01.\*, and 2.02.\* into Aurora MySQL
-2.02.5. You can also perform an in-place upgrade from Aurora MySQL 2.01.\* or 2.02.\* to Aurora MySQL 2.02.5.
+You can perform an in-place upgrade, restore a snapshot, or initiate a managed blue/green upgrade using
+[Amazon RDS Blue/Green Deployments](../AuroraUserGuide/blue-green-deployments-overview.md "../AuroraUserGuide/blue-green-deployments-overview.md")
+from any currently supported Aurora MySQL version 2 cluster into an Aurora MySQL version 3.07.1 cluster.
 
-We don't allow in-place upgrade of Aurora MySQL 1.\* clusters into Aurora MySQL 2.02.5 or restore
-to Aurora MySQL 2.02.5 from an Amazon S3 backup. We plan to remove these restrictions in a later Aurora MySQL
-2.\* release.
+For information on planning an upgrade to Aurora MySQL version 3, see
+[Planning
+a major version upgrade for an Aurora MySQL cluster](../AuroraUserGuide/AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Planning "../AuroraUserGuide/AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Planning"). For general information about Aurora MySQL upgrades, see
+[Upgrading Amazon Aurora MySQL DB clusters](../AuroraUserGuide/AuroraMySQL.Updates.md "../AuroraUserGuide/AuroraMySQL.Updates.md")
+in the _Amazon Aurora User Guide_.
 
-The performance schema is disabled for this release of Aurora MySQL 5.7. Upgrade to Aurora 2.03 for performance schema support.
-
-###### Note
-
-This version is currently not available in the AWS GovCloud (US-West) [us-gov-west-1] and China (Beijing)
-[cn-north-1] regions. There will be a separate announcement once it is made available.
+For troubleshooting information, see [Troubleshooting for Aurora MySQL
+in-place upgrade](../AuroraUserGuide/AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Troubleshooting "../AuroraUserGuide/AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Troubleshooting") in the _Amazon Aurora User Guide_.
 
 If you have any questions or concerns, AWS Support is available on the community forums and through
 [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support"). For more information, see
-[Maintaining an Amazon Aurora DB cluster](../AuroraUserGuide/USER_UpgradeDBInstance.md "../AuroraUserGuide/USER_UpgradeDBInstance.md") in the _Amazon Aurora User Guide_.
+[Maintaining an Amazon Aurora DB cluster](../AuroraUserGuide/USER_UpgradeDBInstance.md "../AuroraUserGuide/USER_UpgradeDBInstance.md") in
+the _Amazon Aurora User Guide_.
 
 ## Improvements
 
-- Fix an issue where an Aurora Replica might restart when it is doing a reverse scan on a table.
+**Fixed security issues and CVEs:**
 
-## Comparison with Aurora MySQL version 1
+- Introduced a new user for binary log (binlog) replication, `rdsrepladmin_priv_checks_user`. For more information, see
+  [Privilege
+  checks user for binary log replication](../AuroraUserGuide/AuroraMySQL.md#AuroraMySQL.privilege-model.binlog "../AuroraUserGuide/AuroraMySQL.md#AuroraMySQL.privilege-model.binlog") in the _Amazon Aurora User Guide_.
 
-The following Amazon Aurora MySQL features are supported in Aurora MySQL version 1 (compatible with
-MySQL 5.6), but these features are currently not supported in Aurora MySQL version 2 (compatible
-with MySQL 5.7).
+This release includes all community CVE fixes up to and including MySQL 8.0.36.
 
-- Asynchronous key prefetch (AKP). For more
-  information, see [Optimizing Aurora indexed join queries with asynchronous key prefetch](../AuroraUserGuide/AuroraMySQL.md#Aurora.BestPractices.AKP "../AuroraUserGuide/AuroraMySQL.md#Aurora.BestPractices.AKP") in the
-  _Amazon Aurora User Guide_.
-- Hash joins. For more information, see [Optimizing large Aurora MySQL join queries with hash joins](../AuroraUserGuide/AuroraMySQL.md#Aurora.BestPractices.HashJoin "../AuroraUserGuide/AuroraMySQL.md#Aurora.BestPractices.HashJoin") in the
-  _Amazon Aurora User Guide_.
-- Native functions for synchronously invoking AWS Lambda functions. For more
-  information, see [Invoking a Lambda function with an Aurora MySQL native function](../AuroraUserGuide/AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda "../AuroraUserGuide/AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda") in the
-  _Amazon Aurora User Guide_.
-- Scan batching. For more information, see [Aurora MySQL database engine updates
-  2017-12-11 (version 1.16) (Deprecated)](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md").
-- Migrating data from MySQL using an Amazon S3 bucket. For more information, see [Migrating data from MySQL by using an Amazon S3 bucket](../AuroraUserGuide/AuroraMySQL.Migrating.md#AuroraMySQL.Migrating.ExtMySQL.S3 "../AuroraUserGuide/AuroraMySQL.Migrating.md#AuroraMySQL.Migrating.ExtMySQL.S3") in the
-  _Amazon Aurora User Guide_.
+**Availability improvements:**
 
-## MySQL 5.7 compatibility
+- Fixed an issue that can cause a reader DB instance to restart when freeing memory used for log application.
+- Fixed an issue in computing internal metrics for full-text search (FTS) indexes that can cause database restarts.
+- Fixed an issue that can disable binary logging when an error occurs while committing a large transaction.
 
-Aurora MySQL 2.02.5 is wire-compatible with MySQL 5.7 and includes features such as JSON support, spatial indexes,
-and generated columns. Aurora MySQL uses a native implementation of spatial indexing using z-order curves to deliver
+## Integration of MySQL Community Edition bug fixes
 
-> 20x better write performance and >10x better read performance than MySQL 5.7 for spatial datasets.
-
-Aurora MySQL 2.02.5 does not currently support the following MySQL 5.7 features:
-
-- Global transaction identifiers (GTIDs). Aurora MySQL supports GTIDs in version 2.04 and higher.
-- Group replication plugin
-- Increased page size
-- InnoDB buffer pool loading at startup
-- InnoDB full-text parser plugin
-- Multisource replication
-- Online buffer pool resizing
-- Password validation plugin
-- Query rewrite plugins
-- Replication filtering
-- The `CREATE TABLESPACE` SQL statement
-- X Protocol
+This release includes all community bug fixes up to and including 8.0.36. For more information, see
+[MySQL bugs fixed by Aurora MySQL 3.x database
+engine updates](AuroraMySQL.Updates.md#AuroraMySQL.Updates.MySQLBugs.v3 "AuroraMySQL.Updates.md#AuroraMySQL.Updates.MySQLBugs.v3").
