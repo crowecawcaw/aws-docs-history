@@ -27,6 +27,8 @@ When you drag a time series property to the dashboard, the values for that prope
 shown as a line graph by default. If that property has an alarm, the line chart shows that
 alarm's threshold.
 
+###### Example
+
 The following line chart shows four asset properties.
 
 ![A sample line chart showing four properties.](images/dashboard-line-graph-console.png)
@@ -42,6 +44,8 @@ You can use a scatter chart to visualize time series data with distinct data poi
 scatter chart looks like a line graph without lines between data points. If you add a
 property that has an alarm, the scatter chart shows that alarm's threshold.
 
+###### Example
+
 The following scatter chart shows one asset property.
 
 ![A sample scatter chart showing four properties.](images/dashboard-scatter-chart-console.png)
@@ -56,6 +60,8 @@ menu.
 A bar chart is another way to visualize time series data. You might use a bar chart
 when your data values change infrequently, such as daily readings. If you add a property
 that has an alarm, the bar chart shows that alarm's threshold.
+
+###### Example
 
 The following bar chart shows four asset properties.
 
@@ -84,6 +90,8 @@ status as a timeline.
 
 ### Status grid
 
+###### Example
+
 The following status grid shows the status of four asset properties.
 
 ![A sample status grid widget.](images/dashboard-status-chart-console.png)
@@ -94,6 +102,8 @@ type menu.
 ![The status grid visualization type icon.](images/dashboard-status-visualization-type-console.png)
 
 ### Status timeline
+
+###### Example
 
 The following status timeline shows the status over time for four asset
 properties.
@@ -132,6 +142,8 @@ your asset properties. This overview gives you the most critical insights into t
 performance of your devices, equipment, or processes. You can change the title of each
 property within the visualization.
 
+###### Example
+
 The following is a key performance indicator (KPI) visualization that shows four
 asset properties.
 
@@ -156,6 +168,8 @@ multiple devices, equipment, or processes.
 
 You can display either properties or alarms in a table. You can't display properties
 and alarms in the same table.
+
+###### Example
 
 The following is a table widget that shows four asset properties.
 

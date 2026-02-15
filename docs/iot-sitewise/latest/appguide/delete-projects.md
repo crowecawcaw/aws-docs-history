@@ -12,7 +12,7 @@ and project viewers.
 
 1. In the navigation bar, choose the **Projects** icon.
 
-![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, select the check box for the project to
+![The "Projects" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png) 2. On the **Projects** page, select the check box for the project to
 delete.
 
 ![The "Projects" page with "Delete project" highlighted.](images/projects-delete-project-console.png) 3. Choose **Delete project**. 4. In the **Delete resource** confirmation dialog, choose
