@@ -8,7 +8,6 @@ Amazon Elastic Container Registry (Amazon ECR) is a fully managed Docker contain
 - [Amazon ECR pull through cache rules](../../../AmazonECR/latest/userguide/pull-through-cache.md "../../../AmazonECR/latest/userguide/pull-through-cache.md") aren’t supported.
 - [Amazon ECR public registries](../../../AmazonECR/latest/public/public-registries.md "../../../AmazonECR/latest/public/public-registries.md") aren’t supported.
 - The [Amazon ECR Public Gallery](../../../AmazonECR/latest/public/public-gallery.md "../../../AmazonECR/latest/public/public-gallery.md") isn’t hosted in AWS GovCloud (US). However, if external internet access is available, you should be able to reach and pull container images from the gallery.
-- [Repository creation templates](../../../AmazonECR/latest/userguide/repository-creation-templates.md "../../../AmazonECR/latest/userguide/repository-creation-templates.md") aren’t supported.
 
 ## Documentation for Amazon Elastic Container Registry
 
