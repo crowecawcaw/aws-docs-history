@@ -1,7 +1,7 @@
 # Automatic downloads
 
 The Deadline CLI provides a command to download the output of all tasks in a queue that completed since the last
-time the same command ran. You can configure this as a cron job or scheduled task to run repeatedly. This configuration creates automatic
+time the same command ran. You can configure this as a cron job or scheduled task to run repeatedly. This configuration sets up automatic
 downloading of output on a continuous basis.
 
 Before setting up automatic downloads, follow the steps in [Storage profiles for job attachments](storage-profile.md "storage-profile.md")
@@ -13,18 +13,11 @@ configuration.
 
 ## Configuring AWS credentials
 
-If you want to run the output synchronization command manually, or to understand how it works before configuring it as
-a cron job, you can use the credentials from logging in to the Deadline Cloud monitor desktop application.
+Automatic downloads use the Deadline CLI to continuously download job outputs.
+To authenticate these downloads, you need long-term IAM credentials.
+Deadline Cloud monitor credentials expire, so you can't use them for this purpose.
 
-### On-premises AWS credentials
-
-Your on-premises workers use credentials to access Deadline Cloud job attachments output. For
-the most secure access, we recommend using IAM Roles Anywhere to authenticate your workers.
-For more information, see [IAM Roles Anywhere](../../../rolesanywhere/latest/userguide/introduction.md "../../../rolesanywhere/latest/userguide/introduction.md").
-
-For testing, you can use IAM user access keys for AWS credentials. We
-recommend that you set an expiration for the IAM user by including a
-restrictive inline policy.
+Follow the steps below to set up long-term credentials.
 
 ###### Important
 
@@ -44,9 +37,8 @@ Heed the following warnings:
   give someone permanent access to your account.
 - Be aware that any credentials stored in the shared AWS
   credentials file are stored in plain text.
-
-For more details, see [Best practices for managing AWS access keys in the _AWS
-General Reference_.](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#securing_access-keys "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#securing_access-keys")
+  For more details, see [Best practices for managing AWS access keys in the _AWS
+  General Reference_.](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#securing_access-keys "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#securing_access-keys")
 
 ###### Create an IAM user
 
@@ -92,41 +84,6 @@ JSON
 8. Return to the user creation page, refresh the policy list, and select the **DeadlineCloudOutputDownloadPolicy**
    you just created, then choose **Next**.
 9. Review the user details and then choose **Create user**.
-
-###### Restrict user access to a limited time window
-
-Any IAM user access keys that you create are long-term credentials. To
-ensure that these credentials expire in case they are mishandled, you can
-make these credentials time-bound by creating an inline policy that
-specifies a date after which the keys will no longer be valid.
-
-1. Open the IAM user that you just created. In the
-   Permissions tab, choose **Add permissions**
-   and then choose **Create inline policy**.
-2. In the JSON editor, specify the following permissions. To use this
-   policy, replace the `aws:CurrentTime` timestamp value in the
-   example policy with your own time and date.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Deny",
- "Action": "*",
- "Resource": "*",
- "Condition": {
- "DateGreaterThan": {
- "aws:CurrentTime": "`2024-01-01T00:00:00Z`"
- }
- }
- }
- ]
- }`
-
-```
 
 ###### Create an access key
 

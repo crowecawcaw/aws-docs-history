@@ -19,6 +19,11 @@ When you use cross-platform shared storage, you can create a _storage
 profile_ so that workers can map the path to files between two different operating
 systems.
 
+You can also integrate third-party cloud storage solutions, such as LucidLink, with
+service-managed fleets using host configuration scripts. For more information, see [Set up
+LucidLink with service managed fleet scripts for Deadline Cloud](https://aws.amazon.com/blogs/media/set-up-lucidlink-with-service-managed-fleet-scripts-for-aws-deadline-cloud/ "https://aws.amazon.com/blogs/media/set-up-lucidlink-with-service-managed-fleet-scripts-for-aws-deadline-cloud/") on the AWS for M&E
+Blog.
+
 ###### Topics
 
 - [Storage profiles in Deadline Cloud](storage-profile.md "storage-profile.md")
