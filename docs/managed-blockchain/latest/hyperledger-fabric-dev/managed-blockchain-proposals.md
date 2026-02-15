@@ -16,31 +16,31 @@ The following flow diagrams depict the possible outcomes of a proposal using thi
 - [Rejected with Partial Vote](#rejected-partial "#rejected-partial")
 - [Expired, Does Not Pass](#expired "#expired")
 
-###### Example – Proposal approved with full member vote
+###### Example– Proposal approved with full member vote
 
 For the following proposal, all members cast a vote before the duration expired. The proposal is `APPROVED`, and an invitation is extended to the AWS account.
 
 ![Voting process timeline with organizations casting votes, proposal approval, and AWS account invitation.](images/approved_full.png)
 
-###### Example – Proposal approved with partial member vote
+###### Example– Proposal approved with partial member vote
 
 For the following proposal, not all members cast a vote before the duration expired. However, enough Yes votes were cast to approve the proposal according to the voting policy. The proposal is `APPROVED`, and an invitation is extended to the AWS account.
 
 ![Voting process timeline showing proposal creation, member votes, and final approval based on policy threshold.](images/approved_partial.png)
 
-###### Example – Proposal rejected with full member vote
+###### Example– Proposal rejected with full member vote
 
 For the following proposal, all members cast a vote before the duration expired. Because the comparator in the voting policy is **greater than**, a three-to-three vote does not pass the threshold for approval. The proposal is `REJECTED`, and an invitation is not extended to the AWS account.
 
 ![Voting process timeline showing proposal creation, member votes, and evaluation against policy threshold.](images/rejected_full.png)
 
-###### Example – Proposal rejected with partial member vote
+###### Example– Proposal rejected with partial member vote
 
 For the following proposal, not all members cast a vote before the duration expired. However, enough No votes were cast to reject the proposal according to the voting policy. The proposal is `REJECTED`, and an invitation is not extended to the AWS account.
 
 ![Voting process timeline showing proposal creation, voting period, and evaluation against policy threshold.](images/rejected_partial.png)
 
-###### Example – Proposal expires and is not approved
+###### Example– Proposal expires and is not approved
 
 For the following proposal, not all members cast a vote before the duration expired, and neither the number of Yes nor No votes were cast to determine the outcome of the proposal. The proposal is `EXPIRED`, and an invitation is not extended to the AWS account.
 
