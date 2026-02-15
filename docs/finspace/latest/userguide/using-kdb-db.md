@@ -49,7 +49,7 @@ In the following example, replace each `*user input
 `*555555555555*` with the AWS account where you created your
 Managed kdb Insights environment.
 
-###### Example — Sample Amazon S3 bucket policy
+###### Example— Sample Amazon S3 bucket policy
 
 JSON
 
