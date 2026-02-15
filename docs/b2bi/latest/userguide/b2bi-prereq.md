@@ -177,7 +177,7 @@ JSONJSON
  "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/`input-folder`*",
  "Condition": {
  "StringEquals": {
- "aws:SourceAccount": "`account-id`"
+ "aws:SourceAccount": "`123456789012`"
  }
  }
  }
@@ -208,7 +208,7 @@ JSONJSON
  "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/`output-folder`/*",
  "Condition": {
  "StringEquals": {
- "aws:SourceAccount": "`account-id`"
+ "aws:SourceAccount": "`123456789012`"
  }
  }
  }
