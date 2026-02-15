@@ -319,7 +319,7 @@ JSON
  ],
  "Condition": {
  "StringEquals": {
- "networkmanager:tgwArn": "arn:aws:ec2:`region`:`account-id`:transit-gateway/tgw-`aabbccdd112233445`"
+ "networkmanager:tgwArn": "arn:aws:ec2:`region`:`123456789012`:transit-gateway/tgw-`aabbccdd112233445`"
  }
  }
  },
@@ -334,7 +334,7 @@ JSON
  ],
  "Condition": {
  "StringEquals": {
- "networkmanager:cgwArn": "arn:aws:ec2:`region`:`account-id`:customer-gateway/cgw-`11223344556677abc`"
+ "networkmanager:cgwArn": "arn:aws:ec2:`region`:`123456789012`:customer-gateway/cgw-`11223344556677abc`"
  }
  }
  }
