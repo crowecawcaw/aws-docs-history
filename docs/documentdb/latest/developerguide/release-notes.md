@@ -17,6 +17,7 @@ You can filter new Amazon DocumentDB features on the [What's New with Database?]
 
 ###### Topics
 
+- [February 11, 2026](#release-notes.02-11-2026 "#release-notes.02-11-2026")
 - [January 08, 2026](#release-notes.01-08-2026 "#release-notes.01-08-2026")
 - [November 11, 2025](#release-notes.11-13-2025 "#release-notes.11-13-2025")
 - [October 22, 2025](#release-notes.10-22-2025 "#release-notes.10-22-2025")
@@ -92,6 +93,14 @@ You can filter new Amazon DocumentDB features on the [What's New with Database?]
 - [September 22, 2020](#release-notes.09-22-2020 "#release-notes.09-22-2020")
 - [July 10, 2020](#release-notes.07-10-2020 "#release-notes.07-10-2020")
 - [June 30, 2020](#release-notes.06-30-2020 "#release-notes.06-30-2020")
+
+## February 11, 2026
+
+### New feature
+
+Amazon DocumentDB is now available in the Asia Pacific (Melbourne) and Europe (Zurich) regions.
+For more information, see
+this blog post.
 
 ## January 08, 2026
 

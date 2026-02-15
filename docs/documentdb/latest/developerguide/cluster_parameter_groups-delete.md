@@ -29,7 +29,7 @@ To delete a cluster parameter group, use the `delete-db-cluster-parameter-group`
   be an existing cluster parameter group. _You cannot delete the
   `default.docdb4.0` cluster parameter group._
 
-###### Example - Deleting a cluster parameter group
+###### Example- Deleting a cluster parameter group
 
 The following example walks you through the three steps for deleting a cluster
 parameter group:

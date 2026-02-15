@@ -26,6 +26,8 @@ To find the details of an Amazon DocumentDB subnet group, use the `describe-db-s
 - `--db-subnet=group-name`—Optional. If included, details for the named subnet group are listed. If omitted, details for up
   to 100 subnet groups are listed.
 
+###### Example
+
 The following code lists details for the `sample-subnet-group` subnet group that we created in the [Creating an Amazon DocumentDB subnet group](document-db-subnet-group-create.md "document-db-subnet-group-create.md") section.
 
 For Linux, macOS, or Unix:

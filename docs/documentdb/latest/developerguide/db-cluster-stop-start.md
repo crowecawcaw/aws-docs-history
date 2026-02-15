@@ -112,7 +112,7 @@ parameter.
 - `--db-cluster-identifier`—Required.
   The name of the cluster to stop or start.
 
-###### Example — To stop a cluster using the AWS CLI
+###### Example— To stop a cluster using the AWS CLI
 
 The following code stops the cluster `sample-cluster`.
 The cluster must have one or more instances in the available state.
@@ -131,7 +131,7 @@ aws docdb stop-db-cluster ^
    --db-cluster-identifier `sample-cluster`
 ```
 
-###### Example — To start a cluster using the AWS CLI
+###### Example— To start a cluster using the AWS CLI
 
 The following code starts the cluster `sample-cluster`.
 The cluster must currently be stopped.

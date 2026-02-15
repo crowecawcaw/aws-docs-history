@@ -36,6 +36,8 @@ To find the instance endpoint using the AWS CLI, run the following command with 
 - `--region`—Optional. Use the `--region` parameter to specify the Region that you want
   to apply the command to. If omitted, your default Region is used.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

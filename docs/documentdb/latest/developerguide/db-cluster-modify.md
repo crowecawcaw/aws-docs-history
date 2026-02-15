@@ -139,6 +139,8 @@ Naming constraints:
   Use `--no-apply-immediately` to make the change
   during your cluster's next maintenance window.
 
+###### Example
+
 The following code changes the backup retention period for
 the cluster `sample-cluster`.
 

@@ -83,6 +83,8 @@ The following code modifies the instance class to
   or `--no-apply-immediately`
   — Optional. Specifies whether this modification should be applied immediately or wait until the next maintenance window. If this parameter is omitted, the modification is performed during the next maintenance window.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

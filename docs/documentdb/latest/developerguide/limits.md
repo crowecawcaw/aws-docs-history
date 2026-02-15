@@ -69,12 +69,14 @@ Amazon DocumentDB is available in the following AWS regions:
 | Asia Pacific (Singapore)  | `ap-southeast-1` | 3                            |
 | Asia Pacific (Sydney)     | `ap-southeast-2` | 3                            |
 | Asia Pacific (Jakarta)    | `ap-southeast-3` | 3                            |
+| Asia Pacific (Melbourne)  | `ap-southeast-4` | 3                            |
 | Asia Pacific (Thailand)   | `ap-southeast-7` | 3                            |
 | Asia Pacific (Tokyo)      | `ap-northeast-1` | 3                            |
 | Canada (Central)          | `ca-central-1`   | 3                            |
 | China (Beijing) Region    | `cn-north-1`     | 3                            |
 | China (Ningxia)           | `cn-northwest-1` | 3                            |
 | Europe (Frankfurt)        | `eu-central-1`   | 3                            |
+| Europe (Zurich)           | `eu-central-2`   | 3                            |
 | Europe (Ireland)          | `eu-west-1`      | 3                            |
 | Europe (London)           | `eu-west-2`      | 3                            |
 | Europe (Milan)            | `eu-south-1`     | 3                            |

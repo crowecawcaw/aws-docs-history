@@ -52,6 +52,8 @@ next instance restart or `reboot-db-instance` request. You must call
 `reboot-db-instance` for every instance in your cluster that you
 want the updated static parameter applied to.
 
+###### Example
+
 ###### Example 1: Resetting all parameters to their default values
 
 The following code resets all parameters in the cluster parameter group `sample-parameter-group` their default values.

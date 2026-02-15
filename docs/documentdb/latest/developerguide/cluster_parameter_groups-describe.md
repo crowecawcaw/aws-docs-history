@@ -55,6 +55,8 @@ You can use the `describe-db-cluster-parameter-groups` AWS CLI command to view t
   - `--db-cluster-parameter-group
 name` — Required. The name of the cluster parameter group that you want described.
 
+###### Example
+
 The following code lists up to 100 cluster parameter groups and their ARN, family, description, and name.
 
 ```
@@ -81,6 +83,8 @@ Output from this operation looks something like the following (JSON format).
           ]
 }
 ```
+
+###### Example
 
 The following code lists the ARN, family, description, and name for `sample-parameter-group`.
 
@@ -112,6 +116,8 @@ Output from this operation looks something like the following (JSON format).
           ]
 }
 ```
+
+###### Example
 
 The following code lists the values of the parameters in
 `sample-parameter-group`.

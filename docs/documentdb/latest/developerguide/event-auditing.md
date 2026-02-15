@@ -167,6 +167,8 @@ Using the AWS CLI
 
 The following code creates the cluster `sample-cluster` and enables CloudWatch audit logs.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -196,6 +198,8 @@ aws docdb create-db-cluster ^
 ###### To enable audit logs when modifying an existing cluster
 
 The following code modifies the cluster `sample-cluster` and enables CloudWatch audit logs.
+
+###### Example
 
 For Linux, macOS, or Unix:
 
@@ -288,6 +292,8 @@ The following procedure uses the AWS Management Console to disable Amazon Docume
 
 Using the AWS CLI
 The following code modifies the cluster `sample-cluster` and disables CloudWatch audit logs.
+
+###### Example
 
 For Linux, macOS, or Unix:
 

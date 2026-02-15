@@ -74,6 +74,8 @@ operation with these parameters.
   The name of the instance to be promoted to the primary
   instance.
 
+###### Example
+
 The following operation forces a failover of the `sample-cluster`
 cluster. It does not specify which instance to make the new primary
 instance, so Amazon DocumentDB chooses the instance according to failover tier

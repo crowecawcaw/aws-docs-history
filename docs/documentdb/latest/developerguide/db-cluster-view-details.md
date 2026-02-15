@@ -73,6 +73,8 @@ lifecycle management, Amazon DocumentDB leverages operational technology
 that is shared with Amazon RDS. The `filterName=engine,Values=docdb`
 filter parameter returns only Amazon DocumentDB clusters.
 
+###### Example
+
 **Example 1: List all Amazon DocumentDB clusters**
 
 The following AWS CLI code lists the details for all Amazon DocumentDB
@@ -130,6 +132,8 @@ Output from this operation looks something like the following.
 }
 
 ```
+
+###### Example
 
 **Example 2: List all details for a
 specified Amazon DocumentDB cluster**
@@ -225,6 +229,8 @@ Output from this operation looks something like the following.
     ]
 }
 ```
+
+###### Example
 
 **Example 3: List specific details for
 a Amazon DocumentDB cluster**

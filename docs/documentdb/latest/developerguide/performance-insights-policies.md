@@ -140,6 +140,8 @@ you manage these permissions through your KMS key policy. For more
 information, see [Using key policies in
 AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md").
 
+###### Example
+
 The following sample key policy shows how to add statements to your KMS key
 policy. These statements allow access to Performance Insights. Depending on how
 you use the AWS KMS, you might want to change some restrictions. Before adding

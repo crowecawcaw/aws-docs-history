@@ -379,6 +379,8 @@ for the specified Region. If you want to search for clusters
 and instances in your default Region, you can omit the
 `--region` parameter.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

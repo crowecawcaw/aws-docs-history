@@ -32,6 +32,8 @@ operation to view the mapping between event types and Amazon DocumentDB resource
 - `--filters`—Optional. To view the event categories for just Amazon DocumentDB, use the filter `--filter
 Name=engine,Values=docdb`.
 
+###### Example
+
 The following code lists the event categories associated with clusters.
 
 For Linux, macOS, or Unix:

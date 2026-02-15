@@ -40,6 +40,8 @@ operation with the following parameters.
   Region that you want to run this operation in, for example,
   `us-east-1`.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

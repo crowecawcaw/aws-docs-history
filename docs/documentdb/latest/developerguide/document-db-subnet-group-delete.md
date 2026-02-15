@@ -28,6 +28,8 @@ To delete an Amazon DocumentDB subnet group using the AWS CLI, use the `delete-d
 - `--db-subnet-group-name`—Required. The name of the Amazon DocumentDB subnet group to delete. Remember that you can't delete the
   `default` subnet group.
 
+###### Example
+
 The following code deletes `sample-subnet-group`.
 
 For Linux, macOS, or Unix:

@@ -42,6 +42,8 @@ To see a cluster's parameter group's parameters and their values, use the `descr
   `engine-default`, `system`, or
   `user`.
 
+###### Example
+
 The following code lists the parameters and their values for the
 `custom3-6-param-grp` parameter group. For more information
 about the parameter group, omit the `--query` line. For

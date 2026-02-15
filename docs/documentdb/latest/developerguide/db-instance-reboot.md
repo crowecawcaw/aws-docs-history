@@ -51,6 +51,8 @@ rebooted.
 
 The following code reboots the instance `sample-instance`.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

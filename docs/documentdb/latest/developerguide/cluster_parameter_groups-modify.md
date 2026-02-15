@@ -52,7 +52,7 @@ To modify a custom cluster parameter group's parameters, use the `modify-db-clus
 
   Parameters with the `ApplyType` of `static` must have an `ApplyMethod` of `pending-reboot`.
 
-###### Example - Modifying a parameter's value
+###### Example- Modifying a parameter's value
 
 In this example, you list the parameter values of `sample-parameter-group` and modify the `tls` parameter. Then, after
 waiting 5 minutes, you again list the parameter values of `sample-parameter-group` to see the changed parameter values.

@@ -88,6 +88,8 @@ the following values:
 - `--enable-performance-insights` to enable or
   `--no-enable-performance-insights` to disable
 
+###### Example
+
 The following example enables Performance Insights for
 `sample-db-instance`:
 

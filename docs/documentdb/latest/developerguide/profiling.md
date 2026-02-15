@@ -326,6 +326,8 @@ Amazon DocumentDB exporting logs to CloudWatch.
 Using the AWS CLI
 The following code modifies the cluster `sample-cluster` and disables CloudWatch profiler logs.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

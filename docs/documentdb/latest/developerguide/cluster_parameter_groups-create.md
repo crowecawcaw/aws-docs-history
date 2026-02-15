@@ -58,6 +58,8 @@ To create a new cluster parameter group for Amazon DocumentDB 4.0 clusters, use 
 
 For Linux, macOS, or Unix:
 
+###### Example
+
 ```
 aws docdb create-db-cluster-parameter-group \
  --db-cluster-parameter-group-name `sample-parameter-group` \

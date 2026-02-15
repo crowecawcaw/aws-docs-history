@@ -106,7 +106,7 @@ parameter.
 - `--cluster-arn`—Required.
   The ARN identifier of the elastic cluster that you want to stop or start.
 
-###### Example — To stop an elastic cluster using the AWS CLI
+###### Example— To stop an elastic cluster using the AWS CLI
 
 In the following example, replace each `user input placeholder` with your own information.
 
@@ -130,7 +130,7 @@ aws docdb-elastic stop-cluster ^
    --cluster-arn `arn:aws:docdb-elastic:us-east-1:477568257630:cluster/b9f1d489-6c3e-4764-bb42-da62ceb7bda2`
 ```
 
-###### Example — To start an elastic cluster using the AWS CLI
+###### Example— To start an elastic cluster using the AWS CLI
 
 In the following example, replace each `user input placeholder` with your own information.
 

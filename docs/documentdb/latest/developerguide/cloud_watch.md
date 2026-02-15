@@ -298,6 +298,8 @@ in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).
     + `Count/Second`
     + `None`
 
+###### Example
+
 The following example finds the maximum `CPUUtilization`
 for a 2-hour period taking a sample every 60 seconds.
 

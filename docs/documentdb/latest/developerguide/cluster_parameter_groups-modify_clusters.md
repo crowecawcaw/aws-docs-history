@@ -31,6 +31,8 @@ To add your new cluster parameter group to your cluster, use the AWS CLI
   parameter group that you want to associate your cluster with (for example,
   `sample-parameter-group`).
 
+###### Example
+
 ```
 aws docdb modify-db-cluster \
     --db-cluster-identifier `sample-cluster` \

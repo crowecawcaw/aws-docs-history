@@ -317,6 +317,8 @@ The following code reboots the instance `mydocdbinstance`.
 
 In the following examples, replace each `user input placeholder` with your cluster's information.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

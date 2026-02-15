@@ -143,6 +143,8 @@ Valid values:
     + `next-maintenance`—Apply the maintenance action during the next maintenance window for the resource.
     + `undo-opt-in`—Cancel any existing `next-maintenance` opt-in requests.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -162,6 +164,8 @@ aws docdb apply-pending-maintenance-action ^
 ```
 
 To return a list of resources that have at least one pending update, use the `describe-pending-maintenance-actions` AWS CLI command.
+
+###### Example
 
 For Linux, macOS, or Unix:
 
@@ -207,6 +211,8 @@ The returned list only includes pending maintenance actions for the clusters ide
 
 The following example returns the pending maintenance actions for the `sample-cluster1` and `sample-cluster2` clusters.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -242,6 +248,8 @@ For more information about modifying a cluster or instance, see the following:
 - [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md")
 
 To see a list of pending user initiated modifications, run the following command.
+
+###### Example
 
 **To see pending user initiated changes for your instances**
 
@@ -308,12 +316,14 @@ The following table lists the time blocks for each Region from which default mai
 | Asia Pacific (Singapore)  | ap-southeast-1 | 14:00-22:00    |
 | Asia Pacific (Sydney)     | ap-southeast-2 | 12:00-20:00    |
 | Asia Pacific (Jakarta)    | ap-southeast-3 | 08:00-16:00    |
+| Asia Pacific (Melbourne)  | ap-southeast-4 | 11:00-19:00    |
 | Asia Pacific (Thailand)   | ap-southeast-7 | 15:00-23:00    |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | 13:00-21:00    |
 | Canada (Central)          | ca-central-1   | 03:00-11:00    |
 | China (Beijing)           | cn-north-1     | 06:00-14:00    |
 | China (Ningxia)           | cn-northwest-1 | 06:00-14:00    |
 | Europe (Frankfurt)        | eu-central-1   | 21:00-05:00    |
+| Europe (Zurich)           | eu-central-2   | 02:00-10:00    |
 | Europe (Ireland)          | eu-west-1      | 22:00-06:00    |
 | Europe (London)           | eu-west-2      | 22:00-06:00    |
 | Europe (Milan)            | eu-south-1     | 02:00-10:00    |

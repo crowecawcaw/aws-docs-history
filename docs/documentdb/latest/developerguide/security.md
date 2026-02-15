@@ -1,37 +1,40 @@
-# Data protection in Amazon DocumentDB
+# Compliance validation in Amazon DocumentDB
 
-The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
-applies to data protection in Amazon DocumentDB (with MongoDB compatibility). As described in this model, AWS is
-responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
-responsible for maintaining control over your content that is hosted on this infrastructure.
-You are also responsible for the security configuration and management tasks for the AWS services
-that you use. For more information about data privacy, see the [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/"). For information about data protection in Europe, see the [AWS Shared
-Responsibility Model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/ "https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/") blog post on the _AWS Security
-Blog_.
+The security and compliance of Amazon DocumentDB is assessed by third-party auditors as part of multiple
+AWS compliance programs, including the following:
 
-For data protection purposes, we recommend that you protect AWS account
-credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
+- System and Organization Controls (SOC) 1, 2, and 3. For more information, see
+  [SOC](https://aws.amazon.com/compliance/soc-faqs/ "https://aws.amazon.com/compliance/soc-faqs/").
+- Federal Risk and Authorization Management Program (FedRAMP).
+  For more information, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/FedRAMP/ "https://aws.amazon.com/compliance/services-in-scope/FedRAMP/").
+- Payment Card Industry Data Security Standard (PCI DSS). For more information, see
+  [PCI DSS](https://aws.amazon.com/compliance/pci-dss-level-1-faqs/ "https://aws.amazon.com/compliance/pci-dss-level-1-faqs/").
+- ISO 9001, 27001, 27017, and 27018. For more information, see [ISO Certified](https://aws.amazon.com/compliance/iso-certified/ "https://aws.amazon.com/compliance/iso-certified/").
+- Health Insurance Portability and Accountability Act Business Associate Agreement
+  (HIPAA BAA). For more information, see [HIPAA Compliance](../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md "../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md")
+  AWS provides a frequently updated list of AWS services in scope of specific compliance programs at [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 
-- Use multi-factor authentication (MFA) with each account.
-- Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
-- Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](../../../awscloudtrail/latest/userguide/cloudtrail-trails.md "../../../awscloudtrail/latest/userguide/cloudtrail-trails.md") in the _AWS CloudTrail User Guide_.
-- Use AWS encryption solutions, along with all default security controls within AWS services.
-- Use advanced managed security services such as Amazon Macie, which assists in discovering
-  and securing sensitive data that is stored in Amazon S3.
-- If you require FIPS 140-3 validated cryptographic modules when accessing AWS through
-  a command line interface or an API, use a FIPS endpoint. For more information about the
-  available FIPS endpoints, see [Federal
-  Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
-  We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with Amazon DocumentDB or other AWS services
-  using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
-  tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
-  provide a URL to an external server, we strongly recommend that you do not include credentials
-  information in the URL to validate your request to that server.
+Third-party audit reports are available for you to download using AWS Artifact. For more
+information, see [Downloading
+Reports in AWS Artifact](../../../artifact/latest/ug/downloading-documents.md "../../../artifact/latest/ug/downloading-documents.md").
 
-###### Topics
+For more information about AWS compliance programs, see [AWS
+Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/").
 
-- [Client-side field level encryption](field-level-encryption.md "field-level-encryption.md")
-- [Encrypting data at rest](encryption-at-rest.md "encryption-at-rest.md")
-- [Encrypting data in transit](security.encryption.md "security.encryption.md")
-- [Key management](security.encryption.ssl.md "security.encryption.ssl.md")
+Your compliance responsibility when using Amazon DocumentDB is determined by the sensitivity of your data, your organization’s
+compliance objectives, and applicable laws and regulations. If your use of Amazon DocumentDB is subject to compliance with
+standards like HIPAA or PCI, AWS provides resources to help:
+
+- [AWS Compliance Resources](https://aws.amazon.com/compliance/resources/ "https://aws.amazon.com/compliance/resources/") – A collection of
+  workbooks and guides that might apply to your industry and location.
+- [Security and Compliance Quick Start Guides](https://aws.amazon.com/quickstart/?awsf.quickstart-homepage-filter=categories%23security-identity-compliance "https://aws.amazon.com/quickstart/?awsf.quickstart-homepage-filter=categories%23security-identity-compliance") – Deployment guides that discuss architectural considerations and
+  provide steps for deploying security- and compliance-focused baseline environments on AWS.
+- [AWS Config](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md")
+  – A service that assesses how well your resource configurations comply with internal practices, industry guidelines,
+  and regulations.
+- [AWS Security
+  Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – A comprehensive view of your security state within AWS that helps you check your compliance with
+  security industry standards and best practices.
+- [Architecting
+  for HIPAA Security and Compliance Whitepaper](../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md "../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md") – A whitepaper that describes how companies can use AWS to
+  create HIPAA-compliant applications.

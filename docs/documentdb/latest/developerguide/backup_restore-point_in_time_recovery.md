@@ -215,6 +215,8 @@ create instances only after the
 `restore-db-cluster-to-point-in-time` operation has
 completed and the restored cluster is _available_.
 
+###### Example
+
 The following example creates `sample-cluster-restored`
 from the snapshot `sample-cluster-snapshot` to the
 latest restorable time.
@@ -236,6 +238,8 @@ aws docdb restore-db-cluster-to-point-in-time ^
     --source-db-cluster-identifier sample-cluster-snapshot ^
     --use-latest-restorable-time
 ```
+
+###### Example
 
 The following example creates `sample-cluster-restored`
 from the snapshot `sample-cluster-snapshot` to 03:15

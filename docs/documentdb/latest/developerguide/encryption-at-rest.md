@@ -112,6 +112,8 @@ enabled.
 
 In the following examples, replace each `user input placeholder` with your cluster's information.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -138,6 +140,8 @@ aws docdb create-db-cluster ^
 
 When you create an encrypted Amazon DocumentDB cluster, you can specify an AWS KMS key
 identifier, as in the following example.
+
+###### Example
 
 For Linux, macOS, or Unix:
 

@@ -236,6 +236,8 @@ delete the target cluster snapshot identified by
 cluster snapshot is in **copying**
 status.
 
+###### Example
+
 **Example 1: Copy an unencrypted snapshot to the same Region**
 
 The following AWS CLI example creates a copy of `sample-cluster-snapshot` named `sample-cluster-snapshot-copy` in the same AWS Region as the source snapshot.
@@ -289,6 +291,8 @@ following.
     }
 }
 ```
+
+###### Example
 
 **Example 2: Copy an unencrypted snapshot across AWS Regions**
 
@@ -346,6 +350,8 @@ following.
 }
 ```
 
+###### Example
+
 **Example 3: Copy an encrypted snapshot across AWS Regions**
 
 The following AWS CLI example creates a copy of
@@ -401,6 +407,8 @@ following.
 }
 ```
 
+###### Example
+
 **Example 4: Copy an unencrypted shared snapshot across AWS Regions**
 
 The following AWS CLI example, account - `123456789012`, creates a copy of an unencrypted cluster snapshot `sample-cluster-snapshot` shared by account - `999999999999` from the us-east-1 Region to the us-west-2 Region.
@@ -451,6 +459,8 @@ following.
  ]
 }
 ```
+
+###### Example
 
 **Example 5: Copy an encrypted shared snapshot across AWS Regions**
 

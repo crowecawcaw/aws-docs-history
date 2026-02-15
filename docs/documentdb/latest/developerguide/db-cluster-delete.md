@@ -211,6 +211,8 @@ with a final snapshot. The operation fails if there are any
 instances associated with the cluster or if deletion protection
 is enabled.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -226,6 +228,8 @@ aws docdb delete-db-cluster ^
     --db-cluster-identifier sample-cluster ^
     --final-db-snapshot-identifier sample-cluster-final-snapshot
 ```
+
+###### Example
 
 The following AWS CLI code deletes the cluster
 `sample-cluster` without taking a final snapshot.

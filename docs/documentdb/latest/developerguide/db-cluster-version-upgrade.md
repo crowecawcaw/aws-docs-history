@@ -75,6 +75,8 @@ You can apply patch updates to your cluster using the AWS CLI and the `apply-pen
   - `undo-opt-in`—Cancel any existing
     `next-maintenance` opt-in requests.
 
+###### Example
+
 The following example patch updates the engine version of
 `sample-cluster` to version 4.0.0.
 

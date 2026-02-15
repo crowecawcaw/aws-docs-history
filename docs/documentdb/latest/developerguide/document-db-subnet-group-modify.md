@@ -51,6 +51,8 @@ of the subnets currently in the subnet group, you must include them in this list
 
 - `--db-subnet-group-description`—Optional. The description of the subnet group.
 
+###### Example
+
 The following code modifies the description and replaces the existing subnets with the subnets `subnet-991cb8d0`,
 `subnet-53ab3636`, and `subnet-29ab1025`.
 

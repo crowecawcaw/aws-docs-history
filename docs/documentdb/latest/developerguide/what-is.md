@@ -84,11 +84,13 @@ For a complete list of instance types supported by Amazon DocumentDB in each ins
 | Asia Pacific (Seoul)                 | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Asia Pacific (Sydney)                | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Asia Pacific (Jakarta)               | Supported | Supported        | Supported | Supported |           | Supported | Supported |            |
+| Asia Pacific (Melbourne)             |           |                  | Supported | Supported |           | Supported | Supported |            |
 | Asia Pacific (Singapore)             | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Asia Pacific (Thailand)              |           |                  | Supported |           |           | Supported | Supported |            |
 | Asia Pacific (Tokyo)                 | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Canada (Central)                     |           | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Europe (Frankfurt)                   | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
+| Europe (Zurich)                      |           | Supported        | Supported | Supported |           | Supported | Supported |            |
 | Europe (Ireland)                     | Supported | Supported        | Supported | Supported | Supported | Supported | Supported | Supported  |
 | Europe (London)                      |           | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Europe (Milan)                       |           |                  | Supported | Supported |           | Supported | Supported | Supported  |
@@ -147,12 +149,14 @@ The following table lists the number of Availability Zones that you can use in a
 | Asia Pacific (Singapore)  | `ap-southeast-1` | 3                            |
 | Asia Pacific (Sydney)     | `ap-southeast-2` | 3                            |
 | Asia Pacific (Jakarta)    | `ap-southeast-3` | 3                            |
+| Asia Pacific (Melbourne)  | `ap-southeast-4` | 3                            |
 | Asia Pacific (Thailand)   | `ap-southeast-7` | 3                            |
 | Asia Pacific (Tokyo)      | `ap-northeast-1` | 3                            |
 | Canada (Central)          | `ca-central-1`   | 3                            |
 | China (Beijing) Region    | `cn-north-1`     | 3                            |
 | China (Ningxia)           | `cn-northwest-1` | 3                            |
 | Europe (Frankfurt)        | `eu-central-1`   | 3                            |
+| Europe (Zurich)           | `eu-central-2`   | 3                            |
 | Europe (Ireland)          | `eu-west-1`      | 3                            |
 | Europe (London)           | `eu-west-2`      | 3                            |
 | Europe (Milan)            | `eu-south-1`     | 3                            |

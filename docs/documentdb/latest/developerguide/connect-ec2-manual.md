@@ -44,7 +44,7 @@ You must provide an Amazon EC2 key pair.
     	3. Choose the **Key pair type** and **Private key file format**.
     	4. Choose **Create key pair**.
 
-![The Create key pair interface with fields for key pair name, type, and file format. The Create key pair button is in the lower-right corner.](images/ec2/create-key-pair.png)
+![The Create key pair interface with fields for key pair name, type, and file format. The Create key pair button is in the lower-right corner.](/images/documentdb/latest/developerguide/images/ec2/create-key-pair.png)
 
 ###### Note
 

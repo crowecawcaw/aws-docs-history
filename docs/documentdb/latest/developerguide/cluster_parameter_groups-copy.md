@@ -41,6 +41,8 @@ Constraints:
 - `--target-db-cluster-parameter-group-description` — Required. A user-supplied description for
   the cluster parameter group copy.
 
+###### Example
+
 The following code makes a copy of `sample-parameter-group`, naming the copy `sample-parameter-group-copy`.
 
 For Linux, macOS, or Unix:

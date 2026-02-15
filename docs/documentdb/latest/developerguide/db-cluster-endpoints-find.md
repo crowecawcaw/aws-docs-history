@@ -33,6 +33,8 @@ parameters.
 - `--region`—Optional. Use the `--region` parameter to specify the Region that you want
   to apply the command to. If omitted, your default Region is used.
 
+###### Example
+
 The following example returns the `DBClusterIdentifier`, endpoint (cluster endpoint), and `ReaderEndpoint` for
 `sample-cluster`.
 

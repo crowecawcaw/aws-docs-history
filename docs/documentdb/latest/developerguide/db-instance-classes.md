@@ -58,6 +58,8 @@ To determine the class of an instance using the AWS CLI, use the
   the members of the instance to include in the results. If this parameter is
   omitted, all instance members are returned.
 
+###### Example
+
 The following example finds the instance name and class for the instance
 `sample-instance-1`.
 
@@ -86,6 +88,8 @@ Output from this operation looks something like the following.
         "db.r5.large"
     ]
 ```
+
+###### Example
 
 The following example finds the instance name and class for up to 100 Amazon DocumentDB
 instances.
@@ -181,11 +185,13 @@ table specifies which instance classes are supported by Amazon DocumentDB in eac
 | Asia Pacific (Seoul)                 | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Asia Pacific (Sydney)                | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Asia Pacific (Jakarta)               | Supported | Supported        | Supported | Supported |           | Supported | Supported |            |
+| Asia Pacific (Melbourne)             |           |                  | Supported | Supported |           | Supported | Supported |            |
 | Asia Pacific (Singapore)             | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Asia Pacific (Thailand)              |           |                  | Supported |           |           | Supported | Supported |            |
 | Asia Pacific (Tokyo)                 | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Canada (Central)                     |           | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Europe (Frankfurt)                   | Supported | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
+| Europe (Zurich)                      |           | Supported        | Supported | Supported |           | Supported | Supported |            |
 | Europe (Ireland)                     | Supported | Supported        | Supported | Supported | Supported | Supported | Supported | Supported  |
 | Europe (London)                      |           | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | Europe (Milan)                       |           |                  | Supported | Supported |           | Supported | Supported | Supported  |

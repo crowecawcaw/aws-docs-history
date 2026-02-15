@@ -88,6 +88,8 @@ Use the AWS CLI operation `add-tags-to-resource` with these parameters.
 - `--tags`—A list the tags (key-value pair) that you want to add to this resource in the format
   `Key=`key-name`,Value=`tag-value``.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -132,6 +134,8 @@ Use the AWS CLI operation `list-tags-for-resource` with these parameters.
 
 - `--resource-name`—Required. The ARN of the Amazon DocumentDB resource that you want to list tags
   for.
+
+###### Example
 
 For Linux, macOS, or Unix:
 
@@ -197,6 +201,8 @@ Use the AWS CLI operation `remove-tags-from-resource` with these parameters.
 - `--resource-name`—Required. The ARN of the Amazon DocumentDB resource that you want to remove tags
   from.
 - `--tag-keys`—Required. A list the tag keys that you want removed from this resource.
+
+###### Example
 
 For Linux, macOS, or Unix:
 

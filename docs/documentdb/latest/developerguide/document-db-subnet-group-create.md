@@ -70,6 +70,8 @@ list the Availability Zones and their subnets.
   that group. Omitting this parameter lists Availability Zones and subnets for all your subnet groups. Specifying the `default`
   subnet group lists all the VPC's subnets.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
