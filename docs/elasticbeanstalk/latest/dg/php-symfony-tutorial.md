@@ -194,7 +194,7 @@ for creating, configuring, and deploying applications to Elastic Beanstalk envir
 In this tutorial, you used the Elastic Beanstalk console to configure composer options. To make this configuration part of your application source, you can use a
 configuration file like the following.
 
-###### Example .ebextensions/composer.config
+###### Example.ebextensions/composer.config
 
 ```
 option_settings:

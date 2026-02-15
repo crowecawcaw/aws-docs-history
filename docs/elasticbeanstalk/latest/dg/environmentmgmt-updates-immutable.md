@@ -73,7 +73,7 @@ You can enable and configure immutable updates in the Elastic Beanstalk console.
 You can also use the options in the `aws:autoscaling:updatepolicy:rollingupdate` namespace to configure immutable updates. The following
 example [configuration file](ebextensions.md "ebextensions.md") enables immutable updates for configuration changes.
 
-###### Example .ebextensions/immutable-updates.config
+###### Example.ebextensions/immutable-updates.config
 
 ```
 option_settings:
@@ -83,7 +83,7 @@ option_settings:
 
 The following example enables immutable updates for both configuration changes and deployments.
 
-###### Example .ebextensions/immutable-all.config
+###### Example.ebextensions/immutable-all.config
 
 ```
 option_settings:

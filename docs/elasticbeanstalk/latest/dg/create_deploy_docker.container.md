@@ -261,7 +261,7 @@ managed platform updates across Docker versions, enable managed platform updates
 For example, the following [configuration file](ebextensions.md "ebextensions.md") enables managed platform updates at 9:00 AM UTC each Tuesday for
 both minor and patch version updates, thereby allowing for managed updates across Docker versions:
 
-###### Example .ebextensions/managed-platform-update.config
+###### Example.ebextensions/managed-platform-update.config
 
 ```
 option_settings:
@@ -295,7 +295,7 @@ Elastic Beanstalk environments](command-options-general.md "command-options-gene
 
 The following example configuration file configures a Docker environment to run no proxy server.
 
-###### Example .ebextensions/docker-settings.config
+###### Example.ebextensions/docker-settings.config
 
 ```
 option_settings:
@@ -353,7 +353,7 @@ If you need more storage space or increased IOPS for Docker images, you can cust
 For example, the following [configuration file](ebextensions.md "ebextensions.md") increases the storage volume's size to 100 GB with 500
 provisioned IOPS:
 
-###### Example .ebextensions/blockdevice-xvdcz.config
+###### Example.ebextensions/blockdevice-xvdcz.config
 
 ```
 option_settings:
@@ -365,7 +365,7 @@ If you use the `BlockDeviceMappings` option to configure additional volumes for 
 `xvdcz` to ensure that it is created. The following example configures two volumes, the image storage volume `xvdcz` with
 default settings and an additional 24 GB application volume named `sdh`:
 
-###### Example .ebextensions/blockdevice-sdh.config
+###### Example.ebextensions/blockdevice-sdh.config
 
 ```
 option_settings:

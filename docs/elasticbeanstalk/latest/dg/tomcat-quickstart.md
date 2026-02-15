@@ -116,7 +116,7 @@ Next, create an application that you'll deploy using Elastic Beanstalk. We'll cr
 
 Create a simple JSP file named `index.jsp`.
 
-###### Example `~/eb-tomcat/index.jsp`
+###### Example`~/eb-tomcat/index.jsp`
 
 ```
 <html>

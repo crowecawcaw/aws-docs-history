@@ -187,7 +187,7 @@ Laravel's database configuration is stored in a file named `database.php` in the
 code. Find the `mysql` entry and modify the `host`, `database`, `username`, `and password`
 variables to read the corresponding values from Elastic Beanstalk:
 
-###### Example ~/Eb-laravel/config/database.php
+###### Example~/Eb-laravel/config/database.php
 
 ```
 ...
@@ -219,7 +219,7 @@ variables to read the corresponding values from Elastic Beanstalk:
 To verify that the database connection is configured correctly, add code to `index.php` to connect to the database and add some
 code to the default response:
 
-###### Example ~/Eb-laravel/public/index.php
+###### Example~/Eb-laravel/public/index.php
 
 ```
 ...
@@ -298,7 +298,7 @@ for creating, configuring, and deploying applications to Elastic Beanstalk envir
 In this tutorial, you used the Elastic Beanstalk console to configure composer options. To make this configuration part of your application source, you can use a
 configuration file like the following.
 
-###### Example .ebextensions/composer.config
+###### Example.ebextensions/composer.config
 
 ```
 option_settings:

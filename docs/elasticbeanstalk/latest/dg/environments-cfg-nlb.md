@@ -191,7 +191,7 @@ You can find settings related to Network Load Balancers in the following namespa
   instance port and instance protocol settings in `aws:elb:listener` for a listener on a Classic Load Balancer. Health check settings map to the settings in
   the `aws:elb:healthcheck` and `aws:elasticbeanstalk:application` namespaces.
 
-###### Example .ebextensions/network-load-balancer.config
+###### Example.ebextensions/network-load-balancer.config
 
 To get started with a Network Load Balancer, use a [configuration file](ebextensions.md "ebextensions.md") to set the load balancer type to
 `network`.
@@ -206,7 +206,7 @@ option_settings:
 
 You can set the load balancer type only during environment creation.
 
-###### Example .ebextensions/nlb-default-process.config
+###### Example.ebextensions/nlb-default-process.config
 
 The following configuration file modifies health check settings on the default process.
 
@@ -221,7 +221,7 @@ option_settings:
     Protocol: TCP
 ```
 
-###### Example .ebextensions/nlb-secure-listener.config
+###### Example.ebextensions/nlb-secure-listener.config
 
 The following configuration file adds a listener for secure traffic on port 443 and a matching target process that listens to port 443.
 

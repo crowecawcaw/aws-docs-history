@@ -223,7 +223,7 @@ environments](command-options-general.md "command-options-general.md"):
 The following example configuration file shows the use of the Tomcat-specific
 configuration options.
 
-###### Example .ebextensions/tomcat-settings.config
+###### Example.ebextensions/tomcat-settings.config
 
 ```
 option_settings:
@@ -264,7 +264,7 @@ read the additional information in this section.
   The following example configuration file shows the use of the proxy namespace
   configuration options.
 
-###### Example .ebextensions/tomcat-settings.config
+###### Example.ebextensions/tomcat-settings.config
 
 ```
 option_settings:
@@ -277,6 +277,8 @@ To deploy `.ebextensions` configuration files, include them in
 your application source. For a single application, add your
 `.ebextensions` to a compressed WAR file by running the following
 command:
+
+###### Example
 
 ```
 zip -ur `your_application.war` .ebextensions

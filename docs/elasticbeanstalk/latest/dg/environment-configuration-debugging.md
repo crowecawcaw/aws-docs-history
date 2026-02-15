@@ -76,7 +76,7 @@ To enable debugging automatically when you deploy your application, set the opti
 [configuration file](ebextensions.md "ebextensions.md") in your source code, as
 follows.
 
-###### Example .ebextensions/debugging.config
+###### Example.ebextensions/debugging.config
 
 ```
 option_settings:

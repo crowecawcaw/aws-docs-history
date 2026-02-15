@@ -256,7 +256,7 @@ instead of creating a new one.
    - **NewSignupEmail** – Your email address.
    - **STARTUP_SIGNUP_TABLE** – **nodejs-tutorial**
 
-###### Example .ebextensions/options.config
+###### Example.ebextensions/options.config
 
 ```
 option_settings:

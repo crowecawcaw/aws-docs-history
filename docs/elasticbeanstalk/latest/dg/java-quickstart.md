@@ -139,7 +139,7 @@ Create the following files:
 
 This file creates a simple Spring Boot application.
 
-###### Example `~/eb-java/src/main/java/com/example/Application.java`
+###### Example`~/eb-java/src/main/java/com/example/Application.java`
 
 ```
 package com.example;
@@ -158,7 +158,7 @@ public class Application {
 
 This file creates a mapping that returns a String that we define here.
 
-###### Example `~/eb-java/src/main/java/com/example/Controller.java`
+###### Example`~/eb-java/src/main/java/com/example/Controller.java`
 
 ```
 package com.example;
@@ -178,7 +178,7 @@ public class Controller {
 
 This file defines the Maven project configuration.
 
-###### Example `~/eb-java/pom.xml`
+###### Example`~/eb-java/pom.xml`
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -222,7 +222,7 @@ This file defines the Maven project configuration.
 
 This properties file overrides the default port to be 5000. This is the default port that Elastic Beanstalk sends traffic to for Java applications.
 
-###### Example `~/eb-java/application.properties`
+###### Example`~/eb-java/application.properties`
 
 ```
 server.port=5000
@@ -259,7 +259,7 @@ environment.
 
 2. Create your `Buildfile`.
 
-###### Example `~/eb-java/Buildfile`
+###### Example`~/eb-java/Buildfile`
 
 ```
 build: mvn clean package
@@ -268,7 +268,7 @@ build: mvn clean package
 This `Buildfile` specifies the command used to build your application. If you don’t include a `Buildfile`
 for a Java application, Elastic Beanstalk doesn't attempt to build your application. 3. Create your `Procfile`.
 
-###### Example `~/eb-java/Procfile`
+###### Example`~/eb-java/Procfile`
 
 ```
 web: java -jar target/BeanstalkJavaExample-1.0-SNAPSHOT.jar

@@ -227,7 +227,7 @@ The EB CLI and Elastic Beanstalk console apply recommended values for the preced
 You must remove these settings if you want to use configuration files to configure the same. See
 [Recommended values](command-options.md#configuration-options-recommendedvalues "command-options.md#configuration-options-recommendedvalues") for details.
 
-###### Example .ebextensions/loadbalancer-terminatehttps.config
+###### Example.ebextensions/loadbalancer-terminatehttps.config
 
 The following example configuration file creates an HTTPS listener on port 443, assigns a certificate that the load balancer uses to terminate the
 secure connection, and disables the default listener on port 80. The load balancer forwards the decrypted requests to the EC2 instances in your

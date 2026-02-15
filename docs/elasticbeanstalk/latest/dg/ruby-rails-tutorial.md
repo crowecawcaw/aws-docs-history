@@ -223,6 +223,8 @@ In order for Elastic Beanstalk to successfully deploy the application on the Rub
 of `Gemfile.lock` might be platform specific. Therefore, we need to add `platform ruby` to
 `Gemfile.lock` so that all required dependencies are installed with the deployment.
 
+###### Example
+
 ```
 ~/eb-rails$ `bundle lock --add-platform ruby`
 Fetching gem metadata from https://rubygems.org/............

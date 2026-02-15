@@ -109,7 +109,7 @@ You can enable enhanced health reporting by including a [configuration file](ebe
 configuration file that enables enhanced health reporting and assigns the default service and
 instance profile to the environment:
 
-###### Example .ebextensions/enhanced-health.config
+###### Example.ebextensions/enhanced-health.config
 
 ```
 option_settings:

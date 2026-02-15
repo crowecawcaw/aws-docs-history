@@ -312,6 +312,8 @@ aws elasticbeanstalk update-environment \
 --option-settings \ `file://options.json`
 ```
 
+###### Example
+
 ```
 ### example options.json ###
 [
@@ -371,7 +373,7 @@ minutes to complete. During this time, you might experience issues when testing
 communication from a client to your application if you're initiating requests using the
 IPv6 protocol.
 
-###### Example .ebextensions/options.config for load balancer dualstack configuration ([shorthand syntax](ebextensions-optionsettings.md#ebextensions-optionsettings.title "ebextensions-optionsettings.md#ebextensions-optionsettings.title"))
+###### Example.ebextensions/options.config for load balancer dualstack configuration ([shorthand syntax](ebextensions-optionsettings.md#ebextensions-optionsettings.title "ebextensions-optionsettings.md#ebextensions-optionsettings.title"))
 
 ```
 option_settings:
@@ -379,7 +381,7 @@ option_settings:
     `IpAddressType`: ``dualstack``
 ```
 
-###### Example .ebextensions/options.config for load balancer dualstack configuration ([standard syntax](ebextensions-optionsettings.md#ebextensions-optionsettings.title "ebextensions-optionsettings.md#ebextensions-optionsettings.title"))
+###### Example.ebextensions/options.config for load balancer dualstack configuration ([standard syntax](ebextensions-optionsettings.md#ebextensions-optionsettings.title "ebextensions-optionsettings.md#ebextensions-optionsettings.title"))
 
 ```
 option_settings:

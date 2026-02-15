@@ -134,7 +134,7 @@ You can choose the proxy to use on the instances for your environment by using t
 following example configures your environment to use the Apache
 HTTPD proxy server.
 
-###### Example .ebextensions/nodejs-settings.config
+###### Example.ebextensions/nodejs-settings.config
 
 ```
 option_settings:
@@ -214,7 +214,7 @@ HTML files at the `html` path under the website's root from the `statichtml` sou
 other source is image files at the `images` path under the website's root from the `staticimages` source
 directory.
 
-###### Example .ebextensions/node-settings.config
+###### Example.ebextensions/node-settings.config
 
 ```
 option_settings:

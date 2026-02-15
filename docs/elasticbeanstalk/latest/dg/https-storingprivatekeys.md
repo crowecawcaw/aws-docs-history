@@ -5,7 +5,7 @@ in configuration files by uploading them to Amazon S3, and configuring Elastic B
 
 The following example shows the [Resources](environment-resources.md "environment-resources.md") and [files](customize-containers-ec2.md#linux-files "customize-containers-ec2.md#linux-files") sections of a [configuration file](ebextensions.md "ebextensions.md") downloads a private key file from an Amazon S3 bucket.
 
-###### Example .ebextensions/privatekey.config
+###### Example.ebextensions/privatekey.config
 
 ```
 Resources:

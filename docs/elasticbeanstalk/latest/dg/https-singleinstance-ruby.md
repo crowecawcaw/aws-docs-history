@@ -57,7 +57,7 @@ Creates the private key file on the instance. Replace `private key
  contents` with the contents of the private key used to create the
 certificate request or self-signed certificate.
 
-###### Example .ebextensions/https-instance.config
+###### Example.ebextensions/https-instance.config
 
 ```
 files:
@@ -126,7 +126,7 @@ In a single instance environment, you must also modify the
 instance's security group to allow traffic on port 443. The following configuration file
 retrieves the security group's ID using an CloudFormation [function](ebextensions-functions.md "ebextensions-functions.md") and adds a rule to it.
 
-###### Example .ebextensions/https-instance-single.config
+###### Example.ebextensions/https-instance-single.config
 
 ```
 Resources:
@@ -190,7 +190,7 @@ configuration file and a JSON file to enable HTTPS.
  key contents` with the contents of the private key used to create
    the certificate request or self-signed certificate.
 
-###### Example .Ebextensions snippet for configuring HTTPS for Ruby with Passenger
+###### Example.Ebextensions snippet for configuring HTTPS for Ruby with Passenger
 
 ```
 files:
@@ -237,7 +237,7 @@ In a single instance environment, you must also modify the
 instance's security group to allow traffic on port 443. The following configuration file
 retrieves the security group's ID using an CloudFormation [function](ebextensions-functions.md "ebextensions-functions.md") and adds a rule to it.
 
-###### Example .ebextensions/https-instance-single.config
+###### Example.ebextensions/https-instance-single.config
 
 ```
 Resources:

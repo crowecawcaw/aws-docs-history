@@ -10,7 +10,7 @@ If you configured your environment for [enhanced health reporting](health-enhanc
 logs. To do that, uncomment the block of lines under the comment that reads `# For enhanced health...` by removing the leading `#`
 characters.
 
-###### Example .ebextensions/https-instance.config
+###### Example.ebextensions/https-instance.config
 
 ```
 files:
@@ -123,7 +123,7 @@ In a single instance environment, you must also modify the
 instance's security group to allow traffic on port 443. The following configuration file
 retrieves the security group's ID using an CloudFormation [function](ebextensions-functions.md "ebextensions-functions.md") and adds a rule to it.
 
-###### Example .ebextensions/https-instance-single.config
+###### Example.ebextensions/https-instance-single.config
 
 ```
 Resources:

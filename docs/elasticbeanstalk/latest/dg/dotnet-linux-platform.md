@@ -102,7 +102,7 @@ supported for all Elastic Beanstalk environments](command-options-general.md "co
 
 The following example configuration file shows the use of the .NET Core on Linux-specific configuration options.
 
-###### Example .ebextensions/proxy-settings.config
+###### Example.ebextensions/proxy-settings.config
 
 ```
 option_settings:

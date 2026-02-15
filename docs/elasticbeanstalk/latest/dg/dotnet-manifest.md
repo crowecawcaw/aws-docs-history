@@ -258,7 +258,7 @@ The following example shows a simple deployment manifest that configures a websi
 
 ARR configuration is done through ebextensions. The following configuration sets up basic ARR routing rules:
 
-###### Example .ebextensions/arr-config.config - Basic ARR configuration
+###### Example.ebextensions/arr-config.config - Basic ARR configuration
 
 ```
 files:

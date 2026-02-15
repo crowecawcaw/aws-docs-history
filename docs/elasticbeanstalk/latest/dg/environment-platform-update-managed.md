@@ -244,7 +244,7 @@ The following example [configuration file](ebextensions.md "ebextensions.md") en
 managed platform updates for patch version updates with a maintenance window starting at 9:00
 AM UTC each Tuesday.
 
-###### Example .ebextensions/managed-platform-update.config
+###### Example.ebextensions/managed-platform-update.config
 
 ```
 option_settings:

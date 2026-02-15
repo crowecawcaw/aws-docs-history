@@ -158,7 +158,7 @@ CakePHP's database configuration is in a file named `app.php` in the `config` fo
 this file and add some code that reads the environment variables from `$_SERVER` and assigns them to local variables. Insert the highlighted
 lines in the below example after the first line (`<?php`):
 
-###### Example ~/Eb-cake/config/app.php
+###### Example~/Eb-cake/config/app.php
 
 ```
 <?php
@@ -177,7 +177,7 @@ configuration with the name of the driver that matches your database engine (`My
 set the `host`, `username`, `password` and `database` variables to read the corresponding values from
 Elastic Beanstalk:
 
-###### Example ~/Eb-cake/config/app.php
+###### Example~/Eb-cake/config/app.php
 
 ```
 ...

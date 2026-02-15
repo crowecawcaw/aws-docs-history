@@ -44,7 +44,7 @@ Creates the private key file on the instance. Replace `private key
  contents` with the contents of the private key used to create the
 certificate request or self-signed certificate.
 
-###### Example .ebextensions/https-instance.config
+###### Example.ebextensions/https-instance.config
 
 ```
 files:
@@ -75,7 +75,7 @@ Place the following in a file with the `.conf` extension in the
 This example configures the nginx server to listen on port 443 using SSL. For more information
 about these configuration files on the Go platform, see [Configuring the proxy server](go-nginx.md "go-nginx.md").
 
-###### Example .ebextensions/nginx/conf.d/https.conf
+###### Example.ebextensions/nginx/conf.d/https.conf
 
 ```
 # HTTPS server
@@ -109,7 +109,7 @@ In a single instance environment, you must also modify the
 instance's security group to allow traffic on port 443. The following configuration file
 retrieves the security group's ID using an CloudFormation [function](ebextensions-functions.md "ebextensions-functions.md") and adds a rule to it.
 
-###### Example .ebextensions/https-instance-single.config
+###### Example.ebextensions/https-instance-single.config
 
 ```
 Resources:

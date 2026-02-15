@@ -115,6 +115,8 @@ gem 'puma'
 
 4. Run bundle install to generate the `Gemfile.lock`
 
+###### Example
+
 ```
 ~/eb-sinatra$ `bundle install`
 Fetching gem metadata from https://rubygems.org/....
@@ -127,6 +129,8 @@ Using rack 2.2.3
 5. In order for Elastic Beanstalk to successfully deploy the application on the Ruby platform, we need to update `Gemfile.lock`. Some dependencies
    of `Gemfile.lock` might be platform specific. Therefore, we need to add `platform ruby` to
    `Gemfile.lock` so that all required dependencies are installed with the deployment.
+
+###### Example
 
 ```
 ~/eb-sinatra$ `bundle lock --add-platform ruby`

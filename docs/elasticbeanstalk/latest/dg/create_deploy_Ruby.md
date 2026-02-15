@@ -151,7 +151,7 @@ The following configuration file specifies a static files option that maps a dir
 `/images`, sets each of the platform defined environment properties, and sets an additional environment property named
 `LOGGING`.
 
-###### Example .ebextensions/ruby-settings.config
+###### Example.ebextensions/ruby-settings.config
 
 ```
 option_settings:

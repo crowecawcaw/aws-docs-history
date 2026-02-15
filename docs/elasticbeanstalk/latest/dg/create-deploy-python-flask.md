@@ -91,7 +91,7 @@ Next, create an application that you'll deploy using Elastic Beanstalk. We'll cr
 
 Create a new text file in this directory named `application.py` with the following contents:
 
-###### Example `~/eb-flask/application.py`
+###### Example`~/eb-flask/application.py`
 
 ```
 from flask import Flask
@@ -181,7 +181,7 @@ environment on the server instances and installs the libraries listed in `requir
 that you upload during deployment, add an [.ebignore](eb-cli3-configuration.md#eb-cli3-ebignore "eb-cli3-configuration.md#eb-cli3-ebignore") file that tells the EB CLI to leave out the
 `virt` folder.
 
-###### Example ~/eb-flask/.ebignore
+###### Example~/eb-flask/.ebignore
 
 ```
 virt

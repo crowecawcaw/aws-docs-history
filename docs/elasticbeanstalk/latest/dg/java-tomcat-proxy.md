@@ -24,7 +24,7 @@ If your Elastic Beanstalk Tomcat environment uses an Amazon Linux AMI platform v
   by default. You can choose to use [Apache 2.2](https://httpd.apache.org/docs/2.2/ "https://httpd.apache.org/docs/2.2/") or [nginx](https://www.nginx.com/ "https://www.nginx.com/") by including a [configuration file](ebextensions.md "ebextensions.md") in your source code. The following example configures Elastic Beanstalk to
   use nginx.
 
-###### Example .ebextensions/nginx-proxy.config
+###### Example.ebextensions/nginx-proxy.config
 
 ```
 option_settings:
@@ -45,7 +45,7 @@ see [Upgrading to 2.4 from 2.2](https://httpd.apache.org/docs/current/upgrading.
 Foundation_'s site. As a temporary measure, until you successfully migrate to Apache 2.4, you can choose to use Apache 2.2 with your
 application by including the following [configuration file](ebextensions.md "ebextensions.md") in your source code.
 
-###### Example .ebextensions/apache-legacy-proxy.config
+###### Example.ebextensions/apache-legacy-proxy.config
 
 ```
 option_settings:
@@ -90,7 +90,7 @@ Apache configuration completely.
 
 For example, the following Apache 2.4 configuration adds a listener on port 5000.
 
-###### Example .ebextensions/httpd/conf.d/port5000.conf
+###### Example.ebextensions/httpd/conf.d/port5000.conf
 
 ```
 listen 5000

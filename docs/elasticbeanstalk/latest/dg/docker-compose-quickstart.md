@@ -141,7 +141,7 @@ Create the directory structure and add the following files:
 
 First, create the main `docker-compose.yml` file that defines the services and their relationships.
 
-###### Example `~/eb-docker-compose-flask/docker-compose.yml`
+###### Example`~/eb-docker-compose-flask/docker-compose.yml`
 
 ```
 services:
@@ -162,7 +162,7 @@ services:
 
 Create the Flask web application in the `web` directory. Add the following contents to your `app.py` file.
 
-###### Example `~/eb-docker-compose-flask/web/app.py`
+###### Example`~/eb-docker-compose-flask/web/app.py`
 
 ```
 from flask import Flask
@@ -174,7 +174,7 @@ def hello_world():
 
 Add the following contents to your web service `Dockerfile`.
 
-###### Example `~/eb-docker-compose-flask/web/Dockerfile`
+###### Example`~/eb-docker-compose-flask/web/Dockerfile`
 
 ```
 FROM public.ecr.aws/docker/library/python:3.12
@@ -189,7 +189,7 @@ Create the nginx reverse proxy in the `proxy` directory. Add the following conte
 
 This configuration includes health monitoring setup that allows Elastic Beanstalk to collect detailed application metrics. For more information about customizing health monitoring log formats, see [Enhanced health log format](health-enhanced-serverlogs.md "health-enhanced-serverlogs.md").
 
-###### Example `~/eb-docker-compose-flask/proxy/nginx.conf`
+###### Example`~/eb-docker-compose-flask/proxy/nginx.conf`
 
 ```
 events {
@@ -243,7 +243,7 @@ http {
 
 Add the following contents to your proxy service `Dockerfile`.
 
-###### Example `~/eb-docker-compose-flask/proxy/Dockerfile`
+###### Example`~/eb-docker-compose-flask/proxy/Dockerfile`
 
 ```
 FROM public.ecr.aws/nginx/nginx:alpine
@@ -253,7 +253,7 @@ EXPOSE 80
 
 Finally, create a platform hook script to set up the necessary log directories and permissions for health monitoring. Platform hooks allow you to run custom scripts during the deployment process. For more information about platform hooks, see [Platform hooks](platforms-linux-extend.md "platforms-linux-extend.md").
 
-###### Example `~/eb-docker-compose-flask/.platform/hooks/postdeploy/01_setup_healthd_permissions.sh`
+###### Example`~/eb-docker-compose-flask/.platform/hooks/postdeploy/01_setup_healthd_permissions.sh`
 
 ```
 #!/bin/bash

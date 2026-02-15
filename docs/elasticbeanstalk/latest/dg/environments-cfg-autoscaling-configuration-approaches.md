@@ -238,7 +238,7 @@ The fist option listed, `IamInstanceProfile` in the [aws:autoscaling:launchconfi
 Elastic Beanstalk [instance profile](concepts-roles-instance.md "concepts-roles-instance.md"). It's required when
 you create a new environment.
 
-###### Example — create-environment with Auto Scaling options (namespace options inline)
+###### Example— create-environment with Auto Scaling options (namespace options inline)
 
 ```
 aws elasticbeanstalk create-environment \
@@ -274,7 +274,7 @@ environment to launch templates](environments-cfg-autoscaling-launch-templates.m
 As an alternative, use an `options.json` file to specify the
 namespace options instead of including them inline.
 
-###### Example —create-environment with Auto Scaling options (namespace options in
+###### Example—create-environment with Auto Scaling options (namespace options in
 
 `options.json` file)
 
@@ -286,6 +286,8 @@ aws elasticbeanstalk create-environment \
 --solution-stack-name `"64bit Amazon Linux 2023 v4.3.0 running Python 3.12"`
 --option-settings `file://options.json`
 ```
+
+###### Example
 
 ```
 ### example options.json ###

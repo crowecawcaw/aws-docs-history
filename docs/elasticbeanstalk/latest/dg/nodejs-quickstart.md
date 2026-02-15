@@ -124,7 +124,7 @@ Create a project directory.
 
 Next, create an application that you'll deploy using Elastic Beanstalk. We'll create a "Hello World" RESTful web service.
 
-###### Example `~/eb-nodejs/server.js`
+###### Example`~/eb-nodejs/server.js`
 
 ```
 const http = require('node:http');

@@ -59,7 +59,7 @@ The following example configuration file tells the proxy server to serve files i
 `statichtml` folder at the path `/html`, and files in the
 `staticimages` folder at the path `/images`.
 
-###### Example .ebextensions/static-files.config
+###### Example.ebextensions/static-files.config
 
 ```
 option_settings:

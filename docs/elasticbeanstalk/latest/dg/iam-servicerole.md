@@ -131,7 +131,7 @@ Unlike in the console, you can't specify a managed-updates service role when usi
 environment, you must set the managed-updates service role though configuration options. The following example enables managed updates and uses the
 default service role as a managed-updates service role.
 
-###### Example .ebextensions/managed-platform-update.config
+###### Example.ebextensions/managed-platform-update.config
 
 ```
 option_settings:

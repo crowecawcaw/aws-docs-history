@@ -43,7 +43,7 @@ For this walk-through we use a GlassFish example application.
    Choose the Docker base image that this platform version uses. To find out the current Docker image of the platform version, see the [Preconfigured Docker](../platforms/platforms-supported.md#platforms-supported.dockerpreconfig "../platforms/platforms-supported.md#platforms-supported.dockerpreconfig") section of the
    _AWS Elastic Beanstalk Supported Platforms_ page in the _AWS Elastic Beanstalk Platforms_ guide.
 
-###### Example ~/Eb-preconf-example/Dockerfile
+###### Example~/Eb-preconf-example/Dockerfile
 
 ```
 # For Glassfish 5.0 Java 8
@@ -262,7 +262,7 @@ the command without parameters. 3. Create an additional directory.
 
 4. Copy the following example into a file named `Dockerrun.aws.json`.
 
-###### Example `~/glassfish-prebuilt/Dockerrun.aws.json`
+###### Example`~/glassfish-prebuilt/Dockerrun.aws.json`
 
 ```
 {

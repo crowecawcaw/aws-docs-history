@@ -50,7 +50,7 @@ Read this variable in your code to configure the port for your application.
 The default NGINX configuration forwards traffic to an upstream server that's named `nodejs` at
 `127.0.0.1:8081`. It's possible to remove the default configuration and provide your own in a [configuration file](ebextensions.md "ebextensions.md").
 
-###### Example .ebextensions/proxy.config
+###### Example.ebextensions/proxy.config
 
 The following example removes the default configuration and adds a custom configuration that forwards traffic to port 5000, instead of 8081.
 

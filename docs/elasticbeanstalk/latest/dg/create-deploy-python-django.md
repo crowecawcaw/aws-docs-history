@@ -211,7 +211,7 @@ Elastic Beanstalk uses `requirements.txt` to determine which package to install 
 4. In the `.ebextensions` directory, add a [configuration file](ebextensions.md "ebextensions.md") named `django.config` with
    the following text.
 
-###### Example ~/ebdjango/.ebextensions/django.config
+###### Example~/ebdjango/.ebextensions/django.config
 
 ```
 option_settings:
@@ -357,7 +357,7 @@ By default, your Django website uses the UTC time zone to display time. You can 
 
 1. Modify the `TIME_ZONE` setting in `settings.py`.
 
-###### Example ~/ebdjango/ebdjango/settings.py
+###### Example~/ebdjango/ebdjango/settings.py
 
 ```
 ...
@@ -420,7 +420,7 @@ Superuser created successfully.
 
 3. To tell Django where to store static files, define `STATIC_ROOT` in `settings.py`.
 
-###### Example ~/ebdjango/ebdjango/settings.py
+###### Example~/ebdjango/ebdjango/settings.py
 
 ```
 # Static files (CSS, JavaScript, Images)
@@ -466,7 +466,7 @@ database migrations.
 
 1. Create a [configuration file](ebextensions.md "ebextensions.md") named `db-migrate.config` with the following content.
 
-###### Example ~/ebdjango/.ebextensions/db-migrate.config
+###### Example~/ebdjango/.ebextensions/db-migrate.config
 
 ```
 container_commands:

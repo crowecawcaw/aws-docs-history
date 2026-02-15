@@ -5,7 +5,7 @@ customize the AWS resources that it contains. Configuration files are YAML- or J
 that you place in a folder named `.ebextensions` and deploy in your application [source
 bundle](applications-sourcebundle.md "applications-sourcebundle.md").
 
-###### Example .ebextensions/network-load-balancer.config
+###### Example.ebextensions/network-load-balancer.config
 
 This example makes a simple configuration change. It modifies a configuration option to set the type of your environment's load balancer to
 Network Load Balancer.

@@ -1,93 +1,300 @@
-# Your AWS Elastic Beanstalk environment security
+# Adding a database to your Elastic Beanstalk environment
 
-Elastic Beanstalk provides several options that control the service access (security) of your environment and of the Amazon EC2 instances in it. This topic discusses the
-configuration of these options.
+Elastic Beanstalk provides _coupled_ database integration with [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/"). You can use Elastic Beanstalk to add a MySQL,
+PostgreSQL, Oracle, or SQL Server database to an existing environment or a new one when you
+create it. When you add a database instance that's coupled to an environment, Elastic Beanstalk provides the
+connection information to your application. It does this by setting the environment properties
+for the database hostname, port, user name, password, and database name.
+
+###### Advantages of using a coupled database
+
+If you haven't used a database instance with your application before, we recommend that you first use the process described in this topic to add a
+database to a test environment using the Elastic Beanstalk service. By doing this, you can verify that your application can read the environment properties, construct a
+connection string, and connect to a database instance, without the additional configuration work required for a database external to Elastic Beanstalk.
+
+###### Considerations when going to production
+
+After you verify that your application works correctly with the database, you may consider moving towards a production environment. At this point you
+have the option to decouple the database from your Elastic Beanstalk environment to move towards a configuration that offers greater flexibility. The decoupled database
+can remain operational as an external Amazon RDS database instance. The health of the environment isn't affected by decoupling the database. If you need to
+terminate the environment, you can do so and also choose the option to keep the database available and operational outside of Elastic Beanstalk.
+
+###### Advantages of moving to a decoupled database
+
+Using an external database has several advantages. You can connect to the external database from multiple environments, use database types that aren't
+supported with integrated databases, and perform blue/green deployments. As an alternative to using a decoupled database that Elastic Beanstalk created, you can also
+create a database instance outside of your Elastic Beanstalk environment. Both options result in a database instance that's external to your Elastic Beanstalk environment and will
+require additional security group and connection string configuration. For more information, see [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md").
 
 ###### Sections
 
-- [Configuring your environment security](#using-features.managing.security.console "#using-features.managing.security.console")
-- [Environment security configuration namespaces](#using-features.managing.security.namespaces "#using-features.managing.security.namespaces")
+- [Database lifecycle](#environments-cfg-rds-lifecycle "#environments-cfg-rds-lifecycle")
+- [Adding an Amazon RDS DB instance to your environment using the console](#environments-cfg-rds-create "#environments-cfg-rds-create")
+- [Connecting to the database](#environments-cfg-rds-connect "#environments-cfg-rds-connect")
+- [Configuring an integrated RDS DB instance using the console](#using-features.managing.db.CON "#using-features.managing.db.CON")
+- [Configuring an integrated RDS DB instance using configuration files](#using-features.managing.db.namespace "#using-features.managing.db.namespace")
+- [Decoupling an RDS DB instance using the console](#using-features.decoupling.db "#using-features.decoupling.db")
+- [Decoupling an RDS DB instance using configuration files](#using-features.decoupling-config-files.db "#using-features.decoupling-config-files.db")
 
-## Configuring your environment security
+## Database lifecycle
 
-You can modify your Elastic Beanstalk environment security configuration in the Elastic Beanstalk console.
+You can choose what you want to happen to the database after you decouple it from your Elastic Beanstalk environment. The options that you can choose from are
+collectively referred to as _deletion policies_. The following deletion policies apply to a database after you [decouple it from an Elastic Beanstalk environment](#using-features.decoupling.db "#using-features.decoupling.db") or terminate the Elastic Beanstalk environment.
 
-###### To configure environment service access (security) in the Elastic Beanstalk console
+- _Snapshot_ — Before Elastic Beanstalk terminates the database, it saves a snapshot of it.
+  You can restore a database from a snapshot when you add a DB instance to an Elastic Beanstalk environment or when you create a
+  standalone database. For more information about creating a new standalone DB instance from a snapshot, see
+  [Restoring from a DB snapshot](../../../AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.md")
+  in the _Amazon RDS User Guide_.
+  You might incur charges for storing database snapshots. For more information, see the
+  _Backup Storage_ section of [Amazon RDS Pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/").
+- _Delete_ — Elastic Beanstalk terminates the database. After it's terminated, the database instance is no longer available for any
+  operation.
+- _Retain_ — The database instance isn't terminated. It remains available and operational, though decoupled from Elastic Beanstalk.
+  You can then configure one or multiple environments to connect to the database as an external Amazon RDS database instance. For more information, see [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md").
+
+## Adding an Amazon RDS DB instance to your environment using the console
+
+You can add a DB instance to your environment by using the Elastic Beanstalk console.
+
+###### To add a DB instance to your environment
 
 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
    and in the **Regions** list, select your AWS Region.
 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
 3. In the navigation pane, choose **Configuration**.
-4. In the **Service access** configuration category, choose **Edit**.
+4. In the **Database** configuration category, choose **Edit**.
+5. Choose a DB engine, and enter a user name and password.
+6. To save the changes choose **Apply** at the bottom of the page.
 
-The following settings are available.
+You can configure the following options:
 
-###### Settings
-
-- [Service role](#using-features.managing.security.servicerole "#using-features.managing.security.servicerole")
-- [EC2 key pair](#using-features.managing.security.keypair "#using-features.managing.security.keypair")
-- [IAM instance profile](#using-features.managing.security.profile "#using-features.managing.security.profile")
-
-![The Elastic Beanstalk security service access configuration page](images/configuration-configure-service-access.png)
-
-### Service role
-
-Select a [service role](iam-servicerole.md "iam-servicerole.md") to associate with your Elastic Beanstalk environment. Elastic Beanstalk assumes the service role when it
-accesses other AWS services on your behalf. For details, see [Managing Elastic Beanstalk service roles](iam-servicerole.md "iam-servicerole.md").
-
-### EC2 key pair
-
-You can securely log in to the Amazon Elastic Compute Cloud (Amazon EC2) instances provisioned for your Elastic Beanstalk application with an Amazon EC2 key pair. For instructions on
-creating a key pair, see [Creating a Key Pair Using Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair") in
-the _Amazon EC2 User Guide_.
-
-###### Note
-
-When you create a key pair, Amazon EC2 stores a copy of your public key. If you no longer need to use it to connect to any environment instances, you
-can delete it from Amazon EC2. For details, see [Deleting Your Key Pair](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#delete-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#delete-key-pair") in the
-_Amazon EC2 User Guide_.
-
-Choose an **EC2 key pair** from the drop-down menu to assign it to your environment's instances. When you assign a key pair, the
-public key is stored on the instance to authenticate the private key, which you store locally. The private key is never stored on AWS.
-
-For more information about connecting to Amazon EC2 instances, see [Connect to Your Instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md")
-and [Connecting to Linux/UNIX Instances from Windows using PuTTY](../../../AWSEC2/latest/UserGuide/putty.md "../../../AWSEC2/latest/UserGuide/putty.md") in the _Amazon EC2 User Guide_.
-
-### IAM instance profile
-
-An EC2 [instance profile](concepts-roles-instance.md "concepts-roles-instance.md") is an IAM role that is applied to instances launched in your Elastic Beanstalk
-environment. Amazon EC2 instances assume the instance profile role to sign requests to AWS and access APIs, for example, to upload logs to Amazon S3.
-
-The first time you create an environment in the Elastic Beanstalk console, Elastic Beanstalk prompts you to create an instance profile with a default set of permissions.
-You can add permissions to this profile to provide your instances access to other AWS services. For details, see [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md "iam-instanceprofile.md").
+- **Snapshot** – Choose an existing database snapshot. Elastic Beanstalk restores the snapshot and adds it to your environment. The
+  default value is **None**. When the value is **None**, you can configure a new database using the other settings on
+  this page.
+- **Engine** – Choose a database engine.
+- **Engine version** – Choose a specific version of the database engine.
+- **Instance class** – Choose the DB instance class. For information about DB instance classes, see [https://aws.amazon.com/rds/](http://aws.amazon.com/rds/ "http://aws.amazon.com/rds/").
+- **Storage** – Choose the amount of storage to provision for your database. You can increase allocated storage later, but
+  you can't decrease it. For information about storage allocation, see [Features](https://aws.amazon.com/rds/#features "https://aws.amazon.com/rds/#features").
+- **Username** – Enter a user name of your choice using a combination of only numbers and letters.
+- **Password** – Enter a password of your choice containing 8–16 printable ASCII characters (excluding
+  `/`, `\`, and `@`).
+- **Availability** – Choose **High (Multi-AZ)** to run a warm backup in a second Availability Zone for high
+  availability.
+- **Database deletion policy** – The deletion policy determines what happens to the database after it's [decoupled](#using-features.decoupling.db "#using-features.decoupling.db") from your environment. It can be set to the following values: `Create Snapshot`,
+  `Retain`, or `Delete`. These values are described in [Database lifecycle](#environments-cfg-rds-lifecycle "#environments-cfg-rds-lifecycle") in this same topic.
 
 ###### Note
 
-Previously Elastic Beanstalk created a default EC2 instance profile named `aws-elasticbeanstalk-ec2-role` the first time an AWS account
-created an environment. This instance profile included default managed policies. If your account already has this instance profile,
-it will remain available for you to assign to your environments.
+Elastic Beanstalk creates a master user for the database using the user name and password you provide. To learn more about the master user and its privileges,
+see [Master User Account Privileges](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md").
 
-However, recent AWS security guidelines don’t allow an AWS service to automatically create roles with trust policies to other AWS services, EC2 in
-this case. Because of these security guidelines, Elastic Beanstalk no longer creates a default `aws-elasticbeanstalk-ec2-role` instance profile.
+It takes about 10 minutes to add a DB instance. When the update is complete the new database is _coupled_ to your environment. The
+hostname and other connection information for the DB instance are available to your application through the following environment properties.
 
-###### Note
+| Property name  | Description                                                                                    | Property value                                                                         |
+| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
+| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
+| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
+| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
+| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
 
-There is another aspect of EC2 instance security that designates firewall rules for EC2 instances.
-This is controlled by EC2 security groups.
-For more information, see
-[The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+## Connecting to the database
 
-## Environment security configuration namespaces
+Use the connectivity information to connect to your database from inside your application through environment variables. For more information about
+using Amazon RDS with your applications, see the following topics.
 
-Elastic Beanstalk provides [configuration options](command-options.md "command-options.md") in the following namespaces to enable you to customize the security of
-your environment:
+- Java SE – [Connecting to a database (Java SE platforms)](java-rds.md#java-rds-javase "java-rds.md#java-rds-javase")
+- Java with Tomcat – [Connecting to a database (Tomcat platforms)](java-rds.md#java-rds-tomcat "java-rds.md#java-rds-tomcat")
+- Node.js – [Connecting to a database](create-deploy-nodejs.md#nodejs-rds-connect "create-deploy-nodejs.md#nodejs-rds-connect")
+- .NET – [Connecting to a database](create_deploy_NET.md#dotnet-rds-connect "create_deploy_NET.md#dotnet-rds-connect")
+- PHP – [Connecting to a database with a PDO or MySQLi](create_deploy_PHP.md#php-rds-connect "create_deploy_PHP.md#php-rds-connect")
+- Python – [Connecting to a database](create-deploy-python-rds.md#python-rds-connect "create-deploy-python-rds.md#python-rds-connect")
+- Ruby – [Connecting to a database](create_deploy_Ruby.md#ruby-rds-connect "create_deploy_Ruby.md#ruby-rds-connect")
 
-- [aws:elasticbeanstalk:environment](command-options-general.md#command-options-general-elasticbeanstalkenvironment "command-options-general.md#command-options-general-elasticbeanstalkenvironment") – Configure the
-  environment's service role using the `ServiceRole` option.
-- [aws:autoscaling:launchconfiguration](command-options-general.md#command-options-general-autoscalinglaunchconfiguration "command-options-general.md#command-options-general-autoscalinglaunchconfiguration") – Configure
-  permissions for the environment's Amazon EC2 instances using the
-  `EC2KeyName`, `IamInstanceProfile`, `DisableDefaultEC2SecurityGroup`, and `SecurityGroups` options.
+## Configuring an integrated RDS DB instance using the console
 
-The EB CLI and Elastic Beanstalk console apply recommended values for the preceding options.
-You must remove these settings if you want to use configuration files to configure the same. See
-[Recommended values](command-options.md#configuration-options-recommendedvalues "command-options.md#configuration-options-recommendedvalues") for details.
+You can view and modify configuration settings for your database instance in the **Database** section on the environment's
+**Configuration** page in the [Elastic Beanstalk console](environments-console.md "environments-console.md").
+
+###### To configure your environment's DB instance in the Elastic Beanstalk console
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Configuration**.
+4. In the **Database** configuration category, choose **Edit**.
+
+You can modify the **Instance class**, \***\*Storage**, Password**,
+**Availability**, and **Database deletion policy\*\* settings after database creation. If you change the instance class,
+Elastic Beanstalk re-provisions the DB instance.
+
+If you no longer need Elastic Beanstalk to associate the database to the environment, you can choose to decouple it by selecting **Decouple
+database**. It’s important to understand the options and considerations involved with this operation. For more information, see [Decoupling an RDS DB instance using the console](#using-features.decoupling.db "#using-features.decoupling.db").
+
+###### Warning
+
+Don't modify settings on the coupled database instance outside of the functionality that's provided by Elastic Beanstalk (for example, in the Amazon RDS console). If
+you do, your Amazon RDS DB configuration might be out of sync with your environment's definition. When you update or restart your environment, the settings
+specified in the environment override any settings you made outside of Elastic Beanstalk.
+
+If you need to modify settings that Elastic Beanstalk doesn't directly support, use Elastic Beanstalk [configuration
+files](#using-features.managing.db.namespace "#using-features.managing.db.namespace").
+
+## Configuring an integrated RDS DB instance using configuration files
+
+You can configure your environment's database instance using [configuration files](ebextensions.md "ebextensions.md"). Use the options in the [aws:rds:dbinstance](command-options-general.md#command-options-general-rdsdbinstance "command-options-general.md#command-options-general-rdsdbinstance") namespace. The following example modifies the allocated database
+storage size to 100 GB.
+
+###### Example.ebextensions/db-instance-options.config
+
+```
+option_settings:
+  aws:rds:dbinstance:
+    DBAllocatedStorage: 100
+```
+
+If you want to configure DB instance properties that Elastic Beanstalk doesn't support, you can still use a configuration file, and specify your settings using
+the `resources` key. The following example sets values to the `StorageType` and `Iops` Amazon RDS properties.
+
+###### Example.ebextensions/db-instance-properties.config
+
+```
+Resources:
+  AWSEBRDSDatabase:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      StorageType:io1
+      Iops: 1000
+```
+
+## Decoupling an RDS DB instance using the console
+
+You can decouple your database from an Elastic Beanstalk environment without affecting the health of the environment. Consider the following requirements before
+you decouple the database:
+
+- _What should happen to the database after it’s decoupled?_
+
+You can choose to create a snapshot of the database and then terminate it, retain the database operational as a standalone database external to
+Elastic Beanstalk, or permanently delete the database. The **Database deletion policy** setting determines this result. For a detailed
+description of the deletion policies, see [Database lifecycle](#environments-cfg-rds-lifecycle "#environments-cfg-rds-lifecycle") in this
+same topic.
+
+- _Do you need make any changes to the database configuration settings before decoupling it?_
+
+If you need to make any configuration changes to the database, you should apply them _before decoupling_ the
+database. This includes changes to the **Database deletion policy**. Any pending changes that are submitted simultaneously with the
+**Decouple database** setting will be ignored, while only the decouple setting is applied.
+
+###### To decouple a DB instance from an environment
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Configuration**.
+4. In the **Database** configuration category, choose **Edit**.
+5. Review all of the configurations values in the **Database settings** section, especially the **Database deletion
+   policy**, which determines what happens to the database after it's decoupled.
+
+![Database settings form with engine, instance, storage, and deletion policy options.](images/aeb-rds-options-w-db-deletion-policies.png)
+
+If all of the other configuration settings are correct, skip to **Step 6** to decouple the database.
+
+###### Warning
+
+It’s important to _apply_ the **Database deletion policy** setting _separately_ from **Decouple database**. If you select **Apply** with the intent to save both
+**Decouple database** and a newly selected **Database deletion policy**, the new deletion policy that you chose
+will be ignored. Elastic Beanstalk will decouple the database following the prior-set deletion policy. If the prior-set deletion policy is `Delete`
+or `Create Snapshot`, you risk losing the database instead of following the intended pending policy.
+
+If any of the configuration settings require updates do the following:
+
+    1. Make the required modifications in the **Database settings** panel.
+    2. Choose **Apply**. It will take a few minutes to save the configuration changes for your database.
+    3. Go back to **Step 3** and choose **Configuration** from the navigation pane.
+
+6. Go to the **Database connection** section of the pane.
+
+![Database connection options showing "Couple database" selected and "Decouple database" unselected.](images/aeb-rds-couple-decouple-db.png) 7. Choose **Decouple database**. 8. Choose **Apply** to initiate the database decoupling operation.
+
+The deletion policy setting determines the outcome for the database and the length of time that's required to decouple the database.
+
+- If the deletion policy is set to `Delete`, the database is deleted. The operation can take approximately 10-20 minutes, depending on
+  the size of database.
+- If the deletion policy is set to `Snapshot`, a snapshot of the database is created. Then, the database is deleted. The length of time
+  required for this process varies according to the size of the database.
+- If the deletion policy is set to `Retain`, the database remains operational external to the Elastic Beanstalk environment. It usually takes less
+  than five minutes to decouple a database.
+
+If you decided to retain the database external to your Elastic Beanstalk environment, you'll need to take additional steps to configure it. For more information, see
+[Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md"). If you plan to use the database that you decouple for a production environment, verify the
+storage type that the database uses is suitable for your workload. For more information, see [DB Instance Storage](../../../AmazonRDS/latest/UserGuide/CHAP_Storage.md "../../../AmazonRDS/latest/UserGuide/CHAP_Storage.md") and [Modifying a DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md") in the _Amazon RDS User Guide_.
+
+## Decoupling an RDS DB instance using configuration files
+
+You can decouple your DB instance from an Elastic Beanstalk environment without affecting the health of the environment. The database instance follows the
+_database deletion policy_ that was applied when the database was decoupled.
+
+Both of the options required to decouple the database are in the [aws:rds:dbinstance](command-options-general.md#command-options-general-rdsdbinstance "command-options-general.md#command-options-general-rdsdbinstance") namespace. They are as
+follows:
+
+- The `DBDeletionPolicy` option sets the deletion policy. It can be set to the following values: `Snapshot`,
+  `Delete`, or `Retain`. These values are described in [Database lifecycle](#environments-cfg-rds-lifecycle "#environments-cfg-rds-lifecycle") in this same topic.
+- The `HasCoupledDatabase` option determines if your environment has a coupled database.
+  - If toggled to `true`, Elastic Beanstalk creates a new DB instance coupled to your environment.
+  - If toggled to `false`, Elastic Beanstalk starts decoupling the DB instance from your environment.
+
+If you want to change your database configuration before you decouple it, apply any configuration changes first, in a separate operation. This
+includes changing the `DBDeletionPolicy` configuration. After your changes are applied, run a separate command to set the decoupling option. If
+you submit other configuration settings and the decouple setting at the same time, the other configuration option settings are ignored while the decouple
+setting is applied.
+
+###### Warning
+
+It’s important that you run the commands to apply the `DBDeletionPolicy` and `HasCoupledDatabase` settings as two separate
+operations. If the active deletion policy is already set to `Delete` or `Snapshot`, you risk losing the database. The database
+follows the deletion policy that's currently active, rather than the pending deletion policy that you intended.
+
+###### To decouple a DB instance from an environment
+
+Follow these steps to decouple the database from your Elastic Beanstalk environment. You can use the EB CLI or the AWS CLI to complete the steps. For more
+information, see [Advanced environment customization with configuration files](ebextensions.md "ebextensions.md").
+
+1. If you want to change the deletion policy, set up a configuration file in the following format. In this example, the deletion policy is set to
+   retain.
+
+###### Example
+
+```
+option_settings:
+  aws:rds:dbinstance:
+    DBDeletionPolicy: `Retain`
+```
+
+2. Run the command using your preferred tool to complete the configuration update.
+3. Set up a configuration file to set `HasCoupledDatabase` to `false`.
+
+###### Example
+
+```
+option_settings:
+  aws:rds:dbinstance:
+    HasCoupledDatabase: `false`
+```
+
+4. Run the command using your preferred tool to complete the configuration update.
+
+The deletion policy setting determines the outcome for the database and the length of time that's required to decouple the database.
+
+- If the deletion policy is set to `Delete`, the database is deleted. The operation can take approximately 10-20 minutes, depending on
+  the size of database.
+- If the deletion policy is set to `Snapshot`, a snapshot of the database is created. Then, the database is deleted. The length of time
+  required for this process varies according to the size of the database.
+- If the deletion policy is set to `Retain`, the database remains operational external to the Elastic Beanstalk environment. It usually takes less
+  than five minutes to decouple a database.
+
+If you decided to retain the database external to your Elastic Beanstalk environment, you'll need to take additional steps to configure it. For more information, see
+[Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md"). If you plan to use the database that you decouple for a production environment, verify the
+storage type that the database uses is suitable for your workload. For more information, see [DB Instance Storage](../../../AmazonRDS/latest/UserGuide/CHAP_Storage.md "../../../AmazonRDS/latest/UserGuide/CHAP_Storage.md") and [Modifying a DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md") in the _Amazon RDS User Guide_.

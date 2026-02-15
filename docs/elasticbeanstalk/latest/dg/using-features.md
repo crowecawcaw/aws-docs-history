@@ -1,34 +1,55 @@
-# Blue/Green deployments with Elastic Beanstalk
+# Manage alarms
 
-Because AWS Elastic Beanstalk performs an in-place update when you update your application versions, your application might become unavailable to users for a short
-period of time. To avoid this, perform a blue/green deployment. To do this, deploy the new version to a separate environment, and then swap the CNAMEs of
-the two environments to redirect traffic to the new version instantly.
+This topic walks you through the steps to create alarms for metrics that you're monitoring. It also provides instructions to view your existing alarms
+and to check their state.
 
-A blue/green deployment is also required if you want to update an environment to an incompatible platform version. For more information, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.md "using-features.platform.md").
+You can create alarms for metrics that you are monitoring by using the Elastic Beanstalk console. Alarms help you monitor changes to your AWS Elastic Beanstalk environment so
+that you can easily identify and mitigate problems before they occur. For example, you can set an alarm that notifies you when CPU utilization in an
+environment exceeds a certain threshold, ensuring that you are notified before a potential problem occurs. For more information, see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.md "AWSHowTo.md").
 
-Blue/green deployments require that your environment runs independently of your production database, if your application uses one. If your environment
-includes a database that Elastic Beanstalk created on your behalf, the database and connection of the environment isn't preserved unless you take specific actions. If
-you have a database that you want to retain, use one of the Elastic Beanstalk database lifecycle options. You can choose the Retain option to keep the database and
-environment operational after decoupling the database. For more information see [Database lifecycle](using-features.managing.md#environments-cfg-rds-lifecycle "using-features.managing.md#environments-cfg-rds-lifecycle") in the _Configuring environments_ chapter of this guide.
+###### Note
 
-For instructions on how to configure your application to connect to an Amazon RDS instance that's not managed by Elastic Beanstalk, see [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md").
+Elastic Beanstalk uses CloudWatch for monitoring and alarms, meaning CloudWatch costs are applied to your AWS account for any alarms that you use.
 
-###### To perform a blue/green deployment
+For more information about monitoring specific metrics, see [Basic health reporting](using-features.md "using-features.md").
+
+###### To check the state of your alarms
 
 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
    and in the **Regions** list, select your AWS Region.
-2. [Clone your current environment](using-features.managing.md "using-features.managing.md"), or
-   launch a new environment
-   to
-   run the platform version you want.
-3. [Deploy the new application version](using-features.md#deployments-newversion "using-features.md#deployments-newversion") to the new environment.
-4. Test the new version on the new environment.
-5. On the environment overview page, choose **Actions**, and then choose **Swap environment URLs**.
-6. For **Environment name**, select the current environment.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Alarms**.
 
-![Swap environment URL page](images/aeb-env-swap-url.png) 7. Choose **Swap**.
-Elastic Beanstalk swaps the CNAME records of the old and new environments, redirecting traffic from the old version to the new version.
+The page displays a list of existing alarms. If any alarms are in the alarm state, they are flagged with the warning icon (
+![Image of the warning icon.](images/warning.png)
+). 4. To filter alarms, choose the drop-down menu, and then select a filter. 5. To edit or delete an alarm, choose the edit icon (
+![Image of a cog, which serves as the edit icon.](images/cog.png)
+) or the delete icon (
+![Image of an x, which servers as the delete icon.](images/x.png)
+), respectively.
 
-After Elastic Beanstalk completes the swap operation, verify that the new environment responds when you try to connect to the old environment URL. However, do not
-terminate your old environment until the DNS changes are propagated and your old DNS records expire. DNS servers don't always clear old records from their
-cache based on the time to live (TTL) that you set on your DNS records.
+###### To create an alarm
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Monitoring**.
+4. Locate the metric for which you want to create an alarm, and then choose the alarm icon (
+   ![Image of a bell, which serves as the alarm icon.](images/bell.png)
+   ). The **Add alarm** page is displayed.
+5. Enter details about the alarm:
+   - **Name**: A name for this alarm.
+   - **Description** (optional): A short description of what this alarm is.
+   - **Period**: The time interval between readings.
+   - **Threshold**: Describes the behavior and value that the metric must exceed in order to trigger an alarm.
+   - **Change state after**: The amount a time after a threshold has been exceed that triggers a change in state of the
+     alarm.
+   - **Notify**: The Amazon SNS topic that is notified when an alarm changes state.
+   - **Notify when state changes to**:
+     - **OK**: The metric is within the defined threshold.
+     - **Alarm**: The metric exceeded the defined threshold.
+     - **Insufficient data**: The alarm has just started, the metric is not available, or not enough data is available for the
+       metric to determine the alarm state.
+
+6. Choose **Add**. The environment status changes to gray while the environment updates. You can view the alarm that you created by
+   choosing **Alarms** in the navigation pane.

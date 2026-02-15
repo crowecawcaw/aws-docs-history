@@ -13,7 +13,7 @@ If you want Auto Scaling to replace instances whose application has stopped resp
 to configure the Auto Scaling group to use Elastic Load Balancing health checks. The following example sets the group to use the load balancer's health checks, in addition to the
 Amazon EC2 status check, to determine an instance's health.
 
-###### Example .ebextensions/autoscaling.config
+###### Example.ebextensions/autoscaling.config
 
 ```
 Resources:

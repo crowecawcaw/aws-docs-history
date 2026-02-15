@@ -315,7 +315,7 @@ You can't set this option in configuration files ([.Ebextensions](ebextensions.m
   instance port and instance protocol settings in `aws:elb:listener` for a listener on a Classic Load Balancer. Health check settings map to the settings in
   the `aws:elb:healthcheck` and `aws:elasticbeanstalk:application` namespaces.
 
-###### Example .ebextensions/alb-access-logs.config
+###### Example.ebextensions/alb-access-logs.config
 
 The following configuration file enables access log uploads for an environment with an Application Load Balancer.
 
@@ -327,7 +327,7 @@ option_settings:
     AccessLogsS3Prefix: beanstalk-alb
 ```
 
-###### Example .ebextensions/alb-default-process.config
+###### Example.ebextensions/alb-default-process.config
 
 The following configuration file modifies health check and stickiness settings on the default process.
 
@@ -346,7 +346,7 @@ option_settings:
     StickinessLBCookieDuration: '43200'
 ```
 
-###### Example .ebextensions/alb-secure-listener.config
+###### Example.ebextensions/alb-secure-listener.config
 
 The following configuration file adds a secure listener and a matching process on port 443.
 
@@ -362,7 +362,7 @@ option_settings:
     Protocol: HTTPS
 ```
 
-###### Example .ebextensions/alb-admin-rule.config
+###### Example.ebextensions/alb-admin-rule.config
 
 The following configuration file adds a secure listener with a rule that routes traffic with a request path of `/admin` to a process
 named `admin` that listens on port 4443.

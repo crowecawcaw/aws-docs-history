@@ -51,7 +51,7 @@ environment property named `MYPARAMETER`.
 
 In standard YAML format:
 
-###### Example .ebextensions/options.config
+###### Example.ebextensions/options.config
 
 ```
 option_settings:
@@ -64,7 +64,7 @@ option_settings:
 
 In shorthand format:
 
-###### Example .ebextensions/options.config
+###### Example.ebextensions/options.config
 
 ```
 option_settings:
@@ -76,7 +76,7 @@ option_settings:
 
 In JSON:
 
-###### Example .ebextensions/options.config
+###### Example.ebextensions/options.config
 
 ```
 {

@@ -131,7 +131,7 @@ Place both files at the root of a directory.
 
 Add the following contents to your `Dockerfile`.
 
-###### Example `~/eb-docker-flask/Dockerfile`
+###### Example`~/eb-docker-flask/Dockerfile`
 
 ```
 FROM public.ecr.aws/docker/library/python:3.12
@@ -144,7 +144,7 @@ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
 
 Add the following contents to your `app.py` file.
 
-###### Example `~/eb-docker-flask/app.py`
+###### Example`~/eb-docker-flask/app.py`
 
 ```
 from flask import Flask

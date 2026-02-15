@@ -63,7 +63,7 @@ certificate request or self-signed certificate.
 
 The example works only in environments using the [Python](create-deploy-python-container.md "create-deploy-python-container.md") platform.
 
-###### Example .ebextensions/https-instance.config
+###### Example.ebextensions/https-instance.config
 
 ```
 packages:
@@ -148,7 +148,7 @@ In a single instance environment, you must also modify the
 instance's security group to allow traffic on port 443. The following configuration file
 retrieves the security group's ID using an CloudFormation [function](ebextensions-functions.md "ebextensions-functions.md") and adds a rule to it.
 
-###### Example .ebextensions/https-instance-single.config
+###### Example.ebextensions/https-instance-single.config
 
 ```
 Resources:

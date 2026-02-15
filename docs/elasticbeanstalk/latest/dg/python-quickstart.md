@@ -161,7 +161,7 @@ Create a sample "Hello Elastic Beanstalk!" Python application that you'll deploy
 
 Create a text file named `application.py` in the directory you just created with the following contents.
 
-###### Example `~/eb-python/application.py`
+###### Example`~/eb-python/application.py`
 
 ```
 from flask import Flask
@@ -175,7 +175,7 @@ def hello_elastic_beanstalk():
 Create a text file named `requirements.txt` with the following line. This file contains the required `pip`
 packages for the application to run.
 
-###### Example `~/eb-python/requirements.txt`
+###### Example`~/eb-python/requirements.txt`
 
 ```
 Flask

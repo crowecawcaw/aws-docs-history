@@ -267,7 +267,7 @@ You can't set these two options in configuration files ([.Ebextensions](ebextens
 - `aws:elasticbeanstalk:environment:process` – Configure health
   checks and specify the port and protocol for the processes that run on your environment's instances.
 
-###### Example .ebextensions/application-load-balancer-shared.config
+###### Example.ebextensions/application-load-balancer-shared.config
 
 To get started with a shared Application Load Balancer, use the Elastic Beanstalk console, EB CLI, or API to set the load balancer type to `application` and choose to
 use a shared load balancer. Use a [configuration file](ebextensions.md "ebextensions.md") to configure the shared load balancer.
@@ -282,7 +282,7 @@ option_settings:
 
 You can configure this option only during environment creation.
 
-###### Example .ebextensions/alb-shared-secure-listener.config
+###### Example.ebextensions/alb-shared-secure-listener.config
 
 The following configuration file selects a default secure listener on port 443 for the shared load balancer, and sets the default process to listen
 to port 443.
@@ -298,7 +298,7 @@ option_settings:
     Protocol: HTTPS
 ```
 
-###### Example .ebextensions/alb-shared-admin-rule.config
+###### Example.ebextensions/alb-shared-admin-rule.config
 
 The following configuration file builds on the previous example and adds a rule that routes traffic with a request path of `/admin` to a
 process named `admin` that listens on port 4443.

@@ -116,7 +116,7 @@ This example prints a customized greeting that varies based on the path used to 
 
 Create a text file in this directory named `application.go` with the following contents.
 
-###### Example `~/eb-go/application.go`
+###### Example`~/eb-go/application.go`
 
 ```
 package main

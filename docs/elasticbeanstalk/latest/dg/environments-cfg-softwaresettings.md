@@ -110,7 +110,7 @@ _namespaces_.
 You can use Elastic Beanstalk [configuration files](ebextensions.md "ebextensions.md") to set environment
 properties and configuration options in your source code. Use the [aws:elasticbeanstalk:application:environment namespace](command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment "command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment") to define environment properties.
 
-###### Example .ebextensions/options.config
+###### Example.ebextensions/options.config
 
 ```
 option_settings:
@@ -131,7 +131,7 @@ get the ARN of an Amazon SNS topic that it creates, and assigns it to an environ
 - The [Multicontainer Docker](create_deploy_docker_ecs.md "create_deploy_docker_ecs.md") platform doesn't use CloudFormation to create container resources. As a result, this
   platform doesn't support defining environment properties using CloudFormation functions.
 
-###### Example .Ebextensions/[sns-topic.config](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/sns-topic.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/sns-topic.config")
+###### Example.Ebextensions/[sns-topic.config](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/sns-topic.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/sns-topic.config")
 
 ```
 Resources:
@@ -146,7 +146,7 @@ option_settings:
 You can also use this feature to propagate information from [CloudFormation pseudo parameters](../../../AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.md "../../../AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.md").
 This example gets the current region and assigns it to a property named `AWS_REGION`.
 
-###### Example .Ebextensions/[env-regionname.config](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/env-regionname.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/env-regionname.config")
+###### Example.Ebextensions/[env-regionname.config](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/env-regionname.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/env-regionname.config")
 
 ```
 option_settings:

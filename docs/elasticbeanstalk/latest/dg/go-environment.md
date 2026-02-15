@@ -124,7 +124,7 @@ options that map paths on your web application to folders in your application so
 For example, this [configuration file](ebextensions.md "ebextensions.md") tells the proxy server to serve files in the `staticimages`
 folder at the path `/images`:
 
-###### Example .ebextensions/go-settings.config
+###### Example.ebextensions/go-settings.config
 
 ```
 option_settings:

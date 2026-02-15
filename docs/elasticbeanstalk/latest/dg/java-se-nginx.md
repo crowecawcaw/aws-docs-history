@@ -62,6 +62,8 @@ overrides Elastic Beanstalk's default configuration to serve a static web applic
 `/var/app/current`, where the Java SE platform copies the application source code. The `/api` location forwards traffic to
 routes under `/api/` to the Spring application listening on port 5000. All other traffic is served by the web app at the root path.
 
+###### Example
+
 ```
 user                    nginx;
 error_log               /var/log/nginx/error.log warn;

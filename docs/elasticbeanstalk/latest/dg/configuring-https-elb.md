@@ -70,7 +70,7 @@ environment.
 
 You can configure a secure listener on your load balancer with one of the following [configuration files](ebextensions.md "ebextensions.md").
 
-###### Example .ebextensions/securelistener-clb.config
+###### Example.ebextensions/securelistener-clb.config
 
 Use this example when your environment has a Classic Load Balancer. The example uses options in the `aws:elb:listener` namespace to configure an HTTPS
 listener on port 443 with the specified certificate, and to forward the decrypted traffic to the instances in your environment on port 80.
@@ -88,7 +88,7 @@ Replace the highlighted text with the ARN of your certificate. The certificate c
 
 For more information about Classic Load Balancer configuration options, see [Classic Load Balancer configuration namespaces](environments-cfg-clb.md#environments-cfg-clb-namespace "environments-cfg-clb.md#environments-cfg-clb-namespace").
 
-###### Example .ebextensions/securelistener-alb.config
+###### Example.ebextensions/securelistener-alb.config
 
 Use this example when your environment has an Application Load Balancer. The example uses options in the `aws:elbv2:listener` namespace to configure an HTTPS
 listener on port 443 with the specified certificate. The listener routes traffic to the default process.
@@ -101,7 +101,7 @@ option_settings:
     SSLCertificateArns: `arn:aws:acm:us-east-2:1234567890123:certificate/####################################`
 ```
 
-###### Example .ebextensions/securelistener-nlb.config
+###### Example.ebextensions/securelistener-nlb.config
 
 Use this example when your environment has a Network Load Balancer. The example uses options in the `aws:elbv2:listener` namespace to configure a
 listener on port 443. The listener routes traffic to the default process.
@@ -123,7 +123,7 @@ You add this rule by adding a `Resources` key to a [configuration file](ebextens
 The following example configuration file adds an ingress rule to the `AWSEBSecurityGroup` security group. This allows traffic on port 1000
 from the load balancer's security group.
 
-###### Example .ebextensions/sg-ingressfromlb.config
+###### Example.ebextensions/sg-ingressfromlb.config
 
 ```
 Resources:

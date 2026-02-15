@@ -33,7 +33,7 @@ certificate request or self-signed certificate.
 
 Creates a post-deployment hook script to restart the httpd service.
 
-###### Example .ebextensions/https-instance.config
+###### Example.ebextensions/https-instance.config
 
 ```
 files:
@@ -67,7 +67,7 @@ files:
 You must also configure your environment's proxy server to listen on port 443. The following Apache 2.4 configuration adds a listener on port 443. To
 learn more, see [Configuring the proxy server](java-tomcat-proxy.md "java-tomcat-proxy.md").
 
-###### Example .ebextensions/httpd/conf.d/ssl.conf
+###### Example.ebextensions/httpd/conf.d/ssl.conf
 
 ```
 Listen 443
@@ -133,7 +133,7 @@ In a single instance environment, you must also modify the
 instance's security group to allow traffic on port 443. The following configuration file
 retrieves the security group's ID using an CloudFormation [function](ebextensions-functions.md "ebextensions-functions.md") and adds a rule to it.
 
-###### Example .ebextensions/https-instance-single.config
+###### Example.ebextensions/https-instance-single.config
 
 ```
 Resources:
