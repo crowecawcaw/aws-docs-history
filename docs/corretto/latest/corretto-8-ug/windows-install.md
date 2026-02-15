@@ -29,6 +29,8 @@ Add `%JAVA_HOME%\bin` to the current `PATH`
 variable. 5. Verify the installation by running **java -version** in a command prompt.
 You should see the following output.
 
+###### Example
+
 ```
 openjdk version "1.8.0_482"
 OpenJDK Runtime Environment Corretto-8.482.08.1 (build 1.8.0_482-b08)
