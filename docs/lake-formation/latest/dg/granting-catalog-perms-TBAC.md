@@ -181,6 +181,8 @@ AWS CLI and the LF-TBAC method
 
 - Use the `grant-permissions` command.
 
+###### Example
+
 The following example grants the LF-Tag expression
 "`module=*`" (all values of the LF-Tag key `module`) to
 user `datalake_user1`. That user will have the
@@ -191,6 +193,8 @@ databases—databases that have been assigned the LF-Tag with the key
 ```
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:aws:iam::111122223333:user/datalake_user1 --permissions "CREATE_TABLE" --resource '{ "LFTagPolicy": {"CatalogId":"111122223333","ResourceType":"DATABASE","Expression":[{"TagKey":"module","TagValues":["*"]}]}}'
 ```
+
+###### Example
 
 The next example grants the LF-Tag expression "`(level=director)
  AND (region=west OR region=south)`" to user
@@ -203,6 +207,8 @@ on matching tables—tables that have been assigned both
 ```
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:aws:iam::111122223333:user/datalake_user1 --permissions "SELECT" "ALTER" "DROP" --permissions-with-grant-option "SELECT" "ALTER" "DROP" --resource '{ "LFTagPolicy": {"CatalogId":"111122223333","ResourceType":"TABLE","Expression": [{"TagKey": "level","TagValues": ["director"]},{"TagKey": "region","TagValues": ["west", "south"]}]}}'
 ```
+
+###### Example
 
 This next example grants the LF-Tag expression
 "`module=orders`" to the AWS account 1234-5678-9012.

@@ -37,6 +37,8 @@ AWS CLI
 - Enter a `delete-lf-tag` command. Provide the key of the LF-Tag to
   delete.
 
+###### Example
+
 The following example deletes the LF-Tag with the key
 `region`.
 

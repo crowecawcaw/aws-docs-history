@@ -323,6 +323,8 @@ cannot alter columns in the underlying data that a metadata table points to.
 If the property that is being altered is a registered Amazon Simple Storage Service (Amazon S3) location, the
 principal must have data location permissions on the new location.
 
+###### Example
+
 The following example grants the `ALTER` permission to user
 `datalake_user1` on the database `retail` in AWS account
 1111-2222-3333.
@@ -331,6 +333,8 @@ The following example grants the `ALTER` permission to user
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:aws:iam::111122223333:user/datalake_user1 --permissions "ALTER" --resource '{ "Database": {"Name":"retail"}}'
 
 ```
+
+###### Example
 
 The following example grants `ALTER` to user `datalake_user1`
 on the table `inventory` in the database `retail`.
@@ -348,6 +352,8 @@ aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:
 
 A principal with this permission can create a metadata database or resource link in
 the Data Catalog. The principal can also create tables in the database.
+
+###### Example
 
 The following example grants `CREATE_DATABASE` to user
 `datalake_user1` in AWS account 1111-2222-3333.
@@ -383,6 +389,8 @@ all cases. It is important to keep the following three cases in mind.
 
 A principal with this permission can create a metadata table or resource link in the
 Data Catalog within the specified database.
+
+###### Example
 
 The following example grants the user `datalake_user1` permission to
 create tables in the `retail` database in AWS account
@@ -433,6 +441,8 @@ a metadata database or table that points to the specified Amazon S3 location. Th
 be registered. A principal who has data location permissions on a location also has
 location permissions on child locations.
 
+###### Example
+
 The following example grants data location permissions on
 `s3://products/retail` to user `datalake_user1` in AWS
 account 1111-2222-3333.
@@ -456,6 +466,8 @@ For more information about data location permissions, see [Underlying data acces
 A principal with this permission can insert, update, and read underlying data at the
 Amazon S3 location specified by the table. The principal can also view the table on the Lake Formation
 console and retrieve information about the table with the AWS Glue API.
+
+###### Example
 
 The following example grants the `DELETE` permission to the user
 `datalake_user1` on the table `inventory` in the database
@@ -501,6 +513,8 @@ The following are some additional rules for `DESCRIBE`:
   Conversely, you can't specify column inclusion or exclusion lists for tables that
   `DESCRIBE` is granted on.
 
+###### Example
+
 The following example grants the `DESCRIBE` permission to the user
 `datalake_user1` on the table resource link `inventory-link` in
 the database `retail` in AWS account 1111-2222-3333.
@@ -526,6 +540,8 @@ Data Catalog. You can't grant DROP on a database to an external account or organ
 
 Dropping a database drops all tables in the database.
 
+###### Example
+
 The following example grants the `DROP` permission to the user
 `datalake_user1` on the database `retail` in AWS account
 1111-2222-3333.
@@ -535,6 +551,8 @@ aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:
 
 ```
 
+###### Example
+
 The following example grants `DROP` to the user
 `datalake_user1` on the table `inventory` in the database
 `retail`.
@@ -543,6 +561,8 @@ The following example grants `DROP` to the user
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:aws:iam::111122223333:user/datalake_user1 --permissions "DROP" --resource '{ "Table": {"DatabaseName":"retail", "Name":"inventory"}}'
 
 ```
+
+###### Example
 
 The following example grants `DROP` to the user
 `datalake_user1` on the table resource link `inventory-link` in
@@ -562,6 +582,8 @@ aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:
 A principal with this permission can insert, update, and read underlying data at the
 Amazon S3 location specified by the table. The principal can also view the table in the Lake Formation
 console and retrieve information about the table with the AWS Glue API.
+
+###### Example
 
 The following example grants the `INSERT` permission to the user
 `datalake_user1` on the table `inventory` in the database
@@ -593,6 +615,8 @@ columns.
 It is the responsibility of the integrated analytics service to apply the column
 filtering when processing a query.
 
+###### Example
+
 The following example grants the `SELECT` permission to the user
 `datalake_user1` on the table `inventory` in the database
 `retail` in AWS account 1111-2222-3333.
@@ -614,6 +638,8 @@ The results of `glue:GetTable` return only the columns that the caller has
 permission to view. Integrated services such as Amazon Athena and Amazon Redshift honor column inclusion
 and exclusion lists.
 
+###### Example
+
 The following example grants `SELECT` to the user
 `datalake_user1` on the table `inventory` using an inclusion
 list.
@@ -621,6 +647,8 @@ list.
 ```
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:aws:iam::111122223333:user/datalake_user1 --permissions "SELECT"  --resource '{ "TableWithColumns": {"DatabaseName":"retail", "Name":"inventory", "ColumnNames": ["prodcode","location","period","withdrawals"]}}'
 ```
+
+###### Example
 
 This next example grants `SELECT` on the `inventory` table
 using an exclusion list.
@@ -742,6 +770,8 @@ With the `Super user` permission on a catalog resource, the grantee is not allow
 
 A principal with this permission on a LF-Tag can assign the LF-Tag to a Data Catalog resource.
 Granting `ASSOCIATE` implicitly grants `DESCRIBE`.
+
+###### Example
 
 This example grants to user `datalake_user1` the `ASSOCIATE`
 permission on the LF-Tag with the key `module`. It grants permissions to view

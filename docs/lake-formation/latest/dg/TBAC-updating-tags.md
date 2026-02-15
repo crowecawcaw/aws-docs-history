@@ -45,6 +45,8 @@ AWS CLI
   - `--tag-values-to-add`
   - `--tag-values-to-delete`
 
+###### Example
+
 The following example replaces the value `vp` with the value
 `vice-president` for the LF-Tag key `level`.
 

@@ -48,6 +48,8 @@ Database Developer Guide_.
 
 ## Row filter expressions
 
+###### Example
+
 The following are examples of valid row filter expressions for a table with columns:
 `country (String), id (Long), year (partition column of type Integer), month
  (partition column of type Integer)`
@@ -56,6 +58,8 @@ The following are examples of valid row filter expressions for a table with colu
 - `(year > 2010 and country = 'US') or (month < 8 and id > 23)`
 - `(country between 'Z' and 'U') and (year = 2018)`
 - `(country like '%ited%') and (year > 2000)`
+
+###### Example
 
 The following is a valid examples of row filter expressions for a table with nested columns:
 `year > 2010 and customer.customerId <> 1`

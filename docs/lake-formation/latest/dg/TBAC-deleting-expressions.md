@@ -34,6 +34,8 @@ AWS CLI
 - Enter a `delete-lf-tag-expression` command. Provide the expression name and catalog ID to
   delete.
 
+###### Example
+
 The following example deletes the LF-Tag expression with the name
 `my-tag-expression` from the Data Catalog with ID `123456789012`. The
 `catalog-id` parameter is optional if you're using the same account as your AWS CLI configuration. After deleting an LF-Tag expression, Lake Formation cleans

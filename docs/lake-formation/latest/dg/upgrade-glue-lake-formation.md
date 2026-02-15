@@ -106,6 +106,8 @@ attached to each principal (user or role). From the policies returned in the res
 can determine the IAM permissions that are granted to the principal. You must invoke the
 API for each principal separately.
 
+###### Example
+
 The following AWS CLI example returns the policies attached to user
 `glue_user1`.
 

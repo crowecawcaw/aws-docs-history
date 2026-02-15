@@ -102,12 +102,20 @@ AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md") 
 
 The grantor needs version 4 or higher to share Data Catalog resources in hybrid access mode or share objects in a federated catalog.
 
+**Version 5**
+
+Cross Account Version 5 enhances cross-account resource sharing enabling you to share unlimited number of tables to another account, eliminating previous resource association limits per resource type. To get started, upgrade to cross-account version 5 through the Lake Formation console or API. Any new cross-account permission grants will automatically use wildcard patterns in the resource share instead of individual resource associations. All existing cross-account shares continue to function, and all existing Lake Formation APIs remain compatible.
+
+_Benefits from updating versions:_ Cross-account v5 enhances cross-account sharing, allowing you to share hundreds of thousands of tables across accounts.
+
+_Considerations when updating versions:_ New grants after version 5 upgrade will add wildcard resource patterns to existing AWS Resource Manager resource shares or create new shares with wildcard patterns. Once upgraded to version 5, downgrade is not supported.
+
 ## Optimize AWS RAM resource shares
 
 New versions (version 2 and above) of cross-account grants optimally utilize AWS RAM capacity to maximize cross account usage.
 When you share a resource with an external AWS account or an IAM principal, Lake Formation may create a new resource share or associate the resource with an existing share.
 By associating with existing shares, Lake Formation reduces the number of resource share invitations a consumer needs to
-accept.
+accept. Version 5 further optimizes RAM usage by using wildcard-based resource patterns instead of individual resource associations, thereby significantly reducing resource associations per resource share.
 
 ## Enable AWS RAM shares via TBAC or share resources directly to principals
 
@@ -155,7 +163,7 @@ through the AWS Lake Formation console or the AWS CLI.
 
 Console
 
-1. Choose **Version 2**, **Version 3**, or **Version 4** under **Cross account version
+1. Choose **Version 2**, **Version 3**, **Version 4**, or **Version 5** under **Cross account version
    settings** on the **Data catalog settings** page. If you
    select **Version 1**, Lake Formation will use the default resource sharing mode.
 
@@ -163,7 +171,7 @@ Console
 
 AWS Command Line Interface (AWS CLI)
 Use the `put-data-lake-settings` AWS CLI command to set the
-`CROSS_ACCOUNT_VERSION` parameter. Accepted values are 1, 2, 3, and 4.
+`CROSS_ACCOUNT_VERSION` parameter. Accepted values are 1, 2, 3, 4, and 5.
 
 ```
 aws lakeformation put-data-lake-settings --region us-east-1 --data-lake-settings file://settings

@@ -36,6 +36,8 @@ AWS CLI
 - Run a `search-tables-by-lf-tags` or
   `search-databases-by-lf-tags` command.
 
+###### Example
+
 The following example lists tables and columns that have the
 `level=vp` LF-Tag assigned. For each table and column listed, all
 assigned LF-Tags for the table or column are output, not just the search

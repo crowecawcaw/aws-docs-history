@@ -12,13 +12,13 @@ We recommend that a Lake Formation administrator registers the Amazon S3 locatio
    locations.
 2. To share Data Catalog resources with another account in hybrid access mode (without
    removing `IAMAllowedPrincipals` group permissions from the resource), you need
-   to update the **Cross account version settings** to Version 4. To update
-   the version using Lake Formation console, choose **Version 4** under
+   to update the **Cross account version settings** to Version 4 or higher. To update
+   the version using Lake Formation console, choose **Version 4** or **Version 5** under
    **Cross account version settings** on the **Data Catalog
    settings** page.
 
 You can also use the `put-data-lake-settings` AWS CLI command to set the
-`CROSS_ACCOUNT_VERSION` parameter to version 4:
+`CROSS_ACCOUNT_VERSION` parameter to version 4 or 5:
 
 ```
 aws lakeformation put-data-lake-settings --region us-east-1 --data-lake-settings file://settings
@@ -31,7 +31,7 @@ aws lakeformation put-data-lake-settings --region us-east-1 --data-lake-settings
     "CreateDatabaseDefaultPermissions": [],
     "CreateTableDefaultPermissions": [],
     "Parameters": {
-"CROSS_ACCOUNT_VERSION": "4"
+"CROSS_ACCOUNT_VERSION": "5"
     }
 }
 

@@ -45,10 +45,10 @@ JSON
  ],
  "Condition": {
  "StringEquals": {
- "aws:SourceAccount": "`account-id`"
+ "aws:SourceAccount": "`123456789012`"
  },
  "ArnEquals": {
- "aws:SourceArn": "arn:aws:lakeformation:`aws-region`:`account-id`:*"
+ "aws:SourceArn": "arn:aws:lakeformation:`aws-region`:`123456789012`:*"
  }
  }
  }

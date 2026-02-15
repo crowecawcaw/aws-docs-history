@@ -202,7 +202,7 @@ You can grant table permissions by using the named resource method and the AWS C
 - Run a `grant-permissions` command, and specify a table as the
   resource.
 
-###### Example – Grant on a single table - no filtering
+###### Example– Grant on a single table - no filtering
 
 The following example grants `SELECT` and `ALTER` to user
 `datalake_user1` in AWS account 1111-2222-3333 on the table `inventory` in the database
@@ -219,7 +219,7 @@ If you grant the `ALTER` permission on a table that has its
 underlying data in a registered location, be sure to also grant data location
 permissions on the location to the principals. For more information, see [Granting data location permissions](granting-location-permissions.md "granting-location-permissions.md").
 
-###### Example – Grant on All Tables with the Grant option - no filtering
+###### Example– Grant on All Tables with the Grant option - no filtering
 
 The next example grants `SELECT` with the grant option on all tables in
 database `retail`.
@@ -229,7 +229,7 @@ aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:
 
 ```
 
-###### Example – Grant with simple column filtering
+###### Example– Grant with simple column filtering
 
 This next example grants `SELECT` on a subset of columns in the table
 `persons`. It uses simple column filtering.
@@ -238,7 +238,7 @@ This next example grants `SELECT` on a subset of columns in the table
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:aws:iam::111122223333:user/datalake_user1 --permissions "SELECT" --resource '{ "TableWithColumns": {"DatabaseName":"hr", "Name":"persons", "ColumnNames":["family_name", "given_name", "gender"]}}'
 ```
 
-###### Example – Grant with a data filter
+###### Example– Grant with a data filter
 
 This example grants `SELECT` on the `orders` table and
 applies the `restrict-pharma` data filter.

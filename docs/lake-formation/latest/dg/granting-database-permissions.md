@@ -121,7 +121,7 @@ In the following examples, replace
 `<account-id>` with a valid AWS account
 ID.
 
-###### Example – Grant to create a database
+###### Example– Grant to create a database
 
 This example grants `CREATE_DATABASE` to user
 `datalake_user1`. Because the resource on which this permission
@@ -133,7 +133,7 @@ parameter.
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:aws:iam::`<account-id>`:user/datalake_user1 --permissions "CREATE_DATABASE" --resource '{ "Catalog": {}}'
 ```
 
-###### Example – Grant to create tables in a designated database
+###### Example– Grant to create tables in a designated database
 
 The next example grants `CREATE_TABLE` on the database
 `retail` to user `datalake_user1`.
@@ -143,7 +143,7 @@ aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:
 
 ```
 
-###### Example – Grant to an external AWS account with the Grant option
+###### Example– Grant to an external AWS account with the Grant option
 
 The next example grants `CREATE_TABLE` with the grant option on
 the database `retail` to external account 1111-2222-3333.
@@ -152,7 +152,7 @@ the database `retail` to external account 1111-2222-3333.
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=111122223333 --permissions "CREATE_TABLE" --permissions-with-grant-option "CREATE_TABLE" --resource '{ "Database": {"Name":"retail"}}'
 ```
 
-###### Example – Grant to an organization
+###### Example– Grant to an organization
 
 The next example grants `ALTER` with the grant option on the
 database `issues` to the organization
@@ -162,7 +162,7 @@ database `issues` to the organization
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:aws:organizations::111122223333:organization/o-abcdefghijkl --permissions "ALTER" --permissions-with-grant-option "ALTER" --resource '{ "Database": {"Name":"issues"}}'
 ```
 
-###### Example - Grant to `ALLIAMPrincipals` in the same account
+###### Example- Grant to `ALLIAMPrincipals` in the same account
 
 The next example grants `CREATE_TABLE` permission on the database
 `retail` to all principals in the same account. This option
@@ -176,7 +176,7 @@ create a placeholder database and grant `CREATE_TABLE` permission to the `ALLIAM
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=111122223333:IAMPrincipals --permissions "CREATE_TABLE"  --resource '{ "Database": {"Name":"temp","CatalogId":"111122223333"}}'
 ```
 
-###### Example - Grant to `ALLIAMPrincipals` in an external account
+###### Example- Grant to `ALLIAMPrincipals` in an external account
 
 The next example grants `CREATE_TABLE` on the database
 `retail` to all principals in an external account. This option

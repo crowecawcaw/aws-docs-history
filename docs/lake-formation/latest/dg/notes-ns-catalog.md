@@ -5,7 +5,7 @@ AWS Glue Data Catalog. The following limitations apply:
 
 - Cross-account sharing is not supported at the federated catalog level. However, you can
   share individual databases and tables from within a federated catalog across AWS accounts.
-- You must have **Cross account version settings** version 4 for sharing databases or tables in the federated catalog across AWS accounts.
+- You must have **Cross account version settings** version 4 or higher for sharing databases or tables in the federated catalog across AWS accounts.
 - The Data Catalog supports the creation of only top-level catalogs.
 - You can only update the description of catalogs in the Redshift Managed Storage
   (RMS).

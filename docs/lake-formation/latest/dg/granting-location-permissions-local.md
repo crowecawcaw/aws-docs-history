@@ -46,12 +46,16 @@ AWS CLI###### To grant data location permissions (same account)
   `DATA_LOCATION_ACCESS` to the principal, specifying the Amazon S3 path as the
   resource.
 
+###### Example
+
 The following example grants data location permissions on
 `s3://retail` to user `datalake_user1`.
 
 ```
 aws lakeformation grant-permissions --principal DataLakePrincipalIdentifier=arn:aws:iam::`<account-id>`:user/datalake_user1 --permissions "DATA_LOCATION_ACCESS" --resource '{ "DataLocation": {"ResourceArn":"arn:aws:s3:::retail"}}'
 ```
+
+###### Example
 
 The following example grants data location permissions on
 `s3://retail` to `ALLIAMPrincipals` group.

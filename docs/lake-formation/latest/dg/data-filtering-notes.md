@@ -50,6 +50,8 @@ The following notes and restrictions apply to nested column filtering:
 
 - You can include or exclude five-levels of nested fields in a data filter.
 
+###### Example
+
 Col1.Col1_1.Col1_1_1.Col1_1_1_1.Col1_1_1_1_1
 
 - You can't apply column filtering on nested fields within partition columns.
@@ -65,7 +67,11 @@ Col1.Col1_1.Col1_1_1.Col1_1_1_1.Col1_1_1_1_1
   must include a second double quote when you specify access to a nested field within a data
   cells filter's include and exclude list.
 
+###### Example
+
 Example nested column name with double quotes – `a.b.double"quote`
+
+###### Example
 
 Example nested column representation within a data filter – `"a"."b"."double""quote"`
 

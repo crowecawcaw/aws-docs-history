@@ -50,6 +50,8 @@ AWS CLI
 - Run the `grant-permissions` command, specifying a resource link as the
   resource.
 
+###### Example
+
 This example grants `DESCRIBE` to user `datalake_user1`
 on the table resource link `incidents-link` in the database
 `issues` in AWS account 1111-2222-3333.

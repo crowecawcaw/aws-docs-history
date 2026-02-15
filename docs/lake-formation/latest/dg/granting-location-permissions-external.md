@@ -83,6 +83,8 @@ This command grants `DATA_LOCATION_ACCESS` to a principal in account
 `s3://retail/transactions/2020q1`, which is owned by account
 1234-5678-9012.
 
+###### Example
+
 The following example grants data location permissions on
 `s3://retail` to `ALLIAMPrincipals` group in an
 external account.

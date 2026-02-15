@@ -22,7 +22,7 @@ target Amazon Redshift database-level catalog (Amazon Redshift database).
 To create a catalog link container, you need the Lake Formation `CREATE_CATALOG` or
 the `glue:CreateCatalog` permission.
 
-You must have **Cross account version settings** version 4 for sharing databases or tables in the federated catalog across AWS accounts.
+You must have **Cross account version settings** version 4 or higher for sharing databases or tables in the federated catalog across AWS accounts.
 
 ## Creating a catalog link container to a
 
