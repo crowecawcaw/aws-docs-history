@@ -94,6 +94,16 @@ This policy includes the following permissions:
 - **OAuth2 token creation** - Grants permission to exchange an authorization code for
   OAuth 2.0 access token and refresh token that can be used to access AWS services from developer tools and applications
 
+###### Note
+
+Adding this AWS managed policy gives you permission for both same-device and cross-device authentication. This policy authorizes actions on the following resources:
+
+- `arn:aws:signin:`region`:`account-id`:oauth2/public-client/localhost`
+  – Used for same-device authentication with `aws login`.
+- `arn:aws:signin:`region`:`account-id`:oauth2/public-client/remote`
+  – Used for cross-device authentication with `aws login --remote`.
+  To control access to either authentication method, you can create your own managed policy or service control policy (SCP). Use these resource ARNs to allow or deny programmatic access to AWS using your console credentials.
+
 For more information, see
 [Login with console credentials (Recommended)](command-line-sign-in.md#command-line-sign-in-local-development "command-line-sign-in.md#command-line-sign-in-local-development"). To view more details about the policy, including the latest version of the JSON policy
 document, see

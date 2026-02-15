@@ -36,6 +36,18 @@ parameters:
 
     * `aws login --remote` - For cross-device authentication
      when your device doesn't support a browser
+
+
+    ###### Note
+
+    You can control access to same-device (`aws login`) and cross-device (`aws login --remote`) authentication. Use the following resource ARNs in any relevant IAM policy.
+
+
+
+    	+ `arn:aws:signin:`region`:`account-id`:oauth2/public-client/localhost`
+    	 — Use this ARN for same-device authentication with `aws login`.
+    	+ `arn:aws:signin:`region`:`account-id`:oauth2/public-client/remote`
+    	 — Use this ARN for cross-device authentication with `aws login --remote`.
     * `aws login --profile
      `profile-name`` - To authenticate
      with a specific profile
@@ -48,7 +60,7 @@ parameters:
 3. To end your session, use:
 
 ```
-`$` `aws sso logout`
+`$` `aws logout`
 ```
 
 If you are accessing AWS services programmatically by using AWS Tools for PowerShell, please see [Authenticating the AWS Tools for PowerShell with AWS](../../../powershell/v5/userguide/creds-idc.md "../../../powershell/v5/userguide/creds-idc.md").
