@@ -79,6 +79,8 @@ The following table describes the bonding modes that are available.
 | mode=5              | Adaptive transmit load balancing      | Outgoing traffic is distributed according to current load on each interface<br>in the bond. Incoming traffic is received by the currently active interface. If<br>the receiving interface fails, another interface takes over the MAC address of<br>the failed interface.                  |
 | mode=6              | Adaptive load balancing               | This option includes transmit and receive load balancing for IPV4 traffic. Receive load<br>balancing is achieved through ARP negotiation.                                                                                                                                                  |
 
+###### Example
+
 ```
 DEVICE=bond0
 TYPE=Bond
