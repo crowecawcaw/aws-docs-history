@@ -337,6 +337,19 @@ is also pressed. In a game, if arrow keys are used to spin the camera, this woul
 - Solution: If you are not using the **Command** key, you can filter it out using the Web SDK keyboard filter
   mechanism (`keyboardFilter`) found in the Web SDK's `InputConfiguration` interface.
 
+### Stuck input when you open OS UI elements
+
+On desktop and mobile browser clients, input events such as key releases are not processed when certain OS-level UI elements have priority.
+This can cause characters to move or actions to repeat as if keys are still being held down, even though you have released them.
+
+- Issue: When you open certain OS-level UI elements (such as browser menu bars on desktop, or Control Center and
+  Notification Center on iOS), the browser stops firing input events without triggering blur or focus events. This causes the
+  server to continue receiving the last input state. This is a browser-level limitation that cannot be reliably detected.
+- Solution: Use fullscreen mode on desktop browsers to prevent access to browser menu bars. For iOS users with connected
+  keyboards, we recommend creating a native app wrapper with a web view where the native app can better detect and handle
+  focus loss, explicitly triggering browser window focus and blur events. Alternatively, use front-end HTML or in-game UI
+  elements to inform users that a key is still pressed, and provide information about this iOS limitation.
+
 ### Mouse movement behaves differently on Amazon GameLift Streams
 
 If mouse movement behaves differently when streaming with Amazon GameLift Streams, such as moving more quickly than expected, you

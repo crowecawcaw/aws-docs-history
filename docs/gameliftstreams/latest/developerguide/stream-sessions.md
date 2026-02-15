@@ -104,14 +104,6 @@ Length of time Amazon GameLift Streams waits for a client to connect or reconnec
   `PENDING_CLIENT_RECONNECTION` status. If no client connects before the timeout, the session
   `Status` transitions to `TERMINATED`.
 
-**Idle timeout**
-
-Length of time that a stream session can be idle with no user input.
-
-- Parameter: (internal)
-- Value: 60 minutes
-- Behavior: If no user input is received during this time, Amazon GameLift Streams terminates the stream session.
-
 **Session length timeout**
 
 Maximum duration Amazon GameLift Streams keeps a stream session open.

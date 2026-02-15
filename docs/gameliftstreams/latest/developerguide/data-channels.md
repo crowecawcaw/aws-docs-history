@@ -134,6 +134,8 @@ The message delivers to the specified client, unless the client disconnects. Whe
 a disconnected client reconnects, a new client ID is assigned via a client connected
 event. Any undelivered messages for the old client ID are discarded.
 
+###### Example
+
 The following pseudo-code demonstrates the logic to communicate messages in the application-side. For a complete example using Winsock, refer to [Complete Winsock Client Code](https://learn.microsoft.com/en-us/windows/win32/winsock/complete-client-code "https://learn.microsoft.com/en-us/windows/win32/winsock/complete-client-code") in the Windows Sockets 2 documentation.
 
 ```

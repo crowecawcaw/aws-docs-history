@@ -20,7 +20,7 @@ To view your bill through the AWS Console, refer to [Viewing your bill](../../..
 To view your bill through the AWS CLI, call [`GetCostAndUsage`](../../../aws-cost-management/latest/APIReference/API_GetCostAndUsage.md "../../../aws-cost-management/latest/APIReference/API_GetCostAndUsage.md") using the Billing and Cost Management
 API. For example, use the following command to retrieve a monthly bill for Amazon GameLift Streams, and replace the dates with ones relevant to you.
 
-###### Example : Use `GetCostAndUsage` API to view bill
+###### Example: Use `GetCostAndUsage` API to view bill
 
 ```
 aws ce get-cost-and-usage /

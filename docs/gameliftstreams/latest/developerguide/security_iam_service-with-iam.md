@@ -87,6 +87,8 @@ gameliftstreams
 
 To specify multiple actions in a single statement, separate them with commas.
 
+###### Example
+
 ```
 "Action": [
             "gameliftstreams:`action1`",
