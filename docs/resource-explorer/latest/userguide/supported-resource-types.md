@@ -35,7 +35,19 @@ AWS Resource Explorer.
 
 ###### Note
 
-As of December 5, 2025, Resource Explorer no longer supports the following resource types:
+As of February 10, 2026, Resource Explorer no longer supports the following resource types:
+
+- **Amazon Chime**—
+  `chime:media-pipeline`
+  As of February 10, 2026, Resource Explorer no longer supports the following resource types:
+
+- **Amazon Location Service**—
+  `geo:map`
+- **Amazon Location Service**—
+  `geo:place-index`
+- **Amazon Location Service**—
+  `geo:tracker`
+  As of December 5, 2025, Resource Explorer no longer supports the following resource types:
 
 - **AWS IoT Analytics**—
   `iotanalytics:channel`
@@ -209,7 +221,6 @@ As of December 5, 2025, Resource Explorer no longer supports the following resou
 - [AWS Lambda](#services-lambda "#services-lambda")
 - [Amazon Lex](#services-lex "#services-lex")
 - [AWS License Manager](#services-license-manager "#services-license-manager")
-- [Amazon Location Service](#services-geo "#services-geo")
 - [Amazon MQ](#services-mq "#services-mq")
 - [AWS Mainframe Modernization](#services-m2 "#services-m2")
 - [Amazon Managed Blockchain](#services-managedblockchain "#services-managedblockchain")
@@ -434,7 +445,6 @@ As of December 5, 2025, Resource Explorer no longer supports the following resou
 - `chime:app-instance/bot`
 - `chime:app-instance/user`
 - `chime:media-insights-pipeline-configuration`
-- `chime:media-pipeline`
 - `chime:media-pipeline-kinesis-video-stream-pool`
 - `chime:sma`
 - `chime:vc`
@@ -1082,12 +1092,6 @@ As of December 5, 2025, Resource Explorer no longer supports the following resou
 ### AWS License Manager
 
 - `license-manager:grant`
-
-### Amazon Location Service
-
-- `geo:map`
-- `geo:place-index`
-- `geo:tracker`
 
 ### Amazon MQ
 
