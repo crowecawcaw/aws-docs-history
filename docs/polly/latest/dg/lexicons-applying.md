@@ -28,7 +28,7 @@ If the lexicons are listed in the order LexA and then LexB, the synthesized spee
 my name is Robert." If they are listed in the order LexB and then LexA, the synthesized speech
 is "Hello, my name is Bobby."
 
-###### Example – Applying LexA Before LexB
+###### Example– Applying LexA Before LexB
 
 ```
 aws polly synthesize-speech \
@@ -41,7 +41,7 @@ bobAB.mp3
 
 **Speech output:** "Hello, my name is Robert."
 
-###### Example – Applying LexB before LexA
+###### Example– Applying LexB before LexA
 
 ```
 aws polly synthesize-speech \

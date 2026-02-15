@@ -12,7 +12,7 @@ the same as the language chosen.
 
 You can apply a lexicon to plain text or SSML input.
 
-###### Example – Applying the W3C.pls Lexicon
+###### Example– Applying the W3C.pls Lexicon
 
 To create the lexicon you'll need for this exercise,
 see [Uploading a lexicon](managing-lexicons-console-upload.md "managing-lexicons-console-upload.md"). Use a plain text editor to create the W3C.pls
