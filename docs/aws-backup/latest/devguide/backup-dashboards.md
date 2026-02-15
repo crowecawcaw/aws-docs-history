@@ -101,7 +101,8 @@ selected.
 The **Top problematic reasons** widget shows the message code category
 to which error messages belong. However, the category might not explain the issues a job
 experiences. Expand the message code categories below to see more details about the specific
-messages or errors your jobs could be encountering.
+messages or errors your jobs could be encountering. All error messages not belonging to the
+message code categories below will fall under "MISCELLANEOUS".
 
 - "Windows VSS Backup attempt failed because either Instance or SSM Agent has
   invalid state or insufficient privileges."
@@ -122,6 +123,7 @@ messages or errors your jobs could be encountering.
   reach out to Support to request a quota increase."
 - "Maximum allowed in-progress snapshots for a single volume exceeded."
 - "Maximum allowed active snapshot limit exceeded."
+- "Image creation throttled due to maximum number of concurrent snapshots on an EBS volume."
 - "Cannot create more than 20 user snapshots"
 - "The resultant tag set must not have more than 50 user tags."
 - "You have reached the maximum supported backups for your account/database. See
@@ -137,6 +139,7 @@ messages or errors your jobs could be encountering.
 
 - "You are not authorized to perform this operation."
 - "Access Denied trying to call AWS Backup service"
+- "Customer credential miss permission to get bucket versioning for bucket."
 - "Images from AWS Marketplace cannot be copied to another AWS account."
 - "Copy job failed because the destination Backup vault is encrypted with the
   default Backup service managed key. The contents of this vault cannot be copied.
@@ -154,6 +157,7 @@ messages or errors your jobs could be encountering.
 
 - "Backup job failed because there was a running job for the same
   resource."
+- "There are too many copy jobs running for resource."
 
 - "Copy job failed. Cross-account copy feature is not enabled for the current
   organization."
@@ -187,6 +191,7 @@ messages or errors your jobs could be encountering.
 - "The specified volume was not found."
 - "The virtual machine is not found."
 - "Given key ID does not exist"
+- "Table not found."
 - "REGEX#does not exist"
 - "REGEX#Could not find resource"
 - "REGEX#Could not find cryopod"

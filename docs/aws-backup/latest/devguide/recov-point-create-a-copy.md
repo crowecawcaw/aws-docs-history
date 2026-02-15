@@ -6,12 +6,6 @@ cold storage or archive tiers cannot be copied. See [Feature availability by res
 [Encryption for a backup copy to a
 different account or AWS Region](encryption.md#copy-encryption "encryption.md#copy-encryption") for details.
 
-You can also automate a sequence of cross-account and cross-Region copies for most
-supported resources, except for Amazon RDS and Aurora. For Amazon RDS and Aurora snapshots, AWS Backup only
-supports automating _either_ cross-account _or_
-cross-Region copies due to how those services create their encryption keys (copying a Multi-AZ
-DB cluster snapshot is not supported).
-
 Some resource types have both continuous backup capability and cross-Region and
 cross-account copy available. When a cross-Region or cross-account copy of a continuous backup
 is made, the copied recovery point (backup) becomes a snapshot (periodic) backup (not

@@ -74,7 +74,7 @@ You can choose to restore to the source EKS cluster,
 an existing EKS cluster or create a new EKS cluster as the restore target.
 For new EKS clusters, you can choose to use the same existing infrastructure settings
 (e.g. VPC, subnets) as the backed up cluster or configure new ones.
-AWS Backup will always perform a non-destructive restore that doesn't overwrite existing resources.
+AWS Backup is designed to perform a non-destructive restore that doesn't overwrite existing resources.
 
 For namespace restores, you can specify up to 5 namespaces to restore selectively.
 Only namespace-scoped resources are restored, while cluster-scoped resources are

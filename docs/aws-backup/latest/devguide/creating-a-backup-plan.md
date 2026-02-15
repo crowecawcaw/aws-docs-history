@@ -64,7 +64,12 @@ section, you will set the backup schedule, window, and lifecycle. 4. **Schedule:
    1. **Cold storage:** Select this box to let eligible resource
       types transition to cold storage in accordance with the timetable you specify in the
       total retention period. To use cold storage, you must have a total retention period
-      of 90 days or greater.
+      of 90 days or greater. However please note the following. Some services support
+      incremental backups. For incremental backups, you must have at least one warm full
+      backup. AWS Backup recommends that you set your lifecycle settings to not move your backup
+      to cold storage until after at least 8 days. If the full backup is transitioned to
+      cold storage too soon (for example, a transition to cold storage after 1 day), AWS Backup
+      will create another warm full backup.
    2. **Cold storage for Amazon EBS** is [Amazon EBS Snapshots
       Archive](../../../ebs/latest/userguide/snapshot-archive.md "../../../ebs/latest/userguide/snapshot-archive.md"). Snapshots transitioned to archive storage tier will display
       in the console as cold tier. If cold storage is enabled, and if your backup

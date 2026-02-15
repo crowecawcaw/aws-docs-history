@@ -60,6 +60,8 @@ AWS CLI
    Aurora cluster from the specified recovery point.
 2. Include the necessary metadata for the restore job. Example:
 
+###### Example
+
 ```
 aws backup start-restore-job \
     --recovery-point-arn "arn:aws:dsql:us-east-1:123456789012:cluster/example-cluster/backup/example-backup" \
@@ -172,6 +174,8 @@ metadata
 1. Create a restore job using the CLI command `aws backup
 start-restore-job` with the new multi-Region orchestration
    metadata:
+
+###### Example
 
 ```
 aws backup start-restore-job \

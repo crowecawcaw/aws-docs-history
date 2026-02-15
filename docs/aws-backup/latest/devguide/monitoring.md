@@ -13,12 +13,8 @@ include the following:
 
 - **Amazon CloudWatch** and **Amazon EventBridge**
   to monitor AWS Backup processes.
-
-      + You can use CloudWatch to track metrics, create alarms, and view dashboards.
-      + You can use EventBridge to view and monitor AWS Backup events.
-
-  For more information, see [Monitoring AWS Backup events using Amazon EventBridge](eventbridge.md "eventbridge.md") and
-  .
+  - You can use CloudWatch to track metrics, create alarms, and view dashboards. For more information, see [AWS Backup metrics with Amazon CloudWatch](cloudwatch.md "cloudwatch.md").
+  - You can use EventBridge to view and monitor AWS Backup events. For more information, see [Monitoring AWS Backup events using Amazon EventBridge](eventbridge.md "eventbridge.md").
 
 - **AWS CloudTrail** to monitor AWS Backup API calls. You can identify
   the time, source IP, users, and accounts making those calls. For more information, see [Logging AWS Backup API calls with CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").

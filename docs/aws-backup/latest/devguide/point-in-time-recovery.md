@@ -137,8 +137,12 @@ takes snapshots once per day, even if a backup plan has a frequency for snapshot
 backups other than once per day.
 
 **Settings:** After you apply an AWS Backup continuous backup rule to an
-Amazon RDS instance, you can't create or modify continuous backup settings to that instance in
-Amazon RDS; modifications must be done through the AWS Backup console or the AWS Backup CLI.
+Amazon RDS instance, you can't create or modify continuous backup settings in Amazon RDS. You must
+make modifications through the AWS Backup console or the AWS Backup CLI. When you turn on automated
+backups for the first time, an outage occurs if you change the backup retention period of
+the DB instance from 0 to a nonzero value. Plan this change during a maintenance window to
+minimize impact. For more information about enabling automated backups, see [Enabling automated backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md") in the _Amazon RDS User
+Guide_.
 
 **Transition control of continuous backup for an Amazon RDS instance back to
 Amazon RDS:**
@@ -210,6 +214,50 @@ should not have a backup retention set to zero. If errors occur, use AWS CLI com
 settings.
 
 For general information about working with Amazon RDS, see the [Amazon RDS User Guide](../../../AmazonRDS/latest/UserGuide/Welcome.md "../../../AmazonRDS/latest/UserGuide/Welcome.md").
+
+#### CLI examples for RDS and Aurora PITR restore
+
+The following examples demonstrate how to restore RDS and Aurora databases to a point in time using the AWS Backup CLI with metadata parameters.
+
+###### Example: Restore RDS database to a point in time with metadata
+
+```
+aws backup start-restore-job \
+    --recovery-point-arn arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45 \
+    --metadata '{"DBInstanceIdentifier":"restored-db-instance","Engine":"mysql","UseLatestRestorableTime":"false","RestoreTime":"2024-01-15T10:30:00Z"}' \
+    --iam-role-arn arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole \
+    --resource-type RDS \
+    --copy-source-tags-to-restored-resource
+```
+
+###### Example: Restore Aurora cluster to a point in time
+
+```
+aws backup start-restore-job \
+    --recovery-point-arn arn:aws:backup:us-east-1:123456789012:recovery-point:2FC4C6F8-0FC1-546B-B91C-209C599C1D56 \
+    --metadata '{"DBClusterIdentifier":"restored-aurora-cluster","Engine":"aurora-mysql","UseLatestRestorableTime":"true"}' \
+    --iam-role-arn arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole \
+    --resource-type Aurora \
+    --copy-source-tags-to-restored-resource
+```
+
+###### Metadata parameters for RDS PITR restore
+
+The following metadata parameters are supported for RDS and Aurora PITR restores:
+
+- **DBInstanceIdentifier** (RDS) or **DBClusterIdentifier** (Aurora) - Required. The name for the restored database.
+- **Engine** - Required. The database engine (e.g., mysql, postgres, aurora-mysql, aurora-postgresql).
+- **UseLatestRestorableTime** - Optional. Set to "true" to restore to the latest restorable time, or "false" to specify a RestoreTime.
+- **RestoreTime** - Optional. The date and time to restore to (ISO 8601 format). Required if UseLatestRestorableTime is "false".
+
+###### Copy tags to restored resource
+
+Use the `--copy-source-tags-to-restored-resource` flag to copy tags from the source database to the restored database. This ensures tag-based access controls and cost allocation tags are preserved.
+
+For complete details on RDS PITR restore parameters, see:
+
+- [RestoreDBInstanceToPointInTime](../../../AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.md "../../../AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.md") in the Amazon RDS API Reference
+- [RestoreDBClusterToPointInTime](../../../AmazonRDS/latest/APIReference/API_RestoreDBClusterToPointInTime.md "../../../AmazonRDS/latest/APIReference/API_RestoreDBClusterToPointInTime.md") in the Amazon RDS API Reference
 
 ### Aurora
 

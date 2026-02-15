@@ -126,7 +126,7 @@ JSON
  "Sid": "KmsPermissions",
  "Effect": "Allow",
  "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:user/root"
+ "AWS": "arn:aws:iam::`123456789012`:root"
  },
  "Action": [
  "kms:ListKeys",
@@ -140,7 +140,7 @@ JSON
  "Sid": "KmsCreateGrantPermissions",
  "Effect": "Allow",
  "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:user/root"
+ "AWS": "arn:aws:iam::`123456789012`:root"
  },
  "Action": [
  "kms:CreateGrant"

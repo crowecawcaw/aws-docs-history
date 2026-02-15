@@ -91,7 +91,7 @@ The temporary recovery point has a special lifecycle setting called `DELETE_AFTE
 AWS Backup automatically deletes the temporary recovery point. All other scheduled copy actions in your backup plan start in parallel with the copy to your logically air-gapped vault and do not impact your current copy experience.
 
 If the copy to your logically air-gapped vault fails, the temporary recovery point is retained in your backup vault according to the retention period you specified.
-This ensures you always have a usable recovery point after a backup job completes. If the recovery point is later manually copied to the logically air-gapped vault,
+This helps you ensure that you always have a usable recovery point after a backup job completes. If the recovery point is later manually copied to the logically air-gapped vault,
 it is automatically cleaned up according to the `DELETE_AFTER_COPY` rule.
 
 ###### Warning
@@ -114,7 +114,7 @@ If you need to prevent manual deletion of the temporary recovery point while cop
 #### Continuous backup for Resource not supporting full AWS Backup management
 
 For resources such as Amazon Aurora, if you enable continuous backup, AWS Backup creates a continuous recovery point in your backup vault and takes a temporary snapshot
-that is copied to your logically air-gapped vault. The temporary snapshot is always deleted after the copy is completed, regardless of whether the copy succeeds or fails, because you retain a continuous recovery point in your backup vault.
+that is copied to your logically air-gapped vault. The temporary snapshot should be automatically deleted after the copy is completed, regardless of whether the copy succeeds or fails, because you retain a continuous recovery point in your backup vault.
 
 If you do not want to create a continuous recovery point for Amazon Aurora in your backup vault, but do want a continuous recovery point for Amazon S3 in your logically air-gapped vault,
 then you can disable continuous backup (`EnableContinuousBackup`) setting in the current plan and enable S3 continuous from a different plan.

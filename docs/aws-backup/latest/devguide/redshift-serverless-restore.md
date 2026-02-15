@@ -101,9 +101,7 @@ aws backup start-restore-job \
 --endpoint-url `URL`
 ```
 
-###### Example for `start-restore-job` to restore to a Serverless
-
-namespace:
+###### Example for start-restore-job to restore to a Serverless namespace:
 
 ```
 aws backup start-restore-job \

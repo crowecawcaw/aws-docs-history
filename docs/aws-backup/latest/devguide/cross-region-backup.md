@@ -33,12 +33,11 @@ specific resources
 
 ###### Amazon RDS
 
-You can't [copy an option group](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy") to another AWS Region. If this attempted, you can get
-an error, such as "The snapshot requires a target option group with the following
-options: ...."
+AWS Backup does not pass the option group when you perform a cross-Region copy. Your target Region must have the same option group as the source Region for the cross-Region copy to succeed.
 
-You must input the same option groups in the target AWS Region when you create a new
-cross-Region copy of an Amazon RDS snapshot.
+You can [copy an option group](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy"). For more information, see the _Amazon Relational Database Service User Guide_.
+
+If you attempt a cross-Region copy without the same option group in your target Region, the copy job fails with an error message such as "The snapshot requires a target option group with the following options: ...."
 
 ## Performing on-demand cross-Region backup
 

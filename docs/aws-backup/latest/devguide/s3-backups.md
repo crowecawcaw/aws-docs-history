@@ -380,7 +380,7 @@ Console
 
 ###### Configure ACL and tag options using the console
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup/](https://console.aws.amazon.com//backup/home "https://console.aws.amazon.com//backup/home").
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup/](https://console.aws.amazon.com/backup/home "https://console.aws.amazon.com/backup/home").
 2. In the navigation pane, choose **Backup plans**, then
    choose **Create backup plan**.
 3. In your backup plan settings, expand **Advanced backup

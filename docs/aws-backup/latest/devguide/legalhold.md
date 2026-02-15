@@ -42,7 +42,7 @@ Each account can have a maximum of 50 legal holds active at one time.
 
 ## Create a legal hold
 
-A legal hold can added to an existing backup (recovery point).
+A legal hold can be added to an existing backup (recovery point).
 
 Backups (recovery points) with a status of `EXPIRED`
 or `DELETING` will not be included in the legal hold.

@@ -84,15 +84,14 @@ aws backup start-restore-job \
 --endpoint-url https://endpointurl.com
 ```
 
-The preceding example encrypts the restored table using an AWS-owned key. The part
-of the restore metadata that specifies encryption using the AWS-owned key is:
-`\"encryptionType\":\"Default\","kmsMasterKeyArn\":\"Not
- Applicable\"`.
+The preceding example encrypts the restored table using a customer-managed key.
 
-To encrypt your restored table using an AWS-managed key, specify the following
-restore metadata: `"encryptionType\":\"KMS\",\"kmsMasterKeyArn\":\"Not
- Applicable\"`.
+To encrypt your restored table using an AWS-owned key, specify the following
+restore metadata: `"encryptionType\":\"Default\"`.
 
-To encrypt your restored table using an customer-managed key, specify the following
+To encrypt your restored table using an AWS-managed key, omit the
+`kmsMasterKeyArn` parameter and specify: `"encryptionType\":\"KMS\"`.
+
+To encrypt your restored table using a customer-managed key, specify the following
 restore metadata:
 `"encryptionType\":\"KMS\",\"kmsMasterKeyArn\":\"`arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`\"`.

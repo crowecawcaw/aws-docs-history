@@ -25,6 +25,8 @@ regardless of the opt-in setting.
 When multiple resources share the same resource type, you need to enable opt-in
 settings for specific resource types to initiate backups.
 
+###### Example
+
 Aurora and RDS Clusters share the ARN format: `arn:aws:rds:::cluster:*`.
 To backup Aurora databases, you must enable the opt-in setting for Aurora.
 
@@ -96,9 +98,7 @@ non-whitespace characters.
 }
 ```
 
-###### Example: Select all resources tagged with "backup":"true", but
-
-exclude EBS volumes
+###### Example: Select all resources tagged with "backup":"true", but exclude EBS volumes
 
 ```
 {
@@ -127,9 +127,7 @@ RDS, Aurora, Neptune, and DocumentDB ARNs start with `arn:aws:rds:`.
 Refine your selection with tags and conditional operators if you don't intend to include
 all those types.
 
-###### Example: Select all EBS volumes and RDS DB instances tagged with both
-
-"backup":"true" and "stage":"prod"
+###### Example: Select all EBS volumes and RDS DB instances tagged with both "backup":"true" and "stage":"prod"
 
 The Boolean arithmetic is similar to that in IAM policies, with those in
 "Resources" combined using a Boolean OR and those in
@@ -162,9 +160,7 @@ DocumentDB resources.
 }
 ```
 
-###### Example: Select all EBS volumes and RDS instances tagged with
-
-"backup":"true" but not "stage":"test"
+###### Example: Select all EBS volumes and RDS instances tagged with "backup":"true" but not "stage":"test"
 
 ```
 {
@@ -191,10 +187,7 @@ DocumentDB resources.
 }
 ```
 
-###### Example: Select all resources tagged with "key1" and a value which
-
-begins with "include" but not with "key2" and value that
-contains the word "exclude"
+###### Example: Select all resources tagged with "key1" and a value which begins with "include" but not with "key2" and value that contains the word "exclude"
 
 You can use the wildcard character at the start, end, and middle of a string. Note
 the use of the wildcard character (\*) in `include*` and
@@ -226,9 +219,7 @@ in the middle of a string as shown in the previous example,
 }
 ```
 
-###### Example: Select all resources tagged with "backup":"true" except FSx
-
-file systems and RDS, Aurora, Neptune, and DocumentDB resources
+###### Example: Select all resources tagged with "backup":"true" except FSx file systems and RDS, Aurora, Neptune, and DocumentDB resources
 
 Items in `NotResources` are combined using the Boolean OR.
 
@@ -254,9 +245,7 @@ Items in `NotResources` are combined using the Boolean OR.
 }
 ```
 
-###### Example: Select all resources tagged with a tag "backup" and any
-
-value
+###### Example: Select all resources tagged with a tag "backup" and any value
 
 ```
 {
@@ -276,11 +265,7 @@ value
 }
 ```
 
-###### Example: Select all FSx file systems, the Aurora cluster
-
-"my-aurora-cluster", and all resources tagged with
-"backup":"true", except for resources tagged with
-"stage":"test"
+###### Example: Select all FSx file systems, the Aurora cluster "my-aurora-cluster", and all resources tagged with "backup":"true", except for resources tagged with "stage":"test"
 
 ```
 {
@@ -308,9 +293,7 @@ value
 }
 ```
 
-###### Example: Select all resources tagged with tag `"backup":"true"` except
-
-for EBS volumes tagged with `"stage":"test"`
+###### Example: Select all resources tagged with tag "backup":"true" except for EBS volumes tagged with "stage":"test"
 
 Use two CLI commands to create two selections to select this group of resources. The
 first selection applies to all resources except for EBS volumes. The second selection

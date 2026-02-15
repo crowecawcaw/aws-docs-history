@@ -101,8 +101,7 @@ necessary. 6. In the **Access policy** section, "Allow"
 permissions** and then **Allow access to a Backup vault from
 organization**. Any cross-account action other than
 `backup:CopyIntoBackupVault` will be rejected. 7. Now, any account in your organization can share the contents of their backup
-vault with any other account in your organization. For more information, see [Sharing a backup vault with a different AWS
-account](#share-vault-cab "#share-vault-cab"). To limit which accounts
+vault with any other account in your organization. For more information, see [Configuring backup vault access for cross-account copies](#share-vault-cab "#share-vault-cab"). To limit which accounts
 can receive the contents of other accounts' backup vaults, see [Configuring your account as a
 destination account](#designate-destination-accounts-cab "#designate-destination-accounts-cab").
 
@@ -298,34 +297,36 @@ Restoring a backup from one account to another is a two-step process.
    up cross-account backup](create-cross-account-backup.md#prereq-cab "create-cross-account-backup.md#prereq-cab").
 2. Use the appropriate instructions for your resource to restore the backup.
 
-## Sharing a backup vault with a different AWS
+## Configuring backup vault access for cross-account copies
 
-account
+AWS Backup allows you to configure your backup vault to grant access to other AWS accounts, allowing them to copy recovery points to your vault for cross-account backup. This access configuration uses resource-based policies to permit specific accounts to perform backup operations.
 
-AWS Backup allows you to share a backup vault with one or multiple accounts, or your entire
-organization in AWS Organizations. You can share a destination backup vault with a source AWS
-Account, user, or IAM role.
+###### Note
 
-###### To share a destination Backup vault
+This is different from AWS Backup vault sharing for Logically Air Gapped (LAG) vaults, which uses AWS Resource Access Manager (RAM) to share vault resources directly.
+
+You can grant vault access to one or multiple accounts, or your entire organization in AWS Organizations. You can configure a destination backup vault with access for a source AWS Account, user, or IAM role.
+
+###### To configure vault access for a destination Backup vault
 
 1. Choose **AWS Backup**, and then choose **Backup
    vaults**.
-2. Choose the name of the backup vault that you want to share.
+2. Choose the name of the backup vault that you want to configure access for.
 3. In the **Access policy** pane, choose the **Add
    permissions** dropdown.
 4. Choose **Allow account level access to a Backup vault**. Or, you
    can choose to allow organization-level or role-level access.
-5. Enter the **AccountID** of the account you'd like to share with
+5. Enter the **AccountID** of the account you'd like to grant access to
    this destination backup vault.
 6. Choose **Save policy**.
 
-You can use IAM policies to share your backup vault.
+You can use IAM policies to configure vault access.
 
-###### Share a destination backup vault with an
+###### Configure destination backup vault access for an
 
 AWS account or IAM role
 
-The following policy shares a backup vault with account number
+The following policy configures vault access for account number
 `4444555566666` and the IAM role `SomeRole` in account number
 `111122223333`.
 

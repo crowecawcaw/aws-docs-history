@@ -20,35 +20,37 @@ _Amazon DocumentDB Developer Guide_.
    **Restore**.
 4. Ensure you are on the console page **Restore Amazon DocumentDB cluster
    snapshots**.
-5. In the **Instance specifications** pane, select a DB engine for
-   the instance.
-6. In the **Settings** pane, input a unique name for your DB cluster
-   identifier.
+5. For **Restore options**, you can configure the following:
+   - **Engine version** - Select the DocumentDB engine version for the restored cluster.
+
+###### Note
+
+Instance class and number of instances cannot be configured during the restore process. The restored DocumentDB cluster will use the default instance configuration. You can modify the instance class and add or remove instances after the restore completes by using the Amazon DocumentDB console or API. 6. In the **Settings** pane, input a unique name for your DB cluster
+identifier.
 
 You can use letters, numbers, and hyphens, though you cannot have two consecutive
-hyphens or end the name with a hyphen. The final name will be all lowercase. 7. In the **Network and security** pane, select an Availability Zone,
-or let us choose one for you. 8. In the **Database options** pane, select the database
+hyphens or end the name with a hyphen. The final name will be all lowercase. 7. In the **Database options** pane, select the database
 port.
 
 This is the TCP/IP port that the DB instance or cluster will use for application
 connections. The connection string of any application connecting to the DB instance or
 cluster must specify its port number. Both the security group applied to the DB
 instance or cluster and your organization firewalls must allow connections to the
-port. All DB instances in a DB cluster use the same port. 9. Also in the **Database options** pane, select the DB cluster
+port. All DB instances in a DB cluster use the same port. 8. Also in the **Database options** pane, select the DB cluster
 parameter group.
 
 This is the parameter group associated with this instance's DB cluster. The DB
 cluster parameter group acts as a container for engine configuration values that are
-applied to every DB instance in the cluster. 10. In the **Encryption** pane, select the key that will be used to
+applied to every DB instance in the cluster. 9. In the **Encryption** pane, select the key that will be used to
 encrypt this database volume. The default is `aws/rds`. You may
-alternatively use a customer managed key (CMK). 11. In the **Log exports** pane, choose the log types to publish to
-Amazon CloudWatch Logs. The **IAM role** is already defined. 12. In the **Restore role** pane, choose either the default IAM role
-for the restore job or a different IAM role. 13. In the Protected resource tags pane, you may optionally choose to copy tags from
-the backup to the restored database cluster. 14. After specifying all your settings, choose **Restore
+alternatively use a customer managed key (CMK). 10. In the **Log exports** pane, choose the log types to publish to
+Amazon CloudWatch Logs. The **IAM role** is already defined. 11. In the **Restore role** pane, choose either the default IAM role
+for the restore job or a different IAM role. 12. In the Protected resource tags pane, you may optionally choose to copy tags from
+the backup to the restored database cluster. 13. After specifying all your settings, choose **Restore
 backup**.
 
 The **Restore jobs** pane appears. A message at the top of the
-page provides information about the restore job. 15. After your restore finishes, attach your restored Amazon DocumentDB cluster to an Amazon RDS
+page provides information about the restore job. 14. After your restore finishes, attach your restored Amazon DocumentDB cluster to an Amazon RDS
 instance.
 
 ## Use the AWS Backup API, CLI, or SDK to restore Amazon DocumentDB

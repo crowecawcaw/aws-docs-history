@@ -19,6 +19,7 @@ are not limited to):
 - Continuous object validation against their checksum to prevent object corruption
 - Internal checksums to confirm integrity of data in transit and at rest
 - Checksums calculated on data in backups created from the primary store
+- Checksums are always verified to be correct before using the corresponding data. If we find data that doesn't match its checksum, we replace it with a correct copy. If we fail to replace the correct copy, we will fail the corresponding jobs
 - Automatic attempt to restore normal levels of object storage redundancy in the event
   of disk corruption or detection of device failure
 - Redundant storage of data across multiple physical locations

@@ -8,8 +8,12 @@ resources, including Amazon RDS, offer their own native backup solutions.
 
 Amazon RDS gives the option of making [automated
 backups](../../../AmazonRDS/latest/UserGuide/USER_ManagingAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_ManagingAutomatedBackups.md") and [manual backups](../../../AmazonRDS/latest/UserGuide/USER_ManagingManualBackups.md "../../../AmazonRDS/latest/UserGuide/USER_ManagingManualBackups.md").
-In Amazon RDS terminology, all recovery points created by AWS Backup, including those in a backup
-plan, are considered manual backups.
+Recovery points created by AWS Backup are classified differently depending on the backup type:
+
+- **Periodic snapshots** created by AWS Backup are considered manual backups in Amazon RDS. These are snapshot-based backups taken according to your backup plan schedule.
+- **Continuous backups** created by AWS Backup are considered automated backups in Amazon RDS. These enable point-in-time restore (PITR) by maintaining transaction logs alongside automated snapshots.
+
+This distinction is important because manual and automated backups have different retention behaviors and lifecycle management in Amazon RDS.
 
 When you use AWS Backup to [create a backup](creating-a-backup-plan.md#create-backup-plan-console "creating-a-backup-plan.md#create-backup-plan-console") (recovery point) of an Amazon RDS instance, AWS Backup
 checks if you have previously used Amazon RDS to create an automated backup. If an automated

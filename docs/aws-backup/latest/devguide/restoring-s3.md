@@ -37,6 +37,8 @@ For more information, see the following entries on policies:
   - While S3 backups can be copied cross-Region, restore jobs only occur in the
     same Region in which the original backup or copy is located.
 
+  ###### Example
+
   **Example:** An S3 bucket created in US East (N. Virginia) Region can be
   copied to Canada (Central) Region. The restore job can be initiated using the original
   bucket in US East (N. Virginia) Region and restored to that Region, or the restore job can be

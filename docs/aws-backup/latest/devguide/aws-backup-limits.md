@@ -150,9 +150,10 @@ resource types, you may request an increase in the quota limit.
 
 ## AWS Backup gateway quotas
 
-| Name                               | Default | Adjustable                                                    |
-| ---------------------------------- | ------- | ------------------------------------------------------------- |
-| Backup or restore jobs per gateway | 4       | No. Create more gateways and connect them to your hypervisor. |
+| Name                                                | Default | Adjustable                                                    |
+| --------------------------------------------------- | ------- | ------------------------------------------------------------- |
+| Backup or restore jobs per gateway                  | 4       | No. Create more gateways and connect them to your hypervisor. |
+| VMware tags to resource tags mapping per hypervisor | 10      | No                                                            |
 
 ## Amazon EKS quotas
 

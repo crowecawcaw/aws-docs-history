@@ -76,6 +76,11 @@ need to revisit this step to opt in to those newly-supported resources.
 AWS Backup does not govern or manage backups taken in AWS environments other than
 AWS Backup.
 
+###### Note
+
+For more information on how service opt-ins work for management and delegated administrator accounts, see [Managing AWS Backup resources across multiple
+AWS accounts](manage-cross-account.md "manage-cross-account.md").
+
 ###### To opt in to use AWS Backup to protect all supported resource types
 
 1. Sign in to the AWS Management Console, and open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").

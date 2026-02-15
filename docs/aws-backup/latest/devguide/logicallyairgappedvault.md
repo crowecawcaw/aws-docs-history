@@ -72,8 +72,6 @@ recovery when you desire a vault for your backups that
 
 **Considerations and limitations**
 
-- Cross-Region copy to or from a logically air-gapped vault is not currently available
-  for backups that contain Amazon Aurora, Amazon DocumentDB, and Amazon Neptune.
 - Unencrypted Amazon Aurora, Amazon DocumentDB, and Amazon Neptune clusters are not supported for logically air-gapped vault,
   as they do not support encryption of unencrypted DB cluster snapshots.
 - Amazon EC2 offers [EC2 Allowed AMIs](../../../AWSEC2/latest/UserGuide/ec2-allowed-amis.md "../../../AWSEC2/latest/UserGuide/ec2-allowed-amis.md"). If

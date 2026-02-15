@@ -31,6 +31,8 @@ databases.
 AWS Backup is integrated with AWS Backint Agent to perform SAP HANA backups and restores.
 For more information, see [AWS Backint](../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md "../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md").
 
+When you take backups of SAP HANA, your snapshots and on-demand backups are full backups. However, you can achieve incremental backups by enabling continuous backups for point-in-time recovery (PITR).
+
 ## Prerequisites for backing up SAP HANA databases
 
 through AWS Backup

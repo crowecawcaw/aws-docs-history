@@ -64,7 +64,7 @@ cross-account management is available, see [Feature availability by AWS Region](
 ###### Note
 
 For backup plans that are managed by Organizations, the resource opt-in
-settings in the management account override the settings in a member account,
+settings in the management account override the settings in a member account for that particular backup plan,
 even if one or more delegated administrator accounts are configured. Delegated
 administrator accounts are member accounts with enhanced features and cannot
 override settings like a management account can. 4. Manage backup, restore, and copy jobs in all your AWS accounts.

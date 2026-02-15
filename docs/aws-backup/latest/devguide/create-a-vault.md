@@ -75,7 +75,7 @@ or select the default AWS Backup KMS key.
 
 The AWS KMS key that is specified here applies only to backups of services that
 support AWS Backup independent encryption. To see the list of resources types that support
-AWS Backup independent encryption, see the "Full AWS Backup management" section of the [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") table. 5. Optionally, add tags that will help you search for and identify your backup vault.
+AWS Backup independent encryption, see the "Full management" section of the [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") table. 5. Optionally, add tags that will help you search for and identify your backup vault.
 For example, you could add a `BackupType:Financial` tag. 6. Choose **Create Backup vault**. 7. In the navigation pane, choose **Backup vaults**, and verify that
 your backup vault has been added.
 
@@ -125,8 +125,7 @@ backup vaults.
 
 To guard against accidental or malicious mass deletion, you can delete a backup vault in
 AWS Backup only after you delete (or your backup plan lifecycles) all the recovery points in your
-backup vault. To delete your recovery points manually, see [Clean up
-resources](gs-cleanup-resources.md#cleanup-backups "gs-cleanup-resources.md#cleanup-backups").
+backup vault. To delete your recovery points manually, see [Deleting backups](deleting-backups.md "deleting-backups.md").
 
 When you delete a backup vault, update your backup plans to point to new backup vaults.
 A backup plan that points to a deleted backup vault will cause the backup creation to

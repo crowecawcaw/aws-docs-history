@@ -31,10 +31,15 @@ When a resource type does not support full AWS Backup management, some of your A
 activity such as storage costs for your backups, have billing reflected by the respective
 AWS service.
 
-**Copy job failures**
+**Copy Jobs**
 
 You will only be charged once a recovery point has been created in the destination vault.
 There is no charge when a copy job fails and no recovery point is created.
+
+When you configure cross account and cross Region copies, you will see the following
+billing depending on which resources you copy. For fully managed resources, the source
+account will see the data transfer charges, and for non fully managed resources, the
+destination account will see the data transfer charges.
 
 ## Cost allocation tags
 
