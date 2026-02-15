@@ -10,6 +10,8 @@ You interact with a search domain to:
   Each domain has a unique endpoint through which you submit search requests to the domain. For
   example, the endpoint for a domain called _movies_ created in the US East (N. Virginia) region might be:
 
+###### Example
+
 ```
 search-movies-mtshfsu2rje7ywr66uit3dei4m.us-east-1.cloudsearch.amazonaws.com
 ```

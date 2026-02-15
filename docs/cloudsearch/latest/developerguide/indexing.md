@@ -49,6 +49,8 @@ For information about installing and setting up the AWS CLI, see the [AWS Comman
 
 - Run the `aws cloudsearch index-documents` command. The following example rebuilds the index for a domain called _movies_.
 
+###### Example
+
 ```
 aws cloudsearch index-documents --domain-name movies
 ```

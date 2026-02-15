@@ -73,6 +73,8 @@ For information about installing and setting up the AWS CLI, see the [AWS Comman
 
 - Run the `aws cloudsearch create-domain` command and specify the name of the domain you want to create with the `--domain-name` option. For example, to create a domain called _movies_:
 
+###### Example
+
 ```
 **aws cloudsearch create-domain --domain-name movies**
 {

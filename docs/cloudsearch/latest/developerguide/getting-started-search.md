@@ -60,6 +60,8 @@ For example, to search your movies domain and get the titles of all of the avail
 _Star Wars_ movies, append the following search
 string to your search endpoint. (2013-01-01 is the API version and must be specified.)
 
+###### Example
+
 ```
 /2013-01-01/search?q=star+wars&return=title
 ```
@@ -136,6 +138,8 @@ You can change how results are ranked by using the
 _sort_ parameter in your search request to specify the field or expression you want to use for ranking. (An expression is a custom numeric expression that can be evaluated for each document in the set of matching documents. For information about defining your own expressions, see [Configuring Expressions](configuring-expressions.md "configuring-expressions.md").)
 
 If you specify a text field with the `sort` parameter, the results are sorted alphabetically according to that field. For example, to sort results from your movies domain alphabetically by title, add `&sort=title asc` to your query string:
+
+###### Example
 
 ```
 2013-01-01/search?q=(and genres:'Sci-Fi' year:{,2000])&q.parser=structured&return=title,year&sort=title asc

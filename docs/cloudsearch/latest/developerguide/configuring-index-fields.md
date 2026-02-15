@@ -89,6 +89,8 @@ For information about installing and setting up the AWS CLI, see the [AWS Comman
   with the `--type` option. The following example adds an `int`
   field called `year` to the movies domain.
 
+###### Example
+
 ```
 **aws cloudsearch define-index-field --domain-name movies --name year --type int**
 {
