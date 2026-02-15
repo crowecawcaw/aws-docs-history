@@ -74,3 +74,5 @@ The following example shows a CloudTrail log entry that demonstrates the action.
 ```
 
 For more information about CloudTrail, including how to view and manage event logs, see [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+
+###### Example
