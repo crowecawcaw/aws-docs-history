@@ -30,8 +30,6 @@ The `name` field of the mission profile helps distinguish between the mission pr
 
 The `streamsKmsRole` and `streamsKmsKey` are used to define the encryption used by AWS Ground Station for your data delivery with AWS Ground Station Agent. Please see [Data encryption during transit for AWS Ground Station](security.md "security.md").
 
-The `telemetrySinkConfigArn` field is optional and allows you to enable AWS Ground Station telemetry during contacts. When specified, AWS Ground Station streams near real-time telemetry data to your account during the execution of your contacts. For more information about configuring and using telemetry, see [Work with telemetry](telemetry.md "telemetry.md").
-
 ![Dataflow and configuration for a mission profile.](images/mission-profile-core-component.png)
 
 A full list of parameters and examples is included at the following documentation.
