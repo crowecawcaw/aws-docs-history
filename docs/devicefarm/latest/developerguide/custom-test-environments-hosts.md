@@ -45,6 +45,8 @@ To know the specific version (including the minor version) of the operating syst
 during your test run, you can add the following snippet of code to any of your test spec
 file's phases.
 
+###### Example
+
 ```
 phases:
   install:
@@ -75,6 +77,8 @@ When testing on iOS 18 and below, a legacy test host will be used when a host is
 selected. For more information, see the topic on the [Legacy iOS test host](custom-test-environments-hosts-ios.md#legacy-ios-host "custom-test-environments-hosts-ios.md#legacy-ios-host").
 
 As an example, review the following code snippet:
+
+###### Example
 
 ```
 version: 0.1

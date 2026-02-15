@@ -37,6 +37,8 @@ To use an IAM execution role with Device Farm, your role must meet the following
 
 The following example shows a trust policy that allows Device Farm to assume your execution role. This trust policy should only be attached to the specific IAM role you intend to use with Device Farm, not to other roles in your account:
 
+###### Example
+
 ```
 {
   "Version": "2012-10-17",
@@ -55,6 +57,8 @@ The following example shows a trust policy that allows Device Farm to assume you
 ### Example permissions policy
 
 The following example shows a permissions policy that grants access to common AWS services used in testing:
+
+###### Example
 
 ```
 {
