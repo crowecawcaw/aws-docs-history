@@ -72,145 +72,145 @@ We'll use CloudFormation to create our test resources, which allows AWS DevOps A
    1. Create a new local file called`AWS-DevOpsAgent-ec2-test.yaml`
    2. Copy and paste this CloudFormation template into the file:
       1. ```
-          AWSTemplateFormatVersion: '2010-09-09'
-              Description: 'AWS DevOps Agent EC2 CPU Test Stack'
-              Parameters:
-                MyIP:
-                  Type: String
-                  Description: Your current IP address for SSH access (find at https://whatismyipaddress.com)
-                  Default: '0.0.0.0/0'
-              Resources:
-                # Security Group for SSH access
-                TestSecurityGroup:
-                  Type: AWS::EC2::SecurityGroup
-                  Properties:
-                    GroupName: AWS-DevOpsAgent-test-sg
-                    GroupDescription: AWS DevOps Agent beta testing security group
-                    SecurityGroupIngress:
-                      - IpProtocol: tcp
-                        FromPort: 22
-                        ToPort: 22
-                        CidrIp: !Ref MyIP
-                        Description: SSH access from your IP
-                    Tags:
-                      - Key: Name
-                        Value: AWS-DevOpsAgent-Test-SG
-                      - Key: Purpose
-                        Value: AWS-DevOpsAgent-Testing
-                # Key Pair for SSH access
-                TestKeyPair:
-                  Type: AWS::EC2::KeyPair
-                  Properties:
-                    KeyName: AWS-DevOpsAgent-test-key
-                    KeyType: rsa
-                    Tags:
-                      - Key: Name
-                        Value: AWS-DevOpsAgent-Test-Key
-                      - Key: Purpose
-                        Value: AWS-DevOpsAgent-Testing
-                # EC2 Instance for CPU testing
-                TestInstance:
-                  Type: AWS::EC2::Instance
-                  Properties:
-                    InstanceType: t3.micro
-                    ImageId: '{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64}}'
-                    KeyName: !Ref TestKeyPair
-                    SecurityGroupIds:
-                      - !Ref TestSecurityGroup
-                    UserData:
-                      Fn::Base64: !Sub |
-                        #!/bin/bash
-                        yum update -y
-                        yum install -y htop
-                        
-                        # Create the CPU stress test script
-                        cat > /home/ec2-user/cpu-stress-test.sh << 'EOF'
-                        #!/bin/bash
-                        echo "Starting AWS DevOpsAgent CPU Stress Test"
-                        echo "Time: $(date)"
-                        echo "Instance: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)"
-                        echo ""
-                        
-                        # Get number of CPU cores
-                        CORES=$(nproc)
-                        echo "CPU Cores: $CORES"
-                        echo ""
-                        
-                        echo "Starting stress test (5 minutes)..."
-                        echo "This will generate >70% CPU usage to trigger CloudWatch alarm"
-                        echo ""
-                        
-                        # Create CPU load using yes command
-                        echo "Starting CPU load processes..."
-                        for i in $(seq 1 $CORES); do
-                            (yes > /dev/null) &
-                            CPU_PID=$!
-                            echo "Started CPU load process $i (PID: $CPU_PID)"
-                            echo $CPU_PID >> /tmp/cpu_test_pids
-                        done
-                        
-                        # Auto-cleanup after 5 minutes
-                        (sleep 300 && echo "Stopping CPU load processes..." && kill $(cat /tmp/cpu_test_pids 2>/dev/null) 2>/dev/null && rm -f /tmp/cpu_test_pids) &
-                        
-                        echo ""
-                        echo "CPU load processes started for 5 minutes"
-                        echo "Check CloudWatch for alarm trigger in 3-5 minutes"
-                        EOF
-                        
-                        chmod +x /home/ec2-user/cpu-stress-test.sh
-                        chown ec2-user:ec2-user /home/ec2-user/cpu-stress-test.sh
-                        
-                        # Create auto-shutdown script (safety mechanism)
-                        cat > /home/ec2-user/auto-shutdown.sh << 'SHUTDOWN_EOF'
-                        #!/bin/bash
-                        echo "Auto-shutdown scheduled for 2 hours from now: $(date)"
-                        sleep 7200
-                        echo "Auto-shutdown executing at: $(date)"
-                        sudo shutdown -h now
-                        SHUTDOWN_EOF
-                        
-                        chmod +x /home/ec2-user/auto-shutdown.sh
-                        nohup /home/ec2-user/auto-shutdown.sh > /home/ec2-user/auto-shutdown.log 2>&1 &
-                        
-                        echo "AWS DevOpsAgent test setup completed at $(date)" > /home/ec2-user/setup-complete.txt
-                    Tags:
-                      - Key: Name
-                        Value: AWS-DevOpsAgent-Test-Instance
-                      - Key: Purpose
-                        Value: AWS-DevOpsAgent-Testing
-                # CloudWatch Alarm for CPU utilization
-                CPUAlarm:
-                  Type: AWS::CloudWatch::Alarm
-                  Properties:
-                    AlarmName: AWS-DevOpsAgent-EC2-CPU-Test
-                    AlarmDescription: AWS-DevOpsAgent beta test - EC2 CPU utilization alarm
-                    MetricName: CPUUtilization
-                    Namespace: AWS/EC2
-                    Statistic: Average
-                    Period: 60
-                    EvaluationPeriods: 1
-                    Threshold: 70
-                    ComparisonOperator: GreaterThanThreshold
-                    Dimensions:
-                      - Name: InstanceId
-                        Value: !Ref TestInstance
-                    TreatMissingData: notBreaching
-              Outputs:
-                InstanceId:
-                  Description: EC2 Instance ID for testing
-                  Value: !Ref TestInstance
-                
-                SecurityGroupId:
-                  Description: Security Group ID
-                  Value: !Ref TestSecurityGroup
-                  
-                AlarmName:
-                  Description: CloudWatch Alarm Name
-                  Value: !Ref CPUAlarm
-                  
-                SSHCommand:
-                  Description: SSH command to connect to instance
-                  Value: !Sub 'ssh -i "AWS-DevOpsAgent-test-key.pem" ec2-user@${TestInstance.PublicDnsName}'
+         AWSTemplateFormatVersion: '2010-09-09'
+             Description: 'AWS DevOps Agent EC2 CPU Test Stack'
+             Parameters:
+               MyIP:
+                 Type: String
+                 Description: Your current IP address for SSH access (find at https://whatismyipaddress.com)
+                 Default: '0.0.0.0/0'
+             Resources:
+               # Security Group for SSH access
+               TestSecurityGroup:
+                 Type: AWS::EC2::SecurityGroup
+                 Properties:
+                   GroupName: AWS-DevOpsAgent-test-sg
+                   GroupDescription: AWS DevOps Agent beta testing security group
+                   SecurityGroupIngress:
+                     - IpProtocol: tcp
+                       FromPort: 22
+                       ToPort: 22
+                       CidrIp: !Ref MyIP
+                       Description: SSH access from your IP
+                   Tags:
+                     - Key: Name
+                       Value: AWS-DevOpsAgent-Test-SG
+                     - Key: Purpose
+                       Value: AWS-DevOpsAgent-Testing
+               # Key Pair for SSH access
+               TestKeyPair:
+                 Type: AWS::EC2::KeyPair
+                 Properties:
+                   KeyName: AWS-DevOpsAgent-test-key
+                   KeyType: rsa
+                   Tags:
+                     - Key: Name
+                       Value: AWS-DevOpsAgent-Test-Key
+                     - Key: Purpose
+                       Value: AWS-DevOpsAgent-Testing
+               # EC2 Instance for CPU testing
+               TestInstance:
+                 Type: AWS::EC2::Instance
+                 Properties:
+                   InstanceType: t3.micro
+                   ImageId: '{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64}}'
+                   KeyName: !Ref TestKeyPair
+                   SecurityGroupIds:
+                     - !Ref TestSecurityGroup
+                   UserData:
+                     Fn::Base64: !Sub |
+                       #!/bin/bash
+                       yum update -y
+                       yum install -y htop
+
+                       # Create the CPU stress test script
+                       cat > /home/ec2-user/cpu-stress-test.sh << 'EOF'
+                       #!/bin/bash
+                       echo "Starting AWS DevOpsAgent CPU Stress Test"
+                       echo "Time: $(date)"
+                       echo "Instance: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)"
+                       echo ""
+
+                       # Get number of CPU cores
+                       CORES=$(nproc)
+                       echo "CPU Cores: $CORES"
+                       echo ""
+
+                       echo "Starting stress test (5 minutes)..."
+                       echo "This will generate >70% CPU usage to trigger CloudWatch alarm"
+                       echo ""
+
+                       # Create CPU load using yes command
+                       echo "Starting CPU load processes..."
+                       for i in $(seq 1 $CORES); do
+                           (yes > /dev/null) &
+                           CPU_PID=$!
+                           echo "Started CPU load process $i (PID: $CPU_PID)"
+                           echo $CPU_PID >> /tmp/cpu_test_pids
+                       done
+
+                       # Auto-cleanup after 5 minutes
+                       (sleep 300 && echo "Stopping CPU load processes..." && kill $(cat /tmp/cpu_test_pids 2>/dev/null) 2>/dev/null && rm -f /tmp/cpu_test_pids) &
+
+                       echo ""
+                       echo "CPU load processes started for 5 minutes"
+                       echo "Check CloudWatch for alarm trigger in 3-5 minutes"
+                       EOF
+
+                       chmod +x /home/ec2-user/cpu-stress-test.sh
+                       chown ec2-user:ec2-user /home/ec2-user/cpu-stress-test.sh
+
+                       # Create auto-shutdown script (safety mechanism)
+                       cat > /home/ec2-user/auto-shutdown.sh << 'SHUTDOWN_EOF'
+                       #!/bin/bash
+                       echo "Auto-shutdown scheduled for 2 hours from now: $(date)"
+                       sleep 7200
+                       echo "Auto-shutdown executing at: $(date)"
+                       sudo shutdown -h now
+                       SHUTDOWN_EOF
+
+                       chmod +x /home/ec2-user/auto-shutdown.sh
+                       nohup /home/ec2-user/auto-shutdown.sh > /home/ec2-user/auto-shutdown.log 2>&1 &
+
+                       echo "AWS DevOpsAgent test setup completed at $(date)" > /home/ec2-user/setup-complete.txt
+                   Tags:
+                     - Key: Name
+                       Value: AWS-DevOpsAgent-Test-Instance
+                     - Key: Purpose
+                       Value: AWS-DevOpsAgent-Testing
+               # CloudWatch Alarm for CPU utilization
+               CPUAlarm:
+                 Type: AWS::CloudWatch::Alarm
+                 Properties:
+                   AlarmName: AWS-DevOpsAgent-EC2-CPU-Test
+                   AlarmDescription: AWS-DevOpsAgent beta test - EC2 CPU utilization alarm
+                   MetricName: CPUUtilization
+                   Namespace: AWS/EC2
+                   Statistic: Average
+                   Period: 60
+                   EvaluationPeriods: 1
+                   Threshold: 70
+                   ComparisonOperator: GreaterThanThreshold
+                   Dimensions:
+                     - Name: InstanceId
+                       Value: !Ref TestInstance
+                   TreatMissingData: notBreaching
+             Outputs:
+               InstanceId:
+                 Description: EC2 Instance ID for testing
+                 Value: !Ref TestInstance
+
+               SecurityGroupId:
+                 Description: Security Group ID
+                 Value: !Ref TestSecurityGroup
+
+               AlarmName:
+                 Description: CloudWatch Alarm Name
+                 Value: !Ref CPUAlarm
+
+               SSHCommand:
+                 Description: SSH command to connect to instance
+                 Value: !Sub 'ssh -i "AWS-DevOpsAgent-test-key.pem" ec2-user@${TestInstance.PublicDnsName}'
          ```
 
       ```
@@ -284,99 +284,99 @@ Skip this step if you just want to run the automated test
    1. Create a new local file called`AWS-DevOpsAgent-lambda-test.yaml`
    2. Copy and paste this CloudFormation template into the file:
       1. ```
-          AWSTemplateFormatVersion: '2010-09-09'
-              Description: 'AWS DevOpsAgent Lambda Error Test Stack'
-              Resources:
-                # IAM Role for Lambda function
-                LambdaExecutionRole:
-                  Type: AWS::IAM::Role
-                  Properties:
-                    RoleName: AWS-DevOpsAgentLambdaTestRole
-                    AssumeRolePolicyDocument:
-                      Version: '2012-10-17'
-                      Statement:
-                        - Effect: Allow
-                          Principal:
-                            Service: lambda.amazonaws.com
-                          Action: sts:AssumeRole
-                    ManagedPolicyArns:
-                      - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-                    Tags:
-                      - Key: Name
-                        Value: AWS-DevOpsAgent-Lambda-Test-Role
-                      - Key: Purpose
-                        Value: AWS-DevOpsAgent-Testing
-                # Lambda function that generates errors
-                TestLambdaFunction:
-                  Type: AWS::Lambda::Function
-                  Properties:
-                    FunctionName: AWS-DevOpsAgent-test-lambda
-                    Runtime: python3.12
-                    Handler: index.lambda_handler
-                    Role: !GetAtt LambdaExecutionRole.Arn
-                    Code:
-                      ZipFile: |
-                        import json
-                        import random
-                        import time
-                        from datetime import datetime
-                        def lambda_handler(event, context):
-                            print(f"AWS DevOpsAgent Test Lambda - {datetime.now()}")
-                            print(f"Event: {json.dumps(event)}")
-                            
-                            # Intentionally generate errors for testing
-                            error_scenarios = [
-                                "Simulated database connection timeout",
-                                "Test API rate limit exceeded",
-                                "Intentional validation error for AWS DevOpsAgent testing"
-                            ]
-                            
-                            # Always throw an error for testing purposes
-                            error_message = random.choice(error_scenarios)
-                            print(f"Generating test error: {error_message}")
-                            
-                            # This will create a Lambda error that CloudWatch will detect
-                            raise Exception(f"AWS DevOpsAgent Test Error: {error_message}")
-                    Description: AWS DevOpsAgent beta test function - intentionally generates errors
-                    Timeout: 30
-                    Tags:
-                      - Key: Name
-                        Value: AWS-DevOpsAgent-Test-Lambda
-                      - Key: Purpose
-                        Value: AWS-DevOpsAgent-Testing
-                # CloudWatch Alarm for Lambda errors
-                LambdaErrorAlarm:
-                  Type: AWS::CloudWatch::Alarm
-                  Properties:
-                    AlarmName: AWS-DevOpsAgent-Lambda-Error-Test
-                    AlarmDescription: AWS-DevOpsAgent beta test - Lambda error rate alarm
-                    MetricName: Errors
-                    Namespace: AWS/Lambda
-                    Statistic: Sum
-                    Period: 60
-                    EvaluationPeriods: 1
-                    Threshold: 0
-                    ComparisonOperator: GreaterThanThreshold
-                    Dimensions:
-                      - Name: FunctionName
-                        Value: !Ref TestLambdaFunction
-                    TreatMissingData: notBreaching
-              Outputs:
-                LambdaFunctionName:
-                  Description: Lambda Function Name for testing
-                  Value: !Ref TestLambdaFunction
-                  
-                LambdaFunctionArn:
-                  Description: Lambda Function ARN
-                  Value: !GetAtt TestLambdaFunction.Arn
-                  
-                AlarmName:
-                  Description: CloudWatch Alarm Name
-                  Value: !Ref LambdaErrorAlarm
-                  
-                TestCommand:
-                  Description: AWS CLI command to test the function
-                  Value: !Sub 'aws lambda invoke --function-name ${TestLambdaFunction} --payload "{\"test\":\"AWS DevOpsAgent validation\"}" response.json'
+         AWSTemplateFormatVersion: '2010-09-09'
+             Description: 'AWS DevOpsAgent Lambda Error Test Stack'
+             Resources:
+               # IAM Role for Lambda function
+               LambdaExecutionRole:
+                 Type: AWS::IAM::Role
+                 Properties:
+                   RoleName: AWS-DevOpsAgentLambdaTestRole
+                   AssumeRolePolicyDocument:
+                     Version: '2012-10-17'
+                     Statement:
+                       - Effect: Allow
+                         Principal:
+                           Service: lambda.amazonaws.com
+                         Action: sts:AssumeRole
+                   ManagedPolicyArns:
+                     - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+                   Tags:
+                     - Key: Name
+                       Value: AWS-DevOpsAgent-Lambda-Test-Role
+                     - Key: Purpose
+                       Value: AWS-DevOpsAgent-Testing
+               # Lambda function that generates errors
+               TestLambdaFunction:
+                 Type: AWS::Lambda::Function
+                 Properties:
+                   FunctionName: AWS-DevOpsAgent-test-lambda
+                   Runtime: python3.12
+                   Handler: index.lambda_handler
+                   Role: !GetAtt LambdaExecutionRole.Arn
+                   Code:
+                     ZipFile: |
+                       import json
+                       import random
+                       import time
+                       from datetime import datetime
+                       def lambda_handler(event, context):
+                           print(f"AWS DevOpsAgent Test Lambda - {datetime.now()}")
+                           print(f"Event: {json.dumps(event)}")
+
+                           # Intentionally generate errors for testing
+                           error_scenarios = [
+                               "Simulated database connection timeout",
+                               "Test API rate limit exceeded",
+                               "Intentional validation error for AWS DevOpsAgent testing"
+                           ]
+
+                           # Always throw an error for testing purposes
+                           error_message = random.choice(error_scenarios)
+                           print(f"Generating test error: {error_message}")
+
+                           # This will create a Lambda error that CloudWatch will detect
+                           raise Exception(f"AWS DevOpsAgent Test Error: {error_message}")
+                   Description: AWS DevOpsAgent beta test function - intentionally generates errors
+                   Timeout: 30
+                   Tags:
+                     - Key: Name
+                       Value: AWS-DevOpsAgent-Test-Lambda
+                     - Key: Purpose
+                       Value: AWS-DevOpsAgent-Testing
+               # CloudWatch Alarm for Lambda errors
+               LambdaErrorAlarm:
+                 Type: AWS::CloudWatch::Alarm
+                 Properties:
+                   AlarmName: AWS-DevOpsAgent-Lambda-Error-Test
+                   AlarmDescription: AWS-DevOpsAgent beta test - Lambda error rate alarm
+                   MetricName: Errors
+                   Namespace: AWS/Lambda
+                   Statistic: Sum
+                   Period: 60
+                   EvaluationPeriods: 1
+                   Threshold: 0
+                   ComparisonOperator: GreaterThanThreshold
+                   Dimensions:
+                     - Name: FunctionName
+                       Value: !Ref TestLambdaFunction
+                   TreatMissingData: notBreaching
+             Outputs:
+               LambdaFunctionName:
+                 Description: Lambda Function Name for testing
+                 Value: !Ref TestLambdaFunction
+
+               LambdaFunctionArn:
+                 Description: Lambda Function ARN
+                 Value: !GetAtt TestLambdaFunction.Arn
+
+               AlarmName:
+                 Description: CloudWatch Alarm Name
+                 Value: !Ref LambdaErrorAlarm
+
+               TestCommand:
+                 Description: AWS CLI command to test the function
+                 Value: !Sub 'aws lambda invoke --function-name ${TestLambdaFunction} --payload "{\"test\":\"AWS DevOpsAgent validation\"}" response.json'
          ```
 
       ```
@@ -415,10 +415,10 @@ Skip this step if you just want to run the automated test
    3. **Event name**:`AWS-DevOpsAgent-test-event`
    4. Use this JSON payload:
       1. ```
-          {
-              "test": "AWS DevOpsAgent validation",
-              "timestamp": "2024-01-01T00:00:00Z"
-              }
+         {
+             "test": "AWS DevOpsAgent validation",
+             "timestamp": "2024-01-01T00:00:00Z"
+             }
          ```
 
       ```

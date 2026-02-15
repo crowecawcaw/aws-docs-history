@@ -73,14 +73,14 @@ This policy grants full access to all AWS DevOps Agent features:
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "aidevops:*",
-      "Resource": "*"
-    }
-  ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "aidevops:*",
+      "Resource": "*"
+    }
+  ]
 }
 ```
 
@@ -90,38 +90,38 @@ This policy grants access to investigation and prevention features without admin
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "aidevops:GetAgentSpace",
-        "aidevops:InvokeAgent",
-        "aidevops:ListExecutions",
-        "aidevops:ListJournalRecords",
-        "aidevops:ListAssociations",
-        "aidevops:GetAssociation",
-        "aidevops:DiscoverTopology",
-        "aidevops:ListRecommendations",
-        "aidevops:GetRecommendation",
-        "aidevops:CreateBacklogTask",
-        "aidevops:UpdateBacklogTask",
-        "aidevops:GetBacklogTask",
-        "aidevops:ListBacklogTasks",
-        "aidevops:ListKnowledgeItems",
-        "aidevops:GetKnowledgeItem",
-        "aidevops:InitiateChatForCase",
-        "aidevops:EndChatForCase",
-        "aidevops:SendChatMessage",
-        "aidevops:ListGoals",
-        "aidevops:CreteKnowledgeItem",
-        "aidevops:UpdateKnowledgelItem",
-        "aidevops:DescribeSupportLevel",
-        "aidevops:ListPendingMessages"
-      ],
-      "Resource": "*"
-    }
-  ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aidevops:GetAgentSpace",
+        "aidevops:InvokeAgent",
+        "aidevops:ListExecutions",
+        "aidevops:ListJournalRecords",
+        "aidevops:ListAssociations",
+        "aidevops:GetAssociation",
+        "aidevops:DiscoverTopology",
+        "aidevops:ListRecommendations",
+        "aidevops:GetRecommendation",
+        "aidevops:CreateBacklogTask",
+        "aidevops:UpdateBacklogTask",
+        "aidevops:GetBacklogTask",
+        "aidevops:ListBacklogTasks",
+        "aidevops:ListKnowledgeItems",
+        "aidevops:GetKnowledgeItem",
+        "aidevops:InitiateChatForCase",
+        "aidevops:EndChatForCase",
+        "aidevops:SendChatMessage",
+        "aidevops:ListGoals",
+        "aidevops:CreteKnowledgeItem",
+        "aidevops:UpdateKnowledgelItem",
+        "aidevops:DescribeSupportLevel",
+        "aidevops:ListPendingMessages"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 ```
 
@@ -131,26 +131,26 @@ This policy grants view-only access to investigations and recommendations:
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "aidevops:GetAgentSpace",
-        "aidevops:ListAssociations",
-        "aidevops:GetAssociation",
-        "aidevops:ListExecutions",
-        "aidevops:ListJournalRecords",
-        "aidevops:ListRecommendations",
-        "aidevops:GetRecommendation",
-        "aidevops:ListBacklogTasks",
-        "aidevops:GetBacklogTask",
-        "aidevops:ListKnowledgeItems",
-        "aidevops:GetKnowledgeItem",
-        "aidevops:GetAccountUsage"
-      ],
-      "Resource": "*"
-    }
-  ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aidevops:GetAgentSpace",
+        "aidevops:ListAssociations",
+        "aidevops:GetAssociation",
+        "aidevops:ListExecutions",
+        "aidevops:ListJournalRecords",
+        "aidevops:ListRecommendations",
+        "aidevops:GetRecommendation",
+        "aidevops:ListBacklogTasks",
+        "aidevops:GetBacklogTask",
+        "aidevops:ListKnowledgeItems",
+        "aidevops:GetKnowledgeItem",
+        "aidevops:GetAccountUsage"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 ```

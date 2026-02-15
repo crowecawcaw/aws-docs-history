@@ -42,23 +42,23 @@ Example policy restricting to specific services:
 json
 
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "cloudwatch:GetMetricData",
-        "cloudwatch:GetMetricStatistics",
-        "cloudwatch:DescribeAlarms",
-        "logs:GetLogEvents",
-        "logs:FilterLogEvents",
-        "ec2:DescribeInstances",
-        "lambda:GetFunction",
-        "lambda:GetFunctionConfiguration"
-      ],
-      "Resource": "*"
-    }
-  ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:GetMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:DescribeAlarms",
+        "logs:GetLogEvents",
+        "logs:FilterLogEvents",
+        "ec2:DescribeInstances",
+        "lambda:GetFunction",
+        "lambda:GetFunctionConfiguration"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 ```
 
@@ -70,17 +70,17 @@ To limit the agent to specific resources within a service, use resource-level pe
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "lambda:GetFunction",
-        "lambda:GetFunctionConfiguration"
-      ],
-      "Resource": "arn:aws:lambda:*:*:function:production-*"
-    }
-  ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "lambda:GetFunction",
+        "lambda:GetFunctionConfiguration"
+      ],
+      "Resource": "arn:aws:lambda:*:*:function:production-*"
+    }
+  ]
 }
 ```
 
@@ -90,22 +90,22 @@ This example limits the agent to accessing only Lambda functions with names that
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ec2:DescribeInstances",
-        "ec2:DescribeInstanceStatus"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "aws:ResourceTag/Environment": "production"
-        }
-      }
-    }
-  ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceStatus"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/Environment": "production"
+        }
+      }
+    }
+  ]
 }
 ```
 
@@ -117,26 +117,26 @@ To limit which AWS regions the agent can access, use the `aws:RequestedRegion` c
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ec2:Describe*",
-        "lambda:Get*",
-        "cloudwatch:Get*"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "aws:RequestedRegion": [
-            "us-east-1",
-            "us-west-2"
-          ]
-        }
-      }
-    }
-  ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Describe*",
+        "lambda:Get*",
+        "cloudwatch:Get*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": [
+            "us-east-1",
+            "us-west-2"
+          ]
+        }
+      }
+    }
+  ]
 }
 ```
 

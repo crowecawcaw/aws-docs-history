@@ -120,15 +120,15 @@ Verify your setup using the AWS CLI:
 ```
 # Get details of your AgentSpace (replace <AGENT_SPACE_ID> with the output value)
 aws devopsagent get-agent-space \
-  --agent-space-id <AGENT_SPACE_ID> \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --agent-space-id <AGENT_SPACE_ID> \
+  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
+  --region us-east-1
 
 # List associations
 aws devopsagent list-associations \
-  --agent-space-id <AGENT_SPACE_ID> \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --agent-space-id <AGENT_SPACE_ID> \
+  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
+  --region us-east-1
 
 ```
 
@@ -154,9 +154,9 @@ To add custom permissions to the agent space role, modify the inline policy in t
 
 ```
 agentSpaceRole.addToPolicy(new PolicyStatement({
-  effect: Effect.ALLOW,
-  actions: ['your-custom-action:*'],
-  resources: ['*']
+  effect: Effect.ALLOW,
+  actions: ['your-custom-action:*'],
+  resources: ['*']
 }));
 
 ```
@@ -167,8 +167,8 @@ To create multiple agent spaces, instantiate additional `AgentSpace` constructs 
 
 ```
 const secondAgentSpace = new CfnAgentSpace(this, 'SecondAgentSpace', {
-  name: 'SecondAgentSpace',
-  description: 'Second agent space for different environment'
+  name: 'SecondAgentSpace',
+  description: 'Second agent space for different environment'
 });
 
 ```
@@ -179,10 +179,10 @@ To deploy the stack in a different account, ensure your CDK deployment role has 
 
 ```
 new SampleAwsDevopsAgentCdkStack(app, 'SampleAwsDevopsAgentCdkStack', {
-  env: {
-    account: 'TARGET_ACCOUNT_ID',
-    region: 'us-east-1'
-  }
+  env: {
+    account: 'TARGET_ACCOUNT_ID',
+    region: 'us-east-1'
+  }
 });
 
 ```

@@ -50,134 +50,134 @@ Once you have established connectivity, you’ll need to configure a business ru
 ```
 (function executeRule(current, previous /*null when async*/ ) {
 
-    var WEBHOOK_CONFIG = {
-        webhookSecret: GlideStringUtil.base64Encode('<<< INSERT WEBHOOK SECRET HERE >>>'),
-        webhookUrl: '<<< INSERT WEBHOOK URL HERE >>>'
-    };
+    var WEBHOOK_CONFIG = {
+        webhookSecret: GlideStringUtil.base64Encode('<<< INSERT WEBHOOK SECRET HERE >>>'),
+        webhookUrl: '<<< INSERT WEBHOOK URL HERE >>>'
+    };
 
-    function generateHMACSignature(payloadString, secret) {
-        try {
-            var mac = new GlideCertificateEncryption();
-            var signature = mac.generateMac(secret, "HmacSHA256", payloadString);
-            return signature;
-        } catch (e) {
-            gs.error('HMAC generation failed: ' + e);
-            return null;
-        }
-    }
+    function generateHMACSignature(payloadString, secret) {
+        try {
+            var mac = new GlideCertificateEncryption();
+            var signature = mac.generateMac(secret, "HmacSHA256", payloadString);
+            return signature;
+        } catch (e) {
+            gs.error('HMAC generation failed: ' + e);
+            return null;
+        }
+    }
 
-    function callWebhook(payload, config) {
-        try {
-            var timestamp = new Date().toISOString();
-            var payloadString = JSON.stringify(payload);
-            var payloadWithTimestamp =`${timestamp}:${payloadString}`;
+    function callWebhook(payload, config) {
+        try {
+            var timestamp = new Date().toISOString();
+            var payloadString = JSON.stringify(payload);
+            var payloadWithTimestamp =`${timestamp}:${payloadString}`;
 
-            var signature = generateHMACSignature(payloadWithTimestamp, config.webhookSecret);
+            var signature = generateHMACSignature(payloadWithTimestamp, config.webhookSecret);
 
-            if (!signature) {
-                gs.error('Failed to generate signature');
-                return false;
-            }
+            if (!signature) {
+                gs.error('Failed to generate signature');
+                return false;
+            }
 
-            gs.info('Generated signature: ' + signature);
+            gs.info('Generated signature: ' + signature);
 
-            var request = new sn_ws.RESTMessageV2();
-            request.setEndpoint(config.webhookUrl);
-            request.setHttpMethod('POST');
+            var request = new sn_ws.RESTMessageV2();
+            request.setEndpoint(config.webhookUrl);
+            request.setHttpMethod('POST');
 
-            request.setRequestHeader('Content-Type', 'application/json');
-            request.setRequestHeader('x-amzn-event-signature', signature);
-            request.setRequestHeader('x-amzn-event-timestamp', timestamp);
+            request.setRequestHeader('Content-Type', 'application/json');
+            request.setRequestHeader('x-amzn-event-signature', signature);
+            request.setRequestHeader('x-amzn-event-timestamp', timestamp);
 
-            request.setRequestBody(payloadString);
+            request.setRequestBody(payloadString);
 
-            var response = request.execute();
-            var httpStatus = response.getStatusCode();
-            var responseBody = response.getBody();
+            var response = request.execute();
+            var httpStatus = response.getStatusCode();
+            var responseBody = response.getBody();
 
-            if (httpStatus >= 200 && httpStatus < 300) {
-                gs.info('Webhook sent successfully. Status: ' + httpStatus);
-                return true;
-            } else {
-                gs.error('Webhook failed. Status: ' + httpStatus + ', Response: ' + responseBody);
-                return false;
-            }
+            if (httpStatus >= 200 && httpStatus < 300) {
+                gs.info('Webhook sent successfully. Status: ' + httpStatus);
+                return true;
+            } else {
+                gs.error('Webhook failed. Status: ' + httpStatus + ', Response: ' + responseBody);
+                return false;
+            }
 
-        } catch (ex) {
-            gs.error('Error sending webhook: ' + ex.getMessage());
-            return false;
-        }
-    }
+        } catch (ex) {
+            gs.error('Error sending webhook: ' + ex.getMessage());
+            return false;
+        }
+    }
 
-    function createReference(field) {
-        if (!field || field.nil()) {
-            return null;
-        }
+    function createReference(field) {
+        if (!field || field.nil()) {
+            return null;
+        }
 
-        return {
-            link: field.getLink(true),
-            value: field.toString()
-        };
-    }
+        return {
+            link: field.getLink(true),
+            value: field.toString()
+        };
+    }
 
-    function getStringValue(field) {
-        if (!field || field.nil()) {
-            return null;
-        }
-        return field.toString();
-    }
+    function getStringValue(field) {
+        if (!field || field.nil()) {
+            return null;
+        }
+        return field.toString();
+    }
 
-    function getIntValue(field) {
-        if (!field || field.nil()) {
-            return null;
-        }
-        var val = parseInt(field.toString());
-        return isNaN(val) ? null : val;
-    }
+    function getIntValue(field) {
+        if (!field || field.nil()) {
+            return null;
+        }
+        var val = parseInt(field.toString());
+        return isNaN(val) ? null : val;
+    }
 
-    var eventType = (current.operation() == 'insert') ? "create" : "update";
+    var eventType = (current.operation() == 'insert') ? "create" : "update";
 
-    var incidentEvent = {
-        eventType: eventType.toString(),
-        sysId: current.sys_id.toString(),
-        priority: getStringValue(current.priority),
-        impact: getStringValue(current.impact),
-        active: getStringValue(current.active),
-        urgency: getStringValue(current.urgency),
-        description: getStringValue(current.description),
-        shortDescription: getStringValue(current.short_description),
-        parent: getStringValue(current.parent),
-        incidentState: getStringValue(current.incident_state),
-        severity: getStringValue(current.severity),
-        problem: createReference(current.problem),
-        additionalContext: {}
-    };
+    var incidentEvent = {
+        eventType: eventType.toString(),
+        sysId: current.sys_id.toString(),
+        priority: getStringValue(current.priority),
+        impact: getStringValue(current.impact),
+        active: getStringValue(current.active),
+        urgency: getStringValue(current.urgency),
+        description: getStringValue(current.description),
+        shortDescription: getStringValue(current.short_description),
+        parent: getStringValue(current.parent),
+        incidentState: getStringValue(current.incident_state),
+        severity: getStringValue(current.severity),
+        problem: createReference(current.problem),
+        additionalContext: {}
+    };
 
-    incidentEvent.additionalContext = {
-        number: current.number.toString(),
-        opened_at: getStringValue(current.opened_at),
-        opened_by: current.opened_by.nil() ? null : current.opened_by.getDisplayValue(),
-        assigned_to: current.assigned_to.nil() ? null : current.assigned_to.getDisplayValue(),
-        category: getStringValue(current.category),
-        subcategory: getStringValue(current.subcategory),
-        knowledge: getStringValue(current.knowledge),
-        made_sla: getStringValue(current.made_sla),
-        major_incident: getStringValue(current.major_incident)
-    };
+    incidentEvent.additionalContext = {
+        number: current.number.toString(),
+        opened_at: getStringValue(current.opened_at),
+        opened_by: current.opened_by.nil() ? null : current.opened_by.getDisplayValue(),
+        assigned_to: current.assigned_to.nil() ? null : current.assigned_to.getDisplayValue(),
+        category: getStringValue(current.category),
+        subcategory: getStringValue(current.subcategory),
+        knowledge: getStringValue(current.knowledge),
+        made_sla: getStringValue(current.made_sla),
+        major_incident: getStringValue(current.major_incident)
+    };
 
-    for (var key in incidentEvent.additionalContext) {
-        if (incidentEvent.additionalContext[key] === null) {
-            delete incidentEvent.additionalContext[key];
-        }
-    }
+    for (var key in incidentEvent.additionalContext) {
+        if (incidentEvent.additionalContext[key] === null) {
+            delete incidentEvent.additionalContext[key];
+        }
+    }
 
-    gs.info(JSON.stringify(incidentEvent, null, 2)); // Pretty print for logging only
+    gs.info(JSON.stringify(incidentEvent, null, 2)); // Pretty print for logging only
 
-    if (WEBHOOK_CONFIG.webhookUrl && WEBHOOK_CONFIG.webhookSecret) {
-        callWebhook(incidentEvent, WEBHOOK_CONFIG);
-    } else {
-        gs.info('Webhook not configured.');
-    }
+    if (WEBHOOK_CONFIG.webhookUrl && WEBHOOK_CONFIG.webhookSecret) {
+        callWebhook(incidentEvent, WEBHOOK_CONFIG);
+    } else {
+        gs.info('Webhook not configured.');
+    }
 
 })(current, previous);
 ```

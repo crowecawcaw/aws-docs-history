@@ -97,17 +97,17 @@ The request body should include information about the incident:
 json
 
 {
-  "title": "Incident title",
-  "severity": "high",
-  "affectedResources": ["resource-id-1", "resource-id-2"],
-  "timestamp": "2025-11-23T18:00:00Z",
-  "description": "Detailed incident description",
-  "data": {
-    "metadata": {
-        "region": "us-east-1",
-        "environment": "production"
-    }
-  }
+  "title": "Incident title",
+  "severity": "high",
+  "affectedResources": ["resource-id-1", "resource-id-2"],
+  "timestamp": "2025-11-23T18:00:00Z",
+  "description": "Detailed incident description",
+  "data": {
+    "metadata": {
+        "region": "us-east-1",
+        "environment": "production"
+    }
+  }
 }
 ```
 
@@ -123,21 +123,21 @@ const webhookUrl = 'https://your-webhook-endpoint.amazonaws.com/invoke';
 const webhookSecret = 'your-webhook-secret-key';
 
 // Incident data
-const incidentData = {  
-    eventType: 'incident',
-    incidentId: 'incident-123',
-    action: 'created',
-    priority: "HIGH",
-    title: 'High CPU usage on production server',
-    description: 'High CPU usage on production server host ABC in AWS account 1234 region us-east-1',
-    timestamp: new Date().toISOString(),
-    service: 'MyTestService',
-    data: {
-      metadata: {
-        region: 'us-east-1',
-        environment: 'production'
-      }
-    }
+const incidentData = {
+    eventType: 'incident',
+    incidentId: 'incident-123',
+    action: 'created',
+    priority: "HIGH",
+    title: 'High CPU usage on production server',
+    description: 'High CPU usage on production server host ABC in AWS account 1234 region us-east-1',
+    timestamp: new Date().toISOString(),
+    service: 'MyTestService',
+    data: {
+      metadata: {
+        region: 'us-east-1',
+        environment: 'production'
+      }
+    }
 };
 
 // Convert data to JSON string
@@ -149,23 +149,23 @@ const signature = hmac.digest("base64");
 
 // Send the request
 fetch(webhookUrl, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'x-amzn-event-timestamp': timestamp,
-    'x-amzn-event-signature': signature
-  },
-  body: payload
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'x-amzn-event-timestamp': timestamp,
+    'x-amzn-event-signature': signature
+  },
+  body: payload
 })
 .then(res => {
-  console.log(`Status Code: ${res.status}`);
-  return res.text();
+  console.log(`Status Code: ${res.status}`);
+  return res.text();
 })
 .then(data => {
-  console.log('Response:', data);
+  console.log('Response:', data);
 })
 .catch(error => {
-  console.error('Error:', error);
+  console.error('Error:', error);
 });
 ```
 
@@ -211,29 +211,29 @@ curl -X POST "$WEBHOOK_URL" \
 
 ```
 function sendEventToWebhook(webhookUrl, secret) {
-  const timestamp = new Date().toISOString();
-  
-  const payload = {
-    eventType: 'incident',
-    incidentId: 'incident-123',
-    action: 'created',
-    priority: "HIGH",
-    title: 'Test Alert',
-    description: 'Test description',
-    timestamp: timestamp,
-    service: 'TestService',
-    data: {}
-  };
+  const timestamp = new Date().toISOString();
 
-  fetch(webhookUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-amzn-event-timestamp": timestamp,
-      "Authorization": `Bearer ${secret}`,  // Fixed: template literal
-    },
-    body: JSON.stringify(payload),
-  });
+  const payload = {
+    eventType: 'incident',
+    incidentId: 'incident-123',
+    action: 'created',
+    priority: "HIGH",
+    title: 'Test Alert',
+    description: 'Test description',
+    timestamp: timestamp,
+    service: 'TestService',
+    data: {}
+  };
+
+  fetch(webhookUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-amzn-event-timestamp": timestamp,
+      "Authorization": `Bearer ${secret}`,  // Fixed: template literal
+    },
+    body: JSON.stringify(payload),
+  });
 }
 ```
 

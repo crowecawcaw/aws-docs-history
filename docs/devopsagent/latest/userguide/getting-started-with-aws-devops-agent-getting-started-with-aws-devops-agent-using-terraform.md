@@ -71,7 +71,7 @@ agent_space_name = "MyCompanyAgentSpace"
 agent_space_description = "DevOps monitoring for production workloads"
 enable_operator_app = true
 auth_flow = "iam"
-# external_account_ids = ["123456789012"]  # Optional: for cross-account monitoring
+# external_account_ids = ["123456789012"]  # Optional: for cross-account monitoring
 
 ```
 
@@ -176,8 +176,8 @@ After deployment, verify your setup using the AWS CLI:
 
 ```
 aws devopsagent list-agent-spaces \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
+  --region us-east-1
 
 ```
 
@@ -185,9 +185,9 @@ aws devopsagent list-agent-spaces \
 
 ```
 aws devopsagent get-agent-space \
-  --agent-space-id <AGENT_SPACE_ID> \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --agent-space-id <AGENT_SPACE_ID> \
+  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
+  --region us-east-1
 
 ```
 
@@ -195,9 +195,9 @@ aws devopsagent get-agent-space \
 
 ```
 aws devopsagent list-associations \
-  --agent-space-id <AGENT_SPACE_ID> \
-  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
-  --region us-east-1
+  --agent-space-id <AGENT_SPACE_ID> \
+  --endpoint-url "https://api.prod.cp.aidevops.us-east-1.api.aws" \
+  --region us-east-1
 
 ```
 
