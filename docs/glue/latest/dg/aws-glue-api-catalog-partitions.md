@@ -711,6 +711,8 @@ to be compatible with the catalog partitions.
 
 _Sample API Call_:
 
+###### Example
+
 The table `twitter_partition` has three partitions:
 
 ```
@@ -719,6 +721,8 @@ year = 2015
         year = 2017
 ```
 
+###### Example
+
 Get partition `year` equal to 2015
 
 ```
@@ -726,12 +730,16 @@ aws glue get-partitions --database-name *dbname* --table-name twitter_partition
         --expression "year*=*'2015'"
 ```
 
+###### Example
+
 Get partition `year` between 2016 and 2018 (exclusive)
 
 ```
 aws glue get-partitions --database-name *dbname* --table-name twitter_partition
         --expression "year>'2016' AND year<'2018'"
 ```
+
+###### Example
 
 Get partition `year` between 2015 and 2018 (inclusive).
 The following API calls are equivalent to each other:
@@ -746,6 +754,8 @@ aws glue get-partitions --database-name *dbname* --table-name twitter_partition
         aws glue get-partitions --database-name *dbname* --table-name twitter_partition
         --expression "year IN (2015,2016,2017,2018)"
 ```
+
+###### Example
 
 A wildcard partition filter, where the following call output is partition
 year=2017. A regular expression is not supported in `LIKE`.

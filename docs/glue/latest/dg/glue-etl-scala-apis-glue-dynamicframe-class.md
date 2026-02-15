@@ -342,6 +342,8 @@ The returned `DynamicFrame` contains record A in the following cases:
 
 The source frame and staging frame do not need to have the same schema.
 
+###### Example
+
 ```
 val mergedFrame: DynamicFrame = srcFrame.mergeDynamicFrames(stageFrame, Seq("id1", "id2"))
 ```

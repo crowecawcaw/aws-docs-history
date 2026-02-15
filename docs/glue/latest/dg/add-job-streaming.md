@@ -280,6 +280,8 @@ AWS CLI)
 
 Or, specify the `streamARN`.
 
+###### Example
+
 ```
 "StorageDescriptor": {
 	"Parameters": {
@@ -437,6 +439,8 @@ Express `grokCustomPatterns` as a string and use "\n" as the
 separator between patterns.
 
 The following is an example of specifying these parameters.
+
+###### Example
 
 ```
 "parameters": {

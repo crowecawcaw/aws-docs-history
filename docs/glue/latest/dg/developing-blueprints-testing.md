@@ -56,6 +56,9 @@ For more information about `to_json()` and `validate()`, see
 You can also import `pprint` and pretty-print the workflow object, as shown
 in the example later in this section. 4. Run the code, fix errors, and finally remove any calls to `validate()` or
 `to_json()`.
+
+###### Example
+
 The following example shows how to construct a dictionary of sample blueprint
 parameters and pass it in as the `user_params` argument to layout function
 `generate_compaction_workflow`. It also shows how to pretty-print the generated

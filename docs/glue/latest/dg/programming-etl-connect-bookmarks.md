@@ -62,6 +62,8 @@ information about PySpark extensions, see [AWS Glue PySpark extensions reference
 
 ## Examples
 
+###### Example
+
 The following is an example of a generated script for an Amazon S3 data source. The portions
 of the script that are required for using job bookmarks are shown in italics. For
 more information about these elements see the [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md "aws-glue-api-crawler-pyspark-extensions-glue-context.md") API, and the [DynamicFrameWriter class](aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer.md "aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer.md") API.
@@ -103,6 +105,8 @@ datasink2 = glueContext.write_dynamic_frame.from_options(
 
 *job.commit()*
 ```
+
+###### Example
 
 The following is an example of a generated script for a JDBC source. The source table is
 an employee table with the `empno` column as the primary key. Although by default

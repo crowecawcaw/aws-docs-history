@@ -1,5 +1,7 @@
 # Scala script example - streaming ETL
 
+###### Example
+
 The following example script connects to Amazon Kinesis Data Streams, uses a schema from the Data Catalog to
 parse a data stream, joins the stream to a static dataset on Amazon S3, and outputs the joined
 results to Amazon S3 in parquet format.

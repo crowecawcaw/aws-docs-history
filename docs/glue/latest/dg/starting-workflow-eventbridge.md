@@ -134,6 +134,8 @@ For the `event-batching-condition` argument, `BatchSize` is
 required and `BatchWindow` is optional. If `BatchWindow` is omitted,
 the window defaults to 900 seconds, which is the maximum window size.
 
+###### Example
+
 The following example creates a trigger that starts the `eventtest`
 workflow after three EventBridge events have arrived, or five minutes after the first event
 arrives, whichever comes first.

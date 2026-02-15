@@ -485,6 +485,8 @@ Knowledge Center.
 
 - `transformation_ctx` – The transformation context to use (optional). Used in the manifest file path.
 
+###### Example
+
 ```
 glueContext.purge_table("database", "table", {"partitionPredicate": "(month=='march')", "retentionPeriod": 1, "excludeStorageClasses": ["STANDARD_IA"], "manifestFilePath": "s3://bucketmanifest/"})
 ```
@@ -517,6 +519,8 @@ the Support Knowledge Center.
     failed in `Failed.csv`
 
 - `transformation_ctx` – The transformation context to use (optional). Used in the manifest file path.
+
+###### Example
 
 ```
 glueContext.purge_s3_path("s3://bucket/path/", {"retentionPeriod": 1, "excludeStorageClasses": ["STANDARD_IA"], "manifestFilePath": "s3://bucketmanifest/"})
@@ -554,6 +558,8 @@ Classes](aws-glue-programming-etl-storage-classes.md "aws-glue-programming-etl-s
 - `transformation_ctx` – The transformation context to use (optional). Used in the manifest file path.
 - `catalog_id` – The catalog ID of the Data Catalog being accessed (the account ID of the Data Catalog). Set to `None` by default. `None` defaults to the catalog ID of the calling account in the service.
 
+###### Example
+
 ```
 glueContext.transition_table("database", "table", "STANDARD_IA", {"retentionPeriod": 1, "excludeStorageClasses": ["STANDARD_IA"], "manifestFilePath": "s3://bucketmanifest/", "accountId": "12345678901", "roleArn": "arn:aws:iam::123456789012:user/example-username"})
 ```
@@ -588,6 +594,8 @@ Classes](aws-glue-programming-etl-storage-classes.md "aws-glue-programming-etl-s
   - `roleArn` – The AWS role to run the transition transform. Mandatory for this transform.
 
 - `transformation_ctx` – The transformation context to use (optional). Used in the manifest file path.
+
+###### Example
 
 ```
 glueContext.transition_s3_path("s3://bucket/prefix/", "STANDARD_IA", {"retentionPeriod": 1, "excludeStorageClasses": ["STANDARD_IA"], "manifestFilePath": "s3://bucketmanifest/", "accountId": "12345678901", "roleArn": "arn:aws:iam::123456789012:user/example-username"})
