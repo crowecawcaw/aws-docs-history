@@ -24,9 +24,20 @@ This version of Aurora PostgreSQL Limitless Database is compatible with PostgreS
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL Limitless Database 16.9.103, February 11, 2026](#16.9.103 "#16.9.103")
 - [Aurora PostgreSQL Limitless Database 16.9.102, November 21, 2025](#16.9.102 "#16.9.102")
 - [Aurora PostgreSQL Limitless Database 16.9.101, November 6, 2025](#16.9.101 "#16.9.101")
 - [Aurora PostgreSQL Limitless Database 16.9.100, September 5, 2025](#16.9.100 "#16.9.100")
+
+### Aurora PostgreSQL Limitless Database 16.9.103, February 11, 2026
+
+**Enhancements**
+
+- Enhanced `EXPLAIN` output for `INSERT INTO` with `SELECT`.
+
+**Bug fixes**
+
+- Fixed an issue where `SELECT` statements did not return when sharded table attribute was referenced in a function and joined.
 
 ### Aurora PostgreSQL Limitless Database 16.9.102, November 21, 2025
 
