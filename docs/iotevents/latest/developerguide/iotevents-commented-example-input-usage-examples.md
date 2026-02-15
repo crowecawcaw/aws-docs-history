@@ -46,6 +46,8 @@ Response:
 }
 ```
 
+###### Example
+
 2
 
 Use the `BatchPutMessage` operation to send a

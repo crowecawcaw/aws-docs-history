@@ -276,6 +276,8 @@ You might experience this error for the following reasons:
 
 The data ingestion from other services will also experience failure.
 
+###### Example
+
 For example in AWS IoT Core, the AWS IoT rule will fail with the following message `Verify the Input Attribute key.`
 
 To resolve this, ensure that the input payload message schema conforms to
