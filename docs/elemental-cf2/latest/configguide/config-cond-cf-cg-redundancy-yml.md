@@ -29,6 +29,8 @@ latest version. For prior versions, see the _Archive_ section of
    - `virtual_ip_interface`: You identified this interface when getting ready
      in Step A.
 
+###### Example
+
 ```
 primary_hostname: 'cl_primary'
 primary_ip: '10.4.138.230'
