@@ -595,7 +595,7 @@ This list includes the default install only packages, specified in the
 `yum.conf` man page, and the `kmod-lustre-client`
 package.
 
-## Ubuntu
+## Ubuntu with Default Page Size (4KB)
 
 You can get Lustre packages from the Amazon FSx Ubuntu repository. To validate that
 the contents of the repository have not been tampered with before or during download,
@@ -706,6 +706,68 @@ sudo reboot
 ```
 sudo apt-get install -y lustre-client-modules-$(uname -r)
 ```
+
+## Ubuntu with 64KB Page Size
+
+You can get Lustre packages from the Amazon FSx Ubuntu repository. To validate that the contents of the repository have
+not been tampered with before or during download, a GNU Privacy Guard (GPG) signature is applied to the metadata of the repository.
+Installing the repository fails unless you have the correct public GPG key installed on your system.
+
+1. Open a terminal on your client.
+2. Verify that your instance is using a 64KB page size. The output should be `65536`.
+
+```
+getconf PAGESIZE
+```
+
+3. Follow these steps to add the Amazon FSx Ubuntu repository:
+   1. If you have not previously registered an Amazon FSx Ubuntu repository on your client instance, download and install the required public key. Use the following command.
+
+   ```
+   wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
+   ```
+
+   2. Add the Amazon FSx package repository to your local package manager using the following command.
+
+   ```
+   sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/fsx-ubuntu-public-key.gpg] https://fsx-lustre-client-repo.s3.amazonaws.com/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/fsxlustreclientrepo.list && apt-get update'
+   ```
+
+4. Determine which kernel is currently running on your client instance, and update as needed.
+   Your Ubuntu 24 kernel version must be `6.14.0-1018-aws-64k` or later.
+   1. Run the following command to determine which kernel is running.
+
+   ```
+   uname -r
+   ```
+
+   2. Run the following command to update to the latest Ubuntu kernel and Lustre version and then reboot.
+
+   ```
+   sudo apt install -y linux-aws-64k lustre-client-modules-aws-64k && sudo reboot
+   ```
+
+   If your kernel version is greater than `6.14.0-1018-aws-64k` for the Graviton-based EC2 instances,
+   and you don’t want to update to the latest kernel version, you can install Lustre for the current kernel with the following command.
+
+   ```
+   sudo apt install -y lustre-client-modules-$(uname -r)
+   ```
+
+   The two Lustre packages that are necessary for mounting and interacting with your
+   FSx for Lustre file system are installed. You can optionally install additional related packages such as a
+   package containing the source code and packages containing tests that are included in the repository. 3. List all available packages in the repository by using the following command.
+
+   ```
+   sudo apt-cache search ^lustre
+   ```
+
+   4. (Optional) If you want your system upgrade to also always upgrade Lustre client modules, make sure that the
+      `lustre-client-modules-aws-64k` package is installed using the following command.
+
+   ```
+   sudo apt install -y lustre-client-modules-aws-64k
+   ```
 
 ## SUSE Linux
 

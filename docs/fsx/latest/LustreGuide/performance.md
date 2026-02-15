@@ -140,6 +140,8 @@ lfs df -h `mount/path`
 
 The output of this command looks like the following.
 
+###### Example
+
 ```
 UUID                             bytes       Used   Available Use% Mounted on
 `mountname`-MDT0000_UUID           68.7G       5.4M       68.7G   0% /fsx[MDT:0]

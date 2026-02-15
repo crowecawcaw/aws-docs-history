@@ -47,7 +47,7 @@ file server fails. Persistent file systems are ideal for longer-term storage and
 throughput-focused workloads. In persistent file systems, data is replicated, and file servers are replaced
 if they fail. For more information, see [Deployment and storage class options for FSx for Lustre file systems](using-fsx-lustre.md "using-fsx-lustre.md").
 
-Amazon FSx for Lustre offers solid state drive (SSD), AWS Interconnect, and hard disk drive (HDD) storage classes
+Amazon FSx for Lustre offers solid state drive (SSD), Intelligent-Tiering, and hard disk drive (HDD) storage classes
 that are optimized for different data processing requirements:
 
 - The SSD storage class is optimized for workloads that have small, random file operations and
