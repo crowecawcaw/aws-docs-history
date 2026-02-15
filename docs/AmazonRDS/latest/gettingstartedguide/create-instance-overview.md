@@ -72,6 +72,8 @@ _AWS Command Line Interface User Guide_.
 
 Then, run the following command:
 
+###### Example
+
 ```
 aws rds create-db-instance \
   --db-instance-identifier `my-db-instance` \
