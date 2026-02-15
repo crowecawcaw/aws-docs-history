@@ -233,7 +233,7 @@ user folder. See
 [using temporary security credentials with the AWS CLI](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md#using-temp-creds-sdk-cli "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md#using-temp-creds-sdk-cli")
 for more information.
 
-###### Example ~/.aws/credentials
+###### Example~/.aws/credentials
 
 ```
 [default]

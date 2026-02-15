@@ -44,7 +44,7 @@ code with a configuration file.
 You can include a configuration file in your source code to make your configuration
 portable between environments.
 
-###### Example .ebextensions/xray-daemon.config
+###### Example.ebextensions/xray-daemon.config
 
 ```
 option_settings:
@@ -73,7 +73,7 @@ Elastic Beanstalk provides tools for pulling instance logs from the AWS Manageme
 tell Elastic Beanstalk to include the X-Ray daemon logs by adding a task with a configuration
 file.
 
-###### Example .ebextensions/xray-logs.config - Linux
+###### Example.ebextensions/xray-logs.config - Linux
 
 ```
 files:
@@ -85,7 +85,7 @@ files:
       /var/log/xray/xray.log
 ```
 
-###### Example .ebextensions/xray-logs.config - Windows server
+###### Example.ebextensions/xray-logs.config - Windows server
 
 ```
 files:
@@ -110,7 +110,7 @@ from Amazon S3 and run it with a configuration file.
 
 Use an Elastic Beanstalk configuration file to download and run the daemon.
 
-###### Example .ebextensions/xray.config - Linux
+###### Example.ebextensions/xray.config - Linux
 
 ```
 commands:
@@ -139,7 +139,7 @@ files:
       Version: 2
 ```
 
-###### Example .ebextensions/xray.config - Windows server
+###### Example.ebextensions/xray.config - Windows server
 
 ```
 container_commands:

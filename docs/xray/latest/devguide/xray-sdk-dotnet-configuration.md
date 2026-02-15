@@ -26,7 +26,7 @@ For .NET web applications, add keys to the `appSettings` section of your
 For .NET Core, create a file named `appsettings.json` with a top-level key named
 `XRay`.
 
-###### Example .NET appsettings.json
+###### Example.NET appsettings.json
 
 ```
 {
@@ -40,7 +40,7 @@ For .NET Core, create a file named `appsettings.json` with a top-level key named
 Then, in your application code, build a configuration object and use it to initialize the X-Ray recorder. Do
 this before you [initialize the recorder](xray-sdk-dotnet-messagehandler.md#xray-sdk-dotnet-messagehandler-startupcs "xray-sdk-dotnet-messagehandler.md#xray-sdk-dotnet-messagehandler-startupcs").
 
-###### Example .NET Core Program.cs – Recorder configuration
+###### Example.NET Core Program.cs – Recorder configuration
 
 ```
 using Amazon.XRay.Recorder.Core;
@@ -86,7 +86,7 @@ multiple plugins apply to your application, specify all of them in the same sett
 </configuration>
 ```
 
-###### Example .NET Core appsettings.json – Plugins
+###### Example.NET Core appsettings.json – Plugins
 
 ```
 {
@@ -155,7 +155,7 @@ by Lambda. If active tracing is enabled and no tracing header is present, Lambda
 To configure backup rules, tell the X-Ray SDK for .NET to load sampling rules from a file with the
 `SamplingRuleManifest` setting.
 
-###### Example .NET Web.config - sampling rules
+###### Example.NET Web.config - sampling rules
 
 ```
 <configuration>
@@ -165,7 +165,7 @@ To configure backup rules, tell the X-Ray SDK for .NET to load sampling rules fr
 </configuration>
 ```
 
-###### Example .NET Core appsettings.json – Sampling rules
+###### Example.NET Core appsettings.json – Sampling rules
 
 ```
 {
@@ -178,14 +178,14 @@ To configure backup rules, tell the X-Ray SDK for .NET to load sampling rules fr
 To use only local rules, build the recorder with a `LocalizedSamplingStrategy`. If you have backup
 rules configured, remove that configuration.
 
-###### Example .NET global.asax – Local sampling rules
+###### Example.NET global.asax – Local sampling rules
 
 ```
 var recorder = new AWSXRayRecorderBuilder().WithSamplingStrategy(new LocalizedSamplingStrategy(`"samplingrules.json"`)).Build();
 AWSXRayRecorder.InitializeInstance(recorder: recorder);
 ```
 
-###### Example .NET Core Program.cs – Local sampling rules
+###### Example.NET Core Program.cs – Local sampling rules
 
 ```
 var recorder = new AWSXRayRecorderBuilder().WithSamplingStrategy(new LocalizedSamplingStrategy(`"sampling-rules.json"`)).Build();
@@ -226,7 +226,7 @@ method.
 For example, to use log4net, create a configuration file that defines the logger, the output format, and the
 file location.
 
-###### Example .NET Core log4net.config
+###### Example.NET Core log4net.config
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -246,7 +246,7 @@ file location.
 
 Then, create the logger and apply the configuration in your program code.
 
-###### Example .NET Core Program.cs – Logging
+###### Example.NET Core Program.cs – Logging
 
 ```
 using log4net;

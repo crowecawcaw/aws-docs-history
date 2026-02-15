@@ -123,7 +123,7 @@ parameter to `false` disables the `CollectSqlQuery` feature for the
 The value of `collectSqlQueries` in the `TraceableSqlCommand` instance overrides
 the value set in the global configuration of the `CollectSqlQueries` property.
 
-###### Example `Controller.cs` – Enable SQL Query collection for the instance
+###### Example Controller.cs – Enable SQL Query collection for the instance
 
 ```
 using Amazon;

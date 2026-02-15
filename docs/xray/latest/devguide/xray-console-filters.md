@@ -83,7 +83,7 @@ Different operators are available for different types of keyword. For example,
 `responsetime` is a number keyword and can be compared with operators related to
 numbers.
 
-###### Example – requests where response time was greater than 5 seconds
+###### Example– requests where response time was greater than 5 seconds
 
 ```
 responsetime > 5
@@ -92,7 +92,7 @@ responsetime > 5
 You can combine multiple expressions in a compound expression by using the
 `AND` or `OR` operators.
 
-###### Example – requests where the total duration was 5–8 seconds
+###### Example– requests where the total duration was 5–8 seconds
 
 ```
 duration >= 5 `AND` duration <= 8
@@ -137,31 +137,31 @@ Boolean operators find segments where the specified key is `true` or
   `true` or `false`. These operators act the same as the other
   operators but are more explicit.
 
-###### Example – response status is 2XX OK
+###### Example– response status is 2XX OK
 
 ```
 ok
 ```
 
-###### Example – response status is not 2XX OK
+###### Example– response status is not 2XX OK
 
 ```
 !ok
 ```
 
-###### Example – response status is not 2XX OK
+###### Example– response status is not 2XX OK
 
 ```
 ok = false
 ```
 
-###### Example – last enumerated fault trace has error name "deserialize"
+###### Example– last enumerated fault trace has error name "deserialize"
 
 ```
 rootcause.fault.entity { last and name = "deserialize" }
 ```
 
-###### Example – requests with remote segments where coverage is greater than 0.7 and the
+###### Example– requests with remote segments where coverage is greater than 0.7 and the
 
 service name is "traces"
 
@@ -169,7 +169,7 @@ service name is "traces"
 rootcause.responsetime.entity { remote and coverage > 0.7 and name = "traces" }
 ```
 
-###### Example – requests with inferred segments where the service type is
+###### Example– requests with inferred segments where the service type is
 
 "AWS:DynamoDB"
 
@@ -177,7 +177,7 @@ rootcause.responsetime.entity { remote and coverage > 0.7 and name = "traces" }
 rootcause.fault.service { inferred and name = traces and type = "AWS::DynamoDB" }
 ```
 
-###### Example – requests that have a segment with the name "data-plane" as the root
+###### Example– requests that have a segment with the name "data-plane" as the root
 
 ```
 service("data-plane") {root = true and fault = true}
@@ -208,19 +208,19 @@ Number keywords use standard equality and comparison operators.
 - `<`,`<=`, `>`,`>=` –
   The keyword is less than or greater than a number value.
 
-###### Example – response status is not 200 OK
+###### Example– response status is not 200 OK
 
 ```
 http.status != 200
 ```
 
-###### Example – request where the total duration was 5–8 seconds
+###### Example– request where the total duration was 5–8 seconds
 
 ```
 duration >= 5 AND duration <= 8
 ```
 
-###### Example – requests that completed successfully in less than 3 seconds, including all
+###### Example– requests that completed successfully in less than 3 seconds, including all
 
 downstream calls
 
@@ -228,13 +228,13 @@ downstream calls
 ok !partial duration <3
 ```
 
-###### Example – enumerated list entity that has an index greater than 5
+###### Example– enumerated list entity that has an index greater than 5
 
 ```
 rootcause.fault.service { index > 5 }
 ```
 
-###### Example – requests where the last entity that has coverage greater than 0.8
+###### Example– requests where the last entity that has coverage greater than 0.8
 
 ```
 rootcause.responsetime.entity { last and coverage > 0.8 }
@@ -273,7 +273,7 @@ always be specified in quotation marks.
 - `BEGINSWITH` , `ENDSWITH` – The keyword begins or ends
   with a specific string.
 
-###### Example – http.url filter
+###### Example– http.url filter
 
 ```
 http.url CONTAINS "/api/game/"
@@ -282,7 +282,7 @@ http.url CONTAINS "/api/game/"
 To test if a field exists on a trace, regardless of its value, check to see if it contains
 the empty string.
 
-###### Example – user filter
+###### Example– user filter
 
 Find all traces with user IDs.
 
@@ -290,7 +290,7 @@ Find all traces with user IDs.
 user CONTAINS ""
 ```
 
-###### Example – select traces with a fault root cause that includes a service named
+###### Example– select traces with a fault root cause that includes a service named
 
 "Auth"
 
@@ -298,7 +298,7 @@ user CONTAINS ""
 rootcause.fault.service { name = "Auth" }
 ```
 
-###### Example – select traces with a response time root cause whose last service has a type of
+###### Example– select traces with a response time root cause whose last service has a type of
 
 DynamoDB
 
@@ -306,7 +306,7 @@ DynamoDB
 rootcause.responsetime.service { last and type = "AWS::DynamoDB" }
 ```
 
-###### Example – select traces with a fault root cause whose last exception has the message
+###### Example– select traces with a fault root cause whose last exception has the message
 
 "access denied for account_id: 1234567890"
 
@@ -366,7 +366,7 @@ Complex keyword operators find segments where the specified key has been set, or
 Use the service keyword to find traces for requests that hit a certain node on your
 trace map.
 
-###### Example – Service filter
+###### Example– Service filter
 
 Requests that included a call to `api.example.com` with a fault (500 series
 error).
@@ -378,7 +378,7 @@ service("api.example.com") { fault }
 You can exclude the service name to apply a filter expression to all nodes on your service
 map.
 
-###### Example – service filter
+###### Example– service filter
 
 Requests that caused a fault anywhere on your trace map.
 
@@ -388,7 +388,7 @@ service() { fault }
 
 The edge keyword applies a filter expression to a connection between two nodes.
 
-###### Example – edge filter
+###### Example– edge filter
 
 Request where the service `api.example.com` made a call to
 `backend.example.com` that failed with an error.
@@ -400,7 +400,7 @@ edge("api.example.com", "backend.example.com") { error }
 You can also use the `!` operator with service and edge keywords to exclude a
 service or edge from the results of another filter expression.
 
-###### Example – service and request filter
+###### Example– service and request filter
 
 Request where the URL begins with `http://api.example.com/` and contains
 `/v2/` but does not reach a service named `api.example.com`.
@@ -409,7 +409,7 @@ Request where the URL begins with `http://api.example.com/` and contains
 http.url BEGINSWITH "http://api.example.com/" AND http.url CONTAINS "/v2/" AND !service("api.example.com")
 ```
 
-###### Example – service and response time filter
+###### Example– service and response time filter
 
 Find traces where `http url` is set and response time is greater than 2 seconds.
 
@@ -421,7 +421,7 @@ For annotations, you can call all traces where
 `annotation[`key`]` is set, or use the comparison
 operators that correspond to the type of value.
 
-###### Example – annotation with string value
+###### Example– annotation with string value
 
 Requests with an annotation named `gameid` with string value
 `"817DL6VO"`.
@@ -430,7 +430,7 @@ Requests with an annotation named `gameid` with string value
 annotation[gameid] = "817DL6VO"
 ```
 
-###### Example – annotation is set
+###### Example– annotation is set
 
 Requests with an annotation named `age` set.
 
@@ -438,7 +438,7 @@ Requests with an annotation named `age` set.
 annotation[age]
 ```
 
-###### Example – annotation is not set
+###### Example– annotation is not set
 
 Requests without an annotation named `age` set.
 
@@ -446,7 +446,7 @@ Requests without an annotation named `age` set.
 !annotation[age]
 ```
 
-###### Example – annotation with number value
+###### Example– annotation with number value
 
 Requests with annotation age with numerical value greater than 29.
 
@@ -454,7 +454,7 @@ Requests with annotation age with numerical value greater than 29.
 annotation[age] > 29
 ```
 
-###### Example – annotation in combination with service or edge
+###### Example– annotation in combination with service or edge
 
 ```
 service { annotation[request.id] = "917DL6VO" }
@@ -468,7 +468,7 @@ edge { source.annotation[request.id] = "916DL6VO" }
 edge { destination.annotation[request.id] = "918DL6VO" }
 ```
 
-###### Example – group with user
+###### Example– group with user
 
 Requests where traces meet the `high_response_time` group filter (e.g. `responseTime > 3`), and the user is named Alice.
 
@@ -476,7 +476,7 @@ Requests where traces meet the `high_response_time` group filter (e.g. `response
 group.name = "high_response_time" AND user = "alice"
 ```
 
-###### Example – JSON with root cause entity
+###### Example– JSON with root cause entity
 
 Requests with matching root cause entities.
 
@@ -513,7 +513,7 @@ For example, AWS Lambda functions result in two nodes in the trace map; one for 
 and one for the Lambda service. The two nodes have the same name but different types. A standard service filter
 will find traces for both.
 
-###### Example – service filter
+###### Example– service filter
 
 Requests that include an error on any service named `random-name`.
 
@@ -524,7 +524,7 @@ service("random-name") { error }
 Use the `id` function to narrow the search to errors on the function itself,
 excluding errors from the service.
 
-###### Example – service filter with id function
+###### Example– service filter with id function
 
 Requests that include an error on a service named `random-name` with type
 `AWS::Lambda::Function`.
@@ -535,7 +535,7 @@ service(id(name: "random-name", type: "AWS::Lambda::Function")) { error }
 
 To search for nodes by type, you can also exclude the name entirely.
 
-###### Example – service filter with id function and service type
+###### Example– service filter with id function and service type
 
 Requests that include an error on a service with type
 `AWS::Lambda::Function`.
@@ -546,7 +546,7 @@ service(id(type: "AWS::Lambda::Function")) { error }
 
 To search for nodes for a particular AWS account, specify an account ID.
 
-###### Example – service filter with id function and account ID
+###### Example– service filter with id function and account ID
 
 Requests that include a service within a specific account ID
 `AWS::Lambda::Function`.

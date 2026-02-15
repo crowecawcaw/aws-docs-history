@@ -189,6 +189,8 @@ The following example shows how to write a comma-separated command line option f
 option. The `RoleARN` option assumes the specified IAM role to upload segments to a different
 account.
 
+###### Example
+
 ```
 --role-arn, arn:aws:iam::`123456789012`:role/`xray-cross-account`
 ```

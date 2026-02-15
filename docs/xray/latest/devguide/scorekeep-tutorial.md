@@ -579,6 +579,8 @@ profile.
    policy allows only the actions specified, instead of the
    `AmazonDynamoDBFullAccess` policy which allows any action.
 
+###### Example
+
 JSON
 
 ```

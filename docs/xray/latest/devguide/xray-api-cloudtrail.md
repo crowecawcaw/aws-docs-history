@@ -127,6 +127,8 @@ aws cloudtrail put-event-selectors --trail-name myTrail --advanced-event-selecto
 
 The following is an example of the X-Ray GetEncryptionConfig log entry in CloudTrail.
 
+###### Example
+
 ```
 {
     "eventVersion"=>"1.05",
@@ -169,6 +171,8 @@ The following is an example of the X-Ray GetEncryptionConfig log entry in CloudT
 
 The following is an example of the X-Ray PutTraceSegments data event log
 entry in CloudTrail.
+
+###### Example
 
 ```
 {

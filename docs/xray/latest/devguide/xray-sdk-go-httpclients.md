@@ -14,6 +14,8 @@ shown in the following example, where _http-client_ is an HTTP client.
 The client creates a shallow copy of the provided HTTP client, defaulting to `http.DefaultClient`,
 with roundtripper wrapped with `xray.RoundTripper`.
 
+###### Example
+
 **main.go – HTTP client**
 
 ```

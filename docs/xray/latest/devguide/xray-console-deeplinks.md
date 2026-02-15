@@ -20,7 +20,7 @@ You can generate links for timeline, raw, and map views of individual traces.
 **Raw trace data** –
 `xray/home#/traces/`trace-id`/raw`
 
-###### Example – raw trace data
+###### Example– raw trace data
 
 ```
 https://console.aws.amazon.com/xray/home#/traces/1-57f5498f-d91047849216d0f2ea3b6442/raw
@@ -33,13 +33,13 @@ Link to a filtered list of traces.
 **Filtered traces view** –
 `xray/home#/traces?filter=`filter-expression``
 
-###### Example – filter expression
+###### Example– filter expression
 
 ```
 https://console.aws.amazon.com/xray/home#/traces?filter=service("api.amazon.com") { fault = true OR responsetime > 2.5 } AND annotation.foo = "bar"
 ```
 
-###### Example – filter expression (URL encoded)
+###### Example– filter expression (URL encoded)
 
 ```
 https://console.aws.amazon.com/xray/home#/traces?filter=service(%22api.amazon.com%22)%20%7B%20fault%20%3D%20true%20OR%20responsetime%20%3E%202.5%20%7D%20AND%20annotation.foo%20%3D%20%22bar%22
@@ -55,7 +55,7 @@ and can be up to 6 hours long.
 **Length of time** –
 `xray/home#/`page`?timeRange=`range-in-minutes``
 
-###### Example – trace map for the last hour
+###### Example– trace map for the last hour
 
 ```
 https://console.aws.amazon.com/xray/home#/service-map?timeRange=PT1H
@@ -64,13 +64,13 @@ https://console.aws.amazon.com/xray/home#/service-map?timeRange=PT1H
 **Start and end time** –
 `xray/home#/`page`?timeRange=`start`~`end``
 
-###### Example – time range accurate to seconds
+###### Example– time range accurate to seconds
 
 ```
 https://console.aws.amazon.com/xray/home#/traces?timeRange=2023-7-01T16:00:00~2023-7-01T22:00:00
 ```
 
-###### Example – time range accurate to minutes
+###### Example– time range accurate to minutes
 
 ```
 https://console.aws.amazon.com/xray/home#/traces?timeRange=2023-7-01T16:00~2023-7-01T22:00
@@ -84,7 +84,7 @@ you to the last visited Region.
 **Region** –
 `xray/home`?region=`region``#/`page``
 
-###### Example – trace map in US West (Oregon) (us-west-2)
+###### Example– trace map in US West (Oregon) (us-west-2)
 
 ```
 https://console.aws.amazon.com/xray/home?region=us-west-2#/service-map
@@ -93,7 +93,7 @@ https://console.aws.amazon.com/xray/home?region=us-west-2#/service-map
 When you include a Region with other query parameters, the Region query goes before the hash, and the
 X-Ray-specific queries go after the page name.
 
-###### Example – trace map for the last hour in US West (Oregon) (us-west-2)
+###### Example– trace map for the last hour in US West (Oregon) (us-west-2)
 
 ```
 https://console.aws.amazon.com/xray/home?region=us-west-2#/service-map?timeRange=PT1H
@@ -101,7 +101,7 @@ https://console.aws.amazon.com/xray/home?region=us-west-2#/service-map?timeRange
 
 ## Combined
 
-###### Example – recent traces with a duration filter
+###### Example– recent traces with a duration filter
 
 ```
 https://console.aws.amazon.com/xray/home#/traces?timeRange=PT15M&filter=duration%20%3E%3D%205%20AND%20duration%20%3C%3D%208

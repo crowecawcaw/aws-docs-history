@@ -51,7 +51,7 @@ same color scheme):
 - **Filtered trace set A** – green
 - **Filtered trace set B** – blue
 
-###### Example – Response time distribution
+###### Example– Response time distribution
 
 The response time distribution is a chart that shows the number of traces with a given response time. Click and drag to make selections within
 the response time distribution. This selects and creates a filter on the working trace set named
@@ -66,7 +66,7 @@ The time series activity chart shows the number of traces at a given time period
 mirror the line graph colors of the response time distribution. The darker and fuller the color block within
 the activity series, the more traces are represented at the given time.
 
-###### Example – Time series activity
+###### Example– Time series activity
 
 Click and drag to make selections within the time series activity graph. This selects and creates a
 filter named `timerange` on the working trace set for all traces within a specific range of

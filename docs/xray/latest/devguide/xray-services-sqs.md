@@ -64,7 +64,7 @@ There are three main steps to recovering the trace context:
 
 The following is an example implementation written with the X-Ray SDK for Java.
 
-###### Example : Retrieve the trace header and recover trace context
+###### Example: Retrieve the trace header and recover trace context
 
 ```
 // Receive the message from the queue, specifying the "AWSTraceHeader"

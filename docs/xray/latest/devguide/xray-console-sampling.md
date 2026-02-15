@@ -131,14 +131,14 @@ The following options are available for each rule. String values can use wildcar
 
 ## Sampling rule examples
 
-###### Example – Default rule with no reservoir and a low rate
+###### Example– Default rule with no reservoir and a low rate
 
 You can modify the default rule's reservoir and rate. The default rule applies to requests that don't match any other rule.
 
 - **Reservoir**: `0`
 - **Rate**: `5` (`0.05` if configured using a JSON document)
 
-###### Example – Debugging rule to trace all requests for a problematic route
+###### Example– Debugging rule to trace all requests for a problematic route
 
 A high-priority rule applied temporarily for debugging.
 
@@ -154,7 +154,7 @@ A high-priority rule applied temporarily for debugging.
 - **URL path**: `/history/*`
 - **Resource ARN**: `*`
 
-###### Example – Higher minimum rate for POSTs
+###### Example– Higher minimum rate for POSTs
 
 - **Rule name**: `POST minimum`
 - **Priority**: `100`
