@@ -26,17 +26,18 @@ any successive sink connectors that you create with the same
 `CONNECTOR_NAME` value will continue from the last committed
 offset.
 
-###### Example : Specifying an offset storage topic to recreate a source connector with an
+###### Important
 
-updated configuration
+If you want to update an existing connector configuration while maintaining
+offset continuity, use the UpdateConnector API. For more information, see [Update a connector](mkc-update-connector.md "mkc-update-connector.md").
 
-Suppose you have a change data capture (CDC) connector and you want to modify
-the connector configuration without losing your place in the CDC stream. You
-can't update the existing connector configuration, but you can delete the
-connector and create a new one with the same name. To tell the new connector
-where to start reading in the CDC stream, you can specify the old connector's
-offset storage topic in your worker configuration. The following steps
-demonstrate how to accomplish this task.
+###### Example: Specifying an offset storage topic when recreating a source connector
+
+If you need to delete and recreate a connector while maintaining offset
+continuity, you can specify an offset storage topic in your worker
+configuration. For example, suppose you have a change data capture (CDC)
+connector and you want to recreate it without losing your place in the CDC
+stream. The following steps demonstrate how to accomplish this task.
 
 1. On your client machine, run the following
    command to find the name of your connector's offset storage topic.

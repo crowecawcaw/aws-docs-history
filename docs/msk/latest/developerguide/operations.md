@@ -22,7 +22,7 @@ these functionalities in detail.
 - [Security in Amazon MSK](security.md "security.md")
 - [Amazon MSK logging](msk-logging.md "msk-logging.md")
 - [Metadata management](metadata-management.md "metadata-management.md")
-- [Topic Operations](msk-view-topic-information.md "msk-view-topic-information.md")
+- [Topic Operations](msk-topic-operations-information.md "msk-topic-operations-information.md")
 - [Amazon MSK resources](resources.md "resources.md")
 - [Apache Kafka versions](kafka-versions.md "kafka-versions.md")
 - [Troubleshoot your Amazon MSK cluster](troubleshooting.md "troubleshooting.md")

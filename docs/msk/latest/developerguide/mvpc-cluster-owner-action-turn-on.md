@@ -27,7 +27,7 @@ When you update multi-VPC private connectivity settings, Amazon MSK starts a rol
 6. Select one or more authentication types you want turned on for this cluster. For this use case, select **IAM role-based authentication**.
 7. Select **Save changes**.
 
-###### Example - UpdateConnectivity API that turns on Multi-VPC private connectivity auth schemes on a cluster
+###### Example- UpdateConnectivity API that turns on Multi-VPC private connectivity auth schemes on a cluster
 
 As an alternative to the MSK console, you can use the [UpdateConnectivity API](../../1.0/apireference/clusters-clusterarn-connectivity.md "../../1.0/apireference/clusters-clusterarn-connectivity.md") to turn on multi-VPC private connectivity and configure auth schemes on an ACTIVE cluster. The following example shows the IAM auth scheme turned on for the cluster.
 

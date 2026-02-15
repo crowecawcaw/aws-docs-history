@@ -1,6 +1,8 @@
 # Semantics of IAM authorization policy actions and resources
 
-Currently, IAM access control for Amazon MSK doesn't support internal cluster actions for Kafka. This includes the WriteTxnMarkers API, which Kafka uses to terminate transactions. To terminate transactions, we recommend that you use SCRAM or mTLS authentication with appropriate ACLs instead of IAM authentication.
+###### Note
+
+For clusters running Apache Kafka version 3.8 or later, IAM access control supports the WriteTxnMarkers API for terminating transactions. For clusters running Kafka versions earlier than 3.8, IAM access control doesn't support internal cluster actions including WriteTxnMarkers. For these earlier versions, to terminate transactions, use SCRAM or mTLS authentication with appropriate ACLs instead of IAM authentication.
 
 This section explains the semantics of the action and resource elements that you can use in an IAM authorization policy. For an example policy, see [Create authorization policies for the IAM role](create-iam-access-control-policies.md "create-iam-access-control-policies.md").
 

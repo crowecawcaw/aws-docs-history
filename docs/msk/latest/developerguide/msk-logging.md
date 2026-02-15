@@ -5,7 +5,7 @@ types: Amazon CloudWatch Logs, Amazon S3, Amazon Data Firehose. You can also log
 
 ###### Note
 
-Broker logs are not available on Express brokers.
+Broker logs are available on both MSK Standard and Express brokers.
 
 ## Broker logs
 
@@ -102,7 +102,7 @@ you pass to the [CreateCluster](../../1.0/apireference/clusters.md#CreateCluster
 ###### Note
 
 By default, when broker logging is enabled, Amazon MSK logs `INFO` level logs to the specified
-destinations. However, users of Apache Kafka 2.4.X and later can dynamically set the broker log level to any of the
+destinations. However for Standard brokers, users of Apache Kafka 2.4.X and later can dynamically set the broker log level to any of the
 [log4j log levels](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html "https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html"). For
 information about dynamically setting the broker log level, see
 [KIP-412: Extend Admin API to support dynamic application log levels](https://cwiki.apache.org/confluence/display/KAFKA/KIP-412%3A+Extend+Admin+API+to+support+dynamic+application+log+levels "https://cwiki.apache.org/confluence/display/KAFKA/KIP-412%3A+Extend+Admin+API+to+support+dynamic+application+log+levels").

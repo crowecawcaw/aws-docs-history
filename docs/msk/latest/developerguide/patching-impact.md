@@ -6,7 +6,7 @@ Periodically, Amazon MSK updates software on the brokers in your cluster. Mainte
 
 Updates to your Standard brokers have no impact on your applications' writes and reads if you follow [best practices](bestpractices.md "bestpractices.md").
 
-Amazon MSK uses rolling updates for software to maintain high availability of your clusters. During this process, brokers are rebooted one at a time, and Kafka automatically moves leadership to another online broker. Kafka clients have built-in mechanisms to automatically detect the change in leadership for the partitions and continue to write and read data into a MSK cluster. Follow [Best practices for Apache Kafka clients](bestpractices-kafka-client.md "bestpractices-kafka-client.md") for smooth operation of your cluster at all times, including during patching.
+Amazon MSK uses rolling updates for software to maintain high availability of your clusters. During this process, brokers are rebooted one at a time, and Kafka automatically moves leadership to another online broker. When you view cluster operations in the AWS Management Console or through the `DescribeClusterOperation` and `ListClusterOperations` APIs, these maintenance operations appear with an operation type of `SECURITY_PATCHING`. Kafka clients have built-in mechanisms to automatically detect the change in leadership for the partitions and continue to write and read data into a MSK cluster. Follow [Best practices for Apache Kafka clients](bestpractices-kafka-client.md "bestpractices-kafka-client.md") for smooth operation of your cluster at all times, including during patching.
 
 Following a broker going offline, it is normal to see transient disconnect errors on your clients. You will also observe for a brief window (up to 2 mins, typically less) some spikes in p99 read and write latency (typically high milliseconds, up to ~2 seconds). These spikes are expected and are caused by the client re-reconnecting to a new leader broker; it does not impact your produce or consume and will resolve following the re-connect. For more information, see [Broker offline and client failover](troubleshooting-offlinebroker-clientfailover.md "troubleshooting-offlinebroker-clientfailover.md").
 
@@ -22,7 +22,7 @@ cluster on an ongoing basis in a time distributed manner, meaning you can expect
 occasional and singular broker reboots across the month. This ensures you do not need to
 make any plans or accommodations around one-time cluster-wide maintenance windows. As
 always, traffic will remain uninterrupted during a broker reboot as leadership will
-change to other brokers that will continue serving requests.
+change to other brokers that will continue serving requests. When you view cluster operations in the AWS Management Console or through the `DescribeClusterOperation` and `ListClusterOperations` APIs, these maintenance operations appear with an operation type of `BROKER_UPDATE`.
 
 Express brokers come configured with best practice settings and guardrails that make
 your cluster resilient to load changes that may occur during maintenance. Amazon MSK sets throughput quotas on your Express brokers to mitigate

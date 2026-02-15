@@ -26,8 +26,11 @@ This process requires the following items:
 - An identity policy attached to the client in Account B that grants
   permissions for `kafka:CreateVpcConnection`,
   `ec2:CreateTags`, `ec2:CreateVPCEndpoint` and `ec2:DescribeVpcAttribute` action.
-  For reference, the following is an example of the JSON for a basic
-  client identity policy.
+
+###### Example
+
+For reference, the following is an example of the JSON for a basic
+client identity policy.
 
 JSON
 

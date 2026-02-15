@@ -30,10 +30,15 @@ closed log segments from primary storage to tiered storage.
 - The usual retention settings apply to the full log. This includes its
   tiered and primary parts.
 - The local.retention.ms or local.retention.bytes settings control the
-  retention of messages in primary storage. When data has reached primary
-  storage retention setting thresholds (local.retention.ms/bytes) on a full
-  log, Apache Kafka copies the data in primary storage to tiered storage. The
-  data is then eligible for expiration.
+  retention of messages in primary storage. Apache Kafka copies closed log
+  segments to tiered storage as soon as they close (based on segment.bytes
+  or segment.ms), independent of local retention settings. After segments are
+  copied to tiered storage, they remain in primary storage until the
+  local.retention.ms or local.retention.bytes thresholds are reached. At that
+  point, the data is deleted from primary storage but remains available in
+  tiered storage. This allows you to keep recent data on high-performance
+  primary storage for fast access while older data is served from the
+  low-cost tiered storage.
 - When Apache Kafka copies a message in a log segment to tiered storage, it
   removes the message from the cluster based on retention.ms or
   retention.bytes settings.
@@ -59,10 +64,11 @@ segments. One of the segments is active for an existing topic partition 0.
 
 tiered storage.
 
-After you enable tiered storage for this topic, Apache Kafka copies log
-segment 0 to tiered storage after the segment meets initial retention
-settings. Apache Kafka also retains the primary storage copy of segment 0. The active
-segment 1 is not eligible to copy over to tiered storage yet. In this
+After you enable tiered storage for this topic, Apache Kafka copies closed log
+segment 0 to tiered storage as soon as it closes. The segment closes based on
+segment.bytes or segment.ms settings, not based on retention settings. Apache Kafka
+retains a copy in primary storage as well. The active segment 1 is not eligible
+to copy to tiered storage yet because it is still active and hasn't closed. In this
 timeline, Amazon MSK doesn't apply any of the retention settings yet for any of the
 messages in segment 0 and segment 1. (local.retention.bytes/ms,
 retention.ms/bytes)
@@ -71,11 +77,13 @@ retention.ms/bytes)
 
 ###### Time T2 - Local retention in effect.
 
-After 2 days, primary retention settings take effect for the segment 0
-that Apache Kafka copied to the tiered storage. The setting of
-local.retention.ms as 2 days determines this. Segment 0 now expires from the
-primary storage. Active segment 1 is neither eligible for expiration nor
-eligible to copy over to tiered storage yet.
+After 2 days, the local retention threshold is reached for segment 0.
+The setting of local.retention.ms as 2 days determines this. Segment 0 is
+now deleted from primary storage, but it remains available in tiered storage.
+Note that segment 0 was already copied to tiered storage at Time T1 when it
+closed, not at Time T2 when local retention expired. Active segment 1 is
+neither eligible for deletion nor eligible to copy to tiered storage yet
+because it is still active.
 
 ![Time T2 - Local retention in effect.](images/tiered-storage-segments-3.png)
 

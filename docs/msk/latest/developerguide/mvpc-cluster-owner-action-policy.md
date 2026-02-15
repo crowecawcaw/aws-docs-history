@@ -8,7 +8,10 @@ The cluster owner must attach a cluster policy to the MSK cluster that authorize
 - GetBootstrapBrokers
 - DescribeCluster
 - DescribeClusterV2
-  For reference, the following is an example of the JSON for a basic cluster policy, similar to the default policy shown in the MSK console IAM policy editor. The following policy grants permissions for cluster, topic, and group-level access.
+
+###### Example
+
+For reference, the following is an example of the JSON for a basic cluster policy, similar to the default policy shown in the MSK console IAM policy editor. The following policy grants permissions for cluster, topic, and group-level access.
 
 JSON
 
