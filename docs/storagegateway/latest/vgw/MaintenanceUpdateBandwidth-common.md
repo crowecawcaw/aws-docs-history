@@ -152,7 +152,7 @@ following example demonstrates how to update a gateway's bandwidth-rate limits u
 AWS SDK for Java. To use the example code, you should be familiar with running a Java console
 application. For more information, see [Getting Started](../../../sdk-for-java/latest/developer-guide/java-dg-setup.md "../../../sdk-for-java/latest/developer-guide/java-dg-setup.md") in the _AWS SDK for Java Developer Guide_.
 
-###### Example : Updating Gateway Bandwidth-Rate Limits Using the AWS SDK for Java
+###### Example: Updating Gateway Bandwidth-Rate Limits Using the AWS SDK for Java
 
 The following Java code example updates a gateway's bandwidth-rate limits. To use
 this example code, you must provide the service endpoint, your gateway Amazon
@@ -231,7 +231,7 @@ the AWS SDK for .NET. To use the example code, you should be familiar with runni
 console application. For more information, see [Getting Started](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the
 _AWS SDK for .NET Developer Guide_.
 
-###### Example : Updating Gateway Bandwidth-Rate Limits by Using the AWS SDK for .NET
+###### Example: Updating Gateway Bandwidth-Rate Limits by Using the AWS SDK for .NET
 
 The following C# code example updates a gateway's bandwidth-rate limits. To use
 this example code, you must provide the service endpoint, your gateway Amazon
@@ -313,7 +313,7 @@ following example demonstrates how to update a gateway's bandwidth-rate limits u
 AWS Tools for Windows PowerShell. To use the example code, you should be familiar with running a PowerShell
 script. For more information, see [Getting Started](../../../powershell/latest/userguide/pstools-getting-started.md "../../../powershell/latest/userguide/pstools-getting-started.md") in the _AWS Tools for PowerShell User Guide_.
 
-###### Example : Updating Gateway Bandwidth-Rate Limits by Using the AWS Tools for Windows PowerShell
+###### Example: Updating Gateway Bandwidth-Rate Limits by Using the AWS Tools for Windows PowerShell
 
 The following PowerShell script example updates a gateway's bandwidth-rate limits.
 To use this example script, you must provide your gateway Amazon Resource Name

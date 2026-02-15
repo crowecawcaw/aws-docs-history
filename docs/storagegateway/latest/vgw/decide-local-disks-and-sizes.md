@@ -103,6 +103,8 @@ throughput is 12 MB per second. Assuming a compression factor of 2:1 for the tex
 data, you would allocate approximately 690 GiB of space for the upload
 buffer.
 
+###### Example
+
 ```
 ((40 MB/sec) - (12 MB/sec * 2)) * (12 hours * 3600 seconds/hour) = 691200 megabytes
 ```

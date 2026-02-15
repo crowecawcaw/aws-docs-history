@@ -35,7 +35,7 @@ console application. For more information, see [Getting
 Started](../../../AWSSdkDocsJava/latest/DeveloperGuide/java-dg-setup.md "../../../AWSSdkDocsJava/latest/DeveloperGuide/java-dg-setup.md") in the _AWS SDK for Java Developer Guide_.
 If you need to just delete a few snapshots, use the console as described in [Deleting snapshots of your storage volumes](DeletingASnapshot.md "DeletingASnapshot.md").
 
-###### Example : Deleting Snapshots by Using the AWS SDK for Java
+###### Example: Deleting Snapshots by Using the AWS SDK for Java
 
 The following Java code example lists the snapshots for each volume of a
 gateway and whether the snapshot start time is before or after a specified date.
@@ -199,7 +199,7 @@ running a .NET console application. For more information, see [Getting Started](
 Guide_. If you need to just delete a few snapshots, use the console as
 described in [Deleting snapshots of your storage volumes](DeletingASnapshot.md "DeletingASnapshot.md").
 
-###### Example : Deleting Snapshots by Using the AWS SDK for .NET
+###### Example: Deleting Snapshots by Using the AWS SDK for .NET
 
 In the following C# code example, an AWS Identity and Access Management user can list the snapshots for
 each volume of a gateway. The user can then determine whether the snapshot start
@@ -477,7 +477,7 @@ PowerShell script. For more information, see [Getting
 Started](../../../powershell/latest/userguide/pstools-getting-started.md "../../../powershell/latest/userguide/pstools-getting-started.md") in the _AWS Tools for Windows PowerShell_. If you need to delete
 just a few snapshots, use the console as described in [Deleting snapshots of your storage volumes](DeletingASnapshot.md "DeletingASnapshot.md").
 
-###### Example : Deleting Snapshots by Using the AWS Tools for Windows PowerShell
+###### Example: Deleting Snapshots by Using the AWS Tools for Windows PowerShell
 
 The following PowerShell script example lists the snapshots for each volume of
 a gateway and whether the snapshot start time is before or after a specified
