@@ -153,7 +153,7 @@ JSON
  "Effect": "Allow",
  "Principal": {"Service": "delivery.logs.amazonaws.com"},
  "Action": "s3:PutObject",
- "Resource": "arn:aws:s3:::`bucket-name/optional-folder`/AWSLogs/`account-id`/*",
+ "Resource": "arn:aws:s3:::`bucket-name/optional-folder`/AWSLogs/`123456789012`/*",
  "Condition": {"StringEquals": {"s3:x-amz-acl": "bucket-owner-full-control"}}
  },
  {

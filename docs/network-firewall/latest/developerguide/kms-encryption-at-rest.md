@@ -211,6 +211,8 @@ Network Firewall uses the same encryption context in all AWS KMS cryptographic o
 where the key is `aws:network-firewall:resource-id` and the value is the resource [Amazon
 Resource Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN).
 
+###### Example
+
 ```
 "encryptionContext": {
     "aws:network-firewall:resource-id": "abcdef-b795-4280-8560-3c2b5e723c41"
@@ -233,6 +235,8 @@ encryption context constraints in a grant.
 Network Firewall uses an encryption context constraint in grants to control access to the
 customer managed key in your account or Region. The grant constraint requires that the operations that
 the grant allows use the specified encryption context.
+
+###### Example
 
 The following are example key policy statements to grant access to a customer managed key for a
 specific encryption context. The condition in this policy statement requires that the
