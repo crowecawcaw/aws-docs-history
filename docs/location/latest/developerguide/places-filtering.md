@@ -19,6 +19,29 @@ their search queries.
 | Circle       | No      | No              | Yes          | N/A       | Yes         | No            | Yes     |
 | Bounding Box | No      | No              | Yes          | N/A       | Yes         | Yes           | Yes     |
 
+The `BoundingBox` filter is specified as an array of 4 coordinates in
+the following order:
+
+```
+[westward longitude, southern latitude, eastward longitude, northern latitude]
+```
+
+For example, to filter results within a bounding box covering the Seattle area:
+
+```
+"BoundingBox": [-122.5, 47.4, -122.2, 47.8]
+```
+
+The `Circle` filter is specified as an object with a center point
+(longitude and latitude) and a radius in meters. For example:
+
+```
+"Circle": {
+    "Center": [-122.3321, 47.6062],
+    "Radius": 5000
+}
+```
+
 ## Administrative area filters
 
 These filters allow users to limit search results to specific administrative

@@ -17,9 +17,9 @@ Index.html
         <meta property="og:description" content="" />
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css" />
+        <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css" />
         <link rel='stylesheet' href='style.css' />
-        <script src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"></script>
+        <script src="https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.js"></script>
 
     </head>
     <body>

@@ -6,7 +6,7 @@ such as points, lines, and polygons, to enhance the map's visual representation.
 Amazon Location Service supports multiple formats, including GeoJSON and a compact overlay format, to
 provide flexible and efficient ways of adding overlays.
 
-For more information, see [GetStaticMap](../../../latest/APIReference/API_geomaps_GetStaticMap.md "../../../latest/APIReference/API_geomaps_GetStaticMap.md") in the
+For more information, see [GetStaticMap](../APIReference/API_geomaps_GetStaticMap.md "../APIReference/API_geomaps_GetStaticMap.md") in the
 _Amazon Location Service API Reference_.
 
 ## With GeoJSON

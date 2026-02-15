@@ -28,9 +28,9 @@ index.html
         <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css' />
         <link rel='stylesheet' href='style.css' />
-        <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
+        <script src='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.js'></script>
         <script src="https://unpkg.com/@mapbox/mapbox-gl-sync-move@0.3.1"></script>
         <script src='main.js'></script>
     </head>
@@ -57,6 +57,7 @@ index.html
                 style: internationalViewMapStyleUrl, // style URL
                 center: [33.0714561, 35.1052139], // starting position [lng, lat]
                 zoom: 7.5,
+                validateStyle: false, // Disable style validation for faster map load
             });
 
             const turkeyViewMap = new maplibregl.Map({
@@ -64,6 +65,7 @@ index.html
                 style: turkeyViewMapStyleUrl, // style URL
                 center: [33.0714561, 35.1052139],
                 zoom: 7.5,
+                validateStyle: false, // Disable style validation for faster map load
             });
 
             // Sync map zoom and center

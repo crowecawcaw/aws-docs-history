@@ -24,8 +24,8 @@ index.html
 
 <html>
 <head>
-    <link href="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css" rel="stylesheet" />
-    <script src="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.js"></script>
     <link href="style.css" rel="stylesheet" />
     <script src="main.js"></script>
 </head>
@@ -165,8 +165,8 @@ index.html
 
 <html>
 <head>
-    <link href="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css" rel="stylesheet" />
-    <script src="https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.js"></script>
     <link href="style.css" rel="stylesheet" />
     <script src="main.js"></script>
 </head>

@@ -33,9 +33,9 @@ rendering maps with [MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js 
 This example demonstrates the use of the standalone Places SDK to make a request authenticated with API keys:
 
 ```
-npm install @aws-sdk/geo-places-client
+npm install @aws-sdk/client-geo-places
 
-import { GeoPlacesClient, GeocodeCommand } from "@aws-sdk/geo-places-client";
+import { GeoPlacesClient, GeocodeCommand } from "@aws-sdk/client-geo-places";
 import { withAPIKey } from "@aws/amazon-location-utilities-auth-helper";
 
 const authHelper = withAPIKey("<API Key>", "<Region>");
@@ -97,7 +97,7 @@ const response = await client.send(command);
 This example demonstrates rendering a map with MapLibre GL JS, authenticated with an API key:
 
 ```
-<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.x"></script>
 
 const apiKey = "<API Key>";
 const region = "<Region>";
@@ -114,7 +114,7 @@ const map = new maplibregl.Map({
 This example demonstrates rendering a map with MapLibre GL JS using Amazon Cognito:
 
 ```
-<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.x"></script>
 <script src="https://cdn.jsdelivr.net/npm/@aws/amazon-location-utilities-auth-helper@1"></script>
 
 const identityPoolId = "<Identity Pool ID>";

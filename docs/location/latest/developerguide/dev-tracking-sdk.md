@@ -67,9 +67,9 @@ let locationTracker = LocationTracker(provider: locationCredentialsProvider, tra
 // Optionally you can set ClientConfig with your own values in either initialize or in a separate function
 // let trackerConfig = LocationTrackerConfig(locationFilters: [TimeLocationFilter(), DistanceLocationFilter()],
 
-trackingDistanceInterval: 30,
-trackingTimeInterval: 30,
-logLevel: .debug)
+     trackingDistanceInterval: 30,
+     trackingTimeInterval: 30,
+     logLevel: .debug)
 
 // locationTracker = LocationTracker(provider: credentialsProvider, trackerName: "My-tracker-name",config: trackerConfig)
 // locationTracker.setConfig(config: trackerConfig)

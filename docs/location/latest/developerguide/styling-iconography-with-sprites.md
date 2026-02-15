@@ -9,7 +9,7 @@ a sprite sheet through the `GetSprites` API. You can also use custom icons by
 either loading your own icon set (see [How to add an icon on the map](how-to-add-icon-on-map.md "how-to-add-icon-on-map.md")) or
 customizing the style descriptor to load your custom sprites.
 
-For more information, see [GetSprites](../../../latest/APIReference/API_geomaps_GetSprites.md "../../../latest/APIReference/API_geomaps_GetSprites.md") in the
+For more information, see [GetSprites](../APIReference/API_geomaps_GetSprites.md "../APIReference/API_geomaps_GetSprites.md") in the
 _Amazon Location Service API Reference_.
 
 ## Use cases

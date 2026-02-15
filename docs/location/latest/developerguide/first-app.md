@@ -37,8 +37,8 @@ file.
     <meta name="description" content="Interactive map application using Amazon Location Service">
 
     <!--Link to MapLibre CSS and JavaScript library for map rendering and visualization -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
-    <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.x/dist/maplibre-gl.css" />
+    <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.x/dist/maplibre-gl.js"></script>
 
     <!--Link to MapLibre Geocoder CSS and JavaScript library for place search and geocoding -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@maplibre/maplibre-gl-geocoder@1.7.0/dist/maplibre-gl-geocoder.css" />
@@ -209,8 +209,8 @@ Your final HTML should look like this:
    <meta name="description" content="Interactive map application using Amazon Location Service">
 
    <!-- Link to MapLibre CSS and JavaScript library for map rendering and visualization -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
-   <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.x/dist/maplibre-gl.css" />
+   <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.x/dist/maplibre-gl.js"></script>
 
    <!-- Link to MapLibre Geocoder CSS and JavaScript library for place search and geocoding -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@maplibre/maplibre-gl-geocoder@1.7.0/dist/maplibre-gl-geocoder.css" />
@@ -427,8 +427,8 @@ Your final HTML should look like this:
     <meta name="description" content="Interactive map application using Amazon Location Service">
 
     <!--Link to MapLibre CSS and JavaScript library for map rendering and visualization -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
-    <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.x/dist/maplibre-gl.css" />
+    <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.x/dist/maplibre-gl.js"></script>
 
     <!--Link to MapLibre Geocoder CSS and JavaScript library for place search and geocoding -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@maplibre/maplibre-gl-geocoder@1.7.0/dist/maplibre-gl-geocoder.css" />

@@ -9,7 +9,7 @@ Amazon Location Service. It covers various features, such as adjusting the map's
 language, scale, overlays, and attribution, enabling you to tailor the map to your
 specific requirements.
 
-For more information, see [GetStaticMap](../../../latest/APIReference/API_geomaps_GetStaticMap.md "../../../latest/APIReference/API_geomaps_GetStaticMap.md") in the
+For more information, see [GetStaticMap](../APIReference/API_geomaps_GetStaticMap.md "../APIReference/API_geomaps_GetStaticMap.md") in the
 _Amazon Location Service API Reference_.
 
 ## Position

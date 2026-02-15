@@ -14,7 +14,7 @@ filter results to specific regions or countries.
 
 ## Examples
 
-Adding a filter by country ensures you only receive the most relevent results. Use
+Adding a filter by country ensures you only receive the most relevant results. Use
 Filter.IncludeCountries for this.
 
 Sample request

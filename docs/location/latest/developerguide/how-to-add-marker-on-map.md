@@ -16,9 +16,9 @@ index.html
         <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css' />
         <link rel='stylesheet' href='style.css' />
-        <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
+        <script src='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.js'></script>
     </head>
     <body>
         <!-- Map container -->
@@ -67,9 +67,9 @@ index.html
         <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css' />
         <link rel='stylesheet' href='style.css' />
-        <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
+        <script src='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.js'></script>
     </head>
     <body>
         <!-- Map container -->
@@ -118,9 +118,9 @@ index.html
         <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css' />
         <link rel='stylesheet' href='style.css' />
-        <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
+        <script src='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.js'></script>
     </head>
     <body>
         <!-- Map container -->
@@ -169,9 +169,9 @@ index.html
         <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.css' />
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css' />
         <link rel='stylesheet' href='style.css' />
-        <script src='https://unpkg.com/maplibre-gl@4.x/dist/maplibre-gl.js'></script>
+        <script src='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.js'></script>
     </head>
     <body>
         <!-- Map container -->

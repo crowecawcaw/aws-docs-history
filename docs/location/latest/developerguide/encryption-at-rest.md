@@ -215,6 +215,8 @@ operations, where the key is `aws:geo:arn` and the value is the
 resource [Amazon Resource
 Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN).
 
+###### Example
+
 ```
 "encryptionContext": {
     "aws:geo:arn": "arn:aws:geo:us-west-2:111122223333:geofence-collection/SAMPLE-GeofenceCollection"
@@ -238,6 +240,8 @@ also use encryption context constraints in a grant.
 Amazon Location uses an encryption context constraint in grants to control access to the
 customer managed key in your account or region. The grant constraint requires that the
 operations that the grant allows use the specified encryption context.
+
+###### Example
 
 The following are example key policy statements to grant access to a customer managed key
 for a specific encryption context. The condition in this policy statement
