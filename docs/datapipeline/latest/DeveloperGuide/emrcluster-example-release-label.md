@@ -4,6 +4,8 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 emr-4.x or greater
 
+###### Example
+
 The following example launches an Amazon EMR cluster using the newer
 `releaseLabel` field:
 

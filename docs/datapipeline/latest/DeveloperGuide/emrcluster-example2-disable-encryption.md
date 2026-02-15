@@ -4,6 +4,8 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 4.x releases
 
+###### Example
+
 You must disable server-side encryption using a
 `EmrConfiguration` object.
 

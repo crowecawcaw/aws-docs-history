@@ -4,6 +4,8 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 cluster in a private subnet
 
+###### Example
+
 This example includes a configuration that launches the cluster into a
 private subnet in a VPC. For more information, see [Launch Amazon EMR
 Clusters into a VPC](../../../emr/latest/ManagementGuide/emr-vpc-launching-job-flows.md "../../../emr/latest/ManagementGuide/emr-vpc-launching-job-flows.md") in the

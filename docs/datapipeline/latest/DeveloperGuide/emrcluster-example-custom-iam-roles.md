@@ -2,6 +2,8 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 # Specify custom IAM roles
 
+###### Example
+
 By default, AWS Data Pipeline passes `DataPipelineDefaultRole` as the
 Amazon EMR service role and `DataPipelineDefaultResourceRole` as the
 Amazon EC2 instance profile to create resources on your behalf. However, you can

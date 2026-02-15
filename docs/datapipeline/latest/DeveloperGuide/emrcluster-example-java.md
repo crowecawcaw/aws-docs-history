@@ -4,6 +4,8 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 Java
 
+###### Example
+
 The following example shows how to use an `EmrCluster` and
 `EmrActivity` to create an Amazon EMR
 4.x cluster to run a Spark step using the

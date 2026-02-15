@@ -2,6 +2,8 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 # Attach EBS volumes to cluster nodes
 
+###### Example
+
 You can attach EBS volumes to any type of node in the EMR cluster
 within your pipeline. To attach EBS volumes to nodes, use
 `coreEbsConfiguration`,

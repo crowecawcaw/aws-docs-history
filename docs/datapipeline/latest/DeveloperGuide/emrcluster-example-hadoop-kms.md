@@ -4,6 +4,8 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 zones in HDFS
 
+###### Example
+
 The following objects create ACLs for Hadoop KMS and
 create encryption zones and corresponding encryption keys in
 HDFS:

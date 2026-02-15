@@ -2,6 +2,8 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 # Launch an Amazon EMR cluster with hadoopVersion
 
+###### Example
+
 The following example launches an Amazon EMR cluster using AMI version 1.0 and
 Hadoop 0.20.
 

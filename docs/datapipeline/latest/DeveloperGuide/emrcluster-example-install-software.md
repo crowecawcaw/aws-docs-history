@@ -4,6 +4,8 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 cluster
 
+###### Example
+
 `EmrCluster` provides the `supportedProducts` field
 that installs third-party software on an Amazon EMR cluster, for example, it lets
 you install a custom distribution of Hadoop, such as MapR. It accepts a

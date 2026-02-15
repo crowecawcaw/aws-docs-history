@@ -4,6 +4,8 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 releases
 
+###### Example
+
 An `EmrCluster` activity with a Hadoop version
 2.x created by AWS Data Pipeline enables server-side
 encryption by default. If you would like to disable server-side encryption,
