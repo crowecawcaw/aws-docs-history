@@ -14,6 +14,8 @@ The `map` data type behaves like an `array` of
 `structs`, where the attribute name for each element in the array is
 denoted by `key` and it maps to a `value`.
 
+###### Example
+
 For example, the `map<varchar(20), varchar(20)>` type is treated as
 `array<struct<key:varchar(20), value:varchar(20)>>`, where
 `key` and `value` refer to the attributes of the map in the

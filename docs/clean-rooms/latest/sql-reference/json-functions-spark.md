@@ -4,6 +4,8 @@ When you need to store a relatively small set of key-value pairs, you might save
 storing the data in JSON format. Because JSON strings can be stored in a single column, using
 JSON might be more efficient than storing your data in tabular format.
 
+###### Example
+
 For example, suppose you have a sparse table, where you need to have many columns to
 fully represent all possible attributes. However, most of the column values are NULL for
 any given row or any given column. By using JSON for storage, you might be able to store

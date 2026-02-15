@@ -21,6 +21,8 @@ AWS Clean Rooms enables navigation into arrays and structures using the `[...]` 
 and dot notation respectively. Furthermore, you can mix navigation into structures using
 the dot notation and arrays using the bracket notation.
 
+###### Example
+
 For example, the following example query assumes that the `c_orders` array
 data column is an array with a structure and an attribute is named
 `o_orderkey`.
@@ -33,11 +35,15 @@ You can use the dot and bracket notations in all types of queries, such as filte
 join, and aggregation. You can use these notations in a query in which there are normally
 column references.
 
+###### Example
+
 The following example uses a SELECT statement that filters results.
 
 ```
 SELECT count(*) FROM customer_orders_lineitem WHERE c_orders[0].o_orderkey IS NOT NULL;
 ```
+
+###### Example
 
 The following example uses the bracket and dot navigation in both GROUP BY and ORDER
 BY clauses.
@@ -58,6 +64,8 @@ ORDER BY c_orders[0].o_orderdate;
 To unnest queries, AWS Clean Rooms enables iteration over arrays. It does this by navigating the
 array using the FROM clause of a query.
 
+###### Example
+
 Using the previous example, the following example iterates over the attribute values
 for `c_orders`.
 
@@ -74,6 +82,8 @@ value in array expression `x`. In this case, `x` is an array
 expression and `y` is an alias for `x`.
 
 The left operand can also use the dot and bracket notation for regular navigation.
+
+###### Example
 
 In the previous example:
 
@@ -92,6 +102,8 @@ AWS Clean Rooms also supports an array index when iterating over the array using
 AT keyword. The clause `x AS y AT z` iterates over array
 `x` and generates the field `z`, which is the array index.
 
+###### Example
+
 The following example shows how an array index works.
 
 ```
@@ -105,6 +117,8 @@ c_name             | orderkey | orderkey_index
 Customer#000008251 | 3020007  |        0
 Customer#000009452 | 4043971  |        0  (2 rows)
 ```
+
+###### Example
 
 The following example iterates over a scalar array.
 
@@ -120,6 +134,8 @@ SELECT index, element FROM bar AS b, b.data.scalar_array AS element AT index;
 2 | 45000000
 (3 rows)
 ```
+
+###### Example
 
 The following example iterates over an array of multiple levels. The example uses
 multiple unnest clauses to iterate into the innermost arrays. The
@@ -151,6 +167,8 @@ an error out when the navigation is invalid. Object navigation is invalid if the
 data value is not an object or if the nested data value is an object but doesn't contain
 the attribute name used in the query.
 
+###### Example
+
 For example, the following query accesses an invalid attribute name in the nested
 data column `c_orders`:
 
@@ -160,6 +178,8 @@ SELECT c.c_orders.something FROM customer_orders_lineitem c;
 
 Array navigation returns null if the nested data value is not an array or the array
 index is out of bounds.
+
+###### Example
 
 The following query returns null because `c_orders[1][1]` is out of
 bounds.
