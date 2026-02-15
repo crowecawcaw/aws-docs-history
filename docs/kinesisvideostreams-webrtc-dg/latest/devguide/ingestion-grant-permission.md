@@ -14,3 +14,35 @@ Both Master and Viewer roles must also have `DescribeStream`,
 to Kinesis Video Streams.
 
 Refer to the sample IAM policy below for Master participants:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kinesisvideo:DescribeSignalingChannel",
+ "kinesisvideo:DescribeMediaStorageConfiguration",
+ "kinesisvideo:GetSignalingChannelEndpoint",
+ "kinesisvideo:GetIceServerConfig",
+ "kinesisvideo:ConnectAsMaster",
+ "kinesisvideo:JoinStorageSession"
+ ],
+ "Resource": "arn:aws:kinesisvideo:us-west-2:123456789012:channel/SignalingChannelName/1234567890123"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kinesisvideo:GetDataEndpoint",
+ "kinesisvideo:DescribeStream",
+ "kinesisvideo:PutMedia"
+ ],
+ "Resource": "arn:aws:kinesisvideo:us-west-2:123456789012:stream/VideoStreamName/1234567890123"
+ }
+ ]
+}`
+
+```
