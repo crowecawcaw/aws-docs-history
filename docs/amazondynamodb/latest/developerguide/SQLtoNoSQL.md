@@ -1,23 +1,110 @@
-# Differences in accessing a relational (SQL)
+# Differences between a relational (SQL) database
 
-database and DynamoDB
+and DynamoDB when deleting data from a table
 
-Before your application can access a database, it must be
-_authenticated_ to ensure that the application is allowed to use
-the database. It must be _authorized_ so that the application can
-perform only the actions for which it has permissions.
+In SQL, the `DELETE` statement removes one or more rows from a table.
+Amazon DynamoDB uses the `DeleteItem` operation to delete one item at a
+time.
 
-The following diagram shows a client's interaction with a relational database and with
-Amazon DynamoDB.
+###### Topics
 
-![Interaction with relational and NoSQL databases.](images/SQLtoNoSQL.png)
-The following table has more details about client interaction tasks.
+- [Deleting data from a table with
+  SQL](#SQLtoNoSQL.DeleteData.SQL "#SQLtoNoSQL.DeleteData.SQL")
+- [Deleting data from a table in
+  DynamoDB](#SQLtoNoSQL.DeleteData.DynamoDB "#SQLtoNoSQL.DeleteData.DynamoDB")
 
-| Characteristic                          | Relational database management system (RDBMS)                                                                                                                                                                                                                                                                                        | Amazon DynamoDB                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tools for Accessing the<br>Database** | Most relational databases provide a command line interface (CLI)<br>so that you can enter ad hoc SQL statements and see the results<br>immediately.                                                                                                                                                                                  | In most cases, you write application code. You can also use the<br>AWS Management Console, the AWS Command Line Interface (AWS CLI), or NoSQL Workbench to send ad hoc<br>requests to DynamoDB and view the results. [PartiQL](ql-reference.md "ql-reference.md"), a<br>SQL-compatible query language, lets you select, insert, update, and<br>delete data in DynamoDB.                                                                                     |
-| **Connecting to the Database**          | An application program establishes and maintains a network connection<br>with the database. When the application is finished, it terminates the<br>connection.                                                                                                                                                                       | DynamoDB is a web service, and interactions with it are stateless.<br>Applications do not need to maintain persistent network connections.<br>Instead, interaction with DynamoDB occurs using HTTP(S) requests and<br>responses.                                                                                                                                                                                                                            |
-| **Authentication**                      | An application cannot connect to the database until it is<br>authenticated. The RDBMS can perform the authentication itself, or it<br>can offload this task to the host operating system or a directory<br>service.                                                                                                                  | Every request to DynamoDB must be accompanied by a cryptographic<br>signature, which authenticates that particular request. The AWS SDKs<br>provide all of the logic necessary for creating signatures and signing<br>requests. For more information, see [Signing AWS API<br>requests](../../../general/latest/gr/signing_aws_api_requests.md "../../../general/latest/gr/signing_aws_api_requests.md") in the _AWS General Reference_.                    |
-| **Authorization**                       | Applications can perform only the actions for which they have been<br>authorized. Database administrators or application owners can use the<br>SQL `GRANT` and `REVOKE` statements to control<br>access to database objects (such as tables), data (such as rows within a<br>table), or the ability to issue certain SQL statements. | In DynamoDB, authorization is handled by AWS Identity and Access Management (IAM). You can<br>write an IAM policy to grant permissions on a DynamoDB resource (such as<br>a table), and then allow users and roles to use that policy. IAM also<br>features fine-grained access control for individual data items in DynamoDB<br>tables. For more information, see [Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md"). |
-| **Sending a Request**                   | The application issues a SQL statement for every database operation<br>that it wants to perform. Upon receipt of the SQL statement, the RDBMS<br>checks its syntax, creates a plan for performing the operation, and then<br>runs the plan.                                                                                          | The application sends HTTP(S) requests to DynamoDB. The requests contain<br>the name of the DynamoDB operation to perform, along with parameters. DynamoDB<br>runs the request immediately.                                                                                                                                                                                                                                                                 |
-| **Receiving a Response**                | The RDBMS returns the results from the SQL statement. If there is an<br>error, the RDBMS returns an error status and message.                                                                                                                                                                                                        | DynamoDB returns an HTTP(S) response containing the results of the<br>operation. If there is an error, DynamoDB returns an HTTP error status and<br>messages.                                                                                                                                                                                                                                                                                               |
+## Deleting data from a table with
+
+SQL
+
+In SQL, you use the `DELETE` statement to delete one or more rows. The
+`WHERE` clause determines the rows that you want to modify. The
+following is an example.
+
+```
+DELETE FROM Music
+WHERE Artist = 'The Acme Band' AND SongTitle = 'Look Out, World';
+```
+
+You can modify the `WHERE` clause to delete multiple rows. For example,
+you could delete all of the songs by a particular artist, as shown in the following
+example.
+
+```
+DELETE FROM Music WHERE Artist = 'The Acme Band'
+```
+
+## Deleting data from a table in
+
+DynamoDB
+
+In DynamoDB, you can use either the DynamoDB API or [PartiQL](ql-reference.md "ql-reference.md") (a SQL-compatible query
+language) to delete a single item. If you want to modify multiple items, you must
+use multiple operations.
+
+DynamoDB API
+With the DynamoDB API, you use the `DeleteItem` operation to
+delete data from a table, one item at a time. You must specify the
+item's primary key values.
+
+```
+{
+    TableName: "Music",
+    Key: {
+        Artist: "The Acme Band",
+        SongTitle: "Look Out, World"
+    }
+}
+```
+
+###### Note
+
+In addition to `DeleteItem`, Amazon DynamoDB supports a
+`BatchWriteItem` operation for deleting multiple
+items at the same time.
+
+`DeleteItem` supports _conditional
+writes_, where the operation succeeds only if a specific
+`ConditionExpression` evaluates to true. For example, the
+following `DeleteItem` operation deletes the item only if it
+has a _RecordLabel_ attribute.
+
+```
+{
+    TableName: "Music",
+    Key: {
+        Artist: "The Acme Band",
+        SongTitle: "Look Out, World"
+    },
+   ConditionExpression: "attribute_exists(RecordLabel)"
+}
+```
+
+PartiQL for DynamoDB
+With PartiQL, you use the `Delete` statement through the
+`ExecuteStatement` operation to delete data from a table,
+one item at a time. You must specify the item's primary key
+values.
+
+The primary key for this table consists of _Artist_
+and _SongTitle_. You must specify values for these
+attributes.
+
+```
+DELETE FROM Music
+WHERE Artist = 'Acme Band' AND SongTitle = 'PartiQL Rocks'
+```
+
+You can also specify additional conditions for the operation. The
+following `DELETE` operation only deletes the item if it has
+more than 11 _Awards_.
+
+```
+DELETE FROM Music
+WHERE Artist = 'Acme Band' AND SongTitle = 'PartiQL Rocks' AND Awards > 11
+```
+
+###### Note
+
+For code examples using `DELETE` and
+`ExecuteStatement`, see [PartiQL delete statements for DynamoDB](ql-reference.md "ql-reference.md").

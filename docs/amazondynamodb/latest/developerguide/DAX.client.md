@@ -1,76 +1,54 @@
-# Step 1: Launch an Amazon EC2
+# Modifying an existing application to use
 
-instance
+DAX
 
-When your Amazon DynamoDB Accelerator (DAX) cluster is available, you can launch an Amazon EC2
-instance in your default Amazon Virtual Private Cloud (Amazon VPC). You can then install and run DAX client
-software on that instance.
-
-###### To launch an EC2 instance
-
-1. Sign in to the AWS Management Console and open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. Choose **Launch Instance**, and do the following:
-
-**Step 1: Choose an Amazon Machine Image
-(AMI)**
-
-    1. In the list of AMIs, find the **Amazon Linux AMI**,
-     and choose **Select**.
-
-**Step 2: Choose an Instance Type**
-
-    1. In the list of instance types, choose
-     **t2.micro**.
-    2. Choose **Next: Configure Instance Details**.
-
-**Step 3: Configure Instance Details**
-
-    1. For **Network**, choose your default VPC.
-    2. Choose **Next: Add Storage**.
-
-**Step 4: Add Storage**
-
-    1. Skip this step by choosing **Next: Add Tags**.
-
-**Step 5: Add Tags**
-
-    1. Skip this step by choosing **Next: Configure Security
-     Group**.
-
-**Step 6: Configure Security Group**
-
-    1. Choose **Select an existing security group**.
-    2. In the list of security groups, choose **default**.
-     This is the default security group for your VPC.
-    3. Choose **Next: Review and Launch**.
-
-**Step 7: Review Instance Launch**
-
-    1. Choose **Launch**.
-
-3. In the **Select an existing key pair or create a new key
-   pair** window, do one of the following:
-   - If you don't have an Amazon EC2 key pair, choose **Create a new key
-     pair** and follow the instructions. You are asked to
-     download a private key file (`.pem` file). You need
-     this file later when you log in to your Amazon EC2 instance.
-   - If you already have an existing Amazon EC2 key pair, go to **Select a key pair** and choose your key pair from the list.
-     You must already have the private key file (`.pem`
-     file) available in order to log in to your Amazon EC2 instance.
-
-4. After configuring your key pair, choose **Launch
-   Instances**.
-5. In the console navigation pane, choose **EC2 Dashboard**, and
-   then choose the instance that you launched. In the lower pane, on the
-   **Description** tab, find the **Public
-   DNS** for your instance, for example:
-   `ec2-11-22-33-44.us-west-2.compute.amazonaws.com`. Make a note of
-   this public DNS name because you need it for [Step 3: Configure an Amazon EC2
-   instance](DAX.client.md "DAX.client.md").
+If you already have a Java application that uses Amazon DynamoDB, you can modify it so that
+it can access your DynamoDB Accelerator (DAX) cluster. You don't have to rewrite the entire
+application because the DAX Java client is similar to the DynamoDB low-level client
+included in the AWS SDK for Java 2.x. See [Working with
+items in DynamoDB](../../../sdk-for-java/latest/developer-guide/examples-dynamodb-items.md "../../../sdk-for-java/latest/developer-guide/examples-dynamodb-items.md") for details.
 
 ###### Note
 
-It takes a few minutes for your Amazon EC2 instance to become available. In the
-meantime, proceed to [Step 2: Create a user and policy](DAX.client.md "DAX.client.md") and follow the instructions
-there.
+This example uses AWS SDK for Java 2.x. For the legacy SDK for Java 1.x version, see [Modifying an existing SDK for Java 1.x
+application to use DAX](DAX.client.modify-your-app.md "DAX.client.modify-your-app.md").
+
+To modify your program, replace the DynamoDB client with a DAX client.
+
+```
+Region region = Region.US_EAST_1;
+
+// Create an asynchronous DynamoDB client
+DynamoDbAsyncClient client = DynamoDbAsyncClient.builder()
+                .region(region)
+                .build();
+
+// Create an asynchronous DAX client
+DynamoDbAsyncClient client = ClusterDaxAsyncClient.builder()
+                .overrideConfiguration(Configuration.builder()
+                    .url(`<cluster url>`) // for example, "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
+                    .region(region)
+                    .addMetricPublisher(cloudWatchMetricsPub) // optionally enable SDK metric collection
+                    .build())
+                .build();
+```
+
+You can also use the high-level library that is part of the AWS SDK for Java 2.x, replacing
+the DynamoDB client with a DAX client.
+
+```
+Region region = Region.US_EAST_1;
+DynamoDbAsyncClient dax = ClusterDaxAsyncClient.builder()
+        .overrideConfiguration(Configuration.builder()
+            .url(`<cluster url>`) // for example, "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
+            .region(region)
+            .build())
+        .build();
+
+DynamoDbEnhancedAsyncClient enhancedClient = DynamoDbEnhancedAsyncClient.builder()
+        .dynamoDbClient(dax)
+        .build();
+```
+
+For more information, see [Mapping
+items in DynamoDB tables](../../../sdk-for-java/latest/developer-guide/examples-dynamodb-enhanced.md "../../../sdk-for-java/latest/developer-guide/examples-dynamodb-enhanced.md").

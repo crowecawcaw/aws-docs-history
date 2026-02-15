@@ -1,41 +1,36 @@
-# Using expressions in DynamoDB
+# Using expression attribute
 
-In Amazon DynamoDB, you can use _expressions_ to specify which attributes to
-read from an item, write data when a condition is met, specify how to update an item, define
-queries and filter the results of a query.
+values in DynamoDB
 
-This table describes the basic expression grammar and the available kinds of
-expressions.
+_Expression attribute values_ in Amazon DynamoDB act as variables.
+They're substitutes for the actual values that you want to compare—values that you
+might not know until runtime. An expression attribute value must begin with a colon
+(`:`) and be followed by one or more alphanumeric characters.
 
-| Expression type          | Description                                                                                                                                                               |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Projection expression    | A projection expression identifies the attributes that you want to<br>retrieve from an item when you use operations such as GetItem, Query, or<br>Scan.                   |
-| Condition expression     | A condition expression determines which items should be modified when you<br>use the PutItem, UpdateItem, and DeleteItem operations.                                      |
-| Update expression        | An update expression specifies how UpdateItem will modify the attributes<br>of an item— for example, setting a scalar value or removing elements from a<br>list or a map. |
-| Key condition expression | A key condition expression determines which items a query will read from<br>a table or index.                                                                             |
-| Filter expression        | A filter expression determines which items among the Query results should<br>be returned to you. All the other results are discarded.                                     |
+For example, suppose that you wanted to return all of the `ProductCatalog`
+items that are available in `Black` and cost `500` or less. You
+could use a `Scan` operation with a filter expression, as in this AWS Command Line Interface
+(AWS CLI) example.
 
-For information about expression syntax and more detailed information about each type of
-expression, see the following sections.
+```
+aws dynamodb scan \
+    --table-name ProductCatalog \
+    --filter-expression "contains(Color, :c) and Price <= :p" \
+    --expression-attribute-values file://values.json
+```
 
-###### Topics
+The arguments for `--expression-attribute-values` are stored in the
+`values.json` file.
 
-- [Referring to item attributes when using
-  expressions in DynamoDB](Expressions.md "Expressions.md")
-- [Expression attribute names (aliases)
-  in DynamoDB](Expressions.md "Expressions.md")
-- [Using expression attribute
-  values in DynamoDB](Expressions.md "Expressions.md")
-- [Using projection expressions in
-  DynamoDB](Expressions.md "Expressions.md")
-- [Using update expressions in DynamoDB](Expressions.md "Expressions.md")
-- [Condition and filter expressions,
-  operators, and functions in DynamoDB](Expressions.md "Expressions.md")
-- [DynamoDB condition expression CLI example](Expressions.md "Expressions.md")
+```
+{
+    ":c": { "S": "Black" },
+    ":p": { "N": "500" }
+}
+```
 
-###### Note
+If you define an expression attribute value, you must use it consistently throughout
+the entire expression. Also, you can't omit the `:` symbol.
 
-For backward compatibility, DynamoDB also supports conditional parameters that do not use
-expressions. For more information, see [Legacy DynamoDB conditional parameters](LegacyConditionalParameters.md "LegacyConditionalParameters.md").
-
-New applications should use expressions rather than the legacy parameters.
+Expression attribute values are used with key condition expressions, condition
+expressions, update expressions, and filter expressions.

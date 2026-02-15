@@ -1,35 +1,28 @@
-# Using the CONTAINS function with PartiQL for DynamoDB
+# Using the SIZE function with PartiQL for amazon DynamoDB
 
-Returns `TRUE` if the attribute specified by the path is one of the
-following:
-
-- A String that contains a particular substring.
-- A Set that contains a particular element within the set.
-  For more information, see the DynamoDB [contains](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
+Returns a number representing an attribute's size in bytes. The following are valid data types
+for use with size. For more information, see the DynamoDB [size](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
 
 ## Syntax
 
 ```
-contains( `path`, `substring` )
+size( `path`)
 ```
 
 ## Arguments
 
 `path`
 
-(Required) The attribute name or document path to use.
+(Required) The attribute name or document path.
 
-`substring`
-
-(Required) The attribute substring or set member to check for. For
-more information, see the DynamoDB [contains](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
+For supported types, see DynamoDB [size](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
 
 ## Return type
 
-`bool`
+`int`
 
 ## Examples
 
 ```
-SELECT * FROM "Orders" WHERE "OrderID"=1 AND contains("Address", 'Kirkland')
+ SELECT * FROM "Orders" WHERE "OrderID"=1 AND size("Image") >300
 ```

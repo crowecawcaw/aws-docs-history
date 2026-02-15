@@ -1,28 +1,16 @@
-# TryDaxHelper.java
+# TryDaxTests.java
 
-The `TryDaxHelper.java` file contains utility methods.
-
-The `getDynamoDBClient` and `getDaxClient` methods provide
-Amazon DynamoDB and DynamoDB Accelerator (DAX) clients. For control plane operations
-(`CreateTable`, `DeleteTable`) and write operations, the
-program uses the DynamoDB client. If you specify a DAX cluster endpoint, the main program
-creates a DAX client for performing read operations (`GetItem`,
-`Query`, `Scan`).
-
-The other `TryDaxHelper` methods (`createTable`,
-`writeData`, `deleteTable`) are for setting up and tearing
-down the DynamoDB table and its data.
+The `TryDaxTests.java` file contains methods that perform read
+operations against a test table in Amazon DynamoDB. These methods are not concerned with how
+they access the data (using either the DynamoDB client or the DAX client), so there is no
+need to modify the application logic.
 
 You can modify the program in several ways:
 
-- Use different provisioned throughput settings for the table.
-- Modify the size of each item written (see the `stringSize` variable
-  in the `writeData` method).
-- Modify the number of `GetItem`, `Query`, and
-  `Scan` tests and their parameters.
-- Comment out the lines containing `helper.CreateTable` and
-  `helper.DeleteTable` (if you don't want to create and delete the
-  table each time you run the program).
+- Modify the `queryTest` method so that it uses a different
+  `KeyConditionExpression`.
+- Add a `ScanFilter` to the `scanTest` method so that only
+  some of the items are returned to you.
 
 ###### Note
 
@@ -34,103 +22,99 @@ your classpath. See [Java and DAX](DAX.client.md "DAX.client.md") for an example
 `CLASSPATH` variable.
 
 ```
+import java.util.Iterator;
 
-import com.amazon.dax.client.dynamodbv2.AmazonDaxClientBuilder;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.dynamodbv2.document.ItemCollection;
+import com.amazonaws.services.dynamodbv2.document.QueryOutcome;
+import com.amazonaws.services.dynamodbv2.document.ScanOutcome;
 import com.amazonaws.services.dynamodbv2.document.Table;
-import com.amazonaws.services.dynamodbv2.model.AttributeDefinition;
-import com.amazonaws.services.dynamodbv2.model.KeySchemaElement;
-import com.amazonaws.services.dynamodbv2.model.KeyType;
-import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
-import com.amazonaws.services.dynamodbv2.model.ScalarAttributeType;
-import com.amazonaws.util.EC2MetadataUtils;
+import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 
-public class TryDaxHelper {
+public class TryDaxTests {
 
-    private static final String region = EC2MetadataUtils.getEC2InstanceRegion();
-
-    DynamoDB getDynamoDBClient() {
-        System.out.println("Creating a DynamoDB client");
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                .withRegion(region)
-                .build();
-        return new DynamoDB(client);
-    }
-
-    DynamoDB getDaxClient(String daxEndpoint) {
-        System.out.println("Creating a DAX client with cluster endpoint " + daxEndpoint);
-        AmazonDaxClientBuilder daxClientBuilder = AmazonDaxClientBuilder.standard();
-        daxClientBuilder.withRegion(region).withEndpointConfiguration(daxEndpoint);
-        AmazonDynamoDB client = daxClientBuilder.build();
-        return new DynamoDB(client);
-    }
-
-    void createTable(String tableName, DynamoDB client) {
+    void getItemTest(String tableName, DynamoDB client, int pk, int sk, int iterations) {
+        long startTime, endTime;
+        System.out.println("GetItem test - partition key " + pk + " and sort keys 1-" + sk);
         Table table = client.getTable(tableName);
-        try {
-            System.out.println("Attempting to create table; please wait...");
 
-            table = client.createTable(tableName,
-                    Arrays.asList(
-                            new KeySchemaElement("pk", KeyType.HASH), // Partition key
-                            new KeySchemaElement("sk", KeyType.RANGE)), // Sort key
-                    Arrays.asList(
-                            new AttributeDefinition("pk", ScalarAttributeType.N),
-                            new AttributeDefinition("sk", ScalarAttributeType.N)),
-                    new ProvisionedThroughput(10L, 10L));
-            table.waitForActive();
-            System.out.println("Successfully created table.  Table status: " +
-                    table.getDescription().getTableStatus());
-
-        } catch (Exception e) {
-            System.err.println("Unable to create table: ");
-            e.printStackTrace();
-        }
-    }
-
-    void writeData(String tableName, DynamoDB client, int pkmax, int skmax) {
-        Table table = client.getTable(tableName);
-        System.out.println("Writing data to the table...");
-
-        int stringSize = 1000;
-        StringBuilder sb = new StringBuilder(stringSize);
-        for (int i = 0; i < stringSize; i++) {
-            sb.append('X');
-        }
-        String someData = sb.toString();
-
-        try {
-            for (Integer ipk = 1; ipk <= pkmax; ipk++) {
-                System.out.println(("Writing " + skmax + " items for partition key: " + ipk));
-                for (Integer isk = 1; isk <= skmax; isk++) {
-                    table.putItem(new Item()
-                            .withPrimaryKey("pk", ipk, "sk", isk)
-                            .withString("someData", someData));
+        for (int i = 0; i < iterations; i++) {
+            startTime = System.nanoTime();
+            try {
+                for (Integer ipk = 1; ipk <= pk; ipk++) {
+                    for (Integer isk = 1; isk <= sk; isk++) {
+                        table.getItem("pk", ipk, "sk", isk);
+                    }
                 }
+            } catch (Exception e) {
+                System.err.println("Unable to get item:");
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            System.err.println("Unable to write item:");
-            e.printStackTrace();
+            endTime = System.nanoTime();
+            printTime(startTime, endTime, pk * sk);
         }
     }
 
-    void deleteTable(String tableName, DynamoDB client) {
+    void queryTest(String tableName, DynamoDB client, int pk, int sk1, int sk2, int iterations) {
+        long startTime, endTime;
+        System.out.println("Query test - partition key " + pk + " and sort keys between " + sk1 + " and " + sk2);
         Table table = client.getTable(tableName);
-        try {
-            System.out.println("\nAttempting to delete table; please wait...");
-            table.delete();
-            table.waitForDelete();
-            System.out.println("Successfully deleted table.");
 
-        } catch (Exception e) {
-            System.err.println("Unable to delete table: ");
-            e.printStackTrace();
+        HashMap<String, Object> valueMap = new HashMap<String, Object>();
+        valueMap.put(":pkval", pk);
+        valueMap.put(":skval1", sk1);
+        valueMap.put(":skval2", sk2);
+
+        QuerySpec spec = new QuerySpec()
+                .withKeyConditionExpression("pk = :pkval and sk between :skval1 and :skval2")
+                .withValueMap(valueMap);
+
+        for (int i = 0; i < iterations; i++) {
+            startTime = System.nanoTime();
+            ItemCollection<QueryOutcome> items = table.query(spec);
+
+            try {
+                Iterator<Item> iter = items.iterator();
+                while (iter.hasNext()) {
+                    iter.next();
+                }
+            } catch (Exception e) {
+                System.err.println("Unable to query table:");
+                e.printStackTrace();
+            }
+            endTime = System.nanoTime();
+            printTime(startTime, endTime, iterations);
         }
     }
 
+    void scanTest(String tableName, DynamoDB client, int iterations) {
+        long startTime, endTime;
+        System.out.println("Scan test - all items in the table");
+        Table table = client.getTable(tableName);
+
+        for (int i = 0; i < iterations; i++) {
+            startTime = System.nanoTime();
+            ItemCollection<ScanOutcome> items = table.scan();
+            try {
+
+                Iterator<Item> iter = items.iterator();
+                while (iter.hasNext()) {
+                    iter.next();
+                }
+            } catch (Exception e) {
+                System.err.println("Unable to scan table:");
+                e.printStackTrace();
+            }
+            endTime = System.nanoTime();
+            printTime(startTime, endTime, iterations);
+        }
+    }
+
+    public void printTime(long startTime, long endTime, int iterations) {
+        System.out.format("\tTotal time: %.3f ms - ", (endTime - startTime) / (1000000.0));
+        System.out.format("Avg time: %.3f ms\n", (endTime - startTime) / (iterations * 1000000.0));
+    }
 }
 
 

@@ -1,16 +1,15 @@
-# 03-GetItem-Test.cs
+# 02-Write-Data.cs
 
-The `03-GetItem-Test.cs` program performs `GetItem`
-operations on `TryDaxTable`.
+The `02-Write-Data.cs` program writes test data to
+`TryDaxTable`.
 
 ```
 
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Amazon.DAX;
+using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
-using Amazon.Runtime;
 
 namespace ClientTest
 {
@@ -18,46 +17,33 @@ namespace ClientTest
     {
         public static async Task Main(string[] args)
         {
-            string endpointUri = args[0];
-            Console.WriteLine($"Using DAX client - endpointUri={endpointUri}");
-
-            var clientConfig = new DaxClientConfig(endpointUri)
-            {
-                AwsCredentials = FallbackCredentialsFactory.GetCredentials()
-            };
-            var client = new ClusterDaxClient(clientConfig);
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 
             var tableName = "TryDaxTable";
 
-            var pk = 1;
-            var sk = 10;
-            var iterations = 5;
+            string someData = new string('X', 1000);
+            var pkmax = 10;
+            var skmax = 10;
 
-            var startTime = System.DateTime.Now;
-
-            for (var i = 0; i < iterations; i++)
+            for (var ipk = 1; ipk <= pkmax; ipk++)
             {
-                for (var ipk = 1; ipk <= pk; ipk++)
+                Console.WriteLine($"Writing {skmax} items for partition key: {ipk}");
+                for (var isk = 1; isk <= skmax; isk++)
                 {
-                    for (var isk = 1; isk <= sk; isk++)
+                    var request = new PutItemRequest()
                     {
-                        var request = new GetItemRequest()
-                        {
-                            TableName = tableName,
-                            Key = new Dictionary<string, AttributeValue>() {
-                            {"pk", new AttributeValue {N = ipk.ToString()} },
-                            {"sk", new AttributeValue {N = isk.ToString() } }
-                        }
-                        };
-                        var response = await client.GetItemAsync(request);
-                        Console.WriteLine($"GetItem succeeded for pk: {ipk},sk: {isk}");
-                    }
+                        TableName = tableName,
+                        Item = new Dictionary<string, AttributeValue>()
+                       {
+                            { "pk", new AttributeValue{N = ipk.ToString() } },
+                            { "sk", new AttributeValue{N = isk.ToString() } },
+                            { "someData", new AttributeValue{S = someData } }
+                       }
+                    };
+
+                    var response = await client.PutItemAsync(request);
                 }
             }
-
-            var endTime = DateTime.Now;
-            TimeSpan timeSpan = endTime - startTime;
-            Console.WriteLine($"Total time: {timeSpan.TotalMilliseconds} milliseconds");
 
             Console.WriteLine("Hit <enter> to continue...");
             Console.ReadLine();

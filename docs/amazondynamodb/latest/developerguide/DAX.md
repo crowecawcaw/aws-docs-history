@@ -1,63 +1,141 @@
-# DAX T3/T2 burstable instances
+# DAX cluster sizing guide
 
-DAX allows you to choose between fixed performance instances (such as R4, R5, and R7) and
-burstable performance instances (such as T2 and T3). Burstable performance instances provide
-a baseline level of CPU performance with the ability to burst above the baseline when
-needed.
+This guide provides advice for choosing an appropriate Amazon DynamoDB Accelerator (DAX) cluster
+size and node type for your application. These instructions guide you through the steps of
+estimating your application’s DAX traffic, selecting a cluster configuration, and testing
+it.
 
-Baseline performance and the ability to burst above it are governed by CPU credits.
-Burstable performance instances accumulate CPU credits continuously, at a rate determined by
-the instance size, when the workload is below the baseline threshold. These credits may then
-be consumed when the workload increases. A CPU credit provides the performance of a full CPU
-core for one minute.
+If you have an existing DAX cluster and want to evaluate whether it has the appropriate
+number and size of nodes, please refer to [Scaling a DAX cluster](DAX.md#DAX.cluster-management.scaling "DAX.md#DAX.cluster-management.scaling").
 
-Many workloads don’t need consistently high levels of CPU, but benefit significantly from
-having full access to very fast CPUs when they need them. Burstable performance instances
-are engineered specifically for these use cases. If you need consistently high CPU
-performance for your database, we recommend you use fixed performance instances.
+###### Topics
 
-## DAX T2 instance family
+- [Overview](#DAX.sizing-guide.overview "#DAX.sizing-guide.overview")
+- [Estimating traffic](#DAX.sizing-guide.estimating-traffic "#DAX.sizing-guide.estimating-traffic")
+- [Load testing](#DAX.sizing-guide.load-testing "#DAX.sizing-guide.load-testing")
 
-DAX T2 instances are burstable general-purpose performance instances that provide a
-baseline level of CPU performance with the ability to burst above the baseline. T2
-instances are a good choice for test and development workloads which need price
-predictability. DAX T2 instances are configured for standard mode, which means that if
-the instance is running low on accrued credits, CPU utilization is gradually lowered to
-the baseline level. For more information on standard mode, refer to [Standard mode
-for burstable performance instances](../../../AWSEC2/latest/UserGuide/burstable-performance-instances-standard-mode.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances-standard-mode.md") in the Amazon EC2 User Guide.
+## Overview
 
-## DAX T3 instance family
+It's important to scale your DAX cluster appropriately for your workload, whether
+you're creating a new cluster or maintaining an existing cluster. As time goes on and
+your application's workload changes, you should periodically revisit your scaling
+decisions to make sure that they are still appropriate.
 
-DAX T3 instances are the next generation burstable general-purpose instance type,
-providing a baseline level of CPU performance with the ability to burst CPU usage at any
-time for as long as required. T3 instances offer a balance of compute, memory, and
-network resources and are ideal for workloads with moderate CPU usage that experience
-temporary spikes in use. DAX T3 instances are configured for unlimited mode, which means
-they can burst beyond the baseline over a 24-hour window for an additional charge. For
-more information on unlimited mode, refer to [Unlimited
-mode for burstable performance instances](../../../AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.md") in the Amazon EC2 User Guide.
+The process typically follows these steps:
 
-DAX T3 instances can sustain high CPU performance for as long as a workload requires
-it. For most general-purpose workloads, T3 instances will provide ample performance
-without any additional charges. The hourly T3 instance price automatically covers all
-interim spikes in usage when the average CPU utilization of a T3 instance is at or less
-than the baseline over a 24-hour window.
+1. **Estimating traffic.** In this step, you make
+   predictions about the volume of traffic that your application will send to
+   DAX, the nature of the traffic (read vs. write operations), and the expected
+   cache hit rate.
+2. **Load testing.** In this step, you create a
+   cluster and send traffic to it mirroring your estimates from the previous step.
+   Repeat this step until you find a suitable cluster configuration.
+3. **Production monitoring.** While your application
+   is using DAX in production, you should [monitor
+   the cluster](DAX.md "DAX.md") to continuously validate that it is still scaled
+   correctly as your workload changes over time.
 
-For example, a `dax.t3.small` instance receives credits continuously at a
-rate of 24 CPU credits per hour. This capability provides baseline performance
-equivalent to 20% of a CPU core (20% × 60 minutes = 12 minutes). If
-the instance does not use the credits it receives, they are stored in its CPU credit
-balance up to a maximum of 576 CPU credits. When the `t3.small` instance
-needs to burst to more than 20% of a core, it draws from its CPU credit balance
-to handle this surge automatically.
+## Estimating traffic
 
-While DAX T2 instances are restricted to baseline performance once the CPU credit
-balance is drawn down to zero, DAX T3 instances can burst above the baseline even when
-their CPU credit balance is zero. For the vast majority of workloads, where the average
-CPU utilization is at or below the baseline performance, the basic hourly price for
-`t3.small` covers all CPU bursts. If the instance happens to run at an
-average 25% CPU utilization (5% above baseline) over a period of 24 hours
-after its CPU credit balance is drawn to zero, it will be charged an additional 11.52
-cents (9.6 cents/vCPU-hour × 1 vCPU × 5% × 24 hours). See
-[Amazon DynamoDB
-Pricing](https://aws.amazon.com/dynamodb/pricing/on-demand/ "https://aws.amazon.com/dynamodb/pricing/on-demand/") for pricing details.
+There are three main factors that characterize a typical DAX workload:
+
+- Cache hit rate
+- [Read capacity
+  units](provisioned-capacity-mode.md#read-write-capacity-units "provisioned-capacity-mode.md#read-write-capacity-units") (RCUs) per second
+- [Write capacity
+  units](provisioned-capacity-mode.md#read-write-capacity-units "provisioned-capacity-mode.md#read-write-capacity-units") (WCUs) per second
+
+### Estimating cache hit
+
+rate
+
+If you already have a DAX cluster, you can use the `ItemCacheHits`
+and `ItemCacheMisses`
+[Amazon CloudWatch metrics](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md") to determine the
+cache hit rate. The cache hit rate is equal to `ItemCacheHits` /
+(`ItemCacheHits` + `ItemCacheMisses`). If your workload
+includes `Query` or `Scan` operations, you should also look at
+the `QueryCacheHits`, `QueryCacheMisses`,
+`ScanCacheHits`, and `ScanCacheMisses` metrics. Cache hit
+rates vary from one application to another and are heavily influenced by the
+cluster's Time to Live (TTL) setting. Typical hit rates for applications using DAX are
+85–95 percent.
+
+### Estimating read and
+
+write capacity units
+
+If you already have DynamoDB tables for your application, look at the
+`ConsumedReadCapacityUnits` and
+`ConsumedWriteCapacityUnits`
+[CloudWatch metrics](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md"). Use the
+`Sum` statistic and divide by the number of seconds in the period.
+
+If you also already have a DAX cluster, remember that the DynamoDB
+`ConsumedReadCapacityUnits` metric only accounts for cache misses.
+So, to get an idea of the read capacity units per second handled by your DAX
+cluster, divide the number by your cache miss rate (that is, 1 - cache hit
+rate).
+
+If you don't already have a DynamoDB table, see the documentation about [read and write capacity units](provisioned-capacity-mode.md#read-write-capacity-units "provisioned-capacity-mode.md#read-write-capacity-units") to estimate your traffic based on your application's estimated
+request rate, items accessed per request, and item size.
+
+When making traffic estimates, plan for future growth and for expected and
+unexpected peaks to ensure that your cluster has enough headroom for traffic
+increases.
+
+## Load testing
+
+The next step after estimating traffic is to test the cluster configuration under
+load.
+
+1. For your initial load test, we recommend that you start with the
+   `dax.r4.large` node type, the lowest-cost fixed performance,
+   memory-optimized node type.
+2. A fault-tolerant cluster requires at least three nodes, spread across three
+   Availability Zones. In this case, if an Availability Zone becomes unavailable,
+   the effective number of Availability Zones is reduced by one-third. For your
+   initial load test, we recommend that you start with a two-node cluster, which
+   simulates the failure of one Availability Zone in a three-node cluster.
+3. Drive sustained traffic (as estimated in the previous step) to your test
+   cluster for the duration of the load test.
+4. Monitor the performance of the cluster during the load test.
+
+Ideally, the traffic profile that you drive during the load test should be as similar
+as possible to your application's real traffic. This includes the distribution of
+operations (for example, 70 percent `GetItem`, 25 percent `Query`,
+and 5 percent `PutItem`), the request rate for each operation, the number of
+items accessed per request, and the distribution of item sizes. To achieve a cache hit
+rate similar to your application's expected cache hit rate, pay close attention to the
+distribution of keys in your test traffic.
+
+###### Note
+
+Be careful when load testing T2 node types (`dax.t2.small` and
+`dax.t2.medium`). T2 node types provide [burstable CPU performance](../../../AWSEC2/latest/UserGuide/burstable-performance-instances.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances.md") that varies over time depending on the node's
+CPU credit balance. A DAX cluster running on T2 nodes might appear to be operating
+normally, but if any node is bursting above the [baseline performance](../../../AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.md "../../../AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.md") of its instance, the node is spending its accrued
+CPU credit balance. When the credit balance runs low, [performance is gradually lowered](../../../AWSEC2/latest/UserGuide/burstable-performance-instances-standard-mode.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances-standard-mode.md") to the baseline performance
+level.
+
+[Monitor your DAX cluster](DAX.md "DAX.md") during the load test
+to determine whether the node type that you're using for the load test is the right node
+type for you. In addition, during a load test, you should monitor your request rate and
+cache hit rate to ensure that your test infrastructure is actually driving the amount of
+traffic you intend.
+
+You should pay attention to network bytes consumption of your selected cluster instance type. Exceeding the
+available baseline bandwidth for an Amazon EC2 instance indicates that your cluster may not sustain your application's
+workload, and needs to be scaled.
+
+If load testing indicates that the selected cluster configuration can't sustain your
+application's workload, you should [switch to a larger node
+type](DAX.md#DAX.cluster-management.scaling.node-types "DAX.md#DAX.cluster-management.scaling.node-types"), especially if you see high CPU utilization on the primary node in the
+cluster, high eviction rates, or high cache memory utilization. If hit rates are
+consistently high, and the ratio of read to write traffic is high, you may want to
+consider [adding more nodes
+to your cluster](DAX.md#DAX.cluster-management.scaling.read-scaling "DAX.md#DAX.cluster-management.scaling.read-scaling"). Refer to [Scaling a DAX cluster](DAX.md#DAX.cluster-management.scaling "DAX.md#DAX.cluster-management.scaling") for additional guidance on when to
+use a larger node type (vertical scaling) or add more nodes (horizontal scaling).
+
+You should repeat your load test after making changes to your cluster
+configuration.

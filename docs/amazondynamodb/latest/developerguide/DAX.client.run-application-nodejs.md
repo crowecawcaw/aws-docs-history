@@ -1,7 +1,8 @@
-# 03-getitem-test.js
+# 01-create-table.js
 
-The `03-getitem-test.js` program performs `GetItem`
-operations on `TryDaxTable`.
+The `01-create-table.js` program creates a table
+(`TryDaxTable`). The remaining Node.js programs in this section
+depend on this table.
 
 ```
 const AmazonDaxClient = require("amazon-dax-client");
@@ -13,59 +14,39 @@ AWS.config.update({
   region: region,
 });
 
-var ddbClient = new AWS.DynamoDB.DocumentClient();
-var daxClient = null;
+var dynamodb = new AWS.DynamoDB(); //low-level client
 
-if (process.argv.length > 2) {
-  var dax = new AmazonDaxClient({
-    endpoints: [process.argv[2]],
-    region: region,
-  });
-  daxClient = new AWS.DynamoDB.DocumentClient({ service: dax });
-}
-
-var client = daxClient != null ? daxClient : ddbClient;
 var tableName = "TryDaxTable";
 
-var pk = 1;
-var sk = 10;
-var iterations = 5;
+var params = {
+  TableName: tableName,
+  KeySchema: [
+    { AttributeName: "pk", KeyType: "HASH" }, //Partition key
+    { AttributeName: "sk", KeyType: "RANGE" }, //Sort key
+  ],
+  AttributeDefinitions: [
+    { AttributeName: "pk", AttributeType: "N" },
+    { AttributeName: "sk", AttributeType: "N" },
+  ],
+  ProvisionedThroughput: {
+    ReadCapacityUnits: 10,
+    WriteCapacityUnits: 10,
+  },
+};
 
-for (var i = 0; i < iterations; i++) {
-  var startTime = new Date().getTime();
-
-  for (var ipk = 1; ipk <= pk; ipk++) {
-    for (var isk = 1; isk <= sk; isk++) {
-      var params = {
-        TableName: tableName,
-        Key: {
-          pk: ipk,
-          sk: isk,
-        },
-      };
-
-      client.get(params, function (err, data) {
-        if (err) {
-          console.error(
-            "Unable to read item. Error JSON:",
-            JSON.stringify(err, null, 2)
-          );
-        } else {
-          // GetItem succeeded
-        }
-      });
-    }
+dynamodb.createTable(params, function (err, data) {
+  if (err) {
+    console.error(
+      "Unable to create table. Error JSON:",
+      JSON.stringify(err, null, 2)
+    );
+  } else {
+    console.log(
+      "Created table. Table description JSON:",
+      JSON.stringify(data, null, 2)
+    );
   }
-
-  var endTime = new Date().getTime();
-  console.log(
-    "\tTotal time: ",
-    endTime - startTime,
-    "ms - Avg time: ",
-    (endTime - startTime) / iterations,
-    "ms"
-  );
-}
+});
 
 
 ```

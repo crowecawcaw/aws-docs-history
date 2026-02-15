@@ -1,414 +1,51 @@
-# Basic operations on DynamoDB tables
+# Considerations when choosing a table
 
-Similar to other database systems, Amazon DynamoDB stores data in tables. You can manage
-your tables using a few basic operations.
+class in DynamoDB
 
-###### Topics
+DynamoDB offers two table classes designed to help you optimize for cost. The DynamoDB
+Standard table class is the default, and is recommended for the vast majority of
+workloads. The DynamoDB Standard-Infrequent Access (DynamoDB Standard-IA) table class is
+optimized for tables where storage is the dominant cost. For example, tables that store
+infrequently accessed data, such as application logs, old social media posts, e-commerce
+order history, and past gaming achievements, are good candidates for the Standard-IA
+table class.
 
-- [Creating a table](#WorkingWithTables.Basics.CreateTable "#WorkingWithTables.Basics.CreateTable")
-- [Describing a table](#WorkingWithTables.Basics.DescribeTable "#WorkingWithTables.Basics.DescribeTable")
-- [Updating a table](#WorkingWithTables.Basics.UpdateTable "#WorkingWithTables.Basics.UpdateTable")
-- [Deleting a table](#WorkingWithTables.Basics.DeleteTable "#WorkingWithTables.Basics.DeleteTable")
-- [Using deletion
-  protection](#WorkingWithTables.Basics.DeletionProtection "#WorkingWithTables.Basics.DeletionProtection")
-- [Listing table names](#WorkingWithTables.Basics.ListTables "#WorkingWithTables.Basics.ListTables")
-- [Describing provisioned
-  throughput quotas](#WorkingWithTables.Basics.DescribeLimits "#WorkingWithTables.Basics.DescribeLimits")
+Every DynamoDB table is associated with a table class. All secondary indexes associated
+with the table use the same table class. You can set your table class when creating your
+table (DynamoDB Standard by default) and update the table class of an existing table using
+the AWS Management Console, AWS CLI, or AWS SDK. DynamoDB also supports managing your table class
+using AWS CloudFormation for single-region tables (tables that are not global
+tables). Each table class offers different pricing for data storage as well as read and
+write requests. When choosing a table class for your table, keep the following in
+mind:
 
-## Creating a table
-
-Use the `CreateTable` operation to create a table in Amazon DynamoDB. To
-create the table, you must provide the following information:
-
-- Table name. The name must conform to the
-  DynamoDB naming rules, and must be unique for the current AWS account and
-  Region. For example, you could create a `People` table in
-  US East (N. Virginia) and another `People` table in
-  Europe (Ireland). However, these two tables would be entirely different
-  from each other. For more information, see [Supported data types and naming rules
-  in Amazon DynamoDB](HowItWorks.md "HowItWorks.md").
-- Primary key. The primary key can consist of
-  one attribute (partition key) or two attributes (partition key and sort
-  key). You need to provide the attribute names, data types, and the role of
-  each attribute: `HASH` (for a partition key) and
-  `RANGE` (for a sort key). For more information, see [Primary key](HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey "HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey").
-- Throughput settings (for provisioned
-  tables). If using provisioned mode, you must specify the
-  initial read and write throughput settings for the table. You can modify
-  these settings later, or enable DynamoDB auto scaling to manage the settings
-  for you. For more information, see [DynamoDB provisioned capacity mode](provisioned-capacity-mode.md "provisioned-capacity-mode.md") and [Managing throughput capacity automatically with DynamoDB auto
-  scaling](AutoScaling.md "AutoScaling.md").
-
-### Example 1: Create an on-demand
-
-table
-
-To create the same table `Music` using on-demand mode.
-
-```
-aws dynamodb create-table \
-    --table-name Music \
-    --attribute-definitions \
-        AttributeName=Artist,AttributeType=S \
-        AttributeName=SongTitle,AttributeType=S \
-    --key-schema \
-        AttributeName=Artist,KeyType=HASH \
-        AttributeName=SongTitle,KeyType=RANGE \
-    --billing-mode=PAY_PER_REQUEST
-```
-
-The `CreateTable` operation returns metadata for the table, as
-shown following.
-
-```
-{
-    "TableDescription": {
-        "TableArn": "arn:aws:dynamodb:us-east-1:123456789012:table/Music",
-        "AttributeDefinitions": [
-            {
-                "AttributeName": "Artist",
-                "AttributeType": "S"
-            },
-            {
-                "AttributeName": "SongTitle",
-                "AttributeType": "S"
-            }
-        ],
-        "ProvisionedThroughput": {
-            "NumberOfDecreasesToday": 0,
-            "WriteCapacityUnits": 0,
-            "ReadCapacityUnits": 0
-        },
-        "TableSizeBytes": 0,
-        "TableName": "Music",
-        "BillingModeSummary": {
-            "BillingMode": "PAY_PER_REQUEST"
-        },
-        "TableStatus": "CREATING",
-        "TableId": "12345678-0123-4567-a123-abcdefghijkl",
-        "KeySchema": [
-            {
-                "KeyType": "HASH",
-                "AttributeName": "Artist"
-            },
-            {
-                "KeyType": "RANGE",
-                "AttributeName": "SongTitle"
-            }
-        ],
-        "ItemCount": 0,
-        "CreationDateTime": 1542397468.348
-    }
-}
-```
-
-###### Important
-
-When calling `DescribeTable` on an on-demand table, read
-capacity units and write capacity units are set to 0.
-
-### Example 2: Create a provisioned
-
-table
-
-The following AWS CLI example shows how to create a table (`Music`).
-The primary key consists of `Artist` (partition key) and
-`SongTitle` (sort key), each of which has a data type of
-`String`. The maximum throughput for this table is 10 read
-capacity units and 5 write capacity units.
-
-```
-aws dynamodb create-table \
-    --table-name Music \
-    --attribute-definitions \
-        AttributeName=Artist,AttributeType=S \
-        AttributeName=SongTitle,AttributeType=S \
-    --key-schema \
-        AttributeName=Artist,KeyType=HASH \
-        AttributeName=SongTitle,KeyType=RANGE \
-    --provisioned-throughput \
-        ReadCapacityUnits=10,WriteCapacityUnits=5
-```
-
-The `CreateTable` operation returns metadata for the table, as
-shown following.
-
-```
-{
-    "TableDescription": {
-        "TableArn": "arn:aws:dynamodb:us-east-1:123456789012:table/Music",
-        "AttributeDefinitions": [
-            {
-                "AttributeName": "Artist",
-                "AttributeType": "S"
-            },
-            {
-                "AttributeName": "SongTitle",
-                "AttributeType": "S"
-            }
-        ],
-        "ProvisionedThroughput": {
-            "NumberOfDecreasesToday": 0,
-            "WriteCapacityUnits": 5,
-            "ReadCapacityUnits": 10
-        },
-        "TableSizeBytes": 0,
-        "TableName": "Music",
-        "TableStatus": "CREATING",
-        "TableId": "12345678-0123-4567-a123-abcdefghijkl",
-        "KeySchema": [
-            {
-                "KeyType": "HASH",
-                "AttributeName": "Artist"
-            },
-            {
-                "KeyType": "RANGE",
-                "AttributeName": "SongTitle"
-            }
-        ],
-        "ItemCount": 0,
-        "CreationDateTime": 1542397215.37
-    }
-}
-```
-
-The `TableStatus` element indicates the current state of the table
-(`CREATING`). It might take a while to create the table,
-depending on the values you specify for `ReadCapacityUnits` and
-`WriteCapacityUnits`. Larger values for these require DynamoDB to
-allocate more resources for the table.
-
-### Example 3: Create a table
-
-using the DynamoDB standard-infrequent access table class
-
-To create the same `Music` table using the DynamoDB
-Standard-Infrequent Access table class.
-
-```
-aws dynamodb create-table \
-    --table-name Music \
-    --attribute-definitions \
-        AttributeName=Artist,AttributeType=S \
-        AttributeName=SongTitle,AttributeType=S \
-    --key-schema \
-        AttributeName=Artist,KeyType=HASH \
-        AttributeName=SongTitle,KeyType=RANGE \
-    --provisioned-throughput \
-        ReadCapacityUnits=10,WriteCapacityUnits=5 \
-    --table-class STANDARD_INFREQUENT_ACCESS
-```
-
-The `CreateTable` operation returns metadata for the table, as
-shown following.
-
-```
-{
-    "TableDescription": {
-        "TableArn": "arn:aws:dynamodb:us-east-1:123456789012:table/Music",
-        "AttributeDefinitions": [
-            {
-                "AttributeName": "Artist",
-                "AttributeType": "S"
-            },
-            {
-                "AttributeName": "SongTitle",
-                "AttributeType": "S"
-            }
-        ],
-        "ProvisionedThroughput": {
-            "NumberOfDecreasesToday": 0,
-            "WriteCapacityUnits": 5,
-            "ReadCapacityUnits": 10
-        },
-        "TableClassSummary": {
-            "LastUpdateDateTime": 1542397215.37,
-            "TableClass": "STANDARD_INFREQUENT_ACCESS"
-        },
-        "TableSizeBytes": 0,
-        "TableName": "Music",
-        "TableStatus": "CREATING",
-        "TableId": "12345678-0123-4567-a123-abcdefghijkl",
-        "KeySchema": [
-            {
-                "KeyType": "HASH",
-                "AttributeName": "Artist"
-            },
-            {
-                "KeyType": "RANGE",
-                "AttributeName": "SongTitle"
-            }
-        ],
-        "ItemCount": 0,
-        "CreationDateTime": 1542397215.37
-    }
-}
-```
-
-## Describing a table
-
-To view details about a table, use the `DescribeTable` operation. You
-must provide the table name. The output from `DescribeTable` is in the
-same format as that from `CreateTable`. It includes the timestamp when
-the table was created, its key schema, its provisioned throughput settings, its
-estimated size, and any secondary indexes that are present.
-
-###### Important
-
-When calling `DescribeTable` on an on-demand table, read capacity
-units and write capacity units are set to 0.
-
-###### Example
-
-```
-aws dynamodb describe-table --table-name Music
-```
-
-The table is ready for use when the `TableStatus` has changed from
-`CREATING` to `ACTIVE`.
+- The DynamoDB Standard table class offers lower throughput costs than DynamoDB
+  Standard-IA and is the most cost-effective option for tables where throughput is
+  the dominant cost.
+- The DynamoDB Standard-IA table class offers lower storage costs than DynamoDB
+  Standard, and is the most cost-effective option for tables where storage is the
+  dominant cost. When storage exceeds 50% of the throughput (reads and writes)
+  cost of a table using the DynamoDB Standard table class, the DynamoDB Standard-IA
+  table class can help you reduce your total table cost.
+- DynamoDB Standard-IA tables offer the same performance, durability, and
+  availability as DynamoDB Standard tables.
+- Switching between the DynamoDB Standard and DynamoDB Standard-IA table classes does
+  not require changing your application code. You use the same DynamoDB APIs and
+  service endpoints regardless of the table class your tables use.
+- DynamoDB Standard-IA tables are compatible with all existing DynamoDB features such
+  as auto scaling, on-demand mode, time-to-live (TTL), on-demand backups,
+  point-in-time recovery (PITR), and global secondary indexes.
+  The most cost-effective table class for your table depends on your table's expected
+  storage and throughput usage patterns. You can look at your table's historical storage
+  and throughput cost and usage with AWS Cost and Usage Reports and the AWS Cost
+  Explorer. Use this historical data to determine the most cost-effective table class for
+  your table. To learn more about using AWS Cost and Usage Reports and the AWS Cost
+  Explorer, see the [AWS Billing and Cost Management Documentation](../../../account-billing/index.md "../../../account-billing/index.md"). See [Amazon DynamoDB Pricing](https://aws.amazon.com/dynamodb/pricing/on-demand/ "https://aws.amazon.com/dynamodb/pricing/on-demand/")
+  for details about table class pricing.
 
 ###### Note
 
-If you issue a `DescribeTable` request immediately after a
-`CreateTable` request, DynamoDB might return an error
-(`ResourceNotFoundException`). This is because
-`DescribeTable` uses an eventually consistent query, and the
-metadata for your table might not be available at that moment. Wait for a few
-seconds, and then try the `DescribeTable` request again.
-
-For billing purposes, your DynamoDB storage costs include a per-item overhead of
-100 bytes. (For more information, go to [DynamoDB Pricing](https://aws.amazon.com/dynamodb/pricing/ "https://aws.amazon.com/dynamodb/pricing/").) This extra
-100 bytes per item is not used in capacity unit calculations or by the
-`DescribeTable` operation.
-
-## Updating a table
-
-The `UpdateTable` operation allows you to do one of the
-following:
-
-- Modify a table's provisioned throughput settings (for provisioned mode
-  tables).
-- Change the table's read/write capacity mode.
-- Manipulate global secondary indexes on the table (see [Using Global Secondary Indexes in DynamoDB](GSI.md "GSI.md")).
-- Enable or disable DynamoDB Streams on the table (see [Change data capture for DynamoDB Streams](Streams.md "Streams.md")).
-
-###### Example
-
-The following AWS CLI example shows how to modify a table's provisioned
-throughput settings.
-
-```
-aws dynamodb update-table --table-name Music \
-    --provisioned-throughput ReadCapacityUnits=20,WriteCapacityUnits=10
-```
-
-###### Note
-
-When you issue an `UpdateTable` request, the status of the table
-changes from `AVAILABLE` to `UPDATING`. The table remains
-fully available for use while it is `UPDATING`. When this process is
-completed, the table status changes from `UPDATING` to
-`AVAILABLE`.
-
-###### Example
-
-The following AWS CLI example shows how to modify a table's read/write capacity
-mode to on-demand mode.
-
-```
-aws dynamodb update-table --table-name Music \
-    --billing-mode PAY_PER_REQUEST
-```
-
-## Deleting a table
-
-You can remove an unused table with the `DeleteTable` operation.
-Deleting a table is an unrecoverable operation. To delete a table using the
-AWS Management Console, see [Step 6: (Optional) Delete your DynamoDB table to clean up
-resources](getting-started-step-6.md "getting-started-step-6.md").
-
-###### Example
-
-The following AWS CLI example shows how to delete a table.
-
-```
-aws dynamodb delete-table --table-name Music
-```
-
-When you issue a `DeleteTable` request, the table's status changes from
-`ACTIVE` to `DELETING`. It might take a while to delete
-the table, depending on the resources it uses (such as the data stored in the table,
-and any streams or indexes on the table).
-
-When the `DeleteTable` operation concludes, the table no longer exists
-in DynamoDB.
-
-## Using deletion
-
-protection
-
-You can protect a table from accidental deletion with the deletion protection
-property. Enabling this property for tables helps ensure that tables do not get
-accidentally deleted during regular table management operations by your
-administrators. This will help prevent disruption to your normal business
-operations.
-
-The table owner or an authorized administrator controls the deletion protection
-property for each table. The deletion protection property for every table is off by
-default. This includes global replicas, and tables restored from backups. When
-deletion protection is disabled for a table, the table can be deleted by any users
-authorized by an Identity and Access Management (IAM) policy. When deletion
-protection is enabled for a table, it cannot be deleted by anyone.
-
-To change this setting, go to the table’s **Additional
-settings**, navigate to the **Deletion
-Protection** panel and select **Enable delete
-protection**.
-
-The deletion protection property is supported by the DynamoDB console, API, CLI/SDK
-and CloudFormation. The `CreateTable` API supports the deletion protection
-property at table creation time, and the `UpdateTable` API supports
-changing the deletion protection property for existing tables.
-
-###### Note
-
-- If an AWS account is deleted, all of that account's data including
-  tables are still deleted within 90 days.
-- If DynamoDB loses access to a customer managed key that was used to
-  encrypt a table, it will still archive the table. Archiving involves
-  making a backup of the table and deleting the original.
-
-## Listing table names
-
-The `ListTables` operation returns the names of the DynamoDB tables for
-the current AWS account and Region.
-
-###### Example
-
-The following AWS CLI example shows how to list the DynamoDB table names.
-
-```
-aws dynamodb list-tables
-```
-
-## Describing provisioned
-
-throughput quotas
-
-The `DescribeLimits` operation returns the current read and write
-capacity quotas for the current AWS account and Region.
-
-###### Example
-
-The following AWS CLI example shows how to describe the current provisioned
-throughput quotas.
-
-```
-aws dynamodb describe-limits
-```
-
-The output shows the upper quotas of read and write capacity units for the
-current AWS account and Region.
-
-For more information about these quotas, and how to request quota increases, see
-[Throughput default quotas](ServiceQuotas.md#default-limits-throughput "ServiceQuotas.md#default-limits-throughput").
+A table class update is a background process. You can still access your table
+normally during a table class update. The time to update your table class depends on
+your table traffic, storage size, and other related variables. No more than two
+table class updates on your table are allowed in a 30-day trailing period.

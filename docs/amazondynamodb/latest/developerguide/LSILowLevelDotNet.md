@@ -1,243 +1,722 @@
-# Working with Local Secondary Indexes: .NET
+# Example: Local Secondary Indexes using the
 
-###### Topics
+AWS SDK for .NET low-level API
 
-- [Create a table with a
-  Local Secondary Index](#LSILowLevelDotNet.CreateTableWithIndex "#LSILowLevelDotNet.CreateTableWithIndex")
-- [Describe a table with a
-  Local Secondary Index](#LSILowLevelDotNet.DescribeTableWithIndex "#LSILowLevelDotNet.DescribeTableWithIndex")
-- [Query a Local Secondary Index](#LSILowLevelDotNet.QueryAnIndex "#LSILowLevelDotNet.QueryAnIndex")
-- [Example: Local Secondary Indexes using the
-  AWS SDK for .NET low-level API](LSILowLevelDotNet.md "LSILowLevelDotNet.md")
-  You can use the AWS SDK for .NET low-level API to create an Amazon DynamoDB table with one or more
-  local secondary indexes, describe the indexes on the table, and perform queries using the
-  indexes. These operations map to the corresponding low-level DynamoDB API actions. For more
-  information, see [.NET code examples](CodeSamples.md "CodeSamples.md").
+The following C# code example shows how to work with local secondary indexes in
+Amazon DynamoDB. The example creates a table named `CustomerOrders` with a
+partition key of `CustomerId` and a sort key of `OrderId`. There
+are two local secondary indexes on this table:
 
-The following are the common steps for table operations using the .NET low-level API.
+- `OrderCreationDateIndex` — The sort key is
+  `OrderCreationDate`, and the following attributes are projected
+  into the index:
+  - `ProductCategory`
+  - `ProductName`
+  - `OrderStatus`
+  - `ShipmentTrackingId`
 
-1. Create an instance of the `AmazonDynamoDBClient` class.
-2. Provide the required and optional parameters for the operation by creating the
-   corresponding request objects.
+- `IsOpenIndex` — The sort key is `IsOpen`, and all
+  of the table attributes are projected into the index.
+  After the `CustomerOrders` table is created, the program loads the table
+  with data representing customer orders. It then queries the data using the local secondary indexes.
+  Finally, the program deletes the `CustomerOrders` table.
 
-For example, create a `CreateTableRequest` object to create a table and
-an `QueryRequest` object to query a table or an index. 3. Run the appropriate method provided by the client that you created in the
-preceding step.
-
-## Create a table with a
-
-Local Secondary Index
-
-Local secondary indexes must be created at the same time that you create a table. To
-do this, use `CreateTable` and provide your specifications for one or more
-local secondary indexes. The following C# code example creates a table to hold
-information about songs in a music collection. The partition key is `Artist`
-and the sort key is `SongTitle`. A secondary index,
-`AlbumTitleIndex`, facilitates queries by album title.
-
-The following are the steps to create a table with a local secondary index, using the .NET low-level
-API.
-
-1. Create an instance of the `AmazonDynamoDBClient` class.
-2. Create an instance of the `CreateTableRequest` class to provide the
-   request information.
-
-You must provide the table name, its primary key, and the provisioned
-throughput values. For the local secondary index, you must provide the index name, the name and
-data type of the index sort key, the key schema for the index, and the attribute
-projection. 3. Run the `CreateTable` method by providing the request object as
-a parameter.
-
-The following C# code example demonstrates the preceding steps. The code creates a
-table (`Music`) with a secondary index on the `AlbumTitle`
-attribute. The table partition key and sort key, plus the index sort key, are the only
-attributes projected into the index.
-
-```
-AmazonDynamoDBClient client = new AmazonDynamoDBClient();
-string tableName = "Music";
-
-CreateTableRequest createTableRequest = new CreateTableRequest()
-{
-    TableName = tableName
-};
-
-//ProvisionedThroughput
-createTableRequest.ProvisionedThroughput = new ProvisionedThroughput()
-{
-    ReadCapacityUnits = (long)5,
-    WriteCapacityUnits = (long)5
-};
-
-//AttributeDefinitions
-List<AttributeDefinition> attributeDefinitions = new List<AttributeDefinition>();
-
-attributeDefinitions.Add(new AttributeDefinition()
-{
-    AttributeName = "Artist",
-    AttributeType = "S"
-});
-
-attributeDefinitions.Add(new AttributeDefinition()
- {
-     AttributeName = "SongTitle",
-     AttributeType = "S"
- });
-
-attributeDefinitions.Add(new AttributeDefinition()
- {
-     AttributeName = "AlbumTitle",
-     AttributeType = "S"
- });
-
-createTableRequest.AttributeDefinitions = attributeDefinitions;
-
-//KeySchema
-List<KeySchemaElement> tableKeySchema = new List<KeySchemaElement>();
-
-tableKeySchema.Add(new KeySchemaElement() { AttributeName = "Artist", KeyType = "HASH" });  //Partition key
-tableKeySchema.Add(new KeySchemaElement() { AttributeName = "SongTitle", KeyType = "RANGE" });  //Sort key
-
-createTableRequest.KeySchema = tableKeySchema;
-
-List<KeySchemaElement> indexKeySchema = new List<KeySchemaElement>();
-indexKeySchema.Add(new KeySchemaElement() { AttributeName = "Artist", KeyType = "HASH" });  //Partition key
-indexKeySchema.Add(new KeySchemaElement() { AttributeName = "AlbumTitle", KeyType = "RANGE" });  //Sort key
-
-Projection projection = new Projection() { ProjectionType = "INCLUDE" };
-
-List<string> nonKeyAttributes = new List<string>();
-nonKeyAttributes.Add("Genre");
-nonKeyAttributes.Add("Year");
-projection.NonKeyAttributes = nonKeyAttributes;
-
-LocalSecondaryIndex localSecondaryIndex = new LocalSecondaryIndex()
-{
-    IndexName = "AlbumTitleIndex",
-    KeySchema = indexKeySchema,
-    Projection = projection
-};
-
-List<LocalSecondaryIndex> localSecondaryIndexes = new List<LocalSecondaryIndex>();
-localSecondaryIndexes.Add(localSecondaryIndex);
-createTableRequest.LocalSecondaryIndexes = localSecondaryIndexes;
-
-CreateTableResponse result = client.CreateTable(createTableRequest);
-Console.WriteLine(result.CreateTableResult.TableDescription.TableName);
-Console.WriteLine(result.CreateTableResult.TableDescription.TableStatus);
-```
-
-You must wait until DynamoDB creates the table and sets the table status to
-`ACTIVE`. After that, you can begin putting data items into the
-table.
-
-## Describe a table with a
-
-Local Secondary Index
-
-To get information about local secondary indexes on a table, use the
-`DescribeTable` API. For each index, you can access its name, key schema,
-and projected attributes.
-
-The following are the steps to access local secondary index information a table using the .NET
-low-level API.
-
-1. Create an instance of the `AmazonDynamoDBClient` class.
-2. Create an instance of the `DescribeTableRequest` class to provide
-   the request information. You must provide the table name.
-3. Run the `describeTable` method by providing the request object
-   as a parameter.
-4.
-
-The following C# code example demonstrates the preceding steps.
+For step-by-step instructions for testing the following example, see [.NET code examples](CodeSamples.md "CodeSamples.md").
 
 ###### Example
 
 ```
-AmazonDynamoDBClient client = new AmazonDynamoDBClient();
-string tableName = "Music";
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DataModel;
+using Amazon.DynamoDBv2.DocumentModel;
+using Amazon.DynamoDBv2.Model;
+using Amazon.Runtime;
+using Amazon.SecurityToken;
 
-DescribeTableResponse response = client.DescribeTable(new DescribeTableRequest() { TableName = tableName });
-List<LocalSecondaryIndexDescription> localSecondaryIndexes =
-    response.DescribeTableResult.Table.LocalSecondaryIndexes;
-
-// This code snippet will work for multiple indexes, even though
-// there is only one index in this example.
-foreach (LocalSecondaryIndexDescription lsiDescription in localSecondaryIndexes)
+namespace com.amazonaws.codesamples
 {
-    Console.WriteLine("Info for index " + lsiDescription.IndexName + ":");
-
-    foreach (KeySchemaElement kse in lsiDescription.KeySchema)
+    class LowLevelLocalSecondaryIndexExample
     {
-        Console.WriteLine("\t" + kse.AttributeName + ": key type is " + kse.KeyType);
-    }
+        private static AmazonDynamoDBClient client = new AmazonDynamoDBClient();
+        private static string tableName = "CustomerOrders";
 
-    Projection projection = lsiDescription.Projection;
-
-    Console.WriteLine("\tThe projection type is: " + projection.ProjectionType);
-
-    if (projection.ProjectionType.ToString().Equals("INCLUDE"))
-    {
-        Console.WriteLine("\t\tThe non-key projected attributes are:");
-
-        foreach (String s in projection.NonKeyAttributes)
+        static void Main(string[] args)
         {
-            Console.WriteLine("\t\t" + s);
+            try
+            {
+                CreateTable();
+                LoadData();
+
+                Query(null);
+                Query("IsOpenIndex");
+                Query("OrderCreationDateIndex");
+
+                DeleteTable(tableName);
+
+                Console.WriteLine("To continue, press Enter");
+                Console.ReadLine();
+            }
+            catch (AmazonDynamoDBException e) { Console.WriteLine(e.Message); }
+            catch (AmazonServiceException e) { Console.WriteLine(e.Message); }
+            catch (Exception e) { Console.WriteLine(e.Message); }
         }
 
+        private static void CreateTable()
+        {
+            var createTableRequest =
+                new CreateTableRequest()
+                {
+                    TableName = tableName,
+                    ProvisionedThroughput =
+                    new ProvisionedThroughput()
+                    {
+                        ReadCapacityUnits = (long)1,
+                        WriteCapacityUnits = (long)1
+                    }
+                };
+
+            var attributeDefinitions = new List<AttributeDefinition>()
+        {
+            // Attribute definitions for table primary key
+            { new AttributeDefinition() {
+                  AttributeName = "CustomerId", AttributeType = "S"
+              } },
+            { new AttributeDefinition() {
+                  AttributeName = "OrderId", AttributeType = "N"
+              } },
+            // Attribute definitions for index primary key
+            { new AttributeDefinition() {
+                  AttributeName = "OrderCreationDate", AttributeType = "N"
+              } },
+            { new AttributeDefinition() {
+                  AttributeName = "IsOpen", AttributeType = "N"
+              }}
+        };
+
+            createTableRequest.AttributeDefinitions = attributeDefinitions;
+
+            // Key schema for table
+            var tableKeySchema = new List<KeySchemaElement>()
+        {
+            { new KeySchemaElement() {
+                  AttributeName = "CustomerId", KeyType = "HASH"
+              } },                                                  //Partition key
+            { new KeySchemaElement() {
+                  AttributeName = "OrderId", KeyType = "RANGE"
+              } }                                                //Sort key
+        };
+
+            createTableRequest.KeySchema = tableKeySchema;
+
+            var localSecondaryIndexes = new List<LocalSecondaryIndex>();
+
+            // OrderCreationDateIndex
+            LocalSecondaryIndex orderCreationDateIndex = new LocalSecondaryIndex()
+            {
+                IndexName = "OrderCreationDateIndex"
+            };
+
+            // Key schema for OrderCreationDateIndex
+            var indexKeySchema = new List<KeySchemaElement>()
+        {
+            { new KeySchemaElement() {
+                  AttributeName = "CustomerId", KeyType = "HASH"
+              } },                                                    //Partition key
+            { new KeySchemaElement() {
+                  AttributeName = "OrderCreationDate", KeyType = "RANGE"
+              } }                                                            //Sort key
+        };
+
+            orderCreationDateIndex.KeySchema = indexKeySchema;
+
+            // Projection (with list of projected attributes) for
+            // OrderCreationDateIndex
+            var projection = new Projection()
+            {
+                ProjectionType = "INCLUDE"
+            };
+
+            var nonKeyAttributes = new List<string>()
+        {
+            "ProductCategory",
+            "ProductName"
+        };
+            projection.NonKeyAttributes = nonKeyAttributes;
+
+            orderCreationDateIndex.Projection = projection;
+
+            localSecondaryIndexes.Add(orderCreationDateIndex);
+
+            // IsOpenIndex
+            LocalSecondaryIndex isOpenIndex
+                = new LocalSecondaryIndex()
+                {
+                    IndexName = "IsOpenIndex"
+                };
+
+            // Key schema for IsOpenIndex
+            indexKeySchema = new List<KeySchemaElement>()
+        {
+            { new KeySchemaElement() {
+                  AttributeName = "CustomerId", KeyType = "HASH"
+              }},                                                     //Partition key
+            { new KeySchemaElement() {
+                  AttributeName = "IsOpen", KeyType = "RANGE"
+              }}                                                  //Sort key
+        };
+
+            // Projection (all attributes) for IsOpenIndex
+            projection = new Projection()
+            {
+                ProjectionType = "ALL"
+            };
+
+            isOpenIndex.KeySchema = indexKeySchema;
+            isOpenIndex.Projection = projection;
+
+            localSecondaryIndexes.Add(isOpenIndex);
+
+            // Add index definitions to CreateTable request
+            createTableRequest.LocalSecondaryIndexes = localSecondaryIndexes;
+
+            Console.WriteLine("Creating table " + tableName + "...");
+            client.CreateTable(createTableRequest);
+            WaitUntilTableReady(tableName);
+        }
+
+        public static void Query(string indexName)
+        {
+            Console.WriteLine("\n***********************************************************\n");
+            Console.WriteLine("Querying table " + tableName + "...");
+
+            QueryRequest queryRequest = new QueryRequest()
+            {
+                TableName = tableName,
+                ConsistentRead = true,
+                ScanIndexForward = true,
+                ReturnConsumedCapacity = "TOTAL"
+            };
+
+
+            String keyConditionExpression = "CustomerId = :v_customerId";
+            Dictionary<string, AttributeValue> expressionAttributeValues = new Dictionary<string, AttributeValue> {
+            {":v_customerId", new AttributeValue {
+                 S = "bob@example.com"
+             }}
+        };
+
+
+            if (indexName == "IsOpenIndex")
+            {
+                Console.WriteLine("\nUsing index: '" + indexName
+                          + "': Bob's orders that are open.");
+                Console.WriteLine("Only a user-specified list of attributes are returned\n");
+                queryRequest.IndexName = indexName;
+
+                keyConditionExpression += " and IsOpen = :v_isOpen";
+                expressionAttributeValues.Add(":v_isOpen", new AttributeValue
+                {
+                    N = "1"
+                });
+
+                // ProjectionExpression
+                queryRequest.ProjectionExpression = "OrderCreationDate, ProductCategory, ProductName, OrderStatus";
+            }
+            else if (indexName == "OrderCreationDateIndex")
+            {
+                Console.WriteLine("\nUsing index: '" + indexName
+                          + "': Bob's orders that were placed after 01/31/2013.");
+                Console.WriteLine("Only the projected attributes are returned\n");
+                queryRequest.IndexName = indexName;
+
+                keyConditionExpression += " and OrderCreationDate > :v_Date";
+                expressionAttributeValues.Add(":v_Date", new AttributeValue
+                {
+                    N = "20130131"
+                });
+
+                // Select
+                queryRequest.Select = "ALL_PROJECTED_ATTRIBUTES";
+            }
+            else
+            {
+                Console.WriteLine("\nNo index: All of Bob's orders, by OrderId:\n");
+            }
+            queryRequest.KeyConditionExpression = keyConditionExpression;
+            queryRequest.ExpressionAttributeValues = expressionAttributeValues;
+
+            var result = client.Query(queryRequest);
+            var items = result.Items;
+            foreach (var currentItem in items)
+            {
+                foreach (string attr in currentItem.Keys)
+                {
+                    if (attr == "OrderId" || attr == "IsOpen"
+                        || attr == "OrderCreationDate")
+                    {
+                        Console.WriteLine(attr + "---> " + currentItem[attr].N);
+                    }
+                    else
+                    {
+                        Console.WriteLine(attr + "---> " + currentItem[attr].S);
+                    }
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\nConsumed capacity: " + result.ConsumedCapacity.CapacityUnits + "\n");
+        }
+
+        private static void DeleteTable(string tableName)
+        {
+            Console.WriteLine("Deleting table " + tableName + "...");
+            client.DeleteTable(new DeleteTableRequest()
+            {
+                TableName = tableName
+            });
+            WaitForTableToBeDeleted(tableName);
+        }
+
+        public static void LoadData()
+        {
+            Console.WriteLine("Loading data into table " + tableName + "...");
+
+            Dictionary<string, AttributeValue> item = new Dictionary<string, AttributeValue>();
+
+            item["CustomerId"] = new AttributeValue
+            {
+                S = "alice@example.com"
+            };
+            item["OrderId"] = new AttributeValue
+            {
+                N = "1"
+            };
+            item["IsOpen"] = new AttributeValue
+            {
+                N = "1"
+            };
+            item["OrderCreationDate"] = new AttributeValue
+            {
+                N = "20130101"
+            };
+            item["ProductCategory"] = new AttributeValue
+            {
+                S = "Book"
+            };
+            item["ProductName"] = new AttributeValue
+            {
+                S = "The Great Outdoors"
+            };
+            item["OrderStatus"] = new AttributeValue
+            {
+                S = "PACKING ITEMS"
+            };
+            /* no ShipmentTrackingId attribute */
+            PutItemRequest putItemRequest = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+                ReturnItemCollectionMetrics = "SIZE"
+            };
+            client.PutItem(putItemRequest);
+
+            item = new Dictionary<string, AttributeValue>();
+            item["CustomerId"] = new AttributeValue
+            {
+                S = "alice@example.com"
+            };
+            item["OrderId"] = new AttributeValue
+            {
+                N = "2"
+            };
+            item["IsOpen"] = new AttributeValue
+            {
+                N = "1"
+            };
+            item["OrderCreationDate"] = new AttributeValue
+            {
+                N = "20130221"
+            };
+            item["ProductCategory"] = new AttributeValue
+            {
+                S = "Bike"
+            };
+            item["ProductName"] = new AttributeValue
+            {
+                S = "Super Mountain"
+            };
+            item["OrderStatus"] = new AttributeValue
+            {
+                S = "ORDER RECEIVED"
+            };
+            /* no ShipmentTrackingId attribute */
+            putItemRequest = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+                ReturnItemCollectionMetrics = "SIZE"
+            };
+            client.PutItem(putItemRequest);
+
+            item = new Dictionary<string, AttributeValue>();
+            item["CustomerId"] = new AttributeValue
+            {
+                S = "alice@example.com"
+            };
+            item["OrderId"] = new AttributeValue
+            {
+                N = "3"
+            };
+            /* no IsOpen attribute */
+            item["OrderCreationDate"] = new AttributeValue
+            {
+                N = "20130304"
+            };
+            item["ProductCategory"] = new AttributeValue
+            {
+                S = "Music"
+            };
+            item["ProductName"] = new AttributeValue
+            {
+                S = "A Quiet Interlude"
+            };
+            item["OrderStatus"] = new AttributeValue
+            {
+                S = "IN TRANSIT"
+            };
+            item["ShipmentTrackingId"] = new AttributeValue
+            {
+                S = "176493"
+            };
+            putItemRequest = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+                ReturnItemCollectionMetrics = "SIZE"
+            };
+            client.PutItem(putItemRequest);
+
+            item = new Dictionary<string, AttributeValue>();
+            item["CustomerId"] = new AttributeValue
+            {
+                S = "bob@example.com"
+            };
+            item["OrderId"] = new AttributeValue
+            {
+                N = "1"
+            };
+            /* no IsOpen attribute */
+            item["OrderCreationDate"] = new AttributeValue
+            {
+                N = "20130111"
+            };
+            item["ProductCategory"] = new AttributeValue
+            {
+                S = "Movie"
+            };
+            item["ProductName"] = new AttributeValue
+            {
+                S = "Calm Before The Storm"
+            };
+            item["OrderStatus"] = new AttributeValue
+            {
+                S = "SHIPPING DELAY"
+            };
+            item["ShipmentTrackingId"] = new AttributeValue
+            {
+                S = "859323"
+            };
+            putItemRequest = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+                ReturnItemCollectionMetrics = "SIZE"
+            };
+            client.PutItem(putItemRequest);
+
+            item = new Dictionary<string, AttributeValue>();
+            item["CustomerId"] = new AttributeValue
+            {
+                S = "bob@example.com"
+            };
+            item["OrderId"] = new AttributeValue
+            {
+                N = "2"
+            };
+            /* no IsOpen attribute */
+            item["OrderCreationDate"] = new AttributeValue
+            {
+                N = "20130124"
+            };
+            item["ProductCategory"] = new AttributeValue
+            {
+                S = "Music"
+            };
+            item["ProductName"] = new AttributeValue
+            {
+                S = "E-Z Listening"
+            };
+            item["OrderStatus"] = new AttributeValue
+            {
+                S = "DELIVERED"
+            };
+            item["ShipmentTrackingId"] = new AttributeValue
+            {
+                S = "756943"
+            };
+            putItemRequest = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+                ReturnItemCollectionMetrics = "SIZE"
+            };
+            client.PutItem(putItemRequest);
+
+            item = new Dictionary<string, AttributeValue>();
+            item["CustomerId"] = new AttributeValue
+            {
+                S = "bob@example.com"
+            };
+            item["OrderId"] = new AttributeValue
+            {
+                N = "3"
+            };
+            /* no IsOpen attribute */
+            item["OrderCreationDate"] = new AttributeValue
+            {
+                N = "20130221"
+            };
+            item["ProductCategory"] = new AttributeValue
+            {
+                S = "Music"
+            };
+            item["ProductName"] = new AttributeValue
+            {
+                S = "Symphony 9"
+            };
+            item["OrderStatus"] = new AttributeValue
+            {
+                S = "DELIVERED"
+            };
+            item["ShipmentTrackingId"] = new AttributeValue
+            {
+                S = "645193"
+            };
+            putItemRequest = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+                ReturnItemCollectionMetrics = "SIZE"
+            };
+            client.PutItem(putItemRequest);
+
+            item = new Dictionary<string, AttributeValue>();
+            item["CustomerId"] = new AttributeValue
+            {
+                S = "bob@example.com"
+            };
+            item["OrderId"] = new AttributeValue
+            {
+                N = "4"
+            };
+            item["IsOpen"] = new AttributeValue
+            {
+                N = "1"
+            };
+            item["OrderCreationDate"] = new AttributeValue
+            {
+                N = "20130222"
+            };
+            item["ProductCategory"] = new AttributeValue
+            {
+                S = "Hardware"
+            };
+            item["ProductName"] = new AttributeValue
+            {
+                S = "Extra Heavy Hammer"
+            };
+            item["OrderStatus"] = new AttributeValue
+            {
+                S = "PACKING ITEMS"
+            };
+            /* no ShipmentTrackingId attribute */
+            putItemRequest = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+                ReturnItemCollectionMetrics = "SIZE"
+            };
+            client.PutItem(putItemRequest);
+
+            item = new Dictionary<string, AttributeValue>();
+            item["CustomerId"] = new AttributeValue
+            {
+                S = "bob@example.com"
+            };
+            item["OrderId"] = new AttributeValue
+            {
+                N = "5"
+            };
+            /* no IsOpen attribute */
+            item["OrderCreationDate"] = new AttributeValue
+            {
+                N = "20130309"
+            };
+            item["ProductCategory"] = new AttributeValue
+            {
+                S = "Book"
+            };
+            item["ProductName"] = new AttributeValue
+            {
+                S = "How To Cook"
+            };
+            item["OrderStatus"] = new AttributeValue
+            {
+                S = "IN TRANSIT"
+            };
+            item["ShipmentTrackingId"] = new AttributeValue
+            {
+                S = "440185"
+            };
+            putItemRequest = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+                ReturnItemCollectionMetrics = "SIZE"
+            };
+            client.PutItem(putItemRequest);
+
+            item = new Dictionary<string, AttributeValue>();
+            item["CustomerId"] = new AttributeValue
+            {
+                S = "bob@example.com"
+            };
+            item["OrderId"] = new AttributeValue
+            {
+                N = "6"
+            };
+            /* no IsOpen attribute */
+            item["OrderCreationDate"] = new AttributeValue
+            {
+                N = "20130318"
+            };
+            item["ProductCategory"] = new AttributeValue
+            {
+                S = "Luggage"
+            };
+            item["ProductName"] = new AttributeValue
+            {
+                S = "Really Big Suitcase"
+            };
+            item["OrderStatus"] = new AttributeValue
+            {
+                S = "DELIVERED"
+            };
+            item["ShipmentTrackingId"] = new AttributeValue
+            {
+                S = "893927"
+            };
+            putItemRequest = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+                ReturnItemCollectionMetrics = "SIZE"
+            };
+            client.PutItem(putItemRequest);
+
+            item = new Dictionary<string, AttributeValue>();
+            item["CustomerId"] = new AttributeValue
+            {
+                S = "bob@example.com"
+            };
+            item["OrderId"] = new AttributeValue
+            {
+                N = "7"
+            };
+            /* no IsOpen attribute */
+            item["OrderCreationDate"] = new AttributeValue
+            {
+                N = "20130324"
+            };
+            item["ProductCategory"] = new AttributeValue
+            {
+                S = "Golf"
+            };
+            item["ProductName"] = new AttributeValue
+            {
+                S = "PGA Pro II"
+            };
+            item["OrderStatus"] = new AttributeValue
+            {
+                S = "OUT FOR DELIVERY"
+            };
+            item["ShipmentTrackingId"] = new AttributeValue
+            {
+                S = "383283"
+            };
+            putItemRequest = new PutItemRequest
+            {
+                TableName = tableName,
+                Item = item,
+                ReturnItemCollectionMetrics = "SIZE"
+            };
+            client.PutItem(putItemRequest);
+        }
+
+        private static void WaitUntilTableReady(string tableName)
+        {
+            string status = null;
+            // Let us wait until table is created. Call DescribeTable.
+            do
+            {
+                System.Threading.Thread.Sleep(5000); // Wait 5 seconds.
+                try
+                {
+                    var res = client.DescribeTable(new DescribeTableRequest
+                    {
+                        TableName = tableName
+                    });
+
+                    Console.WriteLine("Table name: {0}, status: {1}",
+                              res.Table.TableName,
+                              res.Table.TableStatus);
+                    status = res.Table.TableStatus;
+                }
+                catch (ResourceNotFoundException)
+                {
+                    // DescribeTable is eventually consistent. So you might
+                    // get resource not found. So we handle the potential exception.
+                }
+            } while (status != "ACTIVE");
+        }
+
+        private static void WaitForTableToBeDeleted(string tableName)
+        {
+            bool tablePresent = true;
+
+            while (tablePresent)
+            {
+                System.Threading.Thread.Sleep(5000); // Wait 5 seconds.
+                try
+                {
+                    var res = client.DescribeTable(new DescribeTableRequest
+                    {
+                        TableName = tableName
+                    });
+
+                    Console.WriteLine("Table name: {0}, status: {1}",
+                              res.Table.TableName,
+                              res.Table.TableStatus);
+                }
+                catch (ResourceNotFoundException)
+                {
+                    tablePresent = false;
+                }
+            }
+        }
     }
-}
-```
-
-## Query a Local Secondary Index
-
-You can use `Query` on a local secondary index in much the same way you `Query`
-a table. You must specify the index name, the query criteria for the index sort key, and
-the attributes that you want to return. In this example, the index is
-`AlbumTitleIndex`, and the index sort key is `AlbumTitle`.
-
-The only attributes returned are those that have been projected into the index. You
-could modify this query to select non-key attributes too, but this would require table
-fetch activity that is relatively expensive. For more information about table fetches,
-see [Attribute projections](LSI.md#LSI.Projections "LSI.md#LSI.Projections")
-
-The following are the steps to query a local secondary index using the .NET low-level API.
-
-1. Create an instance of the `AmazonDynamoDBClient` class.
-2. Create an instance of the `QueryRequest` class to provide the
-   request information.
-3. Run the `query` method by providing the request object as a
-   parameter.
-
-The following C# code example demonstrates the preceding steps.
-
-###### Example
-
-```
-
-QueryRequest queryRequest = new QueryRequest
-{
-    TableName = "Music",
-    IndexName = "AlbumTitleIndex",
-    Select = "ALL_ATTRIBUTES",
-    ScanIndexForward = true,
-    KeyConditionExpression = "Artist = :v_artist and AlbumTitle = :v_title",
-    ExpressionAttributeValues = new Dictionary<string, AttributeValue>()
-    {
-        {":v_artist",new AttributeValue {S = "Acme Band"}},
-        {":v_title",new AttributeValue {S = "Songs About Life"}}
-    },
-};
-
-QueryResponse response = client.Query(queryRequest);
-
-foreach (var attribs in response.Items)
-{
-    foreach (var attrib in attribs)
-    {
-        Console.WriteLine(attrib.Key + " ---> " + attrib.Value.S);
-    }
-    Console.WriteLine();
 }
 
 ```

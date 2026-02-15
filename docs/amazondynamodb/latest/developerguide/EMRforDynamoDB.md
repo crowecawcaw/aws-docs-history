@@ -1,32 +1,62 @@
-# Performance tuning
+# Processing HiveQL statements
 
-When you create a Hive external table that maps to a DynamoDB table, you do not consume
-any read or write capacity from DynamoDB. However, read and write activity on the Hive
-table (such as `INSERT` or `SELECT`) translates directly into read
-and write operations on the underlying DynamoDB table.
+Hive is an application that runs on Hadoop, which is a batch-oriented framework for
+running MapReduce jobs. When you issue a HiveQL statement, Hive determines whether it
+can return the results immediately or whether it must submit a MapReduce job.
 
-Apache Hive on Amazon EMR implements its own logic for balancing the I/O load on the DynamoDB
-table and seeks to minimize the possibility of exceeding the table's provisioned
-throughput. At the end of each Hive query, Amazon EMR returns runtime metrics, including the
-number of times your provisioned throughput was exceeded. You can use this information,
-together with CloudWatch metrics on your DynamoDB table, to improve performance in subsequent
-requests.
+For example, consider the _ddb_features_ table (from [Tutorial: Working with Amazon DynamoDB and Apache
+Hive](EMRforDynamoDB.md "EMRforDynamoDB.md")). The
+following Hive query prints state abbreviations and the number of summits in
+each:
 
-The Amazon EMR console provides basic monitoring tools for your cluster. For more
-information, see [View and Monitor a Cluster](../../../ElasticMapReduce/latest/ManagementGuide/emr-manage-view.md "../../../ElasticMapReduce/latest/ManagementGuide/emr-manage-view.md") in the _Amazon EMR Management
-Guide_.
+```
+SELECT state_alpha, count(*)
+FROM ddb_features
+WHERE feature_class = 'Summit'
+GROUP BY state_alpha;
+```
 
-You can also monitor your cluster and Hadoop jobs using web-based tools, such as Hue,
-Ganglia, and the Hadoop web interface. For more information, see [View Web Interfaces Hosted on Amazon EMR Clusters](../../../ElasticMapReduce/latest/ManagementGuide/emr-web-interfaces.md "../../../ElasticMapReduce/latest/ManagementGuide/emr-web-interfaces.md") in the _Amazon EMR
-Management Guide_.
+Hive does not return the results immediately. Instead, it submits a MapReduce job,
+which is processed by the Hadoop framework. Hive will wait until the job is complete
+before it shows the results from the query:
 
-This section describes steps you can take to performance-tune Hive operations on
-external DynamoDB tables.
+```
+AK  2
+AL  2
+AR  2
+AZ  3
+CA  7
+CO  2
+CT  2
+ID  1
+KS  1
+ME  2
+MI  1
+MT  3
+NC  1
+NE  1
+NM  1
+NY  2
+OR  5
+PA  1
+TN  1
+TX  1
+UT  4
+VA  1
+VT  2
+WA  2
+WY  3
+Time taken: 8.753 seconds, Fetched: 25 row(s)
+```
 
-###### Topics
+## Monitoring and canceling
 
-- [DynamoDB provisioned
-  throughput](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md")
-- [Adjusting the
-  mappers](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md")
-- [Additional topics](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md")
+jobs
+
+When Hive launches a Hadoop job, it prints output from that job. The job
+completion status is updated as the job progresses. In some cases, the status might
+not be updated for a long time. (This can happen when you are querying a large
+DynamoDB table that has a low provisioned read capacity setting.)
+
+If you need to cancel the job before it is complete, you can type
+`Ctrl+C` at any time.
