@@ -57,6 +57,7 @@ _Amazon CloudWatch Logs User Guide_.
 | MESSAGE_THROTTLED           | A message sent from the vehicle to AWS IoT FleetWise was throttled. This is because you exceeded the service limits for this account in the current Region.<br>Attributes: accountId, vehicleName, message, eventType, logLevel, timestamp                                                                                                                                                   |
 | MESSAGE_SIZE_LIMIT_EXCEEDED | A message sent from the vehicle and received by AWS IoT FleetWise exceeds the maximum size of a message [service limit](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md").<br>Attributes: accountId, vehicleName                                                                                                                                      |
 | CHECKIN_THROTTLED           | A check-in sent from the vehicle to AWS IoT FleetWise was throttled. This is because you exceeded the [service limit](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md") for this account in the current Region.<br>Attributes: vehicleName                                                                                                            |
+| VEHICLE_ATTRIBUTE_NOT_FOUND | A message sent from the vehicle and received by AWS IoT FleetWise could not be enriched with the specified vehicle attributes.<br>Attributes: campaignName (optional), stateTemplateName (optional), vehicleName, vehicleAttributeNames                                                                                                                                                      |
 
 | Vehicle event types | Event type                                                                                                                                                | Description |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
@@ -176,3 +177,7 @@ The name of the Timestream table.
 **vehicleName**
 
 The name of the vehicle.
+
+**vehicleAttributeNames**
+
+A list of vehicle attribute names that could not be found.

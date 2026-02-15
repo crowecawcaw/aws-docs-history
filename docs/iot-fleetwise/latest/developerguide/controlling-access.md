@@ -87,10 +87,10 @@ JSON
  "Condition": {
  "StringEquals": {
  "aws:SourceArn": [
- "arn:aws:iotfleetwise:`region:account-id`:campaign/`campaign-name`"
+ "arn:aws:iotfleetwise:`region:123456789012`:campaign/`campaign-name`"
  ],
  "aws:SourceAccount": [
- "`account-id`"
+ "`123456789012`"
  ]
  }
  }
@@ -204,7 +204,7 @@ JSON
  "Condition": {
  "StringEquals": {
  "aws:SourceArn": "`campaign-arn`",
- "aws:SourceAccount": "`account-id`"
+ "aws:SourceAccount": "`123456789012`"
  }
  }
  }
@@ -248,8 +248,8 @@ JSON
  "Resource": "arn:aws:s3:::`bucket-name`/*",
  "Condition": {
  "StringLike": {
- "aws:SourceArn": "arn:aws:iotfleetwise:`region`:`account-id`:campaign/*",
- "aws:SourceAccount": "`account-id`"
+ "aws:SourceArn": "arn:aws:iotfleetwise:`region`:`123456789012`:campaign/*",
+ "aws:SourceAccount": "`123456789012`"
  }
  }
  }
@@ -351,10 +351,10 @@ JSON
  "Condition": {
  "StringEquals": {
  "aws:SourceArn": [
- "arn:aws:iotfleetwise:`region`:`account-id`:campaign/`campaign-name`"
+ "arn:aws:iotfleetwise:`region`:`123456789012`:campaign/`campaign-name`"
  ],
  "aws:SourceAccount": [
- "`account-id`"
+ "`123456789012`"
  ]
  }
  }
