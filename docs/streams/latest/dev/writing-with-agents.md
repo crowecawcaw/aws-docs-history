@@ -325,7 +325,7 @@ pair. You can use this setting to define field names for values
 extracted from `matchPattern`, or override the
 default field names of predefined log formats.
 
-###### Example : LOGTOJSON Configuration
+###### Example: LOGTOJSON Configuration
 
 Here is one example of a `LOGTOJSON` configuration for an Apache Common
 Log entry converted to JSON format:
@@ -349,7 +349,7 @@ After conversion:
 {"host":"64.242.88.10","ident":null,"authuser":null,"datetime":"07/Mar/2004:16:10:02 -0800","request":"GET /mailman/listinfo/hsdivision HTTP/1.1","response":"200","bytes":"6291"}
 ```
 
-###### Example : LOGTOJSON Configuration With Custom
+###### Example: LOGTOJSON Configuration With Custom
 
 Fields
 
@@ -370,7 +370,7 @@ previous example is converted to JSON format as follows:
 {"f1":"64.242.88.10","f2":null,"f3":null,"f4":"07/Mar/2004:16:10:02 -0800","f5":"GET /mailman/listinfo/hsdivision HTTP/1.1","f6":"200","f7":"6291"}
 ```
 
-###### Example : Convert Apache Common Log
+###### Example: Convert Apache Common Log
 
 Entry
 
@@ -394,7 +394,7 @@ line record in JSON format:
 }
 ```
 
-###### Example : Convert Multi-Line Records
+###### Example: Convert Multi-Line Records
 
 The following flow configuration parses multi-line records whose first line starts
 with "`[SEQUENCE=`". Each record is first converted to a single line
@@ -424,7 +424,7 @@ form a single-line record in JSON format.
 }
 ```
 
-###### Example : LOGTOJSON Configuration with Match
+###### Example: LOGTOJSON Configuration with Match
 
 Pattern
 

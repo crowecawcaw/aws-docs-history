@@ -140,6 +140,9 @@ The following example policies demonstrate how you could control user access to 
 Kinesis data streams.
 
 Example 1: Allow users to get data from a stream
+
+###### Example
+
 This policy allows a user or group to perform the `DescribeStreamSummary`,
 `GetShardIterator`, and `GetRecords` operations on the
 specified stream and `ListStreams` on any stream. This policy could be
@@ -176,6 +179,9 @@ JSONJSON
 ```
 
 Example 2: Allow users to add data to any stream in the account
+
+###### Example
+
 This policy allows a user or group to use the `PutRecord` operation
 with any of the account's streams. This policy could be applied to users that should
 be able to add data records to all streams in an account.
@@ -201,6 +207,9 @@ JSONJSON
 ```
 
 Example 3: Allow any Kinesis Data Streams action on a specific stream
+
+###### Example
+
 This policy allows a user or group to use any Kinesis Data Streams operation on the specified
 stream. This policy could be applied to users that should have administrative
 control over a specific stream.
@@ -224,6 +233,9 @@ JSONJSON
 ```
 
 Example 4: Allow any Kinesis Data Streams action on any stream
+
+###### Example
+
 This policy allows a user or group to use any Kinesis Data Streams operation on any stream in an
 account. Because this policy grants full access to all your streams, you should
 restrict it to administrators only.
@@ -308,7 +320,9 @@ Following are examples of valid values for `Principal`:
 - IAM Role – `{"AWS":["arn:aws:iam::123456789012:role/role-name"]}`
 - Multiple Principals (can be combination of account, user, role) – `{"AWS":["123456789012", "123456789013", "arn:aws:iam::123456789012:user/user-name"]}`
 
-Example 1: Write access to the data streamJSONJSON
+Example 1: Write access to the data stream###### Example
+
+JSONJSON
 
 ```
 `{
@@ -335,6 +349,9 @@ Example 1: Write access to the data streamJSONJSON
 ```
 
 Example 2: Read access to the data stream
+
+###### Example
+
 JSONJSON
 
 ```
@@ -362,6 +379,9 @@ JSONJSON
 ```
 
 Example 3: Share enhanced fan-out read access to a registered consumer
+
+###### Example
+
 Data stream policy statement:
 
 JSONJSON
