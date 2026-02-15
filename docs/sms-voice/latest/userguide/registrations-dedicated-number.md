@@ -28,4 +28,4 @@ This form is required for registering a dedicated SMS number (both short and lon
 - [United States 10DLC
   registration](registrations-10dlc.md "registrations-10dlc.md")
 - [United States Toll-free number registration](registrations-tfn.md "registrations-tfn.md")
-- [United States Short Code registration form](registrations-short-code.md "registrations-short-code.md")
+- [United States Short Code registration](registrations-us-short-code.md "registrations-us-short-code.md")

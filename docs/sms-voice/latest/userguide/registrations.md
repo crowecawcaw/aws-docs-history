@@ -71,7 +71,7 @@ The following registration forms can be filled out and submitted through the AWS
   participating U.S. Wireless Providers. Short Code Programs offer a convenient, efficient, and innovative
   means to communicate with Consumers. They can't be used to send messages to recipients outside of the United
   States or the US territories of Puerto Rico, US Virgin Islands, Guam, and American Samoa.
-  For more information on completing the registration, see [United States Short Code registration form](registrations-short-code.md "registrations-short-code.md").
+  For more information on requirements and completing the registration, see [United States Short Code registration](registrations-us-short-code.md "registrations-us-short-code.md").
 - **US 10DLC Brand registration** – Register your company or
   brand to be able to use 10DLC phone numbers and campaigns. For more information on completing
   the registration, see [10DLC brand registration form](registrations-10dlc-company.md "registrations-10dlc-company.md").
