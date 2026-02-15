@@ -26,7 +26,7 @@ following error:
 
 ```
 
-###### Example : Default schema doesn’t exist for Windows group user
+###### Example: Default schema doesn’t exist for Windows group user
 
 Windows group user [corp\accounts-group] have NULL default schema and AD user
 user1 is trying to perform the DDL without specifying the schema explicitly.
@@ -47,7 +47,7 @@ Babelfish Unsupported Command : Schema required for CREATE DDLs when connecting 
 
 Individual windows login and user doesn’t exist for AD user user1
 
-###### Example : Default schema exists for Windows group users
+###### Example: Default schema exists for Windows group users
 
 Create Windows group user for [corp\accounts-group] login with default schema
 using sysadmin.
@@ -90,7 +90,7 @@ t_group sch_acc
 
 Individual windows login and user doesn’t exist for AD user user1
 
-###### Example : Individual database user also exists for an AD user
+###### Example: Individual database user also exists for an AD user
 
 If an individual database user also exists for an AD user then the objects
 will always be created in the schema associated with individual database user.

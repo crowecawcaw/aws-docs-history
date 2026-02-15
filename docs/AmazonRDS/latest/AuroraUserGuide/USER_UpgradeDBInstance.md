@@ -303,8 +303,11 @@ parameters:
 
 - `--db-cluster-identifier`
 - `--preferred-maintenance-window`
-  The following code example sets the maintenance window to Tuesdays
-  from 4:00–4:30 AM UTC.
+
+###### Example
+
+The following code example sets the maintenance window to Tuesdays
+from 4:00–4:30 AM UTC.
 
 For Linux, macOS, or Unix:
 

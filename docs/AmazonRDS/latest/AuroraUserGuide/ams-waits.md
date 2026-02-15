@@ -1,161 +1,127 @@
-# io/table/sql/handler
+# synch/cond/innodb/row_lock_wait_cond
 
-The `io/table/sql/handler` event occurs when work has been delegated to a storage engine.
-
-###### Topics
-
-- [Supported engine versions](#ams-waits.waitio.context.supported "#ams-waits.waitio.context.supported")
-- [Context](#ams-waits.waitio.context "#ams-waits.waitio.context")
-- [Likely causes of increased waits](#ams-waits.waitio.causes "#ams-waits.waitio.causes")
-- [Actions](#ams-waits.waitio.actions "#ams-waits.waitio.actions")
+The `synch/cond/innodb/row_lock_wait_cond` event occurs when one session has locked a row for an update, and another session tries to
+update the same row. For more information, see [InnoDB locking](https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html") in the
+MySQL documentation.
 
 ## Supported engine versions
 
 This wait event information is supported for the following engine versions:
 
-- Aurora MySQL versions 2 and 3
-
-## Context
-
-The event `io/table` indicates a wait for access to a table. This event occurs regardless of whether
-the data is cached in the buffer pool or accessed on disk. The `io/table/sql/handler` event indicates
-an increase in workload activity.
-
-A _handler_ is a routine specialized in a certain type of data or
-focused on certain special tasks. For example, an event handler receives and digests
-events and signals from the operating system or from a user interface. A memory handler
-performs tasks related to memory. A file input handler is a function that receives file
-input and performs special tasks on the data, according to context.
-
-Views such as `performance_schema.events_waits_current` often show `io/table/sql/handler` when the
-actual wait is a nested wait event such as a lock. When the actual wait isn't `io/table/sql/handler`, Performance Insights reports
-the nested wait event. When Performance Insights reports `io/table/sql/handler`, it represents InnoDB processing of the I/O request
-and not a hidden nested wait event. For more information, see [Performance Schema Atom and
-Molecule Events](https://dev.mysql.com/doc/refman/5.7/en/performance-schema-atom-molecule-events.html "https://dev.mysql.com/doc/refman/5.7/en/performance-schema-atom-molecule-events.html") in the _MySQL Reference Manual_.
-
-The `io/table/sql/handler` event often appears in top wait events with I/O waits such as `io/aurora_redo_log_flush`.
+- Aurora MySQL version 2
 
 ## Likely causes of increased waits
 
-In Performance Insights, sudden spikes in the `io/table/sql/handler` event
-indicate an increase in workload activity. Increased activity means increased I/O.
-
-Performance Insights filters the nesting event IDs and doesn't report a `io/table/sql/handler` wait when the
-underlying nested event is a lock wait. For example, if the root cause event is [synch/mutex/innodb/aurora_lock_thread_slot_futex](ams-waits.md "ams-waits.md"), Performance Insights displays this wait in top wait events and not
-`io/table/sql/handler`.
-
-In views such as `performance_schema.events_waits_current`, waits for `io/table/sql/handler` often
-appear when the actual wait is a nested wait event such as a lock. When the actual wait differs from
-`io/table/sql/handler`, Performance Insights looks up the nested wait and reports the actual wait instead of
-`io/table/sql/handler`. When Performance Insights reports `io/table/sql/handler`, the real wait is
-`io/table/sql/handler` and not a hidden nested wait event. For more information, see [Performance Schema Atom and
-Molecule Events](https://dev.mysql.com/doc/refman/5.7/en/performance-schema-atom-molecule-events.html "https://dev.mysql.com/doc/refman/5.7/en/performance-schema-atom-molecule-events.html") in the _MySQL 5.7 Reference Manual_.
+Multiple data manipulation language (DML) statements are accessing the same row or
+rows simultaneously.
 
 ## Actions
-
-If this wait event dominates database activity, it doesn't necessarily indicate a performance problem.
-A wait event is always on top when the database is active. You need to act only when performance
-degrades.
 
 We recommend different actions depending on the other wait events that you see.
 
 ###### Topics
 
-- [Identify the sessions and queries causing the
-  events](#ams-waits.waitio.actions.identify "#ams-waits.waitio.actions.identify")
-- [Check for a correlation with Performance Insights counter metrics](#ams-waits.waitio.actions.filters "#ams-waits.waitio.actions.filters")
-- [Check for other correlated wait
-  events](#ams-waits.waitio.actions.maintenance "#ams-waits.waitio.actions.maintenance")
+- [Find and respond to the SQL statements responsible
+  for this wait event](#ams-waits.row-lock-wait-cond.actions.id "#ams-waits.row-lock-wait-cond.actions.id")
+- [Find and respond to the blocking
+  session](#ams-waits.row-lock-wait-cond.actions.blocker "#ams-waits.row-lock-wait-cond.actions.blocker")
 
-### Identify the sessions and queries causing the
+### Find and respond to the SQL statements responsible
 
-events
+for this wait event
 
-Typically, databases with moderate to significant load have wait events. The wait
-events might be acceptable if performance is optimal. If performance is isn't
-optimal, then examine where the database is spending the most time. Look at the wait
-events that contribute to the highest load, and find out whether you can optimize
-the database and application to reduce those events.
+Use Performance Insights to identify the SQL statements responsible for this wait event. Consider
+the following strategies:
 
-###### To find SQL queries that are responsible for high load
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Performance Insights**.
-3. Choose a DB instance. The Performance Insights dashboard is shown for that DB instance.
-4. In the **Database load** chart, choose **Slice by
-   wait**.
-5. At the bottom of the page, choose **Top SQL**.
-
-The chart lists the SQL queries that are responsible for the load. Those at the top of the
-list are most responsible. To resolve a bottleneck, focus on these statements.
+- If row locks are a persistent problem, consider rewriting the application to use optimistic
+  locking.
+- Use multirow statements.
+- Spread the workload over different database objects. You can do this through partitioning.
+- Check the value of the `innodb_lock_wait_timeout` parameter. It controls how
+  long transactions wait before generating a timeout error.
 
 For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
 
-### Check for a correlation with Performance Insights counter metrics
+### Find and respond to the blocking
 
-Check for Performance Insights counter metrics such as `Innodb_rows_changed`. If counter metrics
-are correlated with `io/table/sql/handler`, follow these steps:
+session
 
-1. In Performance Insights, look for the SQL statements accounting for the
-   `io/table/sql/handler` top wait event. If possible, optimize
-   this statement so that it returns fewer rows.
-2. Retrieve the top tables from the `schema_table_statistics` and
-   `x$schema_table_statistics` views. These views show the amount of time spent
-   per table. For more information, see [The
-   schema_table_statistics and x$schema_table_statistics Views](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-table-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/sys-schema-table-statistics.html") in the
-   _MySQL Reference Manual_.
+Determine whether the blocking session is idle or active. Also, find out whether the session comes
+from an application or an active user.
 
-By default, rows are sorted by descending total wait time. Tables with the most contention appear first. The output indicates whether
-time is spent on reads, writes, fetches, inserts, updates, or deletes.
+To identify the session holding the lock, you can run `SHOW ENGINE INNODB STATUS`. The
+following example shows sample output.
 
 ```
-mysql> select * from sys.schema_table_statistics limit 1\G
+mysql> SHOW ENGINE INNODB STATUS;
+
+---TRANSACTION 2771110, ACTIVE 112 sec starting index read
+mysql tables in use 1, locked 1
+LOCK WAIT 2 lock struct(s), heap size 1136, 1 row lock(s)
+MySQL thread id 24, OS thread handle 70369573642160, query id 13271336 172.31.14.179 reinvent Sending data
+select id1 from test.t1 where id1=1 for update
+------- TRX HAS BEEN WAITING 43 SEC FOR THIS LOCK TO BE GRANTED:
+RECORD LOCKS space id 11 page no 3 n bits 0 index GEN_CLUST_INDEX of table test.t1 trx id 2771110 lock_mode X waiting
+Record lock, heap no 2 PHYSICAL RECORD: n_fields 5; compact format; info bits 0
+```
+
+Or you can use the following query to extract details on current locks.
+
+```
+mysql> SELECT p1.id waiting_thread,
+              p1.user waiting_user,
+              p1.host waiting_host,
+              it1.trx_query waiting_query,
+              ilw.requesting_trx_id waiting_transaction,
+              ilw.blocking_lock_id blocking_lock,
+              il.lock_mode blocking_mode,
+              il.lock_type blocking_type,
+              ilw.blocking_trx_id blocking_transaction,
+              CASE it.trx_state
+                WHEN 'LOCK WAIT'
+                THEN it.trx_state
+                ELSE p.state
+              END blocker_state,
+              il.lock_table locked_table,
+              it.trx_mysql_thread_id blocker_thread,
+              p.user blocker_user,
+              p.host blocker_host
+       FROM information_schema.innodb_lock_waits ilw
+       JOIN information_schema.innodb_locks il
+         ON ilw.blocking_lock_id = il.lock_id
+        AND ilw.blocking_trx_id = il.lock_trx_id
+       JOIN information_schema.innodb_trx it
+         ON ilw.blocking_trx_id = it.trx_id
+       JOIN information_schema.processlist p
+         ON it.trx_mysql_thread_id = p.id
+       JOIN information_schema.innodb_trx it1
+         ON ilw.requesting_trx_id = it1.trx_id
+       JOIN information_schema.processlist p1
+         ON it1.trx_mysql_thread_id = p1.id\G
 
 *************************** 1. row ***************************
-     table_schema: read_only_db
-       table_name: sbtest41
-    total_latency: 54.11 m
-     rows_fetched: 6001557
-    fetch_latency: 39.14 m
-    rows_inserted: 14833
-   insert_latency: 5.78 m
-     rows_updated: 30470
-   update_latency: 5.39 m
-     rows_deleted: 14833
-   delete_latency: 3.81 m
- io_read_requests: NULL
-          io_read: NULL
-  io_read_latency: NULL
-io_write_requests: NULL
-         io_write: NULL
- io_write_latency: NULL
- io_misc_requests: NULL
-  io_misc_latency: NULL
-1 row in set (0.11 sec)
+      waiting_thread: 3561959471
+        waiting_user: reinvent
+        waiting_host: 123.456.789.012:20485
+       waiting_query: select id1 from test.t1 where id1=1 for update
+ waiting_transaction: 312337314
+       blocking_lock: 312337287:261:3:2
+       blocking_mode: X
+       blocking_type: RECORD
+blocking_transaction: 312337287
+       blocker_state: User sleep
+        locked_table: `test`.`t1`
+      blocker_thread: 3561223876
+        blocker_user: reinvent
+        blocker_host: 123.456.789.012:17746
+1 row in set (0.04 sec)
 ```
 
-### Check for other correlated wait
+When you identify the session, your options include the following:
 
-events
+- Contact the application owner or the user.
+- If the blocking session is idle, consider ending the blocking session. This action might trigger a long rollback.
+  To learn how to end a session, see [Ending a session or query](mysql-stored-proc-ending.md "mysql-stored-proc-ending.md").
 
-If `synch/sxlock/innodb/btr_search_latch` and `io/table/sql/handler` contribute most to the DB load
-anomaly together, check whether the `innodb_adaptive_hash_index` variable is turned on. If it is, consider
-increasing the `innodb_adaptive_hash_index_parts` parameter value.
-
-If the Adaptive Hash Index is turned off, consider turning it on. To learn more about the MySQL Adaptive Hash Index, see
-the following resources:
-
-- The article [Is Adaptive Hash Index in InnoDB right for my workload?](https://www.percona.com/blog/2016/04/12/is-adaptive-hash-index-in-innodb-right-for-my-workload "https://www.percona.com/blog/2016/04/12/is-adaptive-hash-index-in-innodb-right-for-my-workload") on the Percona website
-- [Adaptive Hash
-  Index](https://dev.mysql.com/doc/refman/5.7/en/innodb-adaptive-hash.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-adaptive-hash.html") in the _MySQL Reference Manual_
-- The article [Contention in MySQL InnoDB: Useful Info From the Semaphores Section](https://www.percona.com/blog/2019/12/20/contention-in-mysql-innodb-useful-info-from-the-semaphores-section/ "https://www.percona.com/blog/2019/12/20/contention-in-mysql-innodb-useful-info-from-the-semaphores-section/")
-  on the Percona website
-
-###### Note
-
-The Adaptive Hash Index isn't supported on Aurora reader DB instances.
-
-In some cases, performance might be poor on a reader instance when `synch/sxlock/innodb/btr_search_latch`
-and `io/table/sql/handler` are dominant. If so, consider redirecting the workload temporarily to the writer
-DB instance and turning on the Adaptive Hash Index.
+For more information about identifying blocking transactions, see [Using InnoDB transaction and locking
+information](https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-examples.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-examples.html") in the MySQL documentation.

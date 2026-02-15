@@ -87,6 +87,8 @@ Be sure to perform these instructions in every AWS Region and for each AWS accou
    To find clusters affected by this end-of-life process using the AWS CLI, call the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") command.
    You can use the sample script following.
 
+###### Example
+
 ```
 aws rds describe-db-clusters --include-share --query 'DBClusters[?Engine==`aurora`].{EV:EngineVersion, DBCI:DBClusterIdentifier, EM:EngineMode}' --output table --`region us-east-1`
        `+------------------------------------------+

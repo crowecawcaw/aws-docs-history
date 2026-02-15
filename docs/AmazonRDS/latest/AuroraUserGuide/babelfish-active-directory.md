@@ -39,12 +39,16 @@ To create mapping between NetBIOS and DNS domain name, use the Babelfish provide
 system stored procedure `babelfish_add_domain_mapping_entry`. Both
 arguments must have a valid value and are not NULL.
 
+###### Example
+
 ```
 EXEC babelfish_add_domain_mapping_entry 'netbios_domain_name', 'fully_qualified_domain_name'
 ```
 
 The following example shows how to create the mapping between the NetBIOS name
 CORP and DNS domain name CORP.EXAMPLE.COM.
+
+###### Example
 
 ```
 EXEC babelfish_add_domain_mapping_entry 'corp', 'corp.example.com'
@@ -53,12 +57,16 @@ EXEC babelfish_add_domain_mapping_entry 'corp', 'corp.example.com'
 To delete an existing mapping entry, use the system stored procedure
 babelfish_remove_domain_mapping_entry.
 
+###### Example
+
 ```
 EXEC babelfish_remove_domain_mapping_entry 'netbios_domain_name'
 ```
 
 The following example shows how to remove the mapping for the NetBIOS name
 CORP.
+
+###### Example
 
 ```
 EXEC babelfish_remove_domain_mapping_entry 'corp'
@@ -67,11 +75,15 @@ EXEC babelfish_remove_domain_mapping_entry 'corp'
 To remove all existing mapping entries, use the system stored procedure
 babelfish_truncate_domain_mapping_table:
 
+###### Example
+
 ```
 EXEC babelfish_truncate_domain_mapping_table
 ```
 
 To view all mappings between NetBIOS and DNS domain name, use the following query.
+
+###### Example
 
 ```
 SELECT netbios_domain_name, fq_domain_name FROM babelfish_domain_mapping;
@@ -94,6 +106,8 @@ option allows authentication using Active Directory.
 ```
 CREATE LOGIN login_name FROM WINDOWS [WITH DEFAULT_DATABASE=database]
 ```
+
+###### Example
 
 The following example shows creating a login for the Active Directory user [corp\test1] with a
 default database of db1.

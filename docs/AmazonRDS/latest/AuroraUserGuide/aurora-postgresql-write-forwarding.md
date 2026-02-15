@@ -1,21 +1,29 @@
-# Aurora PostgreSQL 中的本地写入转发
+# Local write forwarding in Aurora PostgreSQL
 
-*本地（集群内）写入转发*支持您的应用程序直接在 Aurora 副本上发出读/写事务。然后，写入命令转发到写入器数据库实例进行提交。对于偶尔写入且要求*先写后读一致性*（即能够读取事务中的最新写入内容）的应用程序，您可以使用本地写入转发。
+_Local (in-cluster) write forwarding_ allows your applications to issue read/write transactions directly on an
+Aurora Replica. The write commands are then forwarded to the writer DB instance to be committed. You can use local write forwarding
+for your applications that have occasional writes and require _read-after-write consistency_, which is the ability
+to read the latest write in a transaction.
 
-如果没有写入转发，您的应用程序必须完全拆分所有读取和写入流量，保持两组数据库连接才能将流量发送到相应的端点。只读副本从写入器实例异步接收更新。此外，由于不同只读副本的复制滞后可能不同，因此很难在所有副本之间实现全局读取一致性。必须在写入器数据库实例上处理任何要求先写后读一致性的读取。或者，您需要开发复杂的自定义应用程序逻辑，以利用多个只读副本在确保一致性的同时实现可扩展性。
+Without write forwarding, your applications must fully split all read and write traffic, maintaining two sets of database connections to send the traffic to the appropriate endpoint.
+Read replicas receive updates asynchronously from the writer instance. In addition, because replication lag can differ among read replicas, achieving global read consistency across all
+replicas is difficult. You must transact any reads requiring read-after-write consistency on the writer database instance. Alternatively, you would need to develop complex custom application
+logic to take advantage of multiple read replicas for scalability while ensuring consistency.
 
-借助写入转发，您无需拆分这些事务或将它们专门发送到写入器实例。您也不必开发复杂的应用程序逻辑来实现*先写后读一致性*。
+With write forwarding, you avoid the need to split those transactions or send them exclusively to the writer instance. You also don't have to develop complex application logic to achieve
+_read-after-write consistency_ consistency.
 
-本地写入转发在提供 Aurora PostgreSQL 的每个区域均可用。以下 Aurora PostgreSQL 版本支持该特征：
+Local write forwarding is available in every Region where Aurora PostgreSQL is available. It is supported in the following Aurora PostgreSQL versions:
 
-- 16.4 及更高的 16 版本
-- 15.8 及更高的 15 版本
-- 14.13 及更高的 14 版本
-  本地写入转发用于转发来自区域内副本的写入。要转发来自全局副本的写入，请参阅 [在 Amazon Aurora Global Database 中使用写入转发](aurora-global-database-write-forwarding.md "aurora-global-database-write-forwarding.md")。
+- 16.4 and higher 16 versions
+- 15.8 and higher 15 versions
+- 14.13 and higher 14 versions
 
-###### 主题
+Local write forwarding is used to forward writes from in-Region replicas. To forward writes from a global replica, see [Using write forwarding in an Amazon Aurora global database](aurora-global-database-write-forwarding.md "aurora-global-database-write-forwarding.md").
 
-- [Aurora PostgreSQL 中的本地写入转发的限制和注意事项](aurora-postgresql-write-forwarding-limitations.md "aurora-postgresql-write-forwarding-limitations.md")
-- [配置 Aurora PostgreSQL 以进行本地写入转发](aurora-postgresql-write-forwarding-configuring.md "aurora-postgresql-write-forwarding-configuring.md")
-- [在 Aurora PostgreSQL 中使用本地写入转发](aurora-postgresql-write-forwarding-understanding.md "aurora-postgresql-write-forwarding-understanding.md")
-- [监控 Aurora PostgreSQL 中的本地写入转发](aurora-postgresql-write-forwarding-monitoring.md "aurora-postgresql-write-forwarding-monitoring.md")
+###### Topics
+
+- [Limitations and considerations of local write forwarding in Aurora PostgreSQL](aurora-postgresql-write-forwarding-limitations.md "aurora-postgresql-write-forwarding-limitations.md")
+- [Configuring Aurora PostgreSQL for Local write forwarding](aurora-postgresql-write-forwarding-configuring.md "aurora-postgresql-write-forwarding-configuring.md")
+- [Working with local write forwarding for Aurora PostgreSQL](aurora-postgresql-write-forwarding-understanding.md "aurora-postgresql-write-forwarding-understanding.md")
+- [Monitoring local write forwarding in Aurora PostgreSQL](aurora-postgresql-write-forwarding-monitoring.md "aurora-postgresql-write-forwarding-monitoring.md")

@@ -18,6 +18,8 @@ Or choose **Cancel**.
 To reboot a DB instance by using the AWS CLI, call the
 [`reboot-db-instance`](../../../cli/latest/reference/rds/reboot-db-instance.md "../../../cli/latest/reference/rds/reboot-db-instance.md") command.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

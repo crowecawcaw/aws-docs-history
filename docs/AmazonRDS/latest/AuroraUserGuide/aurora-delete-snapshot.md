@@ -29,8 +29,11 @@ The following options are used to delete a DB cluster snapshot.
 
 - `--db-cluster-snapshot-identifier` –
   The identifier for the DB cluster snapshot.
-  The following code deletes the `mydbclustersnapshot`
-  DB cluster snapshot.
+
+###### Example
+
+The following code deletes the `mydbclustersnapshot`
+DB cluster snapshot.
 
 For Linux, macOS, or Unix:
 

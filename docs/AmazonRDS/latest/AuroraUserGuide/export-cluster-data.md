@@ -1,95 +1,134 @@
-# Considerations for DB cluster exports
+# Creating DB cluster export tasks
 
-Use the following sections to learn about the limitations, file naming conventions, and data conversion and storage when exporting DB cluster data to Amazon S3.
+Create export tasks to export data from your Aurora DB cluster to an Amazon S3 bucket. You can have up to five concurrent DB cluster export tasks in progress per AWS account.
 
-###### Topics
+###### Note
 
-- [Limitations](#export-cluster-data.Limits "#export-cluster-data.Limits")
-- [File naming convention](#export-cluster-data.FileNames "#export-cluster-data.FileNames")
-- [Data conversion and storage format](#export-cluster-data.data-types "#export-cluster-data.data-types")
+Exporting DB cluster data can take a while depending on your database type and size. The export task first clones and
+scales the entire database before extracting the data to Amazon S3. The task's progress during this phase displays as
+**Starting**. When the task switches to exporting data to S3, progress displays as **In
+progress**.
 
-## Limitations
+The time it takes for the export to complete depends on the data stored in the database. For example, tables with
+well-distributed numeric primary key or index columns export the fastest. Tables that don't contain a column suitable
+for partitioning and tables with only one index on a string-based column take longer because the export uses a slower
+single-threaded process.
 
-Exporting DB cluster data to Amazon S3 has the following limitations:
+You can export DB cluster data to Amazon S3 using the AWS Management Console, the AWS CLI, or the RDS API.
 
-- You can't run multiple export tasks for the same DB cluster simultaneously. This applies to both full and partial
-  exports.
-- You can have up to five concurrent DB snapshot export tasks in progress per AWS account.
-- Aurora Serverless v1 DB clusters don't support exports to S3.
-- Aurora MySQL and Aurora PostgreSQL support exports to S3 only for the provisioned engine mode.
-- Exports to S3 don't support S3 prefixes containing a colon (:).
-- The following characters in the S3 file path are converted to underscores (\_) during export:
+If you use a Lambda function to export the DB cluster data, add the `kms:DescribeKey` action to the Lambda function
+policy. For more information, see [AWS Lambda
+permissions](../../../lambda/latest/dg/lambda-permissions.md "../../../lambda/latest/dg/lambda-permissions.md").
+
+The **Export to Amazon S3** console option appears only for DB clusters that can be exported to Amazon S3. A DB
+cluster might not be available for export because of the following reasons:
+
+- The DB engine isn't supported for S3 export.
+- The DB cluster version isn't supported for S3 export.
+- S3 export isn't supported in the AWS Region where the DB cluster was created.
+
+###### To export DB cluster data
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the DB cluster whose data you want to export.
+4. For **Actions**, choose **Export to Amazon S3**.
+
+The **Export to Amazon S3** window appears. 5. For **Export identifier**, enter a name to identify the export task. This value is also used
+for the name of the file created in the S3 bucket. 6. Choose the data to be exported:
+
+    * Choose **All** to export all data in the DB cluster.
+    * Choose **Partial** to export specific parts of the DB cluster. To identify which
+     parts of the cluster to export, enter one or more databases, schemas, or tables for
+     **Identifiers**, separated by spaces.
+
+
+    Use the following format:
+
+
+
+    ```
+    `database`[.`schema`][.`table`] `database2`[.`schema2`][.`table2`] ... `database`*n*[.`schema`*n*][.`table`*n*]
+    ```
+
+    For example:
+
+
+
+    ```
+    mydatabase mydatabase2.myschema1 mydatabase2.myschema2.mytable1 mydatabase2.myschema2.mytable2
+    ```
+
+7. For **S3 bucket**, choose the bucket to export to.
+
+To assign the exported data to a folder path in the S3 bucket, enter the optional path for **S3
+prefix**. 8. For **IAM role**, either choose a role that grants you write access to your chosen S3 bucket,
+or create a new role.
+
+    * If you created a role by following the steps in [Providing access to an Amazon S3 bucket using an IAM role](export-cluster-data.md#export-cluster-data.SetupIAMRole "export-cluster-data.md#export-cluster-data.SetupIAMRole"), choose that role.
+    * If you didn't create a role that grants you write access to your chosen S3 bucket, then choose
+     **Create a new role** to create the role automatically. Next, enter a name for the
+     role in **IAM role name**.
+
+9. For **KMS key**, enter the ARN for the key to use for encrypting the exported data.
+10. Choose **Export to Amazon S3**.
+    To export DB cluster data to Amazon S3 using the AWS CLI, use the [start-export-task](../../../cli/latest/reference/rds/start-export-task.md "../../../cli/latest/reference/rds/start-export-task.md") command with the following required options:
+
+- `--export-task-identifier`
+- `--source-arn` – the Amazon Resource Name (ARN) of the DB cluster
+- `--s3-bucket-name`
+- `--iam-role-arn`
+- `--kms-key-id`
+  In the following examples, the export task is named `my-cluster-export`, which exports the
+  data to an S3 bucket named `amzn-s3-demo-destination-bucket`.
+
+###### Example
+
+For Linux, macOS, or Unix:
 
 ```
-\ ` " (space)
+aws rds start-export-task \
+    --export-task-identifier `my-cluster-export` \
+    --source-arn arn:aws:rds:`us-west-2`:123456789012:cluster:`my-cluster` \
+    --s3-bucket-name `amzn-s3-demo-destination-bucket` \
+    --iam-role-arn `iam-role` \
+    --kms-key-id `my-key`
 ```
 
-- If a database, schema, or table has characters in its name other than the following, partial export isn't
-  supported. However, you can export the entire DB cluster.
-  - Latin letters (A–Z)
-  - Digits (0–9)
-  - Dollar symbol ($)
-  - Underscore (\_)
-
-- Spaces ( ) and certain characters aren't supported in database table column names. Tables with the following
-  characters in column names are skipped during export:
+For Windows:
 
 ```
-, ; { } ( ) \n \t = (space)
+aws rds start-export-task ^
+    --export-task-identifier `my-DB-cluster-export` ^
+    --source-arn arn:aws:rds:`us-west-2`:123456789012:cluster:`my-cluster` ^
+    --s3-bucket-name `amzn-s3-demo-destination-bucket` ^
+    --iam-role-arn `iam-role` ^
+    --kms-key-id `my-key`
 ```
 
-- Tables with slashes (/) in their names are skipped during export.
-- Aurora PostgreSQL temporary and unlogged tables are skipped during export.
-- If the data contains a large object, such as a BLOB or CLOB, that is close to or greater than 500 MB, then the export
-  fails.
-- If a table contains a large row that is close to or greater than 2 GB, then the table is skipped during export.
-- For partial exports, the `ExportOnly` list has a maximum size of
-  200 KB.
-- We strongly recommend that you use a unique name for each export task. If you don't use a unique task name, you might
-  receive the following error message:
-
-**`ExportTaskAlreadyExistsFault: An error occurred (ExportTaskAlreadyExists) when calling the StartExportTask
- operation: The export task with the ID `xxxxx` already exists.`**
-
-- Because some tables might be skipped, we recommend that you verify row and table counts in the data after
-  export.
-
-## File naming convention
-
-Exported data for specific tables is stored in the format
-``base_prefix`/`files``, where the base prefix is
-the following:
+Sample output follows.
 
 ```
-`export_identifier`/`database_name`/`schema_name`.`table_name`/
+{
+    "ExportTaskIdentifier": "my-cluster-export",
+    "SourceArn": "arn:aws:rds:us-west-2:123456789012:cluster:my-cluster",
+    "S3Bucket": "`amzn-s3-demo-destination-bucket`",
+    "IamRoleArn": "arn:aws:iam:123456789012:role/ExportTest",
+    "KmsKeyId": "my-key",
+    "Status": "STARTING",
+    "PercentProgress": 0,
+    "TotalExtractedDataInGB": 0,
+}
 ```
 
-For example:
+To provide a folder path in the S3 bucket for the DB cluster export, include the `--s3-prefix` option
+in the [start-export-task](../../../cli/latest/reference/rds/start-export-task.md "../../../cli/latest/reference/rds/start-export-task.md") command.
 
-```
-export-1234567890123-459/rdststcluster/mycluster.DataInsert_7ADB5D19965123A2/
-```
+To export DB cluster data to Amazon S3 using the Amazon RDS API, use the [StartExportTask](../APIReference/API_StartExportTask.md "../APIReference/API_StartExportTask.md") operation with the following required parameters:
 
-Output files use the following naming convention, where `partition_index` is alphanumeric:
-
-```
-``partition_index`/part-00000-`random_uuid`.`format-based_extension``
-```
-
-For example:
-
-```
-1/part-00000-c5a881bb-58ff-4ee6-1111-b41ecff340a3-c000.gz.parquet
-    a/part-00000-d7a881cc-88cc-5ab7-2222-c41ecab340a4-c000.gz.parquet
-
-
-```
-
-The file naming convention is subject to change. Therefore, when reading target tables, we recommend that you read everything
-inside the base prefix for the table.
-
-## Data conversion and storage format
-
-When you export a DB cluster to an Amazon S3 bucket, Amazon Aurora converts, exports, and stores data in the Parquet
-format. For more information, see [Data conversion when exporting to an Amazon S3
-bucket](aurora-export-snapshot.md#aurora-export-snapshot.data-types "aurora-export-snapshot.md#aurora-export-snapshot.data-types").
+- `ExportTaskIdentifier`
+- `SourceArn` – the ARN of the DB cluster
+- `S3BucketName`
+- `IamRoleArn`
+- `KmsKeyId`

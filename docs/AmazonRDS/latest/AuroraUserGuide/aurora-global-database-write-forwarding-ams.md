@@ -156,6 +156,8 @@ or off. A value of `null` indicates that write forwarding isn't available for th
 isn't part of a global database, or is the primary cluster instead of a secondary cluster. The value can also be
 `"enabling"` or `"disabling"` if write forwarding is in the process of being turned on or off.
 
+###### Example
+
 ```
 aws rds describe-db-clusters \
 --query '*[].{DBClusterIdentifier:DBClusterIdentifier,GlobalWriteForwardingStatus:GlobalWriteForwardingStatus}'

@@ -37,6 +37,8 @@ You can specify other settings. For information about each setting, see [Setting
 Resource tagging is supported for this operation. When you use the `--tags` option, the source DB cluster tags
 are ignored and the provided ones are used. Otherwise, the latest tags from the source cluster are used.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

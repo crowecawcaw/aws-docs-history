@@ -30,7 +30,10 @@ Specify the following parameters:
 
 - `--db-cluster-identifier` – The DB cluster that you want to fail over.
 - `--target-db-instance-identifier` – The name of the DB instance to promote to the primary DB instance.
-  For Linux, macOS, or Unix:
+
+###### Example
+
+For Linux, macOS, or Unix:
 
 ```
 aws rds failover-db-cluster \

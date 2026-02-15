@@ -45,6 +45,8 @@ later. You can do this by using the AWS CLI [`create-db-cluster-snapshot`](../..
   In this example, you create a DB cluster snapshot named `mydbclustersnapshot` for
   a DB cluster called `mydbcluster`.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

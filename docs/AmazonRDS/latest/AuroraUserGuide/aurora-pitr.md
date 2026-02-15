@@ -82,6 +82,8 @@ If tags are provided in the request then the provided tags are applied to the re
 If tags are not provided in the request and if the source DB cluster is in-region active and has tags, Aurora
 adds the latest tags from the source DB cluster to the restored DB cluster.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

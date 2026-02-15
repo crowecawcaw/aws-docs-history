@@ -1,261 +1,46 @@
-# Granting
+# Creating a custom IAM
 
-fine-grained access for Performance Insights
+policy for Performance Insights
 
-Fine-grained access control offers additional ways of controlling access to Performance Insights. This
-access control can allow or deny access to individual dimensions for
-`GetResourceMetrics`, `DescribeDimensionKeys`, and
-`GetDimensionKeyDetails` Performance Insights actions. To use fine-grained access,
-specify dimensions in the IAM policy by using condition keys. The evaluation of the access follows the IAM
-policy evaluation logic. For more information, see [Policy
-evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_. If the IAM
-policy statement doesn't specify any dimension, then the statement controls access to
-all the dimensions for the specified action. For the list of available dimensions, see [DimensionGroup](../../../performance-insights/latest/APIReference/API_DimensionGroup.md "../../../performance-insights/latest/APIReference/API_DimensionGroup.md").
+For users who don't have either the `AmazonRDSPerformanceInsightsReadOnly` or
+`AmazonRDSPerformanceInsightsFullAccess` policy, you can grant access to Performance Insights
+by creating or modifying a user-managed IAM policy. When you attach the policy to an IAM
+permission set or role, the recipient can use Performance Insights.
 
-To find out the dimensions that your credentials are authorized to access, use the `AuthorizedActions`
-parameter in `ListAvailableResourceDimensions` and specify the action. The allowed
-values for `AuthorizedActions` are as follows:
+###### To create a custom policy
 
-- `GetResourceMetrics`
-- `DescribeDimensionKeys`
-- `GetDimensionKeyDetails`
-  For example, if you specify `GetResourceMetrics` to the `AuthorizedActions` parameter,
-  `ListAvailableResourceDimensions` returns the list of dimensions that the `GetResourceMetrics`
-  action is authorized to access. If you specify multiple actions in the `AuthorizedActions` parameter, then
-  `ListAvailableResourceDimensions` returns an intersection of dimensions that those actions are
-  authorized to access.
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Policies**.
+3. Choose **Create policy**.
+4. On the **Create Policy** page, choose the
+   **JSON** option.
+5. Copy and paste the text provided in the _JSON policy
+   document_ section in the _AWS Managed Policy Reference
+   Guide_ for [AmazonRDSPerformanceInsightsReadOnly](../../../aws-managed-policy/latest/reference/AmazonRDSPerformanceInsightsReadOnly.md "../../../aws-managed-policy/latest/reference/AmazonRDSPerformanceInsightsReadOnly.md")
+   or [AmazonRDSPerformanceInsightsFullAccess](../../../aws-managed-policy/latest/reference/AmazonRDSPerformanceInsightsFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonRDSPerformanceInsightsFullAccess.md")
+   policy.
+6. Choose **Review policy**.
+7. Provide a name for the policy and optionally a description, and then choose
+   **Create policy**.
+   You can now attach the policy to a permission set or role. The following procedure
+   assumes that you already have a user available for this purpose.
 
-The following example provides access to the specified dimensions for
-`GetResourceMetrics` and `DescribeDimensionKeys`
-actions.
+###### To attach the policy to a user
 
-JSON
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Users**.
+3. Choose an existing user from the list.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowToDiscoverDimensions",
- "Effect": "Allow",
- "Action": [
- "pi:ListAvailableResourceDimensions"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ]
- },
- {
- "Sid": "SingleAllow",
- "Effect": "Allow",
- "Action": [
- "pi:GetResourceMetrics",
- "pi:DescribeDimensionKeys"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ],
- "Condition": {
- "ForAllValues:StringEquals": {
- "pi:Dimensions": [
- "db.sql_tokenized.id",
- "db.sql_tokenized.statement"
- ]
- }
- }
- }
+###### Important
 
+To use Performance Insights, make sure that you have access to Amazon RDS in addition to the custom policy.
+For example, the `AmazonRDSPerformanceInsightsReadOnly`
+predefined policy provides read-only access to Amazon RDS. For more information,
+see [Managing access using policies](UsingWithRDS.md#security_iam_access-manage "UsingWithRDS.md#security_iam_access-manage"). 4. On the **Summary** page, choose **Add
+permissions**. 5. Choose **Attach existing policies directly**. For
+**Search**, type the first few characters of your policy
+name, as shown in the following image.
 
- ]
-}`
-
-```
-
-The following is the response for the requested dimension:
-
-```
-
-	// ListAvailableResourceDimensions API
-// Request
-{
-    "ServiceType": "RDS",
-    "Identifier": "db-ABC1DEFGHIJKL2MNOPQRSTUV3W",
-    "Metrics": [ "db.load" ],
-    "AuthorizedActions": ["DescribeDimensionKeys"]
-}
-
-// Response
-{
-    "MetricDimensions": [ {
-        "Metric": "db.load",
-        "Groups": [
-            {
-                "Group": "db.sql_tokenized",
-                "Dimensions": [
-                    { "Identifier": "db.sql_tokenized.id" },
-                  //  { "Identifier": "db.sql_tokenized.db_id" }, // not included because not allows in the IAM Policy
-                    { "Identifier": "db.sql_tokenized.statement" }
-                ]
-            }
-
-        ] }
-    ]
-}
-
-```
-
-The following example specifies one allow and two deny access for the dimensions.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowToDiscoverDimensions",
- "Effect": "Allow",
- "Action": [
- "pi:ListAvailableResourceDimensions"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ]
- },
-
- {
- "Sid": "O01AllowAllWithoutSpecifyingDimensions",
- "Effect": "Allow",
- "Action": [
- "pi:GetResourceMetrics",
- "pi:DescribeDimensionKeys"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ]
- },
-
- {
- "Sid": "O01DenyAppDimensionForAll",
- "Effect": "Deny",
- "Action": [
- "pi:GetResourceMetrics",
- "pi:DescribeDimensionKeys"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ],
- "Condition": {
- "ForAnyValue:StringEquals": {
- "pi:Dimensions": [
- "db.application.name"
- ]
- }
- }
- },
-
- {
- "Sid": "O01DenySQLForGetResourceMetrics",
- "Effect": "Deny",
- "Action": [
- "pi:GetResourceMetrics"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ],
- "Condition": {
- "ForAnyValue:StringEquals": {
- "pi:Dimensions": [
- "db.sql_tokenized.statement"
- ]
- }
- }
- }
- ]
-}`
-
-```
-
-The following are the responses for the requested dimensions:
-
-```
-
-			// ListAvailableResourceDimensions API
-// Request
-{
-    "ServiceType": "RDS",
-    "Identifier": "db-ABC1DEFGHIJKL2MNOPQRSTUV3W",
-    "Metrics": [ "db.load" ],
-    "AuthorizedActions": ["GetResourceMetrics"]
-}
-
-// Response
-{
-    "MetricDimensions": [ {
-        "Metric": "db.load",
-        "Groups": [
-            {
-                "Group": "db.application",
-                "Dimensions": [
-
-                  // removed from response because denied by the IAM Policy
-                  //  { "Identifier": "db.application.name" }
-                ]
-            },
-            {
-                "Group": "db.sql_tokenized",
-                "Dimensions": [
-                    { "Identifier": "db.sql_tokenized.id" },
-                    { "Identifier": "db.sql_tokenized.db_id" },
-
-                  // removed from response because denied by the IAM Policy
-                  //  { "Identifier": "db.sql_tokenized.statement" }
-                ]
-            },
-            ...
-        ] }
-    ]
-}
-
-```
-
-```
-
-// ListAvailableResourceDimensions API
-// Request
-{
-    "ServiceType": "RDS",
-    "Identifier": "db-ABC1DEFGHIJKL2MNOPQRSTUV3W",
-    "Metrics": [ "db.load" ],
-    "AuthorizedActions": ["DescribeDimensionKeys"]
-}
-
-// Response
-{
-    "MetricDimensions": [ {
-        "Metric": "db.load",
-        "Groups": [
-            {
-                "Group": "db.application",
-                "Dimensions": [
-                  // removed from response because denied by the IAM Policy
-                  //  { "Identifier": "db.application.name" }
-                ]
-            },
-            {
-                "Group": "db.sql_tokenized",
-                "Dimensions": [
-                    { "Identifier": "db.sql_tokenized.id" },
-                    { "Identifier": "db.sql_tokenized.db_id" },
-
-                  // allowed for DescribeDimensionKeys because our IAM Policy
-                  // denies it only for GetResourceMetrics
-                    { "Identifier": "db.sql_tokenized.statement" }
-                ]
-            },
-            ...
-        ] }
-    ]
-}
-
-```
+![Choose a Policy](images/perf_insights_attach_iam_policy.png) 6. Choose your policy, and then choose **Next: Review**. 7. Choose **Add permissions**.

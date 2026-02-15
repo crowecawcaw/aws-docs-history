@@ -178,6 +178,8 @@ To create a blue/green deployment using the AWS CLI, use the [create-blue-green-
 options, see [Settings for creating blue/green
 deployments](#create-blue-green-settings "#create-blue-green-settings").
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

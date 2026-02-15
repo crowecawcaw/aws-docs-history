@@ -1,51 +1,121 @@
-# Stopping a database activity stream
+# IAM policy examples for database activity streams
 
-You can stop an activity stream using the console or AWS CLI.
+Any user with appropriate AWS Identity and Access Management (IAM) role privileges for database activity streams
+can create, start, stop, and modify the activity stream settings for a DB cluster. These
+actions are included in the audit log of the stream. For best compliance practices, we
+recommend that you don't provide these privileges to DBAs.
 
-If you delete your DB cluster, the activity stream is stopped and the underlying Amazon Kinesis stream is deleted automatically.
+You set access to database activity streams using IAM policies. For more information about Aurora authentication, see [Identity and access management for Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md"). For more information about creating IAM policies, see
+[Creating and using an IAM policy for
+IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
-###### To turn off an activity stream
+###### Example Policy to allow configuring database activity streams
 
-1.  Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  In the navigation pane, choose **Databases**.
-3.  Choose a DB cluster
-    that you want to stop the database activity stream for.
-4.  For **Actions**, choose **Stop activity stream**.
-    The **Database Activity Stream** window
-    appears.
+To give users fine-grained access to modify activity streams, use the service-specific operation context keys
+`rds:StartActivityStream` and `rds:StopActivityStream`
+in an IAM policy. The following IAM
+policy example allows a user or role to configure activity streams.
 
-        1. Choose **Immediately**.
-
-
-        When you choose **Immediately**, the DB
-         cluster restarts right away. If you choose
-         **During the next maintenance window**, the DB
-         cluster doesn't restart right away. In
-         this case, the database activity stream doesn't stop until the next maintenance window.
-        2. Choose **Continue**.
-
-    To stop database activity streams for your DB cluster, configure the DB cluster using the AWS CLI command [stop-activity-stream](../../../cli/latest/reference/rds/stop-activity-stream.md "../../../cli/latest/reference/rds/stop-activity-stream.md"). Identify the AWS Region for the
-    DB cluster using the
-    `--region` parameter. The `--apply-immediately` parameter is optional.
-
-For Linux, macOS, or Unix:
+JSON
 
 ```
-aws rds --region `MY_REGION` \
-    stop-activity-stream \
-    --resource-arn `MY_CLUSTER_ARN` \
-    --apply-immediately
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ConfigureActivityStreams",
+ "Effect": "Allow",
+ "Action": [
+ "rds:StartActivityStream",
+ "rds:StopActivityStream"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
 ```
 
-For Windows:
+###### Example Policy to allow starting database activity streams
+
+The following IAM policy example allows a user or role to start activity streams.
+
+JSON
 
 ```
-aws rds --region `MY_REGION` ^
-    stop-activity-stream ^
-    --resource-arn `MY_CLUSTER_ARN` ^
-    --apply-immediately
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Sid":"AllowStartActivityStreams",
+ "Effect":"Allow",
+ "Action":"rds:StartActivityStream",
+ "Resource":"*"
+ }
+ ]
+}`
+
 ```
 
-To stop database activity streams for your DB cluster, configure the cluster using the [StopActivityStream](../APIReference/API_StopActivityStream.md "../APIReference/API_StopActivityStream.md") operation. Identify the AWS Region for the DB
-cluster using the `Region` parameter. The
-`ApplyImmediately` parameter is optional.
+###### Example Policy to allow stopping database activity streams
+
+The following IAM policy example allows a user or role to stop activity streams.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Sid":"AllowStopActivityStreams",
+ "Effect":"Allow",
+ "Action":"rds:StopActivityStream",
+ "Resource":"*"
+ }
+ ]
+}`
+
+```
+
+###### Example Policy to deny starting database activity streams
+
+The following IAM policy example prevents a user or role from starting activity streams.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Sid":"DenyStartActivityStreams",
+ "Effect":"Deny",
+ "Action":"rds:StartActivityStream",
+ "Resource":"*"
+ }
+ ]
+}`
+
+```
+
+###### Example Policy to deny stopping database activity streams
+
+The following IAM policy example prevents a user or role from stopping activity streams.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Sid":"DenyStopActivityStreams",
+ "Effect":"Deny",
+ "Action":"rds:StopActivityStream",
+ "Resource":"*"
+ }
+ ]
+}`
+
+```

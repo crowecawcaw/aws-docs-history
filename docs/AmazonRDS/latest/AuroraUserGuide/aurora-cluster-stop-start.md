@@ -107,6 +107,8 @@ avoid activating the failover mechanism.
 - `--db-cluster-identifier` –
   the name of the Aurora cluster.
 
+###### Example
+
 ```
 aws rds stop-db-cluster --db-cluster-identifier `mydbcluster`
 
@@ -167,6 +169,8 @@ Starting your DB cluster usually takes several minutes.
   either a specific cluster identifier you chose when creating the
   cluster, or the DB instance identifier you chose with
   `-cluster` appended to the end.
+
+###### Example
 
 ```
 aws rds start-db-cluster --db-cluster-identifier `mydbcluster`

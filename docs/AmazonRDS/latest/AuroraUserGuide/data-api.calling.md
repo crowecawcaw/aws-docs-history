@@ -1,448 +1,173 @@
-# Calling the Amazon RDS Data API with the AWS CLI
+# Calling the Amazon RDS Data API from a Java application
 
-You can call RDS Data API (Data API) using the AWS CLI.
+You can call the Amazon RDS Data API (Data API) from a Java application.
 
-The following examples use the AWS CLI for Data API. For more information, see
-[AWS CLI reference for the Data
-API](../../../cli/latest/reference/rds-data/index.md "../../../cli/latest/reference/rds-data/index.md").
+The following examples use the AWS SDK for Java. For more information, see the
+[AWS SDK for Java Developer Guide](../../../sdk-for-java/latest/developer-guide/welcome.md "../../../sdk-for-java/latest/developer-guide/welcome.md").
 
-In each example, replace the Amazon Resource Name (ARN) for the DB cluster with the ARN for
-your Aurora DB cluster. Also, replace the secret ARN with the ARN of the secret
-in Secrets Manager that allows access to the DB cluster.
-
-###### Note
-
-The AWS CLI can format responses in JSON.
+In each example, replace the DB cluster's Amazon Resource Name (ARN) with the
+ARN for your Aurora DB cluster. Also, replace the secret ARN with the
+ARN of the secret in Secrets Manager that allows access to the DB cluster.
 
 ###### Topics
 
-- [Starting a SQL transaction](#data-api.calling.cli.begin-transaction "#data-api.calling.cli.begin-transaction")
-- [Running a SQL statement](#data-api.calling.cli.execute-statement "#data-api.calling.cli.execute-statement")
-- [Running a batch SQL statement over an array of data](#data-api.calling.cli.batch-execute-statement "#data-api.calling.cli.batch-execute-statement")
-- [Committing a SQL transaction](#data-api.calling.cli.commit-transaction "#data-api.calling.cli.commit-transaction")
-- [Rolling back a SQL transaction](#data-api.calling.cli.rollback-transaction "#data-api.calling.cli.rollback-transaction")
+- [Running a SQL query](#data-api.calling.java.run-query "#data-api.calling.java.run-query")
+- [Running a SQL transaction](#data-api.calling.java.run-transaction "#data-api.calling.java.run-transaction")
+- [Running a batch SQL operation](#data-api.calling.java.run-batch "#data-api.calling.java.run-batch")
 
-## Starting a SQL transaction
+## Running a SQL query
 
-You can start a SQL transaction using the `aws rds-data
- begin-transaction` CLI command. The call returns a transaction
-identifier.
+You can run a `SELECT` statement and fetch the results with a Java application.
 
-###### Important
-
-Within Data API, a transaction times out if there are no calls that use its transaction ID
-in three minutes. If a transaction times out before it's
-committed, Data API rolls it back automatically.
-
-MySQL data definition language (DDL) statements inside a transaction cause an
-implicit commit. We recommend that you run each MySQL DDL statement in a separate
-`execute-statement` command with the
-`--continue-after-timeout` option.
-
-In addition to the common options, specify the `--database` option,
-which provides the name of the database.
-
-For example, the following CLI command starts a SQL transaction.
-
-For Linux, macOS, or Unix:
+The following example runs a SQL query.
 
 ```
-aws rds-data begin-transaction --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" \
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`"
-```
+package com.amazonaws.rdsdata.examples;
 
-For Windows:
+import com.amazonaws.services.rdsdata.AWSRDSData;
+import com.amazonaws.services.rdsdata.AWSRDSDataClient;
+import com.amazonaws.services.rdsdata.model.ExecuteStatementRequest;
+import com.amazonaws.services.rdsdata.model.ExecuteStatementResult;
+import com.amazonaws.services.rdsdata.model.Field;
 
-```
-aws rds-data begin-transaction --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" ^
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`"
-```
+import java.util.List;
 
-The following is an example of the response.
+public class FetchResultsExample {
+  public static final String RESOURCE_ARN = "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`";
+  public static final String SECRET_ARN = "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`";
 
-```
-{
-    "transactionId": "`ABC1234567890xyz`"
+  public static void main(String[] args) {
+    AWSRDSData rdsData = AWSRDSDataClient.builder().build();
+
+    ExecuteStatementRequest request = new ExecuteStatementRequest()
+            .withResourceArn(RESOURCE_ARN)
+            .withSecretArn(SECRET_ARN)
+            .withDatabase("`mydb`")
+            .withSql("`select * from mytable`");
+
+    ExecuteStatementResult result = rdsData.executeStatement(request);
+
+    for (List<Field> fields: result.getRecords()) {
+      String stringValue = fields.get(0).getStringValue();
+      long numberValue = fields.get(1).getLongValue();
+
+      System.out.println(String.format("Fetched row: string = %s, number = %d", stringValue, numberValue));
+    }
+  }
 }
 ```
 
-## Running a SQL statement
+## Running a SQL transaction
 
-You can run a SQL statement using the `aws rds-data execute-statement`
-CLI command.
-
-You can run the SQL statement in a transaction by specifying the transaction
-identifier with the `--transaction-id` option. You can start a
-transaction using the `aws rds-data begin-transaction` CLI
-command. You can end and commit a transaction using the `aws rds-data
- commit-transaction` CLI command.
+You can start a SQL transaction, run one or more SQL statements, and then
+commit the changes with a Java application.
 
 ###### Important
 
-If you don't specify the `--transaction-id` option, changes that
-result from the call are committed automatically.
+A transaction times out if there are no calls that use its transaction ID
+in three minutes. If a transaction times out before it's
+committed, it's rolled back automatically.
 
-In addition to the common options, specify the following options:
+If you don't specify a transaction ID, changes that result from
+the call are committed automatically.
 
-- `--sql` (required) – A SQL statement to run on the DB
-  cluster.
-- `--transaction-id` (optional) – The identifier of a
-  transaction that was started using the
-  `begin-transaction` CLI command. Specify the
-  transaction ID of the transaction that you want to include the SQL
-  statement in.
-- `--parameters` (optional) – The parameters for the SQL
-  statement.
-- `--include-result-metadata | --no-include-result-metadata`
-  (optional) – A value that indicates whether to include
-  metadata in the results. The default is
-  `--no-include-result-metadata`.
-- `--database` (optional) – The name of the database.
+The following example runs a SQL transaction.
 
-The `--database` option might not work when you run a SQL statement after running `--sql "use
- `database_name`;"` in the previous request. We recommend that you use the
-`--database` option instead of running `--sql "use
- `database_name`;"` statements.
+```
+package com.amazonaws.rdsdata.examples;
 
-- `--continue-after-timeout | --no-continue-after-timeout`
-  (optional) – A value that indicates whether to continue running
-  the statement after the call exceeds the Data API timeout interval of 45 seconds. The default is
-  `--no-continue-after-timeout`.
+import com.amazonaws.services.rdsdata.AWSRDSData;
+import com.amazonaws.services.rdsdata.AWSRDSDataClient;
+import com.amazonaws.services.rdsdata.model.BeginTransactionRequest;
+import com.amazonaws.services.rdsdata.model.BeginTransactionResult;
+import com.amazonaws.services.rdsdata.model.CommitTransactionRequest;
+import com.amazonaws.services.rdsdata.model.ExecuteStatementRequest;
 
-For data definition language (DDL) statements, we recommend continuing to
-run the statement after the call times out to avoid errors and the possibility of
-corrupted data structures.
+public class TransactionExample {
+  public static final String RESOURCE_ARN = "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`";
+  public static final String SECRET_ARN = "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`";
 
-- `--format-records-as "JSON"|"NONE"` – An optional value that specifies whether to
-  format the result set as a JSON string. The default is `"NONE"`.
-  For usage information about processing JSON result sets, see
-  [Processing Amazon RDS Data API query results in JSON format](data-api-json.md "data-api-json.md").
+  public static void main(String[] args) {
+    AWSRDSData rdsData = AWSRDSDataClient.builder().build();
 
-The DB cluster returns a response for the call.
+    BeginTransactionRequest beginTransactionRequest = new BeginTransactionRequest()
+            .withResourceArn(RESOURCE_ARN)
+            .withSecretArn(SECRET_ARN)
+            .withDatabase("`mydb`");
+    BeginTransactionResult beginTransactionResult = rdsData.beginTransaction(beginTransactionRequest);
+    String transactionId = beginTransactionResult.getTransactionId();
+
+    ExecuteStatementRequest executeStatementRequest = new ExecuteStatementRequest()
+            .withTransactionId(transactionId)
+            .withResourceArn(RESOURCE_ARN)
+            .withSecretArn(SECRET_ARN)
+            .withSql("`INSERT INTO test_table VALUES ('hello world!')`");
+    rdsData.executeStatement(executeStatementRequest);
+
+    CommitTransactionRequest commitTransactionRequest = new CommitTransactionRequest()
+            .withTransactionId(transactionId)
+            .withResourceArn(RESOURCE_ARN)
+            .withSecretArn(SECRET_ARN);
+    rdsData.commitTransaction(commitTransactionRequest);
+  }
+}
+```
 
 ###### Note
 
-The response size limit is 1 MiB. If the call returns more than 1 MiB of response data, the call is terminated.
-
-For Aurora Serverless v1, the maximum number of requests per second is 1,000. For all other supported databases, there is no limit.
-
-For example, the following CLI command runs a single SQL statement and
-omits the metadata in the results (the default).
-
-For Linux, macOS, or Unix:
-
-```
-aws rds-data execute-statement --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" \
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" \
---sql "`select * from mytable`"
-```
-
-For Windows:
-
-```
-aws rds-data execute-statement --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" ^
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" ^
---sql "`select * from mytable`"
-```
-
-The following is an example of the response.
-
-```
-{
-    "numberOfRecordsUpdated": 0,
-    "records": [
-        [
-            {
-                "longValue": `1`
-            },
-            {
-                "stringValue": "`ValueOne`"
-            }
-        ],
-        [
-            {
-                "longValue": `2`
-            },
-            {
-                "stringValue": "`ValueTwo`"
-            }
-        ],
-        [
-            {
-                "longValue": `3`
-            },
-            {
-                "stringValue": "`ValueThree`"
-            }
-        ]
-    ]
-}
-```
-
-The following CLI command runs a single SQL statement in a transaction by
-specifying the `--transaction-id` option.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds-data execute-statement --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" \
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" \
---sql "`update mytable set quantity=5 where id=201`" --transaction-id "`ABC1234567890xyz`"
-```
-
-For Windows:
-
-```
-aws rds-data execute-statement --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" ^
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" ^
---sql "`update mytable set quantity=5 where id=201`" --transaction-id "`ABC1234567890xyz`"
-```
-
-The following is an example of the response.
-
-```
-{
-    "numberOfRecordsUpdated": 1
-}
-```
-
-The following CLI command runs a single SQL statement with parameters.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds-data execute-statement --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" \
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" \
---sql "insert into `mytable` values (`:id`, `:val`)" --parameters "[{\"name\": \"`id`\", \"value\": {\"longValue\": `1`}},{\"name\": \"`val`\", \"value\": {\"stringValue\": \"`value1`\"}}]"
-```
-
-For Windows:
-
-```
-aws rds-data execute-statement --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" ^
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" ^
---sql "insert into `mytable` values (`:id`, `:val`)" --parameters "[{\"name\": \"`id`\", \"value\": {\"longValue\": `1`}},{\"name\": \"`val`\", \"value\": {\"stringValue\": \"`value1`\"}}]"
-```
-
-The following is an example of the response.
-
-```
-{
-    "numberOfRecordsUpdated": 1
-}
-```
-
-The following CLI command runs a data definition language (DDL) SQL statement. The DDL statement renames column
-`job` to column `role`.
-
-###### Important
-
-For DDL statements, we recommend continuing to run the statement after
+If you run a data definition language (DDL) statement, we recommend continuing to run the statement after
 the call times out. When a DDL statement terminates before it is finished
 running, it can result in errors and possibly corrupted data structures. To
-continue running a statement after a call exceeds the RDS Data API timeout interval of 45 seconds, specify the `--continue-after-timeout`
-option.
+continue running a statement after a call exceeds the RDS Data API timeout interval of 45 seconds, set the `continueAfterTimeout`
+parameter to `true`.
 
-For Linux, macOS, or Unix:
+## Running a batch SQL operation
 
-```
-aws rds-data execute-statement --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" \
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" \
---sql "`alter table mytable change column job role varchar(100)`" --continue-after-timeout
-```
-
-For Windows:
-
-```
-aws rds-data execute-statement --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" ^
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" ^
---sql "`alter table mytable change column job role varchar(100)`" --continue-after-timeout
-```
-
-The following is an example of the response.
-
-```
-{
-    "generatedFields": [],
-    "numberOfRecordsUpdated": 0
-}
-```
-
-###### Note
-
-The `generatedFields` data isn't supported by Aurora
-PostgreSQL. To get the values of generated fields, use the
-`RETURNING` clause. For more information, see [Returning data from modified rows](https://www.postgresql.org/docs/10/dml-returning.html "https://www.postgresql.org/docs/10/dml-returning.html") in the PostgreSQL
-documentation.
-
-## Running a batch SQL statement over an array of data
-
-You can run a batch SQL statement over an array of data by using the
-`aws rds-data batch-execute-statement` CLI command. You can
-use this command to perform a bulk import or update operation.
-
-You can run the SQL statement in a transaction by specifying the
-transaction identifier with the `--transaction-id` option. You
-can start a transaction by using the `aws rds-data
- begin-transaction` CLI command. You can end and commit a
-transaction by using the `aws rds-data commit-transaction` CLI
-command.
+You can run bulk insert and update operations over an array of data with a Java application.
+You can run a DML statement with array of parameter sets.
 
 ###### Important
 
-If you don't specify the `--transaction-id` option,
-changes that result from the call are committed automatically.
+If you don't specify a transaction ID, changes that result from the call
+are committed automatically.
 
-In addition to the common options, specify the following options:
-
-- `--sql` (required) – A SQL statement to run on
-  the DB cluster.
-
-###### Tip
-
-For MySQL-compatible statements, don't include a semicolon at the
-end of the `--sql` parameter. A trailing semicolon might cause
-a syntax error.
-
-- `--transaction-id` (optional) – The identifier
-  of a transaction that was started using the
-  `begin-transaction` CLI command. Specify the
-  transaction ID of the transaction that you want to include the SQL
-  statement in.
-- `--parameter-set` (optional) – The parameter
-  sets for the batch operation.
-- `--database` (optional) – The name of the database.
-
-The DB cluster returns a response to the call.
-
-###### Note
-
-There isn't a fixed upper limit on the number of parameter sets.
-However, the maximum size of the HTTP request submitted through Data API is
-4 MiB. If the request exceeds this limit, Data API returns an error and
-doesn't process the request. This 4 MiB limit includes the size of the
-HTTP headers and the JSON notation in the request. Thus, the number of
-parameter sets that you can include depends on a combination of factors,
-such as the size of the SQL statement and the size of each parameter
-set.
-
-The response size limit is 1 MiB. If the call returns more than 1 MiB of response data, the call is terminated.
-
-For Aurora Serverless v1, the maximum number of requests per second is 1,000. For all other supported databases, there is no limit.
-
-For example, the following CLI command runs a batch SQL statement over an
-array of data with a parameter set.
-
-For Linux, macOS, or Unix:
+The following example runs a batch insert operation.
 
 ```
-aws rds-data batch-execute-statement --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" \
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" \
---sql "insert into `mytable` values (`:id`, `:val`)" \
---parameter-sets "[[{\"name\": \"`id`\", \"value\": {\"longValue\": `1`}},{\"name\": \"`val`\", \"value\": {\"stringValue\": \"`ValueOne`\"}}],
-[{\"name\": \"`id`\", \"value\": {\"longValue\": `2`}},{\"name\": \"`val`\", \"value\": {\"stringValue\": \"`ValueTwo`\"}}],
-[{\"name\": \"`id`\", \"value\": {\"longValue\": `3`}},{\"name\": \"`val`\", \"value\": {\"stringValue\": \"`ValueThree`\"}}]]"
-```
+package com.amazonaws.rdsdata.examples;
 
-For Windows:
+import com.amazonaws.services.rdsdata.AWSRDSData;
+import com.amazonaws.services.rdsdata.AWSRDSDataClient;
+import com.amazonaws.services.rdsdata.model.BatchExecuteStatementRequest;
+import com.amazonaws.services.rdsdata.model.Field;
+import com.amazonaws.services.rdsdata.model.SqlParameter;
 
-```
-aws rds-data batch-execute-statement --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" ^
---database "`mydb`" --secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" ^
---sql "insert into `mytable` values (`:id`, `:val`)" ^
---parameter-sets "[[{\"name\": \"`id`\", \"value\": {\"longValue\": `1`}},{\"name\": \"`val`\", \"value\": {\"stringValue\": \"`ValueOne`\"}}],
-[{\"name\": \"`id`\", \"value\": {\"longValue\": `2`}},{\"name\": \"`val`\", \"value\": {\"stringValue\": \"`ValueTwo`\"}}],
-[{\"name\": \"`id`\", \"value\": {\"longValue\": `3`}},{\"name\": \"`val`\", \"value\": {\"stringValue\": \"`ValueThree`\"}}]]"
-```
+import java.util.Arrays;
 
-###### Note
+public class BatchExecuteExample {
+  public static final String RESOURCE_ARN = "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`";
+  public static final String SECRET_ARN = "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`";
 
-Don't include line breaks in the `--parameter-sets`
-option.
+  public static void main(String[] args) {
+      AWSRDSData rdsData = AWSRDSDataClient.builder().build();
 
-## Committing a SQL transaction
+    BatchExecuteStatementRequest request = new BatchExecuteStatementRequest()
+            .withDatabase("test")
+            .withResourceArn(RESOURCE_ARN)
+            .withSecretArn(SECRET_ARN)
+            .withSql("INSERT INTO test_table2 VALUES (:string, :number)")
+            .withParameterSets(Arrays.asList(
+                    Arrays.asList(
+                            new SqlParameter().withName("string").withValue(new Field().withStringValue("Hello")),
+                            new SqlParameter().withName("number").withValue(new Field().withLongValue(1L))
+                    ),
+                    Arrays.asList(
+                            new SqlParameter().withName("string").withValue(new Field().withStringValue("World")),
+                            new SqlParameter().withName("number").withValue(new Field().withLongValue(2L))
+                    )
+            ));
 
-Using the `aws rds-data commit-transaction` CLI command, you can
-end a SQL transaction that you started with `aws rds-data
- begin-transaction` and commit the changes.
-
-In addition to the common options, specify the following option:
-
-- `--transaction-id` (required) – The identifier of a
-  transaction that was started using the
-  `begin-transaction` CLI command. Specify the
-  transaction ID of the transaction that you want to end and
-  commit.
-
-For example, the following CLI command ends a SQL transaction and commits the
-changes.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds-data commit-transaction --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" \
---secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" \
---transaction-id "`ABC1234567890xyz`"
-```
-
-For Windows:
-
-```
-aws rds-data commit-transaction --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" ^
---secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" ^
---transaction-id "`ABC1234567890xyz`"
-```
-
-The following is an example of the response.
-
-```
-{
-    "transactionStatus": "Transaction Committed"
+    rdsData.batchExecuteStatement(request);
+  }
 }
-```
-
-## Rolling back a SQL transaction
-
-Using the `aws rds-data rollback-transaction` CLI command, you can
-roll back a SQL transaction that you started with `aws rds-data
- begin-transaction`. Rolling back a transaction cancels its
-changes.
-
-###### Important
-
-If the transaction ID has expired, the transaction was rolled back automatically. In this case,
-an `aws rds-data rollback-transaction` command that specifies the expired transaction ID
-returns an error.
-
-In addition to the common options, specify the following option:
-
-- `--transaction-id` (required) – The identifier of a
-  transaction that was started using the
-  `begin-transaction` CLI command. Specify the
-  transaction ID of the transaction that you want to roll back.
-
-For example, the following AWS CLI command rolls back a SQL transaction.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds-data rollback-transaction --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" \
---secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" \
---transaction-id "`ABC1234567890xyz`"
-```
-
-For Windows:
-
-```
-aws rds-data rollback-transaction --resource-arn "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`" ^
---secret-arn "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`" ^
---transaction-id "`ABC1234567890xyz`"
-```
-
-The following is an example of the response.
-
-```
-{
-    "transactionStatus": "Rollback Complete"
-    }
 ```

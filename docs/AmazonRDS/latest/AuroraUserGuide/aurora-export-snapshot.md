@@ -1,80 +1,35 @@
-# Monitoring snapshot exports
+# Troubleshooting snapshot exports
 
-You can monitor DB snapshot exports using the AWS Management Console, the AWS CLI, or the RDS API.
+Use the following sections to help troubleshoot failure messages and PostgreSQL permission errors for DB cluster export tasks to Amazon S3.
 
-###### To monitor DB snapshot exports
+## Failure messages for Amazon S3 export tasks
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Exports in Amazon S3**.
+The following table describes the messages that are returned when Amazon S3 export tasks fail.
 
-DB snapshot exports are indicated in the **Source type** column. Export status is displayed
-in the **Status** column. 3. To view detailed information about a specific snapshot export, choose the export task.
-To monitor DB snapshot exports using the AWS CLI, use the [describe-export-tasks](../../../cli/latest/reference/rds/describe-export-tasks.md "../../../cli/latest/reference/rds/describe-export-tasks.md") command.
+| Failure message                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`An unknown internal error occurred.`**                                                                                                                                           | The task has failed because of an unknown error, exception, or failure.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **`An unknown internal error occurred writing the export task's metadata to the S3 bucket<br>[bucket name].`**                                                                      | The task has failed because of an unknown error, exception, or failure.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **`The RDS export failed to write the export task's metadata because it can't assume the<br>IAM role [role ARN].`**                                                                 | The export task assumes your IAM role to validate whether it is allowed to write metadata to your S3<br>bucket. If the task can't assume your IAM role, it fails.                                                                                                                                                                                                                                                                                                                                                             |
+| **`The RDS export failed to write the export task's metadata to the S3 bucket [bucket name]<br>using the IAM role [role ARN] with the KMS key [key ID]. Error code: [error code]`** | One or more permissions are missing, so the export task can't<br>access the S3 bucket. This failure message is raised when receiving<br>one of the following error codes:<br>• `AWSSecurityTokenServiceException` with the error code `AccessDenied`<br>• `AmazonS3Exception` with the error code `NoSuchBucket`,<br>`AccessDenied`, `KMS.KMSInvalidStateException`, `403<br>Forbidden`, or `KMS.DisabledException`<br>These error codes indicate that settings are misconfigured for the<br>IAM role, S3 bucket, or KMS key. |
+| **`The IAM role [role ARN] isn't authorized to call [S3 action] on the S3 bucket [bucket name].<br>Review your permissions and retry the export.`**                                 | The IAM policy is misconfigured. Permission for the specific S3<br>action on the S3 bucket is missing, which causes the export task to<br>fail.                                                                                                                                                                                                                                                                                                                                                                               |
+| **`KMS key check failed. Check the credentials on your KMS key and try again.`**                                                                                                    | The KMS key credential check failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **`S3 credential check failed. Check the permissions on your S3 bucket and IAM<br>policy.`**                                                                                        | The S3 credential check failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **`The S3 bucket [bucket name] isn't valid. Either it isn't located in the current<br>AWS Region or it doesn't exist. Review your S3 bucket name and retry the export.`**           | The S3 bucket is invalid.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **`The S3 bucket [bucket name] isn't located in the current AWS Region. Review your S3 bucket<br>name and retry the export.`**                                                      | The S3 bucket is in the wrong AWS Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-The following example shows how to display current information about all of your snapshot
-exports.
+## Troubleshooting PostgreSQL permissions
+
+errors
+
+When exporting PostgreSQL databases to Amazon S3, you might see a `PERMISSIONS_DO_NOT_EXIST` error stating that certain tables
+were skipped. This error usually occurs when the superuser, which you specified when creating the DB instance, doesn't have
+permissions to access those tables.
+
+To fix this error, run the following command:
 
 ```
-aws rds describe-export-tasks
-
-{
-    "ExportTasks": [
-        {
-            "Status": "CANCELED",
-            "TaskEndTime": "2019-11-01T17:36:46.961Z",
-            "S3Prefix": "something",
-            "ExportTime": "2019-10-24T20:23:48.364Z",
-            "S3Bucket": "`amzn-s3-demo-bucket`",
-            "PercentProgress": 0,
-            "KmsKeyId": "arn:aws:kms:`AWS_Region`:123456789012:key/K7MDENG/bPxRfiCYEXAMPLEKEY",
-            "ExportTaskIdentifier": "anewtest",
-            "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
-            "TotalExtractedDataInGB": 0,
-            "TaskStartTime": "2019-10-25T19:10:58.885Z",
-            "SourceArn": "arn:aws:rds:`AWS_Region`:123456789012:snapshot:parameter-groups-test"
-        },
-{
-            "Status": "COMPLETE",
-            "TaskEndTime": "2019-10-31T21:37:28.312Z",
-            "WarningMessage": "{\"skippedTables\":[],\"skippedObjectives\":[],\"general\":[{\"reason\":\"FAILED_TO_EXTRACT_TABLES_LIST_FOR_DATABASE\"}]}",
-            "S3Prefix": "",
-            "ExportTime": "2019-10-31T06:44:53.452Z",
-            "S3Bucket": "`amzn-s3-demo-bucket1`",
-            "PercentProgress": 100,
-            "KmsKeyId": "arn:aws:kms:`AWS_Region`:123456789012:key/2Zp9Utk/h3yCo8nvbEXAMPLEKEY",
-            "ExportTaskIdentifier": "thursday-events-test",
-            "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
-            "TotalExtractedDataInGB": 263,
-            "TaskStartTime": "2019-10-31T20:58:06.998Z",
-            "SourceArn": "arn:aws:rds:`AWS_Region`:123456789012:snapshot:rds:example-1-2019-10-31-06-44"
-        },
-        {
-            "Status": "FAILED",
-            "TaskEndTime": "2019-10-31T02:12:36.409Z",
-            "FailureCause": "The S3 bucket my-exports isn't located in the current AWS Region. Please, review your S3 bucket name and retry the export.",
-            "S3Prefix": "",
-            "ExportTime": "2019-10-30T06:45:04.526Z",
-            "S3Bucket": "`amzn-s3-demo-bucket2`",
-            "PercentProgress": 0,
-            "KmsKeyId": "arn:aws:kms:`AWS_Region`:123456789012:key/2Zp9Utk/h3yCo8nvbEXAMPLEKEY",
-            "ExportTaskIdentifier": "wednesday-afternoon-test",
-            "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
-            "TotalExtractedDataInGB": 0,
-            "TaskStartTime": "2019-10-30T22:43:40.034Z",
-            "SourceArn": "arn:aws:rds:`AWS_Region`:123456789012:snapshot:rds:example-1-2019-10-30-06-45"
-        }
-    ]
-}
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA `schema_name` TO `superuser_name`
 ```
 
-To display information about a specific snapshot export, include the
-`--export-task-identifier` option with the
-`describe-export-tasks` command. To filter the output,
-include the `--Filters` option. For more options, see the [describe-export-tasks](../../../cli/latest/reference/rds/describe-export-tasks.md "../../../cli/latest/reference/rds/describe-export-tasks.md") command.
-
-To display information about DB snapshot exports using the Amazon RDS API, use the [DescribeExportTasks](../APIReference/API_DescribeExportTasks.md "../APIReference/API_DescribeExportTasks.md")
-operation.
-
-To track completion of the export workflow or to initiate another workflow, you can
-subscribe to Amazon Simple Notification Service topics. For more information on Amazon SNS, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").
+For more information on superuser privileges, see [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").

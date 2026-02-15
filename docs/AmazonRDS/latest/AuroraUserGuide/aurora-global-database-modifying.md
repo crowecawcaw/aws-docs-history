@@ -1,15 +1,15 @@
-# Modifying an Amazon Aurora global
+# Modifying parameters for an Aurora global
 
 database
 
-The **Databases** page in the AWS Management Console lists all your Aurora global
-databases, showing the primary cluster and secondary clusters for each one. The Aurora global
-database has its own configuration settings. Specifically, it has AWS Regions associated
-with its primary and secondary clusters, as shown in the screenshot following.
+You can configure the Aurora DB cluster parameter groups independently for each Aurora
+cluster within the Aurora global database. Most parameters work the same as for other kinds
+of Aurora clusters. We recommend that you keep settings consistent among all the clusters in
+a global database. Doing this helps to avoid unexpected behavior changes if you promote a
+secondary cluster to be the primary.
 
-![Screenshot showing a selected Aurora global database and its configuration settings in the AWS Management Console.](images/aurora-global-db-global-database-configuration.png)
-When you make changes to the Aurora global database, you have a chance to cancel changes, as shown in the
-following screenshot.
+For example, use the same settings for time zones and character sets to avoid inconsistent
+behavior if a different cluster takes over as the primary cluster.
 
-![Screenshot showing the page to modify settings for an Aurora global database.](images/aurora-global-databases-modify-global-01.png)
-When you choose **Continue**, you confirm the changes.
+The `aurora_enable_repl_bin_log_filtering` and
+`aurora_enable_replica_log_compression` configuration settings have no effect.

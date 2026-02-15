@@ -1,13 +1,29 @@
-# Distributed queries in Aurora PostgreSQL Limitless Database
+# Querying Aurora PostgreSQL Limitless Database
 
-Distributed queries run on a router and more than one shard. The query is received by one of the routers. The router creates and manages the
-distributed transaction, which is sent to the participating shards. The shards create a local transaction with the context provided by the router,
-and the query is run.
+Aurora PostgreSQL Limitless Database is compatible with PostgreSQL syntax for queries. You can query your Limitless Database using `psql` or any
+other connection utility that works with PostgreSQL. To run queries, you connect to the limitless endpoint as shown in [Connecting to your Aurora PostgreSQL Limitless Database DB cluster](limitless-shard.md#limitless-endpoint "limitless-shard.md#limitless-endpoint").
 
-When the transaction is committed, the router uses an optimized two-phase commit protocol if needed, and time-based Multi Version Concurrency
-Control (MVCC) to provide [ACID](https://en.wikipedia.org/wiki/ACID "https://en.wikipedia.org/wiki/ACID") semantics in a distributed database system.
+All PostgreSQL `SELECT` queries are supported in Aurora PostgreSQL Limitless Database. However, queries are performed on two layers:
 
-Time-based MVCC records the commit time for each transaction and uses the transaction start time to generate the data snapshot time. To identify
-whether a transaction is committed (visible) given a reader’s snapshot, the database compares its commit time with the snapshot time. If its commit
-time is less than the reader’s snapshot time, it is visible; otherwise, invisible. Under this protocol, you will always expect to see strongly
-consistent data on Aurora PostgreSQL Limitless Database.
+1. Router to which the client sends the query
+2. Shards where the data is located
+   Performance depends on querying the database in a way that allows it to achieve a high degree of simultaneous processing of different queries on
+   different shards. Queries are first parsed in the distributed transaction layer (router). Before planning the query execution, there's an analysis phase
+   to identify the location for all relations participating in the query. If all relations are sharded tables with a filtered shard key on the same shard,
+   or reference tables, then query planning is skipped on the router layer and completely pushed down to the shard for planning and execution. This process
+   reduces the number of round trips between different nodes (router and shard) and results in better performance in most cases. For more information, see
+   [Single-shard queries in Aurora PostgreSQL Limitless Database](limitless-query.md "limitless-query.md").
+
+###### Note
+
+There can be specific cases, such as a [Cartesian product](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-FROM "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-FROM")
+(cross join), where the query performs better by retrieving data separately from the shard.
+
+For more information on query execution plans, see [EXPLAIN](limitless-reference.md#limitless-reference.DML-limitations.EXPLAIN "limitless-reference.md#limitless-reference.DML-limitations.EXPLAIN") in the [Aurora PostgreSQL Limitless Database reference](limitless-reference.md "limitless-reference.md"). For general information on queries, see [Queries](https://www.postgresql.org/docs/current/queries-overview.html "https://www.postgresql.org/docs/current/queries-overview.html") in the PostgreSQL documentation.
+
+###### Topics
+
+- [Single-shard queries in Aurora PostgreSQL Limitless Database](limitless-query.md "limitless-query.md")
+- [Distributed queries in Aurora PostgreSQL Limitless Database](limitless-query.md "limitless-query.md")
+- [Distributed query tracing in PostgreSQL logs in Aurora PostgreSQL Limitless Database](limitless-query.md "limitless-query.md")
+- [Distributed deadlocks in Aurora PostgreSQL Limitless Database](limitless-query.md "limitless-query.md")

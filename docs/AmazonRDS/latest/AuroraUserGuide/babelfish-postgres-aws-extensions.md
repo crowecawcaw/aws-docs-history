@@ -572,7 +572,7 @@ create extension aws_common;
 
 The following examples explains how T-SQL syntax and semantics are applied to the Amazon ML services:
 
-###### Example : aws_bedrock.invoke_model – A simple query using Amazon Bedrock functions
+###### Example: aws_bedrock.invoke_model – A simple query using Amazon Bedrock functions
 
 ```
 aws_bedrock.invoke_model(
@@ -601,7 +601,7 @@ SELECT aws_bedrock.invoke_model (
 
 ```
 
-###### Example : aws_comprehend.detect_sentiment – A simple query using Amazon Comprehend functions
+###### Example: aws_comprehend.detect_sentiment – A simple query using Amazon Comprehend functions
 
 ```
 
@@ -621,7 +621,7 @@ select sentiment from aws_comprehend.detect_sentiment('This is great', 'en');
 
 ```
 
-###### Example : aws_sagemaker.invoke_endpoint – A simple query using Amazon SageMaker functions
+###### Example: aws_sagemaker.invoke_endpoint – A simple query using Amazon SageMaker functions
 
 ```
 aws_sagemaker.invoke_endpoint(

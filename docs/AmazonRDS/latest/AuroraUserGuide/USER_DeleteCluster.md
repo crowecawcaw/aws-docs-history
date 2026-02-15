@@ -409,6 +409,8 @@ You can disable deletion protection by modifying the DB cluster. For more inform
    [delete-db-instance](../../../cli/latest/reference/rds/delete-db-instance.md "../../../cli/latest/reference/rds/delete-db-instance.md") command and specify the
    `--db-instance-identifier` value.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

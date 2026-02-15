@@ -254,6 +254,8 @@ This example creates a DB cluster and
 specifies that Aurora manages the password in Secrets Manager. The secret
 is encrypted using the KMS key that is provided by Secrets Manager.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -330,6 +332,8 @@ option. You must specify the `--apply-immediately` option when
 you rotate the master password.
 
 This example rotates a master user password secret.
+
+###### Example
 
 For Linux, macOS, or Unix:
 
@@ -409,6 +413,8 @@ The possible status values include the following:
   cluster. This example shows the output for a secret that is used by a DB
   cluster.
 
+###### Example
+
 ```
 aws rds describe-db-clusters --db-cluster-identifier `mydbcluster`
 ```
@@ -427,6 +433,8 @@ When you have the secret ARN, you can view details about the secret using the
 [get-secret-value](../../../cli/latest/reference/secretsmanager/get-secret-value.md "../../../cli/latest/reference/secretsmanager/get-secret-value.md") Secrets Manager CLI command.
 
 This example shows the details for the secret in the previous sample output.
+
+###### Example
 
 For Linux, macOS, or Unix:
 

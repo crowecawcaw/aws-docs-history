@@ -90,6 +90,8 @@ Create a JSON file `CPU_metric.json` with the following contents.
 }
 ```
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

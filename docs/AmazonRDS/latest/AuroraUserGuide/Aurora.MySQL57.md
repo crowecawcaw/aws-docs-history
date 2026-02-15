@@ -55,6 +55,8 @@ AWS account where your resources are located.
    the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") command. You can use the sample script
    following.
 
+###### Example
+
 ```
 aws rds describe-db-clusters --include-share --query 'DBClusters[?(Engine==`aurora-mysql` && contains(EngineVersion,`5.7.mysql_aurora`))].{EngineVersion:EngineVersion, DBClusterIdentifier:DBClusterIdentifier, EngineMode:EngineMode}' --output table --`region us-east-1`
        `+---------------------------------------------------------------+

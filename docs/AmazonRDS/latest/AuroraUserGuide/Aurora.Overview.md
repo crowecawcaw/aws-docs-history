@@ -1,50 +1,149 @@
-# Amazon Aurora security
+# Amazon Aurora endpoint connections
 
-Security for Amazon Aurora is managed at three levels:
+Amazon Aurora typically involves a cluster of DB instances instead of a single instance. Each
+connection is handled by a specific DB instance. When you connect to an Aurora cluster, the
+host name and port that you specify point to an intermediate handler called an _endpoint_. Aurora uses the endpoint mechanism to abstract these
+connections. Thus, you don't have to hardcode all the hostnames or write your own logic for
+balancing and rerouting connections when some DB instances aren't available.
 
-- To control who can perform Amazon RDS management actions on Aurora DB clusters and DB
-  instances, you use AWS Identity and Access Management (IAM). When you connect to AWS using IAM credentials,
-  your AWS account must have IAM policies that grant the permissions required to perform
-  Amazon RDS management operations. For more information, see [Identity and access management for Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md").
+For certain Aurora tasks, different instances or groups of instances perform different
+roles. For example, the primary instance handles all data definition language (DDL) and data
+manipulation language (DML) statements. Up to 15 Aurora Replicas handle read-only query
+traffic.
 
-If you are using IAM to access the Amazon RDS console, you must first log on to the
-AWS Management Console with your user credentials, and then go to the Amazon RDS console at [https://console.aws.amazon.com/rds](https://console.aws.amazon.com/rds "https://console.aws.amazon.com/rds").
+###### Topics
 
-- Aurora DB clusters must be created in a virtual private cloud (VPC) based on the Amazon VPC
-  service. To control which devices and Amazon EC2 instances can open connections to the endpoint
-  and port of the DB instance for Aurora DB clusters in a VPC, you use a VPC security group.
-  You can make these endpoint and port connections using Transport Layer Security
-  (TLS)/Secure Sockets Layer (SSL). In addition, firewall rules at your company can control
-  whether devices running at your company can open connections to a DB instance. For more
-  information on VPCs, see [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md").
-- To authenticate logins and permissions for an Amazon Aurora DB cluster, you can take
-  either of the following approaches, or a combination of them.
-  - You can take the same approach as with a stand-alone DB instance of MySQL or
-    PostgreSQL.
+- [Types of Aurora endpoints](#Aurora.Overview.Endpoints.Types "#Aurora.Overview.Endpoints.Types")
+- [Viewing the endpoints for an Aurora
+  cluster](#Aurora.Endpoints.Viewing "#Aurora.Endpoints.Viewing")
+- [How Aurora endpoints work with
+  high availability](#Aurora.Overview.Endpoints.HA "#Aurora.Overview.Endpoints.HA")
+- [Cluster endpoints for Amazon Aurora](Aurora.Endpoints.md "Aurora.Endpoints.md")
+- [Reader endpoints for Amazon Aurora](Aurora.Endpoints.md "Aurora.Endpoints.md")
+- [Instance endpoints for Amazon Aurora](Aurora.Endpoints.md "Aurora.Endpoints.md")
+- [Custom endpoints for Amazon Aurora](Aurora.Endpoints.md "Aurora.Endpoints.md")
 
-  Techniques for authenticating logins and permissions for stand-alone DB instances
-  of MySQL or PostgreSQL, such as using SQL commands or modifying database schema
-  tables, also work with Aurora. For more information, see [Security with Amazon Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md") or [Security with Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
-  - You can use IAM database authentication.
+## Types of Aurora endpoints
 
-  With IAM database authentication, you authenticate to your Aurora DB cluster by
-  using a user or IAM role and an authentication token. An _authentication
-  token_ is a unique value that is generated using the Signature Version 4
-  signing process. By using IAM database authentication, you can use the same
-  credentials to control access to your AWS resources and your databases. For more
-  information, see [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md").
-  - You can use Kerberos authentication for Aurora PostgreSQL and Aurora MySQL.
+Using endpoints, you can map each connection to the appropriate instance or group of
+instances based on your use case. For example, to perform DDL statements you can connect to
+whichever instance is the primary instance. To perform queries, you can connect to the
+reader endpoint, with Aurora automatically performing connection-balancing among all the
+Aurora Replicas. For clusters with DB instances of different capacities or configurations,
+you can connect to custom endpoints associated with different subsets of DB instances. For
+diagnosis or tuning, you can connect to a specific instance endpoint to examine details
+about a specific DB instance.
 
-  You can use Kerberos to authenticate users when they connect to your
-  Aurora PostgreSQL and Aurora MySQLDB cluster. In this case, your DB cluster works with
-  AWS Directory Service for Microsoft Active Directory to enable Kerberos authentication. AWS Directory Service for Microsoft Active Directory is also called
-  AWS Managed Microsoft AD. Keeping all of your credentials in the same directory can save you time
-  and effort. You have a centralized place for storing and managing credentials for
-  multiple DB clusters. Using a directory can also improve your overall security
-  profile. For more information, see [Using Kerberos authentication with Aurora PostgreSQL](postgresql-kerberos.md "postgresql-kerberos.md") and [Using Kerberos authentication for Aurora MySQL](aurora-mysql-kerberos.md "aurora-mysql-kerberos.md").
-  For information about configuring security, see [Security in Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md").
+An endpoint is represented as an Aurora-specific URL that contains a host address and a
+port. The following types of endpoints are available from an Aurora DB cluster.
 
-## Using SSL with Aurora DB clusters
+**Cluster endpoint**
 
-Amazon Aurora DB clusters support Secure Sockets Layer (SSL) connections from applications
-using the same process and public key as Amazon RDS DB instances. For more information, see [Security with Amazon Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md"), [Security with Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md"), or [Using TLS/SSL with Aurora Serverless v1](aurora-serverless.md#aurora-serverless.tls "aurora-serverless.md#aurora-serverless.tls").
+Connect to the primary instance of your cluster to develop and test applications,
+and perform transformations like `INSERT` statements and DDL, DML, and ETL
+operations. Find the cluster endpoint location by using the AWS Management Console, AWS CLI, or Amazon RDS
+API, as described in [Viewing the endpoints for an Aurora
+cluster](#Aurora.Endpoints.Viewing "#Aurora.Endpoints.Viewing").
+
+For more information about cluster endpoints, see [Cluster endpoints for Amazon Aurora](Aurora.Endpoints.md "Aurora.Endpoints.md").
+
+**Reader endpoint**
+
+Perform queries. Aurora automatically performs connection-balancing among all the
+Aurora Replicas. Find the reader endpoint location by using the AWS Management Console, AWS CLI, or
+Amazon RDS API, as described in [Viewing the endpoints for an Aurora
+cluster](#Aurora.Endpoints.Viewing "#Aurora.Endpoints.Viewing").
+
+For more information about reader endpoints, see [Reader endpoints for Amazon Aurora](Aurora.Endpoints.md "Aurora.Endpoints.md").
+
+**Instance endpoint**
+
+Examine details about a specific DB instance for diagnosis or tuning. You can find the
+instance endpoint location for each of your instances in the AWS Management Console only, on the
+instance detail page for your instance.
+
+For more information about instance endpoints, see [Instance endpoints for Amazon Aurora](Aurora.Endpoints.md "Aurora.Endpoints.md").
+
+**Custom endpoint**
+
+Connect to different subsets of DB instances on the DB cluster. This is useful when you have
+different instance capacities and configurations within your DB cluster. Find the custom
+endpoint locations by using the AWS Management Console, AWS CLI, or Amazon RDS API, as described in [Viewing the endpoints for an Aurora
+cluster](#Aurora.Endpoints.Viewing "#Aurora.Endpoints.Viewing").
+
+For more information about custom endpoints, see [Custom endpoints for Amazon Aurora](Aurora.Endpoints.md "Aurora.Endpoints.md").
+
+**Aurora Global Database writer endpoint**
+
+Aurora Global Database has a special kind of endpoint that serves the same purpose
+as the cluster endpoint of a standalone Aurora cluster. It handles both write and read
+requests. When a secondary cluster becomes the new primary cluster due to a switchover
+or failover, Aurora automatically switches this endpoint to point to the cluster
+endpoint of the new primary cluster, in the other AWS Region. That way, you
+don't have to encode the AWS Region into the connection string for your
+application, and you don't have to change the connection string when the layout
+of the global database changes. Aurora creates this endpoint when you set up an Aurora
+Global Database, for example by choosing **Add Region** for an Aurora
+cluster in the AWS Management Console.
+
+For information on how you can use this type of endpoint with Aurora Global
+Database, see [Connecting to Amazon Aurora Global Database](aurora-global-database-connecting.md "aurora-global-database-connecting.md").
+
+## Viewing the endpoints for an Aurora
+
+cluster
+
+While you can only find the instance endpoint location on the instance detail page in
+the AWS Management Console, you can use the console, AWS CLI, or Amazon RDS API to find the locations of
+cluster, reader, and custom endpoints.
+
+Console
+In the AWS Management Console, find the cluster endpoint, the reader endpoint, and any custom
+endpoints in the instance details page for your cluster. You see the instance endpoint
+in the detail page for each instance. When you connect, append the associated port
+number, following a colon, to the endpoint name shown on the detail page.
+
+AWS CLI
+With the AWS CLI, you find the writer, reader, and any custom endpoints in the
+output of the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") command. For example, the following command shows the
+endpoint attributes for all clusters in your current AWS Region.
+
+```
+aws rds describe-db-clusters --query '*[].{Endpoint:Endpoint,ReaderEndpoint:ReaderEndpoint,CustomEndpoints:CustomEndpoints}'
+
+```
+
+Amazon RDS API
+With the Amazon RDS API, you retrieve the endpoints by calling the [DescribeDBClusterEndpoints](../APIReference/API_DescribeDBClusterEndpoints.md "../APIReference/API_DescribeDBClusterEndpoints.md") operation.
+
+## How Aurora endpoints work with
+
+high availability
+
+For clusters where high availability is important, use the cluster endpoint for
+read/write or general-purpose connections and the reader endpoint for read-only connections.
+The writer and reader endpoints manage DB instance failover better than instance endpoints
+do. Unlike the instance endpoints, the writer and reader endpoints automatically change
+which DB instance they connect to if a DB instance in your cluster becomes unavailable. For
+more information about cluster and reader endpoints, see [Cluster endpoints for Amazon Aurora](Aurora.Endpoints.md "Aurora.Endpoints.md") and [Reader endpoints for Amazon Aurora](Aurora.Endpoints.md "Aurora.Endpoints.md").
+
+If the primary DB instance of a DB cluster fails, Aurora automatically fails over to a
+new primary DB instance. It does so by either promoting an existing Aurora Replica to a new
+primary DB instance or creating a new primary DB instance. If a failover occurs, you can use
+the cluster endpoint to reconnect to the newly promoted or created primary DB instance, or
+use the reader endpoint to reconnect to one of the Aurora Replicas in the DB cluster. During
+a failover, the reader endpoint might direct connections to the new primary DB instance of a
+DB cluster for a short time after an Aurora Replica is promoted to the new primary DB
+instance.
+
+If you design your own application logic to manage connections to instance endpoints,
+you can manually or programmatically discover the resulting set of available DB instances in
+the DB cluster. Use the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") AWS CLI command or [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md") RDS API operation to find the DB cluster and
+reader endpoints, DB instances, whether DB instances are readers, and their promotion tiers.
+You can then confirm their instance classes after failover and connect to an appropriate
+instance endpoint.
+
+For more information about failovers, see [Fault tolerance for an Aurora DB
+cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance").
+
+For more information about high availability in Amazon Aurora, see [High availability for Amazon Aurora](Concepts.md "Concepts.md").

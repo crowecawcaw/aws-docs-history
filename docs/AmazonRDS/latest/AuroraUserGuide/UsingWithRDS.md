@@ -185,6 +185,8 @@ to run during your next maintenance window.
 When you schedule this operation, make sure that you have
 updated your client-side trust store beforehand.
 
+###### Example
+
 The following example modifies `mydbinstance`
 by setting the CA certificate to
 `rds-ca-rsa2048-g1`.

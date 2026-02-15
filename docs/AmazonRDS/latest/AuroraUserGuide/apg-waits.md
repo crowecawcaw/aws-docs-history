@@ -1,24 +1,13 @@
-# LWLock:MultiXact
+# Lock:extend
 
-The `LWLock:MultiXactMemberBuffer`, `LWLock:MultiXactOffsetBuffer`,
-`LWLock:MultiXactMemberSLRU`, and `LWLock:MultiXactOffsetSLRU` wait events
-indicate that a session is waiting to retrieve a list of transactions that modifies the same row in a given table.
-
-- `LWLock:MultiXactMemberBuffer` – A process is waiting
-  for I/O on a simple least-recently used (SLRU) buffer for a multixact member.
-- `LWLock:MultiXactMemberSLRU` – A process is waiting
-  to access the simple least-recently used (SLRU) cache for a multixact member.
-- `LWLock:MultiXactOffsetBuffer` – A process is waiting
-  for I/O on a simple least-recently used (SLRU) buffer for a multixact offset.
-- `LWLock:MultiXactOffsetSLRU` – A process is waiting
-  to access the simple least-recently used (SLRU) cache for a multixact offset.
+The `Lock:extend` event occurs when a backend process is waiting to lock a relation to extend it while another process has a lock on that relation for the same purpose.
 
 ###### Topics
 
-- [Supported engine versions](#apg-waits.xactsync.context.supported "#apg-waits.xactsync.context.supported")
-- [Context](#apg-waits.lwlockmultixact.context "#apg-waits.lwlockmultixact.context")
-- [Likely causes of increased waits](#apg-waits.lwlockmultixact.causes "#apg-waits.lwlockmultixact.causes")
-- [Actions](#apg-waits.lwlockmultixact.actions "#apg-waits.lwlockmultixact.actions")
+- [Supported engine versions](#apg-waits.lockextend.context.supported "#apg-waits.lockextend.context.supported")
+- [Context](#apg-waits.lockextend.context "#apg-waits.lockextend.context")
+- [Likely causes of increased waits](#apg-waits.lockextend.causes "#apg-waits.lockextend.causes")
+- [Actions](#apg-waits.lockextend.actions "#apg-waits.lockextend.actions")
 
 ## Supported engine versions
 
@@ -26,116 +15,85 @@ This wait event information is supported for all versions of Aurora PostgreSQL.
 
 ## Context
 
-A _multixact_ is a data structure that stores
-a list of transaction IDs (XIDs) that modify the same table row. When a single transaction
-references a row in a table, the transaction ID is stored in the table header row. When multiple transactions
-reference the same row in a table, the list of transaction IDs is stored in the
-multixact data structure. The multixact wait events indicate that a session is retrieving
-from the data structure the list of transactions that refer to a given row in a table.
+The event `Lock:extend` indicates that a backend process is waiting
+to extend a relation that another backend process holds a lock on while it's extending
+that relation. Because only one process at a time can extend a relation, the system generates a
+`Lock:extend` wait event. `INSERT`, `COPY`, and
+`UPDATE` operations can generate this event.
 
 ## Likely causes of increased waits
 
-Three common causes of multixact use are as follows:
+When the `Lock:extend` event appears more than normal, possibly indicating a performance problem, typical causes include the following:
 
-- Sub-transactions from explicit savepoints – Explicitly
-  creating a savepoint in your transactions spawns new transactions for the same row. For example, using
-  `SELECT FOR UPDATE`, then `SAVEPOINT`, and then `UPDATE`.
+**Surge in concurrent inserts or updates to the same table**
 
-Some drivers, object-relational mappers (ORMs), and abstraction layers have configuration
-options for automatically wrapping all operations with savepoints. This can generate many
-multixact wait events in some workloads. The PostgreSQL JDBC Driver's
-`autosave` option is an example of this. For more information,
-see [pgJDBC](https://jdbc.postgresql.org/ "https://jdbc.postgresql.org/") in the PostgreSQL JDBC documentation.
-Another example is the PostgreSQL ODBC driver and its `protocol` option. For more information,
-see [psqlODBC Configuration Options](https://odbc.postgresql.org/docs/config.html "https://odbc.postgresql.org/docs/config.html") in the
-PostgreSQL ODBC driver documentation.
+There might be an increase in the number of concurrent sessions with queries that insert into or update the same table.
 
-- Sub-transactions from PL/pgSQL EXCEPTION clauses – Each
-  `EXCEPTION` clause that you write in your PL/pgSQL functions or procedures
-  creates a `SAVEPOINT` internally.
-- Foreign keys – Multiple transactions acquire
-  a shared lock on the parent record.
+**Insufficient network bandwidth**
 
-When a given row is included in a multiple transaction operation, processing the row requires
-retrieving transaction IDs from the `multixact` listings. If lookups can't get the
-multixact from the memory cache, the data structure must be read from the Aurora storage layer. This
-I/O from storage means that SQL queries can take longer. Memory cache misses
-can start occurring with heavy usage due to a large number of multiple transactions. All these factors
-contribute to an increase in this wait event.
+The network bandwidth on the DB instance might be insufficient for the storage communication needs of the current workload. This can contribute to storage latency that causes an increase in `Lock:extend` events.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event. Some of these actions can help in
-immediate reduction of the wait events. But, others might require investigation and correction to scale your workload.
+We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Perform vacuum freeze on tables with this wait event](#apg-waits.lwlockmultixact.actions.vacuumfreeze "#apg-waits.lwlockmultixact.actions.vacuumfreeze")
-- [Increase autovacuum frequency on tables with this wait event](#apg-waits.lwlockmultixact.actions.autovacuum "#apg-waits.lwlockmultixact.actions.autovacuum")
-- [Increase memory parameters](#apg-waits.lwlockmultixact.actions.memoryparam "#apg-waits.lwlockmultixact.actions.memoryparam")
-- [Reduce long-running transactions](#apg-waits.lwlockmultixact.actions.longtransactions "#apg-waits.lwlockmultixact.actions.longtransactions")
-- [Long term actions](#apg-waits.lwlockmultixact.actions.longactions "#apg-waits.lwlockmultixact.actions.longactions")
+- [Reduce concurrent inserts and updates to the same relation](#apg-waits.lockextend.actions.action1 "#apg-waits.lockextend.actions.action1")
+- [Increase network bandwidth](#apg-waits.lockextend.actions.increase-network-bandwidth "#apg-waits.lockextend.actions.increase-network-bandwidth")
 
-### Perform vacuum freeze on tables with this wait event
+### Reduce concurrent inserts and updates to the same relation
 
-If this wait event spikes suddenly and affects your production environment, you can use any of the following temporary methods to reduce its count.
+First, determine whether there's an increase in `tup_inserted` and `tup_updated` metrics and an accompanying increase
+in this wait event. If so, check which relations are in high contention for insert and update operations. To determine this, query the
+`pg_stat_all_tables` view for the values in `n_tup_ins` and `n_tup_upd` fields. For information about the `pg_stat_all_tables` view, see
+[pg_stat_all_tables](https://www.postgresql.org/docs/13/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW "https://www.postgresql.org/docs/13/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW") in the PostgreSQL documentation.
 
-- Use _VACUUM FREEZE_ on the affected table or table partition
-  to resolve the issue immediately. For more information, see [VACUUM](https://www.postgresql.org/docs/current/sql-vacuum.html "https://www.postgresql.org/docs/current/sql-vacuum.html").
-- Use the VACUUM (FREEZE, INDEX_CLEANUP FALSE) clause to perform a quick vacuum by skipping the indexes.
-  For more information, see [Vacuuming a table as quickly as possible](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing").
+To get more information about blocking and blocked queries, query `pg_stat_activity` as in the following example:
 
-### Increase autovacuum frequency on tables with this wait event
+```
+SELECT
+    blocked.pid,
+    blocked.usename,
+    blocked.query,
+    blocking.pid AS blocking_id,
+    blocking.query AS blocking_query,
+    blocking.wait_event AS blocking_wait_event,
+    blocking.wait_event_type AS blocking_wait_event_type
+FROM pg_stat_activity AS blocked
+JOIN pg_stat_activity AS blocking ON blocking.pid = ANY(pg_blocking_pids(blocked.pid))
+where
+blocked.wait_event = 'extend'
+and blocked.wait_event_type = 'Lock';
 
-After scanning all tables in all databases, VACUUM will eventually remove multixacts, and their oldest multixact values are advanced.
-For more information, see [Multixacts and Wraparound](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND "https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND").
-To keep the LWLock:MultiXact wait events to its minimum, you must run the VACUUM as often as necessary. To do so, ensure that
-the VACUUM in your Aurora PostgreSQL DB cluster is configured optimally.
+   pid  | usename  |            query             | blocking_id |                         blocking_query                           | blocking_wait_event | blocking_wait_event_type
+  ------+----------+------------------------------+-------------+------------------------------------------------------------------+---------------------+--------------------------
+   7143 |  myuser  | insert into tab1 values (1); |        4600 | INSERT INTO tab1 (a) SELECT s FROM generate_series(1,1000000) s; | DataFileExtend      | IO
+```
 
-If using VACUUM FREEZE on the affected table or table partition resolves the wait event issue, we recommend using a scheduler, such as `pg_cron`,
-to perform the VACUUM instead of adjusting autovacuum at the instance level.
+After you identify relations that contribute to increase `Lock:extend` events, use the following techniques to reduce the contention:
 
-For the autovacuum to happen more frequently, you can reduce the value of the storage parameter `autovacuum_multixact_freeze_max_age` in the affected table.
-For more information, see [autovacuum_multixact_freeze_max_age](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MULTIXACT-FREEZE-MAX-AGE "https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MULTIXACT-FREEZE-MAX-AGE").
+- Find out whether you can use partitioning to reduce contention for the same table. Separating inserted or updated tuples into different partitions can reduce contention.
+  For information about partitioning, see [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md").
+- If the wait event is mainly due to update activity, consider reducing the relation's fillfactor value. This can reduce requests for new blocks during the update.
+  The fillfactor is a storage parameter for a table that determines the maximum amount of space for packing a table page. It's expressed as a percentage of the total space for a page.
+  For more information about the fillfactor parameter, see [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the PostgreSQL documentation.
 
-### Increase memory parameters
+###### Important
 
-You can optimize memory usage for multixact caches by adjusting the following parameters. These settings control how much memory is reserved for these caches,
-which can help reduce multixact wait events in your workload. We recommend starting with the following values:
+We highly recommend that you test your system if you change the fillfactor because changing this value can negatively impact performance, depending on your workload.
 
-For Aurora PostgreSQL 17 and later:
+### Increase network bandwidth
 
-- `multixact_offset_buffers` = 128
-- `multixact_member_buffers` = 256
+To see whether there's an increase in write latency, check the `WriteLatency` metric in CloudWatch. If there is, use the `WriteThroughput` and `ReadThroughput` Amazon CloudWatch
+metrics to monitor the storage related traffic on the DB cluster. These metrics can help you to
+determine if network bandwidth is sufficient for the storage activity of your workload.
 
-For Aurora PostgreSQL 16 and earlier:
+If your network bandwidth isn't enough, increase it. If your DB instance is reaching the
+network bandwidth limits, the only way to increase the bandwidth is to increase your DB instance size.
 
-- `multixact_offsets_cache_size` = 128
-- `multixact_members_cache_size` = 256
+For more information about CloudWatch metrics,
 
-###### Note
-
-In Aurora PostgreSQL 17, parameter names were changed from `multixact_offsets_cache_size` to `multixact_offset_buffers` and from `multixact_members_cache_size` to `multixact_member_buffers` to align with community PostgreSQL 17.
-
-You can set these parameters at the cluster level so that all instances in your cluster remain consistent. We recommend you to test and
-adjust the values to best suit your specific workload requirements and instance class. You must reboot the writer instance for the parameter changes to take effect.
-
-The parameters are expressed in terms of multixact cache entries. Each cache entry uses `8 KB` of memory. To calculate the total memory reserved, multiply each
-parameter value by `8 KB`. For example, if you set a parameter to 128, the total reserved memory would be `128 * 8 KB = 1 MB`.
-
-### Reduce long-running transactions
-
-Long-running transaction causes the vacuum to retain its information until the transaction is committed or until the
-read-only transaction is closed. We recommend that you proactively monitor and manage long-running transactions. For more information,
-see [Database has long running idle in transaction connection](PostgreSQL.md#proactive-insights.idle-txn "PostgreSQL.md#proactive-insights.idle-txn").
-Try to modify your application to avoid or minimize your use of long-running transactions.
-
-### Long term actions
-
-Examine your workload to discover the cause for the multixact spillover. You must fix the issue in order to scale your workload and reduce the wait event.
-
-- You must analyze the DDL (data definition language) used to create your tables. Make sure that the table structures and indexes are well designed.
-- When the affected tables have foreign keys, determine whether they are needed or if there is another way to enforce referential integrity.
-- When a table has large unused indexes, it can cause autovacuum to not fit your workload and might block it from running. To avoid this, check for unused indexes and remove them completely. For more information, see
-  [Managing autovacuum with large indexes](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md").
-- Reduce the use of savepoints in your transactions.
+see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.md "Aurora.AuroraMonitoring.md").
+For information about network performance for each DB instance class, see [Hardware specifications for DB instance
+classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").

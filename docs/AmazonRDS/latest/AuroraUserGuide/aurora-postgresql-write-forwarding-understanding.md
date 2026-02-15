@@ -18,6 +18,8 @@ In the AWS Management Console, on the **Configuration** tab of the details page 
 
 To see the status of the local write forwarding setting for all of your clusters, run the following AWS CLI command.
 
+###### Example
+
 ```
 aws rds describe-db-clusters \
 --query '*[].{DBClusterIdentifier:DBClusterIdentifier,LocalWriteForwardingStatus:LocalWriteForwardingStatus}'
