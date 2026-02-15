@@ -20,6 +20,9 @@ Common uses for the script include:
 
 - Installing software that requires administrator access
 - Installing Docker containers
+- Installing third-party cloud storage solutions such as LucidLink. For a
+  walkthrough, see [Set up LucidLink with service managed fleet scripts for Deadline Cloud](https://aws.amazon.com/blogs/media/set-up-lucidlink-with-service-managed-fleet-scripts-for-aws-deadline-cloud/ "https://aws.amazon.com/blogs/media/set-up-lucidlink-with-service-managed-fleet-scripts-for-aws-deadline-cloud/") on the AWS for
+  M&E Blog.
   You can create and update a host configuration script using the console or using the
   AWS CLI.
 
