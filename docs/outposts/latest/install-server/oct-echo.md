@@ -29,9 +29,7 @@ checksum: `checksum``
 
 ```
 
-###### Example: Failure because the variable value was not set using
-
-export
+###### Example: Failure because the variable value was not set using export
 
 ```
 `Outpost>`echo $AWS_ACCESS_KEY_ID

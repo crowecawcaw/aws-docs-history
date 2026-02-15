@@ -36,6 +36,8 @@ Run: **set-service-link-static-ip `ip`
 `netmask`
 `gateway`**
 
+###### Example
+
 For example, **set-service-link-static-ip**
 ``192.168.1.2`
 `255.255.255.0`
@@ -46,6 +48,8 @@ argument, the DNS address.
 
 Run: **set-dns**
 `dns`
+
+###### Example
 
 For example, **set-dns**
 `8.8.8.8` sets the DNS address to
@@ -62,6 +66,8 @@ verify:
      **describe-ip**.In the information that appears, you should see `mode: static` along with
 
 the statically configured values for IP, netmask, gateway, and DNS.
+
+###### Example
 
 ```
 `Outpost>``describe-ip`
