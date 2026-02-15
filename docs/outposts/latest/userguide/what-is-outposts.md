@@ -196,8 +196,6 @@ Amazon RDS on AWS Outposts is available in the following AWS Regions:
 - Asia Pacific (Singapore)
 - Asia Pacific (Sydney)
 - Canada (Central)
-- China (Beijing)
-- China (Ningxia)
 - Europe (Frankfurt)
 - Europe (Stockholm)
 - Europe (Milan)
