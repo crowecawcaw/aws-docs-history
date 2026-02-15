@@ -110,7 +110,7 @@ JSON
  "aws:SourceAccount": "account_id"
  },
  "ArnLike": {
- "aws:SourceArn": "arn:aws:comprehendmedical:region:account_id:*"
+ "aws:SourceArn": "arn:aws:comprehendmedical:us-east-1:account_id:*"
  }
  }
  }
