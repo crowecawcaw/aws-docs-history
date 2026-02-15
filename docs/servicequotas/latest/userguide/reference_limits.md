@@ -6,12 +6,12 @@ All of these quota values are per AWS Region, unless noted otherwise.
 
 You can't adjust these quota values.
 
-| Increase requests                                   | Quota | Default |
-| --------------------------------------------------- | ----- | ------- |
-| Active service quota increase requests per account  | 20    |
-| Active service quota increase requests per Region   | 2     |
-| Active service quota increase requests per quota    | 1     |
-| Active service quota increase requests per resource | 1     |
+| Increase requests                             | Quota | Default |
+| --------------------------------------------- | ----- | ------- |
+| Active requests per account (Global)          | 20    |
+| Active requests per account per opt-in Region | 2     |
+| Active requests per quota                     | 1     |
+| Active requests per resource                  | 1     |
 
 | API request rates                                                                                   | Quota | Default |
 | --------------------------------------------------------------------------------------------------- | ----- | ------- |
