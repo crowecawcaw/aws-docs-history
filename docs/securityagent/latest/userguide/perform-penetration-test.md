@@ -33,6 +33,8 @@ Provide a descriptive name that helps identify the purpose and scope of this pen
 
 1. In the **Penetration test name** field, enter a descriptive name for your penetration test.
 
+###### Example
+
 The name should clearly identify the application, environment, or component being tested. Maximum 100 characters.
 
 ## Configure penetration test scope
@@ -251,6 +253,8 @@ Choose from resources that are already integrated with AWS Security Agent.
 
 3. Select the resources you want to include in the penetration test.
 4. Click **Add to penetration test** to attach the selected resources.
+
+###### Example
 
 We recommend selecting and adding relevant GitHub repositories to your pentest, so AWS Security Agent can develop an understanding of your application context, and generate ready-to-implement code fixes through pull requests (when enabled)
 
