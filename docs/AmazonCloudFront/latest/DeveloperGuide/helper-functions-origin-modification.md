@@ -394,7 +394,7 @@ array of valid domain names and can include wildcard domains, such as
 You can specify up to 20 allowed certificate names. Each certificate
 name can have up to 64 characters.
 
-###### Example – Update to Amazon S3 request origin
+###### Example– Update to Amazon S3 request origin
 
 The following example changes the viewer request’s origin to an S3 bucket,
 enables OAC, and resets custom headers sent to the origin.
@@ -413,7 +413,7 @@ cf.updateRequestOrigin({
 });
 ```
 
-###### Example – Update to Application Load Balancer request origin
+###### Example– Update to Application Load Balancer request origin
 
 The following example changes the viewer request’s origin to an Application Load Balancer origin
 and sets a custom header and timeouts.
@@ -432,7 +432,7 @@ cf.updateRequestOrigin({
 });
 ```
 
-###### Example – Update to origin with Origin Shield enabled
+###### Example– Update to origin with Origin Shield enabled
 
 In the following example, the origin in the distribution has Origin Shield
 enabled. The function code updates only the domain name used for the origin and
@@ -446,7 +446,7 @@ cf.updateRequestOrigin({
 });
 ```
 
-###### Example – Update the host header, SNI, and allowed certificate names
+###### Example– Update the host header, SNI, and allowed certificate names
 
 ###### Warning
 
@@ -546,7 +546,7 @@ selectRequestOriginById(origin_id)
 In the preceding example, `origin_id` is a string that points to the
 origin name of an origin in the distribution that's running the function.
 
-###### Example – Select Amazon S3 request origin
+###### Example– Select Amazon S3 request origin
 
 The following example selects the origin named
 `amzn-s3-demo-bucket-in-us-east-1` from the list of origins
@@ -557,7 +557,7 @@ associated with the distribution, and applies the configuration settings of the
 cf.selectRequestOriginById("amzn-s3-demo-bucket-in-us-east-1");
 ```
 
-###### Example – Select Application Load Balancer request origin
+###### Example– Select Application Load Balancer request origin
 
 The following example selects an Application Load Balancer origin named `myALB-prod`
 from the list of origins associated with the distribution, and applies the
@@ -567,7 +567,7 @@ configuration settings of `myALB-prod` to the request.
 cf.selectRequestOriginById("myALB-prod");
 ```
 
-###### Example – Select Application Load Balancer request origin and override the host header
+###### Example– Select Application Load Balancer request origin and override the host header
 
 Like the previous example, the following example selects an Application Load Balancer origin named
 `myALB-prod` from the list of origins associated with the
@@ -704,7 +704,7 @@ based on the media quality score. If the selected origin returns an
 error code set in this array, CloudFront will failover to the other
 origin.
 
-###### Example – Create request origin group
+###### Example– Create request origin group
 
 The following example creates an origin group for a request using the
 origin IDs. These origin IDs come from the origin group configuration for

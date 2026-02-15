@@ -300,6 +300,8 @@ See the following CloudFront KeyValueStore API operations:
 
 ### Example code for CloudFront KeyValueStore
 
+###### Example
+
 The following code shows you how to call the
 `DescribeKeyValueStore` API operation for a
 key value store.

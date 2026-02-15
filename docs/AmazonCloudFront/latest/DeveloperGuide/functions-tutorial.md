@@ -105,6 +105,8 @@ In the response, you see the redirect response (`302 Found`) and
 the custom response headers that the function added. Your response might look
 like the following example.
 
+###### Example
+
 ```
 **curl -v https://d111111abcdef8.cloudfront.net/**
 > GET / HTTP/1.1

@@ -30,7 +30,7 @@ the XML format that the .NET Framework uses.
 
 After conversion, the RSA private key file is in the following format:
 
-###### Example : RSA private key in the XML .NET Framework
+###### Example: RSA private key in the XML .NET Framework
 
 format
 
@@ -95,7 +95,7 @@ For more information, see
 ![6](images/callouts/6.png)
 [&Key-Pair-Id](private-content-creating-signed-url-canned-policy.md "private-content-creating-signed-url-canned-policy.md").
 
-###### Example : Canned policy
+###### Example: Canned policy
 
 signing method in C#
 
@@ -201,7 +201,7 @@ For more information, see
 ![6](images/callouts/6.png)
 [&Key-Pair-Id](private-content-creating-signed-url-canned-policy.md "private-content-creating-signed-url-canned-policy.md").
 
-###### Example : Custom policy
+###### Example: Custom policy
 
 signing method in C#
 
@@ -288,7 +288,7 @@ generation
 The following methods get the policy statement from a file and parse time intervals for signature
 generation.
 
-###### Example : Utility methods for signature
+###### Example: Utility methods for signature
 
 generation
 

@@ -129,7 +129,7 @@ viewers receive responses immediately from edge locations without having to wait
 for the background fetch. Fresh content is loaded in the background for future
 requests.
 
-###### Example: `Stale-While-Revalidate`
+###### Example: Stale-While-Revalidate
 
 CloudFront does the following when you set the `Cache-Control` header
 to use these directives.
@@ -162,7 +162,7 @@ This directive allows CloudFront to serve stale content from the cache if the or
 is unreachable or returns an error code that is between 500 and 600. This
 ensures that viewers can access content even during an origin outage.
 
-###### Example: `Stale-If-Error`
+###### Example: Stale-If-Error
 
 CloudFront does the following when you set the `Cache-Control` header
 to use these directives.

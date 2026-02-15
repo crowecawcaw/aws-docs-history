@@ -516,7 +516,7 @@ The following are examples of a `Server-Timing` header that a viewer
 might receive from CloudFront when the `Server-Timing` header setting is
 enabled.
 
-###### Example – cache miss
+###### Example– cache miss
 
 The following example shows a `Server-Timing` header that a viewer
 might receive when the requested object is not in the CloudFront cache.
@@ -548,7 +548,7 @@ This `Server-Timing` header indicates the following:
   response to the viewer, after receiving the viewer request
   (`cdn-downstream-fbl;dur=436`).
 
-###### Example – cache hit
+###### Example– cache hit
 
 The following example shows a `Server-Timing` header that a viewer
 might receive when the requested object is in CloudFront's cache.

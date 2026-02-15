@@ -43,7 +43,7 @@ Signing and Encryption (COSE) [RFC 8152]](https://datatracker.ietf.org/doc/html/
 )
 ```
 
-###### Example : CWT using the COSE MAC0 structure
+###### Example: CWT using the COSE MAC0 structure
 
 ```
 61( // CWT tag
@@ -211,7 +211,7 @@ Token payload for encoding. The payload must be in
 
 Returns a JavaScript Buffer containing the encoded token.
 
-###### Example : Generate a CWT token
+###### Example: Generate a CWT token
 
 ```
 import cf from 'cloudfront';
@@ -332,7 +332,7 @@ async function handler(event) {
 }
 ```
 
-###### Example : Refresh token based on some logic
+###### Example: Refresh token based on some logic
 
 ```
 import cf from 'cloudfront'

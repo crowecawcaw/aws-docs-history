@@ -155,7 +155,7 @@ the CloudFront distribution. To prevent requests not matching an explicit
 path from routing to the real origin, create a "dummy"
 origin for that wildcard path.
 
-###### Example : Creating a "dummy" origin
+###### Example: Creating a "dummy" origin
 
 In the following example, the endpoints `abc123` and
 `def456` route to the "real" origin, but
@@ -425,7 +425,7 @@ the CloudFront distribution. To prevent requests not matching an explicit
 path from routing to the real origin, create a "dummy"
 origin for that wildcard path.
 
-###### Example : Creating a "dummy" origin
+###### Example: Creating a "dummy" origin
 
 In the following example, the packaging configurations `def456` and
 `321xyz` route to the "real" origin, but

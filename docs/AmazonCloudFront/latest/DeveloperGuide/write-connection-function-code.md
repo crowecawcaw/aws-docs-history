@@ -293,7 +293,7 @@ coordination across CloudFront's distributed infrastructure. The runtime automat
 handles promise resolution and ensures that your function completes within the
 5-millisecond execution limit.
 
-###### Example : Async Connection Function with KeyValueStore
+###### Example: Async Connection Function with KeyValueStore
 
 ```
 import cf from 'cloudfront';
@@ -340,7 +340,7 @@ The following examples demonstrate common Connection Function patterns for
 different validation scenarios. Use these examples as starting points for your own
 Connection Function implementations.
 
-###### Example : Device certificate validation
+###### Example: Device certificate validation
 
 This example validates device serial numbers and certificate subject fields
 for IoT devices, gaming consoles, and other client authentication
@@ -372,7 +372,7 @@ This function performs multiple validation checks beyond standard certificate
 validation, including device serial number format and organizational unit
 verification.
 
-###### Example : Optional mTLS with mixed authentication
+###### Example: Optional mTLS with mixed authentication
 
 This example handles both mTLS and non-mTLS connections with different
 authentication policies:

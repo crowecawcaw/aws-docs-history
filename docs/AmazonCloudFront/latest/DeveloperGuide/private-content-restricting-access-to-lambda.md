@@ -58,7 +58,7 @@ _only_ when the request is on behalf of the CloudFront distribution
 that contains the Lambda function URL. This is the distribution with the Lambda
 function URL origin that you want to add OAC to.
 
-###### Example : AWS CLI command to update a policy to allow read-only access for a CloudFront
+###### Example: AWS CLI command to update a policy to allow read-only access for a CloudFront
 
 distribution with OAC enabled
 

@@ -45,7 +45,7 @@ element in the policy allows CloudFront to access the MediaPackage v2 origin _on
 when the request is on behalf of the CloudFront distribution that contains the MediaPackage v2 origin.
 This is the distribution with the MediaPackage v2 origin that you want to add OAC to.
 
-###### Example : IAM policy that allows read-only access for a CloudFront distribution with OAC
+###### Example: IAM policy that allows read-only access for a CloudFront distribution with OAC
 
 enabled
 
