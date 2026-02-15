@@ -245,6 +245,8 @@ operations, where the key is `aws:amp:arn` and the value is the
 [Amazon Resource
 Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN) of the workspace.
 
+###### Example
+
 ```
 "encryptionContext": {
     "aws:aps:arn": "arn:aws:aps:us-west-2:111122223333:workspace/ws-sample-1234-abcd-56ef-7890abcd12ef"
@@ -268,6 +270,8 @@ also use encryption context constraints in a grant.
 Amazon Managed Service for Prometheus uses an encryption context constraint in grants to control access to the
 customer managed key in your account or region. The grant constraint requires that the
 operations that the grant allows use the specified encryption context.
+
+###### Example
 
 The following are example key policy statements to give access to a customer
 managed key for a specific encryption context. The condition in this policy

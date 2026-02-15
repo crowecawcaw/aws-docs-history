@@ -80,6 +80,8 @@ status
 Malformed rules can cause evaluation failures. Use the following methods to
 identify why a rule failed to evaluate:
 
+###### Example
+
 **Use the ListRules API**
 
 The [ListRules](AMP-APIReference-ListRules.md "AMP-APIReference-ListRules.md") API provides information about
@@ -119,6 +121,8 @@ diagnose issues.
 }
 
 ```
+
+###### Example
 
 **Use vended logs**
 
