@@ -42,6 +42,7 @@ the PostgreSQL documentation.
 
 ###### Minor versions
 
+- [PostgreSQL version 18.2 on Amazon RDS](#postgresql-versions-version182 "#postgresql-versions-version182")
 - [PostgreSQL version 18.1 on
   Amazon RDS](#postgresql-versions-version181 "#postgresql-versions-version181")
 - [PostgreSQL version 18.0 in the
@@ -54,6 +55,37 @@ the PostgreSQL documentation.
   Amazon RDS Preview environment](#postgresql-versions-version18Beta2 "#postgresql-versions-version18Beta2")
 - [PostgreSQL version 18 Beta 1 in the
   Amazon RDS Preview environment](#postgresql-versions-version18Beta1 "#postgresql-versions-version18Beta1")
+
+### PostgreSQL version 18.2 on Amazon RDS
+
+PostgreSQL version 18.2 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 18.2 release](https://www.postgresql.org/docs/release/18.2/ "https://www.postgresql.org/docs/release/18.2/").
+
+**General enhancements**
+
+- Improved stability and reliability for database operations.
+- Enhanced data collection capabilities.
+- _Advanced query performance monitoring_: Introduced the pg_stat_monitor extension to provide comprehensive query performance insights and help identify performance bottlenecks.
+
+This version also includes the following extension changes:
+
+The following extension was added:
+
+- pg_stat_monitor
+- The `pgactive` extension was updated to version 2.1.7.
+- The `pglogical` extension was updated to version 2.4.6.
+- The `pg_hint_plan` extension was updated to version 1.6.2.
+- The `orafce` extension was updated to version 4.16.3.
+- The `postgis` extension was updated to version 3.6.1.
+- The `pg_bigm` extension was updated to version 1.2-20250903.
+- The `pg_cron` extension was updated to version 1.6.7.
+- The `hypopg` extension was updated to version 1.4.2.
+- The `tds_fdw` extension was updated to version 2.0.5.
+- The `pg_repack` extension was updated to version 1.5.3.
+- The `pgvector` extension was updated to version 0.8.1.
+- The `mysql_fdw` extension was updated to version 2.9.3.
+- The `oracle_fdw` extension was updated to version 2.8.0.
+- The `roaringbitmap` extension was updated to version 1.1.0.
 
 ### PostgreSQL version 18.1 on
 
@@ -307,6 +339,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 ###### Minor versions
 
+- [PostgreSQL version 17.8 on Amazon RDS](#postgresql-versions-version178 "#postgresql-versions-version178")
 - [PostgreSQL version 17.7 on Amazon RDS](#postgresql-versions-version177 "#postgresql-versions-version177")
 - [PostgreSQL version 17.6-R2 on
   Amazon RDS](#postgresql-versions-version176R2 "#postgresql-versions-version176R2")
@@ -330,6 +363,31 @@ For version information on all extensions, see [Extensions supported for RDS for
   Amazon RDS Preview environment](#postgresql-versions-version17Beta2 "#postgresql-versions-version17Beta2")
 - [PostgreSQL version 17 Beta 1 in the
   Amazon RDS Preview environment](#postgresql-versions-version17Beta1 "#postgresql-versions-version17Beta1")
+
+### PostgreSQL version 17.8 on Amazon RDS
+
+PostgreSQL version 17.8 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 17.8 release](https://www.postgresql.org/docs/release/17.8/ "https://www.postgresql.org/docs/release/17.8/").
+
+**General enhancements**
+
+- Improved stability and reliability for database operations.
+- Enhanced data collection capabilities.
+
+This version also includes the following extension changes:
+
+- The `pgactive` extension was updated to version 2.1.7.
+- The `pglogical` extension was updated to version 2.4.6.
+- The `pg_hint_plan` extension was updated to version 1.7.1.
+- The `orafce` extension was updated to version 4.16.3.
+- The `pg_bigm` extension was updated to version 1.2-20250903.
+- The `pg_cron` extension was updated to version 1.6.7.
+- The `hypopg` extension was updated to version 1.4.2.
+- The `tds_fdw` extension was updated to version 2.0.5.
+- The `pg_repack` extension was updated to version 1.5.3.
+- The `pgvector` extension was updated to version 0.8.1.
+- The `mysql_fdw` extension was updated to version 2.9.3.
+- The `oracle_fdw` extension was updated to version 2.8.0.
 
 ### PostgreSQL version 17.7 on Amazon RDS
 
@@ -718,6 +776,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 ###### Minor versions
 
+- [PostgreSQL version 16.12 on Amazon RDS](#postgresql-versions-version1612 "#postgresql-versions-version1612")
 - [PostgreSQL version 16.11 on Amazon RDS](#postgresql-versions-version1611 "#postgresql-versions-version1611")
 - [PostgreSQL version 16.10-R2 on
   Amazon RDS](#postgresql-versions-version1610R2 "#postgresql-versions-version1610R2")
@@ -752,6 +811,31 @@ For version information on all extensions, see [Extensions supported for RDS for
   Amazon RDS Preview environment](#postgresql-versions-version16Beta3 "#postgresql-versions-version16Beta3")
 - [PostgreSQL version 16 Beta 2 in the Amazon RDS Preview environment](#postgresql-versions-version16Beta2 "#postgresql-versions-version16Beta2")
 - [PostgreSQL version 16 Beta 1 in the Amazon RDS Preview environment](#postgresql-versions-version16Beta1 "#postgresql-versions-version16Beta1")
+
+### PostgreSQL version 16.12 on Amazon RDS
+
+PostgreSQL version 16.12 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 16.12 release](https://www.postgresql.org/docs/release/16.12/ "https://www.postgresql.org/docs/release/16.12/").
+
+**General enhancements**
+
+- Improved stability and reliability for database operations.
+- Enhanced data collection capabilities.
+
+This version also includes the following extension changes:
+
+- The `pgactive` extension was updated to version 2.1.7.
+- The `pglogical` extension was updated to version 2.4.6.
+- The `pg_hint_plan` extension was updated to version 1.6.2.
+- The `orafce` extension was updated to version 4.16.3.
+- The `pg_bigm` extension was updated to version 1.2-20250903.
+- The `pg_cron` extension was updated to version 1.6.7.
+- The `hypopg` extension was updated to version 1.4.2.
+- The `tds_fdw` extension was updated to version 2.0.5.
+- The `pg_repack` extension was updated to version 1.5.3.
+- The `pgvector` extension was updated to version 0.8.1.
+- The `mysql_fdw` extension was updated to version 2.9.3.
+- The `oracle_fdw` extension was updated to version 2.8.0.
 
 ### PostgreSQL version 16.11 on Amazon RDS
 
@@ -1304,6 +1388,7 @@ reached the end of standard support or deprecated.)
 
 ###### Minor versions
 
+- [PostgreSQL version 15.16 on Amazon RDS](#postgresql-versions-version1516 "#postgresql-versions-version1516")
 - [PostgreSQL version 15.15 on Amazon RDS](#postgresql-versions-version1515 "#postgresql-versions-version1515")
 - [PostgreSQL version 15.14-R2 on
   Amazon RDS](#postgresql-versions-version1514R2 "#postgresql-versions-version1514R2")
@@ -1338,6 +1423,31 @@ reached the end of standard support or deprecated.)
 - [PostgreSQL version 15.3 on Amazon RDS (Deprecated)](#postgresql-versions-version153 "#postgresql-versions-version153")
 - [PostgreSQL version 15.2-R2 on Amazon RDS (Deprecated)](#postgresql-versions-version152R2 "#postgresql-versions-version152R2")
 - [PostgreSQL version 15.2 on Amazon RDS (Deprecated)](#postgresql-versions-version152 "#postgresql-versions-version152")
+
+### PostgreSQL version 15.16 on Amazon RDS
+
+PostgreSQL version 15.16 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 15.16 release](https://www.postgresql.org/docs/release/15.16/ "https://www.postgresql.org/docs/release/15.16/").
+
+**General enhancements**
+
+- Improved stability and reliability for database operations.
+- Enhanced data collection capabilities.
+
+This version also includes the following extension changes:
+
+- The `pgactive` extension was updated to version 2.1.7.
+- The `pglogical` extension was updated to version 2.4.6.
+- The `pg_hint_plan` extension was updated to version 1.5.3.
+- The `orafce` extension was updated to version 4.16.3.
+- The `pg_bigm` extension was updated to version 1.2-20250903.
+- The `pg_cron` extension was updated to version 1.6.7.
+- The `hypopg` extension was updated to version 1.4.2.
+- The `tds_fdw` extension was updated to version 2.0.5.
+- The `pg_repack` extension was updated to version 1.5.3.
+- The `pgvector` extension was updated to version 0.8.1.
+- The `mysql_fdw` extension was updated to version 2.9.3.
+- The `oracle_fdw` extension was updated to version 2.8.0.
 
 ### PostgreSQL version 15.15 on Amazon RDS
 
@@ -1904,6 +2014,9 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 ###### Minor versions
 
+- [PostgreSQL version 14.21 on Amazon RDS](#postgresql-versions-version1421 "#postgresql-versions-version1421")
+- [PostgreSQL version 14.20-R2 on
+  Amazon RDS](#postgresql-versions-version1420R2 "#postgresql-versions-version1420R2")
 - [PostgreSQL version 14.20 on Amazon RDS](#postgresql-versions-version1420 "#postgresql-versions-version1420")
 - [PostgreSQL version 14.19-R2 on
   Amazon RDS](#postgresql-versions-version1419R2 "#postgresql-versions-version1419R2")
@@ -1945,6 +2058,41 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 14.3 on Amazon RDS (Deprecated)](#postgresql-versions-version143 "#postgresql-versions-version143")
 - [PostgreSQL version 14.2 on Amazon RDS (Deprecated)](#postgresql-versions-version142 "#postgresql-versions-version142")
 - [PostgreSQL version 14.1 on Amazon RDS (Deprecated)](#postgresql-versions-version141 "#postgresql-versions-version141")
+
+### PostgreSQL version 14.21 on Amazon RDS
+
+PostgreSQL version 14.21 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 14.21 release](https://www.postgresql.org/docs/release/14.21/ "https://www.postgresql.org/docs/release/14.21/").
+
+**General enhancements**
+
+- Improved stability and reliability for database operations.
+- Enhanced data collection capabilities.
+
+This version also includes the following extension changes:
+
+- The `pgactive` extension was updated to version 2.1.7.
+- The `pglogical` extension was updated to version 2.4.6.
+- The `pg_hint_plan` extension was updated to version 1.4.4.
+- The `orafce` extension was updated to version 4.16.3.
+- The `pg_bigm` extension was updated to version 1.2-20250903.
+- The `pg_cron` extension was updated to version 1.6.7.
+- The `hypopg` extension was updated to version 1.4.2.
+- The `tds_fdw` extension was updated to version 2.0.5.
+- The `pg_repack` extension was updated to version 1.5.3.
+- The `pgvector` extension was updated to version 0.8.1.
+- The `mysql_fdw` extension was updated to version 2.9.3.
+- The `oracle_fdw` extension was updated to version 2.8.0.
+
+### PostgreSQL version 14.20-R2 on
+
+Amazon RDS
+
+PostgreSQL version 14.20-R2 is now available on Amazon RDS.
+
+This version also includes the following changes:
+
+- Fixed an issue on the plv8 extension regarding CREATE EXTENSION failure on older version.
 
 ### PostgreSQL version 14.20 on Amazon RDS
 
@@ -2632,6 +2780,8 @@ For information on all extensions, see [Extensions supported for RDS for Postgre
 
 ###### Minor versions
 
+- [PostgreSQL version 13.23-R2 on
+  Amazon RDS](#postgresql-versions-version1323R2 "#postgresql-versions-version1323R2")
 - [PostgreSQL version 13.23 on Amazon RDS](#postgresql-versions-version1323 "#postgresql-versions-version1323")
 - [PostgreSQL version 13.22-R2 on
   Amazon RDS](#postgresql-versions-version1322R2 "#postgresql-versions-version1322R2")
@@ -2673,6 +2823,16 @@ For information on all extensions, see [Extensions supported for RDS for Postgre
 - [PostgreSQL version 13.3 on Amazon RDS (Deprecated)](#postgresql-versions-version133 "#postgresql-versions-version133")
 - [PostgreSQL version 13.2 on Amazon RDS (Deprecated)](#postgresql-versions-version132 "#postgresql-versions-version132")
 - [PostgreSQL version 13.1 on Amazon RDS (Deprecated)](#postgresql-versions-version131 "#postgresql-versions-version131")
+
+### PostgreSQL version 13.23-R2 on
+
+Amazon RDS
+
+PostgreSQL version 13.23-R2 is now available on Amazon RDS.
+
+This version also includes the following changes:
+
+- Fixed an issue on the plv8 extension regarding CREATE EXTENSION failure on older version.
 
 ### PostgreSQL version 13.23 on Amazon RDS
 

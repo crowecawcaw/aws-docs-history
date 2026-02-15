@@ -26,8 +26,8 @@ about support dates for major engine versions by using the AWS CLI or the RDS AP
 | PostgreSQL major version     | Community release date | RDS release date | Community end of life date | RDS end of standard support date | RDS start of Extended Support year 1 pricing | RDS start of Extended Support year 3 pricing | RDS end of Extended Support date |
 | ---------------------------- | ---------------------- | ---------------- | -------------------------- | -------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------- |
 | PostgreSQL 18                | 13 November 2025       | 14 November 2025 | November 2030              | 28 February 2031                 | 1 March 2032                                 | 1 March 2033                                 | 28 February 2034                 |
-| PostgreSQL 17                | 26 September 2024      | 14 November 2024 | November 2029              | 28 February 2030                 | 1 March 2030                                 | 1 March 2032                                 | 28 February 2033                 |
-| PostgreSQL 16                | 14 September 2023      | 17 November 2023 | November 2028              | 28 February 2029                 | 1 March 2029                                 | 1 March 2031                                 | 29 February 2032                 |
+| PostgreSQL 17                | 14 November 2024       | 14 November 2024 | November 2029              | 28 February 2030                 | 1 March 2030                                 | 1 March 2032                                 | 28 February 2033                 |
+| PostgreSQL 16                | 9 November 2023        | 20 November 2023 | November 2028              | 28 February 2029                 | 1 March 2029                                 | 1 March 2031                                 | 29 February 2032                 |
 | PostgreSQL 15                | 13 October 2022        | 27 February 2023 | November 2027              | 29 February 2028                 | 1 March 2028                                 | 1 March 2030                                 | 28 February 2031                 |
 | PostgreSQL 14                | 30 September 2021      | 3 February 2022  | 12 November 2026           | 28 February 2027                 | 1 March 2027                                 | 1 March 2029                                 | 28 February 2030                 |
 | PostgreSQL 13                | 24 September 2020      | 24 February 2021 | November 2025              | 28 February 2026                 | 1 March 2026                                 | 1 March 2028                                 | 28 February 2029                 |
@@ -55,6 +55,7 @@ exact date when it is known.
 
 | PostgreSQL minor engine version | Community release date | RDS release date | RDS end of standard support date |
 | ------------------------------- | ---------------------- | ---------------- | -------------------------------- |
+| 18.2                            | 12 February 2026       | 12 February 2026 | March 2027                       |
 | 17.7                            | 13 November 2025       | 13 November 2025 | March 2027                       |
 | 17.6                            | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 17.5                            | 08 May 2025            | 08 May 2025      | September 2026                   |
