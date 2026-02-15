@@ -14,7 +14,7 @@ Console
 
 ###### To view execution history (console)
 
-1. In the CloudWatch Logs console, choose **Scheduled queries**.
+1. In the CloudWatch Logs console, choose **Scheduled query**, **View scheduled queries**.
 2. Select the scheduled query you want to examine.
 3. Choose the **Execution history** tab.
 

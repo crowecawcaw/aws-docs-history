@@ -11,7 +11,7 @@ Console
 
 ###### To update a scheduled query (console)
 
-1. In the CloudWatch Logs console, choose **Scheduled queries**.
+1. In the CloudWatch Logs console, choose **Scheduled query**, **View scheduled queries**.
 2. Select the scheduled query you want to update.
 3. Choose **Edit**.
 4. Modify the configuration as needed.

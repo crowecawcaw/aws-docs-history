@@ -48,9 +48,9 @@ Console
 
 ###### To view scheduled queries (console)
 
-1. Open the CloudWatch Logs console at [https://console.aws.amazon.com/cloudwatch/home#logsV2:](https://console.aws.amazon.com/cloudwatch/home#logsV2: "https://console.aws.amazon.com/cloudwatch/home#logsV2:").
-2. In the navigation pane, choose **Scheduled
-   queries**.
+1. Open the CloudWatch Logs console at [https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:logs-insights](https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:logs-insights "https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:logs-insights").
+2. In the CloudWatch Logs console, choose **Scheduled
+   query**, **View scheduled queries**.
 
 AWS CLI
 
