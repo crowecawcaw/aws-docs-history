@@ -19,6 +19,8 @@ with the following parameters:
 
 - `--pipeline-name` – the name of the pipeline.
 
+###### Example
+
 ```
 aws osis stop-pipeline --pipeline-name `my-pipeline`
 ```

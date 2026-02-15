@@ -271,6 +271,8 @@ To create a data lifecycle policy using the AWS CLI, use the [create-lifecycle-p
   file, use the format `--policy
 file://`my-policy`.json`.
 
+###### Example
+
 ```
 aws opensearchserverless create-lifecycle-policy \
   --name `my-policy` \
@@ -306,6 +308,8 @@ others.
 The following request updates a data lifecycle policy with a new policy JSON
 document.
 
+###### Example
+
 ```
 aws opensearchserverless update-lifecycle-policy \
   --name `my-policy` \
@@ -327,6 +331,8 @@ indexes.
 3. Select the policy that you want to delete, then choose
    **Delete** and confirm deletion.
    To delete a data lifecycle policy using the AWS CLI, use the [delete-lifecycle-policy](../../../cli/latest/reference/opensearchserverless/delete-lifecycle-policy.md "../../../cli/latest/reference/opensearchserverless/delete-lifecycle-policy.md") command.
+
+###### Example
 
 ```
 aws opensearchserverless delete-lifecycle-policy \

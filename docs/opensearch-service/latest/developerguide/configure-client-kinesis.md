@@ -315,7 +315,7 @@ throughput](../../../streams/latest/dev/enhanced-consumers.md "../../../streams/
      information.
 
 
-    ###### Example : Example CLI command
+    ###### Example: Example CLI command
 
 
     ```

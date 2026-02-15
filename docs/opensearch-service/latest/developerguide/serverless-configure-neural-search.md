@@ -54,7 +54,7 @@ algorithm, which works well for search queries that contain keywords. Neural Sea
 provides new query types for natural language queries and the ability to combine both
 semantic and keyword search.
 
-###### Example : `neural`
+###### Example: `neural`
 
 ```
 
@@ -72,7 +72,7 @@ semantic and keyword search.
 For more information, see [Neural
 query](https://docs.opensearch.org/latest/query-dsl/specialized/neural/ "https://docs.opensearch.org/latest/query-dsl/specialized/neural/") on the _OpenSearch Documentation_ website.
 
-###### Example : `hybrid`
+###### Example: `hybrid`
 
 ```
 
@@ -105,7 +105,7 @@ Neural Search in OpenSearch Serverless requires the following permissions. For m
 [Supported policy
 permissions](serverless-data-access.md#serverless-data-supported-permissions "serverless-data-access.md#serverless-data-supported-permissions").
 
-###### Example : Neural search policy
+###### Example: Neural search policy
 
 JSON
 
@@ -143,7 +143,7 @@ The following describes the collection data access policies required for neural
 search. Replace the `placeholder values` with your specific
 information.
 
-###### Example : Data access policy
+###### Example: Data access policy
 
 ```
 [

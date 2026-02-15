@@ -31,7 +31,7 @@ permissions. If you need assistance, contact your account administrator. OpenSea
 Workflows require the following permissions. You can scope permissions to a specific
 collection by defining the collection resource ARN in your IAM policy.
 
-###### Example : Workflows policy
+###### Example: Workflows policy
 
 JSON
 

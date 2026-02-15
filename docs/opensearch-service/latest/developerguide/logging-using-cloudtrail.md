@@ -85,6 +85,8 @@ In the following example:
 - OpenSearch Serverless logs CloudTrail data events only for requests that have successfully completed
   IAM authentication.
 
+###### Example
+
 ```
  {
       "eventVersion": "1.11",

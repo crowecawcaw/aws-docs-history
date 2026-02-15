@@ -18,6 +18,8 @@ Restarting a pipeline usually takes several minutes.
 
 - `--pipeline-name` – the name of the pipeline.
 
+###### Example
+
 ```
 aws osis start-pipeline --pipeline-name `my-pipeline`
 ```

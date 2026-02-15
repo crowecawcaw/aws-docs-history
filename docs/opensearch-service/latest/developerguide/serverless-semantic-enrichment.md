@@ -329,6 +329,7 @@ to implement automatic semantic enrichment for your specific use case.
 - Log analysis workloads – Semantic enrichment significantly increases index size,
   which might be unnecessary for log analysis where exact matching typically suffices.
   The additional semantic context rarely improves log search effectiveness enough to justify the increased storage requirements.
+- Automatic semantic enrichment is not compatible with the Derived Source feature.
 
 ## Pricing
 
