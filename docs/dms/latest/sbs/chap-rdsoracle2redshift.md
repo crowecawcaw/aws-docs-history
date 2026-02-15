@@ -1,26 +1,18 @@
-# Migrating an Amazon RDS for Oracle Database to Amazon Redshift
+# Prerequisites for migrating from Amazon RDS for Oracle to Amazon Redshift
 
-This walkthrough gets you started with heterogeneous database migration from Amazon RDS for Oracle to Amazon Redshift using AWS Database Migration Service (AWS DMS) and the AWS Schema Conversion Tool (AWS SCT). This introductory exercise doesn’t cover all scenarios but provides you with a good understanding of the steps involved in such a migration.
+The following prerequisites are also required to complete this walkthrough:
 
-It is important to understand that AWS DMS and AWS SCT are two different tools and serve different needs. They don’t interact with each other in the migration process. At a high level, the steps involved in this migration are the following:
+- Familiarity with Amazon RDS, Amazon Redshift, the applicable database technologies, and SQL.
+- The custom scripts that include creating the tables to be migrated and SQL queries for confirming the migration, as listed following:
+  - `Oracle_Redshift_For_DMSDemo.template` — an AWS CloudFormation template.
+  - `Oraclesalesstarschema.sql` — SQL statements to build the **SH** schema.
 
-1. Using AWS SCT to do the following:
-   - Run the conversion report for Oracle to Amazon Redshift to identify the issues, limitations, and actions required for the schema conversion.
-   - Generate the schema scripts and apply them on the target before performing the data load by using AWS DMS. AWS SCT performs the necessary code conversion for objects like procedures and views.
+  These scripts are available at the following link: `dms-sbs-RDSOracle2Redshift.zip`.
 
-2. Identify and implement solutions to the issues reported by AWS SCT.
-3. Disable foreign keys or any other constraints that might impact the AWS DMS data load.
-4. AWS DMS loads the data from source to target using the Full Load approach. Although AWS DMS is capable of creating objects in the target as part of the load, it follows a minimalistic approach to efficiently migrate the data so that it doesn’t copy the entire schema structure from source to target.
-5. Perform postmigration activities such as creating additional indexes, enabling foreign keys, and making the necessary changes in the application to point to the new database.
-   This walkthrough uses a custom AWS CloudFormation template to create RDS DB instances for Oracle and Amazon Redshift. It then uses a SQL command script to install a sample schema and data onto the RDS Oracle DB instance that you then migrate to Amazon Redshift.
+  Each step in the walkthrough also contains a link to download the file involved or includes the exact query in the step.
 
-This walkthrough takes approximately two hours to complete. Be sure to follow the instructions to delete resources at the end of this walkthrough to avoid additional charges.
-
-To estimate what it will cost to run this walkthrough on AWS, you can use the AWS Pricing Calculator. For more information, see [https://calculator.aws/](https://calculator.aws/ "https://calculator.aws/").
-
-###### Topics
-
-- [Prerequisites for migrating from Amazon RDS for Oracle to Amazon Redshift](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
-- [Migration architecture for migrating from Amazon RDS for Oracle to Amazon Redshift](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
-- [Step-by-step Amazon RDS for Oracle to Amazon Redshift migration walkthrough](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
-- [Migration from Amazon RDS for Oracle to Amazon Redshift next steps](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
+- A user with AWS Identity and Access Management (IAM) credentials that allow you to launch Amazon RDS, AWS Database Migration Service (AWS DMS) instances, and Amazon Redshift clusters in your AWS Region. For information about IAM credentials, see [Setting up for Amazon RDS](../../../AmazonRDS/latest/UserGuide/CHAP_SettingUp.md#CHAP_SettingUp.IAM "../../../AmazonRDS/latest/UserGuide/CHAP_SettingUp.md#CHAP_SettingUp.IAM").
+- Basic knowledge of the Amazon Virtual Private Cloud (Amazon VPC) service and of security groups. For information about using Amazon VPC with Amazon RDS, see [Virtual Private Clouds (VPCs) and Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md"). For information about Amazon RDS security groups, see [Amazon RDS Security Groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md"). For information about using Amazon Redshift in a VPC, see [Managing Clusters in an Amazon Virtual Private Cloud (VPC)](../../../redshift/latest/mgmt/managing-clusters-vpc.md "../../../redshift/latest/mgmt/managing-clusters-vpc.md").
+- An understanding of the supported features and limitations of AWS DMS. For information about AWS DMS, see https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html.
+- Knowledge of the supported data type conversion options for Oracle and Amazon Redshift. For information about data types for Oracle as a source, see [Using an Oracle database as a source](../userguide/CHAP_Source.md "../userguide/CHAP_Source.md"). For information about data types for Amazon Redshift as a target, see [Using an Amazon Redshift Database as a Target](../userguide/CHAP_Target.md "../userguide/CHAP_Target.md").
+  For more information about AWS DMS, see [Getting started with Database Migration Service](../userguide/CHAP_GettingStarted.md "../userguide/CHAP_GettingStarted.md").
