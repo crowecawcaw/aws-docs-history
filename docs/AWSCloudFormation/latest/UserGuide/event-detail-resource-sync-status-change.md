@@ -91,9 +91,7 @@ _Valid values_: `FAILED` |
 `INITIATED` | `IN_PROGRESS` |
 `SUCCEEDED`
 
-###### Example: Resource
-
-Sync Status Change event
+###### Example: Resource Sync Status Change event
 
 The following is an example resource sync status change event. The event
 details that CodeConnections has successfully synchronized the resource.

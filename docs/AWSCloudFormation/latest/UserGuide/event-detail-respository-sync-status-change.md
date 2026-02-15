@@ -110,9 +110,7 @@ _Valid values_: `FAILED` |
 `INITIATED` | `IN_PROGRESS` |
 `SUCCEEDED`
 
-###### Example:
-
-Repository Sync Status Change event
+###### Example: Repository Sync Status Change event
 
 The following is an example Repository Sync Status Change event. The event
 details that CodeConnections has successfully synchronized the repository.

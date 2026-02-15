@@ -88,9 +88,7 @@ create a stack using the console, each resulting stack event
 would be assigned the same token in the following format:
 `Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002`.
 
-###### Example: Stack
-
-Drift Detection event
+###### Example: Stack Drift Detection event
 
 The following is an example Stack Drift Detection event. This event details
 that CloudFormation has completed drift detection on the specified stack, and that

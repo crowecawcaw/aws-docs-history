@@ -55,9 +55,7 @@ The StackSet status.
 _Valid values_:
 `ACTIVE` | `DELETED`
 
-###### Example: StackSet
-
-Status Change event
+###### Example: StackSet Status Change event
 
 The following is an example StackSet Status Change event. This event details
 that CloudFormation has deleted the specified stack set.

@@ -89,9 +89,7 @@ create a stack using the console, each resulting stack event
 would be assigned the same token in the following format:
 `Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002`.
 
-###### Example: Resource
-
-Status Change event
+###### Example: Resource Status Change event
 
 The following is an example resource status event. This event details that
 CloudFormation has successfully created the requested resource, an Amazon S3 bucket, in

@@ -66,9 +66,7 @@ _Valid values_:
 `FAILED` | `STOPPING` |
 `STOPPED` | `QUEUED`
 
-###### Example:
-
-StackSet Operation Status Change event
+###### Example: StackSet Operation Status Change event
 
 The following is an example StackSet Operation Status Change event. The event
 details that CloudFormation has successfully completed the requested operation on
