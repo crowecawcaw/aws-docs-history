@@ -20,8 +20,10 @@ temporary security credentials must include a session token.
 
 ###### Session Mode
 
-Session mode defines the scope of the session. In your bucket policy, you can specify
-the `s3express:SessionMode` condition key to control who can create a
+Session mode defines the scope of the session. If the session mode is not specified in the CreateSession API request,
+the CreateSession action will attempt to create the session with the maximum allowable privilege, attempting `ReadWrite`
+first, then falling back to `ReadOnly` only if `ReadWrite` is not permitted by the policies. In your bucket
+policy, you can specify the `s3express:SessionMode` condition key to explicitly control who can create a
 `ReadWrite` or `ReadOnly` session. For more information about
 `ReadWrite` or `ReadOnly` sessions, see the
 `x-amz-create-session-mode` parameter for [CreateSession](../API/API_CreateSession.md "../API/API_CreateSession.md") in the _Amazon S3 API

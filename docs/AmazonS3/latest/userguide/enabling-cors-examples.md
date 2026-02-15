@@ -56,6 +56,11 @@ The following examples:
 - Deletes the configuration
 
 Java
+
+###### Example
+
+###### Example
+
 For instructions on how to create and test a working sample, see [Getting
 Started](../../../sdk-for-java/v1/developer-guide/getting-started.md "../../../sdk-for-java/v1/developer-guide/getting-started.md") in the AWS SDK for Java Developer Guide.
 
@@ -174,6 +179,9 @@ public class CORS {
 ```
 
 .NET
+
+###### Example
+
 For
 information about setting up and running the code examples, see [Getting Started
 with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer

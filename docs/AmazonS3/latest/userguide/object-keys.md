@@ -211,6 +211,8 @@ codes:
 - Newline (`\n`) must be replaced with `&#10;` or
   `&#x0A;`
 
+###### Example
+
 The following example illustrates the use of an XML entity code as a
 substitution for a carriage return. This `DeleteObjects` request
 deletes an object with the `key` parameter

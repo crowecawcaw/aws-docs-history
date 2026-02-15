@@ -96,7 +96,7 @@ Follow the steps to create and subscribe to an Amazon Simple Queue Service (Amaz
     "aws:SourceArn": "arn:aws:s3:*:*:`awsexamplebucket1`"
     },
     "StringEquals": {
-    "aws:SourceAccount": "`bucket-owner-account-id`"
+    "aws:SourceAccount": "`bucket-owner-123456789012`"
     }
     }
     }

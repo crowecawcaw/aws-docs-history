@@ -54,6 +54,8 @@ The following example sets `Status=Enabled` to enable Transfer Acceleration on
 a bucket named `amzn-s3-demo-bucket`. To suspend Transfer Acceleration, use
 `Status=Suspended`.
 
+###### Example
+
 ```
 `$` aws s3api put-bucket-accelerate-configuration --bucket `amzn-s3-demo-bucket` --accelerate-configuration Status=Enabled
 ```
@@ -77,6 +79,8 @@ in the _AWS CLI Command Reference_.
 
 The following example sets `use_accelerate_endpoint` to `true`
 in the default profile.
+
+###### Example
 
 ```
 `$` aws configure set default.s3.use_accelerate_endpoint true
@@ -102,6 +106,8 @@ The following example uploads a file to a bucket named
 `amzn-s3-demo-bucket` that's been enabled for Transfer Acceleration by using the
 default profile that has been configured to use the accelerate endpoint.
 
+###### Example
+
 ```
 `$` aws s3 cp `file.txt` s3://``amzn-s3-demo-bucket`/key-name` --region `region`
 ```
@@ -109,6 +115,8 @@ default profile that has been configured to use the accelerate endpoint.
 The following example uploads a file to a bucket enabled for Transfer Acceleration by
 using the `--endpoint-url` parameter to specify the accelerate
 endpoint.
+
+###### Example
 
 ```
 `$` aws configure set s3.addressing_style virtual
@@ -203,6 +211,8 @@ The following example shows how to use the AWS SDK for .NET to enable Transfer A
 on a bucket. For information about setting up and running the code examples, see
 [Getting Started with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
 Guide_.
+
+###### Example
 
 ```
 using Amazon;

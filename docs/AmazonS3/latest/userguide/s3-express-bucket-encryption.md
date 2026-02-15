@@ -48,7 +48,7 @@ For more information about default encryption, see [Setting default server-side 
 buckets](bucket-encryption.md "bucket-encryption.md"). For more information about using the AWS CLI to
 configure default encryption, see [put-bucket-encryption](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-encryption.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-encryption.html").
 
-###### Example – Default encryption with SSE-S3
+###### Example– Default encryption with SSE-S3
 
 This example configures default bucket encryption with Amazon S3 managed keys. To use the command, replace the `user input placeholders`
 with your own information.
@@ -65,7 +65,7 @@ aws s3api put-bucket-encryption --bucket `bucket-base-name`--`zone-id`--x-s3 --s
 }'
 ```
 
-###### Example – Default encryption with SSE-KMS using an S3 Bucket Key
+###### Example– Default encryption with SSE-KMS using an S3 Bucket Key
 
 This example configures default bucket encryption with SSE-KMS using an S3 Bucket Key. To use the command, replace the `user input placeholders`
 with your own information.

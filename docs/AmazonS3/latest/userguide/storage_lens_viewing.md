@@ -10,15 +10,18 @@ You can view a Amazon S3 Storage Lens dashboard from the Amazon S3 console, AWS 
 3. Choose **Dashboards**.
 4. From the **Dashboards** list, click on the dashboard that you want to
    view. You can now view the details of your Storage Lens dashboard.
-   The following example retrieves an S3 Storage Lens configuration so that you can view the configuration details. To use these
-   examples, replace the `user input placeholders` with
-   your own information.
+
+###### Example
+
+The following example retrieves an S3 Storage Lens configuration so that you can view the configuration details. To use these
+examples, replace the `user input placeholders` with
+your own information.
 
 ```
 aws s3control get-storage-lens-configuration --account-id=`222222222222` --config-id=`your-configuration-id` --region=`us-east-1`
 ```
 
-###### Example – Retrieve and view an S3 Storage Lens configuration
+###### Example– Retrieve and view an S3 Storage Lens configuration
 
 The following example shows you how to retrieve an S3 Storage Lens configuration in SDK for Java so that you can view the configuration details.
 To use this example, replace the `user input

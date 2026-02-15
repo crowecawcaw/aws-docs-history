@@ -122,7 +122,7 @@ permissions
 The following are examples of the IAM permissions that are necessary to use a
 Lambda function with S3 Batch Operations.
 
-###### Example — S3 Batch Operations trust policy
+###### Example— S3 Batch Operations trust policy
 
 The following is an example of the trust policy that you can use for the
 Batch Operations IAM role. This IAM role is specified when you create the job and
@@ -146,7 +146,7 @@ JSON
 
 ```
 
-###### Example — Lambda IAM policy
+###### Example— Lambda IAM policy
 
 The following is an example of an IAM policy that gives S3 Batch Operations
 permission to invoke the Lambda function and read the input manifest.

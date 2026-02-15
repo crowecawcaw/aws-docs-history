@@ -15,7 +15,7 @@ checksum values for every object.
 
 Completion reports are always encrypted with Amazon S3 managed keys (SSE-S3).
 
-###### Example — Top-level manifest result file
+###### Example— Top-level manifest result file
 
 The top-level `manifest.json` file contains the locations of each
 succeeded report and (if the job had any failures) the location of failed reports, as
@@ -68,7 +68,7 @@ _failed_ tasks:
 - `HTTPStatusCode`
 - `ResultMessage`
 
-###### Example — Lambda function task report
+###### Example— Lambda function task report
 
 In the following example, the Lambda function successfully copied the Amazon S3 object to
 another bucket. The returned Amazon S3 response is passed back to S3 Batch Operations and is then
@@ -95,7 +95,7 @@ causing failures to exceed the failure threshold. It is then marked as a
 
 ```
 
-###### Example — Compute checksum task report
+###### Example— Compute checksum task report
 
 In the following example, the **Compute checksum** operation successfully calculated the
 checksum for the uploaded object while at rest. The returned Amazon S3 response is

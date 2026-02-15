@@ -267,9 +267,7 @@ SHA-256 for file validation.
 
 Java
 
-###### Example: Uploading, downloading, and verifying a large file
-
-with SHA-256
+###### Example: Uploading, downloading, and verifying a large file with SHA-256
 
 For instructions on creating and testing a working sample, see
 [Getting Started](../../../sdk-for-java/v1/developer-guide/getting-started.md "../../../sdk-for-java/v1/developer-guide/getting-started.md") in the AWS SDK for Java Developer

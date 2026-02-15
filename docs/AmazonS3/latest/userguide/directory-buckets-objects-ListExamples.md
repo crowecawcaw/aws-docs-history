@@ -10,6 +10,9 @@ The following examples show how to list directory buckets by using the AWS Manag
    bucket properties, bucket permissions, metrics, access points associated with the bucket, or to manage the bucket, choose the bucket name.
 
 SDK for Java 2.x
+
+###### Example
+
 The following example lists directory buckets by using the AWS SDK for Java 2.x.
 
 ```
@@ -35,6 +38,9 @@ The following example lists directory buckets by using the AWS SDK for Java 2.x.
 ```
 
 SDK for Python
+
+###### Example
+
 The following example lists directory buckets by using the AWS SDK for Python (Boto3).
 
 ```
@@ -67,6 +73,9 @@ if __name__ == '__main__':
 ```
 
 SDK for .NET
+
+###### Example
+
 The following example lists directory buckets by using the AWS SDK for .NET.
 
 ```
@@ -79,6 +88,9 @@ var listDirectoryBuckets = await amazonS3Client.ListDirectoryBucketsAsync(new Li
 ```
 
 SDK for PHP
+
+###### Example
+
 The following example lists directory buckets by using the AWS SDK for PHP.
 
 ```
@@ -93,6 +105,9 @@ $result = $s3Client->listDirectoryBuckets();
 ```
 
 SDK for Ruby
+
+###### Example
+
 The following example lists directory buckets by using the AWS SDK for Ruby.
 
 ```

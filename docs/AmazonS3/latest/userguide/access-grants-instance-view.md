@@ -19,7 +19,7 @@ Amazon S3 console, the AWS Command Line Interface (AWS CLI), the Amazon S3 REST 
 To use the following example command, replace the `user input
  placeholders` with your own information.
 
-###### Example – Get the details of an S3 Access Grants instance
+###### Example– Get the details of an S3 Access Grants instance
 
 ```
 aws s3control get-access-grants-instance \
@@ -52,7 +52,7 @@ To use the following examples, replace the `user input
 
 Java
 
-###### Example – Get an S3 Access Grants instance
+###### Example– Get an S3 Access Grants instance
 
 ```
 public void getAccessGrantsInstance() {

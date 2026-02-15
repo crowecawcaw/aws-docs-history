@@ -24,6 +24,9 @@ Adding a new tag with the same key as an existing tag overwrites
 the previous tag value. 7. (Optional) If you want to remove a newly added entry, choose
 **Remove** next to the tag that you want to
 remove. 8. Choose **Save changes**.
+
+###### Example
+
 The following example command retrieves tags for a S3 Storage Lens dashboard configuration. To use these
 examples, replace the `user input placeholders` with
 your own information.
@@ -32,7 +35,7 @@ your own information.
 aws s3control get-storage-lens-configuration-tagging --account-id=`222222222222` --region=`us-east-1` --config-id=`your-configuration-id` --tags=`file://./tags.json`
 ```
 
-###### Example – Get tags for an S3 Storage Lens dashboard configuration
+###### Example– Get tags for an S3 Storage Lens dashboard configuration
 
 The following example shows you how to retrieve tags for an S3 Storage Lens
 dashboard configuration in SDK for Java. To use this example, replace the

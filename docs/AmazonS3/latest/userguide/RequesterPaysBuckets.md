@@ -28,7 +28,7 @@ _IAM User Guide_.
 
 After you configure a bucket to be a Requester Pays bucket, requesters must show they understand that they will be charged for the request and for the data download. To show they accept the charges, requesters must either include `x-amz-request-payer` as a header in their API request for DELETE, GET, HEAD, POST, and PUT requests, or add the `RequestPayer` parameter in their REST request. For CLI requests, requesters can use the `--request-payer` parameter.
 
-###### Example – Using Requester Pays when deleting an object
+###### Example– Using Requester Pays when deleting an object
 
 To use the following [DeleteObjectVersion](../API/API_DeleteObject.md "../API/API_DeleteObject.md") API example, replace the `user input placeholders` with your own information.
 

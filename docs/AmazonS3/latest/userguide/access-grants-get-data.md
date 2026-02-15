@@ -16,7 +16,7 @@ AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/
 To use the following example commands, replace the `user input
  placeholders` with your own information.
 
-###### Example – Set up a profile
+###### Example– Set up a profile
 
 ```
 aws configure set aws_access_key_id "`$accessKey`" --profile `access-grants-consumer-access-profile`
@@ -27,7 +27,7 @@ aws configure set aws_session_token "`$sessionToken`" --profile `access-grants-c
 To use the following example command, replace the `user input
  placeholders` with your own information.
 
-###### Example – Get the S3 data
+###### Example– Get the S3 data
 
 The grantee can use the [get-object](../../../cli/latest/reference/s3api/get-object.md "../../../cli/latest/reference/s3api/get-object.md") AWS CLI command to access the data. The
 grantee can also use [put-object](../../../cli/latest/reference/s3api/put-object.md "../../../cli/latest/reference/s3api/put-object.md"), [ls](../../../cli/latest/reference/s3/ls.md "../../../cli/latest/reference/s3/ls.md"), and other

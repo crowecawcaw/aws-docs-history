@@ -305,6 +305,8 @@ When AWS services make calls to other AWS services on your behalf (service-to-se
 
 This policy denies access to S3 operations when HTTPS is not used (`aws:SecureTransport` is false), but only for non-AWS service principals. This ensures your conditional restrictions apply to all principals except AWS service principals.
 
+###### Example
+
 The following example bucket policy _denies_
 `PutObject` requests by clients that have a TLS version earlier than
 1.2, for example, 1.1 or 1.0. To use this example policy, replace the
@@ -335,6 +337,8 @@ JSON
 }`
 
 ```
+
+###### Example
 
 The following example bucket policy _allows_
 `PutObject` requests by clients that have a TLS version later than

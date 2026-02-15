@@ -15,7 +15,7 @@ To use the following examples, replace the `user input
 The following AWS CLI examples show how to use Batch Operations to apply
 S3 Object Lock retention compliance mode across multiple objects.
 
-###### Example — Set S3 Object Lock retention compliance mode across multiple
+###### Example— Set S3 Object Lock retention compliance mode across multiple
 
 objects
 
@@ -75,7 +75,7 @@ aws \
     --description "`Set compliance retain-until to 1 Jul 2030`";
 ```
 
-###### Example — Extend the `COMPLIANCE` mode's `retain until
+###### Example— Extend the `COMPLIANCE` mode's `retain until
 
 date` to January 15, 2025
 

@@ -171,7 +171,7 @@ access logs, such as `bucketowner`, `bucket`,
 `requestdatetime`, and so on. This means that you successfully created
 the Athena table. You can now query the Amazon S3 server access logs.
 
-###### Example — Show who deleted an object and when (timestamp, IP address, and
+###### Example— Show who deleted an object and when (timestamp, IP address, and
 
 IAM user)
 
@@ -181,7 +181,7 @@ FROM `s3_access_logs_db.mybucket_logs`
 WHERE key = '`images/picture.jpg`' AND operation like '%DELETE%';
 ```
 
-###### Example — Show all operations that were performed by an IAM user
+###### Example— Show all operations that were performed by an IAM user
 
 ```
 SELECT *
@@ -189,7 +189,7 @@ FROM `s3_access_logs_db.mybucket_logs`
 WHERE requester='arn:aws:iam::`123456789123`:user/`user_name`';
 ```
 
-###### Example — Show all operations that were performed on an object in a specific time
+###### Example— Show all operations that were performed on an object in a specific time
 
 period
 
@@ -202,7 +202,7 @@ BETWEEN parse_datetime('`2017-02-18:07:00:00`','yyyy-MM-dd:HH:mm:ss')
 AND parse_datetime('`2017-02-18:08:00:00`','yyyy-MM-dd:HH:mm:ss');
 ```
 
-###### Example — Show how much data was transferred to a specific IP address in a specific
+###### Example— Show how much data was transferred to a specific IP address in a specific
 
 time period
 
@@ -215,7 +215,7 @@ BETWEEN parse_datetime('`2022-06-01`','yyyy-MM-dd')
 AND parse_datetime('`2022-07-01`','yyyy-MM-dd');
 ```
 
-###### Example — Find request IDs for HTTP 5xx errors in a specific time period
+###### Example— Find request IDs for HTTP 5xx errors in a specific time period
 
 ```
 SELECT requestdatetime, key, httpstatus, errorcode, requestid, hostid
@@ -249,7 +249,7 @@ events instead of Amazon S3 server access logs. CloudTrail data events are easie
 contain more information than server access logs. For more information, see [Identifying Amazon S3
 Signature Version 2 requests by using CloudTrail](cloudtrail-request-identification.md#cloudtrail-identification-sigv2-requests "cloudtrail-request-identification.md#cloudtrail-identification-sigv2-requests").
 
-###### Example — Show all requesters that are sending Signature Version 2 traffic
+###### Example— Show all requesters that are sending Signature Version 2 traffic
 
 ```
 SELECT requester, sigv, Count(sigv) as sigcount
@@ -268,7 +268,7 @@ discover further information about those requests.
 The following Amazon Athena query example shows how to get all `PUT` object
 requests for Amazon S3 from a server access log.
 
-###### Example — Show all requesters that are sending `PUT` object requests in a
+###### Example— Show all requesters that are sending `PUT` object requests in a
 
 certain period
 
@@ -284,7 +284,7 @@ AND parse_datetime(`'2019-07-02:00:42:42'`,'yyyy-MM-dd:HH:mm:ss')
 The following Amazon Athena query example shows how to get all `GET` object
 requests for Amazon S3 from the server access log.
 
-###### Example — Show all requesters that are sending `GET` object requests in a
+###### Example— Show all requesters that are sending `GET` object requests in a
 
 certain period
 
@@ -300,7 +300,7 @@ AND parse_datetime(`'2019-07-02:00:42:42'`,'yyyy-MM-dd:HH:mm:ss')
 The following Amazon Athena query example shows how to get all anonymous requests to your S3
 buckets from the server access log.
 
-###### Example — Show all anonymous requesters that are making requests to a bucket during a
+###### Example— Show all anonymous requesters that are making requests to a bucket during a
 
 certain period
 
@@ -320,7 +320,7 @@ you've created these bucket policies, you can disable ACLs for these buckets. Fo
 information about disabling ACLs, see [Prerequisites for
 disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md").
 
-###### Example — Identify all requests that required an ACL for authorization
+###### Example— Identify all requests that required an ACL for authorization
 
 ```
 SELECT bucket_name, requester, key, operation, aclrequired, requestdatetime

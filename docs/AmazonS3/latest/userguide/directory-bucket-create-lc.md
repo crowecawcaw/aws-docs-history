@@ -22,6 +22,8 @@ To use this example, replace each `user input placeholder` with your own informa
 
 Save the lifecycle configuration policy to a JSON file. In this example, the file is named lifecycle1.json.
 
+###### Example
+
 JSON
 
 ```
@@ -52,6 +54,8 @@ Submit the JSON file as part of the `put-bucket-lifecycle-configuration` CLI com
 aws s3api put-bucket-lifecycle-configuration --region `us-west-2` --profile default --bucket `amzn-s3-demo-bucket--usw2-az1--x-s3` --lifecycle-configuration file:`//lc-policy.json` --checksum-algorithm `crc32c`
 ```
 
+###### Example
+
 XML
 
 ```
@@ -74,6 +78,8 @@ XML
 ```
 
 SDK for Java
+
+###### Example
 
 ```
 import software.amazon.awssdk.services.s3.model.PutBucketLifecycleConfigurationRequest;
@@ -122,6 +128,8 @@ DeleteBucketLifecycleResponse delResp = client.deleteBucketLifecycle(DeleteBucke
 ```
 
 SDK for Go
+
+###### Example
 
 ```
 package main
@@ -207,6 +215,8 @@ func main() {
 ```
 
 SDK for .NET
+
+###### Example
 
 ```
 using Amazon;
@@ -343,6 +353,8 @@ namespace Amazon.DocSamples.S3
 ```
 
 SDK for Python
+
+###### Example
 
 ```
 import boto3

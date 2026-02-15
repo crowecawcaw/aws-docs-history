@@ -40,13 +40,16 @@ organization so that they too can create S3 Storage Lens dashboards.
    **Edit**.
 
 The **AWS Organizations access** page displays. 5. Choose **Enable** to enable trusted access for your S3 Storage Lens dashboard. 6. Choose **Save changes**.
+
+###### Example
+
 The following example shows you how to enable AWS Organizations trusted access for S3 Storage Lens in AWS CLI.
 
 ```
 aws organizations enable-aws-service-access --service-principal storage-lens.s3.amazonaws.com
 ```
 
-###### Example – Enable AWS Organizations trusted access for S3 Storage Lens using SDK for Java
+###### Example– Enable AWS Organizations trusted access for S3 Storage Lens using SDK for Java
 
 The following example shows you how to enable trusted access for S3 Storage Lens in SDK for Java.
 To use this example, replace the `user input

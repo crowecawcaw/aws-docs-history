@@ -315,6 +315,8 @@ Running the `create-role` command returns the policy:
 
 ```
 
+###### Example
+
 Create an IAM policy to attach Amazon S3 permissions to the IAM role. See the
 following example `iam-policy.json` file and replace the
 `user input placeholders` with your
@@ -418,6 +420,8 @@ JSON
 }`
 
 ```
+
+###### Example
 
 Run the following command:
 

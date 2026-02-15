@@ -24,6 +24,8 @@ AWS SDK for Java.
    `user input placeholders` with
    your own information.
 
+###### Example
+
 ```
 aws s3control delete-storage-lens-configuration-tagging --account-id=`222222222222` --config-id=`your-configuration-id` --region=`us-east-1`
 ```
@@ -34,7 +36,7 @@ Storage Lens dashboard using the Amazon Resource Name (ARN) that you specify in 
 this example, replace the `user input
  placeholders` with your own information.
 
-###### Example – Delete tags for an S3 Storage Lens dashboard configuration
+###### Example– Delete tags for an S3 Storage Lens dashboard configuration
 
 ```
 package aws.example.s3control;

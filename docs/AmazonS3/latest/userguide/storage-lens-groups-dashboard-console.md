@@ -76,7 +76,7 @@ account**. 8. Choose **Save changes**.
 It will take up to 48 hours for your dashboard to reflect the configuration
 updates.
 
-###### Example – Attach all Storage Lens groups to a dashboard
+###### Example– Attach all Storage Lens groups to a dashboard
 
 The following SDK for Java example attaches all Storage Lens groups in the account `111122223333` to the `DashBoardConfigurationId` dashboard:
 
@@ -137,7 +137,7 @@ public class CreateDashboardWithStorageLensGroups {
 }
 ```
 
-###### Example – Attach two Storage Lens groups to a dashboard
+###### Example– Attach two Storage Lens groups to a dashboard
 
 The following AWS SDK for Java example attaches two Storage Lens groups
 (`StorageLensGroupName1` and
@@ -210,7 +210,7 @@ public class CreateDashboardWith2StorageLensGroups {
 }
 ```
 
-###### Example – Attach all Storage Lens groups with exclusions
+###### Example– Attach all Storage Lens groups with exclusions
 
 The following SDK for Java example attaches all Storage Lens groups to the
 `ExampleDashboardConfigurationId` dashboard, excluding the two specified

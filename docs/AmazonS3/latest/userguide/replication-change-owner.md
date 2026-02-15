@@ -300,7 +300,7 @@ Make sure to replace the ``user input
     {
     "Sid": "`destination_bucket_policy_sid`",
     "Principal": {
-    "AWS": "`source-bucket-owner-account-id`"
+    "AWS": "`source-bucket-owner-123456789012`"
     },
     "Action": [
     "s3:ReplicateObject",

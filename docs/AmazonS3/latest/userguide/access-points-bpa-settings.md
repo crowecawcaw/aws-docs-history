@@ -17,8 +17,11 @@ storage](access-control-block-public-access.md "access-control-block-public-acce
 - You can not turn off any block public access settings when creating or using an
   access point attached to an Amazon FSx file system.
 - After you create an access point, you can't change its block public access settings.
-  **_Example: Create an access point with
-  Custom Block Public Access Settings_**
+
+###### Example
+
+**_Example: Create an access point with
+Custom Block Public Access Settings_**
 
 This example creates an access point named `example-ap` for bucket
 `amzn-s3-demo-bucket` in account `123456789012` with

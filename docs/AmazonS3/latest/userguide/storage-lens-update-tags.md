@@ -21,6 +21,9 @@ Adding a new tag with the same key as an existing tag overwrites
 the previous tag value. 7. (Optional) If you want to remove a newly added entry, choose
 **Remove** next to the tag that you want to
 remove. 8. Choose **Save changes**.
+
+###### Example
+
 The following example command adds or replaces tags on an existing Amazon S3 Storage Lens dashboard configuration. To use these
 examples, replace the `user input placeholders` with
 your own information.
@@ -33,7 +36,7 @@ The following AWS SDK for Java example updates the AWS resource tags on an exist
 use this example, replace the `user input
  placeholders` with your own information.
 
-###### Example – Update tags on an existing Storage Lens dashboard configuration
+###### Example– Update tags on an existing Storage Lens dashboard configuration
 
 ```
 package aws.example.s3control;

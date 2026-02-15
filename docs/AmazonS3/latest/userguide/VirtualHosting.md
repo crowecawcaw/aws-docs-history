@@ -130,7 +130,7 @@ specify the bucket for the request by using the HTTP `Host` header. The
 
 This section provides example URLs and requests.
 
-###### Example – Path-style URLs and requests
+###### Example– Path-style URLs and requests
 
 This example uses the following:
 
@@ -160,7 +160,7 @@ GET /example.com/homepage.html HTTP/1.0
 For information about DNS-compatible names, see [Limitations](#VirtualHostingLimitations "#VirtualHostingLimitations"). For more information about
 keys, see [Keys](Welcome.md#BasicsKeys "Welcome.md#BasicsKeys").
 
-###### Example – Virtual-hosted–style URLs and requests
+###### Example– Virtual-hosted–style URLs and requests
 
 This example uses the following:
 
@@ -182,7 +182,7 @@ GET /homepage.html HTTP/1.1
 Host: amzn-s3-demo-bucket1.s3.eu-west-1.amazonaws.com
 ```
 
-###### Example – CNAME alias method
+###### Example– CNAME alias method
 
 To use this method, you must configure your DNS name as a CNAME alias for
 ``bucket-name`.s3.us-east-1.amazonaws.com`.
@@ -246,6 +246,8 @@ must be the same. For example, suppose that you have configured
 `www.example.com.s3.us-east-1.amazonaws.com`. When you access
 `http://www.example.com`, Amazon S3 receives a request similar to
 the following:
+
+###### Example
 
 ```
 GET / HTTP/1.1

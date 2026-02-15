@@ -71,7 +71,7 @@ ACLs are less relevant for policies because they grant ACL-related permissions
 (`s3:GetBucketAcl`, `s3:GetObjectAcl`,
 `s3:PutBucketAcl`, and `s3:PutObjectAcl`).
 
-###### Example – `READ` ACL for a bucket
+###### Example– `READ` ACL for a bucket
 
 If your bucket had a `READ` ACL that grants AWS account
 `111122223333`
@@ -106,7 +106,7 @@ JSON
 
 ```
 
-###### Example – `READ` ACLs for every object in a bucket
+###### Example– `READ` ACLs for every object in a bucket
 
 If every object in your bucket has a `READ` ACL that grants access to
 AWS account `111122223333`,
@@ -145,7 +145,7 @@ This example resource element grants access to a specific object.
 "Resource": "arn:aws:s3:::``amzn-s3-demo-bucket``/`OBJECT-KEY`"
 ```
 
-###### Example – `WRITE` ACL that grants permissions to write objects to a
+###### Example– `WRITE` ACL that grants permissions to write objects to a
 
 bucket
 

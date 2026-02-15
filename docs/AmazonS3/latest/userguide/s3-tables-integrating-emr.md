@@ -32,6 +32,8 @@ Amazon S3 Tables Catalog for Apache Iceberg
 The following prerequisites are required to query tables with Spark
 on Amazon EMR using the Amazon S3 Tables Catalog for Apache Iceberg.
 
+For the latest version of the client catalog JAR, see the [s3-tables-catalog GitHub repository](https://github.com/awslabs/s3-tables-catalog "https://github.com/awslabs/s3-tables-catalog").
+
 ###### Prerequisites
 
 - Attach the `AmazonS3TablesFullAccess` policy to the
@@ -76,7 +78,7 @@ InstanceProfile=`EMR_EC2_DefaultRole`,SubnetId=`subnet-1234567890abcdef0`,KeyNam
 
 ```
 spark-shell \
---packages software.amazon.s3tables:s3-tables-catalog-for-iceberg-runtime:0.1.3 \
+--packages software.amazon.s3tables:s3-tables-catalog-for-iceberg-runtime:0.1.8 \
 --conf spark.sql.catalog.s3tablesbucket=org.apache.iceberg.spark.SparkCatalog \
 --conf spark.sql.catalog.s3tablesbucket.catalog-impl=software.amazon.s3tables.iceberg.S3TablesCatalog \
 --conf spark.sql.catalog.s3tablesbucket.warehouse=arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/`amzn-s3-demo-bucket1` \

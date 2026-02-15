@@ -75,7 +75,7 @@ The following AWS SDK for Java example creates a Storage Lens group. To use this
 example, replace the `user input placeholders`
 with your own information.
 
-###### Example – Create a Storage Lens group with a single
+###### Example– Create a Storage Lens group with a single
 
 filter
 
@@ -140,7 +140,7 @@ public class CreateStorageLensGroupWithObjectAge {
 }
 ```
 
-###### Example – Create a Storage Lens group with an
+###### Example– Create a Storage Lens group with an
 
 `AND` operator that includes multiple filters
 
@@ -226,7 +226,7 @@ public class CreateStorageLensGroupWithAndFilter {
 }
 ```
 
-###### Example – Create a Storage Lens group with an `OR`
+###### Example– Create a Storage Lens group with an `OR`
 
 operator that includes multiple filters
 
@@ -300,7 +300,7 @@ public class CreateStorageLensGroupWithOrFilter {
 }
 ```
 
-###### Example – Create a Storage Lens group with a single filter
+###### Example– Create a Storage Lens group with a single filter
 
 and two AWS resource tags
 

@@ -158,6 +158,9 @@ namespace Amazon.DocSamples.S3
 ```
 
 JavaScript
+
+###### Example
+
 Upload a large file.
 
 ```
@@ -214,6 +217,8 @@ export const main = async ({ bucketName, key }) => {
 
 
 ```
+
+###### Example
 
 Download a large file.
 
@@ -302,6 +307,8 @@ Go
 For more information about the Go code example for multipart upload, see [Upload or download large files to and
 from Amazon S3 using an AWS SDK](../API/s3_example_s3_Scenario_UsingLargeFiles_section.md "../API/s3_example_s3_Scenario_UsingLargeFiles_section.md").
 
+###### Example
+
 Upload a large object by using an upload manager to break
 the data into parts and upload them concurrently.
 
@@ -372,6 +379,8 @@ func (basics BucketBasics) UploadLargeObject(ctx context.Context, bucketName str
 
 
 ```
+
+###### Example
 
 Download a large object by using a download manager to get
 the data in parts and download them concurrently.
@@ -677,6 +686,8 @@ following steps:
   values to complete the multipart upload.
 - Calls the `AmazonS3Client.completeMultipartUpload()` method to complete the
   multipart upload.
+
+###### Example
 
 For instructions on creating and testing a working sample, see [Getting
 Started](../../../sdk-for-java/v1/developer-guide/getting-started.md "../../../sdk-for-java/v1/developer-guide/getting-started.md") in the AWS SDK for Java Developer Guide.

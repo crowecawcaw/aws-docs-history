@@ -36,12 +36,14 @@ lifecycle principal, this will prevent you from allowing S3 Lifecycle to delete 
 
 ### Using a bucket policy to Grant permissions to the S3 Lifecycle service principal
 
-The following bucket policy grants permission to allow CreateSession calls with the
-default `ReadWrite` session and allows the lifecycle service principal.
+The following bucket policy grants the S3 Lifecycle service principal permission to create sessions for performing operations such as
+`DeleteObject` and `DeleteObjects`. When no session mode is specified in a `CreateSession` request,
+the session is created with the maximum allowable privilege by the permissions in (attempting `ReadWrite` first, then `ReadOnly`
+if `ReadWrite` is not permitted). However, `ReadOnly` sessions are insufficient for lifecycle operations that modify
+or delete objects. Therefore, this example explicitly requires a `ReadWrite` session mode by using the
+`s3express:SessionMode` condition key.
 
-###### Example – Bucket policy to allow `CreateSession` calls with the default
-
-`ReadWrite` session
+###### Example– Bucket policy to allow `CreateSession` calls with an explicit `ReadWrite` session mode for lifecycle operations
 
 ```
 

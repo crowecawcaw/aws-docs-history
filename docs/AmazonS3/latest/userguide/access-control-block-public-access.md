@@ -239,7 +239,7 @@ For more information about bucket policies, see [Bucket policies for Amazon S3](
 When using [multivalued context keys](../../../IAM/latest/UserGuide/reference_policies_condition-single-vs-multi-valued-context-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-single-vs-multi-valued-context-keys.md"), you must use the `ForAllValues` or
 `ForAnyValue` set operators.
 
-###### Example : Public bucket policies
+###### Example: Public bucket policies
 
 Under these rules, the following example policies are considered
 public.

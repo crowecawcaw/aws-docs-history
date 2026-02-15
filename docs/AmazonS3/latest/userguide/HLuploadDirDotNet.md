@@ -15,6 +15,8 @@ resulting objects. Amazon S3 constructs the key names using the original file pa
 example, assume that you have a directory called `c:\myfolder` with the
 following structure:
 
+###### Example
+
 ```
 C:\myfolder
       \a.txt
@@ -25,11 +27,15 @@ C:\myfolder
 
 When you upload this directory, Amazon S3 uses the following key names:
 
+###### Example
+
 ```
 a.txt
 b.pdf
 media/An.mp3
 ```
+
+###### Example
 
 The following C# example uploads a directory to an Amazon S3 bucket. It shows how to
 use various `TransferUtility.UploadDirectory` overloads to upload the

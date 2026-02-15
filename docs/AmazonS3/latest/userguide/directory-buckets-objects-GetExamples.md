@@ -6,6 +6,9 @@ The following code examples show how to read data from (download) an object in a
 directory bucket by using the `GetObject` API operation.
 
 SDK for Java 2.x
+
+###### Example
+
 The following code example shows how to read data from an object in a directory bucket
 by using the AWS SDK for Java 2.x.
 
@@ -34,6 +37,9 @@ public static void getObject(S3Client s3Client, String bucketName, String object
 ```
 
 SDK for Python
+
+###### Example
+
 The following code example shows how to read data from an object in a directory bucket
 by using the AWS SDK for Python (Boto3).
 

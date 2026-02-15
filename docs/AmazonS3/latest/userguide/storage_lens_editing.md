@@ -202,6 +202,8 @@ you want exported daily:
    updated dashboard configuration listed under your Storage Lens
    **Dashboard** page.
 
+###### Example
+
 The following example command updates a Amazon S3 Storage Lens dashboard configuration. To use
 these examples, replace the `user input
  placeholders` with your own information.
@@ -210,7 +212,7 @@ these examples, replace the `user input
 aws s3control put-storage-lens-configuration --account-id=`111122223333` --config-id=`example-dashboard-configuration-id` --region=`us-east-1` --storage-lens-configuration=`file://./config.json` --tags=`file://./tags.json`
 ```
 
-###### Example – Update a Amazon S3 Storage Lens configuration with advanced metrics and recommendations
+###### Example– Update a Amazon S3 Storage Lens configuration with advanced metrics and recommendations
 
 The following examples shows you how to update the default S3 Storage Lens configuration with
 advanced metrics and recommendations in SDK for Java:

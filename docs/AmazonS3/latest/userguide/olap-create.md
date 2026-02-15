@@ -162,6 +162,8 @@ information about prebuilt functions, see [Using AWS built Lambda functions](ola
    you created in the previous steps or the ARN for the prebuilt function that you're
    using.
 
+###### Example
+
 ```
 {
     "SupportingAccessPoint" : "arn:aws:s3:`us-east-1`:`111122223333`:accesspoint/`example-ap`",
@@ -192,6 +194,8 @@ resource, user, or other conditions. This resource policy grants the
 `GetObject` permission for account
 `444455556666` to the
 specified Object Lambda Access Point.
+
+###### Example
 
 ```
 {

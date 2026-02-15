@@ -28,13 +28,16 @@ are created are also no longer updated. Instead, you're only able to query [hist
    **Edit**.
 
 The **AWS Organizations access** page displays. 5. Choose **Disable** to disable trusted access for your S3 Storage Lens dashboard. 6. Choose **Save changes**.
+
+###### Example
+
 The following example disables trusted access for S3 Storage Lens using the AWS CLI.
 
 ```
 aws organizations disable-aws-service-access --service-principal storage-lens.s3.amazonaws.com
 ```
 
-###### Example – Disable AWS Organizations trusted access for S3 Storage Lens
+###### Example– Disable AWS Organizations trusted access for S3 Storage Lens
 
 The following example shows you how to disable AWS Organizations trusted access for S3 Storage Lens in SDK for Java.
 To use this example, replace the `user input

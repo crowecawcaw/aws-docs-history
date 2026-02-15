@@ -192,6 +192,8 @@ create your dashboard.
    After you've successfully created your new Storage Lens dashboard, you can view your new
    dashboard listed under your Storage Lens **Dashboard** page.
 
+###### Example
+
 The following example command creates a Amazon S3 Storage Lens configuration with tags. To use
 these examples, replace the `user input
  placeholders` with your own information.
@@ -199,6 +201,8 @@ these examples, replace the `user input
 ```
 aws s3control put-storage-lens-configuration --account-id=`111122223333` --config-id=`example-dashboard-configuration-id` --region=`us-east-1` --storage-lens-configuration=`file://./config.json` --tags=`file://./tags.json`
 ```
+
+###### Example
 
 The following example command creates a Amazon S3 Storage Lens configuration without tags. To
 use these examples, replace the `user input
@@ -208,7 +212,7 @@ use these examples, replace the `user input
 aws s3control put-storage-lens-configuration --account-id=`222222222222` --config-id=`your-configuration-id` --region=`us-east-1` --storage-lens-configuration=`file://./config.json`
 ```
 
-###### Example – Create and update an Amazon S3 Storage Lens configuration
+###### Example– Create and update an Amazon S3 Storage Lens configuration
 
 The following example creates and updates an Amazon S3 Storage Lens configuration in
 SDK for Java:

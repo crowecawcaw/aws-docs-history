@@ -88,25 +88,25 @@ configuration for all the objects in your bucket](configure-request-metrics-buck
 2. Open a terminal.
 3. To add a metrics configuration, run one of the following commands:
 
-###### Example : To filter by prefix
+###### Example: To filter by prefix
 
 ```
 aws s3api put-bucket-metrics-configuration --bucket ``amzn-s3-demo-bucket`` --id `metrics-config-id` --metrics-configuration '{"Id":"`metrics-config-id`", "Filter":{"Prefix":"`prefix1`"}} '
 ```
 
-###### Example : To filter by tags
+###### Example: To filter by tags
 
 ```
 aws s3api put-bucket-metrics-configuration --bucket ``amzn-s3-demo-bucket`` --id `metrics-config-id` --metrics-configuration '{"Id":"`metrics-config-id`", "Filter":{"Tag": {"Key": "`string`", "Value": "`string`"}} '
 ```
 
-###### Example : To filter by access point
+###### Example: To filter by access point
 
 ```
 aws s3api put-bucket-metrics-configuration --bucket ``amzn-s3-demo-bucket`` --id `metrics-config-id` --metrics-configuration '{"Id":"`metrics-config-id`", "Filter":{"AccessPointArn":"arn:aws:s3:`Region`:`account-id`:accesspoint/`access-point-name`"}} '
 ```
 
-###### Example : To filter by prefix, tags, and access point
+###### Example: To filter by prefix, tags, and access point
 
 ```
 aws s3api put-bucket-metrics-configuration --endpoint https://s3.`Region`.amazonaws.com --bucket ``amzn-s3-demo-bucket`` --id `metrics-config-id` --metrics-configuration '

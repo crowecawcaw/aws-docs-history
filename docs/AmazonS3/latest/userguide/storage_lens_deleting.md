@@ -24,15 +24,18 @@ dashboard that you've created, consider the following:
 4. On the **Delete dashboards** page, confirm that you want to delete the
    dashboard by entering the name of dashboard in the text field. Then choose
    **Confirm**.
-   The following example deletes a S3 Storage Lens configuration. To use these
-   examples, replace the `user input placeholders` with
-   your own information.
+
+###### Example
+
+The following example deletes a S3 Storage Lens configuration. To use these
+examples, replace the `user input placeholders` with
+your own information.
 
 ```
 aws s3control delete-storage-lens-configuration --account-id=`222222222222` --region=`us-east-1` --config-id=`your-configuration-id`
 ```
 
-###### Example – Delete an Amazon S3 Storage Lens dashboard configuration
+###### Example– Delete an Amazon S3 Storage Lens dashboard configuration
 
 The following example shows you how to delete an S3 Storage Lens configuration using SDK for Java:
 

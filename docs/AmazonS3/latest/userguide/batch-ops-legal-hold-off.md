@@ -16,7 +16,7 @@ To use the following examples, replace the `user input
 The following AWS CLI examples show how to use Batch Operations to turn off
 S3 Object Lock legal holds across multiple objects.
 
-###### Example — Updates the role to grant `s3:PutObjectLegalHold`
+###### Example— Updates the role to grant `s3:PutObjectLegalHold`
 
 permissions
 
@@ -43,7 +43,7 @@ EOF
 aws iam put-role-policy --role-name `batch_operations-objectlock` --policy-name `legal-hold-permissions` --policy-document "${`legal_hold_permissions`}"
 ```
 
-###### Example — Turn off legal hold
+###### Example— Turn off legal hold
 
 The following example turns off legal hold.
 

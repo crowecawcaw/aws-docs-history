@@ -8,13 +8,12 @@ information.
 
 The following example bucket policy allows AWS account ID
 `111122223333` to use the
-`CreateSession` API operation with the default `ReadWrite` session
-for the specified directory bucket. This policy grants access to the Zonal endpoint (object
-level) API operations.
+`CreateSession` API operation for the specified directory bucket. When no session
+mode is specified, the session will be created with the maximum allowable privilege
+(attempting `ReadWrite` first, then `ReadOnly` if not permitted).
+This policy grants access to the Zonal endpoint (object level) API operations.
 
-###### Example – Bucket policy to allow `CreateSession` calls with the default
-
-`ReadWrite` session
+###### Example– Bucket policy to allow `CreateSession` calls
 
 JSON
 
@@ -40,7 +39,7 @@ JSON
 
 ```
 
-###### Example – Bucket policy to allow `CreateSession` calls with a
+###### Example– Bucket policy to allow `CreateSession` calls with a
 
 `ReadOnly` session
 
@@ -75,7 +74,7 @@ JSON
 
 ```
 
-###### Example – Bucket policy to allow cross-account access for `CreateSession`
+###### Example– Bucket policy to allow cross-account access for `CreateSession`
 
 calls
 

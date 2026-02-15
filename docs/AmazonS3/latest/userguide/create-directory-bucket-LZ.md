@@ -121,6 +121,8 @@ SDK for Go
 This example shows how to create a directory bucket in a Local Zone by
 using the AWS SDK for Go.
 
+###### Example
+
 ```
 var bucket = "`bucket-base-name`--`zone-id`--x-s3" // The full directory bucket name
 
@@ -156,6 +158,8 @@ SDK for Java 2.x
 This example shows how to create a directory bucket in a Local Zone by
 using the AWS SDK for Java 2.x.
 
+###### Example
+
 ```
 public static void createBucket(S3Client s3Client, String bucketName) {
 
@@ -190,6 +194,8 @@ AWS SDK for JavaScript
 This example shows how to create a directory bucket in a Local Zone by
 using the AWS SDK for JavaScript.
 
+###### Example
+
 ```
 // file.mjs, run with Node.js v16 or higher
 // To use with the preview build, place this in a folder
@@ -217,6 +223,8 @@ SDK for .NET
 This example shows how to create a directory bucket in a Local Zone by
 using the SDK for .NET.
 
+###### Example
+
 ```
 using (var amazonS3Client = new AmazonS3Client())
 {
@@ -236,6 +244,8 @@ using (var amazonS3Client = new AmazonS3Client())
 SDK for PHP
 This example shows how to create a directory bucket in a Local Zone by
 using the AWS SDK for PHP.
+
+###### Example
 
 ```
 require 'vendor/autoload.php';
@@ -257,6 +267,8 @@ $result = $s3Client->createBucket([
 SDK for Python
 This example shows how to create a directory bucket in a Local Zone by
 using the AWS SDK for Python (Boto3).
+
+###### Example
 
 ```
 import logging
@@ -305,6 +317,8 @@ if __name__ == '__main__':
 SDK for Ruby
 This example shows how to create an directory bucket in a Local Zone by
 using the AWS SDK for Ruby.
+
+###### Example
 
 ```
 s3 = Aws::S3::Client.new(region:'`parent-region-code`')

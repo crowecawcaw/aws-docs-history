@@ -30,6 +30,7 @@ S3 Access Grants is currently available in the following AWS Regions:
 | `us-west-2`      | US West (Oregon)          |
 | `af-south-1`     | Africa (Cape Town)        |
 | `ap-east-1`      | Asia Pacific (Hong Kong)  |
+| `ap-east-2`      | Asia Pacific (Taipei)     |
 | `ap-northeast-1` | Asia Pacific (Tokyo)      |
 | `ap-northeast-2` | Asia Pacific (Seoul)      |
 | `ap-northeast-3` | Asia Pacific (Osaka)      |

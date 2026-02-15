@@ -34,7 +34,7 @@ identities](access-grants-directory-ids.md "access-grants-directory-ids.md").
 To use the following example command, replace the `user input
  placeholders` with your own information.
 
-###### Example – Associate an IAM Identity Center instance with an S3 Access Grants instance
+###### Example– Associate an IAM Identity Center instance with an S3 Access Grants instance
 
 ```
 aws s3control associate-access-grants-identity-center \
@@ -47,7 +47,7 @@ aws s3control associate-access-grants-identity-center \
 
 ```
 
-###### Example – Disassociate an IAM Identity Center instance from an S3 Access Grants instance
+###### Example– Disassociate an IAM Identity Center instance from an S3 Access Grants instance
 
 ```
 aws s3control dissociate-access-grants-identity-center \

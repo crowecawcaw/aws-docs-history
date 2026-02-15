@@ -34,7 +34,7 @@ You can delete a location in your S3 Access Grants instance by using the Amazon 
 To use the following example command, replace the `user input
  placeholders` with your own information.
 
-###### Example – Delete a location registration
+###### Example– Delete a location registration
 
 ```
 aws s3control delete-access-grants-location \
@@ -55,7 +55,7 @@ To use the following example, replace the `user input
 
 Java
 
-###### Example – Delete a location registration
+###### Example– Delete a location registration
 
 ```
 public void deleteAccessGrantsLocation() {

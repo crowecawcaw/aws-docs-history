@@ -318,6 +318,8 @@ When using the AWS SDK for Java v2, you can create a general purpose bucket with
 For information about how to create and test a working sample, see the [AWS SDK for .NET Version 3 API
 Reference](../../../sdkfornet/v3/apidocs/Index.md "../../../sdkfornet/v3/apidocs/Index.md").
 
+###### Example
+
 ```
 using Amazon;
 using Amazon.S3;
@@ -384,6 +386,8 @@ namespace Amazon.DocSamples.S3
 
 Ruby
 For information about how to create and test a working sample, see the [AWS SDK for Ruby - Version 3](../../../sdk-for-ruby/v3/api.md "../../../sdk-for-ruby/v3/api.md").
+
+###### Example
 
 ```
 require 'aws-sdk-s3'

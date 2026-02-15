@@ -13,7 +13,7 @@ its version ID.
    metadata you want to retrieve.
 2. Send a `HEAD Object versionId` request.
 
-###### Example — Retrieving the metadata of a versioned object
+###### Example— Retrieving the metadata of a versioned object
 
 The following request retrieves the metadata of version
 `3HL4kqCxf3vjVBH40Nrjfkd` of `my-image.jpg`.

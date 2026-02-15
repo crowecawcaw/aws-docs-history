@@ -94,13 +94,16 @@ _1.price FROM S3Object[*].books[*]`.
   However, for compatibility reasons, Amazon S3 Select allows you to omit the
   wildcard character if you don't include a path. Thus, the complete clause
   `FROM S3Object` is equivalent to `FROM S3Object[*] as
- S3Object`. If you include a path, you must also use the wildcard
+S3Object`. If you include a path, you must also use the wildcard
   character. So, `FROM S3Object` and `FROM
- S3Object[*].*`path`*`
+S3Object[*].*`path`*`
   are both valid clauses, but `FROM
- S3Object.*`path`*`
+S3Object.*`path`*`
   is not.
-  **Examples:**
+
+###### Example
+
+**Examples:**
 
 _Example #1_
 

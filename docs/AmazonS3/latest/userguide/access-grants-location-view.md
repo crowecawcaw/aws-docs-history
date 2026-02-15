@@ -21,7 +21,7 @@ Amazon S3 console, the AWS Command Line Interface (AWS CLI), the Amazon S3 REST 
 To use the following example command, replace the `user input
  placeholders` with your own information.
 
-###### Example – Get the details of a registered location
+###### Example– Get the details of a registered location
 
 ```
 aws s3control get-access-grants-location \
@@ -41,7 +41,7 @@ Response:
 }
 ```
 
-###### Example – List all of the locations that are registered in an S3 Access Grants instance
+###### Example– List all of the locations that are registered in an S3 Access Grants instance
 
 To restrict the results to an S3 prefix or bucket, you can optionally use the
 `--location-scope
@@ -91,7 +91,7 @@ To use the following examples, replace the `user input
 
 Java
 
-###### Example – Get the details of a registered location
+###### Example– Get the details of a registered location
 
 ```
 public void getAccessGrantsLocation() {
@@ -116,7 +116,7 @@ IAMRoleArn=arn:aws:iam::`111122223333`:role/`accessGrantsTestRole`
 )
 ```
 
-###### Example – List all registered locations in an S3 Access Grants
+###### Example– List all registered locations in an S3 Access Grants
 
 instance
 

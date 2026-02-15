@@ -566,6 +566,8 @@ You can specify any storage class that Amazon S3 supports.
 
 ###### Example 2: Replication configuration with two rules
 
+###### Example
+
 In the following replication configuration, the rules specify the following:
 
 - Each rule filters on a different key prefix so that each rule applies to a

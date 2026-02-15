@@ -157,6 +157,8 @@ objects to the destination.
 
 SDK for Java 2.x
 
+###### Example
+
 ```
  public static void copyBucketObject (S3Client s3, String sourceBucket, String objectKey, String targetBucket) {
       CopyObjectRequest copyReq = CopyObjectRequest.builder()

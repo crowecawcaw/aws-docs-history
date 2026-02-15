@@ -68,7 +68,9 @@ statements in the **Policy** section.
 Bucket policies are limited to 20 KB in size. 8. Choose **Save changes**, which returns you to the
 **Permissions** tab.
 
-SDK for Java 2.x`PutBucketPolicy` AWS SDK for Java 2.x
+SDK for Java 2.x###### Example
+
+`PutBucketPolicy` AWS SDK for Java 2.x
 
 ```
 public static void setBucketPolicy(S3Client s3Client, String bucketName, String policyText) {
@@ -161,7 +163,9 @@ For more information, see [get-bucket-policy](https://awscli.amazonaws.com/v2/do
 To delete a bucket policy for a directory bucket, use the following
 examples.
 
-SDK for Java 2.x`DeleteBucketPolicy` AWS SDK for Java 2.x
+SDK for Java 2.x###### Example
+
+`DeleteBucketPolicy` AWS SDK for Java 2.x
 
 ```
 public static void deleteBucketPolicy(S3Client s3Client, String bucketName) {

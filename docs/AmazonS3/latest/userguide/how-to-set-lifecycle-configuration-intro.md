@@ -268,6 +268,8 @@ Consider the following example S3 Lifecycle configuration.
 
 ###### Example 1
 
+###### Example
+
 XML
 
 ```
@@ -315,6 +317,8 @@ JSON
 ```
 
 ###### Example 2
+
+###### Example
 
 XML
 

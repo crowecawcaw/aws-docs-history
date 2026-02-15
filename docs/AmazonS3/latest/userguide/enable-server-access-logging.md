@@ -602,7 +602,7 @@ object ACLs. You also can't include destination (target) grants in your
 You must use a bucket policy to grant access to the logging service principal (`logging.s3.amazonaws.com`).
 For more information, see [Permissions for log delivery](#grant-log-delivery-permissions-general "#grant-log-delivery-permissions-general").
 
-###### Example — Enable access logs with five buckets across two Regions
+###### Example— Enable access logs with five buckets across two Regions
 
 In this example, you have the following five buckets:
 
@@ -733,7 +733,7 @@ folder that contains your logging configuration. If a destination bucket uses th
 Bucket owner enforced setting for Object Ownership, your logging configuration
 can't contain destination (target) grants. For more information, see [Permissions for log delivery](#grant-log-delivery-permissions-general "#grant-log-delivery-permissions-general").
 
-###### Example – `logging.json` without destination (target)
+###### Example– `logging.json` without destination (target)
 
 grants
 
@@ -753,7 +753,7 @@ Object Ownership.
 
 ```
 
-###### Example – `logging.json` with destination (target)
+###### Example– `logging.json` with destination (target)
 
 grants
 
@@ -814,7 +814,7 @@ request elements) in the following ways:
     }
     ```
 
-###### Example – `logging.json` with the log object key format set
+###### Example– `logging.json` with the log object key format set
 
 to S3 event time
 
@@ -854,7 +854,7 @@ your
 buckets are in the same Region. If you have buckets in multiple
 Regions, you must adjust the script.
 
-###### Example – Grant access with bucket policies and add logging for the buckets in
+###### Example– Grant access with bucket policies and add logging for the buckets in
 
 your account
 
@@ -895,7 +895,7 @@ your account
 
 ```
 
-###### Example – Grant access with bucket ACLs and add logging for the buckets in
+###### Example– Grant access with bucket ACLs and add logging for the buckets in
 
 your account
 

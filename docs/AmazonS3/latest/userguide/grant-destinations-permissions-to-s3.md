@@ -81,7 +81,7 @@ JSON
  "aws:SourceArn": "arn:aws:s3:::`amzn-s3-demo-bucket`"
  },
  "StringEquals": {
- "aws:SourceAccount": "`bucket-owner-account-id`"
+ "aws:SourceAccount": "`bucket-owner-123456789012`"
  }
  }
  }
@@ -124,7 +124,7 @@ JSON
  "aws:SourceArn": "arn:aws:s3:*:*:`amzn-s3-demo-bucket`"
  },
  "StringEquals": {
- "aws:SourceAccount": "`bucket-owner-account-id`"
+ "aws:SourceAccount": "`bucket-owner-123456789012`"
  }
  }
  }

@@ -26,6 +26,8 @@ The following request stores the image, `my-image.jpg`, in the `myBucket`
 bucket. The request uses the `x-amz-storage-class` header to request that the object
 is stored using the S3 Intelligent-Tiering storage class.
 
+###### Example
+
 ```
 PUT /my-image.jpg HTTP/1.1
 Host: myBucket.s3.<Region>.amazonaws.com (http://amazonaws.com/)
@@ -54,6 +56,8 @@ name prefix `documents/`, such as `documents/doc1.txt` and
 action directing Amazon S3 to transition objects to the S3 Intelligent-Tiering
 storage class 0 days after creation. In this case, objects are eligible for
 transition to S3 Intelligent-Tiering at midnight UTC following creation.
+
+###### Example
 
 ```
 <LifecycleConfiguration>

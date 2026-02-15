@@ -115,7 +115,7 @@ def permanently_delete_object(bucket, object_key):
 
 - In a `DELETE`, specify a version ID.
 
-###### Example — Deleting a specific version
+###### Example— Deleting a specific version
 
 The following example deletes version `UIORUnfnd89493jJFJ`
 of `photo.gif`.

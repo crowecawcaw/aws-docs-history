@@ -65,6 +65,8 @@ keys and returns a single `CommonPrefixes` element with the prefix value
 `photos/`, which is a substring from the beginning of these keys to the
 first occurrence of the specified delimiter.
 
+###### Example
+
 ```
 <ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Name>`amzn-s3-demo-bucket`</Name>

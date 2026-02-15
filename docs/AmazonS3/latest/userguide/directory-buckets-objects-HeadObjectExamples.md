@@ -8,6 +8,8 @@ returning the object itself.
 
 SDK for Java 2.x
 
+###### Example
+
 ```
 
 public static void headObject(S3Client s3Client, String bucketName, String objectKey) {

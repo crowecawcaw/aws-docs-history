@@ -76,7 +76,7 @@ Version 2 requests by using Amazon S3 access logs](using-s3-access-logs-to-ident
 
 for identifying Amazon S3 Signature Version 2 requests
 
-###### Example — Select all Signature Version 2 events, and print only
+###### Example— Select all Signature Version 2 events, and print only
 
 `EventTime`, `S3_Action`,
 `Request_Parameters`, `Region`,
@@ -96,7 +96,7 @@ LIMIT 10;
 
 ```
 
-###### Example — Select all requesters that are sending Signature Version 2
+###### Example— Select all requesters that are sending Signature Version 2
 
 traffic
 
@@ -237,7 +237,7 @@ In the following Athena query examples, replace
 `s3_cloudtrail_events_db.cloudtrail_table`
 with your Athena details, and modify the date range as needed.
 
-###### Example — Select all events that have `PUT` object access
+###### Example— Select all events that have `PUT` object access
 
 requests, and print only `EventTime`,
 `EventSource`, `SourceIP`,
@@ -262,7 +262,7 @@ WHERE
 
 ```
 
-###### Example — Select all events that have `GET` object access
+###### Example— Select all events that have `GET` object access
 
 requests, and print only `EventTime`,
 `EventSource`, `SourceIP`,
@@ -286,7 +286,7 @@ WHERE
   AND eventTime BETWEEN '`2019-07-05T00:00:00Z`' and '`2019-07-06T00:00:00Z`'
 ```
 
-###### Example — Select all anonymous requester events to a bucket in a
+###### Example— Select all anonymous requester events to a bucket in a
 
 certain period and print only `EventTime`,
 `EventName`, `EventSource`,
@@ -311,7 +311,7 @@ WHERE
   AND eventTime BETWEEN '`2019-07-05T00:00:00Z`' and '`2019-07-06T00:00:00Z`'
 ```
 
-###### Example — Identify all requests that required an ACL for
+###### Example— Identify all requests that required an ACL for
 
 authorization
 

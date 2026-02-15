@@ -58,7 +58,7 @@ see
    you want to retrieve.
 2. Send a `GET Object versionId` request.
 
-###### Example — Retrieving a versioned object
+###### Example— Retrieving a versioned object
 
 The following request retrieves version
 `L4kqtJlcpXroDTDmpUMLUo` of `my-image.jpg`.

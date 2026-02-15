@@ -138,7 +138,7 @@ JSON
  "aws:SourceArn": "arn:aws:s3:::DOC-EXAMPLE-SOURCE-BUCKET"
  },
  "StringEquals": {
- "aws:SourceAccount": "source-account-id",
+ "aws:SourceAccount": "source-123456789012",
  "s3:x-amz-acl": "bucket-owner-full-control"
  }
  }

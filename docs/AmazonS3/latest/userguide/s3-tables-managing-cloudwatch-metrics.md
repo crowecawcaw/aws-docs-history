@@ -25,14 +25,14 @@ To enable or disable additional metrics
 
 These examples show how to enable or disable request metrics for table buckets by using the AWS CLI. To use these commands, replace the `user input placeholders` with your own information.
 
-###### Example : To enable request metrics for a table bucket:
+###### Example: To enable request metrics for a table bucket:
 
 ```
 aws s3tables put-table-bucket-metrics-configuration \
 --table-bucket-arn arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/`amzn-s3-demo-table-bucket`
 ```
 
-###### Example : To disable request metrics for a table bucket:
+###### Example: To disable request metrics for a table bucket:
 
 ```
 aws s3tables delete-table-bucket-metrics-configuration \

@@ -201,6 +201,9 @@ You can use the AWS SDKs to update encryption for an object. For more informatio
 [list of supported SDKs](../API/API_UpdateObjectEncryption.md#API_UpdateObjectEncryption_SeeAlso "../API/API_UpdateObjectEncryption.md#API_UpdateObjectEncryption_SeeAlso").
 
 Java
+
+###### Example
+
 The following AWS SDK for Java 2.x example updates the encryption type to SSE-KMS for an
 object in a general purpose bucket.
 
@@ -239,6 +242,9 @@ object in a general purpose bucket.
 ```
 
 Python
+
+###### Example
+
 The following AWS SDK for Python (Boto3) example shows how to update the encryption type to SSE-KMS
 for an object in a general purpose bucket.
 

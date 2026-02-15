@@ -27,6 +27,8 @@ When you create a bucket or an object, Amazon S3 creates a default ACL that gran
 owner full control over the resource. This is shown in the following sample bucket ACL
 (the default object ACL has the same structure):
 
+###### Example
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <AccessControlPolicy xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
@@ -335,6 +337,8 @@ bucket owner has `FULL_CONTROL` of the resource. In addition, the ACL
 shows how permissions are granted on a resource to two AWS accounts, identified by
 canonical user ID, and two of the predefined Amazon S3 groups discussed in the preceding
 section.
+
+###### Example
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>

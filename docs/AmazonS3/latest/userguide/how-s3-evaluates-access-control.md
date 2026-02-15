@@ -51,7 +51,7 @@ does the following, in order, when it receives a request:
 
     Following are some example scenarios that illustrate how Amazon S3 authorizes a request.
 
-###### Example – Requester is an IAM principal
+###### Example– Requester is an IAM principal
 
 If the requester is an IAM principal, Amazon S3 must determine if the parent AWS account to
 which the principal belongs has granted the principal necessary permission to perform
@@ -61,7 +61,7 @@ permission for the requester to perform the operation. To perform a specific ope
 on a resource, an IAM principal needs permission from both the parent AWS account to
 which it belongs and the AWS account that owns the resource.
 
-###### Example – Requester is an IAM principal – If the request is for an operation on an
+###### Example– Requester is an IAM principal – If the request is for an operation on an
 
 object that the bucket owner doesn't own
 

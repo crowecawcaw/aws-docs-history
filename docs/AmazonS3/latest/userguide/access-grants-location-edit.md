@@ -34,7 +34,7 @@ instance
 To use the following example command, replace the `user input
  placeholders` with your own information.
 
-###### Example – Update the IAM role of a registered location
+###### Example– Update the IAM role of a registered location
 
 ```
 aws s3control update-access-grants-location \
@@ -68,7 +68,7 @@ To use the following example, replace the `user input
 
 Java
 
-###### Example – Update the IAM role of a registered location
+###### Example– Update the IAM role of a registered location
 
 ```
 public void updateAccessGrantsLocation() {

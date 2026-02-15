@@ -26,7 +26,7 @@ REST API, and the AWS SDKs.
 
 To use the following example command, replace the `user input placeholders` with your own information.
 
-###### Example – Delete an access grant
+###### Example– Delete an access grant
 
 ```
 aws s3control delete-access-grant \
@@ -46,7 +46,7 @@ use the following example, replace the `user input
 
 Java
 
-###### Example – Delete an access grant
+###### Example– Delete an access grant
 
 ```
 public void deleteAccessGrant() {

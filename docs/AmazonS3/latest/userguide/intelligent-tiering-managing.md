@@ -83,6 +83,8 @@ archive tier, the request uses the [x-amz-archive-status](../API/API_HeadObject.
 The following `HEAD` object request returns the metadata of an object (in
 this case, `my-image.jpg`).
 
+###### Example
+
 ```
 HEAD /`my-image.jpg` HTTP/1.1
 Host: bucket.s3.`region`.amazonaws.com
@@ -96,6 +98,8 @@ You can also use `HEAD` object requests to monitor the status of a
 
 The following sample `HEAD` object response shows an object archived by
 using S3 Intelligent-Tiering with a restore request in progress.
+
+###### Example
 
 ```
 HTTP/1.1 200 OK

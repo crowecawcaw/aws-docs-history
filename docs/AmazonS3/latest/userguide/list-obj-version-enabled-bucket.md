@@ -207,7 +207,7 @@ namespace Amazon.DocSamples.S3
 
 ```
 
-###### Example — Listing all object versions in a bucket
+###### Example— Listing all object versions in a bucket
 
 To list all the versions of all the objects in a bucket, you use the
 `versions` subresource in a `GET Bucket` request.
@@ -232,7 +232,7 @@ Date: Wed, 28 Oct 2009 22:32:00 +0000
 Authorization: AWS `AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=`
 ```
 
-###### Example — Retrieving all versions of a key
+###### Example— Retrieving all versions of a key
 
 To retrieve a subset of object versions, you use the request parameters for `GET
  Bucket`. For more information, see [GET Bucket](../API/RESTBucketGET.md "../API/RESTBucketGET.md").
@@ -245,7 +245,7 @@ To retrieve a subset of object versions, you use the request parameters for `GET
 
 `GET /?versions&prefix=objectName HTTP/1.1`
 
-###### Example — Retrieving objects using a prefix
+###### Example— Retrieving objects using a prefix
 
 The following example retrieves objects whose key is or begins with
 `myObject`.
@@ -261,7 +261,7 @@ You can use the other request parameters to retrieve a subset of all versions of
 object. For more information, see [GET Bucket](../API/RESTBucketGET.md "../API/RESTBucketGET.md")
 in the _Amazon Simple Storage Service API Reference_.
 
-###### Example — Retrieving a listing of additional objects if the response is
+###### Example— Retrieving a listing of additional objects if the response is
 
 truncated
 
@@ -293,7 +293,7 @@ request:
   `key-marker` and
   `version-id-marker`.
 
-###### Example — Retrieving objects starting with a specified key and version
+###### Example— Retrieving objects starting with a specified key and version
 
 ID
 

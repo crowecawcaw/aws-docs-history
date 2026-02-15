@@ -21,7 +21,7 @@ console, the AWS Command Line Interface (AWS CLI), the Amazon S3 REST API, and t
 To use the following example commands, replace the `user input
  placeholders` with your own information.
 
-###### Example – Get the details of an access grant
+###### Example– Get the details of an access grant
 
 ```
 aws s3control get-access-grant \
@@ -49,7 +49,7 @@ Response:
 }
 ```
 
-###### Example – List all of the access grants in an S3 Access Grants instance
+###### Example– List all of the access grants in an S3 Access Grants instance
 
 You can optionally use the following parameters to restrict the results to an
 S3 prefix or AWS Identity and Access Management (IAM) identity:
@@ -112,7 +112,7 @@ To use the following examples, replace the `user input
 
 Java
 
-###### Example – Get the details of an access grant
+###### Example– Get the details of an access grant
 
 ```
 public void getAccessGrant() {
@@ -146,7 +146,7 @@ GrantScope=s3://`amzn-s3-demo-bucket/`
 
 ```
 
-###### Example – List all of the access grants in an S3 Access Grants instance
+###### Example– List all of the access grants in an S3 Access Grants instance
 
 You can optionally use these parameters to restrict the results to
 an S3 prefix or IAM identity:

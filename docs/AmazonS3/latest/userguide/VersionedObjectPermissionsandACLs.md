@@ -9,7 +9,7 @@ must specify the version ID of the object whose permissions you want to set in a
 `PUT Object versionId acl` request. For a detailed description and
 instructions on using ACLs, see [Identity and Access Management for Amazon S3](security-iam.md "security-iam.md").
 
-###### Example — Setting permissions for an object version
+###### Example— Setting permissions for an object version
 
 The following request sets the permission of the grantee with canonical user ID `b4bf1b36f9716f094c3079dcf5ac9982d4f2847de46204d47448bc557fb5ac2a`, to `FULL_CONTROL` on the
 key, `my-image.jpg`, version ID,
@@ -42,7 +42,7 @@ version ID in a `GET Object versionId acl` request. You need to include the
 version ID because, by default, `GET Object acl` returns the permissions of
 the current version of the object.
 
-###### Example — Retrieving the permissions for a specified object version
+###### Example— Retrieving the permissions for a specified object version
 
 In the following example, Amazon S3 returns the permissions for the key,
 `my-image.jpg`, version ID,

@@ -159,9 +159,7 @@ checksum\*\* requests
 
 Java
 
-###### Example: Creating a **Compute checksum**
-
-job
+###### Example: Creating a Compute checksum job
 
 The following example shows you how to create a
 **Compute checksum** job (as part of a
@@ -243,9 +241,7 @@ try {
 }
 ```
 
-###### Example: Viewing **Compute checksum** job
-
-details
+###### Example: Viewing Compute checksum job details
 
 The following example shows how you can specify a job ID to
 view the job details (such as the job completion rate) for a

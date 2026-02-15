@@ -22,7 +22,7 @@ Amazon S3 console, the AWS Command Line Interface (AWS CLI), the Amazon S3 REST 
 To use the following example command, replace the `user input
  placeholders` with your own information.
 
-###### Example – List all S3 Access Grants instances for an account
+###### Example– List all S3 Access Grants instances for an account
 
 This action lists the S3 Access Grants instances for an account. You can only have one S3 Access Grants
 instance per AWS Region. This action also lists other cross-account S3 Access Grants
@@ -56,7 +56,7 @@ To use the following examples, replace the `user input
 
 Java
 
-###### Example – List all S3 Access Grants instances for an account
+###### Example– List all S3 Access Grants instances for an account
 
 This action lists the S3 Access Grants instances for an account. You can
 only have one S3 Access Grants instance per Region. This action can also list

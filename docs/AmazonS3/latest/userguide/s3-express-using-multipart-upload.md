@@ -282,6 +282,8 @@ The following examples show how to create a multipart upload.
 
 SDK for Java 2.x
 
+###### Example
+
 ```
 /**
  * This method creates a multipart upload request that generates a unique upload ID that is used to track
@@ -313,6 +315,8 @@ SDK for Java 2.x
 ```
 
 SDK for Python
+
+###### Example
 
 ```
 def create_multipart_upload(s3_client, bucket_name, key_name):
@@ -352,6 +356,8 @@ SDK for Java 2.x
 The following example shows how to break a single object into
 parts and then upload those parts to a directory bucket by using
 the SDK for Java 2.x.
+
+###### Example
 
 ```
 /**
@@ -413,6 +419,8 @@ The following example shows how to break a single object into
 parts and then upload those parts to a directory bucket by using
 the SDK for Python.
 
+###### Example
+
 ```
 def multipart_upload(s3_client, bucket_name, key_name, mpu_id, part_size):
     '''
@@ -469,6 +477,8 @@ SDK for Java 2.x
 The following examples show how to complete a multipart upload
 by using the SDK for Java 2.x.
 
+###### Example
+
 ```
 /**
  * This method completes the multipart upload request by collating all the upload parts
@@ -514,6 +524,8 @@ by using the SDK for Java 2.x.
 SDK for Python
 The following examples show how to complete a multipart upload
 by using the SDK for Python.
+
+###### Example
 
 ```
 def complete_multipart_upload(s3_client, bucket_name, key_name, mpu_id, part_list):
@@ -597,6 +609,8 @@ SDK for Java 2.x
 The following example shows how to abort a multipart upload by
 using the SDK for Java 2.x.
 
+###### Example
+
 ```
 public static void abortMultiPartUploads( S3Client s3, String bucketName ) {
 
@@ -631,6 +645,8 @@ public static void abortMultiPartUploads( S3Client s3, String bucketName ) {
 SDK for Python
 The following example shows how to abort a multipart upload by
 using the SDK for Python.
+
+###### Example
 
 ```
 import logging
@@ -698,6 +714,8 @@ SDK for Java 2.x
 The following example shows how to use a multipart upload to
 programmatically copy an object from one bucket to another by
 using the SDK for Java 2.x.
+
+###### Example
 
 ```
 /**
@@ -804,6 +822,8 @@ SDK for Python
 The following example shows how to use a multipart upload to
 programmatically copy an object from one bucket to another by
 using the SDK for Python.
+
+###### Example
 
 ```
 import logging
@@ -953,6 +973,8 @@ SDK for Java 2.x
 The following examples show how to list in-progress (incomplete) multipart uploads
 by using the SDK for Java 2.x.
 
+###### Example
+
 ```
  public static void listMultiPartUploads( S3Client s3, String bucketName) {
         try {
@@ -976,6 +998,8 @@ by using the SDK for Java 2.x.
 SDK for Python
 The following examples show how to list in-progress (incomplete) multipart uploads
 by using the SDK for Python.
+
+###### Example
 
 ```
 import logging

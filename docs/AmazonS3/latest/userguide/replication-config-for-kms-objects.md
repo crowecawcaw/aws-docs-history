@@ -271,12 +271,12 @@ SSE-KMS with replication
 The following example IAM policies show statements for using SSE-S3 and SSE-KMS
 with replication.
 
-###### Example – Using SSE-KMS with separate destination buckets
+###### Example– Using SSE-KMS with separate destination buckets
 
 The following example policy shows statements for using SSE-KMS with separate
 destination buckets.
 
-###### Example – Replicating objects created with SSE-S3 and SSE-KMS
+###### Example– Replicating objects created with SSE-S3 and SSE-KMS
 
 The following is a complete IAM policy that grants the necessary permissions
 to replicate unencrypted objects, objects created with SSE-S3, and objects
@@ -355,7 +355,7 @@ JSON
 
 ```
 
-###### Example – Replicating objects with S3 Bucket Keys
+###### Example– Replicating objects with S3 Bucket Keys
 
 The following is a complete IAM policy that grants the necessary permissions
 to replicate objects with S3 Bucket Keys.

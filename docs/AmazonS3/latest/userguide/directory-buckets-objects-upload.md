@@ -39,6 +39,8 @@ message on the **Upload: status** page.
 
 SDK for Java 2.x
 
+###### Example
+
 ```
 public static void putObject(S3Client s3Client, String bucketName, String objectKey, Path filePath) {
        //Using File Path to avoid loading the whole file into memory
@@ -61,6 +63,8 @@ public static void putObject(S3Client s3Client, String bucketName, String object
 ```
 
 SDK for Python
+
+###### Example
 
 ```
 import boto3

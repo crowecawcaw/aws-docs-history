@@ -78,7 +78,7 @@ marker
    marker you want to remove.
 2. Send a `DELETE Object versionId` request.
 
-###### Example — Removing a delete marker
+###### Example— Removing a delete marker
 
 The following example removes the delete marker for
 `photo.gif` version 4857693.

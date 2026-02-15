@@ -60,7 +60,7 @@ in your policy statement. In the following example ARN, the version is indicated
 Lambda doesn't support adding IAM policies to the version `$LATEST`. For more information about Lambda function versions, see [Lambda function versions](../../../lambda/latest/dg/configuration-versions.md "../../../lambda/latest/dg/configuration-versions.md") in the
 _AWS Lambda Developer Guide_.
 
-###### Example – Bucket policy that delegates access control to standard access points
+###### Example– Bucket policy that delegates access control to standard access points
 
 The following S3 bucket policy example delegates access control for a bucket to the
 bucket's standard access points. This policy allows full access to all access points that are owned by the
@@ -91,7 +91,7 @@ JSON
 
 ```
 
-###### Example – IAM policy that grants a user the necessary permissions to use an
+###### Example– IAM policy that grants a user the necessary permissions to use an
 
 Object Lambda Access Point
 

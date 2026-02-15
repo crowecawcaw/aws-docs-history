@@ -38,7 +38,7 @@ greater than 10,000.
    unpaginated `ls` request. To use these examples, replace the
    `user input placeholders`.
 
-###### Example – List all the buckets in your account by using `ls`
+###### Example– List all the buckets in your account by using `ls`
 
 (unpaginated)
 
@@ -52,7 +52,7 @@ $ aws s3 ls
 
 For more information and examples, see [List bucket and objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-listing-buckets "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-listing-buckets").
 
-###### Example – List all the buckets in your account by using `ls`
+###### Example– List all the buckets in your account by using `ls`
 
 (paginated)
 
@@ -65,7 +65,7 @@ $ aws s3 ls --page-size `100`
 
 For more information and examples, see [List bucket and objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-listing-buckets "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-listing-buckets").
 
-###### Example – List all the buckets in your account (paginated)
+###### Example– List all the buckets in your account (paginated)
 
 The following example provides a paginated `list-buckets` command
 to list all the general purpose buckets in your account. The `--max-items` and
@@ -93,7 +93,7 @@ $ aws s3api list-buckets /
     --starting-token `eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAxfQ==`
 ```
 
-###### Example – List all the buckets in an AWS Region (paginated)
+###### Example– List all the buckets in an AWS Region (paginated)
 
 The following example command uses the `--bucket-region` parameter
 to list up to 100 buckets in an account that are in the `us-east-2`
@@ -111,7 +111,7 @@ $ aws s3api list-buckets /
     --bucket-region `us-east-2`
 ```
 
-###### Example – List all the buckets that begin with a specific bucket name prefix
+###### Example– List all the buckets that begin with a specific bucket name prefix
 
 (paginated)
 
@@ -130,7 +130,7 @@ The following examples show you how to list your general purpose buckets by usin
 
 SDK for Python
 
-###### Example – ListBuckets request (paginated)
+###### Example– ListBuckets request (paginated)
 
 ```
 import boto3
@@ -139,7 +139,7 @@ s3 = boto3.client('s3')
 response = s3.list_buckets(MaxBuckets=`100`)
 ```
 
-###### Example – ListBuckets response (paginated)
+###### Example– ListBuckets response (paginated)
 
 ```
 import boto3

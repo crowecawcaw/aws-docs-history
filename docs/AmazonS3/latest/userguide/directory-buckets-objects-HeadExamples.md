@@ -7,6 +7,9 @@ The following AWS SDK for Java 2.x example shows how to determine if a bucket ex
 if you have permission to access it.
 
 SDK for Java 2.x
+
+###### Example
+
 AWS SDK for Java 2.x
 
 ```

@@ -29,7 +29,7 @@ You can tag an S3 Access Grants resource when you create it or after you have cr
 
 To use the following example commands, replace the `user input placeholders` with your own information.
 
-###### Example – Create an S3 Access Grants instance with tags
+###### Example– Create an S3 Access Grants instance with tags
 
 ```
 aws s3control create-access-grants-instance \
@@ -49,7 +49,7 @@ Response:
 }
 ```
 
-###### Example – Tag an already created S3 Access Grants instance
+###### Example– Tag an already created S3 Access Grants instance
 
 ```
 aws s3control tag-resource \
@@ -60,7 +60,7 @@ aws s3control tag-resource \
 --tags Key=`tagKey2`,Value=`tagValue2`
 ```
 
-###### Example – List tags for the S3 Access Grants instance
+###### Example– List tags for the S3 Access Grants instance
 
 ```
 aws s3control list-tags-for-resource \
@@ -87,7 +87,7 @@ Response:
 }
 ```
 
-###### Example – Untag the S3 Access Grants instance
+###### Example– Untag the S3 Access Grants instance
 
 ```
 aws s3control untag-resource \

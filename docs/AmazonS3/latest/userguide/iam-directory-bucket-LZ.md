@@ -69,7 +69,7 @@ The condition key `s3express:AllAccessRestrictedToLocalZoneGroup` doesn't suppor
 To support the access from an on-premises environment, you must add
 the source IP to the policies. For more information, see [aws:SourceIp](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceip "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceip") in the IAM User Guide.
 
-###### Example – SCP policy
+###### Example– SCP policy
 
 ```
 
@@ -96,7 +96,7 @@ the source IP to the policies. For more information, see [aws:SourceIp](../../..
 
 ```
 
-###### Example – IAM identity-based policy (attached to IAM role)
+###### Example– IAM identity-based policy (attached to IAM role)
 
 JSON
 
@@ -119,7 +119,7 @@ JSON
 
 ```
 
-###### Example – VPC endpoint policy
+###### Example– VPC endpoint policy
 
 JSON
 
@@ -146,7 +146,7 @@ JSON
 
 ```
 
-###### Example – bucket policy
+###### Example– bucket policy
 
 JSON
 

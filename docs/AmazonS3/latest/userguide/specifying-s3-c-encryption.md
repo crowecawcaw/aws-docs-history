@@ -239,6 +239,8 @@ For instructions on creating and
 testing a working sample, see [Getting
 Started](../../../sdk-for-java/v1/developer-guide/getting-started.md "../../../sdk-for-java/v1/developer-guide/getting-started.md") in the AWS SDK for Java Developer Guide.
 
+###### Example
+
 ```
 
 import com.amazonaws.AmazonServiceException;
@@ -362,6 +364,8 @@ For
 information about setting up and running the code examples, see [Getting Started
 with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
 Guide_.
+
+###### Example
 
 ```
 using Amazon;
@@ -533,6 +537,8 @@ to provide SSE-C related information. The example does the following:
   provides the encryption key of the source object so that Amazon S3 can decrypt the
   object before copying it.
 
+###### Example
+
 ```
 
 import com.amazonaws.AmazonServiceException;
@@ -655,6 +661,8 @@ example, you do the following:
     + Obtain the size of the source object to be copied by retrieving the object
      metadata.
     + Upload the objects in 5 MB parts.
+
+###### Example
 
 ```
 using Amazon;

@@ -26,6 +26,9 @@ tag** again to continue adding new entries. You can add up
 to 50 AWS resource tags to your Storage Lens dashboard. 8. (Optional) If you want to remove a newly added entry, choose
 **Remove** next to the tag that you want to
 remove. 9. Choose **Save changes**.
+
+###### Example
+
 The following example command adds tags to a S3 Storage Lens dashboard configuration. To use these
 examples, replace the `user input placeholders` with
 your own information.
@@ -38,7 +41,7 @@ The following example adds tags to an Amazon S3 Storage Lens configuration in SD
  input placeholders` with your own
 information.
 
-###### Example – Add tags to an S3 Storage Lens configuration
+###### Example– Add tags to an S3 Storage Lens configuration
 
 ```
 package aws.example.s3control;

@@ -150,18 +150,14 @@ The following examples illustrate how an S3 Bucket Key works with replication. F
 information, see [Replicating encrypted objects (SSE-S3,
 SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md"). 
 
-###### Example 1 – Source object uses S3 Bucket Keys; destination bucket uses default
-
-encryption
+###### Example 1 – Source object uses S3 Bucket Keys; destination bucket uses default encryption
 
 If your source object uses an S3 Bucket Key but your destination bucket uses default
 encryption with SSE-KMS, the replica object maintains its S3 Bucket Key encryption settings
 in the destination bucket. The destination bucket still uses default encryption with
 SSE-KMS.
 
-###### Example 2 – Source object is not encrypted; destination bucket uses an
-
-S3 Bucket Key with SSE-KMS
+###### Example 2 – Source object is not encrypted; destination bucket uses an S3 Bucket Key with SSE-KMS
 
 If your source object is not encrypted and the destination bucket uses an S3 Bucket Key
 with SSE-KMS, the replica object is encrypted by using an S3 Bucket Key with SSE-KMS in the

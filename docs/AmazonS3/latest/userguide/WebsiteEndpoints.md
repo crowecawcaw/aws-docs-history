@@ -71,7 +71,7 @@ access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
 The following examples show how you can access an Amazon S3 bucket that is configured
 as a static website.
 
-###### Example — Requesting an object at the root level
+###### Example— Requesting an object at the root level
 
 To request a specific object that is stored at the root level in the bucket,
 use the following URL structure.
@@ -87,7 +87,7 @@ is stored at the root level in the bucket.
 http://example-bucket.s3-website.us-west-2.amazonaws.com/photo.jpg
 ```
 
-###### Example — Requesting an object in a prefix
+###### Example— Requesting an object in a prefix
 
 To request an object that is stored in a folder in your bucket, use this URL
 structure.

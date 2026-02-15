@@ -95,6 +95,8 @@ documentation for your desired language. You can find the SDK documentation at [
 The following examples show how you can implement bucket owner condition in Amazon S3 using
 the AWS CLI or the AWS SDK for Java 2.x.
 
+###### Example
+
 **_Example: Upload an
 object_**
 
@@ -125,6 +127,8 @@ public void putObjectExample() {
     s3Client.putObject(request, path);
 }
 ```
+
+###### Example
 
 **_Example: Copy an
 object_**
@@ -163,6 +167,8 @@ public void copyObjectExample() {
         s3Client.copyObject(request);
     }
 ```
+
+###### Example
 
 **_Example: Retrieve a bucket
 policy_**

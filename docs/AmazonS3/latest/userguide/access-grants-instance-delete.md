@@ -46,7 +46,7 @@ locations created within the S3 Access Grants instance. If you have associated a
 center instance with your S3 Access Grants instance, you must disassociate it
 first.
 
-###### Example – Delete an S3 Access Grants instance
+###### Example– Delete an S3 Access Grants instance
 
 ```
 aws s3control delete-access-grants-instance \
@@ -77,7 +77,7 @@ all grants and locations created within the S3 Access Grants instance. If you
 have associated an IAM Identity Center center instance with your S3 Access Grants instance,
 you must disassociate it first.
 
-###### Example – Delete an S3 Access Grants instance
+###### Example– Delete an S3 Access Grants instance
 
 ```
 public void deleteAccessGrantsInstance() {

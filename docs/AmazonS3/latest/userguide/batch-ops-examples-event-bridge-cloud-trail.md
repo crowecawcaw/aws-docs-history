@@ -31,7 +31,7 @@ information about CloudTrail, see the [_AWS CloudTrail User Guide_](../../../aws
 
 Only S3 Batch Operations job `status-change` events are recorded in CloudTrail.
 
-###### Example — S3 Batch Operations job completion event recorded by CloudTrail
+###### Example— S3 Batch Operations job completion event recorded by CloudTrail
 
 ```
 {
@@ -101,7 +101,7 @@ The following examples are two Batch Operations events that were sent to Amazon 
 while processing (`New`, `Preparing`, `Active`, etc.),
 so you can expect to receive several messages for each job.
 
-###### Example — JobCreated sample event
+###### Example— JobCreated sample event
 
 ```
 {
@@ -140,7 +140,7 @@ so you can expect to receive several messages for each job.
 }
 ```
 
-###### Example — JobStatusChanged job completion event
+###### Example— JobStatusChanged job completion event
 
 ```
 {

@@ -515,7 +515,7 @@ Use this approach to replicate all tables in a bucket.
 1. Create a replication configuration file. Save this as
    `bucket-replication-config.json`:
 
-###### Example : Single destination in same account
+###### Example: Single destination in same account
 
 ```
 
@@ -534,7 +534,7 @@ Use this approach to replicate all tables in a bucket.
 
 ```
 
-###### Example : Multiple destinations across regions
+###### Example: Multiple destinations across regions
 
 ```
 
@@ -559,7 +559,7 @@ Use this approach to replicate all tables in a bucket.
 
 ```
 
-###### Example : Cross-account replication
+###### Example: Cross-account replication
 
 ```
 
@@ -605,7 +605,7 @@ replication.
 1. Create a replication configuration file. Save this as
    `table-replication-config.json`:
 
-###### Example : Single table replication
+###### Example: Single table replication
 
 ```
 
@@ -624,7 +624,7 @@ replication.
 
 ```
 
-###### Example : Table with multiple destinations
+###### Example: Table with multiple destinations
 
 ```
 

@@ -39,16 +39,19 @@ querying.
    longer a delegated administrator and is now unable to create organization-level
    dashboards for all accounts and storage in your organization.
 6. Choose **Register account**.
-   The following example shows you how to deregister Organizations delegated administrators for
-   S3 Storage Lens using the AWS CLI. To use this example, replace
-   `111122223333` with your own
-   AWS account ID.
+
+###### Example
+
+The following example shows you how to deregister Organizations delegated administrators for
+S3 Storage Lens using the AWS CLI. To use this example, replace
+`111122223333` with your own
+AWS account ID.
 
 ```
 aws organizations deregister-delegated-administrator --service-principal storage-lens.s3.amazonaws.com --account-id `111122223333`
 ```
 
-###### Example – Deregister Organizations delegated administrators for S3 Storage Lens
+###### Example– Deregister Organizations delegated administrators for S3 Storage Lens
 
 The following example shows you how to deregister Organizations delegated administrators for
 S3 Storage Lens using SDK for Java. To use this example, replace the `user input

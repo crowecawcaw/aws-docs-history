@@ -47,7 +47,7 @@ Similarly, if your `PutBucketOwnershipControls` request sets Bucket owner
 enforced on a bucket that has a bucket ACL that grants permissions to others, the
 request fails.
 
-###### Example : Existing bucket ACL grants public read access
+###### Example: Existing bucket ACL grants public read access
 
 For example, if an existing bucket ACL grants public read access, you cannot apply the
 Bucket owner enforced setting for Object Ownership until you migrate these ACL

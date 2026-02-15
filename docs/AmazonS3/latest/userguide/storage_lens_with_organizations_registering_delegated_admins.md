@@ -32,15 +32,18 @@ or SDKs, you must call the [EnableAWSServiceAccess](../../../organizations/lates
    delegated administrator is able to create organization-level dashboards for all accounts
    and storage in your organization.
 6. Choose **Register account**.
-   The following example shows you how to register Organizations delegated administrators for S3 Storage Lens using the AWS CLI.
-   To use this example, replace the `user input
+
+###### Example
+
+The following example shows you how to register Organizations delegated administrators for S3 Storage Lens using the AWS CLI.
+To use this example, replace the `user input
  placeholders` with your own information.
 
 ```
 aws organizations register-delegated-administrator --service-principal storage-lens.s3.amazonaws.com --account-id `111122223333`
 ```
 
-###### Example – Register Organizations delegated administrators for S3 Storage Lens
+###### Example– Register Organizations delegated administrators for S3 Storage Lens
 
 The following example shows you how to register AWS Organizations delegated administrators for S3 Storage Lens in SDK for Java.
 To use this example, replace the `user input

@@ -37,7 +37,7 @@ runs in a dedicated AWS account in your organization. In this common configurati
 can refer to user and group identities in S3 Access Grants from any AWS account in the organization.
 
 However, if your AWS Organizations administrator hasn't yet configured a central IAM Identity Center instance,
-you can create a local one in the same account as your S3 Access Grants instance. Such a configuration
+you can create a local one in the same account and AWS Region as your S3 Access Grants instance. If you have an IAM Identity Center instance configured in a different AWS Region, you can also [replicate](../../../singlesignon/latest/userguide/replicate-to-additional-region.md "../../../singlesignon/latest/userguide/replicate-to-additional-region.md") this instance to the same AWS Region as your S3 Access Grants instance. Such a configuration
 is more common for proof-of-concept or local development use cases. In all cases, the IAM Identity Center
 instance must be in the same AWS Region as the S3 Access Grants instance to which it will be
 associated.
