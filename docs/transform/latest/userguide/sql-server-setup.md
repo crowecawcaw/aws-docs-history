@@ -178,6 +178,12 @@ Resources:
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole
 
+  DMSServerlessRole:
+    Type: AWS::IAM::ServiceLinkedRole
+    Properties:
+      AWSServiceName: dms.amazonaws.com
+      Description: 'Service Linked Role for AWS DMS Serverless'
+
 Outputs:
   DMSCloudWatchLogsRoleArn:
     Description: ARN of the DMS CloudWatch Logs Role
@@ -191,6 +197,14 @@ Outputs:
   DMSVPCRoleArn:
     Description: ARN of the DMS VPC Role
     Value: !GetAtt DMSVPCRole.Arn
+    Export:
+      Name: !Sub ${AWS::StackName}-VPCRole
+
+  DMSServerlessRoleArn:
+    Description: ARN of the DMS Serverless Role
+    Value: !Sub 'arn:aws:iam::${AWS::AccountId}:role/aws-service-role/dms.amazonaws.com/AWSServiceRoleForDMSServerless'
+    Export:
+      Name: !Sub ${AWS::StackName}-ServerlessRole
 ```
 
 Deploy the CloudFormation stack using AWS CLI:
