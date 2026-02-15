@@ -1,73 +1,14 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Java
+# Python
 
-To get started with the [Java 1.0 SDK](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/") and Amazon Timestream,
+To get started with the [Python SDK](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/") and Amazon Timestream,
 complete the prerequisites, described below.
 
-Once you've completed the necessary prerequisites for the Java SDK, you can get started with the [Code samples](code-samples.md "code-samples.md").
+Once you've completed the necessary prerequisites for the Python SDK, you can get started with the [Code samples](code-samples.md "code-samples.md").
 
 ## Prerequisites
 
-Before you get started with Java, you must do the
-following:
-
-1. Follow the AWS setup instructions in [Accessing Timestream for LiveAnalytics](accessing.md "accessing.md").
-2. Set up a Java development environment by downloading and installing the
-   following:
-   - Java SE Development Kit 8 (such as [Amazon Corretto 8](../../../corretto/latest/corretto-8-ug/downloads-list.md "../../../corretto/latest/corretto-8-ug/downloads-list.md")).
-   - Java IDE (such as [Eclipse](http://www.eclipse.org "http://www.eclipse.org") or [IntelliJ](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")).
-
-   For more information, see [Getting Started with the AWS SDK for Java](../../../sdk-for-java/latest/developer-guide/get-started.md "../../../sdk-for-java/latest/developer-guide/get-started.md")
-
-3. Configure your AWS credentials and Region for development:
-   - Set up your AWS
-     security credentials for use with the AWS SDK for Java.
-   - Set your AWS
-     Region to determine your default Timestream for LiveAnalytics endpoint.
-
-## Using Apache Maven
-
-You can use [Apache Maven](https://maven.apache.org/ "https://maven.apache.org/")
-to configure and build AWS SDK for Java projects.
-
-###### Note
-
-To use Apache Maven, ensure your Java SDK and runtime are 1.8 or higher.
-
-You can configure the AWS SDK as a Maven dependency as described
-in
-[Using the SDK with Apache Maven](../../../sdk-for-java/v1/developer-guide/setup-project-maven.md "../../../sdk-for-java/v1/developer-guide/setup-project-maven.md").
-
-You can run compile and run your source code with the following command:
-
-```
-mvn clean compile
-mvn exec:java -Dexec.mainClass=<your source code Main class>
-
-```
-
-###### Note
-
-`<your source code Main class>`
-is the path to your Java source code's main class.
-
-## Setting your AWS
-
-credentials
-
-The [AWS SDK for Java](https://aws.amazon.com/sdk-for-java "https://aws.amazon.com/sdk-for-java") requires that you provide AWS credentials to your application
-at runtime. The code examples in this guide assume that you are using an AWS
-credentials file, as described in [Set up AWS Credentials and Region for Development](../../../sdk-for-java/latest/developer-guide/setup-credentials.md "../../../sdk-for-java/latest/developer-guide/setup-credentials.md") in the
-_AWS SDK for Java Developer Guide_.
-
-The following is an example of an AWS credentials file named
-`~/.aws/credentials`, where the tilde character (`~`)
-represents your home directory.
-
-```
-[default]
-aws_access_key_id = `AWS access key ID goes here`
-aws_secret_access_key = `Secret key goes here`
-```
+To use Python, install and configure Boto3, following the instructions
+[here](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html").

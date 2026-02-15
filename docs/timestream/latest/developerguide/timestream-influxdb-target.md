@@ -23,6 +23,8 @@ See the Prerequisites section and installation in the [cardinality script's READ
 
 To determine the cardinality of a table, example_table, in the database example_database the script can be used in the following way:
 
+###### Example
+
 ```
 python3 cardinality.py \
     --table-name example_table \

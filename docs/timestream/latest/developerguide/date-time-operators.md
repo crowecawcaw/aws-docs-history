@@ -67,11 +67,15 @@ subtracted from `dates` and `timestamps`. But a `date` or
 
 ## Addition
 
+###### Example
+
 ```
 SELECT date '2022-05-21' + interval '2' day
 ```
 
 Example result: `2022-05-23`
+
+###### Example
 
 ```
 SELECT typeof(date '2022-05-21' + interval '2' day)
@@ -79,11 +83,15 @@ SELECT typeof(date '2022-05-21' + interval '2' day)
 
 Example result: `date`
 
+###### Example
+
 ```
 SELECT interval '2' year + interval '4' month
 ```
 
 Example result: `2-4`
+
+###### Example
 
 ```
 SELECT typeof(interval '2' year + interval '4' month)
@@ -93,11 +101,15 @@ Example result: `interval year to month`
 
 ## Subtraction
 
+###### Example
+
 ```
 SELECT timestamp '2022-06-17 01:00' - interval '7' hour
 ```
 
 Example result: `2022-06-16 18:00:00.000000000`
+
+###### Example
 
 ```
 SELECT typeof(timestamp '2022-06-17 01:00' - interval '7' hour)
@@ -105,11 +117,15 @@ SELECT typeof(timestamp '2022-06-17 01:00' - interval '7' hour)
 
 Example result: `timestamp`
 
+###### Example
+
 ```
 SELECT interval '6' day - interval '4' hour
 ```
 
 Example result: `5 20:00:00.000000000`
+
+###### Example
 
 ```
 SELECT typeof(interval '6' day - interval '4' hour)

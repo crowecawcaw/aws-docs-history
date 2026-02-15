@@ -159,6 +159,8 @@ A response can indicate success or contain error information.
 
 example
 
+###### Example
+
 1. Create a Timestream for LiveAnalytics database named `BatchLoad` and a table named
    `BatchLoadTest`. Verify and, if necessary, adjust the
    values for `MemoryStoreRetentionPeriodInHours` and

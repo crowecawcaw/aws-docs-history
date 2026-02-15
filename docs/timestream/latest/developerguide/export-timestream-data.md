@@ -27,7 +27,7 @@ The tool offers flexibility in the scope of export, allowing you to export a sin
 
 ## Basic commands
 
-###### Example : Export a table with DynamoDB logging enabled
+###### Example: Export a table with DynamoDB logging enabled
 
 ```
 python3.9 unload.py \
@@ -38,7 +38,7 @@ python3.9 unload.py \
     --enable-dynamodb_logger true
 ```
 
-###### Example : Export entire database
+###### Example: Export entire database
 
 ```
 python3.9 unload.py \
@@ -47,7 +47,7 @@ python3.9 unload.py \
     --start-time '2020-03-26 17:24:38'
 ```
 
-###### Example : Export all databases
+###### Example: Export all databases
 
 ```
 python3.9 unload.py \
@@ -55,7 +55,7 @@ python3.9 unload.py \
     --start-time '2020-03-26 17:24:38'
 ```
 
-###### Example : Advanced export with more options
+###### Example: Advanced export with more options
 
 ```
 python unload.py \

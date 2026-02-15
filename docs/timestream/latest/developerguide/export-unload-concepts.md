@@ -73,6 +73,8 @@ However, note that partitioned columns are not included in the output file.
 `partitioned_by` is not a mandatory clause in the syntax. If you choose to
 export the data without any partitioning, you can exclude the clause in the syntax.
 
+###### Example
+
 Assuming you are monitoring clickstream data of your website and have 5 channels of
 traffic namely `direct`, `Social Media`, `Organic Search`,
 `Other`, and `Referral`. When exporting the data, you can choose to

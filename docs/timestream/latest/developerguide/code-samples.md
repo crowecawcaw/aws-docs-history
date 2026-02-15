@@ -1,157 +1,254 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Create database
+# List batch load tasks
 
-You can use the following code snippets to create a database.
-
-###### Note
-
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
+You can use the following code snippets to list batch load tasks.
 
 Java
 
 ```
-   public void createDatabase() {
-        System.out.println("Creating database");
-        CreateDatabaseRequest request = new CreateDatabaseRequest();
-        request.setDatabaseName(DATABASE_NAME);
-        try {
-            amazonTimestreamWrite.createDatabase(request);
-            System.out.println("Database [" + DATABASE_NAME + "] created successfully");
-        } catch (ConflictException e) {
-            System.out.println("Database [" + DATABASE_NAME + "] exists. Skipping database creation");
-        }
-    }
-```
+    public void listBatchLoadTasks() {
+            final ListBatchLoadTasksResponse listBatchLoadTasksResponse = amazonTimestreamWrite
+                            .listBatchLoadTasks(ListBatchLoadTasksRequest.builder()
+                                            .maxResults(15)
+                                            .build());
 
-Java v2
-
-```
-    public void createDatabase() {
-        System.out.println("Creating database");
-        CreateDatabaseRequest request = CreateDatabaseRequest.builder().databaseName(DATABASE_NAME).build();
-        try {
-            timestreamWriteClient.createDatabase(request);
-            System.out.println("Database [" + DATABASE_NAME + "] created successfully");
-        } catch (ConflictException e) {
-            System.out.println("Database [" + DATABASE_NAME + "] exists. Skipping database creation");
-        }
+            for (BatchLoadTask batchLoadTask : listBatchLoadTasksResponse.batchLoadTasks()) {
+                    System.out.println(batchLoadTask.taskId());
+            }
     }
 ```
 
 Go
 
 ```
-// Create database.
-    createDatabaseInput := &timestreamwrite.CreateDatabaseInput{
-        DatabaseName: aws.String(*databaseName),
-    }
+package main
 
-    _, err = writeSvc.CreateDatabase(createDatabaseInput)
+import (
+	"fmt"
+	"context"
+	"log"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/service/timestreamwrite"
+)
 
-    if err != nil {
-        fmt.Println("Error:")
-        fmt.Println(err)
-    } else {
-        fmt.Println("Database successfully created")
-    }
+func main() {
+	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
+		if service == timestreamwrite.ServiceID && region == "us-west-2" {
+		    return aws.Endpoint{
+		        PartitionID:   "aws",
+		        URL:           `<URL>`,
+		        SigningRegion: "us-west-2",
+		    }, nil
+		}
+		return aws.Endpoint{}, &aws.EndpointNotFoundError{}
+	})
 
-    fmt.Println("Describing the database, hit enter to continue")
+	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver), config.WithRegion("us-west-2"))
+
+	if err != nil {
+  		log.Fatalf("failed to load configuration, %v", err)
+	}
+
+	client := timestreamwrite.NewFromConfig(cfg)
+	listBatchLoadTasksMaxResult := int32(15)
+
+	response, err := client.ListBatchLoadTasks(context.TODO(), &timestreamwrite.ListBatchLoadTasksInput{
+		MaxResults: &listBatchLoadTasksMaxResult,
+	})
+
+	for i, task := range response.BatchLoadTasks {
+		fmt.Println(i, aws.ToString(task.TaskId))
+	}
+}
+
 ```
 
 Python
 
 ```
-    def create_database(self):
-        print("Creating Database")
-        try:
-            self.client.create_database(DatabaseName=Constant.DATABASE_NAME)
-            print("Database [%s] created successfully." % Constant.DATABASE_NAME)
-        except self.client.exceptions.ConflictException:
-            print("Database [%s] exists. Skipping database creation" % Constant.DATABASE_NAME)
-        except Exception as err:
-            print("Create database failed:", err)
+import boto3
+from botocore.config import Config
+
+INGEST_ENDPOINT = "`<url>`"
+REGION = "us-west-2"
+HT_TTL_HOURS = 24
+CT_TTL_DAYS = 7
+
+
+def print_batch_load_tasks(batch_load_tasks):
+    for batch_load_task in batch_load_tasks:
+        print(batch_load_task['TaskId'])
+
+
+def list_batch_load_tasks(client):
+    print("\nListing batch load tasks")
+    try:
+        response = client.list_batch_load_tasks(MaxResults=10)
+        print_batch_load_tasks(response['BatchLoadTasks'])
+        next_token = response.get('NextToken', None)
+        while next_token:
+            response = client.list_batch_load_tasks(
+                NextToken=next_token, MaxResults=10)
+            print_batch_load_tasks(response['BatchLoadTasks'])
+            next_token = response.get('NextToken', None)
+    except Exception as err:
+        print("List batch load tasks failed:", err)
+        raise err
+
+
+if __name__ == '__main__':
+    session = boto3.Session()
+
+    write_client = session.client('timestream-write',
+                                  endpoint_url=INGEST_ENDPOINT, region_name=REGION,
+                                  config=Config(read_timeout=20, max_pool_connections=5000, retries={'max_attempts': 10}))
+
+    list_batch_load_tasks(write_client)
+
 ```
 
 Node.js
 The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
 
-Also see [Class CreateDatabaseCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createdatabasecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createdatabasecommand.md") and [CreateDatabase](API_CreateDatabase.md "API_CreateDatabase.md").
+For API details, see [Class DescribeBatchLoadCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listbatchloadtaskscommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listbatchloadtaskscommand.md") and [DescribeBatchLoadTask](API_DescribeBatchLoadTask.md "API_DescribeBatchLoadTask.md").
 
 ```
-import { TimestreamWriteClient, CreateDatabaseCommand } from "@aws-sdk/client-timestream-write";
-const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
+import { TimestreamWriteClient, ListBatchLoadTasksCommand } from "@aws-sdk/client-timestream-write";
+const writeClient = new TimestreamWriteClient({ region: "`<region>`", endpoint: "`<endpoint>`" });
 
 const params = {
-    DatabaseName: "testDbFromNode"
+    MaxResults: `<15>`
 };
 
-const command = new CreateDatabaseCommand(params);
+const command = new ListBatchLoadTasksCommand(params);
 
-try {
-    const data = await writeClient.send(command);
-    console.log(`Database ${data.Database.DatabaseName} created successfully`);
-} catch (error) {
-    if (error.code === 'ConflictException') {
-        console.log(`Database ${params.DatabaseName} already exists. Skipping creation.`);
-    } else {
-        console.log("Error creating database", error);
+getBatchLoadTasksList(null);
+
+async function getBatchLoadTasksList(nextToken) {
+    if (nextToken) {
+        params.NextToken = nextToken;
     }
-}
-```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+    try {
+        const data = await writeClient.send(command);
 
-```
-async function createDatabase() {
-    console.log("Creating Database");
-    const params = {
-        DatabaseName: constants.DATABASE_NAME
-    };
+        data.BatchLoadTasks.forEach(function (task) {
+            console.log(task.TaskId);
+        });
 
-    const promise = writeClient.createDatabase(params).promise();
-
-    await promise.then(
-        (data) => {
-            console.log(`Database ${data.Database.DatabaseName} created successfully`);
-        },
-        (err) => {
-            if (err.code === 'ConflictException') {
-                console.log(`Database ${params.DatabaseName} already exists. Skipping creation.`);
-            } else {
-                console.log("Error creating database", err);
-            }
+        if (data.NextToken) {
+            return getBatchLoadTasksList(data.NextToken);
         }
-    );
+    } catch (error) {
+        console.log("Error while listing batch load tasks", error);
+    }
 }
 ```
 
 .NET
 
 ```
-        public async Task CreateDatabase()
+using System;
+using System.IO;
+using System.Collections.Generic;
+using Amazon.TimestreamWrite;
+using Amazon.TimestreamWrite.Model;
+using System.Threading.Tasks;
+
+namespace TimestreamDotNetSample
+{
+    public class ListBatchLoadTasksExample
+    {
+        private readonly AmazonTimestreamWriteClient writeClient;
+
+        public ListBatchLoadTasksExample(AmazonTimestreamWriteClient writeClient)
         {
-            Console.WriteLine("Creating Database");
+            this.writeClient = writeClient;
+        }
+
+        public async Task ListBatchLoadTasks()
+        {
+            Console.WriteLine("Listing batch load tasks");
 
             try
             {
-                var createDatabaseRequest = new CreateDatabaseRequest
+                var listBatchLoadTasksRequest = new ListBatchLoadTasksRequest
                 {
-                    DatabaseName = Constants.DATABASE_NAME
+                    MaxResults = 15
                 };
-                CreateDatabaseResponse response = await writeClient.CreateDatabaseAsync(createDatabaseRequest);
-                Console.WriteLine($"Database {Constants.DATABASE_NAME} created");
-            }
-            catch (ConflictException)
-            {
-                Console.WriteLine("Database already exists.");
+
+                ListBatchLoadTasksResponse response = await writeClient.ListBatchLoadTasksAsync(listBatchLoadTasksRequest);
+
+                PrintBatchLoadTasks(response.BatchLoadTasks);
+                var nextToken = response.NextToken;
+
+                while (nextToken != null)
+                {
+                    listBatchLoadTasksRequest.NextToken = nextToken;
+                    response = await writeClient.ListBatchLoadTasksAsync(listBatchLoadTasksRequest);
+                    PrintBatchLoadTasks(response.BatchLoadTasks);
+                    nextToken = response.NextToken;
+                }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Create database failed:" + e.ToString());
+                Console.WriteLine("List batch load tasks failed:" + e.ToString());
             }
+        }
+
+        private void PrintBatchLoadTasks(List<BatchLoadTask> tasks)
+        {
+            foreach (BatchLoadTask task in tasks)
+                Console.WriteLine($"Task:{task.TaskId}");
+        }
+    }
+}
+```
+
+```
+using Amazon.TimestreamWrite;
+using Amazon.TimestreamWrite.Model;
+using Amazon;
+using Amazon.TimestreamQuery;
+using System.Threading.Tasks;
+using System;
+using CommandLine;
+static class Constants
+{
+
+}
+namespace TimestreamDotNetSample
+{
+    class MainClass
+    {
+        public class Options
+        {
 
         }
+        public static void Main(string[] args)
+        {
+            Parser.Default.ParseArguments<Options>(args)
+                .WithParsed<Options>(o => {
+                    MainAsync().GetAwaiter().GetResult();
+                });
+        }
+
+        static async Task MainAsync()
+        {
+            var writeClientConfig = new AmazonTimestreamWriteConfig
+            {
+                ServiceURL =  "<service URL>",
+                Timeout = TimeSpan.FromSeconds(20),
+                MaxErrorRetry = 10
+            };
+
+            var writeClient = new AmazonTimestreamWriteClient(writeClientConfig);
+            var example = new ListBatchLoadTasksExample(writeClient);
+            await example.ListBatchLoadTasks();
+        }
+    }
+}
 ```

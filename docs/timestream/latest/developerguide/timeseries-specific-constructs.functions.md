@@ -22,6 +22,8 @@ provides usage information for the Timestream for LiveAnalytics integral functio
 
 ## Query examples
 
+###### Example
+
 Calculate the total volume of requests served per five minutes over the past hour by a
 specific host:
 
