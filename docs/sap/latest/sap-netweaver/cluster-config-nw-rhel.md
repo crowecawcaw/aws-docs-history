@@ -397,6 +397,8 @@ The minor difference in creating SAP instance resources between classic and simp
 
 The SAP instance is started and stopped using cluster resources.
 
+###### Example
+
 ENSA1
 Create an **ASCS** SAP instance resource:
 
@@ -516,6 +518,8 @@ The difference between ENSA1 and ENSA2 is that ENSA2 allows the lock table to be
 ## Create SAPInstance resources (classic only)
 
 The SAP instance is started and stopped using cluster resources.
+
+###### Example
 
 ENSA1
 Create an **ASCS** SAPInstance resource:

@@ -63,6 +63,8 @@ In this example, we step through setting up a sample environment for the install
   --block-device-mappings https://<bucket>.s3.amazonaws.com/<file>.json
   ```
 
+  ###### Example
+
   This example enables detailed monitoring (data is available in 1-minute periods for an additional cost) which is a support prerequisite for SAP workloads on Amazon EC2.
 
   ```

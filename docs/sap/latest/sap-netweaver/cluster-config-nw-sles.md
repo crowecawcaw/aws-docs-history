@@ -123,6 +123,8 @@ Details:
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
 - **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing. For ENSA1 use 30 seconds, for ENSA2 use 10 seconds (lower value sufficient as `priority-fencing-delay` handles primary node protection).
 
+###### Example
+
 ENSA1
 
 _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
@@ -315,6 +317,8 @@ The minor difference in creating SAP instance resources between classic and simp
 
 The SAP instance is started and stopped using cluster resources.
 
+###### Example
+
 ENSA1
 Create an **ASCS** SAP instance resource:
 
@@ -458,6 +462,8 @@ The difference between ENSA1 and ENSA2 is that ENSA2 allows the lock table to be
 ## Create SAPInstance resources (classic only)
 
 The SAP instance is started and stopped using cluster resources.
+
+###### Example
 
 ENSA1
 Create an **ASCS** SAPInstance resource:

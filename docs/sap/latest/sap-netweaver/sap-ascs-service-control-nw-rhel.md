@@ -43,6 +43,8 @@ Follow the procedure outlined below to make the necessary changes:
 
 1. **Program or process start behavior** – In case of failure, processes must be restarted. Determining where the process starts and in what order needs to be controlled by the cluster, and not SAP start framework behavior defined in the profiles. Your locks can be lost if this parameter is not changed. In newer SAP installations, the profiles may already contain `Start_Program_XX` instead of `Restart_Program_XX`. If `Start_Program_XX` is already present, no changes are needed for this step.
 
+###### Example
+
 ENSA1
 
 **ASCS**
