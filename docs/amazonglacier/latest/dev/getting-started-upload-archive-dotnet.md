@@ -31,7 +31,7 @@ archive in the following example, the archive will not appear in a vault in the
 management console until the vault inventory has been updated. This update usually
 happens once a day.
 
-###### Example — Uploading an Archive by Using the
+###### Example— Uploading an Archive by Using the
 
 High-Level API of the AWS SDK for .NET
 

@@ -74,6 +74,8 @@ update the code as shown with the name of the file you want to upload.
 
 This example is valid for part sizes from 1 MB to 1 GB. However, Amazon Glacier supports part sizes up to 4 GB.
 
+###### Example
+
 ```
 import java.io.ByteArrayInputStream;
 import java.io.File;

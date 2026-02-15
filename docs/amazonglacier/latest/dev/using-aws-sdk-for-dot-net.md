@@ -114,6 +114,8 @@ endpoint to other AWS Regions as shown in the following C# snippets.
 The following snippet shows how to set the endpoint to the US West (Oregon) Region
 (`us-west-2`) in the low-level API.
 
+###### Example
+
 ```
 AmazonGlacierClient client = new AmazonGlacierClient(Amazon.RegionEndpoint.USWest2);
 ```

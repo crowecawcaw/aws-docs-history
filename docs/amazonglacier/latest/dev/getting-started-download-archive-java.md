@@ -27,7 +27,7 @@ following:
   the file that you uploaded in [Step 3: Upload an Archive to a Vault in
   Amazon Glacier](getting-started-upload-archive.md "getting-started-upload-archive.md").
 
-###### Example — Downloading an Archive by Using the
+###### Example— Downloading an Archive by Using the
 
 AWS SDK for Java
 

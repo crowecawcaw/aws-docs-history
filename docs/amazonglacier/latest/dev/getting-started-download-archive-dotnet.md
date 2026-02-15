@@ -35,7 +35,7 @@ example, note the following:
   archive ID of the file that you uploaded in [Step 3: Upload an Archive to a Vault in
   Amazon Glacier](getting-started-upload-archive.md "getting-started-upload-archive.md").
 
-###### Example — Download an Archive by
+###### Example— Download an Archive by
 
 Using the High-Level API of the AWS SDK for .NET
 

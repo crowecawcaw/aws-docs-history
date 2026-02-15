@@ -31,6 +31,8 @@ The following C# code example creates and delete a vault in the US West (Oregon)
 
 For step-by-step instructions on how to run the following example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to update the code as shown with a vault name.
 
+###### Example
+
 ```
 using System;
 using Amazon.Glacier;
@@ -97,6 +99,8 @@ For information about the underlying REST API, see [Create Vault (PUT vault)](ap
 
 For step-by-step instructions on how to run the following example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to
 update the code as shown with a vault name.
+
+###### Example
 
 ```
 using System;

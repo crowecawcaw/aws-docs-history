@@ -63,6 +63,8 @@ The following C# code example uses the AWS SDK for .NET to upload an archive to 
 (`examplevault`). For step-by-step instructions on how to run this example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to
 update the code as shown with the name of a file you want to upload.
 
+###### Example
+
 ```
 using System;
 using System.Collections.Generic;

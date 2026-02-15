@@ -39,6 +39,8 @@ Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-
 as shown with an existing archive ID and the local file path where you want to save
 the downloaded archive.
 
+###### Example
+
 ```
 import java.io.File;
 import java.io.IOException;

@@ -30,6 +30,8 @@ The following C# code example uses the high-level API of the AWS SDK for .NET to
 archive. For step-by-step instructions on how to run this example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to update the code as
 shown with the archive ID of the archive you want to delete.
 
+###### Example
+
 ```
 using System;
 using Amazon.Glacier;
@@ -91,6 +93,8 @@ For information about the underlying REST API, see [Delete Archive (DELETE archi
 
 For step-by-step instructions on how to run this example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to update the code as shown with
 the archive ID of the archive you want to delete.
+
+###### Example
 
 ```
 using System;

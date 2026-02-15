@@ -118,6 +118,8 @@ explicitly as shown in the following Java code snippets.
 The following snippet shows how to set the endpoint to the US West (Oregon) Region
 (`us-west-2`) in the low-level API.
 
+###### Example
+
 ```
 client = new AmazonGlacierClient(credentials);
 client.setEndpoint("glacier.us-west-2.amazonaws.com");

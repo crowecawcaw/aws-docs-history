@@ -106,6 +106,8 @@ If it did, download the archive. The code example uses the JSON.NET library (see
 
 - Clean up by deleting the Amazon SNS topic and the Amazon SQS queue it created.
 
+###### Example
+
 ```
 using System;
 using System.Collections.Generic;

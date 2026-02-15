@@ -42,6 +42,8 @@ For step-by-step instructions on how to run this example, see [Running Java Exam
 Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java"). You need to update the code as shown with a vault
 name and the archive ID of the archive you want to delete.
 
+###### Example
+
 ```
 import java.io.IOException;
 

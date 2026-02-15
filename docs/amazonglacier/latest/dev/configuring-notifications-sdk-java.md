@@ -54,6 +54,8 @@ the configuration, and then restores the configuration. For step-by-step
 instructions on how to run the following example, see
 [Using the AWS SDK for Java with Amazon Glacier](using-aws-sdk-for-java.md "using-aws-sdk-for-java.md").
 
+###### Example
+
 ```
 import java.io.IOException;
 

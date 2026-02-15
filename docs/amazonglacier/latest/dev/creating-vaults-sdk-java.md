@@ -51,6 +51,8 @@ the same AWS Region, and then deletes the vault created.
 For step-by-step instructions on how to run the following example, see [Running Java Examples for Amazon Glacier
 Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java").
 
+###### Example
+
 ```
 import java.io.IOException;
 import java.util.List;

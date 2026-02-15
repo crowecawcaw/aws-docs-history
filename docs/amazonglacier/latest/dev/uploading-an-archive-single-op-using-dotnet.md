@@ -34,6 +34,8 @@ the US West (Oregon) Region.
 For step-by-step instructions on how to run this example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to
 update the code as shown with the name of the file you want to upload.
 
+###### Example
+
 ```
 using System;
 using Amazon.Glacier;
@@ -103,6 +105,8 @@ For information about the underlying REST API to upload an archive in a single r
 
 For step-by-step instructions on how to run this example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to
 update the code as shown with the name of the file you want to upload.
+
+###### Example
 
 ```
 using System;

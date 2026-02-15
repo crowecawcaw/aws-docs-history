@@ -46,6 +46,8 @@ For information about the underlying REST API, see [Vault Operations](vault-oper
 
 For step-by-step instructions to run the following example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to update the code as shown and provide an existing vault name and an Amazon SNS topic.
 
+###### Example
+
 ```
 using System;
 using System.Collections.Generic;

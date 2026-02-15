@@ -35,6 +35,8 @@ For step-by-step instructions on how to run this example, see [Running Java Exam
 Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java"). You need to
 update the code as shown with the name of the vault you want to upload to and the name of the file you want to upload.
 
+###### Example
+
 ```
 import java.io.File;
 import java.io.IOException;
