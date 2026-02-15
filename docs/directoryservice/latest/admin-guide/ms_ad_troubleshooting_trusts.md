@@ -43,11 +43,7 @@ normal, as the domain controller's effective default settings for `Network acces
   > Options**. They should match the following settings:
   - Microsoft network client: Digitally sign communications (always): Default:
     Enabled
-  - Microsoft network client: Digitally sign communications (if server agrees): Default:
-    Enabled
   - Microsoft network server: Digitally sign communications (always): Enabled
-  - Microsoft network server: Digitally sign communications (if client agrees): Default:
-    Enabled
 
 ### Enhancing Trust Efficiency with Site Names and
 
