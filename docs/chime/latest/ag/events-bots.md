@@ -14,7 +14,7 @@ The following events are sent to your chatbot from Amazon Chime:
 - Remove – Sent when your chatbot is removed from an Amazon Chime chat room
   The following examples show the JSON payload sent to your chatbot for each of these events.
 
-###### Example : Invite event
+###### Example: Invite event
 
 ```
 
@@ -37,7 +37,7 @@ The following events are sent to your chatbot from Amazon Chime:
 
 ```
 
-###### Example : Mention event
+###### Example: Mention event
 
 ```
 
@@ -65,7 +65,7 @@ The following events are sent to your chatbot from Amazon Chime:
 
 The `InboundHttpsEndpoint` URL for a Mention event expires 2 minutes after it is sent.
 
-###### Example : Remove event
+###### Example: Remove event
 
 ```
 
