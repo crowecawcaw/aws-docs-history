@@ -31,6 +31,8 @@ ID depends on the level of access controls you need. The service doesn't
 allow you to use the same ID for two simultaneous encryption processes.
 The resource ID is also known as the content ID.
 
+###### Example
+
 ```
 MovieNight20171126093045
 ```

@@ -43,6 +43,8 @@ the event. You can use the following values for detail-type:
 
 For information about the event types, see [AWS Elemental MediaPackage events](cloudwatch-events-example.md "cloudwatch-events-example.md").
 
+###### Example
+
 The following example rule creates notifications for all events on all
 detail-types.
 

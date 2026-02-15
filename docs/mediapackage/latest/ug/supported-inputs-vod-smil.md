@@ -27,7 +27,7 @@ letting MediaPackage know which MP4s are part of a single asset.
 - `systemLanguage` or `language` - The system
   language, such as `eng`.
 
-###### Example .smil manifest
+###### Example.smil manifest
 
 The following is an example of a `.smil` manifest.
 

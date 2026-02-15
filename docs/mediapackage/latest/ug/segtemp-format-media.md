@@ -30,6 +30,8 @@ AWS Elemental MediaPackage takes the following actions:
    `SegmentTemplate` object, as shown in the following
    example:
 
+###### Example
+
 ```
 <SegmentTemplate timescale="30" media="index_video_1_0_`$Time$`.mp4?m=1122792372" initialization="index_video_1_0_init.mp4?m=1122792372" startNumber="2937928">
 ```
@@ -43,6 +45,8 @@ AWS Elemental MediaPackage takes the following actions:
 The value that replaces the variable must be an exact `t`
 value of a segment. If the request uses an arbitrary timestamp,
 MediaPackage doesn't seek the closest segment.
+
+###### Example
 
 The following is an example of a segment template from a
 representation. It uses the `$Time$` variable:

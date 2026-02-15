@@ -34,6 +34,8 @@ A packaging group holds one or more packaging configurations. The packaging
 configurations enable you to define what kind of VOD outputs you want. To apply these output
 definitions, associate a packaging group to multiple assets.
 
+###### Example
+
 You have 15 pieces of source content. You want to serve them all as DASH,
 HLS, and encrypted HLS outputs. To do this, you define one packaging group
 with DASH, HLS, and encrypted HLS packaging configurations. You then

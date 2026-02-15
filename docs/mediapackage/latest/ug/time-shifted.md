@@ -100,12 +100,16 @@ notation, or can be included as path elements in the URL.
 - Query parameter notation – start and end parameters are included at the end of the
   request URL
 
+###### Example
+
 ```
 https://cf98fa7b2ee4450e.mediapackage.us-east-1.amazonaws.com/out/v1/997cbb27697d4863bb65488133bff26f/sports.mpd?`start=1513717228&end=1513720828`
 ```
 
 - Path elements – start and end parameters are included in the path of the request
   URL
+
+###### Example
 
 ```
 https://cf98fa7b2ee4450e.mediapackage.us-east-1.amazonaws.com/out/v1/997cbb27697d4863bb65488133bff26f/`start`/`2017-12-19T13:00:28-08:00`/`end`/`2017-12-19T14:00:28-08:00`/sports.mpd
@@ -155,6 +159,8 @@ included as path elements in the URL.
 
 - Path elements – start and end parameters are included in the path of the request
   URL
+
+###### Example
 
 ```
 https://cf98fa7b2ee4450e.mediapackage.us-east-1.amazonaws.com/out/v1/1f76b3b4f94c44a485c0e4e560afe50e/`start`/`1513717228`/`end`/`1513720828`/drama.ism/Manifest

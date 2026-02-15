@@ -28,6 +28,8 @@ boundaries. This is how MediaPackage processes those messages:
    calculation is (scte35 `ptsAdjustment` + scte35
    `ptsTime`) / (EventStream `timescale`).
 
+###### Example
+
 In the following example, the period starts at 44.075 seconds because
 (183003 + 3783780) / 90000 = 44.075:
 
@@ -54,6 +56,8 @@ In the following example, the period starts at 44.075 seconds because
    subsequent adaptation sets after the ad are grouped into a period, until the next SCTE-35
    marker. Here is a complete manifest example with multiple periods. It uses
    `SpliceInsert` SCTE-35 ad markers:
+
+###### Example
 
 ```
 <?xml version="1.0" encoding="utf-8"?>

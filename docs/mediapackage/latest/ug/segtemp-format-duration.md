@@ -38,6 +38,8 @@ with the manifest:
    `duration` attribute to the `SegmentTemplate`
    object, as shown in the following example:
 
+###### Example
+
 ```
 <SegmentTemplate timescale="30000" media="index_video_1_0_$Number$.mp4?m=1535562908" initialization="index_video_1_0_init.mp4?m=1535562908" startNumber="175032" **duration="90000"** presentationTimeOffset="62061"/>
 ```
@@ -51,6 +53,8 @@ Except for the final segment, segments must be no more than 50%
 deviation from the value of the duration. With a 90000 duration,
 segments must be between 45000 and 135000 (1.5 to 4.5 seconds with a
 30000 timescale).
+
+###### Example
 
 The following is an example of an adaptation set that uses the
 `duration` in the segment template:
@@ -80,6 +84,8 @@ The following is an example of an adaptation set that uses the
 ((wall clock time - `availabilityStartTime` ) /
 (`duration` / `timescale` )) +
 `startNumber`
+
+###### Example
 
 A playback device is calculating the most recent segment with the
 following values:
@@ -153,6 +159,8 @@ For more information about compacted manifests, see [Compacted DASH manifests](c
 If the segments in a representation intentionally have varying sizes of
 segments, don't use the `duration` attribute. This treatment works
 only when the segments are a consistent size.
+
+###### Example
 
 The following is an example of a compacted manifest:
 
