@@ -39,6 +39,47 @@ specify an IAM role with a name that begins with
 To create a notebook, you must use a role with admin permissions or that has the
 following inline policy attached to it.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "CreateTheRole",
+ "Effect": "Allow",
+ "Action": "iam:CreateRole",
+ "Resource": "arn:aws:iam::*:role/service-role/AmazonBraketServiceSageMakerNotebookRole*"
+ },
+ {
+ "Sid": "CreateThePolicy",
+ "Effect": "Allow",
+ "Action": "iam:CreatePolicy",
+ "Resource": [
+ "arn:aws:iam::*:policy/service-role/AmazonBraketServiceSageMakerNotebookAccess*",
+ "arn:aws:iam::*:policy/service-role/AmazonBraketServiceSageMakerNotebookRole*"
+ ]
+ },
+ {
+ "Sid": "AttachTheRolePolicy",
+ "Effect": "Allow",
+ "Action": "iam:AttachRolePolicy",
+ "Resource": "arn:aws:iam::*:role/service-role/AmazonBraketServiceSageMakerNotebookRole*",
+ "Condition": {
+ "ArnLike": {
+ "iam:PolicyARN": [
+ "arn:aws:iam::aws:policy/AmazonBraketFullAccess",
+ "arn:aws:iam::*:policy/service-role/AmazonBraketServiceSageMakerNotebookAccess*",
+ "arn:aws:iam::*:policy/service-role/AmazonBraketServiceSageMakerNotebookRole*"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 To create the role, follow the steps given in the [Create a notebook](braket-get-started-create-notebook.md "braket-get-started-create-notebook.md") page or have your administrator create it for you. Ensure
 that the **AmazonBraketFullAccess** policy is
 attached.
