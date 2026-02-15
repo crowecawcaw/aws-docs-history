@@ -63,10 +63,12 @@ Consider the following when using Amazon ECR pull through cache rules.
 - When pulling images using pull through cache, the Amazon ECR FIPS service
   endpoints aren't supported the first time an image is pulled. Using the
   Amazon ECR FIPS service endpoints work on subsequent pulls though.
-- When a cached image is pulled through the Amazon ECR private registry URI, the
-  image pulls are initiated by AWS IP addresses. This ensures that the image
-  pull doesn't count against any pull rate quotas implemented by the upstream
-  registry.
+- For upstream repositories that require authentication, when an image is pulled through the
+  Amazon ECR private registry URI for the first time or to update the cache, the image pulls are initiated by the
+  user associated to the credentials configured in the pull through cache rule. Subsequent pulls
+  will return the image directly from the cache in the customer's private registry.
+- For upstream repositories that do not require authentication, when an image is pulled through the Amazon ECR private registry URI, the
+  image pulls are initiated by AWS IP addresses.
 - When a cached image is pulled through the Amazon ECR private registry URI,
   Amazon ECR checks the upstream repository at least once every 24 hours to verify
   whether the cached image is the latest version. If there is a newer image in

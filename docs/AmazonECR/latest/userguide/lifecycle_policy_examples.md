@@ -66,6 +66,77 @@ images with a tag starting with `prod` by using a
 }
 ```
 
+## Filtering on last pulled time
+
+The following example shows the lifecycle policy syntax for a policy that
+transitions images to archive storage that haven't been pulled in `90`
+days.
+
+```
+{
+    "rules": [
+        {
+            "rulePriority": 1,
+            "description": "Archive images not pulled in 90 days",
+            "selection": {
+                "tagStatus": "any",
+                "countType": "sinceImagePulled",
+                "countUnit": "days",
+                "countNumber": 90
+            },
+            "action": {
+                "type": "transition",
+                "targetStorageClass": "archive"
+            }
+        }
+    ]
+}
+```
+
+###### Important
+
+The `sinceImagePulled` count type must be used with the
+`transition` action. It cannot be used with the
+`expire` action. To delete images based on pull activity, first
+transition them to archive storage using `sinceImagePulled`, then
+use `sinceImageTransitioned` with an `expire` action to
+delete them. Images must be in archive storage for a minimum of 90 days before
+deletion.
+
+## Filtering on archive transition time
+
+The following example shows the lifecycle policy syntax for a policy that expires
+archived images that have been in archive storage for more than `365`
+days.
+
+```
+{
+    "rules": [
+        {
+            "rulePriority": 1,
+            "description": "Expire images archived for more than 365 days",
+            "selection": {
+                "tagStatus": "any",
+                "storageClass": "archive",
+                "countType": "sinceImageTransitioned",
+                "countUnit": "days",
+                "countNumber": 365
+            },
+            "action": {
+                "type": "expire"
+            }
+        }
+    ]
+}
+```
+
+###### Important
+
+The `sinceImageTransitioned` count type must be used with the
+`expire` action and the `archive` storage class.
+Images must be in archive storage for a minimum of 90 days before
+deletion.
+
 ## Filtering on image count
 
 The following example shows the lifecycle policy syntax for a policy that keeps
@@ -472,9 +543,9 @@ The following example shows a lifecycle policy that archives images that haven't
 }
 ```
 
-### Combining archive and delete rules
+### Combining archive and expire rules
 
-The following example shows a lifecycle policy that archives images older than 30 days and then permanently deletes images that have been archived for more than 365 days:
+The following example shows a lifecycle policy that archives images older than 30 days and then permanently expires images that have been archived for more than 365 days:
 
 ###### Note
 
@@ -499,7 +570,7 @@ Archived images have a minimum storage duration of 90 days. You cannot configure
         },
         {
             "rulePriority": 2,
-            "description": "Delete images archived for more than 365 days",
+            "description": "Expire images archived for more than 365 days",
             "selection": {
                 "tagStatus": "any",
                 "storageClass": "archive",

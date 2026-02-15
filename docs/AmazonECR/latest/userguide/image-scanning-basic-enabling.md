@@ -4,8 +4,7 @@ images in Amazon ECR
 
 By default, Amazon ECR turns on basic scanning for all private registries. As a result,
 unless you've changed the scanning settings on your private registry there is no
-need to turn on basic scanning. Basic scanning uses the open source Clair
-project.
+need to turn on basic scanning.
 
 You can use the following steps to define one or more scan on push filters.
 

@@ -46,25 +46,23 @@ JSON
 The following IAM policy grants the required permissions for pushing an image to
 all repositories.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ecr:CompleteLayerUpload",
- "ecr:GetAuthorizationToken",
- "ecr:UploadLayerPart",
- "ecr:InitiateLayerUpload",
- "ecr:BatchCheckLayerAvailability",
- "ecr:PutImage"
- ],
- "Resource": "arn:aws:ecr:us-west-2:111122223333:repository/*"
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                    "ecr:CompleteLayerUpload",
+                    "ecr:GetAuthorizationToken",
+                    "ecr:UploadLayerPart",
+                    "ecr:InitiateLayerUpload",
+                    "ecr:BatchCheckLayerAvailability",
+                    "ecr:PutImage"
+                    "ecr:BatchGetImage"
+            ],
+            "Resource": "arn:aws:ecr:us-west-2:111122223333:repository/*"
+        }
+    ]
+}
 ```

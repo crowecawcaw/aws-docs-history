@@ -94,6 +94,10 @@ The upstream Amazon ECR registry owner must also add a registry policy
 or a repository policy to grant the downstream registry owner the required
 permissions to perform the following actions.
 
+###### Note
+
+The following resource policy is required only for **cross-account** ECR to ECR pull through cache configurations. For **same-account, cross-region** pull through cache, you only need the IAM role policy and trust policy shown in the previous sections. The root account principal permission is not required when the upstream and downstream registries are in the same AWS account.
+
 ```
 {
     "Effect": "Allow",

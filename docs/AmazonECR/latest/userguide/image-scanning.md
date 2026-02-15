@@ -5,10 +5,9 @@ The following scanning types are offered.
 
 ###### Important
 
-Switching between the **Enhanced scanning**, **Basic
-scanning**, and the **Improved basic scanning** versions
-will cause previously established scans to no longer be available. You will have to set
-up your scans again. However, if you switch back to your previous scanning version the
+Switching between **Enhanced scanning** and **Basic
+scanning** will cause previously established scans to no longer be available. You will have to set
+up your scans again. However, if you switch back to your previous scanning type the
 established scans will be available.
 
 ###### Note
@@ -25,23 +24,17 @@ scanned. For more information about archiving and restoring images, see [Archivi
   - OS and programming languages package vulnerabilities
   - Two scanning frequencies: Scan on push and continuous scan
 
-- **Basic scanning** – Amazon ECR provides two versions of basic
-  scanning which use the Common Vulnerabilities and Exposures (CVEs) database:.
+- **Basic scanning** – Amazon ECR uses AWS native technology
+  with the Common Vulnerabilities and Exposures (CVEs) database to scan for operating
+  system vulnerabilities.
 
-      + **AWS native basic scanning** – Uses AWS
-       native technology, which is now GA and recommended. All new customer
-       registries are opted into this improved version by default.
-      + **Clair basic scanning** – Uses the open source
-       Clair project. Clair is now deprecated. See [Clair Deprecation](image-scanning-basic.md#clair-deprecation "image-scanning-basic.md#clair-deprecation") for
-       details.
+With basic scanning, you configure your repositories to scan on push or you can
+perform manual scans and
+Amazon ECR provides a list of scan findings. Basic scanning provides the
+following:
 
-  With basic scanning, you configure your repositories to scan on push or you can
-  perform manual scans and
-  Amazon ECR provides a list of scan findings. Basic scanning provides the
-  following:
-
-      + OS scans
-      + Two scanning frequencies: Manual and scan on push
+    + OS scans
+    + Two scanning frequencies: Manual and scan on push
 
 ###### Important
 
