@@ -286,6 +286,8 @@ AT+BLE SET2 00000296000084030004FF
 
 ## Complete Peripheral Configuration Examples
 
+###### Example
+
 **Example 1:**
 
 1. Configure BLE in Peripheral mode:
@@ -346,6 +348,8 @@ After successful connection, you receive the event: **40 0 BLE CONNECTED**. Any 
 example, smartphone) can now see the device and connect to it.
 
  
+
+###### Example
 
 **Example 2:** Configuring a device as peripheral and retrieve its BDAddress.
 

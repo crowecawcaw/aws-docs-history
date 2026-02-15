@@ -180,6 +180,8 @@ Any data that arrives after _{EOL}_ and before 'AT+'
 will be ignored and discarded. Note that this includes multiple
 _{EOL}_ characters–they will be ignored and discarded.
 
+###### Example
+
 ```
 abcdefAT{EOL}         spurious characters preceding a command are ignored
 OK{EOL}
