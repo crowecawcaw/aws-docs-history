@@ -162,19 +162,6 @@ comparison to a published forecast. You will see a different forecast in
 scheduling, as that is the most recently published short-term
 forecast.
 
-- **Why do I see the call volume peak in short-term
-  forecast at mid-night when no traffic is expected?**
-
-Forecasting uses Coordinated Universal Time (UTC) as its time zone.
-For North American users on the Pacific or Atlantic Coasts, this is 8
-hours ahead of PST, or 7 hours ahead of PDT; and 5 hours ahead of EST,
-or 4 hours ahead of EDT. So for example, midnight in UTC is 4pm PST /
-5pm PDT or 7pm EST / 8pm EDT.
-
-###### Important
-
-Use UTC time when uploading historical data or overrides.
-
 - **Why am I unable to delete a
   forecast?**
 

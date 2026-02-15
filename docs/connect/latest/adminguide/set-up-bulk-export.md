@@ -131,7 +131,7 @@ JSON
  "aws:SourceAccount": "{{AwsAccountId}}"
  },
  "ArnEquals": {
- "aws:SourceArn": "arn:aws:*-*:{{Region}}:{{AwsAccountId}}:data-integration/*"
+ "aws:SourceArn": "arn:aws:*-*:{us-east-1}:{{AwsAccountId}}:data-integration/*"
  }
  }
  }

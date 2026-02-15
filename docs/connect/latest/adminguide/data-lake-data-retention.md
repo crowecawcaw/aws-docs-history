@@ -2,7 +2,7 @@
 
 lake
 
-The analytics data lake retention system in Amazon Connect maintains a rolling 25-month window
+The data lake retention system in Amazon Connect maintains a rolling 25-month window
 of accessible data, with the cutoff date updating at 12 AM UTC. For example, if you
 access the data lake on September 1, 2025, at 03:00 AM UTC, Amazon Connect will provide access to
 data from August 1, 2023, 12:00 AM UTC onwards, while any data before this cutoff date

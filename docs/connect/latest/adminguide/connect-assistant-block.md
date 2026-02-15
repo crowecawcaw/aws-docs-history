@@ -23,7 +23,7 @@ specified channel.
 
 ###### Note
 
-Nothing happens if a task or outbound mail is sent to this block, however,
+Nothing happens if an outbound mail is sent to this block, however,
 **you will be charged**. To prevent this, add a
 [Check contact
 attributes](check-contact-attributes.md "check-contact-attributes.md") block before this one and
@@ -34,7 +34,7 @@ how they contact your contact center](use-channel-contact-attribute.md "use-chan
 | ------- | ---------- |
 | Voice   | Yes        |
 | Chat    | Yes        |
-| Task    | No         |
+| Task    | Yes        |
 | Email   | Yes        |
 
 ## Flow types

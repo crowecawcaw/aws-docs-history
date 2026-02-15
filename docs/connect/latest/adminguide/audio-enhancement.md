@@ -102,6 +102,63 @@ their CCP.
 - When both administrators and agents can control Audio Enhancement,
   the most recent change takes effect.
 
+## Set up Audio Enhancement mode through Amazon Connect APIs
+
+If you are using the Amazon Connect APIs, you can set the Audio Enhancement mode by
+including the [VoiceEnhancementConfigs](../APIReference/API_CreateUser.md#connect-CreateUser-request-VoiceEnhancementConfigs "../APIReference/API_CreateUser.md#connect-CreateUser-request-VoiceEnhancementConfigs")
+parameter in the [CreateUser](../APIReference/API_CreateUser.md "../APIReference/API_CreateUser.md") or
+[UpdateUserConfig](../APIReference/API_UpdateUserConfig.md "../APIReference/API_UpdateUserConfig.md")
+requests.
+
+For example, the body of the `UpdateUserConfig` request should be:
+
+```
+POST /users/InstanceId/UserId/config HTTP/1.1
+Content-type: application/json
+{
+   ...,
+   "VoiceEnhancementConfigs": [
+      {
+         "Channel": "VOICE",
+         "VoiceEnhancementMode": "VOICE_ISOLATION"
+      }
+   ]
+}
+```
+
+For both endpoints, the accepted values of `VoiceEnhancementMode` are
+`VOICE_ISOLATION`, `NOISE_SUPPRESSION`, or `NONE`.
+
+## Set up Audio Enhancement mode for custom CCP
+
+If you are using a custom CCP with the Amazon Connect Streams API, you can set the Audio
+Enhancement mode in either of the following ways:
+
+- **Using agent.setVoiceEnhancementMode API**
+
+```
+agent.setVoiceEnhancementMode("VOICE_ISOLATION");
+```
+
+- **Using agent.setConfiguration API**
+
+```
+const configuration = agent.getConfiguration();
+agent.setConfiguration({
+  ...configuration,
+  voiceEnhancementMode: "NOISE_SUPPRESSION",
+});
+```
+
+- **Using the ConnectSDK** – Reference
+  the [setVoiceEnhancementMode()](../../../agentworkspace/latest/devguide/3P-apps-voice-requests-setvoiceenhancementmode.md "../../../agentworkspace/latest/devguide/3P-apps-voice-requests-setvoiceenhancementmode.md")
+  and [getVoiceEnhancementMode()](../../../agentworkspace/latest/devguide/3P-apps-voice-requests-getvoiceenhancementmode.md "../../../agentworkspace/latest/devguide/3P-apps-voice-requests-getvoiceenhancementmode.md")
+  methods in the Voice API.
+
+In all cases, the accepted values are `VOICE_ISOLATION`,
+`NOISE_SUPPRESSION`, or `NONE`. Once the mode is set,
+Amazon Connect Streams will apply the selected Audio Enhancement.
+
 ## Troubleshooting
 
 If your customers report any audio quality issues:

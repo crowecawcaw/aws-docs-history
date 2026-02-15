@@ -46,7 +46,9 @@ a title.
 —or—
 
 Select an existing form and choose **Duplicate**. 4. Enter a title for the form, such as _Sales evaluation_,
-or change the existing title. When finished, choose **Ok**.
+or change the existing title. Add any tags to the form for controlling access
+to the form (see [Set up tag-based-access controls on performance evaluations](tag-based-access-control-performance-evaluations.md "tag-based-access-control-performance-evaluations.md"))
+When finished, choose **Ok**.
 
 ![The evaluation forms page, the set form title section.](images/evaluationforms-title.png)
 

@@ -157,6 +157,8 @@ metric value.
 
 This section is disabled and cannot be used when a `Current Contact` metric primitive is used to build a custom metric.
 
+###### Example
+
 **Display
 format:**
 

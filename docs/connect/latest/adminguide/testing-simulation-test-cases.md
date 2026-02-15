@@ -34,7 +34,7 @@ The following procedure shows how to create a test case.
 2. In the main navigation pane, choose **Routing**, and then
    **Tests**.
 3. Choose **Create Test**.
-4. Once a test is created, choose the **Details** tab to enter basic information about this test case including, name, description, and tags.
+4. Once a test is saved or published, choose the **Details** tab to enter basic information about this test case including, name, description, and tags.
 
 ![](images/test-detail.png) 5. Choose the **Settings** tab to specify channel, starting point including
 contact flow, phone number, contact flow to start, incoming phone
@@ -48,7 +48,7 @@ case execution.
 expected interaction from the system with a matching type (Contains and
 Similarity match). Then, add check or actions blocks if necessary. For
 more information, see
-[Intereaction groups](testing-simulation-concepts.md#testing-simulation-concepts-interaction-groups "testing-simulation-concepts.md#testing-simulation-concepts-interaction-groups").
+[Interaction groups](testing-simulation-concepts.md#testing-simulation-concepts-interaction-groups "testing-simulation-concepts.md#testing-simulation-concepts-interaction-groups").
 
 ![](images/GIF/test-add-check-action-block-gif.gif) 9. Choose **Run Test** to execute the test case.
 
@@ -62,7 +62,7 @@ simulated contact ID, and the pass or fail status of each step.
 
 You can also view all the test runs across all test cases in the
 **Test runs** tab. This page lists all of the test executions
-in the same Connect instance. You will only see the detail test results for the test
+in the same Amazon Connect instance. You will only see the detail test results for the test
 cases you created or test cases you have permission to view.
 
 ![](images/test-run-list-page.png)

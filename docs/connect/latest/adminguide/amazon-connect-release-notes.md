@@ -7,6 +7,10 @@ your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
 ## February 2026 Updates
 
+### Amazon Connect Cases now supports larger, multi-line text fields
+
+Amazon Connect Cases now supports larger, multi-line text fields with up to 4,100 characters. Administrators can use the Admin UI to select the appropriate configuration (single-line or multi-line) on a per-field basis, improving case documentation capabilities.
+
 ### Amazon Connect now enables per-channel auto-accept and
 
 After Contact Work (ACW) timeouts
@@ -36,6 +40,16 @@ significantly reduces manual configuration time for complex hierarchical data st
 You can include multiple field pairs in a single CSV file.
 
 For more information, see [CSV upload for dependent field options](case-field-dependent-csv-upload.md "case-field-dependent-csv-upload.md").
+
+### In-app notifications keep users informed of urgent updates and actions
+
+Amazon Connect Now users in the Amazon Connect admin website can be provided notifications in their header,
+so urgent updates and follow-on actions can be seen from any page within the Amazon Connect admin website.
+APIs allow services and customers to publish brief messages (including URLs) to a specified audience,
+and a new header icon will indicate when unread messages are available. On click, the user can read the message,
+mark as unread if necessary, and follow links to reports or other UIs if follow-on actions are advised.
+
+For more information, see In-app notifications keep users informed of urgent updates and actions.
 
 ## January 2026 Updates
 
@@ -477,10 +491,10 @@ analytics.
 
 lake
 
-Agent time-off balance data is available in the Amazon Connect analytics data lake, making it easier
+Agent time-off balance data is available in the Amazon Connect data lake, making it easier
 for you to generate reports and insights from this data. You access the latest and historical
 agent time-off balances across different time-off categories (paid time-off, sick leave, leave
-of absence, etc.) in the analytics data lake. You can also view a chronological list of all
+of absence, etc.) in the data lake. You can also view a chronological list of all
 transactions that impacted the balance. For example, if an agent starts with 80 hours of paid
 time-off on January 1, submits a 20-hour request on January 3, and later cancels it, you can see
 each transaction's impact on the final 80-hour balance. This makes time-off management easier by
@@ -1062,7 +1076,7 @@ using the GetMetricDataV2 API.
 - [Average agent response time](metrics-definitions.md#average-agent-response-time "metrics-definitions.md#average-agent-response-time")
 - [Average bot messages](metrics-definitions.md#average-bot-messages "metrics-definitions.md#average-bot-messages")
 
-Also added fields to the [Contact record](data-type-definitions.md#data-lake-contacts-record "data-type-definitions.md#data-lake-contacts-record") in the Amazon Connect analytics data lake.
+Also added fields to the [Contact record](data-type-definitions.md#data-lake-contacts-record "data-type-definitions.md#data-lake-contacts-record") in the Amazon Connect data lake.
 
 ### Create instance replication between Asia Pacific (Tokyo)
 
@@ -1428,14 +1442,14 @@ eliminates the need to build and maintain complex data pipelines. You can create
 using Amazon Connect data or seamlessly combine it with third-party data using [zero-ETL](https://aws.amazon.com/what-is/zero-etl/ "https://aws.amazon.com/what-is/zero-etl/")
 integration.
 
-Analytics data lake enables contact center managers to leverage BI tools of their choice,
+The data lake enables contact center managers to leverage BI tools of their choice,
 such as QuickSight, to analyze the information that matters most to improving customer
 experience and operational efficiency.
 
-For more information on Analytics data lake, see [Amazon Connect analytics data lake](data-lake.md "data-lake.md").
+For more information, see [Amazon Connect data lake](data-lake.md "data-lake.md").
 
 There are updated tables for Contact records, Contact Evaluation records, Lex, and Outbound
-Campaigns. For tables of the latest fields, see [Data type definitions for the Amazon Connect analytics
+Campaigns. For tables of the latest fields, see [Data type definitions for the Amazon Connect
 data lake](data-type-definitions.md "data-type-definitions.md").
 
 ### Allow agents to exchange shifts with each other
@@ -1998,7 +2012,7 @@ query CloudWatch Logs. For more information, see [Monitor Connect AI agents by u
 
 #### Forecasting data in Amazon Connect Analytics data lake
 
-You can use published forecast (short-term and long-term) data in the analytics data lake.
+You can use published forecast (short-term and long-term) data in the data lake.
 This makes it easier for you to generate reports and insights from this data. For example, you
 can build dashboards that compare forecasts against actuals or view this data in conjunction
 with other data sets such as sales forecasts. You can also automate ingestion of this data in
@@ -2845,7 +2859,7 @@ Amazon Connect. This data includes contact records and Contact Lens conversation
 Data is refreshed around every 24 hours. You can use the Analytics data lake to create custom
 reports or run SQL queries.
 
-For more information, see [Access Amazon Connect analytics data lake](access-datalake.md "access-datalake.md"). In addition, see new actions in the [Analytics data lake
+For more information, see [Access Amazon Connect data lake](access-datalake.md "access-datalake.md"). In addition, see new actions in the [Analytics data lake
 actions](../APIReference/analyticsdataset-api.md "../APIReference/analyticsdataset-api.md") topic in the _Amazon Connect API Reference_.
 
 #### Added metrics to the `GetMetricDataV2`

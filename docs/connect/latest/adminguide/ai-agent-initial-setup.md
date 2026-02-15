@@ -119,14 +119,14 @@ If you choose to set up a KMS key where someone else is the administrator,
 the key must have a policy that allows `kms:CreateGrant`,
 `kms:DescribeKey`, and `kms:Decrypt` and
 `kms:GenerateDataKey*` permissions to the IAM identity using
-the key to invoke Connect AI agents. To use Connect AI agents with chat and emails, the key policy for
+the key to invoke Connect AI agents. To use Connect AI agents with chat, task, and emails, the key policy for
 your Connect AI agents domain must allow `kms:Decrypt`,
 `kms:GenerateDataKey*`, and `kms:DescribeKey`
 permissions to the `connect.amazonaws.com` service principal.
 
 ###### Note
 
-To use Connect AI agents with chat and emails, the key policy for your domain
+To use Connect AI agents with chat, task, and emails, the key policy for your domain
 must grant the `connect.amazonaws.com` service principal the
 following permissions:
 
@@ -176,7 +176,7 @@ explain how to use each type of key. Expand each section as needed.
 
 ###### Note
 
-To use an existing key with Amazon Connect chats and emails, you must grant the
+To use an existing key with Amazon Connect chats, tasks, and emails, you must grant the
 `connect.amazonaws.com` service principal the
 `kms:Decrypt`, `kms:GenerateDataKey*`, and
 `kms:DescribeKey` permissions.
@@ -251,7 +251,7 @@ these steps:
 
     ###### Note
 
-    To use Connect AI agents with chats and emails, modify the key policy
+    To use Connect AI agents with chats, tasks, and emails, modify the key policy
      to allow the `kms:Decrypt`, `kms:GenerateDataKey*`, and
      `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. The
      following code shows a sample policy.

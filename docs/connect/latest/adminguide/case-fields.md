@@ -71,6 +71,16 @@ appears only in the Amazon Connect admin website. It doesn't appear to agents.
 You can create fields that are type: number, text, single-select, true/false,
 datetime, and URL.
 
+### Text fields
+
+Text fields allow agents to capture and store textual information related to customer cases. These fields are flexible and can accommodate various types of text-based data, from brief notes to detailed descriptions.
+
+When creating a text field in the Amazon Connect admin website, you can select from two input display options under the **Input display** section to best suit your data collection needs:
+
+**Single line text fields:** Single line text fields display text in a single horizontal line and have a character limit of 500 characters. They are ideal for capturing concise information such as customer reference numbers, product names, brief case summaries, and contact names.
+
+**Multi-line text fields:** Multi-line text fields expand vertically to accommodate multiple lines of text and have a character limit of 4,100 characters. They are suitable for capturing detailed information such as case descriptions, customer feedback, resolution steps, and agent observations.
+
 ### Single-select fields
 
 For single-select case fields, whether system or custom, you can add value

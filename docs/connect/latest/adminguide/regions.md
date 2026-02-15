@@ -11,7 +11,7 @@ available.
 - [Agent workspace third-party
   applications](#agentworkspace_3p_region "#agentworkspace_3p_region")
 - [Connect AI agents](#q-connect_region "#q-connect_region")
-- [Analytics data
+- [Data
   lake](#analytics_datalake_region "#analytics_datalake_region")
 - [AppIntegrations](#appintegrations_region "#appintegrations_region")
 - [Cases](#cases_region "#cases_region")
@@ -93,7 +93,7 @@ applications
 - Europe (Frankfurt)
 - Europe (London)
 
-## Analytics data lake
+## Data lake
 
 - US East (N. Virginia)
 - US West (Oregon)

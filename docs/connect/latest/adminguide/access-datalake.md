@@ -1,6 +1,6 @@
-# Access Amazon Connect analytics data lake
+# Access Amazon Connect data lake
 
-To access the analytics data lake, you can use the AWS console, the
+To access the data lake, you can use the AWS console, the
 [AWS Command Line Interface](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") or
 [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"). AWS CloudShell is a browser-based, pre-authenticated shell that you can
 launch directly from the AWS Management Console.
@@ -75,7 +75,7 @@ CloudShell
 }
 ```
 
-3. Associate the analytics data lake to a single account by running the
+3. Associate the data lake to a single account by running the
    `aws connect batch-associate-analytics-data-set --cli-input-json
 file:`///path/to/request/file`` command
    (where this path is based on the location of the JSON file).

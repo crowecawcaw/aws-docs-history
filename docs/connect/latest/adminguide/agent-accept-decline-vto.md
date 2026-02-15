@@ -31,4 +31,4 @@ buttons for agents
 The following image shows the **Accept** and
 **Decline** buttons on the agent application.
 
-![The Accept and Decline buttons on the agent application.](/images/connect/latest/adminguide/images/accept-decline-buttons-wfm.png)
+![The Accept and Decline buttons on the agent application.](images/accept-decline-buttons-wfm.png)

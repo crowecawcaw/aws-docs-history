@@ -375,10 +375,10 @@ contact drivers over time, and the performance of each of those call drivers.
 
 ![A conversational analytics dashboard.](images/whatisconnect-dashboard.png)
 
-You can use Amazon Connect analytics data lake as a central location to query various
+You can use Amazon Connect data lake as a central location to query various
 types of data from Amazon Connect. This data includes contact records,
 Contact Lens conversational analytics, Contact Lens
-performance evaluations, and more. You can use analytics data lake to create
+performance evaluations, and more. You can use data lake to create
 custom reports, run SQL queries, or leverage the BI tools of your choice to
 analyze the information that matters most to improving customer experience and
 operational efficiency.

@@ -5,7 +5,7 @@ users to create and access evaluation forms
 To allow users to create, automate, and access evaluation forms, assign the following
 **Analytics and optimization** security profile permissions:
 
-- **Evaluation forms - perform evaluations**: Allows a user,
+- **Evaluation forms - perform contact evaluations**: Allows a user,
   such as a Quality Assurance team member, to use an evaluation form to review a
   contact. For an example image, see [Evaluate agent and self-service interaction performance in Amazon Connect](evaluations.md "evaluations.md").
 

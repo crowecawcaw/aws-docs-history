@@ -60,4 +60,3 @@ For detailed information about the activity of agents in your contact center, us
 - [Logging service API
   calls](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [EventBridge events emitted by Amazon Connect](connect-eventbridge-events.md "connect-eventbridge-events.md")
-- [Analytics data lake](data-lake.md "data-lake.md")

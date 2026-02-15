@@ -39,6 +39,10 @@ how third-party applications are registered to Amazon Connect today, you gain ac
 to whatever tools are available on those servers, including remote MCP
 servers.
 
+###### Note
+
+MCP tool invocations have a 30-second timeout limit. If a tool execution exceeds this limit, the request will be terminated.
+
 ## Tool configuration and governance
 
 When you add tools to AI agents, you can enhance tool accuracy and control through

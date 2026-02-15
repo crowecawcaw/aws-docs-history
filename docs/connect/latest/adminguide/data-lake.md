@@ -1,18 +1,18 @@
-# Amazon Connect analytics data lake
+# Amazon Connect data lake
 
-You can use the Amazon Connect analytics data lake as a central location to query various types of
+You can use the Amazon Connect data lake as a central location to query various types of
 data from Amazon Connect. This data includes contact records, Contact Lens conversational
 analytics, Contact Lens performance evaluations, and more. Data is refreshed after a
 record is created with a small delay for processing and should be available in less than an
-hour. You can use the analytics data lake to create custom reports or run SQL
+hour. You can use the data lake to create custom reports or run SQL
 queries.
 
-For information about related API actions, see [Analytics data lake
+For information about related API actions, see [Data lake
 actions](../APIReference/analyticsdataset-api.md "../APIReference/analyticsdataset-api.md") in the _Amazon Connect API Reference_.
 
 ###### Contents
 
-- [Access the analytics data
+- [Access the data
   lake](access-datalake.md "access-datalake.md")
 - [Associate tables](datalake-tables.md "datalake-tables.md")
 - [Manage access to Resource link

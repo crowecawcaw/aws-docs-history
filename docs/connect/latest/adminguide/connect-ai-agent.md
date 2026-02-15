@@ -15,7 +15,7 @@ necessary, an AI agent seamlessly escalates to a human agent, adding a human in 
 to ensure optimal customer outcomes.
 
 Connect AI agents also support human agents by automatically detecting customer intent
-during calls, chats, and emails using conversational analytics and natural language
+during calls, chats, tasks, and emails using conversational analytics and natural language
 understanding (NLU). They then provide agents with immediate, real-time generative responses
 along with links to relevant documents and articles, as well as recommend and take actions
 on their behalf.

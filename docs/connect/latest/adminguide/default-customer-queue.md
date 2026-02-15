@@ -46,7 +46,7 @@ For example, the following image shows the message "_Thank you
 for calling. Did you know you can reset your own password at the login
 page? Choose Reset now, and following the prompts._"
 
-![Loop prompts block configured with a text-to-speech message.](/images/connect/latest/adminguide/images/customize-default-contact-flow3.png) 5. Choose **Save** at the bottom of the properties page. 6. Choose **Publish**. Amazon Connect starts playing the new message
+![Loop prompts block configured with a text-to-speech message.](images/customize-default-contact-flow3.png) 5. Choose **Save** at the bottom of the properties page. 6. Choose **Publish**. Amazon Connect starts playing the new message
 almost immediately (it may take a few moments for it to fully take
 effect).
 

@@ -86,7 +86,7 @@ view them in the AWS Billing dashboard.
   pages.
 - Contact tags only function as cost allocations tags. You cannot use them for
   tag-based access controls on contacts.
-- Tags are available in the Amazon Connect analytics data lake [Contact record table](data-type-definitions.md#data-lake-contacts-record "data-type-definitions.md#data-lake-contacts-record") under
+- Tags are available in the Amazon Connect data lake [Contact record table](data-type-definitions.md#data-lake-contacts-record "data-type-definitions.md#data-lake-contacts-record") under
   tags_references_items.
 
 ## Step 1: Add user-defined tags to contacts

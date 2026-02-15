@@ -40,9 +40,9 @@ AWS SDK.
 | Agent state                                  | No       | Yes                                                     | Yes                                |
 | Case                                         | Yes      | Yes                                                     | Yes                                |
 | Contact                                      | No       | No                                                      | No                                 |
-| Contact evaluations                          | No       | Yes                                                     | No                                 |
+| Contact evaluations                          | No       | Yes                                                     | Yes                                |
 | Email addresses                              | Yes      | Yes                                                     | Yes                                |
-| Evaluation forms                             | No       | Yes                                                     | No                                 |
+| Evaluation forms                             | Yes      | Yes                                                     | Yes                                |
 | Flow                                         | Yes      | Yes                                                     | Yes                                |
 | Flow module                                  | Yes      | Yes                                                     | Yes                                |
 | Hours of operation                           | Yes      | Yes                                                     | Yes                                |

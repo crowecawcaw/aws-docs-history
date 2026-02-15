@@ -100,7 +100,7 @@ Amazon CloudWatch Logs Group and in JSON format.
 Connect AI agents support the following log type:
 
 - `EVENT_LOGS`: Logs that track event of an Connect assistant
-  during calls, chats, and emails.
+  during calls, chats, tasks, and emails.
 
 ## Check for CloudWatch Logs quotas
 

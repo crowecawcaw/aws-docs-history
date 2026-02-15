@@ -7,7 +7,7 @@ resolve issues efficiently. The AI agents can look up information from disparate
 sources, complete transactions both in Amazon Connect and third-party applications, and perform
 traditional retrieval augmented generation (RAG) Q&A.
 
-Amazon Connect AI agents automatically detect customer intent during calls, chats, and emails
+Amazon Connect AI agents automatically detect customer intent during calls, chats, tasks, and emails
 by using conversational analytics and natural language understanding (NLU). They then
 provide representatives with immediate, real-time generative responses, suggested
 actions, and links to relevant documents and articles. The AI agents can complete

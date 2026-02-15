@@ -194,3 +194,18 @@ When you call `UpdateTrafficDistribution` from the source AWS
 Region you can use either the traffic distribution group ID or Amazon
 Resource Name (ARN). When you call `UpdateTrafficDistribution` in
 the replica Region, you must use the traffic distribution group ARN.
+
+### Regional switch UI banner
+
+Agent Workspace and CCP will provide a UI banner highlighting region switch.
+
+If an agent is **on a contact** when their region changes due to traffic distribution group (TDG) adjustments,
+they will see a banner similar to below. Once they complete the voice contact and close the ACW state,
+the agent will automatically update to the new region—no action is needed. If the agent has trouble closing the contact,
+they can select **Continue in Backup** and a popup will appear seeking confirmation to switch over to the alternate region.
+
+We recommend you to adjust your run book and agent training guide to reflect this
+
+![The Agent Workspace UI showing a banner that highlights regional failover during TDG adjustments.](images/acgr-failover-banner.png)
+
+![The confirmation popup that appears when an agent selects Continue in Backup.](images/acgr-failover-confirmation.png)

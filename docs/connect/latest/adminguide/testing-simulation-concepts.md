@@ -52,13 +52,15 @@ Messages received in other languages are not supported at this
 time and will cause the observe block to fail during test
 execution.
 
-![](images/test-observe-block.png)Check
+![](images/test-observe-block.png)
+
+Check
 
 This block is optional and is used to validate metadata such as user
 defined attributes, system attributes, and segment attributes. You can
 validate more than one attribute in the check block.
 
-![](images/test-observe-block.png)
+![](images/test-check-block.png)
 
 Actions
 

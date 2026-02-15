@@ -90,12 +90,19 @@ the **Details** section, complete the following fields as needed:
 
     1. **Name**: Enter a name for the segment attribute.
     2. **Use as a Contact search filter**: Choose if you want to enable contact search on this segment attribute.
-    3. **Enforce valid values**: Choose to allow only predefined values when using this attribute as a contact segment attribute.
+    3. **Use in analytics for granular insights**: Choose if you want to enable Analytics on this
+     segment attribute.
+
+    Amazon Connect unlimited AI should be enabled for the instance in order to view this option.
+
+
+    Note: Do not store personally identifiable information (PII) as values in attributes are used for analytics purposes.
+    4. **Enforce valid values**: Choose to allow only predefined values when using this attribute as a contact segment attribute.
 
 5. Choose **Add value** to add values to the
    attribute. For example, you might enter Sales, Marketing, and Accounts for Business units.
 
-![Choose Save to save the attribute and values.](images/predefined-attributes-3.png) 6. Choose **Save** to save the predefined attribute and values.
+![Choose Save to save the attribute and values.](images/predefined-attribute-add.png) 6. Choose **Save** to save the predefined attribute and values.
 
 ## Update the name of an attribute or
 

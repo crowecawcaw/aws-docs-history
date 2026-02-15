@@ -1,8 +1,8 @@
 # Outbound campaigns data in the
 
-Amazon Connect analytics data lake
+Amazon Connect data lake
 
-This topic details the content in the Amazon Connect analytics data lake outbound campaign
+This topic details the content in the Amazon Connect data lake outbound campaign
 events table. The table lists the column, type, and description of the
 content.
 

@@ -29,10 +29,10 @@ resource share**.
 
 ![Shared with me - resource shares table.](images/datalake-tables-2.png) 4. After the resource shares have been accepted, in the consumer account navigate
 to the AWS Lake Formation console at [https://console.aws.amazon.com/lakeformation](https://console.aws.amazon.com/lakeformation "https://console.aws.amazon.com/lakeformation"). To configure access
-to the Amazon Connect analytics data lake tables, be certain the user configuring the
+to the Amazon Connect data lake tables, be certain the user configuring the
 following resources has Data lake administrator permissions in Lake Formation.
 For more information, see the - [Lake Formation personas and IAM permissions reference](../../../lake-formation/latest/dg/permissions-reference.md "../../../lake-formation/latest/dg/permissions-reference.md"). 5. Either use an existing lake formation database or create a new database for
-the Amazon Connect analytics data lake tables. For more information, see [Creating a database](../../../lake-formation/latest/dg/creating-database.md "../../../lake-formation/latest/dg/creating-database.md"). 6. In the AWS Lake Formation console, choose **Tables** on the left navigation menu.
+the Amazon Connect data lake tables. For more information, see [Creating a database](../../../lake-formation/latest/dg/creating-database.md "../../../lake-formation/latest/dg/creating-database.md"). 6. In the AWS Lake Formation console, choose **Tables** on the left navigation menu.
 
 ![AWS Lake Formation console.](images/datalake-tables-3.png) 7. Select **Create table** from the upper right to
 [create a new Resource link](../../../lake-formation/latest/dg/creating-resource-links.md "../../../lake-formation/latest/dg/creating-resource-links.md").

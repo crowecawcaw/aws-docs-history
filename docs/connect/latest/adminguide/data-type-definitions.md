@@ -1,8 +1,8 @@
-# Data type definitions for the Amazon Connect analytics
+# Data type definitions for the Amazon Connect
 
 data lake
 
-This topic details the content in the Amazon Connect analytics data lake tables. Each table
+This topic details the content in the Amazon Connect data lake tables. Each table
 lists the column, type, and description of the content in the table.
 
 There are two ways to access the analytics data lake and configure data to be

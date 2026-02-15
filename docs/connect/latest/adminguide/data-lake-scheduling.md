@@ -2,7 +2,7 @@
 
 lake
 
-This topic details the content in the Amazon Connect analytics data lake scheduling tables.
+This topic details the content in the Amazon Connect data lake scheduling tables.
 The tables list the column, type, and description of the content.
 
 There are two ways to access the analytics data lake and configure data to be
@@ -452,7 +452,7 @@ table on `shift_rotation_pattern_arn` and
 ## Data schema
 
 Following is an entity relationship diagram that shows the structure and
-relationships between scheduling tables in the Amazon Connect analytics data lake.
+relationships between scheduling tables in the Amazon Connect data lake.
 
 Each table displays its primary keys and attributes with their data types.
 The diagram illustrates how these tables relate to each other through foreign

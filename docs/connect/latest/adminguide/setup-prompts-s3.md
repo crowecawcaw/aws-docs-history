@@ -59,8 +59,8 @@ JSON
  ],
  "Condition": {
  "StringEquals": {
- "aws:SourceAccount": "`account-id`",
- "aws:SourceArn": "arn:aws:connect:`region`:`account-id`:instance/`instance-id`"
+ "aws:SourceAccount": "`123456789012`",
+ "aws:SourceArn": "arn:aws:connect:`region`:`123456789012`:instance/`instance-id`"
  }
  }
  }

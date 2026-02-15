@@ -1,8 +1,8 @@
 # Configuration data in the Amazon Connect
 
-analytics data lake
+data lake
 
-This topic details the content in the Amazon Connect analytics data lake configuration
+This topic details the content in the Amazon Connect data lake configuration
 tables. The tables list the column, type, and description of the content.
 
 There are two ways to access the analytics data lake and configure data to be

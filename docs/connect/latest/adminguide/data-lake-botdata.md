@@ -2,7 +2,7 @@
 
 lake
 
-This topic details the content in the Amazon Connect analytics data lake bot tables. The
+This topic details the content in the Amazon Connect data lake bot tables. The
 tables list the column, type, and description of the content.
 
 There are two ways to access the analytics data lake and configure data to be

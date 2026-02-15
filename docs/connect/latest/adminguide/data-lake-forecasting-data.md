@@ -2,7 +2,7 @@
 
 data lake
 
-This topic details the content in the Amazon Connect analytics data lake forecasting
+This topic details the content in the Amazon Connect data lake forecasting
 tables. Each table lists the column, type, and description of the content in the
 table.
 
