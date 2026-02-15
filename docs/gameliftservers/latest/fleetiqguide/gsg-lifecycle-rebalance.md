@@ -15,6 +15,8 @@ Spot balancing has two key goals:
   instances with active gameplay during balancing, best practice is to turn on game server
   protection for a game server group that's in production.
 
+###### Example
+
 The following example illustrates how instances in an Auto Scaling group are
 affected by Spot balancing.
 

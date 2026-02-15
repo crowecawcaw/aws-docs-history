@@ -7,6 +7,8 @@ routing, matchmaking, or lobby services that you might already have in place. Th
 following example illustrates how Amazon GameLift Servers FleetIQ might fit into an existing on-premises
 deployment.
 
+###### Example
+
 In this example, game hosting is initially handled with four proprietary data
 centers to host players in North America and Europe. Depending on their approximate
 physical location, players are routed to one of two regional matchmakers. The
