@@ -302,10 +302,11 @@ AWS access portal.
 4. On the **Assign users and groups** page, choose the
    **Users** tab, find and check the box next to Nikki, and then
    choose **Next**.
-5. On the **Select permission sets** page, choose
-   the `RegionalAdmin` permission set created in Step 2.1, and then choose **Next**.
-6. On the **Review and submit** page, review your selections and
-   then choose **Submit**.
+5. ###### Example
+
+On the **Select permission sets** page, choose
+the `RegionalAdmin` permission set created in Step 2.1, and then choose **Next**. 6. On the **Review and submit** page, review your selections and
+then choose **Submit**.
 
 ## Step 3: Configure and test your SAML connection
 

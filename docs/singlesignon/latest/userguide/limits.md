@@ -27,7 +27,7 @@ the IAM Identity Center API Reference](../APIReference/welcome.md "../APIReferen
 | Number of permission sets allowed in IAM Identity Center                                  | 3500                                                                                                                   | Yes              |
 | Number of provisioned permission sets allowed per AWS account                             | 500                                                                                                                    | Yes              |
 | Number of inline policies per permission set                                              | 1                                                                                                                      | No               |
-| Number of AWS managed and customer managed policies per permission<br>set                 | 201                                                                                                                    | No               |
+| Number of AWS managed and customer managed policies per permission<br>set                 | 251                                                                                                                    | No               |
 | Maximum size of inline policy per permission set                                          | 32,768 bytes.<br>Maximum size of non-whitespace characters in the inline policy per<br>permission set is 10,240 bytes. | No               |
 | Number of IAM roles (permission sets) in the AWS account that<br>can be updated at a time | 1                                                                                                                      | No               |
 

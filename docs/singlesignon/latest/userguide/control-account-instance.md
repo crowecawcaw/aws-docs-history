@@ -33,7 +33,7 @@ Instead of preventing all account instance creation, this policy denies any atte
 create an account instance of IAM Identity Center for all AWS accounts except those explicitly listed
 in the `"<ALLOWED-ACCOUNT-ID>"` placeholder.
 
-###### Example : Deny policy to limit account instance creation
+###### Example: Deny policy to limit account instance creation
 
 JSON
 
