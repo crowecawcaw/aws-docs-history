@@ -133,7 +133,7 @@ To use the profile, include `--profile profile-name` after the command syntax.
 
 If you are using multiple, standalone Snowball Edge, you can create a profile for each. To create another profile, run the `configure` command again, provide a different value for the `--profile` prameter, and provide the information for another device.
 
-###### Example `snowball-edge.config` file
+###### Example snowball-edge.config file
 
 This example shows a profile file containing three
 profiles—`SnowDevice1profile`,
