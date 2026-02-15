@@ -213,7 +213,7 @@ grant access to account number 123456789012.
 
 123456789012.
 
-###### Example — Add cross-account permission to your repository
+###### Example— Add cross-account permission to your repository
 
 JSON
 

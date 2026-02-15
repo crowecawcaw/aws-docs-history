@@ -4,7 +4,7 @@ Amazon API Gateway APIs, Application Load Balancers, and [Lambda function URLs](
 the [aws_lambda_events](https://crates.io/crates/aws_lambda_events "https://crates.io/crates/aws_lambda_events") crate
 from crates.io to process events from these sources.
 
-###### Example — Handle API Gateway proxy request
+###### Example— Handle API Gateway proxy request
 
 Note the following:
 
@@ -51,7 +51,7 @@ function URLs, Application Load Balancers, and API Gateway.
 The [lambda_http](https://crates.io/crates/lambda_http "https://crates.io/crates/lambda_http") crate uses the [lambda_runtime](https://crates.io/crates/lambda_runtime "https://crates.io/crates/lambda_runtime") crate
 underneath. You don't have to import `lambda_runtime` separately.
 
-###### Example — Handle HTTP requests
+###### Example— Handle HTTP requests
 
 ```
 use lambda_http::{service_fn, Error, IntoResponse, Request, RequestExt, Response};

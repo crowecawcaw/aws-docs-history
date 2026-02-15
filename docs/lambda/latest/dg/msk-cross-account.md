@@ -13,7 +13,7 @@ connectivity for the MSK cluster](../../../msk/latest/developerguide/aws-access-
 ARN instead of the cluster ARN, as shown in the following examples. The [CreateEventSourceMapping](../api/API_CreateEventSourceMapping.md "../api/API_CreateEventSourceMapping.md") operation
 also differs depending on which authentication type the MSK cluster uses.
 
-###### Example — Create cross-account event source mapping for cluster that uses IAM authentication
+###### Example— Create cross-account event source mapping for cluster that uses IAM authentication
 
 When the cluster uses [IAM role-based authentication](msk-cluster-auth.md#msk-iam-auth "msk-cluster-auth.md#msk-iam-auth"),
 you don't need a [SourceAccessConfiguration](../api/API_SourceAccessConfiguration.md "../api/API_SourceAccessConfiguration.md") object. Example:
@@ -26,7 +26,7 @@ aws lambda create-event-source-mapping \
   --function-name my-kafka-function
 ```
 
-###### Example — Create cross-account event source mapping for cluster that uses SASL/SCRAM authentication
+###### Example— Create cross-account event source mapping for cluster that uses SASL/SCRAM authentication
 
 If the cluster uses [SASL/SCRAM authentication](msk-cluster-auth.md#msk-sasl-scram "msk-cluster-auth.md#msk-sasl-scram"),
 you must include a [SourceAccessConfiguration](../api/API_SourceAccessConfiguration.md "../api/API_SourceAccessConfiguration.md") object that specifies `SASL_SCRAM_512_AUTH`
@@ -50,7 +50,7 @@ There are two ways to use secrets for cross-account Amazon MSK event source mapp
  --source-access-configurations `'[{"Type": "SASL_SCRAM_512_AUTH","URI": "arn:aws:secretsmanager:us-east-1:444455556666:secret:my-secret"}]'``
 ```
 
-###### Example — Create cross-account event source mapping for cluster that uses mTLS authentication
+###### Example— Create cross-account event source mapping for cluster that uses mTLS authentication
 
 If the cluster uses [mTLS authentication](msk-cluster-auth.md#msk-mtls "msk-cluster-auth.md#msk-mtls"),
 you must include a [SourceAccessConfiguration](../api/API_SourceAccessConfiguration.md "../api/API_SourceAccessConfiguration.md") object that specifies `CLIENT_CERTIFICATE_TLS_AUTH`

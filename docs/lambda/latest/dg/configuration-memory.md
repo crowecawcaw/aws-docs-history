@@ -54,6 +54,8 @@ You can configure the memory of your function in the Lambda console.
 
 You can use the [update-function-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-configuration.html") command to configure the memory of your function.
 
+###### Example
+
 ```
 aws lambda update-function-configuration \
   --function-name `my-function` \

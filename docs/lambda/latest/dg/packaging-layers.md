@@ -55,6 +55,8 @@ xray-sdk.zip
 
 Python
 
+###### Example
+
 ```
 python/              *# Required top-level directory*
 └── requests/

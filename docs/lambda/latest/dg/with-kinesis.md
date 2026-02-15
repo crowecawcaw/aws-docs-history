@@ -92,6 +92,8 @@ depends on whether you're using [enhanced fan-out](../../../streams/latest/dev/e
 
 ## Example event
 
+###### Example
+
 ```
 {
     "Records": [

@@ -35,7 +35,7 @@ Create an IAM role with permissions for basic Lambda execution and checkpoint op
 
 ```
 aws iam create-role \
-  --role-name durable-function-role \
+  --role-name `durable-function-role` \
   --assume-role-policy-document file://trust-policy.json
 ```
 
@@ -43,7 +43,7 @@ aws iam create-role \
 
 ```
 aws iam attach-role-policy \
-  --role-name durable-function-role \
+  --role-name `durable-function-role` \
   --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy
 ```
 
@@ -65,12 +65,12 @@ zip -r function.zip index.mjs node_modules/
 
 ```
 aws lambda create-function \
-  --function-name myDurableFunction \
+  --function-name `myDurableFunction` \
   --runtime nodejs22.x \
-  --role arn:aws:iam::ACCOUNT_ID:role/durable-function-role \
+  --role `arn:aws:iam::123456789012:role/durable-function-role` \
   --handler index.handler \
   --zip-file fileb://function.zip \
-  --durable-config '{"ExecutionTimeout": 3600, "RetentionPeriodInDays":7}'
+  --durable-config '{"ExecutionTimeout": 3600, "RetentionPeriodInDays": 7}'
 ```
 
 ###### Note
@@ -83,7 +83,7 @@ While durable functions can be invoked using the `$LATEST` version qualifier, yo
 
 ```
 aws lambda publish-version \
-  --function-name myDurableFunction \
+  --function-name `myDurableFunction` \
   --description "Initial version"
 ```
 
@@ -93,7 +93,7 @@ Optionally, create an alias that points to the version:
 
 ```
 aws lambda create-alias \
-  --function-name myDurableFunction \
+  --function-name `myDurableFunction` \
   --name prod \
   --function-version 1
 ```
@@ -112,7 +112,7 @@ For executions that complete within 15 minutes, use synchronous invocation:
 
 ```
 aws lambda invoke \
-  --function-name myDurableFunction:1 \
+  --function-name `myDurableFunction:1` \
   --payload '{"orderId": "order-12345"}' \
   --cli-binary-format raw-in-base64-out \
   response.json
@@ -122,7 +122,7 @@ Or using an alias:
 
 ```
 aws lambda invoke \
-  --function-name myDurableFunction:prod \
+  --function-name `myDurableFunction:prod` \
   --payload '{"orderId": "order-12345"}' \
   --cli-binary-format raw-in-base64-out \
   response.json
@@ -134,7 +134,7 @@ For long-running executions, use asynchronous invocation:
 
 ```
 aws lambda invoke \
-  --function-name myDurableFunction:prod \
+  --function-name `myDurableFunction:prod` \
   --invocation-type Event \
   --payload '{"orderId": "order-12345"}' \
   --cli-binary-format raw-in-base64-out \
@@ -156,8 +156,8 @@ Use the following commands to manage and monitor durable function executions.
 List all executions for a durable function:
 
 ```
-aws lambda list-durable-executions \
-  --function-name myDurableFunction:prod
+aws lambda list-durable-executions-by-function \
+  --function-name `myDurableFunction`
 ```
 
 ###### Get execution details
@@ -166,8 +166,7 @@ Get details about a specific execution:
 
 ```
 aws lambda get-durable-execution \
-  --function-name myDurableFunction:prod \
-  --execution-id exec-abc123
+  --durable-execution-arn `arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id`
 ```
 
 ###### Get execution history
@@ -176,8 +175,7 @@ View the checkpoint history for an execution:
 
 ```
 aws lambda get-durable-execution-history \
-  --function-name myDurableFunction:prod \
-  --execution-id exec-abc123
+  --durable-execution-arn `arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id`
 ```
 
 ###### Stop an execution
@@ -186,8 +184,7 @@ Stop a running durable execution:
 
 ```
 aws lambda stop-durable-execution \
-  --function-name myDurableFunction:prod \
-  --execution-id exec-abc123
+  --durable-execution-arn `arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id`
 ```
 
 ## Update function code
@@ -200,7 +197,7 @@ Update your durable function code and publish a new version:
 
 ```
 aws lambda update-function-code \
-  --function-name myDurableFunction \
+  --function-name `myDurableFunction` \
   --zip-file fileb://function.zip
 ```
 
@@ -208,14 +205,14 @@ aws lambda update-function-code \
 
 ```
 aws lambda wait function-updated \
-  --function-name myDurableFunction
+  --function-name `myDurableFunction`
 ```
 
 3. Publish a new version:
 
 ```
 aws lambda publish-version \
-  --function-name myDurableFunction \
+  --function-name `myDurableFunction` \
   --description "Updated order processing logic"
 ```
 
@@ -223,7 +220,7 @@ aws lambda publish-version \
 
 ```
 aws lambda update-alias \
-  --function-name myDurableFunction \
+  --function-name `myDurableFunction` \
   --name prod \
   --function-version 2
 ```
@@ -254,19 +251,19 @@ Delete your durable function and associated resources:
 
 ```
 # Delete the function
-aws lambda delete-function --function-name myDurableFunction
+aws lambda delete-function --function-name `myDurableFunction`
 
 # Delete the IAM role policies
 aws iam detach-role-policy \
-  --role-name durable-function-role \
+  --role-name `durable-function-role` \
   --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 
 aws iam detach-role-policy \
-  --role-name durable-function-role \
+  --role-name `durable-function-role` \
   --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy
 
 # Delete the role
-aws iam delete-role --role-name durable-function-role
+aws iam delete-role --role-name `durable-function-role`
 ```
 
 ## Next steps

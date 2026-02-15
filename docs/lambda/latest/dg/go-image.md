@@ -107,7 +107,7 @@ func main() {
      library. The RPC component is only required if you are using the deprecated Go 1.x runtime. Excluding the RPC reduces the size of the deployment package.
    - Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user "https://docs.docker.com/reference/dockerfile/#user"). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.
 
-###### Example — Multi-stage build Dockerfile
+###### Example— Multi-stage build Dockerfile
 
 ###### Note
 

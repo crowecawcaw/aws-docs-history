@@ -37,6 +37,8 @@ You can configure ephemeral storage in the Lambda console.
 
 You can use the [update-function-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-configuration.html") command to configure ephemeral storage.
 
+###### Example
+
 ```
 aws lambda update-function-configuration \
   --function-name `my-function` \

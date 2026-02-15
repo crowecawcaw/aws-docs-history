@@ -24,7 +24,7 @@ When using ABAC with Lambda, it's a best practice to require that all functions 
 
 [Create an IAM policy](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor") similar to the following example. This policy uses the [aws:RequestTag/tag-key](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag"), [aws:ResourceTag/tag-key](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag"), and [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys") condition keys to require that new functions and the IAM principal creating the functions both have the `project` tag. The `ForAllValues` modifier ensures that `project` is the only allowed tag. If you don't include the `ForAllValues` modifier, users can add other tags to the function as long as they also pass `project`.
 
-###### Example – Require tags on new functions
+###### Example– Require tags on new functions
 
 JSON
 
@@ -56,7 +56,7 @@ JSON
 
 Create a second IAM policy using the [aws:ResourceTag/tag-key](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") condition key to require the principal's tag to match the tag that's attached to the function. The following example policy allows principals with the `project` tag to invoke functions with the `project` tag. If a function has any other tags, the action is denied.
 
-###### Example – Require matching tags on function and IAM principal
+###### Example– Require matching tags on function and IAM principal
 
 JSON
 
@@ -86,7 +86,7 @@ JSON
 
 Create a policy that allows the principal to list Lambda functions and IAM roles. This allows the principal to see all Lambda functions and IAM roles on the console and when calling the API actions.
 
-###### Example – Grant Lambda and IAM list permissions
+###### Example– Grant Lambda and IAM list permissions
 
 JSON
 
@@ -117,7 +117,7 @@ Create a policy that allows **iam:PassRole**. This permission is required when y
 
 Do not use the `ResourceTag` condition key in a policy with the `iam:PassRole` action. You cannot use the tag on an IAM role to control access to who can pass that role. For more information about permissions required to pass a role to a service, see [Granting a user permissions to pass a role to an AWS service](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md").
 
-###### Example – Grant permission to pass the execution role
+###### Example– Grant permission to pass the execution role
 
 JSON
 
@@ -150,7 +150,7 @@ It's a best practice to [use roles to delegate permissions](../../../IAM/latest/
 
 [Create an IAM user](../../../IAM/latest/UserGuide/id_users_create.md#id_users_create_console "../../../IAM/latest/UserGuide/id_users_create.md#id_users_create_console") called `abac-test-user`. In the **Set permissions** section, choose **Attach existing policies directly** and then choose **Create policy**. Enter the following policy definition. Replace `111122223333` with your [AWS account ID](../../../general/latest/gr/acct-identifiers.md#FindingYourAccountIdentifiers "../../../general/latest/gr/acct-identifiers.md#FindingYourAccountIdentifiers"). This policy allows `abac-test-user` to assume `abac-project-role`.
 
-###### Example – Allow IAM user to assume ABAC role
+###### Example– Allow IAM user to assume ABAC role
 
 JSON
 

@@ -101,6 +101,8 @@ To reduce just-in-time (JIT) compilation and assembly loading time, consider inv
 
 Make sure that your dummy function invocation does not produce unintended side effects, such as initiating business transactions.
 
+###### Example
+
 ```
 public class Function
 {

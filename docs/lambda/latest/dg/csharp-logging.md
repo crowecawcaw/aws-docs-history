@@ -77,7 +77,7 @@ Setting the log format to JSON will result in your log outputs being double-enco
 
 The following example logging command shows how to write a log message with the level `INFO`.
 
-###### Example .NET logging code
+###### Example.NET logging code
 
 ```
 context.Logger.LogInformation("Fetching cart from database");

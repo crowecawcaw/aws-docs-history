@@ -35,7 +35,7 @@ structured JSON log messages. To use this framework, you must initialize
 a `subscriber` before implementing the function handler. Then, you can use
 tracing macros like `debug`, `info`, and `error`, to specify the level of logging that you want for each scenario.
 
-###### Example — Using the Tracing crate
+###### Example— Using the Tracing crate
 
 Note the following:
 

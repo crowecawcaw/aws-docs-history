@@ -490,7 +490,7 @@ success, failure, and timeout.
 }
 ```
 
-###### Example platform.restoreRuntimeDone message (`snap-start` initialization type only)
+###### Example platform.restoreRuntimeDone message (snap-start initialization type only)
 
 The **platform.restoreRuntimeDone** log message shows whether or not the `Restore` phase was successful. Lambda sends this message when the runtime sends a `restore/next` runtime API request. There are three possible statuses: success, failure, and timeout. The following example shows a successful **platform.restoreRuntimeDone** log message.
 

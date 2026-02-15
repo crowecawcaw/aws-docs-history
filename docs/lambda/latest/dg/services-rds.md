@@ -195,7 +195,7 @@ String connectionString = String.format("jdbc:`mysql://%s:%s/%s?useSSL=true&requ
 
 .NET
 
-###### Example .NET connection string for MySQL connection in OCI function
+###### Example.NET connection string for MySQL connection in OCI function
 
 ```
 /// Build the Connection String with the Token

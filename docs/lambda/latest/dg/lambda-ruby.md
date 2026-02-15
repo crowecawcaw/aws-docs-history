@@ -73,7 +73,7 @@ The Ruby 3.2 runtime supports [YJIT](https://github.com/ruby/ruby/blob/master/do
 
 YJIT is not enabled by default. To enable YJIT for a Ruby 3.2 function, set the `RUBY_YJIT_ENABLE` environment variable to `1`. To confirm that YJIT is enabled, print the result of the `RubyVM::YJIT.enabled?` method.
 
-###### Example — Confirm that YJIT is enabled
+###### Example— Confirm that YJIT is enabled
 
 ```
 puts(RubyVM::YJIT.enabled?())

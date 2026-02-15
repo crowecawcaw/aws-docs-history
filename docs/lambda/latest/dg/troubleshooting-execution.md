@@ -111,6 +111,8 @@ Check to ensure you are processing JSON attributes correctly. For example, for e
 the `s3.object.key` attribute contains a URL encoded object key name. Many functions process
 this attribute as text to load the referenced S3 object:
 
+###### Example
+
 ```
 const originalText = await s3.getObject({
   Bucket: event.Records[0].s3.bucket.name,
@@ -121,6 +123,8 @@ const originalText = await s3.getObject({
 This code works with the key name `james.jpg` but throws a `NoSuchKey` error
 when the name is `james beswick.jpg`. Since URL encoding converts spaces and other characters
 in a key name, you must ensure that functions decode keys before using this data:
+
+###### Example
 
 ```
 const originalText = await s3.getObject({

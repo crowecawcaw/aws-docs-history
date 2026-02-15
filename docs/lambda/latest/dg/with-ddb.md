@@ -79,6 +79,8 @@ For global tables, we recommend you limit the number of simultaneous functions t
 
 ## Example event
 
+###### Example
+
 ```
 {
   "Records": [
