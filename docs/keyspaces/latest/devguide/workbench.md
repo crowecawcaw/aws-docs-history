@@ -1,65 +1,51 @@
-# Sample data models in NoSQL Workbench
+# Visualize data models with NoSQL Workbench
 
-The home page for the modeler and visualizer displays a number of sample models that ship
-with NoSQL Workbench. This section describes these models and their potential uses.
+Using NoSQL Workbench, you can visualize your data models to help ensure that the data
+models can support your application’s queries and access patterns. You also can save and export
+your data models in a variety of formats for collaboration, documentation, and
+presentations.
 
-###### Topics
+After you have created a new data model or edited an existing data model, you can visualize
+the model.
 
-- [Employee data model](#workbench.SampleModels.EmployeeDataModel "#workbench.SampleModels.EmployeeDataModel")
-- [Credit card
-  transactions data model](#workbench.SampleModels.CreditCardTransactionsDataModel "#workbench.SampleModels.CreditCardTransactionsDataModel")
-- [Airline operations data
-  model](#workbench.SampleModels.AirlineOperations "#workbench.SampleModels.AirlineOperations")
+## Visualizing data models with NoSQL
 
-## Employee data model
+Workbench
 
-This data model represents an Amazon Keyspaces schema for an employee database
-application.
+When you have completed the data model in the data modeler, choose **Visualize
+data model**.
 
-Applications that access employee information for a given company can use this data
-model.
+![Console screenshot showing a sample data model.](images/workbench/key_nosql_visualize.png)
 
-The access patterns supported by this data model are:
+This takes you to the data visualizer in NoSQL Workbench. The data visualizer provides a
+visual representation of the table's schema and lets you add sample data. To add sample data
+to a table, choose a table from the model, and then choose **Edit**. To add a
+new row of data, choose **Add new row** at the bottom of the screen. Choose
+**Save** when you're done.
 
-- Retrieval of an employee record with a given ID.
-- Retrieval of an employee record with a given ID and division.
-- Retrieval of an employee record with a given ID and name.
+![Console screenshot showing how to add data to a table.](images/workbench/key_nosql_adddata.png)
 
-## Credit card
+## Aggregate view
 
-transactions data model
+After you have confirmed the table's schema, you can aggregate data model
+visualizations.
 
-This data model represents an Amazon Keyspaces schema for credit card transactions at retail
-stores.
+![Console screenshot showing the aggregate view.](images/workbench/key_nosql_aggview.png)
 
-The storage of credit card transactions not only helps stores with bookkeeping, but
-also helps store managers analyze purchase trends, which can help them with forecasting
-and planning.
+After you have aggregated the view of the data model, you can export the view to a PNG
+file. To export the data model to a JSON file, choose the upload sign under the data model
+name.
 
-The access patterns supported by this data model are:
+###### Note
 
-- Retrieval of transactions by credit card number, month and year, and
-  date.
-- Retrieval of transactions by credit card number, category, and date.
-- Retrieval of transactions by category, location, and credit card
-  number.
-- Retrieval of transactions by credit card number and dispute status.
+You can export the data model in JSON format at any time in the design process.
 
-## Airline operations data
+![Console screenshot showing the data model export and commit options.](images/workbench/key_nosql_aggview2.png)
 
-model
+You have the following options to commit the changes:
 
-This data model shows data about plane flights, including airports, airlines, and
-flight routes.
+- Commit to Amazon Keyspaces
+- Commit to an Apache Cassandra cluster
 
-Key components of Amazon Keyspaces modeling that are demonstrated are key-value pairs,
-wide-column data stores, composite keys, and complex data types such as maps to
-demonstrate common NoSQL data-access patterns.
-
-The access patterns supported by this data model are:
-
-- Retrieval of routes originating from a given airline at a given
-  airport.
-- Retrieval of routes with a given destination airport.
-- Retrieval of airports with direct flights.
-- Retrieval of airport details and airline details.
+To learn more about how to commit changes, see [How to commit data models to Amazon Keyspaces and Apache
+Cassandra](workbench.md "workbench.md").
