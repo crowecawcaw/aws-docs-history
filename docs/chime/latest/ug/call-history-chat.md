@@ -26,6 +26,6 @@ up to 50 MB. 6. (Optional) Choose **Pick an emoji** (
 You can also enter emoji codes to a message, such as `:-)` or
 `:(`. The emojis appear after you send the message. 7. Choose send (
 
-![An arrow pointed to the right.](/images/chime/latest/ug/images/icon-send-msg.png)
+![An arrow pointed to the right.](images/icon-send-msg.png)
 
 ) or press **Enter**.

@@ -28,7 +28,7 @@ chat message once the meeting ends.
     - In the left control bar, choose the **More options** menu
       (
 
-    ![An icon showing a horizontal ellipsis.](/images/chime/latest/ug/images/left-control-6.png)
+    ![An icon showing a horizontal ellipsis.](images/left-control-6.png)
 
     ), then choose **Record meeting**.
     - If you joined the meeting from a phone or in-room conference system, press
@@ -40,7 +40,7 @@ chat message once the meeting ends.
          located at the bottom of the bar.
         * Open the **More options** menu (
 
-         ![An icon showing a horizontal ellipsis.](/images/chime/latest/ug/images/left-control-6.png)
+         ![An icon showing a horizontal ellipsis.](images/left-control-6.png)
 
 
          ) and choose **Record meeting**.
