@@ -67,6 +67,8 @@ You can edit and submit remote procedure calls (RPCs) on the AWS Management Cons
 With these RPCs, you can read data, write, and submit transactions on the Bitcoin
 network.
 
+###### Example
+
 The following example shows how to get information about the
 _00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09_
 `blockhash` by using `getBlock` RPC. Replace the highlighted variables
@@ -91,6 +93,8 @@ For more information, see the [RPCs supported by AMB Access Bitcoin](bitcoin-api
 ## Make AMB Access Bitcoin JSON-RPC requests in awscurl by
 
 using the AWS CLI
+
+###### Example
 
 Sign requests with your IAM user credentials by using [Signature Version 4 (SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in
 order to make Bitcoin JSON-RPC calls to the AMB Access Bitcoin endpoints. The [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") command line tool can help you
@@ -144,6 +148,8 @@ _Mainnet_ and _Testnet_ endpoints and to make JSON-RPC
 API calls by using the [native https module in
 Node.js](https://nodejs.org/api/https.html "https://nodejs.org/api/https.html"), or you can use a third-party library such as [AXIOS](https://axios-http.com "https://axios-http.com"). The following example shows you how to make a
 Bitcoin JSON-RPC request to the AMB Access Bitcoin endpoints.
+
+###### Example
 
 To run this example Node.js script, apply the following prerequisites:
 
