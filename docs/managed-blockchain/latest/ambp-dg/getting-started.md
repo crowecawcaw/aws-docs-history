@@ -61,6 +61,8 @@ You can edit, configure, and submit remote procedure calls (RPCs) on the AWS Man
 AMB Access Polygon. With these RPCs, you can read data and write transactions on the Polygon
 network, including retrieving data and submitting transactions to the Polygon network.
 
+###### Example
+
 The following example shows how to get information about the _latest_
 block by using `eth_getBlockByNumber` RPC. Change the highlighted variables to
 your own inputs or choose one of the **RPC methods** listed and enter in
@@ -87,6 +89,8 @@ For more information, see the [RPCs supported by AMB Access Polygon](polygon-api
 ## Make AMB Access Polygon JSON-RPC requests in
 
 `awscurl` by using the AWS CLI
+
+###### Example
 
 Sign requests with your IAM user credentials by using [Signature Version 4 (SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in
 order to make Polygon JSON-RPC requests to the AMB Access Polygon endpoints. The [`awscurl`](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") command line tool can
@@ -157,6 +161,8 @@ to the AMB Access Polygon endpoint using both [Signature Version 4 (SigV4)](../.
 [token-based access](polygon-tokens.md "polygon-tokens.md"). The first example sends a transaction from one address to
 another and the following example requests transaction details and balance information from
 the blockchain.
+
+###### Example
 
 To run this example Node.js script, apply the following prerequisites:
 
