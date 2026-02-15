@@ -1,12 +1,12 @@
-# emr-7.9.0-20250425
+# emr-7.9.0-flink-latest
 
-**Release notes**: `emr-7.9.0-20250425` was released in
-February 2025. This is the initial release of Amazon EMR 7.9.0 (Spark).
+**Release notes**: `emr-7.9.0-flink-latest`
+currently points to `emr-7.9.0-flink-20250425`
 
 **Regions:**
-`emr-emr-7.9.0-20250425` is available in all Regions supported by Amazon EMR on EKS. For more
+`emr-7.9.0-flink-latest` is available in all Regions supported by Amazon EMR on EKS. For more
 information, see [Amazon EMR on EKS
 service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
 
 **Container image tag**:
-`emr-7.9.0-20250425`
+`emr-7.9.0-flink:latest`

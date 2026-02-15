@@ -1,12 +1,37 @@
-# emr-6.2.0-20220802
+# Amazon EMR on EKS 6.2.0 releases
 
-**Release notes**: `emr-6.2.0-20220802` was
-released on Sep 27, 2022. Compared to the previous version, this version has been refreshed with
-the recently updated Amazon Linux packages.
+The following Amazon EMR 6.2.0 releases are available for Amazon EMR on EKS. Select a specific **emr-6.2.0-XXXX** release to view more details such as the related container
+image tag.
 
-**Regions**: `emr-6.2.0-20220802` is available in
-all Regions supported by Amazon EMR on EKS. For more information, see [Amazon EMR on EKS
-service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
+- [emr-6.2.0-latest](emr-eks-6.2.md "emr-eks-6.2.md")
+- [emr-6.2.0-20240321](emr-eks-6.2.md "emr-eks-6.2.md")
+- [emr-6.2.0-20220802](emr-eks-6.2.md "emr-eks-6.2.md")
+- [emr-6.2.0-20211008](emr-eks-6.2.md "emr-eks-6.2.md")
+- [emr-6.2.0-20210802](emr-eks-6.2.md "emr-eks-6.2.md")
+- [emr-6.2.0-20210615](emr-eks-6.2.md "emr-eks-6.2.md")
+- [emr-6.2.0-20210129](emr-eks-6.2.md "emr-eks-6.2.md")
+- [emr-6.2.0-20201218](emr-eks-6.2.md "emr-eks-6.2.md")
+- [emr-6.2.0-20201201](emr-eks-6.2.md "emr-eks-6.2.md")
+  **Release notes for Amazon EMR 6.2.0**
 
-**Container image tag**:
-`emr-6.2.0:20220802`
+- Supported applications ‐ Spark 3.0.1-amzn-0, Jupyter Enterprise Gateway (endpoints,
+  public preview).
+- Supported components ‐ `aws-hm-client` (Glue connector),
+  `aws-sagemaker-spark-sdk`, `emr-s3-select`, `emrfs`,
+  `emr-ddb`, `hudi-spark`.
+- Supported configuration classifications:
+
+| Classifications   | Descriptions                                       |
+| ----------------- | -------------------------------------------------- |
+| `core-site`       | Change values in Hadoop’s core-site.xml file.      |
+| `emrfs-site`      | Change EMRFS settings.                             |
+| `spark-metrics`   | Change values in Spark's metrics.properties file.  |
+| `spark-defaults`  | Change values in Spark's spark-defaults.conf file. |
+| `spark-env`       | Change values in the Spark environment.            |
+| `spark-hive-site` | Change values in Spark's hive-site.xml file.       |
+| `spark-log4j`     | Change values in Spark's log4j.properties file.    |
+
+Configuration classifications allow you to customize applications. These often correspond
+to a configuration XML file for the application, such as spark-hive-site.xml. For more
+information, see [Configuring
+Applications](../ReleaseGuide/emr-configure-apps.md "../ReleaseGuide/emr-configure-apps.md").

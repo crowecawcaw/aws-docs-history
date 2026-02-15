@@ -27,6 +27,8 @@ custom image.**
      following contents. This example uses Amazon EMR release 6.9.0.
 
 
+    ###### Example
+
 
     ```
     {
