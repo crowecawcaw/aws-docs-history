@@ -59,6 +59,10 @@ AWS Shield network security director maps the connections of your resources duri
 
 The network topology exists in an empty state until a specific resource has been selected in the Account and topology explorer panel widget which appears when an account has been selected in the **Accounts** table widget. The network topology can be navigated by dragging the canvas, or by using the zoom controls in the lower right corner of the container. There are also controls for resetting the zoom and location of the canvas along with exporting its contents. The topology can be refreshed in the case of updated analysis findings and can also expand its view to display the topology across the entire screen. Select a resource in the topology to view its details in the **Account and topology explorer** panel widget. Select a resource edge connection to learn more about the nature of the relationship between two resources in the topology.
 
+###### Note
+
+The network topology is built by traversing from the selected resource to its connected network resources. Only the first 100 connected resources are displayed in the topology visualization, sorted by severity. This sorting is applied only to the initial set of 100 fetched results, not the complete dataset.
+
 ### To find recommendations for improving your security
 
 1. From the network security director Dashboard, navigate to the **Accounts** widget.

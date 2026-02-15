@@ -60,7 +60,7 @@ JSON
  ]
  },
  "StringEquals": {
- "aws:SourceAccount": "`account-id`"
+ "aws:SourceAccount": "`123456789012`"
  }
  }
  }
