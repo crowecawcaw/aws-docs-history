@@ -62,7 +62,7 @@ FHIR Profiles are validated when you add a new resource to your data store. To a
 resource, you can use the `StartFHIRImportJob` API operation, make a `POST` request
 to add a new resource, or make `PUT` to update an existing resource.
 
-###### Example – To see which FHIR profile is referenced in a resource
+###### Example– To see which FHIR profile is referenced in a resource
 
 The profile URL is added to the `profile` element in the `"meta" :
  "profile"` key-value pair. This resource was truncated for clarity.
@@ -81,7 +81,7 @@ The profile URL is added to the `profile` element in the `"meta" :
 
 ```
 
-###### Example – How to reference a non-default supported FHIR profile
+###### Example– How to reference a non-default supported FHIR profile
 
 To validate against a supported non-default profile (e.g. CarinBB 1.0.0) - add the
 profile URL with version (separated by '|') and the base profile URL in the

@@ -238,7 +238,7 @@ contain the following key:value pairs.
 | S3Uri             | Yes       | Part of an [OutputDataConfig](../APIReference/API_OutputDataConfig.md "../APIReference/API_OutputDataConfig.md") object. The Amazon S3 URI of the destination bucket<br>where your exported data will be downloaded. | `s3://amzn-s3-demo-bucket/`EXPORT-JOB`/`                                                   |
 | KmsKeyId          | Yes       | Part of an [OutputDataConfig](../APIReference/API_OutputDataConfig.md "../APIReference/API_OutputDataConfig.md") object. The ARN of the AWS KMS key used to secure the<br>Amazon S3 bucket.                          | `arn:aws:kms:`region-of-bucket`:`123456789012`:key/`1234abcd-12ab-34cd-56ef-1234567890ab`` |
 
-###### Example : Body of a describe export request made using the FHIR REST API
+###### Example: Body of a describe export request made using the FHIR REST API
 
 When successful, you will get the following JSON response.
 

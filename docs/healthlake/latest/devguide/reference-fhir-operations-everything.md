@@ -37,7 +37,7 @@ HealthLake supports the following query parameters
 | \_type    | Get `Patient` data for specific resource types.        |
 | \_count   | Get `Patient` data and specify page size.              |
 
-###### Example - Get all patient data after a specified start date
+###### Example- Get all patient data after a specified start date
 
 `Patient/$everything` can use the `start` filter to query only
 data after a specific date.
@@ -46,7 +46,7 @@ data after a specific date.
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient/`id`/$everything?start=2024-03-15T00:00:00.000Z
 ```
 
-###### Example - Get all `Patient` data before a specified end date
+###### Example- Get all `Patient` data before a specified end date
 
 Patient $everything can use the `end` filter to only query data before a
 specific date.
@@ -55,7 +55,7 @@ specific date.
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient/`id`/$everything?end=2024-03-15T00:00:00.000Z
 ```
 
-###### Example - Get all `Patient` data updated after a specified date
+###### Example- Get all `Patient` data updated after a specified date
 
 `Patient/$everything` can use the `since` filter to query only
 data updated after a specific date.
@@ -64,7 +64,7 @@ data updated after a specific date.
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient/`id`/$everything?since=2024-03-15T00:00:00.000Z
 ```
 
-###### Example - Get `Patient` data for specific resource types
+###### Example- Get `Patient` data for specific resource types
 
 Patient $everything can use the `_type` filter to specify specific resource
 types to be included in the response. Multiple resource types can be specified in a comma
@@ -74,7 +74,7 @@ separated list.
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient/`id`/$everything?_type=Observation,Condition
 ```
 
-###### Example - Get `Patient` data and specify page size
+###### Example- Get `Patient` data and specify page size
 
 Patient $everything can use the `_count` to set the page size.
 

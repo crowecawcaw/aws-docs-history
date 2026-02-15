@@ -80,7 +80,7 @@ Using `_include` in a search query allows for additional specified FHIR
 resources to also be returned. Use `_include` to include resources that are linked
 forward.
 
-###### Example – To use `_include` to find the patients or the group of patients who
+###### Example– To use `_include` to find the patients or the group of patients who
 
 have been diagnosed with a cough
 
@@ -104,7 +104,7 @@ Using `_revinclude` in a search query allows for additional specified FHIR
 resources to also be returned. Use `_revinclude` to include resources that are
 linked backwards.
 
-###### Example – To use `_revinclude` to include related Encounter and Observation
+###### Example– To use `_revinclude` to include related Encounter and Observation
 
 resource types linked to a specific Patient
 
@@ -138,7 +138,7 @@ Any other values will be treated as invalid. The returned resources will be mark
 In a single search request, `_summary=text` cannot be combined with
 `_include` or `_revinclude` search parameters.
 
-###### Example – Get “text” element of Patient resources in a data store.
+###### Example– Get “text” element of Patient resources in a data store.
 
 ```
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient?_summary=text
@@ -161,7 +161,7 @@ whose search mode is `include`).
 In a single search request, `_elements` cannot be combined with
 `_summary` search parameters.
 
-###### Example – Get “identifier”, “active”, “link” elements of Patient resources in your
+###### Example– Get “identifier”, “active”, “link” elements of Patient resources in your
 
 HealthLake data store.
 
@@ -181,7 +181,7 @@ values. `_total=estimate` is not supported. Any other values will be treated as
 invalid. `_total` is not applicable to the included resources(returned resources
 whose search mode is `include`).
 
-###### Example – Get the total number of Patient resources in a data store:
+###### Example– Get the total number of Patient resources in a data store:
 
 ```
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient?_total=accurate
@@ -203,7 +203,7 @@ this search parameter is not supported for sort. For example, search on 'name' o
 type Patient refers to Patient.name element with HumanName data type is considered as nested.
 Thus, sort on Patient resources by 'name' is not supported.
 
-###### Example – Get Patient resources in a data store and sort them by birthdate in ascending
+###### Example– Get Patient resources in a data store and sort them by birthdate in ascending
 
 order:
 
@@ -219,7 +219,7 @@ many resources should be returned in a single page.
 The maximum page size is 100. Any values greater than 100 is invalid.
 `_count=0` is not supported.
 
-###### Example – Search for the Patient resource and set search page size to 25:
+###### Example– Search for the Patient resource and set search page size to 25:
 
 ```
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient?_count=25
@@ -234,7 +234,7 @@ more convenient for developers and users.
 If any level of recursion return more than 100 results, HealthLake will return 4xx to
 protect data store from being overloaded and causing multiple paginations.
 
-###### Example – Chaining - Gets all DiagnosticReport which refer to a Patient where Patient
+###### Example– Chaining - Gets all DiagnosticReport which refer to a Patient where Patient
 
 name is peter.
 
@@ -242,7 +242,7 @@ name is peter.
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/DiagnosticReport?subject:Patient.name=peter
 ```
 
-###### Example – Reverse Chaining - Get Patient resources, where the patient resource is
+###### Example– Reverse Chaining - Get Patient resources, where the patient resource is
 
 referred to by at least one Observation where the observation has a code of 1234, and where
 the Observation refers to the patient resource in the patient search parameter.

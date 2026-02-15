@@ -239,6 +239,22 @@ role](#smart-on-fhir-lambda-service-role-execution-role "#smart-on-fhir-lambda-s
 Adding the IAM action `GetSecretValue` to execution role grants
 the necessary permission for the sample Lambda function to work.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "secretsmanager:GetSecretValue",
+ "Resource": "arn:aws:secretsmanager:us-east-1:123456789012:secret:secret-name-DKodTA"
+ }
+ ]
+}`
+
+```
+
 At this point you've created a Lambda function that can be used to validate the access
 token provided as part of the FHIR REST request sent to your SMART on FHIR enabled data
 store.
@@ -333,6 +349,33 @@ also need to designate an IAM policy.
    policy as follows. Replace `your-account-id` with your
    account number, and add the ARN of the data store you want to use in your
    import or export jobs.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "sts:AssumeRole",
+ "Principal": {
+ "Service": "healthlake.amazonaws.com"
+ },
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`123456789012`"
+ },
+ "ArnEquals": {
+ "aws:SourceArn": "arn:aws:healthlake:`us-east-1`:`123456789012`:datastore/fhir/`your-datastore-id`"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 6. Then, choose **Next**.
 7. On the **Add permissions** page, choose the policy that
    you want the HealthLake service to assume. To find your policy, search for it
