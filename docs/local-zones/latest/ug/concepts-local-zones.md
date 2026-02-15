@@ -7,9 +7,14 @@ These are the essential concepts in AWS Local Zones:
 - VPC — A virtual private cloud (VPC) is a virtual
   network that closely resembles a traditional network that you'd operate in your own data
   center. You create subnets in your VPCs and deploy AWS resources, such as Amazon EC2 instances,
-  in your subnets. A VPC can span Availability Zones, Local Zones, and Wavelength Zones.
+  in your subnets.
+
+A VPC can span Availability Zones, Local Zones, and Wavelength Zones.
+
 - Local Zone subnet — A subnet that you create in a Local Zone.
   You can deploy supported AWS resources in your Local Zone subnets.
+- Group Long Name — The
+  Local Zone group name.
 - Network Border Group — A unique group from which
   AWS advertises public IP addresses. It consists of Availability Zones, Local Zones, or Wavelength
   Zones. A pool of public IP addresses can be explicitly allocated for use in a network border
@@ -26,6 +31,9 @@ When creating a subnet, you will find the network border group for the Local Zon
   Local Zone and Wavelength Zone control plane operations, such as API calls.
 - Parent Zone ID — The ID of the zone that handles
   some of the Local Zone and Wavelength Zone control plane operations, such as API calls
+- Geography — The geography for a Local Zone is the
+  specific physical location of its infrastructure. This information can help you meet your
+  regulatory, compliance, and operational requirements.
   For more information, see:
 
 - [AWS Site-to-Site VPN

@@ -1,8 +1,8 @@
 # What is AWS Local Zones?
 
-AWS Local Zones places compute, storage, database, and other select AWS resources close to large
-population and industry centers. You can use Local Zones to provide your users with low-latency access
-to your applications.
+AWS Local Zones places compute, storage, database, and other select AWS resources
+close to large population and industry centers. You can use Local Zones to provide your users with
+low-latency access to your applications.
 
 ## Why use AWS Local Zones?
 
@@ -18,7 +18,7 @@ Here are some reasons to use AWS Local Zones.
   Comply with state and local data residency requirements in sectors such as healthcare,
   financial services, iGaming, and government.
 
-## Deploying in Local Zones
+## Managing Local Zones
 
 You can manage your AWS resources in a Local Zone using the following options:
 

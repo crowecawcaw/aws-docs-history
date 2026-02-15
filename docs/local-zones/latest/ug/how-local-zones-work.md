@@ -1,8 +1,8 @@
 # How AWS Local Zones work
 
-A Local Zone is an extension of an AWS Region in geographic proximity to your users. Local Zones have
-their own connections to the internet and support Direct Connect, so that resources created in a Local Zone
-can serve applications that require low latency.
+A Local Zone is an extension of an [AWS Region](../../../global-infrastructure/latest/regions/aws-regions.md "../../../global-infrastructure/latest/regions/aws-regions.md") in geographic
+proximity to your users. Local Zones have their own connections to the internet and support Direct Connect, so
+that resources created in a Local Zone can serve applications that require low latency.
 
 To use a Local Zone, you must first enable it. Next, you create a subnet in the Local Zone. Finally, you
 launch resources in the Local Zone subnet. For more detailed instructions, see [Getting started with AWS Local Zones](getting-started.md "getting-started.md").
@@ -38,12 +38,13 @@ Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/
 
 - The following Local Zones support IPv6: `us-east-1-atl-2a`,
   `us-east-1-chi-2a`, `us-east-1-dfw-2a`, `us-east-1-iah-2a`,
-  `us-east-1-mia-2a`, `us-east-1-nyc-2a`, `us-west-2-lax-1a`, `us-west-2-lax-1b`,
-  and `us-west-2-phx-2a`.
+  `us-east-1-mia-2a`, `us-east-1-nyc-2a`, `us-west-2-lax-1a`,
+  `us-west-2-lax-1b`, and `us-west-2-phx-2a`.
 - The following Local Zones support edge association with virtual private gateway (VGW):
   `us-east-1-atl-2a`, `us-east-1-chi-2a`, `us-east-1-dfw-2a`,
-  `us-east-1-iah-2a`, `us-east-1-mia-2a`, `us-east-1-nyc-2a`, `us-west-2-lax-1a`,
-  `us-west-2-lax-1b`, and `us-west-2-phx-2a`.
+  `us-east-1-iah-2a`, `us-east-1-mia-2a`, `us-east-1-nyc-2a`,
+  `us-west-2-lax-1a`, `us-west-2-lax-1b`, and
+  `us-west-2-phx-2a`.
 
 To understand edge association and other route-table concepts, see [Route table
 concepts](../../../vpc/latest/userguide/VPC_Route_Tables.md#RouteTables "../../../vpc/latest/userguide/VPC_Route_Tables.md#RouteTables") in the _Amazon VPC User Guide_.
@@ -57,13 +58,19 @@ _AWS Site-to-Site VPN User Guide_.
 - Generally, the Maximum Transmission Unit (MTU) is as follows:
   - 9001 bytes between Amazon EC2 instances in the same Local Zone.
   - 1500 bytes between an internet gateway and a Local Zone.
-  - 1468 bytes between Direct Connect and a Local Zone.
+  - 1500 bytes between Direct Connect and all Local Zones except:
+    - 8500 bytes for `us-east-1-atl-2a`, `us-east-1-chi-2a`,
+      `us-east-1-dfw-2a`, `us-east-1-iah-2a`,
+      `us-west-2-lax-1a`, `us-west-2-lax-1b`, `us-east-1-mia-2a`,
+      `us-east-1-nyc-2a`, and `us-west-2-phx-2a`
+
   - 1300 bytes between an Amazon EC2 instance in a Local Zone and an Amazon EC2 instance in the Region for
-    most Local Zones except:
+    all Local Zones except:
     - 9001 bytes for `us-west-2-lax-1a` and `us-west-2-lax-1b`
     - 8801 bytes for `us-east-1-atl-2a`, `us-east-1-chi-2a`,
       `us-east-1-dfw-2a`, `us-east-1-iah-2a`,
-      `us-east-1-mia-2a`, `us-east-1-nyc-2a`, and `us-west-2-phx-2a`
+      `us-east-1-mia-2a`, `us-east-1-nyc-2a`, and
+      `us-west-2-phx-2a`
 
 ## Resources
 
@@ -71,5 +78,5 @@ Learn how to get started with AWS Local Zones with the following resources:
 
 - [Getting
   started](getting-started.md "getting-started.md")
-- [Get
-  Started Deploying Low Latency Applications with AWS Local Zones](https://aws.amazon.com/tutorials/deploying-low-latency-applications-with-aws-local-zones/ "https://aws.amazon.com/tutorials/deploying-low-latency-applications-with-aws-local-zones/")
+- [Get Started Deploying
+  Low Latency Applications with AWS Local Zones](https://aws.amazon.com/tutorials/deploying-low-latency-applications-with-aws-local-zones/ "https://aws.amazon.com/tutorials/deploying-low-latency-applications-with-aws-local-zones/")
