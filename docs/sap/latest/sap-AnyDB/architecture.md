@@ -2,6 +2,8 @@
 
 See the following tabs for the architecture diagram of each database.
 
+###### Example
+
 IBM Db2
 The following diagram presents the setup for IBM Db2 system with FSx for ONTAP.
 

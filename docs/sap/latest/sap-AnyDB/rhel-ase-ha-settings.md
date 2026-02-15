@@ -194,6 +194,8 @@ Amazon EC2 instances perform source/destination checks by default, requiring tha
 
 In the pacemaker cluster, source/destination check must be disabled on both instances receiving traffic from the Overlay IP. You can disable check using AWS CLI or AWS Management Console.
 
+###### Example
+
 AWS CLI
 Use the [modify-instance-attribute](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/modify-instance-attribute.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/modify-instance-attribute.html") command to disable source/destination check.
 

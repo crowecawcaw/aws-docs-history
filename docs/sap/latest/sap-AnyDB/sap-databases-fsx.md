@@ -24,6 +24,8 @@ The following rules and limitations are applicable for deploying SAP application
 - Use separate storage virtual machines (SVM) for binarie, data, and log volumes of the database. This ensures that your I/O traffic flows through different IP addresses and TCP sessions.
 - The following file systems must have their separate FSx for ONTAP volumes. See the following tabs.
 
+###### Example
+
 IBM Db2
 
     + `/db2/<DBSID>/sapdata1`
@@ -78,6 +80,8 @@ MSSQL
 ## Supported instance types
 
 See the following tabs for details.
+
+###### Example
 
 IBM Db2
 FSx for ONTAP is supported for SAP applications using IBM Db2 database in a Single or Multi-Availability Zone deployment. You can use FSx for ONTAP as the primary storage solution for IBM Db2 database devices and backup volumes with supported Amazon EC2 instances.

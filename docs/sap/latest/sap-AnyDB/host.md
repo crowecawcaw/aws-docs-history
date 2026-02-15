@@ -14,6 +14,8 @@ This section walks you through an example host setup for deploying a database sy
 
 See the following tabs for details.
 
+###### Example
+
 IBM Db2
 Use the following steps to setup the Linux kernel parameters.
 
@@ -164,6 +166,8 @@ You must setup the `oranfstab` file before enabling dNFS client control of NFS. 
 
 See the following for details.
 
+###### Example
+
 IBM Db2
 Create the following mount points on your Amazon EC2 instance.
 
@@ -235,6 +239,8 @@ mkdir -p /oracle/<DBSID>/sapbackup
 The created file systems must be mounted as NFS file systems on Amazon EC2. See the following for details.
 
 The following table is an example recommendation of NFS options for different IBM Db2 file systems.
+
+###### Example
 
 IBM Db2
 
