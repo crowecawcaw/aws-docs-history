@@ -84,5 +84,5 @@ The following steps explain the service link setup process.
 
 ###### Note
 
-You won't be able to modify the service link configuration after you complete the
+You won't be able to modify the service link configuration or connectivity type after you complete the
 order.

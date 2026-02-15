@@ -97,6 +97,11 @@ order.
 If you need to remove the private connectivity for your Outpost, you must contact
 [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). 7. For **Site ID**, choose your site. 8. Choose **Create Outpost**.
 
+###### Note
+
+You won't be able to modify the AZ anchor or physical location of your Outpost after
+you complete the order.
+
 ## Step 3: Place the order
 
 Place an order for the Outposts racks that you need.
@@ -222,6 +227,8 @@ Upload a JSON file
 2. Choose **Next**.
 3. On the **Upload capacity configuration plan** page, upload the
    JSON file that specifies the instance type, size, and quantity.
+
+###### Example
 
 Example JSON file:
 

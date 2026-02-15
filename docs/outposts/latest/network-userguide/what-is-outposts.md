@@ -24,9 +24,9 @@ The second-generation Outposts racks support:
 Second-generation Outposts racks currently support the following Amazon EC2 instances for a
 broad range of on-premises workloads:
 
-- General purpose [**M7i**](https://aws.amazon.com/ec2/instance-types/m7i/ "https://aws.amazon.com/ec2/instance-types/m7i/")
-- Compute optimized [**C7i**](https://aws.amazon.com/ec2/instance-types/c7i/ "https://aws.amazon.com/ec2/instance-types/c7i/")
-- Memory optimized [**R7i**](https://aws.amazon.com/ec2/instance-types/r7i/ "https://aws.amazon.com/ec2/instance-types/r7i/")
+- General purpose [**M7i**](https://aws.amazon.com/ec2/instance-types/m7i/ "https://aws.amazon.com/ec2/instance-types/m7i/"),[**M8i**](https://aws.amazon.com/ec2/instance-types/m8i/ "https://aws.amazon.com/ec2/instance-types/m8i/")
+- Compute optimized [**C7i**](https://aws.amazon.com/ec2/instance-types/c7i/ "https://aws.amazon.com/ec2/instance-types/c7i/"),[**C8i**](https://aws.amazon.com/ec2/instance-types/c8i/ "https://aws.amazon.com/ec2/instance-types/c8i/")
+- Memory optimized [**R7i**](https://aws.amazon.com/ec2/instance-types/r7i/ "https://aws.amazon.com/ec2/instance-types/r7i/"),[**R8i**](https://aws.amazon.com/ec2/instance-types/r8i/ "https://aws.amazon.com/ec2/instance-types/r8i/")
 
 ## Simplified network scaling and configuration
 

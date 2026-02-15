@@ -122,6 +122,8 @@ Upload a JSON file
    JSON file that specifies the instance type, size, and quantity. Optionally, you can
    specify the [InstancesToExclude](../APIReference/API_StartCapacityTask.md#outposts-StartCapacityTask-request-InstancesToExclude "../APIReference/API_StartCapacityTask.md#outposts-StartCapacityTask-request-InstancesToExclude"), and [TaskActionOnBlockingInstances](../APIReference/API_StartCapacityTask.md#outposts-StartCapacityTask-response-TaskActionOnBlockingInstances "../APIReference/API_StartCapacityTask.md#outposts-StartCapacityTask-response-TaskActionOnBlockingInstances") parameters in the JSON file.
 
+###### Example
+
 Example JSON file:
 
 ```
