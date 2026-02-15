@@ -13,8 +13,8 @@ supports the following operations:
 - Manage and monitor video and audio published to the stage
 - Get WebRTC statistics for each peer connection
 - All operations from the IVS low-latency streaming Web broadcast SDK
-  **Latest version of Web broadcast SDK:** 1.31.0 ([Release
-  Notes](release-notes.md#dec05-25-broadcast-web-rt "release-notes.md#dec05-25-broadcast-web-rt"))
+  **Latest version of Web broadcast SDK:** 1.32.0 ([Release
+  Notes](release-notes.md#feb12-26-broadcast-web-rt "release-notes.md#feb12-26-broadcast-web-rt"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS Web Broadcast SDK, see [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference"). Make sure
@@ -30,3 +30,5 @@ started quickly with the SDK:
 - [Comprehensive React Real-Time Collaboration Demo](https://github.com/aws-samples/amazon-ivs-real-time-collaboration-web-demo/tree/main "https://github.com/aws-samples/amazon-ivs-real-time-collaboration-web-demo/tree/main")
   **Platform requirements**: See [Amazon IVS Broadcast SDK](broadcast.md "broadcast.md") for
   a list of supported platforms
+
+**Note:** Publishing from a browser is convenient for end users because it does not require installing additional software. However, browser-based publishing is subject to the constraints and variability of browser environments. If you need to prioritize stability (for example, for event streaming), we generally recommend publishing from a non-browser source (e.g., OBS Studio or other dedicated encoders), which often have direct access to system resources and avoid browser limitations. For more on non-browser publishing options, see the [Stream Ingest](rt-stream-ingest.md "rt-stream-ingest.md") documentation.

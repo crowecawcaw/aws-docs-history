@@ -8,14 +8,14 @@ real-time streaming iOS broadcast SDK.
 ## Install the Library
 
 We recommend that you integrate broadcast SDK via Swift Package Manager.
-(Alternatively, you can integrate via CocoaPods or manually add the framework to
+(Alternatively, you can manually add the framework to
 your project.)
 
 ### Recommended: Integrate the
 
 Broadcast SDK (Swift Package Manager)
 
-1. Download the Package.swift file from [https://broadcast.live-video.net/1.38.0/Package.swift](https://broadcast.live-video.net/1.38.0/Package.swift "https://broadcast.live-video.net/1.38.0/Package.swift").
+1. Download the Package.swift file from [https://broadcast.live-video.net/1.39.0/Package.swift](https://broadcast.live-video.net/1.39.0/Package.swift "https://broadcast.live-video.net/1.39.0/Package.swift").
 2. In your project, create a new directory named AmazonIVSBroadcast and
    add it to version control.
 3. Place the downloaded Package.swift file in the new directory.
@@ -33,48 +33,11 @@ Broadcast SDK (Swift Package Manager)
 the IVS low-latency streaming broadcast SDK. It is not possible to integrate
 both SDKs in the same project.
 
-### Alternate Approach: Integrate
-
-the Broadcast SDK (CocoaPods)
-
-**Important**: CocoaPods is in maintenance mode
-(security fixes only) and after December 2026, no new packages or updates can be
-published to the CocoaPods repository. Existing packages will remain available
-but frozen. We recommend using Swift Package Manager for all new
-projects.
-
-Real-time functionality is published as a subspec of the iOS Low-Latency
-Streaming broadcast SDK. This is so customers can choose to include or exclude
-it based on their feature needs. Including it increases the package size.
-
-Releases are published via CocoaPods under the name
-`AmazonIVSBroadcast`. Add this dependency to your Podfile:
-
-```
-pod 'AmazonIVSBroadcast/Stages'
-```
-
-Run `pod install` and the SDK will be available in your
-`.xcworkspace`.
-
-**Important:** The IVS real-time streaming
-broadcast SDK (i.e., with the stage subspec) includes all features of the IVS
-low-latency streaming broadcast SDK. _It is not possible
-to integrate both SDKs in the same project._ If you add the stage
-subspec via CocoaPods to your project, be sure to remove any other lines in the
-Podfile containing `AmazonIVSBroadcast`. For example, do not have
-both these lines in your Podfile:
-
-```
-pod 'AmazonIVSBroadcast'
-pod 'AmazonIVSBroadcast/Stages'
-```
-
 ### Alternate Approach: Install the
 
 Framework Manually
 
-1. Download the latest version from [https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip").
+1. Download the latest version from [https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast-Stages.xcframework.zip").
 2. Extract the contents of the archive.
    `AmazonIVSBroadcast.xcframework` contains the SDK for
    both device and simulator.

@@ -39,7 +39,7 @@ later.
 Tag
 
 The Web broadcast SDK is distributed as a JavaScript library and can be
-retrieved at [https://web-broadcast.live-video.net/1.31.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.31.0/amazon-ivs-web-broadcast.js "https://web-broadcast.live-video.net/1.31.0/amazon-ivs-web-broadcast.js").
+retrieved at [https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js "https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js").
 
 When loaded via `<script>` tag, the library exposes a global
 variable in the window scope named `IVSBroadcastClient`.
@@ -100,7 +100,7 @@ repositories {
 }
 
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.38.0:stages@aar'
+     implementation 'com.amazonaws:ivs-broadcast:1.39.0:stages@aar'
 }
 ```
 
@@ -123,42 +123,7 @@ Project
 5. Choose (navigate to) a directory in which to save the project, then
    select **Create**.
 
-Next you need to bring in the SDK. We recommend that you integrate the
-broadcast SDK via CocoaPods. Alternatively, you can manually add the framework
-to your project. Both methods are described below.
-
-### Recommended: Install
-
-the Broadcast SDK (CocoaPods)
-
-Assuming your project name is `BasicRealTime`, create a
-`Podfile` in the project folder with the following contents and
-then run `pod install`:
-
-```
-target 'BasicRealTime' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for BasicRealTime
-  pod 'AmazonIVSBroadcast/Stages'
-end
-
-```
-
-### Alternate Approach:
-
-Install the Framework Manually
-
-1. Download the latest version from [https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip").
-2. Extract the contents of the archive.
-   `AmazonIVSBroadcast.xcframework` contains the SDK for
-   both device and simulator.
-3. Embed `AmazonIVSBroadcast.xcframework` by dragging it into
-   the **Frameworks, Libraries, and Embedded
-   Content** section of the **General** tab for your application target:
-
-![Install iOS manually.](images/iOS_Manual_Framework.png)
+Next you need to bring in the SDK. For instructions, see [Install the Library](broadcast-ios-getting-started.md#broadcast-ios-install "broadcast-ios-getting-started.md#broadcast-ios-install") in the _iOS Broadcast SDK Guide_.
 
 ### Configure
 
