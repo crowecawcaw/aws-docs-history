@@ -1,23 +1,43 @@
-# Step 7: (Optional) Clean up
+# Step 3: Add more transformations
 
-The walkthrough is complete. You can keep using the DataBrew and Amazon S3 resources that you
-created, or delete them.
+In this step, you add more transformations to your recipe and publish another version
+of it. To refine our example, we use the information that not all chess games result in
+a clear winner; some games are played to a draw.
 
-###### To clean up resources
+###### To add more recipe transformations and republish
 
-1. Open the DataBrew console at [https://console.aws.amazon.com/databrew/](https://console.aws.amazon.com/databrew/ "https://console.aws.amazon.com/databrew/"), and on the navigation pane, choose
-   **Projects**.
-2. Choose your project (**Sample project**). For
-   **Actions**, choose **Delete**.
-3. On the **Delete Sample project** pane, choose
-   **Delete attached recipe**. Then choose
-   **Delete**. Your project, along with its recipe and jobs,
-   will be deleted.
-4. On the navigation pane, choose **Datasets**.
-5. Choose your dataset (`chess-games`), and for
-   **Actions**, choose **Delete**.
-6. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). Delete the `databrew-output`
-   folder and its contents.
+1.  From the transformation toolbar, choose **Filter**,
+    **By Condition**, **Is not** to remove the
+    games that were played to a draw.
+2.  Set these options as follows:
 
-(Optional) If you're sure that you no longer need your Amazon S3 bucket, you can
-delete it.
+        * **Source column** -
+         `victory_status`
+        * **Filter condition** – Is not
+         `draw`
+
+    To add this transform to your recipe, choose
+    **Apply**.
+
+3.  Change the data in `victory_status` so that it's more meaningful.
+    To do this, from the transformation toolbar choose **Clean**,
+    **Replace**, **Replace value or
+    pattern**.
+4.  Set these options as follows:
+
+        * **Source column** - `victory_status`
+        * **Specify values to replace** – Value or
+         pattern
+        * **Value to be replaced** - `mate`
+        * **Replace with value** -
+         `checkmate`
+
+    To add this transform to your recipe, choose
+    **Apply**.
+
+5.  Repeat the previous step, but change `resign` to `other player
+resigned`.
+6.  Repeat the previous step, but change `outoftime` to `time ran
+out`.
+7.  Choose **Publish** to save your work, at right on the recipe
+    pane.
