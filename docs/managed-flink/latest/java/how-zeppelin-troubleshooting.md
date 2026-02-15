@@ -83,7 +83,7 @@ numba
 !pip install <package-to-install>
 ```
 
-###### Example: Remove `scipy` package before deploying your Python application with deploy-as-app feature.
+###### Example: Remove scipy package before deploying your Python application with deploy-as-app feature.
 
 1. Use `pipdeptree` to discover all `scipy` consumers and verify if you can safely remove `scipy`.
    - Install the tool through notebook:
