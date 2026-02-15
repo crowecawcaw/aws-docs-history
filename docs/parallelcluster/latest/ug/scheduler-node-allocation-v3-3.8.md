@@ -27,6 +27,9 @@ For launch of the Amazon EC2 instances:
 
 The possible combinations of the above strategies translates into the ParallelCluster
 launch strategies.
+
+###### Example
+
 The available **ParallelCluster\*\***launch strategies** that can be set into the [ScalingStrategy](Scheduling-v3.md#yaml-Scheduling-ScalingStrategy "Scheduling-v3.md#yaml-Scheduling-ScalingStrategy") cluster configuration to be used with **job-level scaling** are:**all-or-nothing\*\* scaling:
 
 This strategy involves AWS ParallelCluster initiating an Amazon EC2 launch instance API call for

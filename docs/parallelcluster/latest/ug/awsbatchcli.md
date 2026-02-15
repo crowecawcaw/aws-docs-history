@@ -1,43 +1,27 @@
-# `awsbstat`
+# `awsbhosts`
 
-Shows the jobs that are submitted in the cluster’s job queue.
+Shows the hosts that belong to the cluster’s compute environment.
 
 ```
-awsbstat [-h] [-c `CLUSTER`] [-s `STATUS`] [-e] [-d] [`job_ids` [`job_ids` ...]]
+awsbhosts [-h] [-c `CLUSTER`] [-d] [`instance_ids` [`instance_ids` ... ]]
 ```
 
 ## Positional Arguments
 
-`job_ids`
+`instance_ids`
 
-Specifies the space-separated list of job IDs to show in the output. If the job is a job array, all of the
-child jobs are displayed. If a single job is requested, it is shown in a detailed version.
+Specifies a space-separated list of instances IDs. If a single instance is
+requested, it is shown in a detailed version.
 
 ## Named Arguments
 
 `-c `CLUSTER`, --cluster
  `CLUSTER``
 
-Indicates the cluster to use.
-
-`-s `STATUS`, --status
- `STATUS``
-
-Specifies a comma-separated list of job statuses to include. The default job status is “active.”. Accepted
-values are: `SUBMITTED`, `PENDING`, `RUNNABLE`, `STARTING`,
-`RUNNING`, `SUCCEEDED`, `FAILED`, and `ALL`.
-
-Default:
-“`SUBMITTED`,`PENDING`,`RUNNABLE`,`STARTING`,`RUNNING`”
-
-`-e, --expand-children`
-
-Expands jobs with children (both array and multi-node parallel).
-
-Default: False
+Specifies the name of the cluster to use.
 
 `-d, --details`
 
-Shows jobs details.
+Indicates whether to show the details of the hosts.
 
 Default: False
