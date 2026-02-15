@@ -38,9 +38,9 @@ A favicon is a small icon that appears in browser tabs, helping users identify y
 - Maximum file size: 100 KB
 - Recommended aspect ratio: 1:1
 
-### Wallpaper
+### Wallpaper - optional
 
-The wallpaper serves as the background image across all screens, creating a cohesive visual experience. Choose an image that complements your branding without interfering with content readability.
+The wallpaper serves as the background image across all screens, creating a cohesive visual experience. If you don't upload a custom wallpaper, the default wallpaper shown below will be used. Choose an image that complements your branding without interfering with content readability.
 
 ![](images/branding/wallpaper.png)
 

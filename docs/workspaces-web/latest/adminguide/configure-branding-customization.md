@@ -25,7 +25,7 @@ To configure branding customization, follow these steps.
 3. Select your portal and choose the **User settings** tab.
 4. In the **Branding customization** section, choose **Edit**.
 5. Configure the following sections as needed:
-   - In the **Content editor** - Upload all visual elements (your company logo, your favicon, and a wallpaper) and select the color theme. You can upload the files either from your local computer or from an S3 bucket. For information about setting up S3 bucket permissions, see [Setting up S3 bucket permissions](#branding-s3-permissions "#branding-s3-permissions").
+   - In the **Content editor** - Upload all visual elements (your company logo, your favicon, and an optional wallpaper) and select the color theme. You can upload the files either from your local computer or from an S3 bucket. For information about setting up S3 bucket permissions, see [Setting up S3 bucket permissions](#branding-s3-permissions "#branding-s3-permissions").
    - In the **Text editor** - Customize text that appears on the sign-in screen.
    - In the **Terms of service editor** - Optionally, add terms that users must acknowledge.
 
