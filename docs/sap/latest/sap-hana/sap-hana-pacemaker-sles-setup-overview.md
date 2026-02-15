@@ -45,6 +45,8 @@ Additional required access:
 - SAP HANA administrative user access – <sid>adm
 - SAP HANA SystemDB Administrative access for changing configuration and backup administration.
 
+###### Example
+
 These access requirements are specific to the cluster setup process and can be restricted for ongoing cluster operations and maintenance.
 
 ## Reliability Requirements Defined

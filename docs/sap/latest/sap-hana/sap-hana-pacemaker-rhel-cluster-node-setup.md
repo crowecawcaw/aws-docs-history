@@ -96,6 +96,8 @@ The timing parameters are optimized for AWS cloud environments:
 # pcs cluster start --all
 ```
 
+###### Example
+
 By enabling the pacemaker service, the server automatically joins the cluster after a reboot. This ensures that your system is protected. Alternatively, you can start the pacemaker service manually on boot. You can then investigate the cause of failure.
 
 Run the following command to check the status of the pacemaker service:

@@ -157,6 +157,8 @@ Details:
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
+###### Example
+
 ```
 # crm configure primitive rsc_ip_HDB_HDB00 ocf:heartbeat:aws-vpc-move-ip \
 params ip="172.16.52.1" \
@@ -184,6 +186,8 @@ op monitor interval="60" timeout="60"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
+
+###### Example
 
 ```
 # crm configure primitive rsc_ip_HDB_HDB00_readenabled ocf:heartbeat:aws-vpc-move-ip \
@@ -250,6 +254,8 @@ meta clone-node-max="1" interleave="true" clone-max="2"
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
+###### Example
+
 ```
 # crm configure primitive rsc_SAPHanaTopology_HDB_HDB00 ocf:suse:SAPHanaTopology \
 params SID="HDB" \
@@ -281,6 +287,8 @@ meta clone-node-max="1" interleave="true" clone-max="<number-of-nodes>"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
+
+###### Example
 
 ```
 # crm configure primitive rsc_SAPHanaTopology_HDB_HDB00 ocf:suse:SAPHanaTopology \
@@ -345,6 +353,8 @@ meta clone-node-max="1" interleave="true" clone-max="2"
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
+###### Example
+
 ```
 # crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \
 params SID="HDB" \
@@ -387,6 +397,8 @@ meta clone-node-max="1" interleave="true" clone-max="<number-of-nodes>"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
+
+###### Example
 
 ```
 # crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \

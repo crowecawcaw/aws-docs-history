@@ -76,6 +76,8 @@ root_and_sap_throughput_target = 125 MB/s (fixed)
 
 _ANY Memory System Root Volume:_
 
+###### Example
+
 - Size = 50 GiB
 - IOPS = 3000
 - Throughput = 125 MB/s
@@ -151,6 +153,8 @@ If implementing striping for data volumes, use a 256 KB stripe size to optimize 
 
 _512 GiB Memory System HANA Data Volume:_
 
+###### Example
+
 - Storage Type Selection = GP3
 - Size = MROUND((512 GiB \* 1.2),100) = 600 GiB
 - IOPS = MROUND(7,200 + (0.45 \* 512), 100) = 7,460 IOPS
@@ -158,6 +162,8 @@ _512 GiB Memory System HANA Data Volume:_
 - Striping = Not required.
 
 _4 TiB Memory System HANA Data Volume:_
+
+###### Example
 
 - Storage Type Selection = GP3
 - Size = MROUND((4,096 GiB \* 1.2),100) = 4,900 GiB
@@ -222,6 +228,8 @@ If implementing striping for log volumes, use a 64 KB stripe size to optimize fo
 ###### Examples
 
 _512 GiB Memory System HANA Log Volume:_
+
+###### Example
 
 - Storage Type Selection = GP3
 - Size = MROUND512 GiB \* 0.5),100 = 300 GiB (within 500 GiB maximum)
@@ -298,6 +306,8 @@ Where:
 ###### Examples
 
 _512 GiB Memory System HANA Shared Volume:_
+
+###### Example
 
 - Size = 512 GiB
 - IOPS = 3000

@@ -128,6 +128,8 @@ Details:
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
+###### Example
+
 ```
 # pcs stonith create rsc_fence_aws fence_aws \
 pcmk_host_map="hanahost01:i-xxxxinstidforhost1;hanahost02:i-xxxxinstidforhost2" \
@@ -176,6 +178,8 @@ Details:
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
+###### Example
+
 ```
 # pcs resource create rsc_ip_HDB_HDB00 ocf:heartbeat:aws-vpc-move-ip \
 ip="172.16.52.1" \
@@ -203,6 +207,8 @@ op monitor interval="60" timeout="60"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
+
+###### Example
 
 ```
 # crm configure primitive rsc_ip_HDB_HDB00_readenabled ocf:heartbeat:aws-vpc-move-ip \
@@ -260,6 +266,8 @@ clone clone-node-max="1" interleave="true" clone-max="2"
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
+###### Example
+
 ```
 # pcs resource create rsc_SAPHanaTopology_HDB_HDB00 ocf:heartbeat:SAPHanaTopology \
 SID="HDB" \
@@ -283,6 +291,8 @@ clone clone-node-max="1" interleave="true" clone-max="<number-of-nodes>"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
+
+###### Example
 
 ```
 # pcs resource create rsc_SAPHanaTopology_HDB_HDB00 ocf:heartbeat:SAPHanaTopology \
@@ -374,6 +384,8 @@ promotable notify="true" clone-node-max="1" interleave="true" clone-max="<number
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
+
+###### Example
 
 ```
 # pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \

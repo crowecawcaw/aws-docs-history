@@ -21,6 +21,8 @@ AWS provides multiple options for performing disaster recovery and making your S
 
 You can recover your SAP HANA databases running on Amazon EC2 instances with the following recovery options.
 
+###### Example
+
 Simplified automatic recovery
 
 - The default configuration of an Amazon EC2 instance enables automatic recovery of a supported instance due to hardware failure or a problem requiring the involvement of AWS. Automatic recovery of your Amazon EC2 instance increases the resiliency of your SAP workload. For more information, see [Simplified automatic recovery based on instance configuration](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md#instance-configuration-recovery "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md#instance-configuration-recovery").

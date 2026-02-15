@@ -3,6 +3,8 @@
 This topic explains how to assign EBS Volumes when launching an Amazon EC2 Instance.
 Choose one of the following methods.
 
+###### Example
+
 Console
 
 1. Log in to the console with appropriate permissions and ensure that you have the right Region selected.

@@ -24,6 +24,8 @@ The X1, X1e, X2idn, and X2iedn instance types include instance storage but shoul
 
 ## `gp2` and `gp3` for HANA
 
+###### Example
+
 gp2 for HANA data
 
 Certified for production use| **Instance type** | **Memory (GiB)** | **vCPUs / logical processors**\* | **General Purpose SSD (gp2) storage with LVM** | **Total maximum throughput (MiB/s)** | **Total baseline IOPS** | **Total burst IOPS** |
@@ -348,6 +350,8 @@ The **minimum** gp3 configuration required to meet SAP HANA KPIs are the followi
 | **SAP HANA Logs** | 3,000 | 275 MiB/s  |
 
 ## `io1`, `io2`, and `io2 Block Express` for HANA
+
+###### Example
 
 io1 for HANA data
 

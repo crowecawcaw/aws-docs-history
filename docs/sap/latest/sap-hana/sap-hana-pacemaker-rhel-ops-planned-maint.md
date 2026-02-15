@@ -14,6 +14,8 @@ There are different options to perform planned maintenance on nodes, resources, 
 
 Use maintenance mode if you want to make any changes to the configuration or take control of the resources and nodes in the cluster. In most cases, this is the safest option for administrative tasks.
 
+###### Example
+
 On
 Use the following commands to turn on maintenance mode.
 
