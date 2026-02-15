@@ -11,7 +11,7 @@ tables in a specific database in `AwsDataCatalog`.
   `table_schema='`database_name`'` in
   the `WHERE` clause.
 
-###### Example – Listing all columns for all tables in a specific database
+###### Example– Listing all columns for all tables in a specific database
 
 The following example query lists all columns for all tables in the database
 `webdata`.

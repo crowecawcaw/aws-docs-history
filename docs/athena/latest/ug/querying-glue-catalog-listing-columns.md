@@ -12,7 +12,7 @@ specify the database and `table_name =
  '`table_name`'` to specify the table or view that has
 the columns that you want to list.
 
-###### Example – Listing all columns for a specified table
+###### Example– Listing all columns for a specified table
 
 The following example query lists all columns for the table
 `rdspostgresqldb1_public_account`.
@@ -35,7 +35,7 @@ The following table shows sample results.
 | 5   | awsdatacatalog | rdspostgresql | rdspostgresqldb1_public_account | email       | 5                |                | YES         | varchar   |         |            |
 | 6   | awsdatacatalog | rdspostgresql | rdspostgresqldb1_public_account | username    | 6                |                | YES         | varchar   |         |            |
 
-###### Example – Listing the columns for a specified view
+###### Example– Listing the columns for a specified view
 
 The following example query lists all the columns in the `default`
 database for the view `arrayview`.
@@ -59,7 +59,7 @@ The following table shows sample results.
 | 6   | awsdatacatalog | default      | arrayview  | sump            | 6                |                | YES         | varchar        |         |            |
 | 7   | awsdatacatalog | default      | arrayview  | journeymaparray | 7                |                | YES         | array(varchar) |         |            |
 
-###### Example – Searching for a column by name in a specified database and table
+###### Example– Searching for a column by name in a specified database and table
 
 The following example query searches for metadata for the `sid` column
 in the `arrayview` view of the `default` database.

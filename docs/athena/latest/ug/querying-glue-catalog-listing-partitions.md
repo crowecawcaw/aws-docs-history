@@ -12,7 +12,7 @@ SHOW PARTITIONS cloudtrail_logs_test2
 You can also use a `$partitions` metadata query to list the partition
 numbers and partition values for a specific table.
 
-###### Example – Querying the partitions for a table using the $partitions syntax
+###### Example– Querying the partitions for a table using the $partitions syntax
 
 The following example query lists the partitions for the table
 `cloudtrail_logs_test2` using the `$partitions`

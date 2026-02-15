@@ -24,12 +24,12 @@ or remove its custom tags.
 
 ###### Note
 
-    * You can add DPUs to an existing capacity reservation at any time.
-     However, you cannot decrease the number of DPUs until 1 hour after you
-     create the reservation or add DPUs to it.
-    * When you request to decrease DPUs while queries are running,
-     the system waits for the queries to complete before updating the
-     capacity reservation with the new target DPUs.
+    * You can request to add DPUs to an active capacity reservation at any time.
+    * You can request to decrease DPUs from an active capacity reservation when
+     1 minute has passed since the reservation became active or when DPUs were last added.
+    * When you request to decrease DPUs, Athena prioritizes removing idle DPUs over
+     active DPUs. If queries are consuming DPUs that are marked for removal, Athena waits
+     for queries to complete before removing the DPUs.
 
 6. (Optional) For **Tags**, choose
    **Remove** to remove a tag, or choose **Add new

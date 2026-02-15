@@ -64,7 +64,7 @@ limitations
   - [Determine capacity requirements](capacity-management-requirements.md "capacity-management-requirements.md")
   - [Control capacity usage](capacity-management-control-capacity-usage.md "capacity-management-control-capacity-usage.md")
 
-- The minimum number of DPUs required with each capacity reservation is 24. There is a minimum billing period of 1 hour for the initial allocation of capacity to a reservation. After 1 hour, capacity is billed per minute. For pricing information, see [Amazon Athena pricing](https://aws.amazon.com/athena/pricing/ "https://aws.amazon.com/athena/pricing/").
+- The minimum number of DPUs required with each capacity reservation is 4. For pricing information, see [Amazon Athena pricing](https://aws.amazon.com/athena/pricing/ "https://aws.amazon.com/athena/pricing/").
 - You can create up to 100 capacity reservations with up to 1,000 total DPUs per account and region. If you require more than 1,000 DPUs for your use case, please reach out to [athena-feedback@amazon.com](mailto:athena-feedback@amazon.com?subject=Athena Provisioned Capacity DPU Limit Request "mailto:athena-feedback@amazon.com?subject=Athena Provisioned Capacity DPU Limit Request").
 - Requests for capacity are not guaranteed and can take up to 30 minutes to complete. Capacity is not transferable to another capacity reservation, AWS account, or AWS Region.
 - The `DPUConsumed` CloudWatch metric is per-workgroup rather than

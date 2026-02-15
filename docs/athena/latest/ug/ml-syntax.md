@@ -58,6 +58,8 @@ data types specified for the function in the `USING EXTERNAL
 
 The following example demonstrates a query using ML with Athena.
 
+###### Example
+
 ```
 USING EXTERNAL FUNCTION predict_customer_registration(age INTEGER)
     RETURNS DOUBLE

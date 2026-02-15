@@ -3,7 +3,7 @@
 The examples in this section show how to list the databases in metadata by schema
 name.
 
-###### Example – Listing databases
+###### Example– Listing databases
 
 The following example query lists the databases from the
 `information_schema.schemata` table.
@@ -24,7 +24,7 @@ The following table shows sample results.
 | 9   | athena_db_test    |
 | 10  | athena_ddl_db     |
 
-###### Example – Searching a specified database
+###### Example– Searching a specified database
 
 In the following example query, `rdspostgresql` is a sample
 database.

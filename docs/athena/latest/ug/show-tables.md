@@ -38,7 +38,7 @@ characters, use the `|` character.
 
 ## Examples
 
-###### Example – Show all of the tables in the database `sampledb`
+###### Example– Show all of the tables in the database `sampledb`
 
 ```
 SHOW TABLES IN sampledb
@@ -55,7 +55,7 @@ flights_parquet
 view_2016_flights_dfw
 ```
 
-###### Example – Show the names of all tables in `sampledb` that include the
+###### Example– Show the names of all tables in `sampledb` that include the
 
 word "flights"
 
@@ -71,7 +71,7 @@ flights_parquet
 view_2016_flights_dfw
 ```
 
-###### Example – Show the names of all tables in `sampledb` that end in the
+###### Example– Show the names of all tables in `sampledb` that end in the
 
 word "logs"
 

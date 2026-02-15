@@ -18,6 +18,8 @@ To verify image deployment, check the Image tab in your Athena Federation Connec
 
 1. Locate the Image URI from your Athena Federation Connector Lambda
 
+###### Example
+
 ```
 account_id_1.dkr.ecr.us-east-1.amazonaws.com/athena-federation-repository:2025.15.1
 ```

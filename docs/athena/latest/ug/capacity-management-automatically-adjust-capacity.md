@@ -15,7 +15,7 @@ To get started, use the Athena console and choose **Set up auto-scaling** on you
 
 This automated CloudFormation template deploys the Athena Capacity Reservation auto-scaling solution. You must complete the applicable steps in [Prerequisites](#capacity-management-auto-scaling-prerequisites "#capacity-management-auto-scaling-prerequisites") before launching the stack.
 
-[![CloudFormation launch button for creating the stack.](images/launch-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?&templateURL=https:%2F%2Fathena-downloads.s3.us-east-1.amazonaws.com%2F%2Ftemplates%2F%2Fcapacity-reservation-scaling%2F%2Fstate-machine%2F%2Fathena-capacity-reservation-scaling-template-v1.0.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?&templateURL=https:%2F%2Fathena-downloads.s3.us-east-1.amazonaws.com%2F%2Ftemplates%2F%2Fcapacity-reservation-scaling%2F%2Fstate-machine%2F%2Fathena-capacity-reservation-scaling-template-v1.0.yaml")
+[![CloudFormation launch button for creating the stack.](images/launch-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?&templateURL=https:%2F%2Fathena-downloads.s3.us-east-1.amazonaws.com%2F%2Ftemplates%2F%2Fcapacity-reservation-scaling%2F%2Fstate-machine%2F%2Fathena-capacity-reservation-scaling-template-v1.1.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?&templateURL=https:%2F%2Fathena-downloads.s3.us-east-1.amazonaws.com%2F%2Ftemplates%2F%2Fcapacity-reservation-scaling%2F%2Fstate-machine%2F%2Fathena-capacity-reservation-scaling-template-v1.1.yaml")
 
 ###### To launch the auto-scaling solution
 
@@ -29,7 +29,7 @@ This automated CloudFormation template deploys the Athena Capacity Reservation a
 | ----------------------------- | ------------------ | ----------------------------------------------------------------- |
 | AthenaCapacityReservationName | _<requires input>_ | Name of your existing capacity reservation to monitor and adjust. |
 | MaxTargetDpus                 | _<requires input>_ | Maximum number of DPUs the solution can scale up to.              |
-| MinTargetDpus                 | 24                 | Minimum number of DPUs the solution can scale down to.            |
+| MinTargetDpus                 | 4                  | Minimum number of DPUs the solution can scale down to.            |
 | ScaleOutDpuAmount             | 16                 | Number of DPUs to add when scaling up.                            |
 | ScaleInDpuAmount              | 8                  | Number of DPUs to remove when scaling down.                       |
 | HighUtilizationThreshold      | 75                 | Utilization percentage that triggers scaling up.                  |

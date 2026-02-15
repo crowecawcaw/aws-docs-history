@@ -25,9 +25,7 @@ For a complete list of Amazon Athena actions, see the API action names in the [A
 see [Creating policies with the visual editor](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-visual-editor "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-visual-editor") in the
 _IAM User Guide_.
 
-###### Example policy to list
-
-capacity reservations
+###### Example policy to list capacity reservations
 
 The following policy allows all users to list all capacity reservations.
 
@@ -49,9 +47,7 @@ JSON
 
 ```
 
-###### Example policy for management
-
-operations
+###### Example policy for management operations
 
 The following policy allows a user to create, cancel, obtain details, and update the
 capacity reservation `test_capacity_reservation`. The policy also allows a

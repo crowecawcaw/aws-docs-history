@@ -70,6 +70,8 @@ products are most affected. Instead of investigating the sources of information
 separately, the analyst uses Athena to join the data together in a single federated
 query.
 
+###### Example
+
 ```
 SELECT
      t2.product_name AS product,
@@ -117,6 +119,8 @@ sources or hide complex joins from other analysts who query the data.
 The following example creates a view called `customers` on data stored
 in a federated data source.
 
+###### Example
+
 ```
 CREATE VIEW customers AS
 SELECT *
@@ -126,6 +130,8 @@ FROM my_federated_source.default.table
 The following example query shows a query that references the
 `customers` view instead of the underlying federated data
 source.
+
+###### Example
 
 ```
 SELECT id, SUM(order_amount)
@@ -143,6 +149,8 @@ the `purchase` and `payment` tables. To refer to Amazon S3, the
 statement uses the keyword `awsdatacatalog`. Note that the federated data
 source uses the fully qualified name syntax
 `federated_source_name`.`federated_source_database`.`federated_source_table`.
+
+###### Example
 
 ```
 CREATE VIEW default.order_summary AS

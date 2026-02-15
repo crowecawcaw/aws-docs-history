@@ -62,7 +62,7 @@ Athena.
 
 The following examples show how to query GuardDuty findings from Athena.
 
-###### Example â€“ DNS data exfiltration
+###### Exampleâ€“ DNS data exfiltration
 
 The following query returns information about Amazon EC2 instances that might be
 exfiltrating data through DNS queries.
@@ -88,7 +88,7 @@ WHERE type = 'Trojan:EC2/DNSDataExfiltration'
 ORDER BY severity DESC
 ```
 
-###### Example â€“ Unauthorized IAM user access
+###### Exampleâ€“ Unauthorized IAM user access
 
 The following query returns all `UnauthorizedAccess:IAMUser` finding
 types for an IAM Principal from all regions.

@@ -17,9 +17,7 @@ In this section:
 - [Example: Creating an Iceberg table with Avro data](#ctas-example-iceberg-avro "#ctas-example-iceberg-avro")
 - [Example: Creating an S3 table using CTAS](#ctas-example-s3-table "#ctas-example-s3-table")
 
-###### Example:
-
-Duplicating a table by selecting all columns
+###### Example: Duplicating a table by selecting all columns
 
 The following example creates a table by copying all columns from a table:
 
@@ -41,9 +39,7 @@ FROM old_table
 WHERE `condition`;
 ```
 
-###### Example:
-
-Selecting specific columns from one or more tables
+###### Example: Selecting specific columns from one or more tables
 
 The following example creates a new query that runs on a set of columns from another
 table:
@@ -63,9 +59,7 @@ SELECT column_1, column_2, ... `column_n`
 FROM `old_table_1`, `old_table_2`, ... `old_table_n`;
 ```
 
-###### Example: Creating
-
-an empty copy of an existing table
+###### Example: Creating an empty copy of an existing table
 
 The following example uses `WITH NO DATA` to create a new table that is
 empty and has the same schema as the original table:
@@ -77,9 +71,7 @@ FROM old_table
 WITH NO DATA;
 ```
 
-###### Example:
-
-Specifying data storage and compression formats
+###### Example: Specifying data storage and compression formats
 
 With CTAS, you can use a source table in one storage format to create another table in
 a different storage format.
@@ -130,9 +122,7 @@ AS SELECT *
 FROM old_table ;
 ```
 
-###### Example: Writing
-
-query results to a different format
+###### Example: Writing query results to a different format
 
 The following CTAS query selects all records from `old_table`, which could
 be stored in CSV or another format, and creates a new table with underlying data saved
@@ -147,9 +137,7 @@ AS SELECT *
 FROM old_table;
 ```
 
-###### Example: Creating unpartitioned
-
-tables
+###### Example: Creating unpartitioned tables
 
 The following examples create tables that are not partitioned. The table data is
 stored in different formats. Some of these examples specify the external location.
@@ -209,9 +197,7 @@ AS SELECT key1, name1, comment1
 FROM table1;
 ```
 
-###### Example: Creating partitioned
-
-tables
+###### Example: Creating partitioned tables
 
 The following examples show `CREATE TABLE AS SELECT` queries for
 partitioned tables in different storage formats, using `partitioned_by`, and
@@ -245,9 +231,7 @@ AS select name1, address1, comment1, key1
 FROM table1;
 ```
 
-###### Example: Creating
-
-bucketed and partitioned tables
+###### Example: Creating bucketed and partitioned tables
 
 The following example shows a `CREATE TABLE AS SELECT` query that uses both
 partitioning and bucketing for storing query results in Amazon S3. The table results are
@@ -269,9 +253,7 @@ AS SELECT key1, name1, address1, phone1, acctbal, mktsegment, comment1, nationke
 FROM table1;
 ```
 
-###### Example: Creating
-
-an Iceberg table with Parquet data
+###### Example: Creating an Iceberg table with Parquet data
 
 The following example creates an Iceberg table with Parquet data files. The files are
 partitioned by month using the `dt` column in `table1`. The
@@ -293,9 +275,7 @@ WITH (table_type = 'ICEBERG',
 AS SELECT key1, name1, dt FROM table1;
 ```
 
-###### Example: Creating an
-
-Iceberg table with Avro data
+###### Example: Creating an Iceberg table with Avro data
 
 The following example creates an Iceberg table with Avro data files partitioned by
 `key1`.

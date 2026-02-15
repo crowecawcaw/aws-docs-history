@@ -169,9 +169,7 @@ a1       a2      a3      a4
 a        a1      abc3    ab4
 ```
 
-###### Example: Using the TIMESTAMP type and DATE type specified in the UNIX numeric
-
-format
+###### Example: Using the TIMESTAMP type and DATE type specified in the UNIX numeric format
 
 Consider the following three columns of comma-separated data. The values in each
 column are enclosed in double quotes.

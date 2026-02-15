@@ -20,13 +20,7 @@ Before you query materialized views in Athena, ensure the following:
 
 ## Considerations and limitations
 
-- Athena does not prevent the following write operations on materialized views: `INSERT INTO`, `UPDATE`, `DELETE`, `MERGE`
-- Athena does not support the following operations for materialized views: `CREATE MATERIALIZED VIEW`, `REFRESH MATERIALIZED VIEW`, `ALTER MATERIALIZED VIEW`, `DROP MATERIALIZED VIEW`. To create materialized views, use Apache Spark in Amazon EMR or AWS Glue. Refresh operations must be performed through the AWS Glue Data Catalog API or Apache Spark. Modify materialized views using Apache Spark.
-- Use `DROP TABLE` syntax instead, as Athena treats materialized views as Iceberg tables.
-
-###### Note
-
-Athena does not differentiate between materialized views and regular Iceberg tables, so it does not block write operations.
+- Athena does not support the following operations on materialized views: `ALTER`, `CREATE MATERIALIZED VIEW`, `REFRESH MATERIALIZED VIEW`, `DROP`, `INSERT`, `UPDATE`, `MERGE`, `DELETE`, `OPTIMIZE`, `VACUUM`. To create materialized views, use Apache Spark in Amazon EMR or AWS Glue. Refresh operations must be performed through the AWS Glue Data Catalog API or Apache Spark. Modify materialized views using Apache Spark.
 
 ## Querying materialized views
 

@@ -17,6 +17,18 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 
 ## Athena release notes for 2026
 
+### February 10, 2026
+
+Published on 2026-02-10
+
+Athena announces the following features and improvements.
+
+Amazon Athena now supports 1-minute Capacity Reservations and 4 Data Processing Unit (DPU) minimum
+capacity. Capacity Reservations provide dedicated serverless compute for interactive SQL workloads
+requiring query prioritization and concurrency controls. With this release, you can now get started
+with less capacity and adjust capacity more frequently to closely match variable workload patterns.
+Learn more in the [Athena User Guide](capacity-management.md "capacity-management.md").
+
 ### January 12, 2026
 
 Published on 2026-01-12

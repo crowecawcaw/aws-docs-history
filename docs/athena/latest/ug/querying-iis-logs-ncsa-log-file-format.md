@@ -73,7 +73,7 @@ LOCATION
 
 queries for IIS NCSA logs
 
-###### Example – Filtering for 404 errors
+###### Example– Filtering for 404 errors
 
 The following example query selects the request received time, text of the
 client request, and server status code from the `iis_ncsa_logs`
@@ -91,7 +91,7 @@ Editor.
 
 ![Querying an IIS NCSA log from Athena for HTTP 404 entries.](images/querying-iis-logs-3.png)
 
-###### Example – Filtering for successful requests from a particular domain
+###### Example– Filtering for successful requests from a particular domain
 
 The following example query selects the user ID, request received time, text
 of the client request, and server status code from the

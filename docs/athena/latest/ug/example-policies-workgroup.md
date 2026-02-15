@@ -35,9 +35,7 @@ access](workgroups-iam-policy.md "workgroups-iam-policy.md").
 - [Example policy for working with named queries in a specific workgroup](#example8-named-queries-access "#example8-named-queries-access")
 - [Example policy for working with Spark notebooks](#example9-spark-workgroup "#example9-spark-workgroup")
 
-###### Example policy for full access to all
-
-workgroups
+###### Example policy for full access to all workgroups
 
 The following policy allows full access to all workgroup resources that might
 exist in the account. We recommend that you use this policy for those users in your
@@ -63,9 +61,7 @@ JSON
 
 ```
 
-###### Example policy for full access to a
-
-specified workgroup
+###### Example policy for full access to a specified workgroup
 
 The following policy allows full access to the single specific workgroup resource,
 named `workgroupA`. You could use this policy for users with full
@@ -132,9 +128,7 @@ JSON
 
 ```
 
-###### Example policy for running queries in a specified
-
-workgroup
+###### Example policy for running queries in a specified workgroup
 
 In the following policy, a user is allowed to run queries in the specified
 `workgroupA`, and view them. The user is not allowed to
@@ -192,9 +186,7 @@ JSON
 
 ```
 
-###### Example policy for running queries in
-
-the primary workgroup
+###### Example policy for running queries in the primary workgroup
 
 You can modify the preceding example to allow a particular user to also run
 queries in the primary workgroup.
@@ -214,9 +206,7 @@ that contains the ARN of the primary workgroup to the resource section of the [E
 arn:aws:athena:`us-east-1`:`123456789012`:workgroup/primary"
 ```
 
-###### Example policy for management
-
-operations on a specified workgroup
+###### Example policy for management operations on a specified workgroup
 
 In the following policy, a user is allowed to create, delete, obtain details, and
 update a workgroup `test_workgroup`.
@@ -273,9 +263,7 @@ JSON
 
 ```
 
-###### Example policy for running and
-
-stopping queries in a specific workgroup
+###### Example policy for running and stopping queries in a specific workgroup
 
 In this policy, a user is allowed to run queries in the workgroup:
 
@@ -300,9 +288,7 @@ JSON
 
 ```
 
-###### Example policy for working
-
-with named queries in a specific workgroup
+###### Example policy for working with named queries in a specific workgroup
 
 In the following policy, a user has permissions to create, delete, and obtain
 information about named queries in the specified workgroup:
@@ -328,9 +314,7 @@ JSON
 
 ```
 
-###### Example policy for working with Spark
-
-notebooks in Athena
+###### Example policy for working with Spark notebooks in Athena
 
 Use a policy like the following to work with Spark notebooks in Athena.
 

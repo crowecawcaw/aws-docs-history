@@ -9,7 +9,7 @@ information_schema.columns`.
 - For the `WHERE` clause, use the syntax `WHERE table_name IN
 ('table1', 'table2')`.
 
-###### Example – Listing common columns for two tables in the same database
+###### Example– Listing common columns for two tables in the same database
 
 The following example query lists the columns that the tables `table1`
 and `table2` have in common.

@@ -71,7 +71,7 @@ LOCATION
 
 queries
 
-###### Example – Filter for 404 errors
+###### Example– Filter for 404 errors
 
 The following example query selects the request received time, text of the
 client request, and server status code from the `apache_logs` table.
@@ -89,7 +89,7 @@ Editor.
 
 ![Querying an Apache log from Athena for HTTP 404 entries.](images/querying-apache-logs-1.png)
 
-###### Example – Filter for successful requests
+###### Example– Filter for successful requests
 
 The following example query selects the user ID, request received time, text
 of the client request, and server status code from the `apache_logs`
@@ -107,7 +107,7 @@ Editor.
 
 ![Querying an Apache log from Athena for HTTP 200 entries.](images/querying-apache-logs-2.png)
 
-###### Example – Filter by timestamp
+###### Example– Filter by timestamp
 
 The following example queries for records whose request received time is
 greater than the specified timestamp.

@@ -31,9 +31,7 @@ policies for workgroups, see [Control access to data catalogs with IAM policies]
 - [Example Policy for Listing Data Catalogs](#datacatalog-policy-listing-data-catalogs "#datacatalog-policy-listing-data-catalogs")
 - [Example Policy for Metadata Operations on Data Catalogs](#datacatalog-policy-metadata-operations "#datacatalog-policy-metadata-operations")
 
-###### Example policy
-
-for full access to all data catalogs
+###### Example policy for full access to all data catalogs
 
 The following policy allows full access to all data catalog resources that might
 exist in the account. We recommend that you use this policy for those users in your
@@ -59,9 +57,7 @@ JSON
 
 ```
 
-###### Example
-
-policy for full access to a specified Data Catalog
+###### Example policy for full access to a specified Data Catalog
 
 The following policy allows full access to the single specific data catalog
 resource, named `datacatalogA`. You could use this policy for users with
@@ -88,9 +84,7 @@ JSON
 
 ```
 
-###### Example policy
-
-for querying a specified Data Catalog
+###### Example policy for querying a specified Data Catalog
 
 In the following policy, a user is allowed to run queries on the specified
 `datacatalogA`. The user is not allowed to perform management
@@ -124,9 +118,7 @@ JSON
 
 ```
 
-###### Example policy for listing
-
-data catalogs
+###### Example policy for listing data catalogs
 
 The following policy allows all users to list all data catalogs:
 
@@ -148,9 +140,7 @@ JSON
 
 ```
 
-###### Example
-
-policy for metadata operations on data catalogs
+###### Example policy for metadata operations on data catalogs
 
 The following policy allows metadata operations on data catalogs:
 

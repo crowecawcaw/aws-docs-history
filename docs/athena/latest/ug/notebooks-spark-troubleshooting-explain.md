@@ -5,7 +5,7 @@ troubleshoot Spark SQL
 You can use the Spark `EXPLAIN` statement with Spark SQL to troubleshoot your
 Spark code. The following code and output examples show this usage.
 
-###### Example – Spark SELECT statement
+###### Example– Spark SELECT statement
 
 ```
 spark.sql("select * from select_taxi_table").explain(True)
@@ -44,7 +44,7 @@ PartitionFilters: [], PushedFilters: [],
 ReadSchema: struct<VendorID:bigint,passenger_count:bigint,count:bigint>
 ```
 
-###### Example – Spark data frame
+###### Example– Spark data frame
 
 The following example shows how to use `EXPLAIN` with a Spark data
 frame.

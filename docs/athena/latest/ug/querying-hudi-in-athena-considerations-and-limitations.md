@@ -9,7 +9,9 @@ When you use Athena to read Apache Hudi tables, consider the following points.
 - Hudi versions – Athena supports Hudi
   version 0.14.0 (default) and 0.15.0. Athena cannot guarantee read compatibility
   with tables that are created with later versions of Hudi. For more information
-  about Hudi features and versioning, see the [Hudi documentation](https://hudi.apache.org/ "https://hudi.apache.org/") on the Apache website. To use 0.15.0 of the
+  about Hudi features and versioning, see the [Hudi documentation](https://hudi.apache.org/ "https://hudi.apache.org/") on the Apache website.
+  Note that version 0.15.0 of the Hudi connector on Athena does not support
+  bootstrapped tables. To use 0.15.0 of the
   Hudi connector, set the following table property:
 
 ```
