@@ -8,6 +8,8 @@ Option 1: Install using the yum Package Manager on Amazon Linux
 
 1. Enable the yum repository in Amazon Linux 2. This is not required on Amazon Linux 2022 and later.
 
+###### Example
+
 ```
 sudo amazon-linux-extras enable corretto8
 ```
@@ -17,11 +19,15 @@ sudo amazon-linux-extras enable corretto8
 
 Install Amazon Corretto 17 as JRE.
 
+###### Example
+
 ```
 sudo yum install java-17-amazon-corretto
 ```
 
 Install Amazon Corretto 17 as JDK.
+
+###### Example
 
 ```
 sudo yum install java-17-amazon-corretto-devel
@@ -35,11 +41,15 @@ contains the Amazon Corretto 17 JMods used to create custom runtime images.
 
 Option 1: Install the headless Amazon Corretto 17:
 
+###### Example
+
 ```
 sudo yum install java-17-amazon-corretto-headless
 ```
 
 Option 2: Install the headful Amazon Corretto 17:
+
+###### Example
 
 ```
 sudo yum install java-17-amazon-corretto
@@ -47,11 +57,15 @@ sudo yum install java-17-amazon-corretto
 
 Option 3: Install the JDK for Amazon Corretto 17:
 
+###### Example
+
 ```
 sudo yum install java-17-amazon-corretto-devel
 ```
 
 Option 4: Install the JMods for Amazon Corretto 17:
+
+###### Example
 
 ```
 sudo yum install java-17-amazon-corretto-jmods
@@ -71,6 +85,8 @@ The paths under `/etc/alternatives/` may point to another JDK depending on the p
    To install the JDK, you will need to download the RPMs for both the JDK and the JRE.
 2. Install using `yum localinstall`.
 
+###### Example
+
 ```
 sudo yum localinstall java-17-amazon-corretto*.rpm
 ```
@@ -78,6 +94,8 @@ sudo yum localinstall java-17-amazon-corretto*.rpm
 ## Verify Your Installation
 
 In the terminal, run the following command to verify the installation.
+
+###### Example
 
 ```
 java -version
@@ -93,6 +111,8 @@ OpenJDK 64-Bit Server VM Corretto-17.0.18.9.1 (build 17.0.18+9-LTS, mixed mode, 
 
 If you see a version string that doesn't mention `Corretto`,
 run the following command to change the default `java` or `javac` providers.
+
+###### Example
 
 ```
 sudo alternatives --config java
@@ -110,11 +130,15 @@ You can uninstall Amazon Corretto 17 with the following commands.
 
 Uninstall JRE:
 
+###### Example
+
 ```
 sudo yum remove java-17-amazon-corretto
 ```
 
 Uninstall JDK:
+
+###### Example
 
 ```
 sudo yum remove java-17-amazon-corretto-devel
@@ -122,11 +146,15 @@ sudo yum remove java-17-amazon-corretto-devel
 
 Uninstall headless:
 
+###### Example
+
 ```
 sudo yum remove java-17-amazon-corretto-headless
 ```
 
 Uninstall headful:
+
+###### Example
 
 ```
 sudo yum remove java-17-amazon-corretto
@@ -134,11 +162,15 @@ sudo yum remove java-17-amazon-corretto
 
 Uninstall devel:
 
+###### Example
+
 ```
 sudo yum remove java-17-amazon-corretto-devel
 ```
 
 Uninstall jmods:
+
+###### Example
 
 ```
 sudo yum remove java-17-amazon-corretto-jmods

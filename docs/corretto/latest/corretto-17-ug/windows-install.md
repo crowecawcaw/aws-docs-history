@@ -26,6 +26,8 @@ Add `%JAVA_HOME%\bin` to the current `PATH`
 variable. 5. Verify the installation by running **java -version** in a command prompt.
 You should see the following output.
 
+###### Example
+
 ```
 openjdk version "17.0.18" 2026-01-20 LTS
 OpenJDK Runtime Environment Corretto-17.0.18.9.1 (build 17.0.18+9-LTS)

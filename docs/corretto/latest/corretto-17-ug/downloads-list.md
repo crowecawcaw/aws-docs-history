@@ -10,11 +10,15 @@ Permanent URLs always point to the most recent release of a package. For example
 retrieve the latest Linux Corretto 17 .tgz package by using a Permanent URL, run the
 following command from the CLI:
 
+###### Example
+
 ```
 wget https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.tar.gz
 ```
 
 You can also run the following curl command.
+
+###### Example
 
 ```
 curl -LO https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.tar.gz
