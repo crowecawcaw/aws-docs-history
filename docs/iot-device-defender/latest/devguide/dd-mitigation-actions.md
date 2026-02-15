@@ -333,14 +333,14 @@ of actions or action states. 3. To see details for the task, in **Executions**, 
 For each mitigation action that you define, you must provide the role used to apply that
 action.
 
-| Permissions for mitigation actions | Action type                                                                                                                                                                                                                        | Permissions policy template |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| UPDATE_DEVICE_CERTIFICATE          | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:UpdateCertificate"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                            |
-| UPDATE_CA_CERTIFICATE              | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:UpdateCACertificate"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                          |
-| ADD_THINGS_TO_THING_GROUP          | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:ListPrincipalThings",<br>"iot:AddThingToThingGroup"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``           |
-| REPLACE_DEFAULT_POLICY_VERSION     | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:CreatePolicyVersion"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                          |
-| ENABLE_IOT_LOGGING                 |                                                                                                                                                                                                                                    |
-| PUBLISH_FINDING_TO_SNS             | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"sns:Publish"<br>],<br>"Resource":[<br>"arn:aws:sns:`us-east-1`:`111122223333`:`example-topic`"<br>]<br>}<br>]<br>}`<br>`` |
+| Permissions for mitigation actions | Action type                                                                                                                                                                                                                                                                                                                | Permissions policy template |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| UPDATE_DEVICE_CERTIFICATE          | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:UpdateCertificate"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                                                                                                                    |
+| UPDATE_CA_CERTIFICATE              | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:UpdateCACertificate"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                                                                                                                  |
+| ADD_THINGS_TO_THING_GROUP          | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:ListPrincipalThings",<br>"iot:AddThingToThingGroup"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                                                                                   |
+| REPLACE_DEFAULT_POLICY_VERSION     | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:CreatePolicyVersion"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                                                                                                                  |
+| ENABLE_IOT_LOGGING                 | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement": [<br>{<br>"Effect": "Allow",<br>"Action": [<br>"iot:SetV2LoggingOptions"<br>],<br>"Resource": "*"<br>},<br>{<br>"Effect": "Allow",<br>"Action": [<br>"iam:PassRole"<br>],<br>"Resource": "arn:aws:iam::123456789012:role/IoTLoggingRole"<br>}<br>]<br>}`<br>`` |
+| PUBLISH_FINDING_TO_SNS             | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"sns:Publish"<br>],<br>"Resource":[<br>"arn:aws:sns:`us-east-1`:123456789012:`example-topic`"<br>]<br>}<br>]<br>}`<br>``                                                                                           |
 
 For all mitigation action types, use the following trust policy template:
 
@@ -359,10 +359,10 @@ JSON
  "Action": "sts:AssumeRole",
  "Condition": {
  "ArnLike": {
- "aws:SourceArn": "arn:aws:iot:*:111122223333::*"
+ "aws:SourceArn": "arn:aws:iot:*:123456789012::*"
  },
  "StringEquals": {
- "aws:SourceAccount": "111122223333:"
+ "aws:SourceAccount": "123456789012:"
  }
  }
  }

@@ -35,7 +35,7 @@ Units: bytes
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {
@@ -114,7 +114,7 @@ seconds.
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {
@@ -188,7 +188,7 @@ seconds.
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {
@@ -263,7 +263,7 @@ seconds.
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {
@@ -370,7 +370,7 @@ seconds.
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {
@@ -443,7 +443,7 @@ seconds.
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {

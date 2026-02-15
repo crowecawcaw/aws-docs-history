@@ -41,7 +41,7 @@ seconds.
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {
@@ -114,7 +114,7 @@ seconds.
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {
@@ -190,7 +190,7 @@ seconds.
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {
@@ -266,7 +266,7 @@ seconds.
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {
@@ -339,7 +339,7 @@ seconds.
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {
@@ -411,6 +411,8 @@ seconds.
   "suppressAlerts": true
 }
 ```
+
+###### Example
 
 Example using a `statisticalThreshold`
 
@@ -500,6 +502,8 @@ Values: a list of ports
 
 Units: n/a
 
+###### Example
+
 ```
 {
   "name": "Listening TCP Ports",
@@ -531,6 +535,8 @@ Operators: in-port-set | not-in-port-set
 Values: a list of ports
 
 Units: n/a
+
+###### Example
 
 ```
 {
@@ -580,7 +586,7 @@ Units: connections
 }
 ```
 
-###### Example using a `statisticalThreshold`
+###### Example using a statisticalThreshold
 
 ```
 {

@@ -55,17 +55,17 @@ JSON
  {
  "Effect": "Allow",
  "Action": "iot:Subscribe",
- "Resource": "arn:aws:iot:us-east-1:111122223333:topicfilter/building/*"
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topicfilter/building/*"
  },
  {
  "Effect": "Deny",
  "Action": "iot:Subscribe",
- "Resource": "arn:aws:iot:us-east-1:111122223333:topicfilter/building/control_room/#"
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topicfilter/building/control_room/#"
  },
  {
  "Effect": "Allow",
  "Action": "iot:Receive",
- "Resource": "arn:aws:iot:us-east-1:111122223333:topic/building/*"
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topic/building/*"
  }
  ]
 }`
@@ -77,6 +77,37 @@ have permission to subscribe to subtopics of
 `building/control_room/` and don't have permissions to
 receive messages from subtopics of
 `building/control_room/`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iot:Subscribe",
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topicfilter/building/*"
+ },
+ {
+ "Effect": "Deny",
+ "Action": "iot:Subscribe",
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topicfilter/building/control_room/*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "iot:Receive",
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topic/building/*"
+ },
+ {
+ "Effect": "Deny",
+ "Action": "iot:Receive",
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topic/building/control_room/*"
+ }
+ ]
+}`
+
+```
 
 The following example policy is intended to deny subscribing to topics
 related to `building/control_room` by denying the resource
@@ -101,17 +132,17 @@ JSON
  {
  "Effect": "Allow",
  "Action": "iot:Subscribe",
- "Resource": "arn:aws:iot:us-east-1:111122223333:topicfilter/building/*"
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topicfilter/building/*"
  },
  {
  "Effect": "Deny",
  "Action": "iot:Subscribe",
- "Resource": "arn:aws:iot:us-east-1:111122223333:topicfilter/building/control_room/*"
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topicfilter/building/control_room/*"
  },
  {
  "Effect": "Allow",
  "Action": "iot:Receive",
- "Resource": "arn:aws:iot:us-east-1:111122223333:topic/building/*"
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topic/building/*"
  }
  ]
 }`
@@ -133,22 +164,22 @@ JSON
  {
  "Effect": "Allow",
  "Action": "iot:Subscribe",
- "Resource": "arn:aws:iot:us-east-1:111122223333:topicfilter/building/*"
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topicfilter/building/*"
  },
  {
  "Effect": "Deny",
  "Action": "iot:Subscribe",
- "Resource": "arn:aws:iot:us-east-1:111122223333:topicfilter/building/control_room/*"
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topicfilter/building/control_room/*"
  },
  {
  "Effect": "Allow",
  "Action": "iot:Receive",
- "Resource": "arn:aws:iot:us-east-1:111122223333:topic/building/*"
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topic/building/*"
  },
  {
  "Effect": "Deny",
  "Action": "iot:Receive",
- "Resource": "arn:aws:iot:us-east-1:111122223333:topic/building/control_room/*"
+ "Resource": "arn:aws:iot:us-east-1:123456789012:topic/building/control_room/*"
  }
  ]
 }`

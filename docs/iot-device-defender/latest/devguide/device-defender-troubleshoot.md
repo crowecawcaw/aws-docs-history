@@ -183,7 +183,7 @@ JSON
  {
  "Effect": "Allow",
  "Action": "sns:Publish",
- "Resource": "arn:aws:sns:`us-east-1`:`111122223333`:`example-topic`"
+ "Resource": "arn:aws:sns:`us-east-1`:123456789012:`example-topic`"
  }
  ]
 }`
@@ -207,7 +207,7 @@ JSON
  "kms:Decrypt",
  "kms:GenerateDataKey"
  ],
- "Resource": "arn:aws:sns:`us-east-1`:`111122223333`:`example-topic`"
+ "Resource": "arn:aws:sns:`us-east-1`:123456789012:`example-topic`"
  }
  ]
 }`

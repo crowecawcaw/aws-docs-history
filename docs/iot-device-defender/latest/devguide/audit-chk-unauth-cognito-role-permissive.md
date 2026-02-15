@@ -124,7 +124,7 @@ JSON
  "iot:ListThingPrincipals"
  ],
  "Resource": [
- "arn:aws:iot:us-east-1:111122223333:thing/`name-of-thing`"
+ "arn:aws:iot:us-east-1:123456789012:thing/`name-of-thing`"
  ]
  }
  ]
@@ -171,6 +171,26 @@ in the previous example.
 
 - compliant:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Connect"
+ ],
+ "Resource": [
+ "arn:aws:iot:us-east-1:123456789012:client/${iot:Connection.Thing.ThingName}"
+ ]
+ }
+ ]
+}`
+
+```
+
 The resource specification contains a variable that matches
 the device name used to connect. The condition statement further
 restricts the permission by checking that the certificate used
@@ -209,7 +229,7 @@ JSON
  "iot:Publish"
  ],
  "Resource": [
- "arn:aws:iot:us-east-1:111122223333:topic/$aws/things/${iot:Connection.Thing.ThingName}/shadow/*"
+ "arn:aws:iot:us-east-1:123456789012:topic/$aws/things/${iot:Connection.Thing.ThingName}/shadow/*"
  ]
  }
  ]
@@ -260,8 +280,8 @@ JSON
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:us-east-1:111122223333:topicfilter/$aws/things/${iot:Connection.Thing.ThingName}/shadow/*",
- "arn:aws:iot:us-east-1:111122223333:topicfilter/$aws/things/${iot:Connection.Thing.ThingName}/jobs/*"
+ "arn:aws:iot:us-east-1:123456789012:topicfilter/$aws/things/${iot:Connection.Thing.ThingName}/shadow/*",
+ "arn:aws:iot:us-east-1:123456789012:topicfilter/$aws/things/${iot:Connection.Thing.ThingName}/jobs/*"
  ]
  }
  ]
@@ -331,8 +351,8 @@ JSON
  "iotjobsdata:UpdateJobExecution"
  ],
  "Resource": [
- "arn:aws:iot:us-east-1:111122223333:thing/MyThing1",
- "arn:aws:iot:us-east-1:111122223333:thing/MyThing2"
+ "arn:aws:iot:us-east-1:123456789012:thing/MyThing1",
+ "arn:aws:iot:us-east-1:123456789012:thing/MyThing2"
  ]
  }
  ]

@@ -138,7 +138,7 @@ JSON
  "iot:ListThingPrincipals"
  ],
  "Resource": [
- "arn:aws:iot:us-east-1:111122223333:thing/MyThing"
+ "arn:aws:iot:us-east-1:123456789012:thing/MyThing"
  ]
  }
  ]
@@ -166,7 +166,7 @@ JSON
  "iot:ListThingPrincipals"
  ],
  "Resource": [
- "arn:aws:iot:us-east-1:111122223333:thing/MyThing*"
+ "arn:aws:iot:us-east-1:123456789012:thing/MyThing*"
  ]
  }
  ]
@@ -204,7 +204,7 @@ JSON
  "iot:ListThingPrincipals"
  ],
  "Resource": [
- "arn:aws:iot:us-east-1:111122223333:thing/MyThing"
+ "arn:aws:iot:us-east-1:123456789012:thing/MyThing"
  ]
  }
  ]
@@ -232,7 +232,7 @@ JSON
  "iot:ListThingPrincipals"
  ],
  "Resource": [
- "arn:aws:iot:us-east-1:111122223333:thing/MyThing*"
+ "arn:aws:iot:us-east-1:123456789012:thing/MyThing*"
  ]
  }
  ]
@@ -272,6 +272,26 @@ in the previous example.
 
 - compliant:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Connect"
+ ],
+ "Resource": [
+ "arn:aws:iot:us-east-1:123456789012:client/${iot:Connection.Thing.ThingName}"
+ ]
+ }
+ ]
+}`
+
+```
+
 The resource specification contains a variable that matches
 the device name used to connect, and the condition statement
 further restricts the permission by checking that the
@@ -310,7 +330,7 @@ JSON
  "iot:Publish"
  ],
  "Resource": [
- "arn:aws:iot:us-east-1:111122223333:topic/$aws/things/${iot:Connection.Thing.ThingName}/shadow/*"
+ "arn:aws:iot:us-east-1:123456789012:topic/$aws/things/${iot:Connection.Thing.ThingName}/shadow/*"
  ]
  }
  ]
@@ -361,8 +381,8 @@ JSON
  "iot:Subscribe"
  ],
  "Resource": [
- "arn:aws:iot:us-east-1:111122223333:topicfilter/$aws/things/${iot:Connection.Thing.ThingName}/shadow/*",
- "arn:aws:iot:us-east-1:111122223333:topicfilter/$aws/things/${iot:Connection.Thing.ThingName}/jobs/*"
+ "arn:aws:iot:us-east-1:123456789012:topicfilter/$aws/things/${iot:Connection.Thing.ThingName}/shadow/*",
+ "arn:aws:iot:us-east-1:123456789012:topicfilter/$aws/things/${iot:Connection.Thing.ThingName}/jobs/*"
  ]
  }
  ]
@@ -413,6 +433,32 @@ This allows the device to perform the specified action on any
 thing.
 
 - compliant:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:DeleteThingShadow",
+ "iot:GetThingShadow",
+ "iot:UpdateThingShadow",
+ "iot:DescribeJobExecution",
+ "iotjobsdata:DescribeJobExecution",
+ "iotjobsdata:UpdateJobExecution"
+ ],
+ "Resource": [
+ "arn:aws:iot:us-east-1:123456789012:thing/MyThing1",
+ "arn:aws:iot:us-east-1:123456789012:thing/MyThing2"
+ ]
+ }
+ ]
+}`
+
+```
 
 This allows the device to perform the specified actions on only two
 things.

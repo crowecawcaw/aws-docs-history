@@ -20,6 +20,26 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Publish"
+ ],
+ "Resource": [
+ "arn:aws:iot:us-east-1:123456789012:topic/your-topic-name"
+ ]
+ }
+ ]
+}`
+
+```
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
  "Sid": "",
  "Effect": "Allow",
  "Principal": {
@@ -49,7 +69,7 @@ JSON
  "iam:GetRole",
  "iam:PassRole"
  ],
- "Resource": "arn:aws:iam::111122223333:role/Role_To_Pass"
+ "Resource": "arn:aws:iam::123456789012:role/Role_To_Pass"
  }
  ]
 }`

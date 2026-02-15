@@ -24,7 +24,7 @@ JSON
  "sns:Publish"
  ],
  "Resource": [
- "arn:aws:sns:us-east-1:111122223333:`your-topic-name`"
+ "arn:aws:sns:us-east-1:123456789012:`your-topic-name`"
  ]
  }
  ]
@@ -68,7 +68,7 @@ JSON
  "iam:GetRole",
  "iam:PassRole"
  ],
- "Resource": "arn:aws:iam::111122223333:role/Role_To_Pass"
+ "Resource": "arn:aws:iam::123456789012:role/Role_To_Pass"
  }
  ]
 }`
