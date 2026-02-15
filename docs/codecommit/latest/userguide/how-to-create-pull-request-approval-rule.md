@@ -49,7 +49,7 @@ You cannot change the name of an approval rule after you create it.
 In **Number of approvals needed**, enter the number you want. The default
 is 1.
 
-![Creating an approval rule for a pull request](images/codecommit-create-approval-rule.png) 7. (Optional) If you want to require that the approvals for a pull request come from a
+![Creating an approval rule for a pull request](/images/codecommit/latest/userguide/images/codecommit-create-approval-rule.png) 7. (Optional) If you want to require that the approvals for a pull request come from a
 specific group of users, in **Approval rule members**, choose
 **Add**. In **Approver type**, choose one of the following:
 

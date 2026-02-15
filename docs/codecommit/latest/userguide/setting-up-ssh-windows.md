@@ -160,7 +160,7 @@ and then choose **Upload SSH public key**. 6. Paste the contents of your SSH pub
 **Upload SSH public key**. 7. Copy or save the information in **SSH Key ID** (for example,
 `APKAEIBAERJR2EXAMPLE`).
 
-![The SSH Key ID in the IAM console](images/codecommit-ssh-key-id-iam.png)
+![The SSH Key ID in the IAM console](/images/codecommit/latest/userguide/images/codecommit-ssh-key-id-iam.png)
 
 ###### Note
 

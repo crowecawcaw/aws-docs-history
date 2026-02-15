@@ -209,7 +209,7 @@ showing or hiding white space changes, and whether to view changes inline
 Your preferences for viewing code and other console settings are saved as
 browser cookies whenever you change them. For more information, see [Working with user preferences](user-preferences.md "user-preferences.md").
 
-![Changes shown in Unified view, with white space changes visible](images/codecommit-commit-changes2c.png) 7. To view all comments on a commit, choose the commit and
+![Changes shown in Unified view, with white space changes visible](/images/codecommit/latest/userguide/images/codecommit-commit-changes2c.png) 7. To view all comments on a commit, choose the commit and
 then scroll through the changes
 to view them inline. You can also add your own comments and reply to the
 comments made by others.
