@@ -192,6 +192,12 @@ page = context.pages[0]
 
 Cookie expiration times are set by websites and cannot be modified by browser profiles. Session cookies typically expire when the browser session ends, while persistent cookies expire based on their Max-Age or Expires attributes.
 
+### Browser proxy issues
+
+For troubleshooting browser proxy configuration and connection issues, see
+[Troubleshooting browser proxies](browser-proxies.md#browser-proxies-troubleshooting "browser-proxies.md#browser-proxies-troubleshooting") in the browser proxies
+documentation.
+
 ## Code Interpreter issues
 
 For general Code Interpreter troubleshooting, see the specific documentation for [Execute code and analyze data using

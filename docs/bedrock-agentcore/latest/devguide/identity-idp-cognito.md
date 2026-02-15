@@ -191,7 +191,7 @@ following configuration:
     "includedOauth2ProviderConfig": {
       "clientId": "your-client-id",
       "clientSecret": "your-client-secret",
-      "authorizeEndpoint": "https://{your-cognito-domain}.auth.us-east-1.amazoncognito.com/oauth2/authorize",
+      "authorizationEndpoint": "https://{your-cognito-domain}.auth.us-east-1.amazoncognito.com/oauth2/authorize",
       "tokenEndpoint": "https://{your-cognito-domain}.auth.us-east-1.amazoncognito.com/oauth2/token",
       "issuer": "https://cognito-idp.us-east-1.amazonaws.com/{your-user-pool-id}"
     }

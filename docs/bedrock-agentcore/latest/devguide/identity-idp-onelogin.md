@@ -42,7 +42,7 @@ To configure OneLogin as an outbound resource provider use the following:
     "includedOauth2ProviderConfig": {
       "clientId": "`your-client-id`",
       "clientSecret": "`your-client-secret`",
-      "authorizeEndpoint": "https://`your-tenant`.onelogin.com/oidc/2/auth",
+      "authorizationEndpoint": "https://`your-tenant`.onelogin.com/oidc/2/auth",
       "tokenEndpoint": "https://`your-tenant`.onelogin.com/oidc/2/token",
       "issuer": "https://`your-tenant`.onelogin.com/oidc/2"
     }

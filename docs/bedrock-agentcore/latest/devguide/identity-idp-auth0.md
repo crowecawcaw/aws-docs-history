@@ -74,7 +74,7 @@ To configure Auth0 as an outbound resource provider, use the following:
     "includedOauth2ProviderConfig": {
       "clientId": "`your-client-id`",
       "clientSecret": "`your-client-secret`",
-      "authorizeEndpoint": "https://`your-auth0-tenant`.auth0.com/authorize",
+      "authorizationEndpoint": "https://`your-auth0-tenant`.auth0.com/authorize",
       "tokenEndpoint": "https://`your-auth0-tenant`.auth0.com/oauth/token",
       "issuer": "https://`your-auth0-tenant`.auth0.com"
     }

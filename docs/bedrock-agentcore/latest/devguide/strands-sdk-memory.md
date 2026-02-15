@@ -128,4 +128,59 @@ agent("What should I buy for lunch today?")
 # Agent suggests options based on remembered preferences
 ```
 
+**Message batching**
+
+When `batch_size` is greater than 1, messages are buffered in memory and
+sent to AgentCore Memory in a single API call once the buffer reaches the configured size.
+This reduces the number of API requests in high-throughput conversations.
+
+###### Important
+
+When using `batch_size > 1`, you **must**
+use a `with` block or call `close()` when the session is
+complete. Otherwise, any buffered messages that have not yet reached the batch
+threshold will be lost.
+
+_Recommended: Context manager_
+
+```
+from strands import Agent
+from bedrock_agentcore.memory.integrations.strands.config import AgentCoreMemoryConfig
+from bedrock_agentcore.memory.integrations.strands.session_manager import AgentCoreMemorySessionManager
+
+config = AgentCoreMemoryConfig(
+    memory_id=MEM_ID,
+    session_id=SESSION_ID,
+    actor_id=ACTOR_ID,
+    batch_size=10,  # Buffer up to 10 messages before sending
+)
+
+# The `with` block guarantees all buffered messages are flushed on exit
+with AgentCoreMemorySessionManager(config, region_name='us-east-1') as session_manager:
+    agent = Agent(
+        system_prompt="You are a helpful assistant.",
+        session_manager=session_manager,
+    )
+    agent("Hello!")
+    agent("Tell me about AWS")
+# All remaining buffered messages are automatically flushed here
+```
+
+_Alternative: Explicit close()_
+
+If you cannot use a `with` block, call `close()`
+manually:
+
+```
+session_manager = AgentCoreMemorySessionManager(config, region_name='us-east-1')
+try:
+    agent = Agent(
+        system_prompt="You are a helpful assistant.",
+        session_manager=session_manager,
+    )
+    agent("Hello!")
+finally:
+    session_manager.close()  # Flush any remaining buffered messages
+```
+
 More examples are available on GitHub: [https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands](https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands "https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands")

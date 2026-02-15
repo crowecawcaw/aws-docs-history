@@ -68,7 +68,7 @@ To configure Okta as an outbound resource provider in AgentCore Identity, use th
     "includedOauth2ProviderConfig": {
       "clientId": "`your-client-id`",
       "clientSecret": "`your-client-secret`",
-      "authorizeEndpoint": "https://`your-tenant`.okta.com/oauth2/`your-authorization-server`/v1/authorize",
+      "authorizationEndpoint": "https://`your-tenant`.okta.com/oauth2/`your-authorization-server`/v1/authorize",
       "tokenEndpoint": "https://`your-tenant`.okta.com/oauth2/`your-authorization-server`/v1/token",
       "issuer": "https://`your-tenant`.okta.com/oauth2/`your-authorization-server`"
     }

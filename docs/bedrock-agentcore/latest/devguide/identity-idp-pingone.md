@@ -55,7 +55,7 @@ To configure PingOne as an outbound resource provider use the following:
     "includedOauth2ProviderConfig": {
       "clientId": "`your-client-id`",
       "clientSecret": "`your-client-secret`",
-      "authorizeEndpoint": "https://auth.pingone.com/`your-env-id`/as/authorize",
+      "authorizationEndpoint": "https://auth.pingone.com/`your-env-id`/as/authorize",
       "tokenEndpoint": "https://auth.pingone.com/`your-env-id`/as/token",
       "issuer": "https://auth.pingone.com/`your-env-id`/as"
     }

@@ -245,6 +245,18 @@ The following table describes the limits for browser profiles:
 | Maximum size per profile               | 50 MB | Yes   | The size limit applies to cookies and localStorage in total |
 | Maximum number of profiles per account | 100   | Yes   | Can be increased via support ticket                         |
 
+### Browser Proxy Limits
+
+The following table describes the limits for browser proxies:
+
+| Browser proxy limits              | Limit          | Value | Adjustable                                   | Notes |
+| --------------------------------- | -------------- | ----- | -------------------------------------------- | ----- |
+| Maximum proxies per session       | 5              | No    | Total external proxies in proxyConfiguration |
+| Maximum domain patterns per proxy | 50             | No    | domainPatterns array per proxy               |
+| Maximum total domain patterns     | 100            | No    | Across all proxies and bypass                |
+| Server hostname length            | 253 characters | No    | Standard DNS limit                           |
+| Domain pattern length             | 253 characters | No    | Standard DNS limit                           |
+
 ## AgentCore Code Interpreter Service
 
 Quotas

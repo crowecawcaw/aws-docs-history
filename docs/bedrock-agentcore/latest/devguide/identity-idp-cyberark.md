@@ -47,7 +47,7 @@ To configure CyberArk as an outbound resource provider, use the following:
     "includedOauth2ProviderConfig": {
       "clientId": "`your-client-id`",
       "clientSecret": "`your-client-secret`",
-      "authorizeEndpoint": "https://`your-tenant-id`.id.cyberark.cloud/OAuth2/Authorize/__idaptive_cybr_user_oidc",
+      "authorizationEndpoint": "https://`your-tenant-id`.id.cyberark.cloud/OAuth2/Authorize/__idaptive_cybr_user_oidc",
       "tokenEndpoint": "https://`your-tenant-id`.id.cyberark.cloud/OAuth2/Token/__idaptive_cybr_user_oidc",
       "issuer": "https://`your-tenant-id`.id.cyberark.cloud/__idaptive_cybr_user_oidc"
     }

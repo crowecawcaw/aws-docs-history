@@ -45,7 +45,7 @@ following:
     "includedOauth2ProviderConfig": {
       "clientId": "`your-client-id`",
       "clientSecret": "`your-client-secret`",
-      "authorizeEndpoint": "https://`your-tenant-authorization-url`",
+      "authorizationEndpoint": "https://`your-tenant-authorization-url`",
       "tokenEndpoint": "https://`your-tenant-token-endpoint`",
       "issuer": "https://`your-tenant-token-issuer`"
     }
