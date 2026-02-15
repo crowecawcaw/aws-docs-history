@@ -238,7 +238,7 @@ You can peer your ODB network to a VPC, and then attach this VPC to a transit ga
 can connect to multiple VPCs. With this transit gateway configuration, you can route traffic
 between multiple VPC subnets to a single ODB network.
 
-![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](images/ODB-tgw.png)
+![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](/images/odb/latest/UserGuide/images/ODB-tgw.png)
 
 For more information, see [Configuring Amazon VPC Transit Gateways for Oracle Database@AWS](configuring.md#configuring-tgw "configuring.md#configuring-tgw").
 
