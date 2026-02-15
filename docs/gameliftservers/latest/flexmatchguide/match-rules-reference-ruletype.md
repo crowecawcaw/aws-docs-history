@@ -34,6 +34,8 @@ batch distance rules:
   (`max`), and average (`avg`) values for a ticket's
   players. The default is `avg`.
 
+###### Example
+
 Examples
 
 ```
@@ -281,6 +283,8 @@ attribute compared to the first ticket added to the batch.
   attribute, the maximum (`max`) player attribute, and the average
   (`avg`) of all player attributes for players in the party. The
   default is `avg`.
+
+###### Example
 
 Example
 
