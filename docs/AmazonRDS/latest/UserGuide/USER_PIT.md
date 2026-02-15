@@ -63,6 +63,8 @@ To restore a Multi-AZ DB cluster to a specified time, use the AWS CLI command
 Currently, Multi-AZ DB clusters only support db.m6gd and db.r6gd DB instance classes.
 For more information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md").
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

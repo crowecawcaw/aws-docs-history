@@ -252,6 +252,8 @@ manages the master user password in
 Secrets Manager. The secret is encrypted using the KMS key that is provided by
 Secrets Manager.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -369,6 +371,8 @@ The following example creates an RDS for Oracle tenant database and specifies th
 Secrets Manager. The secret is encrypted using the KMS key that is provided by
 Secrets Manager.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -484,6 +488,8 @@ This example creates a Multi-AZ DB cluster and
 specifies that RDS manages the password in Secrets Manager. The secret
 is encrypted using the KMS key that is provided by Secrets Manager.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -564,6 +570,8 @@ you rotate the master password.
 
 This example rotates a master user password secret.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -622,6 +630,8 @@ option. You must specify the `--apply-immediately` option when
 you rotate the master password.
 
 This example rotates a master user password secret.
+
+###### Example
 
 For Linux, macOS, or Unix:
 
@@ -696,6 +706,8 @@ The possible status values include the following:
   instance. This example shows the output for a secret that is used by a DB
   instance.
 
+###### Example
+
 ```
 aws rds describe-db-instances --db-instance-identifier `mydbinstance`
 ```
@@ -715,6 +727,8 @@ When you have the secret ARN, you can view details about the secret using the
 Secrets Manager CLI command.
 
 This example shows the details for the secret in the previous sample output.
+
+###### Example
 
 For Linux, macOS, or Unix:
 
@@ -794,6 +808,8 @@ The possible status values include the following:
   cluster. This example shows the output for a secret that is used by a DB
   cluster.
 
+###### Example
+
 ```
 aws rds describe-db-clusters --db-cluster-identifier `mydbcluster`
 ```
@@ -812,6 +828,8 @@ When you have the secret ARN, you can view details about the secret using the
 [get-secret-value](../../../cli/latest/reference/secretsmanager/get-secret-value.md "../../../cli/latest/reference/secretsmanager/get-secret-value.md") Secrets Manager CLI command.
 
 This example shows the details for the secret in the previous sample output.
+
+###### Example
 
 For Linux, macOS, or Unix:
 
@@ -884,6 +902,8 @@ The possible status values include the following:
   You can also specify the `--tenant-db-name` option to show output for a specific tenant database.
   This example shows the output for a secret that is used by a tenant database.
 
+###### Example
+
 ```
 aws rds describe-tenant-databases \
     --db-instance-identifier database-3 \
@@ -905,6 +925,8 @@ When you have the secret ARN, you can view details about the secret using the
 Secrets Manager AWS CLI command.
 
 This example shows the details for the secret in the previous sample output.
+
+###### Example
 
 For Linux, macOS, or Unix:
 

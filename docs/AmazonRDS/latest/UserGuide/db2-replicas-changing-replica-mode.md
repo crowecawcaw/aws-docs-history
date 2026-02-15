@@ -56,6 +56,8 @@ You can modify the replica mode using the AWS Management Console, the AWS CLI, o
 
 The following example changes a replica from read-only to standby mode:
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -73,6 +75,8 @@ aws rds modify-db-instance ^
 ```
 
 The following example changes a replica from standby to read-only mode:
+
+###### Example
 
 For Linux, macOS, or Unix:
 

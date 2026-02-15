@@ -71,6 +71,8 @@ requirements.
 To configure binary log transaction compression using the AWS CLI, use the
 [modify-db-cluster-parameter-group](../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md") command.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

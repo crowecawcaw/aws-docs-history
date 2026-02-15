@@ -1,394 +1,187 @@
-# Tutorial: Create a VPC for use with a DB
+# Amazon RDS tutorials
 
-instance (dual-stack mode)
+and sample code
 
-A common scenario includes a DB instance
-in a virtual private cloud (VPC) based on the Amazon VPC service. This VPC shares data with a public Amazon EC2 instance
-that is running in the same VPC.
-
-In this tutorial, you create the VPC for this scenario that works with a database
-running in dual-stack mode. Dual-stack mode to enable connection over the IPv6 addressing protocol.
-For more information about IP addressing, see [Amazon RDS IP
-addressing](USER_VPC.md#USER_VPC.IP_addressing "USER_VPC.md#USER_VPC.IP_addressing").
-
-Dual-stack network instances are supported in
-most regions. For more information see
-[Region
-and version availability](USER_VPC.md#USER_VPC.IP_addressing.RegionVersionAvailability "USER_VPC.md#USER_VPC.IP_addressing.RegionVersionAvailability").
-To see the limitations of dual-stack mode, see [Limitations
-for dual-stack network DB instances](USER_VPC.md#USER_VPC.IP_addressing.dual-stack-limitations "USER_VPC.md#USER_VPC.IP_addressing.dual-stack-limitations").
-
-The following diagram shows this scenario.
-
-![VPC scenario for dual-stack mode](images/con-VPC-sec-grp-dual-stack.png)
-For information about other scenarios, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
-
-Your DB instance needs to be available only to your Amazon EC2 instance, and not to the
-public internet. Thus, you create a VPC with both public and private subnets. The Amazon EC2
-instance is hosted in the public subnet, so that it can reach the public internet. The DB
-instance is hosted in a private subnet. The Amazon EC2 instance can connect to the
-DB instance because it's hosted within the same VPC. However, the DB instance is
-not available to the public internet, providing greater security.
-
-This tutorial configures an additional public and private subnet in a separate Availability Zone. These subnets
-aren't used by the tutorial. An RDS DB subnet group requires a subnet in at least two Availability Zones.
-The additional subnet makes it easy to switch to a Multi-AZ DB instance deployment in the future.
-
-To create a DB instance that uses dual-stack mode, specify **Dual-stack mode**
-for the **Network type** setting. You can also modify a DB instance with the
-same setting. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md") and [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-
-This tutorial describes configuring a VPC for Amazon RDS DB instances.
-For more information about Amazon VPC, see [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md").
-
-## Create a VPC with
-
-private and public subnets
-
-Use the following procedure to create a VPC with both public and private subnets.
-
-###### To create a VPC and subnets
-
-1. Open the Amazon VPC console at
-   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the upper-right corner of the AWS Management Console, choose the Region to create your
-   VPC in. This example uses the US East (Ohio) Region.
-3. In the upper-left corner, choose **VPC dashboard**. To begin
-   creating a VPC, choose **Create VPC**.
-4. For **Resources to create** under **VPC settings**, choose
-   **VPC and more**.
-5. For the remaining **VPC settings**, set these values:
-   - **Name tag auto-generation** – `tutorial-dual-stack`
-   - **IPv4 CIDR block** – `10.0.0.0/16`
-   - **IPv6 CIDR block** – **Amazon-provided IPv6 CIDR block**
-   - **Tenancy** – **Default**
-   - **Number of Availability Zones (AZs)** – **2**
-   - **Customize AZs** – Keep the default values.
-   - **Number of public subnet** – **2**
-   - **Number of private subnets** – **2**
-   - **Customize subnets CIDR blocks** – Keep the default values.
-   - **NAT gateways ($)** – **None**
-   - **Egress only internet gateway** – **No**
-   - **VPC endpoints** – **None**
-   - **DNS options** – Keep the default values.
+The AWS documentation includes several tutorials that guide you through common
+Amazon RDS
+use cases. Many of these tutorials show you how to use
+Amazon RDS
+with other AWS services. In addition, you can access sample code in .
 
 ###### Note
 
-Amazon RDS requires at least two subnets in two different Availability Zones to support
-Multi-AZ DB instance deployments. This tutorial creates a Single-AZ deployment, but
-the requirement makes it easy to convert to a Multi-AZ DB instance deployment in the
-future. 6. Choose **Create VPC**.
+You can find more tutorials at the [AWS Database Blog](https://aws.amazon.com/blogs/database/ "https://aws.amazon.com/blogs/database/").
+For information about training, see [AWS Training and Certification](https://www.aws.training/ "https://www.aws.training/").
 
-## Create a VPC
+###### Topics
 
-security group for a public Amazon EC2 instance
+- [Tutorials in this guide](#CHAP_Tutorials.ThisGuide "#CHAP_Tutorials.ThisGuide")
+- [Tutorials in other AWS guides](#CHAP_Tutorials.OtherGuides "#CHAP_Tutorials.OtherGuides")
+- [Tutorials and sample code in GitHub](#CHAP_Tutorials.GitHub "#CHAP_Tutorials.GitHub")
+- [AWS Database Cookbook](#aws-db-cookbook-overview "#aws-db-cookbook-overview")
+- [AWS workshop and lab content portal for
+  Amazon RDS PostgreSQL](#CHAP_Tutorials_postgreslabs "#CHAP_Tutorials_postgreslabs")
+- [AWS workshop and lab content portal for
+  Amazon RDS MySQL](#CHAP_Tutorials_sqllabs "#CHAP_Tutorials_sqllabs")
+- [Using this service with an AWS SDK](#sdk-general-information-section "#sdk-general-information-section")
 
-Next, you create a security group for public access. To connect to public EC2 instances in
-your VPC, add inbound rules to your VPC security group that allow traffic to connect
-from the internet.
+## Tutorials in this guide
 
-###### To create a VPC security group
+The following tutorials in this guide show you how to perform common tasks with
+Amazon RDS:
 
-1.  Open the Amazon VPC console at
-    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  Choose **VPC Dashboard**, choose **Security
-    Groups**, and then choose **Create security
-    group**.
-3.  On the **Create security group** page, set these values:
-    - **Security group name:**
-      `tutorial-dual-stack-securitygroup`
-    - **Description:**
-      `Tutorial Dual-Stack Security Group`
-    - **VPC:** Choose the VPC that you created earlier, for
-      example: **vpc-`identifier` (tutorial-dual-stack-vpc)**
+- [Tutorial: Create a VPC for use with a
+  DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
 
-4.  Add inbound rules to the security group.
-    1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell
-       (SSH).
+Learn how to include a DB instance in a virtual
+private cloud (VPC) based on the Amazon VPC service. In this case, the VPC
+shares data with a web server that is running on an Amazon EC2 instance in the same
+VPC.
 
-    An example of an Internet Protocol version 4 (IPv4) address is `203.0.113.25/32`. An
-    example of an Internet Protocol version 6 (IPv6) address range is `2001:db8:1234:1a00::/64`.
+- [Tutorial: Create a VPC for use with a DB
+  instance (dual-stack mode)](CHAP_Tutorials.md "CHAP_Tutorials.md")
 
-    In many cases, you might connect through an internet service provider
-    (ISP) or from behind your firewall without a static IP address. If so,
-    find the range of IP addresses used by client computers.
+Learn how to include a DB instance in a virtual
+private cloud (VPC) based on the Amazon VPC service. In this case, the VPC shares
+data with an Amazon EC2 instance in the same VPC. In this tutorial, you create the
+VPC for this scenario that works with a database running in dual-stack mode.
 
-    ###### Warning
+- [Tutorial: Create a web server and an
+  Amazon RDS DB instance](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md")
 
-    If you use `0.0.0.0/0` for IPv4 or `::0` for
-    IPv6, you make it possible for all IP addresses to access your
-    public instances using SSH. This approach is acceptable for a short
-    time in a test environment, but it's unsafe for production
-    environments. In production, authorize only a specific IP address or
-    range of addresses to access your instances. 2. In the **Inbound rules** section, choose **Add rule**. 3. Set the following values for your new inbound rule to allow Secure
-    Shell (SSH) access to your Amazon EC2 instance. If you do this, you can
-    connect to your EC2 instance to install SQL clients and other
-    applications. Specify an IP address so you can access your EC2
-    instance:
+Learn how to install an Apache web server with PHP and create a MySQL database. The web server runs on an Amazon EC2
+instance using Amazon Linux, and the MySQL database is
+a MySQL DB instance.
+Both the Amazon EC2 instance and the DB instance
+run in an Amazon VPC.
 
-        * **Type:**
-        `SSH`
-        * **Source:** The IP address or range from step
-         a. An example of an IPv4 IP address is
-         `203.0.113.25/32`. An example of an IPv6 IP
-         address is `2001:DB8::/32`.
+- [Tutorial: Restore an Amazon RDS DB instance from a DB snapshot](CHAP_Tutorials.md "CHAP_Tutorials.md")
 
-5.  Choose **Create security group** to create the security
-    group.
+Learn how to restore a DB instance from a DB snapshot.
 
-Note the security group ID because you need it later in this tutorial.
+- [Tutorial: Using a Lambda function to access an Amazon RDS
+  database](rds-lambda-tutorial.md "rds-lambda-tutorial.md")
 
-## Create a VPC
+Learn how to create a Lambda function from the RDS console to access a database through a proxy,
+create a table, add a few records, and retrieve the records from the table.
+You also learn how to invoke the Lambda function and verify the query results.
 
-security group for a private DB instance
+- [Tutorial: Specify which DB instances to stop by using
+  tags](Tagging.RDS.md "Tagging.RDS.md")
 
-To keep your DB instance private, create a second security group for
-private access. To connect to private DB instances in your VPC, add
-inbound rules to your VPC security group. These allow traffic from your Amazon EC2 instance
-only.
+Learn how to use tags to specify which DB instances to stop.
 
-###### To create a VPC security group
+- [Tutorial: Log DB instance state changes using
+  Amazon EventBridge](rds-cloud-watch-events.md#log-rds-instance-state "rds-cloud-watch-events.md#log-rds-instance-state")
 
-1. Open the Amazon VPC console at
-   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. Choose **VPC Dashboard**, choose **Security
-   Groups**, and then choose **Create security
-   group**.
-3. On the **Create security group** page, set these
-   values:
-   - **Security group name:**
-     `tutorial-dual-stack-db-securitygroup`
-   - **Description:**
-     `Tutorial Dual-Stack DB Instance Security Group`
-   - **VPC:** Choose the VPC that you created earlier, for
-     example: **vpc-`identifier` (tutorial-dual-stack-vpc)**
+Learn how to log a DB instance state change using Amazon EventBridge and AWS Lambda.
 
-4. Add inbound rules to the security group:
-   1. In the **Inbound rules** section, choose **Add rule**.
-   2. Set the following values for your new inbound rule to allow MySQL
-      traffic on port 3306 from your Amazon EC2 instance. If you do, you can
-      connect from your EC2 instance to your DB instance. Doing
-      this means that you can send data from your EC2 instance
-      to your database.
-      - **Type:**
-        **MySQL/Aurora**
-      - **Source:** The identifier of the
-        **tutorial-dual-stack-securitygroup** security
-        group that you created previously in this tutorial, for example
-        **sg-9edd5cfb**.
+- [Tutorial: Creating an Amazon CloudWatch alarm for Multi-AZ DB cluster replica lag for Amazon RDS](multi-az-db-cluster-cloudwatch-alarm.md "multi-az-db-cluster-cloudwatch-alarm.md")
 
-5. To create the security group, choose **Create security group**.
+Learn how to create a CloudWatch alarm that sends an Amazon SNS message when replica lag for a Multi-AZ DB cluster has
+exceeded a threshold. An alarm watches the `ReplicaLag` metric over a time period that you specify.
+The action is a notification sent to an Amazon SNS topic or Amazon EC2 Auto Scaling policy.
 
-## Create a DB subnet group
+## Tutorials in other AWS guides
 
-A _DB subnet group_ is a collection of subnets that
-you create in a VPC and that you then designate for your DB
-instances. By using a DB
-subnet group, you can specify a particular VPC when creating DB
-instances. To create a
-DB subnet group that is `DUAL` compatible, all subnets must be
-`DUAL` compatible. To be `DUAL` compatible, a subnet must have
-an IPv6 CIDR associated with it.
+The following tutorials in other AWS guides show you how to perform common tasks with
+Amazon RDS:
 
-###### To create a DB subnet group
+- [Tutorial: Rotating a Secret for an AWS Database](../../../secretsmanager/latest/userguide/tutorials_db-rotate.md "../../../secretsmanager/latest/userguide/tutorials_db-rotate.md") in the _AWS Secrets Manager User Guide_
 
-1. Identify the private subnets for your database in the VPC.
-   1. Open the Amazon VPC console at
-      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-   2. Choose **VPC Dashboard**, and then choose **Subnets**.
-   3. Note the subnet IDs of the subnets named
-      **tutorial-dual-stack-subnet-private1-us-west-2a** and
-      **tutorial-dual-stack-subnet-private2-us-west-2b**.
+Learn how to create a secret for an AWS database and configure the secret to rotate on a schedule. You trigger one
+rotation manually, and then confirm that the new version of the secret continues to provide access.
 
-   You will need the subnet IDs when you create your DB subnet group.
+- [Tutorials and samples](../../../elasticbeanstalk/latest/dg/tutorials.md "../../../elasticbeanstalk/latest/dg/tutorials.md") in the _AWS Elastic Beanstalk Developer Guide_
 
-2. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+Learn how to deploy applications that use Amazon RDS databases with AWS Elastic Beanstalk.
 
-Make sure that you connect to the Amazon RDS console, not to the Amazon VPC
-console. 3. In the navigation pane, choose **Subnet groups**. 4. Choose **Create DB subnet group**. 5. On the **Create DB subnet group** page, set these values
-in **Subnet group details**:
+- [Using Data from an Amazon RDS Database to Create an Amazon ML Datasource](../../../machine-learning/latest/dg/using-amazon-rds-with-amazon-ml.md "../../../machine-learning/latest/dg/using-amazon-rds-with-amazon-ml.md") in the _Amazon Machine Learning Developer Guide_
 
-    * **Name:** `tutorial-dual-stack-db-subnet-group`
-    * **Description:** `Tutorial Dual-Stack DB Subnet Group`
-    * **VPC:** **tutorial-dual-stack-vpc (vpc-`identifier`)**
+Learn how to create an Amazon Machine Learning (Amazon ML) datasource object from data stored in a MySQL DB instance.
 
-6. In the **Add subnets** section, choose values for the
-   **Availability Zones** and **Subnets**
-   options.
+- [Manually Enabling Access to an Amazon RDS Instance in a VPC](../../../quicksight/latest/user/rds-vpc-access.md "../../../quicksight/latest/user/rds-vpc-access.md") in the _Amazon Quick Suite User Guide_
 
-For this tutorial, choose **us-east-2a** and **us-east-2b**
-for the **Availability Zones**. For **Subnets**, choose the private subnets you
-identified in the previous step. 7. Choose **Create**.
+Learn how to enable Quick Suite access to an Amazon RDS DB instance in a VPC.
 
-Your new DB subnet group appears in the DB subnet groups list on the RDS console. You
-can choose the DB subnet group to see its details. These include the supported
-addressing protocols and all of the subnets associated with the group and the network
-type supported by the DB subnet group.
+## Tutorials and sample code in GitHub
 
-## Create an Amazon EC2 instance in dual-stack mode
+The following tutorials and sample code in GitHub show you how to perform common tasks with
+Amazon RDS:
 
-To create an Amazon EC2 instance, follow the instructions in [Launch an instance using the new launch instance wizard](../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md "../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md")
-in the _Amazon EC2 User Guide_.
+- [Creating the Amazon Relational Database Service item tracker](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/Creating_rds_item_tracker "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/Creating_rds_item_tracker")
 
-On the **Configure Instance Details** page, set these values
-and keep the other values as their defaults:
+Learn how to create an application that tracks and reports on work items. This
+application uses Amazon RDS, Amazon Simple Email Service, Elastic Beanstalk, and SDK for Java 2.x.
 
-- **Network** – Choose an
-  existing VPC with both public and private subnets, such as
-  **tutorial-dual-stack-vpc**
-  (vpc-`identifier`) created in [Create a VPC with
-  private and public subnets](#CHAP_Tutorials.CreateVPCDualStack.VPCAndSubnets "#CHAP_Tutorials.CreateVPCDualStack.VPCAndSubnets").
-- **Subnet** – Choose an existing public subnet,
-  such as **subnet-`identifier` | tutorial-dual-stack-subnet-public1-us-east-2a | us-east-2a**
-  created in [Create a VPC
-  security group for a public Amazon EC2 instance](#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupEC2 "#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupEC2").
-- **Auto-assign Public IP** – Choose
-  **Enable**.
-- **Auto-assign IPv6 IP** – Choose
-  **Enable**.
-- **Firewall (security groups)** – Choose
-  **Select an existing security group**.
-- **Common security groups** – Choose an existing
-  security group, such as the `tutorial-securitygroup` created in [Create a VPC
-  security group for a public Amazon EC2 instance](#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupEC2 "#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupEC2"). Make
-  sure that the security group that you choose includes inbound rules for Secure
-  Shell (SSH) and HTTP access.
+## AWS Database Cookbook
 
-## Create a DB
+The [AWS DB Cookbook](https://github.com/aws-samples/sample-aws-database-cookbook/ "https://github.com/aws-samples/sample-aws-database-cookbook/") is a comprehensive database guide that teaches you how to build, deploy, and manage high-performing, cost-effective database solutions on AWS. Step-by-step tutorials guide you through creating production-ready applications and deploying the apps with CloudFormation templates. You'll learn essential AWS services as you build infrastructure, implement networking, develop serverless architectures, manage databases, and integrate generative AI. Learn AWS best practices that help you create secure, scalable solutions while optimizing costs. Whether you're new to AWS or an experienced professional, the AWS DB Cookbook helps you develop skills to solve common database challenges and implement enterprise-ready solutions. The cookbook includes the following sections:
 
-instance
-in dual-stack mode
+- [Getting started with AWS for DB applications](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/1_Getting_Started_with_AWS "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/1_Getting_Started_with_AWS") – Learn AWS fundamentals like how to set up your account and Jupyter Notebook environment.
+- [Database fundamentals](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/2_Your_First_Database_on_AWS "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/2_Your_First_Database_on_AWS") – Explore essential database concepts and compare AWS database services to choose the right solution for your workloads.
+- [Serverless web app with Amazon Aurora](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/3_Building_Your_First_Serverless_Web_App_with_Aurora "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/3_Building_Your_First_Serverless_Web_App_with_Aurora") – Build an end-to-end retail application with Amazon Aurora PostgreSQL that handles inventory, orders, and customer data.
+- [Monitoring and observability](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/4_Operational_Excellence_Best_Practices_for_Aurora "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/4_Operational_Excellence_Best_Practices_for_Aurora") – Set up performance tracking and configure alerts to identify potential database issues before they impact your applications.
+- [Scaling with Amazon Aurora](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/5_Scaling_for_Success_Growing_with_Aurora "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/5_Scaling_for_Success_Growing_with_Aurora") – Learn to build resilient multi-Region deployments with Aurora DSQL, and how to scale your databases up for more processing power or out across multiple instances for greater capacity.
+- [Optimization performance and cost](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/6_Optimizing_Performance_and_Cost "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/6_Optimizing_Performance_and_Cost") – Optimize your database performance and reduce costs with proven tuning strategies.
+- [Journey to AWS purpose-built databases](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/7_Break_Free_from_Everything_in_One_Database_Trap_A_Journey_to_Purpose_Built_AWS_Databases "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/7_Break_Free_from_Everything_in_One_Database_Trap_A_Journey_to_Purpose_Built_AWS_Databases") – Build a secure, reliable infrastructure that scales your generative AI solutions and data-driven applications from prototype to enterprise deployment.
+- [GenAI applications with RAG](https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/8_Building_Your_First_GenAI_Application_with_AWS_Data_Foundations "https://github.com/aws-samples/sample-aws-database-cookbook/tree/main/8_Building_Your_First_GenAI_Application_with_AWS_Data_Foundations") – Build an intelligent search system for insurance and healthcare documents that uses Retrieval Augmented Generation (RAG) to deliver accurate, context-aware results.
 
-In this step, you create a DB instance
-that runs in dual-stack mode.
+## AWS workshop and lab content portal for
 
-###### To create a DB instance
+Amazon RDS PostgreSQL
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the console, choose the AWS Region where you want to create the
-   DB instance.
-   This example uses the US East (Ohio) Region.
-3. In the navigation pane, choose **Databases**.
-4. Choose **Create database**.
-5. On the **Create database** page, make sure that the
-   **Standard create** option is chosen, and then
-   choose the MySQL DB engine type.
-6. In the **Connectivity** section, set these values:
-   - **Network type** – Choose **Dual-stack
-     mode**.
+The following collection of workshops and other hands-on content helps you to gain an understanding of the
+Amazon RDS PostgreSQL features and capabilities:
 
-   ![Network type section in the console with Dual-stack mode selected](images/dual-stack-mode.png)
-   - **Virtual private cloud (VPC)** – Choose an
-     existing VPC with both public and private subnets, such as
-     **tutorial-dual-stack-vpc**
-     (vpc-`identifier`) created in [Create a VPC with
-     private and public subnets](#CHAP_Tutorials.CreateVPCDualStack.VPCAndSubnets "#CHAP_Tutorials.CreateVPCDualStack.VPCAndSubnets").
+- [Creating a DB instance](https://catalog.us-east-1.prod.workshops.aws/workshops/2a5fc82d-2b5f-4105-83c2-91a1b4d7abfe/en-US/2-foundation/lab1-create/task1 "https://catalog.us-east-1.prod.workshops.aws/workshops/2a5fc82d-2b5f-4105-83c2-91a1b4d7abfe/en-US/2-foundation/lab1-create/task1")
 
-   The VPC must have subnets in different Availability Zones.
-   - **DB subnet group** – Choose a DB subnet group for the
-     VPC, such as
-     **tutorial-dual-stack-db-subnet-group** created in
-     [Create a DB subnet group](#CHAP_Tutorials.CreateVPCDualStack.DBSubnetGroup "#CHAP_Tutorials.CreateVPCDualStack.DBSubnetGroup").
-   - **Public access** – Choose **No**.
-   - **VPC security group (firewall)** – Select **Choose existing**.
-   - **Existing VPC security groups** – Choose an existing VPC
-     security group that is configured for private access, such as
-     **tutorial-dual-stack-db-securitygroup** created in [Create a VPC
-     security group for a private DB instance](#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupDB "#CHAP_Tutorials.CreateVPCDualStack.SecurityGroupDB").
+Learn how to create the DB instance.
 
-   Remove other security groups, such as the default security group, by
-   choosing the **X** associated with each.
-   - **Availability Zone** – Choose **us-west-2a**.
+- [Performance Monitoring with RDS Tools](https://catalog.us-east-1.prod.workshops.aws/workshops/31babd91-aa9a-4415-8ebf-ce0a6556a216/en-US/ "https://catalog.us-east-1.prod.workshops.aws/workshops/31babd91-aa9a-4415-8ebf-ce0a6556a216/en-US/")
 
-   To avoid cross-AZ traffic, make sure the DB instance and the EC2 instance are in the same Availability Zone.
+Learn how to use AWS and SQL tools(Cloudwatch, Enhanced Monitoring, Slow Query Logs, Performance Insights, PostgreSQL Catalog Views)
+to understand performance issues and identify ways to improve performance of your database.
 
-7. For the remaining sections, specify your DB instance settings. For information about each setting, see
-   [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+## AWS workshop and lab content portal for
 
-## Connect to your Amazon EC2 instance and DB
+Amazon RDS MySQL
 
-instance
+The following collection of workshops and other hands-on content helps you to gain an understanding of the
+Amazon RDS MySQL features and capabilities:
 
-After you create your Amazon EC2 instance and DB instance
-in dual-stack mode, you can connect to each one using the IPv6 protocol. To connect to an Amazon EC2 instance using the IPv6 protocol,
-follow the instructions in [Connect to your Linux instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md")
-in the _Amazon EC2 User Guide_.
+- [Creating a DB instance](https://catalog.us-east-1.prod.workshops.aws/workshops/0135d1da-9f07-470c-9845-44ead3c78212/en-US/lab3/task1 "https://catalog.us-east-1.prod.workshops.aws/workshops/0135d1da-9f07-470c-9845-44ead3c78212/en-US/lab3/task1")
 
-To connect to your RDS for MySQL DB instance from the Amazon EC2 instance, follow the instructions in
-[Connect to a MySQL DB instance](CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Connecting.MySQL "CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Connecting.MySQL").
+Learn how to create the DB instance.
 
-## Deleting the VPC
+- [Using Performance Insights](https://catalog.us-east-1.prod.workshops.aws/workshops/0135d1da-9f07-470c-9845-44ead3c78212/en-US/lab8 "https://catalog.us-east-1.prod.workshops.aws/workshops/0135d1da-9f07-470c-9845-44ead3c78212/en-US/lab8")
 
-After you create the VPC and other resources for this tutorial, you can delete them if they are no longer needed.
+Learn how to monitor and tune your DB instance using Performance insights.
 
-If you added resources in the VPC that you created for this tutorial, you might need
-to delete these before you can delete the VPC. Examples of resources are Amazon EC2 instances
-or DB instances. For more information, see [Delete your
-VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting") in the _Amazon VPC User Guide_.
+## Using this service with an AWS SDK
 
-###### To delete a VPC and related resources
+AWS software development kits (SDKs) are available for many popular programming languages. Each SDK provides an API, code examples, and documentation that
+make it easier for developers to build applications in their preferred language.
 
-1. Delete the DB subnet group:
-   1. Open the Amazon RDS console at
-      [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-   2. In the navigation pane, choose **Subnet groups**.
-   3. Select the DB subnet group to delete, such as
-      **tutorial-db-subnet-group**.
-   4. Choose **Delete**, and then choose **Delete** in the confirmation window.
+| SDK documentation                                                                         | Code examples                                                                                                                                                                           |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [AWS SDK for C++](../../../sdk-for-cpp.md "../../../sdk-for-cpp.md")                      | [AWS SDK for C++ code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp")                          |
+| [AWS CLI](../../../cli.md "../../../cli.md")                                              | [AWS CLI code examples](../../../code-library/latest/ug/cli_2_code_examples.md "../../../code-library/latest/ug/cli_2_code_examples.md")                                                |
+| [AWS SDK for Go](../../../sdk-for-go.md "../../../sdk-for-go.md")                         | [AWS SDK for Go code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2")                         |
+| [AWS SDK for Java](../../../sdk-for-java.md "../../../sdk-for-java.md")                   | [AWS SDK for Java code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2")                   |
+| [AWS SDK for JavaScript](../../../sdk-for-javascript.md "../../../sdk-for-javascript.md") | [AWS SDK for JavaScript code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3") |
+| [AWS SDK for Kotlin](../../../sdk-for-kotlin.md "../../../sdk-for-kotlin.md")             | [AWS SDK for Kotlin code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin")                 |
+| [AWS SDK for .NET](../../../sdk-for-net.md "../../../sdk-for-net.md")                     | [AWS SDK for .NET code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3")               |
+| [AWS SDK for PHP](../../../sdk-for-php.md "../../../sdk-for-php.md")                      | [AWS SDK for PHP code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php")                          |
+| [AWS Tools for PowerShell](../../../powershell.md "../../../powershell.md")               | [AWS Tools for PowerShell code examples](../../../code-library/latest/ug/powershell_5_code_examples.md "../../../code-library/latest/ug/powershell_5_code_examples.md")                 |
+| [AWS SDK for Python (Boto3)](../../../pythonsdk.md "../../../pythonsdk.md")               | [AWS SDK for Python (Boto3) code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python")         |
+| [AWS SDK for Ruby](../../../sdk-for-ruby.md "../../../sdk-for-ruby.md")                   | [AWS SDK for Ruby code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby")                       |
+| [AWS SDK for Rust](../../../sdk-for-rust.md "../../../sdk-for-rust.md")                   | [AWS SDK for Rust code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1")                   |
+| [AWS SDK for SAP ABAP](../../../sdk-for-sapabap.md "../../../sdk-for-sapabap.md")         | [AWS SDK for SAP ABAP code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap")           |
+| [AWS SDK for Swift](../../../sdk-for-swift.md "../../../sdk-for-swift.md")                | [AWS SDK for Swift code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift")                    |
 
-2. Note the VPC ID:
-   1. Open the Amazon VPC console at
-      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-   2. Choose **VPC Dashboard**, and then choose **VPCs**.
-   3. In the list, identify the VPC you created, such as **tutorial-dual-stack-vpc**.
-   4. Note the **VPC ID** value of the VPC that you
-      created. You need this VPC ID in subsequent steps.
+For examples specific to this service, see [Code examples for Amazon RDS using AWS SDKs](service_code_examples.md "service_code_examples.md").
 
-3. Delete the security groups:
-   1. Open the Amazon VPC console at
-      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-   2. Choose **VPC Dashboard**, and then choose **Security
-      Groups**.
-   3. Select the security group for the Amazon RDS DB instance, such as
-      **tutorial-dual-stack-db-securitygroup**.
-   4. For **Actions**, choose **Delete security
-      groups**, and then choose **Delete** on
-      the confirmation page.
-   5. On the **Security Groups** page, select the security group for the Amazon EC2 instance, such as
-      **tutorial-dual-stack-securitygroup**.
-   6. For **Actions**, choose **Delete security
-      groups**, and then choose **Delete** on
-      the confirmation page.
+###### Example availability
 
-4. Delete the NAT gateway:
-   1. Open the Amazon VPC console at
-      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-   2. Choose **VPC Dashboard**, and then choose **NAT Gateways**.
-   3. Select the NAT gateway of the VPC that you created. Use the VPC ID to
-      identify the correct NAT gateway.
-   4. For **Actions**, choose **Delete NAT
-      gateway**.
-   5. On the confirmation page, enter `delete`, and then choose **Delete**.
-
-5. Delete the VPC:
-   1. Open the Amazon VPC console at
-      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-   2. Choose **VPC Dashboard**, and then choose **VPCs**.
-   3. Select the VPC that you want to delete, such as
-      **tutorial-dual-stack-vpc**.
-   4. For **Actions**, choose **Delete
-      VPC**.
-
-   The confirmation page shows other resources that are associated with the VPC that
-   will also be deleted, including the subnets associated with it. 5. On the confirmation page, enter `delete`, and then choose **Delete**.
-
-6. Release the Elastic IP addresses:
-   1. Open the Amazon EC2 console at
-      [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-   2. Choose **EC2 Dashboard**, and then choose **Elastic IPs**.
-   3. Select the Elastic IP address that you want to release.
-   4. For **Actions**, choose **Release Elastic IP
-      addresses**.
-   5. On the confirmation page, choose **Release**.
+Can't find what you need? Request a code example by using the **Provide feedback** link at the bottom of this page.

@@ -49,6 +49,8 @@ The following options are required:
 The following example modifies a DB instance named `my-cev-db-instance` to use a CEV named`15.00.4249.2.my_cevtest_new` and applies the
   change immediately.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

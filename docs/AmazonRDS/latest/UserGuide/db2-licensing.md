@@ -624,6 +624,8 @@ Edition, and sets the license model to Db2 license through AWS Marketplace.
 You can specify other settings. For information about
 each setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

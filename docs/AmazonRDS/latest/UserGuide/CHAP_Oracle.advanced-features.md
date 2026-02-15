@@ -101,6 +101,8 @@ and SE2](Oracle.Concepts.md#Oracle.Concepts.Licensing.BYOL "Oracle.Concepts.md#O
 To see the total instance storage for the supported DB instance types, run the following
 command in the AWS CLI.
 
+###### Example
+
 ```
 aws ec2 describe-instance-types \
   --filters "Name=instance-type,Values=*5d.*large*,*6id.*large*" \

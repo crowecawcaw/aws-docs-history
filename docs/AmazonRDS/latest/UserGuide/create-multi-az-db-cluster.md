@@ -226,6 +226,8 @@ cluster, and two reader DB instances. Each DB instance is in a different Availab
 For example, the following command creates a MySQL 8.0 Multi-AZ DB cluster named
 `mysql-multi-az-db-cluster`.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -264,6 +266,8 @@ aws rds create-db-cluster ^
 
 The following command creates a PostgreSQL 13.4 Multi-AZ DB cluster named
 `postgresql-multi-az-db-cluster`.
+
+###### Example
 
 For Linux, macOS, or Unix:
 

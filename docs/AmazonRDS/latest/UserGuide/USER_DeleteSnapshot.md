@@ -45,8 +45,11 @@ The following options are used to delete a DB snapshot.
 
 - `--db-snapshot-identifier` –
   The identifier for the DB snapshot.
-  The following code deletes the `mydbsnapshot`
-  DB snapshot.
+
+###### Example
+
+The following code deletes the `mydbsnapshot`
+DB snapshot.
 
 For Linux, macOS, or Unix:
 

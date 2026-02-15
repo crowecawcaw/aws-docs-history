@@ -42,6 +42,8 @@ command. Specify the DB cluster identifier and the values for the options that y
 want to modify. For information about each option, see
 [Settings for modifying Multi-AZ DB clusters](#modify-multi-az-db-cluster-settings "#modify-multi-az-db-cluster-settings").
 
+###### Example
+
 The following code modifies `my-multi-az-dbcluster` by setting the backup
 retention period to 1 week (7 days). The code turns on deletion protection by
 using `--deletion-protection`. To turn off deletion protection, use

@@ -56,6 +56,8 @@ You can also publish MySQL logs by calling the following AWS CLI commands:
 - `--engine`
   Other options might be required depending on the AWS CLI command you run.
 
+###### Example
+
 The following example modifies an existing MySQL DB instance to publish log files to CloudWatch Logs. The
 `--cloudwatch-logs-export-configuration` value is a JSON object. The key for this
 object is `EnableLogTypes`, and its value is an array of strings with any combination of
@@ -78,6 +80,8 @@ aws rds modify-db-instance ^
     --cloudwatch-logs-export-configuration '{"EnableLogTypes":["audit","error","general","slowquery"]}'
 
 ```
+
+###### Example
 
 The following example creates a MySQL DB instance and publishes log files to CloudWatch Logs. The
 `--enable-cloudwatch-logs-exports` value is a JSON array of strings. The strings can

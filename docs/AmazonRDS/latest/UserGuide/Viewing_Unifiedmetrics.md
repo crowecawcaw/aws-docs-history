@@ -1,6 +1,4 @@
-# Creating a custom
-
-dashboard with Performance Insights
+# Viewing combined metrics with the Performance Insights dashboard
 
 ###### Important
 
@@ -21,45 +19,27 @@ With CloudWatch Database Insights, you can monitor database load for your fleet 
 For more information about Database Insights, see [Monitoring Amazon RDS databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-In the new monitoring view, you can create a custom dashboard with the metrics you
-need to meet your analysis requirements.
+Amazon RDS provides a consolidated view of Performance Insights and CloudWatch metrics for your DB instance in the
+Performance Insights dashboard. You can use the preconfigured dashboard or create a custom dashboard. The
+preconfigured dashboard provides the most commonly used metrics to help diagnose performance
+issues for a database engine. Alternatively, you can create a custom dashboard with the
+metrics for a database engine that meet your analysis requirements. Then, use this dashboard
+for all the DB instances of that database engine type in your AWS account.
 
-You can create a custom dashboard by selecting Performance Insights and CloudWatch metrics for your DB instance.
-You can use this custom dashboard for other DB instances of the same database
-engine type in your AWS account.
+You can choose the monitoring view in the **Monitoring** tab or
+**Performance Insights** in the navigation pane.
 
-###### Note
+Performance Insights must be turned on for your DB instance to view the combined metrics in the Performance Insights dashboard.
+For more information about turning on Performance Insights, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
 
-The customized dashboard supports up to 50 metrics.
+In the following sections, you can learn to display Performance Insights and CloudWatch metrics.
 
-Use the widget settings menu to edit or delete the dashboard, and move or resize the
-widget window.
+###### Topics
 
-###### To create a custom dashboard with Performance Insights in the navigation pane
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance.
-4. Scroll down to the **Metrics tab** in the window.
-5. Select the custom dashboard from the drop down list. The following example
-   shows the custom dashboard creation.
-
-![Custom metrics dashboard with no widgets yet.](images/Monitoring_custmDashbrd_addWidget.png) 6. Choose **Add widget** to open the **Add
-widget** window. You can open and view the available operating
-system (OS) metrics, database metrics, and CloudWatch metrics in the window.
-
-The following example shows the **Add widget** window with the metrics.
-
-![The metrics options in the Add Widget window.](images/Monitoring_AddWidget.png) 7. Select the metrics that you want to view in the dashboard and choose
-**Add widget**. You can use the search field to find a
-specific metric.
-
-The selected metrics appear on your dashboard. 8. (Optional) If you want to modify or delete your dashboard, choose the
-settings icon on the upper right of the widget, and then select one of the following actions in the menu.
-
-    * **Edit** – Modify the metrics list in the window. Choose
-     **Update widget** after you select the metrics for
-     your dashboard.
-    * **Delete** – Deletes the widget. Choose
-     **Delete** in the confirmation window.
+- [Choosing the new monitoring view from the Monitoring tab](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")
+- [Choosing the new monitoring
+  view from the Performance Insights page](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")
+- [Creating a custom
+  dashboard with Performance Insights](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")
+- [Choosing the
+  preconfigured dashboard with Performance Insights](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")

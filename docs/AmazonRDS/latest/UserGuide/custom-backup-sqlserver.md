@@ -1,23 +1,41 @@
-# Backing up and restoring an Amazon RDS Custom for SQL Server DB instance
+# Deleting RDS Custom for SQL Server automated backups
 
-Like Amazon RDS, RDS Custom creates and saves automated backups of your RDS Custom for SQL Server DB instance when backup retention is enabled.
-You can also back up your DB instance manually. The automated backups are comprised of snapshot backups and transaction log backups.
-Snapshot backups are taken for the entire storage volume of DB instance during your specified backup window.
-Transaction log backups are taken for the PITR-eligible databases on a regular interval period.
-RDS Custom saves the automated backups of your DB instance according to your specified backup retention period.
-You can use automated backups to recover your DB instance to a point in time within the backup retention period.
+You can delete retained automated backups for RDS Custom for SQL Server when they are no longer needed. The procedure is the
+same as the procedure for deleting Amazon RDS backups.
 
-You can also take snapshot backups manually. You can create a new DB instance from these snapshot backups at any time.
-For more information about manually creating a DB snapshot, see [Creating an RDS Custom for SQL Server snapshot](custom-backup-sqlserver.md "custom-backup-sqlserver.md").
+###### To delete a retained automated backup
 
-Although snapshot backups serve operationally as full backups, you are billed only for incremental storage use.
-The first snapshot of an RDS Custom DB instance contains the data for the full DB instance. Subsequent snapshots of the same
-database are incremental, which means that only the data that has changed after your most recent snapshot is saved.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Automated backups**.
+3. Choose **Retained**.
+4. Choose the retained automated backup that you want to delete.
+5. For **Actions**, choose **Delete**.
+6. On the confirmation page, enter `delete me` and choose
+   **Delete**.
+   You can delete a retained automated backup by using the AWS CLI command [delete-db-instance-automated-backup](../../../cli/latest/reference/rds/delete-db-instance-automated-backup.md "../../../cli/latest/reference/rds/delete-db-instance-automated-backup.md").
 
-###### Topics
+The following option is used to delete a retained automated backup:
 
-- [Creating an RDS Custom for SQL Server snapshot](custom-backup-sqlserver.md "custom-backup-sqlserver.md")
-- [Restoring from an RDS Custom for SQL Server DB snapshot](custom-backup-sqlserver.md "custom-backup-sqlserver.md")
-- [Restoring an RDS Custom for SQL Server instance to a point in time](custom-backup.md "custom-backup.md")
-- [Deleting an RDS Custom for SQL Server snapshot](custom-backup-sqlserver.md "custom-backup-sqlserver.md")
-- [Deleting RDS Custom for SQL Server automated backups](custom-backup-sqlserver.md "custom-backup-sqlserver.md")
+- `--dbi-resource-id` – The resource identifier for the source RDS Custom DB instance.
+
+You can find the resource identifier for the source DB instance of a retained automated backup by using the
+AWS CLI command [describe-db-instance-automated-backups](../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md "../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md").
+The following example deletes the retained automated backup with source DB instance resource identifier
+`custom-db-123ABCEXAMPLE`.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws rds delete-db-instance-automated-backup \
+    --dbi-resource-id `custom-db-123ABCEXAMPLE`
+```
+
+For Windows:
+
+```
+aws rds delete-db-instance-automated-backup ^
+    --dbi-resource-id `custom-db-123ABCEXAMPLE`
+```

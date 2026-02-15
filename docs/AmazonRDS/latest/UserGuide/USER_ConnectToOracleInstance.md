@@ -1,46 +1,16 @@
-# Connecting to your DB instance using SQL\*Plus
+# Considerations for process architecture
 
-You can use a utility like SQL\*Plus to connect to an Amazon RDS DB instance running Oracle. To download Oracle
-Instant Client, which includes a standalone version of SQL\*Plus, see [Oracle Instant Client
-Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html "https://www.oracle.com/database/technologies/instant-client/downloads.html").
+Server processes handle user connections to an Oracle DB instance. By default, the Oracle DB instance uses
+dedicated server processes. With dedicated server processes, each server process services only one user process.
+You can optionally configure shared server processes. With shared server processes, each server process can
+service multiple user processes.
 
-To connect to your DB instance, you need its DNS name and port number. For information about finding the DNS
-name and port number for a DB instance, see [Finding the endpoint of your RDS for Oracle DB instance](USER_Endpoint.md "USER_Endpoint.md").
+You might consider using shared server processes when a high number of user sessions are using too much memory
+on the server. You might also consider shared server processes when sessions connect and disconnect very often,
+resulting in performance issues. There are also disadvantages to using shared server processes. For example, they
+can strain CPU resources, and they are more complicated to configure and administer.
 
-###### Example To connect to an Oracle DB instance using SQL\*Plus
-
-In the following examples, substitute the user name of your DB instance administrator. Also, substitute the
-DNS name for your DB instance, and then include the port number and the Oracle SID. The SID value is the name
-of the DB instance's database that you specified when you created the DB instance, and not the name of the DB
-instance.
-
-For Linux, macOS, or Unix:
-
-```
-sqlplus '`user_name`@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=`dns_name`)(PORT=`port`))(CONNECT_DATA=(SID=`database_name`)))'
-```
-
-For Windows:
-
-```
-sqlplus `user_name`@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=`dns_name`)(PORT=`port`))(CONNECT_DATA=(SID=`database_name`)))
-```
-
-You should see output similar to the following.
-
-```
-SQL*Plus: Release 12.1.0.2.0 Production on Mon Aug 21 09:42:20 2017
-```
-
-After you enter the password for the user, the SQL prompt appears.
-
-```
-SQL>
-```
-
-###### Note
-
-The shorter format connection string (EZ Connect), such as `sqlplus
- USER/PASSWORD@`longer-than-63-chars-rds-endpoint-here`:1521/`database-identifier``,
-might encounter a maximum character limit, so you we recommend that you don't use it
-to connect.
+For more information about dedicated and shared server processes, see [About dedicated and shared server
+processes](https://docs.oracle.com/database/121/ADMIN/manproc.htm#ADMIN11166 "https://docs.oracle.com/database/121/ADMIN/manproc.htm#ADMIN11166") in the Oracle documentation. For more information about configuring shared server processes
+on an RDS for Oracle DB instance, see [How do I configure Amazon RDS for Oracle database to
+work with shared servers?](https://aws.amazon.com/premiumsupport/knowledge-center/oracle-db-shared/ "https://aws.amazon.com/premiumsupport/knowledge-center/oracle-db-shared/") in the Knowledge Center.

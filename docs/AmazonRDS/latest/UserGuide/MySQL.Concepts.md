@@ -1,29 +1,45 @@
-# SSL/TLS support for MySQL DB instances on
+# Password validation for
 
-Amazon RDS
+RDS for MySQL
 
-Amazon RDS creates an SSL/TLS certificate and installs the certificate on the DB instance
-when Amazon RDS provisions the instance. These certificates are signed by a certificate
-authority. The SSL/TLS certificate includes the DB instance endpoint as the Common Name
-(CN) for the SSL/TLS certificate to guard against spoofing attacks.
+MySQL provides the `validate_password` plugin for improved security. The plugin
+enforces password policies using parameters in the DB parameter group for your MySQL DB
+instance. The plugin is supported for DB instances running MySQL version 5.7, 8.0, and 8.4.
+For more information about the `validate_password` plugin, see [The Password
+Validation Plugin](https://dev.mysql.com/doc/refman/5.7/en/validate-password.html "https://dev.mysql.com/doc/refman/5.7/en/validate-password.html") in the MySQL documentation.
 
-An SSL/TLS certificate created by Amazon RDS is the trusted root entity
-and should work in most cases, but might fail if your application doesn't accept
-certificate chains. If your application doesn't accept certificate chains, try using an
-intermediate certificate to connect to your AWS Region. For example, you must use an
-intermediate certificate to connect to the AWS GovCloud (US) Regions with SSL/TLS.
+###### To enable the `validate_password` plugin for a MySQL DB instance
 
-For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md"). For more information about using SSL/TLS with
-MySQL, see [Updating applications to connect to MySQL
-DB instances using new SSL/TLS certificates](ssl-certificate-rotation-mysql.md "ssl-certificate-rotation-mysql.md").
+1. Connect to your MySQL DB instance and run the following command.
 
-For MySQL version 8.0 and lower, Amazon RDS for MySQL uses OpenSSL for secure connections.
-For MySQL version 8.4 and higher, Amazon RDS for MySQL uses AWS-LC. TLS support depends on
-the MySQL version. The following table shows the TLS support for MySQL versions.
+```
 
-| MySQL version | TLS 1.0       | TLS 1.1       | TLS 1.2   | TLS 1.3       |
-| ------------- | ------------- | ------------- | --------- | ------------- |
-| MySQL 8.4     | Not supported | Not supported | Supported | Supported     |
-| MySQL 8.0     | Not supported | Not supported | Supported | Supported     |
-| MySQL 5.7     | Supported     | Supported     | Supported | Not supported |
+INSTALL PLUGIN validate_password SONAME 'validate_password.so';
+
+```
+
+2. Configure the parameters for the plugin in the DB parameter group used by the DB
+   instance.
+
+For more information about the parameters, see [Password Validation Plugin Options and Variables](https://dev.mysql.com/doc/refman/5.7/en/validate-password-options-variables.html "https://dev.mysql.com/doc/refman/5.7/en/validate-password-options-variables.html") in the MySQL
+documentation.
+
+For more information about modifying DB instance parameters, see [Modifying parameters in a DB parameter group
+in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 3. Restart the DB instance.
+After enabling the `validate_password` plugin, reset existing passwords to
+comply with your new validation policies.
+
+Your MySQL DB instance handles password validation for Amazon RDS. To change a password,
+you first submit a password update request through the AWS Management Console, `modify-db-instance` CLI command,
+or `ModifyDBInstance` API operation. RDS initially accepts your request, even if the password doesn't meet your policies.
+RDS then processes the request asynchronously. It updates the password in your MySQL DB instance only if the password
+meets your defined policies. If the password doesn't meet these policies, RDS keeps the existing password and logs an
+error event.
+
+```
+
+    Unable to reset your password. Error information: Password failed to meet validation rules.
+
+```
+
+For more information about Amazon RDS events, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").

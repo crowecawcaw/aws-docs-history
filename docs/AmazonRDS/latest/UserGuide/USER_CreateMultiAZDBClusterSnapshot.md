@@ -29,6 +29,8 @@ You can create a Multi-AZ DB cluster snapshot by using the AWS CLI [create-db-cl
   In this example, you create a Multi-AZ DB cluster snapshot called
   `mymultiazdbclustersnapshot` for a DB cluster called `mymultiazdbcluster`.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

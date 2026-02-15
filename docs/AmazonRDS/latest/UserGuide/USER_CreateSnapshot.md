@@ -50,6 +50,8 @@ parameters:
   In this example, you create a DB snapshot called `mydbsnapshot` for
   a DB instance called `mydbinstance`.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

@@ -1,85 +1,76 @@
-# Using SSRS Email to send reports
+# Accessing the SSRS web portal
 
-SSRS includes the SSRS Email extension, which you can use to send reports to
-users.
+Use the following process to access the SSRS web portal:
 
-To configure SSRS Email, use the `SSRS` option settings. For more
-information, see [Adding the SSRS option to your option group](SSRS.md#SSRS.Add "SSRS.md#SSRS.Add").
+1. Turn on Secure Sockets Layer (SSL).
+2. Grant access to domain users.
+3. Access the web portal using a browser and the domain user credentials.
 
-After configuring SSRS Email, you can subscribe to reports on the report server. For more information, see [Email
-delivery in Reporting Services](https://docs.microsoft.com/en-us/sql/reporting-services/subscriptions/e-mail-delivery-in-reporting-services "https://docs.microsoft.com/en-us/sql/reporting-services/subscriptions/e-mail-delivery-in-reporting-services") in the Microsoft documentation.
+## Using SSL on RDS
 
-Integration with AWS Secrets Manager is required for SSRS Email to function on RDS. To integrate with Secrets Manager, you create a secret.
+SSRS uses the HTTPS SSL protocol for its connections. To work with this protocol, import an
+SSL certificate into the Microsoft Windows operating system on your client
+computer.
 
-###### Note
+For more information on SSL certificates, see [Using SSL/TLS to encrypt a connection to a DB
+instance or cluster](UsingWithRDS.md "UsingWithRDS.md"). For more information about using SSL with
+SQL Server, see [Using SSL with a Microsoft SQL Server DB instance](SQLServer.Concepts.General.SSL.md "SQLServer.Concepts.General.SSL.md").
 
-If you change the secret later, you also have to update the `SSRS` option in the option group.
+## Granting access to domain users
 
-###### To create a secret for SSRS Email
+In a new SSRS activation, there are no role assignments in SSRS. To give a domain user or
+user group access to the web portal, RDS provides a stored procedure.
 
-1. Follow the steps in [Create a
-   secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the _AWS Secrets Manager User Guide_.
-   1. For **Select secret type**, choose **Other type of secrets**.
-   2. For **Key/value pairs**, enter the following:
-      - `SMTP_USERNAME` – Enter a user with permission to send mail from the SMTP
-        server.
-      - `SMTP_PASSWORD` – Enter a password for the SMTP user.
+###### To grant access to a domain user on the web portal
 
-   3. For **Encryption key**, don't use the default AWS KMS key. Use your own existing key,
-      or create a new one.
-
-   The KMS key policy must allow the `kms:Decrypt` action, for example:
-
-   ```
-   {
-       "Sid": "Allow use of the key",
-       "Effect": "Allow",
-       "Principal": {
-           "Service": [
-               "rds.amazonaws.com"
-           ]
-       },
-       "Action": [
-           "kms:Decrypt"
-       ],
-       "Resource": "*"
-   }
-   ```
-
-2. Follow the steps in [Attach a permissions policy to a
-   secret](../../../secretsmanager/latest/userguide/auth-and-access_resource-policies.md "../../../secretsmanager/latest/userguide/auth-and-access_resource-policies.md") in the _AWS Secrets Manager User Guide_. The permissions policy gives the
-   `secretsmanager:GetSecretValue` action to the `rds.amazonaws.com` service principal.
-
-We recommend that you use the `aws:sourceAccount` and `aws:sourceArn` conditions in the policy
-to avoid the _confused deputy_ problem. Use your AWS account for `aws:sourceAccount` and
-the option group ARN for `aws:sourceArn`. For more information, see [Preventing cross-service confused deputy problems](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
-
-The following example shows a permissions policy.
-
-JSON
+- Use the following stored procedure.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement" : [ {
- "Effect" : "Allow",
- "Principal" : {
- "Service" : "rds.amazonaws.com"
- },
- "Action" : "secretsmanager:GetSecretValue",
- "Resource" : "*",
- "Condition" : {
- "StringEquals" : {
- "aws:sourceAccount" : "`123456789012`"
- },
- "ArnLike" : {
- "aws:sourceArn" : "arn:aws:rds:us-west-2:`123456789012`:og:`ssrs-se-2017`"
- }
- }
- } ]
-}`
-
+exec msdb.dbo.rds_msbi_task
+@task_type='SSRS_GRANT_PORTAL_PERMISSION',
+@ssrs_group_or_username=N'`AD_domain`\`user`';
 ```
 
-For more examples, see [Permissions policy examples for AWS Secrets Manager](../../../secretsmanager/latest/userguide/auth-and-access_examples.md "../../../secretsmanager/latest/userguide/auth-and-access_examples.md") in the _AWS Secrets Manager User
-Guide_.
+The domain user or user group is granted the `RDS_SSRS_ROLE` system role. This
+role has the following system-level tasks granted to it:
+
+- Run reports
+- Manage jobs
+- Manage shared schedules
+- View shared schedules
+
+The item-level role of `Content Manager` on the root folder is also
+granted.
+
+## Accessing the web portal
+
+After the `SSRS_GRANT_PORTAL_PERMISSION` task finishes successfully, you have
+access to the portal using a web browser. The web portal URL has the following
+format.
+
+```
+https://`rds_endpoint`:`port`/Reports
+```
+
+In this format, the following applies:
+
+- `rds_endpoint` – The endpoint for the RDS DB
+  instance that you're using with SSRS.
+
+You can find the endpoint on the **Connectivity & security** tab for
+your DB instance. For more information, see [Connecting to your Microsoft SQL Server
+DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md").
+
+- `port` – The listener port for SSRS that you
+  set in the `SSRS` option.
+
+###### To access the web portal
+
+1. Enter the web portal URL in your browser.
+
+```
+https://myssrsinstance.cg034itsfake.us-east-1.rds.amazonaws.com:8443/Reports
+```
+
+2. Log in with the credentials for a domain user that you granted access with
+   the `SSRS_GRANT_PORTAL_PERMISSION` task.

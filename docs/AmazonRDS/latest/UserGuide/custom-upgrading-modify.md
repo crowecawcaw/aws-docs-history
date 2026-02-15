@@ -63,6 +63,8 @@ are upgrading the OS, the database binaries for `ami-1234` and
 `ami-2345` must be the same. You create a new CEV named
 `19.my_cev2` based on `19.my_cev1`.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -101,6 +103,8 @@ AWS CLI command with the following parameters:
 The following example upgrades `my-custom-instance` to version
 `19.my_cev2`. Only the OS is upgraded.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -130,6 +134,8 @@ create a new CEV named `19.my_cev3` that also uses
 binaries different in your new CEV and the CEV that your instance is currently
 using.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```
@@ -156,6 +162,8 @@ aws rds create-custom-db-engine-version ^
 
 The following example upgrades `my-custom-instance` to engine
 version `19.my_cev3`. Only the database is upgraded.
+
+###### Example
 
 For Linux, macOS, or Unix:
 

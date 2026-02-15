@@ -42,7 +42,10 @@ the following options:
 - --db-instance-identifier – Name of the DB instance to create from the DB snapshot.
 - --db-snapshot-identifier – The identifier for the DB snapshot to restore from.
 - --engine – The database engine to use for the new instance.
-  For Linux, macOS, or Unix:
+
+###### Example
+
+For Linux, macOS, or Unix:
 
 ```
 aws rds restore-db-instance-from-db-snapshot \

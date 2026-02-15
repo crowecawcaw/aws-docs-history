@@ -49,6 +49,8 @@ The following options are required:
 The following example changes a CEV named `15.00.4249.2.my_cevtest`from its current status to
 `inactive`.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

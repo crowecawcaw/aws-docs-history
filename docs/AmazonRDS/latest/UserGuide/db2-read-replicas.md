@@ -46,6 +46,8 @@ Include the following parameters:
   The following example enables automated backups by setting the backup
   retention period to three days. The changes are applied immediately.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

@@ -297,6 +297,8 @@ The following are examples that configure the processor:
 
 #### Setting the number of CPU cores for a DB instance
 
+###### Example
+
 The following example modifies `mydbinstance` by setting the number of
 CPU cores to 4. The changes are applied immediately by using
 `--apply-immediately`. If you want to apply the changes during
@@ -325,6 +327,8 @@ aws rds modify-db-instance ^
 
 instance
 
+###### Example
+
 The following example modifies `mydbinstance` by setting the number of
 CPU cores to `4` and disabling multiple threads per core. The changes
 are applied immediately by using `--apply-immediately`. If you want
@@ -350,6 +354,8 @@ aws rds modify-db-instance ^
 ```
 
 #### Viewing the valid processor values for a DB instance class
+
+###### Example
 
 You can view the valid processor values for a particular DB instance class by running the
 [describe-orderable-db-instance-options](../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md "../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md") command
@@ -431,6 +437,8 @@ information:
 
 #### Returning to default processor settings for a DB instance
 
+###### Example
+
 The following example modifies `mydbinstance` by returning its DB instance
 class to the default processor values for it. The changes are applied
 immediately by using `--apply-immediately`. If you want to
@@ -456,6 +464,8 @@ aws rds modify-db-instance ^
 ```
 
 #### Returning to the default number of CPU cores for a DB instance
+
+###### Example
 
 The following example modifies `mydbinstance` by returning its DB instance
 class to the default number of CPU cores for it. The threads per core
@@ -483,6 +493,8 @@ aws rds modify-db-instance ^
 ```
 
 #### Returning to the default number of threads per core for a DB instance
+
+###### Example
 
 The following example modifies `mydbinstance` by returning its DB instance
 class to the default number of threads per core for it. The number of

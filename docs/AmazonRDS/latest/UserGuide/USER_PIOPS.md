@@ -1,54 +1,31 @@
-# Upgrading the storage file system for a DB
+# I/O-intensive storage modifications
 
-instance
+Amazon RDS DB instances use Amazon Elastic Block Store (EBS) volumes for database and log storage. Depending on the amount of storage requested, RDS
+(except for RDS for SQL Server) automatically _stripes_ across multiple Amazon EBS volumes to enhance performance. RDS DB
+instances with SSD storage types are backed by either one or four striped Amazon EBS volumes in a RAID 0 configuration. By design,
+storage modification operations for an RDS DB instance have minimal impact on ongoing database operations.
 
-Most RDS DB instances offer a maximum storage size of 64 TiB for RDS for MariaDB, MySQL, and PostgreSQL
-databases. However, some older 32-bit file systems have lower storage capacities. To
-determine the storage capacity of your DB instance, use the [describe-valid-db-instance-modifications](../../../cli/latest/reference/rds/describe-valid-db-instance-modifications.md "../../../cli/latest/reference/rds/describe-valid-db-instance-modifications.md") AWS CLI command.
+In most cases, storage scaling modifications are completely offloaded to the Amazon EBS layer and are transparent to the database.
+This process is typically completed within a few minutes. However, some older RDS storage volumes require a different process
+for modifying the size, Provisioned IOPS, or storage type. This involves making a full copy of the data using a potentially
+I/O-intensive operation.
 
-RDS checks whether your storage system has a 16 TiB storage size, a file size limit of 2
-TiB, or non-optimized writes. If your DB instances meet these conditions, RDS alerts you that
-your file system configuration is eligible for an upgrade. You can check the upgrade
-eligibility of a DB instance on the **Storage** panel of the DB instance details
-page.
+Storage modification uses an I/O-intensive operation if any of the following factors apply:
 
-![Check the storage configuration upgrade eligibility of a DB instance.](images/upgrade-storage-config.png)
-If your DB instance is eligible for a file system upgrade, use either of the following
-techniques:
+- The source storage type is magnetic. Magnetic storage doesn't support elastic volume modification.
+- The RDS DB instance isn't on a one- or four-volume Amazon EBS layout. You can view the number of Amazon EBS volumes in use
+  on your RDS DB instances by using Enhanced Monitoring metrics. For more information, see [Viewing OS metrics in the RDS console](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+- The target size of the modification request increases the allocated storage above 400 GiB for RDS for MariaDB, MySQL, and
+  PostgreSQL instances, and 200 GiB for RDS for Oracle. Storage autoscaling operations have the same effect when they increase
+  the allocated storage size of your DB instance above these thresholds.
+  If your storage modification involves an I/O-intensive operation, it consumes I/O resources and increases the load on your DB
+  instance. Storage modifications with I/O-intensive operations involving General Purpose SSD (gp2) storage can deplete your I/O
+  credit balance, resulting in longer conversion times.
 
-- Create a blue/green deployment and specify **Upgrade storage file system
-  configuration**.
+We recommend as a best practice to schedule these storage modification requests outside of peak hours to help reduce the time
+required to complete the storage modification operation. Alternatively, you can create a read replica of the DB instance and
+perform the storage modification on the read replica. Then promote the read replica to be the primary DB instance. For more
+information, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
-This option upgrades the file system in the green environment to the preferred
-configuration. You can then switch over the blue/green deployment, which
-promotes the green environment to be the new production environment. For
-detailed instructions, see [Creating a blue/green deployment in Amazon RDS](blue-green-deployments-creating.md "blue-green-deployments-creating.md").
-
-- Create a DB instance read replica and specify **Upgrade storage file system
-  configuration**.
-
-This option upgrades the file system of the read replica to the preferred
-configuration. You can then promote the read replica to be a standalone
-instance. For detailed instructions, see [Creating a read replica](USER_ReadRepl.md "USER_ReadRepl.md").
-During the storage upgrade, your database engine isn't available. Upgrading the storage
-configuration is an I/O-intensive operation and leads to longer creation times for read
-replicas and blue/green deployments. The storage upgrade process is faster when both of
-the following conditions are met:
-
-- The source DB instance uses Provisioned IOPS SSD (io1 or io2 Block Express)
-  storage.
-- You provisioned the green environment or read replica with an instance size of
-  4xlarge or larger.
-  Storage upgrades involving General Purpose SSD (gp2) storage can deplete your I/O
-  credit balance, resulting in longer upgrade times. For more information, see [Amazon RDS DB instance storage](CHAP_Storage.md "CHAP_Storage.md").
-
-During a storage upgrade, RDS increases the allocated storage size by 10% for the green
-instance or read replica if both of the following conditions are met:
-
-- The storage consumption on your source DB instance is greater than or equal to 90%
-  of the allocated storage size.
-- Storage autoscaling is enabled.
-  RDS turns off autoscaling when the new storage size is greater than or equal to the
-  maximum allocated storage that was set for the instance. If storage autoscaling is
-  disabled before the storage upgrade begins, the storage size doesn't increase during the
-  upgrade.
+For more information, see [Why is an
+Amazon RDS DB instance stuck in the modifying state when I try to increase the allocated storage?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-stuck-modifying/ "https://aws.amazon.com/premiumsupport/knowledge-center/rds-stuck-modifying/")

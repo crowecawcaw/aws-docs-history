@@ -12,6 +12,7 @@ see [What is AWS Lambda?](../../../lambda/latest/dg/welcome.md "../../../lambda/
 
 Invoking an AWS Lambda function is supported in these RDS for PostgreSQL versions:
 
+- All PostgreSQL 18 versions
 - All PostgreSQL 17 versions
 - All PostgreSQL 16 versions
 - All PostgreSQL 15 versions

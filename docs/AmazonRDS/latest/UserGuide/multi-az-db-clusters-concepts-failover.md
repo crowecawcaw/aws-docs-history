@@ -46,6 +46,8 @@ API.
 The **Failover DB cluster** page appears. 5. Choose **Failover** to confirm the manual failover.
 To fail over a Multi-AZ DB cluster manually, use the AWS CLI command [failover-db-cluster](../../../cli/latest/reference/rds/failover-db-cluster.md "../../../cli/latest/reference/rds/failover-db-cluster.md").
 
+###### Example
+
 ```
 aws rds failover-db-cluster --db-cluster-identifier `mymultiazdbcluster`
 ```

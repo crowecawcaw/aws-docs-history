@@ -1577,7 +1577,7 @@ data type is `varchar`.
 
 The number of hours to retain the archive log files. The data type is
 `smallint`. The default is `0`, and the
-maximum is `168` (7 days).
+maximum is `840` (35 days).
 
 If the value is `0`, Amazon RDS doesn't retain the archive log
 files.

@@ -1,45 +1,54 @@
-# Working with PostgreSQL
+# Understanding the
 
-features supported by Amazon RDS for PostgreSQL
+RDS for PostgreSQL incremental release process
 
-Amazon RDS for PostgreSQL supports many of the most common PostgreSQL features. For example,
-PostgreSQL has an autovacuum feature that performs routine maintenance on the database.
-The autovacuum feature is active by default. Although you can turn off this feature, we
-highly recommend that you keep it on. Understanding this feature and what you can do to
-make sure it works as it should is a basic task of any DBA. For more information about
-the autovacuum, see [Working with PostgreSQL
-autovacuum on Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md"). To learn more about
-other common DBA tasks, [Common DBA tasks for
-Amazon RDS for PostgreSQL](Appendix.PostgreSQL.md "Appendix.PostgreSQL.md").
+RDS for PostgreSQL delivers security fixes, performance improvements, and new features
+through incremental releases while maintaining minor version compatibility. These
+releases are labeled as R1, R2, R3, and so on.
 
-RDS for PostgreSQL also supports extensions that add important functionality to the DB
-instance. For example, you can use the PostGIS extension to work with spatial data, or
-use the pg_cron extension to schedule maintenance from within the instance. For more
-information about PostgreSQL extensions, see [Using PostgreSQL extensions with
-Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+###### Release version naming convention
 
-Foreign data wrappers are a specific type of extension designed to let your
-RDS for PostgreSQL DB instance work with other commercial databases or data types. For more
-information about foreign data wrappers supported by RDS for PostgreSQL, see [Working
-with the supported foreign data wrappers for Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Extensions.md "Appendix.PostgreSQL.CommonDBATasks.Extensions.md").
+- R1 is the initial release of a minor version. It occasionally includes new
+  features, extensions, or upgrades to existing extensions.
+- Subsequent release versions (R2, R3, and later) include:
+  - Security updates
+  - Performance improvements
+  - Bug fixes
+  - Extension updates
 
-Following, you can find information about some other features supported by
-RDS for PostgreSQL.
+## Advantages of
 
-###### Topics
+RDS for PostgreSQL incremental release process
 
-- [Custom data
-  types and enumerations with RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
-- [Event
-  triggers for RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
-- [Huge pages
-  for RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
-- [Performing
-  logical replication for Amazon RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
-- [Configuring IAM authentication for logical replication connections](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
-- [RAM disk for
-  the stats_temp_directory](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
-- [Tablespaces for RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
-- [RDS for PostgreSQL collations
-  for EBCDIC and other mainframe migrations](PostgreSQL.Collations.mainframe.md "PostgreSQL.Collations.mainframe.md")
-- [Managing logical slot synchronization for RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.slot.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.slot.md")
+The incremental release process provides the following advantages:
+
+- Quick adoption of new PostgreSQL community releases while separately
+  managing RDS-specific enhancements through subsequent releases. This
+  streamlines the release process and ensures faster delivery of critical
+  updates.
+- Access to bug fixes, new features, security updates, and extension updates
+  while maintaining compatibility with the PostgreSQL minor version.
+
+## Managing release
+
+updates
+
+Amazon RDS notifies you about new incremental releases through pending maintenance
+actions in the AWS Management Console. You can update your database using one of these
+methods:
+
+- Enable automatic updates during scheduled maintenance windows.
+- Apply updates manually through pending maintenance actions.
+- Use Blue/Green deployments with physical replication to minimize downtime.
+  For more information, see [Blue/Green Deployments support minor version upgrade for
+  RDS for PostgreSQL](https://aws.amazon.com/about-aws/whats-new/2024/11/rds-blue-green-deployments-upgrade-rds-postgresql/ "https://aws.amazon.com/about-aws/whats-new/2024/11/rds-blue-green-deployments-upgrade-rds-postgresql/").
+
+Before updating your database, consider the following key points:
+
+- Database reboots are required for updates unless you use Blue/Green
+  deployments with physical replication.
+- Some incremental releases are mandatory, particularly those that include
+  security fixes.
+
+For more information about updating your Amazon RDS DB instance instance, see [PostgreSQL trusted
+extensions](PostgreSQL.Concepts.General.FeatureSupport.md#PostgreSQL.Concepts.General.Extensions.Trusted "PostgreSQL.Concepts.General.FeatureSupport.md#PostgreSQL.Concepts.General.Extensions.Trusted") and [apply-pending-maintenance-action](../../../cli/latest/reference/rds/apply-pending-maintenance-action.md "../../../cli/latest/reference/rds/apply-pending-maintenance-action.md").

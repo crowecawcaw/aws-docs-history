@@ -1,84 +1,134 @@
-# LWLock:buffer_content (BufferContent)
+# Lock:Relation
 
-The `LWLock:buffer_content` event occurs when a session is waiting to read or write a data
-page in memory while another session has that page locked for writing. In RDS for PostgreSQL 13 and higher,
-this wait event is called `BufferContent`.
+The `Lock:Relation` event occurs when a query is waiting to acquire a lock on a table or view
+(relation) that's currently locked by another transaction.
 
 ###### Topics
 
-- [Supported engine versions](#wait-event.lwlockbuffercontent.context.supported "#wait-event.lwlockbuffercontent.context.supported")
-- [Context](#wait-event.lwlockbuffercontent.context "#wait-event.lwlockbuffercontent.context")
-- [Likely causes of increased waits](#wait-event.lwlockbuffercontent.causes "#wait-event.lwlockbuffercontent.causes")
-- [Actions](#wait-event.lwlockbuffercontent.actions "#wait-event.lwlockbuffercontent.actions")
+- [Supported engine versions](#wait-event.lockrelation.context.supported "#wait-event.lockrelation.context.supported")
+- [Context](#wait-event.lockrelation.context "#wait-event.lockrelation.context")
+- [Likely causes of increased waits](#wait-event.lockrelation.causes "#wait-event.lockrelation.causes")
+- [Actions](#wait-event.lockrelation.actions "#wait-event.lockrelation.actions")
 
 ## Supported engine versions
 
-This wait event information is supported for all versions of RDS for PostgreSQL.
+This wait event information is supported for all versions of
+RDS for PostgreSQL.
 
 ## Context
 
-To read or manipulate data, PostgreSQL accesses it through shared memory
-buffers. To read from the buffer, a process gets a lightweight lock (LWLock) on the
-buffer content in shared mode. To write to the buffer, it gets that lock in exclusive
-mode. Shared locks allow other processes to concurrently acquire shared locks on that
-content. Exclusive locks prevent other processes from getting any type of lock on
-it.
+Most PostgreSQL commands implicitly use locks to control concurrent access to
+data in tables. You can also use these locks explicitly in your application code with
+the `LOCK` command. Many lock modes aren't compatible with each other, and
+they can block transactions when they're trying to access the same object. When this
+happens, RDS for PostgreSQL generates a `Lock:Relation` event. Some common
+examples are the following:
 
-The `LWLock:buffer_content` (`BufferContent`) event
-indicates that multiple processes are attempting to get a lock on contents of a specific
-buffer.
+- Exclusive locks such as `ACCESS EXCLUSIVE` can block all concurrent access. Data
+  definition language (DDL) operations such as `DROP TABLE`,
+  `TRUNCATE`, `VACUUM FULL`, and `CLUSTER`
+  acquire `ACCESS EXCLUSIVE` locks implicitly. `ACCESS
+EXCLUSIVE` is also the default lock mode for `LOCK TABLE`
+  statements that don't specify a mode explicitly.
+- Using `CREATE INDEX (without CONCURRENT)` on a table conflicts with data
+  manipulation language (DML) statements `UPDATE`, `DELETE`,
+  and `INSERT`, which acquire `ROW EXCLUSIVE` locks.
+
+For more information about table-level locks and conflicting lock modes, see
+[Explicit
+Locking](https://www.postgresql.org/docs/13/explicit-locking.html "https://www.postgresql.org/docs/13/explicit-locking.html") in the PostgreSQL documentation.
+
+Blocking queries and transactions typically unblock in one of the following
+ways:
+
+- Blocking query – The application can cancel the query or the user can end the process.
+  The engine can also force the query to end because of a session's
+  statement-timeout or a deadlock detection mechanism.
+- Blocking transaction – A transaction stops blocking when it runs a `ROLLBACK`
+  or `COMMIT` statement. Rollbacks also happen automatically when
+  sessions are disconnected by a client or by network issues, or are ended.
+  Sessions can be ended when the database engine is shut down, when the system is
+  out of memory, and so forth.
 
 ## Likely causes of increased waits
 
-When the `LWLock:buffer_content` (`BufferContent`) event appears more than normal,
-possibly indicating a performance problem, typical causes include the following:
+When the `Lock:Relation` event occurs more frequently than normal, it can indicate a performance issue. Typical
+causes include the following:
 
-**Increased concurrent updates to the same data**
+**Increased concurrent sessions with conflicting table locks**
 
-There might be an increase in the number of concurrent sessions with queries that update the same buffer content. This contention can be more pronounced on tables with a lot of indexes.
+There might be an increase in the number of concurrent sessions
+with queries that lock the same table with conflicting locking modes.
 
-**Workload data is not in memory**
+**Maintenance operations**
 
-When data that the active workload is processing is not in memory,
-these wait events can increase. This effect is because processes holding
-locks can keep them longer while they perform disk I/O operations.
+Health maintenance operations such as `VACUUM` and
+`ANALYZE` can significantly increase the number of
+conflicting locks. `VACUUM FULL` acquires an `ACCESS
+ EXCLUSIVE` lock, and `ANALYSE` acquires a `SHARE
+ UPDATE EXCLUSIVE` lock. Both types of locks can cause a
+`Lock:Relation` wait event. Application data maintenance
+operations such as refreshing a materialized view can also increase blocked
+queries and transactions.
 
-**Excessive use of foreign key constraints**
+**Locks on reader instances**
 
-Foreign key constraints can increase the amount of time a process
-holds onto a buffer content lock. This effect is because read operations
-require a shared buffer content lock on the referenced key while that key is
-being updated.
+There might be a conflict between the relation locks held by the writer and
+readers. Currently, only `ACCESS EXCLUSIVE`
+relation locks are replicated to reader instances. However, the `ACCESS
+ EXCLUSIVE` relation lock will conflict with any `ACCESS SHARE` relation locks held
+by the reader. This can cause an increase in lock relation wait events
+on the reader.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event. You might identify
-`LWLock:buffer_content` (`BufferContent`) events by using Amazon RDS Performance
-Insights or by querying the view `pg_stat_activity`.
+We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Improve in-memory efficiency](#wait-event.lwlockbuffercontent.actions.in-memory "#wait-event.lwlockbuffercontent.actions.in-memory")
-- [Reduce usage of foreign key constraints](#wait-event.lwlockbuffercontent.actions.foreignkey "#wait-event.lwlockbuffercontent.actions.foreignkey")
-- [Remove unused indexes](#wait-event.lwlockbuffercontent.actions.indexes "#wait-event.lwlockbuffercontent.actions.indexes")
-- [Increase the cache size when using sequences](#wait-event.lwlockbuffercontent.actions.sequences "#wait-event.lwlockbuffercontent.actions.sequences")
+- [Reduce the
+  impact of blocking SQL statements](#wait-event.lockrelation.actions.reduce-blocks "#wait-event.lockrelation.actions.reduce-blocks")
+- [Minimize the effect of
+  maintenance operations](#wait-event.lockrelation.actions.maintenance "#wait-event.lockrelation.actions.maintenance")
 
-### Improve in-memory efficiency
+### Reduce the
 
-To increase the chance that active workload data is in memory, partition tables or scale up your instance class. For information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md").
+impact of blocking SQL statements
 
-### Reduce usage of foreign key constraints
+To reduce the impact of blocking SQL statements, modify your application
+code where possible. Following are two common techniques for reducing blocks:
 
-Investigate workloads experiencing high numbers of `LWLock:buffer_content` (`BufferContent`)
-wait events for usage of foreign key constraints. Remove unnecessary foreign key constraints.
+- Use the `NOWAIT` option – Some SQL commands, such as `SELECT` and
+  `LOCK` statements, support this option. The
+  `NOWAIT` directive cancels the lock-requesting query if the
+  lock can't be acquired immediately. This technique can help prevent a
+  blocking session from causing a pile-up of blocked sessions behind
+  it.
 
-### Remove unused indexes
+For example: Assume that transaction A is waiting on a lock held
+by transaction B. Now, if B requests a lock on a
+table that’s locked by transaction C, transaction A might be blocked until
+transaction C completes. But if transaction B uses a `NOWAIT`
+when it requests the lock on C, it can fail fast and ensure that transaction
+A doesn't have to wait indefinitely.
 
-For workloads experiencing high numbers of `LWLock:buffer_content`
-(`BufferContent`) wait events, identify unused indexes and remove them.
+- Use `SET lock_timeout` – Set a `lock_timeout` value to limit the
+  time a SQL statement waits to acquire a lock on a relation. If the lock
+  isn't acquired within the timeout specified, the transaction requesting
+  the lock is cancelled. Set this value at the session level.
 
-### Increase the cache size when using sequences
+### Minimize the effect of
 
-If your tables uses sequences, increase the cache size to remove contention on sequence pages and index pages. Each sequence is a single page in shared memory.
-The pre-defined cache is per connection. This might not be enough to handle
-the workload when many concurrent sessions are getting a sequence value.
+maintenance operations
+
+Maintenance operations such as `VACUUM` and
+`ANALYZE` are important. We recommend that you don't turn them
+off because you find `Lock:Relation` wait events related to these
+maintenance operations. The following approaches can minimize the effect of these
+operations:
+
+- Run maintenance operations manually during off-peak hours.
+- To reduce `Lock:Relation` waits caused by autovacuum tasks, perform any needed
+  autovacuum tuning. For information about tuning autovacuum, see
+  [Working with PostgreSQL autovacuum on Amazon RDS](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md") in the
+  _Amazon RDS User Guide_.

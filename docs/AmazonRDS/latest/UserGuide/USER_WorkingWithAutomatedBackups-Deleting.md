@@ -18,6 +18,9 @@ You can delete retained automated backups when they are no longer needed.
 
 You can find the resource identifier for the source DB instance of a retained automated backup by running the
 AWS CLI command [describe-db-instance-automated-backups](../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md "../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md").
+
+###### Example
+
 The following example deletes the retained automated backup with source DB instance resource identifier
 `db-123ABCEXAMPLE`.
 
@@ -74,6 +77,8 @@ re-enabled automated backups.
    [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") command and set the backup retention period to 0
    with `--apply-immediately`.
 
+###### Example
+
 The following example immediately disables automatic backups on a Multi-AZ
 DB cluster.
 
@@ -112,6 +117,8 @@ operation with the following parameters:
 - `DBInstanceIdentifier = mydbinstance` (or
   `DBClusterIdentifier = mydbcluster`)
 - `BackupRetentionPeriod = 0`
+
+###### Example
 
 ```
 https://rds.amazonaws.com/

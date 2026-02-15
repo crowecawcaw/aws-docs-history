@@ -1,74 +1,106 @@
-# Associating a DB parameter group with a
+# Resetting parameters in a DB parameter group
 
-DB instance in Amazon RDS
+to their default values in Amazon RDS
 
-You can create your own DB parameter groups with customized settings. You can associate a DB parameter group
-with a DB instance using the AWS Management Console, the AWS CLI, or the RDS API. You can do so when you
-create or modify a DB instance.
+You can reset parameter values in a customer-created DB parameter group to their default values.
+Changes to parameters in a customer-created DB parameter group are applied to all DB instances that are
+associated with the DB parameter group.
 
-For information about creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For information about creating a DB instance, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-For information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+When you use the console, you can reset specific parameters to their default values.
+However, you can't easily reset all of the parameters in the DB parameter group at once. When
+you use the AWS CLI or RDS API, you can reset specific parameters to their default values.
+You can also reset all of the parameters in the DB parameter group at once.
+
+Changes to some parameters are applied to the DB instance immediately without a reboot.
+Changes to other parameters are applied only after the DB instance is rebooted. The RDS
+console shows the status of the DB parameter group associated with a DB instance on the
+**Configuration** tab. For example, suppose that the DB instance
+isn't using the latest changes to its associated DB parameter group. If so, the RDS console
+shows the DB parameter group with a status of **pending-reboot**. To apply the
+latest parameter changes to that DB instance, manually reboot the DB instance.
+
+![Parameter change pending reboot scenario](images/param-reboot.png)
 
 ###### Note
 
-When you associate a new DB parameter group with a DB instance, the modified static and dynamic
-parameters are applied only after the DB instance is rebooted. However, if you modify
-dynamic parameters in the DB parameter group after you associate it with the DB instance, these changes
-are applied immediately without a reboot.
+In a default DB parameter group, parameters are always set to their default values.
 
-###### To associate a DB parameter group with a DB instance
+###### To reset parameters in a DB parameter group to their default values
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**, and
-   then choose the DB instance that you want to modify.
-3. Choose **Modify**. The **Modify
-   DB instance** page appears.
-4. Change the **DB parameter group** setting.
-5. Choose **Continue** and check the summary of
-   modifications.
-6. (Optional) Choose **Apply immediately** to apply the
-   changes immediately. Choosing this option can cause an outage in some
-   cases. For more information, see [Using the schedule modifications
-   setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
-7. On the confirmation page, review your changes. If they are correct,
-   choose **Modify DB instance** to save your changes.
+2. In the navigation pane, choose **Parameter
+   groups**.
+3. In the list, choose the parameter group.
+4. For **Parameter group actions**, choose
+   **Edit**.
+5. Choose the parameters that you want to reset to their default values.
+   You can scroll through the parameters using the arrow keys at the top
+   right of the dialog box.
 
-Or choose **Back** to edit your changes or
-**Cancel** to cancel your changes.
-To associate a DB parameter group with a DB instance, use the AWS CLI [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command with the following
-options:
+You can't reset values in a default parameter group. 6. Choose **Reset** and then confirm by choosing
+**Reset parameters**.
+To reset some or all of the parameters in a DB parameter group, use the AWS CLI [`reset-db-parameter-group`](../../../cli/latest/reference/rds/reset-db-parameter-group.md "../../../cli/latest/reference/rds/reset-db-parameter-group.md") command with the
+following required option: `--db-parameter-group-name`.
 
-- `--db-instance-identifier`
-- `--db-parameter-group-name`
-  The following example associates the `mydbpg` DB parameter group with the
-  `database-1` DB instance. The changes are applied immediately by using
-  `--apply-immediately`. Use `--no-apply-immediately` to
-  apply the changes during the next maintenance window. For more information, see [Using the schedule modifications
-  setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+To reset all of the parameters in the DB parameter group, specify the
+`--reset-all-parameters` option. To reset specific parameters,
+specify the `--parameters` option.
+
+The following example resets all of the parameters in the DB parameter group named
+_mydbparametergroup_ to their default values.
 
 ###### Example
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds modify-db-instance \
-    --db-instance-identifier `database-1` \
-    --db-parameter-group-name `mydbpg` \
-    `--apply-immediately`
+aws rds reset-db-parameter-group \
+    --db-parameter-group-name `mydbparametergroup` \
+    --reset-all-parameters
 ```
 
 For Windows:
 
 ```
-aws rds modify-db-instance ^
-    --db-instance-identifier `database-1` ^
-    --db-parameter-group-name `mydbpg` ^
-    `--apply-immediately`
+aws rds reset-db-parameter-group ^
+    --db-parameter-group-name `mydbparametergroup` ^
+    --reset-all-parameters
 ```
 
-To associate a DB parameter group with a DB instance, use the RDS API [`ModifyDBInstance`](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") operation with the following
-parameters:
+The following example resets the `max_connections` and
+`max_allowed_packet` options to their default values in the DB parameter group
+named _mydbparametergroup_.
 
-- `DBInstanceName`
-- `DBParameterGroupName`
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws rds reset-db-parameter-group \
+    --db-parameter-group-name `mydbparametergroup` \
+    --parameters "ParameterName=`max_connections`,ApplyMethod=`immediate`" \
+                 "ParameterName=`max_allowed_packet`,ApplyMethod=`immediate`"
+```
+
+For Windows:
+
+```
+aws rds reset-db-parameter-group ^
+    --db-parameter-group-name `mydbparametergroup` ^
+    --parameters "ParameterName=`max_connections`,ApplyMethod=`immediate`" ^
+                 "ParameterName=`max_allowed_packet`,ApplyMethod=`immediate`"
+```
+
+The command produces output like the following:
+
+```
+DBParameterGroupName  mydbparametergroup
+```
+
+To reset parameters in a DB parameter group to their default values, use the RDS API [`ResetDBParameterGroup`](../APIReference/API_ResetDBParameterGroup.md "../APIReference/API_ResetDBParameterGroup.md") command with the following
+required parameter: `DBParameterGroupName`.
+
+To reset all of the parameters in the DB parameter group, set the
+`ResetAllParameters` parameter to `true`. To reset
+specific parameters, specify the `Parameters` parameter.

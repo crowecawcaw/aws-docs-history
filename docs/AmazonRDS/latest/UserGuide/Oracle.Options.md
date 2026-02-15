@@ -1,88 +1,75 @@
-# Oracle Locator
+# Oracle UTL_MAIL
 
-Amazon RDS supports Oracle Locator through the use of the `LOCATOR` option. Oracle
-Locator provides capabilities that are typically required to support internet and wireless
-service-based applications and partner-based GIS solutions. Oracle Locator is a limited
-subset of Oracle Spatial. For more information, see [Oracle
-Locator](https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#SPATL340 "https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#SPATL340") in the Oracle documentation.
+Amazon RDS supports Oracle UTL_MAIL
+through the use of the UTL_MAIL option and SMTP servers.
+You can send email directly from your database by using the UTL_MAIL package.
+Amazon RDS supports UTL_MAIL for the following versions of Oracle:
+
+- Oracle Database 21c (21.0.0.0), all versions
+- Oracle Database 19c (19.0.0.0), all versions
+  The following are some limitations to using UTL_MAIL:
+
+- UTL_MAIL does not support Transport Layer Security (TLS)
+  and therefore emails are not encrypted.
+
+To connect securely to remote SSL/TLS resources by creating and uploading custom Oracle wallets, follow the instructions in
+[Configuring UTL_HTTP access using certificates and an Oracle wallet](Oracle.Concepts.md "Oracle.Concepts.md").
+
+The specific certificates that are required for your wallet vary by service. For AWS services, these can typically be found
+in the [Amazon trust services repository](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/").
+
+- UTL_MAIL does not support authentication with SMTP servers.
+- You can only send a single attachment in an email.
+- You can't send attachments larger than 32 K.
+- You can only use ASCII and
+  Extended Binary Coded Decimal Interchange Code (EBCDIC) character encodings.
+- SMTP port (25) is throttled based on the elastic network interface owner's policies.
+  When you enable UTL_MAIL,
+  only the master user for your DB instance is granted the execute privilege.
+  If necessary, the master user can grant the execute privilege to other users
+  so that they can use UTL_MAIL.
 
 ###### Important
 
-If you use Oracle Locator, Amazon RDS automatically updates your DB instance to the latest Oracle PSU
-if there are security vulnerabilities with a Common Vulnerability Scoring System (CVSS) score of 9+
-or other announced security vulnerabilities.
+We recommend that you enable Oracle's built-in auditing feature
+to track the use of UTL_MAIL procedures.
 
-## Supported database releases for Oracle
+## Prerequisites for Oracle UTL_MAIL
 
-Locator
+The following are prerequisites for using Oracle UTL_MAIL:
 
-RDS for Oracle supports Oracle Locator for Oracle Database 19c. Oracle Locator isn't
-supported for Oracle Database 21c, but its functionality is available in the Oracle
-Spatial option. Formerly, the Spatial option required additional licenses. Oracle
-Locator represented a subset of Oracle Spatial features and didn't require additional
-licenses. In 2019, Oracle announced that all Oracle Spatial features were included in
-the Enterprise Edition and Standard Edition 2 licenses without additional cost.
-Consequently, the Oracle Spatial option no longer required additional licensing. For
-more information, see [Machine Learning, Spatial and Graph - No License Required!](https://blogs.oracle.com/database/post/machine-learning-spatial-and-graph-no-license-required "https://blogs.oracle.com/database/post/machine-learning-spatial-and-graph-no-license-required") in the Oracle
-Database Insider blog.
+- One or more SMTP servers,
+  and the corresponding IP addresses
+  or public or private Domain Name Server (DNS) names.
+  For more information about
+  private DNS names resolved through a custom DNS server, see
+  [Setting up a custom DNS
+  server](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.CustomDNS "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.CustomDNS").
 
-## Prerequisites for Oracle Locator
+## Adding the Oracle UTL_MAIL option
 
-The following are prerequisites for using Oracle Locator:
-
-- Your DB instance must be of sufficient class. Oracle Locator is not supported for the db.t3.small
-  DB instance classes. For more information, see
-  [RDS for Oracle DB instance classes](Oracle.Concepts.md "Oracle.Concepts.md").
-- Your DB instance must have **Auto Minor Version Upgrade** enabled.
-  This option enables your DB instance to receive minor DB engine version upgrades automatically when they become
-  available and is required for any options that install the Oracle Java Virtual Machine (JVM). Amazon RDS uses this
-  option to update your DB instance to the latest Oracle Patch Set Update (PSU) or Release Update (RU). For more information, see
-  [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-
-## Best practices for Oracle Locator
-
-The following are best practices for using Oracle Locator:
-
-- For maximum security, use the `LOCATOR` option with Secure Sockets Layer (SSL).
-  For more information, see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
-- Configure your DB instance
-  to restrict access to your DB instance.
-  For more information, see
-  [Scenarios for accessing a DB instance in a VPC](USER_VPC.md "USER_VPC.md")
-  and
-  [Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
-
-## Adding the Oracle Locator option
-
-The following is the general process for adding the `LOCATOR` option to a DB instance:
+The general process for adding the Oracle UTL_MAIL option to a DB instance is the following:
 
 1. Create a new option group, or copy or modify an existing option group.
 2. Add the option to the option group.
 3. Associate the option group with the DB instance.
 
-If Oracle Java Virtual Machine (JVM) is _not_ installed on the DB instance, there is a brief
-outage while the `LOCATOR` option is added. There is no outage if Oracle Java Virtual Machine (JVM) is
-already installed on the DB instance. After you add the option, you don't need to restart your DB instance.
-As soon as the option group is active, Oracle Locator is available.
+After you add the UTL_MAIL option,
+as soon as the option group is active, UTL_MAIL is active.
 
-###### Note
+###### To add the UTL_MAIL option to a DB instance
 
-During this outage, password verification functions are disabled briefly. You can also expect to see events related
-to password verification functions during the outage. Password verification functions are enabled again before the
-Oracle DB instance is available.
-
-###### To add the `LOCATOR` option to a DB instance
-
-1. Determine the option group that you want to use. You can create a new option group or use an existing option group.
+1. Determine the option group you want to use.
+   You can create a new option group or use an existing option group.
    If you want to use an existing option group, skip to the next step.
    Otherwise, create a custom DB option group with the following settings:
    1. For **Engine**,
-      choose the oracle edition for your DB instance.
+      choose the edition of Oracle you want to use.
    2. For **Major engine version**,
       choose the version of your DB instance.For more information,
       see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
 
-2. Add the **LOCATOR** option to the option group.
+2. Add the **UTL_MAIL** option to the option group.
    For more information about adding options,
    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
 3. Apply the option group to a new or existing DB instance:
@@ -91,66 +78,71 @@ Oracle DB instance is available.
    - For an existing DB instance, you apply the option group by modifying the instance and attaching the new option group.
      For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-## Using Oracle Locator
+## Using Oracle UTL_MAIL
 
-After you enable the Oracle Locator option,
-you can begin using it.
-You should only use Oracle Locator features.
-Don't use any Oracle Spatial features unless you have a license for Oracle Spatial.
+After you enable the UTL_MAIL option,
+you must configure the SMTP server
+before you can begin using it.
 
-For a list of features that are supported for Oracle Locator,
-see
-[Features Included with Locator](https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2__CFACCEEG "https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2__CFACCEEG")
-in the Oracle documentation.
+You configure the SMTP server
+by setting the SMTP_OUT_SERVER parameter
+to a valid IP address or public DNS name.
+For the SMTP_OUT_SERVER parameter,
+you can specify a comma-separated list of the addresses of multiple servers.
+If the first server is unavailable,
+UTL_MAIL tries the next server, and so on.
 
-For a list of features that are not supported for Oracle Locator,
-see
-[Features Not Included with Locator](https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2__CFABACEA "https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2__CFABACEA")
-in the Oracle documentation.
-
-## Removing the Oracle Locator option
-
-After you drop all objects that use data types provided by the `LOCATOR` option, you can remove the
-option from a DB instance. If Oracle Java Virtual Machine (JVM) is _not_ installed on the DB
-instance, there is a brief outage while the `LOCATOR` option is removed. There is no outage if Oracle
-Java Virtual Machine (JVM) is already installed on the DB instance. After you remove the `LOCATOR`
-option, you don't need to restart your DB instance.
-
-###### To drop the `LOCATOR` option
-
-1. Back up your data.
-
-###### Warning
-
-If the instance uses data types that were enabled as part of the option, and if you remove the
-`LOCATOR` option, you can lose data. For more information, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.md "CHAP_CommonTasks.md"). 2. Check whether any existing objects reference data types or features of the `LOCATOR` option.
-
-If `LOCATOR` options exist, the instance can get stuck when applying the new option group
-that doesn't have the `LOCATOR` option. You can identify the objects by using the following
-queries:
+You can set the default SMTP_OUT_SERVER for a DB instance
+by using a [DB parameter group](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+You can set the SMTP_OUT_SERVER parameter for a session
+by running the following code on your database on your DB instance.
 
 ```
-SELECT OWNER, SEGMENT_NAME, TABLESPACE_NAME, BYTES/1024/1024 mbytes
-FROM   DBA_SEGMENTS
-WHERE  SEGMENT_TYPE LIKE '%TABLE%'
-AND    (OWNER, SEGMENT_NAME) IN
-       (SELECT DISTINCT OWNER, TABLE_NAME
-        FROM   DBA_TAB_COLUMNS
-        WHERE  DATA_TYPE='SDO_GEOMETRY'
-        AND    OWNER <> 'MDSYS')
-ORDER BY 1,2,3,4;
 
-SELECT OWNER, TABLE_NAME, COLUMN_NAME
-FROM   DBA_TAB_COLUMNS
-WHERE  DATA_TYPE = 'SDO_GEOMETRY'
-AND    OWNER <> 'MDSYS'
-ORDER BY 1,2,3;
+ALTER SESSION SET smtp_out_server = `mailserver.domain.com:25`;
+
 ```
 
-3. Drop any objects that reference data types or features of the `LOCATOR` option.
-4. Do one of the following:
-   - Remove the `LOCATOR` option from the option group it belongs to. This change affects
-     all DB instances that use the option group. For more information, see [Removing an option from an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption").
-   - Modify the DB instance and specify a different option group that doesn't include the
-     `LOCATOR` option. This change affects a single DB instance. You can specify the
-     default (empty) option group, or a different custom option group. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+After the UTL_MAIL option is enabled,
+and your SMTP_OUT_SERVER is configured,
+you can send mail by using the `SEND` procedure.
+For more information, see
+[UTL_MAIL](http://docs.oracle.com/cd/B19306_01/appdev.102/b14258/u_mail.htm#BABFJJBD "http://docs.oracle.com/cd/B19306_01/appdev.102/b14258/u_mail.htm#BABFJJBD")
+in the Oracle documentation.
+
+## Removing the Oracle UTL_MAIL option
+
+You can remove Oracle UTL_MAIL from a DB instance.
+
+To remove UTL_MAIL from a DB instance, do one of the following:
+
+- To remove UTL_MAIL from multiple DB instances,
+  remove the UTL_MAIL option from the option group they belong to.
+  This change affects all DB instances that use the option group.
+  For more information, see [Removing an option from an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption").
+- To remove UTL_MAIL from a single DB instance,
+  modify the DB instance
+  and specify a different option group
+  that doesn't include the UTL_MAIL option.
+  You can specify the default (empty) option group, or a
+  different custom option group.
+  For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+
+## Troubleshooting
+
+The following are issues you might encounter when you use UTL_MAIL with Amazon RDS.
+
+- Throttling.
+  SMTP port (25) is throttled based on the elastic network interface owner's policies.
+  If you can successfully send email by using UTL_MAIL,
+  and you see the error `ORA-29278: SMTP transient error: 421 Service not available`,
+  you are possibly being throttled.
+  If you experience throttling with email delivery,
+  we recommend that you implement a backoff algorithm.
+  For more information about backoff algorithms, see
+  [Error retries and exponential backoff in AWS](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md")
+  and
+  [How to handle a "throttling – Maximum sending rate exceeded" error](https://aws.amazon.com/blogs/ses/how-to-handle-a-throttling-maximum-sending-rate-exceeded-error/ "https://aws.amazon.com/blogs/ses/how-to-handle-a-throttling-maximum-sending-rate-exceeded-error/").
+
+You can request that this throttle be removed. For more information, see
+[How do I remove the throttle on port 25 from my EC2 instance?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/").

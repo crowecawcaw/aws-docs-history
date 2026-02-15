@@ -51,6 +51,8 @@ classes, see [DB instance classes](Concepts.md "Concepts.md").
 
 You can also specify other options.
 
+###### Example
+
 For Linux, macOS, or Unix:
 
 ```

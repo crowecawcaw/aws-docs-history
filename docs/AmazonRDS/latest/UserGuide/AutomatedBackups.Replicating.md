@@ -1,176 +1,92 @@
-# Finding information about replicated backups for Amazon RDS
+# Enabling cross-Region automated backups for Amazon RDS
 
-You can use the following CLI commands to find information about replicated backups:
+You can enable backup replication on new or existing DB instances using the Amazon RDS
+console. You can also use the `start-db-instance-automated-backups-replication` AWS CLI command or the
+`StartDBInstanceAutomatedBackupsReplication` RDS API operation. You can replicate up to 20 backups to each
+destination AWS Region for each AWS account.
 
-- [`describe-source-regions`](../../../cli/latest/reference/rds/describe-source-regions.md "../../../cli/latest/reference/rds/describe-source-regions.md")
-- [`describe-db-instances`](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")
-- [`describe-db-instance-automated-backups`](../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md "../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md")
-  The following `describe-source-regions` example lists the source AWS Regions from which automated backups can be
-  replicated to the US West (Oregon) destination Region.
+###### Note
 
-###### To show information about source Regions
+To be able to replicate automated backups, make sure to enable them. For more
+information, see [Enabling automated
+backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
 
-- Run the following command.
+You can enable backup replication for a new or existing DB instance:
 
-```
-aws rds describe-source-regions --region us-west-2
-```
+- For a new DB instance, enable it when you launch the instance. For more information, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+- For an existing DB instance, use the following procedure.
 
-The output shows that backups can be replicated from US East (N. Virginia), but not from US East (Ohio) or
-US West (N. California), into US West (Oregon).
+###### To enable backup replication for an existing DB instance
 
-```
-{
-    "SourceRegions": [
-        ...
-        {
-            "RegionName": "us-east-1",
-            "Endpoint": "https://rds.us-east-1.amazonaws.com",
-            "Status": "available",
-            "SupportsDBInstanceAutomatedBackupsReplication": true
-        },
-        {
-            "RegionName": "us-east-2",
-            "Endpoint": "https://rds.us-east-2.amazonaws.com",
-            "Status": "available",
-            "SupportsDBInstanceAutomatedBackupsReplication": false
-        },
-            "RegionName": "us-west-1",
-            "Endpoint": "https://rds.us-west-1.amazonaws.com",
-            "Status": "available",
-            "SupportsDBInstanceAutomatedBackupsReplication": false
-        }
-    ]
-}
-```
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Automated backups**.
+3. On the **Current Region** tab, choose the DB instance for which you want to enable backup
+   replication.
+4. For **Actions**, choose **Manage cross-Region replication**.
+5. Under **Backup replication**, choose **Enable replication to another AWS Region**.
+6. Choose the **Destination Region**.
+7. Choose the **Replicated backup retention period**.
+8. If you've enabled encryption on the source DB instance, choose the **AWS KMS key**
+   for encrypting the backups or enter a key ARN.
+9. Choose **Save**.
+   In the source Region, replicated backups are listed on the **Current Region** tab of the
+   **Automated backups** page. In the destination Region, replicated backups are listed on the
+   **Replicated backups** tab of the **Automated backups** page.
 
-The following `describe-db-instances` example shows the automated backups for a DB instance.
+Enable backup replication by using the [`start-db-instance-automated-backups-replication`](../../../cli/latest/reference/rds/start-db-instance-automated-backups-replication.md "../../../cli/latest/reference/rds/start-db-instance-automated-backups-replication.md") AWS CLI
+command.
 
-###### To show the replicated backups for a DB instance
+The following CLI example replicates automated backups from a DB instance in the US West (Oregon) Region to the US East (N. Virginia) Region.
+It also encrypts the replicated backups, using an AWS KMS key in the destination Region.
+
+###### To enable backup replication
 
 - Run one of the following commands.
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds describe-db-instances \
---db-instance-identifier `mydatabase`
+aws rds start-db-instance-automated-backups-replication \
+--region us-east-1 \
+--source-db-instance-arn "arn:aws:rds:us-west-2:`123456789012`:db:`mydatabase`" \
+--kms-key-id "arn:aws:kms:us-east-1:`123456789012`:key/`AKIAIOSFODNN7EXAMPLE`" \
+--backup-retention-period `7`
 ```
 
 For Windows:
 
 ```
-aws rds describe-db-instances ^
---db-instance-identifier `mydatabase`
+aws rds start-db-instance-automated-backups-replication ^
+--region us-east-1 ^
+--source-db-instance-arn "arn:aws:rds:us-west-2:`123456789012`:db:`mydatabase`" ^
+--kms-key-id "arn:aws:kms:us-east-1:`123456789012`:key/`AKIAIOSFODNN7EXAMPLE`" ^
+--backup-retention-period `7`
 ```
 
-The output includes the replicated backups.
+The `--source-region` option is required when you encrypt
+backups between the AWS GovCloud (US-East) and AWS GovCloud (US-West)
+Regions. For `--source-region`, specify the
+AWS Region of the source DB instance.
 
-```
-{
-    "DBInstances": [
-        {
-            "StorageEncrypted": false,
-            "Endpoint": {
-                "HostedZoneId": "Z1PVIF0B656C1W",
-                "Port": 1521,
-            ...
+If `--source-region` isn't specified, make sure to
+specify a `--pre-signed-url` value. A _presigned URL_ is a URL that contains a Signature Version
+4 signed request for the
+`start-db-instance-automated-backups-replication` command
+that is called in the source AWS Region. To learn more about the
+`pre-signed-url` option, see [start-db-instance-automated-backups-replication](../../../cli/latest/reference/rds/start-db-instance-automated-backups-replication.md "../../../cli/latest/reference/rds/start-db-instance-automated-backups-replication.md") in the _AWS CLI Command Reference_.
+Enable backup replication by using the [`StartDBInstanceAutomatedBackupsReplication`](../APIReference/API_StartDBInstanceAutomatedBackupsReplication.md "../APIReference/API_StartDBInstanceAutomatedBackupsReplication.md") RDS API
+operation with the following parameters:
 
-            "BackupRetentionPeriod": 7,
-            "DBInstanceAutomatedBackupsReplications": [{"DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE"}]
-        }
-    ]
-}
-```
+- `Region` (if you aren't calling the API operation from the destination Region)
+- `SourceDBInstanceArn`
+- `BackupRetentionPeriod`
+- `KmsKeyId` (optional)
+- `PreSignedUrl` (required if you use `KmsKeyId`)
 
-The following `describe-db-instance-automated-backups` example shows the automated backups for a DB
-instance.
+###### Note
 
-###### To show automated backups for a DB instance
-
-- Run one of the following commands.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds describe-db-instance-automated-backups \
---db-instance-identifier `mydatabase`
-```
-
-For Windows:
-
-```
-aws rds describe-db-instance-automated-backups ^
---db-instance-identifier `mydatabase`
-```
-
-The output shows the source DB instance and automated backups in US West (Oregon), with backups replicated to
-US East (N. Virginia).
-
-```
-{
-    "DBInstanceAutomatedBackups": [
-        {
-            "DBInstanceArn": "arn:aws:rds:us-west-2:868710585169:db:mydatabase",
-            "DbiResourceId": "db-L2IJCEXJP7XQ7HOJ4SIEXAMPLE",
-            "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE",
-            "BackupRetentionPeriod": 7,
-            "DBInstanceAutomatedBackupsReplications": [{"DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE"}]
-            "Region": "us-west-2",
-            "DBInstanceIdentifier": "mydatabase",
-            "RestoreWindow": {
-                "EarliestTime": "2020-10-26T01:09:07Z",
-                "LatestTime": "2020-10-31T19:09:53Z",
-            }
-            ...
-        }
-    ]
-}
-```
-
-The following `describe-db-instance-automated-backups` example uses the
-`--db-instance-automated-backups-arn` option to show the replicated backups in the destination Region.
-
-###### To show replicated backups
-
-- Run one of the following commands.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds describe-db-instance-automated-backups \
---db-instance-automated-backups-arn "arn:aws:rds:us-east-1:`123456789012`:auto-backup:`ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE`"
-```
-
-For Windows:
-
-```
-aws rds describe-db-instance-automated-backups ^
---db-instance-automated-backups-arn "arn:aws:rds:us-east-1:`123456789012`:auto-backup:`ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE`"
-```
-
-The output shows the source DB instance in US West (Oregon), with replicated backups in US East (N. Virginia).
-
-```
-{
-    "DBInstanceAutomatedBackups": [
-        {
-            "DBInstanceArn": "arn:aws:rds:us-west-2:868710585169:db:mydatabase",
-            "DbiResourceId": "db-L2IJCEXJP7XQ7HOJ4SIEXAMPLE",
-            "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE",
-            "Region": "us-west-2",
-            "DBInstanceIdentifier": "mydatabase",
-            "RestoreWindow": {
-                "EarliestTime": "2020-10-26T01:09:07Z",
-                "LatestTime": "2020-10-31T19:01:23Z"
-            },
-            "AllocatedStorage": 50,
-            "BackupRetentionPeriod": 7,
-            "Status": "replicating",
-            "Port": 1521,
-            ...
-        }
-    ]
-}
-
-```
+If you encrypt the backups, you must also include a presigned URL. For more information on presigned URLs, see
+[Authenticating Requests: Using Query Parameters (AWS
+Signature Version 4)](../../../AmazonS3/latest/API/sigv4-query-string-auth.md "../../../AmazonS3/latest/API/sigv4-query-string-auth.md") in the _Amazon Simple Storage Service API Reference_ and [Signature Version 4 signing process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the _AWS
+General Reference_.
