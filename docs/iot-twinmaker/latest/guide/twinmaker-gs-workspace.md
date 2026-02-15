@@ -47,8 +47,8 @@ JSON
  "s3:GetObject"
  ],
  "Resource": [
- "arn:aws:s3:::iottwinmaker-workspace-`workspace-name-lower-case`-`account-id`",
- "arn:aws:s3:::iottwinmaker-workspace-`workspace-name-lower-case`-`account-id`/*"
+ "arn:aws:s3:::iottwinmaker-workspace-`workspace-name-lower-case`-`123456789012`",
+ "arn:aws:s3:::iottwinmaker-workspace-`workspace-name-lower-case`-`123456789012`/*"
  ]
  },
  {
