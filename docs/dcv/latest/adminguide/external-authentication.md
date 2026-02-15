@@ -56,6 +56,8 @@ Windows Amazon DCV server
    - For **Value data**, enter the URL of the external authentication server and the port over which to communicate, in the following
      format: ``url`:`port``.
 
+   ###### Example
+
    For example, if you're using the DcvSimpleExternalAuthenticator, specify the following:
    ``http://127.0.0.1`:`8444``.
    - If there is no **auth-token-verifier** parameter in the security section,
@@ -179,11 +181,15 @@ package. For more information, see [Install the Amazon DCV Server](setting-up-in
 
 `sudo mkdir -p /var/run/dcvsimpleextauth` 2. Generate your authentication token.
 
+###### Example
+
 In this example, `123456` is the sample authenticator token, `session-123` is the sample session ID, and `username` is the user.
 
 `echo "123456" | sudo dcvsimpleextauth add-user --session session-123 --auth-dir /var/run/dcvsimpleextauth/ --user username --append` 3. Start up your server.
 
 `sudo dcvsimpleextauth --port 8444 --auth-dir /var/run/dcvsimpleextauth/ start-server` 4. Once the server is running, test the configuration for validation.
+
+###### Example
 
 Once again, using this example, the test would run like this:
 

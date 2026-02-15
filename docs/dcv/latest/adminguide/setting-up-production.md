@@ -121,6 +121,8 @@ Make note of the host ID. You need it for the next step.
 
 The command returns the RLM server's host ID for each network interface as follows. 3. Record the host ID. You need it for the next step.
 
+###### Example
+
 This procedure was run and the following single ID was returned:
 
 ```
@@ -146,6 +148,8 @@ ip link show $iface | grep link/ether | tr -s " " | cut -d" " -f3 | tr -d ":"
 ```
 
 The command should return the RLM server's host ID for the Gateway network interface. 4. Record the host ID. You need it for the next step.
+
+###### Example
 
 The procedure was run and multiple IDs were returned in a list of multiple ID’s:
 

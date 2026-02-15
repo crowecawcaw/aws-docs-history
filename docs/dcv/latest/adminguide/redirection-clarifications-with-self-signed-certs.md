@@ -19,12 +19,16 @@ Possible solutions in this case:
 - Have a valid certificate for the DCV Server machine if the business is using a custom domain for its machine.
   For the certificate, they could distribute an enterprise certificate to DCV.
 
+###### Example
+
 User ---[valid certificate]---> DCV Server instance
 
 - Secure the DCV Servers fleet under a proxy/gateway. In only this case, the proxy/gateway needs to have a
   valid certificate and the DCV Server instance can keep its self-signed certificate. For this option, they can use the
   [DCV Connection Gateway](../gw-admin/what-is-gw.md "../gw-admin/what-is-gw.md"), an ALB/NLB,
   or another proxy solution.
+
+###### Example
 
 User/Cx ---[here we need a valid certificate]---> Proxy/Gateway---[self-signed certificate]---> DCV Server instance
 
