@@ -20,11 +20,15 @@ video outputs in MediaLive
 AV1 codec
 
 The AV1 codec encoding schemes for output video include profile, bit depth, chroma
-sampling, tier, and level. In the following table, each row is a different scheme.
+sampling, tier, and level. You can configure the bit depth by setting the
+**Bit Depth** field to **DEPTH_8** (8-bit) or
+**DEPTH_10** (10-bit). If you don't specify a value, the
+default is 8-bit.
 
-| Profile | Bit Depth          | Chroma Sampling | Tier | Level                                         |
-| ------- | ------------------ | --------------- | ---- | --------------------------------------------- |
-| Main    | Follows the source | 4:2:0           | Main | All levels indicated in the AV1 specification |
+| Profile | Bit Depth | Chroma Sampling | Tier | Level                                         |
+| ------- | --------- | --------------- | ---- | --------------------------------------------- |
+| Main    | 8-bit     | 4:2:0           | Main | All levels indicated in the AV1 specification |
+| 10-bit  |
 
 ## Encoding schemes for the
 

@@ -83,13 +83,19 @@ sampling, and bit depth.
 | **Main**               | Main    | 4:2:0           | 8-bit     |
 | **Main_10BIT**         | Main    | 4:2:0           | 10-bit    |
 
-### Level field for
+### Bit depth and level
 
-AV1
+fields for AV1
+
+The **Bit Depth** field sets the bit depth for the
+AV1 output encode. Choose **DEPTH_8** for 8-bit output
+or **DEPTH_10** for 10-bit output. If you don't
+specify a value, the default is 8-bit.
 
 The **Level** field sets the level. Other encoding
-schemes are hard-coded. For more information, see Level field for
-AV1.
+schemes (profile, chroma sampling, and tier) are hard-coded. For more
+information, see [Encoding schemes for the
+AV1 codec](video-characteristics-encoding-schemes.md#video-characteristics-encoding-schema-av1 "video-characteristics-encoding-schemes.md#video-characteristics-encoding-schema-av1").
 
 ## Timecode
 
