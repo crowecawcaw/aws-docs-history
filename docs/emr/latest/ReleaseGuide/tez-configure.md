@@ -9,9 +9,7 @@ are shown below.
 
 ## Example configuration
 
-###### Example: Customizing the Tez root logging level and setting Tez as the
-
-execution engine for Hive and Pig
+###### Example: Customizing the Tez root logging level and setting Tez as the execution engine for Hive and Pig
 
 The example `create-cluster` command shown below creates a cluster
 with Tez, Hive, and Pig installed. The command references a file stored in Amazon S3,

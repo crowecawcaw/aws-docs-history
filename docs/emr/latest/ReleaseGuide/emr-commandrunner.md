@@ -37,7 +37,7 @@ command
 The following AWS CLI examples illustrate some common use cases of
 `command-runner.jar` and `script-runner.jar` on Amazon EMR.
 
-###### Example : Running a command on a cluster using `command-runner.jar`
+###### Example: Running a command on a cluster using `command-runner.jar`
 
 When you use `command-runner.jar`, you specify commands, options, and
 values in your step's list of arguments.
@@ -60,7 +60,7 @@ aws emr add-steps \
 --steps Type=CUSTOM_JAR,Name="Download a script from S3 change its permissions and run it",ActionOnFailure=CONTINUE,Jar=command-runner.jar,Args=[bash,-c,"aws s3 cp `s3://amzn-s3-demo-bucket/my-script.sh` /home/hadoop; chmod u+x /home/hadoop/my-script.sh; cd /home/hadoop; ./my-script.sh"]
 ```
 
-###### Example : Running a script on a cluster using `script-runner.jar`
+###### Example: Running a script on a cluster using `script-runner.jar`
 
 When you use `script-runner.jar`, you specify the script that you want
 to run in your step's list of arguments.

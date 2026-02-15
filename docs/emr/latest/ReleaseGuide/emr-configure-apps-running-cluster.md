@@ -213,7 +213,7 @@ In the following examples, replace
 replace `<ig-1xxxxxxx9>` with your instance group
 ID.
 
-###### Example – Replace a configuration for an instance group
+###### Example– Replace a configuration for an instance group
 
 The following example references a configuration JSON file called
 `instanceGroups.json` to edit the property of the YARN
@@ -250,7 +250,7 @@ aws emr modify-instance-groups --cluster-id `<j-2AL4XXXXXX5T9>` \
 --instance-groups file://instanceGroups.json
 ```
 
-###### Example – Add a configuration to an instance group
+###### Example– Add a configuration to an instance group
 
 If you want to add a configuration to an instance group, you must include all
 previously specified configurations for that instance group in your new
@@ -296,7 +296,7 @@ aws emr modify-instance-groups --cluster-id `<j-2AL4XXXXXX5T9>` \
 
 ```
 
-###### Example – Add a configuration to an instance group with **Merge** type reconfiguration
+###### Example– Add a configuration to an instance group with **Merge** type reconfiguration
 
 When you want to use the default **Overwrite**
 reconfiguration method to add a configuration, you must include all previously
@@ -341,7 +341,7 @@ aws emr modify-instance-groups --cluster-id `<j-2AL4XXXXXX5T9>` \
 
 ```
 
-###### Example – Delete a configuration for an instance group
+###### Example– Delete a configuration for an instance group
 
 To delete a configuration for an instance group, submit a new reconfiguration
 request that excludes the previous configuration.
@@ -390,7 +390,7 @@ example,
 ]
 ```
 
-###### Example – Reconfigure and resize an instance group in one request
+###### Example– Reconfigure and resize an instance group in one request
 
 The following example JSON demonstrates how to reconfigure and resize an
 instance group in the same request.

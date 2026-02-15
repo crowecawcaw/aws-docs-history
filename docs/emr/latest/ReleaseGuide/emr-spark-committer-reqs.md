@@ -99,7 +99,7 @@ The following Scala examples demonstrate some additional situations that
 prevent the EMRFS S3-optimized committer from being used in whole (the first
 example) and in part (the second example).
 
-###### Example – Dynamic partition overwrite mode
+###### Example– Dynamic partition overwrite mode
 
 The following Scala example instructs Spark to use a different commit
 algorithm, which prevents use of the EMRFS S3-optimized committer
@@ -149,7 +149,7 @@ The algorithm in Spark 2.4.0 follows these steps:
 5. The staging directory is deleted before the job commit phase
    completes.
 
-###### Example – Custom partition location
+###### Example– Custom partition location
 
 In this example, the Scala code inserts into two partitions. One
 partition has a custom partition location. The other partition uses the

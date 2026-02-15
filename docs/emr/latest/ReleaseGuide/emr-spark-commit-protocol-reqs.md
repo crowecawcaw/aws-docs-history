@@ -68,7 +68,7 @@ SQL` command.
     must be set to `true`. There are the default
     settings.
 
-###### Example – Dynamic partition overwrite mode
+###### Example– Dynamic partition overwrite mode
 
 In this Scala example, optimization is triggered. First, you set the
 `partitionOverwriteMode` property to `dynamic`.
@@ -106,7 +106,7 @@ The following Scala examples demonstrate some additional situations that
 the EMRFS S3-optimized commit protocol delegates to
 `SQLHadoopMapReduceCommitProtocol`.
 
-###### Example – Dynamic partition overwrite mode with custom partition
+###### Example– Dynamic partition overwrite mode with custom partition
 
 location
 

@@ -9,7 +9,7 @@ with the most recent release version, see [5.36.2 configuration classifications]
 you are using a different version of Amazon EMR, see [Amazon EMR 5.x release versions](emr-release-5x.md "emr-release-5x.md") for the configuration classifications. For more
 information about the properties that can be configured with each connector, see [https://prestodb.io/docs/current/connector.html](https://prestodb.io/docs/current/connector.html "https://prestodb.io/docs/current/connector.html").
 
-###### Example —configuring a cluster with the PostgreSQL JDBC connector
+###### Example—configuring a cluster with the PostgreSQL JDBC connector
 
 To launch a cluster with the PostgreSQL connector installed and configured, first
 create a JSON file that specifies the configuration classification—for
