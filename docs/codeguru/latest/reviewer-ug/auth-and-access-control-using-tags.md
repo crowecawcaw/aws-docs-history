@@ -31,9 +31,7 @@ following CodeGuru Reviewer API operations:
 - `ListRecommendations`
 - `DescribeCodeReview`
 
-###### Example 1: Limit CodeGuru Reviewer associated repository actions based on request
-
-tags
+###### Example 1: Limit CodeGuru Reviewer associated repository actions based on request tags
 
 The following policy denies users permission to the
 `DisassociateRepositoryAssociation` action if the request contains a
@@ -47,9 +45,7 @@ addition to the managed user policy to users who are not authorized to perform t
 actions. The `aws:RequestTag` condition key is used to control which tags
 can be passed in an IAM request
 
-###### Example 2: Deny or allow actions on code reviews based on their associated
-
-repository's resource tags
+###### Example 2: Deny or allow actions on code reviews based on their associated repository's resource tags
 
 You can create a policy that allows or denies actions on CodeGuru Reviewer code reviews by
 using the CodeGuru Reviewer tags that are added to their associated repositories. An associated
@@ -61,9 +57,7 @@ associated repository. The following policy denies a user with AWS account ID
 created by code reviews in all associated repositories that have a
 `Recommendation` tag with a value of `Secret`.
 
-###### Example 3: Limit all possible CodeGuru Reviewer
-
-actions to associated repositories based on resource tags
+###### Example 3: Limit all possible CodeGuru Reviewer actions to associated repositories based on resource tags
 
 You can create policies that selectively allow CodeGuru Reviewer actions on all associated
 repositories that are not tagged with specific tags. For example, the following
