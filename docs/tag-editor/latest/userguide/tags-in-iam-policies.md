@@ -56,9 +56,7 @@ the **Condition key name** column.
 
 ## Example IAM policies that use tags
 
-###### Example 1: Force users to attach a specific tag when they create a
-
-resource
+###### Example 1: Force users to attach a specific tag when they create a resource
 
 The following example IAM permissions policy shows how to force the user who
 creates or modifies an IAM policy's tags to include a tag with the key
