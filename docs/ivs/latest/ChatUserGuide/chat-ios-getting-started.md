@@ -1,7 +1,7 @@
 # Getting Started with the IVS Chat Client Messaging iOS SDK
 
 We recommend that you integrate the SDK via [Swift Package Manager](#chat-ios-install-sdk-swiftpm "#chat-ios-install-sdk-swiftpm"). Alternatively,
-you can use [CocoaPods](#chat-ios-install-sdk-cocoapods "#chat-ios-install-sdk-cocoapods") or [integrate the framework
+you can [integrate the framework
 manually](#chat-ios-install-sdk-manual "#chat-ios-install-sdk-manual").
 
 After integrating the SDK, you can import the SDK by adding the following code at the
@@ -51,18 +51,6 @@ let package = Package(
    ]
 )
 ```
-
-## CocoaPods
-
-Releases are published via CocoaPods under the name
-`AmazonIVSChatMessaging`. Add this dependency to your Podfile:
-
-```
-pod 'AmazonIVSChat'
-```
-
-Run `pod install` and the SDK will be available in your
-`.xcworkspace`.
 
 ## Manual Installation
 
