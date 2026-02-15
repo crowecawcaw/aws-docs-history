@@ -159,6 +159,8 @@ on-premises client
 
 1. Make a directory for the mount point with the following command.
 
+###### Example
+
 ```
 mkdir ~/efs
 ```
@@ -357,6 +359,8 @@ When you have that information, you can mount your file system in three steps:
 
 1. Make a directory for the mount point with the following command.
 
+###### Example
+
 ```
 mkdir ~/efs
 ```
@@ -375,6 +379,8 @@ mkdir ~/efs
 `mount-target-IP-Address` `file-system-ID`.efs.`region`.amazonaws.com
 ```
 
+###### Example
+
 ```
 192.0.2.0 fs-12345678.efs.us-west-2.amazonaws.com
 ```
@@ -383,11 +389,15 @@ mkdir ~/efs
 
 1. Make a directory for the mount point with the following command.
 
+###### Example
+
 ```
 mkdir ~/efs
 ```
 
 2. Run the mount command to mount the file system.
+
+###### Example
 
 ```
 sudo mount -t efs fs-12345678 ~/efs
@@ -395,6 +405,8 @@ sudo mount -t efs fs-12345678 ~/efs
 
 If you want to use encryption of data in transit, your mount command looks something
 like the following.
+
+###### Example
 
 ```
 sudo mount -t efs -o tls fs-12345678 ~/efs

@@ -67,7 +67,7 @@ If the status of the replication configuration is `PAUSED` or
 `ERROR`, information about the cause of the issue and how to fix it is returned in
 the `StatusMessage` parameter.
 
-###### Example : View the replication configuration for a specific file system
+###### Example: View the replication configuration for a specific file system
 
 The following example describes the replication configuration for the file system
 `fs-0123456789abcdef1`.
@@ -100,7 +100,7 @@ The AWS CLI responds as follows.
 
 ```
 
-###### Example : View the replication configuration for all the replication configurations in an
+###### Example: View the replication configuration for all the replication configurations in an
 
 account
 

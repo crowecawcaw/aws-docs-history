@@ -150,7 +150,7 @@ This section provides examples for creating a replication configuration in the A
 using the `create-replication-configuration` command. The equivalent API command is
 [CreateReplicationConfiguration](API_CreateReplicationConfiguration.md "API_CreateReplicationConfiguration.md").
 
-###### Example : Create a replication configuration to an existing destination file system in another
+###### Example: Create a replication configuration to an existing destination file system in another
 
 Region
 
@@ -186,7 +186,7 @@ The AWS CLI responds as follows:
 }`
 ```
 
-###### Example : Create a cross-account replication configuration
+###### Example: Create a cross-account replication configuration
 
 The following example creates a replication configuration where the source and
 destination file systems are in different AWS accounts. The source file system ID

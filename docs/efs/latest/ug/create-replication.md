@@ -116,7 +116,7 @@ This section provides examples for creating a replication configuration in the A
 using the `create-replication-configuration` command. The equivalent API command is
 [CreateReplicationConfiguration](API_CreateReplicationConfiguration.md "API_CreateReplicationConfiguration.md").
 
-###### Example : Create a replication configuration for a Regional destination file
+###### Example: Create a replication configuration for a Regional destination file
 
 system
 
@@ -154,7 +154,7 @@ The AWS CLI responds as follows:
 
 ```
 
-###### Example : Create a replication configuration for a One Zone destination file
+###### Example: Create a replication configuration for a One Zone destination file
 
 system
 
