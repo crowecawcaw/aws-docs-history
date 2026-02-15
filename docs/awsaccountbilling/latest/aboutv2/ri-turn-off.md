@@ -43,6 +43,8 @@ Group sharing uses AWS Cost Categories to define account groups:
 - Each account can only belong to one sharing group
 - Payer account cannot be part of a sharing group
 - Cost Categories must be configured through the AWS Billing Console
+- Only the **Accounts** dimension can be used when creating or editing sharing groups
+- The Cost Category **Uncategorized costs** default value must not overlap with any sharing group name
 - Existing Cost Categories can be reused if it meets the Reserved Instances and Savings Plan group sharing requirements or new ones created specifically for group sharing
 
 ###### Note

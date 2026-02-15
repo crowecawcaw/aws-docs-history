@@ -18,8 +18,7 @@ using electronic fund transfer. AWS Inc. customers can add funds using any perso
 
 ###### Notes
 
-- You can use Advance Pay if your seller of record (SOR) is AWS Inc. or AWS Europe and you’re
-  paying in USD. If you don’t see the **Advance Pay**
+- You can use Advance Pay if your seller of record (SOR) is AWS Inc. (USD only) or AWS Europe (USD, EUR, or GBP). If you don’t see the **Advance Pay**
   tab, this can be for the following reasons:
   - You have a different SOR for your AWS account. To find your SOR, go
     to the **Payment preferences** page and

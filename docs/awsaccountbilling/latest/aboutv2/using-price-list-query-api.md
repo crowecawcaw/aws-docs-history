@@ -199,9 +199,7 @@ aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters T
 }
 ```
 
-###### Example: Use the `filters.json` file to specify
-
-filters
+###### Example: Use the filters.json file to specify filters
 
 The following command shows how you can specify a JSON file that contains
 all filters.

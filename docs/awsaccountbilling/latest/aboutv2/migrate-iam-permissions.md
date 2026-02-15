@@ -338,7 +338,7 @@ This file contains the following sections:
 When you update the policies, this block is appended at the end of the
 policies.
 
-###### Example `affected_policies_and_suggestions.json` file
+###### Example affected_policies_and_suggestions.json file
 
 This file groups together policies that are similar based on the following
 criteria:
@@ -359,7 +359,7 @@ criteria:
 
 For more information, see [IAM policy examples](#examples-of-similar-policies "#examples-of-similar-policies").
 
-###### Example `affected_policies_and_suggestions.json`
+###### Example affected_policies_and_suggestions.json
 
 ```
 [{
@@ -469,7 +469,7 @@ You can search the file for the policy name (for example,
 `YourCustomerManagedReadOnlyAccessBillingUser`)
 and then review the affected policy definitions.
 
-###### Example: `detailed_affected_policies.json`
+###### Example: detailed_affected_policies.json
 
 ## Step 4: Review the suggested changes
 
@@ -566,7 +566,7 @@ old actions, the script adds multiple `Sid` blocks that appear as
   `BillingConsolePolicyMigrator`#``
 `Sid` blocks in case you need to revert your changes.
 
-###### Example: Policy with appended `Sid` blocks
+###### Example: Policy with appended Sid blocks
 
 See the appended `Sid` blocks in the
 `BillingConsolePolicyMigrator1` and `BillingConsolePolicyMigrator2`
