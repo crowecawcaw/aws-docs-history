@@ -77,7 +77,7 @@ the Lambda function. When you create a Lambda integration by using the AWS CLI, 
 permissions for API Gateway to invoke the function. The following [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") commands grant permission for different HTTP API routes to invoke a Lambda
 function.
 
-###### Example – For the `$default` stage and `$default` route of an HTTP API
+###### Example – For the $default stage and $default route of an HTTP API
 
 ```
 aws lambda add-permission \
@@ -88,7 +88,7 @@ aws lambda add-permission \
     --source-arn "arn:aws:execute-api:`us-west-2`:`123456789012`:`api-id`/`\$default`/`\$default`"
 ```
 
-###### Example – For the `prod` stage and `test` route of an HTTP API
+###### Example – For the prod stage and test route of an HTTP API
 
 ```
 aws lambda add-permission \

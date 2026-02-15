@@ -153,6 +153,8 @@ context properties to Lambda integrations or access logs by using
  optional and`claims` is a reserved placeholder and cannot be used as the context object. To learn
 more, see [Customize HTTP API access logs](http-api-logging-variables.md "http-api-logging-variables.md").
 
+###### Example
+
 JSON
 
 ```

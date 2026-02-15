@@ -76,6 +76,8 @@ function. To learn more, see [AWS Lambda
 Permissions](../../../lambda/latest/dg/lambda-permissions.md "../../../lambda/latest/dg/lambda-permissions.md") in the _AWS Lambda Developer
 Guide_.
 
+###### Example
+
 ```
 aws apigatewayv2 create-api --name `my-api` --protocol-type HTTP --target arn:aws:lambda:`us-east-2`:`123456789012`:function:`function-name`
 ```

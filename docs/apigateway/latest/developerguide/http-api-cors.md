@@ -59,6 +59,8 @@ AWS CLI
 The following [update-api](../../../cli/latest/reference/apigatewayv2/update-api.md "../../../cli/latest/reference/apigatewayv2/update-api.md") command enables CORS requests from
 `https://www.example.com`:
 
+###### Example
+
 ```
 aws apigatewayv2 update-api --api-id `api-id` --cors-configuration AllowOrigins="https://www.example.com"
 ```

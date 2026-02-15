@@ -205,6 +205,8 @@ return.
 With the `1.0` format version, Lambda integrations must return a response in the following
 JSON format:
 
+###### Example
+
 ```
 {
     "isBase64Encoded": true|false,

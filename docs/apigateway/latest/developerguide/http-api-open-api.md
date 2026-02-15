@@ -119,9 +119,13 @@ requirements results in an error.
 The following
 [import-api](../../../cli/latest/reference/apigatewayv2/import-api.md "../../../cli/latest/reference/apigatewayv2/import-api.md") command imports the OpenAPI 3.0 definition file `api-definition.json` as an HTTP API:
 
+###### Example
+
 ```
 aws apigatewayv2 import-api --body file://api-definition.json
 ```
+
+###### Example
 
 You can import the following example OpenAPI 3.0 definition to create an HTTP API.
 

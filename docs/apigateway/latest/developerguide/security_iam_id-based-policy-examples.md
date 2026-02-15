@@ -131,7 +131,7 @@ JSON
  "apigateway:GET"
  ],
  "Resource": [
- "arn:aws:apigateway:::/apis/a123456789/*"
+ "arn:aws:apigateway:`us-east-1`::/apis/a123456789/*"
  ]
  }
  ]

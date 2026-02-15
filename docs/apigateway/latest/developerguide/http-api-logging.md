@@ -17,6 +17,8 @@ To turn on logging for an HTTP API, you must do the following.
 
 To turn on logging for an API, your user must have the following permissions.
 
+###### Example
+
 JSON
 
 ```

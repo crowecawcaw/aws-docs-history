@@ -43,7 +43,7 @@ JSON
  "execute-api:`Execution-operation`"
  ],
  "Resource": [
- "arn:aws:execute-api:`region`:`account-id`:`api-id`/`stage`/`METHOD_HTTP_VERB`/`Resource-path`"
+ "arn:aws:execute-api:`region`:`123456789012`:`api-id`/`stage`/`METHOD_HTTP_VERB`/`Resource-path`"
  ]
  }
  ]
