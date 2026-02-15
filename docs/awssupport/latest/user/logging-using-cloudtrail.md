@@ -87,7 +87,7 @@ request from any source. It includes information about the requested operation, 
 time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack
 trace of the public API calls, so they don't appear in any specific order.
 
-###### Example : Log entry for CreateCase
+###### Example: Log entry for CreateCase
 
 The following example shows a CloudTrail log entry for the [CreateCase](../APIReference/API_CreateCase.md "../APIReference/API_CreateCase.md") operation.
 
@@ -137,7 +137,7 @@ The following example shows a CloudTrail log entry for the [CreateCase](../APIRe
 }
 ```
 
-###### Example : Log entry for RefreshTrustedAdvisorCheck
+###### Example: Log entry for RefreshTrustedAdvisorCheck
 
 The following example shows a CloudTrail log entry for the [RefreshTrustedAdvisorCheck](../APIReference/API_RefreshTrustedAdvisorCheck.md "../APIReference/API_RefreshTrustedAdvisorCheck.md")
 operation.

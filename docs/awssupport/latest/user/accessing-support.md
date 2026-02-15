@@ -15,6 +15,8 @@ You can use one of the following options to access Support Center:
 If you can't sign in to Support Center, you can use the [Contact Us](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") page instead. You can use this page to get help
 with billing and account issues.
 
+For information about the Support Center Console API operations and how to add them to your IAM policies, see [Adding IAM policies for the Support Center Console API operations](support-console-access-control.md "support-console-access-control.md").
+
 ## AWS account (not recommended)
 
 You can sign in to the AWS Management Console and access the Support Center by using your AWS account
@@ -88,7 +90,7 @@ allows action-level permissions to control access to specific AWS Support operat
 AWS Support doesn't provide resource-level access, so the `Resource` element is
 always set to `*`. You can't allow or deny access to specific support cases.
 
-###### Example : Allow access to all Support actions
+###### Example: Allow access to all Support actions
 
 The AWS managed policy [AWSSupportAccess](https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::aws:policy/AWSSupportAccess "https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/arn:aws:iam::aws:policy/AWSSupportAccess") grants an IAM user access to Support. An
 IAM user with this policy can access all AWS Support operations and
@@ -114,7 +116,7 @@ For more information about how to attach the `AWSSupportAccess` policy
 to your entities, see [Adding IAM identity permissions (console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in the
 _IAM User Guide_.
 
-###### Example : Allow access to all actions except the ResolveCase action
+###### Example: Allow access to all actions except the ResolveCase action
 
 You can also create _customer managed policies_ in IAM to
 specify what actions to allow or deny. The following policy statement allows an

@@ -170,7 +170,7 @@ To add Support Plans as an exception, enter `"supportplans:*"` to the
 
 Your SCP might appear as the following policy snippet.
 
-###### Example : SCP that allows Support Plans access in an organization
+###### Example: SCP that allows Support Plans access in an organization
 
 ```
 { "Version": "2012-10-17",

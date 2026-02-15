@@ -179,7 +179,7 @@ To filter your results, use the following options:
    [dismiss](#dismiss-recommendation "#dismiss-recommendation") the
    recommendation.
 
-###### Example : Trusted Advisor Priority recommendations
+###### Example: Trusted Advisor Priority recommendations
 
 The following example shows 15 recommendations that are pending a response and
 27 recommendations that are in progress under the **Action
@@ -211,7 +211,7 @@ Recommendations in progress or pending a response appear in the
 **Active** tab on the Trusted Advisor Priority page. 8. Follow the recommended actions to resolve the recommendation. For more
 information, see [Resolve a recommendation](#resolving-recommendations "#resolving-recommendations").
 
-###### Example : Manual recommendation from Trusted Advisor Priority
+###### Example: Manual recommendation from Trusted Advisor Priority
 
 The following image shows the **Low Utilization EC2 Instances** recommendation that is pending a response.
 
@@ -244,7 +244,7 @@ In the **Details** section, you can review the following information about the r
     * In the **Affected accounts** section, you can review the affected resources across all your accounts. You can filter by **Account number** and **Status**.
     * In the **Affected resources** section, you can review the affected resources across all your accounts. You can filter by **Account number** and **Status**.
 
-###### Example : Manual recommendation from Trusted Advisor Priority
+###### Example: Manual recommendation from Trusted Advisor Priority
 
 The following image shows the **Low Utilization Amazon EC2 Instances** recommendation that's pending a response. One affected account has acknowledged the recommendation. Another account is pending a response, making the recommendation status **Pending response**.
 
@@ -305,7 +305,7 @@ the note.
 Trusted Advisor Priority also notifies your account team that you dismissed the
 recommendation.
 
-###### Example : Dismiss a recommendation from Trusted Advisor Priority
+###### Example: Dismiss a recommendation from Trusted Advisor Priority
 
 The following example shows how you can dismiss a recommendation.
 
@@ -350,7 +350,7 @@ Member accounts don't have access to aggregated recommendations.
    **Closed** tab on the Trusted Advisor Priority page. Trusted Advisor Priority
    notifies your account team that you resolved the recommendation.
 
-###### Example : Manual recommendation from Trusted Advisor Priority
+###### Example: Manual recommendation from Trusted Advisor Priority
 
 The following example shows a resolved **Low Utilization Amazon EC2 Instances** recommendation.
 
@@ -409,7 +409,7 @@ note** to find the reason for reopening. If your account team
 reopened the recommendation for you, their name appears next to the
 note. 6. Follow the steps in the recommendation details.
 
-###### Example : Reopen a recommendation from Trusted Advisor Priority
+###### Example: Reopen a recommendation from Trusted Advisor Priority
 
 The following example shows a recommendation that you want to reopen.
 

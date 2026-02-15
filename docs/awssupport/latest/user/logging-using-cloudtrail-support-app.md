@@ -60,7 +60,7 @@ request from any source and includes information about the requested action, the
 of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
 the public API calls. This means that the logs don't appear in any specific order.
 
-###### Example : Log example for `CreateSlackChannelConfiguration`
+###### Example: Log example for `CreateSlackChannelConfiguration`
 
 The following example shows a CloudTrail log entry for the [CreateSlackChannelConfiguration](../../../supportapp/latest/APIReference/API_CreateSlackChannelConfiguration.md "../../../supportapp/latest/APIReference/API_CreateSlackChannelConfiguration.md") operation.
 
@@ -115,7 +115,7 @@ The following example shows a CloudTrail log entry for the [CreateSlackChannelCo
 }
 ```
 
-###### Example : Log example for `ListSlackChannelConfigurations`
+###### Example: Log example for `ListSlackChannelConfigurations`
 
 The following example shows a CloudTrail log entry for the [ListSlackChannelConfigurations](../../../supportapp/latest/APIReference/API_ListSlackChannelConfigurations.md "../../../supportapp/latest/APIReference/API_ListSlackChannelConfigurations.md") operation.
 
@@ -161,7 +161,7 @@ The following example shows a CloudTrail log entry for the [ListSlackChannelConf
 }
 ```
 
-###### Example : Log example for `GetAccountAlias`
+###### Example: Log example for `GetAccountAlias`
 
 The following example shows a CloudTrail log entry for the [GetAccountAlias](../../../supportapp/latest/APIReference/API_GetAccountAlias.md "../../../supportapp/latest/APIReference/API_GetAccountAlias.md")
 operation.

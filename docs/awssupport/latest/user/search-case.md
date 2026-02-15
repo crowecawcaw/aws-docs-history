@@ -14,7 +14,7 @@ To filter your search results, you can use the following options:
 - Contact language
 - Date range
 
-###### Example : Search for cases in Slack
+###### Example: Search for cases in Slack
 
 The following example shows how to search by **Filter options** for a
 single account by specifying the date range, case status, and contact language.
@@ -71,7 +71,7 @@ After you receive your search results, you can do the following:
    **Previous 5 results** to view the next or previous 5
    cases.
 
-###### Example : Resolved support case
+###### Example: Resolved support case
 
 The following example shows a resolved support case for an account and billing
 issue after choosing **See details**.

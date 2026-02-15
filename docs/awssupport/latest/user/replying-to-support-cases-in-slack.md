@@ -31,6 +31,6 @@ reply, attach files, or share to the channel. 8. When you're ready to reply, cho
 **Previous correspondence**. To view shortened messages, choose
 **Show full message**.
 
-###### Example : Reply to a case in Slack
+###### Example: Reply to a case in Slack
 
 ![Details to review a support case in Slack.](images/supportapp/review-reply-support-case-in-slack.png)

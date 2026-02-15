@@ -29,7 +29,7 @@ To use SCPs, you must first do the following:
 
 The following examples show how you can control various aspects of resource sharing in an organization.
 
-###### Example : Prevent users from creating or editing engagements in Trusted Advisor Engage
+###### Example: Prevent users from creating or editing engagements in Trusted Advisor Engage
 
 The following SCP prevents users from creating new engagements or editing existing engagements.
 
@@ -54,7 +54,7 @@ JSON
 
 ```
 
-###### Example : Deny Trusted Advisor Engage and Trusted Advisor Priority Access
+###### Example: Deny Trusted Advisor Engage and Trusted Advisor Priority Access
 
 The following SCP prevents users from accessing or performing any actions within Trusted Advisor Engage and Trusted Advisor Priority.
 

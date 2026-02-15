@@ -71,7 +71,7 @@ information, see [Manage access to AWS Trusted Advisor](security-trusted-advisor
      the last 30 days. Choose a check name to view the latest results for that check or choose the
      arrow icon to view the next page.
 
-###### Example : Trusted Advisor Recommendations
+###### Example: Trusted Advisor Recommendations
 
 The following example shows a summary of the check results for an
 AWS account.
@@ -117,7 +117,7 @@ You can view the check descriptions and results for the following check categori
    ![Icon representing the action to upload or share content, showing an arrow pointing upwards.](images/download.png)
    ) to create an .xls file that includes the results for this check.
 
-###### Example : Cost optimization category
+###### Example: Cost optimization category
 
 The following example shows 10 (green) checks that don't have any issues.
 
@@ -158,7 +158,7 @@ steps, and links to more information.
    number of items or the properties to display, and then choose
    **Confirm**.
 
-###### Example : Cost optimization check
+###### Example: Cost optimization check
 
 The following **Low Utilization Amazon EC2 Instances** check lists the
 affected instances in the account. This check identifies 38 Amazon EC2 instances that have low usage

@@ -71,7 +71,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 to create, edit, or delete a service-linked role. The following examples use the
 `AWSServiceRoleForTrustedAdvisor` service-linked role.
 
-###### Example : Allow an IAM entity to create the `AWSServiceRoleForTrustedAdvisor` service-linked role
+###### Example: Allow an IAM entity to create the `AWSServiceRoleForTrustedAdvisor` service-linked role
 
 This step is necessary only if the Trusted Advisor account is disabled, the service-linked
 role is deleted, and the user must recreate the role to reenable Trusted Advisor.
@@ -91,7 +91,7 @@ create the service-linked role.
 }
 ```
 
-###### Example : \*\*Allow an IAM entity to edit the description of the
+###### Example: \*\*Allow an IAM entity to edit the description of the
 
 `AWSServiceRoleForTrustedAdvisor` service-linked role\*\*
 
@@ -110,7 +110,7 @@ description of a service-linked role.
 }
 ```
 
-###### Example : Allow an IAM entity to delete the `AWSServiceRoleForTrustedAdvisor` service-linked
+###### Example: Allow an IAM entity to delete the `AWSServiceRoleForTrustedAdvisor` service-linked
 
 role
 

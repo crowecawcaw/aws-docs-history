@@ -253,7 +253,7 @@ call Trusted Advisor programmatically.
 For example, if you want to call the [RefreshTrustedAdvisorCheck](../APIReference/API_RefreshTrustedAdvisorCheck.md "../APIReference/API_RefreshTrustedAdvisorCheck.md") operation, you must have
 permissions to this action in the policy.
 
-###### Example : Allow Trusted Advisor API operations only
+###### Example: Allow Trusted Advisor API operations only
 
 The following policy allows users access to the Support API operations for
 Trusted Advisor, but not the rest of the Support API operations. For example, users can

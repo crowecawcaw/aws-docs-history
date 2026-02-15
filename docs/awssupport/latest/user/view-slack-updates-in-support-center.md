@@ -16,7 +16,7 @@ from Slack.
 3. In the **Correspondence**, you can view whether the case was
    created and updated from the Slack channel.
 
-###### Example : Support case
+###### Example: Support case
 
 In the following screenshot, Jane Doe reopened a support case in Slack. This
 correspondence appears for the support case in the Support Center Console.

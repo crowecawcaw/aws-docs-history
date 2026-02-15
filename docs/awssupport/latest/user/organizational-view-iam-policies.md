@@ -5,7 +5,7 @@ organizational view
 You can use the following AWS Identity and Access Management (IAM) policies to allow users or roles in your
 account access to organizational view in AWS Trusted Advisor.
 
-###### Example : **Full access to organizational view**
+###### Example: **Full access to organizational view**
 
 The following policy allows full access to the organizational view feature. A user with
 these permissions can do the following:
@@ -72,7 +72,7 @@ JSON
 
 ```
 
-###### Example : Read access to organizational view
+###### Example: Read access to organizational view
 
 The following policy allows read-only access to organizational view for Trusted Advisor.
 A user with these permissions can only view and download existing reports.

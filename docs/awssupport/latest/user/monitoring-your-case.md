@@ -93,7 +93,7 @@ information for future reference. 4. Choose **Resolve case**. 5. In the dialog b
 If AWS Support resolved your case for you, you can use the feedback link to provide
 more information about your experience with AWS Support.
 
-###### Example : Feedback links
+###### Example: Feedback links
 
 The following screenshot shows the feedback links in the correspondence of a case
 in Support Center.

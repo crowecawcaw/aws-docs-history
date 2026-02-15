@@ -134,7 +134,7 @@ SELECT * FROM "athenatacfn"."folder1" limit 10
 
 5. Choose **Run query**. Your query results appear.
 
-###### Example : Athena query
+###### Example: Athena query
 
 The following example shows 10 sample entries from the report.
 
@@ -173,7 +173,7 @@ and then choose **Select**.
 
 You can now create a dashboard in Quick Suite. For more information, see [Working with Dashboards](../../../quicksight/latest/user/working-with-dashboards.md "../../../quicksight/latest/user/working-with-dashboards.md") in the _Amazon Quick Suite User Guide_.
 
-###### Example : Quick Suite dashboard
+###### Example: Quick Suite dashboard
 
 The following example dashboard shows information about the Trusted Advisor checks, such
 as the following:

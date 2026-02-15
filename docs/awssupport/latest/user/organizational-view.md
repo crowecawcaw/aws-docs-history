@@ -163,7 +163,7 @@ deletes the earliest report. You can't recover deleted reports.
    _AWS Organizations User Guide_.
 6. Choose **Create report**.
 
-###### Example : Create report filter options
+###### Example: Create report filter options
 
 The following example creates a JSON report for the following:
 
@@ -202,7 +202,7 @@ organization.
 4. On the **Summary** page, view the check statuses for each
    category. You can also choose **Download report**.
 
-###### Example : Report summary for an organization
+###### Example: Report summary for an organization
 
 ![Screenshot of an example report summary for Trusted Advisor.](images/organizational-view-summary-report-console-2.png)
 
@@ -238,7 +238,7 @@ application to open the `.csv` file.
 
 You might receive multiple files if your report is 5 MB or larger.
 
-###### Example : summary.json file
+###### Example: summary.json file
 
 The `summary.json` file shows the number of accounts in the
 organization and the statuses of the checks in each category.
@@ -320,7 +320,7 @@ Trusted Advisor uses the following color code for check results:
 }
 ```
 
-###### Example : schema.json file
+###### Example: schema.json file
 
 The `schema.json` file includes the schema for the checks in
 the report. The following example includes the IDs and properties for the IAM
@@ -349,7 +349,7 @@ Password Policy (Yw2K9puPzl) and IAM Key Rotation
 }
 ```
 
-###### Example : resources.csv file
+###### Example: resources.csv file
 
 The `resources.csv` file includes information about resources
 in the organization. This example shows some of the data columns that appear in the

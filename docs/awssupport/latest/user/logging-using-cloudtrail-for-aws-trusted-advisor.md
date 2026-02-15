@@ -116,7 +116,7 @@ request from any source and includes information about the requested action, the
 of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
 the public API calls, so they don't appear in any specific order.
 
-###### Example : Log entry for RefreshCheck
+###### Example: Log entry for RefreshCheck
 
 The following example shows a CloudTrail log entry that demonstrates the
 `RefreshCheck`
@@ -164,7 +164,7 @@ R365s2Qddf).
 
 ```
 
-###### Example : Log entry for UpdateNotificationPreferences
+###### Example: Log entry for UpdateNotificationPreferences
 
 The following example shows a CloudTrail log entry that demonstrates the
 `UpdateNotificationPreferences`
@@ -222,7 +222,7 @@ action.
 
 ```
 
-###### Example : Log entry for GenerateReport
+###### Example: Log entry for GenerateReport
 
 The following example shows a CloudTrail log entry that demonstrates the
 `GenerateReport`

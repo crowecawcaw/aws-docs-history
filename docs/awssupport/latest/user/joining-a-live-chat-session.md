@@ -54,7 +54,7 @@ for the AWS Support App:
      message. You must enter your new message again to show the
      revision.
 
-###### Example : Live chat session
+###### Example: Live chat session
 
 The following is an example of a live chat session with a support agent to fix
 a connectivity issue for two Amazon Elastic Compute Cloud (Amazon EC2) instances.
@@ -65,14 +65,14 @@ can find the chat history attached to the case correspondence for this support
 case. 6. If the issue is resolved, you can choose **Resolve case** from
 the pinned message or enter `/awssupport resolve`.
 
-###### Example : End a live chat
+###### Example: End a live chat
 
 The following pinned message shows the case details about an Amazon EC2 instance.
 You can find the pinned messages under the Slack channel name.
 
 ![End a chat or resolve a support case in the Slack channel.](images/supportapp/resolve-end-chat-slack-channel.png)
 
-###### Example : Correspondence notification in chat channel
+###### Example: Correspondence notification in chat channel
 
 The following is an example of a live chat channel receiving a notification
 when the another collaborator adds an update after the chat has ended.

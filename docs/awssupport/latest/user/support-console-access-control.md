@@ -29,11 +29,7 @@ or the AWS CLI.
 
 ###### Note
 
-If you have a custom VPN configuration, then your IAM policies must allow the
-Support Center Console API endpoint in the [aws.sourceIP
-conditions](../../../IAM/latest/UserGuide/reference_policies_examples_aws_deny-ip.md "../../../IAM/latest/UserGuide/reference_policies_examples_aws_deny-ip.md"). If the Support Center Console API endpoint isn't allowed, then your ClientIp
-address won't forward to the API correctly. The following table provides the Support Center Console API
-endpoints by AWS Region.
+If you have a custom VPN configuration, make sure that you configure your VPN to correctly forward your client IP address to the Support Center Console API endpoint. When using a VPN with AWS Identity and Access Management policies that include [aws:SourceIp](../../../IAM/latest/UserGuide/reference_policies_examples_aws_deny-ip.md "../../../IAM/latest/UserGuide/reference_policies_examples_aws_deny-ip.md") conditions, the client IP address specified in your IAM policy must be forwarded to the API endpoint, not the VPN's IP address. If the VPN forwards its own IP address instead of the client IP address, authorization might fail because the IP address doesn't match the `aws:SourceIp` condition in your IAM policy. The following table provides the Support Center Console API endpoints by AWS Region.
 
 | AWS Region                                                   | Support Center Console API endpoint |
 | ------------------------------------------------------------ | ----------------------------------- |

@@ -68,7 +68,7 @@ request from any source. It includes information about the requested operation, 
 time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack
 trace of the public API calls, so they don't appear in any specific order.
 
-###### Example : Log entry for `GetSupportPlan`
+###### Example: Log entry for `GetSupportPlan`
 
 The following example shows a CloudTrail log entry for the `GetSupportPlan`
 operation.
@@ -115,7 +115,7 @@ operation.
 }
 ```
 
-###### Example : Log entry for `GetSupportPlanUpdateStatus`
+###### Example: Log entry for `GetSupportPlanUpdateStatus`
 
 The following example shows a CloudTrail log entry for the
 `GetSupportPlanUpdateStatus` operation.
@@ -164,7 +164,7 @@ The following example shows a CloudTrail log entry for the
 }
 ```
 
-###### Example : Log entry for `StartSupportPlanUpdate`
+###### Example: Log entry for `StartSupportPlanUpdate`
 
 The following example shows a CloudTrail log entry for the `StartSupportPlanUpdate`
 operation.
@@ -219,7 +219,7 @@ operation.
 }
 ```
 
-###### Example : Log entry for `CreateSupportPlanSchedule`
+###### Example: Log entry for `CreateSupportPlanSchedule`
 
 The following example shows a CloudTrail log entry for the `CreateSupportPlanSchedule`
 operation.
@@ -279,7 +279,7 @@ operation.
 }
 ```
 
-###### Example : Log entry for `ListSupportPlanModifiers`
+###### Example: Log entry for `ListSupportPlanModifiers`
 
 The following example shows a CloudTrail log entry for the
 `ListSupportPlanModifiers` operation.
@@ -350,7 +350,7 @@ entries](#understanding-aws-support-plans-entries "#understanding-aws-support-pl
 The `eventSource` field has the
 `support-subscription.amazonaws.com` namespace for these actions.
 
-###### Example : Log entry for DescribeSupportLevelSummary
+###### Example: Log entry for DescribeSupportLevelSummary
 
 The following example shows a CloudTrail log entry for the
 `DescribeSupportLevelSummary` action.
@@ -393,7 +393,7 @@ The following example shows a CloudTrail log entry for the
 }
 ```
 
-###### Example : Log entry for UpdateProbationAutoCancellation
+###### Example: Log entry for UpdateProbationAutoCancellation
 
 The following example shows a CloudTrail log entry for the
 `UpdateProbationAutoCancellation` action.
@@ -427,7 +427,7 @@ The following example shows a CloudTrail log entry for the
 }
 ```
 
-###### Example : Log entry for UpdateSupportLevel
+###### Example: Log entry for UpdateSupportLevel
 
 The following example shows a CloudTrail log entry for the `UpdateSupportLevel`
 action to change to Developer Support.

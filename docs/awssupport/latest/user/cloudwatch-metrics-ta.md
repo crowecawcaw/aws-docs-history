@@ -84,7 +84,7 @@ choose **Create alarm**.
 When the status for the **IAM Access Key Rotation** check changes to
 red for 5 minutes, your alarm will send a notification to your SNS topic.
 
-###### Example : Email notification for a CloudWatch alarm
+###### Example: Email notification for a CloudWatch alarm
 
 The following email message shows that an alarm detected a change for the **IAM
 Access Key Rotation** check.
@@ -169,7 +169,7 @@ For more information about creating a graph to view your metrics, see [Graphing 
 
 You can use the [list-metrics](../../../cli/latest/reference/cloudwatch/list-metrics.md "../../../cli/latest/reference/cloudwatch/list-metrics.md") AWS CLI command to view available metrics for Trusted Advisor.
 
-###### Example : List all metrics for Trusted Advisor
+###### Example: List all metrics for Trusted Advisor
 
 The following example specifies the `AWS/TrustedAdvisor` namespace to view
 all metrics for Trusted Advisor.
@@ -252,7 +252,7 @@ Your output might look like the following.
 }
 ```
 
-###### Example : List all metrics for a dimension
+###### Example: List all metrics for a dimension
 
 The following example specifies the `AWS/TrustedAdvisor` namespace and the
 `Region` dimension to view the metrics available for the specified AWS
@@ -326,7 +326,7 @@ Your output might look like the following.
 }
 ```
 
-###### Example : List metrics for a specific metric name
+###### Example: List metrics for a specific metric name
 
 The following example specifies the `AWS/TrustedAdvisor` namespace and the
 `RedResources` metric name to view the results for only this specific
