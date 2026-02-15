@@ -9,6 +9,8 @@ Previous generation Amazon EC2 instances for SAP NetWeaver are fully supported a
 
 ## Current generation instances for SAP NetWeaver
 
+###### Example
+
 General Purpose
 
 | Instance type  | vCPU | Memory (GiB) | SAPS    | Network (Gbps) | Storage (Mbps) | Max IOPS     |
@@ -361,6 +363,8 @@ Storage Optimized
 \*advanced SAP Application Performance Standard (aSAPS) is a hardware-independent unit of measurement that describes the performance of a system configuration in the SAP environment. It is derived from the SAP Quote-to-cash Standard Application benchmark (Q2C)
 
 ## Previous generation instances for SAP NetWeaver
+
+###### Example
 
 General Purpose
 

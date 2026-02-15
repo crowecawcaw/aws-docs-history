@@ -2,6 +2,8 @@
 
 AWS has worked closely with SAP to test and certify Amazon EC2 instance types for SAP on AWS solutions.
 
+###### Example
+
 Current Generation
 
 | Instance type | vCPU | Memory (GiB) | SAPS    | Max concurrent users |
