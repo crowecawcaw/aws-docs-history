@@ -274,6 +274,8 @@ https://aws.amazon.com/marketplace/pp/prodview-`prodview ID`
 
 Replace `prodview ID` with the unique alphanumeric code for your product on AWS Marketplace. For example:
 
+###### Example
+
 ```
 https://aws.amazon.com/marketplace/pp/prodview-1234567890abcdef
 ```

@@ -85,6 +85,8 @@ When integrating your container for metering with either the `MeterUsage` or
 `RegisterUsage` API operation, don't configure the AWS SDK to use a specific
 AWS Region. The Region must be obtained dynamically at runtime.
 
+###### Example
+
 For example, a customer launches an Amazon ECS task or Amazon EKS pod. The
 `RegisterUsage` API operation is called in a Region that differs from the
 Region where the Amazon ECS task or Amazon EKS pod was launched. Therefore, the

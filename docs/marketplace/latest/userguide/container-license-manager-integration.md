@@ -73,6 +73,8 @@ The prices can be for the following durations: 1 month, 12 months, 24 months, or
 months. You can choose to offer one or more of these options for your product. The durations
 must be the same across each dimension.
 
+###### Example
+
 For example, in a case where you have `ReadOnlyUsers` and
 `AdminUsers` dimensions, if you offer a yearly price for ReadOnlyUsers, you
 must offer a yearly price for `AdminUsers`, too.
