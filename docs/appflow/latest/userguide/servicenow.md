@@ -11,7 +11,7 @@ You can use ServiceNow as a source only.
 
 - [Requirements](#servicenow-requirements "#servicenow-requirements")
 - [Connection instructions](#servicenow-setup "#servicenow-setup")
-- [Notes](#servicenow-notes "#servicenow-notes")
+- [Considerations and limitations](#servicenow-considerations-and-limitations "#servicenow-considerations-and-limitations")
 - [Supported destinations](#servicenow-destinations "#servicenow-destinations")
 - [Related resources](#servicenow-resources "#servicenow-resources")
 
@@ -78,7 +78,7 @@ If you aren’t connected successfully, ensure that you have followed the instru
 [Requirements](#servicenow-requirements "#servicenow-requirements")
 section.
 
-## Notes
+## Considerations and limitations
 
 - Once you are connected to your ServiceNow instance, you can select the relevant objects
   from ServiceNow by using the dropdown list. Given the amount of data being available via
@@ -93,6 +93,9 @@ section.
   Amazon AppFlow uses the `sys_updated_on` field to identify the updated record
   set.
 - ServiceNow can process up to 100,000 records as part of a single flow run.
+- The Truncate or Mask transformations are not supported for ServiceNow reference type fields. If applied, the following behavior occurs for the respective transformation:
+  - Truncate: Reference type fields become an empty string
+  - Mask: Reference type fields become `null`
 
 ## Supported destinations
 
