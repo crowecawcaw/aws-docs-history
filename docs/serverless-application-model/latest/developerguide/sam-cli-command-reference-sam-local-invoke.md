@@ -40,6 +40,8 @@ _Valid values_: The resource's logical ID or resource ARN.
 
 Passes a hostname to IP address mapping to the Docker container's host file. This parameter can be passed multiple times.
 
+###### Example
+
 Example: `--add-host `example.com:127.0.0.1``
 
 `--beta-features | --no-beta-features`
