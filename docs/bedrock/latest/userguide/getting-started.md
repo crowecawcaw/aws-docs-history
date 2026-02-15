@@ -1,108 +1,111 @@
-# Get started with Amazon Bedrock
+# Quickstart
 
-Before you can use Amazon Bedrock, you must carry out the following steps:
+In this section, we will show you how to get started with Amazon Bedrock within a few minutes. We will use the OpenAI-compatible APIs: [Responses API](bedrock-mantle.md "bedrock-mantle.md") and [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md"), and the [Invoke](inference-invoke.md "inference-invoke.md") and [Converse API](conversation-inference.md "conversation-inference.md") to show you how run an inference request. See [Build](build.md "build.md") for list of complete APIs.
 
-- Sign up for an AWS account (if you don't already have one).
-- Create an AWS Identity and Access Management role with the necessary permissions for Amazon Bedrock.
+**Step 1 - AWS Account:** If you have an AWS account already, skip this step and go to step 2. If you are new to AWS, sign up for an [AWS account](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup") and follow instructions.
 
-###### Note
+**Step 2 - API key:** Once you have an AWS account, you can create a long-term API key to authenticate your requests to Amazon Bedrock. To do that, go to the [Amazon Bedrock service in AWS Console](https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create "https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create") and generate a long term key. For more information, see the [API keys](api-keys.md "api-keys.md") section in the [Build](build.md "build.md") chapter.
 
-Beginning June 15, 2025 access to all Amazon Bedrock foundation models is enabled by default. For Anthropic models, first-time users may need to submit use case details before they can access the model. For more information, see [Access Amazon Bedrock foundation models](model-access.md "model-access.md").
+**Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.
 
-If you're new to AWS and need to sign up for an AWS account, expand [I'm new to AWS](#new-to-aws "#new-to-aws"). Otherwise, skip that step and instead expand [I already have an AWS account](#getting-started-bedrock-role "#getting-started-bedrock-role").
-
-If you do not have an AWS account, complete the following steps to create one.
-
-###### To sign up for an AWS account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
-AWS sends you a confirmation email after the sign-up process isn
-complete. At any time, you can view your current account activity and manage your account by
-going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
-Account**.
-
-###### Secure your AWS account root user
-
-1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") as the account owner by choosing **Root user** and entering your AWS account email address. On the next page, enter your password.
-
-For help signing in by using root user, see [Signing in as the root user](../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial "../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial") in the _AWS Sign-In User Guide_. 2. Turn on multi-factor authentication (MFA) for your root user.
-
-For instructions, see [Enable a virtual MFA device for your AWS account root user (console)](../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md "../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md") in the _IAM User Guide_.
-
-###### Create a user with administrative access
-
-1. Enable IAM Identity Center.
-
-For instructions, see [Enabling
-AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md") in the
-_AWS IAM Identity Center User Guide_. 2. In IAM Identity Center, grant administrative access to a user.
-
-For a tutorial about using the IAM Identity Center directory as your identity source, see [Configure user access with the default IAM Identity Center directory](../../../singlesignon/latest/userguide/quick-start-default-idc.md "../../../singlesignon/latest/userguide/quick-start-default-idc.md") in the
-_AWS IAM Identity Center User Guide_.
-
-###### Sign in as the user with administrative access
-
-- To sign in with your IAM Identity Center user, use the sign-in URL that was sent to your email address when you created the IAM Identity Center user.
-
-For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md "../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md") in the _AWS Sign-In User Guide_.
-To learn more about IAM, see [Identity and access management for Amazon Bedrock](security-iam.md "security-iam.md") and the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
-
-After you have created an administrative user, proceed to [I already have an AWS account](#getting-started-bedrock-role "#getting-started-bedrock-role") to set up permissions for Amazon Bedrock.
-
-Use IAM to create a role for with the necessary permissions to use Amazon Bedrock. You can then add users to this role to grant the permissions.
-
-###### To create an Amazon Bedrock role
-
-1. Create a role with a name of your choice by following the steps at [Creating a role to delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the IAM User Guide. When you reach the step to attach a policy to the role, attach the [AmazonBedrockFullAccess](security-iam-awsmanpol.md "security-iam-awsmanpol.md") AWS managed policy.
-2. Create a new policy to allow your role to manage access to Amazon Bedrock models. From the following list, select the link that corresponds to your method of choice and follow the steps. Use the following JSON object as the policy.
-   - [Creating IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md")
-   - [Creating IAM policies (AWS CLI)](../../../IAM/latest/UserGuide/access_policies_create-cli.md "../../../IAM/latest/UserGuide/access_policies_create-cli.md")
-   - [Creating IAM policies (AWS API)](../../../IAM/latest/UserGuide/access_policies_create-api.md "../../../IAM/latest/UserGuide/access_policies_create-api.md")
-
-JSON
+Responses/Chat Completions API
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "MarketplaceBedrock",
- "Effect": "Allow",
- "Action": [
- "aws-marketplace:ViewSubscriptions",
- "aws-marketplace:Unsubscribe",
- "aws-marketplace:Subscribe"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+pip install boto3 openai
 ```
 
-3. Attach the policy that you created in the last step to your Amazon Bedrock role by following the steps at [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md").
+Invoke/Converse API
 
-###### To add users to the Amazon Bedrock role
+```
+pip install boto3
+```
 
-1. For users to access an IAM role, you must add them to the role. You can add both users in your account or from other accounts. To grant users permissions to switch to the Amazon Bedrock role that you created, follow the steps at [Granting a user permissions to switch roles](../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md "../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md") and specify the Amazon Bedrock role as the `Resource`.
+**Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
 
-###### Note
+Responses/Chat Completions API
 
-If you need to create more users in your account so that you can give them access to the Amazon Bedrock role, follow the steps in [Creating an IAM user in your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md"). 2. After you've granted a user permissions to use the Amazon Bedrock role, provide the user with role name and ID or alias of the account to which the role belongs. Then, guide the user through how to switch to the role by following the instructions at [Providing information to the user](../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md#roles-usingrole-giveuser "../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md#roles-usingrole-giveuser").
+```
+OPENAI_API_KEY="<provide your long term key>" OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
+```
 
-## Explore Amazon Bedrock features through the console or API
+Invoke/Converse API
 
-After requesting access to the foundation models that you want to use, you'll be ready to explore the different capabilities offered by Amazon Bedrock.
+```
+AWS_BEARER_TOKEN_BEDROCK="<provide your long term key>"
+```
 
-If you want to familiarize yourself more with Amazon Bedrock first, you can continue to the following pages:
+**Step 5 - Run your first inference request:** Amazon Bedrock supports [100+ foundation models](models.md "models.md"). Choose a model, and then use the following Python code to run your first inference request. Save the file as `bedrock-first-request.py`
 
-- To learn how to run basic prompts and generate model responses using the **Playgrounds** in the Amazon Bedrock console, continue to [Get started in the Amazon Bedrock console](getting-started-console.md "getting-started-console.md").
-- To learn how to set up access to Amazon Bedrock operations through the Amazon Bedrock API and test out some API calls, continue to [Get started with the API](getting-started-api.md "getting-started-api.md").
-- To learn about the software development kits (SDKs) supported by Amazon Bedrock, continue to [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
+Responses API
+
+```
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.responses.create(
+    model="openai.gpt-oss-120b",
+    input="Can you explain the features of Amazon Bedrock?"
+    )
+print(response)
+```
+
+Chat Completions API
+
+```
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.chat.completions.create(
+    model="openai.gpt-oss-120b",
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
+    )
+print(response)
+```
+
+Invoke API
+
+```
+import json
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+response = client.invoke_model(
+    modelId='anthropic.claude-opus-4-6-v1',
+    body=json.dumps({
+            'anthropic_version': 'bedrock-2023-05-31',
+            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
+            'max_tokens': 1024
+    })
+ )
+ print(json.loads(response['body'].read()))
+```
+
+Converse API
+
+```
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+response = client.converse(
+    modelId='anthropic.claude-opus-4-6-v1',
+    messages=[
+        {
+            'role': 'user',
+            'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
+        }
+    ]
+)
+print(response)
+```
+
+Execute the code with Python by using the command:
+
+```
+python3 bedrock-first-request.py
+```
+
+You should see the output of your inference request.
+
+To learn more about using other APIs and endpoints, please refer to [Build](build.md "build.md").

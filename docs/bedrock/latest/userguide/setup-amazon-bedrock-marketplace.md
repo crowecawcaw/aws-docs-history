@@ -244,7 +244,7 @@ JSON
 
 ```
 
-For more information about setting up Amazon Bedrock, see [Get started with Amazon Bedrock](getting-started.md "getting-started.md").
+For more information about setting up Amazon Bedrock, see [Quickstart](getting-started.md "getting-started.md").
 
 You might want to use an AWS Key Management Service key to encrypt the endpoint where you've deployed
 the model. You must modify the preceding policy to have permissions to use the AWS KMS

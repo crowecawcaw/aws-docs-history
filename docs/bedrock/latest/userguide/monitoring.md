@@ -8,6 +8,16 @@ actions when values exceed those thresholds.
 For more information, see [What is
 Amazon CloudWatch](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.md") in the _Amazon CloudWatch User Guide_.
 
+Amazon Bedrock provides comprehensive monitoring capabilities across different components of your application:
+
+- [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md "model-invocation-logging.md") - Track and analyze model invocations using CloudWatch Logs and Amazon S3.
+- [Monitor knowledge bases using CloudWatch Logs](knowledge-bases-logging.md "knowledge-bases-logging.md") - Monitor knowledge base operations and performance.
+- [Monitor Amazon Bedrock Guardrails using CloudWatch metrics](monitoring-guardrails-cw-metrics.md "monitoring-guardrails-cw-metrics.md") - Track guardrail evaluations and policy enforcement.
+- [Monitor Amazon Bedrock Agents using CloudWatch Metrics](monitoring-agents-cw-metrics.md "monitoring-agents-cw-metrics.md") - Monitor agent invocations and performance metrics.
+- [Amazon Bedrock runtime metrics](#runtime-cloudwatch-metrics "#runtime-cloudwatch-metrics") - View key runtime metrics including invocations, latency, errors, and token counts.
+- [Monitor Amazon Bedrock job state changes using Amazon EventBridge](monitoring-eventbridge.md "monitoring-eventbridge.md") - Track job state changes and automate responses to events.
+- [Monitor Amazon Bedrock API calls using CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md") - Audit API calls and track user activity.
+
 ###### Topics
 
 - [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md "model-invocation-logging.md")

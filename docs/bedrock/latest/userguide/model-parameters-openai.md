@@ -79,7 +79,7 @@ Before trying out these examples, check that you've fulfilled the prerequisites:
 Set up your AWS credentials or generate an Amazon Bedrock API key to authenticate your request.
 
     + To learn about setting up your AWS credentials, see [Programmatic access with AWS security credentials](../../../IAM/latest/UserGuide/security-creds-programmatic-access.md "../../../IAM/latest/UserGuide/security-creds-programmatic-access.md").
-    + To learn about Amazon Bedrock API keys and how to generate them, see [Generate Amazon Bedrock API keys to easily authenticate to the Amazon Bedrock API](api-keys.md "api-keys.md").
+    + To learn about Amazon Bedrock API keys and how to generate them, see the API keys section in the Build chapter.
 
 ###### Note
 

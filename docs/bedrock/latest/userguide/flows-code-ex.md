@@ -2,7 +2,7 @@
 
 The following code samples assume that you've fulfilled the following prerequisites:
 
-1. Set up a role to have permissions to Amazon Bedrock actions. If you haven't, refer to [Get started with Amazon Bedrock](getting-started.md "getting-started.md").
+1. Set up a role to have permissions to Amazon Bedrock actions. If you haven't, refer to [Quickstart](getting-started.md "getting-started.md").
 2. Set up your credentials to use the AWS API. If you haven't, refer to [Get started with the API](getting-started-api.md "getting-started-api.md").
 3. Create a service role to carry out flow-related actions on your behalf. If you haven't, refer to [Create a service role for Amazon Bedrock Flows in Amazon Bedrock](flows-permissions.md "flows-permissions.md").
    To create a flow, send a [CreateFlow](../APIReference/API_agent_CreateFlow.md "../APIReference/API_agent_CreateFlow.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). For example code, see Run Amazon Bedrock Flows code samples

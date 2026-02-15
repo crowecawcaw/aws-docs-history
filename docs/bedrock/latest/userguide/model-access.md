@@ -10,6 +10,26 @@ information](foundation-models-reference.md "foundation-models-reference.md"). F
 Access to all Amazon Bedrock foundation models is enabled by default with the correct AWS
 Marketplace permissions in all commercial AWS regions. For programtic access to third-party models, see [Manage model access using SDK and CLI](#model-access-modify "#model-access-modify").
 
+###### Understanding automatic model access
+
+When you invoke a third-party model for the first time in your account, Amazon Bedrock
+automatically initiates the subscription process in the background. During this setup period
+(up to 15 minutes), your API calls may succeed temporarily while the subscription is being
+finalized. If any prerequisites are missing, initial API calls may succeed temporarily but will
+fail with a 403 error after the setup period if the subscription cannot be completed. To avoid
+interruptions, verify all prerequisites before invoking models in production.
+
+**Prerequisites for successful model access:**
+
+1. **AWS Marketplace permissions**: Your IAM role must
+   have `aws-marketplace:Subscribe`, `aws-marketplace:Unsubscribe`,
+   and `aws-marketplace:ViewSubscriptions` permissions. See [Grant IAM permissions to request access to
+   Amazon Bedrock foundation models with a product ID](#model-access-permissions "#model-access-permissions") for details.
+2. **Anthropic models**: For Anthropic models, you must
+   complete the First Time Use (FTU) form before invoking the model.
+3. **Valid payment method**: Your AWS account must have
+   a valid payment method configured for AWS Marketplace purchases.
+
 ###### Note
 
 Anthropic requires first-time customers to submit use case details before invoking a
@@ -44,6 +64,7 @@ should:
   access](model-access-product-ids.md "model-access-product-ids.md")
 - [Manage model access using SDK and CLI](#model-access-modify "#model-access-modify")
 - [Access Amazon Bedrock foundation models in AWS GovCloud (US)](#model-access-govcloud "#model-access-govcloud")
+- [Manage model subscriptions with License Manager](managed-entitlements.md "managed-entitlements.md")
 
 ## Grant IAM permissions to request access to
 
@@ -89,8 +110,7 @@ becomes available for the identity to request access in all AWS Regions in which
 the model is available, even if `aws-marketplace:Subscribe` is denied for
 other Regions.
 
-For information on creating the policy, see [I already have an
-AWS account](getting-started.md#getting-started-bedrock-role "getting-started.md#getting-started-bedrock-role").
+For information on creating the policy, see [Quickstart](getting-started.md "getting-started.md").
 
 For the `aws-marketplace:Subscribe` action only, you can use the `aws-marketplace:ProductId` [condition key](../../../service-authorization/latest/reference/list_awsmarketplace.md#awsmarketplace-policy-keys "../../../service-authorization/latest/reference/list_awsmarketplace.md#awsmarketplace-policy-keys") to restrict subscription to specific models.
 

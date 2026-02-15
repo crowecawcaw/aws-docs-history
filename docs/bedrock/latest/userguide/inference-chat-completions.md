@@ -25,7 +25,7 @@ To see prerequisites for using the Chat Completions API, choose the tab for your
 
 OpenAI SDK
 
-- **Authentication** – The OpenAI SDK only supports authentication with an Amazon Bedrock API key. Generate an Amazon Bedrock API key to authenticate your request. To learn about Amazon Bedrock API keys and how to generate them, see [Generate Amazon Bedrock API keys to easily authenticate to the Amazon Bedrock API](api-keys.md "api-keys.md").
+- **Authentication** – The OpenAI SDK only supports authentication with an Amazon Bedrock API key. Generate an Amazon Bedrock API key to authenticate your request. To learn about Amazon Bedrock API keys and how to generate them, see the API keys section in the Build chapter.
 - **Endpoint** – Find the endpoint that corresponds to the AWS Region to use in [Amazon Bedrock Runtime endpoints and quotas](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt"). If you use an AWS SDK, you might only need to specify the region code and not the whole endpoint when you set up the client.
 - **Install an OpenAI SDK** – For more information, see [Libraries](https://platform.openai.com/docs/libraries "https://platform.openai.com/docs/libraries") in the OpenAI documentation.
 
@@ -36,7 +36,7 @@ HTTP request
 Set up your AWS credentials or generate an Amazon Bedrock API key to authenticate your request.
 
     + To learn about setting up your AWS credentials, see [Programmatic access with AWS security credentials](../../../IAM/latest/UserGuide/security-creds-programmatic-access.md "../../../IAM/latest/UserGuide/security-creds-programmatic-access.md").
-    + To learn about Amazon Bedrock API keys and how to generate them, see [Generate Amazon Bedrock API keys to easily authenticate to the Amazon Bedrock API](api-keys.md "api-keys.md").
+    + To learn about Amazon Bedrock API keys and how to generate them, see the API keys section in the Build chapter.
 
 - **Endpoint** – Find the endpoint that corresponds to the AWS Region to use in [Amazon Bedrock Runtime endpoints and quotas](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt"). If you use an AWS SDK, you might only need to specify the region code and not the whole endpoint when you set up the client.
 

@@ -1,4 +1,4 @@
-# Generate Amazon Bedrock API keys to easily authenticate to the Amazon Bedrock API
+# API keys
 
 You can easily make calls to the Amazon Bedrock API by generating an Amazon Bedrock API key and using it to authenticate your identity when making requests to the Amazon Bedrock API.
 

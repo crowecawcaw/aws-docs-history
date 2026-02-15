@@ -22,6 +22,6 @@ Reranking requires the following input, at the minimum:
 
 ###### Topics
 
-- [Supported Regions and models](rerank-supported.md "rerank-supported.md")
+- [Supported Regions/models](rerank-supported.md "rerank-supported.md")
 - [Permissions](rerank-prereq.md "rerank-prereq.md")
 - [Use a reranker model](rerank-use.md "rerank-use.md")

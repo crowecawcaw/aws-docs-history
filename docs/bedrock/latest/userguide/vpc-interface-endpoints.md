@@ -25,6 +25,7 @@ endpoints.
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | [Amazon Bedrock Control Plane API actions](../APIReference/API_Operations_Amazon_Bedrock.md "../APIReference/API_Operations_Amazon_Bedrock.md")                                        | `bedrock`               |
 | [Amazon Bedrock Runtime API actions](../APIReference/API_Operations_Amazon_Bedrock_Runtime.md "../APIReference/API_Operations_Amazon_Bedrock_Runtime.md")                              | `bedrock-runtime`       |
+| Amazon Bedrock Mantle API actions                                                                                                                                                      | `bedrock-mantle`        |
 | [Amazon Bedrock Agents Build-time API actions](../APIReference/API_Operations_Agents_for_Amazon_Bedrock.md "../APIReference/API_Operations_Agents_for_Amazon_Bedrock.md")              | `bedrock-agent`         |
 | [Amazon Bedrock Agents Runtime API actions](../APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.md "../APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.md") | `bedrock-agent-runtime` |
 
@@ -42,6 +43,7 @@ names:
 
 - `com.amazonaws.`region`.bedrock`
 - `com.amazonaws.`region`.bedrock-runtime`
+- `com.amazonaws.`region`.bedrock-mantle`
 - `com.amazonaws.`region`.bedrock-agent`
 - `com.amazonaws.`region`.bedrock-agent-runtime`
 
@@ -52,6 +54,7 @@ Amazon Bedrock using its default Regional DNS name. The following examples show 
 
 - `bedrock.`region`.amazonaws.com`
 - `bedrock-runtime.`region`.amazonaws.com`
+- `bedrock-mantle.`region`.api.aws`
 - `bedrock-agent.`region`.amazonaws.com`
 - `bedrock-agent-runtime.`region`.amazonaws.com`
 
@@ -96,4 +99,26 @@ JSON
  ]
 }`
 
+```
+
+###### Example: VPC endpoint policy for Amazon Bedrock Mantle actions
+
+The following is an example of a custom endpoint policy. When you attach
+this resource-based policy to your interface endpoint, it grants access to the listed Amazon Bedrock Mantle
+actions for all principals on all resources.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement": [
+      {
+         "Principal": "*",
+         "Effect": "Allow",
+         "Action": [
+            "bedrock-mantle:CreateInference"
+         ],
+         "Resource":"*"
+      }
+   ]
+}
 ```

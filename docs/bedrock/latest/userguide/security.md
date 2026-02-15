@@ -1,4 +1,4 @@
-# Security in Amazon Bedrock
+# Security, Guardrails, and Observability in Amazon Bedrock
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data
 centers and network architectures that are built to meet the requirements of the most
@@ -22,14 +22,6 @@ _of_ the cloud and security _in_ the cloud:
 
 ###### Topics
 
-- [Data protection](data-protection.md "data-protection.md")
-- [Identity and access management for Amazon Bedrock](security-iam.md "security-iam.md")
-- [Cross-account access to Amazon S3 bucket for custom model import jobs](cross-account-access-cmi.md "cross-account-access-cmi.md")
-- [Compliance validation for Amazon Bedrock](compliance-validation.md "compliance-validation.md")
-- [Incident response in Amazon Bedrock](security-incident-response.md "security-incident-response.md")
-- [Resilience in Amazon Bedrock](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in Amazon Bedrock](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [Configuration and vulnerability analysis in Amazon Bedrock](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Prompt injection security](prompt-injection.md "prompt-injection.md")
+- [Security](security-overview.md "security-overview.md")
+- [Detect and filter harmful content by using Amazon Bedrock Guardrails](guardrails.md "guardrails.md")
+- [Observability](observability.md "observability.md")

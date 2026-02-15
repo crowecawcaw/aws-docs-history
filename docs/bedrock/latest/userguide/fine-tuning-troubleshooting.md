@@ -1,7 +1,6 @@
 # Troubleshooting model customization issues
 
-This section summarizes errors that you might encounter and what to
-check if you do.
+This section summarizes errors that you might encounter and what to check if you do.
 
 ## Permissions issues
 

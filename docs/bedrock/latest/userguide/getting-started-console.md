@@ -4,7 +4,7 @@ This section describes how to use the [playgrounds](playgrounds.md "playgrounds.
 
 **Prerequisites**
 
-- You have an AWS account and have permissions to access a role in that account with the necessary permissions for Amazon Bedrock. Otherwise, follow the steps at [I already have an AWS account](getting-started.md#getting-started-bedrock-role "getting-started.md#getting-started-bedrock-role").
+- You have an AWS account and have permissions to access a role in that account with the necessary permissions for Amazon Bedrock. Otherwise, follow the steps at [Quickstart](getting-started.md "getting-started.md").
 - You're in the US East (N. Virginia) (us-east-1) Region. To change Regions, choose the Region name at the top right of the console, next to your IAM role. Then select US East (N. Virginia) (us-east-1).
 
 ###### Topics

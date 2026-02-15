@@ -91,6 +91,7 @@ number of cache checkpoints, and fields that allow cache checkpoints.
 | Amazon Nova Lite     | amazon.nova-lite-v1:0                     | Generally available | 1K1                                           | 4                                               | 5 minutes         | `system` and `messages`2                    |
 | Amazon Nova Pro      | amazon.nova-pro-v1:0                      | Generally available | 1K1                                           | 4                                               | 5 minutes         | `system` and `messages`2                    |
 | Amazon Nova Premier  | amazon.nova-premier-v1:0                  | Generally available | 1K1                                           | 4                                               | 5 minutes         | `system` and `messages`2                    |
+| Amazon Nova 2 Lite   | amazon.nova-2-lite-v1:0                   | Generally available | 1K1                                           | 4                                               | 5 minutes         | `system` and `messages`2                    |
 
 1: The Amazon Nova models support a maximum number of 20K tokens for prompt caching.
 
