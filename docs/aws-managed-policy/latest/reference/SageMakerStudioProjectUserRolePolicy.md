@@ -14,7 +14,7 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Edited time:** February 17, 2026, 06:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 

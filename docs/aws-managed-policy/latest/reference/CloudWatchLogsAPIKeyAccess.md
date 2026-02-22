@@ -1,26 +1,26 @@
-# AWSAccountActivityAccess
+# CloudWatchLogsAPIKeyAccess
 
-**Description**: Allows users to access the Account Activity page.
+**Description**: Grants permissions to call CloudWatch Logs using API key authentication.
 
-`AWSAccountActivityAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`CloudWatchLogsAPIKeyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AWSAccountActivityAccess` to your users, groups, and roles.
+You can attach `CloudWatchLogsAPIKeyAccess` to your users, groups, and roles.
 
 ## Policy
 
 details
 
 - **Type**: AWS managed policy
-- **Creation time**: February 06, 2015, 18:41 UTC
-- **Edited time:** February 20, 2026, 20:57 UTC
+- **Creation time**: February 20, 2026, 19:42 UTC
+- **Edited time:** February 20, 2026, 19:42 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AWSAccountActivityAccess`
+  `arn:aws:iam::aws:policy/CloudWatchLogsAPIKeyAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -32,25 +32,43 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "LogsAPIs",
       "Effect" : "Allow",
       "Action" : [
-        "account:GetAccountInformation",
-        "account:GetAlternateContact",
-        "account:GetContactInformation",
-        "account:GetRegionOptStatus",
-        "account:ListRegions",
-        "billing:GetIAMAccessPreference",
-        "billing:GetSellerOfRecord",
-        "payments:ListPaymentPreferences"
+        "logs:CallWithBearerToken",
+        "logs:PutLogEvents"
       ],
       "Resource" : "*"
     },
     {
+      "Sid" : "KMSAPIs",
       "Effect" : "Allow",
       "Action" : [
-        "aws-portal:ViewBilling"
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
       ],
-      "Resource" : "*"
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "logs.*.amazonaws.com"
+        },
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:logs:arn" : "arn:aws:logs:*:*:log-group:*"
+        }
+      },
+      "Resource" : "arn:aws:kms:*:*:key/*"
+    },
+    {
+      "Sid" : "KMSDescribeAPIs",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:DescribeKey"
+      ],
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "logs.*.amazonaws.com"
+        }
+      },
+      "Resource" : "arn:aws:kms:*:*:key/*"
     }
   ]
 }

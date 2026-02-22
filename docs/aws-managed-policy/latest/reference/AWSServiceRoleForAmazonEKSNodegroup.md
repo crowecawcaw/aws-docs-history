@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 07, 2019, 01:34 UTC
-- **Edited time:** November 21, 2024, 00:07 UTC
+- **Edited time:** February 17, 2026, 18:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAmazonEKSNodegroup`
 
 ## Policy version
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -95,7 +95,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "autoscaling:EnableMetricsCollection",
         "autoscaling:PutScheduledUpdateGroupAction",
         "autoscaling:ResumeProcesses",
-        "autoscaling:SuspendProcesses"
+        "autoscaling:SuspendProcesses",
+        "autoscaling:PutWarmPool",
+        "autoscaling:DeleteWarmPool"
       ],
       "Resource" : "arn:aws:autoscaling:*:*:*:autoScalingGroupName/eks-*"
     },
@@ -169,7 +171,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:GetConsoleOutput",
         "ec2:DescribeRouteTables",
         "ec2:DescribeSubnets",
-        "ec2:DescribeCapacityReservations"
+        "ec2:DescribeCapacityReservations",
+        "autoscaling:DescribeWarmPool"
       ],
       "Resource" : "*"
     },

@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 02, 2019, 21:06 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
+- **Edited time:** February 19, 2026, 19:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceSellerProductsFullAccess`
 
 ## Policy version
 
-**Policy version:** v14 (default)
+**Policy version:** v15 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -147,6 +147,18 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "partnercentral-account-management:LegacyPartnerCentralRole" : "TechnicalStaff"
         }
       }
+    },
+    {
+      "Sid" : "AmazonQPartnerAssistantAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "q:StartConversation",
+        "q:SendMessage",
+        "q:GetConversation",
+        "q:ListConversations",
+        "q:PassRequest"
+      ],
+      "Resource" : "*"
     }
   ]
 }

@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 28, 2024, 22:34 UTC
-- **Edited time:** October 28, 2024, 22:34 UTC
+- **Edited time:** February 20, 2026, 19:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -79,6 +79,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:AssignIpv6Addresses"
       ],
       "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/eks:eks-cluster-name" : "${aws:PrincipalTag/eks:eks-cluster-name}"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "ec2:ModifyNetworkInterfaceAttribute",
+      "Resource" : [
+        "arn:aws:ec2:*:*:network-interface/*",
+        "arn:aws:ec2:*:*:instance/*"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/eks:eks-cluster-name" : "${aws:PrincipalTag/eks:eks-cluster-name}"
