@@ -82,7 +82,7 @@ EFS mount helper](efs-mount-helper.md "efs-mount-helper.md").
 The following illustration shows multiple EC2 instances accessing a One Zone
 file system from different Availability Zones in a single AWS Region.
 
-![One Zone file system with a single mount target created in the same Availability Zone.](/images/efs/latest/ug/images/efs-ec2-how-it-works-OneZone.png)
+![One Zone file system with a single mount target created in the same Availability Zone.](images/efs-ec2-how-it-works-OneZone.png)
 
 In this illustration, the VPC has two Availability Zones, each with one subnet. Because
 the file system type is One Zone, it can only have a single mount target. For
