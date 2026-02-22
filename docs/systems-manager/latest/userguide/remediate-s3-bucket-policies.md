@@ -34,7 +34,7 @@ JSON
  "Principal": "*",
  "Action": "s3:*",
  "Resource": [
- "arn:aws:s3:::",
+ "arn:aws:s3:::`amzn-s3-demo-bucket`",
  "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
  ],
  "Condition": {

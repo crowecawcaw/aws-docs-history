@@ -88,9 +88,9 @@ parameter. Here is an example of a seelog.xml configuration file with the
    </exceptions>
    <outputs formatid="fmtinfo">
       <console formatid="fmtinfo" />
-      <rollingfile type="date" datepattern="200601021504" maxrolls="4" filename="C:\ProgramData\Amazon\SSM\Logs\amazon-ssm-agent.log" fullname=true />
+      <rollingfile type="date" datepattern="200601021504" maxrolls="4" filename="C:\ProgramData\Amazon\SSM\Logs\amazon-ssm-agent.log" fullname="true" />
       <filter levels="error,critical" formatid="fmterror">
-         <rollingfile type="date" datepattern="200601021504" maxrolls="4" filename="C:\ProgramData\Amazon\SSM\Logs\errors.log" fullname=true />
+         <rollingfile type="date" datepattern="200601021504" maxrolls="4" filename="C:\ProgramData\Amazon\SSM\Logs\errors.log" fullname="true" />
       </filter>
    </outputs>
    <formats>

@@ -44,7 +44,7 @@ cloud and security _in_ the cloud:
 - [Logging and monitoring in
   AWS Systems Manager](logging-and-monitoring.md "logging-and-monitoring.md")
 - [Compliance validation for
-  AWS Systems Manager](security-compliance.md "security-compliance.md")
+  AWS Systems Manager](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS Systems Manager](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in
   AWS Systems Manager](infrastructure-security.md "infrastructure-security.md")

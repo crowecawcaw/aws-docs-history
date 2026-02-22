@@ -78,7 +78,7 @@ Output:
 
 For more information, see [Running Commands Using Systems Manager Run Command](run-command.md "run-command.md") in the _AWS Systems Manager User Guide_.
 
-**Examle 2: To get IP information about an instance**
+**Example 2: To get IP information about an instance**
 
 The following `send-command` example retrieves the IP information about an instance.
 

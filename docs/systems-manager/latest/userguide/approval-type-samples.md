@@ -106,7 +106,7 @@ and Ana Carolina Silva), a user group that contains three members
 users (`RoleOfTen`). Per-line approvals are supported for
 backwards compatibility but not recommended.
 
-![Approval level showing four required per-line approvers.](images/Add-approval-1.png)
+![Approval level showing four required per-line approvers.](/images/systems-manager/latest/userguide/images/Add-approval-1.png)
 
 For the change request to be approved in this per-line approval
 configuration, it must be approved by all approver lines: John
