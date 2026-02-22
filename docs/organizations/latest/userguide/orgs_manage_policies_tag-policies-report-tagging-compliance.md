@@ -82,6 +82,10 @@ The JSON below generates a compliance report for resources against the "CostCent
 
 ## Reporting for "Required tag key"
 
+###### Warning
+
+The AWS Resource Groups console does not currently support reporting for required tag keys when evaluating compliance for an account. Noncompliant resources that are missing a required tag key will not appear in **Resources with noncompliant tags** section and will not mark the account as noncompliant. Use organization-wide compliance report instead to find noncompliant resources that are missing a required tag key.
+
 With reporting for required tag keys, you can evaluate whether your resource creation operation is missing required or mandatory tag keys. Run the following command in your CLI to list required tag keys that are defined in the account's effective tag policy. You can use this information to manually verify that you are creating a resource with all required tags as defined by your account administrator.
 
 ```

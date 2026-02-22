@@ -1,6 +1,6 @@
-# Policy to enable Automation for your account
+# Policy to grant full access to Compute Optimizer Automation for a management account of an organization
 
-The following code example shows how to This permission-based policy enablesAutomation for your account
+The following code example shows how to This permission-based policy grants full access to Compute Optimizer Automation for a management account of an organization
 
 JSON
 
@@ -10,21 +10,17 @@ JSON
  "Statement": [
  {
  "Effect": "Allow",
- "Action": "iam:CreateServiceLinkedRole",
- "Resource": "arn:aws:iam::*:role/aws-service-role/aco-automation.amazonaws.com/AWSServiceRoleForComputeOptimizerAutomation",
- "Condition": {"StringLike": {"iam:AWSServiceName": "aco-automation.amazonaws.com"}}
- },
- {
- "Effect": "Allow",
  "Action": [
- "iam:PutRolePolicy",
- "iam:AttachRolePolicy"
+ "aco-automation:*",
+ "ec2:DescribeVolumes",
+ "organizations:ListAccounts",
+ "organizations:DescribeOrganization",
+ "organizations:DescribeAccount",
+ "organizations:EnableAWSServiceAccess",
+ "organizations:ListDelegatedAdministrators",
+ "organizations:RegisterDelegatedAdministrator",
+ "organizations:DeregisterDelegatedAdministrator"
  ],
- "Resource": "arn:aws:iam::*:role/aws-service-role/aco-automation.amazonaws.com/AWSServiceRoleForComputeOptimizerAutomation"
- },
- {
- "Effect": "Allow",
- "Action": "aco-automation:UpdateEnrollmentConfiguration",
  "Resource": "*"
  }
  ]
