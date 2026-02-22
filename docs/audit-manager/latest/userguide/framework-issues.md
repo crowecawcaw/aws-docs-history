@@ -196,7 +196,7 @@ requests**
 2. If you have a share request notification, Audit Manager displays a red dot
    next to the navigation menu icon.
 
-![Screenshot of the minimized navigation menu icon, with a red dot that indicates a notification.](/images/audit-manager/latest/userguide/images/framework_sharing-navigation_minimized_notification-console.png) 3. Expand the navigation pane and look next to **Share
+![Screenshot of the minimized navigation menu icon, with a red dot that indicates a notification.](images/framework_sharing-navigation_minimized_notification-console.png) 3. Expand the navigation pane and look next to **Share
 requests**. A notification badge indicates the number
 of share requests that need attention.
 
@@ -228,7 +228,7 @@ requests**
 2. If you have a share request notification, Audit Manager displays a red dot
    next to the navigation menu icon.
 
-![Screenshot of the minimized navigation menu icon, with a red dot that indicates a notification.](/images/audit-manager/latest/userguide/images/framework_sharing-navigation_minimized_notification-console.png) 3. Expand the navigation pane and look next to **Share
+![Screenshot of the minimized navigation menu icon, with a red dot that indicates a notification.](images/framework_sharing-navigation_minimized_notification-console.png) 3. Expand the navigation pane and look next to **Share
 requests**. A notification badge indicates the number
 of share requests that need your attention.
 
