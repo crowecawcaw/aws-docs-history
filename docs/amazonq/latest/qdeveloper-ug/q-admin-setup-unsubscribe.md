@@ -76,7 +76,7 @@ AWS Management Console
 1. Sign in to the AWS Management Console using the AWS account that's linked to your
    personal account (Builder ID). You specified this AWS account when you
    upgraded your Builder ID to the Pro tier. For more information, see [Upgrading a personal account (Builder ID)](upgrade-to-pro.md#upgrade-builder-id "upgrade-to-pro.md#upgrade-builder-id").
-2. Switch to the Amazon Q Developer console.
+2. Switch to the Amazon Q Developer console in the US East (N. Virginia) Region (IAD).
 3. Choose **Subscriptions**.
 4. In the **Builder ID users** section, choose
    **Unsubscribe**.

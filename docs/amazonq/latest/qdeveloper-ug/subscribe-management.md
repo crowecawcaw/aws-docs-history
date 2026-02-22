@@ -98,5 +98,5 @@ created the following resources on your behalf:
 
 Amazon Q can create the
 **QDevProfile-`region`** managed
-application in a maximum of 10 AWS accounts per AWS Region within an
+application in a maximum of 20 AWS accounts per AWS Region within an
 organization.
