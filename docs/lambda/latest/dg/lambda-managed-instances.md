@@ -17,7 +17,7 @@ Lambda Managed Instances provides the following capabilities:
 
 Consider Lambda Managed Instances for the following use cases:
 
-- **High volume-predictable workloads** - Best suited for steady-state workloads without unexpected traffic spikes. Lambda Managed Instances scale to handle traffic doubling within five minutes by default.
+- **High volume-predictable workloads** - Ideal for steady-state workloads without unexpected traffic spikes. Lambda Managed Instances scale to handle traffic doubling within five minutes by default.
 - **Performance-critical applications** - Access to latest CPUs, varying memory-CPU ratios, and high network throughput
 - **Regulatory requirements** - Granular governance needs with control over VPC and instance placement
 - **Variety of applications** - Event-driven applications, media/data processing, web applications, and legacy workloads migrating to serverless

@@ -62,7 +62,7 @@ the following steps.
 3. Choose the **Configuration** tab, and then choose **Permissions**.
 4. Under **Role name**, choose the link to your execution role. This link opens the role in the IAM console.
 
-![Link to execution role](images/execution-role.png) 5. Choose **Add permissions**, and then choose **Attach policies**.
+![Link to execution role](/images/lambda/latest/dg/images/execution-role.png) 5. Choose **Add permissions**, and then choose **Attach policies**.
 
 ![Attach policies in IAM console](images/attach-policies.png) 6. In the search field, enter `AWSLambdaSQSQueueExecutionRole`.
 Add this policy to your execution role. This is an AWS managed policy that contains the permissions

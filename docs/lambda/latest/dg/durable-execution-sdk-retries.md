@@ -195,7 +195,7 @@ To enable automatic retry for error-prone code, wrap it in a step with a retry s
 
 ## Backend retries
 
-Backend retries occur when Lambda encounters infrastructure failures, runtime errors, or when the SDK cannot communicate with the durable execution service. Lambda automatically retries these failures to ensure your durable functions can recover from transient infrastructure issues.
+Backend retries occur when Lambda encounters infrastructure failures, runtime errors, or when the SDK cannot communicate with the durable execution service. Lambda automatically retries these failures to help your durable functions can recover from transient infrastructure issues.
 
 ### Backend retry scenarios
 

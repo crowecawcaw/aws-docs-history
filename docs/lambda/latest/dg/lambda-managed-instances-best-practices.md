@@ -59,7 +59,7 @@ Note that execution environments with very low concurrency may experience thrott
 
 ## Monitoring and observability
 
-**Monitor capacity provider metrics.** Track capacity provider level metrics including CPUUtilization, MemoryUtilization, vCPUAvailable, and MemoryAvailable to ensure sufficient resources are available for your workloads.
+**Monitor capacity provider metrics.** Track capacity provider level metrics including CPUUtilization, MemoryUtilization, vCPUAvailable, and MemoryAvailable to verify sufficient resources are available for your workloads.
 
 **Monitor execution environment metrics.** Track execution environment level metrics including ExecutionEnvironmentConcurrency and ExecutionEnvironmentConcurrencyLimit to understand scaling behavior and identify potential throttling.
 

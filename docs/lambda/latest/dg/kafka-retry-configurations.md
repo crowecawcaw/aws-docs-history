@@ -167,7 +167,7 @@ const handler = async (event) => {
         console.error("Failed to process record", { topic, partition, offset, error });
         const itemIdentifier = {
           "partition": `${topic}-${partition}`,
-          offset: Number(offset),
+          "offset": Number(offset),
         };
         failures.push({ itemIdentifier });
       }

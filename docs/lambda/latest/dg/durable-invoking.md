@@ -78,7 +78,7 @@ This requirement ensures that durable executions remain consistent throughout th
 
 ###### Best practice
 
-Use numbered versions or aliases for production durable functions rather than `$LATEST`. Numbered versions are immutable and ensure deterministic replay. Optionally, aliases provide a stable reference that you can update to point to new versions without changing invocation code. When you update an alias, new executions use the new version, while in-progress executions continue with their original version. You may use `$LATEST` for prototyping or to shorten deployment times during development, understanding that executions might not replay correctly (or even fail) if the underlying code changes during running executions.
+Use numbered versions or aliases for production durable functions rather than `$LATEST`. Numbered versions are immutable and support deterministic replay. Optionally, aliases provide a stable reference that you can update to point to new versions without changing invocation code. When you update an alias, new executions use the new version, while in-progress executions continue with their original version. You may use `$LATEST` for prototyping or to shorten deployment times during development, understanding that executions might not replay correctly (or even fail) if the underlying code changes during running executions.
 
 ## Understanding execution lifecycle
 
