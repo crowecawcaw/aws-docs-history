@@ -28,26 +28,6 @@ When a client attempts to establish an mTLS connection to your CloudFront distri
 
 Connection Functions are invoked for both verify mode and optional mode (when clients present certificates).
 
-## Request a
-
-Connection Function quota increase
-
-Request a Connection Function quota increase for your AWS account.
-
-###### To request a Connection Function quota increase
-
-1. Sign in to the AWS Management Console and open the CloudFront console at
-   [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
-2. In the navigation pane, choose **Functions**.
-3. Choose the **Connection Functions** tab
-4. For **Request**, choose the link to contact CloudFront support
-   engineering.
-5. CloudFront support engineering reviews your request. The review process might
-   take up to two days.
-
-After your request is approved, you can create a Connection Function in your
-account and associate it with one or more distributions while using mutual TLS.
-
 ## Create a Connection Function
 
 You can create Connection Functions using the CloudFront console or AWS CLI.

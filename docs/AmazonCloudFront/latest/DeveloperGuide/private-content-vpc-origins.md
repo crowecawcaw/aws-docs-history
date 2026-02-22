@@ -32,67 +32,49 @@ AWS Resource Access Manager (AWS RAM). For more information, see [Working with s
 
 ## Prerequisites
 
-Before you create a VPC origin for your CloudFront distribution, you must complete the
-following:
+Before you create a VPC origin for your CloudFront distribution, you must complete the following:
 
-- Create a virtual private cloud (VPC) on Amazon VPC.
+### VPC Configuration
 
-      + Your VPC must be in one of the AWS Regions that are supported
-       for VPC origins. For more information, see [Supported AWS Regions for
-       VPC origins](#vpc-origins-supported-regions "#vpc-origins-supported-regions").
-      + Network ACLs associated with your VPC subnets apply to egress (outbound) traffic when client IP address preservation is enabled on your VPC origin. However, for traffic to be allowed to exit through your VPC origin you must configure the ACL as both an inbound and outbound rule.
+**Create a virtual private cloud (VPC) on Amazon VPC** in one of the AWS Regions that are supported for VPC origins. For information about creating a VPC, see [Create a VPC plus other VPC resources](../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources "../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources") in the _Amazon VPC User Guide_. For a list of supported Regions, see [Supported AWS Regions for
+VPC origins](#vpc-origins-supported-regions "#vpc-origins-supported-regions").
 
+Your VPC must include the following:
 
-      For example, to allow TCP and UDP clients using an ephemeral source port to connect to your endpoint through your VPC origin, associate the subnet of your endpoint with a Network ACL that allows outbound traffic destined to an ephemeral TCP or UDP port (port range 1024-65535, destination 0.0.0.0/0). In addition, create a matching inbound rule (port range 1024-65535, source 0.0.0.0/0).
+- **Internet gateway** – You need to add an internet gateway to the VPC that has your VPC origin resources. The internet gateway is required to denote that the VPC can receive traffic from the internet. The internet gateway is not used for routing traffic to origins inside the subnet, and you don't need to update the routing policies.
+- **Private subnet with at least one available IPv4 address** – CloudFront routes to your subnet by using a service-managed elastic network interface (ENI) that CloudFront creates after you define your VPC origin resource with CloudFront. You must have at least one available IPv4 address in your private subnet so that the ENI creation process can succeed. The IPv4 address can be private, and there is no additional cost for it. IPv6-only subnets are not supported.
 
-  For information about creating a VPC, see [Create a VPC plus other VPC resources](../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources "../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources") in the
-  _Amazon VPC User Guide_.
+### Origin Resources
 
-- Include the following in your VPC:
-  - **Internet gateway** –
-    You need to add an internet gateway to the VPC that has your VPC origin resources. The internet gateway is required to denote that the VPC can receive traffic from the internet. The internet gateway is not used for routing traffic to origins inside the subnet, and you don't need to update the routing policies.
-  - **Private subnet with at least one available
-    IPv4 address** – CloudFront routes to your subnet by
-    using a service-managed elastic network interface (ENI) that CloudFront creates after
-    you define your VPC origin resource with CloudFront. You must have at
-    least one available IPv4 address in your private subnet so that the
-    ENI creation process can succeed. The IPv4 address can be private,
-    and there is no additional cost for it.
+In the private subnet, launch an Application Load Balancer, a Network Load Balancer, or an EC2 instance to use as your origin. The resource you launch must be fully deployed and in Active status before you can use it for a VPC origin.
 
-  ###### Note
+**Origin restrictions:**
 
-  IPv6-only subnets are not supported.
+- Gateway Load Balancers cannot be added as origins
+- Dual-stack Network Load Balancers cannot be added as origins
+- Network Load Balancers with TLS listeners cannot be added as origins
+- To be used as a VPC origin, a Network Load Balancer must have a security group attached to it
 
-- In the private subnet, launch an Application Load Balancer, a Network Load Balancer, or an EC2 instance to use
-  as your origin.
-  - The resource you launch must be fully deployed and in
-    **Active** status before you can use it for a
-    VPC origin.
-  - Gateway Load Balancers, dual-stack Network Load Balancers and Network Load Balancers with TLS listeners can't be added as
-    origins.
-  - To be used as a VPC origin, a Network Load Balancer must have a security group
-    attached to it.
-  - Update your security groups for the VPC private origins to explicitly allow the CloudFront managed prefix list. For more information, see [Use the CloudFront managed prefix list](LocationsOfEdgeServers.md#managed-prefix-list "LocationsOfEdgeServers.md#managed-prefix-list").
+### Security Group Configuration
 
-  ###### Note
+Your VPC origin resources (Application Load Balancer, Network Load Balancer, or EC2 instance) must have a security group attached. When you create a VPC origin, CloudFront automatically creates a service-managed security group with the naming pattern `CloudFront-VPCOrigins-Service-SG`. This security group is fully managed by AWS, and should not be edited.
 
-  CloudFront-VPCOrigins-Service-SG is an AWS reserved
-  name for security groups that are used for VPC origins. You must
-  specify a different name for your security group. For more
-  information, see [Creating a security group](../../../vpc/latest/userguide/creating-security-groups.md "../../../vpc/latest/userguide/creating-security-groups.md").
+To allow traffic from CloudFront to reach your VPC origin, update the security group attached to your origin resource (ALB, NLB, or EC2 instance) to allow inbound traffic using one of the following methods:
 
-      - After the VPC origin is created, the security group can be further
-       restricted to allow only traffic from your VPC origins. To do this,
-       update the allowed traffic source from the managed prefix list to
-       the CloudFront security group.
+- **Option 1:** Allow traffic from the CloudFront managed prefix list. For more information, see [Use the CloudFront managed prefix list](LocationsOfEdgeServers.md#managed-prefix-list "LocationsOfEdgeServers.md#managed-prefix-list"). This can be done before VPC origin created as well.
+- **Option 2:** Allow traffic from the CloudFront service-managed security group (`CloudFront-VPCOrigins-Service-SG`). This can be done only after the VPC origin is created and the service-managed security group is created. This configuration is further restrictive as it restricts the traffic only to your CloudFront distributions.
 
-  ###### Note
+###### Important
 
-  WebSockets, gRPC traffic, origin request and origin response
-  triggers with Lambda@Edge in CloudFront are not supported for VPC origins.
-  For more information, see [Work with requests and
-  responses](lambda-generating-http-responses.md "lambda-generating-http-responses.md") in the
-  Lambda@Edge documentation.
+Do not create your own security group with a name starting with `CloudFront-VPCOrigins-Service-SG`. This is an AWS reserved naming pattern for service-managed security groups. For more information, see [Creating a security group](../../../vpc/latest/userguide/creating-security-groups.md "../../../vpc/latest/userguide/creating-security-groups.md").
+
+### Protocol and Feature Restrictions
+
+VPC origins do not support the following:
+
+- WebSockets
+- gRPC traffic
+- Origin request and origin response triggers with Lambda@Edge
 
 ## Create a VPC origin (new distribution)
 

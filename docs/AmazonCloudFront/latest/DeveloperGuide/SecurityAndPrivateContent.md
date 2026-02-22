@@ -23,7 +23,7 @@ For additional information, see the following:
 - [Use alternate domain names and
   HTTPS](using-https-alternate-domain-names.md "using-https-alternate-domain-names.md")
 - [Mutual TLS authentication with CloudFront (Viewer mTLS)](mtls-authentication.md "mtls-authentication.md")
-- [Mutual TLS (origin) with CloudFront](origin-mtls-authentication.md "origin-mtls-authentication.md")
+- [Origin mutual TLS with CloudFront](origin-mtls-authentication.md "origin-mtls-authentication.md")
 - [Serve private content with signed URLs and signed
   cookies](PrivateContent.md "PrivateContent.md")
 - [Restrict access to an AWS

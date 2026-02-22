@@ -32,7 +32,7 @@ Trust stores have specific requirements for the CA certificates they contain:
 
 - **Certificate type:** X.509v3
 - **Public key types:**
-  - RSA 2048, RSA 4096
+  - RSA 2048, RSA 3072, RSA 4096
   - ECDSA: secp256r1, secp384r1
 
 - **Signature algorithms:**

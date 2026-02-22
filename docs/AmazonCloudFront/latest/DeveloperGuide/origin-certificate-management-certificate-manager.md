@@ -1,17 +1,17 @@
 # Certificate management with AWS Certificate Manager
 
-[AWS Certificate Manager (ACM)](https://aws.amazon.com/certificate-manager/ "https://aws.amazon.com/certificate-manager/") stores the client certificates that CloudFront presents to your origin servers during mutual TLS (origin) authentication.
+[AWS Certificate Manager (ACM)](https://aws.amazon.com/certificate-manager/ "https://aws.amazon.com/certificate-manager/") stores the client certificates that CloudFront presents to your origin servers during origin mutual TLS authentication.
 
 ## Certificate Authority support
 
-CloudFront Mutual TLS (origin) requires client certificates with Extended Key Usage (EKU) for TLS Client Authentication. Due to this requirement, you must issue certificates from your Certificate Authority and import them into AWS Certificate Manager. ACM's automatic certificate provisioning and renewal features are not available for mutual TLS (origin) client certificates. CloudFront Mutual TLS (origin) supports client certificates from two sources:
+CloudFront origin mTLS requires client certificates with Extended Key Usage (EKU) for TLS Client Authentication. Due to this requirement, you must issue certificates from your Certificate Authority and import them into AWS Certificate Manager. ACM's automatic certificate provisioning and renewal features are not available for origin mTLS client certificates. CloudFront origin mTLS supports client certificates from two sources:
 
 - **AWS Private Certificate Authority:** You can issue certificates from AWS Private CA using certificate templates that include TLS Client Authentication in the Extended Key Usage field (such as the EndEntityClientAuthCertificate template). After issuing the certificate from AWS Private CA, you must import it into ACM in the US East (N. Virginia) Region (us-east-1). This approach provides the security benefits of AWS Private CA while giving you control over certificate lifecycle management.
-- **Third-party private Certificate Authorities:** You can also issue certificates from your existing private Certificate Authority infrastructure and import them into ACM. This allows you to maintain your current certificate management processes while leveraging CloudFront's mutual TLS (origin) capabilities. Certificates must include TLS Client Authentication in the Extended Key Usage field and must be in PEM format with the certificate, private key, and certificate chain.
+- **Third-party private Certificate Authorities:** You can also issue certificates from your existing private Certificate Authority infrastructure and import them into ACM. This allows you to maintain your current certificate management processes while leveraging CloudFront's origin mTLS capabilities. Certificates must include TLS Client Authentication in the Extended Key Usage field and must be in PEM format with the certificate, private key, and certificate chain.
 
 ###### Important
 
-For both AWS Private CA and third-party CAs, you are responsible for monitoring certificate expiration dates and importing renewed certificates into ACM before expiration. ACM's automatic renewal feature does not apply to imported certificates used for mutual TLS (origin).
+For both AWS Private CA and third-party CAs, you are responsible for monitoring certificate expiration dates and importing renewed certificates into ACM before expiration. ACM's automatic renewal feature does not apply to imported certificates used for origin mTLS.
 
 ## Certificate requirements and specifications
 
@@ -46,7 +46,7 @@ Your origin servers must present certificates from publicly trusted Certificate 
 
 ### Request or import a certificate
 
-Before enabling mutual TLS (origin), you must have a client certificate available in ACM.
+Before enabling origin mTLS, you must have a client certificate available in ACM.
 
 #### Request and import a certificate from AWS Private CA
 
@@ -135,4 +135,4 @@ aws acm import-certificate \
 
 #### Next steps
 
-After obtaining or importing your client certificate in ACM, you can configure your origin server to require mutual TLS authentication and enable mutual TLS (origin) on your CloudFront distribution. For instructions on enabling mutual TLS (origin) in CloudFront, see the next section "Enable mutual TLS (origin) for CloudFront distributions."
+After obtaining or importing your client certificate in ACM, you can configure your origin server to require mutual TLS authentication and enable origin mTLS on your CloudFront distribution. For instructions on enabling origin mTLS in CloudFront, see the next section "Enable origin mutual TLS for CloudFront distributions."
