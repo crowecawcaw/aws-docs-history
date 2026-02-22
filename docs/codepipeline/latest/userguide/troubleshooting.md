@@ -198,27 +198,28 @@ unique for your pipeline.
 
 Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com
 
-When you use an AWS CodeStar connection in a source action and a CodeBuild action, there are two ways
+When you use an AWS CodeConnections in a source action and a CodeBuild action, there are two ways
 the input artifact can be passed to the build:
 
-- The default: The source action produces a zip file that contains the code that CodeBuild
+- Default: The source action produces a zip file that contains the code that CodeBuild
   downloads.
-- Git clone: The source code can be directly downloaded to the build environment.
+- Full clone: The source code can be directly downloaded to the build environment.
 
-The Git clone mode allows you to interact with the source code as a working Git
+The Full clone mode allows you to interact with the source code as a working Git
 repository. To use this mode, you must grant your CodeBuild environment permissions to use the
 connection.
 
 To add permissions to your CodeBuild service role policy, you create a customer-managed policy
 that you attach to your CodeBuild service role. The following steps create a policy where the
-`UseConnection` permission is specified in the `action` field, and the
-connection ARN is specified in the `Resource` field.
+`UseConnection` permission is specified in the `action` field, the
+connection ARN is specified in the `Resource` field, and the source repository ID is
+limited via `Condition`.
 
 ###### To use the console to add the UseConnection permissions
 
-1. To find the connection ARN for your pipeline, open your pipeline and click the (i)
-   icon on your source action. You add the connection ARN to your CodeBuild service role
-   policy.
+1. To find the connection ARN and the source repository ID for your pipeline, open your
+   pipeline, click the (i) icon on your source action and switch to the **Input**
+   tab.
 
 An example connection ARN is:
 
@@ -226,15 +227,20 @@ An example connection ARN is:
 arn:aws:codeconnections:eu-central-1:123456789123:connection/sample-1908-4932-9ecc-2ddacee15095
 ```
 
-2. To find your CodeBuild service role, open the build project used in your pipeline and
-   navigate to the **Build details** tab.
-3. Choose the **Service role** link. This opens the IAM console where
-   you can add a new policy that grants access to your connection.
-4. In the IAM console, choose **Attach policies**, and then choose
-   **Create policy**.
+An example of the source repository ID:
+
+```
+owner/test-app
+```
+
+You add the connection ARN and the repository ID to your CodeBuild service role policy. 2. To find your CodeBuild service role, choose the build project used in your pipeline and
+navigate to the **Build details** tab. 3. Choose the **Service role** link. This opens the IAM console where
+you can add a new policy that grants access to your connection. 4. In the IAM console, choose **Add permissions**, and then choose
+**Create inline policy**.
 
 Use the following sample policy template. Add your connection ARN in the
-`Resource` field, as shown in this example:
+`Resource` field and your repository ID in `codeconnections:FullRepositoryId`
+of the `Condition` field, as shown in this example:
 
 JSON
 
@@ -244,20 +250,29 @@ JSON
  "Statement": [
  {
  "Effect": "Allow",
- "Action": "codestar-connections:UseConnection",
- "Resource": "`arn:aws:iam::*:role/Service*`"
+ "Action": "codeconnections:UseConnection",
+ "Resource": "`arn:aws:codeconnections:eu-central-1:123456789123:connection/my-connection-id`",
+ "Condition": {
+ "StringEquals": {
+ "codeconnections:FullRepositoryId": "`my-repository-id`"
+ }
+ }
  }
  ]
 }`
 
 ```
 
-On the **JSON** tab, paste your policy. 5. Choose **Review policy**. Enter a name for the policy (for example,
-`connection-permissions`), and then choose **Create
-policy**. 6. Return to the page where you were attaching permissions, refresh the policy list, and
-select the policy you just created. Choose **Attach policies**.
+Use the `Condition` field to scope your policy permissions down further
+based on your build spec requirements (see `CodeConnection` conditions
+[documentation](../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-use "../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-use")).
 
-![Image showing the option to attach a policy in the console](images/gitclone-role-policy-attach.png)
+On the **JSON** tab, paste your policy. 5. Choose **Next**. Enter a name for the policy (for example,
+`connection-permissions`), and then choose **Create
+policy**.
+
+You will see `connection-permissions` policy attached to your role
+**Permissions policies**.
 
 ## Add CodeBuild GitClone permissions for CodeCommit
 
