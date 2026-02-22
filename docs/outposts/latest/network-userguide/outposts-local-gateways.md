@@ -30,6 +30,13 @@ To understand instance bandwidth limitations for traffic going through a local g
 see [Amazon EC2 instance network
 bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md "../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md") in the _Amazon EC2 User Guide_.
 
+###### IP Address Planning for Local Gateway
+
+For Outposts using private connectivity, do not create CoIP pools or DVR subnet ranges
+that overlap with existing Service Link VIF address ranges or VPC CIDR ranges used for the
+dedicated private connectivity VPC, as they will cause BGP routing conflicts and affect
+Service Link functionality.
+
 A local gateway has the following components:
 
 - Route tables – Only the owner of a local gateway

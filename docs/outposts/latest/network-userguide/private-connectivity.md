@@ -20,6 +20,15 @@ between your Outposts and the AWS Region:
 
 Second-generation Outposts racks require a larger subnet size (/24 or larger) and a VPC Endpoint for the Outposts service.
 
+###### IP Address Planning for Private Connectivity
+
+When configuring private connectivity for the Outposts service link, plan your IP
+addressing carefully to avoid future conflicts. Service Link VIFs are immutable. You cannot
+create CoIP pools or DVR subnet ranges assigned to the Local Gateway (LGW) that overlap
+with existing Service Link address ranges or VPC CIDR ranges used for the dedicated private
+connectivity VPC, as they will cause BGP routing conflicts and affect Service Link
+functionality.
+
 ## Prerequisites
 
 The following prerequisites are required before you can configure private connectivity
