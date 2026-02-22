@@ -27,7 +27,7 @@ The following security topics can be found in this section:
 
 - [Identity and access management for Directory Service](iam_auth_access.md "iam_auth_access.md")
 - [Logging and monitoring in AWS Directory Service](incident-response.md "incident-response.md")
-- [Compliance validation for AWS Directory Service](ds-compliance.md "ds-compliance.md")
+- [Compliance validation for AWS Directory Service](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS Directory Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Directory Service](infrastructure-security.md "infrastructure-security.md")
   **Additional security topics**

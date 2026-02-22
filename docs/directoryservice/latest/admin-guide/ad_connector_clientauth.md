@@ -92,6 +92,15 @@ certificate revocation checking, an OCSP responder URL must be internet-accessib
 a DNS name, an OCSP responder URL must use a top-level domain found in the [Internet Assigned Numbers Authority (IANA) Root
 Zone Database](https://www.iana.org/domains/root/db "https://www.iana.org/domains/root/db").
 
+###### Note
+
+Directories created after October 7, 2025, require that OCSP servers used for SmartCard certificate validation be routable through your VPC's network configuration. If your OCSP server is not accessible via your VPC's routing tables, security groups, and network ACLs, SmartCard authentication will fail during certificate revocation checks. To resolve this issue, please ensure that:
+
+- Network Routing: Your VPC route tables allow traffic to reach your OCSP server from the subnets where your AD Connector directory instances are deployed.
+- Security Groups: The security groups associated with your directory's network interfaces permit outbound traffic to your OCSP server on port 80 (HTTP).
+- Network ACLs: Your subnet network ACLs allow bidirectional traffic to/from your OCSP server.
+- Internet Gateway/NAT: If your OCSP server is internet-facing, ensure your VPC has appropriate internet gateway or NAT gateway configuration for the directory subnets. If your network type is IPv4, you will need to have NAT and internet gateway configured with your VPC.
+
 AD Connector certificate revocation checking uses the following process:
 
 - AD Connector must check the Authority Information Access (AIA) extension in the
