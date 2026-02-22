@@ -1,12 +1,8 @@
-# Migration tools and services overview
+# High availability and disaster recovery
 
-This topic provides conceptual content about migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It introduces you to the AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS), explaining how these tools can streamline your database migration process. The content covers various aspects of the migration, including schema conversion, data transfer, and handling different database features. It also touches on related services like Amazon RDS on Outposts, Amazon RDS Proxy, and Amazon Aurora Serverless v1, providing a comprehensive overview of the AWS database ecosystem. By understanding these concepts, you can better plan and execute your database migration strategy, anticipate potential challenges, and leverage AWS tools and services to ensure a smooth transition to Aurora PostgreSQL.
+This topic provides conceptual content comparing backup, restore, high availability, and disaster recovery capabilities between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can gain valuable insights into how these two database systems handle critical data management and protection features. The content explores various aspects such as recovery models, backup types, restore operations, server-level and database-level failure protection, disk error handling, read-only replicas, and failover addressing. By understanding these similarities and differences, you can make informed decisions when considering a migration from SQL Server to Aurora PostgreSQL or when evaluating which database solution best fits your specific needs for data reliability and availability in your cloud infrastructure.
 
 ###### Topics
 
-- [AWS Schema Conversion Tool overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [AWS SCT Action Code Index overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [AWS Database Migration Service overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [Amazon RDS on Outposts overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [Amazon RDS Proxy overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [Amazon Aurora Serverless v1 overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [Backup and restore design](chap-sql-server-aurora-pg.hadr.md "chap-sql-server-aurora-pg.hadr.md")
+- [High availability essentials](chap-sql-server-aurora-pg.hadr.md "chap-sql-server-aurora-pg.hadr.md")
