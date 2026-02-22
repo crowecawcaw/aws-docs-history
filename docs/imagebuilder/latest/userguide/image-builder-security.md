@@ -29,7 +29,7 @@ cloud and security _in_ the cloud:
 
 - [Data protection and the AWS shared responsibility model in Image Builder](data-protection.md "data-protection.md")
 - [Identity and Access Management integration for Image Builder](security-iam.md "security-iam.md")
-- [Compliance validation resources for Image Builder](compliance.md "compliance.md")
+- [Compliance validation for Image Builder](compliance.md "compliance.md")
 - [Data redundancy and resilience in Image Builder](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Image Builder](infrastructure-security.md "infrastructure-security.md")
 - [Patch Management for Image Builder images](security-patch-management.md "security-patch-management.md")
