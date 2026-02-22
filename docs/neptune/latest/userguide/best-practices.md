@@ -33,7 +33,6 @@ maximizing performance.
     Time Data](best-practices-gremlin-datetime-glv.md "best-practices-gremlin-datetime-glv.md")
 
 - [Best practices using the Gremlin Java client with Neptune](best-practices-gremlin-java-client.md "best-practices-gremlin-java-client.md")
-  - [Use the latest compatible version of the Apache TinkerPop Java client](best-practices-gremlin-java-client.md#best-practices-tinkerpop-java-client-latest "best-practices-gremlin-java-client.md#best-practices-tinkerpop-java-client-latest")
   - [Re-use the client object across multiple threads](best-practices-gremlin-java-reuse.md "best-practices-gremlin-java-reuse.md")
   - [Create separate Gremlin Java client
     objects for read and write endpoints](best-practices-gremlin-java-separate.md "best-practices-gremlin-java-separate.md")

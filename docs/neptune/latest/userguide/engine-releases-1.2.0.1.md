@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.2.0.1.R2 (2022-12-13)
+# Amazon Neptune Engine Version 1.2.0.1.R3 (2023-09-27)
 
-As of 2022-12-13, engine version 1.2.0.1.R2 is being generally deployed. Please note
+As of 2023-09-27, engine version 1.2.0.1.R3 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
@@ -41,34 +41,58 @@ a support case may help you explore additional strategies for bringing it down.
 
 ## Improvements in This Engine Release
 
-- Improved the performance of openCypher queries that involve
-  `UNWIND` on a list of maps of literal values.
-- Performance improvements and correctness fixes for various Gremlin
-  operators, including `repeat`, `coalesce`, `store`,
-  and `aggregate`.
+- Added an `enableInterContainerTrafficEncryption`
+  parameter to all [Neptune
+  ML APIs](machine-learning-api-reference.md "machine-learning-api-reference.md"), that you can use to enable and disable inter-container traffic
+  encryption in training or hyper-parameter tuning jobs.
+- For serverless DB clusters, changed the minimum capacity setting to
+  1.0 NCU, and the lowest valid maximum setting to 2.5 NCUs. See [Capacity scaling in a Neptune Serverless DB cluster](neptune-serverless-capacity-scaling.md "neptune-serverless-capacity-scaling.md") `(((before release,
+this change needs to be reflected in the serverless page too))).`
 
 ## Defects Fixed in This Engine Release
 
-- Fixed an openCypher bug where queries returned the string, `"null"`,
-  instead of a null value in Bolt and SPARQL-JSON.
-- Fixed an audit log bug that caused unnecessary information to
-  be logged and certain fields to be missing from the logs.
-- Fixed a lookup-cache bug so as to cap the incremental memory
-  used for writes to the cache.
-- Fixed a lookup-cache bug that involved setting read-only mode
-  for the lookup cache when writes failed.
+- Fixed an openCypher bug where update-and-return queries did not handle
+  `orderBy`, `limit`, or `skip` properly.
+- Fixed an openCypher bug that allowed parameters contained in one request
+  to be overridden by parameters contained in another simultaneous request.
+- Fixed an openCypher bug in Bolt transaction handling.
+- Fixed Gremlin correctness issues for DFE queries with `limit` as
+  a child traversal of non-union steps by falling back to Tinkerpop. For example, for queries
+  like this:
+
+```
+g.withSideEffect('Neptune#useDFE', true)
+ .V()
+ .as("a")
+ .select("a")
+ .by(out()
+ .limit(1))
+```
+
+- Fixed a Gremlin bug where a query would fail because it contained too many
+  TinkerPop steps and then would not be cleaned up.
+- Fixed a Gremlin bug where `order()` would not properly sort
+  string outputs when some of them contained a space character.
+- Fixed a Gremlin bug where a transaction leak could occur when a query
+  was submitted as a String and contained `GroupCountStep`.
+- Fixed a Gremlin bug where a transaction leak would occur when checking
+  the Gremlin query status endpoint for queries with predicates in child traversals
+  for steps that are not processed natively.
+- Fixed a Gremlin bug where adding an Edge and its properties followed
+  by `inV()` or `outV()` caused an `InternalFailureException`.
+- Fixed a concurrency issue in the storage layer.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.0.1.R2, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.0.1.R3, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
-- _Gremlin latest version supported:_ `3.5.4`
+- _Gremlin latest version supported:_ `3.5.6`
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.0.1.R2
+## Upgrade Paths to Engine Release 1.2.0.1.R3
 
 Your Neptune DB cluster will be upgraded to this patch release automatically
 during your next maintenance window if you are running
@@ -76,7 +100,7 @@ during your next maintenance window if you are running
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.2.0.1.R2 is now generally available.
+Amazon Neptune 1.2.0.1.R3 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

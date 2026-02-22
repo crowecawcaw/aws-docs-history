@@ -1,10 +1,26 @@
 # Best practices using the Gremlin Java client with Neptune
 
-## Use the latest compatible version of the Apache TinkerPop Java client
+Follow these recommendations when using the Gremlin Java client with Neptune.
+These best practices help you optimize performance, manage connections effectively,
+and avoid common pitfalls when working with the Java driver.
 
-If you can, always use the latest version of the Apache TinkerPop Gremlin Java
-client supported by the engine version you are using. Newer versions contain numerous
-bug fixes which can improves the stability, performance and usability of the client.
+###### Topics
 
-See [Apache TinkerPop Java Gremlin client](access-graph-gremlin-client.md#best-practices-gremlin-java-latest "access-graph-gremlin-client.md#best-practices-gremlin-java-latest") for a list of the client
-versions that are compatible with various Neptune engine versions.
+- [Re-use the client object across multiple threads](best-practices-gremlin-java-reuse.md "best-practices-gremlin-java-reuse.md")
+- [Create separate Gremlin Java client
+  objects for read and write endpoints](best-practices-gremlin-java-separate.md "best-practices-gremlin-java-separate.md")
+- [Add multiple read replica endpoints to a
+  Gremlin Java connection pool](best-practices-gremlin-java-multiple.md "best-practices-gremlin-java-multiple.md")
+- [Close the client to avoid the connections limit](best-practices-gremlin-java-close-connections.md "best-practices-gremlin-java-close-connections.md")
+- [Create a new connection after
+  failover](best-practices-gremlin-java-new-connection.md "best-practices-gremlin-java-new-connection.md")
+- [Set maxInProcessPerConnection
+  and maxSimultaneousUsagePerConnection to the same value](best-practices-gremlin-java-maxes.md "best-practices-gremlin-java-maxes.md")
+- [Send queries to the server as bytecode rather than as strings](best-practices-gremlin-java-bytecode.md "best-practices-gremlin-java-bytecode.md")
+- [Always completely consume the
+  ResultSet or Iterator returned by a query](best-practices-gremlin-java-resultset.md "best-practices-gremlin-java-resultset.md")
+- [Bulk add vertices and edges in batches](best-practices-gremlin-java-batch-add.md "best-practices-gremlin-java-batch-add.md")
+- [Disable DNS caching in the Java Virtual Machine](best-practices-gremlin-java-disable-dns-caching.md "best-practices-gremlin-java-disable-dns-caching.md")
+- [Optionally, set timeouts at a per-query level](best-practices-gremlin-java-per-query-timeout.md "best-practices-gremlin-java-per-query-timeout.md")
+- [Troubleshooting
+  java.util.concurrent.TimeoutException](best-practices-gremlin-java-exceptions-TimeoutException.md "best-practices-gremlin-java-exceptions-TimeoutException.md")

@@ -2,14 +2,12 @@
 
 instance
 
-If you can, always use the latest version of the Apache TinkerPop Go Gremlin
-client, [gremlingo](https://pkg.go.dev/github.com/apache/tinkerpop/gremlin-go/v3/driver "https://pkg.go.dev/github.com/apache/tinkerpop/gremlin-go/v3/driver"),
-that your engine version supports. Newer versions contain numerous bug fixes that improve the
-stability, performance and usability of the client.
+###### Important
 
-The `gremlingo` version to use will typically align with the TinkerPop
-versions described in the [table
-for the Java Gremlin client](access-graph-gremlin-client.md#best-practices-gremlin-java-latest "access-graph-gremlin-client.md#best-practices-gremlin-java-latest").
+Choosing the correct Apache TinkerPop Gremlin driver version is critical for compatibility
+with your Neptune engine version. Using an incompatible version can result in connection
+failures or unexpected behavior. For detailed version compatibility information, see
+[Accessing a Neptune graph with Gremlin](access-graph-gremlin.md "access-graph-gremlin.md").
 
 The following section walks you through the running of a Go sample that connects to
 an Amazon Neptune DB instance and performs a Gremlin traversal.

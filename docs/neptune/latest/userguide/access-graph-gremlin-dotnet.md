@@ -2,13 +2,12 @@
 
 instance
 
-If you can, always use the latest version of the Apache TinkerPop .NET Gremlin
-client, [Gremlin.Net](https://www.nuget.org/packages/Gremlin.Net/ "https://www.nuget.org/packages/Gremlin.Net/"),
-that your engine version supports. Newer versions contain numerous bug fixes that
-improve the stability, performance and usability of the client. The
-`Gremlin.Net` version to use will typically align with the TinkerPop
-versions described in the [table
-for the Java Gremlin client](access-graph-gremlin-client.md#best-practices-gremlin-java-latest "access-graph-gremlin-client.md#best-practices-gremlin-java-latest").
+###### Important
+
+Choosing the correct Apache TinkerPop Gremlin driver version is critical for compatibility
+with your Neptune engine version. Using an incompatible version can result in connection
+failures or unexpected behavior. For detailed version compatibility information, see
+[Accessing a Neptune graph with Gremlin](access-graph-gremlin.md "access-graph-gremlin.md").
 
 The following section contains a code example written in C# that connects to a
 Neptune DB instance and performs a Gremlin traversal.

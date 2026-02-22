@@ -1,49 +1,69 @@
 # Accessing a Neptune graph with Gremlin
 
-Amazon Neptune is compatible with Apache TinkerPop3 and Gremlin. This means
+Amazon Neptune is compatible with Apache TinkerPop and Gremlin. This means
 that you can connect to a Neptune DB instance and use the Gremlin traversal language to query the
 graph (see [The
-Graph](https://tinkerpop.apache.org/docs/current/reference/#graph "https://tinkerpop.apache.org/docs/current/reference/#graph") in the Apache TinkerPop3 documentation). For differences in the Neptune
+Graph](https://tinkerpop.apache.org/docs/current/reference/#graph "https://tinkerpop.apache.org/docs/current/reference/#graph") in the Apache TinkerPop documentation). For differences in the Neptune
 implementation of Gremlin, see [Gremlin standards compliance](access-graph-gremlin-differences.md "access-graph-gremlin-differences.md").
-
-Different Neptune engine versions support different Gremlin versions. Check
-the [engine release page](engine-releases.md "engine-releases.md") of the Neptune
-version you are running to determine which Gremlin release it supports.
 
 A _traversal_ in Gremlin is a series of chained steps. It starts at a
 vertex (or edge). It walks the graph by following the outgoing edges of each vertex and then the
 outgoing edges of those vertices. Each step is an operation in the traversal. For more
 information, see [The
-Traversal](https://tinkerpop.apache.org/docs/current/reference/#traversal "https://tinkerpop.apache.org/docs/current/reference/#traversal") in the TinkerPop3 documentation.
+Traversal](https://tinkerpop.apache.org/docs/current/reference/#traversal "https://tinkerpop.apache.org/docs/current/reference/#traversal") in the TinkerPop documentation.
+
+Different Neptune engine versions support different Gremlin versions. Check
+the [engine release page](engine-releases.md "engine-releases.md") of the Neptune
+version you are running to determine which Gremlin release it supports or consult
+the following table which lists the earliest and latest versions of TinkerPop
+supported by different Neptune engine versions:
+
+| Neptune Engine Version | Minimum TinkerPop Version | Maximum TinkerPop Version |
+| ---------------------- | ------------------------- | ------------------------- |
+| `1.3.2.0 <= current`   | `3.7.1`                   | `3.7.3`                   |
+| `1.3.1.0`              | `3.6.2`                   | `3.6.5`                   |
+| `1.3.0.0`              | `3.6.2`                   | `3.6.4`                   |
+| `1.2.1.0 <= 1.2.1.2`   | `3.6.2`                   | `3.6.2`                   |
+| `1.1.1.0 <= 1.2.0.2`   | `3.5.5`                   | `3.5.6`                   |
+| `1.1.0.0 and older`    | `(deprecated)`            | `(deprecated)`            |
+
+TinkerPop clients are usually backwards compatible within a series (`3.6.x`,
+for example, or `3.7.x`) and while they can often work across those boundaries,
+the table above recommends the version combinations to use for the best possible experience
+and compatibility. Unless otherwise advised, it is generally best to adhere to these guidelines
+and upgrade client applications to match the version of TinkerPop you are using.
+
+When upgrading TinkerPop versions it is always important to refer to
+[TinkerPop's upgrade
+documentation](http://tinkerpop.apache.org/docs/current/upgrade/ "http://tinkerpop.apache.org/docs/current/upgrade/") which will help you identify new features you can take advantage of,
+but also issues you may need to be aware of as you approach your upgrade. You should typically
+expect existing queries and features to work after upgrade unless something in particular is
+called out as an issue to consider. Finally, it is important to note that should a version you
+upgrade to have a new feature, you may not be able to use it if it is from a version later than
+what Neptune supports.
 
 There are Gremlin language variants and support for Gremlin access in various programming
-languages. For more information, see [On Gremlin Language Variants](https://tinkerpop.apache.org/docs/current/reference/#gremlin-drivers-variants "https://tinkerpop.apache.org/docs/current/reference/#gremlin-drivers-variants") in the TinkerPop3 documentation.
+languages. For more information, see [On Gremlin Language Variants](https://tinkerpop.apache.org/docs/current/reference/#gremlin-drivers-variants "https://tinkerpop.apache.org/docs/current/reference/#gremlin-drivers-variants") in the TinkerPop documentation.
 
 This documentation describes how to access Neptune with the following variants and
-programming languages.
+programming languages:
 
-As discussed in [Encrypting connections to your Amazon Neptune database with SSL/HTTPS](security-ssl.md "security-ssl.md"), you must use
-Transport Layer Security/Secure Sockets Layer (TLS/SSL) when connecting to Neptune in all
-AWS Regions.
-
-###### Gremlin-Groovy
-
-The Gremlin Console and HTTP REST examples in this section use the Gremlin-Groovy variant.
-For more information about the Gremlin Console and Amazon Neptune, see the [Using Gremlin to access graph data in Amazon Neptune](get-started-graph-gremlin.md "get-started-graph-gremlin.md") section of the Quick Start.
-
-###### Gremlin-Java
-
-The Java sample is written with the official TinkerPop3 Java implementation and uses the
-Gremlin-Java variant.
-
-###### Gremlin-Python
-
-The Python sample is written with the official TinkerPop3 Python implementation and uses
-the Gremlin-Python variant.
-
-The following sections walk you through how to use the Gremlin Console,
-**REST** over HTTPS, and various programming languages to connect to a
-Neptune DB instance.
+- [Set up the Gremlin console to connect to a
+  Neptune DB instance](access-graph-gremlin-console.md "access-graph-gremlin-console.md")
+- [Using the HTTPS REST endpoint to connect to a
+  Neptune DB instance](access-graph-gremlin-rest.md "access-graph-gremlin-rest.md")
+- [Java-based Gremlin clients to use with Amazon Neptune](access-graph-gremlin-client.md "access-graph-gremlin-client.md")
+- [Using Python to connect to a Neptune DB
+  instance](access-graph-gremlin-python.md "access-graph-gremlin-python.md")
+- [Using .NET to connect to a Neptune DB
+  instance](access-graph-gremlin-dotnet.md "access-graph-gremlin-dotnet.md")
+- [Using Node.js to connect to a Neptune DB
+  instance](access-graph-gremlin-node-js.md "access-graph-gremlin-node-js.md")
+- [Using Go to connect to a Neptune DB
+  instance](access-graph-gremlin-go.md "access-graph-gremlin-go.md")
+  As discussed in [Encrypting connections to your Amazon Neptune database with SSL/HTTPS](security-ssl.md "security-ssl.md"), you must use
+  Transport Layer Security/Secure Sockets Layer (TLS/SSL) when connecting to Neptune in all
+  AWS Regions.
 
 Before you begin, you must have the following:
 

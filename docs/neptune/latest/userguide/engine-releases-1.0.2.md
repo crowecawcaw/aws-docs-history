@@ -1,67 +1,42 @@
-# Amazon Neptune Engine Version 1.0.2.1 (2019-11-22)
+# Amazon Neptune Engine Version 1.0.2.0 (2019-11-08)
+
+## IMPORTANT: THIS ENGINE VERSION IS NOW DEPRECATED
+
+Starting from 2020-05-19, no new instances using this engine version will be created.
+
+This engine version is now superseded by [version
+1.0.2.1](engine-releases-1.0.2.md "engine-releases-1.0.2.md"), which contains all the bug fixes in this version as well as
+additional features such as full-text search integration, OSGP index support,
+and database snapshot cluster copy across AWS Regions.
+
+Starting June 1, 2020, Neptune will automatically upgrade any cluster running
+this engine version to [the latest patch
+of version 1.0.2.1](engine-releases-1.0.2.1.md "engine-releases-1.0.2.1.md") during the next maintenance window. You can upgrade manually
+before then, as described [here](engine-releases-1.0.2.md "engine-releases-1.0.2.md").
+
+If you have any issues with the upgrade, please contact us through [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support") or the [AWS Developer Forums](https://forums.aws.amazon.com/forum.jspa?forumID=253 "https://forums.aws.amazon.com/forum.jspa?forumID=253").
 
 ## Subsequent Patch Releases for This Release
 
-- [Release: 1.0.2.1.R6 (2020-04-22)](engine-releases-1.0.2.1.md "engine-releases-1.0.2.1.md")
-- [Release: 1.0.2.1.R5 (2020-04-22)](engine-releases-1.0.2.1.md "engine-releases-1.0.2.1.md") _This
-  patch release was not deployed._
-- [Release: 1.0.2.1.R4 (2019-12-20)](engine-releases-1.0.2.1.md "engine-releases-1.0.2.1.md")
-- [Release: 1.0.2.1.R3 (2019-12-12)](engine-releases-1.0.2.1.md "engine-releases-1.0.2.1.md")
-- [Release: 1.0.2.1.R2 (2019-11-25)](engine-releases-1.0.2.1.md "engine-releases-1.0.2.1.md")
+- [Release: 1.0.2.0.R3 (2020-05-05)](engine-releases-1.0.2.0.md "engine-releases-1.0.2.0.md")
+- [Release: 1.0.2.0.R2 (2019-11-21)](engine-releases-1.0.2.0.md "engine-releases-1.0.2.0.md")
 
 ## New Features in This Engine Release
 
-- Added full-text search capabilities through integration with the Amazon OpenSearch Service.
-  See [Neptune full text search](full-text-search.md "full-text-search.md")
-- Added the option using lab mode to create a fourth index (an OSGP index)
-  for large numbers of predicates. See [OSGP index](features-lab-mode.md#features-lab-mode-features-osgp-index "features-lab-mode.md#features-lab-mode-features-osgp-index").
-- Added a _details_ mode to SPARQL Explain.
-  See [Using SPARQL explain](sparql-explain-using.md "sparql-explain-using.md")
-  and [Details mode output](sparql-explain-examples.md#sparql-explain-example-details "sparql-explain-examples.md#sparql-explain-example-details") for details.
-- Added lab mode information to the engine status report. See [Instance Status](access-graph-status.md "access-graph-status.md") for details.
-- DB Cluster snapshots can now be copied across AWS Regions. See [Copying a Snapshot](backup-restore-copy-snapshot.md "backup-restore-copy-snapshot.md").
+In addition to maintenance updates, this release adds new functionality to support
+more than one engine version at a time (see [Maintaining your Amazon Neptune DB Cluster](cluster-maintenance.md "cluster-maintenance.md")).
 
-## Improvements in This Engine Release
-
-- Improved performance when handling a large number of predicates.
-- Enhanced query optimization. While this should be entirely transparent to
-  customers, we encourage you to test your applications before upgrading to ensure that
-  they behave as expected.
-- Minor enhancements to error reporting.
-- Added optimizations for Gremlin `.project()` and
-  `.identity()` steps.
-- Added optimizations for non-terminal Gremlin `.union()` cases.
-- Added native support for Gremlin `.path().by()` traversals.
-- Added native support for Gremlin `.coalesce()`.
-- Further optimization of bulk write.
-- We now require that HTTPS connections use at least TLS version 1.2 or higher,
-  to prevent outdated/insecure ciphers being used.
-
-## Defects Fixed in This Engine Release
-
-- Fixed a Gremlin `addE()` inner traversal handling bug.
-- Fixed a Gremlin bug caused by AST annotations leaking from child traversals to the parent.
-- Fixed a bug that occurred in Gremlin when `.otherV()` was called
-  after `select()`.
-- Fixed a Gremlin bug that caused some `.hasLabel()` steps to
-  fail if they appeared after a `bothE()` step.
-- Made minor fixes for Gremlin .sum() and .project().
-- Fixed a bug in processing SPARQL queries that lack a closing brace.
-- Fixed some minor bugs in SPARQL Explain.
-- Fixed a bug in the handling of concurrent get load status requests.
-- Reduced memory used for executing some Gremlin traversals with
-  `.project()` steps.
-- Fixed numeric comparisons of special values in SPARQL. See [Standards Compliance](feature-overview-standards-compliance.md "feature-overview-standards-compliance.md").
+As a result, the numbering of engine releases has changed (see [Version numbering before engine release 1.3.0.0](cluster-maintenance.md#older-engine-numbers "cluster-maintenance.md#older-engine-numbers")).
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.1, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.0, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.1`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.1
+## Upgrade Paths to Engine Release 1.0.2.0
 
 You can manually upgrade any previous Neptune engine release to this release.
 
@@ -69,7 +44,7 @@ You will not automatically upgrade to this release.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.1 is now generally available.
+Amazon Neptune 1.0.2.0 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
@@ -81,7 +56,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.0.2.1 \
+    --engine-version 1.0.2.0 \
     --apply-immediately
 ```
 
@@ -90,7 +65,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.0.2.1 ^
+    --engine-version 1.0.2.0 ^
     --apply-immediately
 ```
 

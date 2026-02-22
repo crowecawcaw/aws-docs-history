@@ -58,12 +58,11 @@ than the instructions here.
 sudo /usr/sbin/alternatives --config java
 ```
 
-When prompted, enter the number for Java 11. 3. Download the appropriate version of the Gremlin console from the Apache
+When prompted, enter the number for Java 11. 3. Download the appropriate version of the Gremlin Console from the Apache
 web site. You can check the
-[java gremlin client
-page](access-graph-gremlin-client.md#best-practices-gremlin-java-latest "access-graph-gremlin-client.md#best-practices-gremlin-java-latest") for the Neptune engine version you are currently running to
-determine which Gremlin version it supports. For example, for version
-3.7.2, you can download the [Gremlin console](https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip "https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip") from the [Apache Tinkerpop3](https://tinkerpop.apache.org/download.html "https://tinkerpop.apache.org/download.html") website onto your EC2 instance like this:
+[Accessing a Neptune graph with Gremlin](access-graph-gremlin.md "access-graph-gremlin.md")
+determine which Gremlin version your version of Neptune supports. For example, if you need version
+3.7.2, you can download the [Gremlin console](https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip "https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip") from the [Apache Tinkerpop](https://tinkerpop.apache.org/download.html "https://tinkerpop.apache.org/download.html") website onto your EC2 instance like this:
 
 ```
 wget https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip

@@ -151,7 +151,7 @@ and query data in a Neptune graph database:
 
 - [Gremlin](access-graph-gremlin.md "access-graph-gremlin.md") is a graph traversal language
   for property graphs. A query in Gremlin is a traversal made up of discrete steps,
-  each of which follows an edge to a node. See Gremlin documentation at [Apache TinkerPop3](https://tinkerpop.apache.org/docs/current/reference/ "https://tinkerpop.apache.org/docs/current/reference/")
+  each of which follows an edge to a node. See Gremlin documentation at [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/ "https://tinkerpop.apache.org/docs/current/reference/")
   for more information.
 
 The Neptune implementation of Gremlin has some differences from other implementations,

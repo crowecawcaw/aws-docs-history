@@ -1,23 +1,24 @@
-# Amazon Neptune Engine version 1.4.6.1 (2025-09-18)
+# Amazon Neptune Engine version 1.4.6.3 (2025-12-18)
 
-As of 2025-09-18, engine version 1.4.6.1 is being generally deployed. Please note
+As of 2025-12-18, engine version 1.4.6.3 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
-## Defects fixed in this engine release
+## Defects fixed in this engine release (1.4.6.3)
 
 ###### General fixes
 
-- Removed the network checks for clusters that are using non-RFC 1918 conforming private IP ranges that was
-  introduced in Release .
+- Some exceptions that were erroneously classified as Internal Server Error are now correctly reported as Out of Memory Exceptions during the Data Flow Engine (DFE) execution.
+- Fixed a bug in edge inline id check which was causing issues during startup.
 
-###### Gremlin fixes
+###### openCypher fixes
 
-- Fixed websocket connection management issue with transactions.
-- Fixed a rare instance restart issue when using gremlin DFE mode
+- Fixed an engine crash that sometimes occurred in queries using CALL.
+- Fixed timeout and cancellation handling for mutation queries.
+- Fixed a bug where the MERGE clause gave incorrect results when one of the property values passed to MERGE has null value.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.4.6.1, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.4.6.3, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.7.1`
@@ -25,7 +26,7 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade paths to engine release 1.4.6.1
+## Upgrade paths to engine release 1.4.6.3
 
 You can upgrade to this release from [engine
 release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") or above.
@@ -42,7 +43,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.4.6.1 \
+    --engine-version 1.4.6.3 \
     --allow-major-version-upgrade \
     --apply-immediately
 ```
@@ -52,7 +53,7 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.4.6.1 ^
+    --engine-version 1.4.6.3 ^
     --allow-major-version-upgrade ^
     --apply-immediately
 ```

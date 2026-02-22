@@ -1,13 +1,7 @@
-# Amazon Neptune Engine Version 1.2.0.2.R5 (2023-08-16)
+# Amazon Neptune Engine Version 1.2.0.2.R2 (2022-12-15)
 
-As of 2023-08-16, engine version 1.2.0.2.R5 is being generally deployed. Please note
+As of 2022-12-15, engine version 1.2.0.2.R2 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
-
-###### Important
-
-Changes introduced in this engine release may in some cases cause you
-to observe degraded bulk load performance. As a result, upgrades to this release have
-been temporarily suspended until the problem has been resolved.
 
 ###### Note
 
@@ -45,27 +39,53 @@ a support case may help you explore additional strategies for bringing it down.
   In other languages, the `/openCypher` can be appended to the endpoint
   URI. See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
 
+## Improvements in This Engine Release
+
+- Improved performance of openCypher queries involving `MERGE`
+  and `OPTIONAL MATCH`.
+- Improved performance of openCypher queries involving `UNWIND`
+  of a list of maps of literal values.
+- Improved performance of openCypher queries that have an `IN`
+  filter for `id`. For example:
+
+```
+MATCH (n) WHERE id(n) IN ['1', '2', '3'] RETURN n
+```
+
+- Performance improvements and correctness fixes for various Gremlin
+  operators, including `repeat`, `coalesce`, `store`,
+  and `aggregate`.
+
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug where `order()` would not properly sort
-  string outputs when some of them contained a space character.
-- Fixed a Gremlin bug where a transaction leak would occur when checking
-  the Gremlin query status endpoint for queries with predicates in child traversals
-  for steps that are not processed natively.
-- Fixed an openCypher bug in Bolt transaction handling.
-- Fixed a concurrency issue on the storage layer that could cause a crash.
+- Fixed an openCypher bug where queries returned the string, `"null"`,
+  instead of a null value in Bolt and SPARQL-JSON.
+- Fixed a Gremlin bug that caused a step label attached to `UnionStep`
+  not to be propagated to the last path element of its child traversals.
+- Fixed a Gremlin bug that caused `valueMap()` not to be
+  optimized under a `by()` traversal in the DFE engine.
+- Fixed a Gremlin bug where read queries executed as part of a longer
+  Gremlin transaction would not lock the rows.
+- Fixed an audit log bug that caused unnecessary information to
+  be logged and certain fields to be missing from the logs.
+- Fixed an audit log bug where the IAM ARN of HTTP requests to an
+  IAM-enabled DB cluster were not recorded.
+- Fixed a lookup-cache bug so as to cap the incremental memory
+  used for writes to the cache.
+- Fixed a lookup-cache bug that involved setting read-only mode
+  for the lookup cache when writes failed.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.0.2.R5, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.0.2.R2, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
-- _Gremlin latest version supported:_ `3.5.5`
+- _Gremlin latest version supported:_ `3.5.4`
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.0.2.R5
+## Upgrade Paths to Engine Release 1.2.0.2.R2
 
 Your Neptune DB cluster will be upgraded to this maintenance patch release
 automatically during your next maintenance window if you are running engine version
@@ -73,7 +93,7 @@ automatically during your next maintenance window if you are running engine vers
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.2.0.2.R5 is now generally available.
+Amazon Neptune 1.2.0.2.R2 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
