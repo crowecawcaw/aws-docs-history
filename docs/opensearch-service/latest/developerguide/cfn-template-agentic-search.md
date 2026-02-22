@@ -16,24 +16,25 @@ your agents in the AI Search Flows plugin on OpenSearch Dashboards.
 
 Access
 
-1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. In the left navigation, choose
+1. **Prerequisite:** If your domain
+   uses fine-grained access control, map
+   `arn:aws:iam::`your-account-id`:role/`LambdaInvokeOpenSearchMLCommonsRole``as a backend role to the`ml_full_access` role before
+   running the template. This IAM role will be created automatically by
+   CloudFormation if it doesn't already exist. For more information on
+   how to configure the mapping, see [Map the ML role in OpenSearch Dashboards
+   (if using fine-grained access control)](ml-external-connector.md#connector-external-fgac "ml-external-connector.md#connector-external-fgac").
+2. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
+3. In the left navigation, choose
    **Integrations**.
-3. Under **Integration with Bedrock Claude for Agentic
+4. Under **Integration with Bedrock Claude for Agentic
    Search**, choose **Configure
    domain**. Ensure your domain is on version 3.3 or
    greater.
-4. Follow the prompt to set up your model. Note the IAM role
-   specified in the Lambda Invoke OpenSearch ML Commons Role Name field
-   in the CloudFormation template, defaulted to
-   `LambdaInvokeOpenSearchMLCommonsRole`. Ensure this full
-   role ARN is mapped as the backend role to `ml_full_access`
-   before proceeding with the template provisioning. For more details, see
-   [Map the ML role in OpenSearch Dashboards
-   (if using fine-grained access control)](ml-external-connector.md#connector-external-fgac "ml-external-connector.md#connector-external-fgac"). Then, click
-   **Create Stack** and wait for the provisioning to
-   complete to make your model available for your domain.
-5. From the Amazon OpenSearch Service console, select **Domains**, and
+5. In the CloudFormation template, enter your OpenSearch Service domain endpoint and
+   select a model. The remaining fields are optional or pre-filled.
+   Click **Create Stack** and wait for the
+   provisioning to complete.
+6. From the Amazon OpenSearch Service console, select **Domains**, and
    select your domain. Click the **OpenSearch Dashboards
    URL** to access OpenSearch Dashboards.
 

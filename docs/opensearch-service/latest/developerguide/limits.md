@@ -63,7 +63,7 @@ The following table lists the total node limit by instance family.
 | T3                                                                                                                  | 10                                  | 10                        | 10            |
 | M3, C4, M4, R4, C5, M5, R5, I2, I3                                                                                  | 10                                  | 200                       | 80            |
 | Graviton 2, Gravtion 3, Gravtion 4                                                                                  | 200                                 | 400                       | 80            |
-| C7i, R7i, M7i, i4i, i4g, i8g                                                                                        | 200                                 | 400                       | 80            |
+| C7i, R7i, M7i, i4i, i4g, i8g, i7i                                                                                   | 200                                 | 400                       | 80            |
 | OR1.medium.searchOR1.large.search<br>OR2.medium.search<br>OR2.large.search<br>OM2.large.search<br>OI2.large.search  | 200                                 | 400                       | 80            |
 | OR1.xlarge.search and aboveOR2.xlarge.search and<br>aboveOM2.xlarge.search and above<br>OI2.xlarge.search and above | 200                                 | 1002                      | 80            |
 | Ultrawarm1                                                                                                          | 150                                 | 750                       | 150           |
@@ -247,6 +247,13 @@ pricing](https://aws.amazon.com/elasticsearch-service/pricing/ "https://aws.amaz
 | i8g.8xlarge.search    | N/A              | N/A                    | N/A                    |
 | i8g.12xlarge.search   | N/A              | N/A                    | N/A                    |
 | i8g.16xlarge.search   | N/A              | N/A                    | N/A                    |
+| i7i.large.search      | N/A              | N/A                    | N/A                    |
+| i7i.xlarge.search     | N/A              | N/A                    | N/A                    |
+| i7i.2xlarge.search    | N/A              | N/A                    | N/A                    |
+| i7i.4xlarge.search    | N/A              | N/A                    | N/A                    |
+| i7i.8xlarge.search    | N/A              | N/A                    | N/A                    |
+| i7i.12xlarge.search   | N/A              | N/A                    | N/A                    |
+| i7i.16xlarge.search   | N/A              | N/A                    | N/A                    |
 | c7i.large.search      | 10 GiB           | N/A                    | 256 GiB                |
 | c7i.xlarge.search     | 10 GiB           | N/A                    | 512 GiB                |
 | c7i.2xlarge.search    | 10 GiB           | N/A                    | 1 TiB                  |
@@ -443,6 +450,13 @@ The following table shows the maximum size of HTTP request payloads.
 | i8g.8xlarge.search    | 100 MiB                               |
 | i8g.12xlarge.search   | 100 MiB                               |
 | i8g.16xlarge.search   | 100 MiB                               |
+| i7i.large.search      | 100 MiB                               |
+| i7i.xlarge.search     | 100 MiB                               |
+| i7i.2xlarge.search    | 100 MiB                               |
+| i7i.4xlarge.search    | 100 MiB                               |
+| i7i.8xlarge.search    | 100 MiB                               |
+| i7i.12xlarge.search   | 100 MiB                               |
+| i7i.16xlarge.search   | 100 MiB                               |
 | c7i.large.search      | 100 MiB                               |
 | c7i.xlarge.search     | 100 MiB                               |
 | c7i.2xlarge.search    | 100 MiB                               |
@@ -511,7 +525,7 @@ families.
 | Instance type                                                | Multi-AZ without Standby | Multi-AZ with Standby |
 | ------------------------------------------------------------ | ------------------------ | --------------------- |
 | R5, C5, M5, C7i, M7i, R7i                                    | N/A                      | 65 GiB                |
-| I3, i4i, i4g, i8g                                            | N/A                      | 65 GiB                |
+| I3, i4i, i4g, i8g, i7i                                       | N/A                      | 65 GiB                |
 | R6g, C6g, M6g, R6gd, C7g,M7g, R7g, R7gd, C8g, M8g, R8g, R8gd | N/A                      | 65 GiB                |
 | OR1, OR2, OM2, OI2                                           | N/A                      | N/A                   |
 | Im4gn                                                        | N/A                      | 65 GiB                |

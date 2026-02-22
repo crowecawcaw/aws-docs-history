@@ -10,11 +10,11 @@ Amazon Q integration with Amazon OpenSearch Service offers the following generat
 - [Generate
   visualizations using natural language](AI-Assistant-generate-visualizations.md "AI-Assistant-generate-visualizations.md")
 - [View alert summaries and
-  insights](Amazon-Q-developer-support-alert-summary.md "Amazon-Q-developer-support-alert-summary.md")
+  insights](AI-assistant-alert-summary.md "AI-assistant-alert-summary.md")
 - [View Amazon Q-generated query
   result summaries on the Discover page](Amazon-Q-developer-support-query-summary.md "Amazon-Q-developer-support-query-summary.md")
 - [View recommended anomaly
-  detectors](Amazon-Q-developer-support-anomaly-detectors.md "Amazon-Q-developer-support-anomaly-detectors.md")
+  detectors](AI-assistant-anomaly-detectors.md "AI-assistant-anomaly-detectors.md")
 - [Access Amazon Q chat for
   OpenSearch-related questions](Amazon-Q-developer-support-chat-interface.md "Amazon-Q-developer-support-chat-interface.md")
   To access Amazon Q Developer features in OpenSearch Service that are relevant to your task, look for the

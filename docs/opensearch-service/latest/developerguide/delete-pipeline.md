@@ -6,12 +6,10 @@ or `Updating`.
 
 ###### To delete a pipeline
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. Choose **Pipelines** in the left navigation
-   pane.
-3. Select the pipeline that you want to delete and choose
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines "https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines"). You'll be on the Pipelines page.
+2. Select the pipeline that you want to delete and choose
    **Actions**, **Delete**.
-4. Confirm deletion and choose **Delete**.
+3. Confirm deletion and choose **Delete**.
    To delete a pipeline using the AWS CLI, send a [delete-pipeline](../../../cli/latest/reference/osis/delete-pipeline.md "../../../cli/latest/reference/osis/delete-pipeline.md")
    request:
 

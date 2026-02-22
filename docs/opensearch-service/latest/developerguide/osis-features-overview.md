@@ -126,7 +126,8 @@ log-pipeline:
 
 logs_enriched_one_pipeline:
   source:
-    log-pipeline
+    pipeline:
+      name: "log-pipeline"
   processor:
    ...
   sink:
@@ -139,7 +140,8 @@ logs_enriched_one_pipeline:
 
 logs_enriched_two_pipeline:
   source:
-    log-pipeline
+    pipeline:
+      name: "log-pipeline"
   processor:
    ...
   sink:
@@ -185,7 +187,8 @@ log-pipeline:
 
 log_advanced_pipeline:
   source:
-    log-pipeline
+    pipeline:
+      name: "log-pipeline"
   processor:
    ...
   sink:

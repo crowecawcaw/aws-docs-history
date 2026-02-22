@@ -82,12 +82,10 @@ OpenSearch Ingestion API.
 
 ###### To update a pipeline
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. Choose **Pipelines** in the left navigation
-   pane.
-3. Choose a pipeline to open its settings. Then, choose one of the
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines "https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines"). You'll be on the Pipelines page.
+2. Choose a pipeline to open its settings. Then, choose one of the
    **Edit** options.
-4. When you're done making changes, choose
+3. When you're done making changes, choose
    **Save**.
    To update a pipeline using the AWS CLI, send an [update-pipeline](../../../cli/latest/reference/osis/update-pipeline.md "../../../cli/latest/reference/osis/update-pipeline.md") request.
    The following sample request uploads a new configuration file and updates the

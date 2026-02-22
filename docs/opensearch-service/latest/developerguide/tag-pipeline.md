@@ -47,14 +47,13 @@ The console is the simplest way to tag a pipeline.
 
 ###### **To create a tag**
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home ").
-2. Choose **Pipelines** on the left navigation pane.
-3. Select the pipeline you want to add tags to and go to the
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines "https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines"). You'll be on the Pipelines page.
+2. Select the pipeline you want to add tags to and go to the
    **Tags** tab.
-4. Choose **Manage** and **Add new
+3. Choose **Manage** and **Add new
    tag**.
-5. Enter a tag key and an optional value.
-6. Choose **Save**.
+4. Enter a tag key and an optional value.
+5. Choose **Save**.
 
 To delete a tag, follow the same steps and choose **Remove** on the
 **Manage tags** page.

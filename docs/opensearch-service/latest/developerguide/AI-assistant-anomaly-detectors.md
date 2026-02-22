@@ -9,19 +9,19 @@ algorithm computes an `anomaly grade` and `confidence score` value
 for each incoming data point. Anomaly detection uses these values to differentiate an
 anomaly from normal variations in your data.
 
-To simplify the process of creating anomaly detectors, Amazon Q can generate suggested
+To simplify the process of creating anomaly detectors, AI Assistant can generate suggested
 detectors based on your selected data source on the **Discover** page.
-Amazon Q supports suggested anomaly detectors for any language.
+AI Assistant supports suggested anomaly detectors for any language.
 
-###### To view Amazon Q recommended anomaly detectors
+###### To view AI Assistant recommended anomaly detectors
 
 1. Verify that you've [set up AI Assistant for OpenSearch Service](AI-Assistant-setting-up.md "AI-Assistant-setting-up.md").
-2. In the OpenSearch Dashboards main menu, choose the **Discover**
+2. In the OpenSearch UI main menu, choose the **Discover**
    page, and then choose a data source.
-3. From the **Amazon Q** menu, choose **Suggest anomaly
+3. From the **AI Assistant** menu, choose **Suggest anomaly
    detector**, as shown in the following screen shot.
 
 ![An image showing how to locate the button to create a suggested anomaly detector.](images/AmazonQAnomalyDetectorButton.gif)
 
-Amazon Q can take a few seconds to generate the features for the
+AI Assistant can take a few seconds to generate the features for the
 detector. 4. Choose **Create detector**.

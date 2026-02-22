@@ -5,10 +5,8 @@ AWS CLI, or the OpenSearch Ingestion API.
 
 ###### To view a pipeline
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. Choose **Pipelines** in the left navigation
-   pane.
-3. (Optional) To view pipelines with a particular status, choose
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines "https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines"). You'll be on the Pipelines page.
+2. (Optional) To view pipelines with a particular status, choose
    **Any status** and select a status to filter by.
 
 A pipeline can have the following statuses:

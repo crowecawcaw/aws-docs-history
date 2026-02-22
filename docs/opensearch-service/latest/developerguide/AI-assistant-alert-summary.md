@@ -4,40 +4,40 @@ insights
 
 You can configure OpenSearch Service to create an alert monitor when data from one or more indexes
 meets certain conditions. To help you quickly understand and troubleshoot an alert, you
-can view an alert summary by clicking the Amazon Q Developer icon beside an alert. A summary
+can view an alert summary by clicking the AI Assistant icon beside an alert. A summary
 provides details about the underlying issue that triggered the alert and, when
 available, additional analysis to help you locate the root cause of the problem. The
-following screenshot shows an example of an alert summary created by Amazon Q.
+following screenshot shows an example of an alert summary created by AI Assistant.
 
-![An example of an Amazon Q Developer alert summary in OpenSearch Service.](images/AmazonQAlertSummary.gif)
+![An example of an AI Assistant alert summary in OpenSearch Service.](images/AmazonQAlertSummary.gif)
 If you connect a knowledge base to provide additional context about your environment,
-as described later in this topic, Amazon Q creates insights about an alert. Insights
+as described later in this topic, AI Assistant creates insights about an alert. Insights
 provide details and troubleshooting options to help you remedy the root cause of an
-alert. For the previously shown alert, Amazon Q also produced the following
+alert. For the previously shown alert, AI Assistant also produced the following
 insights.
 
-![An example of an Amazon Q Developer alert insight in OpenSearch Service.](images/AmazonQAlertInsight.gif)
+![An example of an AI Assistant alert insight in OpenSearch Service.](images/AmazonQAlertInsight.gif)
 
 ###### Note
 
-Depending on the nature of the alert and the information available, Amazon Q can
+Depending on the nature of the alert and the information available, AI Assistant can
 give you the option to view the alert data on the **Discover** page
 in the OpenSearch Dashboards. If you see the **View in Discover** button
-at the bottom of a Amazon Q alert summary, click the button to open the corresponding
+at the bottom of an AI Assistant alert summary, click the button to open the corresponding
 data set in **Discover** with an active filter for the alert data.
 
 ###### Topics
 
 - [Before you
-  begin](#Amazon-Q-developer-support-alert-summary-insight-setup "#Amazon-Q-developer-support-alert-summary-insight-setup")
+  begin](#AI-assistant-alert-summary-insight-setup "#AI-assistant-alert-summary-insight-setup")
 - [Viewing alert summaries
-  and insights](#Amazon-Q-developer-viewing-alert-summaries "#Amazon-Q-developer-viewing-alert-summaries")
+  and insights](#AI-assistant-viewing-alert-summaries "#AI-assistant-viewing-alert-summaries")
 
 ## Before you
 
 begin
 
-Complete the following steps to configure an Amazon Bedrock knowledge base so that Amazon Q
+Complete the following steps to configure an Amazon Bedrock knowledge base so that AI Assistant
 can create insights for OpenSearch Service alerts.
 
 ### Step 1: Create the LambdaInvokeOpenSearchMLCommonsRole IAM role
@@ -82,7 +82,7 @@ connector.
 ### Step 3: Configure an OpenSearch Service knowledge base using CloudFormation
 
 Use the following procedure to configure an OpenSearch Service knowledge base using
-AWS CloudFormation so that Amazon Q can generate insights.
+AWS CloudFormation so that AI Assistant can generate insights.
 
 ###### To configure a knowledge base for insights
 
@@ -104,7 +104,7 @@ AWS CloudFormation so that Amazon Q can generate insights.
    **AgentId**, **ConnectorId**, and
    **ModelId**.
 
-When applicable, Amazon Q now creates insights for OpenSearch Service alerts.
+When applicable, AI Assistant now creates insights for OpenSearch Service alerts.
 
 ## Viewing alert summaries
 
@@ -119,7 +119,7 @@ Use the following procedure to view alert summaries and insights in OpenSearch S
    alerts for OpenSearch Service](alerting.md "alerting.md").
 3. In the OpenSearch Dashboards main menu, choose **Alerting**,
    and then choose **Alerts**.
-4. Choose the Amazon Q icon beside an alert. Amazon Q can take up to 10 seconds
+4. Choose the AI Assistant icon beside an alert. AI Assistant can take up to 10 seconds
    to generate the summary.
 5. If present in the alert summary, choose **View insights**
    to view more details about the alert based on your configured knowledge

@@ -52,14 +52,12 @@ steps to enable log publishing during pipeline creation, see [Creating pipelines
 
 ###### To enable log publishing on an existing pipeline
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. Choose **Pipelines** in the left navigation
-   pane.
-3. Open the pipeline that you want to enable logs, then choose
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines "https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines"). You'll be on the Pipelines page.
+2. Open the pipeline that you want to enable logs, then choose
    **Actions**, **Edit log publishing
    options**.
-4. Enable **Publish to CloudWatch Logs**.
-5. Either create a new log group or select an existing one. We
+3. Enable **Publish to CloudWatch Logs**.
+4. Either create a new log group or select an existing one. We
    recommend that you format the name as a path, such as
    `/aws/**vendedlogs**/OpenSearchIngestion/`pipeline-name`/audit-logs`.
    This format makes it easier to apply a CloudWatch access policy that
@@ -69,7 +67,7 @@ steps to enable log publishing during pipeline creation, see [Creating pipelines
 ###### Important
 
 You must include the prefix `vendedlogs` in the log group
-name, otherwise creation fails. 6. Choose **Save**.
+name, otherwise creation fails. 5. Choose **Save**.
 To enable log publishing using the AWS CLI, send the following request:
 
 ```

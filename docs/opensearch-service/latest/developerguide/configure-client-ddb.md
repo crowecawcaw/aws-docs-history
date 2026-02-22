@@ -97,7 +97,7 @@ JSON
  "s3:PutObjectAcl"
  ],
  "Resource": [
- "arn:aws:s3:`us-east-1`:`111122223333`:`amzn-s3-demo-bucket`/`export-folder`/*"
+ "arn:aws:s3:::`amzn-s3-demo-bucket`/`export-folder`/*"
  ]
  }
  ]

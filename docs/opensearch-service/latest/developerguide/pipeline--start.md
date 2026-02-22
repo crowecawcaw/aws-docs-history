@@ -8,9 +8,8 @@ Restarting a pipeline usually takes several minutes.
 
 ###### To start a pipeline
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. In the navigation pane, choose **Pipelines**, and then choose a
-   pipeline. You can perform the start operation from this page, or
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines "https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines"). You'll be on the Pipelines page.
+2. Choose a pipeline. You can perform the start operation from this page, or
    navigate to the details page for the pipeline that you want to start.
 3. For **Actions**, choose **Start pipeline**.
    To start a pipeline by using the AWS CLI, call the [start-pipeline](../../../cli/latest/reference/osis/start-pipeline.md "../../../cli/latest/reference/osis/start-pipeline.md") command

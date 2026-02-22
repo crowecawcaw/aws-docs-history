@@ -172,7 +172,7 @@ sub-pipeline.
 This section describes how to create OpenSearch Ingestion pipelines using the OpenSearch Service console
 and the AWS CLI.
 
-To create a pipeline, sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home") and choose **Create
+To create a pipeline, sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines "https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines") and choose **Create
 pipeline**.
 
 Either select a blank pipeline, or choose a configuration blueprint.

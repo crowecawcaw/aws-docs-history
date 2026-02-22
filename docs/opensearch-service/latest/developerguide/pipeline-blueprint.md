@@ -8,9 +8,8 @@ from scratch.
 
 ###### To use a pipeline blueprint
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. Choose **Pipelines** in the left navigation pane and
-   choose **Create pipeline**.
+1. Sign in to the OpenSearch Ingestion console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines "https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines"). You'll be on the Pipelines page.
+2. Choose **Create pipeline**.
 3. Select a blueprint from the list of use cases, then choose
    **Select blueprint**. The pipeline configuration
    populates with a sub-pipeline for the use case you selected.
