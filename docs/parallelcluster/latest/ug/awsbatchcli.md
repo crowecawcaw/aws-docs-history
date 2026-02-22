@@ -1,27 +1,27 @@
-# `awsbhosts`
+# `awsbkill`
 
-Shows the hosts that belong to the cluster’s compute environment.
+Cancels or terminates jobs submitted in the cluster.
 
 ```
-awsbhosts [-h] [-c `CLUSTER`] [-d] [`instance_ids` [`instance_ids` ... ]]
+awsbkill [-h] [-c `CLUSTER`] [-r `REASON`] `job_ids` [`job_ids` ... ]
 ```
 
 ## Positional Arguments
 
-`instance_ids`
+`job_ids`
 
-Specifies a space-separated list of instances IDs. If a single instance is
-requested, it is shown in a detailed version.
+Specifies the space-separated list of job IDs to cancel or terminate.
 
 ## Named Arguments
 
 `-c `CLUSTER`, --cluster
  `CLUSTER``
 
-Specifies the name of the cluster to use.
+Indicates the name of the cluster to use.
 
-`-d, --details`
+`-r `REASON`, --reason
+ `REASON``
 
-Indicates whether to show the details of the hosts.
+Indicates the message to attach to a job, explaining the reason for canceling it.
 
-Default: False
+Default: “Terminated by the user”

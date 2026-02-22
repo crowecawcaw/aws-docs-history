@@ -17,7 +17,7 @@ Linux x86 (64-bit)
 
 ###### Install AWS ParallelCluster on your environment.
 
-1. Download the latest [pcluster installer](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.1/installer/pcluster-installer-bundle-3.14.1.1357-node-v20.18.3-Linux_x86_64-signed.zip "https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.1/installer/pcluster-installer-bundle-3.14.1.1357-node-v20.18.3-Linux_x86_64-signed.zip") ([checksum](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.1/installer/pcluster-installer-bundle-3.14.1.1357-node-v20.18.3-Linux_x86_64-signed.zip-sha256sum "https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.1/installer/pcluster-installer-bundle-3.14.1.1357-node-v20.18.3-Linux_x86_64-signed.zip-sha256sum")).
+1. Download the latest [pcluster installer](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.2/installer/pcluster-installer-bundle-3.14.2.1399-node-v22.22.0-Linux_x86_64-signed.zip "https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.2/installer/pcluster-installer-bundle-3.14.2.1399-node-v22.22.0-Linux_x86_64-signed.zip") ([checksum](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.2/installer/pcluster-installer-bundle-3.14.2.1399-node-v22.22.0-Linux_x86_64-signed.zip-sha256sum "https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.2/installer/pcluster-installer-bundle-3.14.2.1399-node-v22.22.0-Linux_x86_64-signed.zip-sha256sum")).
 2. Unzip the installer bundle and install AWS ParallelCluster by using the following commands:
 
 ```
@@ -36,7 +36,7 @@ Linux x86 (64-bit)
 
 ```
 `$` `pcluster version``{
- "version": "3.14.1"
+ "version": "3.14.2"
 }`
 ```
 

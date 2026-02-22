@@ -68,7 +68,7 @@ Example Node.js installation command:
 ```
 `$` `pcluster version`
 `{
- "version": "3.14.1"
+ "version": "3.14.2"
 }`
 ```
 
