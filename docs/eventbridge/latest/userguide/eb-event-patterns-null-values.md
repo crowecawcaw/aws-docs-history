@@ -63,3 +63,20 @@ following event pattern, which matches the preceding event.
 
 Null values and empty strings are not interchangeable in pattern matching. An event pattern
 that matches empty strings doesn't match values of `null`.
+
+## Using null values in AWS CloudFormation templates
+
+AWS CloudFormation does not allow `null` values in templates. If you define an event
+pattern with a null value using YAML or JSON object syntax, the template validation fails
+with the error: `'null' values are not allowed in templates`.
+
+To work around this limitation, specify the `EventPattern` property as a
+JSON string instead of a YAML or JSON object. The following example shows how to match
+on null values in a AWS CloudFormation template:
+
+```
+MyRule:
+  Type: AWS::Events::Rule
+  Properties:
+    EventPattern: '{"detail":{"responseElements":[null]}}'
+```

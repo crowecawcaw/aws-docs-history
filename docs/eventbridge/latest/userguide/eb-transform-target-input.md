@@ -21,6 +21,7 @@ Supported syntax includes:
 - alphanumeric characters
 - array indices
 - wildcards (\*)
+- forward slashes
 
 ###### In this topic:
 

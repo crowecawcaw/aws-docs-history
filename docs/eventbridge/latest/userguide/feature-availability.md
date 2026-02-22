@@ -22,10 +22,8 @@ the following AWS Regions.
 | Asia Pacific (Sydney)     | x                | x                        |
 | Asia Pacific (Jakarta)    | x                |                          |
 | Asia Pacific (Melbourne)  | x                |                          |
-| Asia Pacific (Malaysia)   | x                |                          |
 | Asia Pacific (Thailand)   | x                |                          |
 | Canada (Central)          | x                |                          |
-| Canada West (Calgary)     | x                |                          |
 | China (Beijing)           | x                |                          |
 | China (Ningxia)           | x                |                          |
 | Europe (Frankfurt)        | x                | x                        |
@@ -36,7 +34,6 @@ the following AWS Regions.
 | Europe (Ireland)          | x                | x                        |
 | Europe (London)           | x                | x                        |
 | Europe (Paris)            | x                | x                        |
-| Israel (Tel Aviv)         | x                |                          |
 | Middle East (UAE)         | x                |                          |
 | Middle East (Bahrain)     | x                |                          |
 | South America (São Paulo) | x                | x                        |

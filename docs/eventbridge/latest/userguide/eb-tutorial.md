@@ -21,9 +21,9 @@ rule. The following tutorials show you how to integrate EventBridge with other A
 - [Log Amazon EC2 instance states](eb-log-ec2-instance-state.md "eb-log-ec2-instance-state.md")
 - [Log Amazon S3 object operations](eb-log-s3-data-events.md "eb-log-s3-data-events.md")
 - [Send events using schemas](eb-relay-events-kinesis-stream.md "eb-relay-events-kinesis-stream.md")
-- [Create a scheduled rule](eb-scheduled-snapshot.md "eb-scheduled-snapshot.md")
+- [Schedule automated Amazon EBS snapshots](eb-scheduled-snapshot.md "eb-scheduled-snapshot.md")
 - [Send an email when events happen](eb-s3-object-created-tutorial.md "eb-s3-object-created-tutorial.md")
-- [Create a scheduled rule for Lambda functions](eb-run-lambda-schedule.md "eb-run-lambda-schedule.md")
+- [Schedule a Lambda function](eb-run-lambda-schedule.md "eb-run-lambda-schedule.md")
   **SaaS providers tutorials**
 
 EventBridge can work directly with SaaS partner applications and services to send and receive [events](eb-events.md "eb-events.md"). The following tutorials show

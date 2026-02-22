@@ -1,68 +1,46 @@
-# Tutorial: Create a scheduled rule in EventBridge
+# Tutorial: Schedule automated Amazon EBS snapshots
 
-You can run EventBridge [rules](eb-rules.md "eb-rules.md") on a schedule. In this tutorial,
-you create a snapshot of an existing [Amazon Elastic Block Store](../../../AWSEC2/latest/UserGuide/AmazonEBS.md "../../../AWSEC2/latest/UserGuide/AmazonEBS.md") (Amazon EBS) volume on a schedule. You can choose
-a fixed rate to create a snapshot every few minutes or use a cron expression to create the
-snapshot at a specific time of day.
+###### Note
 
-###### Important
+Scheduled rules are a legacy feature of EventBridge.
 
-To create rules with built-in [targets](eb-targets.md "eb-targets.md"), you must use
-the AWS Management Console.
+EventBridge
+offers a more flexible and powerful way to create, run, and manage scheduled tasks
+centrally, at scale: EventBridge Scheduler. With EventBridge Scheduler, you can create schedules using cron
+and rate expressions for recurring patterns, or configure one-time invocations. You can set
+up flexible time windows for delivery, define retry limits, and set the maximum retention
+time for failed API invocations.
 
-###### Steps:
+Scheduler is highly customizable, and offers improved scalability over scheduled rules, with a wider set of target API operations and AWS services.
+We recommend that you use Scheduler to invoke targets on a schedule.
 
-- [Step 1: Create the rule](#eb-ebs-create-rule "#eb-ebs-create-rule")
-- [Step 2: Test the rule](#eb-ebs-test-rule "#eb-ebs-test-rule")
-- [Step 3: Confirm success](#success "#success")
-- [Step 4: Clean up your resources](#cleanup "#cleanup")
+For more information, see [Create a schedule](using-eventbridge-scheduler.md#using-eventbridge-scheduler-create "using-eventbridge-scheduler.md#using-eventbridge-scheduler-create") or the _[EventBridge Scheduler User Guide](../../../scheduler/latest/UserGuide/what-is-scheduler.md "../../../scheduler/latest/UserGuide/what-is-scheduler.md")_.
 
-## Step 1: Create the rule
+This tutorial previously demonstrated how to create automated Amazon EBS snapshots
+using EventBridge scheduled rules. We now recommend using one of the following
+alternatives, depending on your use case.
 
-Create a rule that takes snapshots on a schedule. You can use a rate expression or
-a cron expression to specify the schedule. For more information, see [Creating a scheduled rule (legacy) in Amazon EventBridge](eb-create-rule-schedule.md "eb-create-rule-schedule.md").
+## Recommended: Amazon Data Lifecycle Manager
 
-###### To create a rule
+For automated Amazon EBS snapshot lifecycle management, including creation, retention,
+and deletion on a schedule, we recommend
+[Amazon Data Lifecycle Manager](../../../AWSEC2/latest/UserGuide/snapshot-lifecycle.md "../../../AWSEC2/latest/UserGuide/snapshot-lifecycle.md") (Amazon Data Lifecycle Manager).
+Amazon Data Lifecycle Manager is purpose-built for Amazon EBS snapshot automation and provides policy-based
+lifecycle management without requiring you to build and maintain scheduling
+infrastructure.
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. In the navigation pane, choose **Rules**.
-3. Choose **Create rule**.
-4. Enter a name and description for the rule.
+## Alternative: Amazon EventBridge Scheduler
 
-A rule can't have the same name as another rule in the same Region and on the
-same event bus. 5. For **Event bus**, choose the event bus that you want
-to associate with this rule. If you want this rule to match events that come
-from your account, select **AWS default event bus**. When an
-AWS service in your account emits an event, it always goes to your account’s
-default event bus. 6. For **Rule type**, choose **Schedule**. 7. Choose **Next**. 8. For **Schedule pattern**, choose **A schedule that runs at a regular rate, such as every 10 minutes.** and
-enter `5` and choose **Minutes** from the drop-down list. 9. Choose **Next**. 10. For **Target types**, choose **AWS service**. 11. For **Select a target**, choose **EBS
-Create Snapshot** from the drop-down list. 12. For **Volume ID**, enter the volume ID of the Amazon EBS
-volume. 13. For **Execution role**, choose **Create a new for role for this specific resource**. 14. Choose **Next**. 15. Choose **Next**. 16. Review the details of the rule and choose **Create rule**.
+If you need more flexible scheduling options or want to combine snapshot creation
+with other AWS API actions, you can use Amazon EventBridge Scheduler. EventBridge Scheduler offers improved
+scalability over EventBridge scheduled rules, with a wider set of target API operations,
+flexible time windows, and built-in retry support.
 
-## Step 2: Test the rule
+To get started with EventBridge Scheduler, see
+[Getting started with Amazon EventBridge Scheduler](../../../scheduler/latest/UserGuide/getting-started.md "../../../scheduler/latest/UserGuide/getting-started.md")
+in the _Amazon EventBridge Scheduler User Guide_.
 
-You can verify your rule works by viewing your first snapshot after it's taken.
+## Legacy: EventBridge scheduled rules
 
-###### To test your rule
-
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **Elastic Block Store**,
-   **Snapshots**.
-3. Verify that the first snapshot appears in the list.
-
-## Step 3: Confirm success
-
-If you see the a snapshot in the list, you've successfully completed this tutorial. If the snapshot isn't in the list,
-start troubleshooting by verifying the rule was created successfully.
-
-## Step 4: Clean up your resources
-
-You can now delete the resources that you created for this tutorial, unless you want to retain them. By deleting AWS resources that you are no longer using, you prevent unnecessary charges to your AWS account.
-
-###### To delete the EventBridge rule(s)
-
-1. Open the [Rules page](https://console.aws.amazon.com/events/home#/rules "https://console.aws.amazon.com/events/home#/rules") of the EventBridge console.
-2. Select the rule(s) that you created.
-3. Choose **Delete**.
-4. Choose **Delete**.
+If you still need to use EventBridge scheduled rules, see
+[Creating a scheduled rule (legacy) in Amazon EventBridge](eb-create-rule-schedule.md "eb-create-rule-schedule.md").

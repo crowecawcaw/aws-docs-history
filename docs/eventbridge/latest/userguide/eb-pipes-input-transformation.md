@@ -24,6 +24,7 @@ Supported syntax includes:
 - alphanumeric characters
 - array indices
 - wildcards (\*)
+- forward slashes
   The following are sample `InputTemplate` parameters referencing an Amazon SQS event payload:
 
 **Static string**

@@ -53,6 +53,7 @@ Supported syntax includes:
 - alphanumeric characters
 - array indices
 - wildcards (\*)
+- forward slashes
 
 ### Dynamic path parameters
 

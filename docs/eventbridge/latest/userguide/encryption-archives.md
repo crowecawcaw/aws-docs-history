@@ -35,7 +35,7 @@ audit records and logs. It also appears in plaintext in logs, such as [AWS Cloud
 
 For event archives, EventBridge uses the same encryption context in all
 AWS KMS cryptographic operations. The context includes a single
-key–value pair, which contains the archive ARN.
+key–value pair, which contains the event bus ARN.
 
 ```
 "encryptionContext": {
