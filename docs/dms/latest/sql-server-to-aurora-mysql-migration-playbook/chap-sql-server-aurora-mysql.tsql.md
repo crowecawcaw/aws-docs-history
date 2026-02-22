@@ -1,456 +1,422 @@
-# Identity and sequences for T-SQL
+# Error handling for T-SQL
 
-This topic provides reference content comparing identity and sequence features between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the key differences and similarities in how these database systems handle automatic enumeration functions and columns, which are commonly used for generating surrogate keys.
+This topic provides reference content comparing error handling approaches between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insights into the differences in error handling paradigms, syntax, and capabilities between these two database systems.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                               | Key differences                                                                                                                                          |
-| ------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Two star feature compatibility | Three star automation level        | [Identity and Sequences](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.identitysequences "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.identitysequences") | MySQL doesn’t support `SEQUENCE` objects. Rewrite `IDENTITY` to `AUTO_INCREMENT`. Last value is evaluated as `MAX(Existing Value) + 1` on every restart. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                               | Key differences                                                        |
+| ------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | [Error Handling](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.errorhandling "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.errorhandling") | Different paradigm and syntax requires rewrite of error handling code. |
 
 ## SQL Server Usage
 
-Automatic enumeration functions and columns are common with relational database management systems and are often used for generating surrogate keys.
+SQL Server error handling capabilities have significantly improved throughout the years. However, previous features are retained for backward compatibility.
 
-SQL Server provides several features that support automatic generation of monotonously increasing value generators:
+Before SQL Server 2008, only very basic error handling features were available. `RAISERROR` was the primary statement used for error handling.
 
-- The `IDENTITY` property of a table column.
-- The `SEQUENCE` objects framework.
-- The numeric functions such as `IDENTITY` and `NEWSEQUENTIALID`.
+Starting from SQL Server 2008, SQL Server has added extensive .NET-like error handling capabilities including `TRY/CATCH` blocks, `THROW` statements, the `FORMATMESSAGE` function, and a set of system functions that return metadata for the current error condition.
 
-### Identity
+### TRY/CATCH Blocks
 
-The `IDENTITY` property is probably the most widely used means of generating surrogate primary keys in SQL Server applications. Each table may have a single numeric column assigned as an `IDENTITY` using the `CREATE TABLE` or `ALTER TABLE` DDL statements. You can explicitly specify a starting value and increment.
+`TRY/CATCH` blocks implement error handling similar to Microsoft Visual C# and Microsoft Visual C++. `TRY …​ END TRY` statement blocks can contain T-SQL statements.
+
+If an error is raised by any of the statements within the `TRY …​ END TRY` block, the run stops and is moved to the nearest set of statements that are bounded by a `CATCH …​ END CATCH` block.
+
+**Syntax**
+
+```
+BEGIN TRY
+<Set of SQL Statements>
+END TRY
+BEGIN CATCH
+<Set of SQL Error Handling Statements>
+END CATCH
+```
+
+### THROW
+
+The `THROW` statement raises an exception and transfers run of the `TRY …​ END TRY` block of statements to the associated `CATCH …​ END CATCH` block of statements.
+
+Throw accepts either constant literals or variables for all parameters.
+
+**Syntax**
+
+```
+THROW [Error Number>, <Error Message>, < Error State>] [;]
+```
+
+**Examples**
+
+Use `TRY/CATCH` error blocks to handle key violations.
+
+```
+CREATE TABLE ErrorTest (Col1 INT NOT NULL PRIMARY KEY);
+```
+
+```
+BEGIN TRY
+    BEGIN TRANSACTION
+        INSERT INTO ErrorTest(Col1) VALUES(1);
+        INSERT INTO ErrorTest(Col1) VALUES(2);
+        INSERT INTO ErrorTest(Col1) VALUES(1);
+    COMMIT TRANSACTION;
+END TRY
+BEGIN CATCH
+    THROW; -- Throw with no parameters = RETHROW
+END CATCH;
+```
+
+```
+(1 row affected)
+(1 row affected)
+(0 rows affected)
+Msg 2627, Level 14, State 1, Line 7
+Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE54D8676973'.
+Cannot insert duplicate key in object 'dbo.ErrorTest'. The duplicate key value is (1).
+```
 
 ###### Note
 
-The identity property doesn’t enforce uniqueness of column values, indexing, or any other property. Additional constraints such as primary or unique keys, explicit index specifications, or other properties must be specified in addition to the `IDENTITY` property.
+Contrary to what many SQL developers believe, the values 1 and 2 are indeed inserted into `ErrorTestTable` in the preceding example. This behavior is in accordance with ANSI specifications stating that a constraint violation shouldn’t roll back an entire transaction.
 
-The `IDENTITY` value is generated as part of the transaction that inserts table rows. Applications can obtain `IDENTITY` values using the `@@IDENTITY`, `SCOPE_IDENTITY`, and `IDENT_CURRENT` functions.
-
-`IDENTITY` columns may be used as primary keys by themselves, as part of a compound key, or as non-key columns.
-
-You can manage `IDENTITY` columns using the `DBCC CHECKIDENT` command, which provides functionality for reseeding and altering properties.
-
-#### Syntax
+Use `THROW` with variables.
 
 ```
-IDENTITY [(<Seed Value>, <Increment Value>)]
-```
-
-View the original seed value of an `IDENTITY` column with the `IDENT_SEED` system function.
-
-```
-SELECT IDENT_SEED (<Table>)
-```
-
-Reseed an `IDENTITY` column.
-
-```
-DBCC CHECKIDENT (<Table>, RESEED, <Seed Value>)
-```
-
-#### Examples
-
-Create a table with an `IDENTITY` primary key column.
-
-```
-CREATE TABLE MyTABLE
-(
-    Col1 INT NOT NULL
-    PRIMARY KEY NONCLUSTERED IDENTITY(1,1),
-    Col2 VARCHAR(20) NOT NULL
-);
-```
-
-Insert a row and retrieve the generated `IDENTITY` value.
-
-```
-DECLARE @LastIdent INT;
-INSERT INTO MyTable(Col2)
-VALUES('SomeString');
-SET @LastIdent = SCOPE_IDENTITY()
-```
-
-Create a table with a non-key `IDENTITY` column and an increment of 10.
-
-```
-CREATE TABLE MyTABLE
-(
-    Col1 VARCHAR(20) NOT NULL
-        PRIMARY KEY,
-    Col2 INT NOT NULL
-        IDENTITY(1,10),
-);
-```
-
-Create a table with a compound PK including an `IDENTITY` column.
-
-```
-CREATE TABLE MyTABLE
-(
-    Col1 VARCHAR(20) NOT NULL,
-    Col2 INT NOT NULL
-        IDENTITY(1,10),
-    PRIMARY KEY (Col1, Col2)
-);
-```
-
-### SEQUENCE
-
-Sequences are objects that are independent of a particular table or column and are defined using the `CREATE SEQUENCE` DDL statement. You can manage sequences using the `ALTER SEQUENCE` statement. Multiple tables and multiple columns from the same table may use the values from one or more `SEQUENCE` objects.
-
-You can retrieve a value from a `SEQUENCE` object using the `NEXT VALUE FOR` function. For example, a `SEQUENCE` value can be used as a default value for a surrogate key column.
-
-`SEQUENCE` objects provide several advantages over `IDENTITY` columns:
-
-- Can be used to obtain a value before the actual `INSERT` takes place.
-- Value series can be shared among columns and tables.
-- Easier management, restart, and modification of sequence properties.
-- Allow assignment of value ranges using `sp_sequence_get_range` and not just per-row values.
-
-#### Syntax
-
-```
-CREATE SEQUENCE <Sequence Name> [AS <Integer Data Type> ]
-START WITH <Seed Value>
-INCREMENT BY <Increment Value>;
+BEGIN TRY
+BEGIN TRANSACTION
+INSERT INTO ErrorTest(Col1) VALUES(1);
+INSERT INTO ErrorTest(Col1) VALUES(2);
+INSERT INTO ErrorTest(Col1) VALUES(1);
+COMMIT TRANSACTION;
+END TRY
+BEGIN CATCH
+DECLARE @CustomMessage VARCHAR(1000),
+    @CustomError INT,
+    @CustomState INT;
+SET @CustomMessage = 'My Custom Text ' + ERROR_MESSAGE();
+SET @CustomError = 54321;
+SET @CustomState = 1;
+THROW @CustomError, @CustomMessage, @CustomState;
+END CATCH;
 ```
 
 ```
-ALTER SEQUENCE <Sequence Name>
-RESTART [WITH <Reseed Value>]
-INCREMENT BY <New Increment Value>;
+(0 rows affected)
+Msg 54321, Level 16, State 1, Line 19
+My Custom Text Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE545CBDBB9A'.
+Cannot insert duplicate key in object 'dbo.ErrorTest'. The duplicate key value is (1).
 ```
 
-#### Examples
+### RAISERROR
 
-Create a sequence for use as a primary key default.
+The `RAISERROR` statement is used to explicitly raise an error message, similar to `THROW`. It causes an error state for the running session and forwards run to either the calling scope or, if the error occurred within a `TRY …​ END TRY` block, to the associated `CATCH …​ END CATCH` block. `RAISERROR` can reference a user-defined message stored in the `sys.messages` system table or can be used with dynamic message text.
 
-```
-CREATE SEQUENCE MySequence AS INT START WITH 1 INCREMENT BY 1;
-CREATE TABLE MyTable
-(
-    Col1 INT NOT NULL
-        PRIMARY KEY NONCLUSTERED DEFAULT (NEXT VALUE FOR MySequence),
-    Col2 VARCHAR(20) NULL
-);
-```
+The key differences between `THROW` and `RAISERROR` are:
+
+- Message IDs passed to `RAISERROR` must exist in the `sys.messages` system table. The error number parameter passed to `THROW` doesn’t.
+- `RAISERROR` message text may contain printf formatting styles. The message text of `THROW` may not.
+- `RAISERROR` uses the severity parameter for the error returned. For `THROW`, severity is always 16.
+
+**Syntax**
 
 ```
-INSERT MyTable (Col1, Col2) VALUES (DEFAULT, 'cde'), (DEFAULT, 'xyz');
+RAISERROR (<Message ID>|<Message Text> ,<Message Severity> ,<Message State>
+[WITH option [<Option List>]])
 ```
 
-```
-SELECT * FROM MyTable;
-```
+**Example**
+
+Raise a custom error.
 
 ```
-Col1  Col2
-1     cde
-2     xyz
+RAISERROR (N'This is a custom error message with severity 10 and state 1.', 10, 1)
 ```
 
-### Sequential Enumeration Functions
+### FORMATMESSAGE
 
-SQL Server provides two sequential generation functions: `IDENTITY` and `NEWSEQUENTIALID`.
+`FORMATMESSAGE` returns a sting message consisting of an existing error message in the `sys.messages` system table, or from a text string, using the optional parameter list replacements. The `FORMATMESSAGE` statement is similar to the `RAISERROR` statement.
 
-###### Note
-
-The `IDENTITY` function shouldn’t be confused with the `IDENTITY` property of a column.
-
-You can use the `IDENTITY` function only in a `SELECT …​ INTO` statement to insert `IDENTITY` column values into a new table.
-
-The `NEWSEQUNTIALID` function generates a hexadecimal GUID, which is an integer. While the `NEWID` function generates a random GUID, the `NEWSEQUENTIALID` function guarantees that every GUID created is greater in numeric value than any other GUID previously generated by the same function on the same server since the operating system restart.
-
-###### Note
-
-You can use `NEWSEQUENTIALID` only with `DEFAULT` constraints associated with columns having a `UNIQUEIDENTIFIER` data type.
-
-#### Syntax
+**Syntax**
 
 ```
-IDENTITY (<Data Type> [, <Seed Value>, <Increment Value>]) [AS <Alias>]
+FORMATMESSAGE (<Message Number> | <Message String>, <Parameter List>)
 ```
 
-```
-NEWSEQUENTIALID()
-```
+### Error State Functions
 
-#### Examples
+SQL Server provides the following error state functions:
 
-Use the `IDENTITY` function as surrogate key for a new table based on an existing table.
+- ERROR_LINE
+- ERROR_MESSAGE
+- ERROR_NUMBER
+- ERROR_PROCEDURE
+- ERROR_SEVERITY
+- ERROR_STATE
+- @@ERROR
+
+**Examples**
+
+Use error state functions within a `CATCH` block.
 
 ```
-CREATE TABLE MySourceTable
-(
-    Col1 INT NOT NULL PRIMARY KEY,
-    Col2 VARCHAR(10) NOT NULL,
-    Col3 VARCHAR(10) NOT NULL
-);
+CREATE TABLE ErrorTest (Col1 INT NOT NULL PRIMARY KEY);
 ```
 
 ```
-INSERT INTO MySourceTable
-VALUES
-(12, 'String12', 'String12'),
-(25, 'String25', 'String25'),
-(95, 'String95', 'String95');
+BEGIN TRY;
+    BEGIN TRANSACTION;
+        INSERT INTO ErrorTest(Col1) VALUES(1);
+        INSERT INTO ErrorTest(Col1) VALUES(2);
+        INSERT INTO ErrorTest(Col1) VALUES(1);
+    COMMIT TRANSACTION;
+END TRY
+BEGIN CATCH
+    SELECT ERROR_LINE(),
+        ERROR_MESSAGE(),
+        ERROR_NUMBER(),
+        ERROR_PROCEDURE(),
+        ERROR_SEVERITY(),
+        ERROR_STATE(),
+        @@Error;
+THROW;
+END CATCH;
 ```
 
 ```
-SELECT IDENTITY(INT, 100, 1) AS SurrogateKey,
-    Col1,
-    Col2,
-    Col3
-INTO MyNewTable
-FROM MySourceTable
-ORDER BY Col1 DESC;
+6
+Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE543C8912D8'.
+Cannot insert duplicate key in object 'dbo.ErrorTest'.
+The duplicate key value is (1).
+2627
+NULL
+14
+1
+2627
 ```
 
 ```
-SELECT *
-FROM MyNewTable;
+(1 row affected)
+(1 row affected)
+(0 rows affected)
+(1 row affected)
+Msg 2627, Level 14, State 1, Line 25
+Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE543C8912D8'.
+Cannot insert duplicate key in object 'dbo.ErrorTest'.
+The duplicate key value is (1).
 ```
 
-For the preceding example, the result looks as shown following.
-
-```
-SurrogateKey  Col1  Col2      Col3
-100           95    String95  String95
-101           25    String25  String25
-102           12    String12  String12
-```
-
-Use `NEWSEQUENTIALID` as a surrogate key for a new table.
-
-```
-CREATE TABLE MyTable
-(
-    Col1 UNIQUEIDENTIFIER NOT NULL
-    PRIMARY KEY NONCLUSTERED DEFAULT NEWSEQUENTIALID()
-);
-```
-
-```
-INSERT INTO MyTable
-DEFAULT VALUES;
-```
-
-```
-SELECT *
-FROM MyTable;
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-Col1
-
-9CC01320-C5AA-E811-8440-305B3A017068
-```
-
-For more information, see [Sequence Numbers](https://docs.microsoft.com/en-us/sql/relational-databases/sequence-numbers/sequence-numbers?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/sequence-numbers/sequence-numbers?view=sql-server-ver15") and [CREATE TABLE (Transact-SQL) IDENTITY (Property)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [RAISERROR (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-sql?view=sql-server-ver15"), [TRY…​CATCH (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-ver15"), and [THROW (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/throw-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/throw-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports automatic sequence generation using the `AUTO_INCREMENT` column property, similar to the `IDENTITY` column property in SQL Server.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) offers a rich error handling framework with a different paradigm than SQL Server. The Aurora MySQL terminology is:
 
-Aurora MySQL doesn’t support table-independent sequence objects.
+- `CONDITION` — The equivalent of an `ERROR` in SQL Server.
+- `HANDLER` — An object that can handle conditions and perform actions.
+- `DIAGNOSTICS` — The metadata about the `CONDITION`.
+- `SIGNAL` and `RESIGNAL` — Statements similar to `THROW` and `RAISERROR` in SQL Server.
 
-Any numeric column may be assigned the `AUTO_INCREMENT` property. To make the system generate the next sequence value, the application must not mention the relevant column’s name in the insert command, in case the column was created with the NOT NULL definition then also inserting a NULL value into an `AUTO_INCREMENT` column will increment it. In most cases, the seed value is 1 and the increment is 1.
+Errors in Aurora MySQL are identified by the follow items:
 
-Client applications use the `LAST_INSERT_ID` function to obtain the last generated value.
+- A numeric error code specific to MySQL and, therefore, is not compatible with other database systems.
+- A five character `SQLSTATE` value that uses the ANSI SQL and ODBC standard error conditions.
 
-Each table can have only one `AUTO_INCREMENT` column. The column must be explicitly indexed or be a primary key, which is indexed by default.
+###### Note
 
-The `AUTO_INCREMENT` mechanism is designed to be used with positive numbers only. Do not use negative values because they will be misinterpreted as a complementary positive value. This limitation is due to precision issues with sequences crossing a zero boundary.
+Not every MySQL error number has a corresponding `SQLSTATE` value. For errors that don’t have a corresponding `SQLSTATE`, the general `HY000` error is used.
 
-There are two server parameters used to alter the default values for new `AUTO_INCREMENT` columns:
+- A textual message string that describes the nature of the error.
 
-- `auto_increment_increment` — Controls the sequence interval.
-- `auto_increment_offset` — Determines the starting point for the sequence.
+### DECLARE …​ CONDITION
 
-To reseed the `AUTO_INCREMENT` value, use `ALTER TABLE <Table Name> AUTO_INCREMENT = <New Seed Value>`.
+The `DECLARE …​ CONDITION` statement declares a named error condition and associates the name with a condition that requires handling. You can reference this declared name in subsequent `DECLARE …​ HANDLER` statements.
 
-### Syntax
+**Syntax**
 
 ```
-CREATE [TEMPORARY] TABLE [IF NOT EXISTS] <Table Name>
-(<Column Name> <Data Type> [NOT NULL | NULL]
-AUTO_INCREMENT [UNIQUE [KEY]] [[PRIMARY] KEY]...
+DECLARE <Condition Name> CONDITION
+FOR <Condition Value>
+```
+
+```
+<Condition Value> = <MySQL Error Code> | <SQLSTATE [VALUE] <SQLState Value>
+```
+
+**Examples**
+
+Declare a condition for MySQL error 1051 (Unknown table error).
+
+```
+DECLARE TableDoesNotExist CONDITION FOR 1051;
+```
+
+Declare a condition for SQL State 42S02 (Base table or view not found) .
+
+###### Note
+
+This SQLState error corresponds to the MySQL Error 1051.
+
+```
+DECLARE TableDoesNotExist CONDITION FOR SQLSTATE VALUE '42S02';
+```
+
+### DECLARE …​ HANDLER
+
+A `HANDLER` object defines the actions or statements to be ran when a `CONDITION` arises. The handler object may be used to `CONTINUE` or `EXIT` the run.
+
+The condition may be a previously defined condition using the `DECLARE …​ CONDITION` statement or an explicit condition for one of the following items:
+
+- An explicit Aurora MySQL error code. For example 1051, which represents an **Unknown Table Error**.
+- An explicit `SQLSTATE` value. For example `42S02`.
+- Any `SQLWARNING` event representing any `SQLSTATE` with a `01` prefix.
+- Any `NOTFOUND` event representing any `SQLSTATE` with a `02` prefix. This condition is relevant for cursors. For more information, see [Cursors](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
+- Any `SQLEXCEPTION` event, representing any `SQLSTATE` without a `00`, `01`, or `02` prefix. These conditions are considered exception errors.
+
+###### Note
+
+`SQLSTATE` events with a `00` prefix aren’t errors; they are used to represent successful runs of statements.
+
+**Syntax**
+
+```
+DECLARE {CONTINUE | EXIT | UNDO}
+HANDLER FOR
+<MySQL Error Code> |
+<SQLSTATE [VALUE] <SQLState Value> |
+<Condition Name> |
+SQLWARNING |
+NOT FOUND |
+SQLEXCEPTION
+<Statement Block>
+```
+
+**Examples**
+
+Declare a handler to ignore warning messages and continue run by assigning an empty statement block.
+
+```
+DECLARE CONTINUE HANDLER
+FOR SQLWARNING BEGIN END
+```
+
+Declare a handler to `EXIT` upon duplicate key violation and log a message to a table.
+
+```
+DECLARE EXIT HANDLER
+FOR SQLSTATE '23000'
+BEGIN
+    INSERT INTO MyErrorLogTable
+        VALUES(NOW(), CURRENT_USER(), 'Error 23000')
+END
+```
+
+### GET DIAGNOSTICS
+
+Each run of an SQL statement produces diagnostic information that is stored in the diagnostics area. The `GET DIAGNOSTICS` statement enables users to retrieve and inspect this information.
+
+###### Note
+
+Aurora MySQL also supports the SHOW WARNINGS and SHOW ERRORS statements to retrieve conditions and errors.
+
+The `GET DIAGNOSTICS` statement is typically used in the handler code within a stored routine. `GET CURRENT DIAGNOSTICS` is permitted outside the context of a handler to check the run result of an SQL statement.
+
+The `CURRENT` keyword causes retrieval of the current diagnostics area. The `STACKED` keyword causes retrieval of the information from the second diagnostics area. The second diagnostic area is only available if the current context is within a code block of a condition handler. The default is `CURRENT`.
+
+**Syntax**
+
+```
+GET [CURRENT | STACKED] DIAGNOSTICS
+<@Parameter = NUMBER | ROW_COUNT>
+|
+CONDITION <Condition Number> <@Parameter = CLASS_ORIGIN | SUBCLASS_ORIGIN | RETURNED_
+SQLSTATE | MESSAGE_TEXT | MYSQL_ERRNO | CONSTRAINT_CATALOG | CONSTRAINT_SCHEMA |
+CONSTRAINT_NAME | CATALOG_NAME | SCHEMA_NAME | TABLE_NAME | COLUMN_NAME | CURSOR_NAME>
+```
+
+**Example**
+
+Retrieve `SQLSTATE` and `MESSAGE_TEXT` from the diagnostic area for the last statement that you ran.
+
+```
+GET DIAGNOSTICS CONDITION 1 @p1 = RETURNED_SQLSTATE, @p2 = MESSAGE_TEXT
+```
+
+### SIGNAL/RESIGNAL
+
+The `SIGNAL` statement is used to raise an explicit condition or error. It can be used to provide full error information to a handle, to an outer scope of run, or to the SQL client. The SIGNAL statement enables explicitly defining the error’s properties such as error number, `SQLSTATE` value, message, and so on.
+
+The difference between `SIGNAL` and `RESIGNAL` is that `RESIGNAL` is used to pass on the error condition information available during the run of a condition handler within a compound statement inside a stored routine or an event. `RESIGNAL` can be used to change none, some, or all the related condition information before passing it for processing in the next calling scope of the stack.
+
+###### Note
+
+It is not possible to issue `SIGNAL` statements using variables.
+
+**Syntax**
+
+```
+SIGNAL | RESIGNAL <SQLSTATE [VALUE] sqlstate_value | <Condition Name>
+[SET <Condition Information Item Name> = <Value> [,...n]]
+<Condition Information Item Name> = CLASS_ORIGIN | SUBCLASS_ORIGIN | RETURNED_SQLSTATE
+| MESSAGE_TEXT | MYSQL_ERRNO | CONSTRAINT_CATALOG | CONSTRAINT_SCHEMA | CONSTRAINT_
+NAME | CATALOG_NAME | SCHEMA_NAME | TABLE_NAME | COLUMN_NAME | CURSOR_NAME
+```
+
+**Examples**
+
+Raise an explicit error with `SQLSTATE` 55555.
+
+```
+SIGNAL SQLSTATE '55555'
+```
+
+Re-raise an error with an explicit MySQL error number.
+
+```
+RESIGNAL SET MYSQL_ERRNO = 5
 ```
 
 ### Migration Considerations
 
-Since Aurora MySQL doesn’t support table-independent `SEQUENCE` objects, applications that rely on its properties must use a custom solution to meet their requirements.
-
-In Aurora MySQL, you can use `AUTO_INCREMENT` instead of `IDENTITY` in SQL Server for most cases. For `AUTO_INCREMENT` columns, the application must explicitly `INSERT` a NULL or a 0.
-
 ###### Note
 
-Omitting the `AUTO_INCREMENT` column from the `INSERT` column list has the same effect as inserting a NULL value.
+Error handling is a critical aspect of any software solution. Code migrated from one paradigm to another should be carefully evaluated and tested.
 
-Make sure that your `AUTO_INCREMENT` columns are indexed and don’t have default constraints assigned to the same column. There is a critical difference between `IDENTITY` and `AUTO_INCREMENT` in the way the sequence values are maintained upon service restart. Application developers must be aware of this difference.
+The basic operations of raising, processing, responding, and obtaining metadata is similar in nature for most relational database management systems. The technical aspects of rewriting the code to use different types of objects isn’t difficult.
 
-### Sequence Value Initialization
+In SQL Server, there can only be one handler, or `CATCH` code block, that handles exceptions for a given statement. In Aurora MySQL, multiple handler objects can be declared. A condition may trigger more than one handler. Be sure the correct handlers are ran as expected, especially when there are multiple handlers. The following sections provides rules to help establish your requirements.
 
-SQL Server stores the `IDENTITY` metadata in system tables on disk. Although some values may be cached and lost when the service is restarted, the next time the server restarts, the sequence value continues after the last block of values that was assigned to cache. If you run out of values, you can explicitly set the sequence value to start the cycle over. As long as there are no key conflicts, it can be reused after the range has been exhausted.
+### Handler Scope
 
-In Aurora MySQL, an `AUTO_INCREMENT` column for a table uses a special counter called the auto-increment counter to assign new values for the column. This counter is stored in cache memory only and isn’t persisted to disk. After a service restart, and when Aurora MySQL encounters an `INSERT` to a table containing an `AUTO_INCREMENT` column, it issues an equivalent of the following statement:
+A handler can be specific or general. Specific handlers are handlers defined for a specific MySQL error code, `SQLSTATE`, or a condition name. Therefore, only one type of event will trigger a specific handler. General handlers are handlers defined for conditions in the `SQLWARNING`, `SQLEXCEPTION`, or `NOT FOUND` classes. More than one event may trigger the handler.
 
-```
-SELECT MAX(<Auto Increment Column>) FROM <Table Name> FOR UPDATE;
-```
+A handler is in scope for the block in which it is declared. It can’t be triggered by conditions occurring outside the block boundaries.
 
-###### Note
+A handler declared in a `BEGIN …​ END` block is in scope for the SQL statements that follow the handler declaration.
 
-The `FOR UPDATE CLAUSE` is required to maintain locks on the column until the read completes.
+One or more handlers may be declared in different or the same scopes using different specifications. For example, a specific MySQL error code handler may be defined in an outer code block while a more general `SQLWARNING` handler is defined within an inner code block. Specific MySQL error code handlers and a general `SQLWARNING` class handler may exist within the same code block.
 
-Aurora MySQL then increments the value retrieved by the preceding statement and assigns it to the in-memory autoincrement counter for the table. By default, the value is incremented by one. You can change the default using the `auto_increment_increment` configuration setting. If the table has no values, Aurora MySQL uses the value 1. You can change the default using the `auto_increment_offset` configuration setting.
+### Handler Choice
 
-Every server restart effectively cancels any `AUTO_INCREMENT = <Value>` table option in `CREATE TABLE` and `ALTER TABLE` statements.
+Only one handler is triggered for a single event. Aurora MySQL decides which handler should be triggered. The decision regarding which handler should be triggered as a response to a condition depends on the handler’s scope and value. It also depends on whether or not other handlers are present that may be more appropriate to handle the event.
 
-Unlike `IDENTITY` columns in SQL Server, which by default don’t allow inserting explicit values, Aurora MySQL allows explicit values to be set. If a row has an explicitly specified `AUTO_INCREMENT` column value and the value is greater than the current counter value, the counter is set to the specified column value.
+When a condition occurs in a stored routine, the server searches for valid handlers in the current `BEGIN …​ END` block scope. If none are found, the engine searches for handlers in each successive containing `BEGIN …​ END` code block scope. When the server finds one or more applicable handlers at any given scope, the choice of which one to trigger is based on the following condition precedence:
 
-### Examples
+- A MySQL error code handler takes precedence over a `SQLSTATE` value handler.
+- An `SQLSTATE` value handler takes precedence over general `SQLWARNING`, `SQLEXCEPTION`, or `NOT FOUND` handlers.
+- An `SQLEXCEPTION` handler takes precedence over an `SQLWARNING` handler.
 
-Create a table with an `AUTO_INCREMENT` column.
-
-```
-CREATE TABLE MyTable
-(
-    Col1 INT NOT NULL
-    AUTO_INCREMENT PRIMARY KEY,
-    Col2 VARCHAR(20) NOT NULL
-);
-```
-
-Insert `AUTO_INCREMENT` values.
-
-```
-INSERT INTO MyTable (Col2)
-VALUES ('AI column omitted');
-```
-
-```
-INSERT INTO MyTable (Col1, Col2)
-VALUES (NULL, 'Explicit NULL');
-```
-
-```
-INSERT INTO MyTable (Col1, Col2)
-VALUES (10, 'Explicit value');
-```
-
-```
-INSERT INTO MyTable (Col2)
-VALUES ('Post explicit value');
-```
-
-```
-SELECT *
-FROM MyTable;
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-Col1  Col2
-1     AI column omitted
-2     Explicit NULL
-10    Explicit value
-11    Post explicit value
-```
-
-Reseed `AUTO_INCREMENT`.
-
-```
-ALTER TABLE MyTable AUTO_INCREMENT = 30;
-```
-
-```
-INSERT INTO MyTable (Col2)
-VALUES ('Post ALTER TABLE');
-```
-
-```
-SELECT *
-FROM MyTable;
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-1     AI column omitted
-2     Explicit NULL
-10    Explicit value
-11    Post explicit value
-30    Post ALTER TABLE
-```
-
-Change the increment value to 10.
-
-###### Note
-
-Changing the `@@auto_increment_increment` value to 10 impacts all `AUTO_INCREMENT` enumerators in the database.
-
-```
-SET @@auto_increment_increment=10;
-```
-
-Verify variable change.
-
-```
-SHOW VARIABLES LIKE 'auto_inc%';
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-Variable_name             Value
-auto_increment_increment  10
-auto_increment_offset     1
-```
-
-Insert several rows and then read.
-
-```
-INSERT INTO MyTable (Col1, Col2)
-VALUES (NULL, 'Row1'), (NULL, 'Row2'), (NULL, 'Row3'), (NULL, 'Row4');
-```
-
-```
-SELECT Col1, Col2
-FROM MyTable;
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-1     AI column omitted
-2     Explicit NULL
-10    Explicit value
-11    Post explicit value
-30    Post ALTER TABLE
-40    Row1
-50    Row2
-60    Row3
-70    Row4
-```
+Multiple applicable handlers with the same precedence may exist for a condition. For example, a statement could generate several warnings having different error codes. There may exist a specific MySQL error handler for each. In such cases, the choice is non-deterministic. Different handlers may be triggered at different times depending on the circumstances.
 
 ## Summary
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| Feature                                 | SQL Server                                                | Aurora MySQL                                                 | Comments                                                                                                                                                                                                          |
-| --------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Independent `SEQUENCE` object           | `CREATE SEQUENCE`                                         | Not supported                                                |                                                                                                                                                                                                                   |
-| Automatic enumerator column property    | `IDENTITY`                                                | `AUTO_INCREMENT`                                             |                                                                                                                                                                                                                   |
-| Reseed sequence value                   | `DBCC CHECKIDENT`                                         | `ALTER TABLE <Table Name> AUTO_INCREMENT = <New Seed Value>` |                                                                                                                                                                                                                   |
-| Column restrictions                     | Numeric                                                   | Numeric, indexed, and no `DEFAULT`                           |                                                                                                                                                                                                                   |
-| Controlling seed and interval values    | `CREATE/ALTER TABLE`                                      | `auto_increment_increment`<br>`auto_increment_offset`        | Aurora MySQL settings are global and can’t be customized for each column as in SQL Server.                                                                                                                        |
-| Sequence setting initialization         | Maintained through service restarts                       | Re-initialized every service restart                         | For more information, see [Sequence Value Initialization](#chap-sql-server-aurora-mysql.tsql.identitysequences.mysql.initialization "#chap-sql-server-aurora-mysql.tsql.identitysequences.mysql.initialization"). |
-| Explicit values to column               | Not allowed by default, `SET IDENTITY_INSERT ON` required | Supported                                                    | Aurora MySQL requires explicit NULL or 0 to trigger sequence value assignment. Inserting an explicit value larger than all others will reinitialize the sequence.                                                 |
-| Non PK auto enumerator column           | Supported                                                 | Not Supported                                                | Implement an application enumerator.                                                                                                                                                                              |
-| Compound PK with auto enumerator column | Supported                                                 | Not Supported                                                | Implement an application enumerator.                                                                                                                                                                              |
+| SQL Server error handling feature                                                                    | Migrate to Aurora MySQL                                                           | Comments                                                                                                                                                                                                 |
+| ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TRY …​ END TRY` and `CATCH …​ END CATCH` blocks.                                                    | Nested `BEGIN …​ END` code blocks with per-scope handlers.                        | `DECLARE` specific event handlers for each `BEGIN-END` code block. Note that unlike `CATCH` blocks, the handlers must be defined first, not later. Review the handler scope and handler choice sections. |
+| `THROW` and `RAISERROR`                                                                              | `SIGNAL` and `RESIGNAL`                                                           | Review the handler scope and handler choice sections.                                                                                                                                                    |
+| `THROW` with variables.                                                                              | Not supported.                                                                    |                                                                                                                                                                                                          |
+| FORMATMESSAGE                                                                                        | N/A                                                                               |                                                                                                                                                                                                          |
+| Error state functions.                                                                               | GET DIAGNOSTIC                                                                    |                                                                                                                                                                                                          |
+| Proprietary error messages in `sys.messages` system table.                                           | Proprietary MySQL error codes and `SQLSTATE` ANSI and ODBC standard.              | When rewriting error handling code, consider switching to the more standard `SQLSTATE` error codes.                                                                                                      |
+| Deterministic rules regarding condition handler run — always the next code block in statement order. | May be non-deterministic if multiple handlers have the same precedence and scope. | Review the handler scope and handler choice sections.                                                                                                                                                    |
 
-For more information, see [Using AUTO_INCREMENT](https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html "https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html"), [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), and [AUTO_INCREMENT Handling in InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization.html") in the _MySQL documentation_.
+For more information, see [The MySQL Diagnostics Area](https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html "https://dev.mysql.com/doc/refman/5.7/en/diagnostics-area.html") and [Condition Handling](https://dev.mysql.com/doc/refman/5.7/en/condition-handling.html "https://dev.mysql.com/doc/refman/5.7/en/condition-handling.html") in the _MySQL documentation_.
