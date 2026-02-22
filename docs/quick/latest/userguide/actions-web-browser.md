@@ -1,0 +1,23 @@
+# Web browser
+
+- **Start browser session** - Opens a new browser session. Actions placed inside will interact with this browser. The browser closes automatically when finished.
+- **Go to webpage** - Navigates to a specific URL. Used to go to a new webpage in the current browser tab.
+- **Click** - Clicks on a webpage element. Used to interact with buttons, links, or other clickable elements.
+- **Enter text** - Types text into an input field. Used to fill in forms, search boxes, or other text inputs on webpages.
+- **Enter credential** - Types a username or password. Used to securely login to a website using saved credentials.
+- **Select from dropdown** - Chooses a value from a dropdown. Used to make selections in forms, filters, or other dropdown menus on webpages.
+- **Extract text** - Reads a value from a webpage. Used to capture the text from an individual field.
+- **Extract table** - Reads data from a webpage table. Used to capture structured information found in tables.
+- **Take screenshot** - Captures an image of the webpage. The screenshot is saved to a file to be used later in your process.
+- **Visual Q&A** - Answer questions about a webpage. Uses AI to visually analyze the page and answer true/false questions about the content.
+- **Click and upload files** - Uploads files to a webpage. Used to automate file pickers by clicking on a file upload button (like 'Choose file', 'Browse', or 'Upload') and choosing the files to upload.
+- **Enter keystroke** - Sends a key command or shortcut. Used to automate typing individual keys or key combinations on a webpage.
+- **Refresh webpage** - Reloads the current webpage. Some pages may redirect on refresh.
+- **Restart browser** - Closes and reopens the browser. A new session will be started from a blank page.
+- **Wait for element** - Checks for an element to appear. Used to wait for changes or validate conditions on a webpage. Returns true if the element is found within the maximum wait time, false if not.
+- **Find matching elements** - Gets elements matching a pattern. Used to get a list of similar elements on a webpage that you can process one by one - for example, reading text from each search result or clicking each hyperlink.
+- **Wait for new window** - Checks for a new window to open. Used after clicking a link or button that opens a new child window in the current browser session. Outputs a window identifier you can use to switch to or close the window in subsequent steps.
+- **Switch window** - Changes browser windows. After switching, subsequent browser actions will interact with that window.
+- **Close window** - Closes a browser window. Once closed, the automation returns to the main window of the current browser session.
+- **Save to clipboard** - Copies text to the clipboard. Used to save text that you can paste later on. Existing clipboard text will be replaced.
+- **Paste from clipboard** - Inserts text from the clipboard. Used to paste copied text into webpage fields.
