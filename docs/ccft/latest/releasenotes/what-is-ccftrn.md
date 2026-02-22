@@ -14,9 +14,22 @@ Use the following resources to learn more about the Customer Carbon Footprint To
 
 ###### Topics
 
+- [Customer Carbon Footprint Tool release notes for 2026](#ccft-releasenotes-2026 "#ccft-releasenotes-2026")
 - [Customer Carbon Footprint Tool release notes for 2025](#ccft-releasecotes-2025 "#ccft-releasecotes-2025")
 - [Customer Carbon Footprint Tool release notes for 2023](#ccft-releasecotes-2023 "#ccft-releasecotes-2023")
 - [Customer Carbon Footprint Tool release notes for 2022](#ccft-releasecotes-2022 "#ccft-releasecotes-2022")
+
+### Customer Carbon Footprint Tool release notes for 2026
+
+This section documents the updates made to Customer Carbon Footprint Tool. This page lists announcements about new or updated features, bug fixes, improvements, and deprecated functionality for the year 2026.
+
+#### February 19, 2026
+
+##### Updates to market-based emissions in multiple AWS Regions
+
+Customers with usage in Asia Pacific (Melbourne), North American regions (Northern Virginia, Ohio, Oregon, Northern California, Calgary, Canada Central), India regions (Hyderabad, Mumbai), and edge locations in North America will see an increase in their market-based (MBM) emissions starting in January 2026. Customers with usage in Asia Pacific (Hong Kong), Asia Pacific (Sydney), Asia Pacific (New Zealand), South America (São Paulo), and Africa (Cape Town) will see a decrease in their market-based emissions starting January 2026.
+
+These changes reflect Amazon's continued commitment to expand our use of carbon-free energy and progress toward meeting net-zero carbon by 2040 while also winding down our use of unbundled renewable energy credits (uRECs).
 
 ### Customer Carbon Footprint Tool release notes for 2025
 
