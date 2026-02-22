@@ -119,7 +119,7 @@ Configuration. For more information, see [Default Host Management Configuration]
    because this policy has the permissions for SSM Distributor, SSM
    Inventory and SSM State manager, that Amazon Inspector needs for scans. For
    instructions on creating an instance profile with these permissions and
-   attaching it an instance, see [Configure instance permissions for Systems Manager
+   attaching it to an instance, see [Configure instance permissions for
    Systems Manager](../../../systems-manager/latest/userguide/setup-instance-permissions.md#instance-profile-add-permissions "../../../systems-manager/latest/userguide/setup-instance-permissions.md#instance-profile-add-permissions").
 4. (Optional) Activate automatic updates for the SSM Agent. For more
    information, see [Automating updates to SSM Agent](../../../systems-manager/latest/userguide/ssm-agent-automatic-updates.md "../../../systems-manager/latest/userguide/ssm-agent-automatic-updates.md").
@@ -312,11 +312,11 @@ For more information, see [Tagging keys](../../../kms/latest/developerguide/tagg
 
 ## Supported operating systems
 
-Amazon Inspector scans supported Mac, Windows, and Linux EC2 instance for vulnerabilities in
+Amazon Inspector scans supported Mac, Windows, and Linux instances for vulnerabilities in
 operating system packages. For Linux instances, Amazon Inspector can produce findings for
 application programming language packages using [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](deep-inspection.md "deep-inspection.md"). For Mac and Windows instances only operating
 system packages are scanned.
 
 For information about supported operating systems, including which operating
-system can be scanned without an SSM agent, see [Amazon EC2
+systems can be scanned without an SSM agent, see [Amazon EC2
 instances status values](supported.md#supported-os-ec2 "supported.md#supported-os-ec2").

@@ -14,22 +14,22 @@ The Amazon Inspector SBOM Generator supports scanning for the following ecosyste
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 7-Zip                  | 7-Zip archiver (version 21.07 and higher)                                                                                                                                                                                                                             |
 | Apache                 | Apache httpd<br>Apache tomcat                                                                                                                                                                                                                                         |
+| Atlassian              | Jira Core<br>Confluence<br>Jira Software<br>Jira Service Management                                                                                                                                                                                                   |
 | Curl                   | Curl<br>Libcurl                                                                                                                                                                                                                                                       |
 | Elasticsearch          | Elasticsearch                                                                                                                                                                                                                                                         |
 | Google                 | Chrome                                                                                                                                                                                                                                                                |
 | Java                   | JDK<br>JRE<br>Amazon Corretto                                                                                                                                                                                                                                         |
 | Jenkins                | Jenkins (version 2.400.\<br>• and higher)                                                                                                                                                                                                                             |
 | MariaDB and MySQL      | MariaDB Server (10.6+, 11.x, 12.x)<br>Oracle MySQL Server Server (8.0, 8.4, 9.4+)                                                                                                                                                                                     |
+| Microsoft applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Runtime<br>ASP.NET Core Runtime<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
 | Nginx                  | Nginx                                                                                                                                                                                                                                                                 |
 | Node                   | Node                                                                                                                                                                                                                                                                  |
+| Node.JS                | node                                                                                                                                                                                                                                                                  |
 | OpenSSH                | OpenSSH (versions 9 and 10)                                                                                                                                                                                                                                           |
 | OpenSSL                | OpenSSL                                                                                                                                                                                                                                                               |
 | Oracle                 | Oracle Database Server                                                                                                                                                                                                                                                |
 | PHP                    | PHP (version 8.1 and higher)                                                                                                                                                                                                                                          |
 | WordPress              | core<br>plugin<br>theme                                                                                                                                                                                                                                               |
-| Node.JS                | node                                                                                                                                                                                                                                                                  |
-| Microsoft applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Runtime<br>ASP.NET Core Runtime<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
-| Atlassian              | Jira Core<br>Confluence<br>Jira Software<br>Jira Service Management                                                                                                                                                                                                   |
 
 ## 7-Zip ecosystem collection
 
@@ -185,6 +185,76 @@ The following is an example package URL for an `Apache tomcat` application.
 
 Sample PURL: pkg:generic/apache/tomcat@10.1.31
 
+```
+
+## Atlassian ecosystem collection
+
+This section provides details about Atlassian server products and applications.
+
+### Atlassian Server Products
+
+###### Supported applications
+
+- Jira Core
+- Confluence
+
+###### Key features
+
+- Jira Core – Parses Maven POM properties from `atlassian-jira-webapp` to extract version information.
+- Confluence – Parses Maven POM properties from `confluence-webapp` to extract version information.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths:
+
+###### Linux
+
+- `/opt/atlassian/jira/atlassian-jira/META-INF/maven/com.atlassian.jira/atlassian-jira-webapp/pom.properties`
+- `/opt/atlassian/confluence/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties`
+
+###### Example PURL
+
+The following are example package URLs for Atlassian server products.
+
+```
+// Jira Core
+pkg:generic/atlassian/jira-core@10.0.1?distro=linux
+
+// Confluence
+pkg:generic/atlassian/confluence@9.2.7?distro=linux
+```
+
+### Atlassian Applications
+
+###### Supported applications
+
+- Jira Software
+- Jira Service Management
+
+###### Key features
+
+- Jira Software – Detects via `jira-software-application` JAR and extracts version from Maven POM properties.
+- Jira Service Management – Detects via `jira-servicedesk-application` JAR and extracts version from Maven POM properties.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths:
+
+###### Linux
+
+- `/opt/atlassian/jira/atlassian-jira/WEB-INF/application-installation/jira-software-application/jira-software-application-*.jar`
+- `/opt/atlassian/jira/atlassian-jira/WEB-INF/application-installation/jira-servicedesk-application/jira-servicedesk-application-*.jar`
+
+###### Example PURL
+
+The following are example package URLs for Atlassian applications.
+
+```
+// Jira Software
+pkg:generic/atlassian/jira-software@10.3.9?distro=linux
+
+// Jira Service Management
+pkg:generic/atlassian/jira-service-management@10.3.9?distro=linux
 ```
 
 ## Curl ecosystem collection
@@ -602,6 +672,159 @@ The following is an example package URL for a MySQL server.
 pkg:generic/mysql/mysql-server@8.0.43
 ```
 
+## Microsoft applications ecosystem collection
+
+###### Supported Microsoft applications
+
+- PowerShell
+- NuGet CLI
+- Visual Studio Code
+- Microsoft Edge
+- SharePoint Server
+- Microsoft Defender
+- Exchange Server
+- Visual Studio
+- .NET Runtime
+- ASP.NET Core Runtime
+- Microsoft Teams
+- Outlook for Windows
+- Microsoft Office
+- Microsoft 365
+
+###### Key features
+
+- PowerShell – Examines the `pwsh.exe` file to extract the embedded version information.
+- NuGet CLI – Examines the `nuget.exe` file to extract the embedded version information.
+- Visual Studio Code – Examines the `Code.exe` file to extract the embedded version information.
+- Microsoft Edge – Examines the `msedge.exe` file to extract the embedded version information.
+- SharePoint Server – Examines the `Microsoft.SharePoint.dll` file to extract the embedded version information.
+- Microsoft Defender – Examines the `MsMpEng.exe` file to extract the embedded version information.
+- Exhange Server – Examines the `Exsetup.exe` file to extract the embedded version information.
+- Visual Studio – Parses the `state.json` file to retrieve the version string from the `catalogInfo.productDisplayVersion` field.
+- .NET Runtime – Searches for `Microsoft.NETCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern.
+
+```
+Microsoft.NETCore.App/<VERSION>/Microsoft.NETCore.App.deps.json
+```
+
+- ASP.NET Runtime – Searches for `Microsoft.AspNetCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern.
+
+```
+Microsoft.AspNetCore.App/<VERSION>/Microsoft.AspNetCore.App.deps.json
+```
+
+- Outlook for Windows – Parses Windows Registry, and extracts version from the following registry key.
+
+```
+HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\Microsoft.OutlookForWindows_<VERSION>_<ARCH>__8wekyb3d8bbwe
+```
+
+- Microsoft Teams – Parses Windows Registry, and extracts version from the following registry key.
+
+```
+HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\MSTeams_<VERSION>_<ARCH>__8wekyb3d8bbwee
+```
+
+- Microsoft Office 365 / Microsoft 365 – Parses Windows Registry, and extracts version from the following registry key and value.
+  - Registry Key
+
+  ```
+  KEY_LOCAL_MACHINES\SOFTWARE\Microsoft\Office\ClickToRun\Configuration
+  ```
+
+  - Registry Value
+    - VersionToReport – Microsoft Office Version
+    - ProductReleaseIds – List of product IDs. This is used to identify installed Office products. For more information about product IDs, see [product IDs](https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/office-suite-issues/product-ids-supported-office-deployment-click-to-run "https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/office-suite-issues/product-ids-supported-office-deployment-click-to-run") on the Microsoft website.
+
+- Microsoft Office Suite – Collects installed each Office applications by examining the following executable files:
+  - `EXCEL.EXE` – Microsoft Excel
+  - `WINWORD.EXE` – Microsoft Word
+  - `POWERPNT.EXE` – Microsoft PowerPoint
+  - `OUTLOOK.EXE` – Microsoft Outlook
+    Version number in the Windows Registry is used as authoritative version number for each installed Office applications.
+
+###### Example `state.json` file
+
+The following is an example of a `state.json` file to use to collect installed Visual Studio version.
+
+```
+{
+    "icon": {
+        "mimeType": "image/svg+xml",
+        "fileName": "product.svg"
+    },
+    "updateDate": "2025-11-06T05:05:35.6517471Z",
+    "installDate": "2025-11-06T05:05:35.6527436Z",
+    "enginePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service",
+    "installationName": "VisualStudio/17.14.19+36623.8",
+    "catalogInfo": {
+        "id": "VisualStudio/17.14.19+36623.8",
+        "buildBranch": "d17.14",
+        "buildVersion": "17.14.36623.8",
+        "localBuild": "build-lab",
+        "manifestName": "VisualStudio",
+        "manifestType": "installer",
+        "productDisplayVersion": "17.14.19",
+// truncated
+```
+
+Example PURL
+
+The following is an example package URL for each Microsoft Applications.
+
+```
+// PowerShell
+Sample PURL: pkg:generic/microsoft/powershell@7.5.3
+
+// NuGet CLI
+Sample PURL: pkg:generic/microsoft/nuget@6.14.0
+
+// Visual Studio Code
+Sample PURL: pkg:generic/microsoft/visualstudiocode@1.104.2
+
+// Microsoft Edge
+Sample PURL: pkg:generic/microsoft/edge@140.0.3485.94
+
+// SharePoint Server
+Sample PURL: pkg:generic/microsoft/sharepoint@23.38.219.1
+
+// Microsoft Defender
+Sample PURL: pkg:generic/microsoft/defender@4.18.23110.3
+
+// Exchange Server
+Sample PURL: pkg:generic/microsoft/exchangeserver@15.2.2562.17
+
+// Visual Studio
+Sample PURL: pkg:generic/microsoft/visualstudio@17.14.19
+
+// .NET Runtime
+Sample PURL: pkg:generic/microsoft/dotnet@8.0.18
+
+// ASP.NET Core Runtime
+Sample PURL: pkg:generic/microsoft/aspdotnet@8.0.18
+
+// Microsoft Teams
+Sample PURL: pkg:generic/microsoft/teams@25241.203.3947.4411
+
+// Outlook for Windows
+Sample PURL: pkg:generic/microsoft/outlookforwindows@1.2025.916.400
+
+// Microsoft 365 / Office 365
+Sample PURL: pkg:generic/microsoft/office@16.0.19127.20264?product_ids=O365HomePremRetail
+
+// Microsoft Word
+Sample PURL: pkg:generic/microsoft/word@16.0.19127.20264
+
+// Microsoft Excel
+Sample PURL: pkg:generic/microsoft/excel@16.0.19127.20264
+
+// Microsoft PowerPoint
+Sample PURL: pkg:generic/microsoft/powerpoint@16.0.19127.20264
+
+// Microsoft Outlook
+Sample PURL: pkg:generic/microsoft/outlook@16.0.19127.20264
+```
+
 ## Nginx ecosystem collection
 
 ###### Supported applications
@@ -990,227 +1213,4 @@ The following is an example package URL for a WordPress theme.
 
 Sample PURL: pkg:generic/wordpress/theme/avada@1.0.0
 
-```
-
-## Microsoft applications ecosystem collection
-
-###### Supported Microsoft applications
-
-- PowerShell
-- NuGet CLI
-- Visual Studio Code
-- Microsoft Edge
-- SharePoint Server
-- Microsoft Defender
-- Exchange Server
-- Visual Studio
-- .NET Runtime
-- ASP.NET Core Runtime
-- Microsoft Teams
-- Outlook for Windows
-- Microsoft Office
-- Microsoft 365
-
-###### Key features
-
-- PowerShell – Examines the `pwsh.exe` file to extract the embedded version information.
-- NuGet CLI – Examines the `nuget.exe` file to extract the embedded version information.
-- Visual Studio Code – Examines the `Code.exe` file to extract the embedded version information.
-- Microsoft Edge – Examines the `msedge.exe` file to extract the embedded version information.
-- SharePoint Server – Examines the `Microsoft.SharePoint.dll` file to extract the embedded version information.
-- Microsoft Defender – Examines the `MsMpEng.exe` file to extract the embedded version information.
-- Exhange Server – Examines the `Exsetup.exe` file to extract the embedded version information.
-- Visual Studio – Parses the `state.json` file to retrieve the version string from the `catalogInfo.productDisplayVersion` field.
-- .NET Runtime – Searches for `Microsoft.NETCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern.
-
-```
-Microsoft.NETCore.App/<VERSION>/Microsoft.NETCore.App.deps.json
-```
-
-- ASP.NET Runtime – Searches for `Microsoft.AspNetCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern.
-
-```
-Microsoft.AspNetCore.App/<VERSION>/Microsoft.AspNetCore.App.deps.json
-```
-
-- Outlook for Windows – Parses Windows Registry, and extracts version from the following registry key.
-
-```
-HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\Microsoft.OutlookForWindows_<VERSION>_<ARCH>__8wekyb3d8bbwe
-```
-
-- Microsoft Teams – Parses Windows Registry, and extracts version from the following registry key.
-
-```
-HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\MSTeams_<VERSION>_<ARCH>__8wekyb3d8bbwee
-```
-
-- Microsoft Office 365 / Microsoft 365 – Parses Windows Registry, and extracts version from the following registry key and value.
-  - Registry Key
-
-  ```
-  KEY_LOCAL_MACHINES\SOFTWARE\Microsoft\Office\ClickToRun\Configuration
-  ```
-
-  - Registry Value
-    - VersionToReport – Microsoft Office Version
-    - ProductReleaseIds – List of product IDs. This is used to identify installed Office products. For more information about product IDs, see [product IDs](https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/office-suite-issues/product-ids-supported-office-deployment-click-to-run "https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/office-suite-issues/product-ids-supported-office-deployment-click-to-run") on the Microsoft website.
-
-- Microsoft Office Suite – Collects installed each Office applications by examining the following executable files:
-  - `EXCEL.EXE` – Microsoft Excel
-  - `WINWORD.EXE` – Microsoft Word
-  - `POWERPNT.EXE` – Microsoft PowerPoint
-  - `OUTLOOK.EXE` – Microsoft Outlook
-    Version number in the Windows Registry is used as authoritative version number for each installed Office applications.
-
-###### Example `state.json` file
-
-The following is an example of a `state.json` file to use to collect installed Visual Studio version.
-
-```
-{
-    "icon": {
-        "mimeType": "image/svg+xml",
-        "fileName": "product.svg"
-    },
-    "updateDate": "2025-11-06T05:05:35.6517471Z",
-    "installDate": "2025-11-06T05:05:35.6527436Z",
-    "enginePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service",
-    "installationName": "VisualStudio/17.14.19+36623.8",
-    "catalogInfo": {
-        "id": "VisualStudio/17.14.19+36623.8",
-        "buildBranch": "d17.14",
-        "buildVersion": "17.14.36623.8",
-        "localBuild": "build-lab",
-        "manifestName": "VisualStudio",
-        "manifestType": "installer",
-        "productDisplayVersion": "17.14.19",
-// truncated
-```
-
-Example PURL
-
-The following is an example package URL for each Microsoft Applications.
-
-```
-// PowerShell
-Sample PURL: pkg:generic/microsoft/powershell@7.5.3
-
-// NuGet CLI
-Sample PURL: pkg:generic/microsoft/nuget@6.14.0
-
-// Visual Studio Code
-Sample PURL: pkg:generic/microsoft/visualstudiocode@1.104.2
-
-// Microsoft Edge
-Sample PURL: pkg:generic/microsoft/edge@140.0.3485.94
-
-// SharePoint Server
-Sample PURL: pkg:generic/microsoft/sharepoint@23.38.219.1
-
-// Microsoft Defender
-Sample PURL: pkg:generic/microsoft/defender@4.18.23110.3
-
-// Exchange Server
-Sample PURL: pkg:generic/microsoft/exchangeserver@15.2.2562.17
-
-// Visual Studio
-Sample PURL: pkg:generic/microsoft/visualstudio@17.14.19
-
-// .NET Runtime
-Sample PURL: pkg:generic/microsoft/dotnet@8.0.18
-
-// ASP.NET Core Runtime
-Sample PURL: pkg:generic/microsoft/aspdotnet@8.0.18
-
-// Microsoft Teams
-Sample PURL: pkg:generic/microsoft/teams@25241.203.3947.4411
-
-// Outlook for Windows
-Sample PURL: pkg:generic/microsoft/outlookforwindows@1.2025.916.400
-
-// Microsoft 365 / Office 365
-Sample PURL: pkg:generic/microsoft/office@16.0.19127.20264?product_ids=O365HomePremRetail
-
-// Microsoft Word
-Sample PURL: pkg:generic/microsoft/word@16.0.19127.20264
-
-// Microsoft Excel
-Sample PURL: pkg:generic/microsoft/excel@16.0.19127.20264
-
-// Microsoft PowerPoint
-Sample PURL: pkg:generic/microsoft/powerpoint@16.0.19127.20264
-
-// Microsoft Outlook
-Sample PURL: pkg:generic/microsoft/outlook@16.0.19127.20264
-```
-
-## Atlassian ecosystem collection
-
-This section provides details about Atlassian server products and applications.
-
-### Atlassian Server Products
-
-###### Supported applications
-
-- Jira Core
-- Confluence
-
-###### Key features
-
-- Jira Core – Parses Maven POM properties from `atlassian-jira-webapp` to extract version information.
-- Confluence – Parses Maven POM properties from `confluence-webapp` to extract version information.
-
-###### Supported platforms
-
-The Amazon Inspector SBOM Generator scans for installations in common installation paths:
-
-###### Linux
-
-- `/opt/atlassian/jira/atlassian-jira/META-INF/maven/com.atlassian.jira/atlassian-jira-webapp/pom.properties`
-- `/opt/atlassian/confluence/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties`
-
-###### Example PURL
-
-The following are example package URLs for Atlassian server products.
-
-```
-// Jira Core
-pkg:generic/atlassian/jira-core@10.0.1?distro=linux
-
-// Confluence
-pkg:generic/atlassian/confluence@9.2.7?distro=linux
-```
-
-### Atlassian Applications
-
-###### Supported applications
-
-- Jira Software
-- Jira Service Management
-
-###### Key features
-
-- Jira Software – Detects via `jira-software-application` JAR and extracts version from Maven POM properties.
-- Jira Service Management – Detects via `jira-servicedesk-application` JAR and extracts version from Maven POM properties.
-
-###### Supported platforms
-
-The Amazon Inspector SBOM Generator scans for installations in common installation paths:
-
-###### Linux
-
-- `/opt/atlassian/jira/atlassian-jira/WEB-INF/application-installation/jira-software-application/jira-software-application-*.jar`
-- `/opt/atlassian/jira/atlassian-jira/WEB-INF/application-installation/jira-servicedesk-application/jira-servicedesk-application-*.jar`
-
-###### Example PURL
-
-The following are example package URLs for Atlassian applications.
-
-```
-// Jira Software
-pkg:generic/atlassian/jira-software@10.3.9?distro=linux
-
-// Jira Service Management
-pkg:generic/atlassian/jira-service-management@10.3.9?distro=linux
 ```

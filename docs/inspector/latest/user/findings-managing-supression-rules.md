@@ -22,7 +22,7 @@ Only the delegated administrator for an organization can create and manage suppr
 rule
 
 You can create suppression rules to filter the list of findings that are shown by
-default. You can create a suppression rule programmatically by using the [CreateFilter](../../v2/APIReference/API_CreateFilter.md "../../v2/APIReference/API_CreateFilter.md") API and specifying `SUPRESS` as the value for `action`.
+default. You can create a suppression rule programmatically by using the [CreateFilter](../../v2/APIReference/API_CreateFilter.md "../../v2/APIReference/API_CreateFilter.md") API and specifying `SUPPRESS` as the value for `action`.
 
 ###### Note
 

@@ -122,6 +122,7 @@ It also specifies the vendor security advisory for each operating system.
 | Debian Server (Bullseye)            | 11      | DSA CVE                                |
 | Debian Server (Bookworm)            | 12      | DSA CVE                                |
 | Debian Server (Trixie)              | 13      | DSA CVE                                |
+| Echo                                | 2       | Errata CVE                             |
 | Fedora                              | 42      | Errata CVE                             |
 | Minimus                             | –       | Errata CVE                             |
 | OpenSUSE Leap                       | 15.6    | Errata CVE                             |
@@ -195,6 +196,7 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Debian                   | 12      |
 | Debian                   | 13      |
 | Debian Sid               | –       |
+| Echo                     | 2       |
 | Fedora                   | 42      |
 | Fedora                   | 43      |
 | macOS                    | 11+     |

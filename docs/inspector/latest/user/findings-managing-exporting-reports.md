@@ -233,7 +233,7 @@ condition keys:
 
 
     ```
-    "aws:SourceAccount": [111122223333,444455556666,123456789012]
+    "aws:SourceAccount": ["111122223333","444455556666","123456789012"]
     ```
     * [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") – This condition restricts access to
      the bucket based on the source of the objects that are being added to
@@ -372,7 +372,7 @@ keys:
 
 
     ```
-    "aws:SourceAccount": [111122223333,444455556666,123456789012]
+    "aws:SourceAccount": ["111122223333","444455556666","123456789012"]
     ```
     * [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") – This condition prevents other
      AWS services from performing the specified actions. It also prevents
