@@ -105,6 +105,8 @@ The following limits apply to Amazon DocumentDB instance-based clusters and are 
 | -------------------------------- | ----------------- |
 | Clusters                         | 40                |
 | Cluster parameter groups         | 50                |
+| Clusters per parameter group     | 100               |
+| Instances per parameter group    | 300               |
 | Event subscriptions              | 20                |
 | Instances                        | 40                |
 | Manual cluster snapshots         | 100               |
@@ -183,16 +185,12 @@ The following table describes Amazon DocumentDB instance-based cluster limits.
 
 The following table describes Amazon DocumentDB limits per instance.
 
+Amazon DocumentDB 4.0, 5.0, and 8.0
+
 | Instance type  | Instance memory (GiB) | Connections (all) | Cursor limit | Open transactions | Connections (active) |
 | -------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
 | T3.medium      | 4                     | 1000              | 30           | 50                | 102                  |
 | T4G.medium     | 4                     | 1000              | 30           | 50                | 102                  |
-| R4.large       | 15.25                 | 1700              | 450          | N/A               | 1100                 |
-| R4.xlarge      | 30.5                  | 3400              | 450          | N/A               | 2700                 |
-| R4.2xlarge     | 61                    | 6800              | 450          | N/A               | 4500                 |
-| R4.4xlarge     | 122                   | 13600             | 725          | N/A               | 4500                 |
-| R4.8xlarge     | 288                   | 27200             | 1450         | N/A               | 4500                 |
-| R4.16xlarge    | 488                   | 30000             | 2900         | N/A               | 4500                 |
 | R5.large       | 16                    | 3400              | 450          | 200               | 1100                 |
 | R5.xlarge      | 32                    | 7000              | 450          | 400               | 2700                 |
 | R5.2xlarge     | 64                    | 14200             | 450          | 800               | 4500                 |
@@ -210,6 +208,26 @@ The following table describes Amazon DocumentDB limits per instance.
 | R6G.16xlarge\* | 512                   | 60000             | 3040         | 6400              | 4500                 |
 
 \* including R6GD
+
+Amazon DocumentDB 3.6
+
+| Instance type | Instance memory (GiB) | Connections (all) | Cursor limit | Open transactions | Connections (active) |
+| ------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
+| T3.medium     | 4                     | 500               | 30           | N/A               | 102                  |
+| R4.large      | 15.25                 | 1700              | 450          | N/A               | 1100                 |
+| R4.xlarge     | 30.5                  | 3400              | 450          | N/A               | 2700                 |
+| R4.2xlarge    | 61                    | 6800              | 450          | N/A               | 4500                 |
+| R4.4xlarge    | 122                   | 13600             | 725          | N/A               | 4500                 |
+| R4.8xlarge    | 288                   | 27200             | 1450         | N/A               | 4500                 |
+| R4.16xlarge   | 488                   | 30000             | 2900         | N/A               | 4500                 |
+| R5.large      | 16                    | 1700              | 450          | N/A               | 1100                 |
+| R5.xlarge     | 32                    | 3500              | 450          | N/A               | 2700                 |
+| R5.2xlarge    | 64                    | 7100              | 450          | N/A               | 4500                 |
+| R5.4xlarge    | 128                   | 14200             | 760          | N/A               | 4500                 |
+| R5.8xlarge    | 256                   | 28400             | 1520         | N/A               | 4500                 |
+| R5.12xlarge   | 384                   | 30000             | 2280         | N/A               | 4500                 |
+| R5.16xlarge   | 512                   | 30000             | 3040         | N/A               | 4500                 |
+| R5.24xlarge   | 768                   | 30000             | 4560         | N/A               | 4500                 |
 
 You can monitor and alarm on the per instance limits using the following CloudWatch metrics. For more on Amazon DocumentDB CloudWatch metrics, see [Monitoring Amazon DocumentDB with CloudWatch](cloud_watch.md "cloud_watch.md").
 

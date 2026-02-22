@@ -17,6 +17,7 @@ You can filter new Amazon DocumentDB features on the [What's New with Database?]
 
 ###### Topics
 
+- [February 12, 2026](#release-notes.02-12-2026 "#release-notes.02-12-2026")
 - [February 11, 2026](#release-notes.02-11-2026 "#release-notes.02-11-2026")
 - [January 08, 2026](#release-notes.01-08-2026 "#release-notes.01-08-2026")
 - [November 11, 2025](#release-notes.11-13-2025 "#release-notes.11-13-2025")
@@ -93,6 +94,16 @@ You can filter new Amazon DocumentDB features on the [What's New with Database?]
 - [September 22, 2020](#release-notes.09-22-2020 "#release-notes.09-22-2020")
 - [July 10, 2020](#release-notes.07-10-2020 "#release-notes.07-10-2020")
 - [June 30, 2020](#release-notes.06-30-2020 "#release-notes.06-30-2020")
+
+## February 12, 2026
+
+### Bug fixes and other changes
+
+**Amazon DocumentDB 3.6 (Engine Version: 1.0.208675)**
+
+1. Added DatabaseConnectionsActiveMax metric to provide insights into "Connections (active)" for instances. The limits can be found at our [Amazon DocumentDB Quotas and limits](limits.md#limits.instance "limits.md#limits.instance") page.
+2. Improved SASL authentication performance.
+3. Bug fix for $indexStats command where the database would crash when executing this command during an edge case
 
 ## February 11, 2026
 
