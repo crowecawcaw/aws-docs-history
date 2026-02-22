@@ -12,3 +12,4 @@ using AWS Ground Station.
   state](troubleshooting-dfeg.md "troubleshooting-dfeg.md")
 - [Troubleshoot invalid ephemerides](troubleshooting-invalid-ephemerides.md "troubleshooting-invalid-ephemerides.md")
 - [Troubleshoot contacts that received no data](troubleshooting-no-data-received.md "troubleshooting-no-data-received.md")
+- [Troubleshoot telemetry](troubleshooting-telemetry.md "troubleshooting-telemetry.md")
