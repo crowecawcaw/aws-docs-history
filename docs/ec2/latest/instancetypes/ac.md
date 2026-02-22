@@ -51,7 +51,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | P6e-GB200       | `p6e-gb200.36xlarge`     |
 | Trn1            | `trn1.2xlarge`           | `trn1.32xlarge` |
 | Trn1n           | `trn1n.32xlarge`         |
-| Trn2            | `trn2.48xlarge`          |
+| Trn2            | `trn2.3xlarge`           | `trn2.48xlarge` |
 | Trn2u           | `trn2u.48xlarge`         |
 | VT1             | `vt1.3xlarge`            | `vt1.6xlarge`   | `vt1.24xlarge`  |
 
@@ -208,6 +208,7 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | **Trn1n**          |
 | trn1n.32xlarge     | 512.00       | Intel Xeon Ice Lake         | 128   | 64        | 2                | 16 x AWS Trainium accelerators                    | 512 GiB (16 x 32 GiB)   |
 | **Trn2**           |
+| trn2.3xlarge       | 128.00       | Intel Xeon Sapphire Rapids  | 12    | 6         | 2                | 1 x AWS Trainium2 accelerators                    | 512 GiB (1 x 512 GiB)   |
 | trn2.48xlarge      | 2048.00      | Intel Xeon Sapphire Rapids  | 192   | 96        | 2                | 16 x AWS Trainium2 accelerators                   | 8192 GiB (16 x 512 GiB) |
 | **Trn2u**          |
 | trn2u.48xlarge     | 2048.00      | Intel Xeon Sapphire Rapids  | 192   | 96        | 2                | ✗ No                                              | ✗ No                    |
@@ -330,6 +331,7 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | **Trn1n**          |
 | trn1n.32xlarge     | 16x 100 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 16            | 80                      | 50                         | ✓ Yes |
 | **Trn2**           |
+| trn2.3xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 2                       | 15                         | ✓ Yes |
 | trn2.48xlarge      | 16x 200 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 16            | 32                      | 50                         | ✓ Yes |
 | **Trn2u**          |
 | trn2u.48xlarge     | 16x 200 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 16            | 32                      | 50                         | ✓ Yes |
@@ -479,6 +481,7 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | **Trn1n**          |
 | trn1n.32xlarge     | 80000.00                            | 10000.00                                          | 260000.00                            | ✓ Yes | Up to 28 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **Trn2**           |
+| trn2.3xlarge       | 5000.00                             | 625.00                                            | 16250.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | trn2.48xlarge      | 80000.00                            | 10000.00                                          | 260000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **Trn2u**          |
 | trn2u.48xlarge     | 80000.00                            | 10000.00                                          | 260000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -592,6 +595,7 @@ along with the aggregated IOPS performance with 4,096 byte block size at queue d
 | **Trn1n**          |
 | trn1n.32xlarge     | 4 x 1900 GB            | NVMe SSD            | 1,720,000 / 720,000                |                        | ✓ Yes          |
 | **Trn2**           |
+| trn2.3xlarge       | 1 x 470 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
 | trn2.48xlarge      | 4 x 1900 GB            | NVMe SSD            | 1,720,000 / 720,000                |                        | ✓ Yes          |
 | **Trn2u**          |
 | trn2u.48xlarge     | 4 x 1900 GB            | NVMe SSD            | 1,720,000 / 720,000                |                        | ✓ Yes          |
@@ -717,6 +721,7 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | **Trn1n**          |
 | trn1n.32xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **Trn2**           |
+| trn2.3xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
 | trn2.48xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **Trn2u**          |
 | trn2u.48xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |

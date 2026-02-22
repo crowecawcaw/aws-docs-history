@@ -27,6 +27,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | Hpc6id          | `hpc6id.32xlarge`        |
 | Hpc7a           | `hpc7a.12xlarge`         | `hpc7a.24xlarge` | `hpc7a.48xlarge` | `hpc7a.96xlarge` |
 | Hpc7g           | `hpc7g.4xlarge`          | `hpc7g.8xlarge`  | `hpc7g.16xlarge` |
+| Hpc8a           | `hpc8a.96xlarge`         |
 
 ## Instance family summary
 
@@ -36,6 +37,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | Hpc6id          | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
 | Hpc7a           | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
 | Hpc7g           | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Linux                       |
+| Hpc8a           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
 
 ## Performance specifications
 
@@ -54,6 +56,8 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | hpc7g.4xlarge   | 128.00       | AWS Graviton3E Processor | 16    | 16        | 1                | ✗ No         | ✗ No               |
 | hpc7g.8xlarge   | 128.00       | AWS Graviton3E Processor | 32    | 32        | 1                | ✗ No         | ✗ No               |
 | hpc7g.16xlarge  | 128.00       | AWS Graviton3E Processor | 64    | 64        | 1                | ✗ No         | ✗ No               |
+| **Hpc8a**       |
+| hpc8a.96xlarge  | 768.00       | AMD EPYC 9R45            | 192   | 192       | 1                | ✗ No         | ✗ No               |
 
 ## Network specifications
 
@@ -72,6 +76,8 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | hpc7g.4xlarge   | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 50                         | ✓ Yes |
 | hpc7g.8xlarge   | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 50                         | ✓ Yes |
 | hpc7g.16xlarge  | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 50                         | ✓ Yes |
+| **Hpc8a**       |
+| hpc8a.96xlarge  | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 2             | 4                       | 50                         | ✓ Yes |
 
 ###### Note
 
@@ -119,6 +125,8 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | hpc7g.4xlarge 1   | 87.00 / 2085.00                     | 10.88 / 260.62                                    | 500.00 / 11000.00                    | ✓ Yes | Up to 27 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))    |
 | hpc7g.8xlarge 1   | 87.00 / 2085.00                     | 10.88 / 260.62                                    | 500.00 / 11000.00                    | ✓ Yes | Up to 27 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))    |
 | hpc7g.16xlarge 1  | 87.00 / 2085.00                     | 10.88 / 260.62                                    | 500.00 / 11000.00                    | ✓ Yes | Up to 27 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))    |
+| **Hpc8a**         |
+| hpc8a.96xlarge 1  | 87.00 / 2085.00                     | 10.88 / 260.62                                    | 500.00 / 11000.00                    | ✓ Yes | 27 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 
 ###### Note
 
@@ -161,3 +169,5 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | hpc7g.4xlarge   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | hpc7g.8xlarge   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | hpc7g.16xlarge  | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| **Hpc8a**       |
+| hpc8a.96xlarge  | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
