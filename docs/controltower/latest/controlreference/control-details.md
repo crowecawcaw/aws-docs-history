@@ -1,5 +1,9 @@
 # View control details
 
+You can view control details in the AWS Control Tower console or retrieve them programmatically using [Control Catalog APIs](../../../controlcatalog/latest/APIReference/Welcome.md "../../../controlcatalog/latest/APIReference/Welcome.md").
+
+## Access control metadata in the console
+
 To view details about an individual control in the AWS Control Tower console, select the name
 of the control from the table on the **Controls** page. On the console
 page for the control, you may see metadata items such as
@@ -8,12 +12,7 @@ each item to get more information about the control. You can find additional inf
 in the tabs: **About**, **OUs enabled**, and
 **Accounts**.
 
-To view details about an individual control, see [Tables of
-control metadata](control-metadata-tables.md "control-metadata-tables.md"). For each control, the global **API
-controlIdentifer** is available in the console, along with the framework
-and objective. The Regional **API controlIdentifier** is available only
-in the documentation, because it is not recommended for most use cases. Certain control
-information is available only in the console, as described in the next sections.
+For each control, the global **API controlIdentifier** is available in the console, along with the framework and objective.
 
 In each **Control details** page of the console, you can find the
 following details for each control:
@@ -47,6 +46,7 @@ following details for each control:
   violation of this control.
 - **Release date** –The date the control became
   available.
+- **Deployable Regions** – Regions in which the control is available to be deployed.
 
 ###### Note
 
@@ -63,7 +63,8 @@ console.
   AWS environment.
 - The **OUs enabled** tab shows a list of OUs on which the
   control is actively enabled.
-  The status of the Region deny control is shown as a separate entry.
+
+The status of the Region deny control is shown as a separate entry.
 
 Other information may appear on the **Control details** page,
 including these items:
@@ -80,7 +81,8 @@ including these items:
 - The **Gherkin** artifact – The Gherkin is a readable
   specification for the CloudFormation hook controls, showing requirements for tests that
   cause PASS, FAIL, or SKIP results to be returned.
-  **To view a control artifact**
+
+**To view a control artifact**
 
 Each control is implemented by one or more artifacts. These artifacts can include a
 baseline CloudFormation template, a service control policy (SCP) to prevent account-level
@@ -96,3 +98,21 @@ details** page.
 
 The four mandatory controls with `"Sid": "GRCLOUDTRAILENABLED"` are
 identical by design. The sample code is correct.
+
+## Access control metadata programmatically
+
+Control metadata is available through Control Catalog APIs. For information about control identifiers, see [Resource identifiers for APIs and controls](control-identifiers.md "control-identifiers.md").
+
+To list all controls, use the [ListControls API](../../../controlcatalog/latest/APIReference/API_ListControls.md "../../../controlcatalog/latest/APIReference/API_ListControls.md"). For example:
+
+```
+aws controlcatalog list-controls --max-result 2 --region us-east-1
+```
+
+To retrieve detailed metadata for a specific control, use the [GetControl API](../../../controlcatalog/latest/APIReference/API_GetControl.md "../../../controlcatalog/latest/APIReference/API_GetControl.md"). For example:
+
+```
+aws controlcatalog get-control --control-arn arn:aws:controlcatalog:::control/4b0nsxnd47747up54ytdqesxi --region us-east-1
+```
+
+For more information, see the [Control Catalog API Reference](../../../controlcatalog/latest/APIReference/Welcome.md "../../../controlcatalog/latest/APIReference/Welcome.md").

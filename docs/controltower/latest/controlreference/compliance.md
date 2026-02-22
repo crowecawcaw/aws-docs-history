@@ -22,7 +22,7 @@ regulations, sometimes referred to as _frameworks_.
 
 - For more information about how AWS Control Tower helps you maintain compliance with
   governmental regulations and industry standards, see [Compliance
-  Validation](../userguide/compliance-program-info.md "../userguide/compliance-program-info.md").
+  Validation](../userguide/compliance-validation.md "../userguide/compliance-validation.md").
 - For more information about how you can verify AWS Control Tower resource compliance during
   CloudFormation stack creation, see this blog post, [How AWS Control Tower users can proactively verify compliance in
   AWS CloudFormationstacks](https://aws.amazon.com/blogs/mt/how-aws-control-tower-users-can-proactively-verify-compliance-in-aws-cloudformation-stacks/ "https://aws.amazon.com/blogs/mt/how-aws-control-tower-users-can-proactively-verify-compliance-in-aws-cloudformation-stacks/").

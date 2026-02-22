@@ -1,5 +1,9 @@
 # Legacy control objectives
 
+###### Warning
+
+This page will be removed in a future release.
+
 These control objectives were the original objectives for AWS Control Tower controls. As AWS Control Tower has expanded to include more indistry frameworks, we have expanded the list of objectives. This list is available as historical guidance, to help you make the transition to newer controls and API implementations.
 
 Sometimes controls must be applied
@@ -8,7 +12,7 @@ controls is viewable in the AWS Control Tower console, on the **Control details*
 
 ###### Legacy control objectives
 
-For more information about controls and their associated control objectives, see [Tables of control metadata](control-metadata-tables.md "control-metadata-tables.md").
+For more information about controls, see [_AWS Control Tower Controls Reference Guide_](controls-reference.md "controls-reference.md"). To retrieve the most up-to-date list of new control objectives, call the [`ListObjectives`](../../../controlcatalog/latest/APIReference/API_ListObjectives.md "../../../controlcatalog/latest/APIReference/API_ListObjectives.md") API from the _controlcatalog_ namespace of AWS Control Tower.
 
 - **CO.1** Establish logging and monitoring
 - **CO.2** Encrypt data at rest

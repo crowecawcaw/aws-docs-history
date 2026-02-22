@@ -57,9 +57,9 @@ shown in the example that follows. The example shows the
 
 | **Control identifier**                        | **Display name**                                                                                                                                                 |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS-GR_AUDIT_BUCKET_ENCRYPTION_ENABLED        | Enable encryption at rest for log archive                                                                                                                        |
-| AWS-GR_AUDIT_BUCKET_LOGGING_ENABLED           | Enable access logging for log archive                                                                                                                            |
-| AWS-GR_AUDIT_BUCKET_POLICY_CHANGES_PROHIBITED | Disallow policy changes to log archive                                                                                                                           |
+| AWS-GR_AUDIT_BUCKET_ENCRYPTION_ENABLED        | Disallow modification of an Amazon S3 bucket default encryption                                                                                                  |
+| AWS-GR_AUDIT_BUCKET_LOGGING_ENABLED           | Disallow modification of server access logging for an Amazon S3 bucket                                                                                           |
+| AWS-GR_AUDIT_BUCKET_POLICY_CHANGES_PROHIBITED | Disallow policy changes to an Amazon S3 bucket                                                                                                                   |
 | AWS-GR_AUDIT_BUCKET_RETENTION_POLICY          | Set a retention policy for log archive                                                                                                                           |
 | AWS-GR_DISALLOW_CROSS_REGION_NETWORKING       | Disallow cross-region networking for Amazon EC2, Amazon CloudFront, and AWS Global Accelerator                                                                   |
 | AWS-GR_DISALLOW_VPC_INTERNET_ACCESS           | Disallow internet access for an Amazon VPC instance managed by a customer                                                                                        |

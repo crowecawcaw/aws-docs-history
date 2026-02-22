@@ -2,7 +2,7 @@
 
 Mandatory controls are owned by AWS Control Tower, and they apply to every OU on your landing zone,
 with some exceptions for the **Security OU**. These controls are
-applied to your OUs by default when you set up your , and they can't be deactivated, because they protect AWS Control Tower resources.
+applied to your OUs by default when you set up your landing zone, and they can't be deactivated, because they protect AWS Control Tower resources.
 
 Following, you'll find a reference for each of the mandatory controls available in
 AWS Control Tower today. Please note that with AWS Control Tower Landing Zone 4.0, there have been several
@@ -16,8 +16,8 @@ changes to the mandatory controls.
 
 ## Changes in Landing Zone 4.0 controls
 
-- AWS Control Tower will no longer deploy the below controls from 4.0 because these protect the account trails which were deployed
-  in 2.9 and below. These controls would still be applied for versions below 4.0 and would be deleted once customers
+- AWS Control Tower will no longer deploy the below controls from landing zone 4.0 because these protect the account trails which were deployed
+  in landing zone 2.9 and below. These controls would still be applied for landing zone versions below 4.0 and would be deleted once customers
   upgrade to versions 4.0 and above.
   - [Disallow Configuration Changes to
     CloudTrail](#cloudtrail-configuration-changes "#cloudtrail-configuration-changes")Disallow Configuration Changes to CloudTrail
@@ -32,8 +32,8 @@ changes to the mandatory controls.
     under the Security organizational unit have AWS CloudTrail or CloudTrail Lake
     enabled](#ensure-cloudtrail-enabled-mandatory "#ensure-cloudtrail-enabled-mandatory")Detect whether shared accounts under the Security organizational unit have AWS CloudTrail or CloudTrail Lake enabled
 
-- The following controls will be removed if the customer has AWS Config integration enabled and are upgrading to 4.0 and above
-  (Note: Customers on versions below 4.0 have AWS Config integration enabled by default). These controls are related to legacy
+- The following controls will be removed if the customer has AWS Config integration enabled and are upgrading to landing zone 4.0 and above
+  (Note: Customers on landing zone versions below 4.0 have AWS Config integration enabled by default). These controls are related to legacy
   AWS Config aggregators and are no longer required for Service-Linked Config Aggregator. Read more on the Service-linked Config aggregator
   [here](../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/config-mgmt.md "../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/config-mgmt.md").
   - [Disallow Changes to Tags Created by
@@ -43,7 +43,7 @@ changes to the mandatory controls.
     AWS Control Tower](#config-rule-disallow-changes "#config-rule-disallow-changes")
 
 - The AWS CloudTrail integration tied to the manifest `centralizedLogging` configuration has two new controls
-  starting 4.0
+  starting landing zone 4.0
   - Disallow changes to Amazon SNS subscriptions and topics managed by AWS Control Tower
 
   ```
@@ -124,7 +124,7 @@ changes to the mandatory controls.
 
   ```
 
-- The AWS Config integration has a new control starting 4.0
+- The AWS Config integration has a new control starting landing zone 4.0
   - Disallow modifications to AWS Config recorder Amazon S3 buckets managed by AWS Control Tower
 
   ```
@@ -166,7 +166,7 @@ changes to the mandatory controls.
 
   ```
 
-- On 4.0, AWS Control Tower will disable the following controls as they are replaced with a single unified
+- On landing zone 4.0, AWS Control Tower will disable the following controls as they are replaced with a single unified
   preventive control for AWS Config integration. The security governance boundary remains the same,
   but with reduced SCP space.
   - [Disallow Changes to Encryption
@@ -185,7 +185,7 @@ changes to the mandatory controls.
   - [Detect Public Read Access Setting for Log
     Archive](#log-archive-public-read "#log-archive-public-read")
 
-- AWS Control Tower is updating the following controls for all versions, this change will take place when customers
+- AWS Control Tower is updating the following controls for all landing zone versions, this change will take place when customers
   update/reset their existing setup.
   - [Disallow Changes to Amazon SNS Set Up by
     AWS Control Tower](#sns-disallow-changes "#sns-disallow-changes")

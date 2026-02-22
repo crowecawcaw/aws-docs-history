@@ -16,11 +16,8 @@ The Control Catalog was formerly called the Controls Library. We have renamed it
 
 - To retrieve information about individual controls programmatically, call the [`GetControl`](../../../controlcatalog/latest/APIReference/API_GetControl.md "../../../controlcatalog/latest/APIReference/API_GetControl.md") API from the _controlcatalog_ namespace of AWS Control Tower.
 - To retrieve a list of available controls programmatically, call the [`ListControls`](../../../controlcatalog/latest/APIReference/API_ListControls.md "../../../controlcatalog/latest/APIReference/API_ListControls.md") API from the _controlcatalog_ namespace of AWS Control Tower.
-- In the console, additional detail about each control is available in the AWS Control Tower console, on the **Control details** pages.
-- To view summary tables of control information in the [_AWS Control Tower Controls Reference Guide_](controls-reference.md "controls-reference.md"), including **Frameworks**, see
-  [Tables of
-  control metadata](control-metadata-tables.md "control-metadata-tables.md").
-- For a list of global identifiers, see [All global identifiers for AWS Control Tower controls](all-global-identifiers.md "all-global-identifiers.md").
+- Additional detail about each control is available in the AWS Control Tower console, on the **Control details** pages and Control Catalog APIs. For more information, see [View control details](control-details.md "control-details.md").
+- To understand control ARNs, see [Resource identifiers for APIs and controls](control-identifiers.md "control-identifiers.md").
 
 ###### Topics
 

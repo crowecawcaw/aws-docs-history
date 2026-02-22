@@ -526,7 +526,7 @@ Elastic Load Balancing health checks.
   [CT.AUTOSCALING.PR.4 rule specification](#ct-autoscaling-pr-4-rule "#ct-autoscaling-pr-4-rule")
 - For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
-  [GitHub](https://github.com/aws-samples/aws-control-tower-samples/tree/main/samples/CT.AUTOSCALING.PR.4 "https://github.com/aws-samples/aws-control-tower-samples/tree/main/samples/CT.AUTOSCALING.PR.4")
+  [CT.AUTOSCALING.PR.4 example templates](#ct-autoscaling-pr-4-templates "#ct-autoscaling-pr-4-templates")
 
 **Explanation**
 
@@ -665,6 +665,54 @@ AutoScalingGroup:
     VPCZoneIdentifier:
       - !Ref 'Subnet'
 
+
+```
+
+### CT.AUTOSCALING.PR.4 example templates
+
+You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
+
+PASS Example - Use this template to verify a compliant resource creation.
+
+```
+
+Resources:
+  AutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      LaunchTemplate:
+        LaunchTemplateId: example-launch-template-id
+        Version: 1
+      MaxSize: '1'
+      MinSize: '0'
+      DesiredCapacity: '1'
+      LoadBalancerNames:
+        - example-load-balancer
+      HealthCheckType: ELB
+      VPCZoneIdentifier:
+        - example-subnet
+
+```
+
+FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
+
+```
+
+Resources:
+  AutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      LaunchTemplate:
+        LaunchTemplateId: example-launch-template-id
+        Version: 1
+      MaxSize: '1'
+      MinSize: '0'
+      DesiredCapacity: '1'
+      TargetGroupARNs:
+        - example-target-group-arn
+      VPCZoneIdentifier:
+        - example-subnet
+      HealthCheckType: EC2
 
 ```
 

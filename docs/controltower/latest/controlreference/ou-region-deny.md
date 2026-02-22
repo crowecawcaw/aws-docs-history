@@ -7,7 +7,9 @@ This control disallows access to unlisted operations in global and regional AWS 
 
 You may wish to review the information at [Configure the Region deny control](../userguide/region-deny.md "../userguide/region-deny.md") before you enable this control.
 
-If you enforce this control, the configurations for the OU can conflict with the landing zone version of this control. For more information, see the section called "Policy evaluation of SCP controls" in this chapter, and [SCP evaluation](../../../organizations/latest/userguide/orgs_manage_policies_scps_evaluation.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_evaluation.md") in the AWS Organizations doumentation.
+###### Warning
+
+If you enforce this control, the configurations for the OU can conflict with the landing zone version of this control. For more information, see the section called "Policy evaluation of SCP controls" in this chapter, and [SCP evaluation](../../../organizations/latest/userguide/orgs_manage_policies_scps_evaluation.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_evaluation.md") in the AWS Organizations documentation.
 
 **CT.MULTISERVICE.PV.1**: Deny access to
 AWS based on the requested AWS Region for an organizational unit

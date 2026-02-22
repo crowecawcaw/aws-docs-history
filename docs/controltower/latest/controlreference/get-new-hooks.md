@@ -4,7 +4,7 @@ To update the way that AWS Control Tower handles the CloudFormation hooks for yo
 controls, follow the steps given in this section.
 
 After you complete this process, you can utilize the full capacity of CloudFormation hooks, without
-restriction by AWS Control Tower. It eliminates the need to apply the [**CT.CLOUDFORMATION.PR.1** preventive control](../../../ /controltower/latest/controlreference/elective-preventive-controls.md#disallow-cfn-extensions "../../../ /controltower/latest/controlreference/elective-preventive-controls.md#disallow-cfn-extensions") before you
+restriction by AWS Control Tower. It eliminates the need to apply the [**CT.CLOUDFORMATION.PR.1** preventive control](elective-preventive-controls.md#disallow-cfn-extensions "elective-preventive-controls.md#disallow-cfn-extensions") before you
 can enable proactive controls.
 
 The first time that you enable a proactive control, AWS Control Tower turns on the hook that it
