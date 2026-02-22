@@ -79,13 +79,18 @@ Before executing the plan, Region switch will verify the following:
 
 ## Step 2: Build the plan's workflows and execution blocks
 
-1.  From the Region switch plan details page, choose **Build workflows**.
-2.  Select **Build the same activation workflow for all Regions**.
-3.  Enter a Region activation workflow description (optional). This will be used to easily identify the workflow when executing the plan.
-4.  Choose **Save and continue**.
-5.  Choose **Add a step**, and then select **Run in sequence**.
-6.  Select the **EC2 Auto Scaling execution block**, and then choose **Add and edit**. This block will allow you to start increasing capacity in the passive Region.
-7.  In the right panel, configure the block:
+1. From the Region switch plan details page, choose **Build workflows**.
+2. Select **Build the same activation workflow for all Regions**.
+3. Enter a Region activation workflow description (optional). This will be used to easily identify the workflow when executing the plan.
+4. Choose **Save and continue**.
+
+### Add EC2 Auto Scaling execution block
+
+For more information about this execution block, see [Amazon EC2 Auto Scaling group execution block](ec2-auto-scaling-block.md "ec2-auto-scaling-block.md").
+
+1.  Choose **Add a step**, and then select **Run in sequence**.
+2.  Select the **EC2 Auto Scaling execution block**, and then choose **Add and edit**. This block will allow you to start increasing capacity in the passive Region.
+3.  In the right panel, configure the block:
 
         * **Step name**: Enter "Scale"
         * **Step description** (optional)
@@ -98,11 +103,16 @@ Before executing the plan, Region switch will verify the following:
     For information about the required IAM permissions for this execution block, see
     [EC2 Auto Scaling execution block sample policy](security_iam_region_switch_ec2_autoscaling.md "security_iam_region_switch_ec2_autoscaling.md").
 
-8.  Choose **Save step**.
-9.  Choose **Add a step**.
-10. Select the **Manual approval execution block** and add it to the design window. This block
+4.  Choose **Save step**.
+
+### Add manual approval execution block
+
+For more information about this execution block, see [Manual approval execution block](manual-approval-block.md "manual-approval-block.md").
+
+1.  Choose **Add a step**.
+2.  Select the **Manual approval execution block** and add it to the design window. This block
     allows for human verification before proceeding.
-11. In the right panel, configure the block:
+3.  In the right panel, configure the block:
 
         * **Step name**: Enter "Manual approval before setup"
         * **Step description** (optional)
@@ -113,11 +123,16 @@ Before executing the plan, Region switch will verify the following:
     For information about the required IAM permissions for this execution block, see
     [Manual approval execution block sample policy](security_iam_region_switch_manual_approval.md "security_iam_region_switch_manual_approval.md").
 
-12. Choose **Save step**.
-13. Choose **Add a step**.
-14. Select the **Custom action Lambda execution block**, and then choose **Add and edit**.
+4.  Choose **Save step**.
+
+### Add custom action Lambda execution block for maintenance page
+
+For more information about this execution block, see [Custom action Lambda execution block](custom-action-lambda-block.md "custom-action-lambda-block.md").
+
+1.  Choose **Add a step**.
+2.  Select the **Custom action Lambda execution block**, and then choose **Add and edit**.
     This block publishes a maintenance page in the Region that is activating.
-15. In the right panel, configure the block:
+3.  In the right panel, configure the block:
 
         * **Step name**: Enter "Display maintenance page"
         * **Step description** (optional)
@@ -132,47 +147,18 @@ Before executing the plan, Region switch will verify the following:
     For information about the required IAM permissions for this execution block, see
     [Custom action Lambda execution block sample policy](security_iam_region_switch_lambda.md "security_iam_region_switch_lambda.md").
 
-16. Choose **Save step**.
-17. Choose **Add a step**.
-18. Select a second **Custom action Lambda execution block**, and then choose **Add and edit**.
-    This block triggers a fencing mechanism in the active Region that ensures that the deactivating Region can no longer accept
-    traffic.
-19. In the right panel, configure the block:
+4.  Choose **Save step**.
 
-        * **Step name**: Enter "Fencing"
-        * **Step description** (optional)
-        * **Lambda ARN for activating us-east-1**: The ARN of the fencing Lambda function
-         deployed in us-east-1
-        * **Lambda ARN for activating us-west-2**: The ARN of the fencing Lambda function
-         deployed in us-west-2
-        * **Region to run Lambda function**: Choose **Run in deactivating Region**
-        * **Timeout** (optional)
-        * **Retry interval** (optional)
+### Add Aurora Global Database execution block
 
-    For information about the required IAM permissions for this execution block, see
-    [Custom action Lambda execution block sample policy](security_iam_region_switch_lambda.md "security_iam_region_switch_lambda.md").
+For more information about this execution block, see [Amazon Aurora Global Database execution block](aurora-global-database-block.md "aurora-global-database-block.md").
 
-20. Choose **Save step**.
-21. Choose **Add a step**.
-22. Select **Manual approval execution block**, and then choose **Add and edit**.
-    This block requests approval from a team member.
-23. In the right panel, configure the block:
-
-        * **Step name**: Enter **Manual approval before Database and DNS change**
-        * **Step description** (optional)
-        * **IAM approval role**: The role a user must assume so that they can approve the execution
-        * **Timeout** (optional)
-
-    For information about the required IAM permissions for this execution block, see
-    [Manual approval execution block sample policy](security_iam_region_switch_manual_approval.md "security_iam_region_switch_manual_approval.md").
-
-24. Choose **Save step**.
-25. Choose **Add a step**.
-26. Select the **Aurora Global Database execution block**, and then choose **Add and edit**.
+1.  Choose **Add a step**.
+2.  Select the **Aurora Global Database execution block**, and then choose **Add and edit**.
     This block triggers an Aurora global database switchover (no data loss). For more information, see
     [Using switchover
     or failover for Aurora Global Database](../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.md") in the _Aurora User Guide_.
-27. In the right panel, configure the block:
+3.  In the right panel, configure the block:
 
         * **Step name**: Enter **Aurora switchover**
         * **Step description** (optional)
@@ -185,40 +171,45 @@ Before executing the plan, Region switch will verify the following:
     For information about the required IAM permissions for this execution block, see
     [Aurora Global Database execution block sample policy](security_iam_region_switch_aurora.md "security_iam_region_switch_aurora.md").
 
-28. Choose **Save step**.
-29. Choose **Add a step**.
-30. Select **ARC routing control execution block**, and then choose **Add and edit**. This block
-    performs a DNS failover to shift traffic to the passive Region.
-31. In the right panel, configure the block:
-    - **Step name**: Enter **Toggle DNS**
-    - **Step description** (optional)
-    - **Routing controls used in activating us-east-1**: Choose
-      **Add routing controls**
-    - **Timeout**: Enter a timeout value.
+4.  Choose **Save step**.
 
-32. Choose **Add routing control**:
-    - **Routing control ARN**: The ARN of the routing control that controls us-east-1
-    - **Routing control state**: Choose **On**
+### Add ARC routing control execution block
 
-33. Choose **Add routing control** again:
-    - **Routing control ARN**: The ARN of the routing control that controls us-west-2
-    - **Routing control state**: Choose **Off**
+For more information about this execution block, see [ARC routing control execution block](arc-routing-controls-block.md "arc-routing-controls-block.md").
 
-34. Choose **Save**.
-35. **Routing controls used in activating us-west-2**: Choose **Add routing controls**
-36. Choose **Add routing control**:
-    - **Routing control ARN**: The ARN of the routing control that controls us-west-2
-    - **Routing control state**: Choose **On**
+1. Choose **Add a step**.
+2. Select **ARC routing control execution block**, and then choose **Add and edit**. This block
+   performs a DNS failover to shift traffic to the passive Region.
+3. In the right panel, configure the block:
+   - **Step name**: Enter **Toggle DNS**
+   - **Step description** (optional)
+   - **Routing controls used in activating us-east-1**: Choose
+     **Add routing controls**
+   - **Timeout**: Enter a timeout value.
 
-37. Choose **Add routing control** again:
-    - **Routing control ARN**: The ARN of the routing control that controls us-east-1
-    - **Routing control state**: Choose **Off**
+4. Choose **Add routing control**:
+   - **Routing control ARN**: The ARN of the routing control that controls us-east-1
+   - **Routing control state**: Choose **On**
 
-38. Choose **Save**.
-39. Choose **Save step**.
+5. Choose **Add routing control** again:
+   - **Routing control ARN**: The ARN of the routing control that controls us-west-2
+   - **Routing control state**: Choose **Off**
+
+6. Choose **Save**.
+7. **Routing controls used in activating us-west-2**: Choose **Add routing controls**
+8. Choose **Add routing control**:
+   - **Routing control ARN**: The ARN of the routing control that controls us-west-2
+   - **Routing control state**: Choose **On**
+
+9. Choose **Add routing control** again:
+   - **Routing control ARN**: The ARN of the routing control that controls us-east-1
+   - **Routing control state**: Choose **Off**
+
+10. Choose **Save**.
+11. Choose **Save step**.
 
 For information about the required IAM permissions for this execution block, see
-[ARC routing controls execution block sample policy](security_iam_region_switch_arc_routing.md "security_iam_region_switch_arc_routing.md"). 40. Choose **Save**.
+[ARC routing controls execution block sample policy](security_iam_region_switch_arc_routing.md "security_iam_region_switch_arc_routing.md"). 12. Choose **Save**.
 
 ## Step 3: Execute the plan
 

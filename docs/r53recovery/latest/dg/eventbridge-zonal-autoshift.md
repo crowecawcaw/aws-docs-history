@@ -69,6 +69,9 @@ for the `detail-type`:
 - `FIS Experiment Autoshift In Progress`
 - `FIS Experiment Autoshift Completed`
 - `FIS Experiment Autoshift Canceled`
+- `Manual Shift Started`
+- `Manual Shift Updated`
+- `Manual Shift Canceled`
 
 When a practice run is interrupted, for more information about what caused the interruption,
 see the `additionalFailureInfo` field.
@@ -223,6 +226,32 @@ The following is an example event for the `FIS Experiment Autoshift In Progress`
     "version": "0",
     "id": "05d4d2d5-9c76-bfea-72d2-d4614802adb4",
     "detail-type": "FIS Experiment Autoshift In Progress",
+    "source": "aws.arc-zonal-shift",
+    "account": "111122223333",
+    "time": "2023-11-16T23:38:14Z",
+    "region": "us-east-1",
+    "resources": [
+        "TEST-EXAMPLE-2023-11-16-23-28-11-5"
+    ],
+    "detail": {
+        "version": "0.0.1",
+        "data": "",
+        "metadata": {
+            "awayFrom": "use1-az2",
+            "notes":""
+        }
+    }
+}
+```
+
+The following is an example event for the `Manual Shift Started` action.
+It is emitted when the `StartZonalShift` API is called on a resource:
+
+```
+{
+    "version": "0",
+    "id": "05d4d2d5-9c76-bfea-72d2-d4614802adb4",
+    "detail-type": "Manual Shift Started",
     "source": "aws.arc-zonal-shift",
     "account": "111122223333",
     "time": "2023-11-16T23:38:14Z",

@@ -62,10 +62,11 @@ health of your application in each Region. Region switch uses application health
 actual recovery time after you switch Regions to implement recovery.
 
 **Triggers**
-You can use triggers in Region switch to automate application recovery. When you create
-a trigger, you specify one or more Amazon CloudWatch alarms that indicate the health of your application.
-When the alarms go into an alarm state, Region switch automatically executes the corresponding recovery
-plan.
+You can use triggers in Region switch to automate application recovery. When you create a trigger, you specify
+one or more Amazon CloudWatch alarms and define which alarm conditions (such as "red" or "green") should initiate
+plan execution. When the specified conditions are met, Region switch automatically executes the plan. Triggers are
+distinct from application health alarms: triggers start plan execution, while application health alarms help
+Region switch calculate actual recovery time after a plan completes.
 
 **Dashboards**
 Region switch includes dashboards where you can track details about plan executions in

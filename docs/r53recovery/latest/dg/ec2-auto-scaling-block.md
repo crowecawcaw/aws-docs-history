@@ -69,6 +69,12 @@ When Region switch executes an Auto Scaling block, Region switch attempts to sca
 to match the desired capacity. Then, Region switch waits until the requested Auto Scaling group capacity is fulfilled
 in the target Region's Auto Scaling group before Region switch proceeds to the next step in the plan.
 
+###### Note
+
+Executing this block modifies the minimum and desired capacity settings of your Auto Scaling groups, which may cause
+configuration drift if you manage these values through infrastructure-as-code tools or other automation. Ensure your
+configuration management processes account for these changes to prevent unintended rollbacks.
+
 If you’re using an active/active approach, Region switch uses the other configured Region
 as the source. That is, if a Region is being deactivated, Region switch uses the other active Region
 as the source to match for the percent to scale.
