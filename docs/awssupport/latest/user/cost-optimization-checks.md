@@ -52,6 +52,7 @@ You can use the following checks for the cost optimization category.
 - [AWS
   Well-Architected high risk issues for cost optimization](cost-optimization-checks.md#well-architected-high-risk-issues-cost-optimization "cost-optimization-checks.md#well-architected-high-risk-issues-cost-optimization")
 - [Idle Load Balancers](cost-optimization-checks.md#idle-load-balancers "cost-optimization-checks.md#idle-load-balancers")
+- [Idle NAT gateways](cost-optimization-checks.md#idle-nat-gateways "cost-optimization-checks.md#idle-nat-gateways")
 - [Inactive AWS Network Firewall](cost-optimization-checks.md#inactive-network-firewall "cost-optimization-checks.md#inactive-network-firewall")
 - [Inactive VPC interface endpoints](cost-optimization-checks.md#inactive-vpc-interface-endpoints "cost-optimization-checks.md#inactive-vpc-interface-endpoints")
 - [Inactive Gateway Load Balancer endpoints](cost-optimization-checks.md#inactive-gateway-load-balancer "cost-optimization-checks.md#inactive-gateway-load-balancer")
@@ -1982,6 +1983,50 @@ load balancer. See [Delete Your Load Balancer](../../../elasticloadbalancing/lat
 - Load Balancer Name
 - Reason
 - Estimated Monthly Savings
+
+## Idle NAT gateways
+
+**Description**
+
+Checks your NAT gateway configurations and usage patterns to identify idle or underutilized NAT gateways that might be candidates for cost optimization.
+
+For each resource, Trusted Advisor shows only the top recommended action from AWS Cost Optimization Hub.
+
+To use this check, you must opt in to [Cost Optimization Hub](../../../cost-management/latest/userguide/coh-getting-started.md "../../../cost-management/latest/userguide/coh-getting-started.md") and [AWS Compute Optimizer](../../../compute-optimizer/latest/ug/account-opt-in.md "../../../compute-optimizer/latest/ug/account-opt-in.md").
+
+**Check ID**
+
+`c1z7kmr18n`
+
+**Source**
+
+`AWS Cost Optimization Hub`
+
+**Alert criteria**
+
+Yellow: NAT gateway has a cost savings action identified by Cost Optimization Hub.
+
+**Recommended action**
+
+Consider implementing the recommendation to delete the idle NAT gateway. For more information on implementing this recommendation, see the AWS Cloud Financial Management [Service Cost Optimization Playbook](https://catalog.workshops.aws/awscff/en-US/playbooks "https://catalog.workshops.aws/awscff/en-US/playbooks").
+
+**Additional resources**
+
+- [Viewing idle resource recommendations](../../../compute-optimizer/latest/ug/view-idle-recommendations.md "../../../compute-optimizer/latest/ug/view-idle-recommendations.md")
+- [Work with NAT gateways](../../../vpc/latest/userguide/nat-gateway-working-with.md "../../../vpc/latest/userguide/nat-gateway-working-with.md")
+- [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md")
+
+**Report columns**
+
+- Status
+- Region
+- Resource ID
+- Recommended Action
+- Current Resource Summary
+- Recommended Resource Summary
+- Estimated Monthly Cost
+- Estimated Monthly Savings
+- Last Refresh Timestamp
 
 ## Inactive AWS Network Firewall
 

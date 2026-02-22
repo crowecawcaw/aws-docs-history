@@ -100,10 +100,7 @@ For **Source**, you can choose
 
 ###### Notes
 
-- You must use Security Hub CSPM to exclude resources from your findings. Currently, you
-  can't use the Trusted Advisor console to exclude items from Security Hub CSPM controls. For
-  more information, see [Setting the workflow status for
-  findings](../../../securityhub/latest/userguide/finding-workflow-status.md "../../../securityhub/latest/userguide/finding-workflow-status.md").
+- Results for these checks are automatically refreshed at least once daily, and refresh requests are not allowed. It might take a few hours for changes to appear. You can use the Trusted Advisor console to exclude resources from checks that automatically refresh. You can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to exclude resources from any check except Trusted Advisor Priority recommendation resources.
 - The organizational view feature supports this integration with Security Hub CSPM. You can view
   your findings for your Security Hub CSPM controls across your organization, and then
   create and download reports. For more information, see [Organizational view for AWS Trusted Advisor](organizational-view.md "organizational-view.md").
@@ -129,10 +126,7 @@ later.
   triggered_. Currently, you can't use the Trusted Advisor console or
   the AWS Support API to refresh your Security Hub CSPM controls. For more information, see
   [Schedule for running security checks](../../../securityhub/latest/userguide/securityhub-standards-schedule.md "../../../securityhub/latest/userguide/securityhub-standards-schedule.md").
-- You must use Security Hub CSPM if you want to exclude resources from your findings.
-  Currently, you can't use the Trusted Advisor console to exclude items from Security Hub CSPM
-  controls. For more information, see [Setting the workflow status for
-  findings](../../../securityhub/latest/userguide/finding-workflow-status.md "../../../securityhub/latest/userguide/finding-workflow-status.md").
+- Results for these checks are automatically refreshed at least once daily, and refresh requests are not allowed. It might take a few hours for changes to appear. You can use the Trusted Advisor console to exclude resources from checks that automatically refresh. You can use the [BatchUpdateRecommendationResourceExclusion](../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md "../../../trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.md") API to exclude resources from any check except Trusted Advisor Priority recommendation resources.
 
 ## Disable Security Hub CSPM from Trusted Advisor
 
