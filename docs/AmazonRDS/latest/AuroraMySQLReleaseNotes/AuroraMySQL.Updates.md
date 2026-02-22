@@ -1,53 +1,153 @@
-# Aurora MySQL database engine updates 2024-07-23 (version 3.07.1) (Deprecated)
+# Aurora MySQL database engine updates 2022-01-26 (version 2.10.2) (Deprecated)
 
-**Version:** 3.07.1
+**Version:** 2.10.2
 
-Aurora MySQL 3.07.1 is generally available. Aurora MySQL 3.07 versions are compatible with MySQL 8.0.36. For more information on the
-community changes that have occurred, see [MySQL 8.0 Release Notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/ "https://dev.mysql.com/doc/relnotes/mysql/8.0/en/").
+Aurora MySQL 2.10.2 is generally available. Aurora MySQL 2.x versions are compatible with MySQL 5.7, and Aurora MySQL
+1.x versions are compatible with MySQL 5.6.
 
-For details of the new features in Aurora MySQL version 3, see [Aurora MySQL version 3 compatible with MySQL 8.0](../AuroraUserGuide/AuroraMySQL.md "../AuroraUserGuide/AuroraMySQL.md"). For
-differences between Aurora MySQL version 3 and Aurora MySQL version 2, see [Comparing Aurora MySQL version 2 and Aurora MySQL version
-3](../AuroraUserGuide/AuroraMySQL.md "../AuroraUserGuide/AuroraMySQL.md"). For a comparison of Aurora MySQL version 3 and MySQL 8.0 Community Edition, see [Comparing Aurora MySQL version 3 and MySQL 8.0 Community
-Edition](../AuroraUserGuide/AuroraMySQL.md "../AuroraUserGuide/AuroraMySQL.md") in the _Amazon Aurora User Guide_.
+Currently supported Aurora MySQL releases are 1.19.5, 1.19.6, 1.22.\*, 1.23.\*, 2.04.\*, 2.07.\*, 2.08.\*, 2.09.\*, 2.10.\*, 3.01.\* and 3.02.\*.
 
-Currently supported Aurora MySQL releases are 2.11.\*, 2.12.\*, 3.03.\*, 3.04.\*, 3.05.\*, 3.06.\*, and 3.07.\*.
-
-You can perform an in-place upgrade, restore a snapshot, or initiate a managed blue/green upgrade using
-[Amazon RDS Blue/Green Deployments](../AuroraUserGuide/blue-green-deployments-overview.md "../AuroraUserGuide/blue-green-deployments-overview.md")
-from any currently supported Aurora MySQL version 2 cluster into an Aurora MySQL version 3.07.1 cluster.
-
-For information on planning an upgrade to Aurora MySQL version 3, see
-[Planning
-a major version upgrade for an Aurora MySQL cluster](../AuroraUserGuide/AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Planning "../AuroraUserGuide/AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Planning"). For general information about Aurora MySQL upgrades, see
-[Upgrading Amazon Aurora MySQL DB clusters](../AuroraUserGuide/AuroraMySQL.Updates.md "../AuroraUserGuide/AuroraMySQL.Updates.md")
-in the _Amazon Aurora User Guide_.
-
-For troubleshooting information, see [Troubleshooting for Aurora MySQL
-in-place upgrade](../AuroraUserGuide/AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Troubleshooting "../AuroraUserGuide/AuroraMySQL.Updates.md#AuroraMySQL.Upgrading.Troubleshooting") in the _Amazon Aurora User Guide_.
+You can upgrade an existing Aurora MySQL 2.\* database cluster to Aurora MySQL 2.10.0. For clusters running
+Aurora MySQL version 1, you can upgrade an existing Aurora MySQL 1.23 or higher cluster directly to 2.10.0. You can
+also restore a snapshot from any currently supported Aurora MySQL release into Aurora MySQL 2.10.0.
 
 If you have any questions or concerns, AWS Support is available on the community forums and through
 [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support"). For more information, see
-[Maintaining an Amazon Aurora DB cluster](../AuroraUserGuide/USER_UpgradeDBInstance.md "../AuroraUserGuide/USER_UpgradeDBInstance.md") in
-the _Amazon Aurora User Guide_.
+[Maintaining an Amazon Aurora DB cluster](../AuroraUserGuide/USER_UpgradeDBInstance.md "../AuroraUserGuide/USER_UpgradeDBInstance.md") in the _Amazon Aurora User Guide_.
+
+###### Note
+
+For information on how to upgrade your Aurora MySQL database cluster, see [Upgrading the minor version or patch level of an Aurora MySQL DB cluster](../AuroraUserGuide/AuroraMySQL.Updates.md "../AuroraUserGuide/AuroraMySQL.Updates.md") in the
+_Amazon Aurora User Guide_.
 
 ## Improvements
 
-**Fixed security issues and CVEs:**
+**Fixed security issues and CVEs listed below:**
 
-- Introduced a new user for binary log (binlog) replication, `rdsrepladmin_priv_checks_user`. For more information, see
-  [Privilege
-  checks user for binary log replication](../AuroraUserGuide/AuroraMySQL.md#AuroraMySQL.privilege-model.binlog "../AuroraUserGuide/AuroraMySQL.md#AuroraMySQL.privilege-model.binlog") in the _Amazon Aurora User Guide_.
+Fixes and other enhancements to fine-tune handling in a managed environment. Additional CVE fixes below:
 
-This release includes all community CVE fixes up to and including MySQL 8.0.36.
+- [CVE-2021-36222](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-36222 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-36222")
+- [CVE-2021-35624](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-35624 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-35624")
+- [CVE-2021-35604](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-35604 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-35604")
+- [CVE-2021-22926](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22926 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22926")
+- [CVE-2021-2390](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-2390 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-2390")
+- [CVE-2021-2389](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-2389 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-2389")
+- [CVE-2021-2385](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-2385 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-2385")
+- [CVE-2021-2356](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-2356 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-2356")
+- [CVE-2019-17543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17543 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17543")
+- [CVE-2019-2960](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2960 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2960")
 
-**Availability improvements:**
+**General improvements:**
 
-- Fixed an issue that can cause a reader DB instance to restart when freeing memory used for log application.
-- Fixed an issue in computing internal metrics for full-text search (FTS) indexes that can cause database restarts.
-- Fixed an issue that can disable binary logging when an error occurs while committing a large transaction.
+- Added a performance optimization to help reduce database IO latency in 24XL instance classes.
+- Added support for ECDHE SSL ciphers. For more information on configuring your clients to use
+  these SSL Ciphers please see the following MySQL documentation,
+  [encrypted connection protocols ciphers](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connection-protocols-ciphers.html#encrypted-connection-cipher-configuration "https://dev.mysql.com/doc/refman/5.7/en/encrypted-connection-protocols-ciphers.html#encrypted-connection-cipher-configuration")
+- Fixed security issues related to Aurora MySQL integration
+  with other AWS Services such as Amazon S3, Amazon ML, and AWS Lambda.
+- Fixed an issue which can cause a database instance restart to
+  fail when the database has approximately over 1GB of user and privilege combinations.
+- Fixed an issue with Parallel Query which could cause the database to return incorrect groupings or
+  sort order when executing queries with a GROUP BY clause and a WHERE clause that contain a range predicate.
+- Fixed an issue which causes general_log and slow_log tables to become inaccessible after an in-place major version upgrade
+  from Aurora MySQL 1.x (compatible with MySQL 5.6) to Aurora MySQL 2.x (compatible with MySQL 5.7).
+- Fixed an issue which, in rare cases, causes the database instance to restart when innodb_trx, innodb_locks
+  or innodb_lockwaits tables are queried while the database is under heavy workload. Monitoring tools such as
+  Performance Insights may query such tables.
+- Fixed an issue where the value of a TIMESTAMP column of an existing row is updated to the latest timestamp
+  when all of the following conditions are satisfied:
+  1.  A trigger exists for the table.
+  2.  An INSERT is performed on the table that has an ON DUPLICATE KEY UPDATE clause.
+  3.  The inserted row causes a duplicate value violation in a UNIQUE index or PRIMARY KEY.
+  4.  One or more columns are of TIMESTAMP data type and have a default value of CURRENT_TIMESTAMP.
+
+- Fixed an issue which, in rare cases, could prevent a binlog replica from connecting to an instance with binlog enabled.
+- Fixed an issue where, in rare conditions, transactions were unable to commit when running on an instance with binlog enabled.
+- Fixed an issue where new connections could not be established to an instance with binlog enabled.
+- Fixed an issue which can cause excessive internal logging when attempting zero downtime patching
+  and restart causing local storage to fill up.
+- Fixed an issue that causes a binlog replica to stop with an HA_ERR_FOUND_DUPP_KEY error when
+  replicating certain DDL and DCL statements. The issue occurs when the source instance is
+  configured with MIXED binary logging format and READ COMMITTED or READ UNCOMMITTED isolation level.
+- Fixed an issue where the binlog replication I/O thread is unable to keep up with the primary instance, when multi-threaded replication is enabled
+- Fixed an issue where, in rare conditions, a high number of active connections to the database instance may cause the
+  CloudWatch CommitLatency metric to be incorrectly reported.
+- Fixed an issue which causes local storage on Graviton instances to fill up when
+  performing LOAD FROM S3 or SELECT INTO S3.
+- Fixed an issue which can cause wrong query results when querying a table with a foreign key and both of the
+  following conditions are met:
+  1.  Query cache is enabled
+  2.  A transaction with a cascading delete or update on that table is rolled back
+
+- Fixed an issue which, in rare conditions, can cause Aurora reader instances to restart.
+  The chance of this issue occurring increases as the number of transaction rollbacks increases.
+- Fixed an issue where the number of mutex 'LOCK_epoch_id_master'
+  occurrences in Performance Schema increases when a session is opened and closed.
+- Fixed an issue which can cause an increasing number of deadlocks for workloads which have many transactions
+  updating the same set of rows concurrently.
+- Fixed an issue which, in rare conditions, can cause the instances to restart
+  when the database volume grows to a multiple of 160GB.
+- Fixed an issue with Parallel Query which could cause the database to restart when executing SQL statements with a LIMIT clause.
+- Fixed an issue which, in rare conditions, can cause the database instance to restart when using
+  XA transactions with the READ COMMITTED isolation level.
+- Fixed an issue where, after an Aurora Read instance restarts, it may restart again if there is a heavy DDL workload during the restart.
+- Fixed an issue with incorrect reporting of Aurora reader replication lag.
+- Fixed an issue which, in rare conditions, can cause a writer instance to restart when an in-memory data-integrity check fails.
+- Fixed an issue which, in rare conditions, incorrectly shows the “Database Load” chart in Performance
+  Insights (PI) sessions as actively using CPU even though the sessions have finished processing and are idle.
+- Fixed an issue which, in rare conditions, can cause the database server to restart when a query is processed using Parallel Query.
+- Fixed an issue which, in rare conditions, can cause the writer instance in a primary Global
+  Database cluster to restart because of a race condition during Global Database replication.
+- Fixed an issue that can occur during a database instance restart, which can cause more than one restart.
 
 ## Integration of MySQL Community Edition bug fixes
 
-This release includes all community bug fixes up to and including 8.0.36. For more information, see
-[MySQL bugs fixed by Aurora MySQL 3.x database
-engine updates](AuroraMySQL.Updates.md#AuroraMySQL.Updates.MySQLBugs.v3 "AuroraMySQL.Updates.md#AuroraMySQL.Updates.MySQLBugs.v3").
+- Fixed an issue in InnoDB where an error in code related to table statistics raised an
+  assertion in the dict0stats.cc source file. (Bug #24585978)
+- Fixed an issue where a secondary index over a virtual column became corrupted when the index was built
+  online. For [UPDATE](https://dev.mysql.com/doc/refman/5.7/en/update.html "https://dev.mysql.com/doc/refman/5.7/en/update.html") statements, we fix this as
+  follows: If the virtual column value of the index record is set to NULL, then we generate this value from the cluster index record. (Bug #30556595))
+- Fixed an issue in InnoDB where deleting marked rows were able to acquire an external read lock before
+  a partial rollback was completed. The external read lock prevented conversion of an implicit lock to
+  an explicit lock during the partial rollback, causing an assertion failure. (Bug #29195848)
+- Fixed an issue where the empty host names in accounts could cause the server to misbehave. (Bug #28653104)
+- Fixed an issue in InnoDB where a query interruption during a lock wait caused an error. (Bug #28068293)
+- Fixed an issue in replication where Interleaved transactions could sometimes deadlock the slave applier
+  when the transaction isolation level was set to [REPEATABLE READ](https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html#isolevel_repeatable-read "https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html#isolevel_repeatable-read"). (Bug #25040331)
+- Fixed an issue which can cause binlog replicas to stall due to lock wait timeout. (Bug #27189701)
+
+## Comparison with Aurora MySQL version 1
+
+The following Amazon Aurora MySQL features are supported in Aurora MySQL version 1 (compatible with
+MySQL 5.6), but these features are currently not supported in Aurora MySQL version 2 (compatible
+with MySQL 5.7).
+
+- Hash joins. For more information, see [Optimizing large Aurora MySQL join queries with hash joins](../AuroraUserGuide/AuroraMySQL.md#Aurora.BestPractices.HashJoin "../AuroraUserGuide/AuroraMySQL.md#Aurora.BestPractices.HashJoin") in the
+  _Amazon Aurora User Guide_.
+- Native functions for synchronously invoking AWS Lambda functions. For more
+  information, see [Invoking a Lambda function with an Aurora MySQL native function](../AuroraUserGuide/AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda "../AuroraUserGuide/AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda") in the
+  _Amazon Aurora User Guide_.
+- Scan batching. For more information, see [Aurora MySQL database engine updates
+  2017-12-11 (version 1.16) (Deprecated)](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md").
+- Migrating data from MySQL using an Amazon S3 bucket. For more information, see [Migrating data from MySQL by using an Amazon S3 bucket](../AuroraUserGuide/AuroraMySQL.Migrating.md#AuroraMySQL.Migrating.ExtMySQL.S3 "../AuroraUserGuide/AuroraMySQL.Migrating.md#AuroraMySQL.Migrating.ExtMySQL.S3") in the
+  _Amazon Aurora User Guide_.
+
+## MySQL 5.7 compatibility
+
+This Aurora MySQL version is wire-compatible with MySQL 5.7 and includes features such as JSON support, spatial indexes,
+and generated columns. Aurora MySQL uses a native implementation of spatial indexing using z-order curves to deliver
+
+> 20x better write performance and >10x better read performance than MySQL 5.7 for spatial datasets.
+
+This Aurora MySQL version does not currently support the following MySQL 5.7 features:
+
+- Group replication plugin
+- Increased page size
+- InnoDB buffer pool loading at startup
+- InnoDB full-text parser plugin
+- Multisource replication
+- Online buffer pool resizing
+- Password validation plugin
+- Query rewrite plugins
+- Replication filtering
+- The `CREATE TABLESPACE` SQL statement
