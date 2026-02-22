@@ -49,6 +49,7 @@ diagram illustrates the Autopilot process.
   - Windows 11 Enterprise 23H2 (October 2023 release)
   - Windows 11 Enterprise 22H2 (October 2022 release)
   - Windows 11 Enterprise 24H2 (October 2024 release)
+  - Windows 11 Enterprise 25H2 (September 2025 release)
 
 - Bring Your Own License (BYOL) is enabled for your AWS account and you have a valid Windows 10 or 11 BYOL image
   imported in your account. For more information, see [Bring Your Own Windows desktop licenses in WorkSpaces](byol-windows-images.md "byol-windows-images.md").

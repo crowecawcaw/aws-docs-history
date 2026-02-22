@@ -18,6 +18,7 @@ support the following:
 
 - [Network isolation](network-isolation.md "network-isolation.md")
 - [Isolation on physical hosts](physical-isolation.md "physical-isolation.md")
+- [Credential Guard / Virtualization-Based Security (VBS)](credential-guard-vbs.md "credential-guard-vbs.md")
 - [Authorization of corporate users](authorization.md "authorization.md")
 - [Create and Stream from Interface VPC Endpoints](creating-streaming-vpc-endpoints.md "creating-streaming-vpc-endpoints.md")
 - [Make Amazon WorkSpaces API requests through a VPC interface

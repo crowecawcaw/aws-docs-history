@@ -127,6 +127,7 @@ Your VM must run one of the following Windows versions:
 - Windows 11 Enterprise 23H2 (October 2023 release)
 - Windows 11 Enterprise 22H2 (October 2022 release)
 - Windows 11 Enterprise 24H2 (October 2024 release)
+- Windows 11 Enterprise 25H2 (September 2025 release)
 
 You will need a Windows virtual machine image or Windows ISO image file that uses a supported Windows OS version:
 

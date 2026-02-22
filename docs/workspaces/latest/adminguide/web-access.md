@@ -92,14 +92,14 @@ field with the correct name.
 5. In the **Hide entry points for Fast User Switching** dialog box, choose **Disabled**,
    and then choose **OK**.
 
-###### To hide the last logged on user name
-
 By default, the list of last logged on users is displayed instead of the **Switch User** button. Depending on
 the configuration of the WorkSpace, the list might not display the **Other User** tile. When this situation occurs,
 if the prepopulated user name isn't correct, the WorkSpaces logon agent can't populate the field with the correct name.
 
 To avoid this issue, enable the Security Policy setting **Interactive logon: Don't display last signed-in**
 or **Interactive logon: Do not display last user name** (depending on which version of Windows you're using).
+
+###### To hide the last logged on user name
 
 1. Open the Group Policy Management tool (**gpmc.msc**) and
    navigate to and select a GPO at the domain or domain controller level of the
