@@ -1,32 +1,22 @@
-# Edit a monitor in Internet Monitor
+# Publish internet measurements to Amazon S3 in Internet Monitor
 
-Using the **Action** menu, you can edit a monitor in Amazon CloudWatch Internet Monitor after you create it. For example, you can
-edit a monitor to do the following:
+You can choose to have Internet Monitor publish internet measurements to Amazon S3 for your internet-facing traffic to the monitored city-networks (client locations
+and ASNs, typically internet service providers) in your monitor, up to the 500,000 city-networks service limit. Internet Monitor automatically publishes internet
+measurements to CloudWatch Logs every five minutes for the top 500 (by traffic volume) city-networks for each monitor. Measurements that it publishes to S3
+include the top 500 that are published to CloudWatch Logs.
 
-- Change the percentage of application traffic to monitor
-- Set or update the city-networks maximum limit
-- Change health event thresholds for availability or performance scores
-- Add or remove resources
-- Enable or update publishing events to Amazon S3
-  Note that you can't change the name of a monitor after you create it.
+You can choose the option to publish to S3, and specify the bucket to publish the measurements, to when you create or update your monitor.
+The bucket must already be created in S3 before you can specify it in Internet Monitor. There's a service limit of 500,000 city-networks for internet
+measurements published to S3. Internet Monitor publishes internet measurements to S3 as events, a series of compressed log file objects that are
+stored in the bucket.
 
-To make changes to a monitor, use the following procedure.
+When you create the S3 bucket for Internet Monitor to publish measurements to, make sure that you follow the permissions guidance provided by CloudWatch Logs. Doing so
+ensures that Internet Monitor can publish logs directly to S3, and that AWS can, if needed, create and change the resource policies associated with the log group
+receiving the logs. For more information, see [Logs sent to CloudWatch Logs](../logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL "../logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL") in the Amazon CloudWatch Logs User
+Guide.
 
-###### To edit a monitor
+The published log files are compressed. If you open the log files using the Amazon S3 console, they are decompressed and the internet measurement events
+are displayed. If you download the files, you must decompress them to view the events.
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the left navigation pane, under **Network Monitoring**, choose **Internet monitors**.
-3. Choose your monitor, and then choose the **Action** menu.
-4. Choose **Update monitor**.
-5. Make the desired updates. For example, to change the percentage of traffic to monitor, under **Application traffic
-   to monitor**, select or enter a percentage.
-6. Choose **Update**.
-   For more information about the options that you can update, see the following:
-
-- To learn more about resources that you add in Internet Monitor, see [Add resources to your monitor](IMMonitorResources.md "IMMonitorResources.md").
-- To learn more about the application traffic percentage, see [Choose a percentage of traffic to monitor for your application](IMTrafficPercentage.md "IMTrafficPercentage.md").
-- To learn more about changing the threshold for health events, see [Change health event
-  thresholds](CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview").
-- To learn more about the city-networks maximum limit, see [Choose a city-networks maximum limit](IMCityNetworksMaximum.md "IMCityNetworksMaximum.md").
-- To learn more about opting to publish events to S3, see [Publish internet measurements to Amazon S3 in Internet Monitor](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md").
+You can also query the internet measurements in the log files using Amazon Athena. Amazon Athena is an interactive query service that
+makes it easier to analyze data in Amazon S3, by using standard SQL. For more information, see [Use Amazon Athena to query internet measurements in Amazon S3 log files](CloudWatch-IM-view-cw-tools.md "CloudWatch-IM-view-cw-tools.md").
