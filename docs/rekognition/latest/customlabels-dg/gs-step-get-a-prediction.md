@@ -29,7 +29,7 @@ code**. The model status panel shown below shows the model as
 Running, with a Stop button to stop the running model, and an option to display
 the API.
 
-![Model status showing as Running, with Stop button to stop the running model.](/images/rekognition/latest/customlabels-dg/images/get-started-use-model-api-code.png) 4. Choose **AWS CLI command**. 5. In the **Analyze image** section, copy the AWS CLI command that
+![Model status showing as Running, with Stop button to stop the running model.](images/get-started-use-model-api-code.png) 4. Choose **AWS CLI command**. 5. In the **Analyze image** section, copy the AWS CLI command that
 calls `detect-custom-labels`. The following image of the Rekognition
 console shows the "Analyze Image" section with the AWS CLI command to detect
 custom labels on an image using a machine learning model, and instructions to
