@@ -395,6 +395,20 @@ The Azure AD tenant ID associated with your Amazon Redshift application.
 
 This parameter is required if authenticating through the Azure AD service.
 
+## idp_partition
+
+- Default Value – None
+- Data Type – String
+
+Specifies the cloud partition where your identity provider (IdP) is configured. This determines which IdP authentication endpoint the driver connects to.
+
+If this parameter is left blank, the driver defaults to the commercial partition. Possible values are:
+
+- `us-gov`: Use this value if your IdP is configured in Azure Government. For example, Azure AD Government uses the endpoint `login.microsoftonline.us`.
+- `cn`: Use this value if your IdP is configured in the China cloud partition. For example, Azure AD China uses the endpoint `login.chinacloudapi.cn`.
+
+This parameter is optional.
+
 ## idp_use_https_proxy
 
 - Default Value – 0

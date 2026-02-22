@@ -564,18 +564,12 @@ This parameter is optional.
 - Default Value – None
 - Data Type – String
 
-The partition that your Idp (identity provider) is set up in.
-A partition is a group of AWS Regions. For more information
-on partitions, see
-[partition](../../../glossary/latest/reference/glos-chap.md#partition "../../../glossary/latest/reference/glos-chap.md#partition")
-in the _AWS Glossary_.
+Specifies the cloud partition where your identity provider (IdP) is configured. This determines which IdP authentication endpoint the driver connects to.
 
-If this parameter is left blank, Amazon Redshift defaults to the AWS standard
-partition, which includes all commercial AWS Regions.
-Possible values are as follows:
+If this parameter is left blank, the driver defaults to the commercial partition. Possible values are:
 
-- `us-gov` ‐ The IdP is set up in the AWS GovCloud (US) Regions.
-- `cn` ‐ The IdP is set up in the China Regions.
+- `us-gov`: Use this value if your IdP is configured in Azure Government. For example, Azure AD Government uses the endpoint `login.microsoftonline.us`.
+- `cn`: Use this value if your IdP is configured in the China cloud partition. For example, Azure AD China uses the endpoint `login.chinacloudapi.cn`.
 
 This parameter is optional.
 

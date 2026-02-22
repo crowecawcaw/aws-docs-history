@@ -4,7 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # Amazon Redshift RSQL change log
 
-_1.1.2 (2025-11-20)_
+_1.1.2 (2025-12-11)_
 
 Bug Fixes
 
