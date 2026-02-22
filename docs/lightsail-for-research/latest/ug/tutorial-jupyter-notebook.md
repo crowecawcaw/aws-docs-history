@@ -186,7 +186,7 @@ tab.
 ![The CPU utilization graph for a virtual computer.](images/tutorial-jupyter-cpu-utilization.png) 3. To view the month to date cost and usage estimates for all of your Lightsail for Research
 resources, choose **Usage** in the navigation pane.
 
-![The month to date cost and usage estimates for all of your Lightsail for Research resources.](images/tutorial-jupyter-usage-page.png)
+![The month to date cost and usage estimates for all of your Lightsail for Research resources.](/images/lightsail-for-research/latest/ug/images/tutorial-jupyter-usage-page.png)
 
 ## Step 7: (Optional) Create a cost
 
