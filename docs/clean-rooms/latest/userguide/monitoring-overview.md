@@ -25,3 +25,9 @@ started the job receives the AWS CloudTrail audit log event for the job. For mor
   events that happen in services, and build event-driven architectures. For more information,
   see the [Amazon EventBridge User Guide](../../../eventbridge/latest/userguide.md "../../../eventbridge/latest/userguide.md") and the [Amazon EventBridge
   Events Reference](../../../eventbridge/latest/ref/events-ref-cleanrooms.md "../../../eventbridge/latest/ref/events-ref-cleanrooms.md").
+- _AWS Billing and Cost Management_ is a service that provides features to help you pay
+  your bills and optimize your costs. Amazon Web Services bills your account based on usage,
+  ensuring that you pay only for what you use. AWS also enables you to apply [cost
+  allocation tags](../../../awsaccountbilling/latest/aboutv2/custom-tags.md "../../../awsaccountbilling/latest/aboutv2/custom-tags.md") to your resources to track and categorize your AWS costs. For
+  example, in AWS Clean Rooms, you can apply tags to collaboration memberships to track costs
+  per collaboration. For more information, see the [AWS Billing User Guide](../../../awsaccountbilling/latest/aboutv2.md "../../../awsaccountbilling/latest/aboutv2.md").

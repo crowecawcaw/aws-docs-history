@@ -3,7 +3,7 @@
 Amazon Athena data source
 
 The Amazon Athena data source option allows you to query data stored in Amazon S3, cataloged in
-the AWS Glue data catalog, and access controlled via AWS Lake Formation. Both tables and AWS Glue Data Catalog
+the AWS Glue data catalog or federated catalogs, and access controlled via AWS Lake Formation. Both tables and AWS Glue Data Catalog
 Views are supported. Lake Formation resource links can be used to share tables and views across
 AWS accounts and across AWS Regions to the AWS Clean Rooms member account that joins them to
 an AWS Clean Rooms collaboration.
@@ -26,36 +26,44 @@ In this procedure, the [member](glossary.md#glossary-member "glossary.md#glossar
 
 ###### To create a configured table – Athena data source
 
-1. Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
-2. In the left navigation pane, choose **Tables**.
-3. In the upper right corner, choose **Configure new
-   table**.
-4. For **Data source**, under **AWS data
-   sources**, choose **Amazon Athena**.
-5. Under **Amazon Athena table**:
-   1. Select the **Region** where the Amazon Athena table is
-      hosted.
+1.  Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
+2.  In the left navigation pane, choose **Tables**.
+3.  In the upper right corner, choose **Configure new
+    table**.
+4.  For **Data source**, under **AWS data
+    sources**, choose **Amazon Athena**.
+5.  Under **Amazon Athena table**:
+    1. Select the **Region** where the Amazon Athena table is
+       hosted.
 
-   By default, the current Region (such as N. Virginia
-   us-east-1) is selected.
+    By default, the current Region (such as N. Virginia
+    us-east-1) is selected.
 
-   ###### Warning
+    ###### Warning
 
-   When your Amazon Athena data source is in a different Region than your
-   processing location, data processing may occur temporarily outside
-   the source Region. Before proceeding, verify that cross-Region data
-   movement complies with your data sovereignty requirements,
-   regulatory compliance policies, and data governance standards.
+    When your Amazon Athena data source is in a different Region than your
+    processing location, data processing may occur temporarily outside
+    the source Region. Before proceeding, verify that cross-Region data
+    movement complies with your data sovereignty requirements,
+    regulatory compliance policies, and data governance standards.
 
-   For more information about Regions, see [Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the
-   _AWS General Reference_. 2. Choose the **Database** from the dropdown
-   list. 3. Choose the **Table** that you want to configure from
-   the dropdown list.###### Note
+    For more information about Regions, see [Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the
+    _AWS General Reference_. 2. Choose the **Catalog** from the dropdown list.
+
+    By default, **AWS Glue Data Catalog** is selected.
+
+        * **AWS Glue Data Catalog** – The default catalog for tables in AWS Glue.
+        * **Federated catalog** – Available if you've configured AWS Glue Catalog Federation to connect to remote Apache Iceberg REST catalogs. For more information, see [Catalog federation](../../../lake-formation/latest/dg/catalog-federation.md "../../../lake-formation/latest/dg/catalog-federation.md") in the *AWS Lake Formation Developer Guide*.
+
+    3. Choose the **Database** from the dropdown
+       list.
+    4. Choose the **Table** that you want to configure from
+       the dropdown list.###### Note
 
 To verify that this is the correct table, do either one of the
 following:
 
-    * Choose **View in AWS Glue**.
+    * Choose **View in AWS Glue** or **View in AWS Lake Formation** (depending on your catalog type).
     * Turn on **View schema from AWS Glue** to view the
      schema.
 

@@ -289,74 +289,66 @@ instance, if you've already set up a custom KMS key for your Amazon S3
 data, you may need to amend this policy with additional AWS KMS
 permissions.
 
-Your AWS Glue resources and underlying Athena resources must be in the
-same AWS Region as the AWS Clean Rooms collaboration.
-
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "athena:GetDataCatalog",
- "athena:GetWorkGroup",
- "athena:GetTableMetadata",
- "athena:GetQueryExecution",
- "athena:GetQueryResults",
- "athena:StartQueryExecution"
- ],
- "Resource": [
- "arn:aws:athena:`us-east-1`:`111122223333`:workgroup/`workgroup`",
- "arn:aws:athena:`us-east-1`:`111122223333`:datacatalog/AwsDataCatalog"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "glue:GetDatabase",
- "glue:GetTable",
- "glue:GetPartitions"
- ],
- "Resource": [
- "arn:aws:glue:`us-east-1`:`111122223333`:catalog",
- "arn:aws:glue:`us-east-1`:`111122223333`:database/`database name`",
- "arn:aws:glue:`us-east-1`:`111122223333`:table/`database name`/`table name`"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "s3:GetObject",
- "s3:GetBucketLocation",
- "s3:AbortMultipartUpload",
- "s3:ListBucket",
- "s3:PutObject",
- "s3:ListMultipartUploadParts"
- ],
- "Resource": [
- "arn:aws:s3:::`bucket`",
- "arn:aws:s3:::`bucket`/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": "lakeformation:GetDataAccess",
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "kms:GenerateDataKey",
- "kms:Decrypt"
- ],
- "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/*"
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "athena:GetWorkGroup",
+                "athena:GetTableMetadata",
+                "athena:GetDataCatalog",
+                "athena:StartQueryExecution",
+                "athena:GetQueryExecution",
+                "athena:GetQueryResults"
+            ],
+            "Resource": [
+                "arn:aws:athena:`region`:`accountId`:workgroup/`workgroup`",
+                "arn:aws:athena:`region`:`accountId`:datacatalog/`federatedCatalogName`"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "glue:GetDatabase",
+                "glue:GetTable",
+                "glue:GetCatalog"
+            ],
+            "Resource": [
+                "arn:aws:glue:`region`:`accountId`:catalog",
+                "arn:aws:glue:`region`:`accountId`:catalog/`federatedCatalogName`",
+                "arn:aws:glue:`region`:`accountId`:database/`federatedCatalogName`/`databaseName`",
+                "arn:aws:glue:`region`:`accountId`:table/`federatedCatalogName`/`databaseName`/`tableName`"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetBucketLocation",
+                "s3:AbortMultipartUpload",
+                "s3:ListBucket",
+                "s3:PutObject",
+                "s3:ListMultipartUploadParts"
+            ],
+            "Resource": [
+                "arn:aws:s3:::`athenaResultsBucket`",
+                "arn:aws:s3:::`athenaResultsBucket`/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "`accountId`"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": "lakeformation:GetDataAccess",
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
 4. Replace each `placeholder` with your own
@@ -370,8 +362,8 @@ permissions
 
 If you query resources protected with Lake Formation permissions, the service role must
 have **Select** and **Describe** access
-permissions on the table/view and **Describe** permissions on
-the AWS Glue database the view is stored in.
+permissions on the table/view/catalog and **Describe** permissions on
+the AWS Glue database.
 
 For more information, see:
 

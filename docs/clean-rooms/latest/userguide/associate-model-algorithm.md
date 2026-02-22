@@ -9,7 +9,7 @@ available to all members of the collaboration.
 The following image shows associating the configured model algorithm as the last step,
 after creating the container training image and configuring a model algorithm.
 
-![An overview of how to contribute a custom ML model.](images/bringMLModelCollaboration.png)
+![An overview of how to contribute a custom ML model.](/images/clean-rooms/latest/userguide/images/bringMLModelCollaboration.png)
 
 Console
 
