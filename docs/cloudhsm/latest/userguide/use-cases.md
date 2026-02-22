@@ -4,7 +4,7 @@ AWS CloudHSM can be used to accomplish a variety of goals. The content in this t
 
 **Achieve regulatory compliance**
 Businesses that need to align with enterprise security standards can use AWS CloudHSM to manage private keys that protect highly confidential data. The HSMs provided by AWS CloudHSM are FIPS 140-2 level 3 certified and comply with PCI DSS.
-Additionally, AWS CloudHSM is PCI PIN compliant and PCI-3DS compliant. For more information, see [Compliance](fips-validation.md "fips-validation.md").
+Additionally, AWS CloudHSM is PCI PIN compliant and PCI-3DS compliant. For more information, see [Compliance validation for AWS CloudHSM](fips-validation.md "fips-validation.md").
 
 **Encrypt and decrypt data**
 Use AWS CloudHSM to manage private keys that protect highly confidential data, encryption in transit, and encryption at rest.

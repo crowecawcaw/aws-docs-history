@@ -1,7 +1,8 @@
 # Security in AWS CloudHSM
 
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a data center
-and network architecture that is built to meet the requirements of the most security-sensitive organizations.
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data
+centers and network architectures that are built to meet the requirements of the most
+security-sensitive organizations.
 
 Security is a shared responsibility between AWS and you. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security
 _of_ the cloud and security _in_ the cloud:
@@ -24,7 +25,7 @@ _of_ the cloud and security _in_ the cloud:
 - [Control API access with IAM policies](ip-access.md "ip-access.md")
 - [Data protection in AWS CloudHSM](data-protection.md "data-protection.md")
 - [Identity and access management for AWS CloudHSM](identity-access-management.md "identity-access-management.md")
-- [Compliance](fips-validation.md "fips-validation.md")
+- [Compliance validation for AWS CloudHSM](fips-validation.md "fips-validation.md")
 - [Resilience in AWS CloudHSM](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS CloudHSM](infrastructure-security.md "infrastructure-security.md")
 - [AWS CloudHSM and VPC endpoints](cloudhsm-vpc-endpoint.md "cloudhsm-vpc-endpoint.md")
