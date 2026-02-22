@@ -32,7 +32,7 @@ whether or not the accounts are standalone, or part of an organization:
 
 - [Update the root user
   email for a standalone
-  AWS account](#root-user-email-standalone "#root-user-email-standalone")
+  AWS account or management account](#root-user-email-standalone "#root-user-email-standalone")
 - [Update the root user
   email for any
   AWS account in your organization](#root-user-email-orgs "#root-user-email-orgs")
@@ -40,7 +40,7 @@ whether or not the accounts are standalone, or part of an organization:
 ## Update the root user
 
 email for a standalone
-AWS account
+AWS account or management account
 
 To edit the root user email address for a standalone AWS account, perform the steps
 in the following procedure.
@@ -103,7 +103,7 @@ You can also update the root user email address for a member account directly fr
 page](https://console.aws.amazon.com/billing/home#/account "https://console.aws.amazon.com/billing/home#/account") in the AWS Management Console after signing in as the root user. For step-by-step
 instructions, follow the steps provided in [Update the root user
 email for a standalone
-AWS account](#root-user-email-standalone "#root-user-email-standalone").
+AWS account or management account](#root-user-email-standalone "#root-user-email-standalone").
 
 AWS Management Console
 

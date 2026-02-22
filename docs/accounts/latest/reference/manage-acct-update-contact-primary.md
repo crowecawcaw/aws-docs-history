@@ -41,7 +41,7 @@ and email addresses.
 - Phone numbers must start with a `+` and country code and must not
   have any leading zeros or additional spaces after the country code. For example,
   `+1` (US/Canada) or `+44` (UK).
-- Phone numbers must not include hyphens "`-`" or whitespaces between
+- Phone numbers must not include whitespaces between
   the area code, exchange code, and local code. For example, +12025550179.
 - For security purposes, phone numbers must be capable of receiving SMS from
   AWS. Toll free numbers will not be accepted since most don't support
