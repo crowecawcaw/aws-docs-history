@@ -19,8 +19,8 @@ To enable AWS Transform:
    Region.
 5. Optional: configure IAM Identity Center. You will also be able to choose to use a [third-party identity provider (IdP)](transform-setup.md#transform-third-party-identity "transform-setup.md#transform-third-party-identity") in a
    later step.
-6. Select an **Encyption key**: **default
-   AWS managed key** or **Customize encyption settings.**
+6. Select an **Encryption key**: **default
+   AWS managed key** or **Customize encryption settings.**
 7. Choose which AWS Transform capabilities you want to enable:
    - **Command line interface** (CLI), needed to create and run
      [custom transformations](transform-app-custom.md "transform-app-custom.md"). To enable the CLI, view
@@ -39,7 +39,7 @@ choosing the menu icon in the top left corner of the console. 10. Configure User
 
 This choice is finalized and cannot be changed when you enable AWS Transform. 11. Choose **Enable web application**. 12. The system displays "Enabling AWS Transform" while it creates the necessary resources.
 
-After AWS Transform is enabled, the **Settins** tab displays the following information:
+After AWS Transform is enabled, the **Settings** tab displays the following information:
 
 - **Web application URL** - The URL for accessing the AWS Transform web application
 - **Start URL for IDE** - The URL for accessing AWS Transform in integrated development environments

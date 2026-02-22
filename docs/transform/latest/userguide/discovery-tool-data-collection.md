@@ -34,7 +34,7 @@ listing the VMs that have been discovered with performance utilization data, dat
 information, and server to server communication information.
 
 You can download the zip file while the discovery tool continues to work, and obtain partial
-results. Upload this file to [Migration assessment](../../../transform-app-assessments.md "../../../transform-app-assessments.md") to obtain a business
+results. Upload this file to [Migration assessment](transform-app-assessments.md "transform-app-assessments.md") to obtain a business
 case for migration.
 
 ### Data Points Collected

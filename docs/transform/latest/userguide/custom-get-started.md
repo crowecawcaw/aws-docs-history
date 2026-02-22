@@ -27,7 +27,7 @@ Windows native execution is not supported. AWS Transform custom will detect nati
 
 An internet connection with access to the following endpoints is required:
 
-- `desktop-release.transform.us-east-1.api.aws`
+- `transform-cli.awsstatic.com`
 - `transform-custom.<region>.api.aws`
 - `*.s3.amazonaws.com`
 
@@ -42,7 +42,7 @@ The recommended installation method is using the installation script.
 1. Run the installation script:
 
 ```
-curl -fsSL https://desktop-release.transform.us-east-1.api.aws/install.sh | bash
+curl -fsSL https://transform-cli.awsstatic.com/install.sh | bash
 ```
 
 2. Verify the installation:

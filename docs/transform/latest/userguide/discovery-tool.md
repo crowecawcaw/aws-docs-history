@@ -22,4 +22,4 @@ Data discovery begins after this step 3. Set up OS access and then review the co
 
     1. Adjust OS credentials as needed.
 
-4. To generate a migration business case, upload the ZIP file to [Migration assessment](../../../transform-app-assessments.md "../../../transform-app-assessments.md") or unzip it and upload _vmware_data_mpa.csv_ from the _mpa_exports_ directory.
+4. To generate a migration business case, upload the ZIP file to [Migration assessment](transform-app-assessments.md "transform-app-assessments.md") or unzip it and upload _vmware_data_mpa.csv_ from the _mpa_exports_ directory.

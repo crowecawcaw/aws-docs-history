@@ -90,6 +90,7 @@ The supported file types for zOS include:
 - BMS (Basic Mapping Support)
 - Db2 databases
 - VSAM (Virtual Storage Access Method)
+- IMS TM (Transaction Manager)
 
 The supported file types for Fujitsu GS21 include:
 

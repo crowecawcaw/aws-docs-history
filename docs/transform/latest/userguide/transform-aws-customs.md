@@ -54,6 +54,9 @@ feedback.
 
 Many modern Java applications are already Arm64-compatible.
 
+- `AWS/early-access-angular-to-react-migration` - [Early Access] Transform an Angular application to React.
+- `AWS/early-access-jfr-performance-optimization` - [Early Access] Optimize Java application performance by analyzing JFR profiling data to detect CPU/memory hotspots and anti-patterns, then applying targeted code fixes to reduce resource usage and improve efficiency. For instructions on collecting JFR data, see [https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm](https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm "https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm").
+
 ## Customizing AWS-Managed Transformations
 
 You can customize AWS-managed transformations to meet your organization's specific needs by providing additional context

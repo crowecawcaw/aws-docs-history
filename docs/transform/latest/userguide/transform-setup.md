@@ -36,7 +36,7 @@ By default, no users have access to AWS Transform when you first enable it.
 ###### Note
 
 IAM Identity Center is not limited to the region in which it is set up. If you already set up IAM Identity Center in a
-regions that is not supported by AWS Transform, you can use it for AWS Transform.
+region that is not supported by AWS Transform, you can use it for AWS Transform.
 
 1. Set up IAM Identity Center following the instructions in [To enable an instance of IAM Identity Center](../../../singlesignon/latest/userguide/enable-identity-center.md#to-enable-identity-center-instance "../../../singlesignon/latest/userguide/enable-identity-center.md#to-enable-identity-center-instance").
 

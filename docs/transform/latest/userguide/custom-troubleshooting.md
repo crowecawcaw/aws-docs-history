@@ -50,7 +50,7 @@ Ensure your IAM user or role has the required `transform-custom:*` permissions.
 
 If you encounter connection errors, verify network access to required endpoints:
 
-- `desktop-release.transform.us-east-1.api.aws`
+- `transform-cli.awsstatic.com`
 - `transform-custom.<region>.api.aws`
 - `*.s3.amazonaws.com`
 
