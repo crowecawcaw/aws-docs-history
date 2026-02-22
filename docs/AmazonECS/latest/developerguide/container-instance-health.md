@@ -13,12 +13,16 @@ or updating the latest version of the AWS CLI](../../../cli/latest/userguide/get
 To view the container instance health, run `describe-container-instances` with
 the `CONTAINER_INSTANCE_HEALTH` option.
 
-The following are the valid values for `overallStatus` :
+The `overallStatus` is determined by the individual health check statuses in the `details` array.
+The most severe status takes precedence in the following order: `IMPAIRED`, `INSUFFICIENT_DATA`,
+`INITIALIZING`, and `OK`.
 
-- `OK`
-- `IMPAIRED`
-- `INSUFFICIENT_DATA`
-- `INITIALIZING`
+The following are the valid values for `overallStatus`:
+
+- `OK` – All health checks are passing.
+- `IMPAIRED` – One or more health checks have failed.
+- `INSUFFICIENT_DATA` – One or more health checks are unavailable.
+- `INITIALIZING` – One or more health checks are being initialized.
   The following is an example of how to run `describe-container-instances`.
 
 ```

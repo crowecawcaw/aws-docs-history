@@ -1019,6 +1019,7 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | trn1.2xlarge       | 3                               | 19                           |
 | trn1.32xlarge      | 39                              | 120                          |
 | trn1n.32xlarge     | 79                              | 242                          |
+| trn2.3xlarge       | 1                               | 14                           |
 | trn2.48xlarge      | 31                              | 242                          |
 | trn2u.48xlarge     | 31                              | 242                          |
 | vt1.3xlarge        | 3                               | 40                           |
@@ -1034,3 +1035,4 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | hpc7g.4xlarge   | 3                               | 120                          |
 | hpc7g.8xlarge   | 3                               | 120                          |
 | hpc7g.16xlarge  | 3                               | 120                          |
+| hpc8a.96xlarge  | 3                               | -2                           |
