@@ -23,7 +23,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 
 - [Data protection in Route 53](data-protection.md "data-protection.md")
 - [Identity and access management in
-  Amazon Route 53](auth-and-access-control.md "auth-and-access-control.md")
+  Amazon Route 53](security-iam.md "security-iam.md")
 - [Logging and monitoring in Amazon Route 53](logging-monitoring.md "logging-monitoring.md")
 - [Compliance validation for Amazon Route 53](route-53-compliance.md "route-53-compliance.md")
 - [Resilience in Amazon Route 53](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

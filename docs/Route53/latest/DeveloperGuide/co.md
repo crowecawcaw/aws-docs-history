@@ -1,21 +1,26 @@
-# .co (Colombia)
+# .co.za (South Africa)
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
 **Lease period for registration and renewal**
 
-One to five years.
+One year.
 
 **Restrictions**
 
-Open to the public, with no restrictions.
+Only second-level domains are available for the .za extension.
+Route 53 supports the second-level domain .co.za.
 
-**Privacy protection (applies to: person)**
+Open to the public, with some restrictions:
 
-All information is hidden.
+- Registration is open to identifiable legal entities
+  (individuals and legal persons).
+- The domain name must pass a zone check during the
+  registration process.
 
-If the contact type is not a person, company name and country is
-displayed by WHOIS.
+**Privacy protection**
+
+Not supported.
 
 **Domain locking to prevent unauthorized transfers**
 
@@ -23,11 +28,11 @@ Supported.
 
 **Internationalized domain names**
 
-Supported.
+Not supported.
 
 **Authorization code required for transfers**
 
-Yes
+No
 
 **DNSSEC**
 
@@ -35,12 +40,12 @@ Supported for domain registration. For more information, see [Configuring DNSSEC
 
 **Deadlines for renewing and restoring domains**
 
-- Renewal is possible: Until the expiration date
-- Late renewal with Route 53 is possible: Until 29 days after
+- Renewal is possible: Until one day before the expiration
+  date
+- Late renewal with Route 53 is possible: No
+- Domain is deleted from Route 53: 1 day before
   expiration
-- Domain is deleted from Route 53: 30 days after
-  expiration
-- Restoration with the registry is possible: Between 30 days
-  and 45 days after expiration
-- Domain is deleted from the registry: 50 days after
+- Restoration with the registry is possible: Between 1 day
+  and 9 days after expiration
+- Domain is deleted from the registry: 9 days after
   expiration

@@ -2,7 +2,7 @@
 
 and conditions reference
 
-When you set up [Access control](auth-and-access-control.md#access-control "auth-and-access-control.md#access-control") and
+When you set up [Access control](security-iam.md#access-control "security-iam.md#access-control") and
 write a permissions policy that you can attach to an IAM identity (identity-based
 policies), you can use the lists of [Actions,
 resources, and condition keys for Route 53](../../../service-authorization/latest/reference/list_amazonroute53.md "../../../service-authorization/latest/reference/list_amazonroute53.md"), [Actions,

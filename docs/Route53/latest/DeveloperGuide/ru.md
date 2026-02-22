@@ -2,9 +2,10 @@
 
 ###### Important
 
-You can no longer use Route 53 to register new .ru domains or transfer .ru
-domains to Route 53. We'll continue to support .ru domains that are already
-registered with Route 53.
+You can no longer use Route 53 to register new .ru domains, transfer .ru
+domains to Route 53, or renew existing .ru domains with Route 53. If you have existing .ru domains
+with Route 53, transfer them to a registrar that supports .ru immediately to avoid
+any service disruption.
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
@@ -39,7 +40,7 @@ transfers by restricting access to the [RetrieveDomainAuthCode](../APIReference/
 access to this Route 53 API, you also restrict who can generate an
 authorization code using the Route 53 console, AWS SDKs, and other
 programmatic methods.) For more information, see [Identity and access management in
-Amazon Route 53](auth-and-access-control.md "auth-and-access-control.md").
+Amazon Route 53](security-iam.md "security-iam.md").
 
 **Internationalized domain names**
 
@@ -56,15 +57,7 @@ Not supported.
 
 **Deadlines for renewing and restoring domains**
 
-- Renewal is possible: Until 2 days before the expiration
-  date
-- Late renewal with Route 53 is possible: No
-- Domain is deleted from Route 53: 2 days before
-  expiration
-- Restoration with the registry is possible: Between 2 days
-  before and 28 days after expiration
-- Domain is deleted from the registry: 28 days after
-  expiration
+Not supported. You can no longer renew or restore .ru domains with Route 53.
 
 **Deletion of domain registration**
 

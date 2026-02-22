@@ -43,7 +43,7 @@ the domain.
 
 To implement this delegation process, you need the following IAM
 permissions. For more information about Route 53 IAM policies, see [Identity and access management in
-Amazon Route 53](auth-and-access-control.md "auth-and-access-control.md"):
+Amazon Route 53](security-iam.md "security-iam.md"):
 
 **Parent account (owns example.com)**
 

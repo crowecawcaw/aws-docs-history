@@ -12,6 +12,6 @@ Amazon Route 53 integrates with AWS Identity and Access Management (IAM), a ser
 For general information about IAM, see the following:
 
 - [Identity and access management in
-  Amazon Route 53](auth-and-access-control.md "auth-and-access-control.md")
+  Amazon Route 53](security-iam.md "security-iam.md")
 - [Identity and Access Management (IAM)](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/")
 - [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md")

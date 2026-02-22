@@ -157,14 +157,14 @@ additional VPC association capacity.
 
 Resolver DNS Firewall
 
-| Entity                                                                                                                      | Quota                                                                                          |
-| --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Number of rule groups associated to a VPC for a single account per AWS<br>Region                                            | 5                                                                                              |
-| Number of DNS Firewall domains in a single Amazon S3 file for a single account per AWS Region                               | 250,000<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure"). |
-| Number of DNS Firewall rule groups for a single account per AWS Region                                                      | 1,000<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure").   |
-| Number of rules within a rule group for a single account per AWS Region                                                     | 100<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure").     |
-| Number of domain lists for a single account per AWS Region                                                                  | 1000<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure").    |
-| The maximum number of domains that you can specify across<br>all of the domain lists for a single account per AWS<br>Region | 100,000<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure"). |
+| Entity                                                                                                                      | Quota                                                                                                                                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Number of rule groups associated to a VPC for a single account per AWS<br>Region                                            | 5                                                                                                                                                                                                                                                 |
+| Number of DNS Firewall domains in a single Amazon S3 file for a single account per AWS Region                               | 250,000<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas"). |
+| Number of DNS Firewall rule groups for a single account per AWS Region                                                      | 1,000<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas").   |
+| Number of rules within a rule group for a single account per AWS Region                                                     | 100<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas").     |
+| Number of domain lists for a single account per AWS Region                                                                  | 1000<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas").    |
+| The maximum number of domains that you can specify across<br>all of the domain lists for a single account per AWS<br>Region | 100,000<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas"). |
 
 #### Quotas on
 
@@ -272,14 +272,14 @@ delegation sets
 
 Route 53 Profiles
 
-| Entity                                                             | Quota                                                                                        |
-| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| Number of Route 53 Profiles per AWS account in a Region            | 5<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").     |
-| Number of VPCs that can be associated to a Profile                 | 1000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").  |
-| Number of DNS Firewall rule groups per Profile                     | 5                                                                                            |
-| Number of Resolver rules per Profile                               | 1000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure").  |
-| Number of private hosted zones per a Profile                       | 1,000<br>[Request a higher<br>quota](#increase-quota-procedure "#increase-quota-procedure"). |
-| Number of VPC Resolver query logging configurations per<br>Profile | 2                                                                                            |
+| Entity                                                             | Quota                                                                                                                                                                                                                          |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Number of Route 53 Profiles per AWS account in a Region            | 5<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas").    |
+| Number of VPCs that can be associated to a Profile                 | 1000<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas"). |
+| Number of DNS Firewall rule groups per Profile                     | 5                                                                                                                                                                                                                              |
+| Number of Resolver rules per Profile                               | 1000<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas"). |
+| Number of private hosted zones per a Profile                       | 5000<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas"). |
+| Number of VPC Resolver query logging configurations per<br>Profile | 2                                                                                                                                                                                                                              |
 
 ## Maximums on API requests
 

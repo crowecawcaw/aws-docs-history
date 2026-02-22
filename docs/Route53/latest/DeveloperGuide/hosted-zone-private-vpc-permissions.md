@@ -16,5 +16,5 @@ for, create hosted zone with or list hosted zones for:
   [Using IAM policy conditions for
   fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md").
 
-To learn how to authenticate AWS users, see [Authenticating with identities](auth-and-access-control.md#security_iam_authentication "auth-and-access-control.md#security_iam_authentication") and to learn how to control access to Route 53
-resources, see [Access control](auth-and-access-control.md#access-control "auth-and-access-control.md#access-control").
+To learn how to authenticate AWS users, see [Authenticating with identities](security-iam.md#security_iam_authentication "security-iam.md#security_iam_authentication") and to learn how to control access to Route 53
+resources, see [Access control](security-iam.md#access-control "security-iam.md#access-control").
