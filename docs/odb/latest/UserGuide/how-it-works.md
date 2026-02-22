@@ -138,14 +138,12 @@ servers that communicate with Oracle Exadata databases. You can manage and launc
 servers just like any other EC2 instances in your VPC. For more information, see [What is Amazon EC2?](../../../AWSEC2/latest/UserGuide/concepts.md "../../../AWSEC2/latest/UserGuide/concepts.md")
 
 By default, the ODB network doesn't have connectivity to VPCs. To connect the ODB network to your
-existing AWS infrastructure, create a peering connection between the ODB network and one VPC. You
-can specify the VPC when you create the ODB network. For more information, see [Step 1: Create an ODB network in Oracle Database@AWS](getting-started.md#getting-started-odb "getting-started.md#getting-started-odb").
+existing AWS infrastructure, create one or more peering connections (up to 45) between the ODB network and your VPCs. For more information, see [Step 1: Create an ODB network in Oracle Database@AWS](getting-started.md#getting-started-odb "getting-started.md#getting-started-odb").
 
 ## ODB peering
 
 _ODB peering_ is a user-created network connection that enables
-traffic to be routed privately between an Amazon VPC and an ODB network. There is a 1:1 relationship between a
-VPC and an ODB network. After peering, an Amazon EC2 instance within the VPC can communicate with an
+traffic to be routed privately between an Amazon VPC and an ODB networkAfter peering, an Amazon EC2 instance within the VPC can communicate with an
 Oracle Exadata database in the ODB network as if they were within the same network.
 
 ###### Note
@@ -233,12 +231,11 @@ or AWS Cloud WAN.
 ### AWS Transit Gateway
 
 An Amazon VPC transit gateway is a network transit hub used to interconnect VPCs and on-premises
-networks. An ODB network supports only one-to-one direct peering between the ODB network and a single VPC.
-You can peer your ODB network to a VPC, and then attach this VPC to a transit gateway. The gateway
+networks. An ODB network supports up to 45 direct peering connections. You can establish direct peering connections between your ODB network and multiple VPCs, or use a transit gateway for centralized routing. To use a transit gateway, peer your ODB network to a VPC and then attach this VPC to the transit gateway. The gateway
 can connect to multiple VPCs. With this transit gateway configuration, you can route traffic
-between multiple VPC subnets to a single ODB network.
+between multiple VPC subnets and your ODB network through a central hub.
 
-![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](/images/odb/latest/UserGuide/images/ODB-tgw.png)
+![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](images/ODB-tgw.png)
 
 For more information, see [Configuring Amazon VPC Transit Gateways for Oracle Database@AWS](configuring.md#configuring-tgw "configuring.md#configuring-tgw").
 

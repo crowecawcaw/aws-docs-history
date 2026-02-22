@@ -7,9 +7,9 @@ services. You get a single invoice through AWS Marketplace, which counts towards
 Oracle Support rewards.
 
 The following diagram shows a high-level overview of an OCI region tied to an AWS data
-center that hosts Oracle Exadata infrastructure. Within an AWS Availability Zone (AZ), you can peer an Amazon VPC to a
+center that hosts Oracle Exadata infrastructure. Within an AWS Availability Zone (AZ), you can establish one or more peering connections (up to 45) between your Amazon VPCs and the
 private network that is tied to the data center. By peering these networks, application servers in
-the VPC can access Oracle databases running on the Oracle Exadata infrastructure.
+the VPCs can access Oracle databases running on the Oracle Exadata infrastructure.
 
 ![Access Oracle databases that run on Oracle Exadata infrastructure hosted in an AWS data center with connectivity paths and service components.](images/ODB-ovw.png)
 

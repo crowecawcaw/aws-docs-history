@@ -1,10 +1,13 @@
 # Configuring ODB peering to an Amazon VPC in Oracle Database@AWS
 
 _ODB peering_ is a user-created network connection that enables
-traffic to be routed privately between an Amazon VPC and an ODB network. There is a one-to-one relationship
-between a VPC and an ODB network. After you create a peering connection using the console, CLI, or API,
+traffic to be routed privately between an Amazon VPC and an ODB networkAfter you create a peering connection using the console, CLI, or API,
 make sure to update your VPC route tables and configure DNS resolution. For a conceptual overview
 of ODB peering, see [ODB peering](how-it-works.md#how-it-works.peering "how-it-works.md#how-it-works.peering").
+
+###### Note
+
+Now, you can now have up to 45 ODB peering connections between your Amazon VPCs and ODB network, allowing you to establish low latency connectivity at scale between your Exadata databases in your ODB network and applications in your VPCs.
 
 ## Creating an ODB peering connection in Oracle Database@AWS
 
@@ -29,8 +32,7 @@ You can create an ODB peering connection between an ODB network in one account a
 different account, after the ODB network has been shared using AWS RAM. VPC owner accounts can manage
 CIDR ranges specified in the peering connection without also owning the ODB network.
 
-There is a 1:1 relationship between a VPC and an ODB network. You can't create an ODB peering
-connection between a VPC and multiple ODB networks or between an ODB network and multiple VPCs.
+You can create up to 45 peerings for a single ODB network.
 
 1. Sign in to the AWS Management Console and open the Oracle Database@AWS console at [https://console.aws.amazon.com/odb/](https://console.aws.amazon.com/odb/ "https://console.aws.amazon.com/odb/").
 2. In the navigation pane, choose **ODB peering connections**.
@@ -311,6 +313,72 @@ Use a command of the form `dig `record-name`
 Use a command of the form `nslookup -type=`record-name`
 `record-type``.
 
+## Configuring Multiple Application VPCs for Oracle Database@AWS
+
+You can configure multiple application VPCs to connect directly to your ODB network through ODB peering connections. This architecture supports the following connectivity patterns:
+
+- **Multiple VPCs to one ODB network** – Connect multiple application VPCs to a single ODB network
+- **One VPC to multiple ODB networks** – Connect a single application VPC to multiple ODB networks
+- **Multiple VPCs to multiple ODB networks** - Connect multiple application VPCs to multiple ODB networks
+- **Multiple VPCs to multiple ODB networks via TGW** – Connect multiple application VPCs peered with multiple ODB networks with TGW and cloud WAN.
+
+### Architecture
+
+The following diagrams show example architectures for multiple application VPC configurations:
+
+**Single AZ with multiple Application VPC peers:**
+
+![](images/Single-AZ-mapp.png)
+
+**Multi-AZ with a single application VPC peer:**
+
+![](images/Multi-AZ-single-peering.png)
+
+**Multi-AZ with Data Guard Observer for fast start failover (FSFO):**
+
+![](images/Multipe-AZ-with-DG.png)
+
+###### Note
+
+Data Guard communications between ODB networks must be routed through the OCI network or a transit gateway with transit VPCs.
+
+### Benefits
+
+- **Direct connectivity** – Application traffic flows directly between VPCs and the ODB network, reducing latency by eliminating intermediate routing hops.
+- **Independent management** – Create, modify, or delete each peering connection independently without affecting other connections.
+- **Network isolation** – Traffic between different application VPCs remains isolated, as each VPC communicates only with the ODB network through its own peering connection.
+- **Flexible scaling** – Add or remove application VPCs or ODB networks as needed by creating or deleting individual peering connections.
+- **Multi-network access** – Connect a single VPC to multiple ODB networks for cross-database operations, migrations, or disaster recovery scenarios.
+
+### Considerations
+
+Before implementing this architecture, consider the following:
+
+- An ODB network supports up to a maximum of 45 peering connections.
+- Each VPC CIDR block consumes routing resources in the ODB network.
+- CIDR blocks must not overlap between the ODB network and peered VPCs to avoid routing conflicts.
+- A VPC can establish multiple peering connections to different ODB networks, but only one peering connection to each ODB network.
+- Supernet CIDR blocks that encompass multiple existing subnets are not supported in peered configurations.
+- The error message "security rules per network security group count limit exceeded" indicates that you have reached your NSG rule limit on OCI. To fix this issue, you raise the quota limit from the OCI console to increase your NSG rule limit (limit-name: securityrules-per-networksecuritygroup-count). This limit request is auto approved.Once your NSG rules are increased, you can add more ODB peering.
+- ODB networks in US East (N. Virginia) and US West (Oregon) created before February 7, 2026, require a network upgrade before adding more than 1 ODB peering. To upgrade, you need to fully recreate your ODB network. Deletion of ODB network requires you to delete all Exadata VMs but does not require you to delete or recreate your Exadata Infrastructure.
+
+### Prerequisites
+
+To implement this architecture, you need:
+
+- An ODB network configured in your AWS account, or access to an ODB network shared with your account via AWS Resource Access Manager. For more information, see [Step 1: Create an ODB network in Oracle Database@AWS](getting-started.md#getting-started-odb "getting-started.md#getting-started-odb").
+- One or more application VPCs in the same AWS Region as the ODB network. For more information, see [Create a VPC](../../../vpc/latest/userguide/create-vpc.md "../../../vpc/latest/userguide/create-vpc.md") in the _Amazon Virtual Private Cloud User Guide_.
+- Non-overlapping CIDR blocks for all VPCs and the ODB network
+
+### Configuration steps
+
+1. Identify your application VPCs that require access to the ODB network, or identify the ODB networks that a single VPC needs to access.
+2. Verify CIDR blocks to ensure no overlaps exist between VPCs and the ODB network.
+3. Create ODB peering connections for each VPC-to-ODB network relationship that you need to establish.
+4. Test connectivity from each application VPC to verify successful communication with the ODB network.
+
+For more information about creating and managing ODB peering connections, see [Creating an ODB peering connection in Oracle Database@AWS](#network-peering "#network-peering").
+
 ## Configuring Amazon VPC Transit Gateways for Oracle Database@AWS
 
 Amazon VPC Transit Gateways is a network transit hub that interconnects virtual private clouds (VPCs) and
@@ -318,9 +386,8 @@ on-premises networks. Each VPC in the hub-and-spoke architecture can connect to 
 gateway to gain access to other connected VPCs. AWS Transit Gateway supports traffic for both IPv4 and
 IPv6.
 
-In Oracle Database@AWS, an ODB network supports a peering connection to only one VPC. If you connect a
-transit gateway to a VPC that is peered to an ODB network, you can connect multiple VPCs to this
-gateway. Applications running in these different VPCs can access an Exadata VM cluster running in your
+In Oracle Database@AWS, an ODB network supports up to 45 peering connections. You can establish direct peering connections between your ODB network and multiple VPCs. Alternatively, if you connect a
+transit gateway to a VPC that is peered to an ODB network, you can route traffic from multiple VPCs through this central hub. Applications running in these different VPCs can access an Exadata VM cluster running in your
 ODB network.
 
 The following diagram shows a transit gateway that is connected to two VPCs and one
@@ -418,8 +485,8 @@ AWS Cloud WAN provides the following key benefits:
 - Support for policies to automate network management and define consistent configurations
   across your global network
 
-In Oracle Database@AWS, an ODB network supports peering to only one VPC. If you connect a AWS Cloud WAN core network to
-a peered VPC, it enables global traffic routing. Applications in attached VPCs across multiple
+In Oracle Database@AWS, an ODB network supports up to 45 peering connections. You can connect multiple VPCs directly to your ODB network, or use AWS Cloud WAN for global traffic routing. If you connect a AWS Cloud WAN core network to
+one or more peered VPCs, it enables global traffic routing. Applications in attached VPCs across multiple
 Regions can access Exadata VM clusters in your ODB network. You can isolate ODB network traffic in its own segment or
 enable access to other segments.
 
