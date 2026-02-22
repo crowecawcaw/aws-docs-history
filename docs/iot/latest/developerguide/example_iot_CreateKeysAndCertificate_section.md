@@ -186,7 +186,7 @@ NYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE=
 }
 ```
 
-For more infomration, see [Create and Register an AWS IoT Device Certificate](device-certs-create.md "device-certs-create.md") in the **AWS IoT Developer Guide**.
+For more information, see [Create and Register an AWS IoT Device Certificate](device-certs-create.md "device-certs-create.md") in the **AWS IoT Developer Guide**.
 
 - For API details, see
   [CreateKeysAndCertificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-keys-and-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-keys-and-certificate.html")
