@@ -58,7 +58,7 @@ all repositories.
                     "ecr:UploadLayerPart",
                     "ecr:InitiateLayerUpload",
                     "ecr:BatchCheckLayerAvailability",
-                    "ecr:PutImage"
+                    "ecr:PutImage",
                     "ecr:BatchGetImage"
             ],
             "Resource": "arn:aws:ecr:us-west-2:111122223333:repository/*"
