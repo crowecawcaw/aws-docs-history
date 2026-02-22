@@ -251,7 +251,7 @@ Contains the following metadata:
 - bedrockAgentCoreMcpMessageId – The ID of the message sent to the MCP server.
 - bedrockAgentCoreGatewayId – The ID of the gateway that was invoked.
 - bedrockAgentCoreTargetId – The ID of the gateway target that was invoked.
-- bedrockAgentCoreToolName– The name of the tool that was called. The tool name is in the format `${target_name}`\_\_`${tool_name}`.
+- bedrockAgentCoreToolName– The name of the tool that was called. The tool name is in the format `${target_name}`\_\_\_`${tool_name}`.
 
 The format of the context object is as follows:
 

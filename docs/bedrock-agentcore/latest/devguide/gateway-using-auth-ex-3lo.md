@@ -19,7 +19,7 @@ You can do the following:
 
 - To override the default return URL with a different one, specify a new `returnUrl`.
 - To remove the previous authentication from the token vault and return a new authorization URL when the request is made, set the `forceAuthentication` value to `true`.
-  For example, the following request would call the `LinkedIn3LO__gateUserInfo` tool through the gateway target, force the user to authenticate with a new authorization URL, and redirect the user to `https://your-public-domain.com/callback` after authentication:
+  For example, the following request would call the `LinkedIn3LO___gateUserInfo` tool through the gateway target, force the user to authenticate with a new authorization URL, and redirect the user to `https://your-public-domain.com/callback` after authentication:
 
 ```
 {

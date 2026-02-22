@@ -153,7 +153,7 @@ To start a browser session with a proxy using the AWS SDK for Python
 ```
 import boto3
 
-client = boto3.client('bedrock-agentcore-runtime', region_name='<region>')
+client = boto3.client('bedrock-agentcore', region_name='<region>')
 
 response = client.start_browser_session(
     browserIdentifier="aws.browser.v1",
@@ -303,10 +303,10 @@ With this configuration:
 
 Domain pattern format:
 
-| Domain pattern matching rules | Pattern                              | Matches           | Does not match |
-| ----------------------------- | ------------------------------------ | ----------------- | -------------- |
-| `.example.com`                | `www.example.com`, `api.example.com` | `example.com`     |
-| `example.com`                 | `example.com` (exact match only)     | `www.example.com` |
+| Domain pattern matching rules | Pattern                                             | Matches           | Does not match |
+| ----------------------------- | --------------------------------------------------- | ----------------- | -------------- |
+| `.example.com`                | `example.com`, `www.example.com`, `api.example.com` | `notexample.com`  |
+| `example.com`                 | `example.com` (exact match only)                    | `www.example.com` |
 
 Use `.example.com` (leading dot) for subdomains. Do not use
 `*.example.com`.
@@ -422,7 +422,7 @@ Boto3
 ```
 import boto3
 
-client = boto3.client('bedrock-agentcore-runtime', region_name='<region>')
+client = boto3.client('bedrock-agentcore', region_name='<region>')
 
 response = client.start_browser_session(
     browserIdentifier="aws.browser.v1",

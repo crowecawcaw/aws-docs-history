@@ -11,6 +11,7 @@ Cedar policy structure, evaluation semantics, and key concepts.
 - [Default deny](#policy-default-deny "#policy-default-deny")
 - [Authorization evaluation](#policy-authorization-evaluation "#policy-authorization-evaluation")
 - [Policy independence](#policy-independence "#policy-independence")
+- [Policy evaluation algorithm](#policy-evaluation-algorithm "#policy-evaluation-algorithm")
 
 ## Example policy
 
@@ -81,3 +82,22 @@ Each Cedar policy evaluates independently. A policy's evaluation depends only on
 - The context and tags
 
 Policies do not reference or depend on other policies.
+
+## Policy evaluation algorithm
+
+When a request is evaluated, the policy engine determines the authorization decision using
+the following algorithm:
+
+1. If any `forbid` policy matches the request, the decision is DENY.
+2. If no `forbid` policy matches the request and at least one `permit`
+   policy matches, the decision is ALLOW.
+3. If neither `forbid` nor `permit` policies match the request, the
+   decision is DENY.
+
+This evaluation model enforces a **default deny**
+posture.
+
+A `forbid` policy can never result in an ALLOW decision. The
+`unless` clause on a `forbid` policy specifies conditions under which that
+`forbid` policy does not apply; it does **not** grant
+permission and does not override a matching `permit` policy.

@@ -11,7 +11,7 @@ Engine using the AWS CLI:
 ```
 
 aws bedrock-agentcore-control update-gateway \
-  --gateway-id my-gateway-id \
+  --gateway-identifier my-gateway-id \
   --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
   --protocol-type MCP \
   --authorizer-type CUSTOM_JWT \
@@ -42,6 +42,7 @@ import boto3
 gateway_client = boto3.client('bedrock-agentcore-control')
 
 response = gateway_client.update_gateway(
+    name='my-gateway-name',
     gatewayId='my-gateway-id',
     protocolType='MCP',
     authorizerType='CUSTOM_JWT',

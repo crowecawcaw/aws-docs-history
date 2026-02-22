@@ -32,7 +32,7 @@ Supported providers include:
 - [Notion](identity-idp-notion.md "identity-idp-notion.md")
 - [Okta](identity-idp-okta.md "identity-idp-okta.md")
 - [OneLogin](identity-idp-onelogin.md "identity-idp-onelogin.md")
-- [PingOne](identity-idp-pingone.md "identity-idp-pingone.md")
+- [Ping Identity](identity-idp-pingidentity.md "identity-idp-pingidentity.md")
 - [Reddit](identity-idp-reddit.md "identity-idp-reddit.md")
 - [Salesforce](identity-idp-salesforce.md "identity-idp-salesforce.md")
 - [Slack](identity-idp-slack.md "identity-idp-slack.md")

@@ -11,8 +11,19 @@ needed for gateway access.
 
 ## List AgentCore Gateway Tools with AgentCore Policy
 
-List available tools in your gateway. Depending on your policies, only authorized
-tools will be returned in the response.
+Tool listing is treated as a **meta action**. When a
+principal lists available tools, the policy engine does not evaluate the full context
+of a specific tool invocation (for example, input parameters).
+
+A principal is only allowed to see tools in the listing that they would be
+permitted to call by policy. Because the full context of a tool call is not available
+during listing, this means a principal is allowed to list a tool **if there exists any set of circumstances under which a call to that
+tool would be permitted**.
+
+As a result, a tool appearing in the list does not guarantee that a subsequent call
+to that tool will be authorized. The authorization decision for an actual tool
+invocation is evaluated separately using the full request context, including input
+parameters.
 
 Select one of the following methods:
 

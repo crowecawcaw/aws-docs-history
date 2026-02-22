@@ -1,6 +1,6 @@
-# PingOne
+# Ping Identity
 
-PingOne can be configured as an AgentCore Identity credential provider for outbound
+Ping Identity's PingOne platform can be configured as an AgentCore Identity credential provider for outbound
 resource access. This allows your agents to authenticate users through PingOne's OAuth2
 service and obtain access tokens for PingOne API resources.
 
@@ -40,8 +40,8 @@ necessary client credentials for AgentCore Identity.
    - Select **Client Secret Basic** for Token Endpoint
      Authentication Method.
 
-For more details, refer to [PingOne's
-API documentation](https://apidocs.pingidentity.com/pingone/getting-started/v1/api "https://apidocs.pingidentity.com/pingone/getting-started/v1/api").
+For more details, refer to [Ping Identity's
+PingOne API documentation](https://apidocs.pingidentity.com/pingone/getting-started/v1/api "https://apidocs.pingidentity.com/pingone/getting-started/v1/api").
 
 **Step 2**
 

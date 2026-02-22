@@ -28,6 +28,8 @@ with your agent runtimes.
 - [I need help troubleshooting MCP protocol agents](#troubleshooting-mcp-protocol "#troubleshooting-mcp-protocol")
 - [I need help troubleshooting bidirectional streaming using WebSocket](#troubleshooting-websocket-protocol "#troubleshooting-websocket-protocol")
 - [My code changes aren't reflected in existing sessions](#troubleshoot-code-updates "#troubleshoot-code-updates")
+- [Spans are missing when
+  my runtime is invoked from a Lambda function](#troubleshoot-runtime-lambda-missing-spans "#troubleshoot-runtime-lambda-missing-spans")
 - [Best practices](#best-practices "#best-practices")
 
 ## My agent invocations fail with 504 Gateway Timeout errors
@@ -461,6 +463,31 @@ Each microVM session is created with the code assets (`agentRuntimeArtifact`) th
 ###### Solution
 
 To access your updated code, use a new session ID.
+
+## Spans are missing when
+
+my runtime is invoked from a Lambda function
+
+**When this occurs:** When invoking AgentCore Runtime
+from a Lambda function
+
+**Why this happens:** Lambda generates its own
+`X-Amzn-Trace-Id` header. If the Lambda trace has
+`Sampled=0`, this unsampled context propagates to AgentCore Runtime and
+the runtime skips span generation for that invocation.
+
+**Solution:**
+
+- **Enable Lambda active tracing:** Turn on
+  X-Ray active tracing on your Lambda function so that it produces sampled
+  traces (`Sampled=1`).
+- **Verify CloudWatch Transaction Search:**
+  Ensure you have completed the setup in [Configure observability](observability-configure.md "observability-configure.md") and that your trace segment
+  destination is set to CloudWatch Logs.
+- **Check the sampling decision:** Log the
+  `_X_AMZN_TRACE_ID` environment variable inside your Lambda
+  function. If it shows `Sampled=0`, active tracing is not
+  enabled or an upstream caller is making the sampling decision.
 
 ## Best practices
 

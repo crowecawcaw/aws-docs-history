@@ -66,6 +66,31 @@ Components:
 Actions represent tool calls in the MCP AgentCore Gateway. Each tool has a corresponding action
 entity.
 
+### Multiple actions
+
+Cedar does **not** support wildcard actions. Each action must
+be referenced explicitly using the exact action identifier
+(`AgentCore::Action::"ToolName__operation"`). To group multiple tools under a
+single rule, use a **Gateway Target** (an Action Group) and write
+policies against that target.
+
+For example, to allow access only to tools whose names start with Read, you can create a
+Gateway Target called ReadToolsTarget that includes each such tool, and then write a policy
+like:
+
+```
+
+permit(
+  principal,
+  action in AgentCore::Action::"ReadToolsTarget",
+  resource == AgentCore::Gateway::"<gateway-arn>"
+);
+
+```
+
+This will permit all tools included in that target depending on the policy's
+effect.
+
 ## Resource
 
 The resource identifies the target of the request:

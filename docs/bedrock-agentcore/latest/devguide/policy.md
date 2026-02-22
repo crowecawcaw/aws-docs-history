@@ -12,15 +12,17 @@ policies in them and associate policy engines with gateways. AgentCore Policy in
 traffic through Amazon Bedrock AgentCore Gateways and evaluates each request against defined
 policies in the policy engine before allowing tool access.
 
-Policies are constructed using Cedar language, an open source language for writing and
-enforcing authorization policies. This allows developers to precisely specify what agents
-can access and what actions they can perform. Amazon Bedrock AgentCore Policy provides the capability to
-author policies using natural language by allowing developers to describe rules in plain
-English instead of writing formal policy code in Cedar. Natural language-based policy
-authoring interprets what the user intends, generates candidate policies, validates them
-against the tool schema, and uses automated reasoning to check safety conditions such as
-identifying policies that are overly permissive, overly restrictive, or contain conditions
-that can never be satisfied - ensuring customers catch these issues before enforcing
+Policies are constructed using
+[Cedar language](https://www.cedarpolicy.com/en "https://www.cedarpolicy.com/en"), an open source
+language for writing and enforcing authorization policies. This allows developers to
+precisely specify what agents can access and what actions they can perform.
+Amazon Bedrock AgentCore Policy provides the capability to author policies using natural language by
+allowing developers to describe rules in plain English instead of writing formal
+policy code in Cedar. Natural language-based policy authoring interprets what the
+user intends, generates candidate policies, validates them against the tool schema,
+and uses automated reasoning to check safety conditions such as identifying policies
+that are overly permissive, overly restrictive, or contain conditions that can never
+be satisfied - ensuring customers catch these issues before enforcing
 policies.
 
 AgentCore Policy supports fine-grained permissions based on user identity and tool input
