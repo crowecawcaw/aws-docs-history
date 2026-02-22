@@ -295,7 +295,7 @@ number of messages included in the carousel.
 
 The following image shows a carousel with two messages:
 
-![An example carousel showing two clothing items for purchase.](images/channels-inapp-carousel.png) 11. (Optional) If you created this campaign as an A/B test campaign (as
+![An example carousel showing two clothing items for purchase.](/images/pinpoint/latest/userguide/images/channels-inapp-carousel.png) 11. (Optional) If you created this campaign as an A/B test campaign (as
 opposed to a standard campaign), repeat the steps in this section for
 each treatment. You can switch between treatments by using the tabs at
 the top of the **In-app messaging template**
