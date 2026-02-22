@@ -32,6 +32,6 @@ you might want to try the following:
 - Learn how to monitor [costs and
   resources](sqs-queue-tags.md "sqs-queue-tags.md").
 - Learn how to [protect your
-  data](sqs-data-protection.md "sqs-data-protection.md").
+  data](data-protection.md "data-protection.md").
 - Learn more about the [Amazon SQS
   workflow](sqs-creating-custom-policies-process-workflow.md "sqs-creating-custom-policies-process-workflow.md").

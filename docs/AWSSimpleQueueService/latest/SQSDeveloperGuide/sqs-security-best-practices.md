@@ -50,7 +50,7 @@ access:
 For more information, see the following sections:
 
 - [Identity and access management in
-  Amazon SQS](sqs-authentication-and-access-control.md "sqs-authentication-and-access-control.md")
+  Amazon SQS](security-iam.md "security-iam.md")
 - [Amazon SQS API permissions:
   Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md")
 - [Using custom policies with the Amazon SQS

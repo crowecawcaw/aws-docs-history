@@ -9,7 +9,7 @@ supports.
 
 ## Benefits of using Amazon SQS
 
-- Security – [You control](sqs-authentication-and-access-control.md "sqs-authentication-and-access-control.md") who can
+- Security – [You control](security-iam.md "security-iam.md") who can
   send messages to and receive messages from an Amazon SQS queue. You can choose to
   transmit sensitive data by protecting the contents of messages in queues by
   using default Amazon SQS managed server-side encryption (SSE), or by using custom

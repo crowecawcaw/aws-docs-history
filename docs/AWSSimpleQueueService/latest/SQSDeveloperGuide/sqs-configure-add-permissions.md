@@ -22,6 +22,6 @@ its access policy to control who can interact with it.
 4. Scroll to the **Access policy** section.
 5. Edit the **access policy statements** in the input box. For
    more on access policy statements, see [Identity and access management in
-   Amazon SQS](sqs-authentication-and-access-control.md "sqs-authentication-and-access-control.md").
+   Amazon SQS](security-iam.md "security-iam.md").
 6. When you finish configuring the access policy, choose
    **Save**.

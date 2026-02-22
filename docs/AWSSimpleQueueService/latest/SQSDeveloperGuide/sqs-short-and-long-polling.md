@@ -36,7 +36,7 @@ request.
 ## Consuming messages using long polling
 
 When the wait time for the `ReceiveMessage` API action is greater than 0, _long polling_
-is in effect. The maximum long polling wait time is 20 seconds. Long polling helps reduce the cost of using Amazon SQS by eliminating the number of empty responses
+is in effect. The maximum long polling wait time is 20 seconds. Long polling helps reduce the cost of using Amazon SQS by reducing the number of empty responses
 (when there are no messages available for a `ReceiveMessage` request) and false
 empty responses (when messages are available but aren't included in a response). For information about enabling long polling for a new or
 existing queue using the Amazon SQS console, see the [Configuring queue parameters using the Amazon SQS
