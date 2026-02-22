@@ -1,25 +1,25 @@
-# Full load PostgreSQL database migration options performance comparison
+# Full load SQL Server database migration options performance comparison
 
-We analyzed the performance of pg_dump and pg_restore, publisher and subscriber, and pglogical in a full load migration. We migrated a 70 GB database that includes 6 tables and LOB data. We lifted and shifted this database from the source to the target.
+To compare the full load migration performance for all three methods, we used a test environment. In this environment, we populated the `dms_sample` database with 410.90 GB of data. We used the same on-premise SQL Server source and RDS SQL Server target databases to load data three times. For these data loads, we used the following methods:
 
-The following image represents the performance comparison of the three migration methods. We expect similar performance trends for larger datasets.
+- Backup and restore.
+- Import and export wizard.
+- Generate and publish scripts wizard and bulk copy program utility (bcp).
+  The following image represents the performance comparison of the three migration methods. We expect similar performance trends for larger datasets.
 
-![Full load performance comparison](images/postgresql-rds-postgresql-performance.png)
-We performed this test to provide a basic overview of the full load performance. This performance may vary because it depends on such factors as network bandwidth, data structure, data size, and so on.
-
+![performance comparison of the three migration methods](images/sql-server-rds-sql-server-performance.png)
 The elapsed time shown in the diagram is the actual migration time. It doesn’t include the time spent on implementing prerequisites.
 
-You can compare the results of all three methods.
+For the backup and restore method, we spent 4.24 hours. This time includes:
 
-- 35 minutes is the total elapsed time for pglogical.
-- 37 minutes is the total elapsed time for publisher and subscriber.
-- 46 minutes is the total elapsed time for pg_dump and pg_restore. This time includes:
+- 1.66 hours to backup the database.
+- 1.75 hours to copy the data from backup location to Amazon S3.
+- 0.88 hours to restore the data from the S3 bucket to Amazon RDS for SQL Server.
+  For the import and export wizard, we spent 8.58 hours.
 
-      + 19 minutes to unload data using pg\_dump.
-      + 27 minutes to load data using pg\_restore.
+For the bcp method, we spent 199 hours. This time includes:
 
-  From the comparison, you can see that pglogical has the best performance among the three full load options. Consider this approach if you don’t need to migrate secondary database objects such as views, stored procedures, triggers, and so on. This is the preferred approach where the database size is greater than 100 GB and when you don’t have transformation or filtering requirements.
-
-Publisher and subscriber may be appropriate if you don’t need to migrate secondary database objects such as views, stored procedures, triggers, and so on. You can use publisher and subscriber for smaller migrations where ease of use considerations override the minor performance gains provided by pglogical.
-
-Using pg_dump and pg_restore is slower than both pglogical and publisher and subscriber. pg_dump is the only option that migrates your secondary database objects. Additionally, data files created by pg_dump may be orders of magnitude larger than the original table size.
+- 0.01 hours to generate scripts.
+- 0.01 hours to run the generated script on Amazon RDS for SQL Server.
+- 27.88 hours to run the bcp statements for unloading data from on-premise SQL Server.
+- 171.1 hours to run the bcp statements for loading data into Amazon RDS for SQL Server.

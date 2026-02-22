@@ -1,76 +1,69 @@
-# Step 8: Cut Over to PostgreSQL
+# Step 4: Use AWS SCT to Convert the Oracle Schema to PostgreSQL
 
-To move connections from your Oracle database to your PostgreSQL database, do the following:
+Before you migrate data to PostgreSQL, you convert the Oracle schema to a PostgreSQL schema. [This video covers all the steps of this process](https://youtu.be/ibtNkChGFkw "https://youtu.be/ibtNkChGFkw").
 
-1. End all Oracle database dependencies and activities, such as running scripts and client connections.
+To convert an Oracle schema to a PostgreSQL schema using AWS Schema Conversion Tool (AWS SCT), do the following:
 
-The following query should return no results:
+1. Launch AWS SCT. In AWS SCT, choose **File**, then choose **New Project**. Create a new project named `AWS Schema Conversion Tool Oracle to PostgreSQL`, specify the **Location** of the project folder, and then choose **OK**.
+2. Choose **Add source** to add a source Oracle database to your project, then choose **Oracle**, and choose **Next**.
+3. Enter the following information, and then choose **Test Connection**.
 
-```
-SELECT MACHINE, COUNT(*) FROM V$SESSION GROUP BY MACHINE;
-```
+| For This Parameter  | Do This                                                                   |
+| ------------------- | ------------------------------------------------------------------------- |
+| **Connection name** | Enter `Oracle`. AWS SCT displays this name in the tree in the left panel. |
+| **Type**            | Choose **SID**.                                                           |
+| **Server name**     | Enter the server name.                                                    |
+| **Server port**     | Enter the Oracle port number. The default is `1521`.                      |
+| **Oracle SID**      | Enter the database SID.                                                   |
+| **User name**       | Enter the Oracle admin username.                                          |
+| **Password**        | Enter the password for the admin user.                                    |
 
-2. List any remaining sessions, and kill them.
+![Connecting to an Oracle DB instance](images/sbs-rdsor2postgresql11.png) 4. Choose **OK** to close the alert box, then choose **Connect** to close the dialog box and to connect to the Oracle DB instance. 5. Choose **Add target** to add a target PostgreSQL database to your project, then choose **Amazon RDS for PostgreSQL**, and choose **Next**. 6. Enter the following information and then choose **Test Connection**.
 
-```
-SELECT SID, SERIAL#, STATUS FROM V$SESSION;
+| Parameter           | Description                                                                                   |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| **Connection name** | Enter `Amazon RDS for PostgreSQL`. AWS SCT displays this name in the tree in the right panel. |
+| **Server name**     | Enter the server name.                                                                        |
+| **Server port**     | Enter the PostgreSQL port number. The default is `5432`.                                      |
+| **Database**        | Enter the database name.                                                                      |
+| **User name**       | Enter the PostgreSQL admin username.                                                          |
+| **Password**        | Enter the password for the admin user.                                                        |
 
-ALTER SYSTEM KILL 'sid, serial_number' IMMEDIATE;
-```
+7. Choose **OK** to close the alert box, then choose **Connect** to connect to the Amazon RDS for PostgreSQL DB instance.
+8. In the tree in the left panel, select the schema to migrate. In the tree in the right panel, select your target Amazon RDS for PostgreSQL database. Choose **Create mapping**. For more information, see [Creating mapping rules](../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md "../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md") in the _Schema Conversion Tool User Guide_.
 
-3. Shut down all listeners on the Oracle database.
-4. (Optional) Turn off automated jobs on the Oracle database. For your production database, check that this operation doesn’t influence the business logic.
+![Creating a mapping rule](images/sbs-rdsor2postgresqlmapping.png) 9. Choose **Main view**. In the tree in the left panel, right-click the schema to migrate and choose **Convert schema**. 10. Choose **Yes** for the confirmation message. AWS SCT analyzes the schema, creates a database migration assessment report, and converts your schema to the target database format. 11. Choose **Assessment Report View** from the menu to check the database migration assessment report. The report breaks down by each object type and by how much manual change is needed to convert it successfully.
 
-```
-ALTER SYSTEM SET JOB_QUEUE_PROCESSES=0
-```
+Generally, packages, procedures, and functions are more likely to have some issues to resolve because they contain the most custom PL/SQL code. AWS SCT also provides hints about how to fix these objects. 12. Choose the **Action Items** tab.
 
-5. (Optional) Turn off time monitoring on queue messages on the Oracle database. For your production database, check that this operation doesn’t influence the business logic.
+The **Action Items** tab shows each issue for each object that requires attention.
 
-```
-ALTER SYSTEM SET AQ_TM_PROCESSES=0
-```
+For each conversion issue, you can complete one of the following actions:
 
-6. Let the AWS DMS task apply the final changes from the Oracle database on the PostgreSQL database.
-
-```
-ALTER SYSTEM CHECKPOINT;
-```
-
-7. In the AWS DMS console, stop the AWS DMS task by clicking **Stop** for the task, and confirm that you want to stop the task.
-8. (Optional) Set up a rollback.
-
-You can optionally set up a rollback task, in case you run into a show stopping issue, by creating a task going in the opposite direction. Because all tables should be in sync between both databases, you only need to set up a CDC task. Therefore, you do not have to disable any foreign key constraints. Now that the source and target databases are reversed, you must follow the instructions in the following sections:
-
-    * [Using a PostgreSQL Database as a Source](../userguide/CHAP_Source.md "../userguide/CHAP_Source.md")
-    * [Using an Oracle Database as a Target](../userguide/CHAP_Target.md "../userguide/CHAP_Target.md")
+    * Modify the objects on the source Oracle database so that AWS SCT can convert the objects to the target Amazon RDS for PostgreSQL database.
 
 
 
 
-
-    	1. Disable triggers on the source Oracle database.
-
-
-
-    	```
-    	SELECT 'ALTER TRIGGER' || owner || '.' || trigger_name || 'DISABLE;'
-    	   FROM DBA_TRIGGERS WHERE OWNER = 'schema_name';
-    	```
-
-    	You do not have to disable the foreign key constraints. During the CDC process, foreign key constraints are updated in the same order as they are updated by application users.
-    	2. Create a new CDC-only AWS DMS task with the endpoints reversed (source PostgreSQL endpoint and target Oracle endpoint database). See [Step 7: Create and Run Your Migration Task](chap-rdsoracle2postgresql.steps.md "chap-rdsoracle2postgresql.steps.md").
+    	1. Modify the objects on the source Oracle database.
+    	2. Repeat the previous steps to convert the schema and check the assessment report.
+    	3. If necessary, repeat this process until there are no conversion issues.
+    	4. Choose **Main View** from the menu. Open the context (right-click) menu for the target Amazon RDS for PostgreSQL schema, and choose **Apply to database** to apply the schema changes to the Amazon RDS for PostgreSQL database, and confirm that you want to apply the schema changes.
+    * Instead of modifying the source schema, modify scripts that AWS SCT generates before applying the scripts on the target Amazon RDS for PostgreSQL database.
 
 
-    	For the rollback task, set **Migration type** to **Replicate data changes only** and **Target table preparation mode** to **Do nothing**.
-    	3. Start the AWS DMS task to enable you to push changes back to the original source Oracle database from the new PostgreSQL database if rollback is necessary.
 
-9. Connect to the PostgreSQL database, and enable triggers.
 
-```
-ALTER TABLE table_name ENABLE TRIGGER ALL;
-```
+    	1. Choose **Main View** from the menu. Open the context (right-click) menu for the target Amazon RDS for PostgreSQL schema name, and choose **Save as SQL**. Next, choose a name and destination for the script.
+    	2. In the script, modify the objects to correct conversion issues.
 
-10. If you set up a rollback, then complete the rollback setup.
-    1.  Start the application services on new target PostgreSQL database (including scripts , client software, and so on).
-    2.  Add CloudWatch monitoring on your new PostgreSQL database. For more information, see [Monitoring Amazon RDS](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md").
+
+    	You can also exclude foreign key constraints, triggers, and secondary indexes from the script because they can cause problems during the migration. After the migration is complete, you can create these objects on the Amazon RDS for PostgreSQL database.
+    	3. Run the script on the target Amazon RDS for PostgreSQL database.
+
+For more information, see [Converting Database Schema to Amazon RDS](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md"). 13. (Optional) Use AWS SCT to create migration rules.
+
+    1. Choose **Mapping view** and then choose **New migration rule**.
+    2. Create additional migration transformation rules that are required based on the action items.
+    3. Save the migration rules.
+    4. Choose **Export script for DMS** to export a JSON format of all the transformations that the AWS DMS task will use. Choose **Save**.

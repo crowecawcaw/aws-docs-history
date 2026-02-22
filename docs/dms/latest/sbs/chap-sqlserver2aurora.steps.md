@@ -1,13 +1,21 @@
-# Step 1: Install the SQL Drivers and AWS Schema Conversion Tool on Your Local Computer
+# Step 3: Configure Your Aurora MySQL Target Database
 
-First, install the SQL drivers and the AWS Schema Conversion Tool (AWS SCT) on your local computer. Do the following:
+AWS DMS migrates the data from the SQL Server source into an Amazon Aurora MySQL target. In this step, you configure the Aurora MySQL target database.
 
-1. Download the JDBC driver for Microsoft SQL Server [mssql-jdbc-7.2.2.jre11.jar](https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72 "https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72").
-2. Download the [JDBC driver for Aurora MySQL](https://dev.mysql.com/downloads/connector/j/ "https://dev.mysql.com/downloads/connector/j/"). Amazon Aurora MySQL uses the MySQL driver.
-3. Install AWS SCT and the required JDBC drivers.
-   1. See [Installing, verifying, and updating the Schema Conversion Tool](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md"), and choose the appropriate link to download AWS SCT.
-   2. Start AWS SCT, and choose **Settings**, **Global settings**.
-   3. In **Global settings**, choose **Drivers**, and then choose **Browse** for **Microsoft SQL Server driver path**. Locate the JDBC driver for SQL Server, and choose **OK**.
-   4. Choose **Browse** for **MySQL driver path**. Locate the JDBC driver you downloaded for Aurora MySQL, and choose **OK**.
+1. Create the AWS DMS user to connect to your target database, and grant Superuser or the necessary individual privileges (or for Amazon RDS, use the master username).
 
-   ![Locating JDBC Drivers](images/sbs-rdsqlserver2aurora-drivers.png) 5. Choose **OK** to close the **Global settings** dialog box.
+Alternatively, you can grant the privileges to an existing user.
+
+```
+CREATE USER 'aurora_dms_user' IDENTIFIED BY 'password';
+
+GRANT ALTER, CREATE, CREATE TEMPORARY TABLES, DROP, INDEX, INSERT, UPDATE, DELETE,
+SELECT ON target_database.* TO 'aurora_dms_user';
+```
+
+2. AWS DMS uses control tables on the target in the database `awsdms_control`. Use the following command to ensure that the user has the necessary access to the `awsdms_control` database:
+
+```
+GRANT ALL PRIVILEGES ON awsdms_control.* TO 'aurora_dms_user';
+FLUSH PRIVILEGES;
+```

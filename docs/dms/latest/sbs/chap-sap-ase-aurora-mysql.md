@@ -1,85 +1,100 @@
-# Preparation and assessment for migrating from SAP ASE to Amazon Aurora MySQL
+# SAP ASE to Amazon Aurora MySQL database code conversion and data loading
 
-Preparation and assessment of your source database is the initial phase. Before you start moving data, you should monitor and analyze the source database schema for the data lifecycle. To provide the best migration solution, you should have a good understanding on the workload, data access patterns, and data dependencies. Make sure to consider the following items:
+This section covers two major database migration tasks: code conversion and data load. You can use AWS Schema Conversion Tool (AWS SCT) to convert database schema objects such as tables, views, procedures, functions, and so on. Then you can use AWS Database Migration Service (AWS DMS) to load data.
 
-- Character set.
-- Largest table size.
-- Largest LOB size.
-- Integration with other databases or OS.
+## Database Schema Conversion
 
-## Determine the Character Set
+To convert your database schema and code objects from SAP ASE to Amazon Aurora MySQL, follow these steps.
 
-To find out the default character set and sort order for your SAP ASE database, run the following query:
+1. Download and install AWS Schema Conversion Tool (AWS SCT) with the required SAP ASW and MySQL JDBC drivers. For more information, see https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP\_Installing.html.
+2. Create a new AWS SCT project, add your source and target databases, and add a mapping rule. For more information, see [Creating a new project](../../../SchemaConversionTool/latest/userguide/CHAP_UserInterface.md#CHAP_UserInterface.Project "../../../SchemaConversionTool/latest/userguide/CHAP_UserInterface.md#CHAP_UserInterface.Project"), [Adding database servers](../../../SchemaConversionTool/latest/userguide/CHAP_UserInterface.md#CHAP_UserInterface.AddServers "../../../SchemaConversionTool/latest/userguide/CHAP_UserInterface.md#CHAP_UserInterface.AddServers"), and [Creating mapping rules](../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md "../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md").
+3. Convert your database schema. For more information, see [Converting database schemas](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md").
+4. Save the converted SQL scripts. For more information, see [Saving and applying your converted schema](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md#CHAP_Converting.SaveAndApply "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md#CHAP_Converting.SaveAndApply").
+5. Run these scripts against your target MySQL database. First, create tables with primary keys only. Then add the foreign keys and secondary indexes after you complete the full load.
 
-```
-exec sp_default_charset
-```
+## Migrate an SAP ASE Database to Amazon Aurora MySQL Using AWS DMS
 
-If your application uses a different character set, you can find it from your session by checking the global variable `@@client_csname` or `@@client_csid`.
+This section covers the steps that you follow to migrate an SAP ASE database to Amazon Aurora MySQL using AWS DMS.
 
-If you have a non-default character set that you want to migrate, use an extra connect attribute to specify the character set for the source database. For example, if your default character set is UTF8, specify `charset=utf8` as an extra connect attribute to correctly migrate data.
+AWS DMS creates the schema in the target if the schema doesn’t exist. However, AWS DMS only creates the tables with primary keys. AWS DMS doesn’t create foreign keys or secondary indexes. Even the default values may be missing.
 
-## Determine the Largest Table Size
+The best practice is to create the schema objects using the scripts that AWS SCT generated in the prior step, then start AWS DMS to load table data.
 
-Explore your largest and busiest tables to find out their size and rate of change. This gives you an accurate estimate of where time will be spent when you do the initial data migration using the AWS Database Migration Service (AWS DMS) full load feature.
+### Create a Replication Instance
 
-You can parallelize the load on the table level with one task to save time by using parallel load feature. For more information, see [Using parallel load for selected tables, views, and collections](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad").
+To start data migration, create an AWS DMS replication instance. For performance reasons, AWS DMS recommends creating the replication instance in the same AWS Region as your target Amazon Aurora database. For more information, see [Creating a replication instance](../userguide/CHAP_ReplicationInstance.md "../userguide/CHAP_ReplicationInstance.md").
 
-In SAP ASE, you can run only one replication thread for each database. Because of that, you can start one AWS DMS task at one time for each database. You can’t run multiple tasks, which is common when you migrate from other database engines. For more information, see [Limitations on using SAP ASE as a source](../userguide/CHAP_Source.md#CHAP_Source.SAP.Limitations "../userguide/CHAP_Source.md#CHAP_Source.SAP.Limitations").
+### Create a Source Endpoint
 
-For SAP ASE version 15 and later, query `sysobjects` to list the top 10 in row count and space used. Use the following query:
+Create a source endpoint for SAP ASE and test the connection using the preceding replication instance.
 
-```
-select top 10 convert(varchar(30),o.name) AS table_name,
-    row_count(db_id(), o.id) AS row_count,
-    data_pages(db_id(), o.id, 0) AS pages,
-    data_pages(db_id(), o.id, 0) * (@@maxpagesize/1024) AS kbs
-    from sysobjects o
-    where type = 'U'
-    order by kbs DESC, table_name ASC
-```
+- On the AWS DMS console, choose **Endpoints**.
+- Choose **Create endpoint**.
+- For **Endpoint type**, select **Source endpoint**.
+- Enter your desired endpoint configuration.
 
-The output of this query is shown following.
+![Source endpoint configuration](images/sap-ase-to-aurora-mysql-endpoint-configuration.png)
 
-```
-table_name |row_count|pages|kbs|
-salesdetail|      116|    2|  8|
-```
+You can use your own on-premises name server and a hostname instead of the IP address. For more information, see [Using your own on-premises name server](../userguide/CHAP_BestPractices.md#CHAP_BestPractices.Rte53DNSResolver "../userguide/CHAP_BestPractices.md#CHAP_BestPractices.Rte53DNSResolver").
 
-## Determine the Largest LOB Size
+- Select the endpoint that you created, and choose **Test connection** from the **Actions** drop-down menu.
 
-Large objects (LOBs) typically take the longest to migrate, unlike data types such as number and character, because of time spent encoding, storing, decoding, and retrieving them. You should identify tables with the TEXT, UNITEXT, and IMAGE data types, because AWS DMS converts these objects to LOB.
-
-AWS DMS recommends to identify the size of LOB columns and choose limited or full mode, and max LOB size in the LOB settings appropriately. You can use the following dynamic SQL to generate a query for each table.
+To use Transport Layer Security (TLS) for an SAP ASE database version 15.7 and higher, use the Adaptive Server Enterprise 16.03.06 extra connection attribute (ECA) provider. Use the following example:
 
 ```
-select 'select max(datalength('+ c.name +'))/1024 KB_SIZE from dbo.'+ o.name+';'
-from sysobjects o,
-    syscolumns c
-where o.type = 'U' and
-    o.id = c.id and
-    c.type in (34,35,174);
+provider=Adaptive Server Enterprise 16.03.06;
 ```
 
-The output of this query is shown following.
+Make sure that you open the database port to the IP range of your replication instance before you test the connection. If the firewall is open but you still experience a connection issue, please contact AWS support.
 
-```
-select max(datalength(pic))/1024 KB_SIZE from dbo.au_pix;
-select max(datalength(copy))/1024 KB_SIZE from dbo.blurbs;
-```
+### Create a Target Endpoint
 
-After you run the preceding queries, compare the results and choose the top one.
+Create a target endpoint for your Amazon Aurora MySQL database.
 
-For example, we found the largest LOB column in our SAP ASE database is 51 KB. We used this number as input in our task settings with limited LOB mode.
+- On the AWS DMS console, choose **Endpoints**.
+- Choose **Create endpoint**.
+- For **Endpoint type**, select **Target endpoint**.
+- Enter your desired endpoint configuration.
 
-The speed of the full load is improved with the limited LOB mode compared to the full LOB mode. For performance reasons, AWS DMS recommends to use limited LOB mode and increase the maximum LOB size to cover the actual size you find from your query. For more information, see [How can I improve the speed of a migration task that has LOB data?](https://aws.amazon.com/premiumsupport/knowledge-center/dms-improve-speed-lob-data/ "https://aws.amazon.com/premiumsupport/knowledge-center/dms-improve-speed-lob-data/").
+![Target endpoint configuration](images/sap-ase-to-aurora-mysql-target-endpoint-configuration.png)
 
-## Document Integrations with Other Databases or Applications
+- Test the connection using the preceding replication instance.
 
-Replace remote objects or interfaces in your code with other AWS services or equivalent external services.
+To establish the connection, make sure that you edit the security group for your Amazon Aurora DB instance. Also, open the 3306 port on your MySQL database to the private IP or IP range of the replication instance.
 
-For example, in the SAP ASE database, you may send out email using the `xp_sendmail` procedure. Because Amazon Aurora MySQL doesn’t provide native support for sending emails, redesign the process. For example, use an AWS Lambda function to send email from the database. For more information, see [AWS Lambda](http://aws.amazon.com/lambda "http://aws.amazon.com/lambda") and [Sending notifications from Amazon Aurora MySQL](https://docs.amazonaws.cn/en_us/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.html "https://docs.amazonaws.cn/en_us/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.html").
+- On the Amazon Relational Database Service (Amazon RDS) console, choose your Amazon Aurora MySQL DB instance.
+- On the **Connectivity & security** tab, locate your security group name under **Security**.
+- Choose the security group link. A new security group interface page opens.
+- Choose **Inbound rules**.
+- Choose **Edit inbound rules**.
+- Add the IP range of the replication instance.
 
-###### Note
+### Create a Migration Task
 
-For database links from the source database to a remote server in SAP ASE, update data using foreign data wrappers (FDW).
+Create a migration task using the source and target endpoints that you created on the preceding step. For more information, see [Creating a task](../userguide/CHAP_Tasks.md "../userguide/CHAP_Tasks.md"). After you create your task, AWS DMS sets its status to **Ready**. When you start or resume the task, AWS DMS changes the status to **Starting** or **Running**.
+
+To monitor the process, choose **Task Monitoring**, **Table Statistics**, **Logs**. For more information, see [Monitoring Database Migration Service metrics](../userguide/CHAP_Monitoring.md#CHAP_Monitoring.Metrics "../userguide/CHAP_Monitoring.md#CHAP_Monitoring.Metrics") and [How can I enable monitoring for an database migration task?](https://aws.amazon.com/premiumsupport/knowledge-center/dms-monitor-task/ "https://aws.amazon.com/premiumsupport/knowledge-center/dms-monitor-task/").
+
+### Cutover Procedures
+
+When the AWS DMS task finishes the full load and applies cached changes, the task moves to the change data capture (CDC) stage. At this point, you can perform the cutover to Amazon Aurora. You run SQL queries to validate data and use AWS services to set up backup and monitor jobs.
+
+To perform the cutover, do the following:
+
+- Analyze the database queries in Amazon Aurora MySQL and test the performance of critical queries.
+- Shut down all the application servers and stop all the client connections to SAP ASE. Close any user sessions if necessary.
+- Verify that the target data has been synced with the source database.
+- Stop the AWS DMS task.
+- Create the foreign keys and secondary indexes in Amazon Aurora MySQL if you didn’t create them before the CDC stage started.
+- Validate tables, views, procedures, functions, and triggers within your schema.
+- Switch the application servers, clients, and jobs to the Amazon Aurora MySQL database.
+- Create the CloudWatch alarms based on your desired DB metrics. For more information, see [Key Metrics for Amazon Aurora](https://aws.amazon.com/blogs/apn/key-metrics-for-amazon-aurora/ "https://aws.amazon.com/blogs/apn/key-metrics-for-amazon-aurora/") and [Monitoring an Amazon Aurora DB Cluster](../../../AmazonRDS/latest/AuroraUserGuide/MonitoringAurora.md "../../../AmazonRDS/latest/AuroraUserGuide/MonitoringAurora.md").
+- Add a reader node to an existing Amazon Aurora MySQL cluster. By default, Amazon Aurora replicates data across three Availability Zones in one Region at the storage level. This architecture is fault tolerant by design. For enhanced availability, add a reader node for a production database to automate failover in case of instance failure. Modify the database cluster to enable failover in case of instance failure. For more information, see [High Availability for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md").
+
+## Troubleshooting
+
+For more information about troubleshooting issues with AWS DMS, see [Troubleshooting migration tasks in Database Migration Service](../userguide/CHAP_Troubleshooting.md "../userguide/CHAP_Troubleshooting.md").
+
+For more information about troubleshooting issues specific to using AWS DMS with SAP ASE databases, see [Troubleshooting issues with SAP ASE](../userguide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.SAP "../userguide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.SAP").
+
+For more information about troubleshooting issues specific to using AWS DMS with Amazon Aurora MySQL databases, see [Troubleshooting issues with MySQL](../userguide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL "../userguide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL") and [Troubleshooting issues with Amazon Aurora MySQL](../userguide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.Aurora "../userguide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.Aurora").
