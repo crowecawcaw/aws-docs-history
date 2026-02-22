@@ -1,69 +1,90 @@
-# Migrating from Oracle to Amazon RDS for PostgreSQL or Amazon Aurora PostgreSQL with AWS Schema Conversion Tool
+# Migrating from Oracle to Amazon RDS for MySQL or Amazon Aurora MySQL with the AWS Schema Conversion Tool
 
-When you convert an Oracle database to RDS for PostgreSQL or Amazon Aurora PostgreSQL, be aware of the
-following.
+To emulate Oracle database functions in your converted MySQL code, use the Oracle
+to MySQL extension pack in AWS SCT. For more information about extension packs, see
+[Using extension packs with AWS Schema Conversion Tool](CHAP_ExtensionPack.md "CHAP_ExtensionPack.md").
 
 ###### Topics
 
-- [Privileges for PostgreSQL as a target database](#CHAP_Source.Oracle.ToPostgreSQL.ConfigureTarget "#CHAP_Source.Oracle.ToPostgreSQL.ConfigureTarget")
-- [Oracle to PostgreSQL conversion settings](#CHAP_Source.Oracle.ToPostgreSQL.ConversionSettings "#CHAP_Source.Oracle.ToPostgreSQL.ConversionSettings")
-- [Converting Oracle sequences](#CHAP_Source.Oracle.ToPostgreSQL.ConvertSequences "#CHAP_Source.Oracle.ToPostgreSQL.ConvertSequences")
-- [Converting Oracle ROWID](#CHAP_Source.Oracle.ToPostgreSQL.ConvertRowID "#CHAP_Source.Oracle.ToPostgreSQL.ConvertRowID")
-- [Converting Oracle dynamic SQL](#CHAP_Source.Oracle.ToPostgreSQL.DynamicSQL "#CHAP_Source.Oracle.ToPostgreSQL.DynamicSQL")
-- [Converting Oracle partitions](#CHAP_Source.Oracle.ToPostgreSQL.PG10Partitioning "#CHAP_Source.Oracle.ToPostgreSQL.PG10Partitioning")
-  When converting Oracle system objects to PostgreSQL, AWS SCT performs conversions
-  as shown in the following table.
+- [Privileges for MySQL as a target database](#CHAP_Source.Oracle.ToMySQL.ConfigureTarget "#CHAP_Source.Oracle.ToMySQL.ConfigureTarget")
+- [Oracle to MySQL conversion settings](#CHAP_Source.Oracle.ToMySQL.ConversionSettings "#CHAP_Source.Oracle.ToMySQL.ConversionSettings")
+- [Migration considerations](#CHAP_Source.Oracle.ToMySQL.MigrationConsiderations "#CHAP_Source.Oracle.ToMySQL.MigrationConsiderations")
+- [Converting the WITH statement in Oracle to RDS for MySQL or Amazon Aurora MySQL](#CHAP_Source.Oracle.ToMySQL.With "#CHAP_Source.Oracle.ToMySQL.With")
 
-| Oracle system<br>object | Description                                                                   | Converted PostgreSQL<br>object |
-| ----------------------- | ----------------------------------------------------------------------------- | ------------------------------ |
-| V$VERSION               | Displays version numbers of core library<br>components in the Oracle Database | aws_oracle_ext.v$version       |
-| V$INSTANCE              | A view that shows the state of the current<br>instance.                       | aws_oracle_ext.v$instance      |
+## Privileges for MySQL as a target database
 
-You can use AWS SCT to convert Oracle SQL\*Plus files to psql, which is a
-terminal-based front-end to PostgreSQL. For more information, see [Converting application SQL using AWS SCT](CHAP_Converting.md "CHAP_Converting.md").
+The privileges required for MySQL as a target are as follows:
 
-## Privileges for PostgreSQL as a target database
+- CREATE ON \*.\*
+- ALTER ON \*.\*
+- DROP ON \*.\*
+- INDEX ON \*.\*
+- REFERENCES ON \*.\*
+- SELECT ON \*.\*
+- CREATE VIEW ON \*.\*
+- SHOW VIEW ON \*.\*
+- TRIGGER ON \*.\*
+- CREATE ROUTINE ON \*.\*
+- ALTER ROUTINE ON \*.\*
+- EXECUTE ON \*.\*
+- CREATE TEMPORARY TABLES ON \*.\*
+- AWS_LAMBDA_ACCESS
+- INSERT, UPDATE ON AWS_ORACLE_EXT.\*
+- INSERT, UPDATE, DELETE ON AWS_ORACLE_EXT_DATA.\*
 
-To use PostgreSQL as a target, AWS SCT requires the `CREATE ON DATABASE` privilege.
-Make sure that you grant this privilege for each target PostgreSQL database.
-
-To use the converted public synonyms, change the database default search path to
-`"$user", public_synonyms, public`.
+If you use a MySQL database version 5.7 or lower as a target, then grant the INVOKE LAMBDA \*.\*
+permission instead of AWS_LAMBDA_ACCESS. For MySQL databases version 8.0 and higher, grant
+the AWS_LAMBDA_ACCESS permission.
 
 You can use the following code example to create a database user and grant the privileges.
 
 ```
-CREATE ROLE `user_name` LOGIN PASSWORD '`your_password`';
-GRANT CREATE ON DATABASE `db_name` TO `user_name`;
-ALTER DATABASE `db_name` SET SEARCH_PATH = "$user", public_synonyms, public;
+CREATE USER '`user_name`' IDENTIFIED BY '`your_password`';
+GRANT CREATE ON *.* TO '`user_name`';
+GRANT ALTER ON *.* TO '`user_name`';
+GRANT DROP ON *.* TO '`user_name`';
+GRANT INDEX ON *.* TO '`user_name`';
+GRANT REFERENCES ON *.* TO '`user_name`';
+GRANT SELECT ON *.* TO '`user_name`';
+GRANT CREATE VIEW ON *.* TO '`user_name`';
+GRANT SHOW VIEW ON *.* TO '`user_name`';
+GRANT TRIGGER ON *.* TO '`user_name`';
+GRANT CREATE ROUTINE ON *.* TO '`user_name`';
+GRANT ALTER ROUTINE ON *.* TO '`user_name`';
+GRANT EXECUTE ON *.* TO '`user_name`';
+GRANT CREATE TEMPORARY TABLES ON *.* TO '`user_name`';
+GRANT AWS_LAMBDA_ACCESS TO '`user_name`';
+GRANT INSERT, UPDATE ON AWS_ORACLE_EXT.* TO '`user_name`';
+GRANT INSERT, UPDATE, DELETE ON AWS_ORACLE_EXT_DATA.* TO '`user_name`';
 ```
 
 In the preceding example, replace `user_name` with the name of your user.
-Then, replace `db_name` with the name of your target database.
-Finally, replace `your_password` with a secure password.
+Then, replace `your_password` with a secure password.
 
-To use Amazon RDS for PostgreSQL as a target, AWS SCT requires the `rds_superuser` privilege.
+If you use a MySQL database version 5.7 or lower as a target, then use
+`GRANT INVOKE LAMBDA ON *.* TO '`user_name`'`
+instead of `GRANT AWS_LAMBDA_ACCESS TO '`user_name`'`.
 
-In PostgreSQL, only the schema owner or a `superuser` can drop a schema. The owner can drop a schema
-and all objects that this schema includes even if the owner of the schema doesn't own some of its objects.
+To use Amazon RDS for MySQL or Aurora MySQL as a target, set the `lower_case_table_names` parameter
+to `1`. This value means that the MySQL server handles identifiers of such object names as tables,
+indexes, triggers, and databases as case insensitive.
+If you have turned on binary logging in your target instance, then set the
+`log_bin_trust_function_creators` parameter to `1`.
+In this case, you don't need to use the `DETERMINISTIC`,
+`READS SQL DATA` or `NO SQL` characteristics to create stored functions.
+To configure these parameters, create a new DB parameter group or modify an existing DB parameter group.
 
-When you use different users to convert and apply different schemas to your target database,
-you can get an error message when AWS SCT can't drop a schema. To avoid this error message,
-use the `superuser` role.
+## Oracle to MySQL conversion settings
 
-## Oracle to PostgreSQL conversion settings
-
-To edit Oracle to PostgreSQL conversion settings, choose
+To edit Oracle to MySQL conversion settings, choose
 **Settings** in AWS SCT, and then choose **Conversion
 settings**. From the upper list, choose **Oracle**,
-and then choose **Oracle – PostgreSQL**. AWS SCT displays
-all available settings for Oracle to PostgreSQL conversion.
+and then choose **Oracle – MySQL**. AWS SCT displays all
+available settings for Oracle to MySQL conversion.
 
-Oracle to PostgreSQL conversion settings in AWS SCT include options for the
-following:
+Oracle to MySQL conversion settings in AWS SCT include options for the following:
 
-- To limit the number of comments with action items in the converted
-  code.
+- To limit the number of comments with action items in the converted code.
 
 For **Add comments in the converted code for the action items of selected severity and higher**,
 choose the severity of action items. AWS SCT adds comments in the converted code
@@ -73,149 +94,78 @@ For example, to minimize the number of comments in your converted code, choose
 **Errors only**. To include comments for all action items in your
 converted code, choose **All messages**.
 
-- To allow AWS SCT to convert Oracle materialized views to tables or
-  materialized views on PostgreSQL. For **Materialized view conversion
-  as**, choose how to convert your source materialized
-  views.
+- To address that your source Oracle database can use the
+  `ROWID` pseudocolumn but MySQL doesn't support similar
+  functionality. AWS SCT can emulate the `ROWID` pseudocolumn in
+  the converted code. To do so, choose **Generate as
+  identity** for **Generate row ID?**.
+
+If your source Oracle code doesn't use the `ROWID`
+pseudocolumn, choose **Don't generate** for
+**Generate row ID?** In this case, the converted code
+works faster.
+
 - To work with your source Oracle code when it includes the
   `TO_CHAR`, `TO_DATE`, and `TO_NUMBER`
-  functions with parameters that PostgreSQL doesn't support. By default,
-  AWS SCT emulates the usage of these parameters in the converted
-  code.
+  functions with parameters that MySQL doesn't support. By default,
+  AWS SCT emulates the usage of these parameters in the converted code.
 
 When your source Oracle code includes only parameters that PostgreSQL
-supports, you can use native PostgreSQL `TO_CHAR`,
-`TO_DATE`, and `TO_NUMBER` functions. In this
-case, the converted code works faster. To include only these parameters,
+supports, you can use native MySQL `TO_CHAR`, `TO_DATE`, and `TO_NUMBER`
+functions. In this case, the converted code works faster. To include only these parameters,
 select the following values:
 
     + **Function TO\_CHAR() does not use Oracle specific formatting strings**
     + **Function TO\_DATE() does not use Oracle specific formatting strings**
     + **Function TO\_NUMBER() does not use Oracle specific formatting strings**
 
-- To address when your source Oracle database stores only integer values
-  in the primary or foreign key columns of the `NUMBER` data type,
-  AWS SCT can convert these columns to the `BIGINT` data type.
-  This approach improves the performance of your converted code. To take this
-  approach, select **Convert NUMBER primary / foreign key columns to
-  BIGINT ones**. Make sure that your source doesn't include
-  floating point values in these columns to avoid data loss.
-- To skip deactivated triggers and constraints in your source code. To
-  do so, choose **Ignore disabled triggers and
-  constraints**.
-- To use AWS SCT to convert string variables that are called as dynamic
-  SQL. Your database code can change the values of these string variables. To
-  make sure that AWS SCT always converts the latest value of this string
-  variable, select **Convert the dynamic SQL code that is created in
-  called routines**.
-- To address that PostgreSQL version 10 and earlier don't support
-  procedures. If you or your users aren't familiar with using procedures in
-  PostgreSQL, AWS SCT can convert Oracle procedures to PostgreSQL functions.
-  To do so, select **Convert procedures to
-  functions**.
-- To see additional information about the occurred action items. To do
-  so, you can add specific functions to the extension pack by selecting
-  **Add on exception raise block for migration issues with the
-  next severity levels**. Then choose severity levels to raise
-  user-defined exceptions.
-- To work with a source Oracle database that might include constraints
-  with the automatically generated names. If your source code uses these
-  names, make sure that you select **Convert the system generated
-  constraint names using the source original names**. If your
-  source code uses these constraints but doesn't use their names, clear this
-  option to increase the conversion speed.
-- To address whether your database and applications run in different time
-  zones. By default, AWS SCT emulates time zones in the converted code.
-  However, you don't need this emulation when your database and applications
-  use the same time zone. In this case, select **Time zone on the
-  client side matches the time zone on server**.
-- To address whether your source and target databases run in different
-  time zones. If they do, the function that emulates the `SYSDATE`
-  built-in Oracle function returns different values compared to the source
-  function. To make sure that your source and target functions return the same
-  values, choose **Set default time zone for SYSDATE
-  emulation**.
-- To use the functions from the orafce extension in your converted code.
-  To do so, for **Use orafce implementation**, select the
-  functions to use. For more information about orafce, see [orafce](https://github.com/orafce/orafce "https://github.com/orafce/orafce") on GitHub.
+- To addess whether your database and applications run in different time
+  zones. By default, AWS SCT
+  emulates time zones in the converted code. However, you don't need this emulation when your
+  database and applications use the same time zone. In this case, select
+  **Time zone on the client side matches the time zone on server**.
 
-## Converting Oracle sequences
+## Migration considerations
 
-AWS SCT converts sequences from Oracle to PostgreSQL. If you use sequences to
-maintain integrity constraints, make sure that the new values of a migrated sequence
-don't overlap the existing values.
+When you convert Oracle to RDS for MySQL or Aurora MySQL, to change the order that
+statements run in, you can use a `GOTO` statement and a label. Any PL/SQL
+statements that follow a `GOTO` statement are skipped, and processing
+continues at the label. You can use `GOTO` statements and labels anywhere
+within a procedure, batch, or statement block. You can also next GOTO
+statements.
 
-###### To populate converted sequences with the last value from the source
+MySQL doesn't use `GOTO` statements. When AWS SCT converts
+code that contains a `GOTO` statement, it converts the statement to use a
+`BEGIN…END` or `LOOP…END LOOP` statement.
 
-database
+You can find examples of how AWS SCT converts `GOTO` statements in
+the table following.
 
-1. Open your AWS SCT project with Oracle as the source.
-2. Choose **Settings**,
-   and then choose **Conversion settings**.
-3. From the upper list, choose **Oracle**,
-   and then choose **Oracle – PostgreSQL**.
-   AWS SCT displays all available settings for Oracle to PostgreSQL conversion.
-4. Choose **Populate converted sequences with the last value generated on the source
-   side**.
-5. Choose **OK** to save the settings and close the
-   **Conversion settings** dialog box.
+| Oracle statement                                                                                                                                      | MySQL statement                                                                                                                                                                                |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<br>BEGIN<br>....<br>statement1;<br>....<br>GOTO label1;<br>statement2;<br>....<br>label1:<br>Statement3;<br>....<br>END<br>`                        | `<br>BEGIN<br>label1:<br>BEGIN<br>....<br>statement1;<br>....<br>LEAVE label1;<br>statement2;<br>....<br>END;<br>Statement3;<br>....<br>END<br>`                                               |
+| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>GOTO label1;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>LOOP<br>statement2;<br>....<br>ITERATE label1;<br>LEAVE label1;<br>END LOOP;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` |
+| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END<br>`                 | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>BEGIN<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END;<br>END<br>`                                         |
 
-## Converting Oracle ROWID
+## Converting the WITH statement in Oracle to RDS for MySQL or Amazon Aurora MySQL
 
-In an Oracle database, the ROWID pseudocolumn contains the address of the
-table row. The ROWID pseudocolumn is unique to Oracle, so AWS SCT converts the
-ROWID pseudocolumn to a data column on PostgreSQL. By using this conversion, you can
-keep the ROWID information.
+You use the WITH clause (subquery_factoring) in Oracle to assign a name
+(query_name) to a subquery block. You can then reference the subquery block multiple
+places in the query by specifying query_name. If a subquery block doesn't contain
+links or parameters (local, procedure, function, package), then AWS SCT converts the
+clause to a view or a temporary table.
 
-When converting the ROWID pseudocolumn, AWS SCT can create a data column
-with the `bigint` data type. If no primary key exists, AWS SCT sets the ROWID
-column as the primary key. If a primary key exists, AWS SCT sets the ROWID
-column with a unique constraint.
+The advantage of converting the clause to a temporary table is that repeated
+references to the subquery might be more efficient. The greater efficiency is
+because the data is easily retrieved from the temporary table rather than being
+required by each reference. You can emulate this by using additional views or a
+temporary table. The view name uses the format
+`<procedure_name>$<subselect_alias>`.
 
-If your source database code includes operations with ROWID, which you
-can't run using a numeric data type, AWS SCT can create a data column
-with the `character varying` data type.
+You can find examples in the table following.
 
-###### To create a data column for Oracle ROWID for a project
-
-1. Open your AWS SCT project with Oracle as the source.
-2. Choose **Settings**,
-   and then choose **Conversion settings**.
-3. From the upper list, choose **Oracle**,
-   and then choose **Oracle – PostgreSQL**.
-   AWS SCT displays all available settings for Oracle to PostgreSQL conversion.
-4. For **Generate row ID**, do one of the following:
-   - Choose **Generate as identity** to create a
-     numeric data column.
-   - Choose **Generate as character domain type** to
-     create a character data column.
-
-5. Choose **OK** to save the settings and close the
-   **Conversion settings** dialog box.
-
-## Converting Oracle dynamic SQL
-
-Oracle provides two ways to implement dynamic SQL: using an EXECUTE IMMEDIATE statement
-or calling procedures in the DBMS_SQL package. If your source Oracle database includes
-objects with dynamic SQL, use AWS SCT to convert Oracle dynamic SQL statements to PostgreSQL.
-
-###### To convert Oracle dynamic SQL to PostgreSQL
-
-1. Open your AWS SCT project with Oracle as the source.
-2. Choose a database object that uses dynamic SQL in the Oracle source tree view.
-3. Open the context (right-click) menu for the object, choose **Convert schema**,
-   and agree to replace the objects if they exist. The following screenshot shows the converted
-   procedure below the Oracle procedure with dynamic SQL.
-
-![Dynamic SQL conversion](images/dynamicsql1.png)
-
-## Converting Oracle partitions
-
-AWS SCT currently supports the following partitioning methods:
-
-- Range
-- List
-- Multicolumn range
-- Hash
-- Composite (list-list, range-list, list-range, list-hash, range-hash,
-  hash-hash)
+| Oracle statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | MySQL statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<br>CREATE PROCEDURE<br>TEST_ORA_PG.P_WITH_SELECT_VARIABLE_01<br>(p_state IN NUMBER)<br>AS<br>l_dept_id NUMBER := 1;<br>BEGIN<br>FOR cur IN<br>(WITH dept_empl(id, name, surname,<br>lastname, state, dept_id)<br>AS<br>(<br>SELECT id, name, surname,<br>lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE state = p_state AND<br>dept_id = l_dept_id)<br>SELECT id,state<br>FROM dept_empl<br>ORDER BY id)  LOOP<br>NULL;<br>END LOOP;<br>`                 | `<br>CREATE PROCEDURE test_ora_pg.P_WITH_SELECT_VARIABLE_01(IN par_P_STATE DOUBLE)<br>BEGIN<br>DECLARE var_l_dept_id DOUBLE DEFAULT 1;<br>DECLARE var$id VARCHAR (8000);<br>DECLARE var$state VARCHAR (8000);<br>DECLARE done INT DEFAULT FALSE;<br>DECLARE cur CURSOR FOR SELECT<br>ID, STATE<br>FROM (SELECT<br>ID, NAME, SURNAME, LASTNAME, STATE, DEPT_ID<br>FROM TEST_ORA_PG.DEPT_EMPLOYEES<br>WHERE STATE = par_p_state AND DEPT_ID = var_l_dept_id) AS dept_empl<br>ORDER BY ID;<br>DECLARE CONTINUE HANDLER FOR NOT FOUND<br>SET done := TRUE;<br>OPEN cur;<br>read_label:<br>LOOP<br>FETCH cur INTO var$id, var$state;<br>IF done THEN<br>LEAVE read_label;<br>END IF;<br>BEGIN<br>END;<br>END LOOP;<br>CLOSE cur;<br>END;<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `<br>CREATE PROCEDURE<br>TEST_ORA_PG.P_WITH_SELECT_REGULAR_MULT_01<br>AS<br>BEGIN<br>FOR cur IN  (<br>WITH dept_empl AS<br>(<br>SELECT id, name, surname,<br>lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE state = 1),<br>dept AS<br>(SELECT id deptid, parent_id,<br>name deptname<br>FROM test_ora_pg.department<br>)<br>SELECT dept_empl.*,dept.*<br>FROM dept_empl, dept<br>WHERE dept_empl.dept_id = dept.deptid<br>) LOOP<br>NULL;<br>END LOOP;<br>` | ``<br>CREATE VIEW TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept_empl<br>`(id, name, surname, lastname, state, dept_id)<br>AS<br>(SELECT id, name, surname, lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE state = 1);<br>CREATE VIEW TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept<br>`(deptid, parent_id,deptname)<br>AS<br>(SELECT id deptid, parent_id, name deptname<br>FROM test_ora_pg.department);<br>CREATE PROCEDURE test_ora_pg.P_WITH_SELECT_REGULAR_MULT_01()<br>BEGIN<br>DECLARE var$ID DOUBLE;<br>DECLARE var$NAME VARCHAR (30);<br>DECLARE var$SURNAME VARCHAR (30);<br>DECLARE var$LASTNAME VARCHAR (30);<br>DECLARE var$STATE DOUBLE;<br>DECLARE var$DEPT_ID DOUBLE;<br>DECLARE var$deptid DOUBLE;<br>DECLARE var$PARENT_ID DOUBLE;<br>DECLARE var$deptname VARCHAR (200);<br>DECLARE done INT DEFAULT FALSE;<br>DECLARE cur CURSOR FOR SELECT<br>dept_empl.*, dept.*<br>FROM TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept_empl<br>` AS dept_empl,<br>TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept<br>` AS dept<br>WHERE dept_empl.DEPT_ID = dept.DEPTID;<br>DECLARE CONTINUE HANDLER FOR NOT FOUND<br>SET done := TRUE;<br>OPEN cur;<br>read_label:<br>LOOP<br>FETCH cur INTO var$ID, var$NAME, var$SURNAME,<br>var$LASTNAME, var$STATE, var$DEPT_ID, var$deptid,<br>var$PARENT_ID, var$deptname;<br>IF done THEN<br>LEAVE read_label;<br>END IF;<br>BEGIN<br>END;<br>END LOOP;<br>CLOSE cur;<br>END;<br>call test_ora_pg.P_WITH_SELECT_REGULAR_MULT_01()<br>`` |
+| `<br>CREATE PROCEDURE<br>TEST_ORA_PG.P_WITH_SELECT_VAR_CROSS_02(p_state IN NUMBER)<br>AS<br>l_dept_id NUMBER := 10;<br>BEGIN<br>FOR cur IN  (<br>WITH emp AS<br>(SELECT id, name, surname,<br>lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE dept_id > 10<br>),<br>active_emp AS<br>(<br>SELECT id<br>FROM emp<br>WHERE emp.state = p_state<br>)<br>SELECT *<br>FROM active_emp<br>) LOOP<br>NULL;<br>END LOOP;<br>END;<br>`                                | ``<br>CREATE VIEW TEST_ORA_PG.`P_WITH_SELECT_VAR_CROSS_01$emp<br>`(id, name, surname, lastname, state, dept_id)<br>AS<br>(SELECT<br>id, name, surname, lastname,<br>state, dept_id<br>FROM TEST_ORA_PG.DEPT_EMPLOYEES<br>WHERE DEPT_ID > 10);<br>CREATE PROCEDURE<br>test_ora_pg.P_WITH_SELECT_VAR_CROSS_02(IN par_P_STATE DOUBLE)<br>BEGIN<br>DECLARE var_l_dept_id DOUBLE DEFAULT 10;<br>DECLARE var$ID DOUBLE;<br>DECLARE done INT DEFAULT FALSE;<br>DECLARE cur CURSOR FOR SELECT *<br>FROM (SELECT<br>ID<br>FROM<br>TEST_ORA_PG.<br>`P_WITH_SELECT_VAR_CROSS_01$emp` AS emp<br>WHERE emp.STATE = par_p_state)<br>AS active_emp;<br>DECLARE CONTINUE HANDLER FOR NOT FOUND<br>SET done := TRUE;<br>OPEN cur;<br>read_label:<br>LOOP<br>FETCH cur INTO var$ID;<br>IF done THEN<br>LEAVE read_label;<br>END IF;<br>BEGIN<br>END;<br>END LOOP;<br>CLOSE cur;<br>END;<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
