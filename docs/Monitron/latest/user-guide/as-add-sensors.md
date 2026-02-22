@@ -129,7 +129,7 @@ It can take a few moments for Amazon Monitron to commission the sensor
 and pair with it. While it's connecting, you will see the following
 message.
 
-![Smartphone pairing with NFC sensor, showing progress bar and instruction not to move phone.](/images/Monitron/latest/user-guide/images/do-not-move-your-phone.png)
+![Smartphone pairing with NFC sensor, showing progress bar and instruction not to move phone.](images/do-not-move-your-phone.png)
 
 ###### Note
 
