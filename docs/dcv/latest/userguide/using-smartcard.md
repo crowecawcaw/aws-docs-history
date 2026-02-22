@@ -20,6 +20,14 @@ You must be authorized to use this feature. If you are not authorized, the funct
 not available in the client. For more information, see [Configuring Amazon DCV
 Authorization](../adminguide/security-authorization.md "../adminguide/security-authorization.md") in the _Amazon DCV Administrator Guide_.
 
+###### Note
+
+Smart card access in a Amazon DCV session operates at the PC/SC interface level. This means
+that applications using the PC/SC interface can interact with smart cards connected to
+the client computer. However, these smart cards will not be visible to server host
+components that interact directly with smart card devices. Most notably, the smart card
+devices will not appear in Windows Device Manager.
+
 ## Connecting a smart card
 
 ###### Connecting to a Windows client
