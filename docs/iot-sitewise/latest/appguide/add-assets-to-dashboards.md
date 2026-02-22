@@ -19,7 +19,7 @@ You can add asset properties to a new dashboard or an existing dashboard.
 
 1. In the navigation bar, choose the **Projects** icon.
 
-![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. Choose one of the following options:
+![The "Projects" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png) 2. Choose one of the following options:
 
     * To add asset properties and alarms to an existing dashboard, choose the dashboard
      to update, and then choose **Edit**.

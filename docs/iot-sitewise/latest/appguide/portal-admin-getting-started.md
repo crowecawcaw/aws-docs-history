@@ -32,7 +32,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 1. In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png)
 The **Assets** page
 appears.
 
@@ -50,7 +50,7 @@ See the following areas of the page.
 2. Choose an asset in the **Assets** hierarchy, and then choose
    **Add asset to project**.
 
-![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](/images/iot-sitewise/latest/appguide/images/asset-library-add-asset-to-project-console.png)
+![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](images/asset-library-add-asset-to-project-console.png)
 
 ###### Note
 
@@ -94,7 +94,7 @@ owners**.
 ![The "Project owners" section of the project details page.](images/project-add-owners-console.png) 4. In the **Project owners** dialog box, select the check boxes for the
 users to be owners for this project.
 
-![Shows the "Project owners" dialog.](images/project-choose-owners-console.png)
+![Shows the "Project owners" dialog.](/images/iot-sitewise/latest/appguide/images/project-choose-owners-console.png)
 
 ###### Note
 
