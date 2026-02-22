@@ -42,7 +42,7 @@ a Network Load Balancer with Amazon DCV Connection Gateway. See the [Network Loa
 ###### To create a Network Load Balancer for a fleet of Amazon DCV Connection Gateway hosts
 
 1. Navigate to the [EC2 Console](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"), select **Load Balancer** from
-   the navigation pane and then then choose **Create Load Balancer**. For load balancer type, choose **Network Load Balancer**.
+   the navigation pane and then choose **Create Load Balancer**. For load balancer type, choose **Network Load Balancer**.
 2. For **Basic Configuration** assign a **Name**, set **Scheme** to **internet-facing**,
    and set **Ip address type** to **IPv4**.
 3. For **Network mapping** select your **VPC** and then select all the availability zones and subnets in that VPC.
