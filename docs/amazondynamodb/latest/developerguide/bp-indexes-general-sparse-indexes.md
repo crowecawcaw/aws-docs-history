@@ -1,8 +1,10 @@
 # Take advantage of sparse indexes
 
-For any item in a table, DynamoDB writes a corresponding index entry **only if the index sort key value is present in the item**. If the sort key doesn't
-appear in every table item, or if the index partition key is not present in the item, the
-index is said to be _sparse_.
+For any item in a table, DynamoDB writes a corresponding index entry **only if the index key attributes are present in the item**. For a global secondary index, this
+means the index partition key must be defined on the item, and if the index also has a sort
+key, that attribute must be present too. If either key attribute is missing from an item, that
+item does not appear in the index. An index where only a subset of items from the base table
+appear is called a _sparse_ index.
 
 Sparse indexes are useful for queries over a small subsection of a table. For example,
 suppose that you have a table where you store all your customer orders, with the following key
@@ -27,7 +29,9 @@ items are returned sorted by the date on which each order was placed.
 
 Global secondary indexes are sparse by default. When you create a global secondary
 index, you specify a partition key and optionally a sort key. Only items in the base table
-that contain those attributes appear in the index.
+that contain the required key attributes appear in the index. If an item is missing the
+index partition key—or the sort key, when one is defined—that item is excluded
+from the index.
 
 By designing a global secondary index to be sparse, you can provision it with lower
 write throughput than that of the base table, while still achieving excellent

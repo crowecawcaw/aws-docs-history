@@ -190,14 +190,6 @@ design models based on, existing data models that satisfy your application's
 data access patterns. You can also import and export the designed data model
 at the end of the process. For more information, see [Building data models with NoSQL Workbench](workbench.md "workbench.md").
 
-**Data visualization**
-
-The data model visualizer provides a canvas where you can map queries and
-visualize the access patterns (facets) of the application without having to
-write code. Every facet corresponds to a different access pattern in DynamoDB.
-You can autogenerate sample data for use in your data model. For more
-information, see [Visualizing data access patterns](workbench.md "workbench.md").
-
 **Operation building**
 
 NoSQL Workbench provides a rich graphical user interface for you to

@@ -1,8 +1,7 @@
-# 01-create-table.js
+# 06-delete-table.js
 
-The `01-create-table.js` program creates a table
-(`TryDaxTable`). The remaining Node.js programs in this section
-depend on this table.
+The `06-delete-table.js` program deletes `TryDaxTable`.
+Run this program after you have finished testing.
 
 ```
 const AmazonDaxClient = require("amazon-dax-client");
@@ -20,29 +19,17 @@ var tableName = "TryDaxTable";
 
 var params = {
   TableName: tableName,
-  KeySchema: [
-    { AttributeName: "pk", KeyType: "HASH" }, //Partition key
-    { AttributeName: "sk", KeyType: "RANGE" }, //Sort key
-  ],
-  AttributeDefinitions: [
-    { AttributeName: "pk", AttributeType: "N" },
-    { AttributeName: "sk", AttributeType: "N" },
-  ],
-  ProvisionedThroughput: {
-    ReadCapacityUnits: 10,
-    WriteCapacityUnits: 10,
-  },
 };
 
-dynamodb.createTable(params, function (err, data) {
+dynamodb.deleteTable(params, function (err, data) {
   if (err) {
     console.error(
-      "Unable to create table. Error JSON:",
+      "Unable to delete table. Error JSON:",
       JSON.stringify(err, null, 2)
     );
   } else {
     console.log(
-      "Created table. Table description JSON:",
+      "Deleted table. Table description JSON:",
       JSON.stringify(data, null, 2)
     );
   }

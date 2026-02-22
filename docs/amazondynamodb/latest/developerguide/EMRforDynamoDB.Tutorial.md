@@ -1,103 +1,56 @@
-# Step 4: Load data into
+# Step 2: Launch an Amazon EMR
 
-HDFS
+cluster
 
-In this step, you will copy a data file into Hadoop Distributed File System
-(HDFS), and then create an external Hive table that maps to the data file.
+In this step, you will configure and launch an Amazon EMR cluster. Hive and a storage
+handler for DynamoDB will already be installed on the cluster.
 
-###### Download the sample data
+1. Open the Amazon EMR console at
+   [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr/ "https://console.aws.amazon.com/emr/").
+2. Choose **Create Cluster**.
+3. On the **Create Cluster - Quick Options** page, do the
+   following:
+   1. In **Cluster name**, type a name for your cluster
+      (for example: `My EMR cluster`).
+   2. In **EC2 key pair**, choose the key pair you
+      created earlier.Leave the other settings at their defaults.
 
-1. Download the sample data archive (`features.zip`):
+4. Choose **Create cluster**.
+   It will take several minutes to launch your cluster. You can use the
+   **Cluster Details** page in the Amazon EMR console to monitor its
+   progress.
 
-```
-wget https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/samples/features.zip
-```
+When the status changes to `Waiting`, the cluster is ready for
+use.
 
-2. Extract the `features.txt` file from the archive:
+## Cluster
 
-```
-unzip features.zip
-```
+log files and Amazon S3
 
-3. View the first few lines of the `features.txt` file:
+An Amazon EMR cluster generates log files that contain information about the
+cluster status and debugging information. The default settings for
+**Create Cluster - Quick Options** include setting up Amazon EMR
+logging.
 
-```
-head features.txt
-```
+If one does not already exist, the AWS Management Console creates an Amazon S3 bucket. The
+bucket name is
+`aws-logs-`account-id`-`region`,
+ where `account-id`is your AWS account number
+ and`region``is the region in which you
+ launched the cluster (for example,
+`aws-logs-123456789012-us-west-2`).
 
-The result should look similar to this:
+###### Note
 
-```
-1535908|Big Run|Stream|WV|38.6370428|-80.8595469|794
-875609|Constable Hook|Cape|NJ|40.657881|-74.0990309|7
-1217998|Gooseberry Island|Island|RI|41.4534361|-71.3253284|10
-26603|Boone Moore Spring|Spring|AZ|34.0895692|-111.410065|3681
-1506738|Missouri Flat|Flat|WA|46.7634987|-117.0346113|2605
-1181348|Minnow Run|Stream|PA|40.0820178|-79.3800349|1558
-1288759|Hunting Creek|Stream|TN|36.343969|-83.8029682|1024
-533060|Big Charles Bayou|Bay|LA|29.6046517|-91.9828654|0
-829689|Greenwood Creek|Stream|NE|41.596086|-103.0499296|3671
-541692|Button Willow Island|Island|LA|31.9579389|-93.0648847|98
-```
+You can use the Amazon S3 console to view the log files. For more information,
+see [View Log Files](../../../ElasticMapReduce/latest/ManagementGuide/emr-manage-view-web-log-files.md "../../../ElasticMapReduce/latest/ManagementGuide/emr-manage-view-web-log-files.md") in the _Amazon EMR Management
+Guide_.
 
-The `features.txt` file contains a subset of data from the
-United States Board on Geographic Names ([http://geonames.usgs.gov/domestic/download_data.htm](http://geonames.usgs.gov/domestic/download_data.htm "http://geonames.usgs.gov/domestic/download_data.htm")). The
-fields in each line represent the following:
-
-    * Feature ID (unique identifier)
-    * Name
-    * Class (lake; forest; stream; and so on)
-    * State
-    * Latitude (degrees)
-    * Longitude (degrees)
-    * Height (in feet)
-
-4. At the command prompt, enter the following command:
-
-```
-hive
-```
-
-The command prompt changes to this: `hive>` 5. Enter the following HiveQL statement to create a native Hive table:
-
-```
-CREATE TABLE hive_features
-    (feature_id             BIGINT,
-    feature_name            STRING ,
-    feature_class           STRING ,
-    state_alpha             STRING,
-    prim_lat_dec            DOUBLE ,
-    prim_long_dec           DOUBLE ,
-    elev_in_ft              BIGINT)
-    ROW FORMAT DELIMITED
-    FIELDS TERMINATED BY '|'
-    LINES TERMINATED BY '\n';
-```
-
-6. Enter the following HiveQL statement to load the table with data:
-
-```
-LOAD DATA
-LOCAL
-INPATH './features.txt'
-OVERWRITE
-INTO TABLE hive_features;
-```
-
-7. You now have a native Hive table populated with data from the
-   `features.txt` file. To verify, enter the following HiveQL
-   statement:
-
-```
-SELECT state_alpha, COUNT(*)
-FROM hive_features
-GROUP BY state_alpha;
-```
-
-The output should show a list of states and the number of geographic
-features in each.
+You can use this bucket for purposes in addition to logging. For example, you
+can use the bucket as a location for storing a Hive script or as a destination
+when exporting data from Amazon DynamoDB to Amazon S3.
 
 ###### Next step
 
-[Step 5: Copy data to
-DynamoDB](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+[Step 3: Connect
+to the Leader node](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")

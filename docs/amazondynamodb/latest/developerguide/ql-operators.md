@@ -29,14 +29,14 @@ DynamoDB.
 
 ## Logical operators
 
-| Operator  | Description                                                                                                                                                 |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AND`     | `TRUE` if all the conditions separated by `AND`<br>are `TRUE`                                                                                               |
-| `BETWEEN` | `TRUE` if the operand is within the range of comparisons.<br>This operator is inclusive of the lower and upper bound of the operands on which you apply it. |
-| `IN`      | `TRUE` if the operand is equal to one of a list of<br>expressions (at max 50 hash attribute values or at max 100 non-key attribute values)                  |
-| `IS`      | `TRUE` if the operand is a given, PartiQL data type, including<br>`NULL` or `MISSING`                                                                       |
-| `NOT`     | Reverses the value of a given Boolean expression                                                                                                            |
-| `OR`      | `TRUE` if any of the conditions separated by<br>`OR` are `TRUE`                                                                                             |
+| Operator  | Description                                                                                                                                                                                                                                                                                                                            |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AND`     | `TRUE` if all the conditions separated by `AND`<br>are `TRUE`                                                                                                                                                                                                                                                                          |
+| `BETWEEN` | `TRUE` if the operand is within the range of comparisons.<br>This operator is inclusive of the lower and upper bound of the operands on which you apply it.                                                                                                                                                                            |
+| `IN`      | `TRUE` if the operand is equal to one of a list of<br>expressions (at max 50 hash attribute values or at max 100 non-key<br>attribute values).<br>Results are returned in pages of up to 10 items. If the<br>`IN` list contains more values, you must use the<br>`NextToken` returned in the response to retrieve subsequent<br>pages. |
+| `IS`      | `TRUE` if the operand is a given, PartiQL data type, including<br>`NULL` or `MISSING`                                                                                                                                                                                                                                                  |
+| `NOT`     | Reverses the value of a given Boolean expression                                                                                                                                                                                                                                                                                       |
+| `OR`      | `TRUE` if any of the conditions separated by<br>`OR` are `TRUE`                                                                                                                                                                                                                                                                        |
 
 For more information about using logical operators, see [Making
 comparisons](Expressions.md#Expressions.OperatorsAndFunctions.Comparators "Expressions.md#Expressions.OperatorsAndFunctions.Comparators") and [Logical

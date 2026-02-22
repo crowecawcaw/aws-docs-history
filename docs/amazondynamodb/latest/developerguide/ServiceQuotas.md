@@ -57,6 +57,12 @@ by default.
 
 ###### Note
 
+All capacity unit and request unit quotas are measured per second. For
+example, a quota of 40,000 read capacity units means 40,000 reads per
+second.
+
+###### Note
+
 You can request any number of read capacity units (RCU) or write capacity
 units (WCU) for your DynamoDB tables through a service quota increase. The values
 listed in the following table represent the initial default quotas. These are
@@ -101,11 +107,11 @@ is complete.
 
 There is a default quota on the number of provisioned
 capacity decreases you can perform on your DynamoDB table per day. A day is defined
-according to Universal Time Coordinated (UTC). On a given day, you can start by
-performing up to four decreases within one hour as long as you have not
-performed any other decreases yet during that day. Subsequently, you can perform
-one additional decrease per hour (once every 60 minutes). This effectively
-brings the maximum number of decreases in a day to 27 times.
+according to Universal Time Coordinated (UTC). You start each day with 4
+available decreases. Each hour, 1 additional decrease becomes available, up to
+the maximum of 4 available at any time. Over a full 24-hour day, this allows
+you to decrease up to 27 times (4 in the first hour, plus 1 for
+each of the remaining 23 hours).
 
 ###### Important
 

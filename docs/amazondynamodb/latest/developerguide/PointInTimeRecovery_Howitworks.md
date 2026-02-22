@@ -166,7 +166,7 @@ change the recovery period and increase it to a value higher than previously set
 period is a rolling window, DynamoDB will continue to take automatic backups until the new
 increased period reached. If you change the recovery period and decrease it to a value
 lower than previously set, your `EarliestRestorePoint` will immediately
-decrease to match you recovery period, and any continuous backups that fall outside of
+decrease to match your recovery period, and any continuous backups that fall outside of
 the new set value will not be recoverable.
 
 ## Delete a table with PITR

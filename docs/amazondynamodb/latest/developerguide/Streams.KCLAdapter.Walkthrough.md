@@ -23,7 +23,27 @@ Amazon CloudWatch using policies. For more information, see
 [Identity-based
 policies for DynamoDB](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
 
-The source code consists of four `.java` files:
+The source code consists of four `.java` files. To build this program,
+add the following dependency, which includes the Amazon Kinesis Client Library (KCL) 3.x and
+AWS SDK for Java v2 as transitive dependencies:
+
+Maven
+
+```
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>dynamodb-streams-kinesis-adapter</artifactId>
+    <version>2.1.0</version>
+</dependency>
+```
+
+Gradle
+
+```
+implementation 'com.amazonaws:dynamodb-streams-kinesis-adapter:2.1.0'
+```
+
+The source files are:
 
 - `StreamsAdapterDemo.java`
 - `StreamsRecordProcessor.java`

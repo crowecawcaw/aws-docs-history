@@ -19,6 +19,15 @@ and reduce performance unnecessarily.
 
 - [Using Global Secondary Indexes for materialized aggregation
   queries in DynamoDB](bp-gsi-aggregation.md "bp-gsi-aggregation.md")
+  - [Example scenario and access patterns](bp-gsi-aggregation.md#bp-gsi-aggregation-scenario "bp-gsi-aggregation.md#bp-gsi-aggregation-scenario")
+  - [Why pre-compute aggregations](bp-gsi-aggregation.md#bp-gsi-aggregation-why "bp-gsi-aggregation.md#bp-gsi-aggregation-why")
+  - [Table design](bp-gsi-aggregation.md#bp-gsi-aggregation-table-design "bp-gsi-aggregation.md#bp-gsi-aggregation-table-design")
+  - [Aggregation pipeline with Streams and
+    AWS Lambda](bp-gsi-aggregation.md#bp-gsi-aggregation-pipeline "bp-gsi-aggregation.md#bp-gsi-aggregation-pipeline")
+  - [Sparse GSI design](bp-gsi-aggregation.md#bp-gsi-aggregation-sparse-gsi "bp-gsi-aggregation.md#bp-gsi-aggregation-sparse-gsi")
+  - [Querying the GSI](bp-gsi-aggregation.md#bp-gsi-aggregation-querying "bp-gsi-aggregation.md#bp-gsi-aggregation-querying")
+  - [Considerations](bp-gsi-aggregation.md#bp-gsi-aggregation-considerations "bp-gsi-aggregation.md#bp-gsi-aggregation-considerations")
+
 - [Overloading Global Secondary Indexes in DynamoDB](bp-gsi-overloading.md "bp-gsi-overloading.md")
 - [Using Global Secondary Index write sharding for
   selective table queries in DynamoDB](bp-indexes-gsi-sharding.md "bp-indexes-gsi-sharding.md")

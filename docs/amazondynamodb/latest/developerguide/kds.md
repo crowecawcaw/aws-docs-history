@@ -18,8 +18,17 @@ analytics and machine learning algorithms.
 
 Using Kinesis data streams for DynamoDB is subject to both [Kinesis Data Streams pricing](https://aws.amazon.com/kinesis/data-streams/pricing/ "https://aws.amazon.com/kinesis/data-streams/pricing/") for
 the data stream and [DynamoDB
-pricing](https://aws.amazon.com/dynamodb/pricing/ "https://aws.amazon.com/dynamodb/pricing/") for the source
-table.
+pricing](https://aws.amazon.com/dynamodb/pricing/ "https://aws.amazon.com/dynamodb/pricing/") for the source table.
+
+To enable Kinesis streaming on a DynamoDB table using the console, AWS CLI, or Java SDK, see
+[Getting started with Kinesis Data Streams for Amazon DynamoDB](kds_gettingstarted.md "kds_gettingstarted.md").
+
+###### Topics
+
+- [How Kinesis Data Streams works with DynamoDB](#kds_howitworks "#kds_howitworks")
+- [Getting started with Kinesis Data Streams for Amazon DynamoDB](kds_gettingstarted.md "kds_gettingstarted.md")
+- [Using shards and metrics with DynamoDB Streams and Kinesis Data Streams](kds_using-shards-and-metrics.md "kds_using-shards-and-metrics.md")
+- [Using IAM policies for Amazon Kinesis Data Streams and Amazon DynamoDB](kds_iam.md "kds_iam.md")
 
 ## How Kinesis Data Streams works with DynamoDB
 

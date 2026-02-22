@@ -17,6 +17,6 @@ To update existing global tables from version 2017.11.29 (Legacy) to version 201
 - [Global tables: How it works](globaltables_HowItWorks.md "globaltables_HowItWorks.md")
 - [Best practices and requirements for managing
   global tables](globaltables_reqs_bestpractices.md "globaltables_reqs_bestpractices.md")
-- [Creating a global table](globaltables.md "globaltables.md")
+- [Creating a global table (Version 2017.11.29)](globaltables.md "globaltables.md")
 - [Monitoring global tables](globaltables_monitoring.md "globaltables_monitoring.md")
 - [Using IAM with global tables](gt_IAM.md "gt_IAM.md")

@@ -267,3 +267,63 @@ public class DynamoDBPartiQGettingStarted {
 
 }
 ```
+
+## Using parameterized statements
+
+Instead of embedding values directly in a PartiQL statement string, you can use
+question mark (`?`) placeholders and supply the values separately in the
+`Parameters` field. Each `?` is replaced by the corresponding
+parameter value, in the order they are provided.
+
+Using parameterized statements is a best practice because it separates the statement
+structure from the data values, making statements easier to read and reuse. It also
+avoids the need to manually format and escape attribute values in the statement
+string.
+
+Parameterized statements are supported in `ExecuteStatement`,
+`BatchExecuteStatement`, and `ExecuteTransaction`
+operations.
+
+The following examples retrieve an item from the `Music` table using
+parameterized values for the partition key and sort key.
+
+AWS CLI parameterized
+
+```
+aws dynamodb execute-statement \
+    --statement "SELECT * FROM \"Music\" WHERE Artist=? AND SongTitle=?" \
+    --parameters '[{"S": "Acme Band"}, {"S": "PartiQL Rocks"}]'
+```
+
+Java parameterized
+
+```
+List<AttributeValue> parameters = new ArrayList<>();
+parameters.add(new AttributeValue("Acme Band"));
+parameters.add(new AttributeValue("PartiQL Rocks"));
+
+ExecuteStatementRequest request = new ExecuteStatementRequest()
+    .withStatement("SELECT * FROM Music WHERE Artist=? AND SongTitle=?")
+    .withParameters(parameters);
+
+ExecuteStatementResult result = dynamoDB.executeStatement(request);
+```
+
+Python parameterized
+
+```
+response = dynamodb_client.execute_statement(
+    Statement="SELECT * FROM Music WHERE Artist=? AND SongTitle=?",
+    Parameters=[
+        {'S': 'Acme Band'},
+        {'S': 'PartiQL Rocks'}
+    ]
+)
+```
+
+###### Note
+
+The Java example in the preceding getting started section uses parameterized
+statements throughout. The `getPartiQLParameters()` method builds the
+parameter list, and each statement uses `?` placeholders instead of
+inline values.

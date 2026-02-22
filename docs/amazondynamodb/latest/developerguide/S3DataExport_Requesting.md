@@ -25,14 +25,10 @@ DynamoDB supports both full export and incremental export:
   AWS Management Console](#S3DataExport_Requesting_Console "#S3DataExport_Requesting_Console")
 - [Getting details about past
   exports in the AWS Management Console](#S3DataExport_Requesting_Console_Details "#S3DataExport_Requesting_Console_Details")
-- [Requesting an export using the
-  AWS CLI](#S3DataExport_Requesting_CLI "#S3DataExport_Requesting_CLI")
+- [Requesting an export using the AWS CLI and
+  AWS SDKs](#S3DataExport_Requesting_CLI "#S3DataExport_Requesting_CLI")
 - [Getting details about past exports
-  in the AWS CLI](#S3DataExport_Requesting_CLI_Details "#S3DataExport_Requesting_CLI_Details")
-- [Requesting an export using the AWS
-  SDK](#S3DataExport_Requesting_SDK "#S3DataExport_Requesting_SDK")
-- [Getting details about past exports
-  using the AWS SDK](#S3DataExport_Requesting_SDK_Details "#S3DataExport_Requesting_SDK_Details")
+  using the AWS CLI and AWS SDKs](#S3DataExport_Requesting_CLI_Details "#S3DataExport_Requesting_CLI_Details")
 
 ## Prerequisites
 
@@ -243,13 +239,11 @@ in this list, the objects in your S3 bucket remain as long as their bucket polic
 allow. DynamoDB never deletes any of the objects it creates in your S3 bucket during an
 export.
 
-## Requesting an export using the
+## Requesting an export using the AWS CLI and
 
-AWS CLI
+AWS SDKs
 
-The following example shows how to use the AWS CLI to export an existing table named
-`MusicCollection` to an S3 bucket called
-`ddb-export-musiccollection`.
+The following examples show how to export an existing table to an S3 bucket.
 
 ###### Note
 
@@ -262,12 +256,9 @@ aws dynamodb update-continuous-backups \
     --point-in-time-recovery-specification PointInTimeRecoveryEnabled=True
 ```
 
-Full export
-The following command exports the `MusicCollection` to an S3
-bucket called `ddb-export-musiccollection-9012345678` with a
-prefix of `2020-Nov`. Table data will be exported in DynamoDB JSON
-format from a specific time within the point in time recovery window and
-encrypted using an Amazon S3 key (SSE-S3).
+**Full export**
+
+AWS CLI
 
 ###### Note
 
@@ -276,7 +267,7 @@ If requesting a cross-account table export, make sure to include the
 
 ```
 aws dynamodb export-table-to-point-in-time \
-  --table-arn arn:aws:dynamodb:us-west-2:123456789012:table/MusicCollection \
+  --table-arn arn:aws:dynamodb:us-west-2:111122223333:table/MusicCollection \
   --s3-bucket ddb-export-musiccollection-9012345678 \
   --s3-prefix 2020-Nov \
   --export-format DYNAMODB_JSON \
@@ -285,12 +276,91 @@ aws dynamodb export-table-to-point-in-time \
   --s3-sse-algorithm AES256
 ```
 
-Incremental export
-The following command performs an incremental export by providing a new
-`--export-type` and
-`--incremental-export-specification`. Substitute your own
-values for anything in italics. Times are specified as seconds since
-epoch.
+Python
+
+```
+import boto3
+from datetime import datetime
+
+client = boto3.client('dynamodb')
+
+client.export_table_to_point_in_time(
+    TableArn='arn:aws:dynamodb:us-east-1:111122223333:table/TABLE',
+    ExportTime=datetime(2023, 9, 20, 12, 0, 0),
+    S3Bucket='bucket',
+    S3Prefix='prefix',
+    S3SseAlgorithm='AES256',
+    ExportFormat='DYNAMODB_JSON'
+)
+```
+
+Java
+
+```
+DynamoDbClient client = DynamoDbClient.create();
+
+client.exportTableToPointInTime(b -> b
+    .tableArn("arn:aws:dynamodb:us-east-1:111122223333:table/TABLE")
+    .exportTime(Instant.parse("2023-09-20T12:00:00Z"))
+    .s3Bucket("bucket")
+    .s3Prefix("prefix")
+    .s3SseAlgorithm(S3SseAlgorithm.AES256)
+    .exportFormat(ExportFormat.DYNAMODB_JSON));
+```
+
+.NET
+
+```
+var client = new AmazonDynamoDBClient();
+
+await client.ExportTableToPointInTimeAsync(new ExportTableToPointInTimeRequest
+{
+    TableArn = "arn:aws:dynamodb:us-east-1:111122223333:table/TABLE",
+    ExportTime = new DateTime(2023, 9, 20, 12, 0, 0, DateTimeKind.Utc),
+    S3Bucket = "bucket",
+    S3Prefix = "prefix",
+    S3SseAlgorithm = S3SseAlgorithm.AES256,
+    ExportFormat = ExportFormat.DYNAMODB_JSON
+});
+```
+
+JavaScript
+
+```
+import { DynamoDBClient, ExportTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb";
+
+const client = new DynamoDBClient();
+
+await client.send(new ExportTableToPointInTimeCommand({
+    TableArn: "arn:aws:dynamodb:us-east-1:111122223333:table/TABLE",
+    ExportTime: new Date("2023-09-20T12:00:00Z"),
+    S3Bucket: "bucket",
+    S3Prefix: "prefix",
+    S3SseAlgorithm: "AES256",
+    ExportFormat: "DYNAMODB_JSON"
+}));
+```
+
+Go
+
+```
+cfg, _ := config.LoadDefaultConfig(context.TODO())
+client := dynamodb.NewFromConfig(cfg)
+
+exportTime := time.Date(2023, 9, 20, 12, 0, 0, 0, time.UTC)
+client.ExportTableToPointInTime(context.TODO(), &dynamodb.ExportTableToPointInTimeInput{
+    TableArn:       aws.String("arn:aws:dynamodb:us-east-1:111122223333:table/TABLE"),
+    ExportTime:     &exportTime,
+    S3Bucket:       aws.String("bucket"),
+    S3Prefix:       aws.String("prefix"),
+    S3SseAlgorithm: types.S3SseAlgorithmAes256,
+    ExportFormat:   types.ExportFormatDynamodbJson,
+})
+```
+
+**Incremental export**
+
+AWS CLI
 
 ```
 aws dynamodb export-table-to-point-in-time \
@@ -300,6 +370,114 @@ aws dynamodb export-table-to-point-in-time \
   --export-type INCREMENTAL_EXPORT
 ```
 
+Python
+
+```
+import boto3
+from datetime import datetime
+
+client = boto3.client('dynamodb')
+
+client.export_table_to_point_in_time(
+    TableArn='arn:aws:dynamodb:us-east-1:111122223333:table/TABLE',
+    IncrementalExportSpecification={
+      'ExportFromTime': datetime(2023, 9, 20, 12, 0, 0),
+      'ExportToTime': datetime(2023, 9, 20, 13, 0, 0),
+      'ExportViewType': 'NEW_AND_OLD_IMAGES'
+    },
+    ExportType='INCREMENTAL_EXPORT',
+    S3Bucket='bucket',
+    S3Prefix='prefix',
+    S3SseAlgorithm='AES256',
+    ExportFormat='DYNAMODB_JSON'
+)
+```
+
+Java
+
+```
+DynamoDbClient client = DynamoDbClient.create();
+
+client.exportTableToPointInTime(b -> b
+    .tableArn("arn:aws:dynamodb:us-east-1:111122223333:table/TABLE")
+    .exportType(ExportType.INCREMENTAL_EXPORT)
+    .incrementalExportSpecification(i -> i
+        .exportFromTime(Instant.parse("2023-09-20T12:00:00Z"))
+        .exportToTime(Instant.parse("2023-09-20T13:00:00Z"))
+        .exportViewType(ExportViewType.NEW_AND_OLD_IMAGES))
+    .s3Bucket("bucket")
+    .s3Prefix("prefix")
+    .s3SseAlgorithm(S3SseAlgorithm.AES256)
+    .exportFormat(ExportFormat.DYNAMODB_JSON));
+```
+
+.NET
+
+```
+var client = new AmazonDynamoDBClient();
+
+await client.ExportTableToPointInTimeAsync(new ExportTableToPointInTimeRequest
+{
+    TableArn = "arn:aws:dynamodb:us-east-1:111122223333:table/TABLE",
+    ExportType = ExportType.INCREMENTAL_EXPORT,
+    IncrementalExportSpecification = new IncrementalExportSpecification
+    {
+        ExportFromTime = new DateTime(2023, 9, 20, 12, 0, 0, DateTimeKind.Utc),
+        ExportToTime = new DateTime(2023, 9, 20, 13, 0, 0, DateTimeKind.Utc),
+        ExportViewType = ExportViewType.NEW_AND_OLD_IMAGES
+    },
+    S3Bucket = "bucket",
+    S3Prefix = "prefix",
+    S3SseAlgorithm = S3SseAlgorithm.AES256,
+    ExportFormat = ExportFormat.DYNAMODB_JSON
+});
+```
+
+JavaScript
+
+```
+import { DynamoDBClient, ExportTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb";
+
+const client = new DynamoDBClient();
+
+await client.send(new ExportTableToPointInTimeCommand({
+    TableArn: "arn:aws:dynamodb:us-east-1:111122223333:table/TABLE",
+    ExportType: "INCREMENTAL_EXPORT",
+    IncrementalExportSpecification: {
+        ExportFromTime: new Date("2023-09-20T12:00:00Z"),
+        ExportToTime: new Date("2023-09-20T13:00:00Z"),
+        ExportViewType: "NEW_AND_OLD_IMAGES"
+    },
+    S3Bucket: "bucket",
+    S3Prefix: "prefix",
+    S3SseAlgorithm: "AES256",
+    ExportFormat: "DYNAMODB_JSON"
+}));
+```
+
+Go
+
+```
+cfg, _ := config.LoadDefaultConfig(context.TODO())
+client := dynamodb.NewFromConfig(cfg)
+
+fromTime := time.Date(2023, 9, 20, 12, 0, 0, 0, time.UTC)
+toTime := time.Date(2023, 9, 20, 13, 0, 0, 0, time.UTC)
+client.ExportTableToPointInTime(context.TODO(), &dynamodb.ExportTableToPointInTimeInput{
+    TableArn:   aws.String("arn:aws:dynamodb:us-east-1:111122223333:table/TABLE"),
+    ExportType: types.ExportTypeIncrementalExport,
+    IncrementalExportSpecification: &types.IncrementalExportSpecification{
+        ExportFromTime: &fromTime,
+        ExportToTime:   &toTime,
+        ExportViewType: types.ExportViewTypeNewAndOldImages,
+    },
+    S3Bucket:       aws.String("bucket"),
+    S3Prefix:       aws.String("prefix"),
+    S3SseAlgorithm: types.S3SseAlgorithmAes256,
+    ExportFormat:   types.ExportFormatDynamodbJson,
+})
+```
+
 ###### Note
 
 If you choose to encrypt your export using a key protected by AWS Key Management Service (AWS KMS),
@@ -307,7 +485,7 @@ the key must be in the same Region as the destination S3 bucket.
 
 ## Getting details about past exports
 
-in the AWS CLI
+using the AWS CLI and AWS SDKs
 
 You can find information about export requests you've run in the past by using the
 `list-exports` command. This command returns a list of all exports you've
@@ -322,109 +500,150 @@ they succeed, the status changes to `COMPLETED`. If they fail, the status
 changes to `FAILED` with a `failure_message` and
 `failure_reason`.
 
-In the following example, we use the optional `table-arn` parameter to list
-only exports of a specific table.
+**List exports**
+
+AWS CLI
 
 ```
 aws dynamodb list-exports \
-    --table-arn arn:aws:dynamodb:us-east-1:123456789012:table/ProductCatalog
+    --table-arn arn:aws:dynamodb:us-east-1:111122223333:table/ProductCatalog
 ```
-
-To retrieve detailed information about a specific export task, including any advanced
-configuration settings, use the `describe-export` command.
-
-```
-aws dynamodb describe-export \
-    --export-arn arn:aws:dynamodb:us-east-1:123456789012:table/ProductCatalog/export/01234567890123-a1b2c3d4
-```
-
-## Requesting an export using the AWS
-
-SDK
-
-Use these code snippets to request a table export using the AWS SDK of your
-choice.
 
 Python
-**Full export**
-
-```
-import boto3
-from datetime import datetime
-
-# remove endpoint_url for real use
-client = boto3.client('dynamodb')
-
-# https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/client/export_table_to_point_in_time.html
-client.export_table_to_point_in_time(
-    TableArn='arn:aws:dynamodb:us-east-1:0123456789:table/TABLE',
-    ExportTime=datetime(2023, 9, 20, 12, 0, 0),
-    S3Bucket='bucket',
-    S3Prefix='prefix',
-    S3SseAlgorithm='AES256',
-    ExportFormat='DYNAMODB_JSON'
-)
-```
-
-**Incremental export**
-
-```
-import boto3
-from datetime import datetime
-
-client = boto3.client('dynamodb')
-
-client.export_table_to_point_in_time(
-    TableArn='arn:aws:dynamodb:us-east-1:0123456789:table/TABLE',
-    IncrementalExportSpecification={
-      'ExportFromTime': datetime(2023, 9, 20, 12, 0, 0),
-      'ExportToTime': datetime(2023, 9, 20, 13, 0, 0),
-      'ExportViewType': 'NEW_AND_OLD_IMAGES'
-    },
-    ExportType='INCREMENTAL_EXPORT',
-    S3Bucket='bucket',
-    S3Prefix='prefix',
-    S3SseAlgorithm='AES256',
-    ExportFormat='DYNAMODB_JSON'
-)
-```
-
-## Getting details about past exports
-
-using the AWS SDK
-
-Use these code snippets to get details about past table exports using the AWS SDK of
-your choice.
-
-Python
-**List**
 
 ```
 import boto3
 
 client = boto3.client('dynamodb')
-
-# https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/client/list_exports.html
 
 print(
   client.list_exports(
-     TableArn='arn:aws:dynamodb:us-east-1:0123456789:table/TABLE',
+     TableArn='arn:aws:dynamodb:us-east-1:111122223333:table/TABLE',
   )
 )
 ```
 
-**Describe**
+Java
+
+```
+DynamoDbClient client = DynamoDbClient.create();
+
+ListExportsResponse response = client.listExports(b -> b
+    .tableArn("arn:aws:dynamodb:us-east-1:111122223333:table/TABLE"));
+
+response.exportSummaries().forEach(System.out::println);
+```
+
+.NET
+
+```
+var client = new AmazonDynamoDBClient();
+
+var response = await client.ListExportsAsync(new ListExportsRequest
+{
+    TableArn = "arn:aws:dynamodb:us-east-1:111122223333:table/TABLE"
+});
+
+response.ExportSummaries.ForEach(Console.WriteLine);
+```
+
+JavaScript
+
+```
+import { DynamoDBClient, ListExportsCommand } from "@aws-sdk/client-dynamodb";
+
+const client = new DynamoDBClient();
+
+const response = await client.send(new ListExportsCommand({
+    TableArn: "arn:aws:dynamodb:us-east-1:111122223333:table/TABLE"
+}));
+
+console.log(response.ExportSummaries);
+```
+
+Go
+
+```
+cfg, _ := config.LoadDefaultConfig(context.TODO())
+client := dynamodb.NewFromConfig(cfg)
+
+response, _ := client.ListExports(context.TODO(), &dynamodb.ListExportsInput{
+    TableArn: aws.String("arn:aws:dynamodb:us-east-1:111122223333:table/TABLE"),
+})
+
+fmt.Println(response.ExportSummaries)
+```
+
+**Describe export**
+
+AWS CLI
+
+```
+aws dynamodb describe-export \
+    --export-arn arn:aws:dynamodb:us-east-1:111122223333:table/ProductCatalog/export/01695353076000-a1b2c3d4
+```
+
+Python
 
 ```
 import boto3
 
 client = boto3.client('dynamodb')
 
-# https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/client/describe_export.html
-
 print(
   client.describe_export(
-     ExportArn='arn:aws:dynamodb:us-east-1:0123456789:table/TABLE/export/01695353076000-06e2188f',
+     ExportArn='arn:aws:dynamodb:us-east-1:111122223333:table/TABLE/export/01695353076000-06e2188f',
   )['ExportDescription']
 )
+```
+
+Java
+
+```
+DynamoDbClient client = DynamoDbClient.create();
+
+DescribeExportResponse response = client.describeExport(b -> b
+    .exportArn("arn:aws:dynamodb:us-east-1:111122223333:table/TABLE/export/01695353076000-06e2188f"));
+
+System.out.println(response.exportDescription());
+```
+
+.NET
+
+```
+var client = new AmazonDynamoDBClient();
+
+var response = await client.DescribeExportAsync(new DescribeExportRequest
+{
+    ExportArn = "arn:aws:dynamodb:us-east-1:111122223333:table/TABLE/export/01695353076000-06e2188f"
+});
+
+Console.WriteLine(response.ExportDescription);
+```
+
+JavaScript
+
+```
+import { DynamoDBClient, DescribeExportCommand } from "@aws-sdk/client-dynamodb";
+
+const client = new DynamoDBClient();
+
+const response = await client.send(new DescribeExportCommand({
+    ExportArn: "arn:aws:dynamodb:us-east-1:111122223333:table/TABLE/export/01695353076000-06e2188f"
+}));
+
+console.log(response.ExportDescription);
+```
+
+Go
+
+```
+cfg, _ := config.LoadDefaultConfig(context.TODO())
+client := dynamodb.NewFromConfig(cfg)
+
+response, _ := client.DescribeExport(context.TODO(), &dynamodb.DescribeExportInput{
+    ExportArn: aws.String("arn:aws:dynamodb:us-east-1:111122223333:table/TABLE/export/01695353076000-06e2188f"),
+})
+
+fmt.Println(response.ExportDescription)
 ```

@@ -205,10 +205,6 @@ Follow these steps to get started:
 2. Download the JSON schema file listed above, which is already in the NoSQL
    Workbench model format.
 3. Import the JSON schema file into NoSQL Workbench. For more information, see
-   [Importing an existing data
-   model](workbench.Modeler.md "workbench.Modeler.md").
+   [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
 4. Once you've imported into NOSQL Workbench, you can edit the data model. For
    more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
-5. To visualize your data model, add sample data, or import sample data from a
-   CSV file, use the [Data Visualizer](workbench.md "workbench.md")
-   feature of NoSQL Workbench.

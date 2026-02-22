@@ -1,173 +1,163 @@
-# Write modes with DynamoDB global tables
+# Routing
 
-Global tables are always active-active at the table level. However, especially for MREC
-tables, you might want to treat them as active-passive by controlling how you route write
-requests. For example, you might decide to route write requests to a single Region to avoid
-potential write conflicts that can happen with MREC tables.
+strategies in DynamoDB
 
-There are three main managed write patterns, as explained in the next three sections.
-You should consider which write pattern fits your use case. This choice affects how you route
-requests, evacuate a Region, and handle disaster recovery. The guidance in later sections
-depends on your application’s write mode.
+Perhaps the most complex piece of a global table deployment is managing request routing.
+Requests must first go from an end user to a Region that’s chosen and routed in some manner.
+The request encounters some stack of services in that Region, including a compute layer that
+perhaps consists of a load balancer backed by an AWS Lambdafunction, container, or Amazon Elastic Compute Cloud
+(Amazon EC2) node, and possibly other services including another database. That compute layer
+communicates with DynamoDB It should do that by using the local endpoint for that Region. The
+data in the global table replicates to all other participating Regions, and each Region has a
+similar stack of services around its DynamoDB table.
 
-## Write to any Region mode (no primary)
+The global table provides each stack in the various Regions with a local copy of the
+same data. You might consider designing for a single stack in a single Region and anticipate
+making remote calls to a secondary Region’s DynamoDB endpoint if there’s an issue with the local
+DynamoDB table. This is not best practice. If there’s an issue in one Region that’s caused by
+DynamoDB (or, more likely, caused by something else in the stack or by another service that
+depends on DynamoDB), it’s best to route the end user to another Region for processing and use
+that other Region’s compute layer, which will talk to its local DynamoDB endpoint. This approach
+routes around the problematic Region entirely. To ensure resiliency, you need replication
+across multiple Regions: replication of the compute layer as well as the data layer.
 
-The _write to any Region_ mode, illustrated in the
-following diagram, is fully active-active and doesn’t impose restrictions on where a write
-may occur. Any Region may accept a write at any time. This is the simplest mode, but it can
-only be used with some types of applications. This mode is suitable for all MRSC tables.
-It’s also suitable for MREC tables when all writers are idempotent, and therefore safely
-repeatable so that concurrent or repeated write operations across Regions are not in
-conflict. For example, when a user updates their contact data. This mode also works well for
-a special case of being idempotent, an append-only dataset where all writes are unique
-inserts under a deterministic primary key. Lastly, this mode is suitable for MREC where the
-risk of conflicting writes would be acceptable.
+There are numerous alternative techniques to route an end user request to a Region for processing. The
+optimum choice depends on your write mode and your failover considerations. This section discusses four
+options: client-driven, compute-layer, Route 53, and Global Accelerator.
 
-![Diagram of how client writes to any region works.](images/gt-client-read-write-to-any-region2.png)
+## Client-driven request routing
 
-The _write to any Region_ mode is the most
-straightforward architecture to implement. Routing is easier because any Region can be the
-write target at any time. Failover is easier, because with MRSC tables, the items are always
-synchronized, and with MRSC tables, any recent writes can be replayed any number of times to
-any secondary Region. Where possible, you should design for this write mode.
+With client-driven request routing, illustrated in the following diagram, the end user
+client (an application, a web page with JavaScript, or another client) keeps track of the
+valid application endpoints (for example, an Amazon API Gateway endpoint rather than a
+literal DynamoDB endpoint) and uses its own embedded logic to choose the Region to communicate
+with. It might choose based on random selection, lowest observed latencies, highest observed
+bandwidth measurements, or locally performed health checks.
 
-For example, several video streaming services use global tables for tracking bookmarks,
-reviews, watch status flags, and so on. These deployments use MREC tables because they need
-replicas scattered around the world, with each replica providing low-latency read and write
-operations. These deployments can use the _write to any
-Region_ mode as long as they ensure that every write operation is idempotent.
-This will be the case if every update―for example, setting a new latest time code, assigning
-a new review, or setting a new watch status―assigns the user’s new state directly, and the
-next correct value for an item doesn’t depend on its current value. If, by chance, the
-user’s write requests are routed to different Regions, the last write operation will persist
-and the global state will settle according to the last assignment. Read operations in this
-mode will eventually become consistent, delayed by the latest
-`ReplicationLatency` value.
+![Diagram of how writing to a client's chosen target works.](images/gt-routing-is-clients-choice2_v2.png)
 
-In another example, a financial services firm uses global tables as part of a system
-to maintain a running tally of debit card purchases for each customer, to calculate that
-customer’s cash-back rewards. They want to keep a `RunningBalance` item per
-customer. This write mode is not naturally idempotent because as transactions stream in,
-they modify the balance by using an `ADD` expression where the new correct value
-depends on the current value. By using MRSC tables they can still _write to any Region_, because every `ADD` call always operates
-against the very latest value of the item.
+As an advantage, client-driven request routing can adapt to things such as real-world
+public internet traffic conditions to switch Regions if it notices any degraded performance.
+The client must be aware of all potential endpoints, but launching a new Regional endpoint
+is not a frequent occurrence.
 
-A third example involves a company that provides online ad placement services. This
-company decided that a low risk of data loss would be acceptable to achieve the design
-simplifications of the _write to any Region_ mode. When
-they serve ads, they have just a few milliseconds to retrieve enough metadata to determine
-which ad to show, and then to record the ad impression so they don’t repeat the same ad
-soon. They use global tables to get both low-latency read operations for end users across
-the world and low-latency write operations. They record all ad impressions for a user within
-a single item, which is represented as a growing list. They use one item instead of
-appending to an item collection, so they can remove older ad impressions as part of each
-write operation without paying for a delete operation. This write operation is not
-idempotent; if the same end user sees ads served out of multiple Regions at approximately
-the same time, there’s a chance that one write operation for an ad impression could
-overwrite another. The risk is that a user might see an ad repeated once in a while. They
-decided that this is acceptable.
+With _write to any Region_ mode, a client can
+unilaterally select its preferred endpoint. If its access to one Region becomes impaired,
+the client can route to another endpoint.
 
-## Write to one Region (single primary)
+With the _write to one Region_ mode, the client will
+need a mechanism to route its writes to the currently active region. This could be as basic
+as empirically testing which region is presently accepting writes (noting any write
+rejections and falling back to an alternate) or as complex as calling a global coordinator
+to query for the current application state (perhaps built on the Amazon Application Recovery Controller (ARC) (ARC) routing
+control which provides a 5-region quorum-driven system to maintain global state for needs
+such as this). The client can decide if reads can go to any Region for eventual consistency
+or must be routed to the active region for strong consistency. For further information see
+[How
+Route 53 works](../../../r53recovery/latest/dg/introduction-how-it-works.md "../../../r53recovery/latest/dg/introduction-how-it-works.md").
 
-The _write to one Region_ mode, illustrated in the
-following diagram, is active-passive and routes all table writes to a single active region.
-Note that DynamoDB doesn’t have a notion of a single active region; the application routing
-outside DynamoDB manages this. The _write to one Region_ mode
-works well for MREC tables that need to avoid write conflicts by ensuring that write
-operations flow only to one Region at a time. This write mode helps when you want to use
-conditional expressions and can't use MRSC for some reason, or when you need to perform
-transactions. These expressions aren’t possible unless you know that you’re acting against
-the latest data, so they require sending all write requests to a single Region that has the
-latest data.
+With the _write to your Region_ mode, the client needs to determine the home region for the data set it’s
+working against. For example, if the client corresponds to a user account and each user account is
+homed to a Region, the client can request the appropriate endpoint from a global login system.
 
-When you use an MRSC table, you might choose to generally write to one Region for
-convenience. For example, this can help minimize your infrastructure build-out beyond DynamoDB.
-The write mode would still be write to any Region because with MRSC you could safely write
-to any Region at any time without concern of conflict resolution that would cause MREC
-tables to choose to _write to one Region_.
+For example, a financial services company that helps users manage their business finances via the
+web could use global tables with a _write to your Region_ mode.
+Each user must login to a central service. That service returns credentials and the endpoint for the Region where those
+credentials will work. The credentials are valid
+for a short time. After that the webpage auto-negotiates a new login, which provides an opportunity to
+potentially redirect the user’s activity to a new Region.
 
-Eventually consistent reads can go to any replica Regions to achieve lower latencies.
-Strongly consistent reads must go to the single primary Region.
+## Compute-layer request routing
 
-![Diagram of how writing to one Region works.](images/gt-client-writes-one-region2.png)
+With compute-layer request routing, illustrated in the following diagram, the code that
+runs in the compute layer determines whether to process the request locally or pass it to a
+copy of itself that’s running in another Region. When you use the _write to one Region_ mode, the compute layer might detect that it’s not the
+active Region and allow local read operations while forwarding all write operations to
+another Region. This compute layer code must be aware of data topology and routing rules,
+and enforce them reliably, based on the latest settings that specify which Regions are
+active for which data. The outer software stack within the Region doesn’t have to be aware
+of how read and write requests are routed by the micro service. In a robust design, the
+receiving Region validates whether it is the current primary for the write operation. If it
+isn’t, it generates an error that indicates that the global state needs to be corrected. The
+receiving Region might also buffer the write operation for a while if the primary Region is
+in the process of changing. In all cases, the compute stack in a Region writes only to its
+local DynamoDB endpoint, but the compute stacks might communicate with one another.
 
-It’s sometimes necessary to change the active Region in response to a Regional failure.
-Some users change the currently active Region on a regular schedule, such as implementing a
-follow-the-sun deployment. This places the active Region near the geography that has the
-most activity (usually where it’s daytime, thus the name), which results in the lowest
-latency read and write operations. It also has the side benefit of calling the
-Region-changing code daily and making sure that it’s well tested before any disaster
-recovery.
+![Diagram of compute layer request routing.](images/gt-compute-layer-routing2.png)
 
-The passive Region(s) may keep a downscaled set of infrastructure surrounding DynamoDB that
-gets built up only if it becomes the active Region. This guide doesn’t cover pilot light and
-warm standby designs. For a more information, see [Disaster Recovery (DR) Architecture on AWS, Part III: Pilot Light and Warm
-Standby](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-iii-pilot-light-and-warm-standby/ "https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-iii-pilot-light-and-warm-standby/").
+The Vanguard Group uses a system called Global Orchestration and Status Tool (GOaST) and
+a library called Global Multi-Region library (GMRlib) for this routing process, as presented
+at [re:Invent
+2022](https://www.youtube.com/watch?v=ilgpzlE7Hds&t=1882s "https://www.youtube.com/watch?v=ilgpzlE7Hds&t=1882s"). They use a follow-the-sun single primary model. GOaST maintains the global
+state, similar to the ARC routing control discussed in the previous section. It uses a
+global table to track which Region is the primary Region and when the next primary switch is
+scheduled. All read and write operations go through GMRlib, which coordinates with GOaST.
+GMRlib allows read operations to be performed locally, at low latency. For write operations,
+GMRlib checks if the local Region is the current primary Region. If so, the write operation
+completes directly. If not, GMRlib forwards the write task to the GMRlib in the primary
+Region. That receiving library confirms that it also considers itself the primary Region and
+raises an error if it isn’t, which indicates a propagation delay with the global state. This
+approach provides a validation benefit by not writing directly to a remote DynamoDB
+endpoint.
 
-Using the _write to one Region_ mode works well when
-you use global tables for low-latency globally distributed read operations. An example is a
-large social media company that needs to have the same reference data available in every
-Region around the world. They don’t update the data often, but when they do, they write to
-only one Region to avoid any potential write conflicts. Read operations are always allowed
-from any Region.
+## Route 53 request routing
 
-As another example, consider the financial services company discussed earlier that
-implemented the daily cash-back calculation. They used _write to any
-Region_ mode to calculate the balance but _write to one
-Region_ mode to track payments. This work requires transactions, which aren't
-supported in MRSC tables, so it works better with a separate MREC table and _write to one Region_ mode.
+Amazon Application Recovery Controller (ARC) is a Domain Name Service (DNS) technology. With Route 53, the client requests
+its endpoint by looking up a well-known DNS domain name, and Route 53 returns the IP address
+corresponding to the regional endpoint(s) it thinks most appropriate. This is illustrated in
+the following diagram. Route 53 has a long list of routing policies it uses to determine the
+appropriate Region. It also can do failover routing to route traffic away from Regions that
+fail health checks.
 
-## Write to your Region (mixed primary)
+![Diagram of compute layer request routing.](images/gt-rt-53-anycast2_v2.png)
 
-The _write to your Region_ write mode, illustrated in
-the following diagram, works with MREC tables. It assigns different data subsets to
-different home Regions and allows write operations to an item only through its home Region.
-This mode is active-passive but assigns the active Region based on the item. Every Region is
-primary for its own non-overlapping dataset, and write operations must be guarded to ensure
-proper locality.
+With _write to any Region_ mode,
+or if combined with the compute-layer request routing on the backend, Route 53 can be given full access to
+return the Region based on any complex internal rules such
+as the Region in closest network proximity, or closest geographic proximity, or any other choice.
 
-This mode is similar to _write to one Region_ except
-that it enables lower-latency write operations, because the data associated with each user
-can be placed in closer network proximity to that user. It also spreads the surrounding
-infrastructure more evenly between Regions and requires less work to build out
-infrastructure during a failover scenario, because all Regions have a portion of their
-infrastructure already active.
+With _write to one Region_ mode, you can configure Route 53 to
+return the currently active Region (using Route 53 ARC). If the client wants to connect to
+a passive Region (for example, for read operations), it could look up a different DNS
+name.
 
-![Diagram of how client writes to each item in a single Region works.](images/get-client-writes-each-item-single-region2.png)
+###### Note
 
-You can determine the home Region for items in several ways:
+Clients cache the IP addresses in the response from Route 53 for a time indicated by the time to
+live (TTL) setting on the domain name. A longer TTL extends the recovery time
+objective (RTO) for all clients to recognize the new endpoint. A value of 60 seconds
+is typical for failover use. Not all software perfectly adheres to DNS TTL expiration,
+and there might be multiple levels of DNS caching, such as at the operating system,
+virtual machine, and application.
 
-- **Intrinsic:** Some aspect of the data, such as a special
-  attribute or a value embedded within its partition key, makes its home Region clear.
-  This technique is described in the blog post [Use Region pinning to set a home Region for items in an Amazon DynamoDB global
-  table](https://aws.amazon.com/blogs/database/use-region-pinning-to-set-a-home-region-for-items-in-an-amazon-dynamodb-global-table/ "https://aws.amazon.com/blogs/database/use-region-pinning-to-set-a-home-region-for-items-in-an-amazon-dynamodb-global-table/").
-- **Negotiated:** The home Region of each dataset is
-  negotiated in some external manner, such as with a separate global service that
-  maintains assignments. The assignment may have a finite duration after which it’s
-  subject to renegotiation.
-- **Table-oriented:** Instead of creating a single
-  replicating global table, you create the same number of global tables as replicating
-  Regions. Each table’s name indicates its home Region. In standard operations, all data
-  is written to the home Region while other Regions keep a read-only copy. During a
-  failover, another Region temporarily adopts write duties for that table.
+With _write to your Region_ mode, it’s best to avoid Route 53
+unless you're also using compute-layer request routing.
 
-For example, imagine that you’re working for a gaming company. You need low-latency read
-and write operations for all gamers around the world. You assign each gamer to the Region
-that’s closest to them. That Region takes all their read and write operations, ensuring
-strong read-after-write consistency. However, when a gamer travels or if their home Region
-suffers an outage, a complete copy of their data is available in alternative Regions, and
-the gamer can be assigned to a different home Region.
+## Global Accelerator request routing
 
-As another example, imagine that you’re working at a video conferencing company. Each
-conference call’s metadata is assigned to a particular Region. Callers can use the Region
-that’s closest to them for lowest latency. If there’s a Region outage, using global tables
-allows quick recovery because the system can move the processing of the call to a different
-Region where a replicated copy of the data already exists.
+With [AWS Global Accelerator](https://aws.amazon.com/global-accelerator/ "https://aws.amazon.com/global-accelerator/"),
+illustrated in the following diagram, a client looks up the well-known domain name in Route 53.
+However, instead of getting back an IP address that corresponds to a Regional endpoint, the
+client receives an anycast static IP address which routes to the nearest AWS edge
+location. Starting from that edge location, all traffic gets routed on the private AWS
+network and to some endpoint (such as a load balancer or API Gateway) in a Region chosen by
+routing rules that are maintained within Global Accelerator. Compared with routing based on Route 53 rules,
+Global Accelerator request routing has lower latencies because it reduces the amount of traffic on the
+public internet. In addition, because Global Accelerator doesn’t depend on DNS TTL expiration to change
+routing rules, it can adjust routing more quickly.
 
-###### To summarize
+![Diagram of how client writing with Global Accelerator can work.](images/gt-routing-gax-excerpt2_v2.png)
 
-- Write to any Region mode is suitable for MRSC tables and idempotent calls to MREC
-  tables.
-- Write to one Region mode is suitable for non-idempotent calls to MREC tables.
-- Write to your Region mode is suitable for non-idempotent calls to MREC tables, where
-  it's important to have clients write to a Region that’s close to them.
+With _write to any Region_ mode, or if combined with the
+compute-layer request routing on the back- end, Global Accelerator works seamlessly. The client
+connects to the nearest edge location and need not be concerned with which Region
+receives the request.
+
+With _write to one Region_ Global Accelerator routing rules must send
+requests to the currently active Region. You can use health checks that artificially
+report a failure on any Region that’s not considered by your global system to be the
+active Region. As with DNS, it’s possible to use an alternative DNS domain name for
+routing read requests if the requests can be from any Region.
+
+With _write to your Region_ mode, it’s best to avoid Global Accelerator
+unless you're also using compute-layer request routing.

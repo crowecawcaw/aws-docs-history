@@ -1,6 +1,6 @@
 # First steps for modeling relational data in DynamoDB
 
-###### Important
+###### Note
 
 NoSQL design requires a different mindset than RDBMS design. For an RDBMS, you can create
 a normalized data model without thinking about access patterns. You can then extend it later
@@ -21,28 +21,37 @@ systems (OSS/BSS) that it needs to support:
   After completing this process, you should end up with a list that might look something like
   the following.
 
-![List of key access-patterns, including items like looking up employee details by ID, querying by employee name, finding customer phone numbers, and so on.](images/AccessPatternList.png)
+| Access Patterns for Order Entry Application | Pattern #                                     | Access Pattern Description |
+| ------------------------------------------- | --------------------------------------------- | -------------------------- |
+| 1                                           | Look up Employee Details by Employee ID       |
+| 2                                           | Query Employee Details by Employee Name       |
+| 3                                           | Find an Employee's Phone Number(s)            |
+| 4                                           | Find a Customer's Phone Number(s)             |
+| 5                                           | Get Orders for Customer within Date Range     |
+| 6                                           | Show all Open Orders within Date Range        |
+| 7                                           | See all Employees hired recently              |
+| 8                                           | Find all Employees in Warehouse               |
+| 9                                           | Get all Items on Order for Product            |
+| 10                                          | Get Inventories for Product at all Warehouses |
+| 11                                          | Get Customers by Account Rep                  |
+| 12                                          | Get Orders by Account Rep                     |
+| 13                                          | Get Employees with Job Title                  |
+| 14                                          | Get Inventory by Product and Warehouse        |
+| 15                                          | Get Total Product Inventory                   |
+
 In a real application, your list might be much longer. But this collection represents the
 range of query pattern complexity that you might find in a production environment.
 
-A common approach to DynamoDB schema design is to identify application layer entities and use
-de-normalization and composite key aggregation to reduce query complexity.
+A modern approach to DynamoDB schema design uses aggregate-oriented principles, grouping data based on access patterns rather than rigid entity boundaries. This approach considers multiple design patterns:
 
-In DynamoDB, this means using composite sort keys, overloaded global secondary indexes,
-partitioned tables/indexes, and other design patterns. You can use these elements to structure
-the data so that an application can retrieve whatever it needs for a given access pattern using
-a single query on a table or index. The primary pattern that you can use to model the normalized
-schema shown in [Relational modeling](bp-relational-modeling.md "bp-relational-modeling.md")
-is the adjacency list pattern. Other patterns used in this design can include global
-secondary index write sharding, global secondary index overloading, composite keys, and
-materialized aggregations.
+- _Single Table Design_ - Using composite sort keys, overloaded global secondary indexes, and adjacency list patterns to store multiple entity types in one table
+- _Multi-Table Design_ - Using separate tables for entities with independent operational characteristics and low access correlation, with strategic GSIs for cross-entity queries
+- _Aggregate Design_ - Embedding related data when always accessed together (Order + OrderItems) or using item collections for identifying relationships (Product + Inventory)
+  The choice between these approaches depends on your specific access patterns, data characteristics, and operational requirements. You can use these elements to structure the data so that an application can retrieve whatever it needs for a given access pattern using a single query on a table or index.
 
-###### Important
+###### Note
 
-In general, you should maintain as few tables as possible in a DynamoDB application. Exceptions include cases where high-volume
-time series data are involved, or datasets that have very different access patterns. A single
-table with inverted indexes can usually enable simple queries to create and retrieve the
-complex hierarchical data structures required by your application.
+The choice between single-table and multi-table design depends on your specific requirements. Single-table design works well when entities have high access correlation and similar operational characteristics. Multi-table design is preferred when entities have independent operational requirements, different access patterns, or when you need clear operational boundaries. The example in this guide demonstrates a multi-table approach with strategic aggregation and denormalization.
 
 To use NoSQL Workbench for DynamoDB to help visualize your partition key design, see
 [Building data models with NoSQL Workbench](workbench.md "workbench.md").

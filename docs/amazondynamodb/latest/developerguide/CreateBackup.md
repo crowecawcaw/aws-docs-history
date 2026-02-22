@@ -99,8 +99,7 @@ You can write to the restored table only after it becomes active.
 
 You can't overwrite an existing table during a restore operation.
 
-Service metrics show that 95 percent of customers' table restores complete in less
-than one hour. However, restore times are directly related to the configuration of your
+Restore times are directly related to the configuration of your
 tables (such as the size of your tables and the number of underlying partitions) and
 other related variables. A best practice when planning for disaster recovery is to
 regularly document average restore completion times and establish how these times affect

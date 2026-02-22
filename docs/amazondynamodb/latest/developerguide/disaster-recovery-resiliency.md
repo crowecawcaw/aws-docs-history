@@ -18,8 +18,9 @@ from other AWS Regions.
 For more information about AWS Regions and Availability Zones, see [AWS global
 infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
 
-In addition to the AWS global infrastructure, Amazon DynamoDB offers several features to help
-support your data resiliency and backup needs.
+Amazon DynamoDB automatically replicates your data across three Availability Zones in a Region,
+providing built-in high durability and a 99.99% availability SLA. In addition, DynamoDB offers
+several features to help support your data resiliency and backup needs.
 
 **On-demand backup and restore**
 

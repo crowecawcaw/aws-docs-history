@@ -33,7 +33,7 @@ The following is a conceptual overview of how a global table is created.
 3. Define a DynamoDB global table based on the tables that you have created.
 
 The AWS Management Console automates these tasks, so you can create a global table more quickly and
-easily. For more information, see [Creating a global table](globaltables.md "globaltables.md").
+easily. For more information, see [Creating a global table (Version 2017.11.29)](globaltables.md "globaltables.md").
 
 The resulting DynamoDB global table consists of multiple replica tables, one per Region,
 that DynamoDB treats as a single unit. Every replica has the same table name and the same

@@ -24,3 +24,13 @@ access, you must explicitly allow access in both the identity and resource polic
 specified in [Cross-account access with resource-based policies
 in DynamoDB](rbac-cross-account-access.md "rbac-cross-account-access.md"). When you use both types of policies, a policy
 is evaluated as described in [Determining whether a request is allowed or denied within an account](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md#policy-eval-denyallow "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md#policy-eval-denyallow").
+
+###### Important
+
+If an identity-based policy grants unconditional access to a DynamoDB table (for example,
+`dynamodb:GetItem` with no conditions), a resource-based policy that allows
+access with conditions on `dynamodb:Attributes` won't restrict that access. The
+identity-based policy's unconditional allow takes precedence, and the resource-based
+policy's conditions are not applied as restrictions. To restrict access to specific
+attributes, use an explicit `Deny` statement instead of relying solely on
+conditional `Allow` statements in the resource-based policy.

@@ -6,9 +6,11 @@ when an item is no longer needed. DynamoDB automatically deletes expired items w
 days of their expiration time, without consuming write throughput.
 
 To use TTL, first enable it on a table and then define a specific attribute to store the
-TTL expiration timestamp. The timestamp must be stored in [Unix epoch time format](https://en.wikipedia.org/wiki/Unix_time "https://en.wikipedia.org/wiki/Unix_time") at the
-seconds granularity. Each time an item is created or updated, you can compute the expiration
-time and save it in the TTL attribute.
+TTL expiration timestamp. The timestamp must be stored as a [Number](HowItWorks.md#HowItWorks.DataTypes "HowItWorks.md#HowItWorks.DataTypes")
+data type in [Unix epoch time
+format](https://en.wikipedia.org/wiki/Unix_time "https://en.wikipedia.org/wiki/Unix_time") at the seconds granularity. Items with a TTL attribute that is not a
+Number type are ignored by the TTL process. Each time an item is created or updated, you
+can compute the expiration time and save it in the TTL attribute.
 
 Items with valid, expired TTL attributes may be deleted by the system at any time, typically within a few days of their expiration. You can still update the expired items that are pending deletion, including changing or removing their TTL attributes. While updating an expired item, we recommended that you use a condition expression to make sure the item has not been subsequently deleted. Use filter expressions to remove expired items from [Scan](Scan.md#Scan.FilterExpression "Scan.md#Scan.FilterExpression") and [Query](Query.md "Query.md") results.
 

@@ -1,128 +1,194 @@
 # Example of modeling relational data in DynamoDB
 
-This example describes how to model relational data in Amazon DynamoDB. A DynamoDB table design
-corresponds to the relational order entry schema that is shown in [Relational modeling](bp-relational-modeling.md "bp-relational-modeling.md"). It follows
-the [Adjacency list design pattern](bp-adjacency-graphs.md#bp-adjacency-lists "bp-adjacency-graphs.md#bp-adjacency-lists"), which is a common
-way to represent relational data structures in DynamoDB.
+This example describes how to model relational data in Amazon DynamoDB. The DynamoDB table design
+corresponds to the relational order entry schema that is shown in [Relational modeling](bp-relational-modeling.md "bp-relational-modeling.md"). This design
+uses multiple specialized tables rather than a single adjacency list, providing clear operational
+boundaries while leveraging strategic GSIs to serve all access patterns efficiently.
 
-The design pattern requires you to define a set of entity types that usually correlate to
-the various tables in the relational schema. Entity items are then added to the table using a
-compound (partition and sort) primary key. The partition key of these entity items is the
-attribute that uniquely identifies the item and is referred to generically on all items as
-`PK`. The sort key attribute contains an attribute value that you can use for an
-inverted index or global secondary index. It is generically referred to as `SK`.
+The design approach uses aggregate-oriented principles, grouping data based on access patterns
+rather than rigid entity boundaries. Key design decisions include using separate tables for entities
+with low access correlation, embedding related data when always accessed together, and using
+item collections for identifying relationships.
 
-You define the following entities, which support the relational order entry schema.
+The following tables and their accompanying indexes support the relational order entry schema:
 
-1. HR-Employee - PK: EmployeeID, SK: Employee Name
-2. HR-Region - PK: RegionID, SK: Region Name
-3. HR-Country - PK: CountryId, SK: Country Name
-4. HR-Location - PK: LocationID, SK: Country Name
-5. HR-Job - PK: JobID, SK: Job Title
-6. HR-Department - PK: DepartmentID, SK: DepartmentName
-7. OE-Customer - PK: CustomerID, SK: AccountRepID
-8. OE-Order - PK OrderID, SK: CustomerID
-9. OE-Product - PK: ProductID, SK: Product Name
-10. OE-Warehouse - PK: WarehouseID, SK: Region Name
-    After adding these entity items to the table, you can define the relationships between them
-    by adding edge items to the entity item partitions. The following table demonstrates this
-    step.
+## Employee Table Design
 
-![Example table showing relationships between entity items.](images/tabledesign.png)
-In this example, the `Employee`, `Order`, and `Product
- Entity` partitions on the table have additional edge items that contain pointers to
-other entity items on the table. Next, define a few global secondary indexes (GSIs) to support
-all the access patterns defined previously. The entity items don't all use the same type of
-value for the primary key or the sort key attribute. All that is required is to have the primary
-key and sort key attributes present to be inserted on the table.
+The Employee table stores employee information as a single entity per item, optimized for direct employee lookups and supporting multiple query patterns through strategic GSIs. This table demonstrates the principle of designing separate tables for entities with independent operational characteristics and low cross-entity access correlation.
 
-The fact that some of these entities use proper names and others use other entity IDs as
-sort key values allows the same global secondary index to support multiple types of queries.
-This technique is called _GSI overloading_. It effectively eliminates the
-default limit of 20 global secondary indexes for tables that contain multiple
-item types. This is shown in the following diagram as _GSI 1_.
+The table uses a simple partition key (employee_id) without a sort key, as each employee is a distinct entity. Four GSIs enable efficient querying by different attributes:
 
-![Example table showing global secondary indexes supporting multiple queries.](images/tablegsi.png)
-GSI 2 is designed to support a fairly common application access pattern, which is to get all
-the items on the table that have a certain state. For a large table with an uneven distribution
-of items across available states, this access pattern can result in a hot key, unless the items
-are distributed across more than one logical partition that can be queried in parallel. This
-design pattern is called `write sharding`.
+- _EmployeeByName GSI_ - Uses INCLUDE projection with all employee attributes to support complete employee detail retrieval by name, handling potential duplicate names with employee_id as sort key
+- _EmployeeByWarehouse GSI_ - Uses INCLUDE projection with only essential attributes (name, job_title, hire_date) to minimize storage costs while supporting warehouse-based queries
+- _EmployeeByJobTitle GSI_ - Enables role-based queries with INCLUDE projection for reporting and organizational analysis
+- _EmployeeByHireDate GSI_ - Uses a static partition key value "EMPLOYEE" with hire_date as sort key to enable efficient date range queries for recent hires. Since employee additions/updates are typically under 1,000 WCU, a single partition can handle the write load without hot partition issues
 
-To accomplish this for GSI 2, the application adds the GSI 2 primary key attribute to every
-Order item. It populates that with a random number in a range of 0–N, where N can
-generically be calculated using the following formula, unless there is a specific reason to do
-otherwise.
+| Employee Table - Base Table Structure | employee_id (PK) | name                           | phone_numbers | warehouse_id | job_title  | hire_date | entity_type |
+| ------------------------------------- | ---------------- | ------------------------------ | ------------- | ------------ | ---------- | --------- | ----------- |
+| emp_001                               | John Smith       | ["+1-555-0101"]                | wh_sea        | Manager      | 2024-03-15 | EMPLOYEE  |
+| emp_002                               | Jane Doe         | ["+1-555-0102", "+1-555-0103"] | wh_sea        | Associate    | 2025-01-10 | EMPLOYEE  |
+| emp_003                               | Bob Wilson       | ["+1-555-0104"]                | wh_pdx        | Associate    | 2025-06-20 | EMPLOYEE  |
+| emp_004                               | Alice Brown      | ["+1-555-0105"]                | wh_pdx        | Supervisor   | 2023-11-05 | EMPLOYEE  |
+| emp_005                               | Charlie Davis    | ["+1-555-0106"]                | wh_sea        | Associate    | 2025-12-01 | EMPLOYEE  |
 
-```
-ItemsPerRCU = 4KB / AvgItemSize
+| EmployeeByName GSI - Supporting Employee Name Queries | name (GSI-PK) | employee_id (GSI-SK)           | phone_numbers | warehouse_id | job_title  | hire_date |
+| ----------------------------------------------------- | ------------- | ------------------------------ | ------------- | ------------ | ---------- | --------- |
+| Alice Brown                                           | emp_004       | ["+1-555-0105"]                | wh_pdx        | Supervisor   | 2023-11-05 |
+| Bob Wilson                                            | emp_003       | ["+1-555-0104"]                | wh_pdx        | Associate    | 2025-06-20 |
+| Charlie Davis                                         | emp_005       | ["+1-555-0106"]                | wh_sea        | Associate    | 2025-12-01 |
+| Jane Doe                                              | emp_002       | ["+1-555-0102", "+1-555-0103"] | wh_sea        | Associate    | 2025-01-10 |
+| John Smith                                            | emp_001       | ["+1-555-0101"]                | wh_sea        | Manager      | 2024-03-15 |
 
-PartitionMaxReadRate = 3K * ItemsPerRCU
+| EmployeeByWarehouse GSI - Supporting Warehouse Queries | warehouse_id (GSI-PK) | employee_id (GSI-SK) | name       | job_title  | hire_date |
+| ------------------------------------------------------ | --------------------- | -------------------- | ---------- | ---------- | --------- |
+| wh_pdx                                                 | emp_003               | Bob Wilson           | Associate  | 2025-06-20 |
+| wh_pdx                                                 | emp_004               | Alice Brown          | Supervisor | 2023-11-05 |
+| wh_sea                                                 | emp_001               | John Smith           | Manager    | 2024-03-15 |
+| wh_sea                                                 | emp_002               | Jane Doe             | Associate  | 2025-01-10 |
+| wh_sea                                                 | emp_005               | Charlie Davis        | Associate  | 2025-12-01 |
 
-N = MaxRequiredIO / PartitionMaxReadRate
-```
+| EmployeeByJobTitle GSI - Supporting Job Title Queries | job_title (GSI-PK) | employee_id (GSI-SK) | name   | warehouse_id | hire_date |
+| ----------------------------------------------------- | ------------------ | -------------------- | ------ | ------------ | --------- |
+| Associate                                             | emp_002            | Jane Doe             | wh_sea | 2025-01-10   |
+| Associate                                             | emp_003            | Bob Wilson           | wh_pdx | 2025-06-20   |
+| Associate                                             | emp_005            | Charlie Davis        | wh_sea | 2025-12-01   |
+| Manager                                               | emp_001            | John Smith           | wh_sea | 2024-03-15   |
+| Supervisor                                            | emp_004            | Alice Brown          | wh_pdx | 2023-11-05   |
 
-For example, assume that you expect the following:
+| EmployeeByHireDate GSI - Supporting Recent Hire Queries | entity_type (GSI-PK) | hire_date (GSI-SK) | employee_id   | name   | warehouse_id |
+| ------------------------------------------------------- | -------------------- | ------------------ | ------------- | ------ | ------------ |
+| EMPLOYEE                                                | 2023-11-05           | emp_004            | Alice Brown   | wh_pdx |
+| EMPLOYEE                                                | 2024-03-15           | emp_001            | John Smith    | wh_sea |
+| EMPLOYEE                                                | 2025-01-10           | emp_002            | Jane Doe      | wh_sea |
+| EMPLOYEE                                                | 2025-06-20           | emp_003            | Bob Wilson    | wh_pdx |
+| EMPLOYEE                                                | 2025-12-01           | emp_005            | Charlie Davis | wh_sea |
 
-- Up to 2 million orders will be in the system, growing to 3 million in 5 years.
-- Up to 20 percent of these orders will be in an OPEN state at any given time.
-- The average order record is around 100 bytes, with three `OrderItem` records in the order
-  partition that are around 50 bytes each, giving you an average order entity size of 250
-  bytes.
-  For that table, the N factor calculation would look like the following.
+## Customer Table Design
 
-```
-ItemsPerRCU = 4KB / 250B = 16
+The Customer table maintains customer information with strategic denormalization of account_rep_id to enable efficient account representative queries. This design choice trades slight storage overhead for query performance, eliminating the need for joins between customer and account representative data.
 
-PartitionMaxReadRate = 3K * 16 = 48K
+The table supports multiple phone numbers per customer using a list attribute, demonstrating DynamoDB's schema flexibility. The single GSI enables account representative workflows:
 
-N = (0.2 * 3M) / 48K = 13
-```
+- _CustomerByAccountRep GSI_ - Uses INCLUDE projection with name and email attributes to support account rep customer management without requiring full customer record retrieval
 
-In this case, you need to distribute all the orders across at least 13 logical partitions on
-GSI 2 to ensure that a read of all `Order` items with an `OPEN` status
-doesn't cause a hot partition on the physical storage layer. It is a good practice to pad this
-number to allow for anomalies in the dataset. So a model using `N = 15` is probably
-fine. As mentioned earlier, you do this by adding the random 0–N value to the GSI 2 PK
-attribute of each `Order` and `OrderItem` record that is inserted on the
-table.
+| Customer Table - Base Table Structure | customer_id (PK) | name                           | phone_numbers           | email   | account_rep_id |
+| ------------------------------------- | ---------------- | ------------------------------ | ----------------------- | ------- | -------------- |
+| cust_001                              | Acme Corp        | ["+1-555-1001"]                | contact@acme.com        | rep_001 |
+| cust_002                              | TechStart Inc    | ["+1-555-1002", "+1-555-1003"] | info@techstart.com      | rep_001 |
+| cust_003                              | Global Traders   | ["+1-555-1004"]                | sales@globaltraders.com | rep_002 |
+| cust_004                              | BuildRight LLC   | ["+1-555-1005"]                | orders@buildright.com   | rep_002 |
+| cust_005                              | FastShip Co      | ["+1-555-1006"]                | support@fastship.com    | rep_003 |
 
-This breakdown assumes that the access pattern that requires gathering all `OPEN`
-invoices occurs relatively infrequently so that you can use burst capacity to fulfill the
-request. You can query the following global secondary index using a `State` and
-`Date Range` Sort Key condition to produce a subset or all `Orders` in a
-given state as needed.
+| CustomerByAccountRep GSI - Supporting Account Rep Queries | account_rep_id (GSI-PK) | customer_id (GSI-SK) | name                    | email |
+| --------------------------------------------------------- | ----------------------- | -------------------- | ----------------------- | ----- |
+| rep_001                                                   | cust_001                | Acme Corp            | contact@acme.com        |
+| rep_001                                                   | cust_002                | TechStart Inc        | info@techstart.com      |
+| rep_002                                                   | cust_003                | Global Traders       | sales@globaltraders.com |
+| rep_002                                                   | cust_004                | BuildRight LLC       | orders@buildright.com   |
+| rep_003                                                   | cust_005                | FastShip Co          | support@fastship.com    |
 
-![Example table showing GSI 2 primary key and projected attributes.](images/gsi2.png)
-In this example, the items are randomly distributed across the 15 logical partitions. This
-structure works because the access pattern requires a large number of items to be retrieved.
-Therefore, it's unlikely that any of the 15 threads will return empty result sets that could
-potentially represent wasted capacity. A query always uses 1 read capacity unit (RCU) or 1 write
-capacity unit (WCU), even if nothing is returned or no data is written.
+## Order Table Design
 
-If the access pattern requires a high velocity query on this global secondary index that
-returns a sparse result set, it's probably better to use a hash algorithm to distribute the
-items rather than a random pattern. In this case, you might select an attribute that is known
-when the query is run at runtime and hash that attribute into a 0–14 key space when
-the items are inserted. Then they can be efficiently read from the global secondary index.
+The Order table uses vertical partitioning with separate items for order headers and order items. This design enables efficient product-based queries while maintaining all order components within the same partition for efficient access. Each order consists of multiple items:
 
-Finally, you can revisit the access patterns that were defined earlier. Following is the
-list of access patterns and the query conditions that you will use with the new DynamoDB version of
-the application to accommodate them.
+- _Order Header_ - Contains order metadata with PK=order_id, SK=order_id
+- _Order Items_ - Individual line items with PK=order_id, SK=product_id, enabling direct product queries
 
-| S. No. | Access patterns                                                           | Query conditions                                                                           |
-| ------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| 1      | Look up Employee Details by Employee ID                                   | Primary Key on table, ID="HR-EMPLOYEE"                                                     |
-| 2      | Query Employee Details by Employee Name                                   | Use GSI-1, PK="Employee Name"                                                              |
-| 3      | Get an employee's current job details only                                | Primary Key on table, PK=HR-EMPLOYEE-1, SK starts with "JH"                                |
-| 4      | Get Orders for a customer for a date range                                | Use GSI-1, PK=CUSTOMER1, SK="STATUS-DATE", for each StatusCode                             |
-| 5      | Show all Orders in OPEN status for a date range across all customers      | Use GSI-2, PK=query in parallel for the range [0..N], SK between OPEN-Date1 and OPEN-Date2 |
-| 6      | All Employees hired recently                                              | Use GSI-1, PK="HR-CONFIDENTIAL', SK > date1                                                |
-| 7      | Find all Employees in specific Warehouse                                  | Use GSI-1, PK=WAREHOUSE1                                                                   |
-| 8      | Get all Orderitems for a Product including warehouse location inventories | Use GSI-1, PK=PRODUCT1                                                                     |
-| 9      | Get customers by Account Rep                                              | Use GSI-1, PK=ACCOUNT-REP                                                                  |
-| 10     | Get orders by Account Rep and date                                        | Use GSI-1, PK=ACCOUNT-REP, SK="STATUS-DATE", for each StatusCode                           |
-| 11     | Get all employees with specific Job Title                                 | Use GSI-1, PK=JOBTITLE                                                                     |
-| 12     | Get inventory by Product and Warehouse                                    | Primary Key on table, PK=OE-PRODUCT1,SK=PRODUCT1                                           |
-| 13     | Get total product inventory                                               | Primary Key on table, PK=OE-PRODUCT1,SK=PRODUCT1                                           |
-| 14     | Get Account Reps ranked by Order Total and Sales Period                   | Use GSI-1, PK=YYYY-Q1, scanIndexForward=False                                              |
+###### Note
+
+This vertical partitioning approach trades the simplicity of embedded order items for enhanced query flexibility. Each order item becomes a separate DynamoDB item, enabling efficient product-based queries while maintaining all order data within the same partition for efficient retrieval in a single request.
+
+The table includes strategic denormalization of account_rep_id (duplicated from Customer table) to enable direct account representative queries without requiring customer lookups. For high-throughput write scenarios, OPEN orders include status and shard attributes to enable write sharding across multiple partitions.
+
+Four GSIs support different query patterns with optimized projections:
+
+- _OrderByCustomerDate GSI_ - Uses INCLUDE projection with order summary and item details to support customer order history with date range filtering
+- _OpenOrdersByDate GSI (Sparse, Sharded)_ - Uses multi-attribute partition key (status + shard) with 5 shards to distribute 5,000 WPS (writes per second) across partitions (1,000 WPS each, matching DynamoDB's 1,000 WCU per partition limit). Only indexes OPEN orders (20% of total), which can help reduce GSI storage costs. Requires parallel queries across all 5 shards with client-side result merging
+- _OrderByAccountRep GSI_ - Uses INCLUDE projection with order summary attributes to support account representative workflows without full order details
+- _ProductInOrders GSI_ - Created from OrderItem records (PK=order_id, SK=product_id), this GSI enables queries to find all orders containing a specific product. Uses INCLUDE projection with order context (customer_id, order_date, quantity) for product demand analysis
+
+| Order Table - Base Table Structure (Vertical Partitioning) | PK       | SK       | customer_id | order_date | status  | account_rep_id | quantity | price | shard |
+| ---------------------------------------------------------- | -------- | -------- | ----------- | ---------- | ------- | -------------- | -------- | ----- | ----- |
+| ord_001                                                    | ord_001  | cust_001 | 2025-11-15  | CLOSED     | rep_001 |                |          |       |
+| ord_001                                                    | prod_100 |          |             |            |         | 5              | 25.00    |       |
+| ord_002                                                    | ord_002  | cust_001 | 2025-12-20  | OPEN       | rep_001 |                |          | 0     |
+| ord_002                                                    | prod_101 |          |             |            |         | 10             | 15.00    |       |
+| ord_003                                                    | ord_003  | cust_002 | 2026-01-05  | OPEN       | rep_001 |                |          | 2     |
+| ord_003                                                    | prod_100 |          |             |            |         | 3              | 25.00    |       |
+
+| OrderByCustomerDate GSI - Supporting Customer Order Queries | customer_id (GSI-PK) | order_date (GSI-SK) | order_id | status | total_amount                          | order_items | shard |
+| ----------------------------------------------------------- | -------------------- | ------------------- | -------- | ------ | ------------------------------------- | ----------- | ----- |
+| cust_001                                                    | 2025-11-15           | ord_001             | CLOSED   | 225.00 | [{product\_id: "prod\_100", qty: 5}]  |             |
+| cust_001                                                    | 2025-12-20           | ord_002             | OPEN     | 150.00 | [{product\_id: "prod\_101", qty: 10}] | 0           |
+| cust_002                                                    | 2026-01-05           | ord_003             | OPEN     | 175.00 | [{product\_id: "prod\_100", qty: 3}]  | 2           |
+| cust_003                                                    | 2025-10-10           | ord_004             | CLOSED   | 250.00 | [{product\_id: "prod\_101", qty: 5}]  |             |
+| cust_004                                                    | 2026-01-03           | ord_005             | OPEN     | 200.00 | [{product\_id: "prod\_100", qty: 20}] | 1           |
+
+| OpenOrdersByDate GSI (Sparse, Sharded) - Supporting High-Throughput Open Order Queries | status (GSI-PK-1) | shard (GSI-PK-2) | order_date (SK) | order_id | customer_id | account_rep_id                        | order_items | total_amount |
+| -------------------------------------------------------------------------------------- | ----------------- | ---------------- | --------------- | -------- | ----------- | ------------------------------------- | ----------- | ------------ |
+| OPEN                                                                                   | 0                 | 2025-12-20       | ord_002         | cust_001 | rep_001     | [{product\_id: "prod\_101", qty: 10}] | 150.00      |
+| OPEN                                                                                   | 1                 | 2026-01-03       | ord_005         | cust_004 | rep_002     | [{product\_id: "prod\_100", qty: 20}] | 200.00      |
+| OPEN                                                                                   | 2                 | 2026-01-05       | ord_003         | cust_002 | rep_001     | [{product\_id: "prod\_100", qty: 3}]  | 175.00      |
+
+| OrderByAccountRep GSI - Supporting Account Rep Order Queries | account_rep_id (GSI-PK) | order_date (GSI-SK) | order_id | customer_id | status | total_amount |
+| ------------------------------------------------------------ | ----------------------- | ------------------- | -------- | ----------- | ------ | ------------ |
+| rep_001                                                      | 2025-11-15              | ord_001             | cust_001 | CLOSED      | 225.00 |
+| rep_001                                                      | 2025-12-20              | ord_002             | cust_001 | OPEN        | 150.00 |
+| rep_001                                                      | 2026-01-05              | ord_003             | cust_002 | OPEN        | 175.00 |
+| rep_002                                                      | 2025-10-10              | ord_004             | cust_003 | CLOSED      | 250.00 |
+| rep_002                                                      | 2026-01-03              | ord_005             | cust_004 | OPEN        | 200.00 |
+
+| ProductInOrders GSI - Supporting Product Order Queries | product_id (GSI-PK) | order_id (GSI-SK) | customer_id | order_date | quantity |
+| ------------------------------------------------------ | ------------------- | ----------------- | ----------- | ---------- | -------- |
+| prod_100                                               | ord_001             | cust_001          | 2025-11-15  | 5          |
+| prod_100                                               | ord_003             | cust_002          | 2026-01-05  | 3          |
+| prod_101                                               | ord_002             | cust_001          | 2025-12-20  | 10         |
+
+## Product Table Design
+
+The Product table uses the item collection pattern to store both product metadata and inventory data within the same partition. This design leverages the identifying relationship between products and inventory - inventory cannot exist without a parent product. Using PK=product_id with SK=product_id for product metadata and SK=warehouse_id for inventory items eliminates the need for a separate Inventory table and GSI, reducing costs by approximately 50%.
+
+This pattern enables efficient queries for both individual warehouse inventory (GetItem with composite key) and all warehouse inventory for a product (Query on partition key). The total_inventory attribute in the product metadata item provides denormalized aggregation for quick total inventory lookups.
+
+| Product Table - Base Table Structure (Item Collection Pattern) | product_id (PK) | warehouse_id (SK) | product_name | category | unit_price | inventory_quantity | total_inventory |
+| -------------------------------------------------------------- | --------------- | ----------------- | ------------ | -------- | ---------- | ------------------ | --------------- |
+| prod_100                                                       | prod_100        | Widget A          | Hardware     | 25.00    |            | 500                |
+| prod_100                                                       | wh_sea          |                   |              |          | 200        |                    |
+| prod_100                                                       | wh_pdx          |                   |              |          | 150        |                    |
+| prod_100                                                       | wh_atl          |                   |              |          | 150        |                    |
+| prod_101                                                       | prod_101        | Gadget B          | Electronics  | 50.00    |            | 300                |
+| prod_101                                                       | wh_sea          |                   |              |          | 100        |                    |
+| prod_101                                                       | wh_pdx          |                   |              |          | 200        |                    |
+
+Each table is designed with specific Global Secondary Indexes (GSIs) to support the required
+access patterns efficiently. The design uses aggregate-oriented principles with strategic denormalization
+and sparse indexing to optimize both performance and cost.
+
+Key design optimizations include:
+
+- _Sparse GSI_ - OpenOrdersByDate only indexes OPEN orders (20% of total), which can help reduce GSI storage costs
+- _Item Collection Pattern_ - Product table stores inventory using PK=product_id, SK=warehouse_id to eliminate separate inventory table
+- _Order + OrderItems Aggregation_ - Embedded as single item due to 100% access correlation
+- _Strategic Denormalization_ - account_rep_id duplicated in Order table for efficient queries
+  Finally, you can revisit the access patterns that were defined earlier. The following table shows
+  how each access pattern is efficiently supported using the multi-table design with strategic GSIs.
+  Each pattern uses either direct key lookups or single GSI queries, avoiding expensive scans and
+  providing consistent performance at any scale.
+
+| S. No. | Access patterns                               | Query conditions                                                                                                                                                         |
+| ------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1      | Look up Employee Details by Employee ID       | Employee Table: GetItem(employee_id="emp_001")                                                                                                                           |
+| 2      | Query Employee Details by Employee Name       | EmployeeByName GSI: Query(name="John Smith")                                                                                                                             |
+| 3      | Find an Employee's Phone Number(s)            | Employee Table: GetItem(employee_id="emp_001")                                                                                                                           |
+| 4      | Find a Customer's Phone Number(s)             | Customer Table: GetItem(customer_id="cust_001")                                                                                                                          |
+| 5      | Get Orders for Customer within Date Range     | OrderByCustomerDate GSI: Query(customer_id="cust_001", order_date BETWEEN "2025-01-01" AND "2025-12-31")                                                                 |
+| 6      | Show all Open Orders within Date Range        | OpenOrdersByDate GSI: Query 5 shards in parallel with multi-attribute PK (status="OPEN" + shard=0-4), SK=order_date BETWEEN "2025-01-01" AND "2025-12-31", merge results |
+| 7      | See all Employees hired recently              | EmployeeByHireDate GSI: Query(entity_type="EMPLOYEE", hire_date >= "2025-01-01")                                                                                         |
+| 8      | Find all Employees in Warehouse               | EmployeeByWarehouse GSI: Query(warehouse_id="wh_sea")                                                                                                                    |
+| 9      | Get all Items on Order for Product            | ProductInOrders GSI: Query(product_id="prod_100")                                                                                                                        |
+| 10     | Get Inventories for Product at all Warehouses | Product Table: Query(product_id="prod_100")                                                                                                                              |
+| 11     | Get Customers by Account Rep                  | CustomerByAccountRep GSI: Query(account_rep_id="rep_001")                                                                                                                |
+| 12     | Get Orders by Account Rep                     | OrderByAccountRep GSI: Query(account_rep_id="rep_001")                                                                                                                   |
+| 13     | Get Employees with Job Title                  | EmployeeByJobTitle GSI: Query(job_title="Manager")                                                                                                                       |
+| 14     | Get Inventory by Product and Warehouse        | Product Table: GetItem(product_id="prod_100", warehouse_id="wh_sea")                                                                                                     |
+| 15     | Get Total Product Inventory                   | Product Table: GetItem(product_id="prod_100", warehouse_id="prod_100")                                                                                                   |

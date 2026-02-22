@@ -1,30 +1,19 @@
-# Importing an existing data
+# Importing sample data from a CSV
 
-model
+file
 
-You can use NoSQL Workbench for Amazon DynamoDB to build a data model by importing and
-modifying an existing model. You can import data models in either NoSQL Workbench model
-format or in [AWS CloudFormation
-JSON template format](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md").
+If you have preexisting sample data in a CSV file, you can import it into NoSQL Workbench. This enables you to quickly populate your model with sample data without having to enter it line by line.
 
-###### To import a data model
+The column names in the CSV file must match the attribute names in your data model,
+but they do not need to be in the same order. For example, if your data model has
+attributes called `LoginAlias`, `FirstName`, and
+`LastName`, your CSV columns could be `LastName`,
+`FirstName`, and `LoginAlias`.
 
-1. In NoSQL Workbench, in the navigation pane on the left side, choose the
-   **Data modeler** icon.
+You can import up to 150 rows at a time from a CSV file.
 
-![Console screenshot showing the data modeler icon.](images/workbench/DesignerChoose.png) 2. Hover your pointer over **Import data model**.
+###### To import data from a CSV file into NoSQL Workbench
 
-![Console screenshot showing the import data model button.](images/workbench/DesignerImportModel.png)
-
-In the dropdown list, choose whether the model you want to import is in NoSQL
-Workbench model format or CloudFormation JSON template format. If you have an
-existing data model open in NoSQL Workbench, you'll have the option to import a
-CloudFormation template into the current model.
-
-![Console screenshot showing the import model format dropdown menu.](images/workbench/DesignerImportModelDropdown.png) 3. Choose a model to import.
-
-![Screenshot of file explorer with list of models to import.](images/workbench/DesignerImportModelSelect.png) 4. If the model you're importing is in CloudFormation template format, you'll see a list
-of tables to be imported and have an opportunity to specify a data model name,
-author, and description.
-
-![Screenshot of import dialog for a AWS CloudFormation template.](images/workbench/DesignerImportCloudFormationModel.png)
+1. To import CSV data to a **Table**, first click the table name in the resource panel, and then click the additional actions (three-dot icon) in the main content toolbar.
+2. Select **Import sample data**.
+3. Select your CSV file and choose **Open**. The CSV data appends to your table.

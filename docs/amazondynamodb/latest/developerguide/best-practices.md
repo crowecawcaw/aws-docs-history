@@ -24,7 +24,7 @@ throughput costs when working with DynamoDB.
 - [Best practices for managing the control plane in
   DynamoDB](bp-control-plane.md "bp-control-plane.md")
 - [Best practices for using bulk data operations in DynamoDB](BestPractices_BulkDataOperations.md "BestPractices_BulkDataOperations.md")
-- [Best practices for implementing version control in DynamoDB](BestPractices_ImplementingVersionControl.md "BestPractices_ImplementingVersionControl.md")
+- [Best practices for handling concurrent updates in DynamoDB](BestPractices_ImplementingVersionControl.md "BestPractices_ImplementingVersionControl.md")
 - [Best practices for understanding your AWS billing and usage reports in DynamoDB](bp-understanding-billing.md "bp-understanding-billing.md")
 - [Migrating a DynamoDB table from one account
   to another](bp-migrating-table-between-accounts.md "bp-migrating-table-between-accounts.md")
