@@ -1,216 +1,95 @@
-# Listing ElastiCache parameter groups by name
+# Listing an ElastiCache parameter group's
 
-You can list the parameter groups using the ElastiCache console, the AWS CLI, or the ElastiCache
-API.
+values
 
-## Listing parameter groups by name
+You can list the parameters and their values for a parameter group using the ElastiCache
+console, the AWS CLI, or the ElastiCache API.
 
-(Console)
+## Listing an ElastiCache parameter group's
 
-The following procedure shows how to view a list of the parameter groups using the
-ElastiCache console.
+values (Console)
 
-###### To list parameter groups using the ElastiCache console
+The following procedure shows how to list the parameters and their values for a
+parameter group using the ElastiCache console.
+
+###### To list a parameter group's parameters and their values using the ElastiCache
+
+console
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at
    [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
 2. To see a list of all available parameter groups, in the left hand
    navigation pane choose **Parameter Groups**.
+3. Choose the parameter group for which you want to list the parameters and
+   values by choosing the box to the left of the parameter group's
+   name.
 
-## Listing ElastiCache parameter groups by name
+The parameters and their values will be listed at the bottom of the
+screen. Due to the number of parameters, you may have to scroll up and down
+to find the parameter you're interested in.
 
-(AWS CLI)
+## Listing a parameter group's
 
-To generate a list of parameter groups using the AWS CLI, use the command
-`describe-cache-parameter-groups`. If you provide a parameter
-group's name, only that parameter group will be listed. If you do not provide a
-parameter group's name, up to `--max-records` parameter groups will
-be listed. In either case, the parameter group's name, family, and description
-are listed.
+values (AWS CLI)
+
+To list a parameter group's parameters and their values using the AWS CLI, use
+the command `describe-cache-parameters`.
 
 ###### Example
 
-The following sample code lists the parameter group
-_myMem14_.
+The following sample code list all the Memcached parameters and their values for the
+parameter group _myMem14_.
 
 For Linux, macOS, or Unix:
 
 ```
-aws elasticache describe-cache-parameter-groups \
+aws elasticache describe-cache-parameters \
     --cache-parameter-group-name `myMem14`
 ```
 
 For Windows:
 
 ```
-aws elasticache describe-cache-parameter-groups ^
+aws elasticache describe-cache-parameters ^
     --cache-parameter-group-name `myMem14`
 ```
 
-The output of this command will look something like this, listing the name,
-family, and description for the parameter group.
-
-```
-{
-    "CacheParameterGroups": [
-	    {
-	        "CacheParameterGroupName": "myMem14",
-	        "CacheParameterGroupFamily": "memcached1.4",
-	        "Description": "My first parameter group"
-	    }
-    ]
-}
-```
-
 ###### Example
 
-The following sample code lists the parameter group
-_myRed28_.
+The following sample code list all the parameters and their values for the
+parameter group _myRedis28_.
 
 For Linux, macOS, or Unix:
 
 ```
-aws elasticache describe-cache-parameter-groups \
-    --cache-parameter-group-name `myRed28`
+aws elasticache describe-cache-parameters \
+    --cache-parameter-group-name `myRedis28`
 ```
 
 For Windows:
 
 ```
-aws elasticache describe-cache-parameter-groups ^
+aws elasticache describe-cache-parameters ^
     --cache-parameter-group-name `myRed28`
 ```
 
-The output of this command will look something like this, listing the name,
-family, and description for the parameter group.
+For more information, see [`describe-cache-parameters`](../../../cli/latest/reference/elasticache/describe-cache-parameters.md "../../../cli/latest/reference/elasticache/describe-cache-parameters.md").
 
-```
-{
-    "CacheParameterGroups": [
-	    {
-	        "CacheParameterGroupName": "myRed28",
-	        "CacheParameterGroupFamily": "redis2.8",
-	        "Description": "My first parameter group"
-	    }
-    ]
-}
-```
+## Listing a parameter group's
+
+values (ElastiCache API)
+
+To list a parameter group's parameters and their values using the ElastiCache API,
+use the `DescribeCacheParameters` action.
 
 ###### Example
 
-The following sample code lists the parameter group
-_myRed56_ for parameter groups running on Redis OSS engine
-version 5.0.6 onwards. If the parameter group is part of a [Replication across AWS Regions using global
-datastores](Redis-Global-Datastore.md "Redis-Global-Datastore.md"),
-the `IsGlobal` property value returned in the output will be
-`Yes`.
-
-For Linux, macOS, or Unix:
-
-```
-aws elasticache describe-cache-parameter-groups \
-    --cache-parameter-group-name `myRed56`
-```
-
-For Windows:
-
-```
-aws elasticache describe-cache-parameter-groups ^
-    --cache-parameter-group-name `myRed56`
-```
-
-The output of this command will look something like this, listing the name,
-family, isGlobal and description for the parameter group.
-
-```
-{
-    "CacheParameterGroups": [
-	    {
-	        "CacheParameterGroupName": "myRed56",
-	        "CacheParameterGroupFamily": "redis5.0",
-	        "Description": "My first parameter group",
-	        "IsGlobal": "yes"
-	    }
-    ]
-}
-```
-
-###### Example
-
-The following sample code lists up to 10 parameter groups.
-
-```
-aws elasticache describe-cache-parameter-groups --max-records `10`
-```
-
-The JSON output of this command will look something like this, listing the
-name, family, description and, in the case of redis5.6 whether the parameter
-group is part of a global datastore (isGlobal), for each parameter group.
-
-```
-{
-    "CacheParameterGroups": [
-        {
-            "CacheParameterGroupName": "custom-redis32",
-            "CacheParameterGroupFamily": "redis3.2",
-            "Description": "custom parameter group with reserved-memory > 0"
-        },
-        {
-            "CacheParameterGroupName": "default.memcached1.4",
-            "CacheParameterGroupFamily": "memcached1.4",
-            "Description": "Default parameter group for memcached1.4"
-        },
-        {
-            "CacheParameterGroupName": "default.redis2.6",
-            "CacheParameterGroupFamily": "redis2.6",
-            "Description": "Default parameter group for redis2.6"
-        },
-        {
-            "CacheParameterGroupName": "default.redis2.8",
-            "CacheParameterGroupFamily": "redis2.8",
-            "Description": "Default parameter group for redis2.8"
-        },
-        {
-            "CacheParameterGroupName": "default.redis3.2",
-            "CacheParameterGroupFamily": "redis3.2",
-            "Description": "Default parameter group for redis3.2"
-        },
-        {
-            "CacheParameterGroupName": "default.redis3.2.cluster.on",
-            "CacheParameterGroupFamily": "redis3.2",
-            "Description": "Customized default parameter group for redis3.2 with cluster mode on"
-        },
-        {
-            "CacheParameterGroupName": "default.redis5.6.cluster.on",
-            "CacheParameterGroupFamily": "redis5.0",
-            "Description": "Customized default parameter group for redis5.6 with cluster mode on",
-            "isGlobal": "yes"
-        },
-    ]
-}
-```
-
-For more information, see [`describe-cache-parameter-groups`](../../../cli/latest/reference/elasticache/describe-cache-parameter-groups.md "../../../cli/latest/reference/elasticache/describe-cache-parameter-groups.md").
-
-## Listing ElastiCache parameter groups by name
-
-(ElastiCache API)
-
-To generate a list of parameter groups using the ElastiCache API, use the
-`DescribeCacheParameterGroups` action. If you provide a parameter
-group's name, only that parameter group will be listed. If you do not provide a
-parameter group's name, up to `MaxRecords` parameter groups will be
-listed. In either case, the parameter group's name, family, and description are
-listed.
-
-###### Example
-
-The following sample code lists the parameter group
+The following sample code list all the Memcached parameters for the parameter group
 _myMem14_.
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
-   ?Action=DescribeCacheParameterGroups
+   ?Action=DescribeCacheParameters
    &CacheParameterGroupName=`myMem14`
    &SignatureVersion=4
    &SignatureMethod=HmacSHA256
@@ -219,81 +98,54 @@ https://elasticache.us-west-2.amazonaws.com/
    &X-Amz-Credential=<credential>
 ```
 
-The response from this action will look something like this, listing the name,
-family, and description for each parameter group.
+The response from this action will look something like this. This response has
+been truncated.
 
 ```
-<DescribeCacheParameterGroupsResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
-  <DescribeCacheParameterGroupsResult>
-    <CacheParameterGroups>
-      <CacheParameterGroup>
-        <CacheParameterGroupName>myMem14</CacheParameterGroupName>
-        <CacheParameterGroupFamily>memcached1.4</CacheParameterGroupFamily>
-        <Description>My custom Memcached 1.4 parameter group</Description>
-      </CacheParameterGroup>
-    </CacheParameterGroups>
-  </DescribeCacheParameterGroupsResult>
+<DescribeCacheParametersResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
+  <DescribeCacheParametersResult>
+    <CacheClusterClassSpecificParameters>
+      <CacheNodeTypeSpecificParameter>
+        <DataType>integer</DataType>
+        <Source>system</Source>
+        <IsModifiable>false</IsModifiable>
+        <Description>The maximum configurable amount of memory to use to store items, in megabytes.</Description>
+        <CacheNodeTypeSpecificValues>
+          <CacheNodeTypeSpecificValue>
+            <Value>1000</Value>
+            <CacheClusterClass>cache.c1.medium</CacheClusterClass>
+          </CacheNodeTypeSpecificValue>
+          <CacheNodeTypeSpecificValue>
+            <Value>6000</Value>
+            <CacheClusterClass>cache.c1.xlarge</CacheClusterClass>
+          </CacheNodeTypeSpecificValue>
+          <CacheNodeTypeSpecificValue>
+            <Value>7100</Value>
+            <CacheClusterClass>cache.m1.large</CacheClusterClass>
+          </CacheNodeTypeSpecificValue>
+          <CacheNodeTypeSpecificValue>
+            <Value>1300</Value>
+            <CacheClusterClass>cache.m1.small</CacheClusterClass>
+          </CacheNodeTypeSpecificValue>
+
+...output omitted...
+
+    </CacheClusterClassSpecificParameters>
+  </DescribeCacheParametersResult>
   <ResponseMetadata>
-    <RequestId>3540cc3d-af48-11e0-97f9-279771c4477e</RequestId>
+    <RequestId>6d355589-af49-11e0-97f9-279771c4477e</RequestId>
   </ResponseMetadata>
-</DescribeCacheParameterGroupsResponse>
+</DescribeCacheParametersResponse>
 ```
 
 ###### Example
 
-The following sample code lists up to 10 parameter groups.
-
-```
-https://elasticache.us-west-2.amazonaws.com/
-   ?Action=DescribeCacheParameterGroups
-   &MaxRecords=`10`
-   &SignatureVersion=4
-   &SignatureMethod=HmacSHA256
-   &Timestamp=20150202T192317Z
-   &Version=2015-02-02
-   &X-Amz-Credential=<credential>
-```
-
-The response from this action will look something like this, listing the name,
-family, description and, in the case of redis5.6 if the parameter group belongs
-to a global datastore (isGlobal), for each parameter group.
-
-```
-<DescribeCacheParameterGroupsResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
-  <DescribeCacheParameterGroupsResult>
-    <CacheParameterGroups>
-      <CacheParameterGroup>
-        <CacheParameterGroupName>myRedis28</CacheParameterGroupName>
-        <CacheParameterGroupFamily>redis2.8</CacheParameterGroupFamily>
-        <Description>My custom Redis 2.8 parameter group</Description>
-      </CacheParameterGroup>
-      <CacheParameterGroup>
-        <CacheParameterGroupName>myMem14</CacheParameterGroupName>
-        <CacheParameterGroupFamily>memcached1.4</CacheParameterGroupFamily>
-        <Description>My custom Memcached 1.4 parameter group</Description>
-      </CacheParameterGroup>
-       <CacheParameterGroup>
-        <CacheParameterGroupName>myRedis56</CacheParameterGroupName>
-        <CacheParameterGroupFamily>redis5.0</CacheParameterGroupFamily>
-        <Description>My custom redis 5.6 parameter group</Description>
-        <isGlobal>yes</isGlobal>
-      </CacheParameterGroup>
-    </CacheParameterGroups>
-  </DescribeCacheParameterGroupsResult>
-  <ResponseMetadata>
-    <RequestId>3540cc3d-af48-11e0-97f9-279771c4477e</RequestId>
-  </ResponseMetadata>
-</DescribeCacheParameterGroupsResponse>
-```
-
-###### Example
-
-The following sample code lists the parameter group
+The following sample code list all the parameters for the parameter group
 _myRed28_.
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
-   ?Action=DescribeCacheParameterGroups
+   ?Action=DescribeCacheParameters
    &CacheParameterGroupName=`myRed28`
    &SignatureVersion=4
    &SignatureMethod=HmacSHA256
@@ -302,62 +154,44 @@ https://elasticache.us-west-2.amazonaws.com/
    &X-Amz-Credential=<credential>
 ```
 
-The response from this action will look something like this, listing the name,
-family, and description.
+The response from this action will look something like this. This response has
+been truncated.
 
 ```
-<DescribeCacheParameterGroupsResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
-  <DescribeCacheParameterGroupsResult>
-    <CacheParameterGroups>
-      <CacheParameterGroup>
-        <CacheParameterGroupName>myRed28</CacheParameterGroupName>
-        <CacheParameterGroupFamily>redis2.8</CacheParameterGroupFamily>
-        <Description>My custom Redis 2.8 parameter group</Description>
-      </CacheParameterGroup>
-    </CacheParameterGroups>
-  </DescribeCacheParameterGroupsResult>
+<DescribeCacheParametersResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
+  <DescribeCacheParametersResult>
+    <CacheClusterClassSpecificParameters>
+      <CacheNodeTypeSpecificParameter>
+        <DataType>integer</DataType>
+        <Source>system</Source>
+        <IsModifiable>false</IsModifiable>
+        <Description>The maximum configurable amount of memory to use to store items, in megabytes.</Description>
+        <CacheNodeTypeSpecificValues>
+          <CacheNodeTypeSpecificValue>
+            <Value>1000</Value>
+            <CacheClusterClass>cache.c1.medium</CacheClusterClass>
+          </CacheNodeTypeSpecificValue>
+          <CacheNodeTypeSpecificValue>
+            <Value>6000</Value>
+            <CacheClusterClass>cache.c1.xlarge</CacheClusterClass>
+          </CacheNodeTypeSpecificValue>
+          <CacheNodeTypeSpecificValue>
+            <Value>7100</Value>
+            <CacheClusterClass>cache.m1.large</CacheClusterClass>
+          </CacheNodeTypeSpecificValue>
+          <CacheNodeTypeSpecificValue>
+            <Value>1300</Value>
+            <CacheClusterClass>cache.m1.small</CacheClusterClass>
+          </CacheNodeTypeSpecificValue>
+
+...output omitted...
+
+    </CacheClusterClassSpecificParameters>
+  </DescribeCacheParametersResult>
   <ResponseMetadata>
-    <RequestId>3540cc3d-af48-11e0-97f9-279771c4477e</RequestId>
+    <RequestId>6d355589-af49-11e0-97f9-279771c4477e</RequestId>
   </ResponseMetadata>
-</DescribeCacheParameterGroupsResponse>
+</DescribeCacheParametersResponse>
 ```
 
-###### Example
-
-The following sample code lists the parameter group
-_myRed56_.
-
-```
-https://elasticache.us-west-2.amazonaws.com/
-   ?Action=DescribeCacheParameterGroups
-   &CacheParameterGroupName=`myRed56`
-   &SignatureVersion=4
-   &SignatureMethod=HmacSHA256
-   &Timestamp=20150202T192317Z
-   &Version=2015-02-02
-   &X-Amz-Credential=<credential>
-```
-
-The response from this action will look something like this, listing the name,
-family, description and whether the parameter group is part of a global
-datastore (isGlobal).
-
-```
-<DescribeCacheParameterGroupsResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
-  <DescribeCacheParameterGroupsResult>
-    <CacheParameterGroups>
-      <CacheParameterGroup>
-        <CacheParameterGroupName>myRed56</CacheParameterGroupName>
-        <CacheParameterGroupFamily>redis5.0</CacheParameterGroupFamily>
-        <Description>My custom Redis 5.6 parameter group</Description>
-        <isGlobal>yes</isGlobal>
-      </CacheParameterGroup>
-    </CacheParameterGroups>
-  </DescribeCacheParameterGroupsResult>
-  <ResponseMetadata>
-    <RequestId>3540cc3d-af48-11e0-97f9-279771c4477e</RequestId>
-  </ResponseMetadata>
-</DescribeCacheParameterGroupsResponse>
-```
-
-For more information, see [`DescribeCacheParameterGroups`](../APIReference/API_DescribeCacheParameterGroups.md "../APIReference/API_DescribeCacheParameterGroups.md").
+For more information, see [`DescribeCacheParameters`](../APIReference/API_DescribeCacheParameters.md "../APIReference/API_DescribeCacheParameters.md").
