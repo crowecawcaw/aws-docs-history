@@ -1,32 +1,39 @@
-# FILL_WITH_MODE
+# IP_TO_INT
 
-Returns a column with missing data replaced by the mode of all values.
+Converts the Internet Protocol version 4 (IPv4) value of the source column or other value to the corresponding
+integer value in the target column, and returns the result in a new column. This
+function works for IPv4 only.
 
-You can also specify tie-breaker logic, where some of the values are identical. For
-example, consider the following values:
+For example, consider the following IP address.
 
-`1 2 2 3 3 4`
+```
+192.168.1.1
+```
 
-A `modeType` of `MINIMUM` causes `FILL_WITH_MODE` to
-return 2 as the mode value. If `modeType` is `MAXIMUM`, the mode
-is 3. For `AVERAGE`, the mode is 2.5.
+If you use this value as an input to `IP_TO_INT`, the output value is
+as follows.
+
+```
+3232235777
+```
 
 ###### Parameters
 
 - `sourceColumn` – The name of an existing column.
-- `modeType` – How to resolve tie values in the data. This
-  value must be `MINIMUM`, `NONE`, `AVERAGE`, or
-  `MAXIMUM`.
+- `value` – A character string to evaluate.
+- `targetColumn` – The name of the new column to be created.
+  You can specify either `sourceColumn` or `value`, but not
+  both.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "FILL_WITH_MODE",
+        "Operation": "IP_TO_INT",
         "Parameters": {
-            "modeType": "MAXIMUM",
-            "sourceColumn": "age"
+            "sourceColumn": "my_ip_address",
+            "targetColumn": "IP_TO_INT Column 1"
         }
     }
 }

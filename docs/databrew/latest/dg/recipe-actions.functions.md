@@ -1,38 +1,22 @@
-# EXACT
+# LN
 
-Creates a new column populated with one of the following:
-
-- `True` if one string in a column (or value) exactly matches another string in a
-  different column (or value).
-- `False` if there is no match.
+Returns the natural logarithm (Euler’s number) of a value in a new column.
 
 ###### Parameters
 
-- `sourceColumn1` – The name of an existing column.
-- `sourceColumn2` – The name of an existing column.
-- `value1` – A character string to evaluate.
-- `value2` – A character string to evaluate.
-- `targetColumn` – The name of the new column to be created.
-
-###### Note
-
-You can specify only one of the following combinations:
-
-- Both of `sourceColumn`N``.
-- One of `sourceColumn`N`` and one of
-`value`N``.
-- Both of `value`N``.
+- `sourceColumn` – The name of an existing column.
+- `targetColumn` – The name of the new column to be
+  created.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "EXACT",
+        "Operation": "LN",
         "Parameters": {
-            "sourceColumn1": "nationality",
-            "value2": "Argentina",
-            "targetColumn": "nationality_exact"
+            "sourceColumn": "weight_kg",
+            "targetColumn": "weight_kg_LN"
         }
     }
 }
