@@ -170,6 +170,29 @@ context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md
 
 The following example policy scopes-down `AssumeImpersonationRole` action to a particular WorkMail organization and impersonation role.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "workmail:AssumeImpersonationRole"
+ ],
+ "Resource": "arn:aws:workmail:`us-east-1`:`111122223333`:organization/`m-n1pq2345678r901st2u3vx45x6789yza`",
+ "Condition": {
+ "StringEquals": {
+ "workmail:ImpersonationRoleId":"`12345678-1234-1234-1234-123456789012`"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 ### Examples
 
 To view examples of Amazon WorkMail identity-based policies, see [Amazon WorkMail identity-based

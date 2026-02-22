@@ -528,7 +528,7 @@ JSON
  "firehose:PutRecordBatch",
  "firehose:ListTagsForDeliveryStream"
  ],
- "Resource": "`arn:aws:`firehose:`us-east-1`:`111122223333`:deliverystream/workmail-*",
+ "Resource": "arn:aws:firehose:`us-east-1`:`111122223333`:deliverystream/workmail-*",
  "Condition": {
  "StringEquals": {
  "aws:ResourceTag/LogDeliveryEnabled": "true"

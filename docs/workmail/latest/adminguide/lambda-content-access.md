@@ -58,7 +58,7 @@ JSON
  "Action": [
  "workmailmessageflow:GetRawMessageContent"
  ],
- "Resource": "`arn:aws:`workmailmessageflow:`us-east-1`:`111122223333`:message/*",
+ "Resource": "arn:aws:workmailmessageflow:`us-east-1`:`111122223333`:message/*",
  "Effect": "Allow"
  }
  ]
@@ -129,7 +129,7 @@ JSON
  "workmailmessageflow:GetRawMessageContent",
  "workmailmessageflow:PutRawMessageContent"
  ],
- "Resource": "`arn:aws:`workmailmessageflow:`us-east-1`:`111122223333`:message/*",
+ "Resource": "arn:aws:workmailmessageflow:`us-east-1`:`111122223333`:message/*",
  "Effect": "Allow"
  }
  ]

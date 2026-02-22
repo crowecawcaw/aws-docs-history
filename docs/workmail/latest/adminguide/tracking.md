@@ -134,7 +134,7 @@ JSON
  "logs:CreateLogStream",
  "logs:PutLogEvents"
  ],
- "Resource": "`arn:aws:`logs:`us-east-1`:`111122223333`:log-group:`example-log-group`*"
+ "Resource": "arn:aws:logs:`us-east-1`:`111122223333`:log-group:`example-log-group`*"
  }
  ]
 }`
