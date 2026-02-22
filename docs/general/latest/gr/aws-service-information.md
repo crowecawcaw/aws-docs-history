@@ -281,6 +281,7 @@ quotas](aws-general.md#aws-service-information "aws-general.md#aws-service-infor
 - [AWS WAF](waf.md "waf.md")
 - [AWS WAF Classic](waf-classic.md "waf-classic.md")
 - [AWS Well-Architected Tool](wellarchitected.md "wellarchitected.md")
+- [AWS Wickr](wickr.md "wickr.md")
 - [Amazon WorkMail](workmail.md "workmail.md")
 - [Amazon WorkSpaces](wsp.md "wsp.md")
 - [Amazon WorkSpaces Instances](wsp-instances.md "wsp-instances.md")
