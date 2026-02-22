@@ -121,7 +121,7 @@ After creating a standalone account in the AWS GovCloud (US) Regions, you can in
 
 The following diagram shows how account access works, so that you can invite standalone accounts in the AWS GovCloud (US) Regions to an organization in the same Region.
 
-![Diagram showing AWS Standard and GovCloud(US) regions with account pairing and IAM role access.](images/GovCloud-account-access.png)
+![Diagram showing AWS Standard and GovCloud(US) regions with account pairing and IAM role access.](/images/govcloud-us/latest/UserGuide/images/GovCloud-account-access.png)
 
 ###### Example: Account 1 invites Account 2 in the AWS GovCloud (US) Regions to an organization
 

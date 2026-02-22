@@ -15,7 +15,6 @@ Amazon Simple Storage Service (Amazon S3) is storage for the internet. You can u
 - Amazon S3 presigned URLs are available only through the AWS Command Line Interface (AWS CLI) and AWS SDKs.
 - Bucket-style aliases for your Amazon S3 Object Lambda Access Points are not available.
 - Amazon S3 Express One Zone is not available in the AWS GovCloud (US) Regions.
-- Amazon S3 Tables is not available in the AWS GovCloud (US) Regions.
 - Amazon S3 Metadata is not available in the AWS GovCloud (US) Regions.
 - Access points for directory buckets are not available in the AWS GovCloud (US) Regions.
 - You cannot use S3 access points to access file data stored on Amazon FSx file systems.
