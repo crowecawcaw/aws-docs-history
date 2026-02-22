@@ -395,65 +395,41 @@ var token = DSQLAuthTokenGenerator.GenerateDbConnectAdminAuthToken(credentials, 
 Console.WriteLine(token);
 ```
 
-Golang
+Go
+The AWS SDK for Go v2 provides a built-in method for generating
+authentication tokens in the
+[`github.com/aws/aws-sdk-go-v2/feature/dsql/auth`](https://github.com/aws/aws-sdk-go-v2/tree/main/feature/dsql/auth "https://github.com/aws/aws-sdk-go-v2/tree/main/feature/dsql/auth") package.
 
-###### Note
-
-The Golang SDK doesn't provide a built-in method for generating a
-pre-signed token. You must manually construct the signed request, as
-shown in the following code example.
-
-In the following code example, specify the `action` based on
-the PostgreSQL user:
-
-- If you're connecting with the `admin` role, use the
-  `DbConnectAdmin` action.
-- If you're connecting with a custom database role, use the
-  `DbConnect` action.
-
-In addition to `yourClusterEndpoint` and
-`region`, the following example uses
-`action`. Specify the
-`action` based on the PostgreSQL user.
+- If you are connecting with the `admin` role, use
+  `auth.GenerateDBConnectAdminAuthToken`.
+- If you are connecting with a custom database role, use
+  `auth.GenerateDbConnectAuthToken`.
 
 ```
-func GenerateDbConnectAdminAuthToken(`yourClusterEndpoint` string, `region` string, `action` string) (string, error) {
-	// Fetch credentials
-	sess, err := session.NewSession()
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/feature/dsql/auth"
+)
+
+func main() {
+	ctx := context.Background()
+
+	cfg, err := config.LoadDefaultConfig(ctx, config.WithRegion("`region`"))
 	if err != nil {
-		return "", err
+		panic(err)
 	}
 
-	creds, err := sess.Config.Credentials.Get()
+	// Use auth.GenerateDbConnectAuthToken for non-admin users
+	token, err := auth.GenerateDBConnectAdminAuthToken(ctx, "`yourClusterEndpoint`", "`region`", cfg.Credentials)
 	if err != nil {
-		return "", err
-	}
-	staticCredentials := credentials.NewStaticCredentials(
-		creds.AccessKeyID,
-		creds.SecretAccessKey,
-		creds.SessionToken,
-	)
-
-	// The scheme is arbitrary and is only needed because validation of the URL requires one.
-	endpoint := "https://" + yourClusterEndpoint
-	req, err := http.NewRequest("GET", endpoint, nil)
-	if err != nil {
-		return "", err
-	}
-	values := req.URL.Query()
-	values.Set("Action", action)
-	req.URL.RawQuery = values.Encode()
-
-	signer := v4.Signer{
-		Credentials: staticCredentials,
-	}
-	_, err = signer.Presign(req, nil, "dsql", region, 15*time.Minute, time.Now())
-	if err != nil {
-		return "", err
+		panic(err)
 	}
 
-	url := req.URL.String()[len("https://"):]
-
-	return url, nil
+	fmt.Println(token)
 }
 ```

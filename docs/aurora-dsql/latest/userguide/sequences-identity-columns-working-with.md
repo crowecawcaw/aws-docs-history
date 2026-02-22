@@ -1,6 +1,6 @@
 # Working with sequences and identity columns
 
-This section helps you understand how best to use sequences and `IDENTITY`
+This section helps you understand how best to use sequences and identity
 columns based on workload patterns.
 
 ###### Important

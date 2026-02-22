@@ -98,8 +98,8 @@ const sql = auroraDSQLPostgres({
 });
 
 // Execute queries
-const users = await sql`SELECT * FROM users WHERE age > ${25}`;
-console.log(users);
+const result = await sql`SELECT current_timestamp`;
+console.log(result);
 
 // Clean up
 await sql.end();
@@ -183,5 +183,13 @@ guide](authentication-authorization.md "authentication-authorization.md").
 
 ## Sample usage
 
-A JavaScript example using the Aurora DSQL Connector for
-Postgres.js is available [here](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js/example "https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js/example").
+JavaScript examples using the Aurora DSQL Connector for
+Postgres.js are available on GitHub. For instructions on how to run the examples,
+refer to the
+[examples
+directory](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js/example "https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js/example").
+
+| Description                                                                                                      | Example                                                                                                                                                                                                                                                                                                                                                         |
+| ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Connection pooling with concurrent queries, including table creation, inserts, and reads across multiple workers | [Connection<br>pool example (preferred)](https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/postgres-js/example/src/example_preferred.js "https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/postgres-js/example/src/example_preferred.js")                                                                                         |
+| CRUD operations (create table, insert, select, delete) without connection pooling                                | [Example<br>without connection pool](https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/postgres-js/example/src/alternatives/no_connection_pool/example_with_no_connection_pool.js "https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/postgres-js/example/src/alternatives/no_connection_pool/example_with_no_connection_pool.js") |
