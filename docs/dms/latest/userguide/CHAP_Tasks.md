@@ -1,42 +1,181 @@
-# Reloading tables during a task
+# Starting and viewing data type
 
-While a task is running, you can reload a target database table using data from the
-source. You might want to reload a table if, during the task, an error occurs or data
-changes due to partition operations (for example, when using Oracle). You can reload up
-to 10 tables from a task.
-
-Reloading tables does not stop the task.
-
-To reload a table, the following conditions must apply:
-
-- The task must be running.
-- The migration method for the task must be either full load or full load with
-  CDC.
-- Duplicate tables aren't allowed.
-- AWS DMS retains the previously read table definition and doesn't recreate it
-  during the reload operation. Any DDL statements such as ALTER TABLE ADD COLUMN
-  or DROP COLUMN that are made to the table before the table is reloaded can cause
-  the reload operation to fail.
+assessments (Legacy)
 
 ###### Note
 
-DMS applies the `TargetTablePrepMode` setting before reloading the table. If you
-set `TargetTablePrepMode` to `DO_NOTHING`, you must manually truncate the
-table first.
+This section describes legacy content. We recommend that you use premigration assessment
+runs, described prior in [Specifying, starting, and viewing
+premigration assessment runs](CHAP_Tasks.md "CHAP_Tasks.md").
 
-## AWS Management Console
+Data type assessments are not available in the console. You can only run data type assessments
+using the API or CLI, and you can only view the results of a data type assessment in the task's S3 bucket.
 
-###### To reload a table using the AWS DMS console
+The Pre-migration Assessment will automatically run under these conditions:
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+- During Start Task: If you haven't manually run the assessment during task creation.
+- During Resume Task: If no completed assessment exists within the past 7 days.
+  A data type assessment identifies data types in a source database that might not
+  get migrated correctly because the target doesn't support them. During this assessment, AWS DMS reads the source database
+  schemas for a migration task and creates a list of the column data types. It then
+  compares this list to a predefined list of data types supported by AWS DMS. If your
+  migration task has unsupported data types, AWS DMS
+  creates a report that you can look at to see if your migration task has any
+  unsupported data types. AWS DMS doesn't create a report if your migration task doesn't have any
+  unsupported data types.
 
-If you are signed in as an IAM user, make sure that you have the
-appropriate permissions to access AWS DMS. For more information about the permissions
-required, see [IAM permissions needed to use
-AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. Choose **Tasks** from the navigation pane. 3. Choose the running task that has the table you want to reload. 4. Choose the **Table Statistics** tab.
+AWS DMS supports creating data type assessment reports for the following relational
+databases:
 
-![AWS DMS monitoring](images/datarep-reloading1.png) 5. Choose the table you want to reload. If the task is no longer running, you
-can't reload the table. 6. Choose **Reload table data**.
+- Oracle
+- SQL Server
+- PostgreSQL
+- MySQL
+- MariaDB
+- Amazon Aurora
+  You can start and view a data type assessment report using the CLI and SDKs to
+  access the AWS DMS API:
 
-When AWS DMS is preparing to reload a table, the console changes the table status to
-**Table is being reloaded**.
+- The CLI uses the [`start-replication-task-assessment`](../../../cli/latest/reference/dms/start-replication-task-assessment.md "../../../cli/latest/reference/dms/start-replication-task-assessment.md") command to start
+  a data type assessment and uses the [`describe-replication-task-assessment-results`](../../../cli/latest/reference/dms/describe-replication-task-assessment-results.md "../../../cli/latest/reference/dms/describe-replication-task-assessment-results.md")
+  command to view the latest data type assessment report in JSON
+  format.
+- The AWS DMS API uses the [`StartReplicationTaskAssessment`](../APIReference/API_StartReplicationTaskAssessment.md "../APIReference/API_StartReplicationTaskAssessment.md")
+  operation to start a data type assessment and uses the [`DescribeReplicationTaskAssessmentResults`](../APIReference/API_DescribeReplicationTaskAssessmentResults.md "../APIReference/API_DescribeReplicationTaskAssessmentResults.md")
+  operation to view the latest data type assessment report in JSON
+  format.
+  The data type assessment report is a single JSON file that includes a summary that
+  lists the unsupported data types and the column count for each one. It includes a
+  list of data structures for each unsupported data type including the schemas,
+  tables, and columns that have the unsupported data type. You can use the report to
+  modify the source data types and improve the migration success.
+
+There are two levels of unsupported data types. Data types that appear on the
+report as not supported can't be migrated. Data types that appear on the report
+as partially supported might be converted to another data type, but not migrate as
+you expect.
+
+The following example shows a sample data type assessment report that you might
+view.
+
+```
+{
+    "summary":{
+        "task-name":"test15",
+        "not-supported":{
+            "data-type": [
+                "sql-variant"
+            ],
+            "column-count":3
+        },
+        "partially-supported":{
+            "data-type":[
+                "float8",
+                "jsonb"
+            ],
+            "column-count":2
+        }
+    },
+    "types":[
+        {
+            "data-type":"float8",
+            "support-level":"partially-supported",
+            "schemas":[
+                {
+                    "schema-name":"schema1",
+                    "tables":[
+                        {
+                            "table-name":"table1",
+                            "columns":[
+                                "column1",
+                                "column2"
+                            ]
+                        },
+                        {
+                            "table-name":"table2",
+                            "columns":[
+                                "column3",
+                                "column4"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "schema-name":"schema2",
+                    "tables":[
+                        {
+                            "table-name":"table3",
+                            "columns":[
+                                "column5",
+                                "column6"
+                            ]
+                        },
+                        {
+                            "table-name":"table4",
+                            "columns":[
+                                "column7",
+                                "column8"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "datatype":"int8",
+            "support-level":"partially-supported",
+            "schemas":[
+                {
+                    "schema-name":"schema1",
+                    "tables":[
+                        {
+                            "table-name":"table1",
+                            "columns":[
+                                "column9",
+                                "column10"
+                            ]
+                        },
+                        {
+                            "table-name":"table2",
+                            "columns":[
+                                "column11",
+                                "column12"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+```
+
+AWS DMS stores the latest and all previous data type assessments in an Amazon S3
+bucket created by AWS DMS in your account. The Amazon S3 bucket name has the following
+format, where `customerId` is your customer ID and
+`customerDNS` is an internal identifier.
+
+```
+dms-`customerId`-`customerDNS`
+```
+
+###### Note
+
+By default, you can create up to 100 Amazon S3 buckets in each of your AWS
+accounts. Because AWS DMS creates a bucket in your account, make sure that it
+doesn't exceed your bucket limit. Otherwise, the data type assessment
+fails.
+
+All data type assessment reports for a given migration task are stored in a bucket
+folder named with the task identifier. Each report's file name is the date of
+the data type assessment in the format yyyy-mm-dd-hh-mm. You can view and compare
+previous data type assessment reports from the Amazon S3 Management Console.
+
+AWS DMS also creates an AWS Identity and Access Management (IAM) role to allow access to the S3 bucket
+created for these reports. The role name is `dms-access-for-tasks`. The
+role uses the `AmazonDMSRedshiftS3Role` policy. If a **ResourceNotFoundFault**
+error occurs when you run `StartReplicationTaskAssessment`, see
+[ResourceNotFoundFault](CHAP_Tasks.AssessmentReport.md#CHAP_Tasks.AssessmentReport.Troubleshooting.ResourceNotFoundFault "CHAP_Tasks.AssessmentReport.md#CHAP_Tasks.AssessmentReport.Troubleshooting.ResourceNotFoundFault") in the Troubleshooting section
+for information about creating the `dms-access-for-tasks`
+role manually.

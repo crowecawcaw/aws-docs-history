@@ -1,126 +1,237 @@
-# Converting database schemas in
+# Converting database objects
 
-DMS Schema Conversion: step-by-step guide
+with generative AI
 
-After you create the migration project and connect to your source and target
-databases, you can convert your source database objects to a format compatible with your
-target database. DMS Schema Conversion displays your source database schema in the left panel in a
-tree-view format.
-
-Each node of the database tree is _lazy loaded_. When you choose a
-node in the tree view, DMS Schema Conversion requests the schema information from your source
-database at that time. To load the schema information faster, choose your schema, and
-then choose **Load metadata** from the **Actions**
-menu. DMS Schema Conversion then reads the database metadata and stores the information on an Amazon S3
-bucket. You can now browse the database objects faster.
-
-You can convert the whole database schema, or you can choose any schema item from your
-source database to convert. If the schema item that you choose depends on a parent item,
-then DMS Schema Conversion also generates the schema for the parent item. For example, when you
-choose a table to convert, DMS Schema Conversion creates the converted table and the database schema
-that the table is in.
-
-## Converting database
-
-objects
-
-You can use DMS Schema Conversion to convert an entire database schema or separate database
+The DMS Schema Conversion with generative AI feature streamlines the database
+migration process by offering recommendations to help you convert previously unconverted
+code objects that typically require complex manual conversion. This feature is available
+for Oracle to PostgreSQL/Aurora PostgreSQL, SQL Server to PostgreSQL/Aurora
+PostgreSQL and SAP ASE (Sybase ASE) to PostgreSQL/Aurora PostgreSQL conversions. You can convert an entire database schema or individual database
 schema objects.
 
-###### To convert an entire database schema
+To convert your source database objects with generative AI, follow steps 1 to 6 in
+[Converting database objects](schema-conversion-convert.md#schema-conversion-convert-steps "schema-conversion-convert.md#schema-conversion-convert-steps")
+then continue with one of these two methods:
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. Choose **Migration projects**. The **Migration
-   projects** page opens.
-3. Choose your migration project, and then choose **Schema
-   conversion**.
-4. Choose **Launch schema conversion**. The **Schema
-   conversion** page opens.
-5. In the source database pane, select the check box for the schema
-   name.
-6. Choose this schema in the left pane of the migration project. DMS Schema Conversion
-   highlights the schema name in blue and activates the
-   **Actions** menu.
-7. For **Actions**, choose **Convert**. The
-   conversion dialog box appears.
-8. Choose **Convert** in the dialog box to confirm your
-   choice.
+- Method
+  1: From the **Actions** menu, select
+  **Convert**. In the conversion dialog box that appears,
+  enable the **Convert schema with Generative AI** option and
+  click **Convert**.
+- Method
+  2: Click \***\*Convert schema with
+  Generative AI\*\*** in the top right corner. In the
+  conversion dialog box, ensure the option is enabled and click
+  **Convert**.
+  To manually adjust this setting at any time in DMS Schema Conversion console:
 
-###### To convert your source database objects
+- Navigate to the **Settings** tab.
+- In the **Conversion settings section**, enable the
+  **Generative AI** option to approve the use of generative
+  AI.
 
-1. Sign in to the AWS Management Console, and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. Choose **Migration projects**. The **Migration
-   projects** page opens.
-3. Choose your migration project, and then choose **Schema
-   conversion**.
-4. Choose **Launch schema conversion**. The **Schema
-   conversion** page opens.
-5. In the source database pane, select your source database objects.
-6. After you select all check boxes for the objects that you want to convert,
-   choose the parent node for all selected objects in your left panel.
+###### Note
 
-DMS Schema Conversion highlights the parent node in blue and activates the
-**Actions** menu. 7. For **Actions**, choose **Convert**. The
-conversion dialog box appears. 8. Choose **Convert** in the dialog box to confirm your
-choice.
+Supported regions:
 
-For example, to convert two out of 10 tables, select the check boxes for the two
-tables that you want to convert. Notice that the **Actions** menu
-is inactive. After you choose the **Tables** node, DMS Schema Conversion
-highlights its name in blue and activates the **Actions** menu.
-Then you can choose **Convert** from this menu.
+- US East (N. Virginia)
+- US West (Oregon)
+- Europe (Frankfurt)
+  Supported conversion paths:
 
-Likewise, to convert two tables and three procedures, select the check boxes for
-the object names. Then, choose the schema node to activate the
-**Actions** menu, and choose **Convert
-schema**.
+- Oracle to Amazon RDS for PostgreSQL
+- Oracle to Amazon Aurora PostgreSQL
+- Microsoft SQL Server to Amazon RDS for PostgreSQL
+- Microsoft SQL Server to Amazon Aurora PostgreSQL
+- SAP ASE (Sybase ASE) to Amazon RDS for PostgreSQL
+- SAP ASE (Sybase ASE) to Amazon Aurora PostgreSQL
 
-## Editing and saving your
+## Scope of
 
-converted SQL code
+Generative AI conversion
 
-The **Schema conversion** page allows you to edit converted SQL
-code in your database objects. Use the following procedure to edit your converted
-SQL code, apply the changes, and then save them.
+Generative AI-assisted schema conversion focuses on specific SQL elements with
+designated action items. All other SQL elements are converted using default
+rule-based approaches. The SQL elements within the extended scope of Generative AI
+conversion include:
 
-###### To edit, apply changes to, and save your converted SQL code
+| Conversion direction                                                                                                     | Action item                                                                                                                           | Message                                                                                                | Syntax element                     |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------- |
+| Oracle<br>to<br>Amazon RDS for PostgreSQL<br>and<br>Oracle<br>to<br>Amazon Aurora PostgreSQL                             | 5578                                                                                                                                  | AWS DMS Schema Conversion cannot convert the SELECT<br>statement                                       | All occurrences except limitations |
+| 30415                                                                                                                    | Your MERGE statement contains a filtering condition in the WHERE<br>clause that is based on a value in a target table column          | All occurrences except limitations                                                                     |
+| 5591                                                                                                                     | AWS DMS Schema Conversion cannot convert system objects                                                                               | All occurrences except limitations                                                                     |
+| 5029                                                                                                                     | AWS DMS Schema Conversion cannot convert the usage of objects with<br>unsupported data types                                          | Usage of objects with the unsupported STANDARD.BFILE data type in<br>function and procedure arguments. |
+| 5031                                                                                                                     | AWS DMS Schema Conversion cannot convert CURSOR expressions                                                                           | All occurrences except limitations                                                                     |
+| 5043                                                                                                                     | AWS DMS Schema Conversion cannot convert hierarchical queries with<br>an asterisk in the SELECT clause                                | All occurrences except limitations                                                                     |
+| 5073                                                                                                                     | PostgreSQL does not support hierarchical queries with<br>pseudocolumns                                                                | All occurrences except limitations                                                                     |
+| 5102                                                                                                                     | PostgreSQL does not support MERGE statements                                                                                          | All occurrences except limitations                                                                     |
+| 5585                                                                                                                     | AWS DMS Schema Conversion cannot convert outer joins into<br>correlated subqueries                                                    | All occurrences except limitations                                                                     |
+| 5608                                                                                                                     | AWS DMS Schema Conversion cannot convert UPDATE statements that<br>have a subquery that returns multiple columns in the SET<br>clause | All occurrences except limitations                                                                     |
+| 5619                                                                                                                     | AWS DMS Schema Conversion cannot convert system objects                                                                               | All occurrences except limitations                                                                     |
+| 5852                                                                                                                     | PostgreSQL supports only tables as a target in the MERGE<br>statement.                                                                | All occurrences except limitations                                                                     |
+| 5853                                                                                                                     | AWS DMS Schema Conversion supports only tables, views or<br>sub-queries as a source in the USING clause of the MERGE<br>statement     | All occurrences except limitations                                                                     |
+| 5855                                                                                                                     | Your MERGE statement contains a filtering condition in the WHERE<br>clause that is based on a value in a target table column          | All occurrences except limitations                                                                     |
+| 9996                                                                                                                     | Internal Converter error occurred                                                                                                     | All occurrences except limitations                                                                     |
+| 9993                                                                                                                     | Unable to transform statement due to references to unresolved<br>object                                                               | All occurrences except limitations                                                                     |
+| 5598                                                                                                                     | PostgreSQL does not support ROWID                                                                                                     | All occurrences except limitations                                                                     |
+| 5340                                                                                                                     | AWS DMS Schema Conversion cannot convert functions                                                                                    | All occurrences except limitations                                                                     |
+| 5071                                                                                                                     | PostgreSQL does not support the INSERT statement for<br>subqueries                                                                    | All occurrences except limitations                                                                     |
+| 5068                                                                                                                     | PostgreSQL does not support the DELETE statement for<br>subqueries                                                                    | All occurrences except limitations                                                                     |
+| 5065                                                                                                                     | PostgreSQL does not support the UPDATE statement for<br>subqueries                                                                    | All occurrences except limitations                                                                     |
+| 5586                                                                                                                     | AWS DMS Schema Conversion cannot convert queries with the NOCYCLE<br>clause                                                           | All occurrences except limitations                                                                     |
+| 5351                                                                                                                     | AWS DMS Schema Conversion cannot convert objects                                                                                      | All occurrences except limitations                                                                     |
+| 5077                                                                                                                     | PostgreSQL does not support the PIVOT clause for SELECT<br>statements                                                                 | All occurrences except limitations                                                                     |
+| 5126                                                                                                                     | PostgreSQL does not support MODEL statements                                                                                          | All occurrences except limitations                                                                     |
+| 5121                                                                                                                     | PostgreSQL does not support FORALL statements                                                                                         | All occurrences except limitations                                                                     |
+| 5141                                                                                                                     | AWS DMS Schema Conversion does not support this type of<br>conversion                                                                 | All occurrences except limitations                                                                     |
+| 5142                                                                                                                     | AWS DMS Schema Conversion cannot convert nested calls of the same<br>method                                                           | All occurrences except limitations                                                                     |
+| 5245                                                                                                                     | PostgreSQL does not support views with nested table<br>columns                                                                        | All occurrences except limitations                                                                     |
+| 5500                                                                                                                     | AWS DMS Schema Conversion cannot convert database mail<br>sending                                                                     | All occurrences except limitations                                                                     |
+| 5501                                                                                                                     | AWS DMS Schema Conversion cannot convert scheduled jobs                                                                               | All occurrences except limitations                                                                     |
+| 5645                                                                                                                     | PostgreSQL does not support BULK COLLECT INTO clauses for several<br>object table targets.                                            | All occurrences except limitations                                                                     |
+| 5665                                                                                                                     | PostgreSQL does not support the collection data type defined with<br>PRAGMA AUTONOMOUS_TRANSACTION                                    | All occurrences except limitations                                                                     |
+| 5637                                                                                                                     | PostgreSQL does not support bulk collect into VARRAY of<br>VARRAY                                                                     | All occurrences except limitations                                                                     |
+| 5594                                                                                                                     | AWS DMS Schema Conversion cannot convert date time<br>expressions                                                                     | All occurrences except limitations                                                                     |
+| 5622                                                                                                                     | AWS DMS Schema Conversion converts the<br>dbms_transaction.local_transaction_id function with the parameter<br>set to true            | All occurrences except limitations                                                                     |
+| 5643                                                                                                                     | PostgreSQL does not support BULK COLLECT INTO clauses for<br>multilevel collection types in SELECT statements.                        | All occurrences except limitations                                                                     |
+| 5649                                                                                                                     | PostgreSQL does not support multiset operators for multilevel<br>collection types.                                                    | All occurrences except limitations                                                                     |
+| 5651                                                                                                                     | AWS DMS Schema Conversion cannot convert pipelined table<br>functions                                                                 | All occurrences except limitations                                                                     |
+| 5793                                                                                                                     | AWS DMS Schema Conversion creates the queue with the GRANT ALL<br>option                                                              | All occurrences except limitations                                                                     |
+| 5794                                                                                                                     | PostgreSQL sets the queue mode to ENABLE by default                                                                                   | All occurrences except limitations                                                                     |
+| 5795                                                                                                                     | Amazon Simple Queue Service does not support queues in the<br>DISABLE mode                                                            | All occurrences except limitations                                                                     |
+| Microsoft SQL Server<br>to<br>Amazon RDS for PostgreSQL<br>and<br>Microsoft SQL Server<br>to<br>Amazon Aurora PostgreSQL | 7610                                                                                                                                  | AWS DMS Schema Conversion cannot convert unsupported DDL<br>statements                                 | All occurrences except limitations |
+| 7622                                                                                                                     | AWS DMS Schema Conversion cannot convert the DELETE statement using<br>complex inline functions                                       | All occurrences except limitations                                                                     |
+| 7624                                                                                                                     | AWS DMS Schema Conversion cannot convert the DELETE statement from<br>an inline function for tables without primary keys              | All occurrences except limitations                                                                     |
+| 7626                                                                                                                     | AWS DMS Schema Conversion cannot convert the UPDATE statement using<br>complex inline functions                                       | All occurrences except limitations                                                                     |
+| 7627                                                                                                                     | AWS DMS Schema Conversion cannot convert this syntax<br>element                                                                       | All occurrences except limitations                                                                     |
+| 7628                                                                                                                     | PostgreSQL does not support GOTO statements                                                                                           | All occurrences except limitations                                                                     |
+| 7637                                                                                                                     | PostgreSQL does not support global cursors                                                                                            | All occurrences except limitations                                                                     |
+| 7639                                                                                                                     | PostgreSQL does not support dynamic cursors                                                                                           | All occurrences except limitations                                                                     |
+| 7644                                                                                                                     | PostgreSQL does not support the %s clause                                                                                             | All occurrences except limitations                                                                     |
+| 7645                                                                                                                     | PostgreSQL does not support running pass-through commands on<br>linked servers                                                        | All occurrences except limitations                                                                     |
+| 7653                                                                                                                     | PostgreSQL does not support GROUP BY ROLLUP clauses                                                                                   | All occurrences except limitations                                                                     |
+| 7654                                                                                                                     | PostgreSQL does not support GROUP BY CUBE clauses                                                                                     | All occurrences except limitations                                                                     |
+| 7655                                                                                                                     | PostgreSQL does not support GROUP BY GROUPING SETS<br>clauses                                                                         | All occurrences except limitations                                                                     |
+| 7672                                                                                                                     | PostgreSQL does not support EXECUTE statements that run a<br>character string                                                         | All occurrences except limitations                                                                     |
+| 7683                                                                                                                     | MERGE is not supported if the target is a view, a materialized<br>view, or an external table                                          | All occurrences except limitations                                                                     |
+| 7687                                                                                                                     | PostgreSQL does not support CONTAINS predicates                                                                                       | All occurrences except limitations                                                                     |
+| 7688                                                                                                                     | PostgreSQL does not support FREETEXT predicates                                                                                       | All occurrences except limitations                                                                     |
+| 7691                                                                                                                     | PostgreSQL does not support the WAITFOR TIME feature                                                                                  | All occurrences except limitations                                                                     |
+| 7695                                                                                                                     | PostgreSQL does not support the call of a procedure as a<br>variable                                                                  | All occurrences except limitations                                                                     |
+| 7696                                                                                                                     | AWS DMS Schema Conversion cannot convert the object because the<br>`%s`<br>object is not created                                      | All occurrences except limitations                                                                     |
+| 7708                                                                                                                     | AWS DMS Schema Conversion cannot convert the usage of the<br>unsupported<br>`%s`<br>data type                                         | All occurrences except limitations                                                                     |
+| 7709                                                                                                                     | AWS DMS Schema Conversion cannot convert the usage of a symmetric<br>key                                                              | All occurrences except limitations                                                                     |
+| 7773                                                                                                                     | AWS DMS Schema Conversion cannot convert arithmetic operations with<br>dates                                                          | All occurrences except limitations                                                                     |
+| 7774                                                                                                                     | AWS DMS Schema Conversion cannot convert arithmetic operations with<br>mixed types of operands                                        | All occurrences except limitations                                                                     |
+| 7794                                                                                                                     | PostgreSQL does not support user-defined data types                                                                                   | All occurrences except limitations                                                                     |
+| 7796                                                                                                                     | PostgreSQL does not support TOP clauses in UPDATE<br>statements                                                                       | All occurrences except limitations                                                                     |
+| 7797                                                                                                                     | PostgreSQL does not support the DELETED column prefix for OUTPUT<br>clauses in UPDATE statements                                      | All occurrences except limitations                                                                     |
+| 7798                                                                                                                     | PostgreSQL does not support TOP clauses in DELETE<br>statements                                                                       | All occurrences except limitations                                                                     |
+| 7799                                                                                                                     | PostgreSQL does not support TOP clauses in INSERT<br>operators                                                                        | All occurrences except limitations                                                                     |
+| 7804                                                                                                                     | PostgreSQL does not support the bitwise exclusive OR<br>operator                                                                      | All occurrences except limitations                                                                     |
+| 7805                                                                                                                     | PostgreSQL does not support the `!<`                                                                                                  | All occurrences except limitations                                                                     |
+| 7806                                                                                                                     | PostgreSQL does not support the !> (not greater than)<br>operator                                                                     | All occurrences except limitations                                                                     |
+| 7811                                                                                                                     | PostgreSQL does not support the %s function. AWS DMS Schema<br>Conversion skips this unsupported function in the converted<br>code    | All occurrences except limitations, excluding DDL                                                      |
+| 7816                                                                                                                     | PostgreSQL does not support methods for the XML data type                                                                             | All occurrences except limitations                                                                     |
+| 7817                                                                                                                     | PostgreSQL does not support the FOR XML PATH option in SQL<br>queries                                                                 | All occurrences except limitations                                                                     |
+| 7818                                                                                                                     | PostgreSQL does not support arithmetic operations with binary<br>data types                                                           | All occurrences except limitations                                                                     |
+| 7819                                                                                                                     | PostgreSQL does not support INSERT...EXECUTE statements                                                                               | All occurrences except limitations                                                                     |
+| 7820                                                                                                                     | PostgreSQL does not support the VALUE() method                                                                                        | All occurrences except limitations                                                                     |
+| 7824                                                                                                                     | RECURSIVE CTE is not supported for MERGE statement                                                                                    | All occurrences except limitations                                                                     |
+| 7829                                                                                                                     | AWS DMS Schema Conversion cannot convert variable assignments with<br>UPDATE statements                                               | All occurrences except limitations                                                                     |
+| 7830                                                                                                                     | AWS DMS Schema Conversion cannot convert arithmetic operations with<br>the CASE operand                                               | All occurrences except limitations                                                                     |
+| 7832                                                                                                                     | AWS DMS Schema Conversion cannot convert INSTEAD OF triggers on<br>views                                                              | All occurrences except limitations                                                                     |
+| 7833                                                                                                                     | AWS DMS Schema Conversion cannot convert the<br>`@@rowcount` function in the current context                                          | All occurrences except limitations                                                                     |
+| 7836                                                                                                                     | PostgreSQL does not support write operations for binary<br>data                                                                       | All occurrences except limitations                                                                     |
+| 7840                                                                                                                     | AWS DMS Schema Conversion cannot convert Database Console Command<br>statements                                                       | All occurrences except limitations                                                                     |
+| 7904                                                                                                                     | AWS DMS Schema Conversion cannot convert the %s system<br>object                                                                      | All occurrences except limitations                                                                     |
+| 7905                                                                                                                     | PostgreSQL does not support PIVOT clauses for SELECT<br>statements                                                                    | All occurrences except limitations                                                                     |
+| 7906                                                                                                                     | PostgreSQL does not support UNPIVOT clauses for SELECT<br>statements                                                                  | All occurrences except limitations                                                                     |
+| 7909                                                                                                                     | AWS DMS Schema Conversion cannot convert UPDATE(column) OR<br>COLUMNS_UPDATED statements                                              | All occurrences except limitations                                                                     |
+| 7916                                                                                                                     | AWS DMS Schema Conversion cannot emulate the MERGE statement using<br>the INSERT ON CONFLICT statement                                | All occurrences except limitations                                                                     |
+| 7917                                                                                                                     | PostgreSQL does not support the %s function                                                                                           | All occurrences except limitations                                                                     |
+| 7918                                                                                                                     | PostgreSQL does not support table-valued functions                                                                                    | All occurrences except limitations                                                                     |
+| 7919                                                                                                                     | PostgreSQL does not support FOR XML with the %s directive                                                                             | All occurrences except limitations                                                                     |
+| 7920                                                                                                                     | PostgreSQL does not support EXPLICIT mode with FOR XML                                                                                | All occurrences except limitations                                                                     |
+| 7925                                                                                                                     | PostgreSQL does not support the percent character for OPENXML<br>flags                                                                | All occurrences except limitations                                                                     |
+| 7927                                                                                                                     | PostgreSQL does not support OUTER joins for self-referenced<br>tables without a primary key                                           | All occurrences except limitations                                                                     |
+| 7929                                                                                                                     | AWS DMS Schema Conversion cannot convert INSERT from EXEC<br>statements                                                               | All occurrences except limitations                                                                     |
+| 7939                                                                                                                     | AWS DMS Schema Conversion cannot convert the %s JSON system<br>function                                                               | All occurrences except limitations                                                                     |
+| 7940                                                                                                                     | AWS DMS Schema Conversion cannot convert OPENJSON system<br>table-valued functions                                                    | All occurrences except limitations                                                                     |
+| 7941                                                                                                                     | AWS DMS Schema Conversion cannot convert all open datasets because<br>you have multiple open datasets                                 | All occurrences except limitations                                                                     |
+| 9996                                                                                                                     | Internal Converter error occurred                                                                                                     | All occurrences except limitations                                                                     |
+| SAP ASE (Sybase ASE)<br>to<br>Amazon RDS for PostgreSQL<br>and<br>SAP ASE (Sybase ASE)<br>to<br>Amazon Aurora PostgreSQL | 3014                                                                                                                                  | Unable to convert functions                                                                            | All occurrences except limitations |
+| 3016                                                                                                                     | PostgreSQL does not support TOP option in the DML operator                                                                            | All occurrences except limitations                                                                     |
+| 3021                                                                                                                     | Unable to perform an automated migration of the arithmetic operation                                                                  | All occurrences except limitations                                                                     |
+| 3023                                                                                                                     | PostgreSQL does not support arithmetic operations with binary data types                                                              | All occurrences except limitations                                                                     |
+| 3025                                                                                                                     | Date/time format can be not matched                                                                                                   | All occurrences except limitations                                                                     |
+| 3026                                                                                                                     | Automatic conversion of the operator WAITFOR with a variable is not supported                                                         | All occurrences except limitations                                                                     |
+| 3027                                                                                                                     | PostgreSQL does not support WAITFOR TIME feature                                                                                      | All occurrences except limitations                                                                     |
+| 3028                                                                                                                     | PostgreSQL does not support WAITFOR with instruction                                                                                  | All occurrences except limitations                                                                     |
+| 3061                                                                                                                     | Unable to convert system objects                                                                                                      | All occurrences except limitations                                                                     |
+| 3064                                                                                                                     | In PostgreSQL you should not repeat the target table in the FROM clause of an UPDATE statement                                        | All occurrences except limitations                                                                     |
+| 3065                                                                                                                     | DELETE statement with self-reference table in the FROM clause and OUTER JOIN can not be transformed automatically                     | All occurrences except limitations                                                                     |
+| 3069                                                                                                                     | Unable to convert statement                                                                                                           | All occurrences except limitations                                                                     |
+| 3081                                                                                                                     | DMS SC can't convert unsupported DDL statements                                                                                       | All occurrences except limitations                                                                     |
+| 3088                                                                                                                     | PostgreSQL does not support global cursors                                                                                            | All occurrences except limitations                                                                     |
+| 3089                                                                                                                     | PostgreSQL does not support dynamic cursors                                                                                           | All occurrences except limitations                                                                     |
+| 3121                                                                                                                     | DMS SC can't convert the usage of an unsupported data type                                                                            | All occurrences except limitations                                                                     |
+| 3122                                                                                                                     | DMS SC can't convert arithmetic operations with dates                                                                                 | All occurrences except limitations                                                                     |
+| 3123                                                                                                                     | DMS SC can't convert arithmetic operations with mixed types of operands                                                               | All occurrences except limitations                                                                     |
+| 3146                                                                                                                     | PostgreSQL does not support the bitwise exclusive OR operator                                                                         | All occurrences except limitations                                                                     |
+| 3147                                                                                                                     | PostgreSQL does not support the !< (not less than) operator                                                                           | All occurrences except limitations                                                                     |
+| 3148                                                                                                                     | PostgreSQL does not support the !> (not greater than) operator                                                                        | All occurrences except limitations                                                                     |
+| 3150                                                                                                                     | DMS SC can't convert functions                                                                                                        | All occurrences except limitations                                                                     |
+| 3156                                                                                                                     | PostgreSQL does not support arithmetic operations with binary data types                                                              | All occurrences except limitations                                                                     |
+| 3162                                                                                                                     | DMS SC can't convert variable assignments with UPDATE statements                                                                      | All occurrences except limitations                                                                     |
+| 3163                                                                                                                     | DMS SC can't convert arithmetic operations with the CASE operand                                                                      | All occurrences except limitations                                                                     |
+| 3168                                                                                                                     | PostgreSQL does not support write operations for binary data                                                                          | All occurrences except limitations                                                                     |
+| 3172                                                                                                                     | DMS SC can't convert Database Console Command statements                                                                              | All occurrences except limitations                                                                     |
+| 3177                                                                                                                     | DMS SC can't convert system objects                                                                                                   | All occurrences except limitations                                                                     |
+| 3182                                                                                                                     | DMS SC can't convert UPDATE(column) OR COLUMNS_UPDATED statements                                                                     | All occurrences except limitations                                                                     |
+| 3190                                                                                                                     | DMS SC can't convert functions                                                                                                        | All occurrences except limitations                                                                     |
+| 3191                                                                                                                     | PostgreSQL does not support table-valued functions                                                                                    | All occurrences except limitations                                                                     |
+| 9996                                                                                                                     | Internal Converter error occurred                                                                                                     | All occurrences except limitations                                                                     |
 
-1. In the **Schema conversion** page, open the tree view in
-   the **Source data providers** pane to display a code
-   object.
+### Limitations
 
-![Schema conversion: Source data providers tree view](images/datarep-sc-editsql-1.png) 2. From the **Source data providers** pane, choose
-**Actions**, **Convert**. Confirm the
-action. 3. When the conversion completes, to view the converted SQL, expand the
-center pane if needed. To edit the converted SQL, choose the edit icon in
-the **Target SQL** pane.
+The Converting database objects with generative AI feature has the following
+limitations:
 
-![Schema conversion: Edit target SQL](images/datarep-sc-editsql-2.png) 4. After you edit the target SQL, confirm your changes by choosing the check
-icon at the top of the page. Confirm the action. 5. In the **Target data providers** pane, choose
-**Actions**, **Apply changes**.
-Confirm the action. 6. DMS writes the edited procedure to the target data store.
+- Database endpoints supporting generative AI conversion are not visible
+  in the AWS Console. You can view them only by exporting the assessment
+  report as a PDF or CSV file.
+- As a probabilistic system, generative AI-assisted Schema Conversion
+  may not achieve 100 percent accuracy in all conversions. It can also
+  produce different results for the same SQL statements over a period of
+  time. You must review and validate all conversion outputs.
+- Generative AI conversion is not supported for:
+  - DEFAULT constraint in a table
+  - DEFAULT value for a function or procedure parameter
+  - COMPUTE COLUMN in a table
+  - TRIGGER
+  - COLUMN DATA TYPE
+  - Dynamic SQL
+  - INDEX
+  - CONSTRAINT
 
-## Reviewing converted database
+- If the source statement is converted with multiple action items and at
+  least one action item is processed using generative AI, then all Action
+  Items are replaced by one action item 5444 on a target for Oracle and
+  7744 for Microsoft SQL Server. The action item 9997 is an exception that
+  is saved after processed using generative AI.
 
-objects
+###### Warning
 
-After you have converted your source database objects, you can choose an object in
-the left pane of your project. You can then view the source and converted code for
-that object. DMS Schema Conversion automatically loads the converted code for the object that you
-selected in the left pane. You can also see the properties or parameters of the
-object that you selected.
+Conversion using generative AI takes longer than basic conversion.
 
-DMS Schema Conversion automatically stores the converted code as part of your migration
-project. It doesn't apply these code changes to your target database. For more
-information about applying converted code to your target database, see [Applying your converted
-code](schema-conversion-save-apply.md#schema-conversion-apply "schema-conversion-save-apply.md#schema-conversion-apply"). To remove the converted code from your migration project, select your target
-schema in the right pane, and then choose **Refresh from database**
-from **Actions**.
+Every AWS account have a per-minute quota limiting the number of SQL
+statements that can be converted using generative AI. Statements exceeding this
+limit are queued for processing in subsequent minutes. The quota is as
+follows:
 
-After you have converted your source database objects, you can see the conversion
-summary and action items in the lower-center pane. You can see the same information
-when you create an assessment report. The assessment report is useful for
-identifying and resolving schema items that DMS Schema Conversion can't convert. You can save the
-assessment report summary and the list of conversion action items in CSV files. For
-more information, see [Database migration assessment
-reports](assessment-reports.md "assessment-reports.md").
+| Region                | SQL Statements per AWS account per minute |
+| --------------------- | ----------------------------------------- |
+| US East (N. Virginia) | Up to 40 statements                       |
+| US West (Oregon)      | Up to 40 statements                       |
+| Europe (Frankfurt)    | Up to 40 statements                       |

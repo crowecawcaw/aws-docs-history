@@ -1,289 +1,353 @@
-# Using Amazon Neptune as a target for
+# Using Amazon Kinesis Data Streams as a target for AWS Database Migration Service
 
-AWS Database Migration Service
+You can use AWS DMS to migrate data to an Amazon Kinesis data stream. Amazon Kinesis data streams
+are part of the Amazon Kinesis Data Streams service. You can use Kinesis data streams to collect and process
+large streams of data records in real time.
 
-Amazon Neptune is a fast, reliable, fully managed graph database service that makes it
-easy to build and run applications that work with highly connected datasets. The core of
-Neptune is a purpose-built, high-performance graph database engine. This engine is
-optimized for storing billions of relationships and querying the graph with milliseconds
-latency. Neptune supports the popular graph query languages Apache TinkerPop Gremlin
-and W3C's SPARQL. For more information on Amazon Neptune, see [What is
-Amazon Neptune?](../../../neptune/latest/userguide/intro.md "../../../neptune/latest/userguide/intro.md") in the _Amazon Neptune User Guide_.
+A Kinesis data stream is made up of shards. _Shards_ are
+uniquely identified sequences of data records in a stream. For more information on
+shards in Amazon Kinesis Data Streams, see [Shard](../../../streams/latest/dev/key-concepts.md#shard "../../../streams/latest/dev/key-concepts.md#shard") in the
+_Amazon Kinesis Data Streams Developer Guide._
 
-Without a graph database such as Neptune, you probably model highly connected data
-in a relational database. Because the data has potentially dynamic connections,
-applications that use such data sources have to model connected data queries in SQL.
-This approach requires you to write an extra layer to convert graph queries into SQL.
-Also, relational databases come with schema rigidity. Any changes in the schema to model
-changing connections require downtime and additional maintenance of the query conversion
-to support the new schema. The query performance is also another big constraint to
-consider while designing your applications.
+AWS Database Migration Service publishes records to a Kinesis data stream using JSON. During conversion, AWS DMS
+serializes each record from the source database into an attribute-value pair in JSON
+format or a JSON_UNFORMATTED message format. A JSON_UNFORMATTED message format is a single line
+JSON string with new line
+delimiter. It allows Amazon Data Firehose to deliver Kinesis data to an Amazon
+S3 destination, and then query it using various query engines including Amazon Athena.
 
-Graph databases can greatly simplify such situations. Free from a schema, a rich graph
-query layer (Gremlin or SPARQL) and indexes optimized for graph queries increase
-flexibility and performance. The Amazon Neptune graph database also has enterprise
-features such as encryption at rest, a secure authorization layer, default backups,
-Multi-AZ support, read replica support, and others.
+You use object mapping to migrate your data from any supported data source to a target
+stream. With object mapping, you determine how to structure the data records in the
+stream. You also define a partition key for each table, which Kinesis Data Streams uses to group the
+data into its shards.
 
-Using AWS DMS, you can migrate relational data that models a highly connected graph to a
-Neptune target endpoint from a DMS source endpoint for any supported SQL
-database.
+AWS DMS also sets several Kinesis Data Streams parameter values. The cost for the table creation
+depends on the amount of data and the number of tables to be migrated.
 
-For more details, see the following.
+###### Note
 
-###### Topics
+The **SSL Mode** option on the AWS DMS console or API doesn’t apply
+to some data streaming and NoSQL services like Kinesis and DynamoDB. They are secure
+by default, so AWS DMS shows the SSL mode setting is equal to none
+(**SSL Mode=None**). You don’t need to provide any additional
+configuration for your endpoint to make use of SSL. For example, when using Kinesis
+as a target endpoint, it is secure by default. All API calls to Kinesis use SSL, so
+there is no need for an additional SSL option in the AWS DMS endpoint. You can securely
+put data and retrieve data through SSL endpoints using the HTTPS protocol, which AWS DMS
+uses by default when connecting to a Kinesis Data Stream.
 
-- [Overview of migrating to
-  Amazon Neptune as a target](#CHAP_Target.Neptune.MigrationOverview "#CHAP_Target.Neptune.MigrationOverview")
-- [Specifying endpoint settings
-  for Amazon Neptune as a target](#CHAP_Target.Neptune.EndpointSettings "#CHAP_Target.Neptune.EndpointSettings")
-- [Creating an IAM service role for
-  accessing Amazon Neptune as a target](#CHAP_Target.Neptune.ServiceRole "#CHAP_Target.Neptune.ServiceRole")
-- [Specifying graph-mapping rules
-  using Gremlin and R2RML for Amazon Neptune as a target](#CHAP_Target.Neptune.GraphMapping "#CHAP_Target.Neptune.GraphMapping")
-- [Data types for Gremlin and R2RML
-  migration to Amazon Neptune as a target](#CHAP_Target.Neptune.DataTypes "#CHAP_Target.Neptune.DataTypes")
-- [Limitations of using Amazon Neptune
-  as a target](#CHAP_Target.Neptune.Limitations "#CHAP_Target.Neptune.Limitations")
+###### Kinesis Data Streams endpoint settings
 
-## Overview of migrating to
+When you use Kinesis Data Streams target endpoints, you can get transaction and control details
+using the `KinesisSettings` option in the AWS DMS API.
 
-Amazon Neptune as a target
+You can set connection settings in the following ways:
 
-Before starting a migration to a Neptune target, create the following resources
-in your AWS account:
+- In the AWS DMS console, using endpoint settings.
+- In the CLI, using the `kinesis-settings` option of the [CreateEndpoint](../APIReference/API_CreateEndpoint.md "../APIReference/API_CreateEndpoint.md") command.
 
-- A Neptune cluster for the target endpoint.
-- A SQL relational database supported by AWS DMS for the source
-  endpoint.
-- An Amazon S3 bucket for the target endpoint. Create this S3 bucket in the same
-  AWS Region as your Neptune cluster. AWS DMS uses this S3 bucket as
-  intermediate file storage for the target data that it bulk loads to the
-  Neptune database. For more information on creating an S3 bucket, see
-  [Creating a bucket](../../../AmazonS3/latest/gsg/CreatingABucket.md "../../../AmazonS3/latest/gsg/CreatingABucket.md") in the _Amazon Simple Storage Service User Guide._
-- A virtual private cloud (VPC) endpoint for S3 in the same VPC as the
-  Neptune cluster.
-- An AWS Identity and Access Management (IAM) role that includes an IAM policy. This policy should
-  specify the `GetObject`, `PutObject`,
-  `DeleteObject` and `ListObject` permissions to the
-  S3 bucket for your target endpoint. This role is assumed by both AWS DMS and
-  Neptune with IAM access to both the target S3 bucket and the Neptune
-  database. For more information, see [Creating an IAM service role for
-  accessing Amazon Neptune as a target](#CHAP_Target.Neptune.ServiceRole "#CHAP_Target.Neptune.ServiceRole").
+In the CLI, use the following
+request parameters of the `kinesis-settings` option:
 
-After you have these resources, setting up and starting a migration to a Neptune
-target is similar to any full load migration using the console or DMS API. However,
-a migration to a Neptune target requires some unique steps.
+###### Note
 
-###### To migrate an AWS DMS relational database to Neptune
+Support for the `IncludeNullAndEmpty` endpoint setting is available in
+AWS DMS version 3.4.1 and higher. But support for the other following endpoint settings
+for Kinesis Data Streams targets is available in AWS DMS.
 
-1. Create a replication instance as described in
-   [Creating a replication instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
-2. Create and test a SQL relational database supported by AWS DMS for the
-   source endpoint.
-3. Create and test the target endpoint for your Neptune database.
-
-To connect the target endpoint to the Neptune database, specify the
-server name for either the Neptune cluster endpoint or the Neptune
-writer instance endpoint. Also, specify the S3 bucket folder for AWS DMS to
-store its intermediate files for bulk load to the Neptune database.
-
-During migration, AWS DMS stores all migrated target data in this S3 bucket
-folder up to a maximum file size that you specify. When this file storage
-reaches this maximum size, AWS DMS bulk loads the stored S3 data into the
-target database. It clears the folder to enable storage of any additional
-target data for subsequent loading to the target database. For more
-information on specifying these settings, see [Specifying endpoint settings
-for Amazon Neptune as a target](#CHAP_Target.Neptune.EndpointSettings "#CHAP_Target.Neptune.EndpointSettings"). 4. Create a full-load replication task with the resources created in steps
-1–3 and do the following:
-
-    1. Use task table mapping as usual to identify
-     specific source schemas, tables, and views to migrate from your
-     relational database using appropriate selection and transformation
-     rules. For more information, see [Using table mapping to
-     specify task settings](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md").
-    2. Specify target mappings by choosing one of the following to
-     specify mapping rules from source tables and views to your Neptune
-     target database graph:
-
-
-
-
-    	* Gremlin JSON – For information on using Gremlin JSON to
-    	 load a Neptune database, see [Gremlin load data format](../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md "../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md") in the
-    	 *Amazon Neptune User Guide*.
-    	* SPARQL RDB to Resource Description Framework Mapping Language
-    	 (R2RML) – For information on using SPARQL R2RML, see
-    	 the W3C specification [R2RML: RDB to RDF mapping language](https://www.w3.org/TR/r2rml/ "https://www.w3.org/TR/r2rml/").
-    3. Do one of the following:
-
-
-
-
-    	* Using the AWS DMS console, specify graph-mapping options
-    	 using **Graph mapping rules** on the
-    	 **Create database migration task**
-    	 page.
-    	* Using the AWS DMS API, specify these options using the
-    	 `TaskData` request parameter of the
-    	 `CreateReplicationTask` API call.
-    For more information and examples using Gremlin JSON and SPARQL
-     R2RML to specify graph-mapping rules, see [Specifying graph-mapping rules
-     using Gremlin and R2RML for Amazon Neptune as a target](#CHAP_Target.Neptune.GraphMapping "#CHAP_Target.Neptune.GraphMapping").
-
-5. Start the replication for your migration task.
-
-## Specifying endpoint settings
-
-for Amazon Neptune as a target
-
-To create or modify a target endpoint, you can use the console or the
-`CreateEndpoint` or `ModifyEndpoint` API operations.
-
-For a Neptune target in the AWS DMS console, specify **Endpoint-specific
-settings** on the **Create endpoint** or
-**Modify endpoint** console page. For
-`CreateEndpoint` and `ModifyEndpoint`, specify request
-parameters for the `NeptuneSettings` option. The following example shows
-how to do this using the CLI.
-
-```
-dms create-endpoint --endpoint-identifier my-neptune-target-endpoint
---endpoint-type target --engine-name neptune
---server-name my-neptune-db.cluster-cspckvklbvgf.us-east-1.neptune.amazonaws.com
---port 8192
---neptune-settings
-     '{"ServiceAccessRoleArn":"arn:aws:iam::123456789012:role/myNeptuneRole",
-       "S3BucketName":"amzn-s3-demo-bucket",
-       "S3BucketFolder":"amzn-s3-demo-bucket-folder",
-       "ErrorRetryDuration":57,
-       "MaxFileSize":100,
-       "MaxRetryCount": 10,
-       "IAMAuthEnabled":false}‘
-
-```
-
-Here, the CLI `--server-name` option specifies the server name for the
-Neptune cluster writer endpoint. Or you can specify the server name for a
-Neptune writer instance endpoint.
-
-The `--neptune-settings` option request parameters follow:
-
-- `ServiceAccessRoleArn` – (Required) The Amazon Resource
-  Name (ARN) of the service role that you created for the Neptune target
-  endpoint. For more information, see [Creating an IAM service role for
-  accessing Amazon Neptune as a target](#CHAP_Target.Neptune.ServiceRole "#CHAP_Target.Neptune.ServiceRole").
-- `S3BucketName` – (Required) The name of the S3 bucket
-  where DMS can temporarily store migrated graph data in .csv files before
-  bulk loading it to the Neptune target database. DMS maps the SQL source
-  data to graph data before storing it in these .csv files.
-- `S3BucketFolder` – (Required) A folder path where you
-  want DMS to store migrated graph data in the S3 bucket specified by
-  `S3BucketName`.
-- `ErrorRetryDuration` – (Optional) The number of
-  milliseconds for DMS to wait to retry a bulk load of migrated graph data to
-  the Neptune target database before raising an error. The default is
-
-250.
-
-- `MaxFileSize` – (Optional) The maximum size in KB of
-  migrated graph data stored in a .csv file before DMS bulk loads the data to
-  the Neptune target database. The default is 1,048,576 KB (1 GB). If
-  successful, DMS clears the bucket, ready to store the next batch of migrated
-  graph data.
-- `MaxRetryCount` – (Optional) The number of times for DMS
-  to retry a bulk load of migrated graph data to the Neptune target database
-  before raising an error. The default is 5.
-- `IAMAuthEnabled` – (Optional) If you want IAM
-  authorization enabled for this endpoint, set this parameter to
-  `true` and attach the appropriate IAM policy document to your
-  service role specified by `ServiceAccessRoleArn`. The default is
+- `MessageFormat` – The output format for the records
+  created on the endpoint. The message format is `JSON` (default) or
+  `JSON_UNFORMATTED` (a single line with no tab).
+- `IncludeControlDetails` – Shows detailed control information
+  for table definition, column definition, and table and column changes in the
+  Kinesis message output. The default is `false`.
+- `IncludeNullAndEmpty` – Include NULL and empty columns in
+  the target. The default is `false`.
+- `IncludePartitionValue` – Shows the partition value within
+  the Kinesis message output, unless the partition type is
+  `schema-table-type`. The default is `false`.
+- `IncludeTableAlterOperations` – Includes any data definition
+  language (DDL) operations that change the table in the control data, such as
+  `rename-table`, `drop-table`, `add-column`,
+  `drop-column`, and `rename-column`. The default is
   `false`.
-
-## Creating an IAM service role for
-
-accessing Amazon Neptune as a target
-
-To access Neptune as a target, create a service role using IAM. Depending on your
-Neptune endpoint configuration, attach to this role some or all of the following IAM policy
-and trust documents. When you create the Neptune endpoint, you
-provide the ARN of this service role. Doing so enables AWS DMS and Amazon Neptune to
-assume permissions to access both Neptune and its associated Amazon S3 bucket.
-
-If you set the `IAMAuthEnabled` parameter in
-`NeptuneSettings` to `true` in your Neptune endpoint
-configuration, attach an IAM policy like the following to your service role. If you
-set `IAMAuthEnabled` to `false`, you can ignore this
-policy.
+- `IncludeTransactionDetails` – Provides detailed transaction
+  information from the source database. This information includes a commit
+  timestamp, a log position, and values for `transaction_id`,
+  `previous_transaction_id`, and `transaction_record_id` (the record offset within a transaction). The default is
+  `false`.
+- `PartitionIncludeSchemaTable` – Prefixes schema and table
+  names to partition values, when the partition type is
+  `primary-key-type`. Doing this increases data distribution among
+  Kinesis shards. For example, suppose that a `SysBench` schema has
+  thousands of tables and each table has only limited range for a primary key. In
+  this case, the same primary key is sent from thousands of tables to the same
+  shard, which causes throttling. The default is `false`.
+- `UseLargeIntegerValue` – Use up to 18 digit int instead of
+  casting ints as doubles, available from AWS DMS version 3.5.4. The default is
+  false.
+  The following example shows the `kinesis-settings` option in use with
+  an example `create-endpoint` command issued using the AWS CLI.
 
 ```
-// Policy to access Neptune
+aws dms \
+  create-endpoint \
+    --region <aws-region> \
+    --endpoint-identifier <user-endpoint-identifier> \
+    --endpoint-type target \
+    --engine-name kinesis \
+    --kinesis-settings ServiceAccessRoleArn=arn:aws:iam::<account-id>:role/<kinesis-role-name>,StreamArn=arn:aws:kinesis:<aws-region>:<account-id>:stream/<stream-name>,MessageFormat=json-unformatted,
+IncludeControlDetails=true,IncludeTransactionDetails=true,IncludePartitionValue=true,PartitionIncludeSchemaTable=true,
+IncludeTableAlterOperations=true
+```
 
+###### Multithreaded full load task settings
+
+To help increase the speed of the transfer, AWS DMS supports a multithreaded full
+load to a Kinesis Data Streams target instance. DMS supports this multithreading with task settings
+that include the following:
+
+- `MaxFullLoadSubTasks` – Use this option to indicate the
+  maximum number of source tables to load in parallel. DMS loads each table into
+  its corresponding Kinesis target table using a dedicated subtask. The default is 8;
+  the maximum value is 49.
+- `ParallelLoadThreads` – Use this option to specify the
+  number of threads that AWS DMS uses to load each table into its Kinesis target table.
+  The maximum value for a Kinesis Data Streams target is 32. You can ask to have this maximum
+  limit increased.
+- `ParallelLoadBufferSize` – Use this option to specify the
+  maximum number of records to store in the buffer that the parallel load threads
+  use to load data to the Kinesis target. The default value is 50. The maximum value
+  is 1,000. Use this setting with `ParallelLoadThreads`.
+  `ParallelLoadBufferSize` is valid only when there is more than
+  one thread.
+- `ParallelLoadQueuesPerThread` – Use this option to specify
+  the number of queues each concurrent thread accesses to take data records out of
+  queues and generate a batch load for the target. The default is 1. However, for
+  Kinesis targets of various payload sizes, the valid range is 5–512 queues
+  per thread.
+
+###### Multithreaded CDC load task settings
+
+You can improve the performance of change data capture (CDC) for real-time data
+streaming target endpoints like Kinesis using task settings to modify the behavior of
+the `PutRecords` API call. To do this, you can specify the number of
+concurrent threads, queues per thread, and the number of records to store in a
+buffer using `ParallelApply*` task settings. For example, suppose you
+want to perform a CDC load and apply 128 threads in parallel. You also want to
+access 64 queues per thread, with 50 records stored per buffer.
+
+To promote CDC performance, AWS DMS supports these task settings:
+
+- `ParallelApplyThreads` – Specifies the number of concurrent
+  threads that AWS DMS uses during a CDC load to push data records to a Kinesis
+  target endpoint. The default value is zero (0) and the maximum value is
+
+32.
+
+- `ParallelApplyBufferSize` – Specifies the maximum number of
+  records to store in each buffer queue for concurrent threads to push to a Kinesis
+  target endpoint during a CDC load. The default value is 100 and the maximum
+  value is 1,000. Use this option when `ParallelApplyThreads` specifies
+  more than one thread.
+- `ParallelApplyQueuesPerThread` – Specifies the number of
+  queues that each thread accesses to take data records out of queues and generate
+  a batch load for a Kinesis endpoint during CDC. The default value is 1 and the maximum
+  value is 512.
+  When using `ParallelApply*` task settings, the
+  `partition-key-type` default is the `primary-key` of the
+  table, not `schema-name.table-name`.
+
+## Using a before image to view
+
+original values of CDC rows for a Kinesis data stream as a target
+
+When writing CDC updates to a data-streaming target like Kinesis, you
+can view a source database row's original values before change by an update. To
+make this possible, AWS DMS populates a _before
+image_ of update events based on data supplied by the source database
+engine.
+
+Different source database engines provide different amounts of information for a
+before image:
+
+- Oracle provides updates to columns only if they change.
+- PostgreSQL provides only data for columns that are part of the primary key
+  (changed or not). To provide data for all columns (changed or not), you need to set
+  `REPLICA_IDENTITY` to `FULL` instead of `DEFAULT`. Note that you should choose the
+  `REPLICA_IDENTITY` setting carefully for each table. If you set `REPLICA_IDENTITY`
+  to `FULL`, all of the column values are written to write-ahead logging (WAL) continuously. This
+  may cause performance or resource issues with tables that are updated frequently.
+- MySQL generally provides data for all columns except for BLOB and CLOB data types (changed or not).
+
+To enable before imaging to add original values from the source database to the
+AWS DMS output, use either the `BeforeImageSettings` task setting or the
+`add-before-image-columns` parameter. This parameter applies a column
+transformation rule.
+
+`BeforeImageSettings` adds a new JSON attribute to every update
+operation with values collected from the source database system, as shown
+following.
+
+```
+
+"BeforeImageSettings": {
+    "EnableBeforeImage": boolean,
+    "FieldName": string,
+    "ColumnFilter": pk-only (default) / non-lob / all (but only one)
+}
+
+```
+
+###### Note
+
+Only apply `BeforeImageSettings` to AWS DMS tasks that contain a CDC
+component, such as full load plus CDC tasks (which migrate existing
+data and replicate ongoing changes), or to CDC only tasks (which replicate data
+changes only). Don't apply `BeforeImageSettings` to tasks that are
+full load only.
+
+For `BeforeImageSettings` options, the following applies:
+
+- Set the `EnableBeforeImage` option to `true` to enable
+  before imaging. The default is `false`.
+- Use the `FieldName` option to assign a name to the new JSON attribute.
+  When `EnableBeforeImage` is `true`,
+  `FieldName` is required and can't be empty.
+- The `ColumnFilter` option specifies a column to add by using before
+  imaging. To add only columns that are part of the table's primary keys,
+  use the default value, `pk-only`. To add any column that has a
+  before image value, use `all`. Note that the before image does
+  not contain columns with LOB data types, such as CLOB or BLOB.
+
+```
+"BeforeImageSettings": {
+    "EnableBeforeImage": true,
+    "FieldName": "before-image",
+    "ColumnFilter": "pk-only"
+  }
+
+```
+
+###### Note
+
+Amazon S3 targets don't support `BeforeImageSettings`. For S3 targets, use only the
+`add-before-image-columns` transformation rule to perform before
+imaging during CDC.
+
+### Using a before
+
+image transformation rule
+
+As as an alternative to task settings, you can use the
+`add-before-image-columns` parameter, which applies a column
+transformation rule. With this parameter, you can enable before imaging during
+CDC on data streaming targets like Kinesis.
+
+By using `add-before-image-columns` in a transformation rule, you
+can apply more fine-grained control of the before image results. Transformation
+rules enable you to use an object locator that gives you control over tables
+selected for the rule. Also, you can chain transformation rules together, which
+allows different rules to be applied to different tables. You can then
+manipulate the columns produced by using other rules.
+
+###### Note
+
+Don't use the `add-before-image-columns` parameter together with the
+`BeforeImageSettings` task setting within the same task.
+Instead, use either the parameter or the setting, but not both, for a single
+task.
+
+A `transformation` rule type with the
+`add-before-image-columns` parameter for a column must provide a
+`before-image-def` section. The following shows an
+example.
+
+```
     {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Sid": "VisualEditor0",
-                "Effect": "Allow",
-                "Action": "neptune-db:*",
-                "Resource": "arn:aws:neptune-db:us-east-1:123456789012:cluster-CLG7H7FHK54AZGHEH6MNS55JKM/*"
-            }
-        ]
+      "rule-type": "transformation",
+      …
+      "rule-target": "column",
+      "rule-action": "add-before-image-columns",
+      "before-image-def":{
+        "column-filter": one-of  (pk-only / non-lob / all),
+        "column-prefix": string,
+        "column-suffix": string,
+      }
     }
 ```
 
-The preceding IAM policy allows full access to the Neptune target cluster
-specified by `Resource`.
+The value of `column-prefix` is prepended to a column name, and the
+default value of `column-prefix` is `BI_`. The value of
+`column-suffix` is appended to the column name, and the default
+is empty. Don't set both `column-prefix` and
+`column-suffix` to empty strings.
 
-Attach an IAM policy like the following to your service role. This policy allows
-DMS to temporarily store migrated graph data in the S3 bucket that you created for
-bulk loading to the Neptune target database.
+Choose one value for `column-filter`. To add only columns that are
+part of table primary keys, choose `pk-only` . Choose
+`non-lob` to only add columns that are not of LOB type. Or choose
+`all` to add any column that has a before-image value.
+
+### Example for a before
+
+image transformation rule
+
+The transformation rule in the following example adds a new column called
+`BI_emp_no` in the target. So a statement like `UPDATE
+ employees SET emp_no = 3 WHERE emp_no = 1;` populates the
+`BI_emp_no` field with 1. When you write CDC updates to Amazon S3
+targets, the `BI_emp_no` column makes it possible to tell which
+original row was updated.
 
 ```
-//Policy to access S3 bucket
-
 {
-	"Version": "2012-10-17",
-	"Statement": [{
-			"Sid": "ListObjectsInBucket0",
-			"Effect": "Allow",
-			"Action": "s3:ListBucket",
-			"Resource": [
-				"arn:aws:s3:::amzn-s3-demo-bucket"
-			]
-		},
-		{
-			"Sid": "AllObjectActions",
-			"Effect": "Allow",
-			"Action": ["s3:GetObject",
-				"s3:PutObject",
-				"s3:DeleteObject"
-			],
-
-			"Resource": [
-				"arn:aws:s3:::amzn-s3-demo-bucket/"
-			]
-		},
-		{
-			"Sid": "ListObjectsInBucket1",
-			"Effect": "Allow",
-			"Action": "s3:ListBucket",
-			"Resource": [
-				"arn:aws:s3:::amzn-s3-demo-bucket",
-				"arn:aws:s3:::amzn-s3-demo-bucket/"
-			]
-		}
-	]
+  "rules": [
+    {
+      "rule-type": "selection",
+      "rule-id": "1",
+      "rule-name": "1",
+      "object-locator": {
+        "schema-name": "%",
+        "table-name": "%"
+      },
+      "rule-action": "include"
+    },
+    {
+      "rule-type": "transformation",
+      "rule-id": "2",
+      "rule-name": "2",
+      "rule-target": "column",
+      "object-locator": {
+        "schema-name": "%",
+        "table-name": "employees"
+      },
+      "rule-action": "add-before-image-columns",
+      "before-image-def": {
+        "column-prefix": "BI_",
+        "column-suffix": "",
+        "column-filter": "pk-only"
+      }
+    }
+  ]
 }
+
 ```
 
-The preceding IAM policy allows your account to query the contents of the S3
-bucket (`arn:aws:s3:::amzn-s3-demo-bucket`) created for your Neptune target. It
-also allows your account to fully operate on the contents of all bucket files and
-folders (`arn:aws:s3:::amzn-s3-demo-bucket/`).
+For information on using the `add-before-image-columns` rule
+action, see [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
 
-Edit the trust relationship and attach the following IAM role to your service role
-to allow both AWS DMS and Amazon Neptune database service to assume the role.
+## Prerequisites for using a Kinesis
+
+data stream as a target for AWS Database Migration Service
+
+### IAM role for using a Kinesis
+
+data stream as a target for AWS Database Migration Service
+
+Before you set up a Kinesis data stream as a target for AWS DMS, make sure that
+you create an IAM role. This role must allow AWS DMS to assume and grant access
+to the Kinesis data streams that are being migrated into. The minimum set of access
+permissions is shown in the following IAM policy.
 
 JSON
 
@@ -292,451 +356,498 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Sid": "",
+ "Sid": "1",
  "Effect": "Allow",
  "Principal": {
  "Service": "dms.amazonaws.com"
  },
  "Action": "sts:AssumeRole"
- },
+ }
+]
+}`
+
+```
+
+The role that you use for the migration to a Kinesis data stream must have the
+following permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
  {
- "Sid": "neptune",
  "Effect": "Allow",
- "Principal": {
- "Service": "rds.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
+ "Action": [
+ "kinesis:DescribeStream",
+ "kinesis:PutRecord",
+ "kinesis:PutRecords"
+ ],
+ "Resource": "*"
  }
  ]
 }`
 
 ```
 
-For information about specifying this service role for your Neptune target
-endpoint, see [Specifying endpoint settings
-for Amazon Neptune as a target](#CHAP_Target.Neptune.EndpointSettings "#CHAP_Target.Neptune.EndpointSettings").
+### Accessing a Kinesis
 
-## Specifying graph-mapping rules
+data stream as a target for AWS Database Migration Service
 
-using Gremlin and R2RML for Amazon Neptune as a target
+In AWS DMS version 3.4.7 and higher, to connect to an Kinesis endpoint, you must
+do one of the following:
 
-The graph-mapping rules that you create specify how data extracted from an SQL
-relational database source is loaded into a Neptune database cluster target. The
-format of these mapping rules differs depending on whether the rules are for loading
-property-graph data using Apache TinkerPop Gremlin or Resource Description Framework
-(RDF) data using R2RML. Following, you can find information about these formats and
-where to learn more.
+- Configure DMS to use VPC endpoints. For information about configuring DMS
+  to use VPC endpoints, see [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md "CHAP_VPC_Endpoints.md").
+- Configure DMS to use public routes, that is, make
+  your replication instance public. For information about public replication instances, see
+  [Public and private replication
+  instances](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
 
-You can specify these mapping rules when you create the migration task using
-either the console or DMS API.
+## Limitations when using Kinesis Data Streams as a
 
-Using the console, specify these mapping rules using **Graph mapping
-rules** on the **Create database migration task**
-page. In **Graph mapping rules**, you can enter and edit the
-mapping rules directly using the editor provided. Or you can browse for a file that
-contains the mapping rules in the appropriate graph-mapping format.
+target for AWS Database Migration Service
 
-Using the API, specify these options using the `TaskData` request
-parameter of the `CreateReplicationTask` API call. Set
-`TaskData` to the path of a file containing the mapping rules in the
-appropriate graph-mapping format.
+The following limitations apply when using Kinesis Data Streams as a target:
 
-### Graph-mapping rules
+- AWS DMS publishes each update to a single record in the source database as
+  one data record in a given Kinesis data stream regardless of transactions.
+  However, you can include transaction details for each data record by using
+  relevant parameters of the `KinesisSettings` API.
+- Full LOB mode is not supported.
+- The maximum supported LOB size is 1 MB.
+- Kinesis Data Streams don't support deduplication. Applications that consume data from a
+  stream need to handle duplicate records. For more information, see [Handling
+  duplicate records](../../../streams/latest/dev/kinesis-record-processor-duplicates.md "../../../streams/latest/dev/kinesis-record-processor-duplicates.md") in the _Amazon Kinesis Data Streams Developer Guide._
+- AWS DMS supports the following two forms for partition keys:
+  - `SchemaName.TableName`: A combination of the schema and
+    table name.
+  - `${AttributeName}`: The value of one of the fields in
+    the JSON, or the primary key of the table in the source
+    database.
 
-for generating property-graph data using Gremlin
+- For information about encrypting your data at rest within Kinesis Data Streams, see [Data protection in Kinesis Data Streams](../../../streams/latest/dev/server-side-encryption.md "../../../streams/latest/dev/server-side-encryption.md") in the
+  _AWS Key Management Service Developer Guide_.
+- `BatchApply` is not supported for a Kinesis endpoint. Using Batch
+  Apply (for example, the `BatchApplyEnabled` target metadata task
+  setting) for a Kinesis target causes task failure and data loss. Do not enable
+  `BatchApply` when using Kinesis as a target endpoint.
+- Kinesis targets are only supported for a Kinesis data stream in the same AWS account and the same AWS Region
+  as the replication instance.
+- When migrating from a MySQL source, the BeforeImage data doesn't include CLOB and BLOB data types. For more information,
+  see [Using a before image to view
+  original values of CDC rows for a Kinesis data stream as a target](#CHAP_Target.Kinesis.BeforeImage "#CHAP_Target.Kinesis.BeforeImage").
+- AWS DMS doesn't support migrating values of `BigInt` data type with more than 16 digits. To work around
+  this limitation, you can use the following transformation rule to convert the `BigInt` column to a string. For
+  more information about transformation rules, see
+  [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
 
-Using Gremlin to generate the property-graph data, specify a JSON object with
-a mapping rule for each graph entity to be generated from the source data. The
-format of this JSON is defined specifically for bulk loading Amazon Neptune. The following
-template shows what each rule in this object looks like.
+```
+{
+    "rule-type": "transformation",
+    "rule-id": "id",
+    "rule-name": "name",
+    "rule-target": "column",
+    "object-locator": {
+        "schema-name": "valid object-mapping rule action",
+        "table-name": "",
+        "column-name": ""
+    },
+    "rule-action": "change-data-type",
+    "data-type": {
+        "type": "string",
+        "length": 20
+    }
+}
+```
+
+- When multiple DML operations within a single transaction modify a Large Object
+  (LOB) column on the source database, the target database retains only the final
+  LOB value from the last operation in that transaction. The intermediate LOB
+  values set by earlier operations in the same transaction are overwritten, which
+  can result in potential data loss or inconsistencies. This behavior occurs due
+  to how LOB data is processed during replication.
+- AWS DMS does not support source data containing embedded `'\0'` characters when using Kinesis as a target endpoint. Data containing embedded `'\0'` characters will be truncated at the first `'\0'` character.
+
+## Using object mapping to migrate
+
+data to a Kinesis data stream
+
+AWS DMS uses table-mapping rules to map data from the source to the target Kinesis data
+stream. To map data to a target stream, you use a type of table-mapping rule called
+object mapping. You use object mapping to define how data records in the source map
+to the data records published to the Kinesis data stream.
+
+Kinesis data streams don't have a preset structure other than having a partition key.
+In an object mapping rule, the possible values of a `partition-key-type`
+for data records are `schema-table`, `transaction-id`,
+`primary-key`, `constant`, and `attribute-name`.
+
+To create an object-mapping rule, you specify `rule-type` as
+`object-mapping`. This rule specifies what type of object mapping you
+want to use.
+
+The structure for the rule is as follows.
+
+```
+{
+    "rules": [
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "`id`",
+            "rule-name": "`name`",
+            "rule-action": "`valid object-mapping rule action`",
+            "object-locator": {
+                "schema-name": "`case-sensitive schema name`",
+                "table-name": ""
+            }
+        }
+    ]
+}
+```
+
+AWS DMS currently supports `map-record-to-record` and
+`map-record-to-document` as the only valid values for the
+`rule-action` parameter. These settings affect values that aren't excluded as part of
+the `exclude-columns`
+attribute list. The `map-record-to-record` and
+`map-record-to-document` values specify how AWS DMS handles these records by default.
+These values don't affect the attribute mappings in any way.
+
+Use `map-record-to-record` when migrating from a relational database to
+a Kinesis data stream. This rule type uses the
+`taskResourceId.schemaName.tableName` value from the relational
+database as the partition key in the Kinesis data stream and creates an attribute for
+each column in the source database.
+
+When using `map-record-to-record`, note the following:
+
+- This setting only affects columns excluded by the `exclude-columns` list.
+- For every such column, AWS DMS creates a corresponding attribute in the target topic.
+- AWS DMS creates this corresponding attribute regardless of whether the source column is used
+  in an attribute mapping.
+
+Use `map-record-to-document` to put source columns
+into a single, flat document in the appropriate target stream using the attribute name "\_doc".
+AWS DMS places the data into a single, flat map on the source called "`_doc`". This
+placement applies to any column in the source table not listed in the `exclude-columns`
+attribute list.
+
+One way to understand `map-record-to-record` is to see it in action.
+For this example, assume that you are starting with a relational database table row
+with the following structure and data.
+
+| FirstName | LastName | StoreId | HomeAddress       | HomePhone  | WorkAddress               | WorkPhone  | DateofBirth |
+| --------- | -------- | ------- | ----------------- | ---------- | ------------------------- | ---------- | ----------- |
+| Randy     | Marsh    | 5       | 221B Baker Street | 1234567890 | 31 Spooner Street, Quahog | 9876543210 | 02/29/1988  |
+
+To migrate this information from a schema named `Test` to a Kinesis data stream, you create rules to map the
+data to the target stream. The following rule illustrates the mapping.
+
+```
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "rule-action": "include",
+            "object-locator": {
+                "schema-name": "Test",
+                "table-name": "%"
+            }
+        },
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "2",
+            "rule-name": "DefaultMapToKinesis",
+            "rule-action": "map-record-to-record",
+            "object-locator": {
+                "schema-name": "Test",
+                "table-name": "Customers"
+            }
+        }
+    ]
+}
+```
+
+The following illustrates the resulting record format in the Kinesis data stream:
+
+- StreamName: XXX
+- PartitionKey: Test.Customers //schmaName.tableName
+- Data: //The following JSON message
+
+```
+
+  {
+     "FirstName": "Randy",
+     "LastName": "Marsh",
+     "StoreId":  "5",
+     "HomeAddress": "221B Baker Street",
+     "HomePhone": "1234567890",
+     "WorkAddress": "31 Spooner Street, Quahog",
+     "WorkPhone": "9876543210",
+     "DateOfBirth": "02/29/1988"
+  }
+
+
+```
+
+However, suppose that you use the same rules but change the `rule-action` parameter to
+`map-record-to-document` and exclude certain columns. The following rule illustrates the mapping.
 
 ```
 
 {
-    "rules": [
-        {
-            "rule_id": "(an identifier for this rule)",
-            "rule_name": "(a name for this rule)",
-            "table_name": "(the name of the table or view being loaded)",
-            "vertex_definitions": [
-                {
-                    "vertex_id_template": "{col1}",
-                    "vertex_label": "(the vertex to create)",
-                    "vertex_definition_id": "(an identifier for this vertex)",
-                    "vertex_properties": [
-                        {
-                            "property_name": "(name of the property)",
-                            "property_value_template": "{col2} or text",
-                            "property_value_type": "(data type of the property)"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "rule_id": "(an identifier for this rule)",
-            "rule_name": "(a name for this rule)",
-            "table_name": "(the name of the table or view being loaded)",
-            "edge_definitions": [
-                {
-                    "from_vertex": {
-                        "vertex_id_template": "{col1}",
-                        "vertex_definition_id": "(an identifier for the vertex referenced above)"
-                    },
-                    "to_vertex": {
-                        "vertex_id_template": "{col3}",
-                        "vertex_definition_id": "(an identifier for the vertex referenced above)"
-                    },
-                    "edge_id_template": {
-                        "label": "(the edge label to add)",
-                        "template": "{col1}_{col3}"
-                    },
-                    "edge_properties":[
-                        {
-                            "property_name": "(the property to add)",
-                            "property_value_template": "{col4} or text",
-                            "property_value_type": "(data type like String, int, double)"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+	"rules": [
+	   {
+			"rule-type": "selection",
+			"rule-id": "1",
+			"rule-name": "1",
+			"rule-action": "include",
+			"object-locator": {
+				"schema-name": "Test",
+				"table-name": "%"
+			}
+		},
+		{
+			"rule-type": "object-mapping",
+			"rule-id": "2",
+			"rule-name": "DefaultMapToKinesis",
+			"rule-action": "map-record-to-document",
+			"object-locator": {
+				"schema-name": "Test",
+				"table-name": "Customers"
+			},
+			"mapping-parameters": {
+				"exclude-columns": [
+					"homeaddress",
+					"homephone",
+					"workaddress",
+					"workphone"
+				]
+			}
+		}
+	]
 }
 
 ```
 
-The presence of a vertex label implies that the vertex is being created here.
-Its absence implies that the vertex is created by a different source, and this
-definition is only adding vertex properties. Specify as many vertex and edge
-definitions as required to specify the mappings for your entire relational
-database source.
-
-A sample rule for an `employee` table follows.
+In this case, the columns not listed in the `exclude-columns`
+parameter, `FirstName`, `LastName`, `StoreId` and
+`DateOfBirth`, are mapped to `_doc`. The following illustrates
+the resulting record format.
 
 ```
 
+       {
+            "data":{
+                "_doc":{
+                    "FirstName": "Randy",
+                    "LastName": "Marsh",
+                    "StoreId":  "5",
+                    "DateOfBirth": "02/29/1988"
+                }
+            }
+        }
+
+```
+
+### Restructuring data with
+
+attribute mapping
+
+You can restructure the data while you are migrating it to a Kinesis data stream
+using an attribute map. For example, you might want to combine several fields in
+the source into a single field in the target. The following attribute map
+illustrates how to restructure the data.
+
+```
 {
     "rules": [
         {
-            "rule_id": "1",
-            "rule_name": "vertex_mapping_rule_from_nodes",
-            "table_name": "nodes",
-            "vertex_definitions": [
-                {
-                    "vertex_id_template": "{emp_id}",
-                    "vertex_label": "employee",
-                    "vertex_definition_id": "1",
-                    "vertex_properties": [
-                        {
-                            "property_name": "name",
-                            "property_value_template": "{emp_name}",
-                            "property_value_type": "String"
-                        }
-                    ]
-                }
-            ]
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "rule-action": "include",
+            "object-locator": {
+                "schema-name": "Test",
+                "table-name": "%"
+            }
         },
         {
-            "rule_id": "2",
-            "rule_name": "edge_mapping_rule_from_emp",
-            "table_name": "nodes",
-            "edge_definitions": [
-                {
-                    "from_vertex": {
-                        "vertex_id_template": "{emp_id}",
-                        "vertex_definition_id": "1"
+            "rule-type": "object-mapping",
+            "rule-id": "2",
+            "rule-name": "TransformToKinesis",
+            "rule-action": "map-record-to-record",
+            "target-table-name": "CustomerData",
+            "object-locator": {
+                "schema-name": "Test",
+                "table-name": "Customers"
+            },
+            "mapping-parameters": {
+                "partition-key-type": "attribute-name",
+                "partition-key-name": "CustomerName",
+                "exclude-columns": [
+                    "firstname",
+                    "lastname",
+                    "homeaddress",
+                    "homephone",
+                    "workaddress",
+                    "workphone"
+                ],
+                "attribute-mappings": [
+                    {
+                        "target-attribute-name": "CustomerName",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${lastname}, ${firstname}"
                     },
-                    "to_vertex": {
-                        "vertex_id_template": "{mgr_id}",
-                        "vertex_definition_id": "1"
-                    },
-                    "edge_id_template": {
-                        "label": "reportsTo",
-                        "template": "{emp_id}_{mgr_id}"
-                    },
-                    "edge_properties":[
-                        {
-                            "property_name": "team",
-                            "property_value_template": "{team}",
-                            "property_value_type": "String"
+                    {
+                        "target-attribute-name": "ContactDetails",
+                        "attribute-type": "document",
+                        "attribute-sub-type": "json",
+                        "value": {
+                            "Home": {
+                                "Address": "${homeaddress}",
+                                "Phone": "${homephone}"
+                            },
+                            "Work": {
+                                "Address": "${workaddress}",
+                                "Phone": "${workphone}"
+                            }
                         }
-                    ]
-                }
-            ]
+                    }
+                ]
+            }
         }
     ]
 }
-
 ```
 
-Here, the vertex and edge definitions map a reporting relationship from an
-`employee` node with employee ID (`EmpID`) and an
-`employee` node with a manager ID
-(`managerId`).
-
-For more information about creating graph-mapping rules using Gremlin JSON,
-see [Gremlin load data format](../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md "../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md") in the
-_Amazon Neptune User Guide_.
-
-### Graph-mapping rules for
-
-generating RDF/SPARQL data
-
-If you are loading RDF data to be queried using SPARQL, write the
-graph-mapping rules in R2RML. R2RML is a standard W3C language for mapping
-relational data to RDF. In an R2RML file, a _triples map_
-(for example, `<#TriplesMap1>` following) specifies a rule for
-translating each row of a logical table to zero or more RDF triples. A
-_subject map_ (for example, any
-`rr:subjectMap` following) specifies a rule for generating the
-subjects of the RDF triples generated by a triples map. A
-_predicate-object map_ (for example, any
-`rr:predicateObjectMap` following) is a function that creates one
-or more predicate-object pairs for each logical table row of a logical
-table.
-
-A simple example for a `nodes` table follows.
+To set a constant value for `partition-key`,
+specify a `partition-key` value. For example, you might do this to
+force all the data to be stored in a single shard. The following mapping
+illustrates this approach.
 
 ```
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix ex: <http://example.com/ns#>.
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "Test",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "2",
+            "rule-name": "TransformToKinesis",
+            "rule-action": "map-record-to-document",
+            "object-locator": {
+                "schema-name": "Test",
+                "table-name": "Customer"
+            },
+            "mapping-parameters": {
+                "partition-key": {
+                    "value": "ConstantPartitionKey"
+                },
+                "exclude-columns": [
+                    "FirstName",
+                    "LastName",
+                    "HomeAddress",
+                    "HomePhone",
+                    "WorkAddress",
+                    "WorkPhone"
+                ],
+                "attribute-mappings": [
+                    {
+                        "target-attribute-name": "CustomerName",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${FirstName},${LastName}"
 
-<#TriplesMap1>
-    rr:logicalTable [ rr:tableName "nodes" ];
-    rr:subjectMap [
-        rr:template "http://data.example.com/employee/{id}";
-        rr:class ex:Employee;
-    ];
-    rr:predicateObjectMap [
-        rr:predicate ex:name;
-        rr:objectMap [ rr:column "label" ];
+                    },
+                    {
+                        "target-attribute-name": "ContactDetails",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": {
+                            "Home": {
+                                "Address": "${HomeAddress}",
+                                "Phone": "${HomePhone}"
+                            },
+                            "Work": {
+                                "Address": "${WorkAddress}",
+                                "Phone": "${WorkPhone}"
+                            }
+                        }
+                    },
+                    {
+                        "target-attribute-name": "DateOfBirth",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${DateOfBirth}"
+                    }
+                ]
+            }
+        }
     ]
-```
-
-In the previous example, the mapping defines graph nodes mapped from a table
-of employees.
-
-Another simple example for a `Student` table follows.
-
-```
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix ex: <http://example.com/#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-
-<#TriplesMap2>
-    rr:logicalTable [ rr:tableName "Student" ];
-    rr:subjectMap   [ rr:template "http://example.com/{ID}{Name}";
-                      rr:class foaf:Person ];
-    rr:predicateObjectMap [
-        rr:predicate ex:id ;
-        rr:objectMap  [ rr:column "ID";
-                        rr:datatype xsd:integer ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate foaf:name ;
-        rr:objectMap  [ rr:column "Name" ]
-    ].
-```
-
-In the previous example, the mapping defines graph nodes mapping
-friend-of-a-friend relationships between persons in a `Student`
-table.
-
-For more information about creating graph-mapping rules using SPARQL R2RML,
-see the W3C specification [R2RML: RDB to RDF mapping language](https://www.w3.org/TR/r2rml/ "https://www.w3.org/TR/r2rml/").
-
-## Data types for Gremlin and R2RML
-
-migration to Amazon Neptune as a target
-
-AWS DMS performs data type mapping from your SQL source endpoint to your Neptune
-target in one of two ways. Which way you use depends on the graph mapping format
-that you're using to load the Neptune database:
-
-- Apache TinkerPop Gremlin, using a JSON representation of the migration
-  data.
-- W3C's SPARQL, using an R2RML representation of the migration data.
-
-For more information on these two graph mapping formats, see [Specifying graph-mapping rules
-using Gremlin and R2RML for Amazon Neptune as a target](#CHAP_Target.Neptune.GraphMapping "#CHAP_Target.Neptune.GraphMapping").
-
-Following, you can find descriptions of the data type mappings for each
-format.
-
-### SQL source to Gremlin
-
-target data type mappings
-
-The following table shows the data type mappings from a SQL source to a
-Gremlin formatted target.
-
-AWS DMS maps any unlisted SQL source data type to a Gremlin
-`String`.
-
-| SQL source data types      | Gremlin target data types |
-| -------------------------- | ------------------------- |
-| `NUMERIC` (and variants)   | `Double`                  |
-| `DECIMAL`                  |
-| `TINYINT`                  | `Byte`                    |
-| `SMALLINT`                 | `Short`                   |
-| `INT, INTEGER`             | `Int`                     |
-| `BIGINT`                   | `Long`                    |
-| `FLOAT`                    | `Float`                   |
-| `DOUBLE PRECISION`         |
-| `REAL`                     | `Double`                  |
-| `BIT`                      | `Boolean`                 |
-| `BOOLEAN`                  |
-| `DATE`                     | `Date`                    |
-| `TIME`                     |
-| `TIMESTAMP`                |
-| `CHARACTER` (and variants) | `String`                  |
-
-For more information on the Gremlin data types for loading Neptune, see
-[Gremlin data types](../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md#bulk-load-tutorial-format-gremlin-datatypes "../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md#bulk-load-tutorial-format-gremlin-datatypes") in the
-_Neptune User Guide._
-
-### SQL source to R2RML (RDF)
-
-target data type mappings
-
-The following table shows the data type mappings from a SQL source to an R2RML
-formatted target.
-
-All listed RDF data types are case-sensitive, except RDF literal. AWS DMS maps
-any unlisted SQL source data type to an RDF literal.
-
-An _RDF literal_ is one of a variety of literal lexical
-forms and data types. For more information, see [RDF literals](https://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#section-Graph-Literal "https://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#section-Graph-Literal") in the W3C specification
-_Resource Description Framework (RDF): Concepts and Abstract
-Syntax_.
-
-| SQL source data types      | R2RML (RDF) target data types |
-| -------------------------- | ----------------------------- |
-| `BINARY` (and variants)    | `xsd:hexBinary`               |
-| `NUMERIC` (and variants)   | `xsd:decimal`                 |
-| `DECIMAL`                  |
-| `TINYINT`                  | `xsd:integer`                 |
-| `SMALLINT`                 |
-| `INT`, `INTEGER`           |
-| `BIGINT`                   |
-| `FLOAT`                    | `xsd:double`                  |
-| `DOUBLE PRECISION`         |
-| `REAL`                     |
-| `BIT`                      | `xsd:boolean`                 |
-| `BOOLEAN`                  |
-| `DATE`                     | `xsd:date`                    |
-| `TIME`                     | `xsd:time`                    |
-| `TIMESTAMP`                | `xsd:dateTime`                |
-| `CHARACTER` (and variants) | RDF literal                   |
-
-For more information on the RDF data types for loading Neptune and their
-mappings to SQL source data types, see [Datatype conversions](https://www.w3.org/TR/r2rml/#datatype-conversions "https://www.w3.org/TR/r2rml/#datatype-conversions") in the W3C specification _R2RML: RDB
-to RDF Mapping Language_.
-
-## Limitations of using Amazon Neptune
-
-as a target
-
-The following limitations apply when using Neptune as a target:
-
-- AWS DMS currently supports full load tasks only for migration to a Neptune
-  target. Change data capture (CDC) migration to a Neptune target isn't
-  supported.
-- Make sure that your target Neptune database is manually cleared of all
-  data before starting the migration task, as in the following examples.
-
-To drop all data (vertices and edges) within the graph, run the following Gremlin
-command.
-
-```
-gremlin> g.V().drop().iterate()
-```
-
-To drop vertices that have the label `'customer'`, run the following
-Gremlin command.
-
-```
-gremlin> g.V().hasLabel('customer').drop()
+}
 ```
 
 ###### Note
 
-It can take some time to drop a large dataset. You might want to
-iterate `drop()` with a limit, for example,
-`limit(1000)`.
+The `partition-key` value for a control record that is for a
+specific table is `TaskId.SchemaName.TableName`. The
+`partition-key` value for a control record that is for a
+specific task is that record's `TaskId`. Specifying a
+`partition-key` value in the object mapping has no impact on
+the `partition-key` for a control record.
 
-To drop edges that have the label `'rated'`, run the following Gremlin
-command.
+### Message format for
 
-```
-gremlin> g.E().hasLabel('rated').drop()
-```
+Kinesis Data Streams
 
-###### Note
+The JSON output is simply a list of key-value pairs. A JSON_UNFORMATTED message
+format is a single line JSON string with new line delimiter.
 
-It can take some time to drop a large dataset. You might want to
-iterate `drop()` with a limit, for example
-`limit(1000)`.
+AWS DMS provides the following reserved fields to make it easier to consume the data from the Kinesis Data Streams:
 
-- The DMS API operation `DescribeTableStatistics` can return
-  inaccurate results about a given table because of the nature of Neptune
-  graph data structures.
+**RecordType**
 
-During migration, AWS DMS scans each source table and uses graph mapping to
-convert the source data into a Neptune graph. The converted data is first
-stored in the S3 bucket folder specified for the target endpoint. If the
-source is scanned and this intermediate S3 data is generated successfully,
-`DescribeTableStatistics` assumes that the data was
-successfully loaded into the Neptune target database. But this isn't
-always true. To verify that the data was loaded correctly for a given table,
-compare `count()` return values at both ends of the migration for
-that table.
+The record type can be either data or control. _Data records_ represent the actual rows
+in the source. _Control records_
+are for important events in the stream, for example a restart of the
+task.
 
-In the following example, AWS DMS has loaded a `customer` table
-from the source database, which is assigned the label
-`'customer'` in the target Neptune database graph. You can
-make sure that this label is written to the target database. To do this,
-compare the number of `customer` rows available from the source
-database with the number of `'customer'` labeled rows loaded in
-the Neptune target database after the task completes.
+**Operation**
 
-To get the number of customer rows available from the source database
-using SQL, run the following.
+For data records, the operation can be
+`load`, `insert`, `update`, or
+`delete`.
 
-```
-select count(*) from customer;
-```
+For control records, the operation can be
+`create-table`, `rename-table`, `drop-table`,
+`change-columns`, `add-column`, `drop-column`,
+`rename-column`, or `column-type-change`.
 
-To get the number of `'customer'` labeled rows loaded into the
-target database graph using Gremlin, run the following.
+**SchemaName**
 
-```
-gremlin> g.V().hasLabel('customer').count()
-```
+The source schema for the record. This field can be empty for a
+control record.
 
-- Currently, if any single table fails to load, the whole task fails. Unlike
-  in a relational database target, data in Neptune is highly connected,
-  which makes it impossible in many cases to resume a task. If a task can't be
-  resumed successfully because of this type of data load failure, create a new
-  task to load the table that failed to load. Before running this new task,
-  manually clear the partially loaded table from the Neptune target.
+**TableName**
 
-###### Note
+The source table for the record. This field can be empty for a
+control record.
 
-You can resume a task that fails migration to a Neptune target if
-the failure is recoverable (for example, a network transit
-error).
+**Timestamp**
 
-- AWS DMS supports most standards for R2RML. However, AWS DMS doesn't support
-  certain R2RML standards, including inverse expressions, joins, and views. A
-  work-around for an R2RML view is to create a corresponding custom SQL view
-  in the source database. In the migration task, use table mapping to choose
-  the view as input. Then map the view to a table that is then consumed by
-  R2RML to generate graph data.
-- When you migrate source data with unsupported SQL data types, the
-  resulting target data can have a loss of precision. For more information,
-  see [Data types for Gremlin and R2RML
-  migration to Amazon Neptune as a target](#CHAP_Target.Neptune.DataTypes "#CHAP_Target.Neptune.DataTypes").
-- AWS DMS doesn't support migrating LOB data into a Neptune target.
+The timestamp for when the JSON message was constructed. The field
+is formatted with the ISO 8601 format.
