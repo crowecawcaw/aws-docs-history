@@ -18,6 +18,20 @@ even when priced at $0. To see product usage for a dimension that wasn't specifi
 the time of offer creation, consider republishing the product to include the dimension you
 need.
 
+###### Important Note for Non-USD Private Offers
+
+The Usage Dashboard displays all Private Offer usage data in USD, regardless of the
+original currency of your offer (JPY, EUR, GBP, etc.). This is intended behavior, as AWS
+Cost and Usage Reports (CUR) currently report pricing in USD only. If you have created
+Private Offers in currencies other than USD, please note that:
+
+- All usage metrics and estimates in the dashboard will be shown in USD
+- The displayed USD amounts are converted from your original offer currency
+- Your actual invoices and disbursements will reflect the original currency of your
+  Private Offer
+- For accurate financial reconciliation, please refer to your invoices rather than
+  relying solely on the Usage Dashboard estimates
+
 ###### Topics
 
 - [Refresh frequency of the usage
