@@ -6,14 +6,14 @@ This document takes you through the steps involved in getting started with the A
 IVS iOS player SDK.
 
 We recommend that you integrate the player SDK via Swift Package Manager.
-(Alternately, you can integrate via CocoaPods or manually add the framework to your
+(Alternately, you can manually add the framework to your
 project.)
 
 ## Recommended: Integrate the Player SDK
 
 (Swift Package Manager)
 
-1. Download the Package.swift file from [https://player.live-video.net/1.48.0/Package.swift](https://player.live-video.net/1.48.0/Package.swift "https://player.live-video.net/1.48.0/Package.swift").
+1. Download the Package.swift file from [https://player.live-video.net/1.49.0/Package.swift](https://player.live-video.net/1.49.0/Package.swift "https://player.live-video.net/1.49.0/Package.swift").
 2. In your project, create a new directory named AmazonIVSPlayer and add it
    to version control.
 3. Put the downloaded Package.swift file in the new directory.
@@ -27,30 +27,11 @@ project.)
    Product** by setting your application target in the **Add to Target** section.
 7. Select **Add Package**.
 
-## Alternate Approach: Integrate the
-
-Player SDK (CocoaPods)
-
-**Important**: CocoaPods is in maintenance mode
-(security fixes only) and after December 2026, no new packages or updates can be
-published to the CocoaPods repository. Existing packages will remain available but
-frozen. We recommend using Swift Package Manager for all new projects.
-
-Releases are published via CocoaPods under the name `AmazonIVSPlayer`.
-Add this dependency to your Podfile:
-
-```
-pod 'AmazonIVSPlayer'
-```
-
-Run `pod install` and the SDK will be available in your
-`.xcworkspace`.
-
 ## Alternate Approach: Install the
 
 Framework Manually
 
-1. Download the latest version from [https://player.live-video.net/1.48.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.48.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.48.0/AmazonIVSPlayer.xcframework.zip").
+1. Download the latest version from [https://player.live-video.net/1.49.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.49.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.49.0/AmazonIVSPlayer.xcframework.zip").
 2. Extract the contents of the archive.
    `AmazonIVSPlayer.xcframework` contains the SDK for both
    device and simulator.

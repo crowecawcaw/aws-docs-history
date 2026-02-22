@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-     implementation 'com.amazonaws:ivs-player:1.48.0'
+     implementation 'com.amazonaws:ivs-player:1.49.0'
 }
 ```
 
