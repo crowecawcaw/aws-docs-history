@@ -76,7 +76,7 @@ using the table view (
 
     * To override the calculated sensitivity score and manually assign a score, turn on
      **Assign maximum score** (
-    ![A toggle switch with a gray background and the toggle positioned to the left.](images/tgl-gray-off.png)
+    ![A toggle switch with a gray background and the toggle positioned to the left.](/images/macie/latest/user/images/tgl-gray-off.png)
     ). This changes the bucket's score to *100* and applies the *Sensitive*
      label to the bucket.
     * To assign a sensitivity score that Macie calculates automatically, turn off

@@ -46,7 +46,7 @@ sensitive_. On the Amazon Macie console, a bucket's sensitivity score also deter
 color Macie uses to represent the bucket in data visualizations, as shown in the following
 image.
 
-![The color spectrum for sensitivity scores: blue hues for 1-49, red hues for 51-100, and gray for -1.](images/sensitivity-scoring-spectrum.png)
+![The color spectrum for sensitivity scores: blue hues for 1-49, red hues for 51-100, and gray for -1.](/images/macie/latest/user/images/sensitivity-scoring-spectrum.png)
 
 Sensitivity scores range from _-1_ through _100_, as described in the following table. To assess inputs to an S3
 bucket's score, you can refer to sensitive data discovery statistics and other details that Macie provides about the

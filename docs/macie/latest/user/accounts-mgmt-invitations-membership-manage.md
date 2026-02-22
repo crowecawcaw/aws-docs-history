@@ -187,7 +187,7 @@ by using the Amazon Macie console.
 3. In the navigation pane, choose **Accounts**.
 4. Under **Administrator account**, turn off
    **Accept** (
-   ![A toggle switch with a blue background and the toggle positioned to the right.](images/tgl-blue-on.png)
+   ![A toggle switch with a blue background and the toggle positioned to the right.](/images/macie/latest/user/images/tgl-blue-on.png)
    ) next to the invitation, and then choose
    **Update**.
 

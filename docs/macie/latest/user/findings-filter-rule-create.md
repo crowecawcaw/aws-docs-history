@@ -59,7 +59,7 @@ in the navigation pane (under **Findings**). Then choose an item
 in the table. In the details panel, choose the link for the field to pivot on. 3. In the **Filter criteria** box, add conditions that define the
 filter criteria for the rule.
 
-![The Filter criteria box on the Findings page.](images/scrn-findings-filter-bar-empty-conditions.png)
+![The Filter criteria box on the Findings page.](/images/macie/latest/user/images/scrn-findings-filter-bar-empty-conditions.png)
 
 To learn how to add filter conditions, see [Creating and applying filters to Macie
 findings](findings-filter-procedure.md "findings-filter-procedure.md"). 4. When you finish defining filter criteria for the rule, choose **Save

@@ -84,7 +84,7 @@ again.
          filter condition for the attribute. To further refine the results, add conditions for
          additional attributes. To then remove a condition, choose the remove condition icon
          (
-        ![The remove filter condition icon, which is a circle that has an X in it.](images/icon-filter-remove.png)
+        ![The remove filter condition icon, which is a circle that has an X in it.](/images/macie/latest/user/images/icon-filter-remove.png)
         ) for the condition to remove.
 
     For more information about filtering findings, see [Creating and applying filters to Macie
