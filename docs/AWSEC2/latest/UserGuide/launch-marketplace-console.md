@@ -25,17 +25,12 @@ subscriptions](marketplace-manage-subscriptions.md "marketplace-manage-subscript
    a product, choose **Select**.
 5. A window opens with an overview of the product you've selected. You
    can view the pricing information, as well as any other information that
-   the vendor has provided. When you're ready, choose one of the following
-   buttons:
-   - **Subscribe on instance launch** –
-     Your subscription starts when you choose **Launch
-     instance** (at Step 10).
-   - **Subscribe now** – Your subscription
-     starts immediately. While the subscription is underway, you can
-     configure the instance by continuing with the steps in this
-     procedure. If there are any problems with your credit card
-     details, you will be asked to update your account
-     details.
+   the vendor has provided. When you're ready, choose **Subscribe and launch**.
+   This will start your subscription immediately. While the subscription is underway, you can
+   configure the instance by continuing with the steps in this
+   procedure. If there are any problems with your credit card
+   details, you will be asked to update your account
+   details.
 
 ###### Note
 
@@ -60,9 +55,7 @@ Image (AMI)**, check the details of the AMI from which
 you're about to launch the instance. Also check the other configuration
 details that you specified. When you're ready to launch your instance,
 choose **Launch instance**. 11. Depending on the product you've subscribed to, the instance might take
-a few minutes or more to launch. If you chose **Subscribe on
-instance launch** at Step 5, you are first subscribed to
-the product before your instance can launch. If there are any problems
+a few minutes or more to launch. If there are any problems
 with your credit card details, you will be asked to update your account
 details. When the launch confirmation page displays, choose
 **View all instances** to go to the

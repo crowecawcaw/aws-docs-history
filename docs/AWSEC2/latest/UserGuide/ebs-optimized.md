@@ -1275,6 +1275,7 @@ these instances.
 | trn1.2xlarge 1       | 5000                      | 20000                    | 625.00                                  | 2500.00                                | 16250                      | 65000                     |
 | trn1.32xlarge 2      | 80000                     | 10000.0                  | 260000                                  |
 | trn1n.32xlarge 2     | 80000                     | 10000.0                  | 260000                                  |
+| trn2.3xlarge 2       | 5000                      | 625.0                    | 16250                                   |
 | trn2.48xlarge 2      | 80000                     | 10000.0                  | 260000                                  |
 | trn2u.48xlarge 2     | 80000                     | 10000.0                  | 260000                                  |
 | vt1.3xlarge 1        | 2375                      | 4750                     | 296.88                                  | 593.75                                 | 10000                      | 20000                     |
@@ -1301,6 +1302,7 @@ these instances.
 | hpc7g.4xlarge 1   | 87                        | 2085                     | 10.88                                   | 260.62                                 | 500                        | 11000                     |
 | hpc7g.8xlarge 1   | 87                        | 2085                     | 10.88                                   | 260.62                                 | 500                        | 11000                     |
 | hpc7g.16xlarge 1  | 87                        | 2085                     | 10.88                                   | 260.62                                 | 500                        | 11000                     |
+| hpc8a.96xlarge 1  | 87                        | 2085                     | 10.88                                   | 260.62                                 | 500                        | 11000                     |
 
 1 These instances can sustain the maximum performance for 30 minutes
 at least once every 24 hours, after which they revert to their baseline performance.

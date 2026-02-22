@@ -1,7 +1,7 @@
 # Install Windows Subsystem for Linux on your EC2 Windows instance
 
 The Windows Subsystem for Linux (WSL) is a feature of Microsoft Windows. By installing WSL
-on your EC2 Windows instance, you can run native Linux command line tools directly on your
+on your EC2 Windows instance, you can run native Linux tools directly on your
 Windows instance.
 
 There are two versions of Windows Subsystem for Linux (WSL): WSL 1 and WSL 2. For more information, see
@@ -11,9 +11,11 @@ on the Microsoft website.
 ###### Requirements
 
 - The operating system must be Windows Server 2019 or later.
-- You must install WSL 1 on virtualized Windows instances (the instance size is not `.metal`).
+- You can only install WSL 1 on virtualized Windows instances (the instance size is not `.metal` or does not support nested virtualization).
+- You can install either WSL 1 or WSL 2 on instances that support nested virtualization and have the `NestedVirtualization` CPU Option enabled.
 - You can install either WSL 1 or WSL 2 on bare metal instances (the instance size is `.metal`).
-  Bare metal instances provide the required support for nested virtualization.
+  Bare metal instances provide the required support for nested virtualization by default.
+  For more information about nested virtualization for EC2, see [Use nested virtualization to run hypervisors in Amazon EC2 instances](amazon-ec2-nested-virtualization.md "amazon-ec2-nested-virtualization.md").
 
 ## Install WSL on your Windows instance
 
@@ -38,7 +40,7 @@ shutdown -r -t 20
 ```
 
 3. To configure WSL to use WSL 1, run the following command on your instance. This step
-   is required for virtualized instances (the instance size is not `.metal`).
+   is required for virtualized instances (the instance size is not `.metal` or not configured for nested virtualization).
 
 ```
 wsl --set-default-version 1
@@ -50,7 +52,7 @@ wsl --set-default-version 1
 wsl --install
 ```
 
-###### To install WSL 2 (bare metal instances only)
+###### To install WSL 2 (.metal or instances with nested virtualization enabled)
 
 Run the following standard installation command on your EC2 instance. By default,
 WSL 2 is installed.

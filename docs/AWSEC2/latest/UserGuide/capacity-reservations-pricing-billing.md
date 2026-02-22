@@ -13,9 +13,10 @@ Capacity Reservations.
 ## Pricing
 
 Capacity Reservations are charged at the equivalent On-Demand rate whether you run instances in
-reserved capacity or not. If you do not use the reservation, this shows up as unused
-reservation on your Amazon EC2 bill. When you run an instance that matches the attributes
-of a reservation, you just pay for the instance and nothing for the reservation.
+reserved capacity or not, including any applicable regional surcharge for Dedicated
+Instances. If you do not use the reservation, this shows up as unused reservation
+on your Amazon EC2 bill. When you run an instance that matches the attributes of a
+reservation, you just pay for the instance and nothing for the reservation.
 There are no upfront or additional charges.
 
 For example, if you create a Capacity Reservation for 20 `m4.large` Linux instances and

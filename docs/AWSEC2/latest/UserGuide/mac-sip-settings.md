@@ -117,10 +117,6 @@ silicon Mac instance using the GUI. If you previously [connected to the instance
 Mac instance, you **do not** need to perform these
 steps.
 
-###### Note
-
-All macOS usernames and passwords used for macOS authentication are required to be between 4 and 16 characters for use with SIP settings API calls.
-
 ###### To set a password and enable the secure token for the EBS root volume administrative user
 
 1. [Connect to the instance using SSH](connect-to-mac-instance.md#mac-instance-ssh "connect-to-mac-instance.md#mac-instance-ssh").

@@ -65,7 +65,7 @@ criteria:
 - **Compute optimized:** C3, C4, C5, C5a, C5n, C6a, C6g, C6gn, C6i, C6in, C7a, C7g, C7gn, C7i, C7i-flex, C8a, C8g, C8gb, C8gn, C8i, C8i-flex
 - **Memory optimized:** R3, R4, R5, R5a, R5b, R5n, R6a, R6g, R6i, R6in, R7a, R7g, R7i, R7iz, R8a, R8g, R8gb, R8gn, R8i, R8i-flex, U-3tb1, U-6tb1, U-9tb1, U-12tb1, U-18tb1, U-24tb1, U7i-6tb, U7i-8tb, U7i-12tb, U7in-16tb, U7in-24tb, U7in-32tb, U7inh-32tb, X1, X1e, X2idn, X2iedn, X2iezn, X8g, X8i
 - **Accelerated computing:** G3, G5g, Inf1, P3, VT1
-- **High-performance computing:** Hpc6a, Hpc7a, Hpc7g
+- **High-performance computing:** Hpc6a, Hpc7a, Hpc7g, Hpc8a
 - **Metal instances:** Any of the above instance types with the metal instance size.
 - **If instance store volumes are added at
   launch:** Then only the following instance types are supported: M3, C3,

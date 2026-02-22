@@ -48,7 +48,7 @@ You must use one of the following virtualized instance types:
 - **Accelerated computing**:
   F2, G4dn, G5, G6, G6e, G6f, Gr6, Gr6f, G7e, Inf1, Inf2, P5, P5e, P5en, P6-B200, P6-B300, Trn2, Trn2u
 - **High-performance computing**:
-  Hpc6a, Hpc6id
+  Hpc6a, Hpc6id, Hpc8a
 
 ## Considerations
 

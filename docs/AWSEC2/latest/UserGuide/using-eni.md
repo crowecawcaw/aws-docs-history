@@ -181,6 +181,7 @@ the number of network interfaces that an instance type supports, see
 | `hpc7a.24xlarge`       | 2                       |
 | `hpc7a.48xlarge`       | 2                       |
 | `hpc7a.96xlarge`       | 2                       |
+| `hpc8a.96xlarge`       | 2                       |
 | `m6idn.32xlarge`       | 2                       |
 | `m6idn.metal`          | 2                       |
 | `m6in.32xlarge`        | 2                       |

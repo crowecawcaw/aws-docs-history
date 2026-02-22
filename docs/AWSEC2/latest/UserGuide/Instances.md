@@ -32,6 +32,7 @@ instances are identified by a **true** value in the
 
 - [Amazon EC2 instance types](instance-types.md "instance-types.md")
 - [Amazon EC2 managed instances](amazon-ec2-managed-instances.md "amazon-ec2-managed-instances.md")
+- [Use nested virtualization to run hypervisors in Amazon EC2 instances](amazon-ec2-nested-virtualization.md "amazon-ec2-nested-virtualization.md")
 - [Amazon EC2 billing and purchasing options](instance-purchasing-options.md "instance-purchasing-options.md")
 - [Store instance launch parameters in Amazon EC2 launch templates](ec2-launch-templates.md "ec2-launch-templates.md")
 - [Launch an Amazon EC2 instance](LaunchingAndUsingInstances.md "LaunchingAndUsingInstances.md")
