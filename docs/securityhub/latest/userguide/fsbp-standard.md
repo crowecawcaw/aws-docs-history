@@ -48,6 +48,8 @@ type](apigateway-controls.md#apigateway-8 "apigateway-controls.md#apigateway-8")
 [[APIGateway.9] Access logging should be configured for API Gateway V2
 Stages](apigateway-controls.md#apigateway-9 "apigateway-controls.md#apigateway-9")
 
+[[APIGateway.10] API Gateway V2 integrations should use HTTPS for private connections](apigateway-controls.md#apigateway-10 "apigateway-controls.md#apigateway-10")
+
 [[AppSync.1] AWS AppSync API caches should be encrypted at rest](appsync-controls.md#appsync-1 "appsync-controls.md#appsync-1")
 
 [[AppSync.2] AWS AppSync should have field-level logging enabled](appsync-controls.md#appsync-2 "appsync-controls.md#appsync-2")
@@ -421,6 +423,11 @@ should use recommended security policies](elb-controls.md#elb-17 "elb-controls.m
 [[ELB.18] Application and Network Load Balancer listeners should
 use secure protocols to encrypt data in transit](elb-controls.md#elb-18 "elb-controls.md#elb-18")
 
+[[ELB.21] Application and Network Load Balancer target groups should use
+encrypted health check protocols](elb-controls.md#elb-21 "elb-controls.md#elb-21")
+
+[[ELB.22] ELB target groups should use encrypted transport protocols](elb-controls.md#elb-22 "elb-controls.md#elb-22")
+
 [[EMR.1] Amazon EMR cluster primary nodes should not have public IP addresses](emr-controls.md#emr-1 "emr-controls.md#emr-1")
 
 [[EMR.2] Amazon EMR block public access setting should be enabled](emr-controls.md#emr-2 "emr-controls.md#emr-2")
@@ -691,6 +698,9 @@ snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
 [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
 snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 
+[[RDS.50] RDS for MySQL RDS DB clusters should have enough backup
+retention period set](rds-controls.md#rds-50 "rds-controls.md#rds-50")
+
 [[Redshift.1] Amazon Redshift clusters should prohibit public access](redshift-controls.md#redshift-1 "redshift-controls.md#redshift-1")
 
 [[Redshift.2] Connections to Amazon Redshift clusters should be encrypted in transit](redshift-controls.md#redshift-2 "redshift-controls.md#redshift-2")
@@ -767,6 +777,27 @@ initial instance count greater than 1](sagemaker-controls.md#sagemaker-4 "sagema
 [[SageMaker.5] SageMaker models should have network isolation enabled](sagemaker-controls.md#sagemaker-5 "sagemaker-controls.md#sagemaker-5")
 
 [[SageMaker.8] SageMaker notebook instances should run on supported platforms](sagemaker-controls.md#sagemaker-8 "sagemaker-controls.md#sagemaker-8")
+
+[[SageMaker.9] SageMaker data quality job definitions should have
+inter-container traffic encryption enabled](sagemaker-controls.md#sagemaker-9 "sagemaker-controls.md#sagemaker-9")
+
+[[SageMaker.10] SageMaker model explainability job definitions should have
+inter-container traffic encryption enabled](sagemaker-controls.md#sagemaker-10 "sagemaker-controls.md#sagemaker-10")
+
+[[SageMaker.11] SageMaker data quality job definitions should have
+network isolation enabled](sagemaker-controls.md#sagemaker-11 "sagemaker-controls.md#sagemaker-11")
+
+[[SageMaker.12] SageMaker model bias job definitions should have
+network isolation enabled](sagemaker-controls.md#sagemaker-12 "sagemaker-controls.md#sagemaker-12")
+
+[[SageMaker.13] SageMaker model quality job definitions should have
+inter-container traffic encryption enabled](sagemaker-controls.md#sagemaker-13 "sagemaker-controls.md#sagemaker-13")
+
+[[SageMaker.14] SageMaker monitoring schedules should have network
+isolation enabled](sagemaker-controls.md#sagemaker-14 "sagemaker-controls.md#sagemaker-14")
+
+[[SageMaker.15] SageMaker model bias job definitions should have
+inter-container traffic encryption enabled](sagemaker-controls.md#sagemaker-15 "sagemaker-controls.md#sagemaker-15")
 
 [[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled](secretsmanager-controls.md#secretsmanager-1 "secretsmanager-controls.md#secretsmanager-1")
 

@@ -1826,3 +1826,46 @@ For information about configuring an Amazon RDS for MySQL DB cluster to automati
 copy tags to DB snapshots, see [Tagging Amazon RDS
 resources](../../../AmazonRDS/latest/UserGuide/USER_Tagging.md "../../../AmazonRDS/latest/UserGuide/USER_Tagging.md") in the _Amazon Relational Database Service User
 Guide_.
+
+## [RDS.50] RDS for MySQL RDS DB clusters should have enough backup
+
+retention period set
+
+**Category:** Recover > Resilience > Backups enabled
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::RDS::DBCluster`
+
+**AWS Config rule:**
+[rds-cluster-backup-retention-check](../../../config/latest/developerguide/rds-cluster-backup-retention-check.md "../../../config/latest/developerguide/rds-cluster-backup-retention-check.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
+| Parameter                      | Description                                                          | Type    | Allowed custom values | Security Hub CSPM default value |
+| ------------------------------ | -------------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
+| `minimumBackupRetentionPeriod` | The minimum backup retention period in days for the control to check | Integer | `7` to `35`           | `7`                             |
+
+This control checks whether an RDS DB cluster has a minimum backup retention period. The
+control fails if the backup retention period is less than the specified parameter value. Unless
+you provide a custom parameter value, Security Hub uses a default value of 7 days.
+
+This control checks whether an RDS DB cluster has a minimum backup retention period. The control
+fails if the backup retention period is less than the specified parameter value. Unless you provide a
+customer parameter value, Security Hub uses a default value of 7 days. This control applies to all types
+of RDS DB clusters including Aurora DB cluster, DocumentDB clusters, NeptuneDB clusters, etc.
+
+### Remediation
+
+To configure the backup retention period for an RDS DB cluster, modify the cluster settings
+and set the backup retention period to at least 7 days (or the value specified in the control parameter).
+For detailed instructions, see [Backup
+retention period](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md") in the _Amazon Relational Database Service User Guide_.
+For Aurora DB clusters, see [Overview of backing up and
+restoring an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md") in the _Amazon Aurora User Guide for
+Aurora_.
+For other type of DB clusters (e.g. DocumentDB clusters), see the corresponding service user guide for
+how to update the backup retention period for the cluster.

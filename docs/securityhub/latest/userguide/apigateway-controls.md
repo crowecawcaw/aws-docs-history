@@ -268,3 +268,36 @@ _API Gateway Developer Guide_.
 
 To set up access logging, see [Set up CloudWatch API logging using the API Gateway console](../../../apigateway/latest/developerguide/set-up-logging.md#set-up-access-logging-using-console "../../../apigateway/latest/developerguide/set-up-logging.md#set-up-access-logging-using-console") in the
 _API Gateway Developer Guide_.
+
+## [APIGateway.10] API Gateway V2 integrations should use HTTPS for private connections
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ApiGatewayV2::Integration`
+
+**AWS Config rule:**
+[apigatewayv2-integration-private-https-enabled](../../../config/latest/developerguide/apigatewayv2-integration-private-https-enabled.md "../../../config/latest/developerguide/apigatewayv2-integration-private-https-enabled.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an API Gateway V2 integration has HTTPS enabled for private connections.
+The control fails if a private connection doesn't have TLS configured.
+
+VPC Links connect API Gateway to private resources. While VPC Links create private connectivity,
+they don't inherently encrypt data. Configuring TLS ensures use of HTTPS for end-to-end encryption from client
+through API Gateway to backend. Without TLS, sensitive API traffic flows unencrypted across private connections.
+HTTPS encryption protects the traffic through private connections from data interception, man-in-the-middle
+attacks and credential exposure.
+
+### Remediation
+
+To enable encryption in transit for private connections in an API Gateway v2 Integration,
+see [Update
+a private integration](../../../apigateway/latest/developerguide/set-up-private-integration.md#set-up-private-integration-update "../../../apigateway/latest/developerguide/set-up-private-integration.md#set-up-private-integration-update") in the _Amazon API Gateway Developer Guide_.
+Configure [TLS
+configuration](../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md#apis-apiid-integrations-integrationid-model-tlsconfig "../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md#apis-apiid-integrations-integrationid-model-tlsconfig") so that the private integration uses HTTPS protocol.

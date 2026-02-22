@@ -702,3 +702,76 @@ following sections of the _Elastic Load Balancing User Guides_:
 [Create
 an HTTPS listener for your Application Load Balancer](../../../elasticloadbalancing/latest/application/create-https-listener.md "../../../elasticloadbalancing/latest/application/create-https-listener.md") and [Create a listener
 for your Network Load Balancer](../../../elasticloadbalancing/latest/network/create-listener.md "../../../elasticloadbalancing/latest/network/create-listener.md").
+
+## [ELB.21] Application and Network Load Balancer target groups should use
+
+encrypted health check protocols
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ElasticLoadBalancingV2::TargetGroup`
+
+**AWS Config rule:**
+[elbv2-targetgroup-healthcheck-protocol-encrypted](../../../config/latest/developerguide/elbv2-targetgroup-healthcheck-protocol-encrypted.md "../../../config/latest/developerguide/elbv2-targetgroup-healthcheck-protocol-encrypted.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether the target group for application and network load balancer health checks use
+an encrypted transport protocol. The control fails if the health check protocol does not use HTTPS.
+This control is not applicable to Lambda target types.
+
+Load Balancers send health check requests to registered targets to determine their status and
+route traffic accordingly. The health check protocol specified in the target group configuration determines how
+these checks are performed. When health check protocols use unencrypted communication such as HTTP, the requests
+and responses can be intercepted or manipulated during transmission. This allows attackers to gain insights into
+infrastructure configuration, tamper with health check results, or conduct man-in-the-middle attacks that affect
+routing decisions. Using HTTPS for health checks provides encrypted communication between the load balancer and
+its targets, protecting the integrity and confidentiality of health status information.
+
+### Remediation
+
+To configure encrypted health checks for your Application Load Balancer target group, see [Update the health check
+settings of an Application Load Balancer target group](../../../elasticloadbalancing/latest/application/modify-health-check-settings.md "../../../elasticloadbalancing/latest/application/modify-health-check-settings.md") in the
+_Elastic Load Balancing User Guide_.
+To configure encrypted health checks for your Network Load Balancer target group, see [Update the health check
+settings of an Network Load Balancer target group](../../../elasticloadbalancing/latest/network/modify-health-check-settings.md "../../../elasticloadbalancing/latest/network/modify-health-check-settings.md") in the
+_Elastic Load Balancing User Guide_.
+
+## [ELB.22] ELB target groups should use encrypted transport protocols
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ElasticLoadBalancingV2::TargetGroup`
+
+**AWS Config rule:**
+[elbv2-targetgroup-protocol-encrypted](../../../config/latest/developerguide/elbv2-targetgroup-protocol-encrypted.md "../../../config/latest/developerguide/elbv2-targetgroup-protocol-encrypted.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Elastic Load Balancing target group uses an encrypted transport protocol.
+This control does not apply to target groups with a target type of Lambda or ALB, or target groups using the
+GENEVE protocol. The control fails if the target group does not use HTTPS, TLS, or QUIC protocol.
+
+Encrypting data in transit protects it from interception by unauthorized users. Target groups that use
+unencrypted protocols (HTTP, TCP, UDP) transmit data without encryption, making it vulnerable to eavesdropping.
+Using encrypted protocols (HTTPS, TLS, QUIC) ensures that data transmitted between load balancers and targets
+is protected.
+
+### Remediation
+
+To use an encrypted protocol, you must create a new target group with HTTPS, TLS, or QUIC protocol.
+Target group protocol cannot be modified after creation.
+To create Application Load Balancer target group, see [Create a target group for
+your Application Load Balancer](../../../elasticloadbalancing/latest/application/create-target-group.md "../../../elasticloadbalancing/latest/application/create-target-group.md") in the _Elastic Load Balancing User Guide_.
+To create Network Load Balancer target group, see [Create a target group for
+your Network Load Balancer](../../../elasticloadbalancing/latest/network/create-target-group.md "../../../elasticloadbalancing/latest/network/create-target-group.md") in the _Elastic Load Balancing User Guide_.

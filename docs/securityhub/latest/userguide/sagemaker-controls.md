@@ -330,3 +330,236 @@ For information about the platforms that Amazon SageMaker AI currently supports 
 migrate to them, see [Amazon Linux 2 notebook
 instances](../../../sagemaker/latest/dg/nbi-al2.md "../../../sagemaker/latest/dg/nbi-al2.md") in the _Amazon SageMaker AI Developer
 Guide_.
+
+## [SageMaker.9] SageMaker data quality job definitions should have
+
+inter-container traffic encryption enabled
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::DataQualityJobDefinition`
+
+**AWS Config rule:** [sagemaker-data-quality-job-encrypt-in-transit](../../../config/latest/developerguide/sagemaker-data-quality-job-encrypt-in-transit.md "../../../config/latest/developerguide/sagemaker-data-quality-job-encrypt-in-transit.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon SageMaker AI data quality job definition has encryption
+enabled for inter-container traffic. The control fails if the definition for a job that monitors data
+quality and drift does not have encryption enabled for inter-container traffic.
+
+Enabling inter-container traffic encryption protects sensitive ML data during distributed
+processing for data quality analysis.
+
+### Remediation
+
+For more information about inter-container traffic encryption for Amazon SageMaker AI,
+see [Protect Communications
+Between ML Compute Instances in a Distributed Training Job](../../../sagemaker/latest/dg/train-encrypt.md "../../../sagemaker/latest/dg/train-encrypt.md") in the _Amazon SageMaker AI
+Developer Guide_.
+When you create a data quality job definition, you can enable inter-container traffic encryption by
+setting the value for the `EnableInterContainerTrafficEncryption` parameter to
+`True`.
+
+## [SageMaker.10] SageMaker model explainability job definitions should have
+
+inter-container traffic encryption enabled
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::ModelExplainabilityJobDefinition`
+
+**AWS Config rule:** [sagemaker-model-explainability-job-encrypt-in-transit](../../../config/latest/developerguide/sagemaker-model-explainability-job-encrypt-in-transit.md "../../../config/latest/developerguide/sagemaker-model-explainability-job-encrypt-in-transit.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon SageMaker model explainability job definition has
+inter-container traffic encryption enabled. The control fails if the model explainability job
+definition does not have inter-container traffic encryption enabled.
+
+Enabling inter-container traffic encryption protects sensitive ML data such as model data,
+training datasets, intermediate processing results, parameters and model weights during distributed
+processing for explainability analysis.
+
+### Remediation
+
+For an existing SageMaker model explainability job definition, inter-container traffic
+encryption cannot be updated in place. To create a new SageMaker model explainability job definition
+with inter-container traffic encryption enabled, use [API](../../../sagemaker/latest/APIReference/API_CreateModelExplainabilityJobDefinition.md "../../../sagemaker/latest/APIReference/API_CreateModelExplainabilityJobDefinition.md") or
+[CLI](../../../cli/latest/reference/sagemaker/create-model-explainability-job-definition.md "../../../cli/latest/reference/sagemaker/create-model-explainability-job-definition.md") or
+[CloudFormation](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-modelexplainabilityjobdefinition.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-modelexplainabilityjobdefinition.md") and set [`EnableInterContainerTrafficEncryption`](../../../sagemaker/latest/APIReference/API_MonitoringNetworkConfig.md#API_MonitoringNetworkConfig_Contents "../../../sagemaker/latest/APIReference/API_MonitoringNetworkConfig.md#API_MonitoringNetworkConfig_Contents") to `True`.
+
+## [SageMaker.11] SageMaker data quality job definitions should have
+
+network isolation enabled
+
+**Category:** Protect > Secure network configuration
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::DataQualityJobDefinition`
+
+**AWS Config rule:** [sagemaker-data-quality-job-isolation](../../../config/latest/developerguide/sagemaker-data-quality-job-isolation.md "../../../config/latest/developerguide/sagemaker-data-quality-job-isolation.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon SageMaker AI data quality monitoring job definition has
+network isolation enabled. The control fails if the definition for a job that monitors data quality
+and drift has network isolation disabled.
+
+Network isolation reduces the attack. surface and prevents external access thereby protecting
+against unauthorized external access, accidental data exposure and potential data exfiltration.
+
+### Remediation
+
+For more information about network isolation for SageMaker AI,
+see [Run training
+and inference containers in internet-free mode](../../../sagemaker/latest/dg/mkt-algo-model-internet-free.md "../../../sagemaker/latest/dg/mkt-algo-model-internet-free.md") in the _Amazon SageMaker AI
+Developer Guide_.
+When you create a data quality job definition, you can enable network isolation by setting the value for
+the `EnableNetworkIsolation` parameter to `True`.
+
+## [SageMaker.12] SageMaker model bias job definitions should have
+
+network isolation enabled
+
+**Category:**
+Protect > Secure network configuration > Resources policy configuration
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::ModelBiasJobDefinition`
+
+**AWS Config rule:** [sagemaker-model-bias-job-isolation](../../../config/latest/developerguide/sagemaker-model-bias-job-isolation.md "../../../config/latest/developerguide/sagemaker-model-bias-job-isolation.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether a SageMaker model bias job definition has network isolation enabled.
+The control fails if model bias job definition does not have network isolation enabled.
+
+Network isolation prevents SageMaker model bias jobs from communicating with external resources over
+the internet. By enabling network isolation, you ensure that the job's containers cannot make outbound
+connections, reducing the attack surface and protecting sensitive data from exfiltration. This is particularly
+important for jobs processing regulated or sensitive data.
+
+### Remediation
+
+To enable network isolation, you must create a new model bias job definition with
+`EnableNetworkIsolation` parameter set to `True`. Network isolation cannot be
+modified after job definition creation. To create a new model bias job definition, see
+[CreateModelBiasJobDefinition](../../../sagemaker/latest/APIReference/API_CreateModelBiasJobDefinition.md "../../../sagemaker/latest/APIReference/API_CreateModelBiasJobDefinition.md") in the _Amazon SageMaker AI
+Developer Guide_.
+
+## [SageMaker.13] SageMaker model quality job definitions should have
+
+inter-container traffic encryption enabled
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::ModelQualityJobDefinition`
+
+**AWS Config rule:** [ssagemaker-model-quality-job-encrypt-in-transit](../../../config/latest/developerguide/sagemaker-model-quality-job-encrypt-in-transit.md "../../../config/latest/developerguide/sagemaker-model-quality-job-encrypt-in-transit.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether Amazon SageMaker model quality job definitions have encryption in transit
+enabled for inter-container traffic. The control fails if a model quality job definition does not have
+inter-container traffic encryption enabled.
+
+Inter-container traffic encryption protects data transmitted between containers during distributed
+model quality monitoring jobs. By default, inter-container traffic is unencrypted. Enabling encryption helps
+maintain data confidentiality during processing and supports compliance with regulatory requirements for
+data in transit protection.
+
+### Remediation
+
+To enable inter-container traffic encryption for your Amazon SageMaker model quality job definition,
+you must re-create the job definition with the appropriate in-transit encryption configuration. To create
+a model quality job definition, see [CreateModelQualityJobDefinition](../../../sagemaker/latest/APIReference/API_CreateModelQualityJobDefinition.md "../../../sagemaker/latest/APIReference/API_CreateModelQualityJobDefinition.md") in the _Amazon SageMaker AI
+Developer Guide_.
+
+## [SageMaker.14] SageMaker monitoring schedules should have network
+
+isolation enabled
+
+**Category:** Protect > Secure network configuration
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::MonitoringSchedule`
+
+**AWS Config rule:** [sagemaker-monitoring-schedule-isolation](../../../config/latest/developerguide/sagemaker-monitoring-schedule-isolation.md "../../../config/latest/developerguide/sagemaker-monitoring-schedule-isolation.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether Amazon SageMaker monitoring schedules have network isolation
+enabled. The control fails if a monitoring schedule has EnableNetworkIsolation set to false or
+not configured
+
+Network isolation prevents monitoring jobs from making outbound network calls, reducing the attack
+surface by eliminating internet access from containers.
+
+### Remediation
+
+For information about configuring network isolation in the NetworkConfig parameter when creating
+or updating a monitoring schedule, see [CreateMonitoringSchedule](../../../sagemaker/latest/APIReference/API_CreateMonitoringSchedule.md "../../../sagemaker/latest/APIReference/API_CreateMonitoringSchedule.md")
+or [UpdateMonitoringSchedule](../../../sagemaker/latest/APIReference/API_UpdateMonitoringSchedule.md "../../../sagemaker/latest/APIReference/API_UpdateMonitoringSchedule.md") in the _Amazon SageMaker AI
+Developer Guide_.
+
+## [SageMaker.15] SageMaker model bias job definitions should have
+
+inter-container traffic encryption enabled
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::ModelBiasJobDefinition`
+
+**AWS Config rule:** [sagemaker-model-bias-job-encrypt-in-transit](../../../config/latest/developerguide/sagemaker-model-bias-job-encrypt-in-transit.md "../../../config/latest/developerguide/sagemaker-model-bias-job-encrypt-in-transit.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether Amazon SageMaker model bias job definitions have inter-container traffic
+encryption enabled when using multiple compute instances. The control fails if
+`EnableInterContainerTrafficEncryption` is set to false or is not configured for job definitions
+with an instance count of 2 or greater.
+
+EInter-container traffic encryption protects data transmitted between compute instances during
+distributed model bias monitoring jobs. Encryption prevents unauthorized access to model-related information
+such as weights that are transmitted between instances.
+
+### Remediation
+
+To enable inter-container traffic encryption for SageMaker model bias job definitions, set the
+`EnableInterContainerTrafficEncryption` parameter to `True` when the job definition
+uses multiple compute instances. For information about protecting communications between ML compute
+instances, see [Protect
+Communications Between ML Compute Instances in a Distributed Training Job](../../../sagemaker/latest/dg/train-encrypt.md "../../../sagemaker/latest/dg/train-encrypt.md") in the
+_Amazon SageMaker AI Developer Guide_.
