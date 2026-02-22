@@ -26,7 +26,7 @@ This section provides definitions of concepts used by AWS Certificate Manager.
 
 ## ACM Certificate
 
-ACM generates X.509 version 3 certificates. Each is valid for 13 months (395 days)
+ACM generates X.509 version 3 certificates. Each is valid for 198 days
 and contains the following extensions.
 
 - **Basic Constraints**- specifies whether the

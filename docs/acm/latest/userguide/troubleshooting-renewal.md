@@ -24,7 +24,7 @@ true:
 
 renewal
 
-As the certificate nears expiration (60 days for DNS, 45 for EMAIL and 60 days for
+As the certificate nears expiration (45 days for DNS, 45 for EMAIL and 60 days for
 Private), ACM attempts to renew the certificate if it meets the [eligibility criteria](managed-renewal.md "managed-renewal.md"). You
 might have to take actions for the renewal to succeed. For more information, see [Managed certificate renewal in AWS Certificate Manager](managed-renewal.md "managed-renewal.md").
 
@@ -32,7 +32,7 @@ might have to take actions for the renewal to succeed. For more information, see
 
 renewal for email-validated certificates
 
-ACM certificates are valid for 13 months (395 days). Renewing a certificate requires action by the domain owner. ACM begins sending renewal notices to the email addresses associated with the domain 45 days before expiration. The notifications contain a link that the
+ACM certificates are valid for 198 days. Renewing a certificate requires action by the domain owner. ACM begins sending renewal notices to the email addresses associated with the domain 45 days before expiration. The notifications contain a link that the
 domain owner can click for renewal. Once all listed domains are validated,
 ACM issues a renewed certificate with the same ARN.
 

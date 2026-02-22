@@ -87,9 +87,9 @@ renewal process for your certificate.
 
 Dashboard (PHD)
 
-ACM attempts to automatically renew your ACM certificate 60 days prior to
-expiration. If ACM cannot automatically renew your certificate, it sends
-certificate renewal event notices to your Health Dashboard at 45 day, 30 day, 15 day, 7 day, 3
+ACM attempts to automatically renew your ACM certificate 45 days prior to
+expiration for public certificates and 60 days prior for private certificates. If ACM cannot automatically renew your certificate, it sends
+certificate renewal event notices to your Health Dashboard at 45 day (for private only), 30 day, 15 day, 7 day, 3
 day, and 1 day intervals from expiration to inform you that you need to take action.
 The Health Dashboard is part of the AWS Health service. It requires no setup and can be
 viewed by any user that is authenticated in your account. For more information, see

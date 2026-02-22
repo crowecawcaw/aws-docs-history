@@ -2,12 +2,12 @@
 
 domains
 
-ACM certificates are valid for 13 months (395 days). Renewing a certificate requires action by the domain owner. ACM begins sending renewal notices to the email addresses associated with the domain 45 days before expiration. The notifications contain a link that the
+ACM certificates are valid for 198 days. Renewing a certificate requires action by the domain owner. ACM begins sending renewal notices to the email addresses associated with the domain 45 days before expiration. The notifications contain a link that the
 domain owner can click for renewal. Once all listed domains are validated,
 ACM issues a renewed certificate with the same ARN.
 
 ACM sends AWS Health events and Amazon EventBridge events if it can't automatically
-validate a domain during renewal. These events are sent at 45 days, 30 days, 15
+validate a domain during renewal. These events are sent at 30 days, 15
 days, seven days, three days, and one day prior to expiration. For more information,
 see [Amazon EventBridge support for ACM](supported-events.md "supported-events.md").
 

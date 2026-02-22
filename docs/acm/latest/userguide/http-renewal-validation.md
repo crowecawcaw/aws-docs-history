@@ -5,7 +5,7 @@ HTTP
 ACM provides automated managed renewal for certificates that were originally
 issued using HTTP validation through CloudFront.
 
-At 60 days prior to expiration, ACM checks for the following renewal
+At 45 days prior to expiration, ACM checks for the following renewal
 criteria:
 
 - The certificate is currently in use by CloudFront.
@@ -15,7 +15,7 @@ criteria:
   the certificate.
 
 ACM sends AWS Health events and Amazon EventBridge events if it can't automatically
-validate a domain during renewal. These events are sent at 45 days, 30 days, 15
+validate a domain during renewal. These events are sent at 30 days, 15
 days, seven days, three days, and one day prior to expiration. For more information,
 see [Amazon EventBridge support for ACM](supported-events.md "supported-events.md").
 

@@ -25,10 +25,18 @@ restrictions:
 The specified signing algorithm family (RSA or ECDSA) must match the
 algorithm family of the CA's secret key.
 
-- **Expiration:** Each certificate is valid for
+- **Expiration:** Each private certificate is valid for
   13 months (395 days). The end date of the signing CA certificate must exceed the end
   date of the requested certificate, or else the certificate request will
   fail.
+
+###### Note
+
+Private certificates have a longer validity period than public certificates.
+Public ACM certificates are valid for 198 days. For more information
+about public certificates, see [Request a public certificate in
+AWS Certificate Manager](acm-public-certificates.md "acm-public-certificates.md").
+
 - **Renewal:** ACM attempts to renew a private
   certificate automatically after 11 months.
   The private CA used to sign the end-entity certificates is subject to its own

@@ -8,7 +8,8 @@ Amazon EventBridge.
 Expiration event
 
 ACM sends daily expiration events for all active certificates (public,
-private and imported) starting 45 days prior to expiration. This timing can be
+private and imported) starting 45 days prior to expiration for private/imported certificates
+and 30 days prior to expiration for public certificates. This timing can be
 changed using the [PutAccountConfiguration](../APIReference/API_PutAccountConfiguration.md "../APIReference/API_PutAccountConfiguration.md") action of the ACM API.
 
 ACM automatically initiates renewal of eligible certificates that it issued,
@@ -106,7 +107,7 @@ following structure.
        "DomainValidationMethod" : "EMAIL" | "DNS",
        "CertificateCreatedDate" : "2019-12-22T18:43:48Z",
        "CertificateExpirationDate" : "2019-12-22T18:43:48Z",
-       "DaysToExpiry" : 395,
+       "DaysToExpiry" : 198,
        "InUse" : TRUE | FALSE,
        "Exported" : TRUE | FALSE
      }
@@ -124,8 +125,9 @@ Certificate Renewal Action Required events aren't available for [imported certif
 Customers can listen on this event to be alerted when a customer action must
 be taken before a certificate can be renewed. For instance, if a customer adds
 CAA records that prevent ACM from renewing a certificate, ACM publishes this
-event when automatic renewal fails at 45 days before expiration. If no customer
-action is taken, ACM makes further renewal attempts at 30 days, 15 days, 3
+event when automatic renewal fails at 45 days before expiration for private certificates
+and 30 days before expiration for public certificates. If no customer
+action is taken, ACM makes further renewal attempts at 30 days (for private only), 15 days, 3
 days, and 1 day, or until customer action is taken, the certificate expires, or
 the certificate is no longer eligible for renewal. An event is published for
 each of these renewal attempts.

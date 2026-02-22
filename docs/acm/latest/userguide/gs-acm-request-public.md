@@ -13,9 +13,9 @@ restrictions:
   private key algorithm must be either 2048-bit RSA, 256-bit ECDSA, or 384-bit
   ECDSA.
 - **Expiration:** Each certificate is valid for
-  13 months (395 days).
+  198 days.
 - **Renewal:** ACM attempts to renew a public
-  certificate automatically after 11 months.
+  certificate automatically 45 days before expiration.
 
 ###### Note
 

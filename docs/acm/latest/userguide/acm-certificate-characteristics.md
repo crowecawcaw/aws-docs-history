@@ -196,7 +196,7 @@ The following [Punycode](https://datatracker.ietf.org/doc/html/rfc3492 "https://
 
 **Validity Period**
 
-ACM certificates are valid for 13 months (395 days).
+ACM certificates are valid for 198 days.
 
 **Wildcard Names**
 

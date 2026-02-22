@@ -49,9 +49,8 @@ information, see [Data protection in AWS Certificate Manager](data-protection.md
 
 The following are some ACM certificate limitations:
 
-- Certificates have a 13 months (395 days) validity period.
-- ACM renews certificates after 11 months. ACM will renew certificates set
-  to expire 60 days before their expiration date.
+- Certificates have a 198 days validity period.
+- ACM renews certificates set to expire 45 days before their expiration date.
 - You must manage the deployment process for exported certificates.
 
 ## Pricing

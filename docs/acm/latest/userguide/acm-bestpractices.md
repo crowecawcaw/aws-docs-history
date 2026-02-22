@@ -195,7 +195,7 @@ can use the [update-certificate-options](../../../cli/latest/reference/acm/updat
 
 - You cannot use the console to enable or disable transparency logging.
 - You cannot change logging status after a certificate enters its renewal
-  period, typically 60 days before certificate expiry. No error message is
+  period, typically 45 days before certificate expiry for public certificates. No error message is
   generated if a status change fails.
 
 Once a certificate has been logged, it cannot be removed from the log. Opting out
