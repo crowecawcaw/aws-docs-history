@@ -44,7 +44,7 @@ sessions on Windows and Linux Amazon DCV servers. The path to custom script on t
 for initializing the session when it is created. The file path is relative to the init directory
 specified for the `agent.init_folder` Agent configuration parameter. If the file is in
 the specified init directory, specify the file name only. If the file is not in the specified init
-directory, specify the relative path. For more information, see see [Agent configuration file](../sm-admin/agent-file.md "../sm-admin/agent-file.md") in the _Amazon DCV Session Manager
+directory, specify the relative path. For more information, see [Agent configuration file](../sm-admin/agent-file.md "../sm-admin/agent-file.md") in the _Amazon DCV Session Manager
 Administrator Guide_.
 
 Type: String
