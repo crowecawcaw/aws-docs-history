@@ -29,7 +29,8 @@ days of the end of support date.
 
 | Apache ActiveMQ version     | End of support on Amazon MQ |
 | --------------------------- | --------------------------- |
-| ActiveMQ 5.18 (recommended) |                             |
+| ActiveMQ 5.19 (recommended) |                             |
+| ActiveMQ 5.18               |                             |
 | ActiveMQ 5.17               | June 16, 2025               |
 | ActiveMQ 5.16               | November 15, 2024           |
 | ActiveMQ 5.15               | September 16, 2024          |

@@ -58,6 +58,7 @@ The full set of supported configuration options is specified in the Amazon MQ XM
 schemas. Download zip files of the supported schemas using the following
 links.
 
+- [`amazon-mq-active-mq-5.19.1.xsd.zip`](samples/amazon-mq-active-mq-5.19.1.xsd.md "samples/amazon-mq-active-mq-5.19.1.xsd.md")
 - [`amazon-mq-active-mq-5.18.4.xsd.zip`](samples/amazon-mq-active-mq-5.18.4.xsd.md "samples/amazon-mq-active-mq-5.18.4.xsd.md")
 - [`amazon-mq-active-mq-5.17.6.xsd.zip`](samples/amazon-mq-active-mq-5.17.6.xsd.md "samples/amazon-mq-active-mq-5.17.6.xsd.md")
 - [`amazon-mq-active-mq-5.16.7.xsd.zip`](samples/amazon-mq-active-mq-5.16.7.xsd.md "samples/amazon-mq-active-mq-5.16.7.xsd.md")
