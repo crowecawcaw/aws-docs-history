@@ -40,7 +40,7 @@ might have provided the ID of the IAM user instead of the key ID.
 The SSH key ID can be found in the IAM console in the profile for your IAM
 user:
 
-![The SSH Key ID in the IAM console](images/codecommit-ssh-key-id-iam.png)
+![The SSH Key ID in the IAM console](/images/codecommit/latest/userguide/images/codecommit-ssh-key-id-iam.png)
 
 ###### Note
 

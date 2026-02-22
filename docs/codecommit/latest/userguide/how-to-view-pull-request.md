@@ -25,7 +25,7 @@ created with a status of **Closed**.
 3. In the navigation pane, choose **Pull Requests**.
 4. By default, a list of all open pull requests is displayed.
 
-![Pull requests displayed in the AWS CodeCommit console.](images/codecommit-pull-request-view-list.png) 5. To change the display filter, choose from the list of available filters:
+![Pull requests displayed in the AWS CodeCommit console.](/images/codecommit/latest/userguide/images/codecommit-pull-request-view-list.png) 5. To change the display filter, choose from the list of available filters:
 
     * **Open pull requests** (default): Displays all pull requests with a status of **Open**.
     * **All pull requests**: Displays all pull requests.

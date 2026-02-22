@@ -67,7 +67,7 @@ The page for that commit is displayed, along with any comments. 4. To add a comm
 
 
 
-    ![A general comment on the changes in a commit.](images/codecommit-commenting-changecomment.png)
+    ![A general comment on the changes in a commit.](/images/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
     * To add a comment to a file in the commit, find the name of the file. Choose
      **Comment on file**, enter your comment, and then choose
      **Save**.
