@@ -22,6 +22,12 @@ For more information, see [Slurm accounting in AWS PCS](slurm-accounting.md "slu
 - [JobRequeue](https://slurm.schedmd.com/slurm.conf.html#OPT_JobRequeue "https://slurm.schedmd.com/slurm.conf.html#OPT_JobRequeue")
 - [LaunchParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_LaunchParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_LaunchParameters")
 - [Licenses](https://slurm.schedmd.com/slurm.conf.html#OPT_Licenses "https://slurm.schedmd.com/slurm.conf.html#OPT_Licenses")
+- [MinJobAge](https://slurm.schedmd.com/slurm.conf.html#OPT_MinJobAge "https://slurm.schedmd.com/slurm.conf.html#OPT_MinJobAge")
+
+###### Note
+
+AWS PCS supports a minimum value of 5 seconds for `MinJobAge`.
+
 - [OverTimeLimit](https://slurm.schedmd.com/slurm.conf.html#OPT_OverTimeLimit "https://slurm.schedmd.com/slurm.conf.html#OPT_OverTimeLimit")
 - [PreemptExemptTime](https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptExemptTime "https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptExemptTime")
 - [PreemptMode](https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptMode "https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptMode")
