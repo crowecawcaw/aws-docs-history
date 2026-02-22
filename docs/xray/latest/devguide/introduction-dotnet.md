@@ -379,7 +379,7 @@ The following procedure was required to use the X-Ray SDK with Lambda:
 
 With OpenTelemetry-based solutions You can automatically instrument your Lambda with AWS vended Lambda layers. There are two solutions:
 
-- (Recommended) [CloudWatch Application Signals lambda layer](../../../lambda/latest/dg/monitoring-application-signals.md "../../../lambda/latest/dg/monitoring-application-signals.md")
+- (Recommended) [AWS Lambda Layer for OpenTelemetry](../../../lambda/latest/dg/monitoring-application-signals.md "../../../lambda/latest/dg/monitoring-application-signals.md")
 - For better performance, you may want to consider using `OpenTelemetry Manual Instrumentation` to generate OpenTelemetry traces for your Lambda function.
 
 **OpenTelemetry manual instrumentation for AWS Lambda**

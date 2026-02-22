@@ -376,7 +376,7 @@ with tracer.start_as_current_span("parent", kind=SpanKind.SERVER) as parent_span
 To monitor your lambda functions on X-Ray, you enable X-Ray and added appropriate permissions to the function invocation role. Additionally, if you are tracing downstream requests from your function, you would be instrumenting the
 code with X-Ray Python SDK.
 
-With OpenTelemetry for X-Ray, it is recommended to use the CloudWatch Application Signals lambda layer with [Application Signals](../../../lambda/latest/dg/monitoring-application-signals.md "../../../lambda/latest/dg/monitoring-application-signals.md") turned off.
+With OpenTelemetry for X-Ray, it is recommended to use the AWS Lambda Layer for OpenTelemetry with [Application Signals](../../../lambda/latest/dg/monitoring-application-signals.md "../../../lambda/latest/dg/monitoring-application-signals.md") turned off.
 This will auto-instrument your function and will generate spans for the function invocation and any downstream request from your function. Besides tracing, if you are interested in using Application Signals to monitor the health of your function,
 see [Enable your applications on Lambda](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.md") .
 
@@ -387,7 +387,7 @@ see [Enable your applications on Lambda](../../../AmazonCloudWatch/latest/monito
 
 **Manually creating spans with Lambda instrumentation**
 
-Additionally, you can generate custom spans within your function to track work. You can do by using only the `opentelemetry-api` package in conjunction with the Application Signals lambda layer auto-instrumentation.
+Additionally, you can generate custom spans within your function to track work. You can do by using only the `opentelemetry-api` package in conjunction with the AWS Lambda Layer for OpenTelemetry auto-instrumentation.
 
 1. Include the `opentelemetry-api` as a dependency in your function
 2. The following code snippet is a sample to generate custom spans
@@ -396,7 +396,7 @@ Additionally, you can generate custom spans within your function to track work. 
 
 from opentelemetry import trace
 
-# Get the tracer (auto‑configured by the Application Signals layer)
+# Get the tracer (auto‑configured by the AWS Lambda Layer for OpenTelemetry)
 tracer = trace.get_tracer(__name__)
 
 def handler(event, context):

@@ -411,7 +411,7 @@ After you enable _Active Tracing_ for your Lambda function, the X-Ray SDK was re
 
 With OpenTelemetry SDK You can automatically instrument your Lambda with AWS vended Lambda layers. There are two solutions:
 
-- (Recommended) CloudWatch Application Signals lambda layer
+- (Recommended) AWS Lambda Layer for OpenTelemetry
 
 ###### Note
 

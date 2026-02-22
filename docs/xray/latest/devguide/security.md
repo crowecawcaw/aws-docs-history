@@ -23,6 +23,6 @@ this as security _of_ the cloud and security _in_ the cloud:
 
 - [Data protection in AWS X-Ray](xray-console-encryption.md "xray-console-encryption.md")
 - [Identity and access management for AWS X-Ray](security-iam.md "security-iam.md")
-- [Compliance validation for AWS X-Ray](xray-compliance.md "xray-compliance.md")
+- [Compliance validation for AWS X-Ray](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS X-Ray](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS X-Ray](infrastructure-security.md "infrastructure-security.md")

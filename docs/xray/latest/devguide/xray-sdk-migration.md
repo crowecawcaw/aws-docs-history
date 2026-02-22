@@ -334,7 +334,7 @@ Code changes vary by language and library. Refer to the language-specific migrat
 To use OpenTelemetry in your Lambda functions, choose one of these setup options:
 
 1. Use an auto-instrumentation Lambda Layer:
-   - (Recommended) [CloudWatch Application Signals Lambda layer](AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.md "AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.md")
+   - (Recommended) [AWS Lambda Layer for OpenTelemetry](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.md")
 
    ###### Note
 

@@ -400,7 +400,7 @@ Using the X-Ray SDK, after your Lambda has _Active Tracing_ enabled, there is no
 
 With OpenTelemetry-based solutionsAuto-instrumentation Lambda layers – You can automatically instrument your Lambda with AWS vended Lambda layers using the following solutions:
 
-- CloudWatch Application Signals Lambda layer (Recommended)
+- AWS Lambda Layer for OpenTelemetry (Recommended)
 
 ###### Note
 
