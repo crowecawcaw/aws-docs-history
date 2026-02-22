@@ -1,25 +1,23 @@
-# [OA.TI.9] Facilitate self-service collaboration through APIs and documentation
+# [OA.TI.1] Communicate work flow and goals between teams and stakeholders
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Develop clear and comprehensive service documentation for improved accessibility and navigation, including user guides,
-tutorials, and FAQs. Provide well-defined
-interfaces, such as APIs or web portals, to simplify access and usage. Regularly review
-and update interfaces to meet user needs. Establish ownership for documentation and services,
-and implement mechanisms for teams to ask for clarification, help, or provide feedback.
-Define metrics around the usage, availability, and quality of self-service documentation
-and APIs.
+When operating in a DevOps model, many small teams work together to deliver business
+outcomes to customers. Working in this way requires effective interteam communication and
+collaboration, as any miscommunication or delay can impact the speed and quality of
+delivering products.
 
-Providing self-service access to services through APIs simplifies integration between
-systems and teams, reduces the need for manual intervention, and promotes better
-documentation. This approach helps teams work more autonomously and accelerates
-the development process. This capability is highly recommended for a more efficient
-and streamlined DevOps environment, but it is not a foundational requirement for
-successful DevOps adoption. Without this capability, expect increased manual coordination
-and required communication between teams, which could impact overall efficiency.
+One way to achieve this is by regularly sharing ongoing work, roadmaps, and team
+goals with key stakeholders and other teams. By externalizing this information, teams can
+improve visibility across the organization. This helps teams
+understand how their work impacts others and the overall business goals.
 
-**Related information:**
-
-- [The
-  Amazon Software Development Process: Self-Service
-  Tools](https://youtu.be/52SC80SFPOw?t=579 "https://youtu.be/52SC80SFPOw?t=579")
+Teams can use work tracking tools that promote a more
+agile, adaptive approach, such as Scrum or Kanban boards, and
+dashboards to make their work, priorities, and key metrics
+visible to others in the organization. Make these tools
+easily accessible, either through physical displays or
+digital platforms, to promote alignment with business
+objectives. Regularly review the flow of work to
+identify bottlenecks, areas for improvement, and opportunities
+to optimize the process.

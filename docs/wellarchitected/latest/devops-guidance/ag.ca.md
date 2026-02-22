@@ -1,52 +1,36 @@
-# [AG.CA.1] Establish comprehensive audit trails
+# [AG.CA.3] Implement systematic exception tracking and review processes
 
 **Category:** FOUNDATIONAL
 
-Comprehensive audit trails involve capturing, recording, and
-storing every action taken across your environment. This
-provides a log of evidence that can offer insights for
-security and audit teams, aiding in identifying suspicious
-activities, evidencing non-compliance, and uncovering the root
-cause of issues.
+DevOps environments are dynamic, characterized by rapid changes and updates. During
+this rapid development cycle, temporary exceptions might need to be made, for instance,
+granting greater permissions to a user for a specific task, or turning off a governance
+control for a system update. While necessary, these exceptions can lead to unexpected issues
+if not properly managed, and therefore, need to be tracked and revisited.
 
-Effective DevOps processes are able to streamline both
-software delivery and the audit process. Automated governance,
-quality assurance, development lifecycle, and observability
-capabilities provide a significant amount of data about the
-processes that are being followed by your organization, and
-the absence of data indicates those that are not. This data
-can form a comprehensive audit trail, as steps such as
-committing code and doing peer reviews can be traced back to
-specific actors, actions, and timestamps.
+Implement a process for tracking exceptions, documenting each exception made and help
+ensure these exceptions are revisited over time. This documentation should take place in a
+centralized, searchable, and secure location. Critical details such as the reasoning behind
+the exception, when it was made, who approved it, the business use case, and the anticipated
+duration should be included. Clear roles and responsibilities should be assigned for the
+creation, review, and retirement of exceptions to help ensure accountability.
 
-Use tools for logging and tracking events should be enforced,
-along with access controls to maintain the integrity and
-confidentiality of audit data. Centralize evidence from these
-tools in a secure, accessible location for easy retrieval
-during audits. Consider using tools capable of automatically
-pulling data from resource APIs to collect and organize
-evidence rather than waiting for data to be pushed to it. It's
-important that this data remains secure and accessible only to
-auditors. There must be controls in place to prevent deletion,
-overwriting, or tampering with the evidence in any way.
-Regular audits of your audit systems and processes should also
-be undertaken to ensure their effectiveness.
+To prevent exceptions from being lingering for vast amounts of time, implement
+automated alerts for active exceptions that exceed their expected time frame. These alerts
+serve as reminders to revisit and address these exceptions.
 
-Recognize that while developers aren't auditors, they play a
-significant role in the compliance process. Provide training
-and resources to ensure that everyone on the team understands
-the concept of compliance as it relates to each systems
-specific industry.
+A regular review process of all exceptions should also be
+scheduled. Depending on the associated risk, these reviews
+could be conducted on a weekly, monthly, or quarterly basis.
+These reviews will derive the continued necessity of each
+exception, which could be investigated to become an approved
+feature, and investigate any unexpected behavior that may have
+arisen as a result of the exception. Once an exception is no
+longer necessary, it should be retired and documentation
+should be updated.
 
 **Related information:**
 
-- [What
-  Is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md")
-- [Automate
-  Cloud Audits - AWS Audit Manager](https://aws.amazon.com/audit-manager/ "https://aws.amazon.com/audit-manager/")
-- [Cloud
-  Audit Academy](https://aws.amazon.com/compliance/auditor-learning-path/ "https://aws.amazon.com/compliance/auditor-learning-path/")
-- [Compliance
-  and Auditing with AWS](https://aws.amazon.com/cloudops/compliance-and-auditing/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc "https://aws.amazon.com/cloudops/compliance-and-auditing/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc")
-- [Verifiable
-  Controls Evidence Store](https://aws.amazon.com/solutions/implementations/verifiable-controls-evidence-store/ "https://aws.amazon.com/solutions/implementations/verifiable-controls-evidence-store/")
+- [Amazon's
+  approach to high-availability deployment: Dealing with the
+  real world](https://youtu.be/bCgD2bX1LI4?t=1349 "https://youtu.be/bCgD2bX1LI4?t=1349")

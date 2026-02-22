@@ -1,73 +1,53 @@
-# [DL.ADS.3] Use staggered deployment and release strategies
+# [DL.ADS.2] Implement automatic rollbacks for failed deployments
 
 **Category:** FOUNDATIONAL
 
-Staggered deployments strategies make use of techniques like
-progressive wave-based deployments, one-box deployments, and
-rolling deployments. These techniques contribute to safer and
-more reliable software deployment and release processes.
-Staggered deployments are beneficial as they balance the
-safety of small-scoped deployments with the speed of
-delivering changes to customers.
+Implement an automatic rollback strategy to enhance system
+reliability and minimize service disruptions. The strategy
+should be defined as a proactive measure in case of an
+operational event, which prioritizes customer impact
+mitigation even before identifying whether the new deployment
+is the cause of the issue.
 
-Progressive deployments, for instance, involve deploying changes to deployment
-groups, or _waves_, of increasing size. This method helps to achieve a
-balance between deployment risk and speed, promoting changes from wave to wave. The initial
-waves build confidence in the change by starting with a low number of requests and then
-gradually increasing.
+Rollback should be initiated based on alarms linked to key
+metrics like fault rates, latency, CPU usage, memory usage,
+disk usage, and log errors. Additionally, consider both the
+service's overall health and instance-specific
+metrics. Incorporate a waiting period after a deployment to
+closely monitor the system. This allows time to identify
+potential issues that might not be evident immediately,
+especially when the system is under low load. Establish
+methods to prevent deployments during higher-risk times or
+when there are active system issues. This could include
+blocking deployments during when high-severity aggregate
+alarms are raised or during specific time windows. 
 
-Each production wave of the staggered deployment starts with a limited deployment,
-one-box stage, where the new code is first deployed to a single unit called a
-_box_. A box could be a single server or container instance which is
-deployed to a specific environment, AWS Region, single AWS Availability Zone, or within
-a single cell in a [cell-based architecture](https://aws.amazon.com/solutions/guidance/cell-based-architecture-on-aws/ "https://aws.amazon.com/solutions/guidance/cell-based-architecture-on-aws/").
-This approach minimizes the potential impact of changes by initially limiting the requests
-served by the new code. The box should be served a fraction of canary tests while its
-performance is being closely monitored before a broader rollout.
+The rollback process should include the redeployment of the last successful code
+revision, artifact version, or container image, and should employ methods like rolling or
+blue/green deployments, or [feature flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") for a swift
+rollback with minimal disruption. Consider using the advanced deployment methods introduced
+in this capability for more granular control over deployments. Rollback considerations
+should not be limited to the latest deployments, but also account for latent changes that
+may be the source of current issues. To handle these situations, provide the ability for
+developers to select a specific previously deployed release for rollback.
 
-Following the limited deployment stage, rolling deployments are typically used to
-deploy to the wave's main production fleet. This approach helps ensure that the service has
-enough capacity to serve the production load throughout the deployment. A typical rolling
-deployment to an environment replaces at most 33% of the system's fleet in that environment
-with the new code. By maintaining at least 66% of the overall capacity healthy and serving
-requests, the impact of changes is limited. If necessary, fast rollbacks can be implemented
-where the system replaces 33% of the system's fleet with the previous code to speed up the
-rollback process.
-
-If you require more control over the release of the change,
-consider using blue/green deployments rather than one-box and
-rolling deployments. In a blue/green deployment, two identical
-production environments are maintained, and the inactive
-environment (either blue or green) is updated. Once fully
-tested and ready, traffic is switched from the active to the
-inactive environment, thus minimizing downtime and risk
-
-These strategies reduce the risk of introducing issues into
-the system and allow for monitoring, swift rollback, and issue
-tracking. However, they require careful planning, thorough
-testing, and detailed monitoring. Their benefits to system
-reliability and resilience are substantial and are recommended
-for any organization.
+After the rollback, depending on the specific issue being addressed, consider
+proactively rolling back other environments that could potentially also be affected, even
+if they aren't currently showing any customer impact. Alternatively, if the issue appears to
+be environment-specific, wait for the pipeline to roll forward a new release that includes a
+bug fix. These operational decisions should be supported by the ability to compare the
+changes between the current release and the selected rollback release's deployment
+artifacts, including source code changes and changes in library versions.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL08-BP04 Deploy
-  using immutable infrastructure](../reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md "../reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md")
+- [Ensuring
+  rollback safety during deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/ "https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/")
+- [My
+  CI/CD pipeline is my release captain: Easy and automatic
+  rollbacks](https://aws.amazon.com/builders-library/cicd-pipeline/#Easy_and_automatic_rollbacks "https://aws.amazon.com/builders-library/cicd-pipeline/#Easy_and_automatic_rollbacks")
 - [Automating
   safe, hands-off deployments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card")
-- [AWS Deployment Pipeline Reference Architecture](https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/application-pipeline/ "https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/application-pipeline/")
-- [Overview
-  of Deployment Options on AWS](../../../whitepapers/latest/overview-deployment-options/welcome.md "../../../whitepapers/latest/overview-deployment-options/welcome.md")
-- [Deployment
-  methods](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/deployment-methods.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/deployment-methods.md")
-- [Using
-  Amazon RDS Blue/Green Deployments for database
-  updates](../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md "../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md")
 - [Amazon's
-  approach to high-availability deployment: Canary
-  deployments](https://youtu.be/bCgD2bX1LI4?t=1624 "https://youtu.be/bCgD2bX1LI4?t=1624")
-- [Hands-off:
-  Automating continuous delivery pipelines at Amazon](https://www.youtube.com/watch?v=ngnMj1zbMPY "https://www.youtube.com/watch?v=ngnMj1zbMPY")
-- [The
-  Amazon Software Development Process: Pessimistic
-  Deployments](https://youtu.be/52SC80SFPOw?t=1024 "https://youtu.be/52SC80SFPOw?t=1024")
+  approach to high-availability deployment: Rollback
+  alarms](https://youtu.be/bCgD2bX1LI4?t=1669 "https://youtu.be/bCgD2bX1LI4?t=1669")

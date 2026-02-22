@@ -1,23 +1,32 @@
-# [DL.SCM.7] Standardize vulnerability disclosure processes
+# [DL.SCM.8] Use a versioning specification to manage software components
 
 **Category:** RECOMMENDED
 
-A standard vulnerability disclosure policy helps ensure consistent reporting and
-handling of potential vulnerabilities, which in turn enhances the security of the software
-development lifecycle. Implementing standardized vulnerability disclosure practices is
-recommended for optimizing DevOps, as it promotes security, helps manage risk effectively,
-and encourages the responsible reporting and handling of discovered vulnerabilities.
+Apply a versioning specification across all software
+components within your development lifecycle. Use a versioning
+specification, such as Semantic Versioning (SemVer), to
+significantly simplify governance of software governance by
+providing a systematic approach to tracking different types of
+releases (major, minor, and patch). A well-organized,
+versioned code base offers a clear chronological history of
+modifications, enhancing manageability, maintainability, and
+navigability.
 
-A method for implementation is provided in RFC 9116, _A File Format to Aid
-in Security Vulnerability Disclosure_ (Foudil, Shafranovich, & Nightwatch
-Cybersecurity, 2022). This guidance provides a standardized process for vulnerability
-disclosure using a machine readable `security.txt` file, which contains contact
-details and the vulnerability disclosure policy. This file is to be placed in
-the `/.well-known/` path of  a domain name or IP address to enable security
-researchers to find the right information to report vulnerabilities they discover easily.
+Implementing version pinning for dependencies is a practical use case enabled by
+using a versioning specification. By locking dependencies to a specific version or version
+range, build reproducibility is ensured. This approach helps ensure the reproducibility of
+software builds, but complicates dependency management as developers then need to make
+updates to stay up-to-date with security fixes, bug fixes, or other improvements.
+
+Use automated governance dependency management tools to maintain the balance between
+stable builds and timely updates. Consider integrating automation mechanisms that can
+update versions based on commit messages. For example, if a commit message contains the
+keyword `major`, it could trigger an update to the major version number. This
+automated approach ensures that versions are updated while minimizing chance for human
+error.  It's also possible to automate nightly or weekly upgrades of third-party
+dependencies to ensure they are regularly updated and kept secure.
 
 **Related information:**
 
-- [RFC
-  9116 - A File Format to Aid in Security Vulnerability
-  Disclosure](https://www.rfc-editor.org/rfc/rfc9116 "https://www.rfc-editor.org/rfc/rfc9116")
+- [Semantic Versioning
+  2.0.0](https://semver.org/ "https://semver.org/")

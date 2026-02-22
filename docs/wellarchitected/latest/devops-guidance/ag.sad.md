@@ -1,35 +1,40 @@
-# [AG.SAD.4] Limit human access with just-in-time access
+# [AG.SAD.6] Conduct periodic identity and access management reviews
 
 **Category:** FOUNDATIONAL
 
-As pipelines take on a more prominent role in the software
-development lifecycle in a DevOps model, the necessity for
-extensive human access to environments decreases. Human users
-should be granted minimal access necessary for their role,
-which is usually read-only access that does not allow any
-modifications or access to sensitive data. For experimentation
-which is typically hands-on and exploratory, teams should be
-granted access to sandbox environments which are isolated from
-system workloads.
+With the distributed nature of DevOps Identity and Access Management (IAM)
+responsibilities, it is important to systematically review IAM roles and permissions
+periodically. This helps ensure that changes in roles and permissions align with the rapidly
+shifting needs of the organization, and that the guardrails set in place for delegation are
+working as intended or perhaps need to be fine-tuned. This activity aids in identifying
+unused or overly broad permissions, reinforcing the adherence to the principle of least
+privilege and reducing potential security risks.
 
-In some cases, where things go wrong or a process cannot yet be automated, elevated
-permissions might be required. To accommodate these needs without compromising security,
-implement a just-in-time (JIT) access control strategy where permissions are temporarily
-escalated for a specific duration and purpose, upon explicit request and approval. This
-approach maintains the principle of least privilege, allowing necessary operational
-functions to be performed efficiently when needed, while also ensuring that the access is
-revoked once the task is complete.
-
-By enforcing limited human permissions and using JIT access, you can improve your
-organization's security posture and reduce the risk of accidental or deliberate misuse of
-access rights. This restrictive and controlled model supports modern, secure DevOps
-practices where pipelines, treating everything as code, and automation should take
-precedence over manual actions.
+Optionally, automate the right-sizing of permissions as part
+of these reviews. This proactive approach not only keeps IAM
+policies up-to-date, but also minimizes potential avenues for
+unauthorized access, further strengthening your overall
+security posture. Automatically right sizing roles and
+permissions based on actual activity allows organizations to
+scalably enforce that the right resources are accessible to
+the right entities, at the right times.
 
 **Related information:**
 
-- [Eliminate
-  the need for human access](../financial-services-industry-lens/use-immutable-infrastructure-with-no-human-access.md "../financial-services-industry-lens/use-immutable-infrastructure-with-no-human-access.md")
-- [AWS Samples: AWS IAM Temporary Elevated Access Broker](https://github.com/aws-samples/aws-iam-temporary-elevated-access-broker "https://github.com/aws-samples/aws-iam-temporary-elevated-access-broker")
-- [Blog: Managing
-  temporary elevated access to your AWS environment](https://aws.amazon.com/blogs/security/managing-temporary-elevated-access-to-your-aws-environment/ "https://aws.amazon.com/blogs/security/managing-temporary-elevated-access-to-your-aws-environment/")
+- [AWS Well-Architected Security Pillar: SEC03-BP04 Reduce
+  permissions continuously](../security-pillar/sec_permissions_continuous_reduction.md "../security-pillar/sec_permissions_continuous_reduction.md")
+- [Regularly
+  review and remove unused users, roles, permissions,
+  policies, and credentials](../../../IAM/latest/UserGuide/best-practices.md#remove-credentials "../../../IAM/latest/UserGuide/best-practices.md#remove-credentials")
+- [Use
+  IAM Access Analyzer to generate least-privilege policies
+  based on access activity](../../../IAM/latest/UserGuide/best-practices.md#bp-gen-least-privilege-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-gen-least-privilege-policies")
+- [Verify
+  public and cross-account access to resources with IAM Access Analyzer](../../../IAM/latest/UserGuide/best-practices.md#bp-preview-access "../../../IAM/latest/UserGuide/best-practices.md#bp-preview-access")
+- [Using
+  AWS Identity and Access Management Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md")
+- [Blog: IAM Access Analyzer makes it easier to implement least
+  privilege permissions by generating IAM policies based on access activity](https://aws.amazon.com/blogs/security/iam-access-analyzer-makes-it-easier-to-implement-least-privilege-permissions-by-generating-iam-policies-based-on-access-activity/ "https://aws.amazon.com/blogs/security/iam-access-analyzer-makes-it-easier-to-implement-least-privilege-permissions-by-generating-iam-policies-based-on-access-activity/")
+- [Blog: Continuous
+  permissions rightsizing to ensure least privileges in AWS
+  using CloudKnox and AWS Config](https://aws.amazon.com/blogs/mt/continuous-permissions-rightsizing-ensure-least-privileges-aws-using-cloudknox-aws-config/ "https://aws.amazon.com/blogs/mt/continuous-permissions-rightsizing-ensure-least-privileges-aws-using-cloudknox-aws-config/")

@@ -1,39 +1,27 @@
-# [DL.CR.2] Perform peer review for code changes
+# [DL.CR.5] Foster a constructive and inclusive review culture
 
-**Category:** FOUNDATIONAL
+**Category:** FOUNDATIONAL
 
-A peer review process for code changes is a strategy for
-ensuring code quality and shared responsibility. To support
-separation of duties in a DevOps environment, every change
-should be reviewed and approved by at least one other person
-before merging. Once approved, a pipeline with sufficient
-access will deploy the change.
+Code reviews should be respectful and collaborative
+interactions that cultivate a positive and inclusive culture.
+Good code reviews involve asking open-ended questions,
+suggesting alternatives, and assuming good intentions. Reviews
+should be empathetic and kind, recognizing the effort put into
+the code changes and promoting positivity.
 
-Most version control systems support protection rules
-enforcing certain workflows, like requiring at least one peer
-review, before merging into designated branches. Use these
-rules to enforce this workflow and provide assurance that all
-code changes adhere to this mandatory review process. 
+The tone and approach of code reviews can greatly impact the
+efficiency of the process, team morale, and ultimately the
+quality of the product. A positive and inclusive review
+culture encourages more open discussion, facilitates knowledge
+sharing, and can lead to improved code quality.
 
-Incorporating [pair
-programming](https://www.agilealliance.org/glossary/pair-programming/ "https://www.agilealliance.org/glossary/pair-programming/"), where two programmers collaboratively work side-by-side or through
-screen sharing, is method of peer review. By integrating this approach, reviews can be
-integrated into the development lifecycle earlier—while the code is being written, reducing
-the time taken to identify and fix issues. This accelerates review timelines, reduces the
-introduction of bugs or issues, promotes knowledge sharing, and creates a culture
-of quality and continuous improvement.
-
-Some companies require multiple reviewers, or require more
-proof than just pair-programming to adhere to compliance
-requirements. Pick a code review process that works for your
-organization, and enforce it through policies, processes, and
-technology.
-
-**Related information:**
-
-- [AWS Well-Architected Security Pillar: SEC11-BP04 Manual code
-  reviews](../framework/sec_appsec_manual_code_reviews.md "../framework/sec_appsec_manual_code_reviews.md")
-- [Team
-  Collaboration with Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/")
-- [Code
-  review](https://en.wikipedia.org/wiki/Code_review "https://en.wikipedia.org/wiki/Code_review")
+To implement a positive and inclusive review culture, teams
+should establish clear guidelines on the expectations for code
+reviews, including language use and constructive feedback.
+Regularly reinforce these expectations through team meetings
+and training. Encourage team members to focus on the code and
+not the coder, to be respectful and patient, and to frame
+suggestions as questions or alternatives rather than absolute
+critiques. Use the available escalation paths and mutually
+agreed upon team guiding principles to quickly resolve team
+differences and act as tie breakers during disagreement.
