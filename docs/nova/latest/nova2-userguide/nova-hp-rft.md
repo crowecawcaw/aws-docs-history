@@ -1,4 +1,4 @@
-# Reinforcement Fine-Tuning (RFT) on SageMaker AI Hyperpod
+# Reinforcement Fine-Tuning (RFT) on SageMaker HyperPod
 
 Reinforcement Fine-Tuning (RFT) is a machine learning technique that improves model
 performance through feedback signals—measurable scores or rewards indicating response
@@ -86,7 +86,7 @@ also increase model capability for complex reasoning tasks.
 
 ###### Supported models
 
-RFT onSageMaker AI Hyperpod supports Amazon Nova Lite 2.0 (amazon.nova-2-lite-v1:0:256k).
+RFT onSageMaker HyperPod supports Amazon Nova Lite 2.0 (amazon.nova-2-lite-v1:0:256k).
 
 ###### Major steps
 

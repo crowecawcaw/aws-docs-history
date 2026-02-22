@@ -2,7 +2,7 @@
 
 AWS CloudFormation
 
-Because Amazon Nova is available through Amazon Bedrock, follow all CloudFormation guidance at [Create Amazon Bedrock resources with CloudFormation](../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md "../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md").
+When deploying Amazon Nova models through Amazon Bedrock with CloudFormation, follow all CloudFormation guidance at [Create Amazon Bedrock resources with CloudFormation](../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md "../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md").
 
 For more information, including examples of JSON and YAML templates for YOUR-RESOURCE-PLURAL, see the
 [YOUR-SERVICE-RESOURCE-TOPNODE-IN-CLOUDFORMATION, modify this link in the local-phrases.ent file](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the _AWS CloudFormation User Guide_.

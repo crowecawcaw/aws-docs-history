@@ -7,7 +7,7 @@ The SFT training process consists of two main stages:
   outputs, and auxiliary information (such as reasoning traces or metadata) are properly
   aligned and formatted.
 - **Training Configuration**: Define how the model will be
-  trained. When usingSageMaker AI Hyperpod, this configuration is written in a YAML recipe file that
+  trained. When using , this configuration is written in a YAML recipe file that
   includes:
   - Data source paths (training and validation datasets)
   - Key hyperparameters (epochs, learning rate, batch size)

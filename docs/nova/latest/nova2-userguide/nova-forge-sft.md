@@ -171,7 +171,7 @@ data_mixing:
 - You will require **p5.48xlarge** EC2 instances to execute this recipe. The minimum number instances required to execute this recipe efficiently are as follows:
   - **Nova Lite 2.0 - 4 p5.48xlarge**
 
-- Install the Forge Specific Sagemaker Hyperpod CLI using the provided instructions [here](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US")
+- Install the Forge Specific SageMaker HyperPod CLI using the provided instructions [here](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US")
 - Confirm that you can connect to your cluster using `hyperpod get-clusters`
   - Note that this command will list all SMHP clusters in your account
 
@@ -212,31 +212,6 @@ hyperpod connect-cluster --cluster-name cluster-name
 **Nova 2.0**: Use Converse API format [https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html](../../../bedrock/latest/userguide/conversation-inference-call.md "../../../bedrock/latest/userguide/conversation-inference-call.md"). Nova 2.0 data format can contain additional reasoning fields: [https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ReasoningContentBlock.html](../../../bedrock/latest/APIReference/API_runtime_ReasoningContentBlock.md "../../../bedrock/latest/APIReference/API_runtime_ReasoningContentBlock.md")
 
 Reasoning content captures the model's intermediate thinking steps before generating a final answer. In the `assistant` turn, use the `reasoningContent` field to include reasoning traces. Use plain text for reasoning content, avoid markup tags like `<thinking>` and `</thinking>` unless specifically required by your task, and ensure reasoning content is clear and relevant to the problem-solving process.
-
-## Responsible AI Toolkit and Content Moderation
-
-**Content moderation settings**: Nova Forge customers have access to Customizable Content Moderation Settings (CCMS) for Nova Lite 1.0 and Pro 1.0 models. CCMS allows you to adjust content moderation controls to align with your specific business requirements while maintaining essential responsible AI safeguards. To determine if your business use case qualifies for CCMS, contact your AWS account manager.
-
-Nova Forge provides a Responsible AI toolkit that includes training data, evaluation benchmarks, and runtime controls to help you align your models with Nova's responsible AI guidelines.
-
-**Training data**: The "RAI" category in data mixing contains cases and scenarios emphasizing responsible AI principles, safety considerations, and responsible technology deployment. Use these to align your models responsibly during continued pre-training.
-
-**Evaluations**: Benchmark tasks are available to test your model's ability to detect and reject inappropriate, harmful, or incorrect content. Use these evaluations to measure the difference between base model performance and your custom model performance.
-
-**Runtime controls**: By default, Nova's runtime controls moderate model responses during inference. To modify these controls for your specific business case, request Customizable Content Moderation Settings (CCMS) by contacting your AWS account manager.
-
-### Shared Responsibility for Safety
-
-Safety is a shared responsibility between Amazon Web Services and our customers. Changing the base model or using continued pre-training to improve performance on a specific use case can impact safety, fairness, and other properties of the new model.
-
-We use a robust adaptation method to minimize changes to the safety, fairness, and other protections built into our base models while minimizing impact on model performance for tasks the model was not customized for.
-
-You are responsible for:
-
-- End-to-end testing of their applications on datasets representative of their use cases
-- Deciding if test results meet their specific expectations of safety, fairness, and other properties, as well as overall effectiveness
-
-For more information, see the Amazon Web Services Responsible Use of AI Guide, Amazon Web Services Responsible AI Policy, AWS Acceptable Use Policy, and AWS Service Terms for the services you plan to use.
 
 ## Evaluation Methods
 
@@ -326,7 +301,7 @@ run:
   name: my-lora-sft-run
   model_type: amazon.nova-2-lite-v1:0:256k
   model_name_or_path: nova-lite-2/prod
-  data_s3_path: s3://my-bucket-name/train.jsonl  # SageMaker Hyperpod (SMHP) only and not compatible with SageMaker Training jobs. Note replace my-bucket-name with your real bucket name for SMHP job
+  data_s3_path: s3://my-bucket-name/train.jsonl  # SageMaker HyperPod (SMHP) only and not compatible with SageMaker Training jobs. Note replace my-bucket-name with your real bucket name for SMHP job
   replicas: 4                      # Number of compute instances for training, allowed values are 4, 8, 16, 32
   output_s3_path: s3://my-bucket-name/outputs/               # Output artifact path (Hyperpod job-specific; not compatible with standard SageMaker Training jobs). Note replace my-bucket-name with your real bucket name for SMHP job
 

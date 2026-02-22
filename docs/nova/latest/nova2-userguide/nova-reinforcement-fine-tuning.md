@@ -245,7 +245,12 @@ run:
   model_name_or_path: nova-lite-2/prod
   data_s3_path: s3://<bucket>/<data file>      # Training dataset in JSONL;
   replicas: 4
-  reward_lambda_arn: ""
+  reward_lambda_arn: arn:aws:lambda:<region>:<account-id>:function:<function-name>
+
+  ## MLFlow configs
+  mlflow_tracking_uri: "" # Required for MLFlow
+  mlflow_experiment_name: "my-rft-experiment" # Optional for MLFlow. Note: leave this field non-empty
+  mlflow_run_name: "my-rft-run" # Optional for MLFlow. Note: leave this field non-empty
 
 ## SMTJ GRPO Training specific configs
 training_config:
@@ -262,23 +267,22 @@ training_config:
       temperature: 1                            # Softmax temperature;
       top_k: 1                                  # Sample only from top-K logits
     rewards:
-      preset_reward_function: null              # Usage of reward functions built into Verl [exact_match, code_executions, math_answers]
+      preset_reward_function: null              # Usage of preset reward functions [exact_match]
       api_endpoint:
-        lambda_arn: ""
+        lambda_arn: arn:aws:lambda:<region>:<account-id>:function:<function-name>
         lambda_concurrency_limit: 12             # Max concurrent Lambda invocations (throughput vs. throttling).
 
   trainer:
     max_steps: 2                                 # Steps to train for. One Step = global_batch_size
     save_steps: 5
     test_steps: 1
-    save_top_k: 5
 
     # RL parameters
     ent_coeff: 0.0                              # A bonus added to the policy loss that rewards higher-output entropy.
     kl_loss_coef: 0.001                         # Weight on the KL penalty between the actor (trainable policy) and a frozen reference model
 
     optim_config:                    # Optimizer settings
-        lr: 7e-7                       # Learning rate
+        lr: 5e-5                       # Learning rate
         weight_decay: 0.0              # L2 regularization strength (0.0–1.0)
         adam_beta1: 0.9
         adam_beta2: 0.95
@@ -362,7 +366,7 @@ Using an LLM as a judge is an extension of using Lambda functions for Reinforcem
 
 **Starting a training job**
 
-Use the SageMaker AI Training Job notebook template: [https://docs.aws.amazon.com/sagemaker/latest/dg/nova-fine-tuning-training-job.html#nova-model-training-jobs-notebook](../../../sagemaker/latest/dg/nova-fine-tuning-training-job.md#nova-model-training-jobs-notebook "../../../sagemaker/latest/dg/nova-fine-tuning-training-job.md#nova-model-training-jobs-notebook")
+Use the SageMaker training job notebook template: [https://docs.aws.amazon.com/sagemaker/latest/dg/nova-fine-tuning-training-job.html#nova-model-training-jobs-notebook](../../../sagemaker/latest/dg/nova-fine-tuning-training-job.md#nova-model-training-jobs-notebook "../../../sagemaker/latest/dg/nova-fine-tuning-training-job.md#nova-model-training-jobs-notebook")
 
 **Instance requirements**
 
@@ -474,7 +478,7 @@ For users requiring advanced capabilities beyond standard RFT limitations, Nova 
 - Custom training recipe modifications
 - State-of-the-art AI techniques
 
-Nova Forge runs on SageMaker AI HyperPod and is designed to support enterprise customers to build their own frontier models.
+Nova Forge runs on SageMaker HyperPod and is designed to support enterprise customers to build their own frontier models.
 
 ## Useful commands and tips
 

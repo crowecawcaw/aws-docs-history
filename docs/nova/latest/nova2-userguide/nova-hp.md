@@ -1,8 +1,8 @@
-# Amazon Nova customization on SageMaker AI Hyperpod
+# Amazon Nova customization on SageMaker HyperPod
 
 You can customize Amazon Nova models, including the enhanced Amazon Nova 2.0 models, using [Amazon Nova recipes](nova-model-recipes.md "nova-model-recipes.md") and train them on Hyperpod. A
 recipe is a YAML configuration file that provides details to SageMaker AI on how to run your model
-customization job. SageMaker AI Hyperpod supports two types of services: Forge and Non-forge.
+customization job. SageMaker HyperPod supports two types of services: Forge and Non-forge.
 
 Hyperpod offers high-performance computing with optimized GPU instances and
 Amazon FSx for Lustre storage, robust monitoring through integration with tools like TensorBoard,
@@ -11,7 +11,7 @@ inference, and efficient scalable multi-node distributed training-all working to
 provide organizations with a secure, performant, and flexible environment to tailor Amazon Nova models
 to their specific business requirements.
 
-Amazon Nova customization on SageMaker AI Hyperpod stores model artifacts including model checkpoints
+Amazon Nova customization on SageMaker HyperPod stores model artifacts including model checkpoints
 in a service-managed Amazon S3 bucket. Artifacts in the service-managed bucket are encrypted with
 SageMaker AI-managed AWS KMS keys. Service-managed Amazon S3 buckets don't currently support data encryption
 using customer-managed KMS keys. You can use this checkpoint location for evaluation jobs or
@@ -24,17 +24,17 @@ pricing](https://aws.amazon.com/sagemaker-ai/pricing/ "https://aws.amazon.com/sa
 
 ## Compute requirements for Amazon Nova 2 models
 
-The following tables summarize the computational requirements for SageMaker AI Hyperpod and SageMaker AI
+The following tables summarize the computational requirements for SageMaker HyperPod and SageMaker AI
 training jobs training for Amazon Nova 2 models.
 
-| Nova 2 Training Requirements                  | Training Technique | Minimum Instances | Instance Type | GPU Count                                                | Notes       | Supported Models |
-| --------------------------------------------- | ------------------ | ----------------- | ------------- | -------------------------------------------------------- | ----------- | ---------------- |
-| SFT (LoRA)                                    | 4                  | P5.48xlarge       | 16            | Parameter-efficient fine-tuning                          | Nova 2 Lite |
-| SFT (Full Rank)                               | 4                  | P5.48xlarge       | 32            | Full model fine-tuning                                   | Nova 2 Lite |
-| RFT on SageMaker AI Training Jobs (LoRA)      | 2                  | P5.48xlarge       | 16            | Custom Reward Functions in your AWS Environment          | Nova 2 Lite |
-| RFT on SageMaker AI Training Jobs (Full Rank) | 4                  | P5.48xlarge       | 32            | 32K context length                                       | Nova 2 Lite |
-| RFT on SageMaker AI Hyperpod                  | 8                  | P5.48xlarge       | 64            | Default 8192 context length                              | Nova 2 Lite |
-| CPT                                           | 4                  | P5.48xlarge       | 16            | Processes approximately 400M tokens per instance per day | Nova 2 Lite |
+| Nova 2 Training Requirements               | Training Technique | Minimum Instances | Instance Type | GPU Count                                                | Notes       | Supported Models |
+| ------------------------------------------ | ------------------ | ----------------- | ------------- | -------------------------------------------------------- | ----------- | ---------------- |
+| SFT (LoRA)                                 | 4                  | P5.48xlarge       | 16            | Parameter-efficient fine-tuning                          | Nova 2 Lite |
+| SFT (Full Rank)                            | 4                  | P5.48xlarge       | 32            | Full model fine-tuning                                   | Nova 2 Lite |
+| RFT on SageMaker Training Jobs (LoRA)      | 2                  | P5.48xlarge       | 16            | Custom Reward Functions in your AWS Environment          | Nova 2 Lite |
+| RFT on SageMaker Training Jobs (Full Rank) | 4                  | P5.48xlarge       | 32            | 32K context length                                       | Nova 2 Lite |
+| RFT on SageMaker HyperPod                  | 8                  | P5.48xlarge       | 64            | Default 8192 context length                              | Nova 2 Lite |
+| CPT                                        | 4                  | P5.48xlarge       | 16            | Processes approximately 400M tokens per instance per day | Nova 2 Lite |
 
 To optimize your Amazon Nova model customization workflows on Hyperpod, follow these recommended best practices for efficient training, resource management, and successful model deployment.
 
@@ -117,10 +117,11 @@ Don't use SFT when the gap is knowledge rather than behavior. It doesn't teach t
 ###### Topics
 
 - [Nova Customization SDK](nova-hp-customization-sdk.md "nova-hp-customization-sdk.md")
-- [Creating a SageMaker AI HyperPod EKS cluster with restricted
+- [Creating a SageMaker HyperPod EKS cluster with restricted
   instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md")
-- [Amazon SageMaker AI HyperPod Essential Commands
+- [Amazon SageMaker HyperPod Essential Commands
   Guide](nova-hp-essential-commands-guide.md "nova-hp-essential-commands-guide.md")
-- [Nova Forge access and setup for SageMaker AI Hyperpod](nova-forge-hp-access.md "nova-forge-hp-access.md")
+- [Nova Forge access and setup for](nova-forge-hp-access.md "nova-forge-hp-access.md")
 - [Training for Amazon Nova models](nova-hp-training.md "nova-hp-training.md")
 - [Evaluating your trained model](nova-hp-evaluate.md "nova-hp-evaluate.md")
+- [Monitoring HyperPod jobs with MLflow](nova-hp-mlflow.md "nova-hp-mlflow.md")

@@ -2,10 +2,11 @@
 
 Once you’ve trained and tested your Amazon Nova model, you can deploy it to Amazon Bedrock for production-scale inference. The deployment process involves creating an Amazon Bedrock model with the CreateCustomModel API, exporting your model artifacts to it from a managed Amazon S3 bucket, and then once the model is ACTIVE configuring an endpoint with on-demand or provisioned-throughput inference.
 
-After you create a custom model in SageMaker AI, you can use the CreateCustomModel API to import it to Amazon Bedrock from SageMaker AI escrow to run inference. You can then use CreateCustomModelDeployment to create an OD inference endpoint or set up provisioned throughput inference for a Parameter Efficient Fine Tuned (PEFT) model. You can set up provisioned throughput inference for a Full Rank custom model.
+After you create a custom model in SageMaker, you can use the CreateCustomModel API to deploy it to Amazon Bedrock from SageMaker escrow to run inference. You can then use CreateCustomModelDeployment to create an OD inference endpoint or set up provisioned throughput inference for a Parameter Efficient Fine Tuned (PEFT) model. You can set up provisioned throughput inference for a Full Rank custom model.
 
-To set up inference for a custom model, follow the documentation here: [Import a
-SageMaker AI-trained Amazon Nova model](../../../bedrock/latest/userguide/model-customizatioxi-un-use.md "../../../bedrock/latest/userguide/model-customizatioxi-un-use.md").
+You can also use the Amazon Nova Customization SDK to deploy customized Amazon Nova models. The Amazon Nova Customization SDK provides a streamlined experience for extracting the relevant information from a training job or S3 model checkpoint and publishing it to Amazon Bedrock. For more information, see [Amazon Nova Customization SDK](nova-customization-sdk.md "nova-customization-sdk.md").
+
+For detailed steps to set up Amazon Bedrock inference for a custom model, see [Deploying customized Amazon Nova models to Amazon Bedrock](deploy-custom-model.md "deploy-custom-model.md").
 
 The following section gives more detail about On-Demand Inference on Custom Models.
 

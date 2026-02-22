@@ -163,7 +163,8 @@ If a KMS key is used for encryption in the Amazon-owned output S3 bucket, that s
 
 ## Monitoring progress across iterations
 
-You can track metrics via MLFlow.
+You can track metrics via MLflow by [setting
+up MLflow](nova-model-monitor.md#nova-customization-mlflow-setup "nova-model-monitor.md#nova-customization-mlflow-setup") for your jobs.
 
 ### Create an MLflow app
 

@@ -54,5 +54,23 @@ We recommend the following best practices:
 - Maintain consistent naming conventions for easy tracking.
 - Save extracted results in a secure location.
 - Monitor TensorBoard sync status for successful data loading.
-  You can find SageMaker AI HyperPod job error logs in the CloudWatch log group
+  You can find SageMaker HyperPod job error logs in the CloudWatch log group
   `/aws/sagemaker/Clusters/cluster-id`.
+
+## Log Probability Output Format
+
+When `top_logprobs` is configured in your inference settings, the evaluation output includes token-level log probabilities in the parquet files. Each token position contains a dictionary of the top candidate tokens with their log probabilities in the following structure:
+
+```
+{
+"Ġint": {"logprob_value": -17.8125, "decoded_value": " int"},
+"Ġthe": {"logprob_value": -2.345, "decoded_value": " the"}
+}
+```
+
+Each token entry contains:
+
+- `logprob_value`: The log probability value for the token
+- `decoded_value`: The human-readable decoded string representation of the token
+
+The raw tokenizer token is used as the dictionary key to ensure uniqueness, while `decoded_value` provides a readable interpretation.

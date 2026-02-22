@@ -102,7 +102,7 @@ rl_env:
 
 ## Preset reward functions
 
-Two preset reward functions (`prime_code` and `prime_math`) from the open source verl library are available as a Lambda layer for easy integration with your RFT Lambda functions.
+Two preset reward functions (`prime_code` and `prime_math`) are available as a Lambda layer for easy integration with your RFT Lambda functions.
 
 ### Overview
 

@@ -13,8 +13,6 @@ section provides guidance on preparing effective training data for RFT on Nova 2
 - [Dataset size recommendations](#nova-hp-rft-dataset-size "#nova-hp-rft-dataset-size")
 - [Characteristics of effective training
   data](#nova-hp-rft-effective-data "#nova-hp-rft-effective-data")
-- [Custom reward functions in your AWS
-  environment](nova-hp-rft-reward-functions.md "nova-hp-rft-reward-functions.md")
 - [Monitoring RFT training](nova-hp-rft-monitoring.md "nova-hp-rft-monitoring.md")
 
 ## Data format and structure

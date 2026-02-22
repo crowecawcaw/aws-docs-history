@@ -624,7 +624,7 @@ Datasets should be uploaded to a bucket that can be accessed by SageMaker traini
 
 ### Selecting hyperparameters and updating the recipe
 
-The setup for Nova 2.0 is largely the same as for Nova 1.0. Once the input data has been uploaded to S3, use the recipe from [SageMaker Hyperpod Recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/fine-tuning/nova "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/fine-tuning/nova") under Fine tuning folder. For Nova 2.0, the following are some of the key hyperparameters that you can update based on the use case. The following is an example of the Nova 2.0 SFT PEFT recipe.
+The setup for Nova 2.0 is largely the same as for Nova 1.0. Once the input data has been uploaded to S3, use the recipe from [SageMaker HyperPod Recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/fine-tuning/nova "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/fine-tuning/nova") under Fine tuning folder. For Nova 2.0, the following are some of the key hyperparameters that you can update based on the use case. The following is an example of the Nova 2.0 SFT PEFT recipe. For the container image URI, use `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-SFT-V2-latest` to run an SFT fine-tuning job.
 
 Please use v2.254.1 of SageMaker AI PySDK for strict compatibility with Nova
 training. Upgrading the SDK to v3.0 version will result in breaking changes. Support
@@ -641,7 +641,7 @@ run:
   name: {peft_recipe_job_name}
   model_type: amazon.nova-2-lite-v1:0:256k
   model_name_or_path: {peft_model_name_or_path}
-  data_s3_path: {train_dataset_s3_path} # SageMaker Hyperpod (SMHP) only and not compatible with SageMaker Training jobs. Note replace my-bucket-name with your real bucket name for SMHP job
+  data_s3_path: {train_dataset_s3_path} # SageMaker HyperPod (SMHP) only and not compatible with SageMaker Training jobs. Note replace my-bucket-name with your real bucket name for SMHP job
   replicas: 4                      # Number of compute instances for training, allowed values are 4, 8, 16, 32
   output_s3_path: ""               # Output artifact path (Hyperpod job-specific; not compatible with standard SageMaker Training jobs). Note replace my-bucket-name with your real bucket name for SMHP job
 

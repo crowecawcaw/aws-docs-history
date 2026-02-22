@@ -1,7 +1,7 @@
 # Prompting multimodal inputs
 
 The following sections provide guidance for image and video understanding. For audio-related
-prompting, refer to the Voice conversation prompts section.
+prompting, refer to the [Voice conversation prompts](sonic-system-prompts.md "sonic-system-prompts.md") section.
 
 ## General multimodal guidelines
 

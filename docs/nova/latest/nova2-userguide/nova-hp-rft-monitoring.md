@@ -95,9 +95,6 @@ practices
 
 - Need to create a new RIG group for RFT. This limitation will be resolved by
   GA.
-- Non-RIG instance groups not allowed: Ensure your HyperPod cluster contains only
-  Restricted Instance Groups (RIGs) - no regular instance groups. This limitation will
-  be resolved by GA.
 - Instance type requirements: Only P5 instances supported (minimum 8x P5.48xlarge).
   Coming Soon: Support for smaller instance types (ETA: mid-January 2025).
 

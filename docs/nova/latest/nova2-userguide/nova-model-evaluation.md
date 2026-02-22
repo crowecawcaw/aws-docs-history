@@ -298,12 +298,30 @@ inference:
   `model_type` specifies a reasoning-capable model (currently `amazon.nova-2-lite-v1:0:256k`).
   Available options are null (default value if not set; disables reasoning), low, or high.
 
+### Log Probability Output Format
+
+When `top_logprobs` is configured in your inference settings, the evaluation output includes token-level log probabilities in the parquet files. Each token position contains a dictionary of the top candidate tokens with their log probabilities in the following structure:
+
+```
+{
+"Ġint": {"logprob_value": -17.8125, "decoded_value": " int"},
+"Ġthe": {"logprob_value": -2.345, "decoded_value": " the"}
+}
+```
+
+Each token entry contains:
+
+- `logprob_value`: The log probability value for the token
+- `decoded_value`: The human-readable decoded string representation of the token
+
+The raw tokenizer token is used as the dictionary key to ensure uniqueness, while `decoded_value` provides a readable interpretation.
+
 ### Evaluation recipe
 
 examples
 
 Amazon Nova provides four different types of evaluation recipes. All recipes are
-available in [SageMaker AI HyperPod recipes GitHub repository](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
+available in [SageMaker HyperPod recipes GitHub repository](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
 
 ###### Evaluation recipes
 

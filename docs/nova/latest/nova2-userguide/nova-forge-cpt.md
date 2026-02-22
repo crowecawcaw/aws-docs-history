@@ -190,7 +190,7 @@ run:
   replicas: 8       # Number of compute instances for training, allowed values are 4, 8, 16, 32
   data_s3_path: ""       # Customer data paths
   validation_data_s3_path: ""        # Customer validation data paths
-  output_s3_path: ""   # Output artifact path, Sagemaker Hyperpod job-specific configuration - not compatible with standard Sagemaker Training jobs
+  output_s3_path: ""   # Output artifact path, SageMaker HyperPod job-specific configuration - not compatible with standard SageMaker Training jobs
 
 ## Training specific configs
 training_config:

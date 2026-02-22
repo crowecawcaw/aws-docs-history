@@ -112,7 +112,7 @@ run:
   name: nova-lite-rft-eval-job
   model_type: amazon.nova-lite-v1:0:300k
   model_name_or_path: s3://escrow_bucket/model_location    # [MODIFIABLE] S3 path to your model or model identifier
-  replicas: 1                                             # [MODIFIABLE] For SageMaker Training jobs only; fixed for  SageMaker AI Hyperpod  jobs
+  replicas: 1                                             # [MODIFIABLE] For SageMaker Training jobs only; fixed for  SageMaker HyperPod  jobs
   data_s3_path: ""                                        # [REQUIRED FOR HYPERPOD] Leave empty for SageMaker Training jobs
   output_s3_path: ""                                      # [REQUIRED] Output artifact S3 path for evaluation results
 
@@ -136,9 +136,7 @@ rl_env:
 
 ## Preset reward functions
 
-We have made available 2 preset reward functions (prime_code, prime_math) from Open
-source [verl](https://github.com/volcengine/verl/tree/312263169b0288d7225d011979d0d04457aec703/verl/utils/reward_score "https://github.com/volcengine/verl/tree/312263169b0288d7225d011979d0d04457aec703/verl/utils/reward_score") library into a lambda layer where you can easily bundle with your RFT
-lambda to use.
+Two preset reward functions (`prime_code` and `prime_math`) are available as a Lambda layer for easy integration with your RFT Lambda functions.
 
 ###### Overview
 

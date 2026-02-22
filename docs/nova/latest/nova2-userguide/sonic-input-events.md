@@ -196,8 +196,8 @@ conversation history, and cross-modal text input.
   or cross-modal input
 - `ASSISTANT`: Assistant responses in
   conversation history
-- `SYSTEM_SPEECH`: System prompts that should be
-  spoken aloud by the assistant
+- `SYSTEM_SPEECH`: Controls transcription formatting
+  for Hindi code-switching (Latin/Devanagari/mixed scripts)
 
 ```
 {

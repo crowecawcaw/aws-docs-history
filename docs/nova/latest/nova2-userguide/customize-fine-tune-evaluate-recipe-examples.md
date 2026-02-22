@@ -3,7 +3,7 @@
 examples
 
 Amazon Nova provides four types of evaluation recipes, which are available in the
-SageMaker AI HyperPod recipes GitHub repository.
+SageMaker HyperPod recipes GitHub repository.
 
 These recipes enable you to evaluate the fundamental capabilities of Amazon Nova models
 across a comprehensive suite of text-only benchmarks. They are provided in the format
@@ -18,7 +18,7 @@ The following are the bring your own dataset requirements:
 - File format requirements
   - You must include a single `gen_qa.jsonl` file containing
     evaluation examples.
-  - Your dataset must be uploaded to an S3 location where SageMaker AI training job can
+  - Your dataset must be uploaded to an S3 location where SageMaker training job can
     access it.
   - The file must follow the required schema format for a general Q&A
     dataset.
@@ -86,7 +86,7 @@ The following are the LLM as a Judge requirements:
   - Include a single `llm_judge.jsonl` file containing evaluation
     examples. The file name must be `llm_judge.jsonl`.
   - Your dataset must be uploaded to an S3 location that [SageMaker AI
-    SageMaker AI Hyperpod RIG](../../../sagemaker/latest/dg/nova-hp-cluster.md "../../../sagemaker/latest/dg/nova-hp-cluster.md") can access.
+    SageMaker HyperPod RIG](../../../sagemaker/latest/dg/nova-hp-cluster.md "../../../sagemaker/latest/dg/nova-hp-cluster.md") can access.
   - The file must follow the required schema format for the
     `llm_judge.jsonl` dataset.
   - The input dataset should ensure all records are under 12k context
@@ -154,7 +154,7 @@ File format:
 
 - Single `mm_llm_judge.jsonl` file containing evaluation examples. The
   file name must be exactly `llm_judge.jsonl`.
-- Your must upload your dataset to an S3 location where SageMaker AI training jobs can
+- Your must upload your dataset to an S3 location where SageMaker Training Jobs can
   access it.
 - The file must follow the required schema format for the
   `mm_llm_judge` dataset.
@@ -486,8 +486,8 @@ run:
   model_type: amazon.nova-2-lite-v1:0:256k               # [FIXED] Must be a reasoning-supported model
   model_name_or_path: nova-lite-2/prod                   # [FIXED] Path to model checkpoint or identifier
   replicas: 1                                            # [MODIFIABLE] Number of replicas for SageMaker Training job
-  data_s3_path: ""                                       # [MODIFIABLE] Leave empty for SageMaker Training job; optional for SageMaker  SageMaker AI Hyperpod  job
-  output_s3_path: ""                                     # [MODIFIABLE] Output path for SageMaker  SageMaker AI Hyperpod  job (not compatible with SageMaker Training jobs)
+  data_s3_path: ""                                       # [MODIFIABLE] Leave empty for SageMaker Training job; optional for SageMaker  SageMaker HyperPod  job
+  output_s3_path: ""                                     # [MODIFIABLE] Output path for SageMaker  SageMaker HyperPod  job (not compatible with SageMaker Training jobs)
 
 evaluation:
   task: mmlu                                             # [MODIFIABLE] Evaluation task

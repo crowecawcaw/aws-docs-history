@@ -34,6 +34,41 @@ For more information on which container images, or example recipes to use go to 
 - [Creating a Fine-Tuning Job](#nova-sft-2-creating-job "#nova-sft-2-creating-job")
 - [SFT Tuning Parameters](#nova-sft-2-tuning-parameters "#nova-sft-2-tuning-parameters")
 - [Hyperparameter Guidance](#nova-sft-2-hyperparameters "#nova-sft-2-hyperparameters")
+  Below is a sample recipe for SFT. You can find this recipe and others in the [recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/fine-tuning/nova "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/fine-tuning/nova") repository.
+
+```
+run:
+  name: my-full-rank-sft-run
+  model_type: amazon.nova-2-lite-v1:0:256k
+  model_name_or_path: nova-lite-2/prod
+  data_s3_path: s3://my-bucket-name/train.jsonl  #  only and not compatible with SageMaker Training Jobs
+  replicas: 4                                     # Number of compute instances for training, allowed values are 4, 8, 16, 32
+  output_s3_path: s3://my-bucket-name/outputs/    # Output artifact path (HyperPod job-specific; not compatible with standard SageMaker Training Jobs)
+  mlflow_tracking_uri: ""                         # Required for MLFlow
+  mlflow_experiment_name: "my-full-rank-sft-experiment"  # Optional for MLFlow. Note: leave this field non-empty
+  mlflow_run_name: "my-full-rank-sft-run"         # Optional for MLFlow. Note: leave this field non-empty
+
+training_config:
+  max_steps: 100                    # Maximum training steps. Minimal is 4.
+  save_steps: ${oc.select:training_config.max_steps}  # How many training steps the checkpoint will be saved
+  save_top_k: 5                     # Keep top K best checkpoints. Note supported only for  jobs. Minimal is 1.
+  max_length: 32768                 # Sequence length (options: 8192, 16384, 32768 [default], 65536)
+  global_batch_size: 32             # Global batch size (options: 32, 64, 128)
+  reasoning_enabled: true           # If data has reasoningContent, set to true; otherwise False
+
+  lr_scheduler:
+    warmup_steps: 15                # Learning rate warmup steps. Recommend 15% of max_steps
+    min_lr: 1e-6                    # Minimum learning rate, must be between 0.0 and 1.0
+
+  optim_config:                     # Optimizer settings
+    lr: 1e-5                        # Learning rate, must be between 0.0 and 1.0
+    weight_decay: 0.0               # L2 regularization strength, must be between 0.0 and 1.0
+    adam_beta1: 0.9                  # Exponential decay rate for first-moment estimates
+    adam_beta2: 0.95                 # Exponential decay rate for second-moment estimates
+
+  peft:                             # Parameter-efficient fine-tuning (LoRA)
+    peft_scheme: "null"             # Disable LoRA for PEFT
+```
 
 ## Reasoning Mode Selection (Nova 2.0
 

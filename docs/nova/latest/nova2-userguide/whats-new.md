@@ -71,7 +71,7 @@ sequences with higher accuracy.
 ### Model customization
 
 Nova 2 Lite supports supervised fine-tuning (SFT) and reinforcement fine-tuning (RFT) on
-Amazon Bedrock and SageMaker AI AI, allowing you to adapt Amazon Nova 2 to your specific business needs.
+Amazon Bedrock and SageMaker AI, allowing you to adapt Amazon Nova 2 to your specific business needs.
 
 ### Amazon Nova Forge
 
