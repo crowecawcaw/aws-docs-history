@@ -28,7 +28,7 @@ console
 2. If the console navigation pane is not visible, choose the expansion menu
    on the left.
 
-![Choose the expansion menu.](images/nav-pane-expansion.png) 3. In the Athena console navigation pane, choose
+![Choose the expansion menu.](/images/athena/latest/ug/images/nav-pane-expansion.png) 3. In the Athena console navigation pane, choose
 **Workgroups**. 4. On the **Workgroups** page, choose **Create
 workgroup**. 5. On the **Create workgroup** page, fill in the fields as
 follows:

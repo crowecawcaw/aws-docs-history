@@ -30,4 +30,4 @@ following prerequisite steps to do so.
 
 ![Specify a location in Amazon S3 to receive query results from Athena.](images/getting-started-setting-results-location.png) 6. Choose **Save**. 7. Choose **Editor** to switch to the query editor.
 
-![Choose Editor.](images/getting-started-choose-editor.png)
+![Choose Editor.](/images/athena/latest/ug/images/getting-started-choose-editor.png)
