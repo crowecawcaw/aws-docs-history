@@ -17,7 +17,7 @@ Each output contains the following:
 This diagram illustrates an SRT output group with one output. The captions are
 embedded in the video encode.
 
-![](/images/medialive/latest/ug/images/output3-nonABR-Ve-2A.png)
+![](images/output3-nonABR-Ve-2A.png)
 This diagram illustrates an SRT output group with one output. The captions are
 object-style captions.
 
