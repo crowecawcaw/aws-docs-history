@@ -8,6 +8,8 @@ You don't have sufficient access to perform this action.
 
 HTTP status code: 403
 
+For more information, see [Troubleshooting access denied errors](troubleshooting.md#access-denied-error "troubleshooting.md#access-denied-error").
+
 **ExpiredTokenException**
 
 The security token included in the request is expired.
