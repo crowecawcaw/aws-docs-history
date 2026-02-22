@@ -141,7 +141,7 @@ VPN domain.
    file, for example, `54.84.169.196`. Save your settings
    and close the dialog box.
 
-![Check Point Interoperable Device dialog box](/images/vpn/latest/s2svpn/images/check-point-network-device.png) 6. In the left category pane, choose **Topology**. 7. In the **VPN Domain** section, choose
+![Check Point Interoperable Device dialog box](images/check-point-network-device.png) 6. In the left category pane, choose **Topology**. 7. In the **VPN Domain** section, choose
 **Manually defined**, and then browse to and
 select the empty simple group that you created in step 2. Choose
 **OK**. 8. Repeat these steps to create a second network object, using the
@@ -395,7 +395,7 @@ over the connection are being encrypted. For example, the following log
 indicates that a packet to the VPC was sent over tunnel 1 and was
 encrypted.
 
-![Check Point log file](images/check-point-log.png)
+![Check Point log file](/images/vpn/latest/s2svpn/images/check-point-log.png)
 
 SonicWALL
 You can configure a SonicWALL device using the SonicOS management

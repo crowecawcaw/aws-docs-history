@@ -29,7 +29,7 @@ gateway device, which you must configure to enable the VPN connection. You must 
 VPC route tables so that any traffic from the VPC bound for your network goes to the
 transit gateway.
 
-![A single Site-to-Site VPN connection with a transit gateway.](images/vpn-how-it-works-tgw.png)
+![A single Site-to-Site VPN connection with a transit gateway.](/images/vpn/latest/s2svpn/images/vpn-how-it-works-tgw.png)
 
 For steps to set up this scenario, see [Get started with AWS Site-to-Site VPN](SetUpVPNConnections.md "SetUpVPNConnections.md").
 
