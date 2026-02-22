@@ -94,8 +94,8 @@ id>/outputs/checkpoints`).
     values are between 0-1, inclusive, but must be less than learning rate.
 
 The following is a recipe for full-rank SFT that's intended for you to quickly start
-an SFT job on a SageMaker AI HyperPod cluster. This recipe also assumes that you have
-connected to your SageMaker AI HyperPod cluster using the correct AWS credentials.
+an SFT job on a SageMaker HyperPod cluster. This recipe also assumes that you have
+connected to your SageMaker HyperPod cluster using the correct AWS credentials.
 
 ```
 run:
@@ -141,7 +141,6 @@ training_config:
     log_every_n_steps: 1
     max_epochs: -1
     max_steps: 16
-    val_check_interval: 100
     limit_test_batches: 0
     gradient_clip_val: 1.0
     num_nodes: ${recipes.training_config.replicas}

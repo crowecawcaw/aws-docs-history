@@ -14,7 +14,7 @@ Nova Forge provides the following key capabilities:
 - Blend your proprietary data with Amazon Nova-curated training data
 - Perform reinforcement learning with reward functions in your environment
 - Use push-button recipes that are optimized to build with Nova through visual workflows or a command line interface
-- Use the built-in responsible AI toolkit to implement custom safety guardrails
+- Use the Responsible AI Toolkit to align models to Amazon Nova's responsible AI guidelines during the training process and implement runtime controls to moderate model responses during inference
 
 ## Prerequisites
 
@@ -25,8 +25,7 @@ Nova Forge provides the following key capabilities:
 
 ### Subscribe to Nova Forge
 
-To request access to the Amazon Nova Forge service, add the following tag to your console IAM role: key forge-subscription with value true. After you've added this tag to your role: forge-subscription. After you've added these
-tags to your role, please go to SageMaker AI Console > Model training and customization and
+To request access to the Amazon Nova Forge service, add the following tag to your console IAM role: key forge-subscription with value true. After you've added this tag to your role, please go to SageMaker AI Console > Model training and customization and
 click on Nova Forge. On this page, you'll find details about the service, pricing
 information and the capabilities. You can request subscription and then manage your
 subscription from this page.
@@ -45,16 +44,16 @@ Also ensure the following prerequisites are complete:
 
 1. [General prerequisites](nova-model-general-prerequisites.md "nova-model-general-prerequisites.md")
 2. Additional steps for users: Add Restricted Instance Group
-   (RIG) to your SageMaker AI HyperPod cluster (to complete follow steps [here](../../../sagemaker/latest/dg/nova-hp-cluster.md "../../../sagemaker/latest/dg/nova-hp-cluster.md"))
+   (RIG) to your SageMaker HyperPod cluster (to complete follow steps [here](../../../sagemaker/latest/dg/nova-hp-cluster.md "../../../sagemaker/latest/dg/nova-hp-cluster.md"))
 
-## Initial SageMaker AI HyperPod setup
+## Initial SageMaker HyperPod setup
 
 Follow the steps in the [Amazon Web Services documentation](../../../sagemaker/latest/dg/nova-hp-train.md "../../../sagemaker/latest/dg/nova-hp-train.md") to connect
-the HyperPod CLI to your cluster. Ensure you use `nova-lite-2.0-release`
-branch instead of `release_v2` for testing. [This topic](../../../sagemaker/latest/dg/nova-hp-train.md "../../../sagemaker/latest/dg/nova-hp-train.md") covers:
+the HyperPod CLI to your cluster. Ensure you use the `nova-lite-2.0-release`
+branch of the SageMaker HyperPod CLI. [This topic](../../../sagemaker/latest/dg/nova-hp-train.md "../../../sagemaker/latest/dg/nova-hp-train.md") covers:
 
 - Setting up IAM permissions and policies
-- Configuring the SageMaker AI HyperPod CLI
+- Configuring the SageMaker HyperPod CLI
 - Creating your cluster with the necessary instance groups
 - Connecting to your cluster
 

@@ -1,12 +1,12 @@
-# Responsible AI toolkit and content
+# Responsible AI Toolkit and content
 
 moderation
 
 ## Responsible AI
 
-toolkit
+Toolkit
 
-Nova Forge provides a Responsible AI toolkit that includes training and evaluation
+Nova Forge provides a Responsible AI Toolkit that includes training and evaluation
 data to align models to Amazon Nova's responsible AI guidelines during the training
 process, and runtime controls to moderate model responses during inference.
 
@@ -44,9 +44,13 @@ Customizable content moderation settings (CCMS) allow adjustment of controls
 relevant to business requirements while maintaining essential, non-configurable
 controls to ensure responsible use of AI.
 
-These settings allow content generation through three available combinations:
-security; a combined setting for safety, sensitive content, and fairness; or all
-combinations together.
+These settings allow content generation through three available configurations:
+
+- Security only
+- Safety, sensitive content, and fairness combined
+- All categories combined
+
+The four content moderation categories are:
 
 1. **Safety** – Covers dangerous activities,
    weapons, and controlled substances
@@ -57,16 +61,25 @@ combinations together.
 4. **Security** – Involves cybercrime, malware,
    and malicious content
 
-Regardless of CCMS configuration, Amazon Nova enforces essential, non-configurable
+Regardless of your CCMS configuration, Amazon Nova enforces essential, non-configurable
 controls to ensure responsible use of AI, such as controls to prevent harm to
 children and preserve privacy.
 
-When using CCMS, use Continued Pre-Training (CPT) and start from a pre-RAI
+When using CCMS, we recommend using Continued Pre-Training (CPT) and starting from a pre-RAI
 alignment checkpoint (partially or fully pre-trained text-only) rather than the
 fully-aligned production checkpoint. These checkpoints have not undergone safety
-training or been steered toward specific RAI behaviors, allowing more efficient
-customization to content moderation requirements.
+training or been steered toward specific RAI behaviors, allowing you to customize them more efficiently to your content moderation requirements.
 
-CCMS is currently available for Amazon Nova Lite 1.0 and Pro 1.0 with Amazon Bedrock On Demand
-inference in the us-east-1 (N. Virginia) region. To enable CCMS for Forge models,
-contact an Amazon Web Services account manager.
+###### Tip
+
+When using CCMS with data mixing, consider adjusting the "rai" category percentage in your nova_data configuration to align with your specific content moderation requirements.
+
+### Availability
+
+CCMS is currently available for approved customers using:
+
+- Amazon Nova Lite 1.0 and Pro 1.0 models
+- Amazon Bedrock On-Demand inference
+- The us-east-1 (N. Virginia) region
+
+To enable CCMS for your Forge models, contact an Amazon Web Services account manager.

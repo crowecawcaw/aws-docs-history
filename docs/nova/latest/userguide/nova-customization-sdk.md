@@ -10,19 +10,20 @@ for your use case, this SDK provides everything you need in one unified interfac
 
 - One SDK for the entire model customization lifecycle—from data preparation to
   deployment and monitoring.
-- Support for multiple training methods including supervised fine-tuning (SFT)
-  and reinforcement fine-tuning (RFT), with both LoRA and full-rank
+- Support for multiple training methods including continued pre-training (CPT), supervised fine-tuning (SFT), direct preference optimization (DPO),
+  and reinforcement fine-tuning (RFT), both single-turn and multi-turn, with both LoRA and full-rank
   approaches.
-- Built-in support for SageMaker AI Training Jobs and , with automatic
+- Built-in support for SageMaker Training Jobs and , with automatic
   resource management.
 - No more finding the right recipes or container URI for your training
   techniques.
 - Bring your own training recipes or use the SDK's intelligent defaults with
   parameter overrides.
 - The SDK validates your configuration against supported model and instance
-  combinations, preventing errors before training starts.
+  combinations and provides validation support, preventing errors before training starts.
 - Integrated Amazon CloudWatch monitoring enables you to track training progress in
   real-time.
+- Integrated MLFlow to track training experiments with SageMaker AI MLFlow tracking servers.
 
 ## Requirements
 
@@ -43,12 +44,17 @@ Techniques
 The SDK supports the following models and techniques within the Amazon Nova
 family:
 
-| Method                              | Supported Models                                                                                                                                                                     |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Supervised Fine-tuning LoRA         | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference") |
-| Supervised Fine-tuning Full-Rank    | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference") |
-| Reinforcement Fine-tuning LoRA      | Nova Lite 2.0                                                                                                                                                                        |
-| Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0                                                                                                                                                                        |
+| Method                                         | Supported Models                                                                                                                                                                                 |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Continued Pre-training                         | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference") (SMHP only) |
+| Supervised Fine-tuning LoRA                    | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference")             |
+| Supervised Fine-tuning Full-Rank               | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference")             |
+| Direct Preference Optimization LoRA            | Nova 1.0 models                                                                                                                                                                                  |
+| Direct Preference Optimization Full-Rank       | Nova 1.0 models                                                                                                                                                                                  |
+| Reinforcement Fine-tuning LoRA                 | Nova Lite 2.0                                                                                                                                                                                    |
+| Reinforcement Fine-tuning Full-Rank            | Nova Lite 2.0                                                                                                                                                                                    |
+| Multi-turn Reinforcement Fine-tuning LoRA      | Nova Lite 2.0 (SMHP Only)                                                                                                                                                                        |
+| Multi-turn Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0 (SMHP Only)                                                                                                                                                                        |
 
 ## Getting Started
 
@@ -158,7 +164,7 @@ eval_result = customizer.evaluate(
 ### 6. Deploy
 
 Deploy your customized model to production with built-in support for Amazon
-Bedrock.
+Bedrock or SageMaker.
 
 ```
 from amzn_nova_customization_sdk.model.model_enums import DeployPlatform
@@ -167,14 +173,25 @@ from amzn_nova_customization_sdk.model.model_enums import DeployPlatform
 deployment = customizer.deploy(
     model_artifact_path=result.model_artifacts.checkpoint_s3_path,
     deploy_platform=DeployPlatform.BEDROCK_PT,
-    pt_units=10
+    unit_count=10
 )
 
 # Bedrock On-Demand
 deployment = customizer.deploy(
     model_artifact_path=result.model_artifacts.checkpoint_s3_path,
-    deploy_platform=DeployPlatform.BEDROCK_OD,
-    pt_units=10
+    deploy_platform=DeployPlatform.BEDROCK_OD
+)
+
+# Sagemaker Real-time Inference
+deployment = customizer.deploy(
+    model_artifact_path=result.model_artifacts.checkpoint_s3_path,
+    deploy_platform=DeployPlatform.SAGEMAKER,
+    unit_count=10,
+    sagemaker_instance_type="ml.p5.48xlarge",
+    sagemaker_environment_variables={
+        "CONTEXT_LENGTH": "12000",
+        "MAX_CONCURRENCY": "16",
+    }
 )
 ```
 
@@ -205,6 +222,7 @@ automatically managing:
 
 - Instance type validation
 - Recipe validation
+- Dataset validation
 - Job orchestration and monitoring
 
 ### Comprehensive evaluation
@@ -222,11 +240,12 @@ Either use the benchmark defaults, or modify them to fit your needs:
 
 ### Production Deployment
 
-Deploy your models to Amazon Bedrock with options for:
+Deploy your models to Amazon Bedrock or SageMaker with options for:
 
-- **Provisioned Throughput** - Dedicated
+- **Bedrock Provisioned Throughput** - Dedicated
   capacity for consistent performance
-- **On-Demand** - Pay-per-use pricing
+- **Bedrock On-Demand (only applicable to LoRA based customization)** - Pay-per-use pricing
+- **Sagemaker Real-time Inference** - Dedicated capacity for consistent performance
 
 ### Batch Inference
 
@@ -236,7 +255,11 @@ Run large-scale inference jobs efficiently:
 - Automatic result aggregation
 - Cost-effective batch processing
 
+### Nova Forge
+
+For Nova Forge subscribers, the SDK supports data mixing recipes.
+
 ## Learn More
 
 Ready to start customizing Nova models with the Nova Customization SDK? Check out our
-GitHub repository for detailed guides, API references, and additional examples: [https://github.com/aws-samples/sample-nova-customization-sdk/](https://github.com/aws-samples/sample-nova-customization-sdk/ "https://github.com/aws-samples/sample-nova-customization-sdk/")
+GitHub repository for detailed guides, API references, and additional examples: [https://github.com/aws/nova-customization-sdk](https://github.com/aws/nova-customization-sdk "https://github.com/aws/nova-customization-sdk")

@@ -1,8 +1,8 @@
-# Amazon Nova customization on SageMaker AI Hyperpod
+# Amazon Nova customization on SageMaker HyperPod
 
 You can customize Amazon Nova models, including the enhanced Nova 2.0 models, using [Amazon Nova recipes](nova-model-recipes.md "nova-model-recipes.md") and train them on Hyperpod. A
 recipe is a YAML configuration file that provides details to SageMaker AI on how to run your model
-customization job. SageMaker AI Hyperpod supports two types of services: Forge and Non-forge.
+customization job. SageMaker HyperPod supports two types of services: Forge and Non-forge.
 
 Hyperpod offers high-performance computing with optimized GPU instances and
 Amazon FSx for Lustre storage, robust monitoring through integration with tools like TensorBoard,
@@ -11,7 +11,7 @@ inference, and efficient scalable multi-node distributed training-all working to
 provide organizations with a secure, performant, and flexible environment to tailor Nova models
 to their specific business requirements.
 
-Amazon Nova customization on SageMaker AI Hyperpod stores model artifacts including model checkpoints
+Amazon Nova customization on SageMaker HyperPod stores model artifacts including model checkpoints
 in a service-managed Amazon S3 bucket. Artifacts in the service-managed bucket are encrypted with
 SageMaker AI-managed AWS KMS keys. Service-managed Amazon S3 buckets don't currently support data encryption
 using customer-managed KMS keys. You can use this checkpoint location for evaluation jobs or
@@ -69,11 +69,12 @@ training jobs training for Nova 1.0 models.
 ###### Topics
 
 - [Nova Customization SDK](nova-hp-customization-sdk.md "nova-hp-customization-sdk.md")
-- [Amazon SageMaker AI HyperPod Essential Commands
+- [Amazon SageMaker HyperPod Essential Commands
   Guide](nova-hp-essential-commands-guide.md "nova-hp-essential-commands-guide.md")
-- [Creating a SageMaker AI HyperPod EKS cluster with restricted
+- [Creating a SageMaker HyperPod EKS cluster with restricted
   instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md")
-- [Nova Forge access and setup for SageMaker AI Hyperpod](nova-forge-hp-access.md "nova-forge-hp-access.md")
+- [Nova Forge access and setup for](nova-forge-hp-access.md "nova-forge-hp-access.md")
 - [Training for Amazon Nova models](nova-hp-training.md "nova-hp-training.md")
-- [Fine-tuning Amazon Nova models on SageMaker AI HyperPod](nova-hp-fine-tune.md "nova-hp-fine-tune.md")
+- [Fine-tuning Amazon Nova models on SageMaker HyperPod](nova-hp-fine-tune.md "nova-hp-fine-tune.md")
 - [Evaluating your trained model](nova-hp-evaluate.md "nova-hp-evaluate.md")
+- [Monitoring HyperPod jobs with MLflow](nova-hp-mlflow.md "nova-hp-mlflow.md")

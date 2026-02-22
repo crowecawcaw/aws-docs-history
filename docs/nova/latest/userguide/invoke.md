@@ -29,7 +29,6 @@ Key Differences between the Invoke API and Converse API are as follows:
 - [Utilizing the system prompt](#utilizing-system-prompt "#utilizing-system-prompt")
 - [Using the Converse API](using-converse-api.md "using-converse-api.md")
 - [Using the Invoke API](using-invoke-api.md "using-invoke-api.md")
-- [Deploy a custom model for on-demand inference](deploy-custom-model.md "deploy-custom-model.md")
 - [Complete request schema](complete-request-schema.md "complete-request-schema.md")
 
 ## Messages API overview

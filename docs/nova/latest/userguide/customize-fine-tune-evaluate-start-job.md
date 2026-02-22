@@ -10,7 +10,7 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 rm -f ./get_helm.sh
 
-# Install the SageMaker AI HyperPod CLI
+# Install the SageMaker HyperPod CLI
 git clone --recurse-submodules https://github.com/aws/sagemaker-hyperpod-cli.git
 git checkout -b release_v2
 cd sagemaker-hyperpod-cli
@@ -19,7 +19,7 @@ pip install .
 # Verify the installation
 hyperpod --help
 
-# Connect to a SageMaker AI HyperPod Cluster
+# Connect to a SageMaker HyperPod Cluster
 hyperpod connect-cluster --cluster-name `cluster-name`
 
 

@@ -469,7 +469,7 @@ PPO has the following limitations:
   intermediate checkpoint. Only the last checkpoint is saved.
 - Multimodal datasets aren't supported.
 - Training jobs aren't automatically stopped. You have to stop the job using the
-  SageMaker AI HyperPod CLI.
+  SageMaker HyperPod CLI.
 - Critic training metrics are not supported on TensorBoard.
 - To adjust the hyperparameters, follow the guidance in [Selecting
   hyperparameters](customize-fine-tune-hyperparameters.md "customize-fine-tune-hyperparameters.md").

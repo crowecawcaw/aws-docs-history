@@ -2,7 +2,7 @@
 
 The customization process involves several key stages including model training,
 evaluation, and deployment for inference, each requiring specific resources and
-configurations. Before beginning your Amazon Nova model customization on SageMaker AI, ensure you have
+configurations. Before beginning your Amazon Nova model customization on SageMaker, ensure you have
 the following general prerequisites.
 
 - An AWS account. If you don't have an AWS account, follow [these
@@ -18,10 +18,10 @@ the following general prerequisites.
   buckets](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") and [IAM roles with
   appropriate permissions](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md").
 - Familiarity of how to [train a model with
-  SageMaker AI](../../../sagemaker/latest/dg/how-it-works-training.md "../../../sagemaker/latest/dg/how-it-works-training.md").
-- Familiarity of [SageMaker AI HyperPod with
+  SageMaker](../../../sagemaker/latest/dg/how-it-works-training.md "../../../sagemaker/latest/dg/how-it-works-training.md").
+- Familiarity of [SageMaker HyperPod with
   EKS orchestration](../../../sagemaker/latest/dg/sagemaker-hyperpod-eks.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-eks.md").
-- Familiarity of [SageMaker AI HyperPod CLI](../../../sagemaker/latest/dg/sagemaker-hyperpod-eks-run-jobs-access-nodes.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-eks-run-jobs-access-nodes.md").
+- Familiarity of [SageMaker HyperPod CLI](../../../sagemaker/latest/dg/sagemaker-hyperpod-eks-run-jobs-access-nodes.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-eks-run-jobs-access-nodes.md").
 - Familiarity of [Amazon Nova foundational
   models](customization.md "customization.md").
 - Familiarity of [available Amazon Nova models

@@ -80,6 +80,24 @@ MLFlow integration is already built into the SageMaker Studio UI experience. Whe
 
 ![the ML Flow App.](images/MLFlow-App.png)
 
+### Submitting a job via the AWSAWS CLI
+
+If you use the AWS AWS CLI, you must create an MLflow app and pass it as an input to the
+training job API request.
+
+```
+mlflow_app_name="<enter your MLflow app name>"
+role_arn="<enter your role ARN>"
+bucket_name="<enter your bucket name>"
+region="<enter your region>"
+
+mlflow_app_arn=$(aws sagemaker create-mlflow-app \
+  --name $mlflow_app_name \
+  --artifact-store-uri "s3://$bucket_name" \
+  --role-arn $role_arn \
+  --region $region)
+```
+
 ## Create an MLflow app
 
 **Using Studio UI:** If you create a training job

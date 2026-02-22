@@ -55,7 +55,7 @@ run:
   model_name_or_path: "nova-lite/prod"      # Base model path, do not change
   replicas: 4                     # Number of compute instances for training, allowed values are 4, 8, 16
   data_s3_path: ""                # Customer data path
-  output_s3_path: ""              # Output artifact path, Sagemaker Hyperpod job-specific configuration - not compatible with standard Sagemaker Training jobs
+  output_s3_path: ""              # Output artifact path, SageMaker HyperPod job-specific configuration - not compatible with standard SageMaker Training jobs
 
   ## MLFlow configs
   mlflow_tracking_uri: "" # Required for MLFlow
@@ -275,7 +275,7 @@ data_mixing:
   - **Nova Micro 1.0 – 4 p5.48xlarge**
   - **Nova Pro 1.0 – 6 p5.48xlarge**
 
-- Install the Forge Specific Sagemaker Hyperpod CLI using the provided instructions [here](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US")
+- Install the Forge Specific SageMaker HyperPod CLI using the provided instructions [here](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US")
 - Confirm that you can connect to your cluster using `hyperpod get-clusters`
   - Note that this command will list all SMHP clusters in your account
 
@@ -323,7 +323,7 @@ Reasoning content captures the model's intermediate thinking steps before genera
 
 **Content moderation settings**: Nova Forge customers have access to Customizable Content Moderation Settings (CCMS) for Nova Lite 1.0 and Pro 1.0 models. CCMS allows you to adjust content moderation controls to align with your specific business requirements while maintaining essential responsible AI safeguards. To determine if your business use case qualifies for CCMS, contact your Amazon Web Services account manager.
 
-Nova Forge provides a Responsible AI toolkit that includes training data, evaluation benchmarks, and runtime controls to help you align your models with Nova's responsible AI guidelines.
+Nova Forge provides a Responsible AI Toolkit that includes training data, evaluation benchmarks, and runtime controls to help you align your models with Nova's responsible AI guidelines.
 
 **Training data**: The "RAI" category in data mixing contains cases and scenarios emphasizing responsible AI principles, safety considerations, and responsible technology deployment. Use these to align your models responsibly during continued pre-training.
 
@@ -467,7 +467,7 @@ run:
   name: my-lora-sft-run
   model_type: amazon.nova-2-lite-v1:0:256k
   model_name_or_path: nova-lite-2/prod
-  data_s3_path: s3://my-bucket-name/train.jsonl  # SageMaker Hyperpod (SMHP) only and not compatible with SageMaker Training jobs. Note replace my-bucket-name with your real bucket name for SMHP job
+  data_s3_path: s3://my-bucket-name/train.jsonl  # SageMaker HyperPod (SMHP) only and not compatible with SageMaker Training jobs. Note replace my-bucket-name with your real bucket name for SMHP job
   replicas: 4                      # Number of compute instances for training, allowed values are 4, 8, 16, 32
   output_s3_path: s3://my-bucket-name/outputs/               # Output artifact path (Hyperpod job-specific; not compatible with standard SageMaker Training jobs). Note replace my-bucket-name with your real bucket name for SMHP job
 

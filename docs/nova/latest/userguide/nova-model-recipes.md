@@ -1,17 +1,17 @@
 # Amazon Nova recipes
 
-You can get an Amazon Nova recipe from the [recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") repository. A Amazon Nova recipe is a [YAML](https://yaml.org/ "https://yaml.org/") configuration file that provides details to
-SageMaker AI on how to run your model customization job. It provides the base model name, sets
+You can get an Amazon Nova recipe from the [recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") repository. An Amazon Nova recipe is a [YAML](https://yaml.org/ "https://yaml.org/") configuration file that provides details to
+SageMaker on how to run your model customization job. It provides the base model name, sets
 training hyperparameters, defines optimization settings, and includes any additional
 options required to fine-tune or train the model successfully.
 
-You can also access Amazon Nova recipes through and by navigating
+You can also access Amazon Nova recipes through Amazon SageMaker Studio and by navigating
 to the model hub, selecting AWS, and browsing Amazon Nova models to find
-their associated recipes. Both and provide sample notebooks
+their associated recipes. Both Amazon SageMaker Studio and provide sample notebooks
 for each recipe, which include all the necessary steps to modify the recipes and run
-customization jobs using SageMaker AI training jobs or SageMaker AI HyperPod environments.
+customization jobs using SageMaker training jobs or SageMaker HyperPod environments.
 
-To access the recipes pages in , the execution role must have the
+To access the recipes pages in Amazon SageMaker Studio, the execution role must have the
 following permissions.
 
 JSON
@@ -34,17 +34,18 @@ JSON
 
 ```
 
-To execute the sample notebooks on SageMaker AI training jobs and , use one of the
-following SageMaker AI distribution image versions: `2.7.1+`, `2.8.0+`, `3.2.1+`, `3.3.0+`. This applies
-to both and .
+To execute the sample notebooks on SageMaker training jobs and , use one of the
+following SageMaker distribution image versions: `2.7.1+`, `2.8.0+`, `3.2.1+`, `3.3.0+`. This applies
+to both Amazon SageMaker Studio and .
 
 ###### Topics
 
 - [Getting Amazon Nova recipes](#nova-model-get-recipes "#nova-model-get-recipes")
+- [Getting Amazon Nova Forge recipes](#nova-model-get-forge-recipes "#nova-model-get-forge-recipes")
 - [Available models and algorithms](#nova-model-algorithm "#nova-model-algorithm")
-- [Amazon Amazon Nova Lite](#nova-model-recipes-reference-novalite "#nova-model-recipes-reference-novalite")
-- [Amazon Amazon Nova Micro](#nova-model-recipes-reference-novamicro "#nova-model-recipes-reference-novamicro")
-- [Amazon Amazon Nova Pro](#nova-model-recipes-reference-novapro "#nova-model-recipes-reference-novapro")
+- [Amazon Nova Lite](#nova-model-recipes-reference-novalite "#nova-model-recipes-reference-novalite")
+- [Amazon Nova Micro](#nova-model-recipes-reference-novamicro "#nova-model-recipes-reference-novamicro")
+- [Amazon Nova Pro](#nova-model-recipes-reference-novapro "#nova-model-recipes-reference-novapro")
 
 ## Getting Amazon Nova recipes
 
@@ -69,20 +70,24 @@ The Amazon Nova customization recipes are in the following folders.
 | Evaluation                                              | [evaluation/nova](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/evaluation/nova "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/evaluation/nova")    |
 | CPT                                                     | [training/nova](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/training "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/training")                    |
 
+## Getting Amazon Nova Forge recipes
+
+To access specialized Amazon Nova Forge recipes for jobs, please [set up your access to Amazon Nova Forge](nova-forge-access.md "nova-forge-access.md") and then follow [this workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US/02-smhp-rig/03-nova-forge "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US/02-smhp-rig/03-nova-forge") to set up the Forge version of the CLI. For SageMaker Training Jobs, the AWS Console and Nova Customization SDK will automatically access Forge recipes.
+
 ## Available models and algorithms
 
 The following table summarizes the availability of customization for Amazon Nova models
-and supported algorithms using SageMaker AI.
+and supported algorithms using SageMaker.
 
 | Model name           | Model ID                     | Fine-tuning | Notes                                                                                                                                                                                                                                                                                                                                                                                                            |
 | -------------------- | ---------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Amazon Nova Lite 2.0 | amazon.nova-2-lite-v1:0:256k | Yes         | • SFT - Accepts either text and/or image or text and/or video as the<br>input and produces text as output. A single job can't combine text,<br>image, and video in the same run.<br>• DPO - Accepts text and image as the input and produces text as<br>output.<br>• RFT - Accepts text and image as input for single-turn conversations and produces text as output. Improved reward optimization capabilities. |
 
-## Amazon Amazon Nova Lite
+## Amazon Nova Lite
 
-The table below lists detailed information of the Amazon Amazon Nova Lite recipes reference.
+The table below lists detailed information of the Amazon Nova Lite recipes reference.
 
-| Model     | Category/Sub-category           | Technique                             | Recipe Name                                                                                                                            | Image URI (Training Jobs)                                                             | Image URI (SageMaker AI HyperPod)                                                        | Compute Instance                                                                                                   |
+| Model     | Category/Sub-category           | Technique                             | Recipe Name                                                                                                                            | Image URI (Training Jobs)                                                             | Image URI (SageMaker HyperPod)                                                           | Compute Instance                                                                                                   |
 | --------- | ------------------------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | Nova Lite | Training/Fine-tuning            | Supervised Fine-Tuning (LoRA)         | `nova_lite_1_0_g5_g6_12x_gpu_lora_sft.yaml`<br>`nova_lite_1_0_g5_g6_48x_gpu_lora_sft.yaml`<br>`nova_lite_1_0_p5_p4d_gpu_lora_sft.yaml` | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-SFT-latest`   | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest`      | `ml.p5.48xlarge`, `ml.p5en.48xlarge`,<br>`ml.g5.12xlarge`, `ml.g6.12xlarge`,<br>`ml.g5.48xlarge`, `ml.g6.48xlarge` |
 | Nova Lite | Training/Fine-tuning            | Supervised Fine-Tuning (Full)         | `nova_lite_1_0_p5_p4d_gpu_sft.yaml`                                                                                                    | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-SFT-latest`   | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest`      | `ml.p5.48xlarge`, `ml.p5en.48xlarge`                                                                               |
@@ -95,11 +100,11 @@ The table below lists detailed information of the Amazon Amazon Nova Lite recipe
 | Nova Lite | Evaluation/Evaluate             | Multi-modal benchmarks                | `nova_lite_p5_48_general_multi_modal_benchmark_eval.yaml`                                                                              | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-TJ-Eval-latest` | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest`    | `ml.p5.48xlarge`                                                                                                   |
 | Nova Lite | Evaluation/Evaluate             | LLM as a Judge                        | `nova_lite_p5_48xl_llm_judge_eval.yaml`                                                                                                | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-TJ-Eval-latest` | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest`    | `ml.p5.48xlarge`                                                                                                   |
 
-## Amazon Amazon Nova Micro
+## Amazon Nova Micro
 
-The table below lists detailed information of the Amazon Amazon Nova Micro recipes reference.
+The table below lists detailed information of the Amazon Nova Micro recipes reference.
 
-| Model      | Category/Sub-category           | Technique                                 | Recipe Name                                                                                                                               | Image URI (Training Jobs)                                                             | Image URI (SageMaker AI HyperPod)                                                        | Compute Instance                                                                                                                      |
+| Model      | Category/Sub-category           | Technique                                 | Recipe Name                                                                                                                               | Image URI (Training Jobs)                                                             | Image URI (SageMaker HyperPod)                                                           | Compute Instance                                                                                                                      |
 | ---------- | ------------------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | Nova Micro | Training/Fine-tuning            | Supervised Fine-Tuning (LoRA)             | `nova_micro_1_0_p5_p4d_gpu_lora_sft.yaml`<br>`nova_micro_1_0_g5_g6_12x_gpu_lora_sft.yaml`<br>`nova_micro_1_0_g5_g6_48x_gpu_lora_sft.yaml` | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-SFT-latest`   | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest`      | `ml.p5.48xlarge`, `ml.p5en.48xlarge`, `ml.p4d.24xlarge`,<br>`ml.g5.12xlarge`, `ml.g6.12xlarge`,<br>`ml.g5.48xlarge`, `ml.g6.48xlarge` |
 | Nova Micro | Training/Fine-tuning            | Supervised Fine-Tuning (Full)             | `nova_micro_1_0_p5_p4d_gpu_sft.yaml`<br>`nova_micro_1_0_g5_g6_48x_gpu_sft.yaml`                                                           | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-SFT-latest`   | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest`      | `ml.p5.48xlarge`, `ml.p5en.48xlarge`, `ml.p4d.24xlarge`,<br>`ml.g5.48xlarge`, `ml.g6.48xlarge`                                        |
@@ -111,11 +116,11 @@ The table below lists detailed information of the Amazon Amazon Nova Micro recip
 | Nova Micro | Evaluation/Evaluate             | Bring your own dataset (gen_qa) benchmark | `nova_micro_p5_48xl_bring_your_own_dataset_eval.yaml`                                                                                     | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-TJ-Eval-latest` | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest`    | `ml.p5.48xlarge`                                                                                                                      |
 | Nova Micro | Evaluation/Evaluate             | LLM as a Judge                            | `nova_micro_p5_48xl_llm_judge_eval.yaml`                                                                                                  | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-TJ-Eval-latest` | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest`    | `ml.p5.48xlarge`                                                                                                                      |
 
-## Amazon Amazon Nova Pro
+## Amazon Nova Pro
 
-The table below lists detailed information of the Amazon Amazon Nova Pro recipes reference.
+The table below lists detailed information of the Amazon Nova Pro recipes reference.
 
-| Model    | Category/Sub-category           | Technique                             | Recipe Name                                                | Image URI (Training Jobs)                                                             | Image URI (SageMaker AI HyperPod)                                                          | Compute Instance                                        |
+| Model    | Category/Sub-category           | Technique                             | Recipe Name                                                | Image URI (Training Jobs)                                                             | Image URI (SageMaker HyperPod)                                                             | Compute Instance                                        |
 | -------- | ------------------------------- | ------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
 | Nova Pro | Training/Fine-tuning            | Supervised Fine-Tuning (LoRA)         | `nova_pro_1_0_p5_p4d_gpu_lora_sft.yaml`                    | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-SFT-latest`   | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest`        | `ml.p5.48xlarge`, `ml.p5en.48xlarge`, `ml.p4d.24xlarge` |
 | Nova Pro | Training/Fine-tuning            | Supervised Fine-Tuning (Full)         | `nova_pro_1_0_p5_p4d_gpu_sft.yaml`                         | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-SFT-latest`   | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest`        | `ml.p5.48xlarge`, `ml.p5en.48xlarge`                    |

@@ -27,9 +27,6 @@ test the model after it has been deployed to Amazon Bedrock by calling [Amazon B
 - [Evaluation best practices and
   troubleshooting](#nova-model-evaluation-best-practices "#nova-model-evaluation-best-practices")
 - [Available subtasks](#nova-model-evaluation-subtasks "#nova-model-evaluation-subtasks")
-- [Reasoning model evaluation](nova-reasoning-model-evaluation.md "nova-reasoning-model-evaluation.md")
-- [RFT evaluation](nova-rft-evaluation.md "nova-rft-evaluation.md")
-- [Implementing reward functions](nova-implementing-reward-functions.md "nova-implementing-reward-functions.md")
 - [Iterative training](smtj-iterative-training.md "smtj-iterative-training.md")
 
 ## Prerequisites
@@ -85,8 +82,8 @@ modifying your recipes
 ```
 run:
   name: eval_job_name
-  model_type: amazon.nova-2-lite-v1:0:256k
-  model_name_or_path: nova-lite-2/prod # or s3://escrow_bucket/model_location
+  model_type: amazon.nova-lite-v1:0:300k
+  model_name_or_path: nova-lite/prod # or s3://escrow_bucket/model_location
   replicas: 1
   data_s3_path: ""
   mlflow_tracking_uri: ""
@@ -100,14 +97,14 @@ run:
   - amazon.nova-micro-v1:0:128k
   - amazon.nova-lite-v1:0:300k
   - amazon.nova-pro-v1:0:300k
-  - amazon.nova-2-lite-v1:0:256k
+  - amazon.nova-2-lite-v1:0:256k (Nova 2.0 model — see [Nova 2.0 customization guide](../nova2-userguide/nova-model.md "../nova2-userguide/nova-model.md"))
 
 - `model_name_or_path`: The path to the base model or s3 path
   for post trained checkpoint. Options include:
   - nova-micro/prod
   - nova-lite/prod
   - nova-pro/prod
-  - nova-lite-2/prod
+  - nova-lite-2/prod (Nova 2.0 model)
   - S3 path for post trained checkpoint path
     (`s3:customer-escrow-111122223333-smtj-<unique_id>/<training_run_name>`)
 
@@ -299,12 +296,30 @@ inference:
   `model_type` specifies a reasoning-capable model (currently `amazon.nova-2-lite-v1:0:256k`).
   Available options are null (default value if not set; disables reasoning), low, or high.
 
+### Log Probability Output Format
+
+When `top_logprobs` is configured in your inference settings, the evaluation output includes token-level log probabilities in the parquet files. Each token position contains a dictionary of the top candidate tokens with their log probabilities in the following structure:
+
+```
+{
+"Ġint": {"logprob_value": -17.8125, "decoded_value": " int"},
+"Ġthe": {"logprob_value": -2.345, "decoded_value": " the"}
+}
+```
+
+Each token entry contains:
+
+- `logprob_value`: The log probability value for the token
+- `decoded_value`: The human-readable decoded string representation of the token
+
+The raw tokenizer token is used as the dictionary key to ensure uniqueness, while `decoded_value` provides a readable interpretation.
+
 ### Evaluation recipe
 
 examples
 
 Amazon Nova provides four different types of evaluation recipes. All recipes are
-available in [SageMaker AI HyperPod recipes GitHub repository](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
+available in [SageMaker HyperPod recipes GitHub repository](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
 
 ###### Evaluation recipes
 
@@ -1138,7 +1153,4 @@ metrics.
 
 ###### In this section:
 
-- [Reasoning model evaluation](nova-reasoning-model-evaluation.md "nova-reasoning-model-evaluation.md")
-- [RFT evaluation](nova-rft-evaluation.md "nova-rft-evaluation.md")
-- [Implementing reward functions](nova-implementing-reward-functions.md "nova-implementing-reward-functions.md")
 - [Iterative training](smtj-iterative-training.md "smtj-iterative-training.md")
