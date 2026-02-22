@@ -57,3 +57,4 @@ The following is a list of considerations that should be taken into account befo
 - Segment share policies are applied after attachment policies
 - External AWS devices cannot advertise routes with BGP communities containing internal ASNs
 - The list-core-network-routing-information API shows the routing information before routing policies have been applied
+- Route summarization will remove all matched prefixes and replace them with a single summarized route. The summarized prefix will be advertised at the same time as matched prefixes are withdrawn.
