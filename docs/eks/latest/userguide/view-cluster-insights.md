@@ -43,7 +43,7 @@ To see the list of insight checks performed and any relevant issues that Amazon 
    - Replace `my-cluster` with the name of your cluster.
 
    ```
-   aws eks start-insight-refresh --region `region-code` --cluster-name `my-cluster`
+   aws eks start-insights-refresh --region `region-code` --cluster-name `my-cluster`
 
    ```
 

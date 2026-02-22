@@ -89,6 +89,31 @@ You can also run the script with the `--help` option to see all available option
 
 The max Pods calculator script limits the return value to `110` based on [Kubernetes scalability thresholds](https://github.com/kubernetes/community/blob/master/sig-scalability/configs-and-limits/thresholds.md "https://github.com/kubernetes/community/blob/master/sig-scalability/configs-and-limits/thresholds.md") and recommended settings. If your instance type has greater than 30 vCPUs, this limit jumps to `250`, a number based on internal Amazon EKS scalability team testing. For more information, see the [Amazon VPC CNI plugin increases pods per node limits](https://aws.amazon.com/blogs/containers/amazon-vpc-cni-increases-pods-per-node-limits "https://aws.amazon.com/blogs/containers/amazon-vpc-cni-increases-pods-per-node-limits") blog post.
 
+## How maxPods is determined
+
+The final `maxPods` value applied to a node depends on several components that interact in a specific order of precedence. Understanding this order helps you avoid unexpected behavior when customizing `maxPods`.
+
+**Order of precedence (highest to lowest):**
+
+1. **Managed node group enforcement** – When you use a managed node group without a [custom AMI](launch-templates.md#launch-template-custom-ami "launch-templates.md#launch-template-custom-ami"), Amazon EKS enforces a cap on `maxPods` in the node’s user data. For instances with less than 30 vCPUs, the cap is `110`. For instances with greater than 30 vCPUs, the cap is `250`. This value takes precedence over any other `maxPods` configuration, including `maxPodsExpression`.
+2. **kubelet `maxPods` configuration** – If you set `maxPods` directly in the kubelet configuration (for example, through a launch template with a custom AMI), this value takes precedence over `maxPodsExpression`.
+3. **nodeadm `maxPodsExpression`** – If you use [`maxPodsExpression`](https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/examples/#defining-a-max-pods-expression "https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/examples/#defining-a-max-pods-expression") in your `NodeConfig`, nodeadm evaluates the expression to calculate `maxPods`. This is only effective when the value is not already set by a higher-precedence source.
+4. **Default ENI-based calculation** – If no other value is set, the AMI calculates `maxPods` based on the number of elastic network interfaces and IP addresses supported by the instance type. This is equivalent to the formula `(number of ENIs × (IPs per ENI − 1)) + 2`. The `+ 2` accounts for the Amazon VPC CNI and `kube-proxy` running on every node, which don’t consume a Pod IP address.
+
+###### Important
+
+If you use a managed node group and set `maxPodsExpression` in your `NodeConfig`, the managed node group’s enforcement overrides your expression. To use a custom `maxPods` value with managed node groups, you must specify a custom AMI in your launch template and set `maxPods` directly. For more information, see [Customize managed nodes with launch templates](launch-templates.md "launch-templates.md").
+
+**Managed node groups vs. self-managed nodes**
+
+With managed node groups (without a custom AMI), Amazon EKS injects the `maxPods` value into the node’s bootstrap user data. This means:
+
+- The `maxPods` value is always capped at `110` or `250` depending on instance size.
+- Any `maxPodsExpression` you configure is overridden by this injected value.
+- To use a different `maxPods` value, specify a custom AMI in your launch template and pass `--use-max-pods false` along with `--kubelet-extra-args '--max-pods=`my-value`'` to the `bootstrap.sh` script. For examples, see [Customize managed nodes with launch templates](launch-templates.md "launch-templates.md").
+
+With self-managed nodes, you have full control over the bootstrap process. You can use `maxPodsExpression` in your `NodeConfig` or pass `--max-pods` directly to `bootstrap.sh`.
+
 ## Considerations for EKS Auto Mode
 
 EKS Auto Mode limits the number of pods on nodes to the lower of:

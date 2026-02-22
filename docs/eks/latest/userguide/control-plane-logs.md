@@ -8,7 +8,7 @@ Amazon EKS control plane logging provides audit and diagnostic logs directly fro
 
 ###### Note
 
-Amazon EKS control plane logs are delivered to CloudWatch Logs within a few minutes. However, log delivery is best effort, so logs may be delayed beyond the typical delivery times.
+Amazon EKS control plane logs are delivered to CloudWatch Logs within a few minutes. However, log delivery is best effort.
 
 You can start using Amazon EKS control plane logging by choosing which log types you want to enable for each new or existing Amazon EKS cluster. You can enable or disable each log type on a per-cluster basis using the AWS Management Console, AWS CLI (version `1.16.139` or higher), or through the Amazon EKS API. When enabled, logs are automatically sent from the Amazon EKS cluster to CloudWatch Logs in the same account.
 

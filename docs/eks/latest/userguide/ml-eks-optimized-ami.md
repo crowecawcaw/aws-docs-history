@@ -8,14 +8,14 @@ Amazon EKS supports EKS-optimized Amazon Linux and Bottlerocket AMIs for GPU ins
 
 The table below shows the supported GPU instance types for each EKS-optimized accelerated AMI variant. See the EKS-optimized [AL2023 releases](https://github.com/awslabs/amazon-eks-ami/releases "https://github.com/awslabs/amazon-eks-ami/releases") and [Bottlerocket releases](https://github.com/bottlerocket-os/bottlerocket/blob/develop/CHANGELOG.md "https://github.com/bottlerocket-os/bottlerocket/blob/develop/CHANGELOG.md") on GitHub for the latest updates to the AMI variants.
 
-| EKS AMI variant                           | EC2 instance types                                                                      |
-| ----------------------------------------- | --------------------------------------------------------------------------------------- |
-| AL2023 x86_64 NVIDIA                      | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, gr6, g6, g6e, g6f, gr6f, g5, g4dn |
-| AL2023 ARM NVIDIA                         | p6e-gb200, g5g                                                                          |
-| AL2023 x86_64 Neuron                      | inf1, inf2, trn1, trn2                                                                  |
-| Bottlerocket x86_64 aws-k8s-nvidia        | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, gr6, g6, g6e, g6f, gr6f, g5, g4dn |
-| Bottlerocket aarch64/arm64 aws-k8s-nvidia | g5g                                                                                     |
-| Bottlerocket x86_64 aws-k8s               | inf1, inf2, trn1, trn2                                                                  |
+| EKS AMI variant                           | EC2 instance types                                                                           |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------- |
+| AL2023 x86_64 NVIDIA                      | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, g7e, gr6, g6, g6e, g6f, gr6f, g5, g4dn |
+| AL2023 ARM NVIDIA                         | p6e-gb200, g5g                                                                               |
+| AL2023 x86_64 Neuron                      | inf1, inf2, trn1, trn2                                                                       |
+| Bottlerocket x86_64 aws-k8s-nvidia        | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, g7e, gr6, g6, g6e, g6f, gr6f, g5, g4dn |
+| Bottlerocket aarch64/arm64 aws-k8s-nvidia | g5g                                                                                          |
+| Bottlerocket x86_64 aws-k8s               | inf1, inf2, trn1, trn2                                                                       |
 
 ## EKS-optimized NVIDIA AMIs
 
