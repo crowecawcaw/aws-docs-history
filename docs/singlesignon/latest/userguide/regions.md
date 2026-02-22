@@ -30,6 +30,7 @@ AWS Region, as indicated in the following table.
 | ap-south-2                      | Asia Pacific (Hyderabad)        | ap-south-1             | Asia Pacific (Mumbai)    |
 | ap-southeast-4                  | Asia Pacific (Melbourne)        | ap-southeast-2         | Asia Pacific (Sydney)    |
 | ap-southeast-5                  | Asia Pacific (Malaysia)         | ap-southeast-1         | Asia Pacific (Singapore) |
+| ap-southeast-6                  | Asia Pacific (New Zealand)      | ap-southeast-2         | Asia Pacific (Sydney)    |
 | ap-southeast-7                  | Asia Pacific (Thailand)         | ap-northeast-3         | Asia Pacific (Osaka)     |
 | ca-west-1                       | Canada West (Calgary)           | ca-central-1           | Canada (Central)         |
 | eu-south-2                      | Europe (Spain)                  | eu-west-3              | Europe (Paris)           |
@@ -62,6 +63,7 @@ must enable the following [opt-in Regions](../../../glossary/latest/reference/gl
 - Asia Pacific (Jakarta)
 - Asia Pacific (Melbourne)
 - Asia Pacific (Malaysia)
+- Asia Pacific (New Zealand)
 - Asia Pacific (Thailand)
 - Canada West (Calgary)
 - Europe (Milan)
