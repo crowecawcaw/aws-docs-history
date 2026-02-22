@@ -298,7 +298,7 @@ Your selections should look like the following example.
 The actions are performed to enable HTTPS on your instance, including requesting the
 certificate and configuring the redirections you specified.
 
-![Actions being performed](images/bncert-performing-actions.png)
+![Actions being performed](/images/lightsail/latest/userguide/images/bncert-performing-actions.png)
 
 Your certificate is successfully issued and validated, and the redirections are
 successfully configured on your instance if you see a message similar to the following

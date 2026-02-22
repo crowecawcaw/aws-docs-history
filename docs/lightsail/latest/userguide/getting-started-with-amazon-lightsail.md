@@ -88,7 +88,7 @@ To connect to your instance using an SSH client such as PuTTY, you can follow th
 procedure: [Set up PuTTY to connect to your Lightsail instance](lightsail-how-to-set-up-putty-to-connect-using-ssh.md "lightsail-how-to-set-up-putty-to-connect-using-ssh.md"). 2. Now you can type commands into the terminal and manage your Lightsail instance
 without setting up an SSH client.
 
-![Browser-based SSH terminal.](images/amazon-lightsail-bitnami-terminal-window.png)
+![Browser-based SSH terminal.](/images/lightsail/latest/userguide/images/amazon-lightsail-bitnami-terminal-window.png)
 
 ## Next steps
 
