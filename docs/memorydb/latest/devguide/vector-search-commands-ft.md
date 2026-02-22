@@ -1,13 +1,14 @@
-# FT.\_LIST
+# FT.EXPLAINCLI
 
-List all indexes.
+Same as the FT.EXPLAIN command except that the results are displayed in a different format more useful with the redis-cli.
 
 **Syntax**
 
 ```
-FT._LIST
+FT.EXPLAINCLI <index> <query>
+
 ```
 
 **Return**
 
-Returns an array of index names
+A string containing the parsed results.
