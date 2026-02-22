@@ -1,13 +1,13 @@
-# emr-5.33.0-20221219
+# emr-5.33.0-20220802
 
-**Release notes**: `emr-5.33.0-20221219` was
-released on Jan 19, 2023. Compared to the previous version, this version has been refreshed with
-the recently updated Amazon Linux packages and critical fixes.
+**Release notes**: `emr-5.33.0-20220802` was
+released on Aug 24, 2022. Compared to the previous version, this version has been refreshed with
+the recently updated Amazon Linux packages.
 
 **Regions:**
-`emr-5.33.0-20221219` is available in all Regions supported by Amazon EMR on EKS. For more
+`emr-5.33.0-20220802` is available in all Regions supported by Amazon EMR on EKS. For more
 information, see [Amazon EMR on EKS
 service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
 
 **Container image tag**:
-`emr-5.33.0:20221219`
+`emr-5.33.0:20220802`
