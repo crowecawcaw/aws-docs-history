@@ -258,9 +258,9 @@ After you create the S3 access point, configure a Transfer Family server to use 
 
 You must create an IAM role that grants Transfer Family access to the S3 access point.
 
-###### Note
+###### Important
 
-In the IAM policy, use the access point alias where you would normally specify a bucket name.
+IAM policies require the Access Point ARN format, not the alias. Use the format `arn:aws:s3:region:account-id:accesspoint/access-point-name` in your IAM policy Resource statements. The access point alias (ending in `-ext-s3alias`) is only used for home directory mappings.
 
 ###### To create the IAM role
 

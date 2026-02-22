@@ -48,7 +48,7 @@ servers](infrastructure-security.md#nlb-considerations "infrastructure-security.
         You provide an Amazon API Gateway URL and an invocation role. For more information, see [Using Amazon API Gateway to integrate your identity
         provider](authentication-api-gateway.md "authentication-api-gateway.md").
 
-    ![The Choose an identity provider console section with Custom identity provider selected.](/images/transfer/latest/userguide/images/custom-lambda-console-no-sftp.png)
+    ![The Choose an identity provider console section with Custom identity provider selected.](images/custom-lambda-console-no-sftp.png)
 
 4.  Choose **Next**.
 5.  In **Choose an endpoint**, do the following:
@@ -93,7 +93,7 @@ following:
 
 
 
-    ![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](/images/transfer/latest/userguide/images/logging-server-choose-existing-group.png)
+    ![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](images/logging-server-choose-existing-group.png)
 
     If you choose **Create log group**, the CloudWatch console
      ([https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/")) opens to the **Create log
@@ -133,7 +133,7 @@ following:
 
 
 
-    ![The Optimized directories console section.](/images/transfer/latest/userguide/images/optimized-directories.png)
+    ![The Optimized directories console section.](images/optimized-directories.png)
     7. Choose **Next**.
     8. (Optional) You can configure AWS Transfer Family servers to display customized
      messages such as organizational policies or terms and conditions to your
