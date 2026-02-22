@@ -1,41 +1,53 @@
-# Deleting RDS Custom for SQL Server automated backups
+# Restoring from an RDS Custom for SQL Server DB snapshot
 
-You can delete retained automated backups for RDS Custom for SQL Server when they are no longer needed. The procedure is the
-same as the procedure for deleting Amazon RDS backups.
+When you restore an RDS Custom for SQL Server DB instance, you provide the name of the DB snapshot and a name for the new instance.
+You can't restore from a snapshot to an existing RDS Custom DB instance. A new RDS Custom for SQL Server DB instance is created when you restore.
 
-###### To delete a retained automated backup
+Restoring from a snapshot will restore the storage volume to the point in time at which the snapshot was taken.
+This will include all the databases and any other files that were present on the `(D:)` volume.
+
+###### To restore an RDS Custom DB instance from a DB snapshot
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Automated backups**.
-3. Choose **Retained**.
-4. Choose the retained automated backup that you want to delete.
-5. For **Actions**, choose **Delete**.
-6. On the confirmation page, enter `delete me` and choose
-   **Delete**.
-   You can delete a retained automated backup by using the AWS CLI command [delete-db-instance-automated-backup](../../../cli/latest/reference/rds/delete-db-instance-automated-backup.md "../../../cli/latest/reference/rds/delete-db-instance-automated-backup.md").
+2. In the navigation pane, choose **Snapshots**.
+3. Choose the DB snapshot that you want to restore from.
+4. For **Actions**, choose **Restore snapshot**.
+5. On the **Restore DB instance** page, for **DB instance
+   identifier**, enter the name for your restored RDS Custom DB instance.
+6. Choose **Restore DB instance**.
+   You restore an RDS Custom DB snapshot by using the [restore-db-instance-from-db-snapshot](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md") AWS CLI command.
 
-The following option is used to delete a retained automated backup:
+If the snapshot you are restoring from is for a private DB instance, make sure to specify both the correct
+`db-subnet-group-name` and `no-publicly-accessible`. Otherwise, the DB instance defaults to
+publicly accessible. The following options are required:
 
-- `--dbi-resource-id` – The resource identifier for the source RDS Custom DB instance.
-
-You can find the resource identifier for the source DB instance of a retained automated backup by using the
-AWS CLI command [describe-db-instance-automated-backups](../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md "../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md").
-The following example deletes the retained automated backup with source DB instance resource identifier
-`custom-db-123ABCEXAMPLE`.
+- `db-snapshot-identifier` – Identifies the snapshot from which to restore
+- `db-instance-identifier` – Specifies the name of the RDS Custom DB instance to create
+  from the DB snapshot
+- `custom-iam-instance-profile` – Specifies the instance profile associated with the
+  underlying Amazon EC2 instance of an RDS Custom DB instance.
+  The following code restores the snapshot named `my-custom-snapshot` for
+  `my-custom-instance`.
 
 ###### Example
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds delete-db-instance-automated-backup \
-    --dbi-resource-id `custom-db-123ABCEXAMPLE`
+aws rds restore-db-instance-from-db-snapshot \
+  --db-snapshot-identifier `my-custom-snapshot` \
+  --db-instance-identifier `my-custom-instance` \
+  --custom-iam-instance-profile `AWSRDSCustomInstanceProfileForRdsCustomInstance` \
+  --no-publicly-accessible
 ```
 
 For Windows:
 
 ```
-aws rds delete-db-instance-automated-backup ^
-    --dbi-resource-id `custom-db-123ABCEXAMPLE`
+aws rds restore-db-instance-from-db-snapshot ^
+  --db-snapshot-identifier `my-custom-snapshot` ^
+  --db-instance-identifier `my-custom-instance` ^
+  --custom-iam-instance-profile `AWSRDSCustomInstanceProfileForRdsCustomInstance` ^
+  --no-publicly-accessible
 ```

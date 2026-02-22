@@ -874,8 +874,6 @@ DB instances:
   (`com.amazonaws.`region`.events`)
 - Amazon EC2 (`com.amazonaws.`region`.ec2` and
   `com.amazonaws.`region`.ec2messages`)
-- Amazon EventBridge
-  (`com.amazonaws.`region`.events`)
 - Amazon S3 (`com.amazonaws.`region`.s3`)
 - AWS Secrets Manager
   (`com.amazonaws.`region`.secretsmanager`)

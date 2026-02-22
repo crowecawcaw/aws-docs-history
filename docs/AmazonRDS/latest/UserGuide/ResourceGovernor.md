@@ -1,55 +1,21 @@
-# Disabling Microsoft SQL Server resource governor for your RDS for SQL Server instance
+# Best practices for configuring resource governor on RDS for SQL Server
 
-When you disable resource governor on RDS for SQL Server,
-the service stops managing workload resources. Before you disable resource governor,
-review how this affects your database connections and configurations.
+To control resource consumption, RDS for SQL Server supports Microsoft SQL Server resource governor.
+The following best practices help you avoid common configuration issues and optimize database performance.
 
-Disabling resource governor has the following results:
-
-- The classifier function isn't executed when a new connection is opened.
-- New connections are automatically classified into the default workload group.
-- All existing workload group and resource pool settings are reset to their default values.
-- No events are fired when limits are reached.
-- Resource governor configuration changes can be made, but the changes don't take effect until resource governor is enabled.
-  To disable resource governor, remove the `RESOURCE_GOVERNOR` option from its option group.
-
-The following procedure removes the `RESOURCE_GOVERNOR` option.
-
-###### To remove the RESOURCE_GOVERNOR option from its option group
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `RESOURCE_GOVERNOR`
-   option (`resource-governor-ee-2022` in the previous examples).
-4. Choose **Delete option**.
-5. Under **Deletion options**, choose **RESOURCE_GOVERNOR**
-   for **Options to delete**.
-6. Under **Apply immediately**, choose **Yes** to delete
-   the option immediately, or **No** to delete it during the next maintenance window.
-7. Choose **Delete**.
-   The following procedure removes the `RESOURCE_GOVERNOR` option.
-
-###### To remove the RESOURCE_GOVERNOR option from its option group
-
-- Run one of the following commands.
-
-###### Example
-
-For Linux, macOS, or Unix:
-
-```
-aws rds remove-option-from-option-group \
-    --option-group-name `resource-governor-ee-2022` \
-    --options RESOURCE_GOVERNOR \
-    --apply-immediately
-```
-
-For Windows:
-
-```
-aws rds remove-option-from-option-group ^
-    --option-group-name `resource-governor-ee-2022` ^
-    --options RESOURCE_GOVERNOR ^
-    --apply-immediately
-```
+1. Resource governor configuration is stored in the `master` database.
+   We recommend that you always save a copy of resource governor configuration scripts separately.
+2. The classifier function extends login processing time hence it's recommended to avoid complex logic in the classifier.
+   An overly complex function can cause login delays or connection timeouts including Amazon RDS automation sessions.
+   This can impact the ability of Amazon RDS automation to monitor the instance health. Hence, it's always recommended to
+   test the classifier function in a pre-production environment before implementing in production environments.
+3. Avoid setting high values (above 70) for `REQUEST_MAX_MEMORY_GRANT_PERCENT` in workload groups,
+   as this can prevent the database instance from allocating sufficient memory for other concurrent queries,
+   potentially resulting in memory grant timeout errors (Error 8645). Conversely, setting this value too low
+   (less than 1) or to 0 might prevent queries that need memory workspace (like those involving sort or hash operations)
+   from executing properly in user-defined workload groups.
+   RDS enforces these limits by restricting values to between 1 and 70 on default workload groups.
+4. For binding tempdb to resource pool, after binding memory optimized tempdb metadata to a pool, the pool
+   might reach its maximum setting, and any queries that use `tempdb` might fail with out-of-memory errors.
+   Under certain circumstances, the SQL Server could potentially stop if an out-of-memory error occurs.
+   To reduce the chance of this happening, set the memory pool's `MAX_MEMORY_PERCENT` to a high value.

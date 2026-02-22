@@ -1,27 +1,50 @@
-# Analyzing DB load by wait events
+# Creating a
 
-If the **Database load** chart shows a bottleneck, you can find out where the load is
-coming from. To do so, look at the top load items table below the **Database load**
-chart. Choose a particular item, like a SQL query or a user, to drill down into that item and see details about
-it.
+performance analysis report in Performance Insights
 
-DB load grouped by waits and top SQL queries is the default Performance Insights dashboard view. This
-combination typically provides the most insight into performance issues. DB load grouped by waits shows if there
-are any resource or concurrency bottlenecks in the database. In this case, the **SQL** tab of the top load items table shows which queries are driving that load.
+You can create a performance analysis report for a specific period in the Performance Insights dashboard. You can select a time period and add one or more
+tags to the analysis report.
 
-Your typical workflow for diagnosing performance issues is as follows:
+The analysis period can range from 5 minutes to 6 days. There must be at least 24 hours of performance data before the analysis start time.
 
-1. Review the **Database load** chart and see if there are any incidents of database load
-   exceeding the **Max CPU** line.
-2. If there is, look at the **Database load** chart and identify which wait state or
-   states are primarily responsible.
-3. Identify the digest queries causing the load by seeing which of the queries the **SQL** tab on the top load items table are contributing most to those wait states. You can
-   identify these by the **DB Load by Wait** column.
-4. Choose one of these digest queries in the **SQL** tab to expand it and see
-   the child queries that it is composed of.
-   For example, in the dashboard following, **log file sync** waits account for most of the DB load.
-   The **LGWR all worker groups** wait is also high. The **Top SQL** chart shows
-   what is causing the **log file sync** waits: frequent `COMMIT` statements. In this
-   case, committing less frequently will reduce DB load.
+For the region, DB engine, and instance class support information for this feature, see
+[Amazon RDS DB engine, Region, and instance class support
+for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport")
 
-![log file sync errors](images/perf_insights_7.png)
+###### To create a performance analysis report for a time period
+
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the left navigation pane, choose **Performance Insights**.
+3. Choose a DB instance.
+4. Choose **Analyze performance** in **Database load**
+   section on the Performance Insights dashboard.
+
+The fields to set the time period and add one or more tags to the performance analysis report are displayed.
+
+![Performance Insights dashboard showing fields to create analysis report](images/PI_CreateAnalysisReport.png) 5. Choose the time period. If you set a time period in the **Relative range** or **Absolute range**
+in the upper right, you can only enter or select the analysis report date and time within this time period.
+If you select the analysis period outside of this time period, an error message displays.
+
+To set the time period, you can do any of the following:
+
+    * Press and drag any of the sliders on the DB load chart.
+
+
+    The **Performance analysis period** box displays the selected time period and DB load chart highlights the selected time period.
+    * Choose the **Start date**, **Start time**, **End date**, and **End time** in the
+     **Performance analysis period** box.
+
+![Performance Insights dashboard with analysis period selected](images/PI_CreateAnalysisRep_TimePeriod.png) 6. (Optional) Enter **Key** and **Value-_optional_** to add a tag for the report.
+
+![Performance Insights dashboard with fields to add a new tag](images/PI_CreateAnalysisRep_AddTag.png) 7. Choose **Analyze performance**.
+
+A banner displays a message whether the report generation is successful or failed. The message also provides the link to view the report.
+
+The following example shows the banner with the report creation successful message.
+
+![Analysis report creation successful message banner](images/PI_CreateAnaysisRep_SuccessMsg.png)
+
+The report is available to view in **Performance analysis reports - new** tab.
+You can create a performance analysis report using the AWS CLI.
+For an example on how to create a report using AWS CLI, see [Creating a performance analysis report for a time period](USER_PerfInsights.API.md#USER_PerfInsights.API.Examples.CreatePerfAnalysisReport "USER_PerfInsights.API.md#USER_PerfInsights.API.Examples.CreatePerfAnalysisReport").

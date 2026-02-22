@@ -1,16 +1,164 @@
-# Troubleshooting RDS for PostgreSQL permissions
+# Data conversion when exporting to an Amazon S3
 
-errors
+bucket for Amazon RDS
 
-When exporting PostgreSQL databases to Amazon S3, you might see a
-`PERMISSIONS_DO_NOT_EXIST` error stating that certain tables were
-skipped. This error usually occurs when the superuser, which you specified when creating
-the database, doesn't have permissions to access those tables.
+When you export a DB snapshot to an Amazon S3 bucket, Amazon RDS converts data to,
+exports data in, and stores data in the Parquet format. For more information about
+Parquet, see the [Apache
+Parquet](https://parquet.apache.org/docs/ "https://parquet.apache.org/docs/") website.
 
-To fix this error, run the following command:
+Parquet stores all data as one of the following primitive types:
 
-```
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA `schema_name` TO `superuser_name`
-```
+- BOOLEAN
+- INT32
+- INT64
+- INT96
+- FLOAT
+- DOUBLE
+- BYTE_ARRAY – A variable-length byte array, also known as binary
+- FIXED_LEN_BYTE_ARRAY – A fixed-length byte array used when the values have a
+  constant size
+  The Parquet data types are few to reduce the complexity of reading and writing the format.
+  Parquet provides logical types for extending primitive types. A _logical type_ is implemented as an annotation with the data in a
+  `LogicalType` metadata field. The logical type annotation explains how to
+  interpret the primitive type.
 
-For more information on superuser privileges, see [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
+When the `STRING` logical type annotates a `BYTE_ARRAY` type, it
+indicates that the byte array should be interpreted as a UTF-8 encoded character string.
+After an export task completes, Amazon RDS notifies you if any string conversion occurred.
+The underlying data exported is always the same as the data from the source. However,
+due to the encoding difference in UTF-8, some characters might appear different from the
+source when read in tools such as Athena.
+
+For more information, see [Parquet
+logical type definitions](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md "https://github.com/apache/parquet-format/blob/master/LogicalTypes.md") in the Parquet documentation.
+
+###### Topics
+
+- [MySQL and MariaDB data type mapping to Parquet](#USER_ExportSnapshot.data-types.MySQL "#USER_ExportSnapshot.data-types.MySQL")
+- [PostgreSQL data type mapping to Parquet](#USER_ExportSnapshot.data-types.PostgreSQL "#USER_ExportSnapshot.data-types.PostgreSQL")
+
+## MySQL and MariaDB data type mapping to Parquet
+
+The following table shows the mapping from MySQL and MariaDB data types to Parquet data types when data is converted and
+exported to Amazon S3.
+
+| Source data type             | Parquet primitive type  | Logical type annotation                                                                                                                                | Conversion notes                                                                                                                   |
+| ---------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **Numeric data types**       |
+| BIGINT                       | INT64                   |                                                                                                                                                        |                                                                                                                                    |
+| BIGINT UNSIGNED              | FIXED_LEN_BYTE_ARRAY(9) | DECIMAL(20,0)                                                                                                                                          | Parquet supports only signed types, so the mapping requires an<br>additional byte (8 plus 1) to store the BIGINT_UNSIGNED<br>type. |
+| BIT                          | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| DECIMAL                      | INT32                   | DECIMAL(p,s)                                                                                                                                           | If the source value is less than 231,<br>it's stored as INT32.                                                                     |
+| INT64                        | DECIMAL(p,s)            | If the source value is 231 or greater,<br>but less than 263, it's stored as<br>INT64.                                                                  |
+| FIXED_LEN_BYTE_ARRAY(N)      | DECIMAL(p,s)            | If the source value is 263 or greater,<br>it's stored as FIXED_LEN_BYTE_ARRAY(N).                                                                      |
+| BYTE_ARRAY                   | STRING                  | Parquet doesn't support Decimal precision greater than 38.<br>The Decimal value is converted to a string in a BYTE_ARRAY type and<br>encoded as UTF8.  |
+| DOUBLE                       | DOUBLE                  |                                                                                                                                                        |                                                                                                                                    |
+| FLOAT                        | DOUBLE                  |                                                                                                                                                        |                                                                                                                                    |
+| INT                          | INT32                   |                                                                                                                                                        |                                                                                                                                    |
+| INT UNSIGNED                 | INT64                   |                                                                                                                                                        |                                                                                                                                    |
+| MEDIUMINT                    | INT32                   |                                                                                                                                                        |                                                                                                                                    |
+| MEDIUMINT UNSIGNED           | INT64                   |                                                                                                                                                        |                                                                                                                                    |
+| NUMERIC                      | INT32                   | DECIMAL(p,s)                                                                                                                                           | If the source value is less than<br>231, it's stored as<br>INT32.                                                                  |
+| INT64                        | DECIMAL(p,s)            | If the source value is 231 or greater,<br>but less than 263, it's stored as<br>INT64.                                                                  |
+| FIXED_LEN_ARRAY(N)           | DECIMAL(p,s)            | If the source value is 263 or greater,<br>it's stored as FIXED_LEN_BYTE_ARRAY(N).                                                                      |
+| BYTE_ARRAY                   | STRING                  | Parquet doesn't support Numeric precision greater than 38. This<br>Numeric value is converted to a string in a BYTE_ARRAY type and<br>encoded as UTF8. |
+| SMALLINT                     | INT32                   |                                                                                                                                                        |                                                                                                                                    |
+| SMALLINT UNSIGNED            | INT32                   |                                                                                                                                                        |                                                                                                                                    |
+| TINYINT                      | INT32                   |                                                                                                                                                        |                                                                                                                                    |
+| TINYINT UNSIGNED             | INT32                   | INT(16, true)                                                                                                                                          |                                                                                                                                    |
+| **String data types**        |
+| BINARY                       | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| BLOB                         | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| CHAR                         | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| ENUM                         | BYTE_ARRAY              | STRING                                                                                                                                                 |                                                                                                                                    |
+| LINESTRING                   | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| LONGBLOB                     | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| LONGTEXT                     | BYTE_ARRAY              | STRING                                                                                                                                                 |                                                                                                                                    |
+| MEDIUMBLOB                   | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| MEDIUMTEXT                   | BYTE_ARRAY              | STRING                                                                                                                                                 |                                                                                                                                    |
+| MULTILINESTRING              | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| SET                          | BYTE_ARRAY              | STRING                                                                                                                                                 |                                                                                                                                    |
+| TEXT                         | BYTE_ARRAY              | STRING                                                                                                                                                 |                                                                                                                                    |
+| TINYBLOB                     | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| TINYTEXT                     | BYTE_ARRAY              | STRING                                                                                                                                                 |                                                                                                                                    |
+| VARBINARY                    | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| VARCHAR                      | BYTE_ARRAY              | STRING                                                                                                                                                 |                                                                                                                                    |
+| **Date and time data types** |
+| DATE                         | BYTE_ARRAY              | STRING                                                                                                                                                 | A date is converted to a string in a BYTE_ARRAY type and encoded<br>as UTF8.                                                       |
+| DATETIME                     | INT64                   | TIMESTAMP_MICROS                                                                                                                                       |                                                                                                                                    |
+| TIME                         | BYTE_ARRAY              | STRING                                                                                                                                                 | A TIME type is converted to a string in a BYTE_ARRAY and encoded<br>as UTF8.                                                       |
+| TIMESTAMP                    | INT64                   | TIMESTAMP_MICROS                                                                                                                                       |                                                                                                                                    |
+| YEAR                         | INT32                   |                                                                                                                                                        |                                                                                                                                    |
+| **Geometric data types**     |
+| GEOMETRY                     | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| GEOMETRYCOLLECTION           | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| MULTIPOINT                   | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| MULTIPOLYGON                 | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| POINT                        | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| POLYGON                      | BYTE_ARRAY              |                                                                                                                                                        |                                                                                                                                    |
+| **JSON data type**           |
+| JSON                         | BYTE_ARRAY              | STRING                                                                                                                                                 |                                                                                                                                    |
+
+##
+
+PostgreSQL data type mapping to Parquet
+
+The following table shows the mapping from PostgreSQL data types to Parquet data types when
+data is converted and exported to Amazon S3.
+
+| PostgreSQL data type              | Parquet primitive type | Logical type annotation | Mapping notes                                                                                                                                                                                               |
+| --------------------------------- | ---------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Numeric data types**            |
+| BIGINT                            | INT64                  |                         |                                                                                                                                                                                                             |
+| BIGSERIAL                         | INT64                  |                         |                                                                                                                                                                                                             |
+| DECIMAL                           | BYTE_ARRAY             | STRING                  | A DECIMAL type is converted to a string in a BYTE_ARRAY type and<br>encoded as UTF8.This conversion is to avoid complications due<br>to data precision and data values that are not a number<br>(NaN).      |
+| DOUBLE PRECISION                  | DOUBLE                 |                         |                                                                                                                                                                                                             |
+| INTEGER                           | INT32                  |                         |                                                                                                                                                                                                             |
+| MONEY                             | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| REAL                              | FLOAT                  |                         |                                                                                                                                                                                                             |
+| SERIAL                            | INT32                  |                         |                                                                                                                                                                                                             |
+| SMALLINT                          | INT32                  | INT(16, true)           |                                                                                                                                                                                                             |
+| SMALLSERIAL                       | INT32                  | INT(16, true)           |                                                                                                                                                                                                             |
+| **String and related data types** |
+| ARRAY                             | BYTE_ARRAY             | STRING                  | An array is converted to a string and encoded as BINARY<br>(UTF8).<br>This conversion is to avoid complications due to data<br>precision, data values that are not a number (NaN), and time<br>data values. |
+| BIT                               | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| BIT VARYING                       | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| BYTEA                             | BINARY                 |                         |                                                                                                                                                                                                             |
+| CHAR                              | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| CHAR(N)                           | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| ENUM                              | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| NAME                              | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| TEXT                              | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| TEXT SEARCH                       | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| VARCHAR(N)                        | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| XML                               | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| **Date and time data types**      |
+| DATE                              | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| INTERVAL                          | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| TIME                              | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| TIME WITH TIME ZONE               | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| TIMESTAMP                         | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| TIMESTAMP WITH TIME ZONE          | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| **Geometric data types**          |
+| BOX                               | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| CIRCLE                            | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| LINE                              | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| LINESEGMENT                       | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| PATH                              | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| POINT                             | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| POLYGON                           | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| **JSON data types**               |
+| JSON                              | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| JSONB                             | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| **Other data types**              |
+| BOOLEAN                           | BOOLEAN                |                         |                                                                                                                                                                                                             |
+| CIDR                              | BYTE_ARRAY             | STRING                  | Network data type                                                                                                                                                                                           |
+| COMPOSITE                         | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| DOMAIN                            | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| INET                              | BYTE_ARRAY             | STRING                  | Network data type                                                                                                                                                                                           |
+| MACADDR                           | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| OBJECT IDENTIFIER                 | N/A                    |                         |                                                                                                                                                                                                             |
+| PG_LSN                            | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| RANGE                             | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |
+| UUID                              | BYTE_ARRAY             | STRING                  |                                                                                                                                                                                                             |

@@ -1,57 +1,51 @@
-# Modifying a proxy endpoint
+# Viewing proxy endpoints
 
-To modify your proxy endpoints, follow these instructions:
+To view existing proxy endpoints, follow these instructions:
 
-###### To modify one or more proxy endpoints
+###### To view the details for a proxy endpoint
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Proxies**.
-3. In the list, choose the proxy whose endpoint you want to modify. Click the proxy name to view its details page.
-4. In the **Proxy endpoints** section, choose the endpoint that you want to modify. You
-   can select it in the list, or click its name to view the details page.
-5. On the proxy details page, under the **Proxy endpoints** section, choose
-   **Edit**.
-   Or, on the proxy
-   endpoint details page, for **Actions**, choose
-   **Edit**.
-6. Change the values of the parameters that you want to
-   modify.
-7. Choose **Save changes**.
+3. In the list, choose the proxy whose endpoint you want to view. Click the proxy name to view its
+   details page.
+4. In the **Proxy endpoints** section, choose the endpoint that you want to view. Click
+   its name to view the details page.
+5. Examine the parameters whose values you're interested in. You can check properties such as the
+   following:
+   - Whether the endpoint is read/write or
+     read-only.
+   - The endpoint address that you use in a database connection
+     string.
+   - The VPC, subnets, and security groups associated with the
+     endpoint.
+     To view one or more proxy endpoints, use the AWS CLI [describe-db-proxy-endpoints](../../../cli/latest/reference/rds/describe-db-proxy-endpoints.md "../../../cli/latest/reference/rds/describe-db-proxy-endpoints.md")
+     command.
 
-To modify a proxy endpoint, use the AWS CLI
-[modify-db-proxy-endpoint](../../../cli/latest/reference/rds/modify-db-proxy-endpoint.md "../../../cli/latest/reference/rds/modify-db-proxy-endpoint.md") command with
-the following required parameters:
+You can include the following optional parameters:
 
 - `--db-proxy-endpoint-name`
+- `--db-proxy-name`
 
-Specify changes to the endpoint properties by using one or more of the following parameters:
-
-- `--new-db-proxy-endpoint-name`
-- `--vpc-security-group-ids`. Separate the security group IDs with spaces.
-
-The following example renames the `my-endpoint` proxy endpoint to
-`new-endpoint-name`.
+The following example describes the `my-endpoint` proxy endpoint.
 
 ###### Example
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds modify-db-proxy-endpoint \
-  --db-proxy-endpoint-name `my-endpoint` \
-  --new-db-proxy-endpoint-name `new-endpoint-name`
+aws rds describe-db-proxy-endpoints \
+  --db-proxy-endpoint-name `my-endpoint`
 
 ```
 
 For Windows:
 
 ```
-aws rds modify-db-proxy-endpoint ^
-  --db-proxy-endpoint-name `my-endpoint` ^
-  --new-db-proxy-endpoint-name `new-endpoint-name`
+aws rds describe-db-proxy-endpoints ^
+  --db-proxy-endpoint-name `my-endpoint`
 
 ```
 
-To modify a proxy endpoint, use the RDS API
-[ModifyDBProxyEndpoint](../APIReference/API_ModifyDBProxyEndpoint.md "../APIReference/API_ModifyDBProxyEndpoint.md") operation.
+To describe one or more proxy endpoints, use the RDS API
+[DescribeDBProxyEndpoints](../APIReference/API_DescribeDBProxyEndpoints.md "../APIReference/API_DescribeDBProxyEndpoints.md") operation.

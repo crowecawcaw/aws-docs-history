@@ -1,32 +1,39 @@
-# Deny or allow viewing database names for Amazon RDS for SQL Server
+# Determining the last failover time for Amazon RDS for SQL Server
 
-The master user cannot set `DENY VIEW ANY DATABASE TO `LOGIN``  
-to hide databases from a user.  
-To change this permission, use the following stored procedure instead:
-
-- Denying database view access to `LOGIN`:
+To determine the last failover time, use the following stored procedure:
 
 ```
-EXEC msdb.dbo.rds_manage_view_db_permission @permission=‘DENY’, @server_principal=`‘LOGIN’` 
-go
+execute msdb.dbo.rds_failover_time;
 ```
 
-- Allowing database view access to `LOGIN`:
+This procedure returns the following information.
 
-```
-EXEC msdb.dbo.rds_manage_view_db_permission @permission='GRANT', @server_principal=`'LOGIN'`
- go
-```
+| Output parameter        | Description                                                                                       |
+| ----------------------- | ------------------------------------------------------------------------------------------------- |
+| errorlog_available_from | Shows the time from when error logs are available in the log directory.                           |
+| recent_failover_time    | Shows the last failover time if it's available from the error logs. Otherwise it<br>shows `null`. |
 
-Consider the following when using this stored procedure:
+###### Note
 
-- Database names are hidden from the SSMS and internal DMV (dynamic management views).
-  However, database names are still visible from audit, logs and metadata tables.
-  These are secured `VIEW ANY DATABASE` server permissions. For more information, see
-  [DENY Server Permissions](https://learn.microsoft.com/en-us/sql/t-sql/statements/deny-server-permissions-transact-sql?view=sql-server-ver16#permissions "https://learn.microsoft.com/en-us/sql/t-sql/statements/deny-server-permissions-transact-sql?view=sql-server-ver16#permissions").
-- Once the permission is reverted to `GRANT` (allowed), the `LOGIN` can view all databases.
-- If you delete and recreate `LOGIN`, the view permission related to the LOGIN is reset to `ALLOW`.
-- For Multi-AZ instances, set the `DENY` or `GRANT` permission only for the `LOGIN` on the primary host.
-  The changes are propagated to the secondary host automatically.
-- This permission only changes whether a login can view the database names.
-  However, access to databases and objects within are managed separately.
+The stored procedure searches all of the available SQL Server error logs in the
+log directory to retrieve the most recent failover time. If the failover messages
+have been overwritten by SQL Server, then the procedure doesn't retrieve the
+failover time.
+
+###### Example of no recent failover
+
+This example shows the output when there is no recent failover in the error logs. No
+failover has happened since 2020-04-29 23:59:00.01.
+
+| errorlog_available_from     | recent_failover_time |
+| --------------------------- | -------------------- |
+| 2020-04-29 23:59:00.0100000 | null                 |
+
+###### Example of recent failover
+
+This example shows the output when there is a failover in the error logs. The most recent
+failover was at 2020-05-05 18:57:51.89.
+
+| errorlog_available_from     | recent_failover_time        |
+| --------------------------- | --------------------------- |
+| 2020-04-29 23:59:00.0100000 | 2020-05-05 18:57:51.8900000 |

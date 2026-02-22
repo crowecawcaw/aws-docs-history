@@ -1,81 +1,183 @@
-# Disable and drop SSIS database
+# Using SSIS
 
-Use the following steps to disable or drop SSIS databases:
+After deploying the SSIS project into the SSIS catalog, you can run packages directly from
+SSMS or schedule them by using SQL Server Agent. You must use a Windows-authenticated
+login for executing SSIS packages. For more information, see [Setting up a Windows-authenticated user for SSIS](SSIS.md#SSIS.Use.Auth "SSIS.md#SSIS.Use.Auth").
 
 ###### Topics
 
-- [Disabling SSIS](#SSIS.Disable "#SSIS.Disable")
-- [Dropping the SSISDB database](#SSIS.Drop "#SSIS.Drop")
+- [Setting database connection managers for SSIS projects](#SSIS.Use.ConnMgrs "#SSIS.Use.ConnMgrs")
+- [Creating an SSIS proxy](#SSIS.Use.Proxy "#SSIS.Use.Proxy")
+- [Scheduling an SSIS package using SQL Server Agent](#SSIS.Use.Schedule "#SSIS.Use.Schedule")
+- [Revoking SSIS access from the proxy](#SSIS.Use.Revoke "#SSIS.Use.Revoke")
 
-## Disabling SSIS
+## Setting database connection managers for SSIS projects
 
-To disable SSIS, remove the `SSIS` option from its option group.
+When you use a connection manager, you can use these types of authentication:
 
-###### Important
+- For local database connections using AWS Managed Active Directory, you can use SQL authentication or Windows authentication. For Windows authentication, use
+  ``DB_instance_name`.`fully_qualified_domain_name`` as the server name of the connection string.
 
-Removing the option doesn't delete the SSISDB database, so you can safely remove the
-option without losing the SSIS projects.
+An example is `myssisinstance.corp-ad.example.com`, where
+`myssisinstance` is the DB instance name and
+`corp-ad.example.com` is the fully qualified domain
+name.
 
-You can re-enable the `SSIS` option after removal to reuse the SSIS
-projects that were previously deployed to the SSIS catalog.
+- For remote connections, always use SQL authentication.
+- For local database connections using self-managed Active Directory,
+  you can use SQL authentication or Windows authentication. For Windows authentication,
+  use `.` or `LocalHost` as
+  the server name of the connection string.
 
-The following procedure removes the `SSIS` option.
+## Creating an SSIS proxy
 
-###### To remove the SSIS option from its option group
+To be able to schedule SSIS packages using SQL Server Agent, create an SSIS credential and
+an SSIS proxy. Run these procedures as a Windows-authenticated user.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `SSIS` option (`ssis-se-2016` in
-   the previous examples).
-4. Choose **Delete option**.
-5. Under **Deletion options**, choose **SSIS** for
-   **Options to delete**.
-6. Under **Apply immediately**, choose **Yes** to delete
-   the option immediately, or **No** to delete it at
-   the next maintenance window.
-7. Choose **Delete**.
-   The following procedure removes the `SSIS` option.
+###### To create the SSIS credential
 
-###### To remove the SSIS option from its option group
-
-- Run one of the following commands.
-
-###### Example
-
-For Linux, macOS, or Unix:
+- Create the credential for the proxy. To do this, you can use SSMS or the following SQL
+  statement.
 
 ```
-aws rds remove-option-from-option-group \
-    --option-group-name `ssis-se-2016` \
-    --options SSIS \
-    --apply-immediately
+USE [master]
+GO
+CREATE CREDENTIAL [SSIS_Credential] WITH IDENTITY = N'`mydomain`\`user_name`', SECRET = N'`mysecret`'
+GO
 ```
 
-For Windows:
+###### Note
 
-```
-aws rds remove-option-from-option-group ^
-    --option-group-name `ssis-se-2016` ^
-    --options SSIS ^
-    --apply-immediately
-```
+`IDENTITY` must be a domain-authenticated login. Replace
+`mysecret` with the
+password for the domain-authenticated login.
 
-## Dropping the SSISDB database
+Whenever the SSISDB primary host is changed, alter the SSIS proxy credentials to allow
+the new host to access them.
 
-After removing the SSIS option, the SSISDB database isn't deleted. To drop the SSISDB
-database, use the `rds_drop_ssis_database` stored procedure after removing
-the SSIS option.
+###### To create the SSIS proxy
 
-###### To drop the SSIS database
-
-- Use the following stored procedure.
+1. Use the following SQL statement to create the proxy.
 
 ```
 USE [msdb]
 GO
-EXEC dbo.rds_drop_ssis_database
+EXEC msdb.dbo.sp_add_proxy @proxy_name=N'SSIS_Proxy',@credential_name=N'SSIS_Credential',@description=N''
 GO
 ```
 
-After dropping the SSISDB database, if you re-enable the SSIS option you get a fresh SSISDB catalog.
+2. Use the following SQL statement to grant access to the proxy to other
+   users.
+
+```
+USE [msdb]
+GO
+EXEC msdb.dbo.sp_grant_login_to_proxy @proxy_name=N'SSIS_Proxy',@login_name=N'`mydomain`\`user_name`'
+GO
+```
+
+3. Use the following SQL statement to give the SSIS subsystem access to
+   the proxy.
+
+```
+USE [msdb]
+GO
+EXEC msdb.dbo.rds_sqlagent_proxy @task_type='GRANT_SUBSYSTEM_ACCESS',@proxy_name='SSIS_Proxy',@proxy_subsystem='SSIS'
+GO
+```
+
+###### To view the proxy and grants on the proxy
+
+1. Use the following SQL statement to view the grantees of the proxy.
+
+```
+USE [msdb]
+GO
+EXEC sp_help_proxy
+GO
+```
+
+2. Use the following SQL statement to view the subsystem grants.
+
+```
+USE [msdb]
+GO
+EXEC msdb.dbo.sp_enum_proxy_for_subsystem
+GO
+```
+
+## Scheduling an SSIS package using SQL Server Agent
+
+After you create the credential and proxy and grant SSIS access to the proxy, you can
+create a SQL Server Agent job to schedule the SSIS package.
+
+###### To schedule the SSIS package
+
+- You can use SSMS or T-SQL for creating the SQL Server Agent job. The following example
+  uses T-SQL.
+
+```
+USE [msdb]
+GO
+DECLARE @jobId BINARY(16)
+EXEC msdb.dbo.sp_add_job @job_name=N'MYSSISJob',
+@enabled=1,
+@notify_level_eventlog=0,
+@notify_level_email=2,
+@notify_level_page=2,
+@delete_level=0,
+@category_name=N'[Uncategorized (Local)]',
+@job_id = @jobId OUTPUT
+GO
+EXEC msdb.dbo.sp_add_jobserver @job_name=N'MYSSISJob',@server_name=N'(local)'
+GO
+EXEC msdb.dbo.sp_add_jobstep @job_name=N'MYSSISJob',@step_name=N'ExecuteSSISPackage',
+@step_id=1,
+@cmdexec_success_code=0,
+@on_success_action=1,
+@on_fail_action=2,
+@retry_attempts=0,
+@retry_interval=0,
+@os_run_priority=0,
+@subsystem=N'SSIS',
+@command=N'/ISSERVER "\"\SSISDB\MySSISFolder\MySSISProject\MySSISPackage.dtsx\"" /SERVER "\"my-rds-ssis-instance.corp-ad.company.com/\""
+/Par "\"$ServerOption::LOGGING_LEVEL(Int16)\"";1 /Par "\"$ServerOption::SYNCHRONIZED(Boolean)\"";True /CALLERINFO SQLAGENT /REPORTING E',
+@database_name=N'master',
+@flags=0,
+@proxy_name=N'SSIS_Proxy'
+GO
+```
+
+## Revoking SSIS access from the proxy
+
+You can revoke access to the SSIS subsystem and delete the SSIS proxy using the following
+stored procedures.
+
+###### To revoke access and delete the proxy
+
+1. Revoke subsystem access.
+
+```
+USE [msdb]
+GO
+EXEC msdb.dbo.rds_sqlagent_proxy @task_type='REVOKE_SUBSYSTEM_ACCESS',@proxy_name='SSIS_Proxy',@proxy_subsystem='SSIS'
+GO
+```
+
+2. Revoke the grants on the proxy.
+
+```
+USE [msdb]
+GO
+EXEC msdb.dbo.sp_revoke_login_from_proxy @proxy_name=N'SSIS_Proxy',@name=N'`mydomain`\`user_name`'
+GO
+```
+
+3. Delete the proxy.
+
+```
+USE [msdb]
+GO
+EXEC dbo.sp_delete_proxy @proxy_name = N'SSIS_Proxy'
+GO
+```

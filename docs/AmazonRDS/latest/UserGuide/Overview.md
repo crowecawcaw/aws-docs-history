@@ -1,146 +1,113 @@
-# Controlling access with security
+# Logging and monitoring in Amazon RDS
 
-groups
+Monitoring is an important part of maintaining the reliability, availability, and
+performance of Amazon RDS
+and your AWS solutions. You should collect monitoring data
+from all of the parts of your AWS solution so that you can more easily debug a
+multi-point failure if one occurs. AWS provides several tools for monitoring your
+Amazon RDS
+resources and responding to potential incidents:
 
-VPC security groups control the access that traffic has in and out of a DB instance
+**Amazon CloudWatch Alarms**
+
+Using Amazon CloudWatch alarms, you watch a single metric over a time period that
+you specify. If the metric exceeds a given threshold, a notification is sent
+to an Amazon SNS topic or AWS Auto Scaling policy. CloudWatch alarms do not invoke actions
+because they are in a particular state. Rather the state must have changed
+and been maintained for a specified number of periods.
+
+**AWS CloudTrail Logs**
+
+CloudTrail provides a record of actions taken by a user, role, or an AWS
+service in Amazon RDS
+. CloudTrail captures all API calls for
+Amazon RDS
+as events, including calls from the console and from
+code calls to Amazon RDS API operations. Using the information collected by CloudTrail,
+you can determine the request that was made to Amazon RDS
+, the IP
+address from which the request was made, who made the request, when it was
+made, and additional details. For more information, see [Monitoring Amazon RDS API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 .
-By default, network access is turned off for a DB instance
-. You can specify rules
-in a security group that allow access from an IP address range, port, or security group.
-After ingress rules are configured, the same rules apply to all DB instances
 
-that are associated with that security group. You can specify up to 20 rules in a
-security group.
+**Enhanced Monitoring**
 
-## Overview of VPC security
+Amazon RDS
+provides metrics in real time for the operating
+system (OS) that your DB instance
+runs on.
+You can view the metrics for your DB instance
+using the
+console, or consume the Enhanced Monitoring JSON output from Amazon CloudWatch Logs in a
+monitoring system of your choice. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md")
+.
 
-groups
+**Amazon RDS Performance Insights**
 
-Each VPC security group rule makes it possible for a specific source to access a
+Performance Insights expands on existing Amazon RDS
+monitoring
+features to illustrate your database's performance and help you analyze
+any issues that affect it. With the Performance Insights dashboard, you can
+visualize the database load and filter the load by waits, SQL statements,
+hosts, or users. For more information, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md")
+.
+
+**Database Logs**
+
+You can view, download, and watch database logs using the AWS Management Console,
+AWS CLI, or RDS API. For more information, see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md")
+.
+
+**Amazon RDS
+Recommendations**
+
+Amazon RDS
+provides automated recommendations for database
+resources. These recommendations provide best practice guidance by analyzing
 DB instance
-in a VPC that is associated with that VPC security group. The
-source can be a range of addresses (for example, 203.0.113.0/24), or another VPC
-security group. By specifying a VPC security group as the source, you allow incoming
-traffic from all instances (typically application servers) that use the source VPC
-security group. VPC security groups can have rules that govern both inbound and
-outbound traffic. However, the outbound traffic rules typically don't apply to DB
-instances
-. Outbound traffic rules apply only if the DB instance
-acts as a client. For example,
-outbound traffic rules apply to an Oracle DB instance with outbound database
-links. You must use the [Amazon EC2
-API](../../../AWSEC2/latest/APIReference/Welcome.md "../../../AWSEC2/latest/APIReference/Welcome.md") or the **Security Group** option on the VPC console
-to create VPC security groups.
-
-When you create rules for your VPC security group that allow access to the instances
-in your VPC, you must specify a port for each range of
-addresses that the rule allows access for. For example, if you want to turn on
-Secure Shell (SSH) access for instances in the VPC, create a rule allowing access to
-TCP port 22 for the specified range of addresses.
-
-You can configure multiple VPC security groups that allow access to different
-ports for different instances in your VPC. For example, you can create a VPC
-security group that allows access to TCP port 80 for web servers in your VPC. You
-can then create another VPC security group that allows access to TCP port 3306 for
-RDS for MySQL
-DB instances in your VPC.
-
-For more information on VPC security groups, see [Security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the
-_Amazon Virtual Private Cloud User Guide_.
-
-###### Note
-
-If your DB instance
-is in a VPC but isn't publicly
-accessible, you can also use an AWS Site-to-Site VPN connection or an Direct Connect
-connection to access it from a private network. For more information, see [Internetwork traffic privacy](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md")
+configuration, usage, and performance data. For more
+information, see [Recommendations from Amazon RDS](monitoring-recommendations.md "monitoring-recommendations.md")
 .
 
-## Security group
+**Amazon RDS
+Event Notification**
 
-scenario
-
-A common use of a DB instance
-in a VPC is to share data with an
-application server running in an Amazon EC2 instance in the same VPC, which is accessed
-by a client application outside the VPC. For this scenario, you use the RDS and VPC
-pages on the AWS Management Console or the RDS and EC2 API operations to create the necessary
-instances and security groups:
-
-1. Create a VPC security group (for example, `sg-0123ec2example`)
-   and define inbound rules that use the IP addresses of the client application
-   as the source. This security group allows your client application to connect
-   to EC2 instances in a VPC that uses this security group.
-2. Create an EC2 instance for the application and add the EC2 instance to the
-   VPC security group (`sg-0123ec2example`) that you created in the
-   previous step.
-3. Create a second VPC security group (for example,
-   `sg-6789rdsexample`) and create a new rule by specifying the
-   VPC security group that you created in step 1
-   (`sg-0123ec2example`) as the source.
-4. Create a new DB instance
-   and add the DB instance
-   to the VPC security group
-   (`sg-6789rdsexample`) that you created in the previous step.
-   When you create the DB instance
-   , use the
-   same port number as the one specified for the VPC security group
-   (`sg-6789rdsexample`) rule that you created in step 3.
-
-The following diagram shows this scenario.
-
-![DB instance and EC2 instance in a VPC](images/con-VPC-sec-grp.png)
-
-For detailed instructions about configuring a VPC for this scenario, see [Tutorial: Create a VPC for use with a
-DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
-. For more information about
-using a VPC, see [Amazon VPC and Amazon RDS](USER_VPC.md "USER_VPC.md")
+Amazon RDS
+uses the Amazon Simple Notification Service (Amazon SNS) to provide notification
+when an Amazon RDS
+event occurs. These notifications
+can be in any notification form supported by Amazon SNS for an AWS Region, such
+as an email, a text message, or a call to an HTTP endpoint. For more
+information, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md")
 .
 
-## Creating a VPC security
+**AWS Trusted Advisor**
 
-group
+Trusted Advisor draws upon best practices learned from serving hundreds of
+thousands of AWS customers. Trusted Advisor inspects your AWS environment and
+then makes recommendations when opportunities exist to save money, improve
+system availability and performance, or help close security gaps. All AWS
+customers have access to five Trusted Advisor checks. Customers with a Business or
+Enterprise support plan can view all Trusted Advisor checks.
 
-You can create a VPC security group for a DB instance by
-using the VPC console. For information about creating a security group, see [Provide access to your DB instance in your VPC by
-creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup")
-and [Security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the
-_Amazon Virtual Private Cloud User Guide_.
+Trusted Advisor has the following Amazon RDS
+-related
+checks:
 
-## Associating a security group
+- Amazon RDS
+  Idle DB Instances
+- Amazon RDS
+  Security Group Access
+  Risk
+- Amazon RDS
+  Backups
+- Amazon RDS
+  Multi-AZ
 
-with a DB instance
+For more information on these checks, see [Trusted Advisor best
+practices (checks)](https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/ "https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/").
 
-You can associate a security group with a DB instance by using
-**Modify** on the RDS console, the
-`ModifyDBInstance` Amazon RDS API, or the `modify-db-instance`
-AWS CLI command.
-
-The following CLI example associates a specific VPC security group and removes DB
-security groups from the DB instance
-
-```
-aws rds modify-db-instance --db-instance-identifier `dbName` --vpc-security-group-ids `sg-ID`
-
-```
-
-For information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md")
-. For security group considerations
-when you restore a DB instance from a DB snapshot, see [Security group considerations](USER_RestoreFromSnapshot.md#USER_RestoreFromSnapshot.Security "USER_RestoreFromSnapshot.md#USER_RestoreFromSnapshot.Security")
-.
-
-###### Note
-
-The RDS console displays different security group rule names for your database
-if the Port value is configured to a non-default value.
-
-For RDS for Oracle DB instances, additional security groups can be associated by populating
-the security group options setting for the Oracle Enterprise Manager Database
-Express (OEM), Oracle Management Agent for Enterprise Manager Cloud Control (OEM
-Agent) and the Oracle Secure Sockets Layer options. In this case, both security
-groups associated with the DB instance and options settings apply to the DB instance. For more
-information about these option groups, see [Oracle Enterprise Manager](Oracle.Options.md "Oracle.Options.md")
-,[Oracle Management Agent for Enterprise Manager
-Cloud Control](Oracle.Options.md "Oracle.Options.md")
-, and [Oracle Secure Sockets Layer](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")
+For more information about monitoring Amazon RDS
+,
+see [Monitoring metrics in an Amazon RDS instance](CHAP_Monitoring.md "CHAP_Monitoring.md")
 .

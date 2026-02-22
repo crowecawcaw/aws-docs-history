@@ -1,164 +1,39 @@
-# Network Validation
+# Network configuration port rules
 
-Before joining your RDS Custom instance to either self-managed or AWS Managed Microsoft AD, check the
-following from a EC2 instance in the same VPC as where you plan to launch the RDS Custom for SQL Server instance.
+Make sure that you have met the following network configurations:
 
-- Check if you are able to resolve the fully qualified domain name (FQDN) to domain controller IPs.
+- Connectivity configured between the Amazon VPC where you want to create the RDS Custom for SQL Server DB instance to either your self-managed Active Directory or AWS Managed Microsoft AD.
+  For self-managed Active Directory, set up
+  connectivity using AWS Direct Connect, AWS VPN, VPC peering, or AWS Transit Gateway. For AWS Managed Microsoft AD, set up
+  connectivity using VPC peering.
+- Make sure that the security group and the VPC network ACLs for the subnet(s) where you're creating your
+  RDS Custom for SQL Server DB instance allow traffic on the ports and in the directions shown in the following diagram.
 
-```
-nslookup corp.example.com
-```
+![Microsoft Active Directory network configuration port rules.](images/custom_sqlserver_ActiveDirectory_Requirements_NetworkConfig.png)
 
-The command must return a similar output:
+The following table identifies the role of each port.
 
-```
-Server:  ip-10-0-0-2.us-west-2.compute.internal
-Address:  25.0.0.2
+| Protocol | Ports            | Role                                                               |
+| -------- | ---------------- | ------------------------------------------------------------------ |
+| TCP/UDP  | 53               | Domain Name System (DNS)                                           |
+| TCP/UDP  | 88               | Kerberos authentication                                            |
+| TCP/UDP  | 464              | Change/Set password                                                |
+| TCP/UDP  | 389              | Lightweight Directory Access Protocol (LDAP)                       |
+| TCP      | 135              | Distributed Computing Environment / End Point Mapper (DCE / EPMAP) |
+| TCP      | 445              | Directory Services SMB file sharing                                |
+| TCP      | 636              | Lightweight Directory Access Protocol over TLS/SSL (LDAPS)         |
+| TCP      | 49152<br>• 65535 | Ephemeral ports for RPC                                            |
 
-Non-authoritative answer:
-Name:    corp.example.com
-Addresses:  40.0.9.25 (DC1 IP)
-            40.0.50.123 (DC2 IP)
-```
+- Generally, the domain DNS servers are located in the AD domain controllers.
+  You do not need to configure the VPC DHCP option set to use this feature.
+  For more information, see [DHCP option sets](../../../vpc/latest/userguide/VPC_DHCP_Options.md "../../../vpc/latest/userguide/VPC_DHCP_Options.md")
+  in the _Amazon VPC User Guide_.
 
-- Resolve AWS services from an EC2 instance in the VPC where you are launching your RDS Custom instance:
+###### Important
 
-```
-$region='`input-your-aws-region`'
-$domainFQDN='`input-your-domainFQDN`'
+If you're using VPC network ACLs, you must also allow outbound traffic on dynamic ports (49152-65535)
+from your RDS Custom for SQL Server DB instance. Ensure that these traffic rules are also mirrored on the firewalls that apply to each
+of the AD domain controllers, DNS servers, and RDS Custom for SQL Server DB instances.
 
-function Test-DomainPorts {
-    param (
-        [string]$Domain,
-        [array]$Ports
-    )
-
-    foreach ($portInfo in $Ports) {
-        try {
-            $conn = New-Object System.Net.Sockets.TcpClient
-            $connectionResult = $conn.BeginConnect($Domain, $portInfo.Port, $null, $null)
-            $success = $connectionResult.AsyncWaitHandle.WaitOne(1000) # 1 second timeout
-            if ($success) {
-                $conn.EndConnect($connectionResult)
-                $result = $true
-            } else {
-                $result = $false
-            }
-        }
-        catch {
-            $result = $false
-        }
-        finally {
-            if ($null -ne $conn) {
-                $conn.Close()
-            }
-        }
-        Write-Host "$($portInfo.Description) port open: $result"
-    }
-}
-
-# Check if ports can be reached
-$ports = @(
-    @{Port = 53;   Description = "DNS"},
-    @{Port = 88;   Description = "Kerberos"},
-    @{Port = 389;  Description = "LDAP"},
-    @{Port = 445;  Description = "SMB"},
-    @{Port = 5985; Description = "WinRM"},
-    @{Port = 636;  Description = "LDAPS"},
-    @{Port = 3268; Description = "Global Catalog"},
-    @{Port = 3269; Description = "Global Catalog over SSL"},
-    @{Port = 9389; Description = "AD DS"}
-)
-
-function Test-DomainReachability {
-    param (
-        [string]$DomainName
-    )
-
-    try {
-        $dnsResults = Resolve-DnsName -Name $DomainName -ErrorAction Stop
-        Write-Host "Domain $DomainName is successfully resolving to following IP addresses: $($dnsResults.IpAddress)"
-        Write-Host ""
-        return $true
-    }
-    catch {
-        Write-Host ""
-        Write-Host "Error Message: $($_.Exception.Message)"
-        Write-Host "Domain $DomainName reachability check failed, please Configure DNS resolution"
-        return $false
-    }
-}
-
-$domain = (Get-WmiObject Win32_ComputerSystem).Domain
-if ($domain -eq 'WORKGROUP') {
-    Write-Host ""
-    Write-Host "Host $env:computername is still part of WORKGROUP and not part of any domain"
-    }
-else {
-    Write-Host ""
-    Write-Host "Host $env:computername is joined to $domain domain"
-    Write-Host ""
-    }
-
-
-$isReachable = Test-DomainReachability -DomainName $domainFQDN
-if ($isReachable) {
-    write-Host "Checking if domain $domainFQDN is reachable on required ports  "
-    Test-DomainPorts -Domain $domainFQDN -Ports $ports
-}
-else {
-    Write-Host "Port check skipped. Domain not reachable"
-}
-
-
-
-# Get network adapter configuration
-$networkConfig = Get-WmiObject Win32_NetworkAdapterConfiguration |
-                 Where-Object { $_.IPEnabled -eq $true } |
-                 Select-Object -First 1
-
-# Check DNS server settings
-$dnsServers = $networkConfig.DNSServerSearchOrder
-
-if ($dnsServers) {
-    Write-Host "`nDNS Server settings:"
-    foreach ($server in $dnsServers) {
-        Write-Host "  - $server"
-    }
-} else {
-    Write-Host "`nNo DNS servers configured or unable to retrieve DNS server information."
-}
-
-write-host ""
-
-# Checks reachability to dependent services
-$services = "s3", "ec2", "secretsmanager", "logs", "events", "monitoring", "ssm", "ec2messages", "ssmmessages"
-
-function Get-TcpConnectionAsync {
-    param (
-        $ServicePrefix,
-        $region
-    )
-    $endpoint = "${ServicePrefix}.${region}.amazonaws.com"
-    $tcp = New-Object Net.Sockets.TcpClient
-    $result = $false
-
-    try {
-        $connectTask = $tcp.ConnectAsync($endpoint, 443)
-        $timedOut = $connectTask.Wait(3000)
-        $result = $tcp.Connected
-    }
-    catch {
-        $result = $false
-    }
-    return $result
-}
-
-foreach ($service in $services) {
-    $validationResult = Get-TcpConnectionAsync -ServicePrefix $service -Region $region
-    Write-Host "Reachability to $service is $validationResult"
-}
-```
-
-The `TcpTestSucceeded` value must return `True` for `s3`, `ec2`, `secretsmanager`, `logs`, `events`,
-`monitoring`, `ssm`, `ec2messages`, and `ssmmessages`.
+While VPC security groups require ports to be opened only in the direction that network traffic is initiated,
+most Windows firewalls and VPC network ACLs require ports to be open in both directions.

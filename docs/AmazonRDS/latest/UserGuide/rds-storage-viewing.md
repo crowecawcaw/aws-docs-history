@@ -1,16 +1,24 @@
-# Console
+# CLI
 
-To view your storage volume configuration from the console:
+To view your storage volume configuration from the AWS CLI, use the
+`describe-db-instances` command.
 
-1.  Sign in to the AWS Management Console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  In the navigation pane, choose **Databases**.
-3.  Choose your DB instance.
-4.  Choose the **Configuration** tab to view details about your
-    storage volumes. The storage information is located in the following
-    sections:
+```
+aws rds describe-db-instances --db-instance-identifier my-database
+```
 
-        * **Primary storage**
-        * **Additional storage volumes**
+In the output, find the `AdditionalStorageVolumes` array to view details
+for the added volumes.
 
-    In **Additional storage volumes**, you can choose
-    **Add storage volume** to add another volume.
+```
+    "AdditionalStorageVolumes": [
+        {
+            "VolumeName": "rdsdbdata2",
+            "StorageVolumeStatus": "Not-in-use",
+            "AllocatedStorage": 5000,
+            "IOPS": 25000,
+            "StorageThroughput": 500,
+            "StorageType": "gp3"
+        }
+    ]
+```

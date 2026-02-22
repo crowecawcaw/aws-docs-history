@@ -1,104 +1,89 @@
-# Controlling user access to the
+# Dead connection
 
-PostgreSQL database
+handling in PostgreSQL
 
-New databases in PostgreSQL are always created with a default set of privileges in the
-database's `public` schema that allow all database users and roles to create
-objects. These privileges allow database users to connect to the database, for example, and
-create temporary tables while connected.
+Dead connections occur when a database session remains active on the server despite the
+client application having abandoned or terminated abnormally. This situation typically arises
+when client processes crash or terminate unexpectedly without properly closing their database
+connections or canceling ongoing requests.
 
-To better control user access to the databases instances that you create
-on your RDS for PostgreSQL DB instance, we recommend that
-you revoke these default `public` privileges. After doing so, you then grant
-specific privileges for database users on a more granular basis, as shown in the following
-procedure.
+PostgreSQL efficiently identifies and cleans up dead connections when server processes are
+idle or attempt to send data to clients. However, detection is challenging for sessions that are
+idle, waiting for client input, or actively running queries. To handle these scenarios,
+PostgreSQL provides `tcp_keepalives_*`, `tcp_user_timeout`, and
+`client_connection_check_interval` parameters.
 
-###### To set up roles and privileges for a new database instance
+###### Topics
 
-Suppose you're setting up a database on a newly created RDS for PostgreSQL DB
-instance for use by several researchers, all of whom need read-write access to
-the database.
+- [Understanding TCP keepalive](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Understanding "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Understanding")
+- [Key TCP
+  keepalive parameters in RDS for PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Parameters "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Parameters")
+- [Use cases
+  for TCP keepalive settings](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.UseCases "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.UseCases")
+- [Best
+  practices](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.BestPractices "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.BestPractices")
 
-1. Use `psql` (or pgAdmin) to connect to
-   your RDS for PostgreSQL DB instance:
+## Understanding TCP keepalive
 
-```
-psql --host=`your-db-instance.666666666666`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password
-```
+TCP Keepalive is a protocol-level mechanism that helps maintain and verify connection
+integrity. Each TCP connection maintains kernel-level settings that govern keepalive behavior.
+When the keepalive timer expires, the system does the following:
 
-When prompted, enter your password. The `psql` client connects and displays
-the default administrative connection database, `postgres=>`, as the
-prompt. 2. To prevent database users from creating objects in the `public` schema, do
-the following:
+- Sends a probe packet with no data and the ACK flag set.
+- Expects a response from the remote endpoint according to TCP/IP specifications.
+- Manages connection state based on the response or lack thereof.
 
-```
-`postgres=>` `REVOKE CREATE ON SCHEMA public FROM PUBLIC;`
-`REVOKE`
-```
+## Key TCP
 
-3. Next, you create a new database instance:
+keepalive parameters in RDS for PostgreSQL
 
-```
-`postgres=>` `CREATE DATABASE `lab_db`;`
-`CREATE DATABASE`
-```
+| Parameter                          | Description                                                                                                                                                     | Default values |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| `tcp_keepalives_idle`              | Specifies number of seconds of inactivity before sending keepalive message.                                                                                     | 300            |
+| `tcp_keepalives_interval`          | Specifies number of seconds between retransmissions of unacknowledged keepalive<br>messages.                                                                    | 30             |
+| `tcp_keepalives_count`             | Maximum lost keepalive messages before declaring connection dead                                                                                                | 2              |
+| `tcp_user_timeout`                 | Specifies how long (in Milliseconds) unacknowledged data can remain before forcibly<br>closing the connection.                                                  | 0              |
+| `client_connection_check_interval` | Sets the interval (in Milliseconds) for checking client connection status during<br>long-running queries. This ensures quicker detection of closed connections. | 0              |
 
-4. Revoke all privileges from the `PUBLIC` schema on this new database.
+## Use cases
 
-```
-`postgres=>` `REVOKE ALL ON DATABASE `lab_db` FROM public;`
-`REVOKE`
-```
+for TCP keepalive settings
 
-5. Create a role for database users.
+### Keeping idle sessions alive
 
-```
-`postgres=>` `CREATE ROLE `lab_tech`;`
-`CREATE ROLE`
-```
+To prevent idle connections from being terminated by firewalls or routers due to
+inactivity:
 
-6. Give database users that have this role the ability to connect to the database.
+- Configure `tcp_keepalives_idle` to send keepalive packets at regular
+  intervals.
 
-```
-`postgres=>` `GRANT CONNECT ON DATABASE `lab_db` TO `lab_tech`;`
-`GRANT`
+### Detecting dead connections
 
-```
+To detect dead connections promptly:
 
-7. Grant all users with the `lab_tech` role all privileges on this
-   database.
+- Adjust `tcp_keepalives_idle`, `tcp_keepalives_interval`, and
+  `tcp_keepalives_count`. For example, with Aurora PostgreSQL defaults, it
+  takes about a minute (2 probes × 30 seconds) to detect a dead connection. Lowering these
+  values can speed up detection.
+- Use `tcp_user_timeout` to specify the maximum wait time for an
+  acknowledgment.
 
-```
-`postgres=>` `GRANT ALL PRIVILEGES ON DATABASE `lab_db` TO `lab_tech`;`
-`GRANT`
+TCP keepalive settings help the kernel detect dead connections, but PostgreSQL may not
+act until the socket is used. If a session is running a long query, dead connections might
+only be detected after query completion. In PostgreSQL 14 and higher versions,
+`client_connection_check_interval` can expedite dead connection detection by
+periodically polling the socket during query execution.
 
-```
+## Best
 
-8. Create database users, as follows:
+practices
 
-```
-`postgres=>` `CREATE ROLE lab_user1 LOGIN PASSWORD 'change_me';`
-`CREATE ROLE`
-`postgres=>` `CREATE ROLE lab_user2 LOGIN PASSWORD 'change_me';`
-`CREATE ROLE`
-```
-
-9. Grant these two users the privileges associated with the lab_tech role:
-
-```
-`postgres=>` `GRANT lab_tech TO lab_user1;`
-`GRANT ROLE`
-`postgres=>` `GRANT lab_tech TO lab_user2;`
-`GRANT ROLE`
-
-```
-
-At this point, `lab_user1` and `lab_user2` can connect to the
-`lab_db` database. This example doesn't follow best practices for enterprise
-usage, which might include creating multiple database instances, different schemas, and
-granting limited permissions. For more complete information and additional scenarios, see
-[Managing PostgreSQL
-Users and Roles](https://aws.amazon.com/blogs//database/managing-postgresql-users-and-roles/ "https://aws.amazon.com/blogs//database/managing-postgresql-users-and-roles/").
-
-For more information about privileges in PostgreSQL databases, see the [GRANT](https://www.postgresql.org/docs/current/static/sql-grant.html "https://www.postgresql.org/docs/current/static/sql-grant.html") command in
-the PostgreSQL documentation.
+- **Set reasonable keepalive intervals:** Tune
+  `tcp_user_timeout`, `tcp_keepalives_idle`,
+  `tcp_keepalives_count` and `tcp_keepalives_interval` to balance
+  detection speed and resource use.
+- **Optimize for your environment:** Align settings with
+  network behavior, firewall policies, and session needs.
+- **Leverage PostgreSQL features:** Use
+  `client_connection_check_interval` in PostgreSQL 14 and higher versions for efficient
+  connection checks.

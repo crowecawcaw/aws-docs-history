@@ -451,14 +451,16 @@ same DB instance. Incremental snapshot copying is faster and results in lower st
 copying.
 
 Whether a snapshot copy is incremental is determined by the most recently completed snapshot copy and the source snapshot. If the most recent
-snapshot copy was deleted, the next copy is a full copy, not an incremental copy. A snapshot copy will be the same type as the source snapshot. If the source snapshot is an incremental snapshot, then the snapshot copy will be an incremental snapshot.
+snapshot copy was deleted, the next copy is a full copy, not an incremental copy. A snapshot copy will be the same type as the source snapshot.
+If the source snapshot is an incremental snapshot, then the snapshot copy will be an incremental snapshot. Incrementality is also determined by the number of changes
+that have taken place in the source DB instance since the most recent snapshot.
 
 When you copy a snapshot across AWS accounts, the copy is an incremental copy only if all of the following conditions are
 met:
 
 - The most recent snapshot copy is of the same source DB instance and still exists in the destination account.
 - All copies of the snapshot in the destination account are either unencrypted, or were encrypted using the same
-  KMS key.
+  KMS key. If they are encrypted, then they must have the same lineage i.e matching inheritance depth and consistent encryption keys at corresponding levels.
 - If the source DB instance is a Multi-AZ instance, it hasn't failed over to another AZ since the last snapshot was taken from it.
 
 The following examples illustrate the difference between full and incremental snapshots. They apply to both shared and

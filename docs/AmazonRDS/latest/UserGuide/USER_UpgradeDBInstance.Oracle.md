@@ -1,138 +1,205 @@
-# Considerations for Oracle database
+# Overview of RDS for Oracle engine upgrades
 
-upgrades
-
-Before you upgrade your Oracle instance, review the following information.
+Before upgrading your RDS for Oracle DB instance, familiarize yourself with the following
+concepts.
 
 ###### Topics
 
-- [Oracle Multitenant
-  considerations](#USER_UpgradeDBInstance.Oracle.multi "#USER_UpgradeDBInstance.Oracle.multi")
-- [Option group considerations](#USER_UpgradeDBInstance.Oracle.OGPG.OG "#USER_UpgradeDBInstance.Oracle.OGPG.OG")
-- [Parameter group
-  considerations](#USER_UpgradeDBInstance.Oracle.OGPG.PG "#USER_UpgradeDBInstance.Oracle.OGPG.PG")
-- [Time zone considerations](#USER_UpgradeDBInstance.Oracle.OGPG.DST "#USER_UpgradeDBInstance.Oracle.OGPG.DST")
-- [Spatial Patch Bundle (SPB)
-  considerations](#USER_UpgradeDBInstance.Oracle.SPB "#USER_UpgradeDBInstance.Oracle.SPB")
+- [Major and minor version upgrades](#USER_UpgradeDBInstance.Oracle.Overview.versions "#USER_UpgradeDBInstance.Oracle.Overview.versions")
+- [Support dates and mandatory
+  upgrades for RDS for Oracle](#Aurora.VersionPolicy.MajorVersionLifetime "#Aurora.VersionPolicy.MajorVersionLifetime")
+- [Oracle engine version management](#Oracle.Concepts.Patching "#Oracle.Concepts.Patching")
+- [Automatic snapshots during engine
+  upgrades](#USER_UpgradeDBInstance.Oracle.Overview.snapshots "#USER_UpgradeDBInstance.Oracle.Overview.snapshots")
+- [Oracle upgrades in a Multi-AZ deployment](#USER_UpgradeDBInstance.Oracle.Overview.multi-az "#USER_UpgradeDBInstance.Oracle.Overview.multi-az")
+- [Oracle upgrades of read replicas](#USER_UpgradeDBInstance.Oracle.Overview.read-replicas "#USER_UpgradeDBInstance.Oracle.Overview.read-replicas")
 
-## Oracle Multitenant
+## Major and minor version upgrades
 
-considerations
+Major versions are major releases of Oracle Database that occur every 1-2 years.
+Oracle Database 19c and Oracle Database 21c are major releases.
 
-The following table describes the Oracle Database architectures supported in different
-releases.
+Every quarter, RDS for Oracle releases new minor engine versions for every supported major
+engine. A Release Update (RU) engine version incorporates bug fixes from Oracle by
+including the RU patches for the specified quarter. For example,
+21.0.0.0.ru-2024-10.rur-2024-10.r1 is a minor version of Oracle Database 21c that
+incorporates the October 2024 RU.
 
-| Oracle Database release | RDS support status | Architecture   |
-| ----------------------- | ------------------ | -------------- |
-| Oracle Database 21c     | Supported          | CDB only       |
-| Oracle Database 19c     | Supported          | CDB or non-CDB |
+A Spatial Patch Bundle (SPB) engine version contains RU patches and patches specific
+to Oracle Spatial. For example, 19.0.0.0.ru-2025-01.spb-1.r1 is a minor engine version
+that contains the RU patches in engine version 19.0.0.0.ru-2025-01.rur-2025-01.r1 plus
+Spatial patches. Typically, RDS for Oracle releases SPBs 2–3 weeks after the
+corresponding RU. For an explanation of the differences between RUs and SPBs, see [Release Updates (RUs) and Spatial Patch Bundles
+(SPBs)](USER_UpgradeDBInstance.Oracle.md#RUs-and-SPBs "USER_UpgradeDBInstance.Oracle.md#RUs-and-SPBs"). For information about
+supported RUs and SPBs, see [Release notes for Amazon Relational Database Service (Amazon RDS) for
+Oracle](../OracleReleaseNotes.md "../OracleReleaseNotes.md").
 
-The following table describes supported and unsupported upgrade paths.
+RDS for Oracle supports the following upgrades to a DB instance.
 
-| Upgrade path   | Supported?                                                     |
-| -------------- | -------------------------------------------------------------- |
-| CDB to CDB     | Yes                                                            |
-| Non-CDB to CDB | No, but you can convert a non-CDB to a CDB and then upgrade it |
-| CDB to non-CDB | No                                                             |
+| Upgrade type  | Application compatibility                                                                                 | Upgrade methods     | Sample upgrade path                                                              |
+| ------------- | --------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------- |
+| Major version | A major version upgrade can introduce changes that aren't compatible<br>with existing applications.       | Manual only         | From Oracle Database 19c to Oracle Database 21c                                  |
+| Minor version | A minor version upgrade includes only changes that are<br>backward-compatible with existing applications. | Automatic or manual | From 21.0.0.0.ru-2023-07.rur-2022-07.r1 to<br>21.0.0.0.ru-2023-10.rur-2022-10.r1 |
 
-For more information about Oracle Multitenant in RDS for Oracle, see [Single-tenant configuration of the
-CDB architecture](Oracle.Concepts.md#Oracle.Concepts.single-tenant "Oracle.Concepts.md#Oracle.Concepts.single-tenant").
+###### Important
 
-## Option group considerations
+When you upgrade your DB engine, an outage occurs. The duration of the outage depends
+on your engine version and DB instance size.
 
-If your DB instance uses a custom option group, sometimes Amazon RDS can't automatically assign a new
-option group. For example, this situation occurs when you upgrade to a new major version. In
-such cases, specify a new option group when you upgrade. We recommend that you create a new
-option group, and add the same options to it as in your existing custom option group.
+Make sure that you thoroughly test any upgrade to verify that your applications
+work correctly before applying the upgrade to your production databases. For more
+information, see [Testing an Oracle DB upgrade](USER_UpgradeDBInstance.Oracle.md "USER_UpgradeDBInstance.Oracle.md").
 
-For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create") or [Copying an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy").
+## Support dates and mandatory
 
-If your DB instance uses a custom option group that contains the `APEX` and
-`APEX-DEV` options, you can sometimes reduce the upgrade time. To do this,
-upgrade your version of Oracle APEX at the same time as your DB instance. For more information,
-see [Upgrading the Oracle APEX
-version](Appendix.Oracle.Options.APEX.md#Appendix.Oracle.Options.APEX.Upgrade "Appendix.Oracle.Options.APEX.md#Appendix.Oracle.Options.APEX.Upgrade").
+upgrades for RDS for Oracle
 
-## Parameter group
+Database versions of RDS for Oracle have expected support dates. When a major or minor
+version of an RDS for Oracle DB engine nears its end-of-support date, RDS begins mandatory
+upgrades, also known as _forced upgrades_. RDS publishes the
+following information:
 
-considerations
+- A recommendation for you to begin manually upgrading instances on deprecated
+  versions to supported versions
+- A date after which you can no longer create instances on the unsupported
+  versions
+- A date on which RDS begins to upgrade your instances to supported versions
+  automatically during maintenance windows
+- A date on which RDS begins to upgrade your instances to supported versions
+  automatically outside of maintenance windows
 
-If your DB instance uses a custom parameter group, sometimes Amazon RDS can't automatically
-assign your DB instance a new parameter group. For example, this situation occurs when you
-upgrade to a new major version. In such cases, make sure to specify a new parameter group
-when you upgrade. We recommend that you create a new parameter group, and configure the
-parameters as in your existing custom parameter group.
+###### Important
 
-For more information, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") or [Copying a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+Forced upgrades can have unexpected consequences for CloudFormation stacks. If you rely on
+RDS to upgrade your DB instances automatically, you might encounter issues with
+CloudFormation.
 
-## Time zone considerations
+This section contains the following topics:
 
-You can use the time zone option to change the _system time zone_ used
-by your Oracle DB instance. For example, you might change the time zone of a DB instance to
-be compatible with an on-premises environment, or a legacy application. The time zone option
-changes the time zone at the host level. Amazon RDS for Oracle updates the system time zone
-automatically throughout the year. For more information about the system time zone, see
-[Oracle time zone](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+###### Topics
 
-When you create an Oracle DB instance, the database automatically sets the
-_database time zone_. The database time zone is also known as the
-Daylight Saving Time (DST) time zone. The database time zone is distinct from the system
-time zone.
+- [Support dates for major releases of
+  RDS for Oracle](#oracle-major-support-dates "#oracle-major-support-dates")
+- [Support dates for minor versions of
+  RDS for Oracle](#oracle-minor-support-dates "#oracle-minor-support-dates")
 
-Between Oracle Database releases, patch sets or individual patches may include new DST
-versions. These patches reflect the changes in transition rules for various time zone
-regions. For example, a government might change when DST takes effect. Changes to DST rules
-may affect existing data of the `TIMESTAMP WITH TIME ZONE` data type.
+### Support dates for major releases of
 
-If you upgrade an RDS for Oracle DB instance, Amazon RDS doesn't upgrade the database time zone
-file automatically. To upgrade the time zone file automatically, you can include the
-`TIMEZONE_FILE_AUTOUPGRADE` option in the option group associated with your
-DB instance during or after the engine version upgrade. For more information, see [Oracle time zone file autoupgrade](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+RDS for Oracle
 
-Alternatively, to upgrade the database time zone file manually, create a new Oracle DB
-instance that has the desired DST patch. However, we recommend that you upgrade the database
-time zone file using the `TIMEZONE_FILE_AUTOUPGRADE` option.
-
-After upgrading the time zone file, migrate the data from your current instance to the new
-instance. You can migrate data using several techniques, including the following:
-
-- AWS Database Migration Service
-- Oracle GoldenGate
-- Oracle Data Pump
-- Original Export/Import (desupported for general use)
+RDS for Oracle major versions remain available at least until the end of support date
+for the corresponding Oracle Database release version. You can use the following
+dates to plan your testing and upgrade cycles. These dates represent the earliest
+date that an upgrade to a newer version might be required. If Amazon extends
+support for an RDS for Oracle version for longer than originally stated, we plan to update
+this table to reflect the later date.
 
 ###### Note
 
-When you migrate data using Oracle Data Pump, the utility raises the error ORA-39405
-when the target time zone version is lower than the source time zone version.
+You can view the major versions of your Oracle databases by running the [describe-db-major-engine-versions](../../../cli/latest/reference/rds/describe-db-major-engine-versions.md "../../../cli/latest/reference/rds/describe-db-major-engine-versions.md") AWS CLI command or by using the
+[DescribeDBMajorEngineVersions](../APIReference/API_DescribeDBMajorEngineVersions.md "../APIReference/API_DescribeDBMajorEngineVersions.md") RDS API operation.
 
-For more information, see [TIMESTAMP WITH TIMEZONE restrictions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-9B6C92EE-860E-43DD-9728-735B17B9DA89 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-9B6C92EE-860E-43DD-9728-735B17B9DA89") in the Oracle documentation.
+| Oracle Database major release version | Expected date for upgrading to a newer version                                                                                                                                                                                      |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Oracle Database 19c                   | December 31, 2029 with BYOL Premier Support (fees waived for<br>Extended Support)<br>December 31, 2032 with BYOL Extended Support (extra cost) or<br>an Unlimited License Agreement<br>December 31, 2029 with License Included (LI) |
+| Oracle Database 21c                   | July 31, 2027 (not available for Extended Support)                                                                                                                                                                                  |
 
-## Spatial Patch Bundle (SPB)
+RDS notifies you at least 12 months before you need to upgrade to a newer major
+version. The notification describes the upgrade process, including the timing of
+important milestones, the effect on your DB instances, and recommended actions. We
+recommend that you thoroughly test your applications with new RDS for Oracle versions
+before you upgrade your database to a major version.
 
-considerations
+After this advance notification period, an automatic upgrade to the subsequent
+major version might be applied to any RDS for Oracle DB instance still running the older
+version. If so, the upgrade is started during scheduled maintenance windows.
 
-In RDS for Oracle, release update (RU) is a minor engine version that includes security fixes,
-bug fixes, and new features for Oracle Database. A Spatial Patch Bundle (SPB) is minor
-engine version that also includes patches designed for the Oracle Spatial option. For
-example, 19.0.0.0.ru-2025-01.spb-1.r1 is a minor engine version that contains the RU patches
-in engine version 19.0.0.0.ru-2025-01.rur-2025-01.r1 plus Spatial patches.
+For more information, see [Release Schedule of Current Database Releases](https://support.oracle.com/knowledge/Oracle%20Database%20Products/742060_1.html "https://support.oracle.com/knowledge/Oracle%20Database%20Products/742060_1.html") in My Oracle
+Support.
 
-When you upgrade your database to SPBs, consider the following:
+### Support dates for minor versions of
 
-- SPBs are supported only for Oracle Database 19c.
-- Typically, an SPB is released 2–3 weeks after its corresponding quarterly
-  RU.
-- You can upgrade your DB instance to an SPB even if the instance doesn't use the Oracle
-  Spatial option, but the Spatial patches in the engine version apply only to Oracle
-  Spatial. You can create a new instance on an SPB and install the Oracle Spatial
-  option later.
-- If you enable automatic minor version upgrade for your DB instance, your upgrade path
-  depends on whether your instance currently uses an SPB or RU. If your
-  instance uses an SPB, RDS automatically upgrades your instance to the latest SPB. If
-  your instance uses an RU, RDS automatically upgrades your instance to the
-  latest RU.
-- You can manually upgrade your DB instance from an RU to an SPB only if the SPB
-  is the same engine version or higher as your current RU.
-- You can manually upgrade your DB instance from an SPB to an RU only if the
-  RU is a higher version.
+RDS for Oracle
+
+In some cases, we end support for minor versions of major releases in RDS for Oracle.
+RDS notifies you at least 6 months before you need to upgrade to a newer minor
+version. The notification describes the upgrade process, including the timing of
+important milestones, the effect on the DB instances running the deprecated minor version,
+and recommended actions. We recommend that you thoroughly test your applications
+with new RDS for Oracle versions before you upgrade your database to a new minor
+version.
+
+For more information about deprecated and desupported minor versions, see [Release notes for
+Amazon Relational Database Service (Amazon RDS) for Oracle](../OracleReleaseNotes/Welcome.md "../OracleReleaseNotes/Welcome.md").
+
+## Oracle engine version management
+
+With DB engine version management, you control when and how the database engine is patched and upgraded. You get the flexibility to
+maintain compatibility with database engine patch versions. You can also test new patch versions of RDS for Oracle to ensure they work with your
+application before deploying them in production. In addition, you upgrade the versions on your own terms and timelines.
+
+###### Note
+
+Amazon RDS periodically aggregates official Oracle database patches using an Amazon RDS-specific DB engine
+version. To see a list of which Oracle patches are contained in an Amazon RDS Oracle-specific engine version,
+go to [_Amazon RDS for Oracle Release Notes_](../OracleReleaseNotes/Welcome.md "../OracleReleaseNotes/Welcome.md").
+
+## Automatic snapshots during engine
+
+upgrades
+
+During upgrades of an Oracle DB instance, snapshots offer protection against upgrade issues. If the backup
+retention period for your DB instance is greater than 0, Amazon RDS takes the following DB snapshots during the
+upgrade:
+
+1. A snapshot of the DB instance before any upgrade changes have been made. If the upgrade fails, you
+   can restore this snapshot to create a DB instance running the old version.
+2. A snapshot of the DB instance after the upgrade completes.
+
+###### Note
+
+To change your backup retention period, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+
+After an upgrade, you can't revert to the previous engine version. However, you can create a new Oracle DB
+instance by restoring the pre-upgrade snapshot.
+
+## Oracle upgrades in a Multi-AZ deployment
+
+If your DB instance is in a Multi-AZ deployment, Amazon RDS upgrades both the
+primary and standby replicas. If no operating system updates are required, the
+primary and standby upgrades occur simultaneously. The instances are not available
+until the upgrade completes.
+
+If operating system updates are required in a Multi-AZ deployment, Amazon RDS applies the
+updates when you request the database upgrade. Amazon RDS performs the following
+steps:
+
+1. Updates the operating system on the current standby DB instance.
+2. Fails over the primary DB instance to the standby DB instance.
+3. Upgrades the database version on the new primary DB instance, which was formerly the
+   standby instance. The primary database is unavailable during the upgrade.
+4. Updates the operating system on the new standby DB instance, which was formerly the
+   primary DB instance.
+5. Upgrades the database version on the new standby DB instance.
+6. Fails over the new primary DB instance back to the original primary DB instance, and the
+   new standby DB instance back to the original standby DB instance. Thus, Amazon RDS returns the
+   replication configuration to its original state.
+
+## Oracle upgrades of read replicas
+
+The Oracle DB engine version of the source DB instance and all of its read replicas must be the same.
+Amazon RDS performs the upgrade in the following stages:
+
+1. Upgrades the source DB instance. The read replicas are available during
+   this stage.
+2. Upgrades the read replicas in parallel, regardless of the replica
+   maintenance windows. The source DB is available during this stage.
+
+For major version upgrades of cross-Region read replicas, Amazon RDS performs
+additional actions:
+
+- Generates an option group for the target version automatically
+- Copies all options and option settings from the original option group to
+  the new option group
+- Associates the upgraded cross-Region read replica with the new option
+  group

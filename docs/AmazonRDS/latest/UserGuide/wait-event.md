@@ -1,84 +1,67 @@
-# Lock:Relation
+# Client:ClientRead
 
-The `Lock:Relation` event occurs when a query is waiting to acquire a lock on a table or view
-(relation) that's currently locked by another transaction.
+The `Client:ClientRead` event occurs when RDS for PostgreSQL is waiting to
+receive data from the client.
 
 ###### Topics
 
-- [Supported engine versions](#wait-event.lockrelation.context.supported "#wait-event.lockrelation.context.supported")
-- [Context](#wait-event.lockrelation.context "#wait-event.lockrelation.context")
-- [Likely causes of increased waits](#wait-event.lockrelation.causes "#wait-event.lockrelation.causes")
-- [Actions](#wait-event.lockrelation.actions "#wait-event.lockrelation.actions")
+- [Supported engine versions](#wait-event.clientread.context.supported "#wait-event.clientread.context.supported")
+- [Context](#wait-event.clientread.context "#wait-event.clientread.context")
+- [Likely causes of increased waits](#wait-event.clientread.causes "#wait-event.clientread.causes")
+- [Actions](#wait-event.clientread.actions "#wait-event.clientread.actions")
 
 ## Supported engine versions
 
-This wait event information is supported for all versions of
-RDS for PostgreSQL.
+This wait event information is supported for RDS for PostgreSQL version 10 and higher.
 
 ## Context
 
-Most PostgreSQL commands implicitly use locks to control concurrent access to
-data in tables. You can also use these locks explicitly in your application code with
-the `LOCK` command. Many lock modes aren't compatible with each other, and
-they can block transactions when they're trying to access the same object. When this
-happens, RDS for PostgreSQL generates a `Lock:Relation` event. Some common
-examples are the following:
-
-- Exclusive locks such as `ACCESS EXCLUSIVE` can block all concurrent access. Data
-  definition language (DDL) operations such as `DROP TABLE`,
-  `TRUNCATE`, `VACUUM FULL`, and `CLUSTER`
-  acquire `ACCESS EXCLUSIVE` locks implicitly. `ACCESS
-EXCLUSIVE` is also the default lock mode for `LOCK TABLE`
-  statements that don't specify a mode explicitly.
-- Using `CREATE INDEX (without CONCURRENT)` on a table conflicts with data
-  manipulation language (DML) statements `UPDATE`, `DELETE`,
-  and `INSERT`, which acquire `ROW EXCLUSIVE` locks.
-
-For more information about table-level locks and conflicting lock modes, see
-[Explicit
-Locking](https://www.postgresql.org/docs/13/explicit-locking.html "https://www.postgresql.org/docs/13/explicit-locking.html") in the PostgreSQL documentation.
-
-Blocking queries and transactions typically unblock in one of the following
-ways:
-
-- Blocking query – The application can cancel the query or the user can end the process.
-  The engine can also force the query to end because of a session's
-  statement-timeout or a deadlock detection mechanism.
-- Blocking transaction – A transaction stops blocking when it runs a `ROLLBACK`
-  or `COMMIT` statement. Rollbacks also happen automatically when
-  sessions are disconnected by a client or by network issues, or are ended.
-  Sessions can be ended when the database engine is shut down, when the system is
-  out of memory, and so forth.
+An RDS for PostgreSQL DB instance is waiting to receive data from the client. The
+RDS for PostgreSQL DB instance must receive the data from the client before it can send more
+data to the client. The time that the instance waits before receiving data from the
+client is a `Client:ClientRead` event.
 
 ## Likely causes of increased waits
 
-When the `Lock:Relation` event occurs more frequently than normal, it can indicate a performance issue. Typical
-causes include the following:
+Common causes for the `Client:ClientRead` event to appear in top waits include the
+following:
 
-**Increased concurrent sessions with conflicting table locks**
+**Increased network latency**
 
-There might be an increase in the number of concurrent sessions
-with queries that lock the same table with conflicting locking modes.
+There might be increased network latency between the RDS for PostgreSQL DB instance and client.
+Higher network latency increases the time required for DB instance to receive data from the client.
 
-**Maintenance operations**
+**Increased load on the client**
 
-Health maintenance operations such as `VACUUM` and
-`ANALYZE` can significantly increase the number of
-conflicting locks. `VACUUM FULL` acquires an `ACCESS
- EXCLUSIVE` lock, and `ANALYSE` acquires a `SHARE
- UPDATE EXCLUSIVE` lock. Both types of locks can cause a
-`Lock:Relation` wait event. Application data maintenance
-operations such as refreshing a materialized view can also increase blocked
-queries and transactions.
+There might be CPU pressure or network saturation on the client. An increase in load on
+the client can delay transmission of data from the client to the RDS for PostgreSQL DB instance.
 
-**Locks on reader instances**
+**Excessive network round trips**
 
-There might be a conflict between the relation locks held by the writer and
-readers. Currently, only `ACCESS EXCLUSIVE`
-relation locks are replicated to reader instances. However, the `ACCESS
- EXCLUSIVE` relation lock will conflict with any `ACCESS SHARE` relation locks held
-by the reader. This can cause an increase in lock relation wait events
-on the reader.
+A large number of network round trips between the RDS for PostgreSQL DB instance and the client
+can delay transmission of data from the client to the RDS for PostgreSQL DB instance.
+
+**Large copy operation**
+
+During a copy operation, the data is transferred from the client's file system to
+the RDS for PostgreSQL DB instance. Sending a large amount of data to the DB instance can delay
+transmission of data from the client to the DB instance.
+
+**Idle client connection**
+
+When a client connects to the RDS for PostgreSQL DB instance in an `idle in
+ transaction` state, the DB instance might wait for the client to send more data or issue a
+command. A connection in this state can lead to an increase in `Client:ClientRead`
+events.
+
+**PgBouncer used for connection pooling**
+
+PgBouncer has a low-level network configuration setting called `pkt_buf`, which
+is set to 4,096 by default. If the workload is sending query packets larger than 4,096 bytes through
+PgBouncer, we recommend increasing the `pkt_buf` setting to 8,192. If the new setting
+doesn't decrease the number of `Client:ClientRead` events, we recommend increasing
+the `pkt_buf` setting to larger values, such as 16,384 or 32,768. If the query text is
+large, the larger setting can be particularly helpful.
 
 ## Actions
 
@@ -86,49 +69,78 @@ We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Reduce the
-  impact of blocking SQL statements](#wait-event.lockrelation.actions.reduce-blocks "#wait-event.lockrelation.actions.reduce-blocks")
-- [Minimize the effect of
-  maintenance operations](#wait-event.lockrelation.actions.maintenance "#wait-event.lockrelation.actions.maintenance")
+- [Place the clients in the same Availability Zone and VPC subnet as the instance](#wait-event.clientread.actions.az-vpc-subnet "#wait-event.clientread.actions.az-vpc-subnet")
+- [Scale your client](#wait-event.clientread.actions.scale-client "#wait-event.clientread.actions.scale-client")
+- [Use current generation
+  instances](#wait-event.clientread.actions.db-instance-class "#wait-event.clientread.actions.db-instance-class")
+- [Increase network bandwidth](#wait-event.clientread.actions.increase-network-bandwidth "#wait-event.clientread.actions.increase-network-bandwidth")
+- [Monitor maximums for network performance](#wait-event.clientread.actions.monitor-network-performance "#wait-event.clientread.actions.monitor-network-performance")
+- [Monitor for transactions in
+  the "idle in transaction" state](#wait-event.clientread.actions.check-idle-in-transaction "#wait-event.clientread.actions.check-idle-in-transaction")
 
-### Reduce the
+### Place the clients in the same Availability Zone and VPC subnet as the instance
 
-impact of blocking SQL statements
+To reduce network latency and increase network throughput, place clients
+in the same Availability Zone and virtual private cloud (VPC) subnet as the
+RDS for PostgreSQL DB instance. Make sure that the clients are as geographically close to
+the DB instance as possible.
 
-To reduce the impact of blocking SQL statements, modify your application
-code where possible. Following are two common techniques for reducing blocks:
+### Scale your client
 
-- Use the `NOWAIT` option – Some SQL commands, such as `SELECT` and
-  `LOCK` statements, support this option. The
-  `NOWAIT` directive cancels the lock-requesting query if the
-  lock can't be acquired immediately. This technique can help prevent a
-  blocking session from causing a pile-up of blocked sessions behind
-  it.
+Using Amazon CloudWatch or other host metrics, determine if your client is
+currently constrained by CPU or network bandwidth, or both. If the client is
+constrained, scale your client accordingly.
 
-For example: Assume that transaction A is waiting on a lock held
-by transaction B. Now, if B requests a lock on a
-table that’s locked by transaction C, transaction A might be blocked until
-transaction C completes. But if transaction B uses a `NOWAIT`
-when it requests the lock on C, it can fail fast and ensure that transaction
-A doesn't have to wait indefinitely.
+### Use current generation
 
-- Use `SET lock_timeout` – Set a `lock_timeout` value to limit the
-  time a SQL statement waits to acquire a lock on a relation. If the lock
-  isn't acquired within the timeout specified, the transaction requesting
-  the lock is cancelled. Set this value at the session level.
+instances
 
-### Minimize the effect of
+In some cases, you might not be using a DB instance class that supports jumbo frames. If you're
+running your application on Amazon EC2, consider using a current generation instance for the client. Also,
+configure the maximum transmission unit (MTU) on the client operating system. This technique might reduce the
+number of network round trips and increase network throughput. For more information, see [Jumbo frames
+(9001 MTU)](../../../AWSEC2/latest/UserGuide/network_mtu.md#jumbo_frame_instances "../../../AWSEC2/latest/UserGuide/network_mtu.md#jumbo_frame_instances") in the _Amazon EC2 User Guide_.
 
-maintenance operations
+For information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md"). To determine the DB instance class that is equivalent to an Amazon EC2
+instance type, place `db.` before the Amazon EC2 instance type name. For example, the
+`r5.8xlarge` Amazon EC2 instance is equivalent to the `db.r5.8xlarge` DB instance
+class.
 
-Maintenance operations such as `VACUUM` and
-`ANALYZE` are important. We recommend that you don't turn them
-off because you find `Lock:Relation` wait events related to these
-maintenance operations. The following approaches can minimize the effect of these
-operations:
+### Increase network bandwidth
 
-- Run maintenance operations manually during off-peak hours.
-- To reduce `Lock:Relation` waits caused by autovacuum tasks, perform any needed
-  autovacuum tuning. For information about tuning autovacuum, see
-  [Working with PostgreSQL autovacuum on Amazon RDS](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md") in the
-  _Amazon RDS User Guide_.
+Use `NetworkReceiveThroughput` and `NetworkTransmitThroughput` Amazon CloudWatch
+metrics to monitor incoming and outgoing network traffic on the DB instance. These metrics can help you to
+determine if network bandwidth is sufficient for your workload.
+
+If your network bandwidth isn't enough, increase it. If the AWS client or your DB instance is reaching the
+network bandwidth limits, the only way to increase the bandwidth is to increase your DB instance size. For more
+information, see [DB instance class types](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+
+For more information about CloudWatch metrics, see [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md").
+
+### Monitor maximums for network performance
+
+If you are using Amazon EC2 clients, Amazon EC2 provides maximums for network
+performance metrics, including aggregate inbound and outbound network bandwidth. It
+also provides connection tracking to ensure that packets are returned as expected
+and link-local services access for services such as the Domain Name System (DNS). To
+monitor these maximums, use a current enhanced networking driver and monitor network
+performance for your client.
+
+For more information, see [Monitor network performance for your Amazon EC2 instance](../../../AWSEC2/latest/UserGuide/monitoring-network-performance-ena.md "../../../AWSEC2/latest/UserGuide/monitoring-network-performance-ena.md") in the _Amazon EC2 User Guide_ and [Monitor network performance for your Amazon EC2 instance](../../../AWSEC2/latest/WindowsGuide/monitoring-network-performance-ena.md "../../../AWSEC2/latest/WindowsGuide/monitoring-network-performance-ena.md")
+in the _Amazon EC2 User Guide_.
+
+### Monitor for transactions in
+
+the "idle in transaction" state
+
+Check whether you have an increasing number of `idle in transaction` connections. To do
+this, monitor the `state` column in the `pg_stat_activity` table. You might be able to
+identify the connection source by running a query similar to the following.
+
+```
+select client_addr, state, count(1) from pg_stat_activity
+where state like 'idle in transaction%'
+group by 1,2
+order by 3 desc
+```

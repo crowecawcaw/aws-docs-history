@@ -123,7 +123,13 @@ extension also need to have slots dropped for a successful
 major version upgrade. For information about how to identify
 and drop slots created using the `pglogical`
 extension, see [Managing logical
-replication slots for RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md"). 6. **Handle read replicas** –
+replication slots for RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md").
+
+On source version 17 and later, logical replication slots on non-read-replicas can be retained through upgrades. Logical replication slots created on read replicas are not retained through upgrades.
+
+Ensure that all transactions and logical decoding messages have been consumed from the slot before initiating the upgrade. If there are unconsumed write-ahead log files (WAL) held by logical replication slots, the upgrade will fail with a message identifying the problem slots. See the [PostgreSQL documentation](https://www.postgresql.org/docs/current/logical-replication-upgrade.html "https://www.postgresql.org/docs/current/logical-replication-upgrade.html") for further details.
+
+On Multi-AZ clusters with source versions earlier than 17.8 or 18.2, ensure that `flow_control` is disabled. For more information, see [Turning on and turning off flow control for Multi-AZ DB clusters](multi-az-db-clusters-concepts.md#multi-az-db-clusters-concepts-replica-lag "multi-az-db-clusters-concepts.md#multi-az-db-clusters-concepts-replica-lag"). You can turn off flow control by removing the extension from the `shared_preload_libraries` and rebooting your DB instance. 6. **Handle read replicas** –
 An upgrade of a Single-AZ DB instance or Multi-AZ DB instance deployment
 also upgrades the in-Region read replicas
 along with the primary DB instance. Amazon RDS doesn't upgrade Multi-AZ DB cluster
@@ -158,7 +164,9 @@ To cleanup existing large objects or orphaned large objects, see [Managing large
 When planning a major version upgrade, we recommend using an instance type with at least 32 GB of memory if your database contains 25 to 30 million large objects. This recommendation is based on our tests and can vary depending on your specific workload and database configuration. If your database includes additional objects (such as tables, indexes, or materialized views), we recommend selecting a larger instance type to ensure optimal performance during the upgrade process. 8. **Handle zero-ETL integrations**
 – If you have an existing [zero-ETL integration](zero-etl.md "zero-etl.md"), [delete it](zero-etl.md "zero-etl.md") before
 performing a major version upgrade. Then, after completing
-the upgrade, recreate the integration. 9. **Perform a backup** – We
+the upgrade, recreate the integration.
+
+On source versions majors 17 and up, the zero-ETL integration can be retained through the upgrade. 9. **Perform a backup** – We
 recommend that you perform a backup before performing the
 major version upgrade so that you have a known restore point
 for your database. If your backup retention period is
@@ -208,7 +216,11 @@ ALTER EXTENSION `PostgreSQL-extension` UPDATE TO '`new-version`';
 
 For more information, see [Upgrading PostgreSQL extensions in RDS for PostgreSQL databases](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md"). To learn more about upgrading PostGIS, see [Step 6: Upgrade the
 PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update"). 11. **Drop certain extensions before the major
-version upgrade** – An upgrade that
+version upgrade** – Extensions that are not supported on the target version must be dropped, or else the upgrade will fail.
+
+The `plrust` extension is removed starting in RDS PostgreSQL 18. The `postgis_topology` extension is unavailable on RDS PostgreSQL versions 18.1 and 18.2 due to known issues [[1](https://trac.osgeo.org/postgis/ticket/5983 "https://trac.osgeo.org/postgis/ticket/5983")], [[2](https://trac.osgeo.org/postgis/ticket/6016 "https://trac.osgeo.org/postgis/ticket/6016")]. These extensions must be removed prior to upgrading.
+
+An upgrade that
 skips a major version to version 11.x doesn't support
 updating the `pgRouting` extension. Upgrading
 from versions 9.4.x, 9.5.x, or 9.6.x to versions 11.x skips
@@ -220,11 +232,16 @@ PostgreSQL extension versions](PostgreSQL.Concepts.General.FeatureSupport.md "Po
 
 The `tsearch2` and `chkpass` extensions
 are no longer supported for PostgreSQL versions 11 or later.
-If you are upgrading to version 11.x, drop the
-`tsearch2`, and `chkpass`
-extensions before the upgrade. 12. **Drop unknown data types**
-– Drop `unknown` data types depending on
-the target version.
+
+You can check if an extension is installed with the following query:
+
+```
+SELECT * FROM pg_extension WHERE extname in ('`extension_name`');
+```
+
+12. **Drop unknown data types**
+    – Drop `unknown` data types depending on
+    the target version.
 
 PostgreSQL version 10 stopped supporting the
 `unknown` data type. If a version 9.6

@@ -1,49 +1,38 @@
-# Stopping a database activity stream
+# Configuring unified auditing for Oracle Database
 
-You can stop an activity stream using the console or AWS CLI.
+When you configure unified auditing for use with database activity streams, the following situations are
+possible:
 
-If you delete your Amazon RDS
-database instance, the activity stream is stopped and the underlying Amazon Kinesis stream is deleted automatically.
+- Unified auditing isn't configured for your Oracle database.
 
-###### To turn off an activity stream
-
-1.  Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  In the navigation pane, choose **Databases**.
-3.  Choose a database
-    that you want to stop the database activity stream for.
-4.  For **Actions**, choose **Stop activity stream**.
-    The **Database Activity Stream** window
-    appears.
-
-        1. Choose **Immediately**.
-
-
-        When you choose **Immediately**, the RDS instance restarts right away. If you choose
-         **During the next maintenance window**, the RDS instance doesn't restart right away. In
-         this case, the database activity stream doesn't stop until the next maintenance window.
-        2. Choose **Continue**.
-
-    To stop database activity streams for your database, configure the DB instance using the AWS CLI command [stop-activity-stream](../../../cli/latest/reference/rds/stop-activity-stream.md "../../../cli/latest/reference/rds/stop-activity-stream.md"). Identify the AWS Region for the
-    DB instance using the
-    `--region` parameter. The `--apply-immediately` parameter is optional.
-
-For Linux, macOS, or Unix:
+In this case, create new policies with the `CREATE AUDIT POLICY` command,
+then activate them with the `AUDIT POLICY` command. The following example creates
+and activates a policy to monitor users with specific privileges and roles.
 
 ```
-aws rds --region `MY_REGION` \
-    stop-activity-stream \
-    --resource-arn `MY_DB_ARN` \
-    --apply-immediately
+CREATE AUDIT POLICY table_pol
+PRIVILEGES CREATE ANY TABLE, DROP ANY TABLE
+ROLES emp_admin, sales_admin;
+
+AUDIT POLICY table_pol;
 ```
 
-For Windows:
+For complete instructions, see [Configuring Audit Policies](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-audit-policies.html#GUID-22CDB667-5AA2-4051-A262-FBD0236763CB "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-audit-policies.html#GUID-22CDB667-5AA2-4051-A262-FBD0236763CB") in the Oracle Database documentation.
 
-```
-aws rds --region `MY_REGION` ^
-    stop-activity-stream ^
-    --resource-arn `MY_DB_ARN` ^
-    --apply-immediately
-```
+- Unified auditing is configured for your Oracle database.
 
-To stop database activity streams for your database, configure the DB instance using the [StopActivityStream](../APIReference/API_StopActivityStream.md "../APIReference/API_StopActivityStream.md") operation. Identify the AWS Region for the DB instance using the `Region` parameter. The
-`ApplyImmediately` parameter is optional.
+When you activate a database activity stream, RDS for Oracle automatically clears existing
+audit data. It also revokes audit trail privileges. RDS for Oracle can no longer do the
+following:
+
+    + Purge unified audit trail records.
+    + Add, delete, or modify the unified audit policy.
+    + Update the last archived timestamp.
+
+###### Important
+
+We strongly recommend that you back up your audit data before activating a database
+activity stream.
+
+For a description of the `UNIFIED_AUDIT_TRAIL` view, see [UNIFIED_AUDIT_TRAIL](https://docs.oracle.com/database/121/REFRN/GUID-B7CE1C02-2FD4-47D6-80AA-CF74A60CDD1D.htm#REFRN29162 "https://docs.oracle.com/database/121/REFRN/GUID-B7CE1C02-2FD4-47D6-80AA-CF74A60CDD1D.htm#REFRN29162"). If you have an account with Oracle Support, see [How To Purge The UNIFIED
+AUDIT TRAIL](https://support.oracle.com/knowledge/Oracle%20Database%20Products/1582627_1.html "https://support.oracle.com/knowledge/Oracle%20Database%20Products/1582627_1.html").

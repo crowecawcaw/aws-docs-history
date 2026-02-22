@@ -25,10 +25,11 @@ For information about configuring and managing automated backups for Amazon RDS,
 - [Restoring to a specified time from a replicated backup for Amazon RDS](AutomatedBackups.md "AutomatedBackups.md")
 - [Stopping automated backup replication for Amazon RDS](AutomatedBackups.md "AutomatedBackups.md")
 - [Deleting replicated backups for Amazon RDS](AutomatedBackups.md "AutomatedBackups.md")
+- [Troubleshooting stopped cross-Region automated backups](AutomatedXREGBackups.md "AutomatedXREGBackups.md")
 
 ## Multi-AZ deployment support
 
-Cross-Region automated back replication is supported for Multi-AZ DB instance
+Cross-Region automated backup replication is supported for Multi-AZ DB instance
 deployments for the following engines:
 
 - RDS for Db2

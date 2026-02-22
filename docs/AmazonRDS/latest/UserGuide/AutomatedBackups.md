@@ -1,56 +1,21 @@
-# Stopping automated backup replication for Amazon RDS
+# Using AWS Backup to manage automated backups for Amazon RDS
 
-You can stop backup replication for DB instances using the Amazon RDS console. You can also use the
-`stop-db-instance-automated-backups-replication` AWS CLI command or the
-`StopDBInstanceAutomatedBackupsReplication` RDS API operation.
+AWS Backup is a fully managed backup service that makes it easy to centralize and automate
+the backup of data across AWS services in the cloud and on premises. You can manage
+backups of your Amazon RDS databases in AWS Backup.
 
-Replicated backups are retained, subject to the backup retention period set when they were created.
+###### Note
 
-Stop backup replication from the **Automated backups** page
-in the source Region.
+Backups managed by AWS Backup are considered manual DB snapshots, but don't count toward the DB snapshot quota for
+RDS. Backups that were created with AWS Backup have names ending in `awsbackup:`backup-job-number``.
 
-###### To stop backup replication to an AWS Region
+For more information about AWS Backup, see the [_AWS Backup Developer Guide_](../../../aws-backup/latest/devguide.md "../../../aws-backup/latest/devguide.md").
+
+###### To view backups managed by AWS Backup
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. Choose the source Region from the **Region selector**.
-3. In the navigation pane, choose **Automated backups**.
-4. On the **Current Region** tab, choose the DB instance for which you want to stop backup
-   replication.
-5. For **Actions**, choose **Manage cross-Region replication**.
-6. Under **Backup replication**, clear the **Enable replication to another AWS Region** check box.
-7. Choose **Save**.
-   Replicated backups are listed on the **Retained** tab of the **Automated backups**
-   page in the destination Region.
+2. In the navigation pane, choose **Snapshots**.
+3. Choose the **Backup service** tab.
 
-Stop backup replication by using the [`stop-db-instance-automated-backups-replication`](../../../cli/latest/reference/rds/stop-db-instance-automated-backups-replication.md "../../../cli/latest/reference/rds/stop-db-instance-automated-backups-replication.md")
-AWS CLI command.
-
-The following CLI example stops automated backups of a DB instance from replicating in the US West (Oregon)
-Region.
-
-###### To stop backup replication
-
-- Run one of the following commands.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds stop-db-instance-automated-backups-replication \
---region us-east-1 \
---source-db-instance-arn "arn:aws:rds:us-west-2:`123456789012`:db:`mydatabase`"
-```
-
-For Windows:
-
-```
-aws rds stop-db-instance-automated-backups-replication ^
---region us-east-1 ^
---source-db-instance-arn "arn:aws:rds:us-west-2:`123456789012`:db:`mydatabase`"
-```
-
-Stop backup replication by using the [`StopDBInstanceAutomatedBackupsReplication`](../APIReference/API_StopDBInstanceAutomatedBackupsReplication.md "../APIReference/API_StopDBInstanceAutomatedBackupsReplication.md") RDS API
-operation with the following parameters:
-
-- `Region`
-- `SourceDBInstanceArn`
+Your AWS Backup backups are listed under **Backup service snapshots**.

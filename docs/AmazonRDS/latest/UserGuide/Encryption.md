@@ -1,8 +1,7 @@
 # Protecting data using encryption
 
-You can enable encryption for database resources. You can also encrypt connections
-to DB instances
-.
+You can enable encryption for database resources.
+You can also encrypt connections to DB instances.
 
 ###### Topics
 
