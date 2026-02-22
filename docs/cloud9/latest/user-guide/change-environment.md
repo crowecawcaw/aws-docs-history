@@ -43,7 +43,7 @@ console
 2. In the top navigation bar, choose the AWS Region where the environment is
    located.
 
-![AWS Region selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/consolas_region_new_UX.png) 3. In the list of environments, for the environment whose settings you want to change, do one of the following.
+![AWS Region selector in the AWS Cloud9 console](images/consolas_region_new_UX.png) 3. In the list of environments, for the environment whose settings you want to change, do one of the following.
 
     * Choose the title of the card for the environment. Then choose **View
      details** on the next page.

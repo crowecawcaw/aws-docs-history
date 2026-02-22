@@ -160,7 +160,7 @@ to the home page. If the account is successfully created, a green flash bar appe
 of the AWS Cloud9 console. You can select the new environment and choose **Open in
 Cloud9** to launch the IDE.
 
-![AWS Cloud9 IDE selector in the AWS Cloud9 console](images/cloud9-ide-open.png)
+![AWS Cloud9 IDE selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/cloud9-ide-open.png)
 
 If the account fails to create, a red flash bar appears at the top of the AWS Cloud9 console.
 Your account might fail to create because of a problem with your web browser, your AWS
