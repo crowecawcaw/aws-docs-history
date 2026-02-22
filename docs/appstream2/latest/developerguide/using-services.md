@@ -73,3 +73,70 @@ practice to disable Internet Explorer Enhanced Security
 Configuration (ESC) on the Image Builder. For more information,
 see the WorkSpaces Applications administration guide to
 [disable Internet Explorer enhanced security configuration](customize-fleets.md#customize-fleets-disable-ie-esc "customize-fleets.md#customize-fleets-disable-ie-esc").
+
+## Configuring the Instance Metadata Service (IMDS) on your instances
+
+This topic describes the Instance Metadata Service (IMDS).
+
+_Instance metadata_ is data that's related to an Amazon Elastic Compute Cloud (Amazon EC2) instance that applications can use to configure or manage the running instance. The instance metadata service (IMDS) is an on-instance component that code on the instance uses to securely access instance metadata. For more information, see [Instance metadata and user data](../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md "../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md") in the _Amazon EC2 User Guide_.
+
+Code can access instance metadata from a running instance using one of two methods: Instance Metadata Service Version 1 (IMDSv1) or Instance Metadata Service Version 2 (IMDSv2). IMDSv2 uses session-oriented requests and mitigates several types of vulnerabilities that could be used to try to access the IMDS. For information about these two methods, see [Configuring the instance metadata service](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md") in the _Amazon EC2 User Guide_.
+
+### Resource support for IMDS
+
+Always-On, On-Demand, Single-Session, and Multi-Session Fleets, and all Image Builders support both IMDSv1 and IMDSv2 when running WorkSpaces Applications images with the agent version or managed image update released on or after January 16, 2024.
+
+Elastic Fleets and AppBlock Builders instances also support both IMDSv1 and IMDSv2.
+
+### Example of IMDS attribute settings
+
+Below are two examples of choosing the IMDS method:
+
+#### Java v2 SDK example
+
+Below example request disable IMDSv1 using `disableIMDSV1` attributes
+
+```
+
+CreateFleetRequest request = CreateFleetRequest.builder()
+ .name("TestFleet")
+ .imageArn("arn:aws:appstream:us-east-1::image/TestImage")
+ .instanceType("stream.standard.large")
+ .fleetType(FleetType.ALWAYS_ON)
+ .computeCapacity(ComputeCapacity.builder()
+ .desiredInstances(5)
+ .build())
+ .description("Test fleet description")
+ .displayName("Test Fleet Display Name")
+ .enableDefaultInternetAccess(true)
+ .maxUserDurationInSeconds(3600)
+ .disconnectTimeoutInSeconds(900)
+ .idleDisconnectTimeoutInSeconds(600)
+ .iamRoleArn("arn:aws:iam::123456789012:role/TestRole")
+ .streamView(StreamView.APP)
+ .platform(PlatformType.WINDOWS)
+ .maxConcurrentSessions(10)
+ .maxSessionsPerInstance(2)
+ .tags(tags)
+ .disableIMDSV1(true)
+ .build();
+
+```
+
+Set **disableIMDSV1** to true to disable IMDSv1 and enforce IMDSv2.
+
+Set **disableIMDSV1** to false to enable both IMDSv1 and IMDSv2.
+
+#### CLI Example
+
+Below example request disable IMDSv1 using `--disable-imdsv1` attributes
+
+```
+
+aws appstream create-fleet --name test-fleet --image-arn "arn:aws:appstream:us-east-1::image/test-image" --disable-imdsv1 --instance-type stream.standard.small --compute-capacity DesiredInstances=2 --max-user-duration-in-seconds 57600 --disconnect-timeout-in-seconds 57600 --region us-east-1
+
+```
+
+Set `--disable-imdsv1` to true to disable IMDSv1 and enforce IMDSv2.
+
+Set `--no-disable-imdsv1` to false to enable both IMDSv1 and IMDSv2.
