@@ -28,9 +28,10 @@ Choose whether to use customer managed keys or AWS owned keys carefully. Workspa
 
 ###### Important
 
-- If you disable or delete the customer managed key, your workspace will become inaccessible. The workspace will remain in an `ACTIVE` state but will be functionally unavailable for 7 days. After 7 days, the workspace will transition to a `FAILED` state and can only be deleted.
-- Customer managed key encryption is only available for new workspaces. Existing workspaces cannot be converted to use customer managed keys.
-- You cannot update the customer managed key for a workspace after creation.
+- If you disable the customer managed key or remove Amazon Managed Grafana access in the key policy, your workspace will become inaccessible. The workspace will remain in an `ACTIVE` state but will be functionally unavailable. You have 7 days to restore access by re-enabling the key or restoring the key policy. After 7 days, the workspace will transition to a `FAILED` state and can only be deleted.
+- Scheduling a key for deletion in AWS KMS has a minimum waiting period of 7 days before the key is deleted. Once a key is deleted, it cannot be restored, and any workspace encrypted with that key will permanently lose access to its data.
+- Customer managed key encryption is only available when creating new workspaces. Existing workspaces cannot be converted to use customer managed keys.
+- You cannot modify a workspace's customer managed key after creation.
 
 ## How Amazon Managed Grafana uses grants in AWS KMS
 
@@ -51,12 +52,13 @@ Amazon Managed Grafana requires the grants to use your customer managed key for 
 
 Amazon Managed Grafana creates grants to the AWS KMS key that allow Amazon Managed Grafana to use the key on your behalf. You can remove access to the key by changing the key policy, by disabling the key, or by revoking the grant. You should understand the consequences of these actions before performing them. This can cause data loss in your workspace.
 
-If you remove access to any of the grants in any way, Amazon Managed Grafana won't be able to access any of the data encrypted by the customer managed key, nor store new data sent to the workspace, which affects operations that are dependent on that data. New update to the workspace will not be accessible and may be permanently lost.
+If you remove access to any of the grants in any way, Amazon Managed Grafana won't be able to access any of the data encrypted by the customer managed key, nor store new data sent to the workspace, which affects operations that are dependent on that data. New updates to the workspace will not be accessible and may be permanently lost.
 
 ###### Warning
 
-- If you disable the key, or remove Amazon Managed Grafana access in the key policy, the workspace data is no longer accessible. The workspace will remain in an `ACTIVE` state but will be functionally unavailable. New update being sent to the workspace will not be accessible and may be permanently lost. You can get access to the workspace data and start receiving new data again by restoring Amazon Managed Grafana access to the key within 7 days. After 7 days, the workspace will transition to a `FAILED` state.
-- If you revoke a grant, it can't be recreated, and the data in the workspace is lost permanently.
+- If you disable the key, or remove Amazon Managed Grafana access in the key policy, the workspace data is no longer accessible. The workspace will remain in an `ACTIVE` state but will be functionally unavailable. New updates being sent to the workspace will not be accessible and may be permanently lost. You can restore access to the workspace data and resume receiving new data by re-enabling the key or restoring Amazon Managed Grafana access to the key within 7 days. After 7 days without access, the workspace will transition to a `FAILED` state.
+- If you schedule the key for deletion in AWS KMS, the key will be deleted after the mandatory 7-day waiting period. Once deleted, the key cannot be restored, and the workspace data will be permanently inaccessible.
+- If you _revoke_ a grant, it can't be recreated, and the data in the workspace is lost permanently.
 - Amazon Managed Grafana creates additional child grants through Amazon RDS due to its dependency on RDS for data storage. Revoking these RDS-related grants will have the same permanent data loss effect as revoking the primary Grafana grants.
 
 ## Step 1: Create a customer managed key
@@ -73,8 +75,8 @@ Key policies control access to your customer managed key. Every customer managed
 
 To use your customer managed key with your Amazon Managed Grafana workspaces, the following API operations must be permitted in the key policy:
 
-- [kms:CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to grant operations Amazon Managed Grafana requires. For more information, see [Using Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the _AWS KMS Developer Guide_. This allows Amazon Managed Grafana to do the following:
-  - Call `GenerateDataKey` to generate an encrypted data key and store it, because the data key isn't immediately used to encrypt.
+- [kms:CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to [grant operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Amazon Managed Grafana requires. For more information, see [Using Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the _AWS KMS Developer Guide_. This allows Amazon Managed Grafana to do the following:
+  - Call `GenerateDataKey` to generate an encrypted data key and store it.
   - Call `Decrypt` to use the stored encrypted data key to access encrypted data.
 
 - [kms:DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") – Provides the customer managed key details to allow Amazon Managed Grafana to validate the key.
