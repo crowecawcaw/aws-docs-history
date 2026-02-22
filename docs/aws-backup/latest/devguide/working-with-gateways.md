@@ -12,14 +12,18 @@ jobs at once, create more gateways and associate them with your hypervisor.
 
 You can create a backup gateway using two approaches:
 
-- **Console method (standard)**: Creates IPv4-only gateways through the AWS Backup console with automatic activation
-- **Manual method**: Supports both IPv4 and IPv6 by obtaining activation keys and using AWS CLI commands
+- **Console method (standard)**: Creates gateways through the AWS Backup console with automatic activation
+- **Manual method**: Creates gateways using gateway VM's local console by obtaining activation keys and using AWS CLI commands
 
 Both methods require downloading and deploying the OVF template first (see [Download VM software](vm-backups.md#download-vm-software "vm-backups.md#download-vm-software")).
 
-### Console method (IPv4 only)
+Both methods allow gateway to communicate over IPv6, which requires gateway appliance version 2.x+ and additional firewall configuration on [dual-stack endpoints](configure-infrastructure-bgw.md#bgw-firewall-configuration "configure-infrastructure-bgw.md#bgw-firewall-configuration").
 
-Use this method for standard IPv4 gateway creation through the AWS Backup console with automatic activation.
+###### Important
+
+**IPv6 hypervisor requirement:** If your gateway is activated through IPv6, you **must** create a hypervisor with an IPv6 address. For example, use `2607:fda8:1001:210::252` instead of `10.0.0.252`. If you associate an IPv6 gateway with an IPv4 hypervisor, backup and restore jobs will likely fail.
+
+### Console method
 
 ###### To create a gateway:
 
@@ -82,10 +86,8 @@ Once the VMWare software is downloaded, complete the following steps:
    1. Type in a **Gateway name**.
    2. Verify the AWS Region.
    3. Choose whether the endpoint is publicly accessible or hosted with your virtual private cloud (VPC).
-   4. Depending on the endpoint chosen, enter the VPC endpoint DNS Name.
-
-   For more information, see [Create
-   a VPC endpoint](backup-network.md#backup-privatelink "backup-network.md#backup-privatelink").
+      - If **publicly accessible** is selected, choose the IP version (IPv4 or IPv6) for gateway connectivity.
+      - If **VPC** is selected, enter the VPC endpoint DNS Name. For more information, see [Create a VPC endpoint](backup-network.md#backup-privatelink "backup-network.md#backup-privatelink").
 
 3. _[Optional]_ In the **Gateway tags** section, you can assign tags
    by inputting the **key** and _optional_ **value**.
@@ -93,13 +95,7 @@ Once the VMWare software is downloaded, complete the following steps:
 4. To complete the process, click **Create gateway**, which takes you to the gateway
    detail page.
 
-### Manual gateway creation (IPv4 and IPv6)
-
-For IPv6 support, create gateways manually using activation keys. IPv6 support requires gateway appliance version 2.x+ and additional firewall configuration on [dual-stack endpoints](configure-infrastructure-bgw.md#bgw-firewall-configuration "configure-infrastructure-bgw.md#bgw-firewall-configuration").
-
-###### Important
-
-**IPv6 hypervisor requirement:** If your gateway is activated through IPv6, you **must** create a hypervisor with an IPv6 address. For example, use `2607:fda8:1001:210::252` instead of `10.0.0.252`. If you associate an IPv6 gateway with an IPv4 hypervisor, backup and restore jobs will likely fail.
+### Manual gateway creation
 
 #### Getting an activation key
 

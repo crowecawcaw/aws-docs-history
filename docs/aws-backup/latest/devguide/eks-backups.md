@@ -58,7 +58,7 @@ This signifies a recovery point (a backup) has been created.
 Console
 To create an on-demand backup of your Amazon EKS cluster:
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com//backup "https://console.aws.amazon.com//backup").
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. In the navigation pane, choose **Protected resources**.
 3. Under **Resource type**, select **Amazon EKS**.
 4. Select the checkbox next to the Amazon EKS cluster you want to back up.
@@ -132,11 +132,10 @@ You can delete a recovery point using the console or using the AWS CLI.
 
 To delete recovery points using the console:
 
-Open the AWS Backup console at [https://console.aws.amazon.com/backup/](https://console.aws.amazon.com//backup/home "https://console.aws.amazon.com//backup/home").
-
-1. Click on Protected Resources in the left-hand navigation. In the text box, type EKS to display only your Amazon EKS clusters.
-2. Composite recovery points will be displayed in the Recovery points pane. The plus sign (+) to the left of each recovery point ID can be clicked to expand each composite recovery point, showing all nested recovery points contained in the composite. You can check the box to the left of any recovery point to include it in your selection of recovery points you wish to delete.
-3. Click the Delete button.
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+2. Click on Protected Resources in the left-hand navigation. In the text box, type EKS to display only your Amazon EKS clusters.
+3. Composite recovery points will be displayed in the Recovery points pane. The plus sign (+) to the left of each recovery point ID can be clicked to expand each composite recovery point, showing all nested recovery points contained in the composite. You can check the box to the left of any recovery point to include it in your selection of recovery points you wish to delete.
+4. Click the Delete button.
 
 When you use the console to delete one or more composite recovery points, a warning box will pop up. This warning box requires you to confirm your intention to delete the composite recovery points, including nested recovery points within composite stacks.
 
@@ -156,11 +155,12 @@ You can copy a composite recovery point, or you can copy a nested recovery point
 
 To copy recovery points using the AWS Backup console:
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com//backup "https://console.aws.amazon.com//backup").
-2. Click on **Vaults** in the left-hand navigation, and go to the vault that contains the recovery point you want to copy. In the text box, type `EKS` to display only your recovery points for Amazon EKS clusters.
-3. Both composite and nested recovery points will be displayed under the Recovery point ID pane. Note you cannot select and copy a nested EKS recovery point.
-4. The arrow sign to the left of each composite recovery point ID can be clicked to expand, showing all nested recovery points contained in the composite. You can click the square checkbox to the left of any recovery point to copy it.
-5. Once it is selected, click the **Actions** dropdown in the top-right corner of the pane and click **Copy**.
+Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+
+1. Click on **Vaults** in the left-hand navigation, and go to the vault that contains the recovery point you want to copy. In the text box, type `EKS` to display only your recovery points for Amazon EKS clusters.
+2. Both composite and nested recovery points will be displayed under the Recovery point ID pane. Note you cannot select and copy a nested EKS recovery point.
+3. The arrow sign to the left of each composite recovery point ID can be clicked to expand, showing all nested recovery points contained in the composite. You can click the square checkbox to the left of any recovery point to copy it.
+4. Once it is selected, click the **Actions** dropdown in the top-right corner of the pane and click **Copy**.
 
 Amazon EKS backups support all copy types:
 
@@ -176,7 +176,7 @@ Amazon EKS backups support all copy types:
 - Amazon S3 bucket backups as part of an EKS cluster backup will only support snapshot backups.
 - Amazon FSx via CSI driver is not supported via EKS Backups.
 - AWS Backup does not support Amazon EKS on AWS Outposts.
-- Subject to [backup and restore quotas](aws-backup/latest/devguide/aws-backup-limits.md "aws-backup/latest/devguide/aws-backup-limits.md")
+- Subject to [backup and restore quotas](aws-backup-limits.md "aws-backup-limits.md").
 
 ## Frequently Asked Questions
 

@@ -188,13 +188,6 @@ plan.
 
 **Copies of Amazon RDS continuous backups:**
 
-- Incremental snapshot copy jobs process faster than full snapshot copy jobs.
-  Keeping a previous snapshot copy until the new copy job is complete may reduce the
-  copy job duration. If you choose to copy snapshots from RDS database instances, it is
-  important to note that deleting previous copies first will cause full snapshot copies
-  to be made (instead of incremental). For more information on optimizing copying, see
-  [Incremental snapshot copying](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md#USER_CopySnapshot.Incremental "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md#USER_CopySnapshot.Incremental") in the _Amazon RDS User
-  Guide_
 - **Creating copies of Amazon RDS continuous backups**
   — You can't create copies of Amazon RDS continuous backups because AWS Backup for Amazon RDS
   does not allow copying transaction logs. Instead, AWS Backup creates a snapshot and copies

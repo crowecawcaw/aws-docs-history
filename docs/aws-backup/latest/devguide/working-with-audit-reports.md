@@ -56,6 +56,10 @@ You can have a maximum of 20 report plans per AWS account.
 Resources such as RDS that do not have the capability to show incremental bytes of data
 of a specific backup will display the value `backupSizeInBytes` as 0.
 
+###### Note
+
+[Restore testing validation and deletion status](restore-testing-validation.md "restore-testing-validation.md") after your restore jobs report has been generated, will be reported in subsequent restore jobs report on completion with the same restore job id.
+
 To allow AWS Backup Audit Manager to create daily or on-demand reports, you must first create a
 _report plan_ from a _report template_.
 

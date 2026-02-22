@@ -347,6 +347,23 @@ To view the permissions for this policy, see [AWSBackupServiceRolePolicyForResto
 For EC2 instance restores, you must also include the following
 permissions to launch the EC2 instance:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowPassRole",
+ "Action": "iam:PassRole",
+ "Resource": "arn:aws:iam::`123456789012`:role/`role-name`",
+ "Effect": "Allow"
+ }
+ ]
+}`
+
+```
+
 ### AWSBackupServiceRolePolicyForS3Backup
 
 This policy contains the permissions necessary for AWS Backup to back up any S3 bucket.

@@ -29,7 +29,7 @@ see the Full AWS Backup management section in the [Feature availability by resou
 
 When a resource type does not support full AWS Backup management, some of your AWS Backup
 activity such as storage costs for your backups, have billing reflected by the respective
-AWS service.
+AWS service. However, if you are using a [Logically air-gapped vault](logicallyairgappedvault.md#lag-compare-and-contrast "logicallyairgappedvault.md#lag-compare-and-contrast"), all storage or data transfer charges occur under AWS Backup.
 
 **Copy Jobs**
 

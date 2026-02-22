@@ -25,6 +25,8 @@ The first snapshot made by AWS Backup, created by either operation, will result 
 snapshot. All subsequent _copies_ of this will be incremental backups,
 as long as the full backup exists.
 
+When using cross account or cross Region copies, incremental snapshot copy jobs process faster than full snapshot copy jobs. Keeping a previous snapshot copy until the new copy job is complete may reduce the copy job duration. If you choose to copy snapshots from RDS database instances, it is important to note that deleting previous copies first will cause full snapshot copies to be made (instead of incremental). For more information on optimizing copying, see [Incremental snapshot copying](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md#USER_CopySnapshot.Incremental "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md#USER_CopySnapshot.Incremental") in the _Amazon RDS User Guide_.
+
 ###### Important
 
 When a AWS Backup backup plan is scheduled to create multiple daily snapshots of an Amazon RDS

@@ -45,9 +45,6 @@ You can select IPv4, IPv6, or dual stack when created an endpoint. You will
 receive the same DNS names (which will have both IPv4 and IPv6 addresses if you
 select dual stack).
 
-AWS Backup for SAP HANA does not support AWS PrivateLink. SAP HANA backups are enabled by the AWS Backint agent,
-which does not support VPC endpoints; it sends backup data to the storage endpoint for AWS Backup.
-
 ### Create an AWS Backup VPC endpoint
 
 You can create a VPC endpoint for AWS Backup using either the Amazon VPC console or the AWS Command Line Interface
@@ -61,6 +58,11 @@ Create a VPC endpoint for AWS Backup using the service name
 
 In China (Beijing) Region and China (Ningxia) Region, the service name should be
 `cn.com.amazonaws.`region`.backup`.
+
+For Backup dataplane endpoints, use
+`com.amazonaws.`region`.backup-storage`.
+Only SAP Hana supports dataplane endpoints and may require a
+[BackInt agent update](../../../sap/latest/sap-hana/aws-backint-agent-backup.md#backint-backup-install "../../../sap/latest/sap-hana/aws-backint-agent-backup.md#backint-backup-install").
 
 For Backup gateway endpoints, use
 `com.amazonaws.`region`.backup-gateway`.

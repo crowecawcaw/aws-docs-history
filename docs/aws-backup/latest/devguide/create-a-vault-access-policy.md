@@ -41,10 +41,69 @@ vault
 This policy denies access to the specified API operations for all Amazon EBS snapshots in a
 backup vault.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DenyRecoveryPointOperations",
+ "Effect": "Deny",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/`MyRole`"
+ },
+ "Action": [
+ "backup:UpdateRecoveryPointLifecycle",
+ "backup:DescribeRecoveryPoint",
+ "backup:DeleteRecoveryPoint",
+ "backup:GetRecoveryPointRestoreMetadata",
+ "backup:StartRestoreJob"
+ ],
+ "Resource": [
+ "arn:aws:ec2:*:*:snapshot/*"
+ ]
+ }
+ ]
+}`
+
+```
+
 ## Deny access to a backup vault
 
 This policy denies access to the specified API operations targeting a backup
 vault.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DenyBackupVaultOperations",
+ "Effect": "Deny",
+ "Principal": {
+ "AWS": "arn:aws:iam::`123456789012`:role/`MyRole`"
+ },
+ "Action": [
+ "backup:DescribeBackupVault",
+ "backup:DeleteBackupVault",
+ "backup:PutBackupVaultAccessPolicy",
+ "backup:DeleteBackupVaultAccessPolicy",
+ "backup:GetBackupVaultAccessPolicy",
+ "backup:StartBackupJob",
+ "backup:GetBackupVaultNotifications",
+ "backup:PutBackupVaultNotifications",
+ "backup:DeleteBackupVaultNotifications",
+ "backup:ListRecoveryPointsByBackupVault"
+ ],
+ "Resource": "arn:aws:backup:`us-east-1`:`123456789012`:backup-vault:`backup vault name`"
+ }
+ ]
+}`
+
+```
 
 ## Deny access to delete recovery
 
@@ -95,6 +154,33 @@ JSON
 
 To allow list IAM identities using their ARN, use the `aws:PrincipalArn`
 global condition key in the following example.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DenyDeleteRecoveryPoint",
+ "Effect": "Deny",
+ "Principal": "*",
+ "Action": "backup:DeleteRecoveryPoint",
+ "Resource": "*",
+ "Condition": {
+ "ArnNotEquals": {
+ "aws:PrincipalArn": [
+ "arn:aws:iam::`112233445566`:role/`mys3role`",
+ "arn:aws:iam::`112233445566`:user/`shaheer`",
+ "arn:aws:iam::`112233445566`:root"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
 
 For information about getting a unique ID for an IAM entity, see [Getting the
 unique identifier](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-get-unique-id "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-get-unique-id") in the _IAM User Guide_.

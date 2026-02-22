@@ -473,6 +473,31 @@ account (112233445566) if one or more destination backup vault names begin with
 account (123456789012) if the destination is the single backup vault named
 `fort-knox`.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "DenyCopyFromBackupVault",
+ "Effect": "Deny",
+ "Action": "backup:CopyFromBackupVault",
+ "Resource": "arn:aws:ec2:*:*:snapshot/*",
+ "Condition": {
+ "ForAllValues:ArnNotLike": {
+ "backup:CopyTargets": [
+ "arn:aws:backup:*:112233445566:backup-vault:cab-*",
+ "arn:aws:backup:us-east-1:123456789012:backup-vault:fort-knox"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 ###### Limit destination
 
 accounts using organizational units in AWS Organizations

@@ -16,7 +16,7 @@ you can opt to create a new EKS cluster which AWS Backup will create on your beh
 
 AWS Backup will provide a limited set of options for creating a new EKS cluster as a part of a restore.
 For all EKS cluster creation functionality, customers can create a new EKS cluster using
-the [EKS Console](https://console.aws.amazon.com//eks/home "https://console.aws.amazon.com//eks/home") or APIs and select this as their restore target.
+the [EKS Console](https://console.aws.amazon.com/eks/home "https://console.aws.amazon.com/eks/home") or APIs and select this as their restore target.
 
 **Restore capabilities for Amazon EKS**
 
@@ -124,7 +124,7 @@ Console
 
 ###### To restore your Amazon EKS cluster
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com//backup "https://console.aws.amazon.com//backup").
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. In the navigation pane, choose **Backup vaults**.
 3. Choose the backup vault that contains your Amazon EKS backup, then select the recovery point for your Amazon EKS backup.
 4. Choose **Restore**.
