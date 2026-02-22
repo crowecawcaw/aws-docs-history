@@ -100,7 +100,6 @@ Your Lambda function must return a JSON response with the following structure:
     "CustomerProfiles": [
       {
         "Id": "string",
-        "Result": "SUCCESS" | "FAILURE",
         "ResultData": {}
       }
     ]
@@ -116,8 +115,6 @@ Your Lambda function must return a JSON response with the following structure:
   each customer profile in the request
 - **Id**: Must match the `ProfileId` from the
   request
-- **Result**: Processing result - either
-  `SUCCESS` or `FAILURE`
 - **ResultData**: Custom JSON object containing your
   processing results (optional)
 
@@ -129,7 +126,6 @@ Your Lambda function must return a JSON response with the following structure:
     "CustomerProfiles": [
       {
         "Id": "customer-001",
-        "Result": "SUCCESS",
         "ResultData": {
           "recommendedProduct": "Premium Plan",
           "score": 85,
@@ -138,7 +134,6 @@ Your Lambda function must return a JSON response with the following structure:
       },
       {
         "Id": "customer-002",
-        "Result": "FAILURE",
         "ResultData": {
           "error": "Invalid customer data",
           "errorCode": "VALIDATION_ERROR"
@@ -170,8 +165,6 @@ Your Lambda function must return a JSON response with the following structure:
 
 - If your Lambda function throws an exception, all profiles in the batch will be marked
   as failed
-- Use the `Result: "FAILURE"` field to indicate individual profile processing
-  failures
 - Include error details in `ResultData` for debugging purposes
 
 ### Invocation Type

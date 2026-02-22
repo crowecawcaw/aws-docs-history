@@ -39,7 +39,13 @@ specified resources:
   `connect-campaigns:PutProfileOutboundRequestBatch` to trigger a campaign
   based on your Customer Profiles Event Trigger Definition.
 - Action: Amazon Connect Customer Profiles `profile:BatchGetProfile` to
-  retrieve profile information necessary for triggering an event.
+  retrieve profile information necessary for triggering a campaign.
+- Action: Amazon Connect Customer Profiles `profile:GetRecommender` to
+  retrieve recommenders necessary for triggering a campaign.
+- Action: Amazon Connect Customer Profiles `profile:GetCalculatedAttributeForProfile` to
+  retrieve calculated attributes necessary for triggering a campaign.
+- Action: Amazon Connect Customer Profiles `profile:GetProfileRecommendations` to
+  retrieve profile recommendations necessary for triggering a campaign.
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the

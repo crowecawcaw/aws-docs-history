@@ -31,9 +31,15 @@ will be blocked.
 
 ## Redirection of calls
 
-If you are using Amazon Connect to redirect calls: If you are receiving calls
-with Anonymous (withheld CLI), you must use an Amazon Connect number for the
-transfer. See [Set up outbound caller ID in Amazon Connect](queues-callerid.md "queues-callerid.md").
+If you are using Amazon Connect to redirect calls: If you are receiving calls with
+Anonymous (withheld CLI), you must use an Amazon Connect number for the transfer.
+
+**Important:** Anonymous calls (calls without caller
+ID) are increasingly blocked by carriers as anti-spam measures and may violate
+telecommunications regulations in many countries. Always configure a valid caller ID
+number from your Amazon Connect instance to ensure reliable call delivery.
+
+See [Set up outbound caller ID in Amazon Connect](queues-callerid.md "queues-callerid.md").
 
 ## International calling restrictions
 

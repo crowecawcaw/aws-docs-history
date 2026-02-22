@@ -1,4 +1,4 @@
-# Build conditional UIs with View
+# Build conditional UIs with Views
 
 The UI conditions capability of Views enables customers to change properties of components within a View based on user interaction with other components within that same View. For example, when a user updates an input value in component A, such as a dropdown, component B, such as a container, will be hidden in the View. Conditions enable you to create tailored experiences for your agents, end customers, or supervisors based on the given needs of the task or interaction.
 

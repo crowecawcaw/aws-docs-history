@@ -84,7 +84,7 @@ saved, the AI guardrail Visibility status is set to
 **Published**, and a new AI Guardrail version is
 created.
 
-![The AI guardrail page, the Visibility status set to Published.](images/ai-guardrail-create.png)
+![The AI guardrail page, the Visibility status set to Published.](images/ai-agents-created-guardrail.png)
 
 When selecting from the versions dropdown,
 **Latest:Published** always returns the saved state of
@@ -102,7 +102,7 @@ The following image shows an example of the default blocked message that is
 displayed to a user. The default message is "Blocked input text by
 guardrail."
 
-![An example of a default guardrail message displayed to a customer.](images/ai-guardrail-for-amazon-q-in-connect-1.png)
+![An example of a default guardrail message displayed to a customer.](images/ai-agents-blocked-by-guardrail.png)
 
 ###### To change the default blocked message
 

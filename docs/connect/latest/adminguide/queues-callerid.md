@@ -146,6 +146,22 @@ a valid E164 phone number. If the phone number is not provided in
 the caller ID, local telephony suppliers may reject outbound calls
 due to local anti-fraud requirements.
 
+### Anonymous caller ID
+
+Anonymous calls (calls without caller ID) will be blocked by most carriers and
+may fail to connect.
+
+**Why anonymous calls fail:**
+
+- Most phone carriers now block anonymous calls as anti-spam measures.
+- Many countries prohibit anonymous calls through regulation.
+- Call success rates are unpredictable and unreliable.
+
+**Prevention:** Always configure a valid phone
+number in the **Outbound caller ID** number field for every
+queue used for outbound calling. Use only numbers you've claimed or ported to
+Amazon Connect.
+
 ### Toll-free numbers for caller ID
 
 Toll-free numbers for outbound communications have a number of limitations.

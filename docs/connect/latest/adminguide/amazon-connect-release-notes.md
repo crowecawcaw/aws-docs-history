@@ -7,6 +7,10 @@ your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
 ## February 2026 Updates
 
+### Amazon Connect Cases now supports AWS Service Quotas
+
+Amazon Connect Cases now supports AWS Service Quotas, giving administrators a centralized way to view applied limits, monitor utilization, and scale case workloads without hitting unexpected service constraints. You can request quota increases directly from the Service Quotas console, and eligible requests are automatically approved without manual intervention.
+
 ### Amazon Connect Cases now supports larger, multi-line text fields
 
 Amazon Connect Cases now supports larger, multi-line text fields with up to 4,100 characters. Administrators can use the Admin UI to select the appropriate configuration (single-line or multi-line) on a per-field basis, improving case documentation capabilities.

@@ -520,7 +520,7 @@ The following image shows the plan output. It shows a week-by-week or
 month-by-month calculation. To switch from weekly to monthly view,
 select **Monthly** from the dropdown.
 
-![The Plan Outputs section of the capacity plan, the time frame dropdown menu.](images/wfm-capacity-planning-output3.png)
+![The Plan Outputs section of the capacity plan, the time frame dropdown menu.](/images/connect/latest/adminguide/images/wfm-capacity-planning-output3.png)
 
 - [Scheduling](scheduling.md "scheduling.md"): Contact center schedulers
   or managers need to create agent schedules for day-to-day workloads that

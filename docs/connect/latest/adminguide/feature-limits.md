@@ -202,21 +202,22 @@ specifications
 The following table lists feature specifications for Amazon Connect
 Rules.
 
-| Item                                                        | Feature Specification |
-| ----------------------------------------------------------- | --------------------- |
-| Conditions in a rule                                        | 20                    |
-| Rules with Natural Language condition                       | 15                    |
-| Rules for `OnPostCallAnalysisAvailable` event<br>source     | 500                   |
-| Rules for `OnPostChatAnalysisAvailable` event<br>source     | 500                   |
-| Rules for `OnRealTimeCallAnalysisAvailable` event<br>source | 500                   |
-| Rules for `OnRealTimeChatAnalysisAvailable` event<br>source | 500                   |
-| Rules for `OnZendeskTicketCreate` event source              | 500                   |
-| Rules for `OnZendeskTicketStatus` event source              | 500                   |
-| Rules for `OnSalesforceCaseCreate` event<br>source          | 500                   |
-| Rules for `OnContactEvaluationSubmit` event<br>source       | 500                   |
-| Rules for `OnCaseUpdate` event source                       | 500                   |
-| Rules for `OnCaseCreate` event source                       | 500                   |
-| Rules for `OnMetricDataUpdate` event source                 | 100                   |
+| Item                                                                                 | Feature Specification |
+| ------------------------------------------------------------------------------------ | --------------------- |
+| Conditions in a rule                                                                 | 20                    |
+| Rules with Natural Language condition for `OnPostCallAnalysisAvailable` event source | 15                    |
+| Rules with Natural Language condition for `OnPostChatAnalysisAvailable` event source | 15                    |
+| Rules for `OnPostCallAnalysisAvailable` event<br>source                              | 500                   |
+| Rules for `OnPostChatAnalysisAvailable` event<br>source                              | 500                   |
+| Rules for `OnRealTimeCallAnalysisAvailable` event<br>source                          | 500                   |
+| Rules for `OnRealTimeChatAnalysisAvailable` event<br>source                          | 500                   |
+| Rules for `OnZendeskTicketCreate` event source                                       | 500                   |
+| Rules for `OnZendeskTicketStatus` event source                                       | 500                   |
+| Rules for `OnSalesforceCaseCreate` event<br>source                                   | 500                   |
+| Rules for `OnContactEvaluationSubmit` event<br>source                                | 500                   |
+| Rules for `OnCaseUpdate` event source                                                | 500                   |
+| Rules for `OnCaseCreate` event source                                                | 500                   |
+| Rules for `OnMetricDataUpdate` event source                                          | 100                   |
 
 | Condition type                       | Number of entries or selections | Post-call     | Post-chat     | Real-time     |
 | ------------------------------------ | ------------------------------- | ------------- | ------------- | ------------- |

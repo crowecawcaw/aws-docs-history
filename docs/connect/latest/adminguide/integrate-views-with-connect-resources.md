@@ -10,6 +10,8 @@ The view integrations panel allows you to configure and reference data on your v
 4. Version or Alias: The flow module version/alias that the view will call to fetch new information
 5. Enable refresh (seconds): A boolean value to call the integration as the view is running in a guide
 6. Refresh intervals: The intervals at which the View will make a call to the integration to fetch the information
+   - Polling live data sources works best in a single-tab environment. If multiple tabs are open with the Guide application, each View will poll the data source, potentially causing throttles and some Views to be out of date
+
 7. Tool input object: A JSON object representing the data sent from the view to the source (e.g., Flow module) to fetch the latest relevant information to update the view
    Once an integration is configured, you will be able to use that view to reference outputs from the integration. References displayed in the UI builder are based on the output data available from the particular integration.
 

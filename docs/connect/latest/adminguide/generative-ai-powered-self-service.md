@@ -86,7 +86,7 @@ Follow these steps to enable Connect AI agents for self-service:
     The following image shows an example of how you can make a routing
     decision based on what Connect AI agents decides.
 
-![Contact routing based on Q tool selections for COMPLETE and TRIP_BOOKING paths.](images/generative-ai-powered-self-service-q-1.png)
+![Contact routing based on ai agent tool selections for COMPLETE and TRIP_BOOKING paths.](images/generative-ai-powered-self-service-q-3.png)
 
 ## Custom actions
 

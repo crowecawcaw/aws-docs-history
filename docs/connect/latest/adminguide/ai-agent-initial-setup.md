@@ -21,13 +21,14 @@ As part of this process you can also optionally:
 - [Step 3: Create an integration (knowledge
   base)](#enable-ai-agents-step-3 "#enable-ai-agents-step-3")
 - [Step 4: Configure your flow for Connect AI agents](#enable-ai-agents-step4 "#enable-ai-agents-step4")
+- [What if I have multiple knowledge bases?](#multiple-knowledge-base-tips "#multiple-knowledge-base-tips")
 - [When was your knowledge base last updated?](#enable-ai-agents-tips "#enable-ai-agents-tips")
 - [Cross-region inference
   service](#enable-ai-agents-cross-region-inference-service "#enable-ai-agents-cross-region-inference-service")
 
 ## Supported content types
 
-Amazon Connect supports the ingestion of HTML, Word, PDF, and text files up to 1 MB. Note
+Connect AI agents support the ingestion of HTML, Word, PDF, and text files up to 1 MB. Note
 the following:
 
 - Plain text files must be in UTF-8.
@@ -149,12 +150,12 @@ without a domain.
    under **Instance alias**, choose the name of the instance.
    The following image shows a typical instance name.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Amazon Q**, and then
+![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **AI Agents**, and then
 choose **Add domain**. 4. On the **Add domain** page, choose **Create a
 domain**. 5. In the **Domain name** box, enter a friendly name, such
 as your organization name.
 
-![Add domain page, create a new domain option.](images/q-enter-name.png) 6. Keep the page open and go to the next step.
+![Add domain page, create a new domain option.](images/ai-agent-enter-domain-name.png) 6. Keep the page open and go to the next step.
 
 ## Step 2: Encrypt the domain
 
@@ -239,7 +240,7 @@ these steps:
 
 
 
-    ![Add labels page, alias name and a description.](images/wisdom-create-kms-key-add-labels.png)
+    ![Add labels page, alias name and a description.](images/ai-agents-create-kms-key-add-labels.png)
     3. On the **Define key administrative
      permissions** page, choose
      **Next**, and on the **Define key
@@ -296,23 +297,23 @@ these steps:
 
 
     In the following example, the name of the KMS key starts
-     with **9059f488**.
+     with **82af7d87**.
 
 
 
-    ![The Customer managed keys page showing a typical key.](images/customer-profiles-create-kms-key-note-key.png)
+    ![The Customer managed keys page showing a typical key.](images/ai-agents-create-kms-key.png)
 
 2. Return to the **Connect AI agents** browser tab, open the
    **AWS KMS key** list, and select the key that
    you created in the previous steps.
 
-![Encryption settings interface with option to customize and select an AWS KMS key.](images/customer-profiles-create-kms-key-choose-key.png) 3. Choose **Add domain**.
+![Encryption settings interface with option to customize and select an AWS KMS key.](images/ai-agents-choose-kms-key.png) 3. Choose **Add domain**.
 
 ## Step 3: Create an integration (knowledge
 
 base)
 
-1. On the **Amazon Q** page, choose **Add
+1. On the **AI Agents** page, choose **Add
    integration**.
 2. On the **Add integration** page, choose **Create
    a new integration**, and then select a source.
@@ -671,7 +672,7 @@ To create a new integration, use the following steps:
 2. In the **Integration name**
    box, assign a friendly name to the integration.
 
-![Web Crawler integration setup page showing the Integration name field where users enter a name for their new connection.](images/web-crawler-q-config-1.png) 3. In the **Connection with Web Crawler >
+![Web Crawler integration setup page showing the Integration name field where users enter a name for their new connection.](images/web-crawler-ai-agent-config-1.png) 3. In the **Connection with Web Crawler >
 Source URLs** section, provide the **Source URLs** of the URLs you want to
 crawl. You can add up to 9 additional URLs by selecting
 **Add Source URLs**. By
@@ -757,6 +758,23 @@ Occasionally, the crawler may not be able to distinguish if content was
 removed from the website; and in this case it will preserve old content
 in your knowledge base.
 
+Now with Orchestration Type AI Agent, you can bring your own Bedrock Knowledge Base to seamlessly work with Connect AI Agents.
+
+###### Note
+
+The bedrock knowledge base integration type is only compatible with orchestration agent types.
+
+1. Add new integration
+
+![The Add integration page.](images/add-integration-page-ai-agents.png) 2. Choose Bedrock Knowledge Base
+
+![Selecting Bedrock knowledge base from data source list](images/ai-agents-select-byobkb-data-source.png) 3. Select existing Bedrock Knowledge Base
+
+![Selecting existing Bedrock Knowledge Base](images/ai-agents-selecting-bedrock-knowledge-base.png) 4. Review and add integration
+
+![BYOBKB review and integrate page](images/ai-agents-byobkb-review-and-integrate.png)
+You have successfully integrated an existing Bedrock Knowledge Base with Connect's AI Agents
+
 ###### Note
 
 - If you delete objects from SaaS applications, such as SalesForce and
@@ -792,6 +810,10 @@ behavior](set-recording-behavior.md "set-recording-behavior.md") block that is c
 for Contact Lens conversational analytics real-time. It doesn't
 matter where in the flow you add the [Set recording and analytics
 behavior](set-recording-behavior.md "set-recording-behavior.md") block.
+
+## What if I have multiple knowledge bases?
+
+You can configure your orchestration agent to utilize multiple knowledge bases by [configuring multiple retrieve tools.](multiple-knowledge-base-setup-and-content-segmentation.md "multiple-knowledge-base-setup-and-content-segmentation.md")
 
 ## When was your knowledge base last updated?
 

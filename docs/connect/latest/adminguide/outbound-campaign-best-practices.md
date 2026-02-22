@@ -130,19 +130,29 @@ you with an agent."
 ### Outbound agentless calling
 
 Outbound campaigns often use custom greetings and self service functions. Do not use
-Lambda functions to get contact attributes. Instead, provide customer data (attributes) via the
-campaign segment. Use these attributes from the campaign segment to play custom
-greetings.
+Lambda functions to get Customer Profile data. Instead, retrieve data from Customer Profiles
+using the following approach:
 
-- Example - Call Answered or Not Detected: "Hello, `$.Attributes.FirstName`.
-  This is `$.Attributes.CallerIdentity` calling to confirm your upcoming appointment
-  on `$.Attributes.AppointmentDate` at `$.Attributes.AppointmentTime`. If
-  this is still a good time and date for you, just say, "Confirm". If you would like to use our
+- Add a **Customer Profiles** block at the start of your flow and select the **Get profile** action.
+- Set the identifier type to **Profile ID**.
+- Use `$.Attributes.connect_customer-profile_profile-id` as the identifier value.
+  This attribute is automatically populated when contacts are dialed from a outbound campaign that uses Customer Profiles segments.
+- Select the appropriate response fields to retrieve. For standard profile attributes (like FirstName, LastName), add them directly.
+  For custom attributes (like AppointmentDate, AppointmentTime), add them as custom response fields by selecting Custom attribute.
+- After the Customer Profiles block, you can access profile attributes using `$.Customer.<AttributeName>` for standard attributes
+  or `$.Customer.Attributes.<CustomAttributeName>` for custom attributes to play custom greetings.
+
+Here are examples of how to use Customer Profile attributes in prompts:
+
+- Example - Call Answered or Not Detected: "Hello, `$.Customer.FirstName`.
+  This is [your organization] calling to confirm your upcoming appointment
+  on `$.Customer.Attributes.AppointmentDate` at `$.Customer.Attributes.AppointmentTime`.
+  If this is still a good time and date for you, just say, "Confirm". If you would like to use our
   self service system to modify your appointment, just say, "self service" or stay on the line
   and we will connect you with the next available agent."
-- Example - Voicemail with or without beep: "Hello, `$.Attributes.FirstName`.
-  This is `$.Attributes.CallerIdentity` calling to confirm your upcoming appointment
-  on `$.Attributes.AppointmentDate` at `$.Attributes.AppointmentTime`. If
+- Example - Voicemail with or without beep: "Hello, `$.Customer.FirstName`.
+  This is [your organization] calling to confirm your upcoming appointment
+  on `$.Customer.Attributes.AppointmentDate` at `$.Customer.Attributes.AppointmentTime`. If
   this is still a good time and date for you, we will see you then. If you would like to modify
   your appointment, please call us back at `$.SystemEndpoint.Address` to reschedule
   your appointment"
