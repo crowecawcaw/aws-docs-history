@@ -1,11 +1,21 @@
-# Generate or verify a iCVV for a specific card
+# Verify an EMV ARQC and generate an ARPC
 
-[iCVV](terminology.md#terms.icvv "terminology.md#terms.icvv") uses the same algorithm as CVV/CVV2 but iCVV is embedded inside a chip card. Its service code is 999.
+[ARQC](terminology.md#terms.arqc "terminology.md#terms.arqc") (Authorization Request Cryptogram) is a cryptogram generated
+by an EMV (chip) card and used to validate the transaction details as well as the use of an authorized card. It incorporates data from the card, terminal and the transaction itself.
+
+At validation time on the backend, the same inputs are provided to AWS Payment Cryptography, the cryptogram is internally re-created and this is compared against the value provided with the transaction.
+In this sense, it is similar to a MAC. [EMV 4.4 Book 2](https://www.emvco.com/specifications/?post_id=80377 "https://www.emvco.com/specifications/?post_id=80377") defines three aspects of this function -
+key derivation methods (known as common session key - CSK) to generate one-time transaction keys, a minimum payload and methods for generating a response (ARPC).
+
+Individual card schemes may specify additional transactional fields to incorporate or the order those fields appear. Other (generally deprecated) scheme specific derivation schemes exist as well
+and are covered elsewhere in this documentation.
+
+For more information, see [VerifyCardValidationData](../DataAPIReference/API_VerifyCardValidationData.md "../DataAPIReference/API_VerifyCardValidationData.md") in the API guide.
 
 ## Create the key
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_C0_CARD_VERIFICATION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"ICVV"},{"Key":"CARD_BIN","Value":"12345678"}]'`
+`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{DeriveKey=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"CVN18"},{"Key":"CARD_BIN","Value":"12345678"}]'`
 ```
 
 The response echoes back the request parameters, including an ARN for subsequent calls as well as a Key Check Value (KCV).
@@ -13,9 +23,9 @@ The response echoes back the request parameters, including an ARN for subsequent
 ```
 `{
  "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/c7dsi763r6s7lfp3",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
  "KeyAttributes": {
- "KeyUsage": "TR31_C0_CARD_VERIFICATION_KEY",
+ "KeyUsage": "TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS",
  "KeyClass": "SYMMETRIC_KEY",
  "KeyAlgorithm": "TDES_2KEY",
  "KeyModesOfUse": {
@@ -23,74 +33,46 @@ The response echoes back the request parameters, including an ARN for subsequent
  "Decrypt": false,
  "Wrap": false,
  "Unwrap": false,
- "Generate": true,
+ "Generate": false,
  "Sign": false,
- "Verify": true,
- "DeriveKey": false,
+ "Verify": false,
+ "DeriveKey": true,
  "NoRestrictions": false
  }
  },
- "KeyCheckValue": "1201FB",
+ "KeyCheckValue": "08D7B4",
  "KeyCheckValueAlgorithm": "ANSI_X9_24",
  "Enabled": true,
  "Exportable": true,
  "KeyState": "CREATE_COMPLETE",
  "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
- "CreateTimestamp": "2023-06-05T06:41:46.648000-07:00",
- "UsageStartTimestamp": "2023-06-05T06:41:46.626000-07:00"
+ "CreateTimestamp": "2024-03-07T06:41:46.648000-07:00",
+ "UsageStartTimestamp": "2024-03-07T06:41:46.626000-07:00"
  }
  }`
 ```
 
-Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/c7dsi763r6s7lfp3_. You need that in the next step.
+Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk_. You need that in the next step.
 
-## Generate a iCVV
+## Generate an ARQC
 
-###### Example
+The ARQC is generated exclusively by an EMV card. As such, AWS Payment Cryptography has no facility for generating such a payload. For test purposes, a
+number of libraries are available online that can generate an appropriate payload as well as known values that are generally provided by the various schemes.
 
-In this example, we will generate a [iCVV](terminology.md#terms.icvv "terminology.md#terms.icvv") for a given PAN with
-inputs of `PAN`,a service code(as defined by ISO/IEC 7813) of 999 and card expiration date.
-
-For all available parameters see [CardVerificationValue1](../DataAPIReference/API_CardVerificationValue1.md "../DataAPIReference/API_CardVerificationValue1.md") in the API reference guide.
-
-```
-`$` `aws payment-cryptography-data generate-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/c7dsi763r6s7lfp3 --primary-account-number=171234567890123 --generation-attributes CardVerificationValue1='{CardExpiryDate=1127,ServiceCode=999}'`
-
-```
-
-```
-
-                     `{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/c7dsi763r6s7lfp3",
- "KeyCheckValue": "1201FB",
- "ValidationData": "532"
- }`
-
-```
-
-## Validate iCVV
+## Validate an ARQC
 
 ###### Example
 
-For validation, the inputs are CVK, `PAN`,
-a service code of 999, card expiration date and the iCVV provided during the transaction to validate.
-
-For all available parameters see, [CardVerificationValue1](../DataAPIReference/API_CardVerificationValue1.md "../DataAPIReference/API_CardVerificationValue1.md") in the API reference guide.
-
-###### Note
-
-iCVV is not a user entered value (like CVV2) but is typically embedded on an EMV/chip card.
-Consideration should be given to whether it should always validate when provided.
+If AWS Payment Cryptography is able to validate the ARQC, an http/200 is returned. An ARPC (response) can optionally be provided and in included in the response after the ARQC is validated.
 
 ```
-`$` `aws payment-cryptography-data verify-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/c7dsi763r6s7lfp3 --primary-account-number=171234567890123 --verification-attributes CardVerificationValue1='{CardExpiryDate=1127,ServiceCode=999} --validation-data 532`
-
+`$` `aws payment-cryptography-data verify-auth-request-cryptogram --auth-request-cryptogram 61EDCC708B4C97B4 --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk --major-key-derivation-mode EMV_OPTION_A --transaction-data 00000000170000000000000008400080008000084016051700000000093800000B1F2201030000000000000000000000000000000000000000000000000000008000000000000000 --session-key-derivation-attributes='{"EmvCommon":{"ApplicationTransactionCounter":"000B", "PanSequenceNumber":"01","PrimaryAccountNumber":"9137631040001422"}}' --auth-response-attributes='{"ArpcMethod2":{"CardStatusUpdate":"12345678"}}'`
 ```
 
 ```
 `{
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/c7dsi763r6s7lfp3",
- "KeyCheckValue": "1201FB",
- "ValidationData": "532"
- }`
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
+ "KeyCheckValue": "08D7B4",
+ "AuthResponseValue":"2263AC85"
+}`
 ```
