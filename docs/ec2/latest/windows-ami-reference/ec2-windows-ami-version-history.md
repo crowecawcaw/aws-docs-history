@@ -23,6 +23,7 @@ following:
 
 | Release    | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026.02.11 | All AMIs<br>• AWS PowerShell version 5.0.148<br>• EC2Launch v1 version 1.4.183<br>• EC2WinUtil version 3.1.0<br>• SSM Agent version 3.3.3598.0<br>• SQL Server CUs installed:<br>+ SQL_2025: CU 1<br>SQL_2022: CU 2<br>• Windows Security Updates current to February 10, 2026<br>Previous versions of Amazon-published AWS Windows AMIs dated November 12, 2025 and<br>earlier will be made private after March 9, 2026, 10 AM Pacific.                |
 | 2026.01.14 | All AMIs<br>• AWS PowerShell version 5.0.128<br>• cfn-bootstrap version 2.0.38<br>• EC2Launch v2 version 2.3.108<br>• SSM Agent version 3.3.3270.0<br>• SQL Server GDR installed:<br>+ SQL_2025: KB5073177<br>SQL_2022: KB5072936<br>• Windows Security Updates current to January 13, 2026<br>Previous versions of Amazon-published AWS Windows AMIs dated October 15, 2025 and<br>earlier will be made private after February 9, 2026, 10 AM Pacific. |
 
 For more information, see [Description of Software Update Services and Windows Server Update Services
@@ -30,8 +31,8 @@ changes in content for 2025 (KB894199)](https://support.microsoft.com/en-us/topi
 
 ###### Note
 
-Beginning January 2026, AWS Windows AMIs will ship with AWS.Tools for PowerShell
-version 5. This major version update includes changes that may impact existing scripts and workflows.
+Beginning January 2026, AWS Windows AMIs will ship with version 5 of AWS PowerShell or AWS.Tools for PowerShell.
+This major version update includes changes that may impact existing scripts and workflows.
 For more information, review the following documents:
 
 - [Migrating to V5](../../../powershell/v5/userguide/migrating-v5.md "../../../powershell/v5/userguide/migrating-v5.md") in the _AWS.Tools for PowerShell User Guide_

@@ -61,7 +61,7 @@ that are configured for NitroTPM and UEFI Secure Boot.
 ```
 `Get-SSMLatestEC2Image `
  -Path ami-windows-latest `
- -ImageName TPM-Windows_Server-* | `
+ -ImageName TPM-Windows* |
 Sort-Object Name`
 ```
 
@@ -86,11 +86,10 @@ image ID.
 `Get-EC2Image `
  -Owner amazon `
  -Filter @(
- @{Name = "name"; Values = @("TPM-Windows_Server-*")},
- @{Name = "owner-alias"; Values = @("amazon")},
- @{Name = "platform"; Values = "windows"},
- @{Name = "creation-date"; Values = @("`2025-05`*")}
- ) | `
-Sort-Object Name |`
+ @{Name = "name"; Values = @("TPM-Windows*")}
+ @{Name = "platform"; Values = @("windows")}
+ @{Name = "creation-date"; Values = @("`2026`*")}
+ ) |
+Sort-Object Name |
 Format-Table Name, ImageID -AutoSize`
 ```

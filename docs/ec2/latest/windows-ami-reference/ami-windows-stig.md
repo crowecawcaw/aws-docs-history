@@ -124,7 +124,7 @@ The following example retrieves a list of the latest STIG Hardened Windows Serve
 ```
 `Get-SSMLatestEC2Image `
  -Path ami-windows-latest `
- -ImageName *Windows_Server-*STIG* | `
+ -ImageName *Windows_Server-*STIG* |
 Sort-Object Name`
 ```
 
@@ -148,12 +148,11 @@ image ID.
 `Get-EC2Image `
  -Owner amazon `
  -Filter @(
- @{Name = "name"; Values = @("*STIG*")},
- @{Name = "owner-alias"; Values = @("amazon")},
- @{Name = "platform"; Values = "windows"},
- @{Name = "creation-date"; Values = @("`2025-05`*")}
- ) | `
-Sort-Object Name |`
+ @{Name = "name"; Values = @("*STIG*")}
+ @{Name = "platform"; Values = @("amazon")}
+ @{Name = "creation-date"; Values = @("`2025`*")}
+ ) |
+Sort-Object Name |
 Format-Table Name, ImageID -AutoSize`
 ```
 
