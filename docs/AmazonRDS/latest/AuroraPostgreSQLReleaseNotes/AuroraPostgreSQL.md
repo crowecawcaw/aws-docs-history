@@ -247,8 +247,9 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 **New features**
 
 - Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit [Dynamic Data Masking](../AuroraUserGuide/AuroraPostgreSQL.Security.md "../AuroraUserGuide/AuroraPostgreSQL.Security.md").
-- Introduced Shared Plan Cache to reduce memory usage by sharing query plans between backend processes.
-- Added support for correlated subquery cache for EXISTS, NOT EXISTS, and row comparison subqueries.
+- Introduced Shared Plan Cache to reduce memory usage by sharing query plans between backend processes. For more information,
+  see [Shared Plan Cache](../AuroraUserGuide/apg-shared-plan-cache.md "../AuroraUserGuide/apg-shared-plan-cache.md").
+- Added support for correlated subquery cache for EXISTS, NOT EXISTS, and row comparison subqueries, see [here](../AuroraUserGuide/apg-correlated-subquery.md "../AuroraUserGuide/apg-correlated-subquery.md").
 - Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
 - Added new pg_columnmask extension
 
@@ -2700,12 +2701,38 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.12.5, February 19, 2026](#aurorapostgresql-versions-version15125x-15125 "#aurorapostgresql-versions-version15125x-15125")
 - [Aurora PostgreSQL 15.12.4, October 9, 2025](#aurorapostgresql-versions-version15124x-15124 "#aurorapostgresql-versions-version15124x-15124")
 - [Aurora PostgreSQL 15.12.3, June 03, 2025](#aurorapostgresql-versions-version15123x-15123 "#aurorapostgresql-versions-version15123x-15123")
 - [Aurora PostgreSQL 15.12.2, May 01,
   2025](#aurorapostgresql-versions-version15122x-15122 "#aurorapostgresql-versions-version15122x-15122")
 - [Aurora PostgreSQL 15.12, April 07,
   2025](#aurorapostgresql-versions-version1512x-1512 "#aurorapostgresql-versions-version1512x-1512")
+
+#### Aurora PostgreSQL 15.12.5, February 19, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that could cause garbage collection to get blocked on a change data capture (CDC) volume.
+- Fix an issue which could trigger a race in change data capture (CDC) volume expansion.
+- Process cleanup improvements during zero downtime patching to ensure that all database processes are properly terminated, preventing shutdown stalls and improving zero downtime patching success.
+- Fixed a database shutdown issue which could cause major version upgrade to fail.
+- Fixed an Issue that could cause readers to restart or readers cannot perform read operations due to missing storage segments.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2025-12817](https://nvd.nist.gov/vuln/detail/CVE-2025-12817 "https://nvd.nist.gov/vuln/detail/CVE-2025-12817").
+  - [CVE-2025-12818](https://nvd.nist.gov/vuln/detail/CVE-2025-12818 "https://nvd.nist.gov/vuln/detail/CVE-2025-12818").
+
+- Fixed an issue which could cause a restart during the start of logical replication data synchronization.
+- Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
+- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself.
+- Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
+
+**General enhancements**
+
+- Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
 #### Aurora PostgreSQL 15.12.4, October 9, 2025
 

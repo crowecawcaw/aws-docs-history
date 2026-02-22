@@ -74,21 +74,21 @@ Dates with only a month and a year are approximate, and will be updated with an 
 | 15.10 (LTS)                     | 21 November 2024       | 13 December 2024    | 29 February 2028                    |
 | 15.8                            | 08 August 2024         | 30 September 2024   | May 2026                            |
 | **14**                          |
-| 14.20                           | 13 November 2025       | 18 December 2025    | July 2027                           |
-| 14.19                           | 14 August 2025         | 25 November 2025    | June 2027                           |
+| 14.20                           | 13 November 2025       | 18 December 2025    | 28 February 2027                    |
+| 14.19                           | 14 August 2025         | 25 November 2025    | 28 February 2027                    |
 | 14.18                           | 8 May 2025             | 30 June 2025        | December 2026                       |
 | 14.17                           | 20 February 2025       | April 8 2025        | November 2026                       |
 | 14.15                           | 21 November 2024       | 13 December 2024    | May 2026                            |
 | 14.13                           | 08 August 2024         | 30 September 2024   | May 2026                            |
 | 14.6 (LTS)                      | 10 November 2022       | 23 January 2023     | 28 February 2027                    |
 | **13**                          |
-| 13.23                           | 13 November 2025       | 18 December 2025    | 28 February 2026                    |
+| 13.23\*                         | 13 November 2025       | 18 December 2025    | 28 February 2026                    |
 | 13.22                           | 14 August 2025         | 25 November 2025    | 28 February 2026                    |
 | 13.21                           | 8 May 2025             | 30 June 2025        | 28 February 2026                    |
 | 13.20                           | 20 February 2025       | April 8 2025        | 28 February 2026                    |
 | 13.18                           | 21 November 2024       | 13 December 2024    | 28 February 2026                    |
 | 13.16                           | 08 August 2024         | 30 September 2024   | 28 February 2026                    |
-| 13.9 (LTS)                      | 10 November 2022       | 23 January 2023     | 28 February 2026                    |
+| 13.9 (LTS)\*                    | 10 November 2022       | 23 January 2023     | 28 February 2026                    |
 | **12**                          |
 | 12.22\*                         | 21 November 2024       | 13 December 2024    | 28 February 2025                    |
 | 12.9\<br>• (LTS)                | 11 November 2021       | 25 February 2022    | 28 February 2025                    |
