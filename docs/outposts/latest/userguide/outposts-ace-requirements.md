@@ -5,12 +5,21 @@
 Applies only if you need an ACE rack.
 
 An Aggregation, Core, Edge (ACE) rack acts as a network aggregation point for multi-rack
-Outpost deployments. You must install an ACE rack if you have four or more compute racks. If you
-have less than four compute racks but plan to expand to four or more racks in the future, we
-recommend that you install an ACE rack.
+Outpost deployments.
 
 To install an ACE rack, you must meet the requirements in this section in addition to the
 requirements listed in [Site requirements for Outposts racks](outposts-requirements.md "outposts-requirements.md").
+
+## ACE rack capacity and scaling
+
+A single ACE rack supports up to 15 compute racks. For deployments requiring more than 15
+compute racks, additional network infrastructure can be deployed to expand capacity beyond this
+limit.
+
+If you anticipate your deployment growing beyond 4 compute racks, we recommend installing
+an ACE rack upfront to support future expansion. For deployments with 1-4 compute racks, a
+dedicated network rack is not required. Contact your AWS account team to discuss scaling options
+for deployments exceeding 15 compute racks.
 
 ###### Note
 
