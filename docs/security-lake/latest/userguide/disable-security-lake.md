@@ -22,23 +22,35 @@ When you disable Security Lake for an organization, the delegated administrator 
 retained if you follow the disablement instructions provided on this page. You don't have to
 designate the delegated administrator again before you can re-enable Security Lake.
 
-For custom sources, when deactivating Security Lake, you must disable each source outside
-of the Security Lake console. Failure to disable an integration will result in source
-integrations continuing to send logs into Amazon S3. Additionally, you must disable a subscriber
+If you configured one or more custom sources in Security Lake and you disable the service, you must also disable each source
+independently from Security Lake. Otherwise, the custom source will continue to send logs to Amazon S3. Additionally, you must disable a subscriber
 integration or the subscriber will still be able to consume data from Security Lake. For
 details on how to remove the a custom source or a subscriber integration, see the respective
 provider's documentation.
 
 ###### Important
 
-You must delete AWS Glue databases before you re-enable Security Lake to ensure querying works properly.
+If you disable Security Lake, also delete the existing AWS Glue resources for your data lake.
+Otherwise, subsequent querying won't work properly if you enable Security Lake again later.
+Although deletion of AWS Glue resources is a primary requirement, organizations have flexibility
+in how they manage additional resources associated with the data lake.
 
-When Security Lake is re-enabled a new data lake Amazon S3 bucket is created and data is
+If you choose to remove resources beyond the AWS Glue components, it's crucial to follow an "all or nothing" approach. If you decide to delete auxiliary resources, you
+must comprehensively remove all associated components. These additional resources include: Security Lake SQS Queues (`AmazonSecurityLakeManager-xxx`), the Security Lake
+Lambda function, event source mappings, and related IAM roles such as the `AmazonSecurityLakeMetaStoreManagerV2` role.
+
+During this process, you do not need to remove Amazon S3 buckets that store data for the data lake. Organizations can retain these buckets without impacting the cleanup
+procedure. The key consideration is to avoid partial removal of resources, which could potentially cause configuration issues in future deployments.
+
+When planning to decommission your data lake, carefully evaluate whether you want to remove only the AWS Glue resources or perform a complete resource cleanup. If you opt
+for comprehensive removal, ensure that you follow a systematic deletion process and remove all associated components.
+
+When Security Lake is re-enabled, a new data lake is created in a new Amazon S3 bucket and data is
 collected in this new S3 bucket. If you had previously deleted AWS Glue tables, a new set of
 AWS Glue tables are created.
 
-All the data that was collected before disabling Security Lake will stay in the old Amazon S3 bucket. If you want to
-query old data, you must move them to the new bucket using the Amazon S3 `Sync`
+All the data that was collected before disabling Security Lake will stay in the previous Amazon S3 bucket. If you want to
+query old data, you must move the data to the new bucket using the Amazon S3 `Sync`
 command. For more details, see the [Sync command](https://awscli.amazonaws.com/v2/documentation/api/2.7.12/reference/s3/sync.html "https://awscli.amazonaws.com/v2/documentation/api/2.7.12/reference/s3/sync.html") in the AWS CLI Command Reference.
 
 This topic explains how to disable Security Lake by using the Security Lake console, Security Lake API, or AWS CLI.
