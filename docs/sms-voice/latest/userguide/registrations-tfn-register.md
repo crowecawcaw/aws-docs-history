@@ -36,6 +36,22 @@ registration form. 3. In the **Company info** section, enter the following:
     * For **Zip Code/Postal code**, enter the zip code of your corporate
      headquarters.
     * For **Country**, enter the two digit ISO country code.
+    * For **Business type**, choose the classification of your organization by ownership and purpose. Options include:
+
+
+
+
+    	+ **Private profit** – Privately held for-profit company
+    	+ **Public profit** – Publicly traded for-profit company
+    	+ **Non-profit** – Non-profit organization
+    	+ **Sole proprietor** – Sole proprietorship without employees
+    	+ **Government** – Government entity
+    ###### Note
+
+    Unless you select **Sole proprietor**, the following three company identification fields are required: **Company identification number**, **Identification number type**, and **Identification number country**.
+    * For **Company identification number**, enter your company's official tax identification or registration number (such as EIN or VAT) used to verify your business identity with telecommunications carriers. For example, `12-3456789`.
+    * For **Identification number type**, choose the type of identification number you provided. This helps carriers verify your business credentials with the appropriate government authority. Options include EIN, CBN, CRN, PROVINCIAL\_NUMBER, VAT, ACN, ABN, BRN, SIREN, SIRET, NZBN, USt-IdNr, CIF, NIF, CNPJ, UID, NEQ, and OTHER.
+    * For **Identification number country**, enter the two-letter ISO country code (for example, `US`, `CA`, `GB`) for the country where your identification number was issued. This must match the country of the authority that issued your identification number.
     * Choose **Next**.
 
 4.  In the **Contact info** section, enter the following:
