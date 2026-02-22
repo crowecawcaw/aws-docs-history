@@ -21,8 +21,8 @@ If you select **Advanced setting**, you can choose from three credential strateg
 
 1. Select **Input credentials**.
 2. Enter the **User name** and **Password**.
-3. In the **Access domain** dropdown, select the domain where these credentials will be used.
-4. (Optional) Expand **Agent login prompt** to provide specific login instructions if your application has a complex authentication flow.
+3. In the **Access URL** dropdown, select the URL where these credentials will be used. This must be selected from the list of target endpoints.
+4. (Optional) Expand **Agent Space login prompt** to provide specific login instructions if your application has a complex authentication flow.
 
 ###### Important
 
@@ -41,31 +41,45 @@ Use this option for applications using AWS Cognito, API Gateway with IAM authent
 
 Use this option to retrieve credentials securely from AWS Secrets Manager with encryption, rotation, and access auditing.
 
-Format your secret with `username` and `password` fields:
+The IAM role must have `secretsmanager:GetSecretValue` and `secretsmanager:DescribeSecret` permissions.
+
+Use the **Agent Space login prompt** to provide detailed instructions on how to interpret and use the credentials stored in the secret. You may use any format to store your secret, as the agent will dynamically interpret the format using these instructions.
+
+For example, if the agent is to submit a username/password login form at https://example.com/login, you may format your secret as JSON with `username` and `password` fields:
 
 ```
 {
-  "username": "test-user@example.com",
+  "username": "test-user",
   "password": "secure-password-here"
 }
 ```
 
-The IAM role must have `secretsmanager:GetSecretValue` and `secretsmanager:DescribeSecret` permissions.
+Then, configure the authentication instructions:
+. Enable **Allow agent to perform browser login using this credential**.
+. Set **Access URL** to `https://example.com` (or any other URL selected from the list of target endpoints).
+. Enter the following into **Agent Space login prompt**: "Navigate to https://example.com/login and enter the provided username and password into the form."
+
+As another example, if you instead have an API key to be provided in an HTTP header, you may store it as plaintext:
+
+```
+"api-key-here"
+```
+
+Then, configure the authentication instructions:
+. Disable **Allow agent to perform browser login using this credential**.
+. Enter the following into **Agent Space login prompt**: "Set the X-API-Key header to the provided API key for all requests."
+
+###### Important
+
+We currently do not support 2FA or OAuth-based authentication.
 
 ### Select available Lambda function to retrieve credentials dynamically
 
 Use this option for complex authentication systems, dynamic credential generation, or integration with external identity providers.
 
-Your Lambda function must return credentials in this format:
-
-```
-{
-  "username": "generated-user@example.com",
-  "password": "dynamic-password"
-}
-```
-
 The IAM role must have `lambda:InvokeFunction` permissions and the function must complete within 30 seconds.
+
+Like with Secrets Manager, the agent will dynamically interpret your Lambda function’s output using any login instructions provided in the **Agent Space login prompt**. Refer to [Select static credential from connected AWS Secrets Manager](#provide-testing-credentials-secrets-manager "#provide-testing-credentials-secrets-manager") for examples of how to format the output of your Lambda function and supported authentication types.
 
 ## Configure multiple credentials
 

@@ -40,6 +40,7 @@ If the penetration test agent is unable to make calls to the configured target U
 
 - If your endpoint makes calls to domains outside the configured target URL, verify the additional domains are added as **Accessible URLs** in your pentest configuration
 - Penetration testing is currently only available for HTTP/HTTPS endpoints serving traffic on ports 80 or 443
+- If you have a WAF configured, check that you WAF is not blocking penetration test traffic. You can allowlist penetration test traffic by `User-Agent` header, which will be set to `securityagent` by default
 
 ## Getting additional help
 
