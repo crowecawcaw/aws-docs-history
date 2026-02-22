@@ -12,7 +12,7 @@ For a more customizable solution, consider using the open-source [IVSStageSaver]
 
 This option is ideal for live streams with a single publisher or when separate recordings of each publisher are needed, especially for moderation purposes. For more details, see [Individual Participant Recording](rt-individual-participant-recording.md "rt-individual-participant-recording.md").
 
-![Recording each publisher's media in a separate file using individual particpant recording.](images/Individual_Participant_Recording.png)
+![Recording each publisher's media in a separate file using individual particpant recording.](/images/ivs/latest/RealTimeUserGuide/images/Individual_Participant_Recording.png)
 
 ## Composite Recording
 
