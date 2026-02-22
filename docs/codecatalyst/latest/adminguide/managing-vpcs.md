@@ -2,63 +2,53 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Managing a default VPC connection for a space
+# Setting up an Amazon VPC
 
-You can set a default VPC connection for a space. If you choose to set a default VPC connection, all workflow runs and Dev Environments in your space
-will run connected to the default VPC connection. You can override this by associating a different VPC connection in your workflow action
-or Dev Environment.
+Use the following procedure to create a VPC.
 
-You must have the **Space administrator** role or **Power user** role to
-manage VPC connections at the space level.
+###### To create a VPC
 
-###### Topics
+- Follow the instructions in the _Amazon VPC User Guide_ for [Creating a VPC](../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources "../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources").
+  While following these instructions, keep in mind the VPC requirements needed to work with CodeCatalyst.
+  For a tutorial that uses CloudFormation to create a VPC, see [AWS Solution: Amazon Virtual Private Cloud on AWS](https://aws.amazon.com/solutions/implementations/vpc/ "https://aws.amazon.com/solutions/implementations/vpc/").
 
-- [Setting a default VPC connection](#managing-vpcs.default.set "#managing-vpcs.default.set")
-- [Removing a default VPC connection](#managing-vpcs.default.remove "#managing-vpcs.default.remove")
+## Amazon VPC setup requirements
 
-## Setting a default VPC connection
+In order for a VPC to work with CodeCatalyst, it must have the following requirements:
 
-Use the following procedure to set a default VPC connection.
+- For **Number of public subnets**, make sure that you have at least one [public subnet](../../../vpc/latest/userguide/configure-subnets.md#subnet-types "../../../vpc/latest/userguide/configure-subnets.md#subnet-types") in any Availability Zone.
+- For **Number of private subnets**, make sure that you have one [private subnet](../../../vpc/latest/userguide/configure-subnets.md#subnet-types "../../../vpc/latest/userguide/configure-subnets.md#subnet-types") in each available Availability Zone in a region.
+- Make sure your VPC has access to the internet. This can be done by adding a route with a destination of `0.0.0.0/0` to
+  an [internet gateway](../../../vpc/latest/userguide/route-table-options.md#route-tables-internet-gateway "../../../vpc/latest/userguide/route-table-options.md#route-tables-internet-gateway") and a [NAT device](../../../vpc/latest/userguide/route-table-options.md#route-tables-nat "../../../vpc/latest/userguide/route-table-options.md#route-tables-nat").
+- Make sure that the routing table for private subnets points to the NAT gateway. For more information, see
+  [Routing to a NAT device](../../../vpc/latest/userguide/route-table-options.md#route-tables-nat "../../../vpc/latest/userguide/route-table-options.md#route-tables-nat") in the _Amazon VPC User Guide_.
+- Make sure that your internet gateway is attached to the VPC. Public subnets should have a routing table to the internet gateway. For more information, see
+  [Routing to an internet gateway](../../../vpc/latest/userguide/route-table-options.md#route-tables-internet-gateway "../../../vpc/latest/userguide/route-table-options.md#route-tables-internet-gateway") in the _Amazon VPC User Guide_.
+- Make sure that your security groups allow outbound traffic.
+- Make sure that your IPv4 CIDR block is **not** configured to the `172.16.0.0/12` IP address range. For more information, see
+  [IPv4 VPC CIDR blocks](../../../vpc/latest/userguide/vpc-cidr-blocks.md#vpc-sizing-ipv4 "../../../vpc/latest/userguide/vpc-cidr-blocks.md#vpc-sizing-ipv4") in the _Amazon VPC User Guide_.
+- As a best practice, make sure that your security groups have no inbound traffic allowed, unless you specifically require this for other reasons.
+- CodeCatalyst does not support assigning a public IP address to the network interfaces that it creates. One way to do this, is to add a NAT device to use CodeCatalyst with your VPC. For more information, see
+  [Connect to the internet or other networks using NAT devices](../../../vpc/latest/userguide/vpc-nat.md "../../../vpc/latest/userguide/vpc-nat.md") in the _Amazon VPC User Guide_.
 
-###### To set a default VPC connection
+## Troubleshooting your VPC setup
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Navigate to your CodeCatalyst space.
+Use the information that appears in the error message to help you identify, diagnose,
+and address issues.
 
-###### Tip
+The following are some guidelines to assist you when troubleshooting common VPC errors:
 
-If you belong to more than one space, choose a space in the top
-navigation bar. 3. Choose **Settings**, and then choose
-**VPC connections**.
-
-The page lists all VPC connections in your space. You can view the
-**VPC connection name** name, the **VPC ID**, and
-the associated **AWS account connection**. 4. Choose the VPC connection name that you want to set as default.
-
-###### Note
-
-If your VPC connection is associated with a project-restricted AWS account, your VPC
-connection will only have access to specific projects and cannot be set as default.
-For more information, see [Enabling or disabling project-restricted account
-connections](managing-accounts-restriction.md "managing-accounts-restriction.md"). 5. Choose **Manage default**, choose **Set as default** from the drop-down
-menu, then choose **Confirm**.
-
-## Removing a default VPC connection
-
-Use the following procedure to remove a default VPC connection.
-
-###### To remove a default VPC connection
-
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Navigate to your CodeCatalyst space.
-
-###### Tip
-
-If you belong to more than one space, choose a space in the top
-navigation bar. 3. Choose **Settings**, and then choose
-**VPC connections**.
-
-The page lists all VPC connections in your space. You can view the
-**VPC connection name** name, the **VPC ID**, and
-the associated **AWS account connection**. 4. Choose the default VPC connection name. 5. Choose **Manage default**, choose **Remove as default** from the drop-down
-menu, then choose **Confirm**.
+1. [Make sure that your internet gateway is attached to VPC](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Attach_Gateway "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Attach_Gateway").
+2. [Make sure that the route table for your public subnet points to the
+   internet gateway](../../../vpc/latest/userguide/VPC_Route_Tables.md#route-tables-internet-gateway "../../../vpc/latest/userguide/VPC_Route_Tables.md#route-tables-internet-gateway").
+3. [Make
+   sure that your network ACLs allow traffic to flow](../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules").
+4. [Make
+   sure that your security groups allow traffic to flow](../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules").
+5. [Troubleshoot your NAT gateway](../../../vpc/latest/userguide/VPC-nat-gateway.md#nat-gateway-troubleshooting "../../../vpc/latest/userguide/VPC-nat-gateway.md#nat-gateway-troubleshooting").
+6. [Make sure
+   that the route table for private subnets points to the NAT
+   gateway](../../../vpc/latest/userguide/VPC_Route_Tables.md#route-tables-nat "../../../vpc/latest/userguide/VPC_Route_Tables.md#route-tables-nat").
+7. [Make sure that your
+   IPv4 CIDR block is not configured to the `172.16.0.0/12`
+   IP address range](../userguide/devenvironments-troubleshooting.md#troubleshooting-devenvironments-vpc "../userguide/devenvironments-troubleshooting.md#troubleshooting-devenvironments-vpc").
