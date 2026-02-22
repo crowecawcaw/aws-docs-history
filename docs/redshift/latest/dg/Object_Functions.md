@@ -5,10 +5,11 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 # Object functions
 
 Following are the SQL object functions that Amazon Redshift
-supports to create SUPER type objects:
+supports to create and operate on SUPER type objects:
 
 ###### Topics
 
+- [GET_NUMBER_ATTRIBUTES function](get_number_attributes.md "get_number_attributes.md")
 - [LOWER_ATTRIBUTE_NAMES function](r_lower_attribute_names.md "r_lower_attribute_names.md")
 - [OBJECT function](r_object_function.md "r_object_function.md")
 - [OBJECT_TRANSFORM function](r_object_transform_function.md "r_object_transform_function.md")

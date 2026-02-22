@@ -34,7 +34,7 @@ If the _substring_ is empty, the function returns `1`.
 
 ## Examples
 
-To return the postion of the substring `q` in the string `Amazon Redshift`, use the following example. This example returns `0` because the _substring_ is not in the _string_.
+To return the position of the substring `q` in the string `Amazon Redshift`, use the following example. This example returns `0` because the _substring_ is not in the _string_.
 
 ```
 `SELECT OCTETINDEX('q', 'Amazon Redshift');`
@@ -46,7 +46,7 @@ To return the postion of the substring `q` in the string `Amazon Redshift`, use 
 +------------+`
 ```
 
-To return the postion of an empty substring in the string `Amazon Redshift`, use the following example. This example returns `1` because the _substring_ is empty.
+To return the position of an empty substring in the string `Amazon Redshift`, use the following example. This example returns `1` because the _substring_ is empty.
 
 ```
 `SELECT OCTETINDEX('', 'Amazon Redshift');`
@@ -58,7 +58,7 @@ To return the postion of an empty substring in the string `Amazon Redshift`, use
 +------------+`
 ```
 
-To return the postion of the substring `Redshift` in the string `Amazon Redshift`, use the following example. This example returns `8` because the _substring_ begins on the eighth byte of the _string_.
+To return the position of the substring `Redshift` in the string `Amazon Redshift`, use the following example. This example returns `8` because the _substring_ begins on the eighth byte of the _string_.
 
 ```
 `SELECT OCTETINDEX('Redshift', 'Amazon Redshift');`
@@ -70,7 +70,7 @@ To return the postion of the substring `Redshift` in the string `Amazon Redshift
 +------------+`
 ```
 
-To return the postion of the substring `Redshift` in the string `Amazon Redshift`, use the following example. This example returns `21` because the first six characters of the _string_ are double-byte characters.
+To return the position of the substring `Redshift` in the string `Amazon Redshift`, use the following example. This example returns `21` because the first six characters of the _string_ are double-byte characters.
 
 ```
 `SELECT OCTETINDEX('Redshift', 'Άμαζον Amazon Redshift');`

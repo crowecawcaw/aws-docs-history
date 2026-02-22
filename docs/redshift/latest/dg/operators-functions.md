@@ -66,12 +66,21 @@ eliminates the scale of the input decimal.
 
 Amazon Redshift supports the following array composition and utility functions:
 
-- ARRAY. For more information, see [array function](r_array.md "r_array.md").
-- ARRAY_CONCAT. For more information, see [array_concat function](r_array_concat.md "r_array_concat.md").
-- ARRAY_FLATTEN. For more information, see [array_flatten function](array_flatten.md "array_flatten.md").
-- GET_ARRAY_LENGTH. For more information, see [get_array_length function](get_array_length.md "get_array_length.md").
-- SPLIT_TO_ARRAY. For more information, see [split_to_array function](split_to_array.md "split_to_array.md").
-- SUBARRAY. For more information, see [subarray function](r_subarray.md "r_subarray.md").
+- ARRAY. For more information, see [ARRAY function](r_array.md "r_array.md").
+- ARRAY_CONCAT. For more information, see [ARRAY_CONCAT function](r_array_concat.md "r_array_concat.md").
+- ARRAY_CONTAINS. For more information, see [ARRAY_CONTAINS function](array_contains.md "array_contains.md").
+- ARRAY_DISTINCT. For more information, see [ARRAY_DISTINCT function](array_distinct.md "array_distinct.md").
+- ARRAY_EXCEPT. For more information, see [ARRAY_EXCEPT function](array_except.md "array_except.md").
+- ARRAY_FLATTEN. For more information, see [ARRAY_FLATTEN function](array_flatten.md "array_flatten.md").
+- ARRAY_INTERSECTION. For more information, see [ARRAY_INTERSECTION function](array_intersection.md "array_intersection.md").
+- ARRAY_POSITION. For more information, see [ARRAY_POSITION function](array_position.md "array_position.md").
+- ARRAY_POSITIONS. For more information, see [ARRAY_POSITIONS function](array_positions.md "array_positions.md").
+- ARRAY_SORT. For more information, see [ARRAY_SORT function](array_sort.md "array_sort.md").
+- ARRAY_UNION. For more information, see [ARRAY_UNION function](array_union.md "array_union.md").
+- ARRAYS_OVERLAP. For more information, see [ARRAYS_OVERLAP function](arrays_overlap.md "arrays_overlap.md").
+- GET_ARRAY_LENGTH. For more information, see [GET_ARRAY_LENGTH function](get_array_length.md "get_array_length.md").
+- SPLIT_TO_ARRAY. For more information, see [SPLIT_TO_ARRAY function](split_to_array.md "split_to_array.md").
+- SUBARRAY. For more information, see [SUBARRAY function](r_subarray.md "r_subarray.md").
 
 You can construct SUPER arrays from values in Amazon Redshift data types using the ARRAY
 function, including other SUPER values. The following example uses the variadic function
@@ -184,6 +193,19 @@ following boolean functions for SUPER data columns:
 
 For more information on SUPER type information functions, see
 [SUPER type information functions](c_Type_Info_Functions.md "c_Type_Info_Functions.md").
+
+## Object functions
+
+Following are the SQL object functions that Amazon Redshift supports to create and operate on SUPER type objects:
+
+- [GET_NUMBER_ATTRIBUTES function](get_number_attributes.md "get_number_attributes.md")
+- [LOWER_ATTRIBUTE_NAMES function](r_lower_attribute_names.md "r_lower_attribute_names.md")
+- [OBJECT function](r_object_function.md "r_object_function.md")
+- [OBJECT_TRANSFORM function](r_object_transform_function.md "r_object_transform_function.md")
+- [UPPER_ATTRIBUTE_NAMES function](r_upper_attribute_names.md "r_upper_attribute_names.md")
+
+For more information on object functions, see
+[Object functions](Object_Functions.md "Object_Functions.md").
 
 ## String functions
 

@@ -2,31 +2,31 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# array_concat function
+# ARRAY_CONCAT function
 
-The array_concat function concatenates two arrays to create an array that contains
+Concatenates two arrays to create an array that contains
 all the elements in the first array followed by all the elements in the second array.
-The two arguments must be valid arrays.
+The two arguments must be valid SUPER arrays.
 
 ## Syntax
 
 ```
-array_concat( *super\_expr1*,  *super\_expr2* )
+ARRAY_CONCAT( *array1*, *array2* )
 ```
 
 ## Arguments
 
-_super_expr1_
+_array1_
 
 The value that specifies the first of the two arrays to concatenate.
 
-_super_expr2_
+_array2_
 
 The value that specifies the second of the two arrays to concatenate.
 
 ## Return type
 
-The array_concat function returns a SUPER data value.
+The ARRAY_CONCAT function returns a SUPER data value.
 
 ## Example
 
@@ -47,3 +47,10 @@ SELECT ARRAY_CONCAT(ARRAY(10001,10002),ARRAY('ab','cd'));
  [10001,10002,"ab","cd"]
 (1 row)
 ```
+
+## See also
+
+- [ARRAY_UNION function](array_union.md "array_union.md")
+- [ARRAY_FLATTEN function](array_flatten.md "array_flatten.md")
+- [SPLIT_TO_ARRAY function](split_to_array.md "split_to_array.md")
+- [ARRAY_DISTINCT function](array_distinct.md "array_distinct.md")

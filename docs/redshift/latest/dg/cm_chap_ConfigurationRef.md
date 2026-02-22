@@ -20,6 +20,7 @@ configurations to achieve your desired data warehousing setup.
 - [cast_super_null_on_error](r_cast_super_null_on_error.md "r_cast_super_null_on_error.md")
 - [datashare_break_glass_session_var](r_datashare_break_glass_session_var.md "r_datashare_break_glass_session_var.md")
 - [datestyle](r_datestyle.md "r_datestyle.md")
+- [default_array_search_null_handling](r_default_array_search_null_handling.md "r_default_array_search_null_handling.md")
 - [default_geometry_encoding](r_default_geometry_encoding.md "r_default_geometry_encoding.md")
 - [describe_field_name_in_uppercase](r_describe_field_name_in_uppercase.md "r_describe_field_name_in_uppercase.md")
 - [downcase_delimited_identifier](r_downcase_delimited_identifier.md "r_downcase_delimited_identifier.md")

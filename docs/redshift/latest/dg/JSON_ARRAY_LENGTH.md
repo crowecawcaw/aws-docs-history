@@ -12,7 +12,7 @@ parse JSON values as SUPER, which Amazon Redshift parses more efficiently than V
 Instead of using JSON_ARRAY_LENGTH, we recommend that you parse your JSON strings using the
 [JSON_PARSE function](JSON_PARSE.md "JSON_PARSE.md") to get a SUPER value. Then,
 use the
-[get_array_length function](get_array_length.md "get_array_length.md") to
+[GET_ARRAY_LENGTH function](get_array_length.md "get_array_length.md") to
 get the length of your array.
 
 The JSON_ARRAY_LENGTH function returns the number of elements in the outer array of a

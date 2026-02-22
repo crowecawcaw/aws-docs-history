@@ -14,7 +14,7 @@ To convert SUPER attribute names to lowercase, use the [LOWER_ATTRIBUTE_NAMES fu
 ## Syntax
 
 ```
-UPPER_ATTRIBUTE_NAMES(super_expression)
+UPPER_ATTRIBUTE_NAMES( *super\_expression* )
 ```
 
 ## Arguments
