@@ -1,86 +1,110 @@
-# Configure provisioned capacity
+# Configure on-demand capacity mode
 
-mode
+Amazon Keyspaces (for Apache Cassandra) _on-demand_ capacity mode is a flexible billing
+option capable of serving thousands of requests per second without capacity
+planning. This option offers pay-per-request pricing for read and write requests so
+that you pay only for what you use.
 
-If you choose _provisioned throughput_ capacity mode, you
-specify the number of reads and writes per second that are required for your
-application. This helps you manage your Amazon Keyspaces usage to stay at or below a defined
-request rate to maintain predictability. To learn more about
-automatic scaling for provisioned throughput see [Manage throughput capacity automatically with Amazon Keyspaces auto scaling](autoscaling.md "autoscaling.md").
+When you choose on-demand mode, Amazon Keyspaces can scale the throughput capacity for your
+table up to any previously reached traffic level instantly, and then back down when
+application traffic decreases. If a workload’s traffic level hits a new peak, the
+service adapts rapidly to increase throughput capacity for your table. You can
+enable on-demand capacity mode for both new and existing tables.
 
-Provisioned throughput capacity mode is a good option if any of the following is
-true:
+On-demand mode is a good option if any of the following is true:
 
-- You have predictable application traffic.
-- You run applications whose traffic is consistent or ramps up gradually.
-- You can forecast capacity requirements.
+- You create new tables with unknown workloads.
+- You have unpredictable application traffic.
+- You prefer the ease of paying for only what you use.
+  To get started with on-demand mode, you can create a new table or update an
+  existing table to use on-demand capacity mode using the console or with a few lines
+  of Cassandra Query Language (CQL) code. For more information, see [Tables](cql.ddl.md "cql.ddl.md").
 
-## Read capacity units
+###### Topics
 
-and write capacity units
+- [Read request units and write
+  request units](#ReadWriteCapacityMode.requests "#ReadWriteCapacityMode.requests")
+- [Peak traffic and scaling
+  properties](#ReadWriteCapacityMode.PeakTraffic "#ReadWriteCapacityMode.PeakTraffic")
+- [Initial throughput for
+  on-demand capacity mode](#ReadWriteCapacityMode.InitialThroughput "#ReadWriteCapacityMode.InitialThroughput")
 
-For provisioned throughput capacity mode tables, you specify throughput
-capacity in terms of read capacity units (RCUs) and write capacity units (WCUs):
+## Read request units and write
 
-- One _RCU_ represents one `LOCAL_QUORUM`
-  read per second, or two `LOCAL_ONE` reads per second, for a
-  row up to 4 KB in size. If you need to read a row that is larger than
-  4 KB, the read operation uses additional RCUs.
+request units
 
-The total number of RCUs required depends on the row size, and whether
-you want `LOCAL_QUORUM` or `LOCAL_ONE` reads. For
-example, if your row size is 8 KB, you require 2 RCUs to sustain one
-`LOCAL_QUORUM` read per second, and 1 RCU if you choose
-`LOCAL_ONE` reads.
+With on-demand capacity mode tables, you don't need to specify how much read
+and write throughput you expect your application to use in advance. Amazon Keyspaces
+charges you for the reads and writes that you perform on your tables in terms of
+read request units (RRUs) and write request units (WRUs).
 
-- One _WCU_ represents one write per second for a row
-  up to 1 KB in size. All writes are using
-  `LOCAL_QUORUM` consistency, and there is no additional
-  charge for using lightweight transactions (LWTs). If you need to write a
-  row that is larger than 1 KB, the write operation uses
-  additional WCUs.
+- One _RRU_ represents one `LOCAL_QUORUM`
+  read request, or two `LOCAL_ONE` read requests, for a row up
+  to 4 KB in size. If you need to read a row that is larger than
+  4 KB, the read operation uses additional RRUs. The total number
+  of RRUs required depends on the row size, and whether you want to use
+  `LOCAL_QUORUM` or `LOCAL_ONE` read
+  consistency. For example, reading an 8 KB row requires 2 RRUs using
+  `LOCAL_QUORUM` read consistency, and 1 RRU if you choose
+  `LOCAL_ONE` read consistency.
+- One _WRU_ represents one write for a row up to
+  1 KB in size. All writes are using `LOCAL_QUORUM`
+  consistency, and there is no additional charge for using lightweight
+  transactions (LWTs). If you need to write a row that is larger than
+  1 KB, the write operation uses additional WRUs. The total number
+  of WRUs required depends on the row size. For example, if your row size
+  is 2 KB, you require 2 WRUs to perform one write request.
 
-The total number of WCUs required depends on the row size. For
-example, if your row size is 2 KB, you require 2 WCUs to sustain one
-write request per second. For more information about how to estimate read and write capacity consumption of a table, see
+For information about supported consistency levels, see [Supported Apache Cassandra read and write consistency levels and associated costs](consistency.md "consistency.md").
+
+## Peak traffic and scaling
+
+properties
+
+Amazon Keyspaces tables that use on-demand capacity mode automatically adapt to your
+application’s traffic volume. On-demand capacity mode instantly accommodates up
+to double the previous peak traffic on a table. For example, your application's
+traffic pattern might vary between 5,000 and 10,000 `LOCAL_QUORUM`
+reads per second, where 10,000 reads per second is the previous traffic peak.
+
+With this pattern, on-demand capacity mode instantly accommodates sustained
+traffic of up to 20,000 reads per second. If your application sustains traffic
+of 20,000 reads per second, that peak becomes your new previous peak, enabling
+subsequent traffic to reach up to 40,000 reads per second.
+
+If you need more than double your previous peak on a table, Amazon Keyspaces
+automatically allocates more capacity as your traffic volume increases. This
+helps ensure that your table has enough throughput capacity to process the
+additional requests. However, you might observe insufficient throughput capacity
+errors if you exceed double your previous peak within 30 minutes.
+
+For example, suppose that your application's traffic pattern varies between
+5,000 and 10,000 strongly consistent reads per second, where 20,000 reads per
+second is the previously reached traffic peak. In this case, the service
+recommends that you space your traffic growth over at least 30 minutes before
+driving up to 40,000 reads per second.
+
+To learn how to estimate read and write capacity consumption of a table, see
 [Estimate capacity consumption of read and write throughput in Amazon Keyspaces](capacity-examples.md "capacity-examples.md").
-
-If your application reads or writes larger rows (up to the Amazon Keyspaces maximum row
-size of 1 MB), it consumes more capacity units. To learn more about
-how to estimate the row size, see [Estimate row size in Amazon Keyspaces](calculating-row-size.md "calculating-row-size.md"). For
-example, suppose that you create a provisioned table with 6 RCUs and 6 WCUs.
-With these settings, your application could do the following:
-
-- Perform `LOCAL_QUORUM` reads of up to 24 KB per second
-  (4 KB × 6 RCUs).
-- Perform `LOCAL_ONE` reads of up to 48 KB per second (twice
-  as much read throughput).
-- Write up to 6 KB per second (1 KB × 6 WCUs).
-
-_Provisioned throughput_ is the maximum amount of throughput
-capacity an application can consume from a table. If your application exceeds
-your provisioned throughput capacity, you might observe insufficient capacity
-errors.
-
-For example, a read request that doesn’t have enough throughput capacity fails
-with a `Read_Timeout` exception and is posted to the
-`ReadThrottleEvents` metric. A write request that doesn’t have
-enough throughput capacity fails with a `Write_Timeout` exception and
-is posted to the `WriteThrottleEvents` metric.
-
-You can use Amazon CloudWatch to monitor your provisioned and actual throughput metrics
-and insufficient capacity events. For more information about these metrics, see
-[Amazon Keyspaces metrics and dimensions](metrics-dimensions.md "metrics-dimensions.md").
-
-###### Note
-
-Repeated errors due to insufficient capacity can lead to client-side
-driver specific exceptions, for example the DataStax Java driver fails with
-a `NoHostAvailableException`.
-
-To change the throughput capacity settings for tables, you can use the
-AWS Management Console or the `ALTER TABLE` statement using CQL, for more
-information see [ALTER TABLE](cql.ddl.md#cql.ddl.table.alter "cql.ddl.md#cql.ddl.table.alter").
 
 To learn more about default quotas for your account and how to increase them,
 see [Quotas for Amazon Keyspaces (for Apache Cassandra)](quotas.md "quotas.md").
+
+## Initial throughput for
+
+on-demand capacity mode
+
+If you create a new table with on-demand capacity mode enabled or switch an
+existing table to on-demand capacity mode for the first time, the table has the
+following previous peak settings, even though it hasn't served traffic
+previously using on-demand capacity mode:
+
+- **Newly created table with on-demand capacity
+  mode:** The previous peak is 2,000 WRUs and 6,000 RRUs. You
+  can drive up to double the previous peak immediately. Doing this enables
+  newly created on-demand tables to serve up to 4,000 WRUs and 12,000
+  RRUs.
+- **Existing table switched to on-demand capacity
+  mode:** The previous peak is half the previous WCUs and
+  RCUs provisioned for the table or the settings for a newly created table
+  with on-demand capacity mode, whichever is higher.

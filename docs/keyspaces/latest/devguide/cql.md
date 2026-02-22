@@ -1,38 +1,28 @@
-# Built-in functions in Amazon Keyspaces
+# DDL statements (data definition language) in Amazon Keyspaces
 
-Amazon Keyspaces (for Apache Cassandra) supports a variety of built-in functions that you can use in Cassandra Query
-Language (CQL) statements.
+_Data definition language_ (DDL) is the set of Cassandra Query
+Language (CQL) statements that you use to manage data structures in Amazon Keyspaces (for Apache Cassandra), such as
+keyspaces and tables. You use DDL to create these data structures, modify them after
+they are created, and remove them when they're no longer in use. Amazon Keyspaces performs DDL
+operations asynchronously. For more information about how to confirm that an
+asynchronous operation has completed, see [Asynchronous creation
+and deletion of keyspaces and tables](functional-differences.md#functional-differences.table-keyspace-management "functional-differences.md#functional-differences.table-keyspace-management").
+
+The following DDL statements are supported:
+
+- [CREATE KEYSPACE](cql.ddl.md#cql.ddl.keyspace.create "cql.ddl.md#cql.ddl.keyspace.create")
+- [ALTER KEYSPACE](cql.ddl.md#cql.ddl.keyspace.alter "cql.ddl.md#cql.ddl.keyspace.alter")
+- [DROP KEYSPACE](cql.ddl.md#cql.ddl.keyspace.drop "cql.ddl.md#cql.ddl.keyspace.drop")
+- [USE](cql.ddl.md#cql.ddl.keyspace.use "cql.ddl.md#cql.ddl.keyspace.use")
+- [CREATE TABLE](cql.ddl.md#cql.ddl.table.create "cql.ddl.md#cql.ddl.table.create")
+- [ALTER TABLE](cql.ddl.md#cql.ddl.table.alter "cql.ddl.md#cql.ddl.table.alter")
+- [RESTORE TABLE](cql.ddl.md#cql.ddl.table.restore "cql.ddl.md#cql.ddl.table.restore")
+- [DROP TABLE](cql.ddl.md#cql.ddl.table.drop "cql.ddl.md#cql.ddl.table.drop")
+- [CREATE TYPE](cql.ddl.md#cql.ddl.type.create "cql.ddl.md#cql.ddl.type.create")
+- [DROP TYPE](cql.ddl.md#cql.ddl.type.drop "cql.ddl.md#cql.ddl.type.drop")
 
 ###### Topics
 
-- [Scalar functions](#cql.functions.scalar "#cql.functions.scalar")
-
-## Scalar functions
-
-A _scalar function_ performs a calculation on a single value
-and returns the result as a single value. Amazon Keyspaces supports the following scalar
-functions.
-
-| Function           | Description                                                                                                                 |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| `blobAsType`       | Returns a value of the specified data type.                                                                                 |
-| `cast`             | Converts one native data type into another native data type.                                                                |
-| `currentDate`      | Returns the current date/time as a date.                                                                                    |
-| `currentTime`      | Returns the current date/time as a time.                                                                                    |
-| `currentTimestamp` | Returns the current date/time as a timestamp.                                                                               |
-| `currentTimeUUID`  | Returns the current date/time as a `timeuuid`.                                                                              |
-| `fromJson`         | Converts the JSON string into the selected column's data type.                                                              |
-| `maxTimeuuid`      | Returns the largest possible `timeuuid` for timestamp or date string.                                                       |
-| `minTimeuuid`      | Returns the smallest possible `timeuuid` for timestamp or date string.                                                      |
-| `now`              | Returns a new unique `timeuuid`.                                                                                            |
-| `toDate`           | Converts either a `timeuuid` or a timestamp to a date<br>type.                                                              |
-| `toJson`           | Returns the column value of the selected column in JSON format.                                                             |
-| `token`            | Returns the hash value of the partition key.                                                                                |
-| `toTimestamp`      | Converts either a `timeuuid` or a date to a<br>timestamp.                                                                   |
-| `TTL`              | Returns the expiration time in seconds for a column.                                                                        |
-| `typeAsBlob`       | Converts the specified data type into a `blob`.                                                                             |
-| `toUnixTimestamp`  | Converts either a `timeuuid` or a timestamp into a<br>`bigInt`.                                                             |
-| `uuid`             | Returns a random version 4 UUID.                                                                                            |
-| `writetime`        | Returns the timestamp of the value of the specified column.                                                                 |
-| `dateOf`           | \*(Deprecated)<br>• Extracts the timestamp of a<br>`timeuuid`, and returns the value as a date.                             |
-| `unixTimestampOf`  | \*(Deprecated)<br>• Extracts the timestamp of a<br>`timeuuid`, and returns the value as a raw, 64-bit<br>integer timestamp. |
+- [Keyspaces](cql.ddl.md "cql.ddl.md")
+- [Tables](cql.ddl.md "cql.ddl.md")
+- [User-defined types (UDTs)](cql.ddl.md "cql.ddl.md")
