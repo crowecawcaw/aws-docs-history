@@ -47,7 +47,7 @@ To create a new category for post-call analytics, you can use the
 category, then choose 'Batch call analytics' in the **Category type**
 dropdown menu.
 
-![Amazon Transcribe console screenshot: the 'category settings' panel.](images/analytics-categories-type.png) 4. You can choose a template to create your category or you can make one from scratch.
+![Amazon Transcribe console screenshot: the 'category settings' panel.](/images/transcribe/latest/dg/images/analytics-categories-type.png) 4. You can choose a template to create your category or you can make one from scratch.
 
 If using a template: select **Use a template (recommended)**, choose
 the template you want, then select **Create category**.
