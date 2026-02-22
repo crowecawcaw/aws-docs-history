@@ -1,99 +1,268 @@
-# Lock:extend
+# CPU
 
-The `Lock:extend` event occurs when a backend process is waiting to lock a relation to extend it while another process has a lock on that relation for the same purpose.
+This event occurs when a thread is active in CPU or is waiting for CPU.
 
 ###### Topics
 
-- [Supported engine versions](#apg-waits.lockextend.context.supported "#apg-waits.lockextend.context.supported")
-- [Context](#apg-waits.lockextend.context "#apg-waits.lockextend.context")
-- [Likely causes of increased waits](#apg-waits.lockextend.causes "#apg-waits.lockextend.causes")
-- [Actions](#apg-waits.lockextend.actions "#apg-waits.lockextend.actions")
+- [Supported engine versions](#apg-waits.cpu.context.supported "#apg-waits.cpu.context.supported")
+- [Context](#apg-waits.cpu.context "#apg-waits.cpu.context")
+- [Likely causes of increased waits](#apg-waits.cpu.causes "#apg-waits.cpu.causes")
+- [Actions](#apg-waits.cpu.actions "#apg-waits.cpu.actions")
 
 ## Supported engine versions
 
-This wait event information is supported for all versions of Aurora PostgreSQL.
+This wait event information is relevant for Aurora PostgreSQL version 9.6 and
+higher.
 
 ## Context
 
-The event `Lock:extend` indicates that a backend process is waiting
-to extend a relation that another backend process holds a lock on while it's extending
-that relation. Because only one process at a time can extend a relation, the system generates a
-`Lock:extend` wait event. `INSERT`, `COPY`, and
-`UPDATE` operations can generate this event.
-
-## Likely causes of increased waits
-
-When the `Lock:extend` event appears more than normal, possibly indicating a performance problem, typical causes include the following:
-
-**Surge in concurrent inserts or updates to the same table**
-
-There might be an increase in the number of concurrent sessions with queries that insert into or update the same table.
-
-**Insufficient network bandwidth**
-
-The network bandwidth on the DB instance might be insufficient for the storage communication needs of the current workload. This can contribute to storage latency that causes an increase in `Lock:extend` events.
-
-## Actions
-
-We recommend different actions depending on the causes of your wait event.
+The _central processing unit (CPU)_ is the component of a computer
+that runs instructions. For example, CPU instructions perform arithmetic operations and
+exchange data in memory. If a query increases the number of instructions that it
+performs through the database engine, the time spent running the query increases.
+_CPU scheduling_ is giving CPU time to a process. Scheduling is
+orchestrated by the kernel of the operating system.
 
 ###### Topics
 
-- [Reduce concurrent inserts and updates to the same relation](#apg-waits.lockextend.actions.action1 "#apg-waits.lockextend.actions.action1")
-- [Increase network bandwidth](#apg-waits.lockextend.actions.increase-network-bandwidth "#apg-waits.lockextend.actions.increase-network-bandwidth")
+- [How to tell when this wait occurs](#apg-waits.cpu.when-it-occurs "#apg-waits.cpu.when-it-occurs")
+- [DBLoadCPU metric](#apg-waits.cpu.context.dbloadcpu "#apg-waits.cpu.context.dbloadcpu")
+- [os.cpuUtilization metrics](#apg-waits.cpu.context.osmetrics "#apg-waits.cpu.context.osmetrics")
+- [Likely cause of CPU scheduling](#apg-waits.cpu.context.scheduling "#apg-waits.cpu.context.scheduling")
 
-### Reduce concurrent inserts and updates to the same relation
+### How to tell when this wait occurs
 
-First, determine whether there's an increase in `tup_inserted` and `tup_updated` metrics and an accompanying increase
-in this wait event. If so, check which relations are in high contention for insert and update operations. To determine this, query the
-`pg_stat_all_tables` view for the values in `n_tup_ins` and `n_tup_upd` fields. For information about the `pg_stat_all_tables` view, see
-[pg_stat_all_tables](https://www.postgresql.org/docs/13/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW "https://www.postgresql.org/docs/13/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW") in the PostgreSQL documentation.
+This `CPU` wait event indicates that a backend process is active in CPU
+or is waiting for CPU. You know that it's occurring when a query shows the following
+information:
 
-To get more information about blocking and blocked queries, query `pg_stat_activity` as in the following example:
+- The `pg_stat_activity.state` column has the value `active`.
+- The `wait_event_type` and `wait_event` columns in
+  `pg_stat_activity` are both `null`.
+
+To see the backend processes that are using or waiting on CPU, run the following query.
 
 ```
-SELECT
-    blocked.pid,
-    blocked.usename,
-    blocked.query,
-    blocking.pid AS blocking_id,
-    blocking.query AS blocking_query,
-    blocking.wait_event AS blocking_wait_event,
-    blocking.wait_event_type AS blocking_wait_event_type
-FROM pg_stat_activity AS blocked
-JOIN pg_stat_activity AS blocking ON blocking.pid = ANY(pg_blocking_pids(blocked.pid))
-where
-blocked.wait_event = 'extend'
-and blocked.wait_event_type = 'Lock';
-
-   pid  | usename  |            query             | blocking_id |                         blocking_query                           | blocking_wait_event | blocking_wait_event_type
-  ------+----------+------------------------------+-------------+------------------------------------------------------------------+---------------------+--------------------------
-   7143 |  myuser  | insert into tab1 values (1); |        4600 | INSERT INTO tab1 (a) SELECT s FROM generate_series(1,1000000) s; | DataFileExtend      | IO
+SELECT *
+FROM   pg_stat_activity
+WHERE  state = 'active'
+AND    wait_event_type IS NULL
+AND    wait_event IS NULL;
 ```
 
-After you identify relations that contribute to increase `Lock:extend` events, use the following techniques to reduce the contention:
+### DBLoadCPU metric
 
-- Find out whether you can use partitioning to reduce contention for the same table. Separating inserted or updated tuples into different partitions can reduce contention.
-  For information about partitioning, see [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md").
-- If the wait event is mainly due to update activity, consider reducing the relation's fillfactor value. This can reduce requests for new blocks during the update.
-  The fillfactor is a storage parameter for a table that determines the maximum amount of space for packing a table page. It's expressed as a percentage of the total space for a page.
-  For more information about the fillfactor parameter, see [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the PostgreSQL documentation.
+The Performance Insights metric for CPU is `DBLoadCPU`. The value for `DBLoadCPU` can
+differ from the value for the Amazon CloudWatch metric `CPUUtilization`. The latter metric is collected from
+the HyperVisor for a database instance.
 
-###### Important
+### os.cpuUtilization metrics
 
-We highly recommend that you test your system if you change the fillfactor because changing this value can negatively impact performance, depending on your workload.
+Performance Insights operating-system metrics provide detailed information about
+CPU utilization. For example, you can display the following metrics:
 
-### Increase network bandwidth
+- `os.cpuUtilization.nice.avg`
+- `os.cpuUtilization.total.avg`
+- `os.cpuUtilization.wait.avg`
+- `os.cpuUtilization.idle.avg`
 
-To see whether there's an increase in write latency, check the `WriteLatency` metric in CloudWatch. If there is, use the `WriteThroughput` and `ReadThroughput` Amazon CloudWatch
-metrics to monitor the storage related traffic on the DB cluster. These metrics can help you to
-determine if network bandwidth is sufficient for the storage activity of your workload.
+Performance Insights reports the CPU usage by the database engine as
+`os.cpuUtilization.nice.avg`.
 
-If your network bandwidth isn't enough, increase it. If your DB instance is reaching the
-network bandwidth limits, the only way to increase the bandwidth is to increase your DB instance size.
+### Likely cause of CPU scheduling
 
-For more information about CloudWatch metrics,
+From an operating system perspective, the CPU is active when it isn't running the
+idle thread. The CPU is active while it performs a computation, but it's also active
+when it waits on memory I/O. This type of I/O dominates a typical database
+workload.
 
-see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.md "Aurora.AuroraMonitoring.md").
-For information about network performance for each DB instance class, see [Hardware specifications for DB instance
-classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+Processes are likely to wait to get scheduled on a CPU when the following conditions are met:
+
+- The CloudWatch `CPUUtilization` metric is near 100
+  percent.
+- The average load is greater than the number of vCPUs, indicating a heavy load. You can find the
+  `loadAverageMinute` metric in the OS metrics section in Performance Insights.
+
+## Likely causes of increased waits
+
+When the CPU wait event occurs more than normal, possibly indicating a performance problem, typical
+causes include the following.
+
+###### Topics
+
+- [Likely causes of sudden spikes](#apg-waits.cpu.causes.spikes "#apg-waits.cpu.causes.spikes")
+- [Likely causes of long-term high frequency](#apg-waits.cpu.causes.long-term "#apg-waits.cpu.causes.long-term")
+- [Corner cases](#apg-waits.cpu.causes.corner-cases "#apg-waits.cpu.causes.corner-cases")
+
+### Likely causes of sudden spikes
+
+The most likely causes of sudden spikes are as follows:
+
+- Your application has opened too many simultaneous connections to the database. This scenario is
+  known as a "connection storm."
+- Your application workload changed in any of the following ways:
+  - New queries
+  - An increase in the size of your dataset
+  - Index maintenance or creation
+  - New functions
+  - New operators
+  - An increase in parallel query execution
+
+- Your query execution plans have changed. In some cases, a change can cause
+  an increase in buffers. For example, the query is now using a sequential
+  scan when it previously used an index. In this case, the queries need more
+  CPU to accomplish the same goal.
+
+### Likely causes of long-term high frequency
+
+The most likely causes of events that recur over a long period:
+
+- Too many backend processes are running concurrently on CPU. These
+  processes can be parallel workers.
+- Queries are performing suboptimally because they need a large number of buffers.
+
+### Corner cases
+
+If none of the likely causes turn out to be actual causes, the following situations might be
+occurring:
+
+- The CPU is swapping processes in and out.
+- CPU context switching has increased.
+- Aurora PostgreSQL code is missing wait events.
+
+## Actions
+
+If the `CPU` wait event dominates database activity, it doesn't necessarily indicate a
+performance problem. Respond to this event only when performance degrades.
+
+###### Topics
+
+- [Investigate whether the database is causing the CPU
+  increase](#apg-waits.cpu.actions.db-CPU "#apg-waits.cpu.actions.db-CPU")
+- [Determine whether the number of connections
+  increased](#apg-waits.cpu.actions.connections "#apg-waits.cpu.actions.connections")
+- [Respond to workload changes](#apg-waits.cpu.actions.workload "#apg-waits.cpu.actions.workload")
+
+### Investigate whether the database is causing the CPU
+
+increase
+
+Examine the `os.cpuUtilization.nice.avg` metric in Performance
+Insights. If this value is far less than the CPU usage, nondatabase processes are
+the main contributor to CPU.
+
+### Determine whether the number of connections
+
+increased
+
+Examine the `DatabaseConnections` metric in Amazon CloudWatch. Your action depends on whether the number
+increased or decreased during the period of increased CPU wait events.
+
+#### The connections increased
+
+If the number of connections went up, compare the number of backend processes consuming CPU to the
+number of vCPUs. The following scenarios are possible:
+
+- The number of backend processes consuming CPU is less than the number of vCPUs.
+
+In this case, the number of connections isn't an issue. However, you
+might still try to reduce CPU utilization.
+
+- The number of backend processes consuming CPU is greater than the number of vCPUs.
+
+In this case, consider the following options:
+
+    + Decrease the number of backend processes connected to your database. For example,
+     implement a connection pooling solution such as RDS Proxy. To learn more, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
+    + Upgrade your instance size to get a higher number of
+     vCPUs.
+    + Redirect some read-only workloads to reader nodes, if applicable.
+
+#### The connections didn't increase
+
+Examine the `blks_hit` metrics in Performance Insights. Look for a correlation between an
+increase in `blks_hit` and CPU usage. The following scenarios are possible:
+
+- CPU usage and `blks_hit` are correlated.
+
+In this case, find the top SQL statements that are linked to the CPU usage, and look for plan
+changes. You can use either of the following techniques:
+
+    + Explain the plans manually and compare them to the expected execution plan.
+    + Look for an increase in block hits per second and local block
+     hits per second. In the **Top SQL** section of
+     Performance Insights dashboard, choose
+     **Preferences**.
+
+- CPU usage and `blks_hit` aren't correlated.
+
+In this case, determine whether any of the following occurs:
+
+    + The application is rapidly connecting to and disconnecting from the database.
+
+
+    Diagnose this behavior by turning on
+     `log_connections` and
+     `log_disconnections`, then analyzing the
+     PostgreSQL logs. Consider using the `pgbadger` log
+     analyzer. For more information, see [https://github.com/darold/pgbadger](https://github.com/darold/pgbadger "https://github.com/darold/pgbadger").
+    + The OS is overloaded.
+
+
+    In this case, Performance Insights shows that backend
+     processes are consuming CPU for a longer time than usual. Look
+     for evidence in the Performance Insights
+     `os.cpuUtilization` metrics or the CloudWatch
+     `CPUUtilization` metric. If the operating system
+     is overloaded, look at Enhanced Monitoring metrics to diagnose
+     further. Specifically, look at the process list and the
+     percentage of CPU consumed by each process.
+    + Top SQL statements are consuming too much CPU.
+
+
+    Examine statements that are linked to the CPU usage to see whether they can use less
+     CPU. Run an `EXPLAIN` command, and focus on the plan nodes that have the most
+     impact. Consider using a PostgreSQL execution plan visualizer. To try out this tool, see
+     [http://explain.dalibo.com/](http://explain.dalibo.com/ "http://explain.dalibo.com/").
+
+### Respond to workload changes
+
+If your workload has changed, look for the following types of changes:
+
+New queries
+
+Check whether the new queries are expected. If so, ensure that their
+execution plans and the number of executions per second are
+expected.
+
+An increase in the size of the data set
+
+Determine whether partitioning, if it's not already implemented, might
+help. This strategy might reduce the number of pages that a query needs
+to retrieve.
+
+Index maintenance or creation
+
+Check whether the schedule for the maintenance is expected. A best practice is to schedule
+maintenance activities outside of peak activities.
+
+New functions
+
+Check whether these functions perform as expected during testing. Specifically, check whether
+the number of executions per second is expected.
+
+New operators
+
+Check whether they perform as expected during the testing.
+
+An increase in running parallel queries
+
+Determine whether any of the following situations has occurred:
+
+- The relations or indexes involved have suddenly grown in size so that they differ
+  significantly from `min_parallel_table_scan_size` or
+  `min_parallel_index_scan_size`.
+- Recent changes have been made to `parallel_setup_cost` or
+  `parallel_tuple_cost`.
+- Recent changes have been made to `max_parallel_workers` or
+  `max_parallel_workers_per_gather`.

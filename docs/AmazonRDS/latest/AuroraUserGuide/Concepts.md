@@ -1,294 +1,166 @@
-# Regions and
+# High availability for Amazon Aurora
 
-Availability Zones
-
-Amazon cloud computing resources are hosted in multiple locations world-wide. These
-locations are composed of AWS Regions and Availability Zones. Each _AWS Region_ is a separate geographic area. Each AWS Region
-has multiple, isolated locations known as _Availability
-Zones_.
-
-###### Note
-
-For information about finding the Availability Zones for an AWS Region, see [Describe
-your Availability Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#availability-zones-describe "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#availability-zones-describe") in the Amazon EC2 documentation.
-
-Amazon operates state-of-the-art, highly-available data centers. Although rare, failures can
-occur that affect the availability of DB instances that are in the same location. If you
-host all your DB instances in one location that is affected by such a failure, none of your
-DB instances will be available.
-
-![AWS Region](images/Con-AZ.png)
-It is important to remember that each AWS Region is completely independent. Any Amazon RDS
-activity you initiate (for example, creating database instances or listing available
-database instances) runs only in your current default AWS Region. The default AWS Region
-can be changed in the console, or by setting the [`AWS_DEFAULT_REGION`](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-region "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-region") environment variable. Or it can be
-overridden by using the `--region` parameter with the AWS Command Line Interface (AWS CLI). For more
-information, see [Configuring the
-AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md"), specifically the sections about environment variables and command
-line options.
-
-Amazon RDS supports special AWS Regions called AWS GovCloud (US). These are designed to allow US
-government agencies and customers to move more sensitive workloads into the cloud. The
-AWS GovCloud (US) Regions address the US government's specific regulatory and compliance
-requirements. For more information, see [What
-is AWS GovCloud (US)?](../../../govcloud-us/latest/UserGuide/whatis.md "../../../govcloud-us/latest/UserGuide/whatis.md")
-
-To create or work with an Amazon RDS DB instance in a specific AWS Region, use the corresponding regional service endpoint.
-
-###### Note
-
-Aurora doesn't support Local Zones.
-
-## AWS Regions
-
-Each AWS Region is designed to be isolated from the other AWS Regions. This design
-achieves the greatest possible fault tolerance and stability.
-
-When you view your resources, you see only the resources that are tied to the AWS Region that
-you specified. This is because AWS Regions are isolated from each other, and we don't
-automatically replicate resources across AWS Regions.
-
-### Region availability
-
-When you work with an Aurora DB cluster using the command line interface or API operations, make sure that you specify its
-regional endpoint.
+The Amazon Aurora architecture involves separation of storage and compute. Aurora includes some
+high availability features that apply to the data in your DB cluster. The data remains safe even
+if some or all of the DB instances in the cluster become unavailable. Other high availability
+features apply to the DB instances. These features help to make sure that one or more DB
+instances are ready to handle database requests from your application.
 
 ###### Topics
 
-- [Aurora MySQL Region availability](#Aurora.Overview.Availability.MySQL "#Aurora.Overview.Availability.MySQL")
-- [Aurora PostgreSQL Region availability](#Aurora.Overview.Availability.PostgreSQL "#Aurora.Overview.Availability.PostgreSQL")
+- [High availability for Aurora
+  data](#Concepts.AuroraHighAvailability.Data "#Concepts.AuroraHighAvailability.Data")
+- [High availability for Aurora DB
+  instances](#Concepts.AuroraHighAvailability.Instances "#Concepts.AuroraHighAvailability.Instances")
+- [High availability across AWS
+  Regions with Aurora global databases](#Concepts.AuroraHighAvailability.GlobalDB "#Concepts.AuroraHighAvailability.GlobalDB")
+- [Fault tolerance for an Aurora DB
+  cluster](#Aurora.Managing.FaultTolerance "#Aurora.Managing.FaultTolerance")
+- [High availability with
+  Amazon RDS Proxy](#Concepts.AuroraHighAvailability.Proxy "#Concepts.AuroraHighAvailability.Proxy")
 
-#### Aurora MySQL Region availability
+## High availability for Aurora
 
-The following table shows the AWS Regions where Aurora MySQL is currently available and the endpoint for each
-Region.
+data
 
-| Region Name                | Region         | Endpoint                         | Protocol |
-| -------------------------- | -------------- | -------------------------------- | -------- |
-| US East (Ohio)             | us-east-2      | rds.us-east-2.amazonaws.com      | HTTPS    |
-| US East (N. Virginia)      | us-east-1      | rds.us-east-1.amazonaws.com      | HTTPS    |
-| US West (N. California)    | us-west-1      | rds.us-west-1.amazonaws.com      | HTTPS    |
-| US West (Oregon)           | us-west-2      | rds.us-west-2.amazonaws.com      | HTTPS    |
-| Africa (Cape Town)         | af-south-1     | rds.af-south-1.amazonaws.com     | HTTPS    |
-| Asia Pacific (Hong Kong)   | ap-east-1      | rds.ap-east-1.amazonaws.com      | HTTPS    |
-| Asia Pacific (Hyderabad)   | ap-south-2     | rds.ap-south-2.amazonaws.com     | HTTPS    |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | rds.ap-southeast-3.amazonaws.com | HTTPS    |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | rds.ap-southeast-5.amazonaws.com | HTTPS    |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | rds.ap-southeast-4.amazonaws.com | HTTPS    |
-| Asia Pacific (Mumbai)      | ap-south-1     | rds.ap-south-1.amazonaws.com     | HTTPS    |
-| Asia Pacific (New Zealand) | ap-southeast-6 | rds.ap-southeast-6.amazonaws.com | HTTPS    |
-| Asia Pacific (Osaka)       | ap-northeast-3 | rds.ap-northeast-3.amazonaws.com | HTTPS    |
-| Asia Pacific (Seoul)       | ap-northeast-2 | rds.ap-northeast-2.amazonaws.com | HTTPS    |
-| Asia Pacific (Singapore)   | ap-southeast-1 | rds.ap-southeast-1.amazonaws.com | HTTPS    |
-| Asia Pacific (Sydney)      | ap-southeast-2 | rds.ap-southeast-2.amazonaws.com | HTTPS    |
-| Asia Pacific (Taipei)      | ap-east-2      | rds.ap-east-2.amazonaws.com      | HTTPS    |
-| Asia Pacific (Thailand)    | ap-southeast-7 | rds.ap-southeast-7.amazonaws.com | HTTPS    |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | rds.ap-northeast-1.amazonaws.com | HTTPS    |
-| Canada (Central)           | ca-central-1   | rds.ca-central-1.amazonaws.com   | HTTPS    |
-| Canada West (Calgary)      | ca-west-1      | rds.ca-west-1.amazonaws.com      | HTTPS    |
-| Europe (Frankfurt)         | eu-central-1   | rds.eu-central-1.amazonaws.com   | HTTPS    |
-| Europe (Ireland)           | eu-west-1      | rds.eu-west-1.amazonaws.com      | HTTPS    |
-| Europe (London)            | eu-west-2      | rds.eu-west-2.amazonaws.com      | HTTPS    |
-| Europe (Milan)             | eu-south-1     | rds.eu-south-1.amazonaws.com     | HTTPS    |
-| Europe (Paris)             | eu-west-3      | rds.eu-west-3.amazonaws.com      | HTTPS    |
-| Europe (Spain)             | eu-south-2     | rds.eu-south-2.amazonaws.com     | HTTPS    |
-| Europe (Stockholm)         | eu-north-1     | rds.eu-north-1.amazonaws.com     | HTTPS    |
-| Europe (Zurich)            | eu-central-2   | rds.eu-central-2.amazonaws.com   | HTTPS    |
-| Israel (Tel Aviv)          | il-central-1   | rds.il-central-1.amazonaws.com   | HTTPS    |
-| Mexico (Central)           | mx-central-1   | rds.mx-central-1.amazonaws.com   | HTTPS    |
-| Middle East (Bahrain)      | me-south-1     | rds.me-south-1.amazonaws.com     | HTTPS    |
-| Middle East (UAE)          | me-central-1   | rds.me-central-1.amazonaws.com   | HTTPS    |
-| South America (São Paulo)  | sa-east-1      | rds.sa-east-1.amazonaws.com      | HTTPS    |
-| AWS GovCloud (US-East)     | us-gov-east-1  | rds.us-gov-east-1.amazonaws.com  | HTTPS    |
-| AWS GovCloud (US-West)     | us-gov-west-1  | rds.us-gov-west-1.amazonaws.com  | HTTPS    |
+Aurora stores copies of the data in a DB cluster across multiple Availability Zones in a
+single AWS Region. Aurora stores these copies regardless of whether the instances in the DB
+cluster span multiple Availability Zones. For more information on Aurora, see [Managing an Amazon Aurora DB cluster](CHAP_Aurora.md "CHAP_Aurora.md").
 
-#### Aurora PostgreSQL Region availability
+When data is written to the primary DB instance, Aurora synchronously replicates the data
+across Availability Zones to six storage nodes associated with your cluster volume. Doing so
+provides data redundancy, eliminates I/O freezes, and minimizes latency spikes during system
+backups. Running a DB instance with high availability can enhance availability during planned
+system maintenance, and help protect your databases against failure and Availability Zone
+disruption. For more information on Availability Zones, see [Regions and
+Availability Zones](Concepts.md "Concepts.md").
 
-The following table shows the AWS Regions where Aurora PostgreSQL is currently available and the endpoint for each
-Region.
+## High availability for Aurora DB
 
-| Region Name                | Region         | Endpoint                         | Protocol |
-| -------------------------- | -------------- | -------------------------------- | -------- |
-| US East (Ohio)             | us-east-2      | rds.us-east-2.amazonaws.com      | HTTPS    |
-| US East (N. Virginia)      | us-east-1      | rds.us-east-1.amazonaws.com      | HTTPS    |
-| US West (N. California)    | us-west-1      | rds.us-west-1.amazonaws.com      | HTTPS    |
-| US West (Oregon)           | us-west-2      | rds.us-west-2.amazonaws.com      | HTTPS    |
-| Africa (Cape Town)         | af-south-1     | rds.af-south-1.amazonaws.com     | HTTPS    |
-| Asia Pacific (Hong Kong)   | ap-east-1      | rds.ap-east-1.amazonaws.com      | HTTPS    |
-| Asia Pacific (Hyderabad)   | ap-south-2     | rds.ap-south-2.amazonaws.com     | HTTPS    |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | rds.ap-southeast-3.amazonaws.com | HTTPS    |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | rds.ap-southeast-5.amazonaws.com | HTTPS    |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | rds.ap-southeast-4.amazonaws.com | HTTPS    |
-| Asia Pacific (Mumbai)      | ap-south-1     | rds.ap-south-1.amazonaws.com     | HTTPS    |
-| Asia Pacific (New Zealand) | ap-southeast-6 | rds.ap-southeast-6.amazonaws.com | HTTPS    |
-| Asia Pacific (Osaka)       | ap-northeast-3 | rds.ap-northeast-3.amazonaws.com | HTTPS    |
-| Asia Pacific (Seoul)       | ap-northeast-2 | rds.ap-northeast-2.amazonaws.com | HTTPS    |
-| Asia Pacific (Singapore)   | ap-southeast-1 | rds.ap-southeast-1.amazonaws.com | HTTPS    |
-| Asia Pacific (Sydney)      | ap-southeast-2 | rds.ap-southeast-2.amazonaws.com | HTTPS    |
-| Asia Pacific (Taipei)      | ap-east-2      | rds.ap-east-2.amazonaws.com      | HTTPS    |
-| Asia Pacific (Thailand)    | ap-southeast-7 | rds.ap-southeast-7.amazonaws.com | HTTPS    |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | rds.ap-northeast-1.amazonaws.com | HTTPS    |
-| Canada (Central)           | ca-central-1   | rds.ca-central-1.amazonaws.com   | HTTPS    |
-| Canada West (Calgary)      | ca-west-1      | rds.ca-west-1.amazonaws.com      | HTTPS    |
-| Europe (Frankfurt)         | eu-central-1   | rds.eu-central-1.amazonaws.com   | HTTPS    |
-| Europe (Ireland)           | eu-west-1      | rds.eu-west-1.amazonaws.com      | HTTPS    |
-| Europe (London)            | eu-west-2      | rds.eu-west-2.amazonaws.com      | HTTPS    |
-| Europe (Milan)             | eu-south-1     | rds.eu-south-1.amazonaws.com     | HTTPS    |
-| Europe (Paris)             | eu-west-3      | rds.eu-west-3.amazonaws.com      | HTTPS    |
-| Europe (Spain)             | eu-south-2     | rds.eu-south-2.amazonaws.com     | HTTPS    |
-| Europe (Stockholm)         | eu-north-1     | rds.eu-north-1.amazonaws.com     | HTTPS    |
-| Europe (Zurich)            | eu-central-2   | rds.eu-central-2.amazonaws.com   | HTTPS    |
-| Israel (Tel Aviv)          | il-central-1   | rds.il-central-1.amazonaws.com   | HTTPS    |
-| Mexico (Central)           | mx-central-1   | rds.mx-central-1.amazonaws.com   | HTTPS    |
-| Middle East (Bahrain)      | me-south-1     | rds.me-south-1.amazonaws.com     | HTTPS    |
-| Middle East (UAE)          | me-central-1   | rds.me-central-1.amazonaws.com   | HTTPS    |
-| South America (São Paulo)  | sa-east-1      | rds.sa-east-1.amazonaws.com      | HTTPS    |
-| AWS GovCloud (US-East)     | us-gov-east-1  | rds.us-gov-east-1.amazonaws.com  | HTTPS    |
-| AWS GovCloud (US-West)     | us-gov-west-1  | rds.us-gov-west-1.amazonaws.com  | HTTPS    |
+instances
 
-## Availability Zones
+After you create the primary (writer) instance, you can create up to 15
+read-only Aurora Replicas. The Aurora Replicas are also known as reader instances. Aurora
+Replicas use asynchronous replication to support high availability without affecting primary
+instance performance.
 
-An Availability Zone is an isolated location in a given
-AWS Region. Each Region has multiple Availability Zones (AZ) designed to provide high
-availability for the Region. An AZ is identified by the AWS Region code followed by a
-letter identifier (for example, `us-east-1a`). If you create your
-VPC and subnets rather than using the default VPC, you define each subnet in a specific
-AZ. When you create an Aurora DB cluster, Aurora creates the primary instance in one of
-the subnets in the VPC's DB subnet group. It thus associates that instance with a
-specific AZ chosen by Aurora.
+During day-to-day operations, you can offload some of the work for read-intensive
+applications by using the reader instances to process `SELECT` queries. When a
+problem affects the primary instance, one of these reader instances takes over as the primary
+instance. This mechanism is known as _failover_. Many Aurora features apply
+to the failover mechanism. For example, Aurora detects database problems and activates the
+failover mechanism automatically when necessary. Aurora also has features that reduce the time
+for failover to complete. Doing so minimizes the time that the database is unavailable for
+writing during a failover.
 
-Each Aurora DB cluster hosts copies of its storage in three separate
-AZs selected automatically by Aurora from the AZs in your DB subnet group. Every DB
-instance in the cluster must be in one of these three AZs.
+Aurora is designed to recover as quickly as possible, and the fastest path to recovery is
+often to restart or to fail over to the same DB instance. Restarting is faster and involves
+less overhead than failover.
 
-When you create a DB instance in your cluster, Aurora automatically
-chooses an appropriate AZ for that instance if you don't specify an AZ.
+To use a connection string that stays the same even when a failover promotes a new primary
+instance, you connect to the cluster endpoint. The _cluster
+endpoint_ always represents the current primary instance in the cluster. For more
+information about the cluster endpoint, see [Amazon Aurora endpoint connections](Aurora.Overview.md "Aurora.Overview.md").
 
-Use the [describe-availability-zones](../../../cli/latest/reference/ec2/describe-availability-zones.md "../../../cli/latest/reference/ec2/describe-availability-zones.md")
-Amazon EC2 command as follows to describe the Availability Zones within the specified Region that are enabled for your account.
+###### Tip
 
-```
-aws ec2 describe-availability-zones --region `region-name`
-```
+Within each AWS Region, Availability Zones (AZs) represent locations that are distinct
+from each other to provide isolation in case of outages. We recommend that you distribute
+the primary instance and reader instances in your DB cluster over multiple AZs to improve
+the availability of your DB cluster. That way, an issue that affects an entire AZ
+doesn't cause an outage for your cluster.
 
-For example, to describe the Availability Zones within the US East (N. Virginia) Region (us-east-1) that are enabled for
-your account, run the following command:
+You can set up a Multi-AZ DB cluster by making a simple choice when you create the
+cluster. You can use the AWS Management Console, the AWS CLI, or the Amazon RDS API. You can also convert an
+existing Aurora DB cluster into a Multi-AZ DB cluster by adding a new reader DB instance and
+specifying a different AZ.
 
-```
-aws ec2 describe-availability-zones --region us-east-1
-```
+## High availability across AWS
 
-To learn how to specify the AZ when you create a cluster or add instances to it,
-see [Configure the network for the DB cluster](Aurora.md#Aurora.CreateInstance.Prerequisites.VPC "Aurora.md#Aurora.CreateInstance.Prerequisites.VPC").
+Regions with Aurora global databases
 
-## Local time zone for Amazon Aurora DB
+For high availability across multiple AWS Regions, you can set up Aurora global
+databases. Each Aurora global database spans multiple AWS Regions, enabling low latency
+global reads and disaster recovery from outages across an AWS Region. Aurora asynchronously
+replicates all data and updates from the primary AWS Region to each of the secondary
+Regions. For more information, see [Using Amazon Aurora Global Database](aurora-global-database.md "aurora-global-database.md").
 
-clusters
+## Fault tolerance for an Aurora DB
 
-By default, the time zone for an Amazon Aurora DB cluster is Universal Time
-Coordinated (UTC). You can set the time zone for instances in your DB cluster to the
-local time zone for your application instead.
+cluster
 
-To set the local time zone for a DB cluster, set the time zone parameter to one of the supported values. You set this
-parameter in the cluster parameter group for your DB cluster.
+An Aurora DB cluster is fault tolerant by design. The cluster volume spans multiple
+Availability Zones (AZs) in a single AWS Region, and each Availability Zone contains a copy
+of the cluster volume data. This functionality means that your DB cluster can tolerate a
+failure of an Availability Zone without any loss of data and only a brief interruption of
+service.
 
-- For Aurora MySQL, the name of this parameter is `time_zone`. For information on best practices for setting
-  the `time_zone` parameter, see [Optimizing timestamp operations](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.Performance.TimeZone "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.Performance.TimeZone").
-- For Aurora PostgreSQL, the name of this parameter is `timezone`.
+If the primary instance in a DB cluster fails, Aurora automatically fails over to a new primary instance in one of two
+ways:
 
-When you set the time zone parameter for a DB cluster, all instances in the DB cluster change to use the new local time zone.
-In some cases, other Aurora DB clusters might be using the same cluster parameter group. If so, all instances in those DB
-clusters change to use the new local time zone also. For information on cluster-level parameters, see [Amazon Aurora DB cluster and DB instance
-parameters](USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups "USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups").
+- By promoting an existing Aurora Replica to the new primary instance
+- By creating a new primary instance
 
-After you set the local time zone, all new connections to the database reflect the
-change. In some cases, you might have open connections to your database when you change
-the local time zone. If so, you don't see the local time zone update until after you
-close the connection and open a new connection.
+If the DB cluster has one or more Aurora Replicas, then an Aurora Replica is promoted to the primary instance during a failure
+event. A failure event results in a brief interruption, during which read and write operations fail with an exception. However,
+service is typically restored in less than 60 seconds, and often less than 30 seconds. To increase the availability of your DB
+cluster, we recommend that you create at least one or more Aurora Replicas in two or more different Availability Zones.
 
-If you are replicating across AWS Regions, the replication source DB cluster and the replica use different parameter
-groups. Parameter groups are unique to an AWS Region. To use the same local time zone for each instance, make sure to set the
-time zone parameter in the parameter groups for both the replication source and the replica.
+###### Tip
 
-When you restore a DB cluster from a DB cluster snapshot, the local time zone is
-set to UTC. You can update the time zone to your local time zone after the restore is
-complete. In some cases, you might restore a DB cluster to a point in time. If so, the
-local time zone for the restored DB cluster is the time zone setting from the parameter
-group of the restored DB cluster.
+In Aurora MySQL, you can improve availability during a failover by having more than one reader DB instance in a cluster. In Aurora MySQL, Aurora
+restarts only the writer DB instance and the reader instance to which it fails over. Other reader instances in the cluster remain available during a
+failover to continue processing queries through connections to the reader endpoint.
 
-The following table lists some of the values to which you can set your local time zone. To list all of the available time
-zones, you can use the following SQL queries:
+You can also improve availability during a failover by using RDS Proxy with your Aurora DB cluster. For more information,
+see [High availability with
+Amazon RDS Proxy](#Concepts.AuroraHighAvailability.Proxy "#Concepts.AuroraHighAvailability.Proxy").
 
-- Aurora MySQL: `select * from mysql.time_zone_name;`
-- Aurora PostgreSQL: `select * from pg_timezone_names;`
+You can customize the order in which your Aurora Replicas are promoted to the primary instance after a failure by assigning each
+replica a priority. Priorities range from 0 for the highest priority to 15 for the lowest priority. If the primary instance fails,
+Amazon RDS promotes the Aurora Replica with the highest priority to the new primary instance. You can modify the priority of an Aurora
+Replica at any time. Modifying the priority doesn't trigger a failover.
+
+More than one Aurora Replica can share the same priority, resulting in promotion tiers. If two or more Aurora Replicas share the
+same priority, then Amazon RDS promotes the replica that is largest in size. If two or more Aurora Replicas share the same priority
+and size, then Amazon RDS promotes an arbitrary replica in the same promotion tier.
 
 ###### Note
 
-For some time zones, time values for certain date ranges can be reported incorrectly as noted in the table. For Australia
-time zones, the time zone abbreviation returned is an outdated value as noted in the table.
+Several factors are involved in identifying a failover target. After five unsuccessful failover attempts, promotion tiers are no longer
+considered.
 
-| Time zone             | Notes                                                                                                                                                                                                                            |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Africa/Harare`       | This time zone setting can return incorrect values from 28 Feb<br>1903 21:49:40 GMT to 28 Feb 1903 21:55:48 GMT.                                                                                                                 |
-| `Africa/Monrovia`     |                                                                                                                                                                                                                                  |
-| `Africa/Nairobi`      | This time zone setting can return incorrect values from 31 Dec<br>1939 21:30:00 GMT to 31 Dec 1959 21:15:15 GMT.                                                                                                                 |
-| `Africa/Windhoek`     |                                                                                                                                                                                                                                  |
-| `America/Bogota`      | This time zone setting can return incorrect values from 23 Nov<br>1914 04:56:16 GMT to 23 Nov 1914 04:56:20 GMT.                                                                                                                 |
-| `America/Caracas`     |                                                                                                                                                                                                                                  |
-| `America/Chihuahua`   |                                                                                                                                                                                                                                  |
-| `America/Cuiaba`      |                                                                                                                                                                                                                                  |
-| `America/Denver`      |                                                                                                                                                                                                                                  |
-| `America/Fortaleza`   | In some cases, for a DB cluster in the South America (Sao Paulo)<br>Region, time doesn't show correctly for a recently changed Brazil<br>time zone. If so, reset the DB cluster's time zone parameter to<br>`America/Fortaleza`. |
-| `America/Guatemala`   |                                                                                                                                                                                                                                  |
-| `America/Halifax`     | This time zone setting can return incorrect values from 27 Oct<br>1918 05:00:00 GMT to 31 Oct 1918 05:00:00 GMT.                                                                                                                 |
-| `America/Manaus`      | If your DB cluster is in the South America (Cuiaba) time zone and the<br>expected time doesn't show correctly for the recently changed Brazil<br>time zone, reset the DB cluster's time zone parameter to<br>`America/Manaus`.   |
-| `America/Matamoros`   |                                                                                                                                                                                                                                  |
-| `America/Monterrey`   |                                                                                                                                                                                                                                  |
-| `America/Montevideo`  |                                                                                                                                                                                                                                  |
-| `America/Noronha`     |                                                                                                                                                                                                                                  |
-| `America/Phoenix`     |                                                                                                                                                                                                                                  |
-| `America/Tijuana`     |                                                                                                                                                                                                                                  |
-| `Asia/Ashgabat`       |                                                                                                                                                                                                                                  |
-| `Asia/Baghdad`        |                                                                                                                                                                                                                                  |
-| `Asia/Baku`           |                                                                                                                                                                                                                                  |
-| `Asia/Bangkok`        |                                                                                                                                                                                                                                  |
-| `Asia/Beirut`         |                                                                                                                                                                                                                                  |
-| `Asia/Calcutta`       |                                                                                                                                                                                                                                  |
-| `Asia/Kabul`          |                                                                                                                                                                                                                                  |
-| `Asia/Karachi`        |                                                                                                                                                                                                                                  |
-| `Asia/Kathmandu`      |                                                                                                                                                                                                                                  |
-| `Asia/Muscat`         | This time zone setting can return incorrect values from 31 Dec<br>1919 20:05:36 GMT to 31 Dec 1919 20:05:40 GMT.                                                                                                                 |
-| `Asia/Riyadh`         | This time zone setting can return incorrect values from 13 Mar<br>1947 20:53:08 GMT to 31 Dec 1949 20:53:08 GMT.                                                                                                                 |
-| `Asia/Seoul`          | This time zone setting can return incorrect values from 30 Nov<br>1904 15:30:00 GMT to 07 Sep 1945 15:00:00 GMT.                                                                                                                 |
-| `Asia/Shanghai`       | This time zone setting can return incorrect values from 31 Dec<br>1927 15:54:08 GMT to 02 Jun 1940 16:00:00 GMT.                                                                                                                 |
-| `Asia/Singapore`      |                                                                                                                                                                                                                                  |
-| `Asia/Taipei`         | This time zone setting can return incorrect values from 30 Sep<br>1937 16:00:00 GMT to 29 Sep 1979 15:00:00 GMT.                                                                                                                 |
-| `Asia/Tehran`         |                                                                                                                                                                                                                                  |
-| `Asia/Tokyo`          | This time zone setting can return incorrect values from 30 Sep<br>1937 15:00:00 GMT to 31 Dec 1937 15:00:00 GMT.                                                                                                                 |
-| `Asia/Ulaanbaatar`    |                                                                                                                                                                                                                                  |
-| `Atlantic/Azores`     | This time zone setting can return incorrect values from 24 May<br>1911 01:54:32 GMT to 01 Jan 1912 01:54:32 GMT.                                                                                                                 |
-| `Australia/Adelaide`  | The abbreviation for this time zone is returned as CST instead<br>of ACDT/ACST.                                                                                                                                                  |
-| `Australia/Brisbane`  | The abbreviation for this time zone is returned as EST instead<br>of AEDT/AEST.                                                                                                                                                  |
-| `Australia/Darwin`    | The abbreviation for this time zone is returned as CST instead<br>of ACDT/ACST.                                                                                                                                                  |
-| `Australia/Hobart`    | The abbreviation for this time zone is returned as EST instead<br>of AEDT/AEST.                                                                                                                                                  |
-| `Australia/Perth`     | The abbreviation for this time zone is returned as WST instead<br>of AWDT/AWST.                                                                                                                                                  |
-| `Australia/Sydney`    | The abbreviation for this time zone is returned as EST instead<br>of AEDT/AEST.                                                                                                                                                  |
-| `Brazil/East`         |                                                                                                                                                                                                                                  |
-| `Canada/Saskatchewan` | This time zone setting can return incorrect values from 27 Oct<br>1918 08:00:00 GMT to 31 Oct 1918 08:00:00 GMT.                                                                                                                 |
-| `Europe/Amsterdam`    |                                                                                                                                                                                                                                  |
-| `Europe/Athens`       |                                                                                                                                                                                                                                  |
-| `Europe/Dublin`       |                                                                                                                                                                                                                                  |
-| `Europe/Helsinki`     | This time zone setting can return incorrect values from 30 Apr<br>1921 22:20:08 GMT to 30 Apr 1921 22:20:11 GMT.                                                                                                                 |
-| `Europe/Paris`        |                                                                                                                                                                                                                                  |
-| `Europe/Prague`       |                                                                                                                                                                                                                                  |
-| `Europe/Sarajevo`     |                                                                                                                                                                                                                                  |
-| `Pacific/Auckland`    |                                                                                                                                                                                                                                  |
-| `Pacific/Guam`        |                                                                                                                                                                                                                                  |
-| `Pacific/Honolulu`    | This time zone setting can return incorrect values from 21 May<br>1933 11:30:00 GMT to 30 Sep 1945 11:30:00 GMT.                                                                                                                 |
-| `Pacific/Samoa`       | This time zone setting can return incorrect values from 01 Jan<br>1911 11:22:48 GMT to 01 Jan 1950 11:30:00 GMT.                                                                                                                 |
-| `US/Alaska`           |                                                                                                                                                                                                                                  |
-| `US/Central`          |                                                                                                                                                                                                                                  |
-| `US/Eastern`          |                                                                                                                                                                                                                                  |
-| `US/East-Indiana`     |                                                                                                                                                                                                                                  |
-| `US/Pacific`          |                                                                                                                                                                                                                                  |
-| `UTC`                 |                                                                                                                                                                                                                                  |
+If the DB cluster doesn't contain any Aurora Replicas, then the primary instance is
+recreated in the same AZ during a failure event. A failure event results in an interruption during
+which read and write operations fail with an exception. Service is restored when the new
+primary instance is created, which typically takes less than 10 minutes. Promoting an
+Aurora Replica to the primary instance is much faster than creating a new primary
+instance.
+
+Suppose that the primary instance in your cluster is unavailable because of an outage that affects an entire AZ. In this case,
+the way to bring a new primary instance online depends on whether your cluster uses a Multi-AZ configuration:
+
+- If your provisioned or Aurora Serverless v2 cluster contains any reader instances in other AZs, Aurora uses the failover
+  mechanism to promote one of those reader instances to be the new primary instance.
+- If your provisioned or Aurora Serverless v2 cluster only contains a single DB instance, or if the primary instance and all
+  reader instances are in the same AZ, make sure to manually create one or more new DB instances in another AZ.
+- If your cluster uses Aurora Serverless v1, Aurora automatically creates a new DB instance in another AZ. However, this process
+  involves a host replacement and thus takes longer than a failover.
+
+###### Note
+
+Amazon Aurora also supports replication with an external MySQL database, or an RDS MySQL DB instance. For more information, see
+[Replication between Aurora and MySQL or between Aurora and another Aurora DB
+cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
+
+## High availability with
+
+Amazon RDS Proxy
+
+With RDS Proxy, you can build applications that can transparently tolerate database failures
+without needing to write complex failure handling code. The proxy automatically routes traffic
+to a new database instance while preserving application connections. It also bypasses Domain
+Name System (DNS) caches to reduce failover times by up to 66% for Aurora
+Multi-AZ databases.
+
+For more information, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").

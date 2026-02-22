@@ -17,6 +17,7 @@ build and maintain complex solutions for scaling your data across multiple DB in
 - [Querying Aurora PostgreSQL Limitless Database](limitless-query.md "limitless-query.md")
 - [Managing Aurora PostgreSQL Limitless Database](limitless-managing.md "limitless-managing.md")
 - [Monitoring Aurora PostgreSQL Limitless Database](limitless-monitoring.md "limitless-monitoring.md")
+- [Instance-specific performance and resource monitoring](limitless-instance-monitoring.md "limitless-instance-monitoring.md")
 - [Backing up and restoring Aurora PostgreSQL Limitless Database](limitless-bak.md "limitless-bak.md")
 - [Upgrading Amazon Aurora PostgreSQL Limitless Database](limitless-upg.md "limitless-upg.md")
 - [Aurora PostgreSQL Limitless Database reference](limitless-reference.md "limitless-reference.md")

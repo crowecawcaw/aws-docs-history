@@ -1,8 +1,7 @@
 # Protecting data using encryption
 
-You can enable encryption for database resources. You can also encrypt connections
-to DB
-clusters.
+Amazon Aurora encrypts database resources at the storage layer.
+You can also encrypt connections to DB clusters.
 
 ###### Topics
 

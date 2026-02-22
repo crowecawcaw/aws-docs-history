@@ -1,127 +1,112 @@
-# synch/cond/innodb/row_lock_wait_cond
+# synch/sxlock/innodb/hash_table_locks
 
-The `synch/cond/innodb/row_lock_wait_cond` event occurs when one session has locked a row for an update, and another session tries to
-update the same row. For more information, see [InnoDB locking](https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html") in the
-MySQL documentation.
-
-## Supported engine versions
-
-This wait event information is supported for the following engine versions:
-
-- Aurora MySQL version 2
-
-## Likely causes of increased waits
-
-Multiple data manipulation language (DML) statements are accessing the same row or
-rows simultaneously.
-
-## Actions
-
-We recommend different actions depending on the other wait events that you see.
+The `synch/sxlock/innodb/hash_table_locks` event occurs when pages not found in the buffer pool must be read
+from storage.
 
 ###### Topics
 
-- [Find and respond to the SQL statements responsible
-  for this wait event](#ams-waits.row-lock-wait-cond.actions.id "#ams-waits.row-lock-wait-cond.actions.id")
-- [Find and respond to the blocking
-  session](#ams-waits.row-lock-wait-cond.actions.blocker "#ams-waits.row-lock-wait-cond.actions.blocker")
+- [Supported engine versions](#ams-waits.sx-lock-hash-table-locks.context.supported "#ams-waits.sx-lock-hash-table-locks.context.supported")
+- [Context](#ams-waits.sx-lock-hash-table-locks.context "#ams-waits.sx-lock-hash-table-locks.context")
+- [Likely causes of increased waits](#ams-waits.sx-lock-hash-table-locks.causes "#ams-waits.sx-lock-hash-table-locks.causes")
+- [Actions](#ams-waits.sx-lock-hash-table-locks.actions "#ams-waits.sx-lock-hash-table-locks.actions")
 
-### Find and respond to the SQL statements responsible
+## Supported engine versions
 
-for this wait event
+This wait event information is supported for the following versions:
 
-Use Performance Insights to identify the SQL statements responsible for this wait event. Consider
-the following strategies:
+- Aurora MySQL versions 2 and 3
 
-- If row locks are a persistent problem, consider rewriting the application to use optimistic
-  locking.
-- Use multirow statements.
-- Spread the workload over different database objects. You can do this through partitioning.
-- Check the value of the `innodb_lock_wait_timeout` parameter. It controls how
-  long transactions wait before generating a timeout error.
+## Context
 
-For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
+The event `synch/sxlock/innodb/hash_table_locks` indicates that a workload is frequently accessing data
+that isn't stored in the buffer pool. This wait event is associated with new page additions and old data evictions
+from the buffer pool. The data stored in the buffer pool aged and new data must be cached, so the aged pages are evicted
+to allow caching of the new pages. MySQL uses a least recently used (LRU) algorithm to evict pages from the buffer pool.
+The workload is trying to access data that hasn't been loaded into the buffer pool or data that has been evicted
+from the buffer pool.
 
-### Find and respond to the blocking
+This wait event occurs when the workload must access the data in files on disk
+or when blocks are freed from or added to the buffer pool's LRU list. These operations
+wait to obtain a shared excluded lock (SX-lock). This SX-lock is used for the
+synchronization over the _hash table_, which is a table
+in memory designed to improve buffer pool access performance.
 
-session
+For more information, see [Buffer Pool](https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool.html")
+in the MySQL documentation.
 
-Determine whether the blocking session is idle or active. Also, find out whether the session comes
-from an application or an active user.
+## Likely causes of increased waits
 
-To identify the session holding the lock, you can run `SHOW ENGINE INNODB STATUS`. The
-following example shows sample output.
+When the `synch/sxlock/innodb/hash_table_locks` wait event appears more than normal, possibly indicating
+a performance problem, typical causes include the following:
 
-```
-mysql> SHOW ENGINE INNODB STATUS;
+**An undersized buffer pool**
 
----TRANSACTION 2771110, ACTIVE 112 sec starting index read
-mysql tables in use 1, locked 1
-LOCK WAIT 2 lock struct(s), heap size 1136, 1 row lock(s)
-MySQL thread id 24, OS thread handle 70369573642160, query id 13271336 172.31.14.179 reinvent Sending data
-select id1 from test.t1 where id1=1 for update
-------- TRX HAS BEEN WAITING 43 SEC FOR THIS LOCK TO BE GRANTED:
-RECORD LOCKS space id 11 page no 3 n bits 0 index GEN_CLUST_INDEX of table test.t1 trx id 2771110 lock_mode X waiting
-Record lock, heap no 2 PHYSICAL RECORD: n_fields 5; compact format; info bits 0
-```
+The size of the buffer pool is too small to keep all of the frequently accessed pages in memory.
 
-Or you can use the following query to extract details on current locks.
+**Heavy workload**
 
-```
-mysql> SELECT p1.id waiting_thread,
-              p1.user waiting_user,
-              p1.host waiting_host,
-              it1.trx_query waiting_query,
-              ilw.requesting_trx_id waiting_transaction,
-              ilw.blocking_lock_id blocking_lock,
-              il.lock_mode blocking_mode,
-              il.lock_type blocking_type,
-              ilw.blocking_trx_id blocking_transaction,
-              CASE it.trx_state
-                WHEN 'LOCK WAIT'
-                THEN it.trx_state
-                ELSE p.state
-              END blocker_state,
-              il.lock_table locked_table,
-              it.trx_mysql_thread_id blocker_thread,
-              p.user blocker_user,
-              p.host blocker_host
-       FROM information_schema.innodb_lock_waits ilw
-       JOIN information_schema.innodb_locks il
-         ON ilw.blocking_lock_id = il.lock_id
-        AND ilw.blocking_trx_id = il.lock_trx_id
-       JOIN information_schema.innodb_trx it
-         ON ilw.blocking_trx_id = it.trx_id
-       JOIN information_schema.processlist p
-         ON it.trx_mysql_thread_id = p.id
-       JOIN information_schema.innodb_trx it1
-         ON ilw.requesting_trx_id = it1.trx_id
-       JOIN information_schema.processlist p1
-         ON it1.trx_mysql_thread_id = p1.id\G
+The workload is causing frequent evictions and data pages reloads in the buffer cache.
 
-*************************** 1. row ***************************
-      waiting_thread: 3561959471
-        waiting_user: reinvent
-        waiting_host: 123.456.789.012:20485
-       waiting_query: select id1 from test.t1 where id1=1 for update
- waiting_transaction: 312337314
-       blocking_lock: 312337287:261:3:2
-       blocking_mode: X
-       blocking_type: RECORD
-blocking_transaction: 312337287
-       blocker_state: User sleep
-        locked_table: `test`.`t1`
-      blocker_thread: 3561223876
-        blocker_user: reinvent
-        blocker_host: 123.456.789.012:17746
-1 row in set (0.04 sec)
-```
+**Errors reading the pages**
 
-When you identify the session, your options include the following:
+There are errors reading pages in the buffer pool, which might indicate data corruption.
 
-- Contact the application owner or the user.
-- If the blocking session is idle, consider ending the blocking session. This action might trigger a long rollback.
-  To learn how to end a session, see [Ending a session or query](mysql-stored-proc-ending.md "mysql-stored-proc-ending.md").
+## Actions
 
-For more information about identifying blocking transactions, see [Using InnoDB transaction and locking
-information](https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-examples.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-examples.html") in the MySQL documentation.
+We recommend different actions depending on the causes of your wait event.
+
+###### Topics
+
+- [Increase the size of the buffer pool](#ams-waits.sx-lock-hash-table-locks.actions.increase-buffer-pool-size "#ams-waits.sx-lock-hash-table-locks.actions.increase-buffer-pool-size")
+- [Improve data access patterns](#ams-waits.sx-lock-hash-table-locks.actions.improve-data-access-patterns "#ams-waits.sx-lock-hash-table-locks.actions.improve-data-access-patterns")
+- [Reduce or avoid full-table scans](#ams-waits.sx-lock-hash-table-locks.actions.reduce-full-table-scans "#ams-waits.sx-lock-hash-table-locks.actions.reduce-full-table-scans")
+- [Check the error logs for page corruption](#ams-waits.sx-lock-hash-table-locks.actions.check-error-logs "#ams-waits.sx-lock-hash-table-locks.actions.check-error-logs")
+
+### Increase the size of the buffer pool
+
+Make sure that the buffer pool is appropriately sized for the workload. To
+do so, you can check the buffer pool cache hit rate. Typically, if the value drops
+below 95 percent, consider increasing the buffer pool size. A larger buffer pool can
+keep frequently accessed pages in memory longer. To increase the size of the buffer
+pool, modify the value of the `innodb_buffer_pool_size` parameter. The
+default value of this parameter is based on the DB instance class size. For more
+information, see [Best practices for Amazon Aurora MySQL database configuration](https://aws.amazon.com/blogs/database/best-practices-for-amazon-aurora-mysql-database-configuration/ "https://aws.amazon.com/blogs/database/best-practices-for-amazon-aurora-mysql-database-configuration/").
+
+### Improve data access patterns
+
+Check the queries affected by this wait and their execution plans. Consider improving data access patterns. For example,
+if you are using [mysqli_result::fetch_array](https://www.php.net/manual/en/mysqli-result.fetch-array.php "https://www.php.net/manual/en/mysqli-result.fetch-array.php"),
+you can try increasing the array fetch size.
+
+You can use Performance Insights to show queries and sessions that might be causing the `synch/sxlock/innodb/hash_table_locks`
+wait event.
+
+###### To find SQL queries that are responsible for high load
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Performance Insights**.
+3. Choose a DB instance. The Performance Insights dashboard is shown for that DB
+   instance.
+4. In the **Database load** chart, choose **Slice by
+   wait**.
+5. At the bottom of the page, choose **Top SQL**.
+
+The chart lists the SQL queries that are responsible for the load. Those at the top of the
+list are most responsible. To resolve a bottleneck, focus on these statements.
+
+For a useful overview of troubleshooting using Performance Insights, see
+the AWS Database Blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
+
+### Reduce or avoid full-table scans
+
+Monitor your workload to see if it's running full-table scans, and, if it
+is, reduce or avoid them. For example, you can monitor status variables such as
+`Handler_read_rnd_next`. For more information, see [Server Status Variables](https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Handler_read_rnd_next "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Handler_read_rnd_next") in the MySQL documentation.
+
+### Check the error logs for page corruption
+
+You can check the mysql-error.log for corruption-related messages that
+were detected near the time of the issue. Messages that you can work with to resolve
+the issue are in the error log. You might need to recreate objects that were
+reported as corrupted.

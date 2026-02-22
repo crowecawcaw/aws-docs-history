@@ -1,101 +1,270 @@
-# Upgrading Amazon Aurora DB clusters
+# Amazon Aurora versioning
 
-With Amazon Aurora, you can control and test upgrades to your DB clusters. Amazon Aurora provides
-options for automatic minor version upgrades, manual upgrade control, required upgrades, and
-pre-upgrade testing. You can keep your clusters up-to-date with the latest minor version,
-deferring non-critical upgrades, forcing upgrades for serious issues, and validating upgrade
-behavior in nonproduction environments. The following sections detail how to manage and test
-Aurora DB cluster upgrades using these capabilities.
+Amazon Aurora versions are different from the upstream community databases that they’re
+compatible with. To help you maintain application compatibility and leverage the latest DB
+engine features, the following sections explain Aurora versioning conventions and how Aurora
+versions map to their respective community databases.
 
-## Automatic minor version upgrades for
+For a list of the relational databases that are available on Amazon Aurora, see [Supported database engines for
+Amazon Aurora database clusters](Aurora.md#Aurora.VersionPolicy.SupportedEngines "Aurora.md#Aurora.VersionPolicy.SupportedEngines").
 
-Aurora
+## Differences in version numbers
 
-Automatic minor version upgrades periodically update your
-database to recent database engine versions. However, the upgrade might
-not always include the latest database engine version. If you need to
-keep your databases on specific versions at particular times,
-we recommend that you manually upgrade to the database versions that
-you need according to your required schedule.
-In cases of critical security issues or when a version reaches its end-of-support date,
-Amazon Aurora
-might apply a minor version upgrade even if you haven't enabled the **Auto minor version upgrade**
-option. For more information, see the upgrade documentation for your specific database engine.
+between community databases and Aurora
 
-See [Upgrading the minor version or patch level of an Aurora MySQL DB cluster](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-and [Performing a minor
-version upgrade](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md").
+Each Amazon Aurora version is compatible with a specific version of its corresponding
+community database. You can find the community version of your database with the
+`version` function, and the Aurora version with the `aurora_version`
+function.
 
-You can stay up to date with Aurora minor versions by turning on **Auto minor
-version upgrade** for every DB instance in the Aurora cluster. Aurora performs the
-automatic upgrade only if all DB instances in your cluster have this setting turned on.
+The following examples show how to find the community version of your database for
+Aurora MySQL and Aurora PostgreSQL.
 
-If **Auto minor version upgrade** is **Yes** for your
-DB cluster, Aurora upgrades automatically to the default minor version or to a newer minor
-version. For example, if the default minor version is 15.8 for Aurora PostgreSQL 15, and version
-15.10 exists, the target for the automatic upgrade could be either 15.8 or 15.10.
+Aurora MySQL
+The `version` function returns the community version of your database
+for Aurora MySQL.
 
-Aurora typically schedules automatic upgrades twice a year for DB clusters that have automatic
-minor version upgrade enabled. These upgrades occur during the maintenance window that you
-specify for your cluster. For more information, see [Automatic minor version upgrades for Aurora
-DB clusters](USER_UpgradeDBInstance.md#Aurora.Maintenance.AMVU "USER_UpgradeDBInstance.md#Aurora.Maintenance.AMVU").
+```
+mysql> select version();
+```
 
-Automatic minor version upgrades are communicated in advance through an Amazon RDS DB cluster
-event with a category of `maintenance` and ID of `RDS-EVENT-0156`. For
-more information, see [Amazon RDS event categories and event messages for Aurora](USER_Events.md "USER_Events.md").
+Output example:
 
-## Manually controlling upgrades of your
+```
++------------------+
+|   version()      |
++------------------+
+|  8.0.32          |
++------------------+
+```
 
-DB clusters to new versions
+And the `aurora_version` function returns the Aurora version:
 
-If you have the **Auto minor version upgrade** setting enabled, Aurora
-automatically upgrades your DB cluster to the default minor version or a newer minor
-version. Aurora typically schedules automatic upgrades twice a year for DB clusters that have the
-**Auto minor version upgrade** setting enabled. These upgrades are
-started during customer-specified maintenance windows.
+```
+mysql> select aurora_version(), @@aurora_version;
+```
 
-To turn off automatic minor version upgrades, disable **Auto minor version
-upgrade** on any DB instance within an Aurora cluster. Aurora performs an automatic minor
-version upgrade only if all DB instances in your cluster have the setting enabled.
+Output example:
+
+```
++------------------+------------------+
+| aurora_version() | @@aurora_version |
++------------------+------------------+
+| 3.05.2           | 3.05.2           |
++------------------+------------------+
+```
+
+Aurora PostgreSQL
+The `version` function returns the community version of your database
+for Aurora PostgreSQL.
+
+```
+postgres=> select version();
+```
+
+Output example:
+
+```
+-----------------------------------------------------------------------------
+PostgreSQL 11.7 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.9.3, 64-bit
+(1 row)
+```
+
+And the `aurora_version` function returns the Aurora version:
+
+```
+postgres=> select aurora_version();
+```
+
+Output example:
+
+```
+aurora_version
+----------------
+3.2.2
+```
+
+For more information, see [Checking Aurora MySQL versions using SQL](AuroraMySQL.Updates.md#AuroraMySQL.Updates.DBVersions "AuroraMySQL.Updates.md#AuroraMySQL.Updates.DBVersions") and [Identifying versions of
+Amazon Aurora PostgreSQL](AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions "AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions").
+
+## Default Amazon Aurora versions
+
+The _default version_ is the version that Aurora chooses
+automatically for database creation or upgrade when you don't manually specify a target
+engine version. For example, the following command shows the default engine version for
+Aurora PostgreSQL (sample output included).
+
+```
+aws rds describe-db-engine-versions \
+    --engine aurora-postgresql \
+    --default-only \
+    --query 'DBEngineVersions[0].EngineVersion' \
+    --output text
+
+**16.4**
+```
+
+Every major version has a corresponding default minor version. Thus, the default minor
+version is 16._n_ for Aurora PostgreSQL 16, with version number
+_n_ changing when Aurora releases new default minor versions.
+Typically, Aurora releases two default minor versions for every major version per year. The
+following bash shell script shows the default minor versions for a set of Aurora PostgreSQL
+major versions (sample output included).
+
+```
+for major in 16 15 14 13 12 11; do
+  echo -n "Default for Aurora PostgreSQL major version $major: "
+  aws rds describe-db-engine-versions \
+    --engine aurora-postgresql \
+    --engine-version "$major" \
+    --default-only \
+    --query 'DBEngineVersions[0].EngineVersion' \
+    --output text
+done
+
+**Default for Aurora PostgreSQL major version 16: 16.4
+Default for Aurora PostgreSQL major version 15: 15.8
+Default for Aurora PostgreSQL major version 14: 14.13
+Default for Aurora PostgreSQL major version 13: 13.16
+Default for Aurora PostgreSQL major version 12: 12.20
+Default for Aurora PostgreSQL major version 11: 11.21**
+```
+
+If you enable automatic minor version upgrades for your Aurora DB cluster, Aurora uses either the
+default minor version or a newer minor version for a given major version. For example, if the
+default minor version for Aurora PostgreSQL 15 is 15.8, and newer version 15.10 is also available,
+Aurora can automatically upgrade to either 15.8 or 15.10.
+
+## Amazon Aurora major versions
+
+Aurora versions use the
+``major`.`minor`.`patch``
+scheme. An _Aurora major version_ refers to the MySQL or
+PostgreSQL community major version that Aurora is compatible with. Aurora MySQL and
+Aurora PostgreSQL major versions are available under standard support at least until community
+end of life for the corresponding community version. You can continue to run a major version
+past its Aurora end of standard support date for a fee. For more information, see [Amazon RDS Extended Support with Amazon Aurora](extended-support.md "extended-support.md") and [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/").
+
+For more information on major versions and the release calendar for Aurora MySQL and
+Aurora PostgreSQL, see the following pages in the respective Release Notes:
+
+- [Release calendar for Aurora MySQL major versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md#AuroraMySQL.release-calendars.major "../AuroraMySQLReleaseNotes/AuroraMySQL.md#AuroraMySQL.release-calendars.major")
+- [Release calendar for Aurora PostgreSQL major versions](../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md#aurorapostgresql.major.versions.supported "../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md#aurorapostgresql.major.versions.supported")
+
+You can also view information about support dates for major engine versions by running
+the [describe-db-major-engine-versions](../../../cli/latest/reference/rds/describe-db-major-engine-versions.md "../../../cli/latest/reference/rds/describe-db-major-engine-versions.md") AWS CLI command or by using the [DescribeDBMajorEngineVersions](../APIReference/API_DescribeDBMajorEngineVersions.md "../APIReference/API_DescribeDBMajorEngineVersions.md") RDS API operation.
 
 ###### Note
 
-For mandatory upgrades such as minor-version end of life, Aurora upgrades the DB cluster
-even if the **Auto minor version upgrade** setting is
-disabled. You get a reminder but no RDS event notification. Aurora upgrades your cluster
-occur within a maintenance window after the mandatory upgrade deadline has passed.
+Amazon RDS Extended Support for Aurora MySQL version 2 starts on November 1, 2024, but you won't be
+charged until December 1, 2024. Between November 1 and November 30, 2024, all Aurora MySQL
+version 2 DB clusters are covered under Amazon RDS Extended Support. For more information, see [Amazon RDS Extended Support for selected Aurora versions](Aurora.VersionPolicy.md#Aurora.VersionPolicy.ES "Aurora.VersionPolicy.md#Aurora.VersionPolicy.ES").
 
-Because major version upgrades involve some compatibility risk, they don't occur
-automatically. You must initiate these, except if there is a major version deprecation.
-We recommend that you thoroughly test your applications with new database versions before
-upgrading your cluster to a major version.
+### How long Amazon Aurora major
 
-For more information about upgrading a DB cluster to a new Aurora major version, see
-[Upgrading Amazon Aurora MySQL DB clusters](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md") and [Upgrading Amazon Aurora PostgreSQL DB
-clusters](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+versions remain available
 
-## Required Amazon Aurora upgrades
+Amazon Aurora major versions remain available at least until community end of life for the
+corresponding community version. You can use Aurora end of standard support dates to plan
+your testing and upgrade cycles. These dates represent the earliest date that an upgrade
+to a newer version might be required. For more information on the dates, see [Amazon Aurora major versions](#Aurora.VersionPolicy.MajorVersions "#Aurora.VersionPolicy.MajorVersions").
 
-For certain critical fixes, Aurora might perform a managed upgrade to a newer patch level
-within the same minor version. In this case, Aurora upgrades your cluster even if
-**Auto minor version upgrade** is turned off. Before doing so, Aurora
-communicates the detailed upgrade process. Details include the timing of certain milestones,
-the impact on your DB clusters, and recommended actions. Such managed upgrades occur
-automatically within the cluster maintenance window.
+Before Aurora asks you to upgrade to a newer major version and to help you plan, you
+receive a reminder at least 12 months in advance. The reminders communicate the following about the
+upgrade process.
 
-## Testing your DB cluster with a new
+- The timing of certain milestones
+- The impact on your DB clusters
+- Recommended actions
 
-Aurora version before upgrading
+We recommend that you thoroughly test your applications with new
+database versions before upgrading your cluster to a new major version.
 
-You can test the upgrade process and how the new version works with your application and
-workload. Use one of the following methods:
+After the major version reaches the Aurora end of standard support, any DB cluster still
+running the earlier version is automatically upgraded to an Extended Support version during
+a scheduled maintenance window. Extended Support charges may apply. For more information
+on Amazon RDS Extended Support, see [Using Amazon RDS Extended
+support](extended-support.md "extended-support.md").
 
-- Clone your cluster using the Amazon Aurora fast database clone feature. Perform the
-  upgrade and any post-upgrade testing on the new cluster.
-- Restore from a cluster snapshot to create a new Aurora cluster. You can create a
-  cluster snapshot yourself from an existing Aurora cluster. Aurora also automatically
-  creates periodic snapshots for you for each of your clusters. You can then initiate a
-  version upgrade for the new cluster. You can experiment on the upgraded copy of your
-  cluster before deciding whether to upgrade your original cluster.
+## Amazon Aurora minor versions
 
-For more information on these ways to create new clusters for testing, see [Cloning a volume for an Amazon Aurora DB cluster](Aurora.Managing.md "Aurora.Managing.md") and [Creating a DB cluster snapshot](USER_CreateSnapshotCluster.md "USER_CreateSnapshotCluster.md").
+Aurora versions use the
+``major`.`minor`.`patch``
+scheme. An _Aurora minor version_ provides incremental
+community and Aurora-specific improvements to the service, for example new features and
+fixes.
+
+For more information on minor versions and the release calendar for Aurora MySQL and
+Aurora PostgreSQL, see the following pages in the respective Release Notes:
+
+- [Release calendar for Aurora MySQL minor versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md#AuroraMySQL.release-calendars.minor "../AuroraMySQLReleaseNotes/AuroraMySQL.md#AuroraMySQL.release-calendars.minor")
+- [Release calendar for Aurora PostgreSQL minor versions](../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md#aurorapostgresql.minor.versions.supported "../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md#aurorapostgresql.minor.versions.supported")
+
+The following sections describe details about the cadence and lifetime that you can
+expect for Aurora minor versions.
+
+###### Topics
+
+- [How often Amazon Aurora minor
+  versions are released](#Aurora.VersionPolicy.MinorVersionCadence "#Aurora.VersionPolicy.MinorVersionCadence")
+- [How long Amazon Aurora minor
+  versions remain available](#Aurora.VersionPolicy.MinorVersionLifetime "#Aurora.VersionPolicy.MinorVersionLifetime")
+
+### How often Amazon Aurora minor
+
+versions are released
+
+In general, Amazon Aurora minor versions are released quarterly. The release schedule
+might vary to pick up additional features or fixes.
+
+### How long Amazon Aurora minor
+
+versions remain available
+
+Typically, Amazon Aurora makes every minor version of a particular major version available
+for at least 12 months. At the end of this period, Aurora might automatically upgrade your
+database to the default minor version or to a later version. Aurora begins the upgrade
+during the scheduled maintenance window for any DB cluster that is running the earlier minor
+version.
+
+In some cases, Aurora might replace a minor version of a particular major version
+sooner than the usual 12-month period. Reasons can include critical security issues or the
+end-of-support date for a major version.
+
+Before beginning automatic upgrades of minor versions that are approaching end of
+life, Aurora typically provides a reminder three months in advance. Aurora details the
+following about the upgrade process.
+
+- The timing of certain milestones
+- The impact on your DB clusters
+- Recommended actions
+
+Notifications with less than three months notice describe
+critical matters, such as security issues, that require quicker action.
+
+If the **Auto minor version upgrade** setting is enabled, you get a
+reminder but no RDS event notification. Aurora upgrades your database within a maintenance
+window after the mandatory upgrade deadline has passed.
+
+If the **Auto minor version upgrade** setting isn't enabled, you get
+a reminder and an Amazon RDS DB cluster event with a category of `maintenance` and ID of
+`RDS-EVENT-0156`. Aurora upgrades your database within the next maintenance
+window.
+
+Note that after a minor version reaches the Aurora end of standard support, no
+further patch versions will be released for that minor version. To receive critical bug fixes
+or CVEs, you must upgrade to a minor version with standard support.
+
+For more information about automatic minor version upgrades, see [Automatic minor version upgrades for Aurora
+DB clusters](USER_UpgradeDBInstance.md#Aurora.Maintenance.AMVU "USER_UpgradeDBInstance.md#Aurora.Maintenance.AMVU").
+
+## Amazon Aurora patch versions
+
+Aurora versions use the
+``major`.`minor`.`patch``
+scheme. An Aurora patch version includes important fixes added to a minor version after its
+initial release (for example, Aurora MySQL 3.04.0, 3.04.1, ..., 3.04.3). While each new minor
+version provides new Aurora features, new patch versions within a specific minor version are
+primarily used to resolve important issues.
+
+For more information on patching, see [Maintaining an Amazon Aurora DB cluster](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").

@@ -1,121 +1,47 @@
-# IAM policy examples for database activity streams
+# Monitoring database activity streams
 
-Any user with appropriate AWS Identity and Access Management (IAM) role privileges for database activity streams
-can create, start, stop, and modify the activity stream settings for a DB cluster. These
-actions are included in the audit log of the stream. For best compliance practices, we
-recommend that you don't provide these privileges to DBAs.
+Database activity streams monitor and report activities. The stream of activity is collected and transmitted to Amazon Kinesis.
+From Kinesis, you can monitor the activity stream, or other services and applications can consume
+the activity stream for further analysis. You can find the underlying Kinesis stream name by
+using the AWS CLI command `describe-db-clusters` or the RDS API
+`DescribeDBClusters` operation.
 
-You set access to database activity streams using IAM policies. For more information about Aurora authentication, see [Identity and access management for Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md"). For more information about creating IAM policies, see
-[Creating and using an IAM policy for
-IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+Aurora manages the Kinesis stream for
+you as follows:
 
-###### Example Policy to allow configuring database activity streams
+- Aurora creates the Kinesis stream
+  automatically with a 24-hour retention period.
+- Aurora scales the Kinesis stream if necessary.
+- If you stop the database activity stream or delete the DB cluster, Aurora deletes the Kinesis stream.
+  The following categories of activity are monitored and put in the activity stream audit log:
 
-To give users fine-grained access to modify activity streams, use the service-specific operation context keys
-`rds:StartActivityStream` and `rds:StopActivityStream`
-in an IAM policy. The following IAM
-policy example allows a user or role to configure activity streams.
+- **SQL commands** – All SQL commands are audited,
+  and also prepared statements, built-in functions, and functions in PL/SQL. Calls to stored procedures
+  are audited. Any SQL statements issued inside stored procedures or functions are also audited.
+- **Other database information** – Activity monitored includes the full SQL statement,
+  the row count of affected rows from DML commands, accessed objects, and the unique database name. For Aurora PostgreSQL, database activity streams also monitor the bind variables and stored
+  procedure parameters.
 
-JSON
+###### Important
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "ConfigureActivityStreams",
- "Effect": "Allow",
- "Action": [
- "rds:StartActivityStream",
- "rds:StopActivityStream"
- ],
- "Resource": "*"
- }
- ]
-}`
+The full SQL text of each statement is visible in the activity stream audit log,
+including any sensitive data. However, database user passwords are redacted if
+Aurora can
+determine them from the context, such as in the following SQL statement.
 
 ```
-
-###### Example Policy to allow starting database activity streams
-
-The following IAM policy example allows a user or role to start activity streams.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"AllowStartActivityStreams",
- "Effect":"Allow",
- "Action":"rds:StartActivityStream",
- "Resource":"*"
- }
- ]
-}`
-
+ALTER ROLE role-name WITH password
 ```
 
-###### Example Policy to allow stopping database activity streams
+- **Connection information** – Activity monitored includes session and
+  network information, the server process ID, and exit codes.
+  If an activity stream has a failure while monitoring your DB instance, you are notified through RDS events.
 
-The following IAM policy example allows a user or role to stop activity streams.
+In the following sections, you can access, audit, and process database activity streams.
 
-JSON
+###### Topics
 
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"AllowStopActivityStreams",
- "Effect":"Allow",
- "Action":"rds:StopActivityStream",
- "Resource":"*"
- }
- ]
-}`
-
-```
-
-###### Example Policy to deny starting database activity streams
-
-The following IAM policy example prevents a user or role from starting activity streams.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"DenyStartActivityStreams",
- "Effect":"Deny",
- "Action":"rds:StartActivityStream",
- "Resource":"*"
- }
- ]
-}`
-
-```
-
-###### Example Policy to deny stopping database activity streams
-
-The following IAM policy example prevents a user or role from stopping activity streams.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"DenyStopActivityStreams",
- "Effect":"Deny",
- "Action":"rds:StopActivityStream",
- "Resource":"*"
- }
- ]
-}`
-
-```
+- [Accessing an activity stream from Amazon Kinesis](DBActivityStreams.md "DBActivityStreams.md")
+- [Audit log contents and examples for database activity streams](DBActivityStreams.md "DBActivityStreams.md")
+- [databaseActivityEventList JSON array for database activity streams](DBActivityStreams.AuditLog.md "DBActivityStreams.AuditLog.md")
+- [Processing a database activity stream using the AWS SDK](DBActivityStreams.md "DBActivityStreams.md")

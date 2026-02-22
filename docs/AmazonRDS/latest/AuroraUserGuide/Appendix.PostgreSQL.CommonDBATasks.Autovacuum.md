@@ -1,124 +1,97 @@
-# Managing
+# Performing a
 
-autovacuum with large indexes
+manual vacuum freeze
 
-As part of its operation, _autovacuum_ performs several [vacuum phases](https://www.postgresql.org/docs/current/progress-reporting.html#VACUUM-PHASES "https://www.postgresql.org/docs/current/progress-reporting.html#VACUUM-PHASES") while running on a table. Before the table is cleaned up, all of
-its indexes are first vacuumed. When removing multiple large indexes, this phase consumes a
-significant amount of time and resources. Therefore, as a best practice, be sure to control
-the number of indexes on a table and eliminate unused indexes.
+You might want to perform a manual vacuum on a table that has a vacuum process already
+running. This is useful if you have identified a table with an age approaching 2 billion
+transactions (or above any threshold you are monitoring).
 
-For this process, first check the overall index size. Then, determine if there are
-potentially unused indexes that can be removed as shown in the following examples.
+The following steps are guidelines, with several variations to the process. For example,
+during testing, suppose that you find that the [`maintenance_work_mem`](https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM") parameter value is set too small and that you
+need to take immediate action on a table. However, perhaps you don't want to bounce the
+instance at the moment. Using the queries in previous sections, you determine which table is
+the problem and notice a long running autovacuum session. You know that you need to change the
+`maintenance_work_mem` parameter setting, but you also need to take immediate
+action and vacuum the table in question. The following procedure shows what to do in this
+situation.
 
-**To check the size of the table and its indexes**
+###### To manually perform a vacuum freeze
 
-```
-postgres=> select pg_size_pretty(pg_relation_size('pgbench_accounts'));
-`pg_size_pretty
-6404 MB
-(1 row)`
-```
+1. Open two sessions to the database containing the table you want to vacuum. For the
+   second session, use "screen" or another utility that maintains the session if your
+   connection is dropped.
+2. In session one, get the process ID (PID) of the autovacuum session running on the
+   table.
 
-```
-postgres=> select pg_size_pretty(pg_indexes_size('pgbench_accounts'));
-`pg_size_pretty
-11 GB
-(1 row)`
-```
-
-In this example, the size of indexes is larger than the table. This difference can cause
-performance issues as the indexes are bloated or unused, which impacts the autovacuum as
-well as insert operations.
-
-**To check for unused indexes**
-
-Using the [`pg_stat_user_indexes`](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-INDEXES-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-INDEXES-VIEW") view, you can check how frequently an index is
-used with the `idx_scan` column. In the following example, the unused indexes
-have the `idx_scan` value of `0`.
+Run the following query to get the PID of the autovacuum session.
 
 ```
-postgres=> select * from pg_stat_user_indexes where relname = 'pgbench_accounts' order by idx_scan desc;
-    `relid | indexrelid | schemaname | relname | indexrelname | idx_scan | idx_tup_read | idx_tup_fetch
--------+------------+------------+------------------+-----------------------+----------+--------------+---------------
-16433 | 16454 | public | pgbench_accounts | index_f | 6 | 6 | 0
-16433 | 16450 | public | pgbench_accounts | index_b | 3 | 199999 | 0
-16433 | 16447 | public | pgbench_accounts | pgbench_accounts_pkey | 0 | 0 | 0
-16433 | 16452 | public | pgbench_accounts | index_d | 0 | 0 | 0
-16433 | 16453 | public | pgbench_accounts | index_e | 0 | 0 | 0
-16433 | 16451 | public | pgbench_accounts | index_c | 0 | 0 | 0
-16433 | 16449 | public | pgbench_accounts | index_a | 0 | 0 | 0
-(7 rows)`
+SELECT datname, usename, pid, current_timestamp - xact_start
+AS xact_runtime, query
+FROM pg_stat_activity WHERE upper(query) LIKE '%VACUUM%' ORDER BY
+xact_start;
+```
+
+3. In session two, calculate the amount of memory that you need for this operation. In
+   this example, we determine that we can afford to use up to 2 GB of memory for this
+   operation, so we set [`maintenance_work_mem`](https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM") for the current session to 2 GB.
+
+```
+`SET maintenance_work_mem='2 GB';`
+`SET`
+```
+
+4. In session two, issue a `vacuum freeze verbose` command for the table. The
+   verbose setting is useful because, although there is no progress report for this in
+   PostgreSQL currently, you can see activity.
+
+```
+`\timing on`
+`Timing is on.`
+`vacuum freeze verbose pgbench_branches;`
 ```
 
 ```
-postgres=> select schemaname, relname, indexrelname, idx_scan from pg_stat_user_indexes where relname = 'pgbench_accounts' order by idx_scan desc;
-    `schemaname | relname | indexrelname | idx_scan
-------------+------------------+-----------------------+----------
-public | pgbench_accounts | index_f | 6
-public | pgbench_accounts | index_b | 3
-public | pgbench_accounts | pgbench_accounts_pkey | 0
-public | pgbench_accounts | index_d | 0
-public | pgbench_accounts | index_e | 0
-public | pgbench_accounts | index_c | 0
-public | pgbench_accounts | index_a | 0
-(7 rows)`
+INFO:  vacuuming "public.pgbench_branches"
+INFO:  index "pgbench_branches_pkey" now contains 50 row versions in 2 pages
+DETAIL:  0 index row versions were removed.
+0 index pages have been deleted, 0 are currently reusable.
+CPU 0.00s/0.00u sec elapsed 0.00 sec.
+INFO:  index "pgbench_branches_test_index" now contains 50 row versions in 2 pages
+DETAIL:  0 index row versions were removed.
+0 index pages have been deleted, 0 are currently reusable.
+CPU 0.00s/0.00u sec elapsed 0.00 sec.
+INFO:  "pgbench_branches": found 0 removable, 50 nonremovable row versions
+     in 43 out of 43 pages
+DETAIL:  0 dead row versions cannot be removed yet.
+There were 9347 unused item pointers.
+0 pages are entirely empty.
+CPU 0.00s/0.00u sec elapsed 0.00 sec.
+VACUUM
+Time: 2.765 ms
+
+```
+
+5. In session one, if autovacuum was blocking the vacuum session,
+   `pg_stat_activity` shows that waiting is `T` for your vacuum
+   session. In this case, end the autovacuum process as follows.
+
+```
+SELECT pg_terminate_backend('the_pid');
 ```
 
 ###### Note
 
-These statistics are incremental from the time that the statistics are reset. Suppose
-you have an index that is only used at the end of a business quarter or just for a
-specific report. It's possible that this index hasn't been used since the statistics
-were reset. For more information, see [Statistics Functions](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-STATS-FUNCTIONS "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-STATS-FUNCTIONS"). Indexes that are used to enforce uniqueness won't
-have scans performed and shouldn't be identified as unused indexes. To identify the
-unused indexes, you should have in-depth knowledge of the application and its
-queries.
-
-To check when the stats were last reset for a database, use [`pg_stat_database`](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW " https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW")
+Some lower versions of Amazon Aurora can't terminate an autovacuum process using the
+preceding command and fail with the following error: `ERROR: 42501: must be a
+ superuser to terminate superuser process LOCATION: pg_terminate_backend,
+ signalfuncs.c:227`. To find the PostgreSQL versions
+that have been patched, search for the following bullet in [Amazon Aurora PostgreSQL updates](../../../'.md "../../../'.md"):
 
 ```
-postgres=> select datname, stats_reset from pg_stat_database where datname = 'postgres';
-    `datname | stats_reset
-----------+-------------------------------
-postgres | 2022-11-17 08:58:11.427224+00
-(1 row)`
+Allow rds_superuser to terminate backends which are not explicitly associated with a role
 ```
 
-## Vacuuming a table as quickly as possible
-
-**RDS for PostgreSQL 12 and higher**
-
-If you have too many indexes in a large table, your DB instance could be nearing
-transaction ID wraparound (XID), which is when the XID counter wraps around to zero.
-Left unchecked, this situation could result in data loss. However, you can quickly
-vacuum the table without cleaning up the indexes. In RDS for PostgreSQL 12 and higher, you
-can use VACUUM with the [`INDEX_CLEANUP`](https://www.postgresql.org/docs/current/sql-vacuum.html "https://www.postgresql.org/docs/current/sql-vacuum.html") clause.
-
-```
-postgres=> VACUUM (INDEX_CLEANUP FALSE, VERBOSE TRUE) pgbench_accounts;
-        `INFO: vacuuming "public.pgbench_accounts"
-INFO: table "pgbench_accounts": found 0 removable, 8 nonremovable row versions in 1 out of 819673 pages
-DETAIL: 0 dead row versions cannot be removed yet, oldest xmin: 7517
-Skipped 0 pages due to buffer pins, 0 frozen pages.
-CPU: user: 0.01 s, system: 0.00 s, elapsed: 0.01 s.`
-```
-
-If an autovacuum session is already running, you must terminate it to begin the manual
-VACUUM. For information on performing a manual vacuum freeze, see [Performing a
-manual vacuum freeze](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
-
-###### Note
-
-Skipping index cleanup regularly causes index bloat, which degrades scan
-performance. The index retains dead rows, and the table retains dead line pointers.
-As a result, `pg_stat_all_tables.n_dead_tup` increases until autovacuum
-or a manual VACUUM with index cleanup runs. As a best practice, use this procedure
-only to prevent transaction ID wraparound.
-
-**RDS for PostgreSQL 11 and older**
-
-However, in RDS for PostgreSQL 11 and lower versions, the only way to allow vacuum to
-complete faster is to reduce the number of indexes on a table. Dropping an index can
-affect query plans. We recommend that you drop unused indexes first, then drop the
-indexes when XID wraparound is very near. After the vacuum process completes, you can
-recreate these indexes.
+At this point, your session begins. Autovacuum restarts immediately because this table
+is probably the highest on its list of work. 6. Initiate your `vacuum freeze verbose` command in session two, and then end
+the autovacuum process in session one.

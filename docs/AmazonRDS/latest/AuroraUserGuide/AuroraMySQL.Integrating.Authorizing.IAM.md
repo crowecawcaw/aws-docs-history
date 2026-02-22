@@ -1,20 +1,12 @@
-# Creating an IAM policy to access Amazon S3 resources
+# Creating an IAM policy to access CloudWatch Logs resources
 
-Aurora can access Amazon S3 resources to either load data to or save data from an
-Aurora DB cluster. However, you must first create an IAM policy that provides the
-bucket and object permissions that allow Aurora to access Amazon S3.
+Aurora can access CloudWatch Logs to export audit log data from an Aurora DB cluster.
+However, you must first create an IAM policy that provides the log group and log stream
+permissions that allow Aurora to access CloudWatch Logs.
 
-The following table lists the Aurora features that can access an Amazon S3 bucket
-on your behalf, and the minimum required bucket and object permissions required by
-each feature.
-
-| Feature                  | Bucket permissions | Object permissions                                                                                   |
-| ------------------------ | ------------------ | ---------------------------------------------------------------------------------------------------- |
-| `LOAD DATA FROM S3`      | `ListBucket`       | `GetObject`<br>`GetObjectVersion`                                                                    |
-| `LOAD XML FROM S3`       | `ListBucket`       | `GetObject`<br>`GetObjectVersion`                                                                    |
-| `SELECT INTO OUTFILE S3` | `ListBucket`       | `AbortMultipartUpload`<br>`DeleteObject`<br>`GetObject`<br>`ListMultipartUploadParts`<br>`PutObject` |
-
-The following policy adds the permissions that might be required by Aurora to access an Amazon S3 bucket on your behalf.
+The following policy adds the permissions required by Aurora to access Amazon CloudWatch Logs on
+your behalf, and the minimum required permissions to create log groups and export
+data.
 
 JSON
 
@@ -23,84 +15,80 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Sid": "AllowAuroraToExampleBucket",
+ "Sid": "EnableCreationAndManagementOfRDSCloudwatchLogEvents",
  "Effect": "Allow",
  "Action": [
- "s3:PutObject",
- "s3:GetObject",
- "s3:AbortMultipartUpload",
- "s3:ListBucket",
- "s3:DeleteObject",
- "s3:GetObjectVersion",
- "s3:ListMultipartUploadParts"
+ "logs:GetLogEvents",
+ "logs:PutLogEvents"
  ],
- "Resource": [
- "arn:aws:s3:::`amzn-s3-demo-bucket`/*",
- "arn:aws:s3:::`amzn-s3-demo-bucket`"
- ]
+ "Resource": "arn:aws:logs:*:*:log-group:/aws/rds/*:log-stream:*"
+ },
+ {
+ "Sid": "EnableCreationAndManagementOfRDSCloudwatchLogGroupsAndStreams",
+ "Effect": "Allow",
+ "Action": [
+ "logs:CreateLogStream",
+ "logs:DescribeLogStreams",
+ "logs:PutRetentionPolicy",
+ "logs:CreateLogGroup"
+ ],
+ "Resource": "arn:aws:logs:*:*:log-group:/aws/rds/*"
  }
  ]
 }`
 
 ```
 
-###### Note
+You can modify the ARNs in the policy to restrict access to a specific AWS Region and account.
 
-Make sure to include both entries for the `Resource` value. Aurora needs the permissions
-on both the bucket itself and all the objects inside the bucket.
+You can use the following steps to create an IAM policy that provides the
+minimum required permissions for Aurora to access CloudWatch Logs on your behalf. To allow
+Aurora full access to CloudWatch Logs, you can skip these steps and use the
+`CloudWatchLogsFullAccess` predefined IAM policy instead of
+creating your own. For more information, see [Using identity-based policies (IAM policies) for CloudWatch Logs](../../../AmazonCloudWatch/latest/monitoring/iam-identity-based-access-control-cwl.md#managed-policies-cwl "../../../AmazonCloudWatch/latest/monitoring/iam-identity-based-access-control-cwl.md#managed-policies-cwl") in
+the _Amazon CloudWatch User Guide._
 
-Based on your use case, you might not need to add all of the permissions in the sample policy.
-Also, other permissions might be required. For example, if your Amazon S3 bucket is encrypted, you need
-to add `kms:Decrypt` permissions.
+###### To create an IAM policy to grant access to your CloudWatch Logs resources
 
-You can use the following steps to create an IAM policy that provides the minimum
-required permissions for Aurora to access an Amazon S3 bucket on your behalf. To allow
-Aurora to access all of your Amazon S3 buckets, you can skip these steps and use either
-the `AmazonS3ReadOnlyAccess` or `AmazonS3FullAccess`
-predefined IAM policy instead of creating your own.
-
-###### To create an IAM policy to grant access to your Amazon S3 resources
-
-1. Open the [IAM Management Console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home").
+1. Open the [IAM
+   console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home").
 2. In the navigation pane, choose **Policies**.
 3. Choose **Create policy**.
-4. On the **Visual editor** tab, choose **Choose a service**,
-   and then choose **S3**.
-5. For **Actions**, choose **Expand all**, and then choose the bucket
-   permissions and object permissions needed for the IAM policy.
+4. On the **Visual editor** tab, choose **Choose
+   a service**, and then choose **CloudWatch
+   Logs**.
+5. For **Actions**, choose **Expand all** (on the right), and then choose the
+   Amazon CloudWatch Logs permissions needed for the IAM policy.
 
-Object permissions are permissions for object operations in Amazon S3, and
-need to be granted for objects in a bucket, not the bucket
-itself. For more information about permissions for object operations
-in Amazon S3, see [Permissions for object operations](../../../AmazonS3/latest/userguide/using-with-s3-actions.md#using-with-s3-actions-related-to-objects "../../../AmazonS3/latest/userguide/using-with-s3-actions.md#using-with-s3-actions-related-to-objects"). 6. Choose **Resources**, and choose **Add ARN** for **bucket**. 7. In the **Add ARN(s)** dialog box, provide the details
-about your resource, and choose **Add**.
+Ensure that the following permissions are selected:
 
-Specify the Amazon S3 bucket to allow access to.
-For instance, if you want to allow Aurora to access the Amazon S3 bucket named
-`amzn-s3-demo-bucket`, then set the Amazon Resource Name (ARN) value to
-`arn:aws:s3:::`amzn-s3-demo-bucket``. 8. If the **object** resource is listed, choose **Add ARN** for **object**. 9. In the **Add ARN(s)** dialog box, provide the details
-about your resource.
+    * `CreateLogGroup`
+    * `CreateLogStream`
+    * `DescribeLogStreams`
+    * `GetLogEvents`
+    * `PutLogEvents`
+    * `PutRetentionPolicy`
 
-For the Amazon S3 bucket, specify the Amazon S3 bucket to allow access to.
-For the object, you can choose **Any** to grant permissions to
-any object in the bucket.
+6. Choose **Resources** and choose **Add ARN** for **log-group**.
+7. In the **Add ARN(s)** dialog box, enter the following values:
+   - **Region** – An AWS Region or `*`
+   - **Account** – An account number or `*`
+   - **Log Group Name** – `/aws/rds/*`
 
-###### Note
+8. In the **Add ARN(s)** dialog box, choose **Add**.
+9. Choose **Add ARN** for **log-stream**.
+10. In the **Add ARN(s)** dialog box, enter the following values:
+    - **Region** – An AWS Region or `*`
+    - **Account** – An account number or `*`
+    - **Log Group Name** – `/aws/rds/*`
+    - **Log Stream Name** – `*`
 
-You can set **Amazon Resource Name (ARN)** to a more
-specific ARN value in order to allow Aurora to access only specific files
-or folders in an Amazon S3 bucket. For more information about how to define
-an access policy for Amazon S3, see [Managing access permissions
-to your Amazon S3 resources](../../../AmazonS3/latest/userguide/s3-access-control.md "../../../AmazonS3/latest/userguide/s3-access-control.md"). 10. (Optional) Choose **Add ARN** for **bucket** to add another Amazon S3 bucket
-to the policy, and repeat the previous steps for the bucket.
-
-###### Note
-
-You can repeat this to add corresponding
-bucket permission statements to your policy for each Amazon S3 bucket
-that you want Aurora to access. Optionally, you can also grant access
-to all buckets and objects in Amazon S3. 11. Choose **Review policy**. 12. For **Name**, enter a name for your IAM policy, for
-example `AllowAuroraToExampleBucket`. You use this name when you
-create an IAM role to associate with your Aurora DB cluster. You can also add
-an optional **Description** value. 13. Choose **Create policy**. 14. Complete the steps in [Creating an
-IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md").
+11. In the **Add ARN(s)** dialog box, choose **Add**.
+12. Choose **Review policy**.
+13. Set **Name** to a name for your IAM policy, for
+    example `AmazonRDSCloudWatchLogs`. You use this name when you
+    create an IAM role to associate with your Aurora DB cluster. You can also add
+    an optional **Description** value.
+14. Choose **Create policy**.
+15. Complete the steps in [Creating an
+    IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md").

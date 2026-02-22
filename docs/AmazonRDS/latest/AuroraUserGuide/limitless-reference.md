@@ -1,148 +1,135 @@
-# Supported and unsupported Data Definition Language (DDL) SQL commands
+# DML limitations and other information for Aurora PostgreSQL Limitless Database
 
-The following table lists the DDL commands that are supported and not supported by Aurora PostgreSQL Limitless Database, with references to limitations or more
-information.
+The following topics describe limitations or provide more information for DML and query processing SQL commands in Aurora PostgreSQL Limitless Database.
 
-| Command                          | Supported? | Limitations or more information                                                                                                                                            |
-| -------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ALTER AGGREGATE                  | No         | Not applicable                                                                                                                                                             |
-| ALTER COLLATION                  | Yes        | None                                                                                                                                                                       |
-| ALTER CONVERSION                 | Yes        | None                                                                                                                                                                       |
-| ALTER DATABASE                   | No         | Not applicable                                                                                                                                                             |
-| ALTER DEFAULT PRIVILEGES         | No         | Not applicable                                                                                                                                                             |
-| ALTER DOMAIN                     | No         | Not applicable                                                                                                                                                             |
-| ALTER EVENT TRIGGER              | No         | Not applicable                                                                                                                                                             |
-| ALTER EXTENSION                  | Yes        | [Extensions](limitless-reference.md#limitless-reference.DDL-limitations.Extensions "limitless-reference.md#limitless-reference.DDL-limitations.Extensions")                |
-| ALTER FOREIGN DATA WRAPPER       | No         | Not applicable                                                                                                                                                             |
-| ALTER FOREIGN TABLE              | No         | Not applicable                                                                                                                                                             |
-| ALTER FUNCTION                   | Yes        | [Functions](limitless-reference.md#limitless-reference.DDL-limitations.Functions "limitless-reference.md#limitless-reference.DDL-limitations.Functions")                   |
-| ALTER GROUP                      | Yes        | None                                                                                                                                                                       |
-| ALTER INDEX                      | Yes        | None                                                                                                                                                                       |
-| ALTER LANGUAGE                   | No         | Not applicable                                                                                                                                                             |
-| ALTER LARGE OBJECT               | No         | Not applicable                                                                                                                                                             |
-| ALTER MATERIALIZED VIEW          | No         | Not applicable                                                                                                                                                             |
-| ALTER OPERATOR                   | Yes        | None                                                                                                                                                                       |
-| ALTER OPERATOR CLASS             | Yes        | None                                                                                                                                                                       |
-| ALTER OPERATOR FAMILY            | Yes        | None                                                                                                                                                                       |
-| ALTER POLICY                     | No         | Not applicable                                                                                                                                                             |
-| ALTER PROCEDURE                  | Yes        | None                                                                                                                                                                       |
-| ALTER PUBLICATION                | No         | Not applicable                                                                                                                                                             |
-| ALTER ROLE                       | Yes        | None                                                                                                                                                                       |
-| ALTER ROUTINE                    | No         | Not applicable                                                                                                                                                             |
-| ALTER RULE                       | No         | Not applicable                                                                                                                                                             |
-| ALTER SCHEMA                     | Yes        | None                                                                                                                                                                       |
-| ALTER SEQUENCE                   | Yes        | [Sequences](limitless-reference.md#limitless-reference.DDL-limitations.Sequences "limitless-reference.md#limitless-reference.DDL-limitations.Sequences")                   |
-| ALTER SERVER                     | No         | Not applicable                                                                                                                                                             |
-| ALTER STATISTICS                 | No         | Not applicable                                                                                                                                                             |
-| ALTER SUBSCRIPTION               | No         | Not applicable                                                                                                                                                             |
-| ALTER SYSTEM                     | No         | Not applicable                                                                                                                                                             |
-| ALTER TABLE                      | Yes        | [ALTER TABLE](limitless-reference.md#limitless-reference.DDL-limitations.ALTER_TABLE "limitless-reference.md#limitless-reference.DDL-limitations.ALTER_TABLE")             |
-| ALTER TABLESPACE                 | No         | Not applicable                                                                                                                                                             |
-| ALTER TEXT SEARCH CONFIGURATION  | No         | Not applicable                                                                                                                                                             |
-| ALTER TEXT SEARCH DICTIONARY     | No         | Not applicable                                                                                                                                                             |
-| ALTER TEXT SEARCH PARSER         | No         | Not applicable                                                                                                                                                             |
-| ALTER TEXT SEARCH TEMPLATE       | No         | Not applicable                                                                                                                                                             |
-| ALTER TRIGGER                    | No         | Not applicable                                                                                                                                                             |
-| ALTER TYPE                       | Yes        | None                                                                                                                                                                       |
-| ALTER USER                       | Yes        | None                                                                                                                                                                       |
-| ALTER USER MAPPING               | No         | Not applicable                                                                                                                                                             |
-| ALTER VIEW                       | Yes        | None                                                                                                                                                                       |
-| COMMENT                          | No         | Not applicable                                                                                                                                                             |
-| CREATE ACCESS METHOD             | No         | Not applicable                                                                                                                                                             |
-| CREATE AGGREGATE                 | No         | Not applicable                                                                                                                                                             |
-| CREATE CAST                      | Yes        | None                                                                                                                                                                       |
-| CREATE COLLATION                 | Yes        | None                                                                                                                                                                       |
-| CREATE CONVERSION                | Yes        | None                                                                                                                                                                       |
-| CREATE DATABASE                  | Yes        | [CREATE DATABASE](limitless-reference.md#limitless-reference.DDL-limitations.CREATE_DATABASE "limitless-reference.md#limitless-reference.DDL-limitations.CREATE_DATABASE") |
-| CREATE DOMAIN                    | No         | Not applicable                                                                                                                                                             |
-| CREATE EVENT TRIGGER             | No         | Not applicable                                                                                                                                                             |
-| CREATE EXTENSION                 | Yes        | [Extensions](limitless-reference.md#limitless-reference.DDL-limitations.Extensions "limitless-reference.md#limitless-reference.DDL-limitations.Extensions")                |
-| CREATE FOREIGN DATA WRAPPER      | No         | Not applicable                                                                                                                                                             |
-| CREATE FOREIGN TABLE             | No         | Not applicable                                                                                                                                                             |
-| CREATE FUNCTION                  | Yes        | [Functions](limitless-reference.md#limitless-reference.DDL-limitations.Functions "limitless-reference.md#limitless-reference.DDL-limitations.Functions")                   |
-| CREATE GROUP                     | Yes        | None                                                                                                                                                                       |
-| CREATE INDEX                     | Yes        | [CREATE INDEX](limitless-reference.md#limitless-reference.DDL-limitations.CREATE_INDEX "limitless-reference.md#limitless-reference.DDL-limitations.CREATE_INDEX")          |
-| CREATE LANGUAGE                  | No         | Not applicable                                                                                                                                                             |
-| CREATE MATERIALIZED VIEW         | No         | Not applicable                                                                                                                                                             |
-| CREATE OPERATOR                  | Yes        | None                                                                                                                                                                       |
-| CREATE OPERATOR CLASS            | Yes        | None                                                                                                                                                                       |
-| CREATE OPERATOR FAMILY           | Yes        | None                                                                                                                                                                       |
-| CREATE POLICY                    | Yes        | None                                                                                                                                                                       |
-| CREATE PROCEDURE                 | Yes        | None                                                                                                                                                                       |
-| CREATE PUBLICATION               | No         | Not applicable                                                                                                                                                             |
-| CREATE ROLE                      | Yes        | None                                                                                                                                                                       |
-| CREATE RULE                      | No         | Not applicable                                                                                                                                                             |
-| CREATE SCHEMA                    | Yes        | [CREATE SCHEMA](limitless-reference.md#limitless-reference.DDL-limitations.CREATE_SCHEMA "limitless-reference.md#limitless-reference.DDL-limitations.CREATE_SCHEMA")       |
-| CREATE SEQUENCE                  | Yes        | [Sequences](limitless-reference.md#limitless-reference.DDL-limitations.Sequences "limitless-reference.md#limitless-reference.DDL-limitations.Sequences")                   |
-| CREATE SERVER                    | No         | Not applicable                                                                                                                                                             |
-| CREATE STATISTICS                | No         | Not applicable                                                                                                                                                             |
-| CREATE SUBSCRIPTION              | No         | Not applicable                                                                                                                                                             |
-| CREATE TABLE                     | Yes        | [CREATE TABLE](limitless-reference.md#limitless-reference.DDL-limitations.CREATE_TABLE "limitless-reference.md#limitless-reference.DDL-limitations.CREATE_TABLE")          |
-| CREATE TABLE AS                  | Yes        | [CREATE TABLE AS](limitless-reference.md#limitless-reference.DDL-limitations.CREATE_TABLE_AS "limitless-reference.md#limitless-reference.DDL-limitations.CREATE_TABLE_AS") |
-| CREATE TABLESPACE                | No         | Not applicable                                                                                                                                                             |
-| CREATE TEMPORARY TABLE           | No         | Not applicable                                                                                                                                                             |
-| CREATE TEMPORARY TABLE AS        | No         | Not applicable                                                                                                                                                             |
-| CREATE TEXT SEARCH CONFIGURATION | No         | Not applicable                                                                                                                                                             |
-| CREATE TEXT SEARCH DICTIONARY    | No         | Not applicable                                                                                                                                                             |
-| CREATE TEXT SEARCH PARSER        | No         | Not applicable                                                                                                                                                             |
-| CREATE TEXT SEARCH TEMPLATE      | No         | Not applicable                                                                                                                                                             |
-| CREATE TRANSFORM                 | No         | Not applicable                                                                                                                                                             |
-| CREATE TRIGGER                   | No         | Not applicable                                                                                                                                                             |
-| CREATE TYPE                      | Yes        | None                                                                                                                                                                       |
-| CREATE USER                      | Yes        | None                                                                                                                                                                       |
-| CREATE USER MAPPING              | No         | Not applicable                                                                                                                                                             |
-| CREATE VIEW                      | Yes        | None                                                                                                                                                                       |
-| DROP ACCESS METHOD               | No         | Not applicable                                                                                                                                                             |
-| DROP AGGREGATE                   | Yes        | None                                                                                                                                                                       |
-| DROP CAST                        | Yes        | None                                                                                                                                                                       |
-| DROP COLLATION                   | Yes        | None                                                                                                                                                                       |
-| DROP CONVERSION                  | Yes        | None                                                                                                                                                                       |
-| DROP DATABASE                    | Yes        | [DROP DATABASE](limitless-reference.md#limitless-reference.DDL-limitations.DROP_DATABASE "limitless-reference.md#limitless-reference.DDL-limitations.DROP_DATABASE")       |
-| DROP DOMAIN                      | No         | Not applicable                                                                                                                                                             |
-| DROP EVENT TRIGGER               | No         | Not applicable                                                                                                                                                             |
-| DROP EXTENSION                   | Yes        | [Extensions](limitless-reference.md#limitless-reference.DDL-limitations.Extensions "limitless-reference.md#limitless-reference.DDL-limitations.Extensions")                |
-| DROP FOREIGN DATA WRAPPER        | No         | Not applicable                                                                                                                                                             |
-| DROP FOREIGN TABLE               | No         | Not applicable                                                                                                                                                             |
-| DROP FUNCTION                    | Yes        | [Functions](limitless-reference.md#limitless-reference.DDL-limitations.Functions "limitless-reference.md#limitless-reference.DDL-limitations.Functions")                   |
-| DROP GROUP                       | Yes        | None                                                                                                                                                                       |
-| DROP INDEX                       | Yes        | None                                                                                                                                                                       |
-| DROP LANGUAGE                    | No         | Not applicable                                                                                                                                                             |
-| DROP MATERIALIZED VIEW           | No         | Not applicable                                                                                                                                                             |
-| DROP OPERATOR                    | Yes        | None                                                                                                                                                                       |
-| DROP OPERATOR CLASS              | Yes        | None                                                                                                                                                                       |
-| DROP OPERATOR FAMILY             | Yes        | None                                                                                                                                                                       |
-| DROP OWNED                       | No         | Not applicable                                                                                                                                                             |
-| DROP POLICY                      | No         | Not applicable                                                                                                                                                             |
-| DROP PROCEDURE                   | Yes        | None                                                                                                                                                                       |
-| DROP PUBLICATION                 | No         | Not applicable                                                                                                                                                             |
-| DROP ROLE                        | Yes        | None                                                                                                                                                                       |
-| DROP ROUTINE                     | No         | Not applicable                                                                                                                                                             |
-| DROP RULE                        | No         | Not applicable                                                                                                                                                             |
-| DROP SCHEMA                      | Yes        | None                                                                                                                                                                       |
-| DROP SEQUENCE                    | Yes        | None                                                                                                                                                                       |
-| DROP SERVER                      | No         | Not applicable                                                                                                                                                             |
-| DROP STATISTICS                  | No         | Not applicable                                                                                                                                                             |
-| DROP SUBSCRIPTION                | No         | None                                                                                                                                                                       |
-| DROP TABLE                       | Yes        | None                                                                                                                                                                       |
-| DROP TABLESPACE                  | No         | Not applicable                                                                                                                                                             |
-| DROP TEXT SEARCH CONFIGURATION   | No         | Not applicable                                                                                                                                                             |
-| DROP TEXT SEARCH DICTIONARY      | No         | Not applicable                                                                                                                                                             |
-| DROP TEXT SEARCH PARSER          | No         | Not applicable                                                                                                                                                             |
-| DROP TEXT SEARCH TEMPLATE        | No         | Not applicable                                                                                                                                                             |
-| DROP TRANSFORM                   | No         | Not applicable                                                                                                                                                             |
-| DROP TRIGGER                     | No         | Not applicable                                                                                                                                                             |
-| DROP TYPE                        | Yes        | None                                                                                                                                                                       |
-| DROP USER                        | Yes        | None                                                                                                                                                                       |
-| DROP USER MAPPING                | No         | Not applicable                                                                                                                                                             |
-| DROP VIEW                        | Yes        | None                                                                                                                                                                       |
-| GRANT                            | Yes        | None                                                                                                                                                                       |
-| REASSIGN OWNED                   | No         | Not applicable                                                                                                                                                             |
-| REVOKE                           | Yes        | None                                                                                                                                                                       |
-| SECURITY LABEL                   | No         | Not applicable                                                                                                                                                             |
-| SELECT INTO                      | Yes        | [SELECT INTO](limitless-reference.md#limitless-reference.DDL-limitations.SELECT_INTO "limitless-reference.md#limitless-reference.DDL-limitations.SELECT_INTO")             |
-| SET                              | Yes        | None                                                                                                                                                                       |
-| SET CONSTRAINTS                  | No         | Not applicable                                                                                                                                                             |
-| SET ROLE                         | Yes        | None                                                                                                                                                                       |
-| SET SESSION AUTHORIZATION        | Yes        | None                                                                                                                                                                       |
-| SET TRANSACTION                  | Yes        | None                                                                                                                                                                       |
-| TRUNCATE                         | Yes        | None                                                                                                                                                                       |
+###### Topics
+
+- [ANALYZE](#limitless-reference.DML-limitations.ANALYZE "#limitless-reference.DML-limitations.ANALYZE")
+- [CLUSTER](#limitless-reference.DML-limitations.CLUSTER "#limitless-reference.DML-limitations.CLUSTER")
+- [EXPLAIN](#limitless-reference.DML-limitations.EXPLAIN "#limitless-reference.DML-limitations.EXPLAIN")
+- [INSERT](#limitless-reference.DML-limitations.INSERT "#limitless-reference.DML-limitations.INSERT")
+- [UPDATE](#limitless-reference.DML-limitations.UPDATE "#limitless-reference.DML-limitations.UPDATE")
+- [VACUUM](#limitless-reference.DML-limitations.VACUUM "#limitless-reference.DML-limitations.VACUUM")
+
+## ANALYZE
+
+The `ANALYZE` command collects statistics about the contents of tables in the database. Subsequently, the query planner uses these
+statistics to help determine the most efficient execution plans for queries. For more information, see [ANALYZE](https://www.postgresql.org/docs/current/sql-analyze.html "https://www.postgresql.org/docs/current/sql-analyze.html") in the PostgreSQL documentation.
+
+In Aurora PostgreSQL Limitless Database, the `ANALYZE` command collects table statistics across all routers and shards when it runs.
+
+To prevent the calculation of statistics on every router during `ANALYZE` runs, table statistics are calculated on one of the
+routers and then copied to peer routers.
+
+## CLUSTER
+
+The `CLUSTER` command physically reorders a table based on an index. The index must already have been defined on the table. In
+Aurora PostgreSQL Limitless Database, the clustering is local to the part of the index that's present on each shard.
+
+For more information, see [CLUSTER](https://www.postgresql.org/docs/current/sql-cluster.html "https://www.postgresql.org/docs/current/sql-cluster.html") in the PostgreSQL
+documentation.
+
+## EXPLAIN
+
+You use the following parameter to configure the output from the `EXPLAIN` command:
+
+- `rds_aurora.limitless_explain_options` – What to include in the `EXPLAIN` output. The default value is
+  `single_shard_optimization`: whether plans are single-shard optimized is shown, but shard plans aren't included.
+
+In this example, the `EXPLAIN` output doesn't show plans from shards.
+
+```
+postgres_limitless=> EXPLAIN SELECT * FROM employees where id =25;
+
+                      QUERY PLAN
+------------------------------------------------------
+ Foreign Scan  (cost=100.00..101.00 rows=100 width=0)
+ Single Shard Optimized
+(2 rows)
+```
+
+Now we set the `rds_aurora.limitless_explain_options` to include `shard_plans` and
+`single_shard_optimization`. We can view the execution plans of statements on both routers and shards. In addition, we disable
+the `enable_seqscan` parameter to enforce that index scan is used on the shard layer.
+
+```
+postgres_limitless=> SET rds_aurora.limitless_explain_options = shard_plans, single_shard_optimization;
+SET
+
+postgres_limitless=> SET enable_seqscan = OFF;
+SET
+
+postgres_limitless=> EXPLAIN SELECT * FROM employees WHERE id = 25;
+
+                                                        QUERY PLAN
+--------------------------------------------------------------------------------------------------------------------------
+ Foreign Scan  (cost=100.00..101.00 rows=100 width=0)
+   Remote Plans from Shard postgres_s4:
+         Index Scan using employees_ts00287_id_idx on employees_ts00287 employees_fs00003  (cost=0.14..8.16 rows=1 width=15)
+           Index Cond: (id = 25)
+ Single Shard Optimized
+(5 rows)
+```
+
+For more information on the `EXPLAIN` command, see [EXPLAIN](https://www.postgresql.org/docs/current/sql-explain.html "https://www.postgresql.org/docs/current/sql-explain.html") in the PostgreSQL documentation.
+
+## INSERT
+
+Most `INSERT` commands are supported in Aurora PostgreSQL Limitless Database.
+
+PostgreSQL doesn't have an explicit `UPSERT` command, but it does support `INSERT ... ON CONFLICT` statements.
+
+`INSERT ... ON CONFLICT` isn't supported if the conflict action has a subquery or a mutable function:
+
+```
+-- RANDOM is a mutable function.
+INSERT INTO sharded_table VALUES (1, 100) ON CONFLICT (id) DO UPDATE SET other_id = RANDOM();
+
+ERROR: Aurora Limitless Tables doesn't support pushdown-unsafe functions with DO UPDATE clauses.
+```
+
+For more information on the `INSERT` command, see [INSERT](https://www.postgresql.org/docs/current/sql-insert.html "https://www.postgresql.org/docs/current/sql-insert.html") in the PostgreSQL documentation.
+
+## UPDATE
+
+Updating the shard key isn't supported. For example, you have a sharded table called `customers`, with a shard key
+`customer_id`. The following DML statements cause errors:
+
+```
+postgres_limitless=> UPDATE customers SET customer_id = 11 WHERE customer_id =1;
+ERROR:  Shard key column update is not supported
+
+postgres_limitless=> UPDATE customers SET customer_id = 11 WHERE customer_name='abc';
+ERROR:  Shard key column update is not supported
+```
+
+To update a shard key, first you have to `DELETE` the row with the shard key, then `INSERT` a new row with the updated
+shard key value.
+
+For more information on the `UPDATE` command, see [Updating
+data](https://www.postgresql.org/docs/current/dml-update.html "https://www.postgresql.org/docs/current/dml-update.html") in the PostgreSQL documentation.
+
+## VACUUM
+
+You can perform vacuuming on both sharded and reference tables. The following `VACUUM` functions are fully supported in
+Aurora PostgreSQL Limitless Database:
+
+- VACUUM
+- [ANALYZE](#limitless-reference.DML-limitations.ANALYZE "#limitless-reference.DML-limitations.ANALYZE")
+- DISABLE_PAGE_SKIPPING
+- FREEZE
+- FULL
+- INDEX_CLEANUP
+- PARALLEL
+- PROCESS_TOAST
+- TRUNCATE
+- VERBOSE
+
+`VACUUM` on Aurora PostgreSQL Limitless Database has the following limitations:
+
+- The [pg_visibility_map](https://www.postgresql.org/docs/current/pgvisibility.html "https://www.postgresql.org/docs/current/pgvisibility.html") extension isn't supported.
+- Checking for unused indexes with the [pg_stat_all_indexes](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-INDEXES-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-INDEXES-VIEW")
+  view isn't supported.
+- Consolidated views for [pg_stat_user_indexes](https://www.postgresql.org/docs/current/monitoring-stats.html "https://www.postgresql.org/docs/current/monitoring-stats.html"), [pg_class](https://www.postgresql.org/docs/current/catalog-pg-class.html "https://www.postgresql.org/docs/current/catalog-pg-class.html"), and [pg_stats](https://www.postgresql.org/docs/current/view-pg-stats.html "https://www.postgresql.org/docs/current/view-pg-stats.html") aren't implemented.
+
+For more information on the `VACUUM` command, see [VACUUM](https://www.postgresql.org/docs/current/sql-vacuum.html "https://www.postgresql.org/docs/current/sql-vacuum.html") in the PostgreSQL documentation. For more information on how vacuuming works in Aurora PostgreSQL Limitless Database, see [Reclaiming storage space by vacuuming](limitless-vacuum.md "limitless-vacuum.md").
