@@ -49,7 +49,7 @@ available for servers based on the 64-bit ARM architecture.
 
 ###### Tip
 
-The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that always point to the newest available version.
+The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that point to the newest available version.
 You can use these links to automatically retrieve the newest Amazon DCV packages.
 
     * 64-bit x86
@@ -226,7 +226,7 @@ architecture.
 
 ###### Tip
 
-The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that always point to the newest available version.
+The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that point to the newest available version.
 You can use these links to automatically retrieve the newest Amazon DCV packages.
 
     * 64-bit x86
@@ -393,7 +393,7 @@ architecture.
 
 ###### Tip
 
-The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that always point to the newest available version.
+The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that point to the newest available version.
 You can use these links to automatically retrieve the newest Amazon DCV packages.
 
     * 64-bit x86
@@ -570,7 +570,7 @@ architecture.
 
 ###### Tip
 
-The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that always point to the newest available version.
+The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that point to the newest available version.
 You can use these links to automatically retrieve the newest Amazon DCV packages.
 
     * 64-bit x86
@@ -741,7 +741,7 @@ based on the 64-bit x86 architecture only.
 
 ###### Tip
 
-The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that always point to the newest available version.
+The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that point to the newest available version.
 You can use these links to automatically retrieve the newest Amazon DCV packages.
 
     * SLES 12.x
@@ -988,7 +988,7 @@ aren't available for servers based on the 64-bit ARM architecture.
 ###### Tip
 
 The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the
-download website contains links that always point to the newest available
+download website contains links that point to the newest available
 version. You can use these links to automatically retrieve the newest Amazon DCV
 packages.
 

@@ -65,7 +65,7 @@ The Amazon DCV server is available only in a 64-bit version and supported on 64-
 
 ###### Tip
 
-The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that always point to the newest available version.
+The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that point to the newest available version.
 You can use these links to automatically retrieve the newest Amazon DCV packages. 3. Run `nice-dcv-server-2025.0-`version_number`-macos-arm64.dist.pkg`. 4. On the Introduction screen, choose **Continue**. 5. On the Installation Type screen, check the package check boxes, and then choose
 **Continue**. 6. Choose **Install**. 7. Click **Allow** when prompted during installation.
 

@@ -1,8 +1,8 @@
 # Security
 
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a data
-center and network architecture that is built to meet the requirements of the most security-sensitive
-organizations.
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data
+centers and network architectures that are built to meet the requirements of the most
+security-sensitive organizations.
 
 Security is a shared responsibility between AWS and you. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security
 _of_ the cloud and security _in_ the cloud:
@@ -20,7 +20,7 @@ _of_ the cloud and security _in_ the cloud:
   compliance objectives. You also learn how to use other AWS services that help you to monitor
   and secure your Amazon DCV resources.
 
-###### Contents
+###### Topics
 
 - [Data protection in Amazon DCV](data-protection.md "data-protection.md")
 - [Compliance validation for Amazon DCV](security-compliance-validation.md "security-compliance-validation.md")

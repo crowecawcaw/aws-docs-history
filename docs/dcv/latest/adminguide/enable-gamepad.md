@@ -32,7 +32,7 @@ retrieved from the official windows update web site.
 expand `filename.cab` -F:* .
 ```
 
-4. Install the the .inf file of the driver with the following command:
+4. Install the .inf file of the driver with the following command:
 
 ```
 pnputil /add-driver `filename.inf` /install

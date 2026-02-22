@@ -26,7 +26,7 @@ The Amazon DCV server is available only in a 64-bit version and supported on 64-
 
 ###### Tip
 
-The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that always point to the newest available version.
+The [latest packages](http://download.amazondcv.com/latest.html "http://download.amazondcv.com/latest.html") page of the download website contains links that point to the newest available version.
 You can use these links to automatically retrieve the newest Amazon DCV packages. 3. Run `nice-dcv-server-x64-Release-2025.0-`version_number`.msi`. 4. On the Welcome screen, choose **Next**. 5. On the End-User License Agreement screen, read the license agreement. If you accept the
 terms, select the **I accept the terms in the License
 Agreement** check box, and then choose

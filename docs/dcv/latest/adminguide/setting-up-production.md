@@ -92,7 +92,7 @@ provide this host ID when purchasing a perpetual license or subscription.
 
 ### Get the RLM server host ID on Windows
 
-###### To get the the host ID for the server, open the command prompt,
+###### To get the host ID for the server, open the command prompt,
 
 Navigate to `C:\RLM\`, and then run the following command.
 
