@@ -253,6 +253,13 @@ Linux (RPM)
 
 Linux 9
 
+###### Note
+
+Rocky Linux 9 and Alma Linux 9 use
+OpenSSL 3.0 by default and don't include the
+`libssl.so.1.1` library. You must install the
+`compat-openssl11` package for Deadline Cloud monitor to run.
+
 1. Download the Deadline Cloud monitor RPM:
 
 [Download Deadline Cloud monitor (.rpm)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm") 2. Add the extra packages for the Enterprise Linux 9
@@ -262,13 +269,20 @@ repository:
 sudo dnf install epel-release
 ```
 
-3. Install compat-openssl11 for the libssl.so.1.1 dependency:
+3. Install `compat-openssl11` for the `libssl.so.1.1` dependency:
 
 ```
 sudo dnf install compat-openssl11 deadline-cloud-monitor.x86_64.rpm
 ```
 
 ###### To install Deadline Cloud monitor RPM on Red Hat Linux 9
+
+###### Note
+
+Red Hat Linux 9 uses OpenSSL 3.0 by default and
+doesn't include the `libssl.so.1.1` library. You must
+install the `compat-openssl11` package for Deadline Cloud monitor to
+run.
 
 1. Download the Deadline Cloud monitor RPM:
 
@@ -286,7 +300,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
-4. Install compat-openssl11 for the libssl.so.1.1 dependency:
+4. Install `compat-openssl11` for the `libssl.so.1.1` dependency:
 
 ```
 sudo dnf install compat-openssl11 deadline-cloud-monitor.x86_64.rpm

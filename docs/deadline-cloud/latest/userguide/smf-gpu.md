@@ -32,8 +32,8 @@ The available GPU accelerators are:
   new version of the runtime is used.
 - `grid:r570` - [NVIDIA vGPU software
   18](https://docs.nvidia.com/vgpu/18.0/index.html "https://docs.nvidia.com/vgpu/18.0/index.html")
-- `grid:r535` - [NVIDIA vGPU software
-  16](https://docs.nvidia.com/vgpu/16.0/index.html "https://docs.nvidia.com/vgpu/16.0/index.html")
+- `grid:r550` (deprecated) - [NVIDIA vGPU software
+  17](https://docs.nvidia.com/vgpu/17.0/index.html "https://docs.nvidia.com/vgpu/17.0/index.html")
   If you don't specify a runtime, Deadline Cloud uses `latest` as the default.
   However, if you have multiple accelerators and specify `latest` for some and
   leave others blank, Deadline Cloud raises an exception.

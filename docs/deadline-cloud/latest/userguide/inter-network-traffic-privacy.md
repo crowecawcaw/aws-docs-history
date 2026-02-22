@@ -9,4 +9,5 @@ your CMF and the Deadline Cloud endpoint stays within your VPC. Furthermore, you
 to restrict internet access to your instances.
 
 In service-managed fleets, workers aren't reachable from the internet, but they do have
-internet access and connect to the Deadline Cloud service over the internet.
+internet access and connect to the Deadline Cloud service over the internet. Each service-managed fleet
+runs in its own isolated network, and worker instances remain dedicated to individual customers.
