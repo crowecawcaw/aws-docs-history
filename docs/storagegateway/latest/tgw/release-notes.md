@@ -29,6 +29,8 @@ circumstances:
   maintenance and update schedule for a gateway, see [Managing Gateway Updates
   Using the AWS Storage Gateway Console](MaintenanceManagingUpdate-common.md "MaintenanceManagingUpdate-common.md").
 
+For more information about migrating Tape Gateway from Amazon Linux 2 to AL2023, see [Storage Gateway AL2 to AL2023 Migration Campaign](al2-to-al2023-migration.md "al2-to-al2023-migration.md").
+
 ###### Amazon Linux 2023 (AL2023) based gateways
 
 The following table lists the release notes for gateways based on AL2023.
