@@ -1,36 +1,58 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Integral
+# Derivatives
 
 functions
 
-You can use integrals to find the area under the curve per unit of time for your
-time series events. As an example, suppose you're tracking the volume of requests
-received by your application per unit of time. In this scenario, you can use the
-integral function to determine the total volume of requests served per specified interval over a specific
-time period.
+Derivatives are used calculate the rate of change for a given metric and can be
+used to proactively respond to an event. For example, suppose you calculate the
+derivative of the CPU utilization of EC2 instances over the past 5 minutes, and you
+notice a significant positive derivative. This can be indicative of increased demand
+on your workload, so you may decide want to spin up more EC2 instances to better
+handle your workload.
 
-Amazon Timestream supports one variant of integral functions. This section
-provides usage information for the Timestream for LiveAnalytics integral function, as well as sample queries.
+Amazon Timestream supports two variants of derivative functions. This section
+provides usage information for the Timestream for LiveAnalytics derivative functions, as well as sample
+queries.
 
 ## Usage information
 
-| Function                                                                                                                                                                                                                                                                                                                                                            | Output data type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `integral_trapezoidal(timeseries(double))`<br>`integral_trapezoidal(timeseries(double), interval<br>day to second)`<br>`integral_trapezoidal(timeseries(bigint))`<br>`integral_trapezoidal(timeseries(bigint), interval<br>day to second)`<br>`integral_trapezoidal(timeseries(integer), interval<br>day to second)`<br>`integral_trapezoidal(timeseries(integer))` | double           | Approximates the [integral](https://wikipedia.org/wiki/Integral "https://wikipedia.org/wiki/Integral") per the specified `interval day<br>to second` for the `timeseries`<br>provided, using the [trapezoidal rule](https://wikipedia.org/wiki/Trapezoidal_rule "https://wikipedia.org/wiki/Trapezoidal_rule"). The interval day to second<br>parameter is optional and the default is `1s`.<br>For more information about intervals, see [Interval and duration](date-time-functions.md#date-time-functions-interval-duration "date-time-functions.md#date-time-functions-interval-duration"). |
+| Function                                                  | Output data type | Description                                                                                                                                                                      |
+| --------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `derivative_linear(timeseries,<br>interval)`              | timeseries       | Calculates the [derivative](https://wikipedia.org/wiki/Derivative "https://wikipedia.org/wiki/Derivative") of each point in the<br>`timeseries` for the specified<br>`interval`. |
+| `non_negative_derivative_linear(timeseries,<br>interval)` | timeseries       | Same as `derivative_linear(timeseries,<br>interval)`, but only returns positive<br>values.                                                                                       |
 
 ## Query examples
 
 ###### Example
 
-Calculate the total volume of requests served per five minutes over the past hour by a
-specific host:
+Find the rate of change in the CPU utilization every 5 minutes over the
+past 1 hour:
 
 ```
-SELECT INTEGRAL_TRAPEZOIDAL(CREATE_TIME_SERIES(time, measure_value::double), 5m) AS result FROM sample.DevOps
-WHERE measure_name = 'request'
-AND hostname = 'host-Hovjv'
-AND time > ago (1h)
+SELECT DERIVATIVE_LINEAR(CREATE_TIME_SERIES(time, measure_value::double), 5m) AS result
+FROM “sampleDB”.DevOps
+WHERE measure_name = 'cpu_utilization'
+AND hostname = 'host-Hovjv' and time > ago(1h)
 GROUP BY hostname, measure_name
+```
+
+###### Example
+
+Calculate the rate of increase in errors generated by one or more
+microservices:
+
+```
+WITH binned_view as (
+    SELECT bin(time, 5m) as binned_timestamp, ROUND(AVG(measure_value::double), 2) as value
+    FROM “sampleDB”.DevOps
+    WHERE micro_service = 'jwt'
+    AND time > ago(1h)
+    AND measure_name = 'service_error'
+    GROUP BY bin(time, 5m)
+)
+SELECT non_negative_derivative_linear(CREATE_TIME_SERIES(binned_timestamp, value), 1m) as rateOfErrorIncrease
+FROM binned_view
+
 ```

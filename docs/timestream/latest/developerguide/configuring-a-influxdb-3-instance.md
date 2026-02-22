@@ -1,16 +1,13 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Configuring an InfluxDB 3 instance in
+# Configuring an InfluxDB 3 cluster in
 
 Timestream
 
 ## Creating a DB cluster in Timestream
 
 Using the AWS Management Console:
-
-**Important:** If creating a private cluster, make sure you add the
-[required S3 policies to create your Timestream for InfluxDB 3 cluster](s3-vpc-endpoint-private-clusters.md "s3-vpc-endpoint-private-clusters.md")
 
 1.  Open the Amazon Timestream for InfluxDB console.
 2.  Choose **InfluxDB Databases** in the navigation pane.
@@ -40,7 +37,9 @@ Using the AWS Management Console:
     4. **Public accessibility**: Choose whether the cluster endpoints
        should be publicly accessible.
 
-8.  Review your configuration and choose **Create InfluxDB database**
+8.  **Important:** If creating a private cluster, make sure you add the
+    [required S3 policies to create your Timestream for InfluxDB 3 cluster](s3-vpc-endpoint-private-clusters.md "s3-vpc-endpoint-private-clusters.md")
+9.  Review your configuration and choose **Create InfluxDB database**
 
 Using the AWS CLI:
 
@@ -87,7 +86,7 @@ Key settings that apply to all nodes in your cluster include:
 
 ###### Topics
 
-- [Parameter groups for DB clusters](parameter-groups.md "parameter-groups.md")
+- [Parameter Groups for DB Clusters in Amazon Timestream](parameter-groups.md "parameter-groups.md")
 - [Core and Enterprise versions](core-and-enterprise-versions.md "core-and-enterprise-versions.md")
 - [Deployment models](deployment-models.md "deployment-models.md")
 - [Endpoints and connectivity](endpoints-and-connectivity.md "endpoints-and-connectivity.md")

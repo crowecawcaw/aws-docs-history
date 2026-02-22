@@ -17,3 +17,4 @@ your InfluxDB instances.
 - [Rebooting a DB instance](timestream-for-influx-managing-rebooting-db.md "timestream-for-influx-managing-rebooting-db.md")
 - [Multi-AZ DB instance deployments](timestream-for-influx-managing-multi-az-instance-deployments.md "timestream-for-influx-managing-multi-az-instance-deployments.md")
 - [Setup to view InfluxDB logs on Timestream Influxdb Instances](timestream-for-influx-managing-view-influx-logs.md "timestream-for-influx-managing-view-influx-logs.md")
+- [Monitoring and Configuration Optimization for Timestream for InfluxDB 2](timestream-for-influx-monitoring-configuration-optimization.md "timestream-for-influx-monitoring-configuration-optimization.md")

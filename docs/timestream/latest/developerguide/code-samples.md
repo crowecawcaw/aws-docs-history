@@ -1,254 +1,382 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# List batch load tasks
+# Create table
 
-You can use the following code snippets to list batch load tasks.
+###### Topics
+
+- [Memory store writes](#code-samples.create-table-memorystore "#code-samples.create-table-memorystore")
+- [Magnetic store writes](#code-samples.create-table-magneticstore "#code-samples.create-table-magneticstore")
+
+## Memory store writes
+
+You can use the following code snippet to create a table that has magnetic store
+writes disabled, as a result you can only write data into your memory store retention
+window.
+
+###### Note
+
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
+For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
 
 Java
 
 ```
-    public void listBatchLoadTasks() {
-            final ListBatchLoadTasksResponse listBatchLoadTasksResponse = amazonTimestreamWrite
-                            .listBatchLoadTasks(ListBatchLoadTasksRequest.builder()
-                                            .maxResults(15)
-                                            .build());
+    public void createTable() {
+        System.out.println("Creating table");
+        CreateTableRequest createTableRequest = new CreateTableRequest();
+        createTableRequest.setDatabaseName(DATABASE_NAME);
+        createTableRequest.setTableName(TABLE_NAME);
+        final RetentionProperties retentionProperties = new RetentionProperties()
+                .withMemoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
+                .withMagneticStoreRetentionPeriodInDays(CT_TTL_DAYS);
+        createTableRequest.setRetentionProperties(retentionProperties);
 
-            for (BatchLoadTask batchLoadTask : listBatchLoadTasksResponse.batchLoadTasks()) {
-                    System.out.println(batchLoadTask.taskId());
-            }
+        try {
+            amazonTimestreamWrite.createTable(createTableRequest);
+            System.out.println("Table [" + TABLE_NAME + "] successfully created.");
+        } catch (ConflictException e) {
+            System.out.println("Table [" + TABLE_NAME + "] exists on database [" + DATABASE_NAME + "] . Skipping database creation");
+        }
+    }
+```
+
+Java v2
+
+```
+    public void createTable() {
+        System.out.println("Creating table");
+
+        final RetentionProperties retentionProperties = RetentionProperties.builder()
+                .memoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
+                .magneticStoreRetentionPeriodInDays(CT_TTL_DAYS).build();
+        final CreateTableRequest createTableRequest = CreateTableRequest.builder()
+                .databaseName(DATABASE_NAME).tableName(TABLE_NAME).retentionProperties(retentionProperties).build();
+
+        try {
+            timestreamWriteClient.createTable(createTableRequest);
+            System.out.println("Table [" + TABLE_NAME + "] successfully created.");
+        } catch (ConflictException e) {
+            System.out.println("Table [" + TABLE_NAME + "] exists on database [" + DATABASE_NAME + "] . Skipping database creation");
+        }
     }
 ```
 
 Go
 
 ```
-package main
+// Create table.
+    createTableInput := &timestreamwrite.CreateTableInput{
+        DatabaseName: aws.String(*databaseName),
+        TableName:    aws.String(*tableName),
+    }
+    _, err = writeSvc.CreateTable(createTableInput)
 
-import (
-	"fmt"
-	"context"
-	"log"
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/aws/aws-sdk-go-v2/service/timestreamwrite"
-)
-
-func main() {
-	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
-		if service == timestreamwrite.ServiceID && region == "us-west-2" {
-		    return aws.Endpoint{
-		        PartitionID:   "aws",
-		        URL:           `<URL>`,
-		        SigningRegion: "us-west-2",
-		    }, nil
-		}
-		return aws.Endpoint{}, &aws.EndpointNotFoundError{}
-	})
-
-	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver), config.WithRegion("us-west-2"))
-
-	if err != nil {
-  		log.Fatalf("failed to load configuration, %v", err)
-	}
-
-	client := timestreamwrite.NewFromConfig(cfg)
-	listBatchLoadTasksMaxResult := int32(15)
-
-	response, err := client.ListBatchLoadTasks(context.TODO(), &timestreamwrite.ListBatchLoadTasksInput{
-		MaxResults: &listBatchLoadTasksMaxResult,
-	})
-
-	for i, task := range response.BatchLoadTasks {
-		fmt.Println(i, aws.ToString(task.TaskId))
-	}
-}
-
+    if err != nil {
+        fmt.Println("Error:")
+        fmt.Println(err)
+    } else {
+        fmt.Println("Create table is successful")
+    }
 ```
 
 Python
 
 ```
-import boto3
-from botocore.config import Config
-
-INGEST_ENDPOINT = "`<url>`"
-REGION = "us-west-2"
-HT_TTL_HOURS = 24
-CT_TTL_DAYS = 7
-
-
-def print_batch_load_tasks(batch_load_tasks):
-    for batch_load_task in batch_load_tasks:
-        print(batch_load_task['TaskId'])
-
-
-def list_batch_load_tasks(client):
-    print("\nListing batch load tasks")
-    try:
-        response = client.list_batch_load_tasks(MaxResults=10)
-        print_batch_load_tasks(response['BatchLoadTasks'])
-        next_token = response.get('NextToken', None)
-        while next_token:
-            response = client.list_batch_load_tasks(
-                NextToken=next_token, MaxResults=10)
-            print_batch_load_tasks(response['BatchLoadTasks'])
-            next_token = response.get('NextToken', None)
-    except Exception as err:
-        print("List batch load tasks failed:", err)
-        raise err
-
-
-if __name__ == '__main__':
-    session = boto3.Session()
-
-    write_client = session.client('timestream-write',
-                                  endpoint_url=INGEST_ENDPOINT, region_name=REGION,
-                                  config=Config(read_timeout=20, max_pool_connections=5000, retries={'max_attempts': 10}))
-
-    list_batch_load_tasks(write_client)
-
+    def create_table(self):
+        print("Creating table")
+        retention_properties = {
+            'MemoryStoreRetentionPeriodInHours': Constant.HT_TTL_HOURS,
+            'MagneticStoreRetentionPeriodInDays': Constant.CT_TTL_DAYS
+        }
+        try:
+            self.client.create_table(DatabaseName=Constant.DATABASE_NAME, TableName=Constant.TABLE_NAME,
+                                     RetentionProperties=retention_properties)
+            print("Table [%s] successfully created." % Constant.TABLE_NAME)
+        except self.client.exceptions.ConflictException:
+            print("Table [%s] exists on database [%s]. Skipping table creation" % (
+                Constant.TABLE_NAME, Constant.DATABASE_NAME))
+        except Exception as err:
+            print("Create table failed:", err)
 ```
 
 Node.js
 The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
 
-For API details, see [Class DescribeBatchLoadCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listbatchloadtaskscommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listbatchloadtaskscommand.md") and [DescribeBatchLoadTask](API_DescribeBatchLoadTask.md "API_DescribeBatchLoadTask.md").
+Also see [Class CreateTableCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createtablecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createtablecommand.md") and [CreateTable](API_CreateTable.md "API_CreateTable.md").
 
 ```
-import { TimestreamWriteClient, ListBatchLoadTasksCommand } from "@aws-sdk/client-timestream-write";
-const writeClient = new TimestreamWriteClient({ region: "`<region>`", endpoint: "`<endpoint>`" });
+import { TimestreamWriteClient, CreateTableCommand } from "@aws-sdk/client-timestream-write";
+const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
 
 const params = {
-    MaxResults: `<15>`
+    DatabaseName: "testDbFromNode",
+    TableName: "testTableFromNode",
+    RetentionProperties: {
+        MemoryStoreRetentionPeriodInHours: 24,
+        MagneticStoreRetentionPeriodInDays: 365
+    }
 };
 
-const command = new ListBatchLoadTasksCommand(params);
+const command = new CreateTableCommand(params);
 
-getBatchLoadTasksList(null);
-
-async function getBatchLoadTasksList(nextToken) {
-    if (nextToken) {
-        params.NextToken = nextToken;
+try {
+    const data = await writeClient.send(command);
+    console.log(`Table ${data.Table.TableName} created successfully`);
+} catch (error) {
+    if (error.code === 'ConflictException') {
+        console.log(`Table ${params.TableName} already exists on db ${params.DatabaseName}. Skipping creation.`);
+    } else {
+        console.log("Error creating table. ", error);
+        throw error;
     }
+}
+```
 
-    try {
-        const data = await writeClient.send(command);
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
 
-        data.BatchLoadTasks.forEach(function (task) {
-            console.log(task.TaskId);
-        });
-
-        if (data.NextToken) {
-            return getBatchLoadTasksList(data.NextToken);
+```
+async function createTable() {
+    console.log("Creating Table");
+    const params = {
+        DatabaseName: constants.DATABASE_NAME,
+        TableName: constants.TABLE_NAME,
+        RetentionProperties: {
+            MemoryStoreRetentionPeriodInHours: constants.HT_TTL_HOURS,
+            MagneticStoreRetentionPeriodInDays: constants.CT_TTL_DAYS
         }
-    } catch (error) {
-        console.log("Error while listing batch load tasks", error);
-    }
+    };
+
+    const promise = writeClient.createTable(params).promise();
+
+    await promise.then(
+        (data) => {
+            console.log(`Table ${data.Table.TableName} created successfully`);
+        },
+        (err) => {
+            if (err.code === 'ConflictException') {
+                console.log(`Table ${params.TableName} already exists on db ${params.DatabaseName}. Skipping creation.`);
+            } else {
+                console.log("Error creating table. ", err);
+                throw err;
+            }
+        }
+    );
 }
 ```
 
 .NET
 
 ```
-using System;
-using System.IO;
-using System.Collections.Generic;
-using Amazon.TimestreamWrite;
-using Amazon.TimestreamWrite.Model;
-using System.Threading.Tasks;
-
-namespace TimestreamDotNetSample
-{
-    public class ListBatchLoadTasksExample
-    {
-        private readonly AmazonTimestreamWriteClient writeClient;
-
-        public ListBatchLoadTasksExample(AmazonTimestreamWriteClient writeClient)
+        public async Task CreateTable()
         {
-            this.writeClient = writeClient;
-        }
-
-        public async Task ListBatchLoadTasks()
-        {
-            Console.WriteLine("Listing batch load tasks");
+            Console.WriteLine("Creating Table");
 
             try
             {
-                var listBatchLoadTasksRequest = new ListBatchLoadTasksRequest
+                var createTableRequest = new CreateTableRequest
                 {
-                    MaxResults = 15
+                    DatabaseName = Constants.DATABASE_NAME,
+                    TableName = Constants.TABLE_NAME,
+                    RetentionProperties = new RetentionProperties
+                    {
+                        MagneticStoreRetentionPeriodInDays = Constants.CT_TTL_DAYS,
+                        MemoryStoreRetentionPeriodInHours = Constants.HT_TTL_HOURS
+                    }
                 };
-
-                ListBatchLoadTasksResponse response = await writeClient.ListBatchLoadTasksAsync(listBatchLoadTasksRequest);
-
-                PrintBatchLoadTasks(response.BatchLoadTasks);
-                var nextToken = response.NextToken;
-
-                while (nextToken != null)
-                {
-                    listBatchLoadTasksRequest.NextToken = nextToken;
-                    response = await writeClient.ListBatchLoadTasksAsync(listBatchLoadTasksRequest);
-                    PrintBatchLoadTasks(response.BatchLoadTasks);
-                    nextToken = response.NextToken;
-                }
+                CreateTableResponse response = await writeClient.CreateTableAsync(createTableRequest);
+                Console.WriteLine($"Table {Constants.TABLE_NAME} created");
+            }
+            catch (ConflictException)
+            {
+                Console.WriteLine("Table already exists.");
             }
             catch (Exception e)
             {
-                Console.WriteLine("List batch load tasks failed:" + e.ToString());
+                Console.WriteLine("Create table failed:" + e.ToString());
+            }
+
+        }
+```
+
+## Magnetic store writes
+
+You can use the following code snippet to create a table with magnetic store writes
+enabled. With magnetic store writes you can write data into both your memory store
+retention window and magnetic store retention window.
+
+###### Note
+
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
+For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
+
+Java
+
+```
+    public void createTable(String databaseName, String tableName) {
+        System.out.println("Creating table");
+        CreateTableRequest createTableRequest = new CreateTableRequest();
+        createTableRequest.setDatabaseName(databaseName);
+        createTableRequest.setTableName(tableName);
+        final RetentionProperties retentionProperties = new RetentionProperties()
+                .withMemoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
+                .withMagneticStoreRetentionPeriodInDays(CT_TTL_DAYS);
+        createTableRequest.setRetentionProperties(retentionProperties);
+        // Enable MagneticStoreWrite
+        final MagneticStoreWriteProperties magneticStoreWriteProperties = new MagneticStoreWriteProperties()
+                .withEnableMagneticStoreWrites(true);
+        createTableRequest.setMagneticStoreWriteProperties(magneticStoreWriteProperties);
+        try {
+            amazonTimestreamWrite.createTable(createTableRequest);
+            System.out.println("Table [" + tableName + "] successfully created.");
+        } catch (ConflictException e) {
+            System.out.println("Table [" + tableName + "] exists on database [" + databaseName + "] . Skipping table creation");
+            //We do not throw exception here, we use the existing table instead
+        }
+    }
+```
+
+Java v2
+
+```
+    public void createTable(String databaseName, String tableName) {
+        System.out.println("Creating table");
+
+        // Enable MagneticStoreWrite
+        final MagneticStoreWriteProperties magneticStoreWriteProperties =
+                MagneticStoreWriteProperties.builder()
+                        .enableMagneticStoreWrites(true)
+                        .build();
+
+        CreateTableRequest createTableRequest =
+                CreateTableRequest.builder()
+                        .databaseName(databaseName)
+                        .tableName(tableName)
+                        .retentionProperties(RetentionProperties.builder()
+                                .memoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
+                                .magneticStoreRetentionPeriodInDays(CT_TTL_DAYS)
+                                .build())
+                        .magneticStoreWriteProperties(magneticStoreWriteProperties)
+                        .build();
+        try {
+            timestreamWriteClient.createTable(createTableRequest);
+            System.out.println("Table [" + tableName + "] successfully created.");
+        } catch (ConflictException e) {
+            System.out.println("Table [" + tableName + "] exists in database [" + databaseName + "] . Skipping table creation");
+        }
+    }
+```
+
+Go
+
+```
+// Create table.
+    createTableInput := &timestreamwrite.CreateTableInput{
+        DatabaseName: aws.String(*databaseName),
+        TableName:    aws.String(*tableName),
+    // Enable MagneticStoreWrite
+        MagneticStoreWriteProperties: &timestreamwrite.MagneticStoreWriteProperties{
+            EnableMagneticStoreWrites: aws.Bool(true),
+             },
+      }
+    _, err = writeSvc.CreateTable(createTableInput)
+```
+
+Python
+
+```
+    def create_table(self):
+        print("Creating table")
+        retention_properties = {
+            'MemoryStoreRetentionPeriodInHours': Constant.HT_TTL_HOURS,
+            'MagneticStoreRetentionPeriodInDays': Constant.CT_TTL_DAYS
+        }
+        magnetic_store_write_properties = {
+            'EnableMagneticStoreWrites': True
+        }
+        try:
+            self.client.create_table(DatabaseName=Constant.DATABASE_NAME, TableName=Constant.TABLE_NAME,
+                                     RetentionProperties=retention_properties,
+                                     MagneticStoreWriteProperties=magnetic_store_write_properties)
+            print("Table [%s] successfully created." % Constant.TABLE_NAME)
+        except self.client.exceptions.ConflictException:
+            print("Table [%s] exists on database [%s]. Skipping table creation" % (
+                Constant.TABLE_NAME, Constant.DATABASE_NAME))
+        except Exception as err:
+            print("Create table failed:", err)
+```
+
+Node.js
+
+```
+async function createTable() {
+    console.log("Creating Table");
+
+    const params = {
+        DatabaseName: constants.DATABASE_NAME,
+        TableName: constants.TABLE_NAME,
+        RetentionProperties: {
+            MemoryStoreRetentionPeriodInHours: constants.HT_TTL_HOURS,
+            MagneticStoreRetentionPeriodInDays: constants.CT_TTL_DAYS
+        },
+        MagneticStoreWriteProperties: {
+            EnableMagneticStoreWrites: true
+        }
+    };
+
+    const promise = writeClient.createTable(params).promise();
+
+    await promise.then(
+        (data) => {
+            console.log(`Table ${data.Table.TableName} created successfully`);
+        },
+        (err) => {
+            if (err.code === 'ConflictException') {
+                console.log(`Table ${params.TableName} already exists on db ${params.DatabaseName}. Skipping creation.`);
+            } else {
+                console.log("Error creating table. ", err);
+                throw err;
             }
         }
-
-        private void PrintBatchLoadTasks(List<BatchLoadTask> tasks)
-        {
-            foreach (BatchLoadTask task in tasks)
-                Console.WriteLine($"Task:{task.TaskId}");
-        }
-    }
+    );
 }
 ```
 
+.NET
+
 ```
-using Amazon.TimestreamWrite;
-using Amazon.TimestreamWrite.Model;
-using Amazon;
-using Amazon.TimestreamQuery;
-using System.Threading.Tasks;
-using System;
-using CommandLine;
-static class Constants
-{
-
-}
-namespace TimestreamDotNetSample
-{
-    class MainClass
-    {
-        public class Options
+        public async Task CreateTable()
         {
+            Console.WriteLine("Creating Table");
 
-        }
-        public static void Main(string[] args)
-        {
-            Parser.Default.ParseArguments<Options>(args)
-                .WithParsed<Options>(o => {
-                    MainAsync().GetAwaiter().GetResult();
-                });
-        }
-
-        static async Task MainAsync()
-        {
-            var writeClientConfig = new AmazonTimestreamWriteConfig
+            try
             {
-                ServiceURL =  "<service URL>",
-                Timeout = TimeSpan.FromSeconds(20),
-                MaxErrorRetry = 10
-            };
+                var createTableRequest = new CreateTableRequest
+                {
+                    DatabaseName = Constants.DATABASE_NAME,
+                    TableName = Constants.TABLE_NAME,
+                    RetentionProperties = new RetentionProperties
+                    {
+                        MagneticStoreRetentionPeriodInDays = Constants.CT_TTL_DAYS,
+                        MemoryStoreRetentionPeriodInHours = Constants.HT_TTL_HOURS
+                    },
+                    // Enable MagneticStoreWrite
+                    MagneticStoreWriteProperties = new MagneticStoreWriteProperties
+                    {
+                        EnableMagneticStoreWrites = true,
+                    }
+                };
+                CreateTableResponse response = await writeClient.CreateTableAsync(createTableRequest);
+                Console.WriteLine($"Table {Constants.TABLE_NAME} created");
+            }
+            catch (ConflictException)
+            {
+                Console.WriteLine("Table already exists.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Create table failed:" + e.ToString());
+            }
 
-            var writeClient = new AmazonTimestreamWriteClient(writeClientConfig);
-            var example = new ListBatchLoadTasksExample(writeClient);
-            await example.ListBatchLoadTasks();
         }
-    }
-}
 ```
