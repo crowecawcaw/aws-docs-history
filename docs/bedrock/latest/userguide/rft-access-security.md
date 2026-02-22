@@ -1,4 +1,4 @@
-# Reinforcement fine-tuning access and security
+# Access and security for Amazon Nova models
 
 Before you begin reinforcement fine-tuning, make sure that you understand what kind of access Amazon Bedrock
 needs for RFT-specific operations. RFT requires additional permissions beyond standard fine-tuning due
@@ -7,18 +7,13 @@ to its reward function execution capabilities.
 For basic model customization security setup including trust relationships, Amazon S3 permissions, and KMS
 encryption, see [Create an IAM service role for model customization](custom-model-job-access-security.md#custom-model-job-service-role "custom-model-job-access-security.md#custom-model-job-service-role").
 
-###### Topics
-
-- [Prerequisites](#rft-access-prerequisites "#rft-access-prerequisites")
-- [RFT-specific IAM permissions](#rft-iam-permissions "#rft-iam-permissions")
-- [Grader Lambda function permissions for RLAIF](#rft-grader-lambda-permissions "#rft-grader-lambda-permissions")
-
 ## Prerequisites
 
 Before adding RFT-specific IAM permissions, you must add the following IAM service roles:
 
 - [Trust relationship](custom-model-job-access-security.md#custom-model-job-service-role-trust-relationship "custom-model-job-access-security.md#custom-model-job-service-role-trust-relationship")
-- [Permissions to access training and validation files and to write output files in Amazon S3](custom-model-job-access-security.md#custom-model-job-service-role-s3-permissions "custom-model-job-access-security.md#custom-model-job-service-role-s3-permissions")
+- [Permissions to access training and validation files and to write output
+  files in S3](custom-model-job-access-security.md#custom-model-job-service-role-s3-permissions "custom-model-job-access-security.md#custom-model-job-service-role-s3-permissions")
 
 ## RFT-specific IAM permissions
 
@@ -84,7 +79,7 @@ For LLM-as-Judge reward functions (RLAIF), add permissions to invoke foundation 
 
 Only add these permissions to your Lambda execution role if you create your own Lambda function. The console handles this automatically when creating Lambda functions through the console.
 
-The following is an example for bedrock LLM as judge invocation using foundation model:
+The following is an example for bedrock LLM as judge invocation using foundation models:
 
 ```
 {

@@ -1,115 +1,182 @@
 # Create your Automated Reasoning policy
 
-When you create an Automated Reasoning policy, [your input source document](#source-document-step "#source-document-step") is translated into a set of formal logic rules and a schema of variables and types.
+When you create an Automated Reasoning policy, your source document is translated into a
+set of formal logic rules and a schema of variables and types. This page walks you through
+preparing your document, creating the policy, and reviewing the results.
 
-Amazon Bedrock encrypts your Automated Reasoning policy using AWS Key Management Service (KMS). By default, Amazon Bedrock uses a service-owned key. You can optionally specify a customer managed KMS key for additional control over the encryption of your policy data.
-
-**Example:** If your source document contains an HR policy stating "Full-time employees who have worked for at least 1 year are eligible for parental leave," Automated Reasoning would extract variables like `IsFullTime` (boolean), `YearsOfService` (integer), and `EligibleForParentalLeave` (boolean), along with a rule that connects them.
-
-###### Note
-
-**Tutorial video:** For a step-by-step walkthrough of creating an Automated Reasoning policy, watch the following tutorial:
-
-[Tutorial Demo 1 - Policy creation in Automated Reasoning checks](https://youtu.be/8Y4kKv6F0JY "https://youtu.be/8Y4kKv6F0JY")
+Amazon Bedrock encrypts your Automated Reasoning policy using AWS Key Management Service
+(KMS). By default, Amazon Bedrock uses a service-owned key. You can optionally specify a
+customer managed KMS key for additional control over the encryption of your policy data.
 
 To test and use your Automated Reasoning policy, ensure you have [the appropriate permissions](guardrail-automated-reasoning-permissions.md "guardrail-automated-reasoning-permissions.md").
 
-## Create your Automated Reasoning policy in the console
+## Prepare your source document
 
-1. In the left navigation, choose **Automated Reasoning**, and then choose **Create policy**.
+Before you open the console or call the API, prepare the document that Automated
+Reasoning will use to extract rules and variables. The quality of your policy depends
+directly on the quality of this input.
+
+### Document structure and clarity
+
+Automated Reasoning checks work best with documents that contain clear, unambiguous rules.
+Each rule should state a condition and an outcome. Avoid vague language, subjective
+criteria, or rules that depend on external context not present in the document.
+
+**Example: Clear vs. vague rules**
+
+| Clear (good for extraction)                                                                             | Vague (poor for extraction)                                                       |
+| ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| "Full-time employees with at least 12 months of continuous service are<br>eligible for parental leave." | "Eligible employees may apply for parental leave subject to manager<br>approval." |
+| "Refund requests must be submitted within 30 days of purchase. Items must<br>be in original packaging." | "Refunds are handled on a case-by-case basis."                                    |
+
+### Size limits and splitting large
+
+documents
+
+Source documents are limited to 5 MB in size and 50,000 characters. Images and tables
+in documents also count toward the character limit.
+
+If your document exceeds these limits, or if it covers multiple unrelated domains,
+split it into focused sections. For example, split an employee handbook into separate
+documents for leave policies, benefits eligibility, and expense reimbursement. Create
+your policy with the first section, then use iterative policy building (described later
+on this page) to merge additional sections into the same policy.
+
+### Pre-process complex documents
+
+Documents that contain a lot of boilerplate, legal disclaimers, or content unrelated
+to the rules you want to enforce will produce noisy policies with unnecessary variables
+and rules. Before uploading, consider:
+
+- Removing headers, footers, table of contents, and appendices that don't contain
+  rules.
+- Extracting only the sections that contain the rules relevant to your use
+  case.
+- Simplifying complex tables into plain text statements where possible.
+
+###### Tip
+
+Start with a focused subset of your rules. Create and test the policy thoroughly,
+then gradually add more content in subsequent iterations. This approach helps you
+identify and resolve issues early and makes troubleshooting easier.
+
+## Write effective instructions
+
+When creating a policy, you can provide optional instructions that guide how Automated
+Reasoning processes your source document. While optional, good instructions significantly
+improve the quality of the extracted rules and variables.
+
+Effective instructions should cover three things:
+
+1. **Describe the use case.** Explain what your
+   application does and what type of content the policy will validate. For example:
+   "This policy will validate an HR chatbot that answers employee questions about leave
+   of absence eligibility."
+2. **Describe the types of questions users will ask.**
+   Give examples of realistic user questions. For example: "Users will ask questions
+   like 'Am I eligible for parental leave if I've worked here for 9 months?' or 'How
+   many days of bereavement leave can I take?'"
+3. **Focus the extraction.** If your document covers
+   multiple topics, tell Automated Reasoning checks which parts to focus on and which to ignore.
+   For example: "Focus on sections 3 through 5 which cover leave policies. Ignore the
+   general company overview in section 1 and the organizational chart in section 2."
+
+**Example instruction:**
+
+```
+This policy will validate HR questions about leave eligibility. The document
+has sections on different leave types (parental, medical, bereavement, personal).
+Users will ask questions like "Am I eligible for parental leave if I've worked
+here for 9 months?" or "Can part-time employees take bereavement leave?"
+Focus on the eligibility criteria for each leave type. Capture variables that
+help determine whether an employee is eligible for a specific type of leave.
+```
+
+## Create a policy in the
+
+console
+
+1. In the left navigation, choose **Automated Reasoning**, and then
+   choose **Create policy**.
 2. Enter a **Name** for the policy.
 3. (Optional) Enter a **Description** for the policy.
-4. For **Source**, you need to provide a document that describes the rules and policies of your knowledge domain. This document should contain the business rules, policies, or guidelines that you want Automated Reasoning to validate against. For example, you might upload an HR policy document that defines employee benefits eligibility, a compliance manual that outlines regulatory requirements, or a technical specification that describes system constraints. The document should be comprehensive and clearly written, as Automated Reasoning will extract formal logic rules from this content.
+4. For **Source**, provide the document that describes the rules and
+   policies of your knowledge domain. Do the following:
+   1. For **Ingest method**, do one of the following:
+      1. Select **Upload document**, then select
+         **Choose file**. Upload a PDF document of the source
+         content.
+      2. Select **Enter text**. Paste or enter your source
+         content.
 
-###### Note
+   2. (Recommended) For **Instructions**, provide guidance on how
+      to process your source document. See [Write effective instructions](#write-effective-instructions "#write-effective-instructions") for what to include.
 
-**Best practice:** For complex policies, it's better to split the content into digestible chunks and progressively import new content into a policy to make it more complex. Start with a focused subset of your rules, create and test the policy thoroughly, then gradually add more content in subsequent iterations. This approach helps you identify and resolve issues early, ensures each addition works correctly with existing rules, and makes troubleshooting easier when problems arise.
-
-Do the following:
-
-    1. For **Ingest method**, do one of the following:
-
-
-    	1. Select **Upload document**, then select **Choose file**. Upload a PDF document of the source content that will serve as the basis for your policy.
-    	2. Select **Enter text**. Paste or enter your source content that will serve as the basis for your policy.
-    2. (Recommended) For **Instructions**, specify additional information on how to process your source document. While optional, providing information on how the policy will be used and what parts of the document to focus on or ignore help the logic extraction process.
-
-
-    ###### Note
-
-    Instructions should explain what type of questions the policy will be validating, describe the structure of the input document, and give an example of the type of questions users will ask. For example: "This policy will validate HR questions about leave eligibility. The document has sections on different leave types. Users will ask questions like 'Am I eligible for parental leave if I've worked here for 9 months?'"
-
-5. (Optional) For **Tags**, choose **Add new tag** to tag your policy. Tags can help you manage, filter, and search for your AWS resources.
-6. (Optional) For **Encryption**, choose a KMS key to encrypt your policy. You can use the default service-owned key or select a customer managed key from your account.
+5. (Optional) For **Tags**, choose **Add new tag**
+   to tag your policy.
+6. (Optional) For **Encryption**, choose a KMS key to encrypt your
+   policy. You can use the default service-owned key or select a customer managed
+   key.
 7. Choose **Create policy**.
 
-## Create your Automated Reasoning policy using the API
+###### Tip
 
-An Automated Reasoning policy is a resource in your AWS account that can be referenced using an Amazon Resource Name (ARN).
-Automated Reasoning policies are a container for build workflows that produce policy definitions and policy versions. Policy
-definitions consist of a schema of variables and a set of rules that operate on the variables. Policy versions are immutable
-snapshots of the default DRAFT version. Automated Reasoning policies can have up to two build workflows. Each build workflow
-outputs three assets: a policy definition, a quality report on the policy definition, and a build log.
+If your application expects a specific set of variables, you can pre-define the
+schema before importing content. Use the `CreateAutomatedReasoningPolicy`
+API or CloudFormation to create a policy with a `policyDefinition` that contains
+your desired variables and types but no rules. Then use [Iterative policy building](#iterative-policy-building "#iterative-policy-building") to
+import your source document. Automated Reasoning will use your predefined schema as a
+starting point and add rules that reference your variables.
 
-Automated Reasoning policies can contain numbered, immutable versions of a definition created by calling the `CreateAutomatedReasoningPolicyVersion`
-API action. Automated Reasoning policies support a special version called `DRAFT` that is presented in the AWS console as "Working Draft."
+## Create a policy using the
 
-To create a new policy, the first step is to use the the `CreateAutomatedReasoningPolicy` API to create the policy resource.
-Then, using the new policy Amazon Resource Name (ARN), you can call the `StartAutomatedReasoningPolicyBuildWorkflow` to
-populate a policy build from a document with a schema of variables and rules.
+API
 
-### Create Automated Reasoning policy request parameters
+An Automated Reasoning policy is a resource in your AWS account identified by an Amazon
+Resource Name (ARN). Creating a policy through the API is a two-step process: first create
+the policy resource, then start a build workflow to extract rules from your document.
 
-The following parameters are required or optional when creating an Automated Reasoning policy:
+### Step 1: Create the policy
+
+resource
+
+Use the `CreateAutomatedReasoningPolicy` API to create the policy
+resource.
 
 `name` (required)
 
-The name of the Automated Reasoning policy. The name must be unique within your AWS account and Region.
+The name of the policy. Must be unique within your AWS account and
+Region.
 
 `description` (optional)
 
-A description of the Automated Reasoning policy. Use this to provide context about the policy's purpose and the types of validations it performs.
-
-`clientRequestToken` (optional)
-
-A unique, case-sensitive identifier to ensure that the operation completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request but doesn't return an error.
+A description of the policy's purpose.
 
 `policyDefinition` (optional)
 
-The policy definition that contains the formal logic rules, variables, and custom variable types used to validate foundation model responses in your application.
-
-`tags` (optional)
-
-A list of tags to associate with the Automated Reasoning policy. Tags help you organize and manage your policies.
+An initial policy definition with rules, variables, and custom types. Use
+this if you already have a schema you want to start from.
 
 `kmsKeyId` (optional)
 
-The KMS key identifier for encrypting the Automated Reasoning policy. You can use the key ID, key ARN, alias name, or alias ARN. If you don't specify a KMS key, Amazon Bedrock uses a service-owned key to encrypt your policy.
+The KMS key identifier for encrypting the policy. If not specified, Amazon
+Bedrock uses a service-owned key.
 
-### Create Automated Reasoning policy response elements
+`tags` (optional)
 
-The API returns the following information:
+Tags to associate with the policy.
 
-`policyArn`
+`clientRequestToken` (optional)
 
-The Amazon Resource Name (ARN) of the Automated Reasoning policy that you created.
+An idempotency token to ensure the operation completes no more than
+once.
 
-`version`
-
-The version of the Automated Reasoning policy. The initial version is `DRAFT`.
-
-`name`
-
-The name of the Automated Reasoning policy.
-
-### Example
-
-The following example shows how to create an Automated Reasoning policy using the
-AWS CLI:
+**Example:**
 
 ```
 aws bedrock create-automated-reasoning-policy \
-  --name "`DeleteMe`" \
+  --name "`MyHRPolicy`" \
+  --description "`Validates HR chatbot responses about leave eligibility`" \
   --kms-key-id arn:aws:kms:`us-east-1`:`111122223333`:key/`12345678-1234-1234-1234-123456789012`
 ```
 
@@ -118,59 +185,41 @@ Example response:
 ```
 {
   "createdAt": "2025-07-21T14:43:52.692Z",
-  "definitionHash": "f16ba1ceca36e1d21adce559481add6a4998b79ae203d933fd0206a28d5c2896513dd62f57b293cba282441269a72063b1d9da02fcf2b421e9bf8495ff8c87af",
-  "name": "DeleteMe",
-  "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk",,
+  "definitionHash": "f16ba1ceca36e1d21adce559481add6a...",
+  "name": "MyHRPolicy",
+  "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk",
   "updatedAt": "2025-07-21T14:43:52.692Z",
   "version": "DRAFT"
 }
 ```
 
-## Start Automated Reasoning policy build workflow request parameters
+### Step 2: Start a build
 
-The following parameters are required or optional when starting a build workflow for an Automated Reasoning policy:
+workflow to extract rules
+
+Use the `StartAutomatedReasoningPolicyBuildWorkflow` API with the policy
+ARN from step 1 to extract rules and variables from your source document.
 
 `policyArn` (required)
 
-The Amazon Resource Name (ARN) of the Automated Reasoning policy resource created in the previous step.
+The ARN of the policy resource created in step 1.
 
 `buildWorkflowType` (required)
 
-The type of workflow you are starting. The options are `INGEST_CONTENT`, `REFINE_POLICY`, or `IMPORT_POLICY`.
-To create a new policy definition from a document or text, use the `INGEST_CONTENT`.
+Set to `INGEST_CONTENT` to extract rules from a document.
 
 `sourceContent` (required)
 
-The source file used to extract variables and rules.
+Contains the document to process and an optional starting policy
+definition.
 
-`clientRequestToken` (optional)
-
-A unique, case-sensitive identifier to ensure that the operation completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request but doesn't return an error.
-
-## Create Automated Reasoning policy response elements
-
-The API returns the following information:
-
-`policyArn`
-
-The Amazon Resource Name (ARN) of the Automated Reasoning policy you created.
-
-`buildWorkflowId`
-
-The unique identifier for the new build workflow.
-
-## Example
-
-The following example shows how to start an import workflow using the
-AWS CLI. You can use the optional `policyDefinition` property to
-specify a starting variable schema or rule set, for example if you already
-have an application that expects a specific set of variables.
+**Example:**
 
 ```
-# Step 1: Encode PDF to base64 (remove newlines)
+# Encode your PDF to base64
 PDF_BASE64=$(base64 -i `your-policy.pdf` | tr -d '\n')
 
-# Step 2: Create policy from base64-encoded content
+# Start the build workflow
 aws bedrock start-automated-reasoning-policy-build-workflow \
   --policy-arn arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk` \
   --build-workflow-type INGEST_CONTENT \
@@ -186,8 +235,8 @@ aws bedrock start-automated-reasoning-policy-build-workflow \
         {
           \"document\": \"$PDF_BASE64\",
           \"documentContentType\": \"pdf\",
-          \"documentName\": \"`Company Policy Document`\",
-          \"documentDescription\": \"`I'm building a chatbot that answers user questions about my leave of absence HR policy, capture rules and variables that help users determine whether they are eligible for leave of absence.`\"
+          \"documentName\": \"`HR Leave Policy`\",
+          \"documentDescription\": \"`Validates HR chatbot responses about leave eligibility. Users ask questions like 'Am I eligible for parental leave?'`\"
         }
       ]
     }
@@ -198,26 +247,138 @@ Example response:
 
 ```
 {
-    "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk",
-    "buildWorkflowId": "d40fa7fc-351e-47d8-a338-53e4b3b1c690"
+  "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk",
+  "buildWorkflowId": "d40fa7fc-351e-47d8-a338-53e4b3b1c690"
 }
 ```
 
-After starting a document ingestion workflow, you can use the `ListAutomatedReasoningPolicyBuildWorkflows`
-to check the status of the import workflow with the policy ARN.
+Check the build status with
+`ListAutomatedReasoningPolicyBuildWorkflows`:
 
 ```
 aws bedrock list-automated-reasoning-policy-build-workflows \
   --policy-arn arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk`
 ```
 
-## KMS permissions for Automated Reasoning policies
+## Review the extracted policy
 
-If you specify a customer managed KMS key to encrypt your Automated Reasoning policy, you must configure permissions that allow Amazon Bedrock to use the key on your behalf.
+After a build completes, review the extracted policy definition before you start
+testing. Catching issues at this stage saves time compared to discovering them through
+failed tests later.
+
+In the console, open your policy and go to the **Definitions** page.
+Via the API, use `GetAutomatedReasoningPolicyBuildWorkflowResultAssets` with
+`--asset-type POLICY_DEFINITION` to retrieve the extracted definition, and
+`--asset-type QUALITY_REPORT` to retrieve the quality report.
+
+Check for the following issues:
+
+1. **Unused variables.** In the console, look for
+   warning indicators next to variables. These flag variables that aren't referenced by
+   any rules. Delete unused variables — they add noise to the translation process and
+   can cause `TRANSLATION_AMBIGUOUS` results. In the API, unused variables
+   are listed in the `QUALITY_REPORT` asset.
+2. **Duplicate or near-duplicate variables.** Scan the
+   variable list for variables with overlapping meanings, such as
+   `tenureMonths` and `monthsOfService`. Duplicate variables
+   confuse the translation process because Automated Reasoning checks can't determine which
+   one to use for a given concept. Merge or delete duplicates.
+3. **Bare assertions (rules not in if-then format).**
+   Skim the rules and look for rules that aren't in if-then format, such as
+   `(= eligibleForParentalLeave true)`. Bare assertions create axioms —
+   statements that are always true — which make certain conditions logically impossible
+   and lead to unexpected `IMPOSSIBLE` results during validation. Rewrite
+   them as conditionals (for example,
+   `(=> (and isFullTime (> tenureMonths 12)) eligibleForParentalLeave)`)
+   or delete them. Bare assertions are appropriate only for boundary conditions like
+   `(>= accountBalance 0)`.
+4. **Conflicting rules.** The quality report flags
+   rules that contradict each other. Conflicting rules cause your policy to return
+   `IMPOSSIBLE` for all validation requests that involve the conflicting
+   rules. Resolve conflicts by merging the rules or deleting one of them.
+5. **Missing rules or variables.** Compare the
+   extracted policy against your source document. If important rules or concepts are
+   missing, you can add them manually or re-create the policy with better
+   instructions.
+
+###### Tip
+
+The quality report also identifies disjoint rule sets — groups of rules that don't
+share any variables. Disjoint rule sets aren't necessarily a problem (your policy may
+cover independent topics), but they can indicate that variables are missing connections
+between related rules.
+
+## Iterative policy building
+
+For complex domains, build your policy incrementally rather than trying to capture
+everything in a single document upload. Start with a focused subset of your rules, create
+and test the policy, then add more content in subsequent iterations.
+
+### Add content in the console
+
+1. Open your Automated Reasoning policy in the console.
+2. On the **Definitions** page, choose
+   **Import**.
+3. Select the option to merge the new content with the existing policy
+   definition.
+4. Upload or paste the additional source content.
+5. Review the updated policy definition and resolve any new conflicts or
+   duplicates.
+
+### Add content using the API
+
+Call `StartAutomatedReasoningPolicyBuildWorkflow` with
+`INGEST_CONTENT`, passing the complete current policy definition alongside
+the new document. You must include the full existing definition — rules, variables, and
+types — so that the new content is merged with the existing policy rather than replacing
+it.
+
+```
+# First, retrieve the current policy definition
+aws bedrock get-automated-reasoning-policy \
+  --policy-arn arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk`
+
+# Encode the new document
+PDF_BASE64=$(base64 -i `additional-rules.pdf` | tr -d '\n')
+
+# Start a build workflow with the existing definition + new document
+aws bedrock start-automated-reasoning-policy-build-workflow \
+  --policy-arn arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk` \
+  --build-workflow-type INGEST_CONTENT \
+  --source-content "{
+    \"policyDefinition\": `EXISTING_POLICY_DEFINITION_JSON`,
+    \"workflowContent\": {
+      \"documents\": [
+        {
+          \"document\": \"$PDF_BASE64\",
+          \"documentContentType\": \"pdf\",
+          \"documentName\": \"`Additional Benefits Rules`\",
+          \"documentDescription\": \"`Additional rules covering medical and bereavement leave eligibility.`\"
+        }
+      ]
+    }
+  }"
+```
+
+###### Important
+
+The API supports a maximum of 2 build workflows per policy, with only 1 allowed
+to be `IN_PROGRESS` at any time. If you need to start a new build and
+already have 2 workflows, delete an old one first using
+`DeleteAutomatedReasoningPolicyBuildWorkflow`.
+
+## KMS permissions for Automated
+
+Reasoning policies
+
+If you specify a customer managed KMS key to encrypt your Automated Reasoning policy,
+you must configure permissions that allow Amazon Bedrock to use the key on your
+behalf.
 
 ### Key policy permissions
 
-Add the following statement to your KMS key policy to allow Amazon Bedrock to use the key for Automated Reasoning policies:
+Add the following statement to your KMS key policy to allow Amazon Bedrock to use
+the key for Automated Reasoning policies:
 
 ```
 {
@@ -246,7 +407,8 @@ Add the following statement to your KMS key policy to allow Amazon Bedrock to us
 
 ### IAM permissions
 
-Your IAM principal must have the following permissions to use a customer managed KMS key with Automated Reasoning policies:
+Your IAM principal must have the following permissions to use a customer managed KMS
+key with Automated Reasoning policies:
 
 ```
 {
@@ -275,117 +437,18 @@ Your IAM principal must have the following permissions to use a customer managed
 }
 ```
 
-### Encryption context
+### Encryption
 
-Amazon Bedrock uses encryption context to provide additional security for your Automated Reasoning policies. The encryption context is a set of key-value pairs that Amazon Bedrock uses as additional authenticated data when encrypting and decrypting your policy.
+context
 
-For Automated Reasoning policies, Amazon Bedrock uses the following encryption context:
+Amazon Bedrock uses encryption context to provide additional security for your
+Automated Reasoning policies. The encryption context is a set of key-value pairs used
+as additional authenticated data when encrypting and decrypting your policy.
 
-- **Key:** `aws:bedrock:automated-reasoning-policy`
-- **Value:** The Amazon Resource Name (ARN) of your Automated Reasoning policy
+For Automated Reasoning policies, Amazon Bedrock uses the following encryption
+context:
 
-## View Automated Reasoning policy details
-
-After you create your policy, you can view its the translated logic and variables on the policy's **Definitions** page.
-
-## Policy creation best practices
-
-Good Automated Reasoning policies capture all the information necessary to validate content from your application. At a high level, the policy should return a validation result of VALID when you deem you LLM's answer to be valid and complete.
-
-### Create variables that capture user intent and use implications (=>) to structure relationships
-
-Use boolean variables to capture the conclusion a user is driving towards, such as "can I submit this form," or "is this payment compliant," and then use the variables to create rules that follow an if/then "implicative form." You can use the content description field while creating a policy to give examples of the type of questions users will ask or give direct guidance on what these variables should be.
-
-**Example:**
-
-```
-✓ Good: (=> isPaymentCompliant (<= paymentAmount 10000))
-
-✗ Poor: (<= paymentAmount 10000)
-```
-
-### Use booleans instead of enums for non-exclusive states
-
-Represent characteristics that can co-exist as separate boolean variables rather than as mutually exclusive enum values. This prevents logical contradictions when multiple conditions can apply simultaneously. For example, a user can be both a veteran and a teacher. Two boolean variables allow both to be set true. Using enum values to set customerType to TEACHER and customerType to VETERAN causes a contradiction since a variable can only have a single value.
-
-**Example:**
-
-```
-✓ Good: isTeacher, isVeteran
-
-✗ Poor: customerType = {TEACHER, VETERAN, OTHER}
-```
-
-### Specify units and formats explicitly in variable descriptions
-
-Clearly document the unit and format for all numerical values in their descriptions. This reduces variance when interpreting text with different formats and prevents unit conversion errors, leading to more predictable validation results.
-
-**Examples:**
-
-- "discountRate: Decimal representation of percentage (0.15 means 15%)"
-- "refundTimeframeInDays: Number of days allowed for refund requests"
-- "temperatureInCelsius: Integer value in degrees Celsius"
-
-### Validate ranges for numerical values
-
-Use rules to validate variable values to ensure they are valid. Setting these constraints for numerical variables can guard against non-sensical inputs and highlight them as "impossible" when they occur.
-
-**Example:**
-
-```
-✓ Good: (> patientAge 0)
-
-✓ Good: (and (> creditScore 300) (< creditScore 1100))
-```
-
-### Use intermediate variables to model different levels and create abstractions
-
-Use meaningful intermediate variables to represent complex concepts and connect them explicitly to implementation details. Using conceptual variables instead of explicit expressions creates modularity and makes the logical flow from policy concepts to specific outcomes clear. This also allows validation on generic cases where the explicit inputs are not present, for example: "Do premium benefits include free upgrades?"
-
-**Example:**
-
-```
-(=> (or (> membershipDurationYears 10)
-        lifeTimeStatusGranted)
-    hasLifetimeStatus)
-
-(= qualifiesForPremiumBenefits
-   (or isPlatinumMember hasLifetimeStatus))
-
-(=> qualifiesForPremiumBenefits freeUpgrade)
-```
-
-### Use enums for categorization and subjective assessments
-
-Define enumerated types for categorizing issues or representing subjective judgments rather than using numerical scales. Discrete categories allow clear definitions to be assigned for each severity. Numerical scales do not provide a consistent means of categorization. If it's possible for a variable not to have a value from the enum, include an `OTHER` or `NONE` among the possible values.
-
-**Example:**
-
-```
-type "Severity" with values "CRITICAL", "MAJOR", "MINOR"
-```
-
-### Logic must be declarative and not procedural
-
-Standard computer code executes in a given order but policies specify rules that do not execute in a given order. Design rules and variables to allow if/then/else logic within a single rule. This approach allows rules to remain decoupled and avoids rule conflicts while still clearly representing the logical structure of the policy.
-
-**Example:**
-
-```
-✗ Poor: (=> conditionA (= outcome VALUE_1))
-✗ Poor: (=> conditionB (= outcome VALUE_2))
-
-✓ Good: (=> (and conditionA conditionB) (= outcome VALUE_1))  // A takes precedence when both apply
-✓ Good: (=> (and (not conditionA) conditionB) (= outcome VALUE_2))
-✓ Good: (=> (and (not conditionA) (not conditionB)) (= outcome DEFAULT_VALUE))
-```
-
-### Use clear and consistent naming conventions
-
-Apply predictable patterns in variable naming to enhance readability and consistent interpretation.
-
-**Examples:**
-
-- Boolean variables: use "is" or "has" prefix
-- Categorical variables: use substantive nouns
-- Numerical variables: include units when appropriate
+- **Key:**
+  `aws:bedrock:automated-reasoning-policy`
+- **Value:** The Amazon Resource Name (ARN) of your
+  Automated Reasoning policy

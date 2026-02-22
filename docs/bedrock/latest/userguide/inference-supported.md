@@ -11,7 +11,6 @@ You can also run model inference with Amazon Bedrock resources other than founda
 
 [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") only work on prompts from Prompt management whose configuration specifies an Anthropic Claude or Meta Llama model.
 
-- [Supported models and Regions for fine-tuning
-  and continued pre-training](custom-model-supported.md "custom-model-supported.md")
+- [Supported models and Regions for fine-tuning](custom-model-fine-tuning.md#custom-model-supported "custom-model-fine-tuning.md#custom-model-supported")
 - [Use Custom model import to import a customized open-source model into Amazon Bedrock](model-customization-import-model.md "model-customization-import-model.md")
 - [Supported Regions and models for Amazon Bedrock Guardrails](guardrails-supported.md "guardrails-supported.md")

@@ -1,22 +1,12 @@
-# Create a reinforcement fine-tuning job
+# Create and manage fine-tuning jobs for Amazon Nova models
 
-You can create a reinforcement fine-tuning job using the Amazon Bedrock console or API. The RFT job can take several
+You can create a reinforcement fine-tuning (RFT) job using the Amazon Bedrock console or API. The RFT job can take a few
 hours depending on the size of your training data, number of epochs, and complexity of your reward functions.
-
-###### Topics
-
-- [Prerequisites](#rft-prerequisites "#rft-prerequisites")
-- [Create your RFT job](#rft-submit-job-how-to "#rft-submit-job-how-to")
-- [RFT job workflow](#rft-job-workflow "#rft-job-workflow")
-- [Set up inference](#rft-setup-inference "#rft-setup-inference")
-- [Monitor your RFT training job](rft-monitor-job.md "rft-monitor-job.md")
-- [Evaluate your RFT model](rft-evaluate-model.md "rft-evaluate-model.md")
 
 ## Prerequisites
 
-- Create an IAM service role to access the Amazon S3 bucket where you want to store your RFT training
-  data and output artifacts. You can create this role automatically using the AWS Management Console or manually.
-  For RFT-specific permissions, see [Reinforcement fine-tuning access and security](rft-access-security.md "rft-access-security.md").
+- Create an IAM service role with the required permissions. For comprehensive security and permissions information including
+  RFT-specific permissions, see [Access and security for Amazon Nova models](rft-access-security.md "rft-access-security.md").
 - (Optional) Encrypt input and output data, your RFT job, or inference requests made to custom models.
   For more information, see [Encryption of custom models](encryption-custom-job.md "encryption-custom-job.md").
 
@@ -27,23 +17,19 @@ Choose the tab for your preferred method, and then follow the steps:
 Console
 To submit an RFT job in the console, carry out the following steps:
 
-1. Sign in to the AWS Management Console and open the Amazon Bedrock console at [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
-2. From the left navigation pane, choose **Custom models** under **Tune**.
-3. In the Models table, choose **Create**. Then, choose **Create reinforcement
-   fine-tuning job**.
-4. In the **Model details** section, choose **Amazon Nova 2 Lite** as your base model.
-5. In the **Customization details** section, enter the customization name.
-6. In the **Training data** section, choose your data source:
-   - **Use stored invocation logs** - Select from your available invocation
-     logs stored in Amazon S3
-   - **Upload new dataset** - Select the Amazon S3 location of your training
-     dataset file or upload a file directly from your device
+1. Open the Amazon Bedrock console and navigate to **Custom models** under **Tune**.
+2. Choose **Create**, then **Create reinforcement fine-tuning job**.
+3. In the **Model details** section, choose **Amazon Nova 2 Lite** as your base model.
+4. In the **Customization details** section, enter the customization name.
+5. In the **Training data** section, choose your data source. Either select from your
+   available invocation logs stored in Amazon S3, or select the Amazon S3 location of your training
+   dataset file, or upload a file directly from your device.
 
 ###### Note
 
 Your training dataset should be in the OpenAI Chat Completions data format. If you provide
 invocation logs in the Amazon Bedrock invoke or converse format, Amazon Bedrock automatically converts them to
-the Chat Completions format. 7. In the **Reward function** section, set up your reward mechanism:
+the Chat Completions format. 6. In the **Reward function** section, set up your reward mechanism:
 
     * **Model as judge (RLAIF)** - Select a Bedrock hosted base model as judge
      and configure the instructions for evaluation. Use this for subjective tasks like content
@@ -57,34 +43,16 @@ the Chat Completions format. 7. In the **Reward function** section, set up your 
     * **Custom code (RLVR)** - Create custom reward functions using Python
      code executed through Lambda functions. Use this for objective tasks like code generation.
 
-For more information, see [Setting up reward functions](reward-functions.md "reward-functions.md"). 8. (Optional) In the **Hyperparameters** section, adjust training parameters or use
-default values. 9. In the **Output data** section, enter the Amazon S3 location where Bedrock should save
-job outputs. 10. In the **Role configuration** section, select:
-
-    * **Choose an existing role** - Select from dropdown list
-    * **Create a role** - Enter a name for the service role
-
-11. (Optional) In the **Additional configuration** section, configure:
-    - Validation data by pointing to an Amazon S3 bucket
-    - KMS encryption settings
-    - Job and model tags
-
-12. Choose **Create reinforcement fine-tuning job** to begin the job.
+For more information, see [Setting up reward functions for Amazon Nova models](reward-functions.md "reward-functions.md"). 7. (Optional) In the **Hyperparameters** section, adjust training parameters or use
+default values. 8. In the **Output data** section, enter the Amazon S3 location where Amazon Bedrock should save
+job outputs. 9. In the **Role configuration** section, either choose an existing role from the dropdown
+list or enter a name for the service role to create. 10. (Optional) In the **Additional configuration** section, configure the validation data by
+pointing to an Amazon S3 bucket, KMS encryption settings, and job and model tags. 11. Choose **Create reinforcement fine-tuning job** to begin the job.
 
 API
 Send a CreateModelCustomizationJob request with `customizationType` set to `REINFORCEMENT_FINE_TUNING`.
-You must provide the following fields:
 
-**Required fields:**
-
-- `roleArn` - ARN of the service role with RFT permissions
-- `baseModelIdentifier` - Model ID or ARN of the foundation model to customize
-- `customModelName` - Name for the newly customized model
-- `jobName` - Name for the training job
-- `customizationType` - Set to `REINFORCEMENT_FINE_TUNING`
-- `trainingDataConfig` - Amazon S3 URI of training dataset or invocation log configuration
-- `outputDataConfig` - Amazon S3 URI to write output data
-- `rftConfig` - Reward function configuration (RLVR or RLAIF) and hyper paramerters configuration
+**Required fields:** `roleArn`, `baseModelIdentifier`, `customModelName`, `jobName`, `trainingDataConfig`, `outputDataConfig`, `rftConfig`
 
 **Example request:**
 
@@ -175,23 +143,53 @@ response_ft = bedrock.create_model_customization_job(
 jobArn = response_ft['jobArn']
 ```
 
-## RFT job workflow
+## Monitor your RFT training job
 
-The RFT job follows this automated workflow:
+Amazon Bedrock provides real-time monitoring with visual graphs and metrics during RFT training. These metrics help you understand whether the model converges properly and if the reward function effectively guides the learning process.
 
-1. **Response Generation** - The actor model generates responses from training prompts
-2. **Reward Computation** - Reward functions evaluate prompt-response pairs
-3. **Actor Model Training** - Model learns from scored pairs using GRPO
+### Job status tracking
 
-During training, you can monitor progress using real-time graphs with training and validation metrics such as loss, rewards,
-reward margin, and accuracy. Once successful, an RFT model is created with a custom model ARN.
+You can monitor your RFT job status through the validation and training phases in the Amazon Bedrock console.
+
+**Completion indicators:**
+
+- Job status changes to **Completed** when training completes successfully
+- Custom model ARN becomes available for deployment
+- Training metrics reach convergence thresholds
+
+### Real-time training metrics
+
+Amazon Bedrock provides real-time monitoring during RFT training with visual graphs displaying training and validation metrics.
+
+#### Core training metrics
+
+- **Training loss** - Measures how well the model is learning from the training data
+- **Training reward statistics** - Shows reward scores assigned by your reward functions
+- **Reward margin** - Measures the difference between good and bad response rewards
+- **Accuracy on training and validation sets** - Shows model performance on both the training and held-out data
+
+**Detailed metric categories**
+
+- **Reward metrics** – `critic/rewards/mean`, `critic/rewards/max`, `critic/rewards/min` (reward distribution), and `val-score/rewards/mean@1` (validation rewards)
+- **Model behavior** – `actor/entropy` (policy variation; higher equals more exploratory)
+- **Training health** – `actor/pg_loss` (policy gradient loss), `actor/pg_clipfrac` (frequency of clipped updates), and `actor/grad_norm` (gradient magnitude)
+- **Response characteristics** – `prompt_length/mean`, `prompt_length/max`, `prompt_length/min` (input token statistics), `response_length/mean`, `response_length/max`, `response_length/min` (output token statistics), and `response/aborted_ratio` (incomplete generation rate; 0 equals all completed)
+- **Performance** – `perf/throughput` (training throughput), `perf/time_per_step` (time per training step), and `timing_per_token_ms/*` (per-token processing times)
+- **Resource usage** – `perf/max_memory_allocated_gb`, `perf/max_memory_reserved_gb` (GPU memory), and `perf/cpu_memory_used_gb` (CPU memory)
+
+#### Training progress visualization
+
+The console displays interactive graphs that update in real-time as your RFT job progresses. These visualizations can help you:
+
+- Track convergence toward optimal performance
+- Identify potential training issues early
+- Determine optimal stopping points
+- Compare performance across different epochs
 
 ## Set up inference
 
-After job completion, you can deploy the resulting RFT model with one click for on-demand inference. You can also use
-Provisioned Throughput for mission-critical workloads that require consistent performance. Once inference is set up, use
-**Test in Playground** to interactively evaluate and compare responses side-by-side with the base model.
+After job completion, deploy the RFT model for on-demand inference or use Provisioned Throughput for consistent performance.
+For setting up inference, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").
 
-For monitoring your RFT job progress, see [Monitor your RFT training job](rft-monitor-job.md "rft-monitor-job.md").
-
+Use **Test in Playground** to evaluate and compare responses with the base model.
 For evaluating your completed RFT model, see [Evaluate your RFT model](rft-evaluate-model.md "rft-evaluate-model.md").

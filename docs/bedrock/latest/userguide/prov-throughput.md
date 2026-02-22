@@ -20,7 +20,7 @@ depends on the following factors:
 
 ###### Note
 
-For more information about what an MU specifies, contact your AWS account
+For more information about what an MU specifies, pricing per MU, and to request limit increases, contact your AWS account
 manager. 3. The duration of time you commit to keeping the Provisioned Throughput. The longer the commitment
 duration, the more discounted the hourly price becomes. You can choose between the
 following levels of commitment:

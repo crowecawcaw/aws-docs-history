@@ -66,8 +66,7 @@ Input size exceeded in file `fileName.jsonl` for record starting with...
 ```
 
 If you encounter an error beginning with the text above, ensure that the
-number of characters conforms to the character quota in [Prepare your training datasets for fine-tuning and continued
-pre-training](model-customization-prepare.md "model-customization-prepare.md").
+number of characters conforms to the character quota in [Prepare data for fine-tuning your models](model-customization-prepare.md "model-customization-prepare.md").
 
 **Token count exceeded**
 
@@ -79,8 +78,7 @@ Max sum of input and output token length 4097 exceeds total limit of 4096
 
 If you encounter an error similar to the preceeding example, make sure that the
 
-number of tokens conforms to the token quota in [Prepare your training datasets for fine-tuning and continued
-pre-training](model-customization-prepare.md "model-customization-prepare.md").
+number of tokens conforms to the token quota in [Prepare data for fine-tuning your models](model-customization-prepare.md "model-customization-prepare.md").
 
 ## Third-party license terms and policy issues
 

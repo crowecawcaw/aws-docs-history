@@ -29,7 +29,7 @@ features.
   With Custom Model Import you can create a custom model that supports the following
   patterns.
 
-- **Fine-tuned or Continued Pre-training model**
+- **Fine-tuned model**
   — You can customize the model weights using proprietary data, but retain the
   configuration of the base model.
 - **Adaptation** You can customize the model

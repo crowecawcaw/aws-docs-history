@@ -1,72 +1,57 @@
 # Customize a model with reinforcement fine-tuning in Amazon Bedrock
 
-Reinforcement fine-tuning is a model customization technique in Amazon Bedrock. It improves foundation model performance by
-teaching models what constitutes a "good" response through feedback signals called rewards. While traditional fine-tuning
-methods depend on labeled datasets, reinforcement fine-tuning uses a feedback-driven approach. This allows models to improve
-iteratively based on reward signals. Instead of learning from fixed examples, it uses reward functions to evaluate and judge which
-responses are considered good for particular business use cases.
+Reinforcement fine-tuning is a model customization technique in Amazon Bedrock that improves foundation model performance
+by teaching models what constitutes a "good" response through feedback signals called rewards. Unlike traditional
+fine-tuning methods that depend on labeled datasets, reinforcement
+fine-tuning uses a feedback-driven approach that iteratively optimizes the model to maximize these rewards.
 
-Reinforcement fine-tuning teaches models to understand what makes a quality response. You don't need massive amounts
-of pre-labeled training data. This makes advanced model customization in Amazon Bedrock more accessible and cost-effective.
+## Reinforcement fine-tuning applications and scenarios
 
-The capability supports two approaches to provide flexibility for optimizing models:
+Use reinforcement fine-tuning when you can define clear, measurable success criteria for evaluating response quality. Reinforcement fine-tuning excels in domains where output quality can be objectively measured, especially when multiple valid responses exist or when optimal responses are difficult to define upfront. It's ideal for:
 
-- **Reinforcement Learning with Verifiable Rewards (RLVR)** - Uses rule-based graders
-  for objective tasks like code generation or math reasoning
-- **Reinforcement Learning from AI Feedback (RLAIF)** - Uses AI-based judges for
-  subjective tasks like instruction following or content moderation
-  For more information, see [Setting up reward functions](reward-functions.md "reward-functions.md").
+- Mathematical problem-solving and code generation (using rule-based graders for objective evaluation)
+- Scientific reasoning and structured data analysis
+- Subjective tasks like instruction following, content moderation, and creative writing (using AI-based judges)
+- Tasks requiring step-by-step reasoning or multi-turn problem solving
+- Scenarios with multiple valid solutions where some are clearly better than others
+- Applications balancing multiple objectives (accuracy, efficiency, style)
+- Applications requiring iterative improvement, personalization, or adherence to complex business rules
+- Scenarios where success can be verified programmatically through execution results or performance metrics
+- Cases where collecting high-quality labeled examples is expensive or impractical
 
-Reinforcement fine-tuning can provide the following benefits:
+## Benefits of reinforcement fine-tuning
 
-- **Improved model performance** - Reinforcement fine-tuning improves model accuracy
-  compared to base models. This enables optimization for price and performance by training smaller, faster,
-  and more efficient model variants.
-- **Flexible training data** - Amazon Bedrock automates much of the complexity. This makes
-  reinforcement fine-tuning accessible to developers building AI applications. You can easily train models using
-  existing Amazon Bedrock model invocation logs as training data or upload your datasets.
-- **Security and compliance** - Your proprietary data never leaves AWS's secure,
-  governed environment during the customization process.
-
-###### Topics
-
-- [Supported models for reinforcement fine-tuning](#rft-supported-models "#rft-supported-models")
-- [How reinforcement fine-tuning works](#rft-how-it-works "#rft-how-it-works")
-- [Reinforcement fine-tuning access and security](rft-access-security.md "rft-access-security.md")
-- [Prepare your training data and reward functions for reinforcement fine-tuning](rft-prepare-data.md "rft-prepare-data.md")
-- [Create a reinforcement fine-tuning job](rft-submit-job.md "rft-submit-job.md")
+- **Improved model performance** – Reinforcement fine-tuning improves model accuracy by up to 66% on average compared to base models. This enables optimization for price and performance by fine-tuning smaller, faster, and more efficient model variants.
+- **Ease of use** – Amazon Bedrock automates the complexity of reinforcement fine-tuning, making it accessible to developers building AI applications. You can fine-tune models using your uploaded datasets or existing API invocation logs. You can define reward functions that grade model outputs with custom code using Lambda or model-as-a-judge grader, with built-in templates that help with quick setup.
+- **Security and compliance** – Your proprietary data never leaves AWS's secure, governed environment during the customization process.
 
 ## Supported models for reinforcement fine-tuning
 
 The following table shows the foundation models that you can customize with reinforcement fine-tuning:
 
-| Supported models for reinforcement fine-tuning | Provider    | Model                        | Model ID  | Single-region model support |
-| ---------------------------------------------- | ----------- | ---------------------------- | --------- | --------------------------- |
-| Amazon                                         | Nova 2 Lite | amazon.nova-2-lite-v1:0:256k | us-east-1 |
+| Supported models for reinforcement fine-tuning | Provider    | Model                        | Model ID              | Region name | Region |
+| ---------------------------------------------- | ----------- | ---------------------------- | --------------------- | ----------- | ------ |
+| Amazon                                         | Nova 2 Lite | amazon.nova-2-lite-v1:0:256k | US East (N. Virginia) | us-east-1   |
+| OpenAI                                         | gpt-oss-20B | openai.gpt-oss-20b           | US West (Oregon)      | us-west-2   |
+| Qwen                                           | Qwen3 32B   | qwen.qwen3-32b               | US West (Oregon)      | us-west-2   |
 
 ## How reinforcement fine-tuning works
 
-Amazon Bedrock fully automates the RFT workflow through a three-stage process:
+Amazon Bedrock fully automates the reinforcement fine-tuning workflow. The model receives prompts from your training dataset and generates several
+responses per prompt. These responses are then scored by a reward function. Amazon Bedrock uses the prompt-response pairs with scores to train
+the model through policy-based learning using Group Relative Policy Optimization (GRPO). The training loop continues until it reaches the end
+of your training data or you stop the job at a chosen checkpoint, producing a model optimized for the metric that matters to you.
 
-**Stage 1: Response generation**
+## Reinforcement fine-tuning best practices
 
-The actor model (the model being customized) receives prompts from your training dataset and generates responses.
-By default, it generates 4 responses per prompt. This stage supports both single-turn and multi-turn interactions,
-allowing comprehensive coverage of different use cases.
+- **Start small** – Begin with 100-200 examples, validate reward function correctness, and scale gradually based on results
+- **Pre fine-tuning evaluation** – Test baseline model performance before reinforcement fine-tuning. If rewards are consistently 0 percent, use supervised fine-tuning first to establish basic capabilities. If rewards are greater than 95 percent, reinforcement fine-tuning might be unnecessary
+- **Monitor training** – Track average reward scores and distribution. Watch for overfitting (training rewards increase while validation rewards decrease). Look for concerning patterns such as rewards plateauing below 0.15, increasing reward variance over time, and declining validation performance
+- **Optimize reward functions** – Execute within seconds (not minutes), minimize external API calls, use efficient algorithms, implement proper error handling, and take advantage of Lambda's parallel scaling
+- **Iteration strategy** – If rewards aren't improving, adjust reward function design, increase dataset diversity, add more representative examples, and verify reward signals are clear and consistent
 
-**Stage 2: Reward computation**
+###### Topics
 
-Actor model generated prompt-response pairs are evaluated by your selected optimizing models:
-
-- **RLVR** - Execute through Lambda to compute objective scores
-- **RLAIF** - Evaluate responses based on criteria and principles you configure
-  (the console converts these into Lambda functions automatically)
-
-**Stage 3: Actor model training**
-
-Amazon Bedrock uses the prompt-response pairs with scores to train the actor model through policy-based learning using Group
-Relative Policy Optimization (GRPO). The training loop continues iteratively until the model achieves desired performance
-metrics or meets pre-defined stopping criteria.
-
-Amazon Bedrock automatically handles parallel reward computation, training pipeline optimization, and implements safeguards
-against common reinforcement learning challenges like reward hacking and policy collapse.
+- [Fine-tune Amazon Nova models with reinforcement fine-tuning](rft-nova-models.md "rft-nova-models.md")
+- [Fine-tune open-weight models using OpenAI-compatible APIs](fine-tuning-openai-apis.md "fine-tuning-openai-apis.md")
+- [Evaluate your RFT model](rft-evaluate-model.md "rft-evaluate-model.md")

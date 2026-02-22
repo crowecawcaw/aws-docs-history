@@ -14,9 +14,10 @@ Compaction extends the effective context length for long-running conversations a
 - Task-oriented prompts that require a lot of follow-up work (often tool use) that may exceed the 200K context window
   Compaction is supported on the following models:
 
-| Model           | Model ID                       |
-| --------------- | ------------------------------ |
-| Claude Opus 4.6 | `anthropic.claude-opus-4-6-v1` |
+| Model             | Model ID                       |
+| ----------------- | ------------------------------ |
+| Claude Sonnet 4.6 | `anthropic.claude-sonnet-4-6`  |
+| Claude Opus 4.6   | `anthropic.claude-opus-4-6-v1` |
 
 ###### Note
 

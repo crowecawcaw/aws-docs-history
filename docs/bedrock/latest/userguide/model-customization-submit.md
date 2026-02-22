@@ -1,6 +1,6 @@
-# Submit a model customization job for fine-tuning or continued pre-training
+# Submit a model customization job for fine-tuning
 
-You can create a custom model by using Fine-tuning or Continued Pre-training in the
+You can create a custom model by using fine-tuning in the
 Amazon Bedrock console or API. You can further fine tune an existing custom model. The
 customization job can take several hours. The duration of the job depends on the size of the
 training data (number of records, input tokens, and output tokens), number of epochs,
@@ -27,7 +27,7 @@ To submit a model customization job in the console, carry out the following step
 1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
    [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
 2. From the left navigation pane, choose **Custom models** under **Tune**.
-3. In the **Models** tab, choose **Customize model** and then **Create Fine-tuning job** or **Create Continued Pre-training job**, depending on the type of model you want to train.
+3. In the **Models** tab, choose **Customize model** and then **Create Fine-tuning job**.
 4. In the **Model details** section, do the following.
    1. Choose the model that you want to customize with your own data and give your resulting model a name. You can choose either a foundation model or a previously customized model (fine-tuned or distilled) as your base model.
    2. (Optional) By default, Amazon Bedrock encrypts your model with a key owned and managed by AWS. To use a [custom KMS key](encryption-custom-job.md "encryption-custom-job.md"), select **Model encryption** and choose a key.
@@ -54,7 +54,7 @@ stores the training loss metrics and validation loss metrics for each epoch in s
     * **Create and use a new service role** –
      Enter a name for the service role.
 
-11. Choose **Fine-tune model** or **Create Continued Pre-training job** to begin the job.
+11. Choose **Fine-tune model** to begin the job.
 
 API
 **Request**
@@ -71,8 +71,7 @@ If you include a `vpcConfig` field, make sure that the role has the proper permi
 - `customModelName` – The name to give the newly customized model.
 - `jobName` – The name to give the training job.
 - `hyperParameters` – [Hyperparameters](custom-models-hp.md "custom-models-hp.md") that affect the model customization process.
-- `trainingDataConfig` – An object containing the Amazon S3 URI of the training dataset. Depending on the customization method and model, you can also include a `validationDataConfig`. For more information about preparing the datasets, see [Prepare your training datasets for fine-tuning and continued
-  pre-training](model-customization-prepare.md "model-customization-prepare.md").
+- `trainingDataConfig` – An object containing the Amazon S3 URI of the training dataset. Depending on the customization method and model, you can also include a `validationDataConfig`. For more information about preparing the datasets, see [Prepare data for fine-tuning your models](model-customization-prepare.md "model-customization-prepare.md").
 - `validationDataconfig` – An object containing the Amazon S3 URI of the validation dataset.
 - `outputDataConfig` – An object containing the Amazon S3 URI to write the output data to.
 

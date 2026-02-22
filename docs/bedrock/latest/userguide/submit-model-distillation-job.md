@@ -7,9 +7,8 @@ request with an [Amazon Bedrock control plane endpoint](../../../general/latest/
 
 ## Prerequisites
 
-- Create an AWS Identity and Access Management (IAM) service role to access the Amazon S3 bucket where you want to store your model
-  customization training and validation data. You can create this role using the
-  AWS Management Console or manually. For more information on the manual option, see [Create an IAM service role for model customization](custom-model-job-access-security.md#custom-model-job-service-role "custom-model-job-access-security.md#custom-model-job-service-role").
+- Create an IAM service role with the required permissions. For comprehensive security and permissions information, see [Model customization access and
+  security](custom-model-job-access-security.md "custom-model-job-access-security.md").
 - (Optional) Encrypt input and output data, your customization job, or inference requests made to custom models. For more information, see [Encryption of custom models](encryption-custom-job.md "encryption-custom-job.md").
 - (Optional) Create a Virtual Private Cloud (VPC) to protect your customization job. For
   more information, see [(Optional) Protect your model customization jobs
@@ -50,7 +49,7 @@ Console
 6. For **Teacher model – Student model details**, choose the teacher and
    student models for creating your distilled model.
 
-For more information, see [Choose teacher and student models for distillation](prequisites-model-distillation.md "prequisites-model-distillation.md"). 7. For **Synthetic data generation**, do the
+For more information, see [Prerequisites for model distillation](prequisites-model-distillation.md "prequisites-model-distillation.md"). 7. For **Synthetic data generation**, do the
 following:
 
     1. For **Max response length**, specify the maximum length of the synthetic responses

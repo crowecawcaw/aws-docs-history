@@ -70,6 +70,5 @@ iterate on your guardrail later by following the steps at [Modify your guardrail
   to filter hallucinations in responses](guardrails-contextual-grounding-check.md "guardrails-contextual-grounding-check.md")
 - [Options for handling
   harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md "guardrails-harmful-content-handling-options.md")
-- [Improve accuracy by adding Automated
-  Reasoning checks in Amazon Bedrock Guardrails](guardrails-automated-reasoning-checks.md "guardrails-automated-reasoning-checks.md")
+- [What are Automated Reasoning checks in Amazon Bedrock Guardrails?](guardrails-automated-reasoning-checks.md "guardrails-automated-reasoning-checks.md")
 - [Code domain support](guardrails-code-domain.md "guardrails-code-domain.md")

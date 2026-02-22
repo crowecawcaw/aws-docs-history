@@ -1,30 +1,36 @@
-# Choose teacher and student models for distillation
+# Prerequisites for model distillation
 
-For Model Distillation, you choose a teacher and student model.
+Before you can begin, make sure that you understand access and security controls for
+Model Distillation. You must also choose a teacher and student model for your distillation job.
 
-- **Choose a teacher model**
+## Permissions
 
-Choose a teacher model that's significantly larger and more capable than the student model, and
-whose accuracy you want to achieve for your use case. To make distillation more effective, choose a
-model that's already trained on tasks similar to your use case.
+Before you can begin, make sure that you understand access and security controls for
+Model Distillation. You must have an IAM service role that can access the Amazon S3 bucket
+where you want to store your Model Distillation training and validation data. Amazon Bedrock also
+has options for encrypting and further securing your distillation jobs and artifacts.
+For more information, see [Model customization access and
+security](custom-model-job-access-security.md "custom-model-job-access-security.md").
 
-For some teacher models, you can choose a Cross-Region inference profile ([Increase throughput with cross-Region
-inference](cross-region-inference.md "cross-region-inference.md")).
-Cross-Region inference automatically selects the optimal AWS Region
-within your geography to process your inference request. This improves customer experience by
-maximizing available resources and model availability. To use a Cross-Region inference profile, your service role must
+To use a cross-region inference profile for a teacher model in a Distillation job, your service role must
 have permissions to invoke the inference profile in an AWS Region, in addition to the model in each Region
-in the inference profile. For a policy example, see [(Optional) Permissions to create a Distillation job with a cross-region inference profile](custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions "custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions").
+in the inference profile. For a policy example, see [(Optional) Permissions to create a Distillation job
+with a cross-region inference profile](custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions "custom-model-job-access-security.md#custom-models-cross-region-inference-profile-permissions"). For more information about cross-region inference, see [Increase throughput with cross-Region
+inference](cross-region-inference.md "cross-region-inference.md").
 
-- **Choose a student model**
+## Choose teacher and student models for distillation
 
-Choose a student model that's significantly smaller in size than the teacher model. The student model must be one of the student models paired with your teacher model in the following table.
+| Model Type        | Selection Criteria                                                                                                                                    | Key Considerations                                                                                                                                                                      | Requirements                                                                                                                                |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Teacher Model** | Choose a teacher model that's significantly larger and more capable than the student model, and whose accuracy you want to achieve for your use case. | To make distillation more effective, choose a model that's already trained on tasks similar to your use case. For some teacher models, you can choose a Cross-Region inference profile. | Must have permissions to invoke inference profiles and models in each Region. See cross-region inference documentation for policy examples. |
+| **Student Model** | Choose a student model that's significantly smaller in size than the teacher model.                                                                   | The student model must be one of the student models paired with your teacher model in the supported models table.                                                                       | Must be compatible with selected teacher model as shown in the following table.                                                             |
+
 The following section lists the supported models and regions for Amazon Bedrock Model Distillation.
 After you choose your teacher and student models, you prepare and optimize your training datasets
 for distillation. For more information, see [Prepare your training datasets for
 distillation](distillation-prepare-datasets.md "distillation-prepare-datasets.md").
 
-## Supported models and Regions for Amazon Bedrock Model Distillation
+### Supported models and Regions for Amazon Bedrock Model Distillation
 
 The following table shows which models and AWS Regions Amazon Bedrock Model Distillation supports for teacher and student
 models. If you use a Cross Region Inference Profile, only System Inference Profiles are supported for model distillation.

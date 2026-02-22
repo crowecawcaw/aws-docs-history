@@ -1,10 +1,8 @@
-# Supervised fine-tuning on Amazon Nova 2.0
-
-## Overview
+# Fine-tune Amazon Nova models with supervised fine-tuning
 
 Amazon Nova 2.0 SFT data uses the same Converse API format as Amazon Nova 1.0, with the addition of optional reasoning content fields. For complete format specifications, see [ReasoningContentBlock](../APIReference/API_runtime_ReasoningContentBlock.md "../APIReference/API_runtime_ReasoningContentBlock.md") and [Converse API schema](conversation-inference-call.md "conversation-inference-call.md").
 
-## Supported features
+**Supported features:**
 
 - **Input types** – Text, image, or video in user content blocks
 - **Assistant content** – Text-only responses and reasoning content
@@ -14,13 +12,12 @@ Amazon Nova 2.0 SFT data uses the same Converse API format as Amazon Nova 1.0, w
 
 You cannot mix images and videos within the same dataset or across different turns.
 
-## Current limitations
+**Current limitations:**
 
 - **Tool usage** – Although tool usage is supported in the input format, it is not currently supported by Amazon Nova 2.0 SFT. Adding tool sections might cause your job to fail.
 - **Multimodal reasoning content** – Although the Converse format supports image-based reasoning content, this is not supported by Amazon Nova 2.0 SFT.
 - **Validation sets** – Providing a validation set might be supported through the UI but will not be supported during SFT training.
-
-## Supported media formats
+  **Supported media formats:**
 
 - **Images** – PNG, JPEG, GIF
 - **Videos** – MOV, MKV, MP4
@@ -202,55 +199,35 @@ This example shows how to include video input with text.
 }
 ```
 
-## Reasoning and non-reasoning modes
+## Reasoning content
 
-**Understanding reasoning content:** Reasoning content (also called chain-of-thought) captures the model's intermediate thinking steps before generating a final answer. In the `assistant` turn, use the `reasoningContent` field to include these reasoning traces.
+Reasoning content (also called chain-of-thought) captures the model's intermediate thinking steps before generating a final answer. In the `assistant` turn, use the `reasoningContent` field to include these reasoning traces.
 
 **How loss is calculated:**
 
 - **With reasoning content** – Training loss includes both reasoning tokens and final output tokens
 - **Without reasoning content** – Training loss is calculated only on the final output tokens
 
-You can include `reasoningContent` across multiple assistant turns in multi-turn conversations.
-
-### When to enable reasoning mode
-
-Set `reasoning_enabled: true` in your training configuration when you want the model to generate thinking tokens before producing final outputs or need improved performance on complex reasoning tasks.
+**When to enable reasoning mode:** Set `reasoning_enabled: true` in your training configuration when you want the model to generate thinking tokens before producing final outputs or need improved performance on complex reasoning tasks. Set `reasoning_enabled: false` when you're training on straightforward tasks that don't benefit from explicit reasoning steps.
 
 ###### Note
 
 You can enable reasoning mode regardless of whether your training data contains reasoning content. However, including reasoning traces in your training data is recommended so the model can learn from these examples and improve reasoning quality.
 
-Set `reasoning_enabled: false` when you're training on straightforward tasks that don't benefit from explicit reasoning steps or want to optimize for speed and reduce token usage.
-
-### Formatting guidelines
+**Formatting guidelines:**
 
 - Use plain text for reasoning content.
 - Avoid markup tags like `<thinking>` and `</thinking>` unless specifically required by your task.
 - Ensure reasoning content is clear and relevant to the problem-solving process.
 
-### Generating reasoning data
-
-If your dataset lacks reasoning traces, you can create them using a reasoning-capable model like Nova Premier. Provide your input-output pairs to the model and capture its reasoning process to build a reasoning-augmented dataset.
-
-### Using reasoning tokens for training
-
-When training with reasoning mode enabled, the model learns to separate internal reasoning from the final answer. The training process does the following:
-
-- Organizes data as triples: input, reasoning, and answer
-- Optimizes using standard next-token prediction loss from both reasoning and answer tokens
-- Encourages the model to reason internally before generating responses
-
-### Effective reasoning content
-
-High-quality reasoning content should include the following:
+**Effective reasoning content should include:**
 
 - Intermediate thoughts and analysis
 - Logical deductions and inference steps
 - Step-by-step problem-solving approaches
 - Explicit connections between steps and conclusions
 
-This helps the model develop the ability to think before answering.
+If your dataset lacks reasoning traces, you can create them using a reasoning-capable model like Nova Premier. Provide your input-output pairs to the model and capture its reasoning process to build a reasoning-augmented dataset.
 
 ## Dataset preparation guidelines
 

@@ -55,9 +55,8 @@ For information on Amazon Amazon Titan Image Generator G1 model inference parame
 
 For more information on fine-tuning the Amazon Titan Image Generator G1 model, see the following pages.
 
-- [Prepare your training datasets for fine-tuning and continued
-  pre-training](model-customization-prepare.md "model-customization-prepare.md")
-- [Amazon Titan Image Generator G1 models customization hyperparameters](cm-hp-titan-image.md "cm-hp-titan-image.md")
+- [Prepare data for fine-tuning your models](model-customization-prepare.md "model-customization-prepare.md")
+- [Amazon Titan Image Generator G1 models customization hyperparameters](custom-models-hp.md#cm-hp-titan-image "custom-models-hp.md#cm-hp-titan-image")
 
 **Amazon Titan Image Generator G1 model fine-tuning and pricing**
 

@@ -7,36 +7,27 @@ improves for a specific use case. Amazon Bedrock Model Distillation uses the lat
 techniques to generate diverse, high-quality responses (known as synthetic data) from the
 teacher model, and fine-tunes the student model.
 
+## How to use Amazon Bedrock Model Distillation
+
 To use Amazon Bedrock Model Distillation, you do the following:
 
-1. Choose a teacher model and a student model. For more information, see [Choose teacher and student models for distillation](prequisites-model-distillation.md "prequisites-model-distillation.md").
-2. Prepare your training data for distillation. Your training data is a collection of prompts
+1. **Choose a teacher model and a student model** – For more information, see [Prerequisites for model distillation](prequisites-model-distillation.md "prequisites-model-distillation.md").
+2. **Prepare your training data for distillation** – Your training data is a collection of prompts
    stored in `.jsonl` files. Amazon Bedrock uses the input data to generate responses from the teacher
    model and uses the responses to fine-tune the student model.
-   - You can optimize the synthetic data generation process by formatting your input prompts for
+   - **Optimize prompts** – Format your input prompts for
      the use case that you want. For more information, see [Optimize your input prompts for
      synthetic data generation](distillation-prepare-datasets.md#distillation-data-prep-prompt-optimization "distillation-prepare-datasets.md#distillation-data-prep-prompt-optimization").
-   - You can prepare labeled input data as prompt-response pairs. Amazon Bedrock can use these pairs as
+   - **Use labeled examples** – Prepare labeled input data as prompt-response pairs. Amazon Bedrock can use these pairs as
      golden examples while generating responses from the teacher model. For more information, see
      [Option 1: Provide your own prompts for data preparation](distillation-data-prep-option-1.md "distillation-data-prep-option-1.md").
-   - If you enable CloudWatch Logs invocation logging, you can use existing teacher responses from invocation logs stored in Amazon S3 as training data.
+   - **Use invocation logs** – If you enable CloudWatch Logs invocation logging, you can use existing teacher responses from invocation logs stored in Amazon S3 as training data.
      An invocation log in Amazon Bedrock is a detailed record of model invocations. For more information, see [Option 2: Use invocation logs for data preparation](distillation-data-prep-option-2.md "distillation-data-prep-option-2.md").
 
-3. Create a Distillation job. This job creates a smaller, faster, and more cost-effective model for your
+3. **Create a distillation job** – This job creates a smaller, faster, and more cost-effective model for your
    use case. Only you can access the final distilled model. Amazon Bedrock doesn't use your data to train any other
    teacher or student model for public use. For more information, see [Submit a model distillation job in
    Amazon Bedrock](submit-model-distillation-job.md "submit-model-distillation-job.md"). For more information on setting up on demand inference, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").
-
-###### Topics
-
-- [How Amazon Bedrock Model Distillation works](#how-md-works "#how-md-works")
-- [Access and security for Model Distillation](model-distillation-access-security.md "model-distillation-access-security.md")
-- [Choose teacher and student models for distillation](prequisites-model-distillation.md "prequisites-model-distillation.md")
-- [Prepare your training datasets for
-  distillation](distillation-prepare-datasets.md "distillation-prepare-datasets.md")
-- [Submit a model distillation job in
-  Amazon Bedrock](submit-model-distillation-job.md "submit-model-distillation-job.md")
-- [Clone a distillation job](clone-model-distillation-job.md "clone-model-distillation-job.md")
 
 ## How Amazon Bedrock Model Distillation works
 
@@ -62,10 +53,6 @@ at the on-demand inference rates of the teacher model. Data synthesis techniques
 may increase the size of the fine-tuning dataset to a maximum of 15k
 prompt-response pairs. For more information about Amazon Bedrock charges, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 
-### Creating a distilled model using prompts that you
-
-provide
-
 Amazon Bedrock uses the input prompts that you provide to generate responses from the
 teacher model. Amazon Bedrock then uses the responses to fine-tune the student model that
 you've identified. Depending on your use case, Amazon Bedrock might add proprietary data
@@ -74,10 +61,6 @@ Amazon Bedrock might generate similar prompts to generate more diverse responses
 teacher model. Or, if you optionally provide a handful of labeled input data as
 prompt-response pairs, then Amazon Bedrock might use these pairs as golden examples to
 instruct the teacher to generate similar high-quality responses.
-
-### Creating a distilled model using production
-
-data
 
 If you already have responses generated by the teacher model and stored them in
 the invocation logs, you can use those existing teacher responses to fine-tune the
@@ -97,17 +80,14 @@ filter by your specific use cases, and then Amazon Bedrock only uses the filtere
 student model. When you choose to use invocation logs to fine-tune your student model, you can have Amazon Bedrock
 use the prompts only, or use prompt-response pairs.
 
-**Choosing prompts with invocation logs**
-
+Choosing prompts with invocation logs
 If you choose to have Amazon Bedrock use only the prompts from the invocation logs, then
 Amazon Bedrock uses the prompts to generate responses from the teacher model. In this case,
 Amazon Bedrock uses the responses to fine-tune the student model that you've identified.
 Depending on your use case, Amazon Bedrock Model Distillation might add proprietary data synthesis techniques
 to generate diverse and higher-quality responses.
 
-**Choosing prompt-response pairs with invocation
-logs**
-
+Choosing prompt-response pairs with invocation logs
 If you choose to have Amazon Bedrock use prompt-response pairs from the invocation logs,
 then Amazon Bedrock won't re-generate responses from the teacher model and use the responses
 from the invocation log to fine-tune the student model. For Amazon Bedrock to read the

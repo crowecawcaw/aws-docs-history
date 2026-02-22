@@ -2,10 +2,15 @@
 
 security
 
-Before you begin customizing a model, make sure that you understand what kind of access
-Amazon Bedrock needs and consider some options for securing your customization jobs and artifacts.
+This page provides comprehensive security and permissions information for all Amazon Bedrock model customization types including fine-tuning, reinforcement fine-tuning, distillation,
+and model operations. Before you begin customizing a model, make sure that you understand what kind of access Amazon Bedrock needs and consider some options for securing your customization
+jobs and artifacts.
 
-## Create an IAM service role for model customization
+The following sections contain the permissions required for different customization scenarios. Choose the appropriate permissions based on your specific use case:
+
+All model customization jobs require these basic permissions. These apply to fine-tuning, distillation, and other customization types.
+
+### Create an IAM service role for model customization
 
 Amazon Bedrock needs an AWS Identity and Access Management (IAM) service role to access the S3 bucket where you want to
 store your model customization training and validation data. There are a couple ways to
@@ -27,12 +32,6 @@ delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_c
   - A model customization job or the resulting custom model
   - The training, validation, or output data for the model
     customization job
-
-###### Topics
-
-- [Trust relationship](#custom-model-job-service-role-trust-relationship "#custom-model-job-service-role-trust-relationship")
-- [Permissions to access training and validation files and to write output
-  files in S3](#custom-model-job-service-role-s3-permissions "#custom-model-job-service-role-s3-permissions")
 
 ### Trust relationship
 
@@ -124,7 +123,68 @@ JSON
 
 ```
 
-## (Optional) Permissions to create a Distillation job with a cross-region inference profile
+To copy a model to another Region, you need specific permissions depending on your role's current permissions and the model's configuration.
+
+1. If your role doesn't have the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess") policy attached, attach the following identity-based policy to the role to allow the minimal permissions to copy models and to track copy jobs.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "CopyModels",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:CreateModelCopyJob",
+ "bedrock:GetModelCopyJob",
+ "bedrock:ListModelCopyJobs"
+ ],
+ "Resource": [
+ "arn:aws:bedrock:`us-east-1`::foundation-model/`model-id`"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestedRegion": [
+ "`us-east-1`"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+2. (Optional) If the model to be copied is encrypted with a KMS key, attach a [key policy to the KMS key that encrypted the model](encryption-custom-job.md#encryption-key-policy-decrypt "encryption-custom-job.md#encryption-key-policy-decrypt") to allow a role to decrypt it.
+3. (Optional) If you plan to encrypt the model copy with a KMS key, attach a [key policy to the KMS key that will be used to encrypt the model](encryption-custom-job.md#encryption-key-policy-encrypt "encryption-custom-job.md#encryption-key-policy-encrypt") to allow a role to encrypt the model with the key.
+   To use a cross-region inference profile for a teacher model in a distillation job, the service role must
+   have permissions to invoke the inference profile in an AWS Region, in addition to the model in each Region
+   in the inference profile.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "CrossRegionInference",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:InvokeModel"
+ ],
+ "Resource": [
+ "arn:aws:bedrock:`us-east-1`:`123456789012`:inference-profile/`${InferenceProfileId}`",
+ "arn:aws:bedrock:`us-east-1`::foundation-model/`${ModelId}`",
+ "arn:aws:bedrock:`us-east-1`::foundation-model/`${ModelId}`"
+ ]
+ }
+ ]
+}`
+
+```
 
 To use a cross-region inference profile for a teacher model in a distillation job, the service role must
 have permissions to invoke the inference profile in an AWS Region, in addition to the model in each Region
@@ -155,16 +215,8 @@ JSON
 
 ```
 
-## (Optional) Encrypt model customization
-
-jobs and artifacts
-
 Encrypt the input and output data, customization jobs, or inference requests made to
 custom models. For more information, see [Encryption of custom models](encryption-custom-job.md "encryption-custom-job.md").
-
-## (Optional) Protect your model customization jobs
-
-using a VPC
 
 When you run a model customization job, the job accesses your Amazon S3 bucket to download the
 input data and to upload job metrics. To control access to your data, we recommend that you use a virtual private cloud (VPC) with [Amazon VPC](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md"). You can further protect your data by configuring your VPC so that your data isn't available over the internet and instead creating a VPC interface endpoint with [AWS PrivateLink](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") to establish a private connection to your data. For more information about how Amazon VPC and AWS PrivateLink integrate with Amazon Bedrock, see [Protect your data using Amazon VPC and AWS PrivateLink](usingVPC.md "usingVPC.md").
@@ -307,7 +359,7 @@ Console
 For the Amazon Bedrock console, you specify VPC subnets and security groups in the
 optional **VPC settings** section when you create the model
 customization job. For more information about configuring jobs,
-see [Submit a model customization job for fine-tuning or continued pre-training](model-customization-submit.md "model-customization-submit.md").
+see [Submit a model customization job for fine-tuning](model-customization-submit.md "model-customization-submit.md").
 
 ###### Note
 

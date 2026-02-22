@@ -1,107 +1,156 @@
-# Improve accuracy by adding Automated
+# What are Automated Reasoning checks in Amazon Bedrock Guardrails?
 
-Reasoning checks in Amazon Bedrock Guardrails
-
-Automated Reasoning checks in Amazon Bedrock Guardrails mathematically verify natural language content against
-your defined policies, ensuring strict compliance with your guardrails. These checks can help to
-systematically block harmful or non-compliant content before it reaches your users. Unlike
-pattern-matching approaches, Automated Reasoning delivers higher accuracy with fewer false
-positives, particularly for complex policy requirements. For customers prioritizing precision,
-policy rules can be customized to enhance guardrail effectiveness through clear logic
-statements.
+## What Automated Reasoning checks do
 
 A key challenge with large language models (LLMs) is ensuring the accuracy of their
-responses. Without validation, LLMs can sometimes produce hallucinations or inaccurate
-information that undermines trust.
+responses. Without validation, LLMs can produce hallucinations or inaccurate information
+that undermines trust. Automated Reasoning checks in Amazon Bedrock Guardrails help solve this problem by using
+mathematical techniques to validate natural language content against policies you define.
 
-Automated Reasoning checks in Amazon Bedrock Guardrails solve this problem by using mathematical techniques
-to:
+Unlike traditional guardrail components that block or filter content based on pattern
+matching, Automated Reasoning checks uses formal logic to provide structured feedback
+about _why_ a response is correct or incorrect. This feedback can be
+used to steer an LLM towards generating content that is provably consistent with your policy.
+Specifically, Automated Reasoning checks can:
 
-- Detect hallucinations in LLM responses
-- Highlight unstated assumptions
-- Provide explanations for why accurate statements are correct
-  This feature is especially valuable when you need to demonstrate the factual basis for an
-  LLM's response in:
+- **Detect factually incorrest statements** in LLM responses by
+  mathematically proving that generated content contradicts your policy rules.
+- **Highlight unstated assumptions** where a response is
+  consistent with your policy but doesn't address all relevant rules, indicating the
+  response may be incomplete.
+- **Provide mathematically verifiable explanations** for why
+  accurate statements are correct, citing the specific policy rules and variable assignments that
+  support the conclusion.
 
-- Regulated industries like healthcare and human resources
-- Applications with complex rules (mortgage approvals, zoning laws)
-- Compliance scenarios requiring auditable AI responses
-  Automated Reasoning checks in Amazon Bedrock Guardrails will not protect against prompt injection attacks. These
-  checks validate exactly what you send them - if malicious or manipulated content is provided as
-  input, the validation will be performed on that content as-is (garbage-in, garbage-out). To
-  detect and block prompt injection attacks, use [Content
-  filters](guardrails-components.md#guardrails-content-filters "guardrails-components.md#guardrails-content-filters") in combination with Automated Reasoning checks.
+These capabilities make Automated Reasoning checks different from other Amazon Bedrock Guardrails components.
+Content filters and topic policies act as binary gates — they block or allow content.
+Automated Reasoning checks act as a verification layer that provides detailed, actionable
+feedback you can use to improve responses programmatically.
 
-Automated Reasoning only analyzes and detects text that is relevant to the Automated
-Reasoning policy. It will ignore the rest of the content and cannot tell developers whether the
-answer is off-topic or not. If you need to detect off-topic responses, use other guardrail
-components such as [topic
-policies](guardrails-components.md#guardrails-topic-policies "guardrails-components.md#guardrails-topic-policies").
+## When to use Automated Reasoning checks
 
-###### Note
+Automated Reasoning checks are most valuable when you need to demonstrate the factual
+basis for an LLM's response. Consider using them when your application involves:
 
-Automated Reasoning checks in Amazon Bedrock Guardrails is generally available in US (N.
-Virginia, Oregon, and Ohio) and EU (Frankfurt, Paris, Ireland) Regions.
+- **Regulated industries** such as healthcare, human
+  resources, and financial services, where incorrect information can have legal or
+  compliance consequences.
+- **Complex rule sets** such as mortgage approvals, zoning
+  laws, insurance eligibility, or employee benefits, where multiple conditions interact to
+  determine an outcome.
+- **Compliance scenarios** that require auditable AI
+  responses with mathematically verifiable proof that the response is consistent with your
+  policies.
+- **Customer-facing applications** where incorrect
+  guidance could erode trust, such as chatbots that answer questions about company policies,
+  product eligibility, or service terms.
 
-###### Note
+## What Automated Reasoning checks don't do
 
-Automated Reasoning checks in Amazon Bedrock Guardrails complement other Amazon Bedrock Guardrails features like content filters and
-topic policies. For more information, see [Guardrail
+To set the right expectations, be aware of the following limitations:
+
+- **No prompt injection protection.** Automated Reasoning
+  checks validate exactly what you send them. If malicious or manipulated content is
+  provided as input, the validation is performed on that content as-is. To detect and block
+  prompt injection attacks, use [Content filters](guardrails-components.md#guardrails-content-filters "guardrails-components.md#guardrails-content-filters") in combination with Automated Reasoning checks.
+- **No off-topic detection.** Automated Reasoning only
+  analyzes text that is relevant to the policy. It ignores unrelated content and cannot
+  tell you whether a response is off-topic. To detect off-topic responses, use [topic policies](guardrails-components.md#guardrails-topic-policies "guardrails-components.md#guardrails-topic-policies").
+- **No streaming support.** Automated Reasoning checks
+  do not support streaming APIs. You must validate complete responses.
+- **English only.** Automated Reasoning checks currently
+  support English (US) only.
+- **Scope limited to your policy.** A `VALID`
+  result guarantees validity only for the parts of the input captured through policy
+  variables. Statements that fall outside the scope of your policy's variables are not
+  validated. For example, "I can submit my homework late because I have a fake doctor's
+  note" might be deemed valid if the policy has no variable to capture whether the doctor's
+  note is fake.
+
+Automated Reasoning checks complement other Amazon Bedrock Guardrails features like content filters and topic
+policies. For the best protection, use them together. For more information, see [Guardrail
 components](guardrails-components.md "guardrails-components.md").
 
-Automated Reasoning checks in Amazon Bedrock Guardrails currently support English (US) only.
+## End-to-end workflow overview
 
-Automated Reasoning checks in Amazon Bedrock Guardrails does not support streaming APIs.
+Using Automated Reasoning checks involves four phases: creating a policy, testing it,
+deploying it in a guardrail, and integrating it into your application.
+
+```
+
+Source Document ──► Extracted Policy ──► Testing ──► Deployment ──► Integration
+    (rules)          (formal logic)      (verify)    (guardrail)    (validate responses
+                                                                     and act on feedback)
+
+```
+
+1. **Create a policy.** Upload a source document that
+   contains the rules you want to enforce. Automated Reasoning extracts formal logic rules
+   and a schema of variables from your document. Review the extracted policy to ensure it
+   captures your rules correctly. For more information, see [Create your Automated Reasoning policy](create-automated-reasoning-policy.md "create-automated-reasoning-policy.md").
+2. **Test and refine.** Tests helps ensure that your policy
+   can accurately validate generated content even while you make changes to the policy itself.
+   Create tests that mimic the questions your users will ask and the responses your LLM might
+   generate. Automated Reasoning checks uses foundational models to translation natural language
+   to logic. Use generated scenarios to validate rule correctness and QnA tests to validate the
+   natural language to logic translation accuracy. Refine your policy based on test results.
+   For more information, see [Test an Automated Reasoning policy](test-automated-reasoning-policy.md "test-automated-reasoning-policy.md").
+3. **Deploy.** Save an immutable version of your tested
+   policy and attach it to a guardrail. You can automate deployment using CloudFormation or CI/CD
+   pipelines. For more information, see [Deploy your Automated Reasoning policy in your application](deploy-automated-reasoning-policy.md "deploy-automated-reasoning-policy.md").
+4. **Integrate.** At runtime, Automated Reasoning findings
+   are returned through APIs that supports a Amazon Bedrock Guardrails configuration: `Converse`,
+   `InvokeModel`, `InvokeAgent`, and `RetrieveAndGenerate`,
+   as well as the standalone `ApplyGuardrail` API. Inspect the findings to decide
+   whether to serve the response, rewrite it using the feedback, or ask the user for clarification.
+   Automated Reasoning checks operate in _detect mode_ only — they return
+   findings and feedback rather than blocking content. For more information on how to integrate
+   Automated Reasoning checks in your application, see [Integrate Automated Reasoning checks in your application](integrate-automated-reasoning-checks.md "integrate-automated-reasoning-checks.md"). For more information on the permissions
+   required to enable Automated Reasoning checks, see [Permissions for Automated Reasoning policies with ApplyGuardrail](guardrail-automated-reasoning-permissions.md "guardrail-automated-reasoning-permissions.md").
+
+## Availability and language support
+
+Automated Reasoning checks in Amazon Bedrock Guardrails is generally available in the following Regions:
+
+- US East (N. Virginia)
+- US West (Oregon)
+- US East (Ohio)
+- EU (Frankfurt)
+- EU (Paris)
+- EU (Ireland)
+
+Automated Reasoning checks currently support English (US) only.
 
 ## Limitations and considerations
 
-Before implementing Automated Reasoning checks, be aware of these important
+Before implementing Automated Reasoning checks, be aware of these technical
 limitations:
 
-- **Document complexity:** Source documents should be
+- **Document complexity.** Source documents should be
   well-structured with clear, unambiguous rules. Highly complex documents with nested
   conditions or contradictory statements may not extract cleanly into formal logic.
-  Input documents are limited to 5Mb in size and 50,000 characters. You can split larger
+  Input documents are limited to 5 MB in size and 50,000 characters. You can split larger
   documents and merge each section into your policy. Images and tables in documents also
   impact the number of input characters.
-- **Processing time:** Automated Reasoning validation adds
-  latency to your application responses. Plan for additional processing time, especially for
-  complex policies with many rules.
-- **Policy scope:** Each policy should focus on a specific
-  domain (for example, HR, finance, legal) rather than trying to cover multiple unrelated
-  areas in a single policy.
-- **Variable limits:** Policies with excessive numbers of
-  variables or overly complex rule interactions may hit processing limits or return
-  TOO_COMPLEX results.
-- **Natural language dependency:** The accuracy of
-  validation depends heavily on how well natural language in user prompts and model
-  responses can be translated to your policy's formal logic variables.
-- **Non-linear arithmetic:**Automated Reasoning
-  checks might timeout or return TOO_COMPLEX if constraints involve reasoning with non-linear arithmentic
-  (for example, irrational numbers or exponents)
-
-## Best practices
-
-Follow these best practices to maximize the effectiveness of your Automated Reasoning
-policies:
-
-- **Start simple:** Begin with a focused policy covering
-  core rules, then gradually add complexity. Test thoroughly at each stage.
-- **Write comprehensive variable descriptions:** Include
-  how users might naturally refer to concepts, not just technical definitions from your
-  source document.
-- **Test edge cases:** Create tests that specifically
-  target boundary conditions, exceptions, and unusual scenarios your users might
-  encounter.
-- **Monitor confidence thresholds:** Start with higher
-  confidence thresholds (0.8-0.9) and adjust based on your tolerance for false positives vs.
-  false negatives.
-- **Regular policy maintenance:** Review and update your
-  policies as business rules change or as you identify gaps through testing and production
-  use.
-- **Document your annotations:** Keep track of policy
-  modifications and the reasoning behind them for future reference and team knowledge
-  sharing.
+- **Processing time.** Automated Reasoning checks validation adds
+  latency to your application responses. Plan for additional processing time, especially
+  for complex policies with many variables. The number of variables in a policy directly
+  contributes to increases in validation latency.
+- **Policy scope.** To create policies that are easier to maintain,
+  each policy should focus on a specific domain (for example, HR, finance, legal) rather than trying
+  to cover multiple unrelated areas in a single policy.
+- **Variable and rules limits.** Policies with excessive
+  numbers of variables or overly complex rule interactions may hit processing limits or return
+  TOO_COMPLEX results. See [Amazon Bedrock
+  limits documentation](../../../hgeneral/latest/gr/bedrock.md#limits_bedrock "../../../hgeneral/latest/gr/bedrock.md#limits_bedrock") and [Validation results reference](automated-reasoning-checks-concepts.md#ar-concept-validation-results "automated-reasoning-checks-concepts.md#ar-concept-validation-results").
+- **Natural language dependency.** The accuracy of
+  validation depends on how well natural language in user prompts and model
+  responses can be translated to your policy's formal logic variables. Automated
+  Reasoning checks use foundational models to translate natural language into logic
+  representations. Variable descriptions influence the quality of this translation.
+- **Non-linear arithmetic.** Automated Reasoning checks
+  might timeout or return TOO_COMPLEX if constraints involve reasoning with non-linear
+  arithmetic (for example, irrational numbers or exponents).
 
 ## Pricing
 
@@ -112,15 +161,15 @@ Charges are incurred for each validation request, regardless of the result (for 
 VALID, INVALID, TRANSLATION_AMBIGUOUS). To optimize costs:
 
 - Use appropriate confidence thresholds to balance accuracy with processing
-  requirements
+  requirements.
 - Consider caching validation results for identical or similar queries when appropriate
-  for your use case
+  for your use case.
 - Monitor usage patterns and adjust policies to reduce unnecessary validation
-  requests
+  requests.
 
-## Cross-region inference for policy
+## Cross-region inference for
 
-operations
+policy operations
 
 Automated Reasoning utilizes cross-region inference to optimize the performance and
 availability of policy creation and testing operations. Specific API operations automatically
@@ -129,21 +178,21 @@ service delivery.
 
 The following Automated Reasoning API operations employ cross-region inference:
 
-- `StartAutomatedReasoningPolicyBuildWorkflow` - Invoked during policy
-  creation and compilation from source documents
-- `StartAutomatedReasoningPolicyTestWorkflow` - Invoked during policy
-  validation and testing procedures
+- `StartAutomatedReasoningPolicyBuildWorkflow` — Invoked during policy
+  creation and compilation from source documents.
+- `StartAutomatedReasoningPolicyTestWorkflow` — Invoked during policy
+  validation and testing procedures.
 
 These operations invoke large language models to extract formal logic rules from source
 documents and translate natural language constructs into structured logical representations.
-To ensure optimal performance and availability, request processing is distributed according to
-the following geographic routing:
+To ensure optimal performance and availability, request processing is distributed according
+to the following geographic routing:
 
 - **United States Regions:** API requests originating from
   US East (N. Virginia), US West (Oregon), or US East (Ohio) may be processed in any
   supported US Region.
-- **European Union Regions:** API requests originating from
-  EU (Frankfurt), EU (Paris), or EU (Ireland) may be processed in any supported EU
+- **European Union Regions:** API requests originating
+  from EU (Frankfurt), EU (Paris), or EU (Ireland) may be processed in any supported EU
   Region.
 
 ###### Important
@@ -157,102 +206,13 @@ Cross-region inference operates transparently without requiring customer configu
 API functionality remains consistent regardless of the specific Region that processes the
 request.
 
-**To use Automated Reasoning checks in Amazon Bedrock Guardrails, follow these
-steps:**
-
-1. **Upload a source document** that contains the rules you
-   want to enforce
-2. **Review the extracted policy** with automatically
-   identified concepts and rules
-3. **Test and refine** the policy to ensure it works
-   correctly
-4. **Deploy the policy** to validate your foundation model's
-   responses
-   The workflow can be visualized as:
-
-```
-
-Source Document → Extracted Policy → Testing → Deployment → Runtime Validation
-    (rules)        (formal logic)    (verify)   (activate)    (check responses)
-
-```
-
-## Policies
-
-Automated Reasoning policies are the foundation of accuracy validation, containing logic
-rules and variables that are automatically extracted from your source document. These
-policies serve as the mathematical representation of your business rules, enabling the
-system to systematically validate whether foundation model responses comply with your
-defined constraints. To perform Automated Reasoning checks in your application, you
-configure your guardrail to use a policy that matches your specific domain and validation
-requirements.
-
-## Rules
-
-Rules are logic that Automated Reasoning extracts from your source document. These might
-be written as if-then statements. Here are some examples of the rule format:
-
-`<claim> is true if <premise>`
-
-###### Note
-
-**Important:** Rules that are not in if-then format can
-have unintended consequences by laying out axioms about the world. For example, if a rule
-simply states `accountBalance > 5`, then it becomes impossible for an account
-balance to be 5 or less, regardless of what the content for validation says. The rule has
-made it logically impossible for that condition to exist. This could result in unexpected
-validation results where content is incorrectly flagged as non-compliant because it
-contradicts the axiom established by the rule. To avoid this, structure rules as
-conditional statements (if-then format) that describe relationships rather than absolute
-constraints.
-
-## Variables
-
-Variables represent concepts in your Automated Reasoning policy that can have values
-assigned to them when translating natural language into formal logic. Your policy rules
-define constraints on what are valid or invalid values for these variables.
-
-Variables have a name, a type, and a description. For example, a policy about employee
-benefits might have a variable with the name "employee_age", the type "integer", and the
-description "The age of the employee in years". This variable could be assigned a value like
-25 based on natural language in a prompt to an application.
-
-For example, an `is_full_time` variable in an HR policy might have a
-description that states "Employees that work more than 20 hours per week," which is a direct
-quote from the source document. When using a chatbot, users are more likely to say "I'm
-full-time," and not, "I work more than 20 hours per week."
-
-The accuracy of the translation from natural language to formal logic is highly
-dependent on the quality of variable descriptions. While the reasoning process is sound once
-the translation is complete, clear and comprehensive variable descriptions ensure that user
-prompts are correctly interpreted. Without complete variable descriptions, Automated
-Reasoning might return `NO_DATA` because it can't translate the input natural
-language into its formal logic representation.
-
-It's important for a variable description to account for scenarios like this. A
-comprehensive variable description might state, "Employees who work more than 20 hours per
-week are full-time. Users will say full-time to set this value to true, or part-time to set
-it to false."
-
-### Predefined
-
-variable types
-
-The following table describes the predefined types of variables that your policy can
-have.
-
-| Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BOOL   | Boolean variables can be true or false. For example, in a leave of absence<br>policy, you would use a `BOOL` variable to identify whether leave of<br>absence is allowed or not.                                                                                                                                                                                                                                                                                                                  |
-| INT    | Numerical `INT` variables can store positive or negative whole<br>numbers. For example, in a leave of absence policy, you would use an<br>`INT` variable to store the accrued vacation days if fractional<br>days are not allowed.                                                                                                                                                                                                                                                                |
-| NUMBER | `NUMBER` variables can store positive or negative numbers<br>that need decimal precision. For example, in a leave of absence policy, you<br>would use a `NUMBER` variable to store the dollar payment amount for<br>unused vacation days.                                                                                                                                                                                                                                                         |
-| enum   | Enum variables are user-defined types that can store a single value selected<br>from a set of fixed options defined in a custom type. For example, in a leave of<br>absence policy, you could use an enum variable to store the `LeaveType`<br>: (1) Paid Vacation; (2) Personal time; (3) Leave of Absence. These custom types<br>allow you to define specific sets of values relevant to your policy domain.<br>Enum type names should not conflict with default types like `INT` or<br>`BOOL`. |
-
 ###### Topics
 
+- [Automated Reasoning checks concepts](automated-reasoning-checks-concepts.md "automated-reasoning-checks-concepts.md")
 - [Create your Automated Reasoning policy](create-automated-reasoning-policy.md "create-automated-reasoning-policy.md")
+- [Automated Reasoning policy best practices](automated-reasoning-policy-best-practices.md "automated-reasoning-policy-best-practices.md")
 - [Test an Automated Reasoning policy](test-automated-reasoning-policy.md "test-automated-reasoning-policy.md")
-- [Validate your Automated Reasoning policy test results](validate-automated-reasoning-policy-results.md "validate-automated-reasoning-policy-results.md")
-- [Address failed Automated Reasoning policy tests](address-failed-automated-reasoning-tests.md "address-failed-automated-reasoning-tests.md")
+- [Troubleshoot and refine your Automated Reasoning policy](address-failed-automated-reasoning-tests.md "address-failed-automated-reasoning-tests.md")
 - [Use Kiro CLI with an Automated Reasoning policy](kiro-cli-automated-reasoning-policy.md "kiro-cli-automated-reasoning-policy.md")
 - [Deploy your Automated Reasoning policy in your application](deploy-automated-reasoning-policy.md "deploy-automated-reasoning-policy.md")
+- [Integrate Automated Reasoning checks in your application](integrate-automated-reasoning-checks.md "integrate-automated-reasoning-checks.md")

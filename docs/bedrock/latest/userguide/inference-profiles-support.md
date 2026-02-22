@@ -100,6 +100,8 @@ The following table shows the source Regions from which you can call the inferen
 
 | Source Regions | Destination Regions                      |
 | -------------- | ---------------------------------------- |
+| af-south-1     | Commercial AWS Regions<br>af-south-1     |
+| ap-east-2      | Commercial AWS Regions<br>ap-east-2      |
 | ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
 | ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
 | ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
@@ -109,7 +111,10 @@ The following table shows the source Regions from which you can call the inferen
 | ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
 | ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
 | ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
+| ap-southeast-5 | Commercial AWS Regions<br>ap-southeast-5 |
+| ap-southeast-7 | Commercial AWS Regions<br>ap-southeast-7 |
 | ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
+| ca-west-1      | Commercial AWS Regions<br>ca-west-1      |
 | eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
 | eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
 | eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
@@ -118,15 +123,15 @@ The following table shows the source Regions from which you can call the inferen
 | eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
 | eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
 | eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
+| il-central-1   | Commercial AWS Regions<br>il-central-1   |
+| me-central-1   | Commercial AWS Regions<br>me-central-1   |
+| me-south-1     | Commercial AWS Regions<br>me-south-1     |
+| mx-central-1   | Commercial AWS Regions<br>mx-central-1   |
 | sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
 | us-east-1      | Commercial AWS Regions<br>us-east-1      |
 | us-east-2      | Commercial AWS Regions<br>us-east-2      |
 | us-west-1      | Commercial AWS Regions<br>us-west-1      |
 | us-west-2      | Commercial AWS Regions<br>us-west-2      |
-| me-south-1     | Commercial AWS Regions<br>me-south-1     |
-| af-south-1     | Commercial AWS Regions<br>af-south-1     |
-| me-central-1   | Commercial AWS Regions<br>me-central-1   |
-| il-central-1   | Commercial AWS Regions<br>il-central-1   |
 
 To call the GLOBAL TwelveLabs Pegasus v1.2 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -185,6 +190,8 @@ The following table shows the source Regions from which you can call the inferen
 
 | Source Regions | Destination Regions                      |
 | -------------- | ---------------------------------------- |
+| af-south-1     | Commercial AWS Regions<br>af-south-1     |
+| ap-east-2      | Commercial AWS Regions<br>ap-east-2      |
 | ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
 | ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
 | ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
@@ -194,7 +201,10 @@ The following table shows the source Regions from which you can call the inferen
 | ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
 | ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
 | ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
+| ap-southeast-5 | Commercial AWS Regions<br>ap-southeast-5 |
+| ap-southeast-7 | Commercial AWS Regions<br>ap-southeast-7 |
 | ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
+| ca-west-1      | Commercial AWS Regions<br>ca-west-1      |
 | eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
 | eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
 | eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
@@ -203,20 +213,63 @@ The following table shows the source Regions from which you can call the inferen
 | eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
 | eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
 | eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
+| il-central-1   | Commercial AWS Regions<br>il-central-1   |
+| me-central-1   | Commercial AWS Regions<br>me-central-1   |
+| me-south-1     | Commercial AWS Regions<br>me-south-1     |
+| mx-central-1   | Commercial AWS Regions<br>mx-central-1   |
 | sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
 | us-east-1      | Commercial AWS Regions<br>us-east-1      |
 | us-east-2      | Commercial AWS Regions<br>us-east-2      |
 | us-west-1      | Commercial AWS Regions<br>us-west-1      |
 | us-west-2      | Commercial AWS Regions<br>us-west-2      |
-| me-south-1     | Commercial AWS Regions<br>me-south-1     |
-| af-south-1     | Commercial AWS Regions<br>af-south-1     |
-| me-central-1   | Commercial AWS Regions<br>me-central-1   |
-| il-central-1   | Commercial AWS Regions<br>il-central-1   |
 
 To call the Global Anthropic Claude Opus 4.6 inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
 global.anthropic.claude-opus-4-6-v1
+```
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                      |
+| -------------- | ---------------------------------------- |
+| af-south-1     | Commercial AWS Regions<br>af-south-1     |
+| ap-east-2      | Commercial AWS Regions<br>ap-east-2      |
+| ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
+| ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
+| ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
+| ap-south-1     | Commercial AWS Regions<br>ap-south-1     |
+| ap-south-2     | Commercial AWS Regions<br>ap-south-2     |
+| ap-southeast-1 | Commercial AWS Regions<br>ap-southeast-1 |
+| ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
+| ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
+| ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
+| ap-southeast-5 | Commercial AWS Regions<br>ap-southeast-5 |
+| ap-southeast-7 | Commercial AWS Regions<br>ap-southeast-7 |
+| ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
+| ca-west-1      | Commercial AWS Regions<br>ca-west-1      |
+| eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
+| eu-central-2   | Commercial AWS Regions<br>eu-central-2   |
+| eu-north-1     | Commercial AWS Regions<br>eu-north-1     |
+| eu-south-1     | Commercial AWS Regions<br>eu-south-1     |
+| eu-south-2     | Commercial AWS Regions<br>eu-south-2     |
+| eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
+| eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
+| eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
+| il-central-1   | Commercial AWS Regions<br>il-central-1   |
+| me-central-1   | Commercial AWS Regions<br>me-central-1   |
+| me-south-1     | Commercial AWS Regions<br>me-south-1     |
+| mx-central-1   | Commercial AWS Regions<br>mx-central-1   |
+| sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
+| us-east-1      | Commercial AWS Regions<br>us-east-1      |
+| us-east-2      | Commercial AWS Regions<br>us-east-2      |
+| us-west-1      | Commercial AWS Regions<br>us-west-1      |
+| us-west-2      | Commercial AWS Regions<br>us-west-2      |
+
+To call the Global Anthropic Claude Sonnet 4.6 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+global.anthropic.claude-sonnet-4-6
 ```
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
@@ -287,6 +340,7 @@ The following table shows the source Regions from which you can call the inferen
 | Source Regions | Destination Regions                      |
 | -------------- | ---------------------------------------- |
 | af-south-1     | Commercial AWS Regions<br>af-south-1     |
+| ap-east-2      | Commercial AWS Regions<br>ap-east-2      |
 | ap-northeast-1 | Commercial AWS Regions<br>ap-northeast-1 |
 | ap-northeast-2 | Commercial AWS Regions<br>ap-northeast-2 |
 | ap-northeast-3 | Commercial AWS Regions<br>ap-northeast-3 |
@@ -296,6 +350,8 @@ The following table shows the source Regions from which you can call the inferen
 | ap-southeast-2 | Commercial AWS Regions<br>ap-southeast-2 |
 | ap-southeast-3 | Commercial AWS Regions<br>ap-southeast-3 |
 | ap-southeast-4 | Commercial AWS Regions<br>ap-southeast-4 |
+| ap-southeast-5 | Commercial AWS Regions<br>ap-southeast-5 |
+| ap-southeast-7 | Commercial AWS Regions<br>ap-southeast-7 |
 | ca-central-1   | Commercial AWS Regions<br>ca-central-1   |
 | ca-west-1      | Commercial AWS Regions<br>ca-west-1      |
 | eu-central-1   | Commercial AWS Regions<br>eu-central-1   |
@@ -306,13 +362,15 @@ The following table shows the source Regions from which you can call the inferen
 | eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
 | eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
 | eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
+| il-central-1   | Commercial AWS Regions<br>il-central-1   |
+| me-central-1   | Commercial AWS Regions<br>me-central-1   |
+| me-south-1     | Commercial AWS Regions<br>me-south-1     |
+| mx-central-1   | Commercial AWS Regions<br>mx-central-1   |
 | sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
 | us-east-1      | Commercial AWS Regions<br>us-east-1      |
 | us-east-2      | Commercial AWS Regions<br>us-east-2      |
 | us-west-1      | Commercial AWS Regions<br>us-west-1      |
 | us-west-2      | Commercial AWS Regions<br>us-west-2      |
-| me-central-1   | Commercial AWS Regions<br>me-central-1   |
-| il-central-1   | Commercial AWS Regions<br>il-central-1   |
 
 To call the Global Cohere Embed v4 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -543,6 +601,23 @@ The following table shows the source Regions from which you can call the inferen
 | Source Regions | Destination Regions                                 |
 | -------------- | --------------------------------------------------- |
 | ca-central-1   | ca-central-1<br>us-east-1<br>us-east-2<br>us-west-2 |
+| us-east-1      | us-east-1<br>us-east-2<br>us-west-2                 |
+| us-east-2      | us-east-1<br>us-east-2<br>us-west-2                 |
+| us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2    |
+| us-west-2      | us-east-1<br>us-east-2<br>us-west-2                 |
+
+To call the US Anthropic Claude Sonnet 4.6 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+us.anthropic.claude-sonnet-4-6
+```
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                 |
+| -------------- | --------------------------------------------------- |
+| ca-central-1   | ca-central-1<br>us-east-1<br>us-east-2<br>us-west-2 |
+| ca-west-1      | ca-west-1<br>us-east-1<br>us-east-2<br>us-west-2    |
 | us-east-1      | us-east-1<br>us-east-2<br>us-west-2                 |
 | us-east-2      | us-east-1<br>us-east-2<br>us-west-2                 |
 | us-west-1      | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2    |
@@ -1478,6 +1553,19 @@ The following table shows the source Regions from which you can call the inferen
 | ap-southeast-2 | ap-southeast-2<br>ap-southeast-4 |
 | ap-southeast-4 | ap-southeast-2<br>ap-southeast-4 |
 
+To call the AU Anthropic Claude Sonnet 4.6 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+au.anthropic.claude-sonnet-4-6
+```
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions              |
+| -------------- | -------------------------------- |
+| ap-southeast-2 | ap-southeast-2<br>ap-southeast-4 |
+| ap-southeast-4 | ap-southeast-2<br>ap-southeast-4 |
+
 To call the CA Nova Lite inference profile, specify the following inference profile ID in one of the source Regions:
 
 ```
@@ -1643,6 +1731,25 @@ eu.anthropic.claude-sonnet-4-5-20250929-v1:0
 ```
 
 For more information about inference parameters for this model, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| eu-central-1   | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-central-2   | eu-central-1<br>eu-central-2<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3 |
+| eu-north-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-south-1     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-south-2     | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-1      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+| eu-west-2      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-2<br>eu-west-3    |
+| eu-west-3      | eu-central-1<br>eu-north-1<br>eu-south-1<br>eu-south-2<br>eu-west-1<br>eu-west-3                 |
+
+To call the EU Anthropic Claude Sonnet 4.6 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+eu.anthropic.claude-sonnet-4-6
+```
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
@@ -1888,6 +1995,19 @@ jp.anthropic.claude-sonnet-4-5-20250929-v1:0
 ```
 
 For more information about inference parameters for this model, see [Link](model-parameters-claude.md "model-parameters-claude.md").
+
+The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
+
+| Source Regions | Destination Regions              |
+| -------------- | -------------------------------- |
+| ap-northeast-1 | ap-northeast-1<br>ap-northeast-3 |
+| ap-northeast-3 | ap-northeast-1<br>ap-northeast-3 |
+
+To call the JP Anthropic Claude Sonnet 4.6 inference profile, specify the following inference profile ID in one of the source Regions:
+
+```
+jp.anthropic.claude-sonnet-4-6
+```
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 

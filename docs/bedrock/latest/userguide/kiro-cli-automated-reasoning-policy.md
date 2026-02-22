@@ -1,15 +1,28 @@
 # Use Kiro CLI with an Automated Reasoning policy
 
-You can use Kiro CLI to ask questions about your Automated Reasoning policies, understand the behavior of the various rules, and request changes that address failing tests or ambiguities in the policy itself.
+You can use Kiro CLI to ask questions about your Automated Reasoning policies, understand
+the behavior of the various rules, and request changes that address failing tests or
+ambiguities in the policy itself. Kiro CLI is particularly useful for the iterative
+refinement workflow described in [Troubleshoot and refine your Automated Reasoning policy](address-failed-automated-reasoning-tests.md "address-failed-automated-reasoning-tests.md") because it can load your policy
+definition, analyze test results, and apply annotations through natural language
+conversation.
 
 ## Prerequisites
 
-To use Kiro CLI with your Automated Reasoning policies, you must first complete the following steps:
+To use Kiro CLI with your Automated Reasoning policies, you must first complete the
+following steps:
 
-- Install the latest version of [Kiro CLI](https://kiro.dev/cli/ "https://kiro.dev/cli/").
+- Install the latest version of [Kiro
+  CLI](https://kiro.dev/cli/ "https://kiro.dev/cli/").
 - Install the latest version of the AWS CLI.
-- Create an Automated Reasoning policy using a document through the console or APIs. To get started quickly, use the built-in sample Homework policy from the console. For more information, see [Create your Automated Reasoning policy](create-automated-reasoning-policy.md "create-automated-reasoning-policy.md").
-- Copy the content of the contextual prompt provided in [Automated Reasoning policy API context prompt](#kiro-cli-context-prompt "#kiro-cli-context-prompt") and save it in a Markdown file in your project folder. This prompt helps Kiro CLI use the Automated Reasoning policy control plane and test API correctly.
+- Create an Automated Reasoning policy using a document through the console or APIs.
+  To get started quickly, use the built-in sample Homework policy from the console. For
+  more information, see [Create your Automated Reasoning policy](create-automated-reasoning-policy.md "create-automated-reasoning-policy.md").
+- Familiarize yourself with Automated Reasoning checks concepts, particularly
+  policies, rules, variables, and findings. For more information, see [Automated Reasoning checks concepts](automated-reasoning-checks-concepts.md "automated-reasoning-checks-concepts.md").
+- Copy the content of the contextual prompt provided in [Automated Reasoning policy API context prompt](#kiro-cli-context-prompt "#kiro-cli-context-prompt") and save
+  it in a Markdown file in your project folder. This prompt helps Kiro CLI use the
+  Automated Reasoning policy control plane and test API correctly.
 
 ###### Note
 
@@ -53,21 +66,32 @@ You can use Kiro CLI to resolve policy issues reported in the policy report. Fir
 Can you give me a summary of the quality report for this policy?
 ```
 
-The quality report includes a list of the unused variables, conflicting rules, and disjointed rules and other potential issues with the policy.
+The quality report includes a list of the unused variables, conflicting rules, and
+disjointed rules and other potential issues with the policy. For more information about
+interpreting the quality report, see [Use the quality report](address-failed-automated-reasoning-tests.md#use-quality-report "address-failed-automated-reasoning-tests.md#use-quality-report").
 
-Conflicting rules will cause your policy to respond with `IMPOSSIBLE` to all validation requests. You can ask Kiro CLI to explain the conflict and propose a solution:
+Conflicting rules will cause your policy to respond with `IMPOSSIBLE` to all
+validation requests. For more information about conflicting rules and how to resolve them,
+see [Conflicts in the policy](address-failed-automated-reasoning-tests.md#fix-impossible-policy-conflicts "address-failed-automated-reasoning-tests.md#fix-impossible-policy-conflicts"). You can ask Kiro CLI to explain the
+conflict and propose a solution:
 
 ```
 Can you look at the conflicting rules, explain how they are used in the policy, why they conflict, and suggest a change such as deleting one of the rules or merging the logic from the two into a single rule?
 ```
 
-Unused variables can cause validation result to return `TRANSLATION_AMBIGUOUS` results. You can ask Kiro CLI to help with this issue:
+Unused variables can cause validation results to return
+`TRANSLATION_AMBIGUOUS` results. For more information about why unused
+variables cause issues, see [Unused variables](automated-reasoning-policy-best-practices.md#bp-anti-unused-variables "automated-reasoning-policy-best-practices.md#bp-anti-unused-variables"). You can ask Kiro CLI to help with this
+issue:
 
 ```
 I see the quality report lists some unused variables, can you get rid of them?
 ```
 
-Similarly, ambiguous variable that are semantically similar can cause validation result to return `TRANSLATION_AMBIGUOUS` results. You can ask Kiro CLI to help with this issue:
+Similarly, ambiguous variables that are semantically similar can cause validation results
+to return `TRANSLATION_AMBIGUOUS` results. For more information about
+overlapping variables and how to fix them, see [Overlapping variables](automated-reasoning-policy-best-practices.md#bp-anti-overlapping-variables "automated-reasoning-policy-best-practices.md#bp-anti-overlapping-variables") and [Overlapping variable definitions](address-failed-automated-reasoning-tests.md#fix-overlapping-variables "address-failed-automated-reasoning-tests.md#fix-overlapping-variables"). You can
+ask Kiro CLI to help with this issue:
 
 ```
 Automated Reasoning checks translate input natural language into logical statements that use the schema of variables from the policy. Variables that are semantically similar - ambiguous - can cause issues with inconsistent translations. Can you take a look at the schema of variables and help me identify variables that have potentially overlapping meanings? If you find any, suggest changes like removing one of them or merging them. Variable changes are also likely to require corresponding rule changes.
@@ -85,7 +109,11 @@ You can use Kiro CLI to explore your policy. For example, you could ask Kiro CLI
 Can you tell me about the rules that constrain `math homework`? Explain the rules themselves and how they fit in the broader policy.
 ```
 
-You can also use Kiro CLI to add functionality to the policy. Automated Reasoning policies often work around some key output variables that capture the user intent. For example, the sample homework submission policy uses an `isSubmissionAcceptable` variable as the output of its rules. You can use Kiro CLI to alter the policy to capture other possible user questions.
+You can also use Kiro CLI to add functionality to the policy. Automated Reasoning policies
+often work around some key output variables that capture the user intent. For example, the
+sample homework submission policy uses an `isSubmissionAcceptable` variable as
+the output of its rules. You can use Kiro CLI to alter the policy to capture other possible
+user questions. When adding new rules, follow the best practices described in [Automated Reasoning policy best practices](automated-reasoning-policy-best-practices.md "automated-reasoning-policy-best-practices.md"), particularly [Use implications (=>) to structure rules](automated-reasoning-policy-best-practices.md#bp-use-implications "automated-reasoning-policy-best-practices.md#bp-use-implications").
 
 ## Editing or revising your policy
 
@@ -141,12 +169,6 @@ Looks good. Can you use the annotation APIs to submit these changes to the polic
 
 Once Kiro CLI confirms the annotations are ready, you can open your policy in the console to review the annotations. If the annotations are correct, choose **Apply Annotations**.
 
-###### Note
-
-**Tutorial video:** For a step-by-step walkthrough of reviewing and applying annotations, watch the following tutorial:
-
-[Tutorial Demo 3 - Refining the Automated Reasoning policy](https://youtu.be/YmohVGWr_PA "https://youtu.be/YmohVGWr_PA")
-
 After applying the annotations, ask Kiro CLI to reload the latest build of the policy to ensure Kiro CLI is working with a current copy:
 
 ```
@@ -155,7 +177,12 @@ I applied the annotations. Reload the latest build of the policy.
 
 ## Address failing tests
 
-A good way to test that your Automated Reasoning policy can validate natural language generated by your application is to use tests. After creating test Q&As with their expected results, you can use Kiro CLI to understand why a test did not return the expected result and adjust the policy. For more information about creating and running tests, see [Test an Automated Reasoning policy](test-automated-reasoning-policy.md "test-automated-reasoning-policy.md").
+A good way to test that your Automated Reasoning policy can validate natural language
+generated by your application is to use tests. After creating test Q&As with their
+expected results, you can use Kiro CLI to understand why a test did not return the expected
+result and adjust the policy. For more information about creating and running tests, see
+[Test an Automated Reasoning policy](test-automated-reasoning-policy.md "test-automated-reasoning-policy.md"). For a systematic approach to
+diagnosing test failures without Kiro CLI, see [Troubleshoot and refine your Automated Reasoning policy](address-failed-automated-reasoning-tests.md "address-failed-automated-reasoning-tests.md").
 
 1. As a first step, ask Kiro CLI to load the failed test and explain why it is not returning the expected result based on the policy definition. Use the console or APIs to copy the test ID for your failing test. In the console, the test ID is available both in the table that lists tests and the detail page for each test.
 
@@ -171,7 +198,10 @@ Can you suggest changes to the policy to ensure this test returns the expected r
 
 ###### Note
 
-When suggesting rule changes, Kiro CLI may try to overfit to the specific example and create rules that are not useful in other use cases. Check the test output and give Kiro CLI guidance to focus it on the right problem.
+When suggesting rule changes, Kiro CLI may try to overfit to the specific example
+and create rules that are not useful in other use cases. Check the test output and
+give Kiro CLI guidance to focus it on the right problem. For guidance on writing
+effective rules, see [Automated Reasoning policy best practices](automated-reasoning-policy-best-practices.md "automated-reasoning-policy-best-practices.md").
 
 For example, asking Kiro to change the sample Homework policy so that the `SATISFIABLE` test returns `VALID`, may lead Kiro to suggest adding axioms to the policy that make the test always pass, such as creating a rule that says `(false isHomeworkSubmissionAcceptable)`. This would ensure the value is always false. While this technically fixes the problematic test, it is detrimental to the overall policy functionality. Analyzing the scenarios returned by the `SATISFIABLE` test result, you can see that give Kiro CLI better guidance to either create a new rule that only covers the constraints specified in the test, or update the existing rules to only check the test constraints: 3. Once you are happy with the suggested changes, ask Kiro CLI to submit the annotations and review them using the console user interface:
 
@@ -187,7 +217,11 @@ I applied the changes. Reload the latest build of the policy.
 
 ## Next steps
 
-Once you are happy with the Automated Reasoning policy, you can deploy it for use in Amazon Bedrock Guardrails. For more information, see [Deploy your Automated Reasoning policy in your application](deploy-automated-reasoning-policy.md "deploy-automated-reasoning-policy.md").
+Once you are happy with the Automated Reasoning policy, you can deploy it for use in
+Amazon Bedrock Guardrails. For more information, see [Deploy your Automated Reasoning policy in your application](deploy-automated-reasoning-policy.md "deploy-automated-reasoning-policy.md").
+
+After deploying your policy, see [Integrate Automated Reasoning checks in your application](integrate-automated-reasoning-checks.md "integrate-automated-reasoning-checks.md") for guidance on using Automated
+Reasoning checks at runtime to validate LLM responses and act on the feedback.
 
 ## Automated Reasoning policy API context prompt
 
