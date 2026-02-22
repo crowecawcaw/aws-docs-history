@@ -5,7 +5,7 @@ control meeting and audio settings, block users, and turn the Amazon Chime push 
 or off.
 
 To open your settings, choose the **Settings** icon (
-![Gear icon representing settings or configuration options.](images/settings.png)
+![Gear icon representing settings or configuration options.](/images/chime/latest/ug/images/settings.png)
 ) from anywhere in the app. The **Settings** page appears
 and groups available settings by category. The following sections explain how to use the settings
 in each category.
