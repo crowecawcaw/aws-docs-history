@@ -11,7 +11,7 @@
 
 - **Pre-requisite for Landing Zone 4.0:** When upgrading to version 4.0 via API, ensure the `AWSControlTowerCloudTrailRole` service role uses the
   new managed policy `AWSControlTowerCloudTrailRolePolicy` instead of the existing inline policy. Detach
-  the current inline policy and attach the new managed policy as described in the [documentation](../../../access-control-managing-permissions.md#AWSControlTowerCloudTrailRolePolicy "../../../access-control-managing-permissions.md#AWSControlTowerCloudTrailRolePolicy").
+  the current inline policy and attach the new managed policy as described in the [documentation](access-control-managing-permissions.md#AWSControlTowerCloudTrailRolePolicy "access-control-managing-permissions.md#AWSControlTowerCloudTrailRolePolicy").
 - **Optional Manifest:** Manifest field in the landing zone API is now optional. Customers
   can create Landing Zones without any service integrations. There is no impact for existing customers that are
   already using the manifest field.

@@ -15,7 +15,7 @@ To learn more about how you can use AWS Control Tower, see the following topics:
 - Your end users can provision their own AWS accounts in your landing zone using
   Account Factory. For more information, see [Permissions for configuring and
   provisioning accounts](account-factory.md#configure-provision-new-account "account-factory.md#configure-provision-new-account").
-- To assure [Compliance Validation for AWS Control Tower](compliance-program-info.md "compliance-program-info.md"), your central cloud administrators
+- To assure [Compliance Validation for AWS Control Tower](compliance-validation.md "compliance-validation.md"), your central cloud administrators
   can review log archives in the Log Archive account, and designated third-party
   auditors can review audit information in the Audit (shared) account, which is a
   member of the Security OU.
