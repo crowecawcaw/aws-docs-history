@@ -245,6 +245,14 @@ Type: string
 
 Default: MDY
 
+**system.date.separator**
+
+Optional. Specifies the system date separator.
+
+Type: string
+
+Default: /
+
 **uppercaseUserInput**
 
 Optional. Specifies whether user input must be in uppercase.
