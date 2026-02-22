@@ -33,7 +33,7 @@ Required: Yes
 
 **scaleInPolicy**
 
-The target sacle-in policy for the connector.
+The target scale-in policy for the connector.
 
 Type: [ScaleInPolicyUpdate](API_ScaleInPolicyUpdate.md "API_ScaleInPolicyUpdate.md") object
 
@@ -41,11 +41,20 @@ Required: Yes
 
 **scaleOutPolicy**
 
-The target sacle-out policy for the connector.
+The target scale-out policy for the connector.
 
 Type: [ScaleOutPolicyUpdate](API_ScaleOutPolicyUpdate.md "API_ScaleOutPolicyUpdate.md") object
 
 Required: Yes
+
+**maxAutoscalingTaskCount**
+
+The maximum number of tasks allocated to the connector during autoscaling operations.
+Must be at least equal to maxWorkerCount.
+
+Type: Integer
+
+Required: No
 
 ## See Also
 

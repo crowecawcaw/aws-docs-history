@@ -52,6 +52,7 @@ Content-type: application/json
    "originWorkerSetting": {
       "capacity": {
          "autoScaling": {
+            "maxAutoscalingTaskCount": ***number***,
             "maxWorkerCount": ***number***,
             "mcuCount": ***number***,
             "minWorkerCount": ***number***,
@@ -74,6 +75,7 @@ Content-type: application/json
    "targetWorkerSetting": {
       "capacity": {
          "autoScaling": {
+            "maxAutoscalingTaskCount": ***number***,
             "maxWorkerCount": ***number***,
             "mcuCount": ***number***,
             "minWorkerCount": ***number***,

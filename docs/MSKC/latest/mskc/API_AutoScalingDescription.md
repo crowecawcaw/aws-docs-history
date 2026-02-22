@@ -4,6 +4,15 @@ Information about the auto scaling parameters for the connector.
 
 ## Contents
 
+**maxAutoscalingTaskCount**
+
+The maximum number of tasks allocated to the connector during autoscaling operations.
+Must be at least equal to maxWorkerCount.
+
+Type: Integer
+
+Required: No
+
 **maxWorkerCount**
 
 The maximum number of workers allocated to the connector.
@@ -31,7 +40,7 @@ Required: No
 
 **scaleInPolicy**
 
-The sacle-in policy for the connector.
+The scale-in policy for the connector.
 
 Type: [ScaleInPolicyDescription](API_ScaleInPolicyDescription.md "API_ScaleInPolicyDescription.md") object
 
@@ -39,7 +48,7 @@ Required: No
 
 **scaleOutPolicy**
 
-The sacle-out policy for the connector.>
+The scale-out policy for the connector.
 
 Type: [ScaleOutPolicyDescription](API_ScaleOutPolicyDescription.md "API_ScaleOutPolicyDescription.md") object
 

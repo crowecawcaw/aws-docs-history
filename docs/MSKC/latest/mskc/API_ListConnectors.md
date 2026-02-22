@@ -46,6 +46,7 @@ Content-type: application/json
       {
          "capacity": {
             "autoScaling": {
+               "maxAutoscalingTaskCount": ***number***,
                "maxWorkerCount": ***number***,
                "mcuCount": ***number***,
                "minWorkerCount": ***number***,
