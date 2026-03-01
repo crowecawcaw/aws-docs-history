@@ -1,6 +1,4 @@
-# Secrets Manager managed external secrets partner onboarding
-
-guide
+# Secrets Manager managed external secrets partner onboarding guide
 
 This guide provides the information you need to become a partner with AWS Secrets Manager managed external secrets.
 When you integrate with managed external secrets, your customers can securely manage their credentials through

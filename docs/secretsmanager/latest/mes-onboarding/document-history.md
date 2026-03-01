@@ -1,6 +1,4 @@
-# Document History for AWS Secrets Manager managed external secrets onboarding
-
-guide
+# Document History for AWS Secrets Manager managed external secrets onboarding guide
 
 The following table describes the important changes to the documentation since the last
 release of Secrets Manager managed external secrets. In addition to the important changes listed here, we also update the
