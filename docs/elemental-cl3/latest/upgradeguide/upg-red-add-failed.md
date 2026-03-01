@@ -2,9 +2,7 @@
 
 Add the failed worker back to the cluster and redundancy groups so that it can encode while the remaining workers are upgraded.
 
-## Step A: Add failed
-
-worker to the cluster
+## Step A: Add failed worker to the cluster
 
 Add the failed worker node back to the cluster.
 
@@ -67,9 +65,7 @@ Add the failed worker node back to the cluster.
     able to specify these devices as video sources in a
     channel.
 
-## Step B: Add failed worker to a redundancy
-
-groups
+## Step B: Add failed worker to a redundancy groups
 
 Add the failed workers to their redundancy groups.
 

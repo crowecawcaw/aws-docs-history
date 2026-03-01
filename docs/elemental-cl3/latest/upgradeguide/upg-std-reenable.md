@@ -18,9 +18,7 @@ versions on your cluster.
    **Redundancy**. In the **High Availability**
    field, choose **Enable**.
 
-###### To verify that HA is correctly enabled, follow these steps on each Conductor Live
-
-node.
+###### To verify that HA is correctly enabled, follow these steps on each Conductor Live node.
 
 1. At your workstation, start a remote terminal session to the Conductor Live
    node.

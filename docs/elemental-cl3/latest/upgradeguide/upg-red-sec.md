@@ -1,10 +1,7 @@
-# Step N: Upgrade the secondary
-
-Conductor Live node
+# Step N: Upgrade the secondary Conductor Live node
 
 If you have only one Conductor Live, skip this step and go to
-[Step O: Upgrade the primary Conductor
-node](upg-red-pri.md "upg-red-pri.md").
+[Step O: Upgrade the primary Conductor node](upg-red-pri.md "upg-red-pri.md").
 
 Perform these steps on the secondary Conductor Live node.
 

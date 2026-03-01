@@ -1,12 +1,8 @@
-# Step E: Add back the backup worker
-
-nodes
+# Step E: Add back the backup worker nodes
 
 Add the backup workers back to the cluster and redundancy groups so that they can encode while the remaining workers are upgraded.
 
-## Step A: Add back the
-
-backup worker nodes to the cluster
+## Step A: Add back the backup worker nodes to the cluster
 
 Add the backup worker nodes back to the cluster.
 
@@ -70,9 +66,7 @@ Add the backup worker nodes back to the cluster.
     able to specify these devices as video sources in a
     channel.
 
-## Step B: Add back the backup workers to
-
-redundancy groups
+## Step B: Add back the backup workers to redundancy groups
 
 Add the backup workers to their redundancy groups.
 

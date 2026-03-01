@@ -1,6 +1,4 @@
-# Step D: Disable high availability on the
-
-Conductor nodes
+# Step D: Disable high availability on the Conductor nodes
 
 If you don't have high availability enabled, skip this step and go to [Step F: Downgrade the nodes](downgrades-cl3-upg-dg-cond.md "downgrades-cl3-upg-dg-cond.md").
 

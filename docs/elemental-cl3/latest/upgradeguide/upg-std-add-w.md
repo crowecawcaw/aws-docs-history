@@ -5,15 +5,11 @@ steps for all worker nodes that are supposed to be in the cluster.
 
 ###### Topics
 
-- [Step A: Add worker nodes to the
-  cluster](#upg-std-add-w-cluster "#upg-std-add-w-cluster")
-- [Step B: Add worker nodes to redundancy
-  groups](#upg-std-add-w-red "#upg-std-add-w-red")
+- [Step A: Add worker nodes to the cluster](#upg-std-add-w-cluster "#upg-std-add-w-cluster")
+- [Step B: Add worker nodes to redundancy groups](#upg-std-add-w-red "#upg-std-add-w-red")
 - [Step C: Add channel assignments](#upg-std-add-w-channels "#upg-std-add-w-channels")
 
-## Step A: Add worker nodes to the
-
-cluster
+## Step A: Add worker nodes to the cluster
 
 Add the worker nodes back to the cluster.
 
@@ -64,9 +60,7 @@ Add the worker nodes back to the cluster.
     interface. You won't be able to specify these devices as video sources in a
     channel.
 
-## Step B: Add worker nodes to redundancy
-
-groups
+## Step B: Add worker nodes to redundancy groups
 
 Add the workers to their redundancy groups.
 

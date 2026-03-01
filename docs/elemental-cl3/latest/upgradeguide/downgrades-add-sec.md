@@ -1,6 +1,4 @@
-# Step G: Add the secondary
-
-Conductor Live node
+# Step G: Add the secondary Conductor Live node
 
 If you have only one Conductor Live, skip this step and go to
 [Step H: Start channels](downgrades-start.md "downgrades-start.md").

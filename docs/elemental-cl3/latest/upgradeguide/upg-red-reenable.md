@@ -1,6 +1,4 @@
-# Step Q: Re-enable high
-
-availability
+# Step Q: Re-enable high availability
 
 1. If you're using a virtual machine (VM), take a snapshot before you enable HA.
    See the VMware VSphere help text for more information.
@@ -9,9 +7,7 @@ availability
    **Redundancy**. In the **High Availability**
    field, choose **Enable**.
 
-###### To verify that HA is correctly enabled, follow these steps on each Conductor Live
-
-node.
+###### To verify that HA is correctly enabled, follow these steps on each Conductor Live node.
 
 1. At your workstation, start a remote terminal session to the Conductor Live
    node.

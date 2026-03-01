@@ -70,8 +70,7 @@ downgrade command instead of the restore database path. For example:
 
 ###### To downgrade the worker nodes
 
-If you're not downgrading worker nodes, skip this step and go to [Step G: Add the secondary
-Conductor Live node](downgrades-add-sec.md "downgrades-add-sec.md").
+If you're not downgrading worker nodes, skip this step and go to [Step G: Add the secondary Conductor Live node](downgrades-add-sec.md "downgrades-add-sec.md").
 
 If you have worker node redundancy, downgrade the back-up nodes first and then the
 active nodes.

@@ -1,6 +1,4 @@
-# Step C: Stop the running
-
-channels
+# Step C: Stop the running channels
 
 You must stop all running channels before you downgrade.
 

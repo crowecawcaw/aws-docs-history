@@ -1,20 +1,14 @@
-# Step G: Remove the failed worker
-
-node
+# Step G: Remove the failed worker node
 
 Remove the failed worker node from the redundancy group and then from the cluster. It
 can then be upgraded while the backup worker continues to encode.
 
 ###### Topics
 
-- [Step A: Remove failed worker from
-  redundancy groups](#upg-std-remove-w-red "#upg-std-remove-w-red")
-- [Step B: Remove failed worker from the
-  cluster](#upg-std-remove-w-cluster "#upg-std-remove-w-cluster")
+- [Step A: Remove failed worker from redundancy groups](#upg-std-remove-w-red "#upg-std-remove-w-red")
+- [Step B: Remove failed worker from the cluster](#upg-std-remove-w-cluster "#upg-std-remove-w-cluster")
 
-## Step A: Remove failed worker from
-
-redundancy groups
+## Step A: Remove failed worker from redundancy groups
 
 Remove the active worker that you just failed over from the worker redundancy
 group.
@@ -26,9 +20,7 @@ group.
 3. In the navigation bar, choose the Elemental Live redundancy group.
 4. On the **Backup Nodes** tab, choose **Delete** (trash icon) for the failed worker.
 
-## Step B: Remove failed worker from the
-
-cluster
+## Step B: Remove failed worker from the cluster
 
 Remove the failed worker from the cluster so that you can perform the upgrade process.
 

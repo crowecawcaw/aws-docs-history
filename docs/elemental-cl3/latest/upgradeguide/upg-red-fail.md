@@ -1,8 +1,7 @@
 # Step F: Fail over an active node
 
 Fail over the running channels from the first active worker node that you're upgrading
-to a backup node. To reduce impact on your worker nodes, perform this step through [Step K: Re-designate the backup worker
-node](upg-red-redesignate.md "upg-red-redesignate.md") all for the same
+to a backup node. To reduce impact on your worker nodes, perform this step through [Step K: Re-designate the backup worker node](upg-red-redesignate.md "upg-red-redesignate.md") all for the same
 active worker node before moving on to the next node.
 
 ###### To fail-over a node

@@ -1,6 +1,4 @@
-# Step D: Upgrade the backup worker
-
-nodes
+# Step D: Upgrade the backup worker nodes
 
 The role of backup nodes is not to run channels but to take over from an active node
 that fails. If you have any nodes that are strictly backup nodes, then upgrade these
@@ -16,10 +14,7 @@ upgrading.
 Choose the procedure that applies to your
 deployment.
 
-###### To upgrade backup worker
-
-nodes
-without changing the deployment
+###### To upgrade backup worker nodes without changing the deployment
 
 Follow this procedure if you don't need to change anything
 about the deployment.
@@ -54,9 +49,7 @@ about the deployment.
 5. Repeat the upgrade steps on each backup worker node before
    moving on to the next step in the upgrade process.
 
-###### To upgrade backup worker nodes and change the
-
-deployment
+###### To upgrade backup worker nodes and change the deployment
 
 Follow this procedure if you want to change something in the
 deployment. Specifically, follow this procedure if you want to

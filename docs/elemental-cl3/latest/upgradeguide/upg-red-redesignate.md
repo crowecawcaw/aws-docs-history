@@ -1,6 +1,4 @@
-# Step K: Re-designate the backup worker
-
-node
+# Step K: Re-designate the backup worker node
 
 Re-designate the backup worker as a backup so that it only runs active channels that
 have failed over from an active worker node.

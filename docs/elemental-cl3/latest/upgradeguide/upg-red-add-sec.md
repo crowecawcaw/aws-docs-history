@@ -1,6 +1,4 @@
-# Step P: Add the secondary Conductor Live
-
-node
+# Step P: Add the secondary Conductor Live node
 
 If you have only one Conductor Live, you don't need to do this step. The downgrade
 process is complete when you upgrade the single Conductor Live.

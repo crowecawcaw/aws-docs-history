@@ -1,6 +1,4 @@
-# Step O: Upgrade the primary Conductor
-
-node
+# Step O: Upgrade the primary Conductor node
 
 ###### Warning
 

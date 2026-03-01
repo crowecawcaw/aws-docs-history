@@ -1,14 +1,11 @@
-# Step H: Upgrade the failed active
-
-node
+# Step H: Upgrade the failed active node
 
 Now upgrade the active worker node that you just failed over. Use
 the same upgrade process that you used to upgrade the backup worker
 nodes. Perform these steps from the now-failed node.
 
 To reduce impact on your worker nodes, upgrade one active node at
-a time and complete the steps through [Step K: Re-designate the backup worker
-node](upg-red-redesignate.md "upg-red-redesignate.md") before moving on to the
+a time and complete the steps through [Step K: Re-designate the backup worker node](upg-red-redesignate.md "upg-red-redesignate.md") before moving on to the
 next node.
 
 Perform these steps on each node. To limit your downtime, upgrade
@@ -17,10 +14,7 @@ all of the backup nodes before upgrading the active nodes.
 There are two procedures for upgrading. Choose the procedure that
 applies to your deployment.
 
-###### To upgrade the failed worker
-
-node
-without changing the deployment
+###### To upgrade the failed worker node without changing the deployment
 
 Follow this procedure if you don't need to change anything
 about the deployment.
@@ -56,9 +50,7 @@ about the deployment.
    channels that were on this node, as described in the next
    step.
 
-###### To upgrade the failed worker node and change its
-
-deployment
+###### To upgrade the failed worker node and change its deployment
 
 Follow this procedure if you want to change something in the
 deployment. Specifically, follow this procedure if you want to

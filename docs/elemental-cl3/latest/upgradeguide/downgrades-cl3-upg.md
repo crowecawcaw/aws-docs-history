@@ -1,6 +1,4 @@
-# Cluster downgrades in
-
-Conductor Live
+# Cluster downgrades in Conductor Live
 
 In a AWS Elemental Conductor Live cluster, downgrade the Conductor Live nodes first, and then downgrade each of the
 Elemental Live worker nodes.
@@ -35,16 +33,11 @@ worker nodes). Modify your commands to specify the version that you are downgrad
 ###### Topics
 
 - [Step A: Get ready](downgrades-cl3-upg-locate-res-dn.md "downgrades-cl3-upg-locate-res-dn.md")
-- [Step B: Copy the AWS
-  Elemental installers](downgrades-cl3-upg-locate-sw-dn.md "downgrades-cl3-upg-locate-sw-dn.md")
-- [Step C: Stop the running
-  channels](downgrades-cl3-upg-stop-chan.md "downgrades-cl3-upg-stop-chan.md")
-- [Step D: Disable high availability on the
-  Conductor nodes](downgrades-cl3-upg-ha-disable-ha.md "downgrades-cl3-upg-ha-disable-ha.md")
-- [Step E: Remove the secondary
-  Conductor node](downgrades-rem-sec.md "downgrades-rem-sec.md")
+- [Step B: Copy the AWS Elemental installers](downgrades-cl3-upg-locate-sw-dn.md "downgrades-cl3-upg-locate-sw-dn.md")
+- [Step C: Stop the running channels](downgrades-cl3-upg-stop-chan.md "downgrades-cl3-upg-stop-chan.md")
+- [Step D: Disable high availability on the Conductor nodes](downgrades-cl3-upg-ha-disable-ha.md "downgrades-cl3-upg-ha-disable-ha.md")
+- [Step E: Remove the secondary Conductor node](downgrades-rem-sec.md "downgrades-rem-sec.md")
 - [Step F: Downgrade the nodes](downgrades-cl3-upg-dg-cond.md "downgrades-cl3-upg-dg-cond.md")
-- [Step G: Add the secondary
-  Conductor Live node](downgrades-add-sec.md "downgrades-add-sec.md")
+- [Step G: Add the secondary Conductor Live node](downgrades-add-sec.md "downgrades-add-sec.md")
 - [Step H: Start channels](downgrades-start.md "downgrades-start.md")
 - [Step I: Re-enable high availability](downgrades-reenable.md "downgrades-reenable.md")

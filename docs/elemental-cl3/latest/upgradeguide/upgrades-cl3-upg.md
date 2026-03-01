@@ -13,6 +13,5 @@ There are two types of upgrade that you can perform on an AWS Elemental Conducto
 ###### Topics
 
 - [Standard Conductor Live upgrade](upgrades-cl3-upg-std.md "upgrades-cl3-upg-std.md")
-- [Reduced downtime
-  Conductor Live upgrade](upgrades-cl3-upg-red.md "upgrades-cl3-upg-red.md")
+- [Reduced downtime Conductor Live upgrade](upgrades-cl3-upg-red.md "upgrades-cl3-upg-red.md")
 - [Sample Upgrade](sample-upg-cl3-upg.md "sample-upg-cl3-upg.md")

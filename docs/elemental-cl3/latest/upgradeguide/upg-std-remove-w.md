@@ -5,16 +5,11 @@ these steps on for all worker nodes in the cluster.
 
 ###### Topics
 
-- [Step A: Remove channel
-  assignments](#upg-std-remove-w-channels "#upg-std-remove-w-channels")
-- [Step B: Remove workers from redundancy
-  groups](#upg-std-remove-w-red "#upg-std-remove-w-red")
-- [Step C: Remove workers from the
-  cluster](#upg-std-remove-w-cluster "#upg-std-remove-w-cluster")
+- [Step A: Remove channel assignments](#upg-std-remove-w-channels "#upg-std-remove-w-channels")
+- [Step B: Remove workers from redundancy groups](#upg-std-remove-w-red "#upg-std-remove-w-red")
+- [Step C: Remove workers from the cluster](#upg-std-remove-w-cluster "#upg-std-remove-w-cluster")
 
-## Step A: Remove channel
-
-assignments
+## Step A: Remove channel assignments
 
 Before you can remove a worker node, first make sure that no channels are assigned
 to the node.
@@ -32,9 +27,7 @@ to the node.
 6. When all of the channels have no node assignments, go to the next
    step.
 
-## Step B: Remove workers from redundancy
-
-groups
+## Step B: Remove workers from redundancy groups
 
 Remove all nodes from the worker redundancy groups.
 
@@ -53,9 +46,7 @@ Remove all nodes from the worker redundancy groups.
 6. If you have multiple Elemental Live redundancy groups, repeat this procedure on
    each group, then go to the next step.
 
-## Step C: Remove workers from the
-
-cluster
+## Step C: Remove workers from the cluster
 
 Remove the nodes from the cluster so that you can perform the upgrade
 process.

@@ -1,6 +1,4 @@
-# Step E: Remove the secondary
-
-Conductor node
+# Step E: Remove the secondary Conductor node
 
 If you have only one Conductor Live, skip this step and go to [Step F: Downgrade the nodes](downgrades-cl3-upg-dg-cond.md "downgrades-cl3-upg-dg-cond.md").
 

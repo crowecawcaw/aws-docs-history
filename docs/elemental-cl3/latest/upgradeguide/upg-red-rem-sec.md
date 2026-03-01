@@ -1,9 +1,6 @@
-# Step M: Remove the secondary Conductor Live
+# Step M: Remove the secondary Conductor Live node
 
-node
-
-If you have only one Conductor Live, skip this step and go to [Step O: Upgrade the primary Conductor
-node](upg-red-pri.md "upg-red-pri.md").
+If you have only one Conductor Live, skip this step and go to [Step O: Upgrade the primary Conductor node](upg-red-pri.md "upg-red-pri.md").
 
 Prior to upgrading, you must remove the secondary Conductor Live node first from the
 redundancy group, and then from the cluster. You can't remove the node from the cluster

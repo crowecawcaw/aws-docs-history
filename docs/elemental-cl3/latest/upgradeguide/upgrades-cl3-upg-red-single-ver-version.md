@@ -1,6 +1,4 @@
-# Step A: Get
-
-ready
+# Step A: Get ready
 
 The following steps prepare you for upgrading. Perform these steps to ensure that you
 don't lose any data.
@@ -28,9 +26,7 @@ of the worker node. The top shows icons as follows:
 
 ![Status indicator, CPU and GPU usage bars, and memory usage pie chart showing system resources.](images/upg-type-shared-png.png)
 
-## Save the latest database
-
-backup
+## Save the latest database backup
 
 Perform these steps on the primary Conductor Live node and all worker nodes in the
 cluster.
