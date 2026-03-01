@@ -1,8 +1,6 @@
 # AWS Support App in Slack commands
 
-## Slack channel
-
-commands
+## Slack channel commands
 
 You can enter the following commands in the Slack channel where you invited the
 AWS Support App. This Slack channel name also appears as a configured channel in the

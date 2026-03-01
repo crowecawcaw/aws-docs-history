@@ -27,14 +27,11 @@ Follow these procedures to create your IAM role and policy.
 
 ###### Topics
 
-- [Use an AWS managed policy or create a
-  customer managed policy](#create-iam-role-support-app "#create-iam-role-support-app")
+- [Use an AWS managed policy or create a customer managed policy](#create-iam-role-support-app "#create-iam-role-support-app")
 - [Create an IAM role](#creating-an-iam-role-for-support-app "#creating-an-iam-role-for-support-app")
 - [Troubleshooting](#troubleshooting-permissions-for-support-app "#troubleshooting-permissions-for-support-app")
 
-## Use an AWS managed policy or create a
-
-customer managed policy
+## Use an AWS managed policy or create a customer managed policy
 
 To grant your role permissions, you can use either an AWS managed policy or a
 customer managed policy.
@@ -44,8 +41,7 @@ customer managed policy.
 If you don't want to create a policy manually, we recommend that you use an AWS
 managed policy instead and skip this procedure. Managed policies automatically have
 the required permissions for the AWS Support App. You don't need to update the policies
-manually. For more information, see [AWS managed policies for
-AWS Support App in Slack](support-app-managed-policies.md "support-app-managed-policies.md").
+manually. For more information, see [AWS managed policies for AWS Support App in Slack](support-app-managed-policies.md "support-app-managed-policies.md").
 
 Follow this procedure to create a customer managed policy for your role. This
 procedure uses the JSON policy editor in the IAM console.
@@ -82,8 +78,7 @@ permissions.
 
 ###### Note
 
-For a list of AWS managed policies, see [AWS managed policies for
-AWS Support App in Slack](support-app-managed-policies.md "support-app-managed-policies.md").
+For a list of AWS managed policies, see [AWS managed policies for AWS Support App in Slack](support-app-managed-policies.md "support-app-managed-policies.md").
 
 You can update the policy to remove a permission from the AWS Support App.
 
@@ -166,20 +161,13 @@ See the following topics to manage access to the AWS Support App.
 
 ###### Contents
 
-- [I want to restrict specific users in my
-  Slack channel from specific actions](support-app-permissions.md#restrict-channel-users "support-app-permissions.md#restrict-channel-users")
-- [When I configure a Slack channel, I don't see the
-  IAM role that I created](support-app-permissions.md#missing-iam-role "support-app-permissions.md#missing-iam-role")
-- [My IAM role is missing a
-  permission](support-app-permissions.md#missing-permissions-slack "support-app-permissions.md#missing-permissions-slack")
-- [A Slack error says that my IAM
-  role isn't valid](support-app-permissions.md#find-the-configured-iam-role "support-app-permissions.md#find-the-configured-iam-role")
-- [The AWS Support App says that I'm missing an
-  IAM role for Service Quotas](support-app-permissions.md#missing-service-quota-role "support-app-permissions.md#missing-service-quota-role")
+- [I want to restrict specific users in my Slack channel from specific actions](support-app-permissions.md#restrict-channel-users "support-app-permissions.md#restrict-channel-users")
+- [When I configure a Slack channel, I don't see the IAM role that I created](support-app-permissions.md#missing-iam-role "support-app-permissions.md#missing-iam-role")
+- [My IAM role is missing a permission](support-app-permissions.md#missing-permissions-slack "support-app-permissions.md#missing-permissions-slack")
+- [A Slack error says that my IAM role isn't valid](support-app-permissions.md#find-the-configured-iam-role "support-app-permissions.md#find-the-configured-iam-role")
+- [The AWS Support App says that I'm missing an IAM role for Service Quotas](support-app-permissions.md#missing-service-quota-role "support-app-permissions.md#missing-service-quota-role")
 
-### I want to restrict specific users in my
-
-Slack channel from specific actions
+### I want to restrict specific users in my Slack channel from specific actions
 
 By default, users in your Slack channel have the same permissions specified in the
 IAM policy that you attach to the IAM role that you create. This means anyone in
@@ -192,21 +180,16 @@ We recommend the following best practices:
 - Only invite users to your channel who need access to your support
   cases
 - Use an IAM policy that has the minimum required permissions to the
-  AWS Support App. See [AWS managed policies for
-  AWS Support App in Slack](support-app-managed-policies.md "support-app-managed-policies.md").
+  AWS Support App. See [AWS managed policies for AWS Support App in Slack](support-app-managed-policies.md "support-app-managed-policies.md").
 
-### When I configure a Slack channel, I don't see the
-
-IAM role that I created
+### When I configure a Slack channel, I don't see the IAM role that I created
 
 If your IAM role doesn't appear in the **IAM role for the
 AWS Support App** list, this means that the role doesn't have the AWS Support App as
 a trusted entity, or that the role was deleted. You can update the existing role, or
 create another one. See [Create an IAM role](#creating-an-iam-role-for-support-app "#creating-an-iam-role-for-support-app").
 
-### My IAM role is missing a
-
-permission
+### My IAM role is missing a permission
 
 The IAM role that you create for your Slack channel needs permissions to perform
 the actions that you want. For example, if you want your users in Slack to create
@@ -218,9 +201,7 @@ the policy attached to your role has the required permission.
 
 See the previous [Example IAM policy](#example-support-app-policy "#example-support-app-policy").
 
-### A Slack error says that my IAM
-
-role isn't valid
+### A Slack error says that my IAM role isn't valid
 
 Verify that you chose the correct role for your channel configuration.
 
@@ -235,9 +216,7 @@ Verify that you chose the correct role for your channel configuration.
    - To update the role or the policy attached to the role, sign in to
      the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
 
-### The AWS Support App says that I'm missing an
-
-IAM role for Service Quotas
+### The AWS Support App says that I'm missing an IAM role for Service Quotas
 
 You must have the `AWSServiceRoleForServiceQuotas` role in your account
 to request quota increases from Service Quotas. If you receive an error about a missing

@@ -1,6 +1,4 @@
-# Replying to support cases in
-
-Slack
+# Replying to support cases in Slack
 
 You can add updates to your case such as case details and attachments, and reply to responses
 from the support agent.

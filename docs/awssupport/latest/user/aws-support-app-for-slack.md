@@ -26,18 +26,13 @@ Use the AWS Support App to do the following:
 - [Authorize a Slack workspace](authorize-slack-workspace.md "authorize-slack-workspace.md")
 - [Configuring a Slack channel](add-your-slack-channel.md "add-your-slack-channel.md")
 - [Creating support cases in a Slack channel](create-case-in-slack.md "create-case-in-slack.md")
-- [Replying to support cases in
-  Slack](replying-to-support-cases-in-slack.md "replying-to-support-cases-in-slack.md")
+- [Replying to support cases in Slack](replying-to-support-cases-in-slack.md "replying-to-support-cases-in-slack.md")
 - [Join a live chat session with Support](joining-a-live-chat-session.md "joining-a-live-chat-session.md")
 - [Searching for support cases in Slack](search-case.md "search-case.md")
 - [Resolving a support case in Slack](resolve-support-cases.md "resolve-support-cases.md")
 - [Reopening a support case in Slack](reopen-a-support-case.md "reopen-a-support-case.md")
-- [Deleting a Slack channel configuration from the
-  AWS Support App](delete-a-channel.md "delete-a-channel.md")
-- [Deleting a Slack workspace configuration from the
-  AWS Support App](delete-a-workspace.md "delete-a-workspace.md")
+- [Deleting a Slack channel configuration from the AWS Support App](delete-a-channel.md "delete-a-channel.md")
+- [Deleting a Slack workspace configuration from the AWS Support App](delete-a-workspace.md "delete-a-workspace.md")
 - [AWS Support App in Slack commands](support-app-commands.md "support-app-commands.md")
-- [View AWS Support App correspondences in the
-  AWS Support Center Console](view-slack-updates-in-support-center.md "view-slack-updates-in-support-center.md")
-- [Creating AWS Support App in Slack resources
-  with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
+- [View AWS Support App correspondences in the AWS Support Center Console](view-slack-updates-in-support-center.md "view-slack-updates-in-support-center.md")
+- [Creating AWS Support App in Slack resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")

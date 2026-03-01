@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS Support
+# Using service-linked roles for AWS Support
 
 AWS Support tools gather information about your AWS resources through API calls to provide
 customer service and technical support. To increase the transparency and auditability of
@@ -27,17 +25,14 @@ and aren't visible to AWS Support agents.
 
 AWS Trusted Advisor uses a separate IAM service-linked role to access AWS resources for
 your account to provide best practice recommendations and checks. For more information,
-see [Using service-linked roles for
-Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md").
+see [Using service-linked roles for Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md").
 
 The `AWSServiceRoleForSupport` service-linked role enables all AWS Support API calls to be
 visible to customers through AWS CloudTrail. This helps with monitoring and auditing requirements,
 because it provides a transparent way to understand the actions that Support performs on your
 behalf. For information about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Service-linked role permissions for
-
-Support
+## Service-linked role permissions for Support
 
 This role uses the `AWSSupportServiceRolePolicy` AWS managed policy. This
 managed policy is attached to the role and allows the role permission to complete
@@ -84,9 +79,7 @@ If you used Support before it began supporting service-linked roles, then AWS
 created the `AWSServiceRoleForSupport` role in your account. For more information,
 see [A new role appeared in my IAM account](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
-## Editing and deleting a service-linked role
-
-for Support
+## Editing and deleting a service-linked role for Support
 
 You can use IAM to edit the description for the `AWSServiceRoleForSupport`
 service-linked role. For more information, see [Editing

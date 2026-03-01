@@ -6,24 +6,17 @@ You can use the following checks for the cost optimization category.
 
 - [AWS account not part of AWS Organizations](cost-optimization-checks.md#account-not-part-of-organizations "cost-optimization-checks.md#account-not-part-of-organizations")
 - [Amazon Aurora cost optimization recommendations for DB cluster storage](cost-optimization-checks.md#aurora-cost-opt-db-cluster-storage "cost-optimization-checks.md#aurora-cost-opt-db-cluster-storage")
-- [Amazon Comprehend underutilized
-  endpoints](cost-optimization-checks.md#amazon-comprehend-underutilized-endpoints "cost-optimization-checks.md#amazon-comprehend-underutilized-endpoints")
+- [Amazon Comprehend underutilized endpoints](cost-optimization-checks.md#amazon-comprehend-underutilized-endpoints "cost-optimization-checks.md#amazon-comprehend-underutilized-endpoints")
 - [Amazon DynamoDB reserved capacity purchase recommendations](cost-optimization-checks.md#dynamodb-reserved-capacity-purchase-rec "cost-optimization-checks.md#dynamodb-reserved-capacity-purchase-rec")
 - [Amazon EBS cost optimization recommendations for volumes](cost-optimization-checks.md#ebs-cost-opt-for-volumes "cost-optimization-checks.md#ebs-cost-opt-for-volumes")
-- [Amazon EBS over-provisioned
-  volumes](cost-optimization-checks.md#amazon-ebs-over-provisioned-volumes "cost-optimization-checks.md#amazon-ebs-over-provisioned-volumes")
+- [Amazon EBS over-provisioned volumes](cost-optimization-checks.md#amazon-ebs-over-provisioned-volumes "cost-optimization-checks.md#amazon-ebs-over-provisioned-volumes")
 - [Amazon EC2 cost optimization recommendations for Amazon EC2 Auto Scaling groups](cost-optimization-checks.md#ec2-cost-opt-for-autoscaling "cost-optimization-checks.md#ec2-cost-opt-for-autoscaling")
 - [Amazon EC2 cost optimization recommendations for instances](cost-optimization-checks.md#ec2-cost-opt-for-instances "cost-optimization-checks.md#ec2-cost-opt-for-instances")
-- [Amazon EC2 instances
-  consolidation for Microsoft SQL Server](cost-optimization-checks.md#ec2-instances-consolidation-sql-server "cost-optimization-checks.md#ec2-instances-consolidation-sql-server")
-- [Amazon EC2 instances
-  over-provisioned for Microsoft SQL Server](cost-optimization-checks.md#ec2-instance-over-provisioned-microsoft-sql-server "cost-optimization-checks.md#ec2-instance-over-provisioned-microsoft-sql-server")
-- [Amazon EC2 instances
-  stopped](cost-optimization-checks.md#ec2-instance-stopped-for-thirty-days "cost-optimization-checks.md#ec2-instance-stopped-for-thirty-days")
-- [Amazon EC2 Reserved
-  Instance lease expiration](cost-optimization-checks.md#amazon-ec2-reserved-instances-lease-expiration "cost-optimization-checks.md#amazon-ec2-reserved-instances-lease-expiration")
-- [Amazon EC2 Reserved Instance
-  optimization](cost-optimization-checks.md#amazon-ec2-reserved-instances-optimization "cost-optimization-checks.md#amazon-ec2-reserved-instances-optimization")
+- [Amazon EC2 instances consolidation for Microsoft SQL Server](cost-optimization-checks.md#ec2-instances-consolidation-sql-server "cost-optimization-checks.md#ec2-instances-consolidation-sql-server")
+- [Amazon EC2 instances over-provisioned for Microsoft SQL Server](cost-optimization-checks.md#ec2-instance-over-provisioned-microsoft-sql-server "cost-optimization-checks.md#ec2-instance-over-provisioned-microsoft-sql-server")
+- [Amazon EC2 instances stopped](cost-optimization-checks.md#ec2-instance-stopped-for-thirty-days "cost-optimization-checks.md#ec2-instance-stopped-for-thirty-days")
+- [Amazon EC2 Reserved Instance lease expiration](cost-optimization-checks.md#amazon-ec2-reserved-instances-lease-expiration "cost-optimization-checks.md#amazon-ec2-reserved-instances-lease-expiration")
+- [Amazon EC2 Reserved Instance optimization](cost-optimization-checks.md#amazon-ec2-reserved-instances-optimization "cost-optimization-checks.md#amazon-ec2-reserved-instances-optimization")
 - [Amazon ECR Repository without lifecycle policy configured](cost-optimization-checks.md#amazon-ecr-repository-without-lifecycle-policy "cost-optimization-checks.md#amazon-ecr-repository-without-lifecycle-policy")
 - [Amazon ElastiCache reserved node purchase recommendations](cost-optimization-checks.md#elasticache-reserved-node-purchase-recommendations "cost-optimization-checks.md#elasticache-reserved-node-purchase-recommendations")
 - [AWS Fargate cost optimization recommendations for Amazon ECS](cost-optimization-checks.md#fargate-cost-opt-for-ecs "cost-optimization-checks.md#fargate-cost-opt-for-ecs")
@@ -34,37 +27,27 @@ You can use the following checks for the cost optimization category.
 - [Amazon RDS idle DB instances](cost-optimization-checks.md#amazon-rds-idle-dbs-instances "cost-optimization-checks.md#amazon-rds-idle-dbs-instances")
 - [Amazon RDS Reserved Instance purchase recommendations](cost-optimization-checks.md#rds-ri-purchase-recommendations "cost-optimization-checks.md#rds-ri-purchase-recommendations")
 - [Amazon Redshift reserved node purchase recommendations](cost-optimization-checks.md#redshift-reserved-node-purchase-recommendations "cost-optimization-checks.md#redshift-reserved-node-purchase-recommendations")
-- [Amazon Route 53 Latency
-  Resource Record Sets](cost-optimization-checks.md#amazon-route-53-latency-resource-record-sets "cost-optimization-checks.md#amazon-route-53-latency-resource-record-sets")
+- [Amazon Route 53 Latency Resource Record Sets](cost-optimization-checks.md#amazon-route-53-latency-resource-record-sets "cost-optimization-checks.md#amazon-route-53-latency-resource-record-sets")
 - [Amazon S3 Bucket Lifecycle Policy Configured](cost-optimization-checks.md#amazon-s3-bucket-lifecycle-policy-configured "cost-optimization-checks.md#amazon-s3-bucket-lifecycle-policy-configured")
-- [Amazon S3
-  Incomplete Multipart Upload Abort Configuration](cost-optimization-checks.md#s3-incomplete-multipart-upload-abort-config "cost-optimization-checks.md#s3-incomplete-multipart-upload-abort-config")
+- [Amazon S3 Incomplete Multipart Upload Abort Configuration](cost-optimization-checks.md#s3-incomplete-multipart-upload-abort-config "cost-optimization-checks.md#s3-incomplete-multipart-upload-abort-config")
 - [Amazon S3 version-enabled buckets without lifecycle policies configured](cost-optimization-checks.md#amazon-s3-version-enabled-buckets-no-lifecycle-policy "cost-optimization-checks.md#amazon-s3-version-enabled-buckets-no-lifecycle-policy")
 - [AWS Lambda cost optimization recommendations for functions](cost-optimization-checks.md#lambda-cost-opt-for-functions "cost-optimization-checks.md#lambda-cost-opt-for-functions")
-- [AWS Lambda functions with
-  excessive timeouts](cost-optimization-checks.md#aws-lambda-functions-excessive-timeouts "cost-optimization-checks.md#aws-lambda-functions-excessive-timeouts")
-- [AWS Lambda functions
-  with high error rates](cost-optimization-checks.md#aws-lambda-functions-with-high-error-rates "cost-optimization-checks.md#aws-lambda-functions-with-high-error-rates")
-- [AWS Lambda
-  over-provisioned functions for memory size](cost-optimization-checks.md#aws-lambda-over-provisioned-functions-memory-size "cost-optimization-checks.md#aws-lambda-over-provisioned-functions-memory-size")
+- [AWS Lambda functions with excessive timeouts](cost-optimization-checks.md#aws-lambda-functions-excessive-timeouts "cost-optimization-checks.md#aws-lambda-functions-excessive-timeouts")
+- [AWS Lambda functions with high error rates](cost-optimization-checks.md#aws-lambda-functions-with-high-error-rates "cost-optimization-checks.md#aws-lambda-functions-with-high-error-rates")
+- [AWS Lambda over-provisioned functions for memory size](cost-optimization-checks.md#aws-lambda-over-provisioned-functions-memory-size "cost-optimization-checks.md#aws-lambda-over-provisioned-functions-memory-size")
 - [AWS Savings Plans purchase recommendations for compute](cost-optimization-checks.md#savings-plans-purchase-recommendations-compute "cost-optimization-checks.md#savings-plans-purchase-recommendations-compute")
 - [AWS Savings Plans purchase recommendations for Amazon SageMaker AI](cost-optimization-checks.md#savings-plans-purchase-recommendations-sagemaker "cost-optimization-checks.md#savings-plans-purchase-recommendations-sagemaker")
-- [AWS
-  Well-Architected high risk issues for cost optimization](cost-optimization-checks.md#well-architected-high-risk-issues-cost-optimization "cost-optimization-checks.md#well-architected-high-risk-issues-cost-optimization")
+- [AWS Well-Architected high risk issues for cost optimization](cost-optimization-checks.md#well-architected-high-risk-issues-cost-optimization "cost-optimization-checks.md#well-architected-high-risk-issues-cost-optimization")
 - [Idle Load Balancers](cost-optimization-checks.md#idle-load-balancers "cost-optimization-checks.md#idle-load-balancers")
 - [Idle NAT gateways](cost-optimization-checks.md#idle-nat-gateways "cost-optimization-checks.md#idle-nat-gateways")
 - [Inactive AWS Network Firewall](cost-optimization-checks.md#inactive-network-firewall "cost-optimization-checks.md#inactive-network-firewall")
 - [Inactive VPC interface endpoints](cost-optimization-checks.md#inactive-vpc-interface-endpoints "cost-optimization-checks.md#inactive-vpc-interface-endpoints")
 - [Inactive Gateway Load Balancer endpoints](cost-optimization-checks.md#inactive-gateway-load-balancer "cost-optimization-checks.md#inactive-gateway-load-balancer")
 - [Inactive NAT Gateways](cost-optimization-checks.md#inactive-nat-gateways "cost-optimization-checks.md#inactive-nat-gateways")
-- [Low utilization Amazon EC2
-  instances](cost-optimization-checks.md#low-utilization-amazon-ec2-instances "cost-optimization-checks.md#low-utilization-amazon-ec2-instances")
-- [Unassociated Elastic IP
-  Addresses](cost-optimization-checks.md#unassociated-elastic-ip-addresses "cost-optimization-checks.md#unassociated-elastic-ip-addresses")
-- [Underutilized Amazon EBS
-  volumes](cost-optimization-checks.md#underutilized-amazon-ebs-volumes "cost-optimization-checks.md#underutilized-amazon-ebs-volumes")
-- [Underutilized Amazon Redshift
-  Clusters](cost-optimization-checks.md#underutilized-amazon-redshift-clusters "cost-optimization-checks.md#underutilized-amazon-redshift-clusters")
+- [Low utilization Amazon EC2 instances](cost-optimization-checks.md#low-utilization-amazon-ec2-instances "cost-optimization-checks.md#low-utilization-amazon-ec2-instances")
+- [Unassociated Elastic IP Addresses](cost-optimization-checks.md#unassociated-elastic-ip-addresses "cost-optimization-checks.md#unassociated-elastic-ip-addresses")
+- [Underutilized Amazon EBS volumes](cost-optimization-checks.md#underutilized-amazon-ebs-volumes "cost-optimization-checks.md#underutilized-amazon-ebs-volumes")
+- [Underutilized Amazon Redshift Clusters](cost-optimization-checks.md#underutilized-amazon-redshift-clusters "cost-optimization-checks.md#underutilized-amazon-redshift-clusters")
 
 ## AWS account not part of AWS Organizations
 
@@ -167,9 +150,7 @@ Use the detailed recommendations in AWS Compute Optimizer to understand the pote
 - Estimated Monthly Savings
 - Last Refresh Time stamp
 
-## Amazon Comprehend underutilized
-
-endpoints
+## Amazon Comprehend underutilized endpoints
 
 **Description**
 
@@ -320,9 +301,7 @@ Use the detailed recommendations in AWS Compute Optimizer to understand the pote
 - Estimated Monthly Savings
 - Last Refresh Time stamp
 
-## Amazon EBS over-provisioned
-
-volumes
+## Amazon EBS over-provisioned volumes
 
 **Description**
 
@@ -363,8 +342,7 @@ The algorithm is updated when a new pattern has been identified.
 
 Consider downsizing volumes that have low utilization.
 
-For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor
-checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
+For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
 
 **Report columns**
 
@@ -496,9 +474,7 @@ Use the detailed recommendations in AWS Compute Optimizer to understand the pote
 - Estimated Monthly Savings
 - Last Refresh Time stamp
 
-## Amazon EC2 instances
-
-consolidation for Microsoft SQL Server
+## Amazon EC2 instances consolidation for Microsoft SQL Server
 
 **Description**
 
@@ -548,9 +524,7 @@ with at least four vCPUs.
 - SQL Server Edition
 - Last Updated Time
 
-## Amazon EC2 instances
-
-over-provisioned for Microsoft SQL Server
+## Amazon EC2 instances over-provisioned for Microsoft SQL Server
 
 **Description**
 
@@ -618,9 +592,7 @@ Amazon EC2](../../../prescriptive-guidance/latest/sql-server-ec2-best-practices/
 - Estimated Monthly Savings
 - Last Updated Time
 
-## Amazon EC2 instances
-
-stopped
+## Amazon EC2 instances stopped
 
 **Description**
 
@@ -669,9 +641,7 @@ For more information, see [Terminate your instance](../../../AWSEC2/latest/UserG
 - Input Parameters
 - Last Updated Time
 
-## Amazon EC2 Reserved
-
-Instance lease expiration
+## Amazon EC2 Reserved Instance lease expiration
 
 **Description**
 
@@ -721,9 +691,7 @@ nearing the end of its term. For more information, see [How to Purchase Reserved
 - Reserved Instance ID
 - Reason
 
-## Amazon EC2 Reserved Instance
-
-optimization
+## Amazon EC2 Reserved Instance optimization
 
 **Description**
 
@@ -1298,9 +1266,7 @@ Consider [implementing the recommendation](../../../cost-management/latest/userg
 - Estimated Monthly Savings
 - Last Refresh Time stamp
 
-## Amazon Route 53 Latency
-
-Resource Record Sets
+## Amazon Route 53 Latency Resource Record Sets
 
 **Description**
 
@@ -1413,9 +1379,7 @@ For information on Amazon S3 Intelligent-Tiering, see [Amazon S3 Intelligent-Tie
 - AWS Config Rule
 - Input Parameteres
 
-## Amazon S3
-
-Incomplete Multipart Upload Abort Configuration
+## Amazon S3 Incomplete Multipart Upload Abort Configuration
 
 **Description**
 
@@ -1572,9 +1536,7 @@ Use the detailed recommendations in AWS Compute Optimizer to understand the pote
 - Estimated Monthly Savings
 - Last Refresh Time stamp
 
-## AWS Lambda functions with
-
-excessive timeouts
+## AWS Lambda functions with excessive timeouts
 
 **Description**
 
@@ -1640,9 +1602,7 @@ troubleshooting Lambda applications](../../../lambda/latest/dg/lambda-monitoring
 - Current Day Timeout Rate
 - Last Updated Time
 
-## AWS Lambda functions
-
-with high error rates
+## AWS Lambda functions with high error rates
 
 **Description**
 
@@ -1716,9 +1676,7 @@ tools provided by AWS Lambda partners. For more information, see [AWS Lambda Par
 - \*Average Daily Invokes
 - Last Updated Time
 
-## AWS Lambda
-
-over-provisioned functions for memory size
+## AWS Lambda over-provisioned functions for memory size
 
 **Description**
 
@@ -1760,8 +1718,7 @@ been identified.
 
 Consider reducing the memory size of your Lambda functions.
 
-For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor
-checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
+For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
 
 **Report columns**
 
@@ -1879,9 +1836,7 @@ Consider [implementing the recommendation](../../../cost-management/latest/userg
 - Estimated Monthly Savings
 - Last Refresh Time stamp
 
-## AWS
-
-Well-Architected high risk issues for cost optimization
+## AWS Well-Architected high risk issues for cost optimization
 
 **Description**
 
@@ -2199,9 +2154,7 @@ If a Transit Gateway is used for inter-VPC communication, then consider deployin
 - TotalBytes
 - Last Updated Time
 
-## Low utilization Amazon EC2
-
-instances
+## Low utilization Amazon EC2 instances
 
 **Description**
 
@@ -2262,9 +2215,7 @@ or scale the number of instances by using Auto Scaling. For more information, se
 - Network I/O 14-Day Average
 - Number of Days Low Utilization
 
-## Unassociated Elastic IP
-
-Addresses
+## Unassociated Elastic IP Addresses
 
 **Description**
 
@@ -2305,9 +2256,7 @@ Instance](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md#using-ins
 - Region
 - IP Address
 
-## Underutilized Amazon EBS
-
-volumes
+## Underutilized Amazon EBS volumes
 
 **Description**
 
@@ -2360,12 +2309,9 @@ Volume](../../../AWSEC2/latest/UserGuide/ebs-deleting-volume.md "../../../AWSEC2
 ###### Note
 
 If you opted in your account for AWS Compute Optimizer, we recommend that you use the Amazon EBS
-over-provisioned volumes check instead. For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor
-checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
+over-provisioned volumes check instead. For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
 
-## Underutilized Amazon Redshift
-
-Clusters
+## Underutilized Amazon Redshift Clusters
 
 **Description**
 

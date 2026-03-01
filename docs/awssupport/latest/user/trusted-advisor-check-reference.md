@@ -33,8 +33,7 @@ console to access all checks in the [Service limits](service-limits.md "service-
 - [Amazon RDS Public Snapshots](security-checks.md#amazon-rds-public-snapshots "security-checks.md#amazon-rds-public-snapshots")
 - [Amazon S3 Bucket Permissions](security-checks.md#amazon-s3-bucket-permissions "security-checks.md#amazon-s3-bucket-permissions")
 - [MFA on root account](security-checks.md#mfa-root-account "security-checks.md#mfa-root-account")
-- [Security Groups –
-  Specific Ports Unrestricted](security-checks.md#security-groups-specific-ports-unrestricted "security-checks.md#security-groups-specific-ports-unrestricted")
+- [Security Groups – Specific Ports Unrestricted](security-checks.md#security-groups-specific-ports-unrestricted "security-checks.md#security-groups-specific-ports-unrestricted")
 - [AWS STS global endpoint usage across AWS Regions](fault-tolerance-checks.md#sts-global-endpoint "fault-tolerance-checks.md#sts-global-endpoint")
 
 ###### Check categories

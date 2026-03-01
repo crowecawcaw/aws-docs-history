@@ -67,9 +67,7 @@ correspondence to a support case.
 
 Currently, only events with an `event-name` of `AddCommunicationToCase` will contain have this value.
 
-###### Example Support Case Update event
-
-example: Support case created
+###### Example Support Case Update event example: Support case created
 
 ```
 {
@@ -91,9 +89,7 @@ example: Support case created
 }
 ```
 
-###### Example Support Case Update event
-
-example: AWS Support replies to a support case
+###### Example Support Case Update event example: AWS Support replies to a support case
 
 ```
 {
@@ -115,9 +111,7 @@ example: AWS Support replies to a support case
 }
 ```
 
-###### Example Support Case Update event
-
-example: Support case resolved
+###### Example Support Case Update event example: Support case resolved
 
 ```
 {
@@ -139,9 +133,7 @@ example: Support case resolved
 }
 ```
 
-###### Example Support Case Update event
-
-example: Support case reopened
+###### Example Support Case Update event example: Support case reopened
 
 ```
 {

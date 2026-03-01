@@ -21,5 +21,4 @@ appropriate:
 
 - [Integrating AWS Support into event-driven applications using Amazon EventBridge](eventbridge-integration.md "eventbridge-integration.md")
 - [Logging AWS Support API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-- [Logging AWS Support App in Slack API calls using
-  AWS CloudTrail](logging-using-cloudtrail-support-app.md "logging-using-cloudtrail-support-app.md")
+- [Logging AWS Support App in Slack API calls using AWS CloudTrail](logging-using-cloudtrail-support-app.md "logging-using-cloudtrail-support-app.md")

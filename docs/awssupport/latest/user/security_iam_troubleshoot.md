@@ -1,24 +1,16 @@
-# Troubleshooting AWS Support identity
-
-and access
+# Troubleshooting AWS Support identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Support and IAM.
 
 ###### Topics
 
-- [I'm not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to view my access
-  keys](#security_iam_troubleshoot-access-keys "#security_iam_troubleshoot-access-keys")
-- [I'm an administrator and want
-  to allow others to access Support](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
-- [I want to allow people
-  outside of my AWS account to access my Support resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I'm not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to view my access keys](#security_iam_troubleshoot-access-keys "#security_iam_troubleshoot-access-keys")
+- [I'm an administrator and want to allow others to access Support](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
+- [I want to allow people outside of my AWS account to access my Support resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I'm not authorized to perform
-
-iam:PassRole
+## I'm not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Support.
 
@@ -37,9 +29,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to view my access
-
-keys
+## I want to view my access keys
 
 After you create your IAM user access keys, you can view your access key ID at any time. However, you can't view your secret access key again.
 If you lose your secret key, you must create a new access key pair.
@@ -58,9 +48,7 @@ is available only at the time you create it. If you lose your secret access key,
 maximum of two access keys. If you already have two, you must delete one key pair before creating a new one. To view instructions, see [Managing access keys](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey") in the
 _IAM User Guide_.
 
-## I'm an administrator and want
-
-to allow others to access Support
+## I'm an administrator and want to allow others to access Support
 
 To allow others to access Support, you must grant permission to the people or applications that need access. If you are using AWS IAM Identity Center
 to manage people and applications, you assign permission sets to users or groups to define their level of access. Permission sets automatically create
@@ -71,9 +59,7 @@ a policy to the entity that grants them the correct permissions in Support. Afte
 or application developer. They will use those credentials to access AWS. To learn more about creating IAM users, groups, policies, and permissions,
 see [IAM Identities](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") and [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
 
-## I want to allow people
-
-outside of my AWS account to access my Support resources
+## I want to allow people outside of my AWS account to access my Support resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
@@ -81,8 +67,7 @@ people access to your resources.
 
 To learn more, consult the following:
 
-- To learn whether Support supports these features, see [How AWS Support works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+- To learn whether Support supports these features, see [How AWS Support works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 - To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
   own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
 - To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the

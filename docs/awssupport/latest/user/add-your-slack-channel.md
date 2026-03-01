@@ -112,9 +112,7 @@ channel**.
 Your channel appears in the **Slack configuration**
 page.
 
-## Update your Slack channel
-
-configuration
+## Update your Slack channel configuration
 
 After you configured your Slack channel, you can update them later to change the IAM
 role or case notification.
@@ -131,8 +129,7 @@ role or case notification.
      configuration name. This name only appears in your AWS account and
      won't appear in Slack.
    - Choose **Delete** to delete the channel configuration
-     from the AWS Support App. See [Deleting a Slack channel configuration from the
-     AWS Support App](delete-a-channel.md "delete-a-channel.md").
+     from the AWS Support App. See [Deleting a Slack channel configuration from the AWS Support App](delete-a-channel.md "delete-a-channel.md").
    - Choose **Open in Slack** to open the Slack channel in
      your browser.
    - Choose **Edit** to change the IAM role or

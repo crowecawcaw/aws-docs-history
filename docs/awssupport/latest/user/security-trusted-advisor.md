@@ -9,15 +9,12 @@ You can use AWS Identity and Access Management (IAM) to control access to Truste
 
 ###### Topics
 
-- [Permissions for the Trusted Advisor
-  console](#using-the-trusted-advisor-console "#using-the-trusted-advisor-console")
+- [Permissions for the Trusted Advisor console](#using-the-trusted-advisor-console "#using-the-trusted-advisor-console")
 - [Trusted Advisor actions](#trusted-advisor-operations "#trusted-advisor-operations")
 - [IAM policy examples](#iam-policy-examples-trusted-advisor "#iam-policy-examples-trusted-advisor")
 - [See also](#see-also-security-trusted-advisor "#see-also-security-trusted-advisor")
 
-## Permissions for the Trusted Advisor
-
-console
+## Permissions for the Trusted Advisor console
 
 To access the Trusted Advisor console, a user must have a minimum set of permissions. These
 permissions must allow the user to list and view details about the Trusted Advisor resources in
@@ -68,9 +65,7 @@ these Trusted Advisor actions in an IAM policy to allow or deny specific actions
 | `UpdateNotificationPreferences`     | Grants permission to update notification preferences for<br>Trusted Advisor.               |
 | `DescribeCheckStatusHistoryChanges` | Grants permission to view the results and changed statuses for checks in the last 30 days. |
 
-### Trusted Advisor actions for
-
-organizational view
+### Trusted Advisor actions for organizational view
 
 The following Trusted Advisor actions are for the organizational view feature. For more
 information, see [Organizational view for AWS Trusted Advisor](organizational-view.md "organizational-view.md").
@@ -93,8 +88,7 @@ If
 you have Trusted Advisor Priority enabled for your account, you can perform the following
 Trusted Advisor actions in the console. You can also add these Trusted Advisor
 actions in an IAM policy to allow or deny specific actions. For more information,
-see [Example IAM policies for
-Trusted Advisor Priority](#trusted-advisor-priority-policies "#trusted-advisor-priority-policies").
+see [Example IAM policies for Trusted Advisor Priority](#trusted-advisor-priority-policies "#trusted-advisor-priority-policies").
 
 ###### Note
 
@@ -132,15 +126,11 @@ _IAM User Guide_.
 ###### Examples
 
 - [Full access to Trusted Advisor](#full-access-trusted-advisor "#full-access-trusted-advisor")
-- [Read-only access to
-  Trusted Advisor](#read-only-access-trusted-advisor "#read-only-access-trusted-advisor")
+- [Read-only access to Trusted Advisor](#read-only-access-trusted-advisor "#read-only-access-trusted-advisor")
 - [Deny access to Trusted Advisor](#no-access-trusted-advisor "#no-access-trusted-advisor")
-- [Allow and deny specific
-  actions](#allow-specific-actions-trusted-advisor "#allow-specific-actions-trusted-advisor")
-- [Control access to
-  the Support API operations for Trusted Advisor](#control-access-to-trusted-advisor-deny-support "#control-access-to-trusted-advisor-deny-support")
-- [Example IAM policies for
-  Trusted Advisor Priority](#trusted-advisor-priority-policies "#trusted-advisor-priority-policies")
+- [Allow and deny specific actions](#allow-specific-actions-trusted-advisor "#allow-specific-actions-trusted-advisor")
+- [Control access to the Support API operations for Trusted Advisor](#control-access-to-trusted-advisor-deny-support "#control-access-to-trusted-advisor-deny-support")
+- [Example IAM policies for Trusted Advisor Priority](#trusted-advisor-priority-policies "#trusted-advisor-priority-policies")
 
 ### Full access to Trusted Advisor
 
@@ -163,9 +153,7 @@ JSON
 
 ```
 
-### Read-only access to
-
-Trusted Advisor
+### Read-only access to Trusted Advisor
 
 The following policy allows users read-only access to the Trusted Advisor console. Users
 can't make changes, such as refresh checks or change notification
@@ -212,9 +200,7 @@ JSON
 
 ```
 
-### Allow and deny specific
-
-actions
+### Allow and deny specific actions
 
 The following policy allows users to view all Trusted Advisor checks in the Trusted Advisor
 console, but doesn't allow them to refresh any checks.
@@ -240,9 +226,7 @@ JSON
 
 ```
 
-### Control access to
-
-the Support API operations for Trusted Advisor
+### Control access to the Support API operations for Trusted Advisor
 
 In the AWS Management Console, a separate `trustedadvisor` IAM namespace controls
 access to Trusted Advisor. You can't use the `trustedadvisor` namespace to allow
@@ -304,13 +288,10 @@ JSON
 
 For more information about how IAM works with Support and Trusted Advisor, see [Actions](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions").
 
-### Example IAM policies for
-
-Trusted Advisor Priority
+### Example IAM policies for Trusted Advisor Priority
 
 You can use the following AWS managed policies to control access to
-Trusted Advisor Priority. For more information, see [AWS managed policies for
-AWS Trusted Advisor](aws-managed-policies-for-trusted-advisor.md "aws-managed-policies-for-trusted-advisor.md") and [Get started with AWS Trusted Advisor Priority](trusted-advisor-priority.md "trusted-advisor-priority.md").
+Trusted Advisor Priority. For more information, see [AWS managed policies for AWS Trusted Advisor](aws-managed-policies-for-trusted-advisor.md "aws-managed-policies-for-trusted-advisor.md") and [Get started with AWS Trusted Advisor Priority](trusted-advisor-priority.md "trusted-advisor-priority.md").
 
 ## See also
 

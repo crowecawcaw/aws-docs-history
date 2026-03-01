@@ -70,7 +70,7 @@ This policy includes the following permissions.
 - `mobiletargeting` – Allow principals to troubleshoot technical support cases related to Amazon Pinpoint.
 - `pipes` – Allow principals to troubleshoot technical support cases related to Amazon EventBridge Pipes.
 - `polly` – Allow principals to troubleshoot technical support cases related to Amazon Polly.
-- `quicksight` – Allow principals to troubleshoot technical support cases related to Amazon Quick Suite.
+- `quicksight` – Allow principals to troubleshoot technical support cases related to Amazon Quick.
 - `rds` – Allow principals to troubleshoot technical support cases related to Amazon Relational Database Service. This includes technical support categories such as: Relational Database Service (Aurora - MySQL-Compat), Relational Database Service (Aurora - PostgreSQL-c), Relational Database Service (PostgreSQL), Relational Database Service (SQL Server), Relational Database Service (MySQL) and Relational Database Service (Oracle).
 - `redshift` – Allow principals to troubleshoot technical support cases related to Amazon Redshift.
 - `redshift-data` – Allow principals to troubleshoot technical support cases related to Amazon Redshift Data API.
@@ -102,9 +102,7 @@ This policy includes the following permissions.
 
 To view the permissions for this policy, see [AWSPartnerLedSupportReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSPartnerLedSupportReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSPartnerLedSupportReadOnlyAccess.md") in the _AWS Managed Policy Reference_.
 
-## AWS Partner-Led Support updates to AWS managed
-
-policies
+## AWS Partner-Led Support updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Partner-Led Support since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

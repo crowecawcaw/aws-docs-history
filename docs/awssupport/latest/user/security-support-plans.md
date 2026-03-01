@@ -2,16 +2,12 @@
 
 ###### Topics
 
-- [Permissions for the Support Plans
-  console](#using-the-trusted-advisor-console "#using-the-trusted-advisor-console")
+- [Permissions for the Support Plans console](#using-the-trusted-advisor-console "#using-the-trusted-advisor-console")
 - [Support Plans actions](#support-plans-actions "#support-plans-actions")
-- [Example IAM policies for
-  Support Plans](#support-plans-policies "#support-plans-policies")
+- [Example IAM policies for Support Plans](#support-plans-policies "#support-plans-policies")
 - [Troubleshooting](#troubleshooting-changing-support-plans "#troubleshooting-changing-support-plans")
 
-## Permissions for the Support Plans
-
-console
+## Permissions for the Support Plans console
 
 To access the Support Plans console, a user must have a minimum set of permissions. These
 permissions must allow the user to list and view details about the Support Plans resources
@@ -25,8 +21,7 @@ When you create a policy, you can specify the namespace of the service to allow 
 deny an action. The namespace for Support Plans is `supportplans`.
 
 You can use AWS managed policies and attach them to your IAM entities. For more
-information, see [AWS managed policies for
-AWS Support Plans](managed-policies-aws-support-plans.md "managed-policies-aws-support-plans.md").
+information, see [AWS managed policies for AWS Support Plans](managed-policies-aws-support-plans.md "managed-policies-aws-support-plans.md").
 
 ## Support Plans actions
 
@@ -41,15 +36,11 @@ these Support Plans actions in an IAM policy to allow or deny specific actions.
 | `CreateSupportPlanSchedule`  | Grants permission to create support plan schedules for this<br>AWS account.                   |
 | `ListSupportPlanModifiers`   | Grants permission to view a list of all support plan modifiers for<br>this AWS account.       |
 
-## Example IAM policies for
-
-Support Plans
+## Example IAM policies for Support Plans
 
 You can use the following example policies to manage access to Support Plans.
 
-### Full access to
-
-Support Plans
+### Full access to Support Plans
 
 The following policy allows users full access to Support Plans.
 
@@ -69,9 +60,7 @@ JSON
 
 ```
 
-### Read-only access to
-
-Support Plans
+### Read-only access to Support Plans
 
 The following policy allows read-only access to Support Plans.
 
@@ -120,23 +109,17 @@ JSON
 
 See the following topics to manage access to Support Plans.
 
-### When I try to view or change my support
-
-plan, the Support Plans console says that I'm missing the
-`GetSupportPlan` permission
+### When I try to view or change my support plan, the Support Plans console says that I'm missing the `GetSupportPlan` permission
 
 IAM users must have the required permissions to access the Support Plans console.
 You can update your IAM policy to include the missing permission or use an AWS
 managed policy, such as AWSSupportPlansFullAccess or
-AWSSupportPlansReadOnlyAccess. For more information, see [AWS managed policies for
-AWS Support Plans](managed-policies-aws-support-plans.md "managed-policies-aws-support-plans.md").
+AWSSupportPlansReadOnlyAccess. For more information, see [AWS managed policies for AWS Support Plans](managed-policies-aws-support-plans.md "managed-policies-aws-support-plans.md").
 
 If you don't have access to update your IAM policies, contact your AWS account
 administrator.
 
-#### Related
-
-information
+#### Related information
 
 For more information, see the following topics in the
 _IAM User Guide_:
@@ -146,9 +129,7 @@ _IAM User Guide_:
 - [Troubleshooting access denied error
   messages](../../../IAM/latest/UserGuide/troubleshoot_access-denied.md "../../../IAM/latest/UserGuide/troubleshoot_access-denied.md")
 
-### I have the correct Support Plans
-
-permissions, but I still get the same error
+### I have the correct Support Plans permissions, but I still get the same error
 
 If your AWS account is a member account that's part of AWS Organizations, the service
 control policy (SCP) might need to be updated. SCPs are a type of policy that

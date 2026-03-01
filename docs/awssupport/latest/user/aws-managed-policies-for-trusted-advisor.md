@@ -1,25 +1,16 @@
-# AWS managed policies for
-
-AWS Trusted Advisor
+# AWS managed policies for AWS Trusted Advisor
 
 Trusted Advisor has the following AWS managed policies.
 
 ###### Contents
 
-- [AWS managed
-  policy: AWSTrustedAdvisorPriorityFullAccess](aws-managed-policies-for-trusted-advisor.md#security-iam-support-TA-priority-full-access-policy "aws-managed-policies-for-trusted-advisor.md#security-iam-support-TA-priority-full-access-policy")
-- [AWS managed
-  policy: AWSTrustedAdvisorPriorityReadOnlyAccess](aws-managed-policies-for-trusted-advisor.md#security-iam-support-TA-priority-read-only-policy "aws-managed-policies-for-trusted-advisor.md#security-iam-support-TA-priority-read-only-policy")
-- [AWS
-  managed policy: AWSTrustedAdvisorServiceRolePolicy](aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-AWSTrustedAdvisorServiceRolePolicy "aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-AWSTrustedAdvisorServiceRolePolicy")
-- [AWS managed policy:
-  AWSTrustedAdvisorReportingServiceRolePolicy](aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-AWSTrustedAdvisorReportingServiceRolePolicy "aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-AWSTrustedAdvisorReportingServiceRolePolicy")
-- [Trusted Advisor updates to AWS
-  managed policies](aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-updates-trusted-advisor "aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-updates-trusted-advisor")
+- [AWS managed policy: AWSTrustedAdvisorPriorityFullAccess](aws-managed-policies-for-trusted-advisor.md#security-iam-support-TA-priority-full-access-policy "aws-managed-policies-for-trusted-advisor.md#security-iam-support-TA-priority-full-access-policy")
+- [AWS managed policy: AWSTrustedAdvisorPriorityReadOnlyAccess](aws-managed-policies-for-trusted-advisor.md#security-iam-support-TA-priority-read-only-policy "aws-managed-policies-for-trusted-advisor.md#security-iam-support-TA-priority-read-only-policy")
+- [AWS managed policy: AWSTrustedAdvisorServiceRolePolicy](aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-AWSTrustedAdvisorServiceRolePolicy "aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-AWSTrustedAdvisorServiceRolePolicy")
+- [AWS managed policy: AWSTrustedAdvisorReportingServiceRolePolicy](aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-AWSTrustedAdvisorReportingServiceRolePolicy "aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-AWSTrustedAdvisorReportingServiceRolePolicy")
+- [Trusted Advisor updates to AWS managed policies](aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-updates-trusted-advisor "aws-managed-policies-for-trusted-advisor.md#security-iam-awsmanpol-updates-trusted-advisor")
 
-## AWS managed
-
-policy: AWSTrustedAdvisorPriorityFullAccess
+## AWS managed policy: AWSTrustedAdvisorPriorityFullAccess
 
 The [AWSTrustedAdvisorPriorityFullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSTrustedAdvisorPriorityFullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSTrustedAdvisorPriorityFullAccess$jsonEditor") policy grants full
 access to Trusted Advisor Priority. This policy also allows the user to add Trusted Advisor as a trusted
@@ -145,9 +136,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AWSTrustedAdvisorPriorityReadOnlyAccess
+## AWS managed policy: AWSTrustedAdvisorPriorityReadOnlyAccess
 
 The [AWSTrustedAdvisorPriorityReadOnlyAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSTrustedAdvisorPriorityReadOnlyAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSTrustedAdvisorPriorityReadOnlyAccess$jsonEditor") policy grants
 read-only permissions to Trusted Advisor Priority, including permission to view the delegated
@@ -217,15 +206,12 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AWSTrustedAdvisorServiceRolePolicy
+## AWS managed policy: AWSTrustedAdvisorServiceRolePolicy
 
 This policy is attached to the `AWSServiceRoleForTrustedAdvisor`
 service-linked role. It allows the service-linked role to perform actions for you. You
 can't attach the [AWSTrustedAdvisorServiceRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy$jsonEditor") to your AWS Identity and Access Management
-(IAM) entities. For more information, see [Using service-linked roles for
-Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md").
+(IAM) entities. For more information, see [Using service-linked roles for Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md").
 
 This policy grants administrative permissions that allow the service-linked role to
 access AWS services. These permissions allow the checks for Trusted Advisor to evaluate your
@@ -399,15 +385,12 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AWSTrustedAdvisorReportingServiceRolePolicy
+## AWS managed policy: AWSTrustedAdvisorReportingServiceRolePolicy
 
 This policy is attached to the `AWSServiceRoleForTrustedAdvisorReporting`
 service-linked role that allows Trusted Advisor to perform actions for the organizational view
 feature. You can't attach the [AWSTrustedAdvisorReportingServiceRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorReportingServiceRolePolicy$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorReportingServiceRolePolicy$jsonEditor") to your
-IAM entities. For more information, see [Using service-linked roles for
-Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md").
+IAM entities. For more information, see [Using service-linked roles for Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md").
 
 This policy grants administrative permissions that allow the service-linked role to
 perform AWS Organizations actions.
@@ -446,9 +429,7 @@ JSON
 
 ```
 
-## Trusted Advisor updates to AWS
-
-managed policies
+## Trusted Advisor updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Support and Trusted Advisor since
 these services began tracking these changes. For automatic alerts about changes to this

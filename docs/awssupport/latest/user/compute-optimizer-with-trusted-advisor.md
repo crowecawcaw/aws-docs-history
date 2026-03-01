@@ -1,6 +1,4 @@
-# Opt in AWS Compute Optimizer for Trusted Advisor
-
-checks
+# Opt in AWS Compute Optimizer for Trusted Advisor checks
 
 Compute Optimizer is a service that analyzes the configuration and utilization metrics of your AWS
 resources. This service reports

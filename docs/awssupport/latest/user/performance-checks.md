@@ -8,17 +8,13 @@ You can use the following checks for the performance category.
 
 ###### Check names
 
-- [Amazon Aurora
-  DB cluster under-provisioned for read workload](performance-checks.md#amazon-aurora-db-cluster-under-provisioned "performance-checks.md#amazon-aurora-db-cluster-under-provisioned")
+- [Amazon Aurora DB cluster under-provisioned for read workload](performance-checks.md#amazon-aurora-db-cluster-under-provisioned "performance-checks.md#amazon-aurora-db-cluster-under-provisioned")
 - [Amazon DynamoDB Auto Scaling Not Enabled](performance-checks.md#dynamodb-auto-scaling-not-enabled "performance-checks.md#dynamodb-auto-scaling-not-enabled")
 - [Amazon EBS Optimization Not Enabled](performance-checks.md#ebs-optimization-not-enabled "performance-checks.md#ebs-optimization-not-enabled")
-- [Amazon EBS Provisioned IOPS (SSD) Volume Attachment
-  Configuration](performance-checks.md#EBS-ProvisionedIOPSRule "performance-checks.md#EBS-ProvisionedIOPSRule")
-- [Amazon EBS under-provisioned
-  volumes](performance-checks.md#amazon-ebs-under-provisioned-volumes "performance-checks.md#amazon-ebs-under-provisioned-volumes")
+- [Amazon EBS Provisioned IOPS (SSD) Volume Attachment Configuration](performance-checks.md#EBS-ProvisionedIOPSRule "performance-checks.md#EBS-ProvisionedIOPSRule")
+- [Amazon EBS under-provisioned volumes](performance-checks.md#amazon-ebs-under-provisioned-volumes "performance-checks.md#amazon-ebs-under-provisioned-volumes")
 - [Amazon EC2 Auto Scaling Group is not Associated with a Launch Template](performance-checks.md#ec2-auto-scaling-no-launch-template "performance-checks.md#ec2-auto-scaling-no-launch-template")
-- [Amazon EC2 to EBS Throughput
-  Optimization](performance-checks.md#ebs-throughput-optimization "performance-checks.md#ebs-throughput-optimization")
+- [Amazon EC2 to EBS Throughput Optimization](performance-checks.md#ebs-throughput-optimization "performance-checks.md#ebs-throughput-optimization")
 - [EC2 Virtualization Type is Paravirtual](performance-checks.md#ec2-virtualization-type-is-paravirtual "performance-checks.md#ec2-virtualization-type-is-paravirtual")
 - [Amazon ECS Memory Hard Limit](performance-checks.md#ecs-memory-hard-limit "performance-checks.md#ecs-memory-hard-limit")
 - [Amazon EFS Throughput Mode Optimization](performance-checks.md#amazon-efs-throughput-mode-optimization "performance-checks.md#amazon-efs-throughput-mode-optimization")
@@ -33,8 +29,7 @@ You can use the following checks for the performance category.
 - [Amazon RDS InnoDB_Change_Buffering parameter using less than optimum value](performance-checks.md#rds-innodb-parameter-less-than-optimal "performance-checks.md#rds-innodb-parameter-less-than-optimal")
 - [Amazon RDS innodb_open_files parameter is low](performance-checks.md#rds-innodb-open-files-parameter-low "performance-checks.md#rds-innodb-open-files-parameter-low")
 - [Amazon RDS innodb_stats_persistent parameter is turned off](performance-checks.md#rds-innodb-stats-persistent-parameter-off "performance-checks.md#rds-innodb-stats-persistent-parameter-off")
-- [Amazon RDS
-  instance under-provisioned for system capacity](performance-checks.md#amazon-rds-under-provisioned-system-capacity "performance-checks.md#amazon-rds-under-provisioned-system-capacity")
+- [Amazon RDS instance under-provisioned for system capacity](performance-checks.md#amazon-rds-under-provisioned-system-capacity "performance-checks.md#amazon-rds-under-provisioned-system-capacity")
 - [Amazon RDS magnetic volume is in use](performance-checks.md#rds-magentic-volume-in-use "performance-checks.md#rds-magentic-volume-in-use")
 - [Amazon RDS parameter groups not using huge pages](performance-checks.md#rds--parameter-groups-no-huge-pages "performance-checks.md#rds--parameter-groups-no-huge-pages")
 - [Amazon RDS query cache parameter is turned on](performance-checks.md#rds-cache-parameter-on "performance-checks.md#rds-cache-parameter-on")
@@ -42,21 +37,15 @@ You can use the following checks for the performance category.
 - [Amazon RDS resources major versions update is required](performance-checks.md#rds-resources-major-version-update "performance-checks.md#rds-resources-major-version-update")
 - [Amazon RDS resources using end of support engine edition under license-included](performance-checks.md#rds-resources-using-eos-engine "performance-checks.md#rds-resources-using-eos-engine")
 - [Amazon Route 53 Alias Resource Record Sets](performance-checks.md#r53-record-sets-alias "performance-checks.md#r53-record-sets-alias")
-- [AWS Lambda
-  under-provisioned functions for memory size](performance-checks.md#aws-lambda-under-provisioned-functions-memory-size "performance-checks.md#aws-lambda-under-provisioned-functions-memory-size")
+- [AWS Lambda under-provisioned functions for memory size](performance-checks.md#aws-lambda-under-provisioned-functions-memory-size "performance-checks.md#aws-lambda-under-provisioned-functions-memory-size")
 - [AWS Lambda Functions without Concurrency Limit Configured](performance-checks.md#lambda-functions-without-concurrency-limit "performance-checks.md#lambda-functions-without-concurrency-limit")
-- [AWS
-  Well-Architected high risk issues for performance](performance-checks.md#well-architected-high-risk-issues-performance "performance-checks.md#well-architected-high-risk-issues-performance")
+- [AWS Well-Architected high risk issues for performance](performance-checks.md#well-architected-high-risk-issues-performance "performance-checks.md#well-architected-high-risk-issues-performance")
 - [CloudFront Alternate Domain Names](performance-checks.md#cloudfront-domain-name-check "performance-checks.md#cloudfront-domain-name-check")
-- [CloudFront Content Delivery
-  Optimization](performance-checks.md#cloudfront-content-delivery-optimization "performance-checks.md#cloudfront-content-delivery-optimization")
-- [CloudFront Header Forwarding and Cache Hit
-  Ratio](performance-checks.md#cloudfront-forwarded-headers "performance-checks.md#cloudfront-forwarded-headers")
+- [CloudFront Content Delivery Optimization](performance-checks.md#cloudfront-content-delivery-optimization "performance-checks.md#cloudfront-content-delivery-optimization")
+- [CloudFront Header Forwarding and Cache Hit Ratio](performance-checks.md#cloudfront-forwarded-headers "performance-checks.md#cloudfront-forwarded-headers")
 - [High CPU Utilization Amazon EC2 Instances](performance-checks.md#high-utilization-amazon-ec2-instances "performance-checks.md#high-utilization-amazon-ec2-instances")
 
-## Amazon Aurora
-
-DB cluster under-provisioned for read workload
+## Amazon Aurora DB cluster under-provisioned for read workload
 
 **Description**
 
@@ -205,9 +194,7 @@ For more information, see [Enable EBS optimization at launch](../../../AWSEC2/la
 - Input Parameters
 - Last Updated Time
 
-## Amazon EBS Provisioned IOPS (SSD) Volume Attachment
-
-Configuration
+## Amazon EBS Provisioned IOPS (SSD) Volume Attachment Configuration
 
 **Description**
 
@@ -253,9 +240,7 @@ Amazon EBS Volume to an Instance](../../../AWSEC2/latest/UserGuide/ebs-attaching
 - Instance Type
 - EBS Optimized
 
-## Amazon EBS under-provisioned
-
-volumes
+## Amazon EBS under-provisioned volumes
 
 **Description**
 
@@ -291,8 +276,7 @@ The algorithm is updated when a new pattern has been identified.
 
 Consider upsizing volumes that have high utilization.
 
-For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor
-checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
+For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
 
 **Report columns**
 
@@ -364,9 +348,7 @@ For more information, see [Create a launch template for an Auto Scaling group](.
 - Input Parameters
 - Last Updated Time
 
-## Amazon EC2 to EBS Throughput
-
-Optimization
+## Amazon EC2 to EBS Throughput Optimization
 
 **Description**
 
@@ -1081,9 +1063,7 @@ For more information, see [Best practices for configuring parameters for Amazon 
 - Recommended Value
 - Last Updated Time
 
-## Amazon RDS
-
-instance under-provisioned for system capacity
+## Amazon RDS instance under-provisioned for system capacity
 
 **Description**
 
@@ -1476,9 +1456,7 @@ Record Sets](../../../Route53/latest/DeveloperGuide/resource-record-sets-values.
 - Resource Record Set Identifier
 - Alias Target
 
-## AWS Lambda
-
-under-provisioned functions for memory size
+## AWS Lambda under-provisioned functions for memory size
 
 **Description**
 
@@ -1513,8 +1491,7 @@ new pattern has been identified.
 
 Consider increasing the memory size of your Lambda functions.
 
-For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor
-checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
+For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
 
 **Report columns**
 
@@ -1585,9 +1562,7 @@ For more information, see [Configuring reserved concurrency](../../../lambda/lat
 - Input Parameters
 - Last Updated Time
 
-## AWS
-
-Well-Architected high risk issues for performance
+## AWS Well-Architected high risk issues for performance
 
 **Description**
 
@@ -1697,9 +1672,7 @@ Name](../../../Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.
 - Alternate Domain Name
 - Reason
 
-## CloudFront Content Delivery
-
-Optimization
+## CloudFront Content Delivery Optimization
 
 **Description**
 
@@ -1755,9 +1728,7 @@ explore possible cost savings.
 - Data Transfer Out (GB)
 - Ratio of Transfer to Storage
 
-## CloudFront Header Forwarding and Cache Hit
-
-Ratio
+## CloudFront Header Forwarding and Cache Hit Ratio
 
 **Description**
 

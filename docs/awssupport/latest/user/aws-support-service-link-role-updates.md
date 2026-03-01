@@ -1,6 +1,4 @@
-# Permission changes for
-
-AWSSupportServiceRolePolicy
+# Permission changes for AWSSupportServiceRolePolicy
 
 Most permissions added to `AWSSupportServiceRolePolicy` allow AWS Support to
 call an API operation with the same name. However, some API operations require

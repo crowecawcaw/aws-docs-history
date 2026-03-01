@@ -1,6 +1,4 @@
-# Using IAM policies to allow access to
-
-organizational view
+# Using IAM policies to allow access to organizational view
 
 You can use the following AWS Identity and Access Management (IAM) policies to allow users or roles in your
 account access to organizational view in AWS Trusted Advisor.
@@ -123,5 +121,4 @@ log entries:
   organization.
 - `AWSServiceRoleForTrustedAdvisor` – The service-linked
   role that Trusted Advisor uses to access services in your organization.
-  For more information about service-linked roles, see [Using service-linked roles for
-  Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md").
+  For more information about service-linked roles, see [Using service-linked roles for Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md").

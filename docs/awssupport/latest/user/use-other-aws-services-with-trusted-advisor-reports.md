@@ -1,11 +1,9 @@
-# Using other AWS
-
-services to view Trusted Advisor reports
+# Using other AWS services to view Trusted Advisor reports
 
 Follow this tutorial to upload and view your data by using other AWS services. In this
 topic, you create an Amazon Simple Storage Service (Amazon S3) bucket to store your report and an CloudFormation template to
 create resources in your account. Then, you can use Amazon Athena to analyze or run queries for
-your report or Quick Suite to visualize that data in a dashboard.
+your report or Quick to visualize that data in a dashboard.
 
 For information and examples for visualizing your report data, see the [View
 AWS Trusted Advisor recommendations at scale with AWS Organizations](https://aws.amazon.com/blogs/mt/organizational-view-for-trusted-advisor/ "https://aws.amazon.com/blogs/mt/organizational-view-for-trusted-advisor/") in the _AWS
@@ -18,8 +16,8 @@ Before you start this tutorial, you must meet the following requirements:
 - Sign in as an AWS Identity and Access Management (IAM) user with administrator permissions.
 - Use the US East (N. Virginia) AWS Region to quickly set up your AWS services
   and resources.
-- Create an Quick Suite account. For more information, see [Getting Started with Data
-  Analysis in Quick Suite](../../../quicksight/latest/user/getting-started.md "../../../quicksight/latest/user/getting-started.md") in the _Amazon Quick Suite User Guide_.
+- Create an Quick account. For more information, see [Getting Started with Data
+  Analysis in Quick](../../../quicksight/latest/user/getting-started.md "../../../quicksight/latest/user/getting-started.md") in the _Amazon Quick User Guide_.
 
 ## Upload the report to Amazon S3
 
@@ -52,9 +50,7 @@ override the existing reports. For example, you can add the timestamp to each
 file, such as `resources-timestamp.json`,
 `resources-timestamp2.json`, and so on.
 
-## Create your resources using
-
-AWS CloudFormation
+## Create your resources using AWS CloudFormation
 
 After you upload your report to Amazon S3, upload the following YAML template to CloudFormation.
 This template tells CloudFormation what resources to create for your account so that other
@@ -143,37 +139,37 @@ For more information, see [Running
 SQL Queries Using Amazon Athena](../../../athena/latest/ug/querying-athena-tables.md "../../../athena/latest/ug/querying-athena-tables.md") in the
 _Amazon Athena User Guide_.
 
-## Create a dashboard in Quick Suite
+## Create a dashboard in Quick
 
-You can also set up Quick Suite so that you can view your data in a dashboard and visualize
+You can also set up Quick so that you can view your data in a dashboard and visualize
 your report information.
 
 ###### Note
 
 You must use the US East (N. Virginia) Region.
 
-###### To create a dashboard in Quick Suite
+###### To create a dashboard in Quick
 
-1. Navigate to the Quick Suite console and sign in to your [account](https://us-east-1.quicksight.aws.amazon.com "https://us-east-1.quicksight.aws.amazon.com").
+1. Navigate to the Quick console and sign in to your [account](https://us-east-1.quicksight.aws.amazon.com "https://us-east-1.quicksight.aws.amazon.com").
 2. Choose **New analysis**, **New dataset**,
    and then choose **Athena**.
 3. In the **New Athena data source** dialog box, enter a data
    source name such as **AthenaTA**, and then choose
    **Create data source**.
 
-![Screenshot of a new data source in the Amazon Quick Suite console.](images/organizational-view-athena-data-source.png) 4. In the **Choose your table** dialog box, choose the
+![Screenshot of a new data source in the Amazon Quick console.](images/organizational-view-athena-data-source.png) 4. In the **Choose your table** dialog box, choose the
 **athenatacfn** table, choose **folder1**,
 and then choose **Select**.
 
-![Screenshot of choosing your Athena table in the Quick Suite console.](images/quicksight-choose-athena-table.png) 5. In the **Finish data set creation** dialog box, choose
+![Screenshot of choosing your Athena table in the Quick console.](images/quicksight-choose-athena-table.png) 5. In the **Finish data set creation** dialog box, choose
 **Directly query your data**, and then choose
 **Visualize**.
 
-![Screenshot of creating a data set in the Quick Suite console.](images/quick-sight-visualize-data.png)
+![Screenshot of creating a data set in the Quick console.](images/quick-sight-visualize-data.png)
 
-You can now create a dashboard in Quick Suite. For more information, see [Working with Dashboards](../../../quicksight/latest/user/working-with-dashboards.md "../../../quicksight/latest/user/working-with-dashboards.md") in the _Amazon Quick Suite User Guide_.
+You can now create a dashboard in Quick. For more information, see [Working with Dashboards](../../../quicksight/latest/user/working-with-dashboards.md "../../../quicksight/latest/user/working-with-dashboards.md") in the _Amazon Quick User Guide_.
 
-###### Example: Quick Suite dashboard
+###### Example: Quick dashboard
 
 The following example dashboard shows information about the Trusted Advisor checks, such
 as the following:
@@ -184,13 +180,13 @@ as the following:
 - Check statuses
 - Number of entries in the report for each account
 
-![Screenshot of visualizing report data in Amazon Quick Suite.](images/quick-sight-visualize-data-example-2.png)
+![Screenshot of visualizing report data in Amazon Quick.](images/quick-sight-visualize-data-example-2.png)
 
 ###### Note
 
-If you have permission errors while creating your dashboard, make sure that Quick Suite can
+If you have permission errors while creating your dashboard, make sure that Quick can
 use Athena. For more information, see [I Can't Connect to
-Amazon Athena](../../../quicksight/latest/user/troubleshoot-connect-athena.md "../../../quicksight/latest/user/troubleshoot-connect-athena.md") in the _Amazon Quick Suite User Guide_.
+Amazon Athena](../../../quicksight/latest/user/troubleshoot-connect-athena.md "../../../quicksight/latest/user/troubleshoot-connect-athena.md") in the _Amazon Quick User Guide_.
 
 For more information and examples for visualizing your report data, see the [View
 AWS Trusted Advisor recommendations at scale with AWS Organizations](https://aws.amazon.com/blogs/mt/organizational-view-for-trusted-advisor/ "https://aws.amazon.com/blogs/mt/organizational-view-for-trusted-advisor/") in the _AWS
@@ -200,18 +196,14 @@ Management & Governance Blog_.
 
 If you have issues with this tutorial, see the following troubleshooting tips.
 
-### I'm not seeing the latest data in my
-
-report
+### I'm not seeing the latest data in my report
 
 When you create a report, the organizational view feature doesn't automatically
 refresh the Trusted Advisor checks in your organization. To get the latest check results,
 refresh the checks for the management account and each member account in the
 organization. For more information, see [Refresh Trusted Advisor checks](organizational-view.md#refresh-trusted-advisor-checks "organizational-view.md#refresh-trusted-advisor-checks").
 
-### I have duplicate columns in the
-
-report
+### I have duplicate columns in the report
 
 The Athena console might show the following error in your table if your report has
 duplicate columns.
@@ -255,8 +247,7 @@ this tutorial use the latest report data from your organization.
 1. If you haven't already, refresh your Trusted Advisor checks for the accounts
    in your organization. See [Refresh Trusted Advisor checks](organizational-view.md#refresh-trusted-advisor-checks "organizational-view.md#refresh-trusted-advisor-checks").
 2. Create and download another JSON report in the Trusted Advisor console. See
-   [Create organizational view
-   reports](organizational-view.md#create-organizational-view-reports "organizational-view.md#create-organizational-view-reports"). You must use a JSON
+   [Create organizational view reports](organizational-view.md#create-organizational-view-reports "organizational-view.md#create-organizational-view-reports"). You must use a JSON
    file for this tutorial.
 3. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

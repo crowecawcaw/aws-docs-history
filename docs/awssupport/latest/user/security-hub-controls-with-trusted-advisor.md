@@ -1,6 +1,4 @@
-# Viewing AWS Security Hub CSPM controls in
-
-AWS Trusted Advisor
+# Viewing AWS Security Hub CSPM controls in AWS Trusted Advisor
 
 After you enable AWS Security Hub CSPM for your AWS account, you can view your security controls and
 their findings in the Trusted Advisor console. You can use Security Hub CSPM controls to identify security
@@ -23,8 +21,7 @@ For more information about the Security Hub CSPM categories, see [Control catego
 ###### Topics
 
 - [Prerequisites](#prerequisites-security-hub "#prerequisites-security-hub")
-- [View your Security Hub CSPM
-  findings](#security-controls-trusted-advisor-console "#security-controls-trusted-advisor-console")
+- [View your Security Hub CSPM findings](#security-controls-trusted-advisor-console "#security-controls-trusted-advisor-console")
 - [Refresh your Security Hub CSPM findings](#refreshing-security-hub-findings "#refreshing-security-hub-findings")
 - [Disable Security Hub CSPM from Trusted Advisor](#disable-security-hub "#disable-security-hub")
 - [Troubleshooting](#troubleshooting-security-hub-integration "#troubleshooting-security-hub-integration")
@@ -47,12 +44,9 @@ Trusted Advisor:
 
 ###### Note
 
-If you already completed these prerequisites, you can skip to [View your Security Hub CSPM
-findings](#security-controls-trusted-advisor-console "#security-controls-trusted-advisor-console").
+If you already completed these prerequisites, you can skip to [View your Security Hub CSPM findings](#security-controls-trusted-advisor-console "#security-controls-trusted-advisor-console").
 
-### About AWS Organizations
-
-accounts
+### About AWS Organizations accounts
 
 If you already completed the prerequisites for a management account, this
 integration is enabled automatically for all member accounts in your organization.
@@ -60,12 +54,9 @@ Individual member accounts don't need to contact Support to enable this feature.
 However, member accounts in your organization must enable Security Hub CSPM if they want to see
 their findings in Trusted Advisor.
 
-If you want to disable this integration for a specific member account, see [Disable this feature for
-AWS Organizations accounts](#disabling-security-hub-for-organizations "#disabling-security-hub-for-organizations").
+If you want to disable this integration for a specific member account, see [Disable this feature for AWS Organizations accounts](#disabling-security-hub-for-organizations "#disabling-security-hub-for-organizations").
 
-## View your Security Hub CSPM
-
-findings
+## View your Security Hub CSPM findings
 
 After you enable Security Hub CSPM for your account, it can take up to 24 hours for your Security Hub CSPM
 findings to appear in the **Security** page of the Trusted Advisor
@@ -144,9 +135,7 @@ After AWS Support disables this feature, Security Hub CSPM no longer sends data 
 Your
 Security Hub CSPM data will be removed from Trusted Advisor. 2. If you want to enable this integration again, contact [AWS Support](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
 
-### Disable this feature for
-
-AWS Organizations accounts
+### Disable this feature for AWS Organizations accounts
 
 If you already completed the previous procedure for a management account, Security Hub CSPM
 integration is automatically removed from all member accounts in your organization.
@@ -163,28 +152,17 @@ information.
 
 ###### Contents
 
-- [I don't see Security Hub CSPM findings in
-  the Trusted Advisor console](security-hub-controls-with-trusted-advisor.md#security-hub-findings-not-appearing "security-hub-controls-with-trusted-advisor.md#security-hub-findings-not-appearing")
-- [I configured Security Hub CSPM and
-  AWS Config correctly, but my findings are still missing](security-hub-controls-with-trusted-advisor.md#findings-still-not-appearing-after-enabling "security-hub-controls-with-trusted-advisor.md#findings-still-not-appearing-after-enabling")
-- [I want to disable specific Security Hub CSPM
-  controls](security-hub-controls-with-trusted-advisor.md#missing-findings-for-some-checks "security-hub-controls-with-trusted-advisor.md#missing-findings-for-some-checks")
-- [I want to find my excluded
-  Security Hub CSPM resources](security-hub-controls-with-trusted-advisor.md#finding-excluded-security-hub-findings "security-hub-controls-with-trusted-advisor.md#finding-excluded-security-hub-findings")
-- [I want to enable or disable this
-  feature for a member account that belongs to an AWS organization](security-hub-controls-with-trusted-advisor.md#troubleshooting-organizations "security-hub-controls-with-trusted-advisor.md#troubleshooting-organizations")
-- [I see multiple AWS Regions for
-  the same affected resource for a Security Hub CSPM check](security-hub-controls-with-trusted-advisor.md#multiple-regions-check-results "security-hub-controls-with-trusted-advisor.md#multiple-regions-check-results")
-- [I turned off Security Hub CSPM or AWS Config in a
-  Region](security-hub-controls-with-trusted-advisor.md#disable-security-hub-regions "security-hub-controls-with-trusted-advisor.md#disable-security-hub-regions")
-- [My control is
-  archived in Security Hub CSPM, but I still see the findings in Trusted Advisor](security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor "security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor")
-- [I still can't view my Security Hub CSPM
-  findings](security-hub-controls-with-trusted-advisor.md#security-hub-contact-support "security-hub-controls-with-trusted-advisor.md#security-hub-contact-support")
+- [I don't see Security Hub CSPM findings in the Trusted Advisor console](security-hub-controls-with-trusted-advisor.md#security-hub-findings-not-appearing "security-hub-controls-with-trusted-advisor.md#security-hub-findings-not-appearing")
+- [I configured Security Hub CSPM and AWS Config correctly, but my findings are still missing](security-hub-controls-with-trusted-advisor.md#findings-still-not-appearing-after-enabling "security-hub-controls-with-trusted-advisor.md#findings-still-not-appearing-after-enabling")
+- [I want to disable specific Security Hub CSPM controls](security-hub-controls-with-trusted-advisor.md#missing-findings-for-some-checks "security-hub-controls-with-trusted-advisor.md#missing-findings-for-some-checks")
+- [I want to find my excluded Security Hub CSPM resources](security-hub-controls-with-trusted-advisor.md#finding-excluded-security-hub-findings "security-hub-controls-with-trusted-advisor.md#finding-excluded-security-hub-findings")
+- [I want to enable or disable this feature for a member account that belongs to an AWS organization](security-hub-controls-with-trusted-advisor.md#troubleshooting-organizations "security-hub-controls-with-trusted-advisor.md#troubleshooting-organizations")
+- [I see multiple AWS Regions for the same affected resource for a Security Hub CSPM check](security-hub-controls-with-trusted-advisor.md#multiple-regions-check-results "security-hub-controls-with-trusted-advisor.md#multiple-regions-check-results")
+- [I turned off Security Hub CSPM or AWS Config in a Region](security-hub-controls-with-trusted-advisor.md#disable-security-hub-regions "security-hub-controls-with-trusted-advisor.md#disable-security-hub-regions")
+- [My control is archived in Security Hub CSPM, but I still see the findings in Trusted Advisor](security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor "security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor")
+- [I still can't view my Security Hub CSPM findings](security-hub-controls-with-trusted-advisor.md#security-hub-contact-support "security-hub-controls-with-trusted-advisor.md#security-hub-contact-support")
 
-### I don't see Security Hub CSPM findings in
-
-the Trusted Advisor console
+### I don't see Security Hub CSPM findings in the Trusted Advisor console
 
 Verify that you completed the following steps:
 
@@ -198,9 +176,7 @@ Verify that you completed the following steps:
 
 For more information, see the [Prerequisites](#prerequisites-security-hub "#prerequisites-security-hub").
 
-### I configured Security Hub CSPM and
-
-AWS Config correctly, but my findings are still missing
+### I configured Security Hub CSPM and AWS Config correctly, but my findings are still missing
 
 It can take up to two hours for Security Hub CSPM to have findings for your resources. It can
 then take up to 24 hours for that data to appear in the Trusted Advisor console. Check the
@@ -216,9 +192,7 @@ Trusted Advisor console again later.
   take up to 24 hours for your findings to appear in Trusted Advisor. Check the
   Trusted Advisor console again later.
 
-### I want to disable specific Security Hub CSPM
-
-controls
+### I want to disable specific Security Hub CSPM controls
 
 Security Hub CSPM sends your data to Trusted Advisor automatically. If you disable a Security Hub CSPM control or
 no longer have resources for that control, your findings won't appear in
@@ -239,9 +213,7 @@ For more information, see the following topics:
   controls](../../../securityhub/latest/userguide/securityhub-standards-enable-disable-controls.md "../../../securityhub/latest/userguide/securityhub-standards-enable-disable-controls.md")
 - [Disabling or enabling a security standard](../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md "../../../securityhub/latest/userguide/securityhub-standards-enable-disable.md")
 
-### I want to find my excluded
-
-Security Hub CSPM resources
+### I want to find my excluded Security Hub CSPM resources
 
 From the Trusted Advisor console, you can choose your Security Hub CSPM control name, and then choose
 the **Excluded items** option. This option displays all resources
@@ -251,18 +223,14 @@ If the workflow status for a resource is set to `SUPPRESSED`, then that
 resource is an excluded item in Trusted Advisor. You can't suppress Security Hub CSPM resources from
 the Trusted Advisor console. To do so, use the [Security Hub CSPM console](https://console.aws.amazon.com/securityhub "https://console.aws.amazon.com/securityhub"). For more information, see [Setting the workflow status for findings](../../../securityhub/latest/userguide/finding-workflow-status.md "../../../securityhub/latest/userguide/finding-workflow-status.md").
 
-### I want to enable or disable this
-
-feature for a member account that belongs to an AWS organization
+### I want to enable or disable this feature for a member account that belongs to an AWS organization
 
 By default, member accounts inherit the feature from the management account for
 AWS Organizations. If the management account has enabled the feature, then all accounts in the
 organization will also have the feature. If you have a member account and want to
 make specific changes for your account, you must contact [AWS Support](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
 
-### I see multiple AWS Regions for
-
-the same affected resource for a Security Hub CSPM check
+### I see multiple AWS Regions for the same affected resource for a Security Hub CSPM check
 
 Some AWS services are global and aren't specific to a Region, such as IAM and
 Amazon CloudFront. By default, global resources such as Amazon S3 buckets appear in the
@@ -278,9 +246,7 @@ You can configure Security Hub CSPM and AWS Config so that multiple Regions won'
 same resource. For more information, see [AWS Foundational Best Practices controls that you might
 want to disable](../../../securityhub/latest/userguide/securityhub-standards-fsbp-to-disable.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp-to-disable.md").
 
-### I turned off Security Hub CSPM or AWS Config in a
-
-Region
+### I turned off Security Hub CSPM or AWS Config in a Region
 
 If you stop resource recording with AWS Config or disable Security Hub CSPM in an AWS Region,
 Trusted Advisor no longer receives data for any controls in that Region. Trusted Advisor removes
@@ -290,18 +256,14 @@ Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-disable.md 
 
 To disable this feature for your account, see [Disable Security Hub CSPM from Trusted Advisor](#disable-security-hub "#disable-security-hub").
 
-### My control is
-
-archived in Security Hub CSPM, but I still see the findings in Trusted Advisor
+### My control is archived in Security Hub CSPM, but I still see the findings in Trusted Advisor
 
 When the `RecordState` status changes to `ARCHIVED` for a
 finding, Trusted Advisor deletes the finding for that Security Hub CSPM control from your account. You
 might still see the finding in Trusted Advisor for up to 7-9 days before it's deleted.
 This time frame is best effort and isn't guaranteed.
 
-### I still can't view my Security Hub CSPM
-
-findings
+### I still can't view my Security Hub CSPM findings
 
 If you still have issues with this feature, you can create a technical support
 case in the [AWS Support

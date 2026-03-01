@@ -1,6 +1,4 @@
-# Managing access to the AWS Support App
-
-widget
+# Managing access to the AWS Support App widget
 
 You can attach an AWS Identity and Access Management (IAM) policy to grant an IAM user permission to configure
 the AWS Support App widget in the AWS Support Center Console.
@@ -14,9 +12,7 @@ You can also sign in as the root user in your AWS account, but we don't recommen
 that you do this. For more information about root user access, see [Safeguard your root user credentials and don't use them for everyday tasks](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials") in
 the _IAM User Guide_.
 
-## Example IAM
-
-policy
+## Example IAM policy
 
 You can attach the following policy to an entity, such as an IAM user or group. This
 policy allows a user to authorize a Slack workspace and configure Slack channels in the
@@ -52,9 +48,7 @@ JSON
 
 ```
 
-## Permissions required to connect the
-
-AWS Support App to Slack
+## Permissions required to connect the AWS Support App to Slack
 
 The AWS Support App includes permission-only actions that don't directly correspond to an API
 operation. These actions are indicated in the [Service

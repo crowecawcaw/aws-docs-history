@@ -63,9 +63,7 @@ For a list of AWS Support events sent to EventBridge, refer to the AWS Support t
 [_EventBridge
 Events Reference_](../../../eventbridge/latest/ref/welcome.md "../../../eventbridge/latest/ref/welcome.md").
 
-## Creating event patterns
-
-that match AWS Support events
+## Creating event patterns that match AWS Support events
 
 Event patterns are filters where specify the data that the events you want to select
 should have.

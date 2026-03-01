@@ -5,8 +5,7 @@ You can use the following checks for the security category.
 ###### Note
 
 If you enabled Security Hub CSPM for your AWS account, you can view your findings in the
-Trusted Advisor console. For information, see [Viewing AWS Security Hub CSPM controls in
-AWS Trusted Advisor](security-hub-controls-with-trusted-advisor.md "security-hub-controls-with-trusted-advisor.md").
+Trusted Advisor console. For information, see [Viewing AWS Security Hub CSPM controls in AWS Trusted Advisor](security-hub-controls-with-trusted-advisor.md "security-hub-controls-with-trusted-advisor.md").
 
 You can view all controls in the AWS Foundational Security Best Practices security
 standard _except_ for controls that have the **Category:
@@ -17,62 +16,39 @@ User Guide_.
 ###### Check names
 
 - [Application Load Balancer security group](security-checks.md#alb-security-group "security-checks.md#alb-security-group")
-- [Amazon CloudWatch Log Group
-  Retention Period](security-checks.md#cloudwatch-log-group-retention-less-than-365 "security-checks.md#cloudwatch-log-group-retention-less-than-365")
-- [Amazon EC2 instances with
-  Microsoft SQL Server end of support](security-checks.md#ec2-instances-with-sql-server-end-of-support "security-checks.md#ec2-instances-with-sql-server-end-of-support")
-- [Amazon EC2 instances with
-  Microsoft Windows Server end of support](security-checks.md#ec2-instances-with-windows-server-end-of-support "security-checks.md#ec2-instances-with-windows-server-end-of-support")
-- [Amazon EC2
-  instances with Ubuntu LTS end of standard support](security-checks.md#amazon-ec2-instances-ubuntu-lts-end-of-standard-support "security-checks.md#amazon-ec2-instances-ubuntu-lts-end-of-standard-support")
-- [Amazon EFS
-  clients not using data-in-transit encryption](security-checks.md#amazon-efs-clients-not-using-data-in-transit-encryption "security-checks.md#amazon-efs-clients-not-using-data-in-transit-encryption")
+- [Amazon CloudWatch Log Group Retention Period](security-checks.md#cloudwatch-log-group-retention-less-than-365 "security-checks.md#cloudwatch-log-group-retention-less-than-365")
+- [Amazon EC2 instances with Microsoft SQL Server end of support](security-checks.md#ec2-instances-with-sql-server-end-of-support "security-checks.md#ec2-instances-with-sql-server-end-of-support")
+- [Amazon EC2 instances with Microsoft Windows Server end of support](security-checks.md#ec2-instances-with-windows-server-end-of-support "security-checks.md#ec2-instances-with-windows-server-end-of-support")
+- [Amazon EC2 instances with Ubuntu LTS end of standard support](security-checks.md#amazon-ec2-instances-ubuntu-lts-end-of-standard-support "security-checks.md#amazon-ec2-instances-ubuntu-lts-end-of-standard-support")
+- [Amazon EFS clients not using data-in-transit encryption](security-checks.md#amazon-efs-clients-not-using-data-in-transit-encryption "security-checks.md#amazon-efs-clients-not-using-data-in-transit-encryption")
 - [Amazon EBS Public Snapshots](security-checks.md#amazon-ebs-public-snapshots "security-checks.md#amazon-ebs-public-snapshots")
-- [Amazon RDS Aurora storage
-  encryption is turned off](security-checks.md#amazon-rds-aurora-storage-encryption-off "security-checks.md#amazon-rds-aurora-storage-encryption-off")
-- [Amazon RDS engine minor
-  version upgrade is required](security-checks.md#amazon-rds-engine-minor-version-upgrade-required "security-checks.md#amazon-rds-engine-minor-version-upgrade-required")
+- [Amazon RDS Aurora storage encryption is turned off](security-checks.md#amazon-rds-aurora-storage-encryption-off "security-checks.md#amazon-rds-aurora-storage-encryption-off")
+- [Amazon RDS engine minor version upgrade is required](security-checks.md#amazon-rds-engine-minor-version-upgrade-required "security-checks.md#amazon-rds-engine-minor-version-upgrade-required")
 - [Amazon RDS Public Snapshots](security-checks.md#amazon-rds-public-snapshots "security-checks.md#amazon-rds-public-snapshots")
-- [Amazon RDS Security Group Access
-  Risk](security-checks.md#amazon-rds-security-group-access-risk "security-checks.md#amazon-rds-security-group-access-risk")
-- [Amazon RDS storage encryption is turned
-  off](security-checks.md#amazon-rds-storage-encryption-off "security-checks.md#amazon-rds-storage-encryption-off")
-- [Amazon Route 53
-  mismatching CNAME records pointing directly to S3 buckets](security-checks.md#amazon-route-53-mismatching-cname-records-s3-buckets "security-checks.md#amazon-route-53-mismatching-cname-records-s3-buckets")
+- [Amazon RDS Security Group Access Risk](security-checks.md#amazon-rds-security-group-access-risk "security-checks.md#amazon-rds-security-group-access-risk")
+- [Amazon RDS storage encryption is turned off](security-checks.md#amazon-rds-storage-encryption-off "security-checks.md#amazon-rds-storage-encryption-off")
+- [Amazon Route 53 mismatching CNAME records pointing directly to S3 buckets](security-checks.md#amazon-route-53-mismatching-cname-records-s3-buckets "security-checks.md#amazon-route-53-mismatching-cname-records-s3-buckets")
 - [Amazon Route 53 MX Resource Record Sets and Sender Policy Framework](security-checks.md#amazon-route-53-mx-resorc-resource-record-sets-sender-policy-framework "security-checks.md#amazon-route-53-mx-resorc-resource-record-sets-sender-policy-framework")
 - [Amazon S3 Bucket Permissions](security-checks.md#amazon-s3-bucket-permissions "security-checks.md#amazon-s3-bucket-permissions")
-- [Amazon VPC Peering
-  Connections with DNS Resolution Disabled](security-checks.md#amazon-vpc-peering-connections-no-dns-resolution "security-checks.md#amazon-vpc-peering-connections-no-dns-resolution")
-- [Application Load Balancer
-  Target Groups
-  Encrypted
-  Protocol](security-checks.md#application-load-balancer-target-groups "security-checks.md#application-load-balancer-target-groups")
-- [AWS Backup Vault
-  Without Resource-based Policy to Prevent Deletion of Recovery Points](security-checks.md#backup-vault-without-resource-based-policy-prevent-delete "security-checks.md#backup-vault-without-resource-based-policy-prevent-delete")
+- [Amazon VPC Peering Connections with DNS Resolution Disabled](security-checks.md#amazon-vpc-peering-connections-no-dns-resolution "security-checks.md#amazon-vpc-peering-connections-no-dns-resolution")
+- [Application Load Balancer Target Groups Encrypted Protocol](security-checks.md#application-load-balancer-target-groups "security-checks.md#application-load-balancer-target-groups")
+- [AWS Backup Vault Without Resource-based Policy to Prevent Deletion of Recovery Points](security-checks.md#backup-vault-without-resource-based-policy-prevent-delete "security-checks.md#backup-vault-without-resource-based-policy-prevent-delete")
 - [AWS CloudTrail Management Event Logging](security-checks.md#aws-cloudtrail-man-events-log "security-checks.md#aws-cloudtrail-man-events-log")
-- [AWS Lambda Functions Using
-  Deprecated Runtimes](security-checks.md#aws-lambda-functions-deprecated-runtimes "security-checks.md#aws-lambda-functions-deprecated-runtimes")
-- [AWS
-  Well-Architected high risk issues for security](security-checks.md#well-architected-high-risk-issues-security "security-checks.md#well-architected-high-risk-issues-security")
-- [CloudFront
-  Custom SSL Certificates in the IAM Certificate Store](security-checks.md#cloudfront-custom-ssl-certificates-iam-certificate-store "security-checks.md#cloudfront-custom-ssl-certificates-iam-certificate-store")
-- [CloudFront SSL Certificate on
-  the Origin Server](security-checks.md#cloudfront-ssl-certificate-origin-server "security-checks.md#cloudfront-ssl-certificate-origin-server")
+- [AWS Lambda Functions Using Deprecated Runtimes](security-checks.md#aws-lambda-functions-deprecated-runtimes "security-checks.md#aws-lambda-functions-deprecated-runtimes")
+- [AWS Well-Architected high risk issues for security](security-checks.md#well-architected-high-risk-issues-security "security-checks.md#well-architected-high-risk-issues-security")
+- [CloudFront Custom SSL Certificates in the IAM Certificate Store](security-checks.md#cloudfront-custom-ssl-certificates-iam-certificate-store "security-checks.md#cloudfront-custom-ssl-certificates-iam-certificate-store")
+- [CloudFront SSL Certificate on the Origin Server](security-checks.md#cloudfront-ssl-certificate-origin-server "security-checks.md#cloudfront-ssl-certificate-origin-server")
 - [ELB Listener Security](security-checks.md#elb-listener-security "security-checks.md#elb-listener-security")
-- [Classic
-  Load Balancer Security Groups](security-checks.md#elb-security-groups "security-checks.md#elb-security-groups")
+- [Classic Load Balancer Security Groups](security-checks.md#elb-security-groups "security-checks.md#elb-security-groups")
 - [Exposed Access Keys](security-checks.md#exposed-access-keys "security-checks.md#exposed-access-keys")
 - [IAM Access Key Rotation](security-checks.md#iam-access-key-rotation "security-checks.md#iam-access-key-rotation")
 - [IAM Access Analyzer External Access](security-checks.md#iam-access-analyzer-external-access "security-checks.md#iam-access-analyzer-external-access")
 - [IAM Password Policy](security-checks.md#iam-password-policy "security-checks.md#iam-password-policy")
 - [IAM SAML 2.0 Identity Provider](security-checks.md#iam-saml-identity-provider "security-checks.md#iam-saml-identity-provider")
 - [MFA on root account](security-checks.md#mfa-root-account "security-checks.md#mfa-root-account")
-- [Root User
-  Access Key](security-checks.md#root-user-access-key "security-checks.md#root-user-access-key")
-- [Security Groups –
-  Specific Ports Unrestricted](security-checks.md#security-groups-specific-ports-unrestricted "security-checks.md#security-groups-specific-ports-unrestricted")
-- [Security Groups –
-  Unrestricted Access](security-checks.md#security-groups-unrestricted-access "security-checks.md#security-groups-unrestricted-access")
+- [Root User Access Key](security-checks.md#root-user-access-key "security-checks.md#root-user-access-key")
+- [Security Groups – Specific Ports Unrestricted](security-checks.md#security-groups-specific-ports-unrestricted "security-checks.md#security-groups-specific-ports-unrestricted")
+- [Security Groups – Unrestricted Access](security-checks.md#security-groups-unrestricted-access "security-checks.md#security-groups-unrestricted-access")
 
 ## Application Load Balancer security group
 
@@ -135,9 +111,7 @@ For improved security, make sure that your security groups only allow the necess
 - Auth Enabled
 - Last Updated Time
 
-## Amazon CloudWatch Log Group
-
-Retention Period
+## Amazon CloudWatch Log Group Retention Period
 
 **Description**
 
@@ -194,9 +168,7 @@ For more information, see [Change log data retention in CloudWatch Logs](../../.
 - Input Parameters
 - Last Updated Time
 
-## Amazon EC2 instances with
-
-Microsoft SQL Server end of support
+## Amazon EC2 instances with Microsoft SQL Server end of support
 
 **Description**
 
@@ -256,9 +228,7 @@ Website](https://aws.amazon.com/emp-windows-server/ "https://aws.amazon.com/emp-
 - End of Support
 - Last Updated Time
 
-## Amazon EC2 instances with
-
-Microsoft Windows Server end of support
+## Amazon EC2 instances with Microsoft Windows Server end of support
 
 **Description**
 
@@ -318,9 +288,7 @@ Complete the following steps:
 - End of Support
 - Last Updated Time
 
-## Amazon EC2
-
-instances with Ubuntu LTS end of standard support
+## Amazon EC2 instances with Ubuntu LTS end of standard support
 
 **Description**
 
@@ -385,9 +353,7 @@ For information about pricing, reach out to [Support](https://aws.amazon.com/sup
 - Support Cycle
 - Last Updated Time
 
-## Amazon EFS
-
-clients not using data-in-transit encryption
+## Amazon EFS clients not using data-in-transit encryption
 
 **Description**
 
@@ -501,9 +467,7 @@ Snapshots](../../../AWSEC2/latest/UserGuide/EBSSnapshots.md "../../../AWSEC2/lat
 - Snapshot ID
 - Description
 
-## Amazon RDS Aurora storage
-
-encryption is turned off
+## Amazon RDS Aurora storage encryption is turned off
 
 **Description**
 
@@ -559,9 +523,7 @@ For more information, see [Encrypting Amazon Aurora resources](../../../AmazonRD
 - Engine Name
 - Last Updated Time
 
-## Amazon RDS engine minor
-
-version upgrade is required
+## Amazon RDS engine minor version upgrade is required
 
 **Description**
 
@@ -664,9 +626,7 @@ in the AWS Systems Manager console. For more information, see [`AWSSupport-Modif
 - DB Instance or Cluster ID
 - Snapshot ID
 
-## Amazon RDS Security Group Access
-
-Risk
+## Amazon RDS Security Group Access Risk
 
 **Description**
 
@@ -722,9 +682,7 @@ information, see [Working with DB Security Groups](../../../AmazonRDS/latest/Use
 - Ingress Rule
 - Reason
 
-## Amazon RDS storage encryption is turned
-
-off
+## Amazon RDS storage encryption is turned off
 
 **Description**
 
@@ -788,9 +746,7 @@ For more information, see the following resources:
 - Engine Name
 - Last Updated Time
 
-## Amazon Route 53
-
-mismatching CNAME records pointing directly to S3 buckets
+## Amazon Route 53 mismatching CNAME records pointing directly to S3 buckets
 
 **Description**
 
@@ -952,9 +908,7 @@ Permissions to Your Amazon S3 Resources](../../../AmazonS3/latest/dev/s3-access-
 - ACL Allows Upload/Delete
 - Policy Allows Access
 
-## Amazon VPC Peering
-
-Connections with DNS Resolution Disabled
+## Amazon VPC Peering Connections with DNS Resolution Disabled
 
 **Description**
 
@@ -1014,11 +968,7 @@ Turn on DNS resolution for your VPC peering connections.
 - Input Parameters
 - Last Updated Time
 
-## Application Load Balancer
-
-Target Groups
-Encrypted
-Protocol
+## Application Load Balancer Target Groups Encrypted Protocol
 
 **Description**
 
@@ -1066,9 +1016,7 @@ Elastic Load Balancing](../../../elasticloadbalancing/latest/userguide/data-prot
 - Target Group Protocol
 - Last Updated Time
 
-## AWS Backup Vault
-
-Without Resource-based Policy to Prevent Deletion of Recovery Points
+## AWS Backup Vault Without Resource-based Policy to Prevent Deletion of Recovery Points
 
 **Description**
 
@@ -1186,9 +1134,7 @@ exists and that the necessary policy is attached to the bucket. See [Amazon S3 B
 - Delivery Error Reported
 - Last Updated Time
 
-## AWS Lambda Functions Using
-
-Deprecated Runtimes
+## AWS Lambda Functions Using Deprecated Runtimes
 
 **Description**
 
@@ -1247,9 +1193,7 @@ longer using.
 - Average Daily Invokes
 - Last Updated Time
 
-## AWS
-
-Well-Architected high risk issues for security
+## AWS Well-Architected high risk issues for security
 
 **Description**
 
@@ -1301,9 +1245,7 @@ resolve your active issues.
 - Total number of questions in Security pillar
 - Last Updated Time
 
-## CloudFront
-
-Custom SSL Certificates in the IAM Certificate Store
+## CloudFront Custom SSL Certificates in the IAM Certificate Store
 
 **Description**
 
@@ -1385,9 +1327,7 @@ Objects](../../../AmazonCloudFront/latest/DeveloperGuide/SecureConnections.md ".
 - Certificate Name
 - Reason
 
-## CloudFront SSL Certificate on
-
-the Origin Server
+## CloudFront SSL Certificate on the Origin Server
 
 **Description**
 
@@ -1513,9 +1453,7 @@ For more information, see [Listener Configurations for Elastic Load Balancing](.
 - Load Balancer Port
 - Reason
 
-## Classic
-
-Load Balancer Security Groups
+## Classic Load Balancer Security Groups
 
 **Description**
 
@@ -1922,9 +1860,7 @@ For your AWS Organizations member accounts, we recommend that you centrally mana
 - [AWS Multi-factor authentication in IAM](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../../../IAM/latest/UserGuide/id_credentials_mfa.md")
 - [Multi-factor authentication for AWS account root user](../../../IAM/latest/UserGuide/enable-mfa-for-root.md "../../../IAM/latest/UserGuide/enable-mfa-for-root.md")
 
-## Root User
-
-Access Key
+## Root User Access Key
 
 **Description**
 
@@ -1966,9 +1902,7 @@ Report columns
 - Account ID
 - Last Updated Time
 
-## Security Groups –
-
-Specific Ports Unrestricted
+## Security Groups – Specific Ports Unrestricted
 
 **Description**
 
@@ -2061,9 +1995,7 @@ your EC2 instances without enabling port 22 and 3389 in the security group.
 - To Port
 - Association
 
-## Security Groups –
-
-Unrestricted Access
+## Security Groups – Unrestricted Access
 
 **Description**
 

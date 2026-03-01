@@ -1,6 +1,4 @@
-# Creating Amazon CloudWatch alarms to monitor AWS Trusted Advisor
-
-metrics
+# Creating Amazon CloudWatch alarms to monitor AWS Trusted Advisor metrics
 
 When AWS Trusted Advisor refreshes your checks, Trusted Advisor publishes metrics about your check
 results to CloudWatch. You can view the metrics in CloudWatch. You can also create alarms to detect status
@@ -12,8 +10,7 @@ Follow this procedure to create a CloudWatch alarm for a specific Trusted Adviso
 ###### Topics
 
 - [Prerequisites](#prerequisites-cloudwatch-metrics "#prerequisites-cloudwatch-metrics")
-- [CloudWatch metrics for
-  Trusted Advisor](#cloudwatch-metrics-dimensions-for-trusted-advisor "#cloudwatch-metrics-dimensions-for-trusted-advisor")
+- [CloudWatch metrics for Trusted Advisor](#cloudwatch-metrics-dimensions-for-trusted-advisor "#cloudwatch-metrics-dimensions-for-trusted-advisor")
 - [Trusted Advisor metrics and dimensions](#trusted-advisor-metrics-dimensions "#trusted-advisor-metrics-dimensions")
 
 ## Prerequisites
@@ -125,9 +122,7 @@ State Change Actions:
 
 ```
 
-## CloudWatch metrics for
-
-Trusted Advisor
+## CloudWatch metrics for Trusted Advisor
 
 You can use the CloudWatch console or the AWS Command Line Interface (AWS CLI) to find the metrics available for
 Trusted Advisor.
@@ -400,9 +395,7 @@ You can use the following metrics for Trusted Advisor checks.
 | `RedResources`    | The number of resources that are in a red state (action recommended).              |
 | `YellowResources` | The number of resources that are in a yellow state (investigation<br>recommended). |
 
-### Trusted Advisor service quota-level
-
-metrics
+### Trusted Advisor service quota-level metrics
 
 You can use the following metrics for AWS service quotas.
 
@@ -410,9 +403,7 @@ You can use the following metrics for AWS service quotas.
 | ------------------- | --------------------------------------------------------------------------------------------- |
 | `ServiceLimitUsage` | The percentage of resource usage against a service quota (formerly referred to<br>as limits). |
 
-### Dimensions for check-level
-
-metrics
+### Dimensions for check-level metrics
 
 You can use the following dimension for Trusted Advisor checks.
 
@@ -420,9 +411,7 @@ You can use the following dimension for Trusted Advisor checks.
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `CheckName` | The name of the Trusted Advisor check.<br>You can find all check names in the [Trusted Advisor console](https://console.aws.amazon.com/trustedadvisor/home "https://console.aws.amazon.com/trustedadvisor/home") or the [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md"). |
 
-### Dimensions for service quota
-
-metrics
+### Dimensions for service quota metrics
 
 You can use the following dimensions for Trusted Advisor service quota metrics.
 

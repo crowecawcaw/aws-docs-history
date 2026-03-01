@@ -1,6 +1,4 @@
-# Monitoring AWS Trusted Advisor check results with
-
-Amazon EventBridge
+# Monitoring AWS Trusted Advisor check results with Amazon EventBridge
 
 ###### Important
 

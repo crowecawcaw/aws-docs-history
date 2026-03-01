@@ -1,6 +1,4 @@
-# Logging AWS Support Plans API calls with
-
-AWS CloudTrail
+# Logging AWS Support Plans API calls with AWS CloudTrail
 
 AWS Support Plans is integrated with AWS CloudTrail, a service that provides a record of actions taken
 by a user, role, or an AWS service. CloudTrail captures API calls for AWS Support Plans as events. The
@@ -17,9 +15,7 @@ made, and additional details.
 
 To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## AWS Support Plans information in
-
-CloudTrail
+## AWS Support Plans information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When supported event
 activity occurs in AWS Support Plans, that activity is recorded in a CloudTrail event along with other
@@ -58,9 +54,7 @@ following:
 You can also aggregate AWS Support Plans log files from multiple AWS Regions and multiple
 accounts into a single Amazon S3 bucket.
 
-## Understanding AWS Support Plans log file
-
-entries
+## Understanding AWS Support Plans log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single
@@ -330,8 +324,7 @@ The following example shows a CloudTrail log entry for the
 ###### Important
 
 As of August 3, 2022, the following operations are deprecated and won't appear in your
-new CloudTrail logs. For a list of supported operations, see [Understanding AWS Support Plans log file
-entries](#understanding-aws-support-plans-entries "#understanding-aws-support-plans-entries").
+new CloudTrail logs. For a list of supported operations, see [Understanding AWS Support Plans log file entries](#understanding-aws-support-plans-entries "#understanding-aws-support-plans-entries").
 
 - `DescribeSupportLevelSummary` – This action appears in your log when
   you open the [Support plans](https://console.aws.amazon.com/support/plans/home "https://console.aws.amazon.com/support/plans/home")

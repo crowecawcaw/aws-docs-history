@@ -726,9 +726,7 @@ For more information, see [Configuring auditing using the console](../../../reds
 - Input Parameters
 - Last Updated Time
 
-##
-
-Amazon S3 Access Logs Enabled
+## Amazon S3 Access Logs Enabled
 
 **Description**
 

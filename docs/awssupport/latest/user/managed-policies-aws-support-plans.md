@@ -1,21 +1,14 @@
-# AWS managed policies for
-
-AWS Support Plans
+# AWS managed policies for AWS Support Plans
 
 AWS Support Plans has the following managed policies.
 
 ###### Contents
 
-- [AWS managed policy:
-  AWSSupportPlansFullAccess](managed-policies-aws-support-plans.md#support-plan-full-access-managed-policy "managed-policies-aws-support-plans.md#support-plan-full-access-managed-policy")
-- [AWS managed policy:
-  AWSSupportPlansReadOnlyAccess](managed-policies-aws-support-plans.md#support-plan-read-only-access-managed-policy "managed-policies-aws-support-plans.md#support-plan-read-only-access-managed-policy")
-- [AWS Support Plans updates to
-  AWS managed policies](managed-policies-aws-support-plans.md#security-iam-awsmanpol-updates-support-plans "managed-policies-aws-support-plans.md#security-iam-awsmanpol-updates-support-plans")
+- [AWS managed policy: AWSSupportPlansFullAccess](managed-policies-aws-support-plans.md#support-plan-full-access-managed-policy "managed-policies-aws-support-plans.md#support-plan-full-access-managed-policy")
+- [AWS managed policy: AWSSupportPlansReadOnlyAccess](managed-policies-aws-support-plans.md#support-plan-read-only-access-managed-policy "managed-policies-aws-support-plans.md#support-plan-read-only-access-managed-policy")
+- [AWS Support Plans updates to AWS managed policies](managed-policies-aws-support-plans.md#security-iam-awsmanpol-updates-support-plans "managed-policies-aws-support-plans.md#security-iam-awsmanpol-updates-support-plans")
 
-## AWS managed policy:
-
-AWSSupportPlansFullAccess
+## AWS managed policy: AWSSupportPlansFullAccess
 
 AWS Support Plans uses the [AWSSupportPlansFullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSSupportPlansFullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSSupportPlansFullAccess$jsonEditor") AWS managed policy. The
 IAM entity uses this policy to complete the following Support Plans actions for
@@ -49,12 +42,9 @@ JSON
 
 ```
 
-For a list of changes to the policies, see [AWS Support Plans updates to
-AWS managed policies](#security-iam-awsmanpol-updates-support-plans "#security-iam-awsmanpol-updates-support-plans").
+For a list of changes to the policies, see [AWS Support Plans updates to AWS managed policies](#security-iam-awsmanpol-updates-support-plans "#security-iam-awsmanpol-updates-support-plans").
 
-## AWS managed policy:
-
-AWSSupportPlansReadOnlyAccess
+## AWS managed policy: AWSSupportPlansReadOnlyAccess
 
 AWS Support Plans uses the [AWSSupportPlansReadOnlyAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSSupportPlansReadOnlyAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSSupportPlansReadOnlyAccess$jsonEditor") AWS managed policy. The
 IAM entity uses this policy to complete the following read-only Support Plans actions for
@@ -84,12 +74,9 @@ JSON
 
 ```
 
-For a list of changes to the policies, see [AWS Support Plans updates to
-AWS managed policies](#security-iam-awsmanpol-updates-support-plans "#security-iam-awsmanpol-updates-support-plans").
+For a list of changes to the policies, see [AWS Support Plans updates to AWS managed policies](#security-iam-awsmanpol-updates-support-plans "#security-iam-awsmanpol-updates-support-plans").
 
-## AWS Support Plans updates to
-
-AWS managed policies
+## AWS Support Plans updates to AWS managed policies
 
 View details about updates to AWS managed policies for Support Plans since these
 services began tracking these changes. For automatic alerts about changes to this page,

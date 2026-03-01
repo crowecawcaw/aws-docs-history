@@ -1,6 +1,4 @@
-# Deleting a Slack workspace configuration from the
-
-AWS Support App
+# Deleting a Slack workspace configuration from the AWS Support App
 
 You can delete a workspace configuration from the AWS Support App if you don't need it. This
 action only removes the workspace from the AWS Support App and the AWS Support Center Console. Your
@@ -12,8 +10,7 @@ you must delete a Slack workspace before you can add another one.
 ###### Note
 
 If you added channels from this workspace to the AWS Support App, you must first delete these
-channels before you can delete the workspace. See [Deleting a Slack channel configuration from the
-AWS Support App](delete-a-channel.md "delete-a-channel.md").
+channels before you can delete the workspace. See [Deleting a Slack channel configuration from the AWS Support App](delete-a-channel.md "delete-a-channel.md").
 
 ###### To delete a Slack workspace configuration
 

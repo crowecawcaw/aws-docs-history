@@ -17,12 +17,8 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [AWS managed policies for
-  AWS Support](aws-managed-policies-aws-support.md "aws-managed-policies-aws-support.md")
-- [AWS managed policies for
-  AWS Support App in Slack](support-app-managed-policies.md "support-app-managed-policies.md")
-- [AWS managed policies for
-  AWS Trusted Advisor](aws-managed-policies-for-trusted-advisor.md "aws-managed-policies-for-trusted-advisor.md")
-- [AWS managed policies for
-  AWS Support Plans](managed-policies-aws-support-plans.md "managed-policies-aws-support-plans.md")
+- [AWS managed policies for AWS Support](aws-managed-policies-aws-support.md "aws-managed-policies-aws-support.md")
+- [AWS managed policies for AWS Support App in Slack](support-app-managed-policies.md "support-app-managed-policies.md")
+- [AWS managed policies for AWS Trusted Advisor](aws-managed-policies-for-trusted-advisor.md "aws-managed-policies-for-trusted-advisor.md")
+- [AWS managed policies for AWS Support Plans](managed-policies-aws-support-plans.md "managed-policies-aws-support-plans.md")
 - [AWS managed policies for AWS Partner-Led Support](managed-policies-partner-led-support.md "managed-policies-partner-led-support.md")

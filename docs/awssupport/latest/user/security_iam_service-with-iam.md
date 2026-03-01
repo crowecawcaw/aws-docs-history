@@ -1,6 +1,4 @@
-# How AWS Support works with
-
-IAM
+# How AWS Support works with IAM
 
 Before you use IAM to manage access to Support, you should understand what
 IAM features are available to use with Support. To get a high-level view of how
@@ -12,14 +10,10 @@ For information about how to manage access for Support using IAM, see
 
 ###### Topics
 
-- [Support
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Support IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Support identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Support IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Support
-
-identity-based policies
+## Support identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -67,19 +61,14 @@ _IAM User Guide_.
 
 ### Examples
 
-To view examples of Support identity-based policies, see [AWS Support identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Support identity-based policies, see [AWS Support identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Support IAM
-
-roles
+## Support IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Support
+### Using temporary credentials with Support
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -87,9 +76,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 Support supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -97,8 +84,7 @@ IAM account and are owned by the service. An IAM administrator can view but not
 edit the permissions for service-linked roles.
 
 Support supports service-linked roles. For details about creating or
-managing Support service-linked roles, see [Using service-linked roles for
-AWS Support](using-service-linked-roles-sup.md "using-service-linked-roles-sup.md").
+managing Support service-linked roles, see [Using service-linked roles for AWS Support](using-service-linked-roles-sup.md "using-service-linked-roles-sup.md").
 
 ### Service roles
 

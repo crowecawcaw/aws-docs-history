@@ -8,7 +8,5 @@ how to work with them in Support and Trusted Advisor.
 
 ###### Topics
 
-- [Using service-linked roles for
-  AWS Support](using-service-linked-roles-sup.md "using-service-linked-roles-sup.md")
-- [Using service-linked roles for
-  Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md")
+- [Using service-linked roles for AWS Support](using-service-linked-roles-sup.md "using-service-linked-roles-sup.md")
+- [Using service-linked roles for Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md")

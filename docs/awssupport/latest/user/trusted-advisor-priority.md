@@ -27,19 +27,15 @@ Trusted Advisor Priority recommendations come from these two sources:
 
 - [Prerequisites](#prerequisites-trusted-advisor-priority "#prerequisites-trusted-advisor-priority")
 - [Enable Trusted Advisor Priority](#enable-trusted-advisor-priority "#enable-trusted-advisor-priority")
-- [View prioritized
-  recommendations](#viewing-priority-recommendations "#viewing-priority-recommendations")
+- [View prioritized recommendations](#viewing-priority-recommendations "#viewing-priority-recommendations")
 - [Acknowledge a recommendation](#acknowledge-recommendation "#acknowledge-recommendation")
 - [Dismiss a recommendation](#dismiss-recommendation "#dismiss-recommendation")
 - [Resolve a recommendation](#resolving-recommendations "#resolving-recommendations")
 - [Reopen a recommendation](#reopen-recommendations "#reopen-recommendations")
 - [Download recommendation details](#download-risk-details "#download-risk-details")
-- [Register delegated
-  administrators](#register-delegated-administrators "#register-delegated-administrators")
-- [Deregister delegated
-  administrators](#deregister-delegated-administrators "#deregister-delegated-administrators")
-- [Manage Trusted Advisor Priority
-  notifications](#trusted-advisor-priority-notifications "#trusted-advisor-priority-notifications")
+- [Register delegated administrators](#register-delegated-administrators "#register-delegated-administrators")
+- [Deregister delegated administrators](#deregister-delegated-administrators "#deregister-delegated-administrators")
+- [Manage Trusted Advisor Priority notifications](#trusted-advisor-priority-notifications "#trusted-advisor-priority-notifications")
 - [Disable Trusted Advisor Priority](#disable-trusted-advisor-priority "#disable-trusted-advisor-priority")
 
 ## Prerequisites
@@ -57,11 +53,9 @@ You must meet the following requirements to use Trusted Advisor Priority:
 - You must be signed in to your AWS account to view Trusted Advisor Priority recommendations for your account.
 - You must be signed in to the organization's management account or a delegated
   administrator account to view aggregated recommendations across your organization. For instructions on how to register delegated administrator
-  accounts, see [Register delegated
-  administrators](#register-delegated-administrators "#register-delegated-administrators").
+  accounts, see [Register delegated administrators](#register-delegated-administrators "#register-delegated-administrators").
 - You must have AWS Identity and Access Management (IAM) permissions to access Trusted Advisor Priority. For
-  information on how to control access to Trusted Advisor Priority, see [Manage access to AWS Trusted Advisor](security-trusted-advisor.md "security-trusted-advisor.md") and [AWS managed policies for
-  AWS Trusted Advisor](aws-managed-policies-for-trusted-advisor.md "aws-managed-policies-for-trusted-advisor.md").
+  information on how to control access to Trusted Advisor Priority, see [Manage access to AWS Trusted Advisor](security-trusted-advisor.md "security-trusted-advisor.md") and [AWS managed policies for AWS Trusted Advisor](aws-managed-policies-for-trusted-advisor.md "aws-managed-policies-for-trusted-advisor.md").
 
 ## Enable Trusted Advisor Priority
 
@@ -71,9 +65,7 @@ the Trusted Advisor Priority page in the console says that you need trusted acce
 then choose **Enable trusted access with AWS Organizations**. For more
 information, see the [Prerequisites](#prerequisites-trusted-advisor-priority "#prerequisites-trusted-advisor-priority") section.
 
-## View prioritized
-
-recommendations
+## View prioritized recommendations
 
 After your account team enables Trusted Advisor Priority for you, you can view the latest
 recommendations for your AWS account.
@@ -431,9 +423,7 @@ Currently, you can download only one recommendation at a time.
    then choose **Download**.
 3. Open the file to view the recommendation details.
 
-## Register delegated
-
-administrators
+## Register delegated administrators
 
 You can add member accounts that are part of your organization as delegated
 administrators. Delegated administrator accounts can review, acknowledge, resolve,
@@ -441,8 +431,7 @@ dismiss, and reopen recommendations in Trusted Advisor Priority.
 
 After you register an account, you must grant the delegated administrator the required
 AWS Identity and Access Management permissions to access Trusted Advisor Priority. For more information, see [Manage access to AWS Trusted Advisor](security-trusted-advisor.md "security-trusted-advisor.md") and
-[AWS managed policies for
-AWS Trusted Advisor](aws-managed-policies-for-trusted-advisor.md "aws-managed-policies-for-trusted-advisor.md").
+[AWS managed policies for AWS Trusted Advisor](aws-managed-policies-for-trusted-advisor.md "aws-managed-policies-for-trusted-advisor.md").
 
 You can register up to five member accounts. Only the management account can add
 delegated administrators for the organization. You must be signed in to the organization's management account to register or deregister a delegated administrator.
@@ -460,9 +449,7 @@ delegated administrators for the organization. You must be signed in to the orga
    **Deregister**. In the dialog box, choose
    **Deregister** again.
 
-## Deregister delegated
-
-administrators
+## Deregister delegated administrators
 
 When you deregister a member account, that account no longer has the same access to
 Trusted Advisor Priority as the management account. Accounts that are no longer delegated
@@ -477,9 +464,7 @@ administrators won't receive email notifications from Trusted Advisor Priority.
    then choose **Deregister**.
 4. In the dialog box, choose **Deregister**.
 
-## Manage Trusted Advisor Priority
-
-notifications
+## Manage Trusted Advisor Priority notifications
 
 Trusted Advisor Priority delivers notifications through email. This email notification includes a
 summary of the recommendations that your account team prioritized for you. You can

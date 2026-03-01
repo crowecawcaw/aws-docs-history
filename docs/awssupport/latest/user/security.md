@@ -35,5 +35,4 @@ cloud and security _in_ the cloud:
 - [Compliance validation for AWS Support](support-compliance.md "support-compliance.md")
 - [Resilience in AWS Support](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Support](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability
-  analysis in Support](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Configuration and vulnerability analysis in Support](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")

@@ -3,9 +3,7 @@
 If you have difficulty when you create or manage your support case, see the following
 troubleshooting information.
 
-## I want to reopen a live chat
-
-for my case
+## I want to reopen a live chat for my case
 
 You can reply to your existing support case to open another chat window. For more
 information, see [Updating an existing support case](monitoring-your-case.md#update-support-cases "monitoring-your-case.md#update-support-cases").

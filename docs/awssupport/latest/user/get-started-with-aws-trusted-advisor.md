@@ -1,6 +1,4 @@
-# Get started with
-
-Trusted Advisor Recommendations
+# Get started with Trusted Advisor Recommendations
 
 ###### Important
 
@@ -111,7 +109,7 @@ You can view the check descriptions and results for the following check categori
      have excluded items, such as resources that you want a check to ignore.
 
 4. For each check, choose the refresh icon (
-   ![Circular arrow icon representing a refresh or reload action.](images/refresh.png)
+   ![Circular arrow icon representing a refresh or reload action.](/images/awssupport/latest/user/images/refresh.png)
    ) to refresh this check.
 5. Choose the download icon (
    ![Icon representing the action to upload or share content, showing an arrow pointing upwards.](images/download.png)
@@ -281,8 +279,7 @@ language. You receive an email notification about your check summary for Trusted
 once a week.
 
 The email notifications for Trusted Advisor Recommendations don't include results for Trusted Advisor Priority. For
-more information, see [Manage Trusted Advisor Priority
-notifications](trusted-advisor-priority.md#trusted-advisor-priority-notifications "trusted-advisor-priority.md#trusted-advisor-priority-notifications").
+more information, see [Manage Trusted Advisor Priority notifications](trusted-advisor-priority.md#trusted-advisor-priority-notifications "trusted-advisor-priority.md#trusted-advisor-priority-notifications").
 
 ###### To set up notification preferences
 
@@ -314,8 +311,7 @@ error message.
    disables Trusted Advisor for all checks in your account.
 4. You can then manually delete the [AWSServiceRoleForTrustedAdvisor](https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForTrustedAdvisor "https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForTrustedAdvisor")
 
-from your account. For more information, see [Deleting a service-linked role for
-Trusted Advisor](using-service-linked-roles-ta.md#delete-service-linked-role-ta "using-service-linked-roles-ta.md#delete-service-linked-role-ta").
+from your account. For more information, see [Deleting a service-linked role for Trusted Advisor](using-service-linked-roles-ta.md#delete-service-linked-role-ta "using-service-linked-roles-ta.md#delete-service-linked-role-ta").
 
 ### Related information
 

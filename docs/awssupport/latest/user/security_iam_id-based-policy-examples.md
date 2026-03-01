@@ -1,6 +1,4 @@
-# AWS Support identity-based
-
-policy examples
+# AWS Support identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 Support resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -15,16 +13,11 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  Support console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Support console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies are very powerful. They determine whether someone can create,
 access, or delete Support resources in your account.
@@ -58,9 +51,7 @@ identity-based policies, follow these guidelines and recommendations:
   JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the
   _IAM User Guide_.
 
-## Using the
-
-Support console
+## Using the Support console
 
 To access the AWS Support console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -77,9 +68,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that you're trying to perform.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

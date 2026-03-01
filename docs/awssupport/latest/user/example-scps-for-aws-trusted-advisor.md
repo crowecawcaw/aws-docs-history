@@ -1,6 +1,4 @@
-# Example Service Control Policies for
-
-AWS Trusted Advisor
+# Example Service Control Policies for AWS Trusted Advisor
 
 AWS Trusted Advisor supports service control policies (SCPs). SCPs are policies that you attach to elements
 in an organization to manage permissions within that organization. An SCP applies to all AWS accounts

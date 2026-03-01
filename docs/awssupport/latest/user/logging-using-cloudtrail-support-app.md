@@ -1,6 +1,4 @@
-# Logging AWS Support App in Slack API calls using
-
-AWS CloudTrail
+# Logging AWS Support App in Slack API calls using AWS CloudTrail
 
 The AWS Support App in Slack is integrated with AWS CloudTrail. CloudTrail provides a record of actions taken by a
 user, role, or an AWS service in the AWS Support App. To create this record, CloudTrail captures all
@@ -14,9 +12,7 @@ the call originated, who made the request, when it was made, and additional deta
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-## AWS Support App information in
-
-CloudTrail
+## AWS Support App information in CloudTrail
 
 When you create your AWS account, this activates CloudTrail on the account. When public API
 activity occurs in the AWS Support App, that activity is recorded in a CloudTrail event, along with other
@@ -50,9 +46,7 @@ identity information helps you determine the following:
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding AWS Support App log
-
-file entries
+## Understanding AWS Support App log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

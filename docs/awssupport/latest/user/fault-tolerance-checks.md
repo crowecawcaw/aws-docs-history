@@ -6,13 +6,10 @@ You can use the following checks for the fault tolerance category.
 
 - [ALB Multi-AZ](fault-tolerance-checks.md#alb-multi-az "fault-tolerance-checks.md#alb-multi-az")
 - [Amazon Aurora MySQL cluster backtracking not enabled](fault-tolerance-checks.md#amazon-aurora-mysql-cluster-backtracking-not-enabled "fault-tolerance-checks.md#amazon-aurora-mysql-cluster-backtracking-not-enabled")
-- [Amazon Aurora DB Instance
-  Accessibility](fault-tolerance-checks.md#amazon-aurora-db-instance-accessibility "fault-tolerance-checks.md#amazon-aurora-db-instance-accessibility")
+- [Amazon Aurora DB Instance Accessibility](fault-tolerance-checks.md#amazon-aurora-db-instance-accessibility "fault-tolerance-checks.md#amazon-aurora-db-instance-accessibility")
 - [Amazon CloudFront Origin Failover](fault-tolerance-checks.md#amazon-cloudfront-origin-failover "fault-tolerance-checks.md#amazon-cloudfront-origin-failover")
-- [Amazon Comprehend Endpoint Access
-  Risk](fault-tolerance-checks.md#amazon-comprehend-endpoint-access-risk "fault-tolerance-checks.md#amazon-comprehend-endpoint-access-risk")
-- [Amazon DocumentDB Single AZ
-  Clusters](fault-tolerance-checks.md#amazon-documentdb-single-az-clusters "fault-tolerance-checks.md#amazon-documentdb-single-az-clusters")
+- [Amazon Comprehend Endpoint Access Risk](fault-tolerance-checks.md#amazon-comprehend-endpoint-access-risk "fault-tolerance-checks.md#amazon-comprehend-endpoint-access-risk")
+- [Amazon DocumentDB Single AZ Clusters](fault-tolerance-checks.md#amazon-documentdb-single-az-clusters "fault-tolerance-checks.md#amazon-documentdb-single-az-clusters")
 - [Amazon DynamoDB Point-in-time Recovery](fault-tolerance-checks.md#amazon-dynamodb-table-point-in-time-recovery "fault-tolerance-checks.md#amazon-dynamodb-table-point-in-time-recovery")
 - [Amazon DynamoDB Table Not Included in Backup Plan](fault-tolerance-checks.md#amazon-dynamodb-table-not-in-backup-plan "fault-tolerance-checks.md#amazon-dynamodb-table-not-in-backup-plan")
 - [Amazon EBS Not Included in AWS Backup Plan](fault-tolerance-checks.md#amazon-ebs-not-in-backup-plan "fault-tolerance-checks.md#amazon-ebs-not-in-backup-plan")
@@ -20,20 +17,16 @@ You can use the following checks for the fault tolerance category.
 - [Amazon EC2 Auto Scaling does not have ELB Health Check Enabled](fault-tolerance-checks.md#amazon-ec2-auto-scaling-group-no-elb-health-check "fault-tolerance-checks.md#amazon-ec2-auto-scaling-group-no-elb-health-check")
 - [Amazon EC2 Auto Scaling Group has Capacity Rebalancing Enabled](fault-tolerance-checks.md#amazon-ec2-auto-scaling-group-capacity-rebalance-enabled "fault-tolerance-checks.md#amazon-ec2-auto-scaling-group-capacity-rebalance-enabled")
 - [Amazon EC2 Auto Scaling is not deployed in multiple AZs or does not meet the minimum number of AZs](fault-tolerance-checks.md#amazon-ec2-auto-scaling-group-multiple-az "fault-tolerance-checks.md#amazon-ec2-auto-scaling-group-multiple-az")
-- [Amazon EC2 Availability Zone
-  Balance](fault-tolerance-checks.md#amazon-ec2-availability-zone-balance "fault-tolerance-checks.md#amazon-ec2-availability-zone-balance")
+- [Amazon EC2 Availability Zone Balance](fault-tolerance-checks.md#amazon-ec2-availability-zone-balance "fault-tolerance-checks.md#amazon-ec2-availability-zone-balance")
 - [Amazon EC2 detailed monitoring not enabled](fault-tolerance-checks.md#amazon-ec2-detailed-monitoring-not-enabled "fault-tolerance-checks.md#amazon-ec2-detailed-monitoring-not-enabled")
-- [Amazon ECS AWSLogs driver in
-  blocking mode](fault-tolerance-checks.md#amazon-ecs-awslogs-driver-blockingmode "fault-tolerance-checks.md#amazon-ecs-awslogs-driver-blockingmode")
+- [Amazon ECS AWSLogs driver in blocking mode](fault-tolerance-checks.md#amazon-ecs-awslogs-driver-blockingmode "fault-tolerance-checks.md#amazon-ecs-awslogs-driver-blockingmode")
 - [Amazon ECS service using a single AZ](fault-tolerance-checks.md#amazon-ecs-service-single-az "fault-tolerance-checks.md#amazon-ecs-service-single-az")
 - [Amazon ECS Multi-AZ placement strategy](fault-tolerance-checks.md#amazon-ecs-multi-az-placement-strategy "fault-tolerance-checks.md#amazon-ecs-multi-az-placement-strategy")
 - [Amazon EFS no mount target redundancy](fault-tolerance-checks.md#amazon-efs-no-mount-target-redundancy "fault-tolerance-checks.md#amazon-efs-no-mount-target-redundancy")
 - [Amazon EFS not in AWS Backup plan](fault-tolerance-checks.md#amazon-efs-not-in-backup-plan "fault-tolerance-checks.md#amazon-efs-not-in-backup-plan")
-- [Amazon ElastiCache Multi-AZ
-  clusters](fault-tolerance-checks.md#amazon-elasticache-multi-az-clusters "fault-tolerance-checks.md#amazon-elasticache-multi-az-clusters")
+- [Amazon ElastiCache Multi-AZ clusters](fault-tolerance-checks.md#amazon-elasticache-multi-az-clusters "fault-tolerance-checks.md#amazon-elasticache-multi-az-clusters")
 - [ElastiCache (Redis OSS) Clusters Automatic Backup](fault-tolerance-checks.md#amazon-elasticache-redis-clusters-auto-backup "fault-tolerance-checks.md#amazon-elasticache-redis-clusters-auto-backup")
-- [Amazon MemoryDB Multi-AZ
-  clusters](fault-tolerance-checks.md#amazon-memorydb-multi-az-clusters "fault-tolerance-checks.md#amazon-memorydb-multi-az-clusters")
+- [Amazon MemoryDB Multi-AZ clusters](fault-tolerance-checks.md#amazon-memorydb-multi-az-clusters "fault-tolerance-checks.md#amazon-memorydb-multi-az-clusters")
 - [Amazon MSK brokers hosting too many partitions](fault-tolerance-checks.md#amazon-msk-brokers-hosting-too-many-partitions "fault-tolerance-checks.md#amazon-msk-brokers-hosting-too-many-partitions")
 - [Amazon MSK Cluster Multi-AZ](fault-tolerance-checks.md#amazon-msk-cluster-multi-az "fault-tolerance-checks.md#amazon-msk-cluster-multi-az")
 - [Amazon OpenSearch Service domains with less than three data nodes](fault-tolerance-checks.md#amazon-opensearch-service-domains-less-than-three-nodes "fault-tolerance-checks.md#amazon-opensearch-service-domains-less-than-three-nodes")
@@ -61,14 +54,10 @@ You can use the following checks for the fault tolerance category.
 - [Amazon RDS ReplicaLag](fault-tolerance-checks.md#Amazon-RDS-ReplicaLag "fault-tolerance-checks.md#Amazon-RDS-ReplicaLag")
 - [Amazon RDS synchronous_commit parameter is turned off](fault-tolerance-checks.md#rds-synchronous-commit-parameter-off "fault-tolerance-checks.md#rds-synchronous-commit-parameter-off")
 - [Amazon Redshift cluster automated snapshots](fault-tolerance-checks.md#amazon-redshift-cluster-automated-snapshots "fault-tolerance-checks.md#amazon-redshift-cluster-automated-snapshots")
-- [Amazon Route 53 Deleted Health
-  Checks](fault-tolerance-checks.md#amazon-route-53-deleted-health-checks "fault-tolerance-checks.md#amazon-route-53-deleted-health-checks")
-- [Amazon Route 53 Failover
-  Resource Record Sets](fault-tolerance-checks.md#amazon-route-53-failover-resource-record-sets "fault-tolerance-checks.md#amazon-route-53-failover-resource-record-sets")
-- [Amazon Route 53 High TTL
-  Resource Record Sets](fault-tolerance-checks.md#amazon-route-53-high-ttl-resource-record-sets "fault-tolerance-checks.md#amazon-route-53-high-ttl-resource-record-sets")
-- [Amazon Route 53 Name Server
-  Delegations](fault-tolerance-checks.md#amazon-route-53-name-server-delegations "fault-tolerance-checks.md#amazon-route-53-name-server-delegations")
+- [Amazon Route 53 Deleted Health Checks](fault-tolerance-checks.md#amazon-route-53-deleted-health-checks "fault-tolerance-checks.md#amazon-route-53-deleted-health-checks")
+- [Amazon Route 53 Failover Resource Record Sets](fault-tolerance-checks.md#amazon-route-53-failover-resource-record-sets "fault-tolerance-checks.md#amazon-route-53-failover-resource-record-sets")
+- [Amazon Route 53 High TTL Resource Record Sets](fault-tolerance-checks.md#amazon-route-53-high-ttl-resource-record-sets "fault-tolerance-checks.md#amazon-route-53-high-ttl-resource-record-sets")
+- [Amazon Route 53 Name Server Delegations](fault-tolerance-checks.md#amazon-route-53-name-server-delegations "fault-tolerance-checks.md#amazon-route-53-name-server-delegations")
 - [Amazon Route 53 Resolver Endpoint Availability Zone Redundancy](fault-tolerance-checks.md#amazon-route53-resolver-endpoint-availability-zone-redundancy "fault-tolerance-checks.md#amazon-route53-resolver-endpoint-availability-zone-redundancy")
 - [Amazon S3 Bucket Replication Not Enabled](fault-tolerance-checks.md#amazon-s3-bucket-replication-not-enabled "fault-tolerance-checks.md#amazon-s3-bucket-replication-not-enabled")
 - [Amazon S3 Bucket Versioning](fault-tolerance-checks.md#amazon-s3-bucket-versioning "fault-tolerance-checks.md#amazon-s3-bucket-versioning")
@@ -76,26 +65,19 @@ You can use the following checks for the fault tolerance category.
 - [Auto Scaling available IPs in Subnets](fault-tolerance-checks.md#auto-scaling-available-ips-in-subnets "fault-tolerance-checks.md#auto-scaling-available-ips-in-subnets")
 - [Auto Scaling Group Health Check](fault-tolerance-checks.md#auto-scaling-group-health-check "fault-tolerance-checks.md#auto-scaling-group-health-check")
 - [Auto Scaling Group Resources](fault-tolerance-checks.md#auto-scaling-group-resources "fault-tolerance-checks.md#auto-scaling-group-resources")
-- [AWS CloudHSM
-  clusters running HSM instances in a single AZ](fault-tolerance-checks.md#aws-cloudhsm-clusters-running-hsm-instances-in-a-single-az "fault-tolerance-checks.md#aws-cloudhsm-clusters-running-hsm-instances-in-a-single-az")
-- [Direct Connect Location
-  Resiliency](fault-tolerance-checks.md#amazon-direct-connect-location-resiliency "fault-tolerance-checks.md#amazon-direct-connect-location-resiliency")
+- [AWS CloudHSM clusters running HSM instances in a single AZ](fault-tolerance-checks.md#aws-cloudhsm-clusters-running-hsm-instances-in-a-single-az "fault-tolerance-checks.md#aws-cloudhsm-clusters-running-hsm-instances-in-a-single-az")
+- [Direct Connect Location Resiliency](fault-tolerance-checks.md#amazon-direct-connect-location-resiliency "fault-tolerance-checks.md#amazon-direct-connect-location-resiliency")
 - [AWS Lambda functions without a dead-letter queue configured](fault-tolerance-checks.md#aws-lambda-functions-without-dlq "fault-tolerance-checks.md#aws-lambda-functions-without-dlq")
 - [AWS Lambda On Failure Event Destinations](fault-tolerance-checks.md#AWS-Lambda-On-Failure-Event-Destinations "fault-tolerance-checks.md#AWS-Lambda-On-Failure-Event-Destinations")
-- [AWS Lambda
-  VPC-enabled Functions without Multi-AZ Redundancy](fault-tolerance-checks.md#aws-lambda-vpc-enabled-functions-without-multi-az-redundancy "fault-tolerance-checks.md#aws-lambda-vpc-enabled-functions-without-multi-az-redundancy")
-- [AWS Outposts Single Rack
-  deployment](fault-tolerance-checks.md#aws-outposts-single-rack-deployment "fault-tolerance-checks.md#aws-outposts-single-rack-deployment")
-- [AWS Resilience Hub
-  Application Component check](fault-tolerance-checks.md#amazon-resilience-hub-application-component-check "fault-tolerance-checks.md#amazon-resilience-hub-application-component-check")
+- [AWS Lambda VPC-enabled Functions without Multi-AZ Redundancy](fault-tolerance-checks.md#aws-lambda-vpc-enabled-functions-without-multi-az-redundancy "fault-tolerance-checks.md#aws-lambda-vpc-enabled-functions-without-multi-az-redundancy")
+- [AWS Outposts Single Rack deployment](fault-tolerance-checks.md#aws-outposts-single-rack-deployment "fault-tolerance-checks.md#aws-outposts-single-rack-deployment")
+- [AWS Resilience Hub Application Component check](fault-tolerance-checks.md#amazon-resilience-hub-application-component-check "fault-tolerance-checks.md#amazon-resilience-hub-application-component-check")
 - [AWS Resilience Hub policy breached](fault-tolerance-checks.md#aws-resilience-hub-policy-breached "fault-tolerance-checks.md#aws-resilience-hub-policy-breached")
-- [AWS Resilience Hub resilience
-  scores](fault-tolerance-checks.md#aws-resilience-hub-resilience-scores "fault-tolerance-checks.md#aws-resilience-hub-resilience-scores")
+- [AWS Resilience Hub resilience scores](fault-tolerance-checks.md#aws-resilience-hub-resilience-scores "fault-tolerance-checks.md#aws-resilience-hub-resilience-scores")
 - [AWS Resilience Hub assessment age](fault-tolerance-checks.md#aws-resilience-hub-assessment-age "fault-tolerance-checks.md#aws-resilience-hub-assessment-age")
 - [AWS Site-to-Site VPN has at least one tunnel in DOWN status](fault-tolerance-checks.md#aws-site-to-site-vpn-tunnel-in-down-status "fault-tolerance-checks.md#aws-site-to-site-vpn-tunnel-in-down-status")
 - [AWS STS global endpoint usage across AWS Regions](fault-tolerance-checks.md#sts-global-endpoint "fault-tolerance-checks.md#sts-global-endpoint")
-- [AWS
-  Well-Architected high risk issues for reliability](fault-tolerance-checks.md#well-architected-high-risk-issues-reliability "fault-tolerance-checks.md#well-architected-high-risk-issues-reliability")
+- [AWS Well-Architected high risk issues for reliability](fault-tolerance-checks.md#well-architected-high-risk-issues-reliability "fault-tolerance-checks.md#well-architected-high-risk-issues-reliability")
 - [Classic Load Balancer has no multiple AZs configured](fault-tolerance-checks.md#classic-load-balancewr-no-multi-azs "fault-tolerance-checks.md#classic-load-balancewr-no-multi-azs")
 - [CLB Connection Draining](fault-tolerance-checks.md#elb-connection-draining "fault-tolerance-checks.md#elb-connection-draining")
 - [ELB Target Imbalance](fault-tolerance-checks.md#elb-target-imbalance "fault-tolerance-checks.md#elb-target-imbalance")
@@ -212,9 +194,7 @@ For more information, see [Backtracking an Aurora DB cluster](../../../AmazonRDS
 - Input Parameters
 - Last Updated Time
 
-## Amazon Aurora DB Instance
-
-Accessibility
+## Amazon Aurora DB Instance Accessibility
 
 **Description**
 
@@ -298,9 +278,7 @@ Make sure that you turn on the origin failover feature for your CloudFront distr
 - Input Parameters
 - Last Updated Time
 
-## Amazon Comprehend Endpoint Access
-
-Risk
+## Amazon Comprehend Endpoint Access Risk
 
 **Description**
 
@@ -347,9 +325,7 @@ For more information, see [Changing a key policy](../../../kms/latest/developerg
 - KMS KeyId
 - Last Updated Time
 
-## Amazon DocumentDB Single AZ
-
-Clusters
+## Amazon DocumentDB Single AZ Clusters
 
 **Description**
 
@@ -732,9 +708,7 @@ Make sure that your Amazon EC2 Auto Scaling group is configured with multiple AZ
 - Input Parameters
 - Last Updated Time
 
-## Amazon EC2 Availability Zone
-
-Balance
+## Amazon EC2 Availability Zone Balance
 
 **Description**
 
@@ -826,9 +800,7 @@ Turn on detailed monitoring for your Amazon EC2 instances to increase the freque
 - Input Parameters
 - Last Updated Time
 
-## Amazon ECS AWSLogs driver in
-
-blocking mode
+## Amazon ECS AWSLogs driver in blocking mode
 
 **Description**
 
@@ -1067,9 +1039,7 @@ Make sure that your Amazon EFS file systems are included in your AWS Backup plan
 - Input Parameters
 - Last Updated Time
 
-## Amazon ElastiCache Multi-AZ
-
-clusters
+## Amazon ElastiCache Multi-AZ clusters
 
 **Description**
 
@@ -1164,9 +1134,7 @@ For more information, see [Scheduling automatic backups](../../../AmazonElastiCa
 - Cluster Name
 - Last Updated Time
 
-## Amazon MemoryDB Multi-AZ
-
-clusters
+## Amazon MemoryDB Multi-AZ clusters
 
 **Description**
 
@@ -2447,9 +2415,7 @@ For more information, see [Working with backups](../../../AmazonRDS/latest/UserG
 - Input Parameters
 - Last Updated Time
 
-## Amazon Route 53 Deleted Health
-
-Checks
+## Amazon Route 53 Deleted Health Checks
 
 **Description**
 
@@ -2499,9 +2465,7 @@ Sets](../../../Route53/latest/DeveloperGuide/health-checks-adding-to-rrsets.md "
 - Resource Record Set Type
 - Resource Record Set Identifier
 
-## Amazon Route 53 Failover
-
-Resource Record Sets
+## Amazon Route 53 Failover Resource Record Sets
 
 **Description**
 
@@ -2555,9 +2519,7 @@ Failover](../../../Route53/latest/DeveloperGuide/dns-failover.md "../../../Route
 - Resource Record Set Type
 - Reason
 
-## Amazon Route 53 High TTL
-
-Resource Record Sets
+## Amazon Route 53 High TTL Resource Record Sets
 
 **Description**
 
@@ -2609,9 +2571,7 @@ Failover](../../../Route53/latest/DeveloperGuide/dns-failover.md "../../../Route
 - Resource Record Set ID
 - TTL
 
-## Amazon Route 53 Name Server
-
-Delegations
+## Amazon Route 53 Name Server Delegations
 
 **Description**
 
@@ -2999,9 +2959,7 @@ If your launch templates include an AWS Systems Manager parameter that include a
 - Resource Type
 - Resource Name
 
-## AWS CloudHSM
-
-clusters running HSM instances in a single AZ
+## AWS CloudHSM clusters running HSM instances in a single AZ
 
 **Description**
 
@@ -3042,9 +3000,7 @@ Create at least one more instance for the cluster in a different Availability Zo
 - Number of HSM Instances
 - Last Updated Time
 
-## Direct Connect Location
-
-Resiliency
+## Direct Connect Location Resiliency
 
 **Description**
 
@@ -3201,9 +3157,7 @@ Please set up On Failure event destination or DLQ for your Lambda functions to s
 - Average daily async requests
 - Last Updated Time
 
-## AWS Lambda
-
-VPC-enabled Functions without Multi-AZ Redundancy
+## AWS Lambda VPC-enabled Functions without Multi-AZ Redundancy
 
 **Description**
 
@@ -3249,9 +3203,7 @@ multiple Availability Zones to ensure high availability.
 - Average daily Invokes
 - Last Updated Time
 
-## AWS Outposts Single Rack
-
-deployment
+## AWS Outposts Single Rack deployment
 
 **Description**
 
@@ -3286,9 +3238,7 @@ workloads across racks.
 - Number of Racks
 - Last Updated Time
 
-## AWS Resilience Hub
-
-Application Component check
+## AWS Resilience Hub Application Component check
 
 **Description**
 
@@ -3378,9 +3328,7 @@ concepts](../../../resilience-hub/latest/userguide/concepts-terms.md "../../../r
 - Application Name
 - Last Updated Time
 
-## AWS Resilience Hub resilience
-
-scores
+## AWS Resilience Hub resilience scores
 
 **Description**
 
@@ -3575,9 +3523,7 @@ The following is a list of AWS Identity and Access Management (IAM) Principals m
 - Originating Region
 - Last Updated Time
 
-## AWS
-
-Well-Architected high risk issues for reliability
+## AWS Well-Architected high risk issues for reliability
 
 **Description**
 

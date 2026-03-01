@@ -61,5 +61,27 @@ configuration** page.
 
 ## Authorize multiple accounts
 
-To authorize multiple AWS accounts to use Slack workspaces,
-you can use [AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md") or [Terraform](creating-resources-with-cloudformation.md#terraform-support-app "creating-resources-with-cloudformation.md#terraform-support-app") to create your AWS Support App resources.
+If your account belongs to an organization in AWS Organizations, you can authorize multiple AWS accounts to use the same Slack workspace. You can use AWS CloudFormation templates to automate this process, or you can manually configure each account using the AWS Support App API.
+
+### Use AWS CloudFormation templates
+
+You can use [AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md") or [Terraform](creating-resources-with-cloudformation.md#terraform-support-app "creating-resources-with-cloudformation.md#terraform-support-app") to create your AWS Support App resources across multiple accounts. This is the recommended approach for managing multiple accounts at scale.
+
+For more information, see [Creating AWS Support App in Slack resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
+
+### Use the AWS Support App API
+
+If you prefer not to use AWS CloudFormation templates, you can manually authorize multiple accounts using the AWS Support App API. Complete the following steps for each member account that you want to add to the Slack workspace.
+
+###### To manually authorize multiple accounts
+
+1. In the management account (the account where you created the Slack workspace), authorize the Slack workspace. For more information, see the procedure in [Authorize a Slack workspace](authorize-slack-workspace.md "authorize-slack-workspace.md").
+2. In each member account, call the [`RegisterSlackWorkspaceForOrganization`](../../../supportapp/latest/APIReference/API_RegisterSlackWorkspaceForOrganization.md "../../../supportapp/latest/APIReference/API_RegisterSlackWorkspaceForOrganization.md") API operation to register the Slack workspace for that account.
+
+This operation adds the member account to the Slack workspace that was authorized by the management account. 3. In each member account, create an IAM role with the required permissions for the AWS Support App. For more information, see [Managing access to the AWS Support App](support-app-permissions.md "support-app-permissions.md"). 4. In each member account, call the [`CreateSlackChannelConfiguration`](../../../supportapp/latest/APIReference/API_CreateSlackChannelConfiguration.md "../../../supportapp/latest/APIReference/API_CreateSlackChannelConfiguration.md") API operation to configure a Slack channel for that account.
+
+This operation associates the Slack channel with the member account and specifies the IAM role that the AWS Support App uses to call AWS Support and Service Quotas operations.
+
+###### Note
+
+Each member account must be part of the same organization in AWS Organizations as the management account that authorized the Slack workspace.

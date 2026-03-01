@@ -31,9 +31,6 @@ Guide](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge
 
 ###### Topics
 
-- [Monitoring AWS Trusted Advisor check results with
-  Amazon EventBridge](cloudwatch-events-ta.md "cloudwatch-events-ta.md")
-- [Creating Amazon CloudWatch alarms to monitor AWS Trusted Advisor
-  metrics](cloudwatch-metrics-ta.md "cloudwatch-metrics-ta.md")
-- [Logging AWS Trusted Advisor console
-  actions with AWS CloudTrail](logging-using-cloudtrail-for-aws-trusted-advisor.md "logging-using-cloudtrail-for-aws-trusted-advisor.md")
+- [Monitoring AWS Trusted Advisor check results with Amazon EventBridge](cloudwatch-events-ta.md "cloudwatch-events-ta.md")
+- [Creating Amazon CloudWatch alarms to monitor AWS Trusted Advisor metrics](cloudwatch-metrics-ta.md "cloudwatch-metrics-ta.md")
+- [Logging AWS Trusted Advisor console actions with AWS CloudTrail](logging-using-cloudtrail-for-aws-trusted-advisor.md "logging-using-cloudtrail-for-aws-trusted-advisor.md")

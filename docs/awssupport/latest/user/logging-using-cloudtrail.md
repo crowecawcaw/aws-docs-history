@@ -59,9 +59,7 @@ information helps you determine the following:
 You can also aggregate AWS Support log files from multiple AWS Regions and multiple AWS
 accounts into a single Amazon S3 bucket.
 
-## AWS Trusted Advisor information in CloudTrail
-
-logging
+## AWS Trusted Advisor information in CloudTrail logging
 
 Trusted Advisor is an AWS Support service that you can use to check your AWS account for ways to
 save costs, improve security, and optimize your account.
@@ -74,12 +72,9 @@ operations generate entries in the CloudTrail log files.
 
 ###### Note
 
-CloudTrail also logs Trusted Advisor console actions. See [Logging AWS Trusted Advisor console
-actions with AWS CloudTrail](logging-using-cloudtrail-for-aws-trusted-advisor.md "logging-using-cloudtrail-for-aws-trusted-advisor.md").
+CloudTrail also logs Trusted Advisor console actions. See [Logging AWS Trusted Advisor console actions with AWS CloudTrail](logging-using-cloudtrail-for-aws-trusted-advisor.md "logging-using-cloudtrail-for-aws-trusted-advisor.md").
 
-## Understanding AWS Support log file
-
-entries
+## Understanding AWS Support log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

@@ -66,12 +66,10 @@ You can use the Trusted Advisor operations to perform the following tasks:
 - Get the status of each Trusted Advisor check
 
 The AWS Support API supports CloudTrail logging for Trusted Advisor operations. For more information,
-see [AWS Trusted Advisor information in CloudTrail
-logging](logging-using-cloudtrail.md#cloudtrail-logging-for-trusted-advisor "logging-using-cloudtrail.md#cloudtrail-logging-for-trusted-advisor").
+see [AWS Trusted Advisor information in CloudTrail logging](logging-using-cloudtrail.md#cloudtrail-logging-for-trusted-advisor "logging-using-cloudtrail.md#cloudtrail-logging-for-trusted-advisor").
 
 You can use Amazon CloudWatch Events to monitor for changes to your check results for Trusted Advisor. For
-more information, see [Monitoring AWS Trusted Advisor check results with
-Amazon EventBridge](cloudwatch-events-ta.md "cloudwatch-events-ta.md").
+more information, see [Monitoring AWS Trusted Advisor check results with Amazon EventBridge](cloudwatch-events-ta.md "cloudwatch-events-ta.md").
 
 For example Java code that demonstrates how to use the Trusted Advisor operations, see [Using Trusted Advisor as a web service](trustedadvisor.md "trustedadvisor.md").
 

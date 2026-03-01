@@ -1,6 +1,4 @@
-# Example: Create a support case for account and
-
-billing
+# Example: Create a support case for account and billing
 
 The following example is a support case for a billing and account issue.
 

@@ -40,22 +40,14 @@ doesn’t support your service yet, you can open a support case in [Support Cent
 - [DynamoDB Read Capacity](service-limits.md#dynamo-db-read-capacity "service-limits.md#dynamo-db-read-capacity")
 - [DynamoDB Write Capacity](service-limits.md#dynamo-db-write-capacity "service-limits.md#dynamo-db-write-capacity")
 - [EBS Active Snapshots](service-limits.md#ebs-active-snapshots "service-limits.md#ebs-active-snapshots")
-- [EBS Cold HDD (sc1) Volume
-  Storage](service-limits.md#ebs-cold-hdd-sc1-volume-storage "service-limits.md#ebs-cold-hdd-sc1-volume-storage")
-- [EBS General Purpose SSD
-  (gp2) Volume Storage](service-limits.md#ebs-general-purpose-ssd-gp2-volume-storage "service-limits.md#ebs-general-purpose-ssd-gp2-volume-storage")
-- [EBS General Purpose SSD
-  (gp3) Volume Storage](service-limits.md#ebs-general-purpose-ssd-gp3-volume-storage "service-limits.md#ebs-general-purpose-ssd-gp3-volume-storage")
-- [EBS Magnetic (standard) Volume
-  Storage](service-limits.md#ebs-magnetic-standard-volume-storage "service-limits.md#ebs-magnetic-standard-volume-storage")
-- [EBS Provisioned IOPS
-  SSD (io1) Volume Aggregate IOPS](service-limits.md#ebs-provisioned-iops-ssd-volume-aggregate-iops "service-limits.md#ebs-provisioned-iops-ssd-volume-aggregate-iops")
-- [EBS Provisioned IOPS SSD
-  (io1) Volume Storage](service-limits.md#ebs-provisioned-iops-ssd-io1-volume-storage "service-limits.md#ebs-provisioned-iops-ssd-io1-volume-storage")
-- [EBS Provisioned IOPS SSD
-  (io2) Volume Storage](service-limits.md#ebs-provisioned-iops-ssd-io2-volume-storage "service-limits.md#ebs-provisioned-iops-ssd-io2-volume-storage")
-- [EBS Throughput
-  Optimized HDD (st1) Volume Storage](service-limits.md#ebs-throughput-optimized-hdd-st1-volume-storage "service-limits.md#ebs-throughput-optimized-hdd-st1-volume-storage")
+- [EBS Cold HDD (sc1) Volume Storage](service-limits.md#ebs-cold-hdd-sc1-volume-storage "service-limits.md#ebs-cold-hdd-sc1-volume-storage")
+- [EBS General Purpose SSD (gp2) Volume Storage](service-limits.md#ebs-general-purpose-ssd-gp2-volume-storage "service-limits.md#ebs-general-purpose-ssd-gp2-volume-storage")
+- [EBS General Purpose SSD (gp3) Volume Storage](service-limits.md#ebs-general-purpose-ssd-gp3-volume-storage "service-limits.md#ebs-general-purpose-ssd-gp3-volume-storage")
+- [EBS Magnetic (standard) Volume Storage](service-limits.md#ebs-magnetic-standard-volume-storage "service-limits.md#ebs-magnetic-standard-volume-storage")
+- [EBS Provisioned IOPS SSD (io1) Volume Aggregate IOPS](service-limits.md#ebs-provisioned-iops-ssd-volume-aggregate-iops "service-limits.md#ebs-provisioned-iops-ssd-volume-aggregate-iops")
+- [EBS Provisioned IOPS SSD (io1) Volume Storage](service-limits.md#ebs-provisioned-iops-ssd-io1-volume-storage "service-limits.md#ebs-provisioned-iops-ssd-io1-volume-storage")
+- [EBS Provisioned IOPS SSD (io2) Volume Storage](service-limits.md#ebs-provisioned-iops-ssd-io2-volume-storage "service-limits.md#ebs-provisioned-iops-ssd-io2-volume-storage")
+- [EBS Throughput Optimized HDD (st1) Volume Storage](service-limits.md#ebs-throughput-optimized-hdd-st1-volume-storage "service-limits.md#ebs-throughput-optimized-hdd-st1-volume-storage")
 - [EC2 On-Demand Instances](service-limits.md#ec2-on-demand-instances "service-limits.md#ec2-on-demand-instances")
 - [EC2 Reserved Instance Leases](service-limits.md#ec2-reserved-instance-leases "service-limits.md#ec2-reserved-instance-leases")
 - [EC2-Classic Elastic IP Addresses](service-limits.md#ec2-elastic-ip-addresses "service-limits.md#ec2-elastic-ip-addresses")
@@ -79,8 +71,7 @@ doesn’t support your service yet, you can open a support case in [Support Cent
 - [RDS DB Parameter Groups](service-limits.md#rds-db-parameter-groups "service-limits.md#rds-db-parameter-groups")
 - [RDS DB Security Groups](service-limits.md#rds-db-security-groups "service-limits.md#rds-db-security-groups")
 - [RDS Event Subscriptions](service-limits.md#rds-event-subscriptions "service-limits.md#rds-event-subscriptions")
-- [RDS Max Auths per Security
-  Group](service-limits.md#rds-max-auths-per-security-group "service-limits.md#rds-max-auths-per-security-group")
+- [RDS Max Auths per Security Group](service-limits.md#rds-max-auths-per-security-group "service-limits.md#rds-max-auths-per-security-group")
 - [RDS Option Groups](service-limits.md#rds-option-groups "service-limits.md#rds-option-groups")
 - [RDS Read Replicas per Master](service-limits.md#rds-read-replicas-per-master "service-limits.md#rds-read-replicas-per-master")
 - [RDS Reserved Instances](service-limits.md#rds-reserved-instances "service-limits.md#rds-reserved-instances")
@@ -89,11 +80,9 @@ doesn’t support your service yet, you can open a support case in [Support Cent
 - [RDS Total Storage Quota](service-limits.md#rds-total-storage-quota "service-limits.md#rds-total-storage-quota")
 - [Route 53 Hosted Zones](service-limits.md#route-53-hosted-zones "service-limits.md#route-53-hosted-zones")
 - [Route 53 Max Health Checks](service-limits.md#route-53-max-health-checks "service-limits.md#route-53-max-health-checks")
-- [Route 53 Reusable Delegation
-  Sets](service-limits.md#route-53-reusable-delegation-sets "service-limits.md#route-53-reusable-delegation-sets")
+- [Route 53 Reusable Delegation Sets](service-limits.md#route-53-reusable-delegation-sets "service-limits.md#route-53-reusable-delegation-sets")
 - [Route 53 Traffic Policies](service-limits.md#route-53-traffic-policies "service-limits.md#route-53-traffic-policies")
-- [Route 53 Traffic Policy
-  Instances](service-limits.md#route-53-traffic-policy-instances "service-limits.md#route-53-traffic-policy-instances")
+- [Route 53 Traffic Policy Instances](service-limits.md#route-53-traffic-policy-instances "service-limits.md#route-53-traffic-policy-instances")
 - [SES Daily Sending Quota](service-limits.md#ses-daily-sending-quota "service-limits.md#ses-daily-sending-quota")
 - [VPC](service-limits.md#vpc-quota-check "service-limits.md#vpc-quota-check")
 - [VPC Internet Gateways](service-limits.md#vpc-internet-gateways "service-limits.md#vpc-internet-gateways")
@@ -190,9 +179,7 @@ quota.
 [Amazon EBS
 limits](../../../general/latest/gr/ebs-service.md "../../../general/latest/gr/ebs-service.md")
 
-## EBS Cold HDD (sc1) Volume
-
-Storage
+## EBS Cold HDD (sc1) Volume Storage
 
 **Description**
 
@@ -208,9 +195,7 @@ storage quota.
 [Amazon EBS
 limits](../../../general/latest/gr/ebs-service.md "../../../general/latest/gr/ebs-service.md")
 
-## EBS General Purpose SSD
-
-(gp2) Volume Storage
+## EBS General Purpose SSD (gp2) Volume Storage
 
 **Description**
 
@@ -226,9 +211,7 @@ Checks for usage that is more than 80% of the EBS General Purpose SSD
 [Amazon EBS
 limits](../../../general/latest/gr/ebs-service.md "../../../general/latest/gr/ebs-service.md")
 
-## EBS General Purpose SSD
-
-(gp3) Volume Storage
+## EBS General Purpose SSD (gp3) Volume Storage
 
 **Description**
 
@@ -244,9 +227,7 @@ Checks for usage that is more than 80% of the EBS General Purpose SSD
 [Amazon EBS
 limits](../../../general/latest/gr/ebs-service.md "../../../general/latest/gr/ebs-service.md")
 
-## EBS Magnetic (standard) Volume
-
-Storage
+## EBS Magnetic (standard) Volume Storage
 
 **Description**
 
@@ -262,9 +243,7 @@ volume storage quota.
 [Amazon EBS
 limits](../../../general/latest/gr/ebs-service.md "../../../general/latest/gr/ebs-service.md")
 
-## EBS Provisioned IOPS
-
-SSD (io1) Volume Aggregate IOPS
+## EBS Provisioned IOPS SSD (io1) Volume Aggregate IOPS
 
 **Description**
 
@@ -280,9 +259,7 @@ Checks for usage that is more than 80% of the EBS Provisioned IOPS SSD
 [Amazon EBS
 limits](../../../general/latest/gr/ebs-service.md "../../../general/latest/gr/ebs-service.md")
 
-## EBS Provisioned IOPS SSD
-
-(io1) Volume Storage
+## EBS Provisioned IOPS SSD (io1) Volume Storage
 
 **Description**
 
@@ -298,9 +275,7 @@ Checks for usage that is more than 80% of the EBS Provisioned IOPS SSD
 [Amazon EBS
 limits](../../../general/latest/gr/ebs-service.md "../../../general/latest/gr/ebs-service.md")
 
-## EBS Provisioned IOPS SSD
-
-(io2) Volume Storage
+## EBS Provisioned IOPS SSD (io2) Volume Storage
 
 **Description**
 
@@ -316,9 +291,7 @@ Checks for usage that is more than 80% of the EBS Provisioned IOPS SSD
 [Amazon EBS
 limits](../../../general/latest/gr/ebs-service.md "../../../general/latest/gr/ebs-service.md")
 
-## EBS Throughput
-
-Optimized HDD (st1) Volume Storage
+## EBS Throughput Optimized HDD (st1) Volume Storage
 
 **Description**
 
@@ -698,9 +671,7 @@ quota.
 
 [Amazon RDS quotas](../../../AmazonRDS/latest/UserGuide/CHAP_Limits.md "../../../AmazonRDS/latest/UserGuide/CHAP_Limits.md")
 
-## RDS Max Auths per Security
-
-Group
+## RDS Max Auths per Security Group
 
 **Description**
 
@@ -837,9 +808,7 @@ per account.
 [Route 53
 quotas](../../../general/latest/gr/r53.md "../../../general/latest/gr/r53.md")
 
-## Route 53 Reusable Delegation
-
-Sets
+## Route 53 Reusable Delegation Sets
 
 **Description**
 
@@ -871,9 +840,7 @@ per account.
 [Route 53
 quotas](../../../general/latest/gr/r53.md "../../../general/latest/gr/r53.md")
 
-## Route 53 Traffic Policy
-
-Instances
+## Route 53 Traffic Policy Instances
 
 **Description**
 

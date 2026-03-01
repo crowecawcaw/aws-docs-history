@@ -194,9 +194,7 @@ Trusted Advisor updated the 9 checks on July 21, 2024:
 
 For more information, see the [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md").
 
-## Removed 5 checks and added 1
-
-check
+## Removed 5 checks and added 1 check
 
 Trusted Advisor deprecated 3 Fault Tolerance checks, 1 Perfomance check, and 1 Security check on May 15, 2024:
 
@@ -212,9 +210,7 @@ Trusted Advisor added 1 new security check on May 15, 2024:
 
 For more information, see the [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md").
 
-## Removed fault tolerance
-
-checks
+## Removed fault tolerance checks
 
 Trusted Advisor deprecated 3 Fault Tolerance check on April 25, 2024:
 
@@ -224,9 +220,7 @@ Trusted Advisor deprecated 3 Fault Tolerance check on April 25, 2024:
 
 For more information, see the [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md").
 
-## New fault tolerance
-
-check
+## New fault tolerance check
 
 Trusted Advisor added 1 Fault Tolerance check on February 29, 2024:
 
@@ -244,9 +238,7 @@ Trusted Advisor added 1 new Fault Tolerance check and amended 1 existing Fault t
 
 For more information, see the [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md").
 
-## New fault tolerance
-
-check
+## New fault tolerance check
 
 Trusted Advisor added 1 Fault Tolerance check on January 31, 2024:
 
@@ -270,9 +262,7 @@ Trusted Advisor amended 1 Security check on December 21, 2023:
 
 For more information, see the [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md").
 
-## New security and performance
-
-checks
+## New security and performance checks
 
 Trusted Advisor added 2 new Security checks and 2 new Performance checks on December 20, 2023:
 
@@ -291,9 +281,7 @@ Trusted Advisor added 1 new Security check on December 15, 2023:
 
 For more information, see the [AWS Trusted Advisor check reference](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md").
 
-## New fault tolerance and cost
-
-optimization checks
+## New fault tolerance and cost optimization checks
 
 Trusted Advisor added 2 new Fault Tolerance checks and 1 new Cost Optimization check on
 December 07, 2023:
@@ -431,9 +419,7 @@ Trusted Advisor added the following checks on March 30, 2023.
 
 For more information, see the [Fault tolerance](fault-tolerance-checks.md "fault-tolerance-checks.md") category.
 
-## New fault tolerance
-
-checks
+## New fault tolerance checks
 
 Trusted Advisor added the following checks on December 15, 2022.
 
@@ -459,9 +445,7 @@ Trusted Advisor updated the following check information on December 15, 2022.
 
 For more information, see the [Fault tolerance](fault-tolerance-checks.md "fault-tolerance-checks.md") category.
 
-## Updates to the Trusted Advisor integration
-
-with AWS Security Hub CSPM
+## Updates to the Trusted Advisor integration with AWS Security Hub CSPM
 
 Trusted Advisor made the following update on November 17, 2022.
 
@@ -471,14 +455,10 @@ your Security Hub CSPM data from Trusted Advisor was 90 days.
 
 For more information, see the following sections in the [Troubleshooting](security-hub-controls-with-trusted-advisor.md#troubleshooting-security-hub-integration "security-hub-controls-with-trusted-advisor.md#troubleshooting-security-hub-integration") topic:
 
-- [I turned off Security Hub CSPM or AWS Config in a
-  Region](security-hub-controls-with-trusted-advisor.md#disable-security-hub-regions "security-hub-controls-with-trusted-advisor.md#disable-security-hub-regions")
-- [My control is
-  archived in Security Hub CSPM, but I still see the findings in Trusted Advisor](security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor "security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor")
+- [I turned off Security Hub CSPM or AWS Config in a Region](security-hub-controls-with-trusted-advisor.md#disable-security-hub-regions "security-hub-controls-with-trusted-advisor.md#disable-security-hub-regions")
+- [My control is archived in Security Hub CSPM, but I still see the findings in Trusted Advisor](security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor "security-hub-controls-with-trusted-advisor.md#archived-resource-still-appears-trusted-advisor")
 
-## New fault tolerance checks for
-
-AWS Resilience Hub
+## New fault tolerance checks for AWS Resilience Hub
 
 Trusted Advisor added the following checks on November 17, 2022.
 
@@ -513,8 +493,7 @@ category for your AWS account.
 This name change only updates the Trusted Advisor console. You can continue to use the
 Trusted Advisor console and the Trusted Advisor operations in the Support API as usual.
 
-For more information, see [Get started with
-Trusted Advisor Recommendations](get-started-with-aws-trusted-advisor.md "get-started-with-aws-trusted-advisor.md").
+For more information, see [Get started with Trusted Advisor Recommendations](get-started-with-aws-trusted-advisor.md "get-started-with-aws-trusted-advisor.md").
 
 ## New checks for Amazon EC2
 
@@ -524,14 +503,11 @@ Trusted Advisor added the following check on September 1, 2022.
 
 For more information, see the [Security](security-checks.md "security-checks.md") category.
 
-## Added Security Hub CSPM checks to
-
-Trusted Advisor
+## Added Security Hub CSPM checks to Trusted Advisor
 
 As of June 23, 2022, Trusted Advisor only supports Security Hub CSPM controls available through April 7, 2022. This release supports all controls in the AWS Foundational Security Best
 Practices security standard except for controls in the Category: Recover > Resilience.
-For more information, see [Viewing AWS Security Hub CSPM controls in
-AWS Trusted Advisor](security-hub-controls-with-trusted-advisor.md "security-hub-controls-with-trusted-advisor.md").
+For more information, see [Viewing AWS Security Hub CSPM controls in AWS Trusted Advisor](security-hub-controls-with-trusted-advisor.md "security-hub-controls-with-trusted-advisor.md").
 
 For a list of supported controls, see [AWS
 Foundational Security Best Practices controls](../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp-controls.md") in the _AWS Security Hub CSPM
@@ -549,12 +525,9 @@ Trusted Advisor added the following checks on May 4, 2022.
 | AWS Lambda under-provisioned functions for memory size | Performance       | `COr6dfpM06` |
 
 You must opt in your AWS account for Compute Optimizer so that these checks can receive data from
-your Lambda and Amazon EBS resources. For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor
-checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
+your Lambda and Amazon EBS resources. For more information, see [Opt in AWS Compute Optimizer for Trusted Advisor checks](compute-optimizer-with-trusted-advisor.md "compute-optimizer-with-trusted-advisor.md").
 
-## Updates to the Exposed Access Keys
-
-check
+## Updates to the Exposed Access Keys check
 
 Trusted Advisor updated the following check on April 25, 2022.
 
@@ -588,9 +561,7 @@ the check mark icon (
 ![Green checkmark icon indicating success or approval.](images/green.png)
 ).
 
-## Updated checks for
-
-AWS Direct Connect
+## Updated checks for AWS Direct Connect
 
 Trusted Advisor updated the following checks on March 29, 2022.
 
@@ -616,9 +587,7 @@ appeared in the table. These resources have a warning icon (
 ![Warning triangle symbol with an exclamation mark inside.](images/warning.png)
 ) next to them.
 
-## AWS Security Hub CSPM controls added
-
-to the AWS Trusted Advisor console
+## AWS Security Hub CSPM controls added to the AWS Trusted Advisor console
 
 AWS Trusted Advisor added 111 Security Hub CSPM controls to the **Security** category
 on January 18, 2022.
@@ -627,12 +596,9 @@ You can view your findings for Security Hub CSPM controls from the AWS Foundatio
 Best Practices security standard. This integration doesn't include controls that have
 the **Category: Recover > Resilience**.
 
-For more information about this feature, see [Viewing AWS Security Hub CSPM controls in
-AWS Trusted Advisor](security-hub-controls-with-trusted-advisor.md "security-hub-controls-with-trusted-advisor.md").
+For more information about this feature, see [Viewing AWS Security Hub CSPM controls in AWS Trusted Advisor](security-hub-controls-with-trusted-advisor.md "security-hub-controls-with-trusted-advisor.md").
 
-## New checks for Amazon EC2 and AWS
-
-Well-Architected
+## New checks for Amazon EC2 and AWS Well-Architected
 
 Trusted Advisor added the following checks on December 20, 2021.
 
@@ -662,12 +628,9 @@ The check recommendations, category, and ID are the same.
 ###### Note
 
 If you use Trusted Advisor for Amazon CloudWatch metrics, the metric name for this check is also
-updated. For more information, see [Creating Amazon CloudWatch alarms to monitor AWS Trusted Advisor
-metrics](cloudwatch-metrics-ta.md "cloudwatch-metrics-ta.md").
+updated. For more information, see [Creating Amazon CloudWatch alarms to monitor AWS Trusted Advisor metrics](cloudwatch-metrics-ta.md "cloudwatch-metrics-ta.md").
 
-## Added checks for Amazon Elastic Block Store volume
-
-storage
+## Added checks for Amazon Elastic Block Store volume storage
 
 Trusted Advisor added the following checks on June 8, 2021.
 
@@ -707,8 +670,7 @@ the following checks on March 5, 2021.
 ###### Note
 
 If you use Trusted Advisor for Amazon CloudWatch metrics, the metric names for these five checks
-are also updated. For more information, see [Creating Amazon CloudWatch alarms to monitor AWS Trusted Advisor
-metrics](cloudwatch-metrics-ta.md "cloudwatch-metrics-ta.md").
+are also updated. For more information, see [Creating Amazon CloudWatch alarms to monitor AWS Trusted Advisor metrics](cloudwatch-metrics-ta.md "cloudwatch-metrics-ta.md").
 
 | Check name                                        | Check category | Check ID     | Updated CloudWatch metric for ServiceLimit          |
 | ------------------------------------------------- | -------------- | ------------ | --------------------------------------------------- |

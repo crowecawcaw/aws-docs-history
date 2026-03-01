@@ -25,16 +25,12 @@ check.
 - [Prerequisites](#prerequisites-organizational-view "#prerequisites-organizational-view")
 - [Enable organizational view](#enable-organizational-view "#enable-organizational-view")
 - [Refresh Trusted Advisor checks](#refresh-trusted-advisor-checks "#refresh-trusted-advisor-checks")
-- [Create organizational view
-  reports](#create-organizational-view-reports "#create-organizational-view-reports")
+- [Create organizational view reports](#create-organizational-view-reports "#create-organizational-view-reports")
 - [View the report summary](#view-organizational-reports "#view-organizational-reports")
-- [Download an organizational view
-  report](#download-organizational-view-reports "#download-organizational-view-reports")
+- [Download an organizational view report](#download-organizational-view-reports "#download-organizational-view-reports")
 - [Disable organizational view](#disable-organizational-view "#disable-organizational-view")
-- [Using IAM policies to allow access to
-  organizational view](organizational-view-iam-policies.md "organizational-view-iam-policies.md")
-- [Using other AWS
-  services to view Trusted Advisor reports](use-other-aws-services-with-trusted-advisor-reports.md "use-other-aws-services-with-trusted-advisor-reports.md")
+- [Using IAM policies to allow access to organizational view](organizational-view-iam-policies.md "organizational-view-iam-policies.md")
+- [Using other AWS services to view Trusted Advisor reports](use-other-aws-services-with-trusted-advisor-reports.md "use-other-aws-services-with-trusted-advisor-reports.md")
 
 ## Prerequisites
 
@@ -49,8 +45,7 @@ You must meet the following requirements to enable organizational view:
   plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
 - You must sign in as a user in the [management account](../../../organizations/latest/userguide/orgs_manage_accounts.md "../../../organizations/latest/userguide/orgs_manage_accounts.md") (or [assumed
   equivalent role](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md")). Whether you sign in as an IAM user or an IAM
-  role, you must have a policy with the required permissions. See [Using IAM policies to allow access to
-  organizational view](organizational-view-iam-policies.md "organizational-view-iam-policies.md").
+  role, you must have a policy with the required permissions. See [Using IAM policies to allow access to organizational view](organizational-view-iam-policies.md "organizational-view-iam-policies.md").
 
 ## Enable organizational view
 
@@ -64,8 +59,7 @@ After you enable this feature, the following happens:
   is created for you in the management account in your organization. This role
   includes the permissions that Trusted Advisor needs to call Organizations on your behalf. This
   service-linked role is locked, and you can't delete it manually. For more
-  information, see [Using service-linked roles for
-  Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md").
+  information, see [Using service-linked roles for Trusted Advisor](using-service-linked-roles-ta.md "using-service-linked-roles-ta.md").
 
 You enable organizational view from the Trusted Advisor console.
 
@@ -115,9 +109,7 @@ You can also refresh specific checks in the following ways:
   ![Circular arrow icon representing a refresh or reload action.](images/refresh.png)
   ) for an individual check.
 
-## Create organizational view
-
-reports
+## Create organizational view reports
 
 After you enable organizational view, you can create reports so that you can view
 Trusted Advisor check results for your organization.
@@ -206,9 +198,7 @@ organization.
 
 ![Screenshot of an example report summary for Trusted Advisor.](images/organizational-view-summary-report-console-2.png)
 
-## Download an organizational view
-
-report
+## Download an organizational view report
 
 After your report is ready, download it from the Trusted Advisor console. The report is a
 .zip file that contains three files:
@@ -394,9 +384,8 @@ application, you can download the report as a .json file instead.
 The .json file format provides more flexibility than the .csv file format for advanced
 use cases such as aggregation and advanced analytics with multiple datasets. For
 example, you can use a SQL interface with an AWS service such as Amazon Athena to run
-queries on your reports. You can also use Amazon Quick Suite to create dashboards and visualize
-your data. For more information, see [Using other AWS
-services to view Trusted Advisor reports](use-other-aws-services-with-trusted-advisor-reports.md "use-other-aws-services-with-trusted-advisor-reports.md").
+queries on your reports. You can also use Amazon Quick to create dashboards and visualize
+your data. For more information, see [Using other AWS services to view Trusted Advisor reports](use-other-aws-services-with-trusted-advisor-reports.md "use-other-aws-services-with-trusted-advisor-reports.md").
 
 ## Disable organizational view
 
@@ -441,5 +430,4 @@ resources:
 - [View
   AWS Trusted Advisor recommendations at scale with AWS Organizations](https://aws.amazon.com/blogs/mt/organizational-view-for-trusted-advisor/ "https://aws.amazon.com/blogs/mt/organizational-view-for-trusted-advisor/") in the
   _AWS Management & Governance Blog_
-- [Using other AWS
-  services to view Trusted Advisor reports](use-other-aws-services-with-trusted-advisor-reports.md "use-other-aws-services-with-trusted-advisor-reports.md")
+- [Using other AWS services to view Trusted Advisor reports](use-other-aws-services-with-trusted-advisor-reports.md "use-other-aws-services-with-trusted-advisor-reports.md")

@@ -13,5 +13,4 @@ appropriate:
 
 ###### Topics
 
-- [Logging AWS Support Plans API calls with
-  AWS CloudTrail](logging-using-cloudtrail-support-plans.md "logging-using-cloudtrail-support-plans.md")
+- [Logging AWS Support Plans API calls with AWS CloudTrail](logging-using-cloudtrail-support-plans.md "logging-using-cloudtrail-support-plans.md")

@@ -1,6 +1,4 @@
-# Basic examples for
-
-Support using AWS SDKs
+# Basic examples for Support using AWS SDKs
 
 The following code examples show how to use the basics of AWS Support with AWS
 SDKs.
