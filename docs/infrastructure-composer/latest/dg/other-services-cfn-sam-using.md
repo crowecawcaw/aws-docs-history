@@ -27,8 +27,7 @@ With local sync mode, your project folder, including the AWS SAM template, are a
 local machine. Infrastructure Composer structures your project directory in a way that AWS SAM recognizes. You can run
 the AWS SAM CLI from the root directory of your project.
 
-For more information about **local sync** mode, see [Locally sync and save your
-project in the Infrastructure Composer console](using-composer-project-local-sync.md "using-composer-project-local-sync.md").
+For more information about **local sync** mode, see [Locally sync and save your project in the Infrastructure Composer console](using-composer-project-local-sync.md "using-composer-project-local-sync.md").
 
 **Export your template**
 

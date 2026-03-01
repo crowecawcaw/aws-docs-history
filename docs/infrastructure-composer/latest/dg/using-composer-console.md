@@ -13,7 +13,6 @@ For general documentation on using Infrastructure Composer, see [How to compose]
 - [Manage your project from the Infrastructure Composer console](using-composer-project.md "using-composer-project.md")
 - [Connect the Infrastructure Composer console with your local IDE](other-services-ide.md "other-services-ide.md")
 - [Allow web page access to local files in Infrastructure Composer](reference-fsa.md "reference-fsa.md")
-- [Locally sync and save your
-  project in the Infrastructure Composer console](using-composer-project-local-sync.md "using-composer-project-local-sync.md")
+- [Locally sync and save your project in the Infrastructure Composer console](using-composer-project-local-sync.md "using-composer-project-local-sync.md")
 - [Import functions into Infrastructure Composer from the Lambda console](other-services-lambda.md "other-services-lambda.md")
 - [Export an image of Infrastructure Composer's visual canvas](reference-features-export.md "reference-features-export.md")

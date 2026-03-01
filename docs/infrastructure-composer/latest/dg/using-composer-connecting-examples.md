@@ -2,9 +2,7 @@
 
 Use the examples in this section to understand how cards can be connected in Infrastructure Composer.
 
-## Invoke an AWS Lambda function
-
-when an item is placed in an Amazon Simple Storage Service (Amazon S3) bucket
+## Invoke an AWS Lambda function when an item is placed in an Amazon Simple Storage Service (Amazon S3) bucket
 
 In this example, an **Amazon S3 bucket** card is connected to a **Lambda function** card. When
 an item is placed in the Amazon S3 bucket, the function is invoked. The function can then be used
@@ -39,9 +37,7 @@ Resources:
               - s3:ObjectRemoved:* # Event that triggers invocation of function
 ```
 
-## Invoke an Amazon S3 bucket from a
-
-Lambda function
+## Invoke an Amazon S3 bucket from a Lambda function
 
 In this example, a **Lambda function** card invokes an **Amazon S3 bucket** card. The Lambda
 function can be used to perform CRUD operations on items in the Amazon S3 bucket.

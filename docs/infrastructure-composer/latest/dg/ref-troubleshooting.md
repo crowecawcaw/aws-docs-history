@@ -38,9 +38,7 @@ directory.**
 Move your externally referenced file to a subdirectory of the directory that you
 select to use with Infrastructure Composer **local sync** mode.
 
-### "The provided folder contains an
-
-existing template.yaml"
+### "The provided folder contains an existing template.yaml"
 
 When attempting to activate **local sync**, you see the
 following error:
@@ -52,9 +50,7 @@ following error:
 Select another directory that doesn’t contain an application template, or create a
 new directory.
 
-### "Your browser doesn't have
-
-permissions to save your project in that folder..."
+### "Your browser doesn't have permissions to save your project in that folder..."
 
 **Possible cause: Infrastructure Composer is unable to access a sensitive directory using local sync
 mode.**

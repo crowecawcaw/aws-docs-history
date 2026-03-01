@@ -10,8 +10,7 @@ This example shows you how to build and deploy the Infrastructure Composer demo 
 
 ###### Note
 
-- To learn more about the demo application, see [Load and modify the Infrastructure Composer demo
-  project](getting-started-demo.md "getting-started-demo.md").
+- To learn more about the demo application, see [Load and modify the Infrastructure Composer demo project](getting-started-demo.md "getting-started-demo.md").
 - For this example, we use Infrastructure Composer with **local sync**
   activated.
 

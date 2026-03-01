@@ -1,6 +1,4 @@
-# Build your first application with
-
-Infrastructure Composer
+# Build your first application with Infrastructure Composer
 
 In this tutorial, you use AWS Infrastructure Composer to build a create, read, update, and delete (CRUD) serverless application that
 manages users in a database.
@@ -21,18 +19,14 @@ We recommend a basic understanding of the following topics:
 
 - [Resource properties reference](#getting-started-build-reference "#getting-started-build-reference")
 - [Step 1: Create your project](#getting-started-build-start "#getting-started-build-start")
-- [Step 2: Add cards to the
-  canvas](#getting-started-build-rest-cards "#getting-started-build-rest-cards")
+- [Step 2: Add cards to the canvas](#getting-started-build-rest-cards "#getting-started-build-rest-cards")
 - [Step 3: Configure your API Gateway REST API](#getting-started-build-rest "#getting-started-build-rest")
-- [Step 4: Configure your Lambda
-  functions](#getting-started-build-functions "#getting-started-build-functions")
+- [Step 4: Configure your Lambda functions](#getting-started-build-functions "#getting-started-build-functions")
 - [Step 5: Connect your cards](#getting-started-build-connect "#getting-started-build-connect")
 - [Step 6: Organize the canvas](#getting-started-build-organize "#getting-started-build-organize")
 - [Step 7: Add and connect a DynamoDB table](#getting-started-build-table "#getting-started-build-table")
-- [Step 8: Review your AWS CloudFormation
-  template](#getting-started-build-template "#getting-started-build-template")
-- [Step 9: Integrate into your development
-  workflows](#getting-started-build-integrate "#getting-started-build-integrate")
+- [Step 8: Review your AWS CloudFormation template](#getting-started-build-template "#getting-started-build-template")
+- [Step 9: Integrate into your development workflows](#getting-started-build-integrate "#getting-started-build-integrate")
 - [Next steps](#getting-started-build-next "#getting-started-build-next")
 
 ## Resource properties reference
@@ -85,9 +79,7 @@ changes**.
 When activated, the **Autosave** indicator will be displayed in the
 upper-left area of your canvas.
 
-## Step 2: Add cards to the
-
-canvas
+## Step 2: Add cards to the canvas
 
 Start to design your application architecture using enhanced component cards, beginning with an API Gateway REST API and five
 Lambda functions.
@@ -132,9 +124,7 @@ table](#getting-started-build-reference "#getting-started-build-reference").
 
 ![The Infrastructure Composer visual canvas with an API Gateway resource with five routes. The Resource properties panel shows selections for Method, Path, and Add route.](images/aac_t2_03.png)
 
-## Step 4: Configure your Lambda
-
-functions
+## Step 4: Configure your Lambda functions
 
 Name each of the five Lambda functions as specified in the [resource properties reference
 table](#getting-started-build-reference "#getting-started-build-reference").
@@ -216,9 +206,7 @@ functions.
 
 ![The Infrastructure Composer visual canvas with a DynamoDB table connected to the group API.](images/aac_t2_07.png)
 
-## Step 8: Review your AWS CloudFormation
-
-template
+## Step 8: Review your AWS CloudFormation template
 
 Congratulations! You've successfully designed a serverless application that's ready for
 deployment. Finally, choose **Template** to review the AWS CloudFormation template
@@ -240,9 +228,7 @@ In the template, Infrastructure Composer has defined the following:
 
 ![The Infrastructure Composer template view showing the application's template code.](images/aac_t2_08.png)
 
-## Step 9: Integrate into your development
-
-workflows
+## Step 9: Integrate into your development workflows
 
 Use the template file and project directories that Infrastructure Composer created for further testing
 and deployment.

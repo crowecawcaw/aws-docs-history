@@ -1,10 +1,6 @@
-# Best
+# Best practices for Infrastructure Composer external reference files
 
-practices for Infrastructure Composer external reference files
-
-## Use
-
-Infrastructure Composer with a local IDE
+## Use Infrastructure Composer with a local IDE
 
 When you use Infrastructure Composer with a local IDE in **local
 sync** mode, you can use your local IDE to view and modify

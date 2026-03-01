@@ -204,8 +204,7 @@ Infrastructure Composer to save your state machine definition on an external fil
 ###### Note
 
 To use this feature with Infrastructure Composer from the AWS Management Console, you must have **local sync**
-activated. For more information, see [Locally sync and save your
-project in the Infrastructure Composer console](using-composer-project-local-sync.md "using-composer-project-local-sync.md").
+activated. For more information, see [Locally sync and save your project in the Infrastructure Composer console](using-composer-project-local-sync.md "using-composer-project-local-sync.md").
 
 ###### To save your state machine definition on an external file
 

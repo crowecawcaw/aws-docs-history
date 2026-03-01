@@ -8,8 +8,7 @@ You can also use this tool to create and edit CloudFormation templates.
 Infrastructure Composer in CloudFormation console mode generally has the same functionality as the [default Infrastructure Composer console](using-composer-console.md "using-composer-console.md"), but there are a few differences to note.
 
 - This mode is integrated with the stack workflow in the CloudFormation console. This allows you to use Infrastructure Composer directly in CloudFormation.
-- [Locally sync and save your
-  project in the Infrastructure Composer console](using-composer-project-local-sync.md "using-composer-project-local-sync.md"), a feature that automatically syncs and saves data to your local machine, is not supported.
+- [Locally sync and save your project in the Infrastructure Composer console](using-composer-project-local-sync.md "using-composer-project-local-sync.md"), a feature that automatically syncs and saves data to your local machine, is not supported.
 - Lambda-related cards (**Lambda Function** and **Lambda Layer**) require code builds and packaging solutions that are not available in this mode.
 
 ###### Note

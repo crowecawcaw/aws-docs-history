@@ -1,6 +1,4 @@
-# Reference an OpenAPI specification external
-
-file with Infrastructure Composer
+# Reference an OpenAPI specification external file with Infrastructure Composer
 
 This example uses Infrastructure Composer from the console to reference an external
 OpenAPI specification file that defines a API Gateway

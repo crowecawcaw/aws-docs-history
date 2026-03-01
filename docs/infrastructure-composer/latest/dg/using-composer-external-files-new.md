@@ -1,6 +1,4 @@
-# Create an external
-
-file reference in Infrastructure Composer
+# Create an external file reference in Infrastructure Composer
 
 You can create an external file reference from the **resource
 properties** panel of supported resources.

@@ -12,25 +12,21 @@ Infrastructure Composer can be used from the Infrastructure Composer console, th
 
 ###### Topics
 
-- [Compose your application
-  architecture](#what-is-composer-design "#what-is-composer-design")
-- [Define your infrastructure as code (IaC)
-  templates](#what-is-composer-define "#what-is-composer-define")
+- [Compose your application architecture](#what-is-composer-design "#what-is-composer-design")
+- [Define your infrastructure as code (IaC) templates](#what-is-composer-define "#what-is-composer-define")
 - [Integrate with your existing workflows](#what-is-composer-integrate "#what-is-composer-integrate")
 - [Ways to access Infrastructure Composer](#what-is-composer-access "#what-is-composer-access")
 - [Learn more](#what-is-composer-learn "#what-is-composer-learn")
 - [Next steps](#what-is-composer-next "#what-is-composer-next")
 - [Serverless concepts for AWS Infrastructure Composer](what-is-concepts.md "what-is-concepts.md")
 
-## Compose your application
-
-architecture
+## Compose your application architecture
 
 **Build with cards**
 
 Place cards on the Infrastructure Composer canvas to visualize and build your application architecture.
 
-![The Infrastructure Composer canvas with an unconnected API Gateway API, Lambda function, and DynamoDB table.](images/aac_ref_05.gif)
+![The Infrastructure Composer canvas with an unconnected API Gateway API, Lambda function, and DynamoDB table.](/images/infrastructure-composer/latest/dg/images/aac_ref_05.gif)
 
 **Connect cards together**
 
@@ -56,9 +52,7 @@ Workflow Studio directly within the Infrastructure Composer canvas.
 
 ![Launching Step Functions Workflow Studio from Infrastructure Composer.](images/aac_intro_06.gif)
 
-## Define your infrastructure as code (IaC)
-
-templates
+## Define your infrastructure as code (IaC) templates
 
 **Infrastructure Composer creates your infrastructure code**
 

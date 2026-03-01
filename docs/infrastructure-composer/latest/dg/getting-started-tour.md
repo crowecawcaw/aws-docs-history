@@ -21,5 +21,4 @@ For more information, refer to [How to compose in AWS Infrastructure Composer](u
 
 ## Next steps
 
-To load and modify a project in Infrastructure Composer, see [Load and modify the Infrastructure Composer demo
-project](getting-started-demo.md "getting-started-demo.md").
+To load and modify a project in Infrastructure Composer, see [Load and modify the Infrastructure Composer demo project](getting-started-demo.md "getting-started-demo.md").

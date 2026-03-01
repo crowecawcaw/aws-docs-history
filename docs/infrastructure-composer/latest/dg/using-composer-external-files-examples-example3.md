@@ -1,6 +1,4 @@
-# Create an application that references an external file in
-
-Infrastructure Composer
+# Create an application that references an external file in Infrastructure Composer
 
 This example uses the AWS SAM CLI to
 create an application that references an external file for its state

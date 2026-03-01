@@ -98,9 +98,7 @@ Infrastructure Composer will provision your template to facilitate this connecti
 
 When you complete the procedure listed above, Infrastructure Composer performs specific actions to connect your Lambda function to your database.
 
-### When specifying the external Amazon RDS DB cluster,
-
-instance, or proxy
+### When specifying the external Amazon RDS DB cluster, instance, or proxy
 
 When you drag an **RDS Database (external)** card onto the canvas, Infrastructure Composer updates the `Metadata` and
 `Parameters` sections of your template as needed. The following is an example:

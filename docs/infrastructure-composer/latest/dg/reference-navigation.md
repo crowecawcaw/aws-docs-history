@@ -1,8 +1,7 @@
 # Place cards on Infrastructure Composer's visual canvas
 
 This section describes how you select and drag Infrastructure Composer [cards](using-composer-connecting.md "using-composer-connecting.md") in its visual canvas.
-Before starting, identify what resources your application needs and how they need to interact. For tips on doing this, see [Build your first application with
-Infrastructure Composer](getting-started-build.md "getting-started-build.md").
+Before starting, identify what resources your application needs and how they need to interact. For tips on doing this, see [Build your first application with Infrastructure Composer](getting-started-build.md "getting-started-build.md").
 
 To add a card to your application, drag it from the resource palette and drop it onto
 the visual canvas.

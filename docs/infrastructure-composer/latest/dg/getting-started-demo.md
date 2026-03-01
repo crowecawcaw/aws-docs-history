@@ -1,19 +1,14 @@
-# Load and modify the Infrastructure Composer demo
-
-project
+# Load and modify the Infrastructure Composer demo project
 
 Use this tutorial to become familier with Infrastructure Composer's user interface and learn how to load, modify, and save the Infrastructure Composer demo project.
 
-This tutorial is done in the Infrastructure Composer console. Once completed, you'll be ready to start [Build your first application with
-Infrastructure Composer](getting-started-build.md "getting-started-build.md").
+This tutorial is done in the Infrastructure Composer console. Once completed, you'll be ready to start [Build your first application with Infrastructure Composer](getting-started-build.md "getting-started-build.md").
 
 ###### Topics
 
 - [Step 1: Open the demo](#getting-started-demo-open "#getting-started-demo-open")
-- [Step 2: Explore the visual canvas of
-  Infrastructure Composer](#getting-started-demo-navigate "#getting-started-demo-navigate")
-- [Step 3: Expand your application
-  architecture](#getting-started-demo-expand "#getting-started-demo-expand")
+- [Step 2: Explore the visual canvas of Infrastructure Composer](#getting-started-demo-navigate "#getting-started-demo-navigate")
+- [Step 3: Expand your application architecture](#getting-started-demo-expand "#getting-started-demo-expand")
 - [Step 4: Save your application](#getting-started-demo-save "#getting-started-demo-save")
 - [Next steps](#getting-started-demo-next "#getting-started-demo-next")
 
@@ -37,9 +32,7 @@ The following image is of the demo:
 
 ![The Infrastructure Composer visual canvas, showing a basic CRUD serverless application.](images/aac_t1_09.png)
 
-## Step 2: Explore the visual canvas of
-
-Infrastructure Composer
+## Step 2: Explore the visual canvas of Infrastructure Composer
 
 Learn the features of the visual canvas to build out your Infrastructure Composer demo project. For an
 overview of the visual canvas layout, see [Visual overview](reference-visual.md "reference-visual.md").
@@ -66,9 +59,7 @@ search for cards or scroll through the list.
 ![The resource palette is selected and shows featured resources that you can use in your application architecture.](images/aac_t1_10.png) 5. To move around the visual canvas, use basic gestures. For more information, see
 [Place cards on the canvas](reference-navigation.md "reference-navigation.md").
 
-## Step 3: Expand your application
-
-architecture
+## Step 3: Expand your application architecture
 
 In this step, you will expand your application architecture by adding a Lambda function
 to your DynamoDB table.
@@ -109,10 +100,8 @@ or by activating **local sync**.
 2. Provide a name for your template and choose a location on your local machine to save
    your template. Press **Save**.
 
-For instructions on activating **local sync**, see [Locally sync and save your
-project in the Infrastructure Composer console](using-composer-project-local-sync.md "using-composer-project-local-sync.md").
+For instructions on activating **local sync**, see [Locally sync and save your project in the Infrastructure Composer console](using-composer-project-local-sync.md "using-composer-project-local-sync.md").
 
 ## Next steps
 
-To get started with building your first application, see [Build your first application with
-Infrastructure Composer](getting-started-build.md "getting-started-build.md").
+To get started with building your first application, see [Build your first application with Infrastructure Composer](getting-started-build.md "getting-started-build.md").

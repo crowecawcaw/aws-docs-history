@@ -9,7 +9,5 @@ For details on using Infrastructure Composer in each of these tools, see [Where 
 ###### Topics
 
 - [Take a tour in the Infrastructure Composer console](getting-started-tour.md "getting-started-tour.md")
-- [Load and modify the Infrastructure Composer demo
-  project](getting-started-demo.md "getting-started-demo.md")
-- [Build your first application with
-  Infrastructure Composer](getting-started-build.md "getting-started-build.md")
+- [Load and modify the Infrastructure Composer demo project](getting-started-demo.md "getting-started-demo.md")
+- [Build your first application with Infrastructure Composer](getting-started-build.md "getting-started-build.md")

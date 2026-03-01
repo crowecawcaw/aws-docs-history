@@ -28,9 +28,7 @@ To get a high-level view of how Infrastructure Composer and other AWS services w
 features, see [AWS
 services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based policies
-
-for Infrastructure Composer
+## Identity-based policies for Infrastructure Composer
 
 **Supports identity-based policies:**
 
@@ -47,9 +45,7 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-## Resource-based
-
-policies within Infrastructure Composer
+## Resource-based policies within Infrastructure Composer
 
 **Supports resource-based policies:**
 
@@ -65,9 +61,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions for
-
-Infrastructure Composer
+## Policy actions for Infrastructure Composer
 
 **Supports policy actions:**
 
@@ -82,9 +76,7 @@ actions that you can use to allow or deny access in a policy. Include actions in
 To see a list of Infrastructure Composer actions, see [Actions Defined by AWS Infrastructure Composer](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-## Policy resources
-
-for Infrastructure Composer
+## Policy resources for Infrastructure Composer
 
 **Supports policy resources:**
 
@@ -103,9 +95,7 @@ To see a list of Infrastructure Composer resource types and their ARNs, see [Res
 the _Service Authorization Reference_. To learn with which actions you can specify the
 ARN of each resource, see [Actions Defined by AWS Infrastructure Composer](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
 
-## Policy
-
-condition keys for Infrastructure Composer
+## Policy condition keys for Infrastructure Composer
 
 **Supports service-specific policy condition keys:**
 
@@ -150,9 +140,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary credentials
-
-with Infrastructure Composer
+## Using temporary credentials with Infrastructure Composer
 
 **Supports temporary credentials:**
 
@@ -169,9 +157,7 @@ example, see [Enabling
 custom identity broker access to the AWS console](../../../IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.md "../../../IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.md") in the
 _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Infrastructure Composer
+## Cross-service principal permissions for Infrastructure Composer
 
 **Supports forward access sessions (FAS):**
 
@@ -180,9 +166,7 @@ No
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Infrastructure Composer
+## Service roles for Infrastructure Composer
 
 **Supports service roles:**
 
@@ -197,9 +181,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Infrastructure Composer functionality. Edit
 service roles only when Infrastructure Composer provides guidance to do so.
 
-## Service-linked roles
-
-for Infrastructure Composer
+## Service-linked roles for Infrastructure Composer
 
 **Supports service-linked roles:**
 
