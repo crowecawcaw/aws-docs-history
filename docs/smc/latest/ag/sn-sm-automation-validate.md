@@ -1,12 +1,8 @@
-# Validating AWS Systems Manager Automation
-
-integration in ServiceNow
+# Validating AWS Systems Manager Automation integration in ServiceNow
 
 This section describes how to validate AWS Systems Manager Automation integration in ServiceNow.
 
-###### \*\*To request an AWS Systems Manager Automation document (runbook)
-
-execution\*\*
+###### **To request an AWS Systems Manager Automation document (runbook) execution**
 
 1. Log in to your ServiceNow instance as the end user (for this example,
    Abel Tuter).
@@ -19,9 +15,7 @@ execution\*\*
 
 You receive an order status acknowledging your request submission.
 
-###### \*\*To view AWS Systems Manager document
-
-executions\*\*
+###### **To view AWS Systems Manager document executions**
 
 1. Log in to your ServiceNow instance as the end user (for example, Abel
    Tuter).

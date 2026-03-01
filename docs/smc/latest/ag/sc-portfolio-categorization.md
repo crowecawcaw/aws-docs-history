@@ -1,6 +1,4 @@
-# Activate AWS Service Catalog portfolio categorization
-
-in ServiceNow Service Portal
+# Activate AWS Service Catalog portfolio categorization in ServiceNow Service Portal
 
 AWS Service Management Connector can display portfolios with an additional
 categorization of AWS Account and Region names in the ServiceNow Service Portal. This allows

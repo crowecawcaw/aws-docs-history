@@ -1,6 +1,4 @@
-# Using AWS Service Management
-
-Connector for Jira Service Management Data Center
+# Using AWS Service Management Connector for Jira Service Management Data Center
 
 The AWS Service Management Connector for Jira Service Management
 (Connector) (formerly the AWS Service Catalog Connector) enables Jira

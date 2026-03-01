@@ -1,6 +1,4 @@
-# Configuring available ServiceNow tables to
-
-sync as AWS Config custom resources
+# Configuring available ServiceNow tables to sync as AWS Config custom resources
 
 In this Connector for ServiceNow release, you can now sync a set of ServiceNow
 tables in the CMDB to AWS Config as custom resources.
@@ -31,10 +29,7 @@ follows:
 | `cmdb_ci_db_mysql_instance`           | MySql Instance                   |
 | `cmdb_ci_kubernetes_cluster`          | Kubernetes Cluster               |
 
-######
-
-To configure ServiceNow tables
-as AWS Config custom resources
+###### To configure ServiceNow tables as AWS Config custom resources
 
 ###### Note
 

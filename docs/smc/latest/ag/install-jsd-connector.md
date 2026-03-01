@@ -1,6 +1,4 @@
-# Installing Jira Service
-
-Management Connector add-on
+# Installing Jira Service Management Connector add-on
 
 Follow these steps to install the Jira Service Management Connector add-on.
 

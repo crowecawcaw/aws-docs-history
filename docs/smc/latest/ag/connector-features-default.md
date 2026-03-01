@@ -1,10 +1,6 @@
-# Connector features
+# Connector features enabled by default
 
-enabled by default
-
-###### To configure the default Connector features for specific AWS
-
-services
+###### To configure the default Connector features for specific AWS services
 
 For a new installation of Connector, we enable the default
 project configuration for all Connector features (AWS Service Catalog, AWS Config,

@@ -1,6 +1,4 @@
-# Configuring AWS
-
-Accounts and Regions
+# Configuring AWS Accounts and Regions
 
 After installing the AWS Service Management Connector, you must configure AWS accounts
 and Regions in the connector.
@@ -38,5 +36,4 @@ be new users in AWS, used only with AWS Service Management
 Connector. These users should have minimum required privileges. You can
 use the available AWS CloudFormation templates for your sandbox and development
 AWS accounts to configure and enable available integrations. For more
-information, see [Setting baseline
-permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md "sn-base-perms.md").
+information, see [Setting baseline permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md "sn-base-perms.md").

@@ -1,6 +1,4 @@
-# Platform system administrator
-
-components
+# Platform system administrator components
 
 To enable the AWS Service Management Connector scoped application named
 **AWS Service Management**, the system admin must create a

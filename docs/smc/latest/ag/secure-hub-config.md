@@ -4,9 +4,7 @@ After you've enabled projects for the Connector, AWS Security Hub CSPM
 requires Jira admins to associate Jira project(s) to this integration,
 and configurations to manage the Security Hub integration.
 
-###### To associate the Jira projects enabled for the Connector to the
-
-AWS Security Hub CSPM integration features
+###### To associate the Jira projects enabled for the Connector to the AWS Security Hub CSPM integration features
 
 1. In the left navigation menu under **AWS
    Service Management Connector**, choose **Connector settings**.

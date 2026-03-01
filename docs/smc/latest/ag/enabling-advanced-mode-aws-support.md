@@ -1,6 +1,4 @@
-# Advanced Mode for Support
-
-integration (optional)
+# Advanced Mode for Support integration (optional)
 
 AWS Service Management Connector allows you to enable an intermediate table for the creation of Support Cases.
 This allows you to add custom logic using ServiceNow business rules and workflows to align with

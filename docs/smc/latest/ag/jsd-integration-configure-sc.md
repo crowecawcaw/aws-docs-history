@@ -1,6 +1,4 @@
-# Configuring Service Catalog
-
-Integration
+# Configuring Service Catalog Integration
 
 After you create two IAM users with baseline permissions in each
 account, you can now configure Service Catalog. This section describes how to
@@ -31,9 +29,7 @@ either a launch or StackSet constraint. Failure to follow this step can
 result in an _Unable to Retrieve Parameter_ message
 within Jira Service Management Service Catalog.
 
-## Video: Integrate AWS products in your Jira Service Management
-
-portal
+## Video: Integrate AWS products in your Jira Service Management portal
 
 This video (11:22) describes how to integrate AWS products into
 your Jira Service Management portal. Jira Service Management enables end

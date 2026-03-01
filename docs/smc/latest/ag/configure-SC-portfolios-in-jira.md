@@ -1,6 +1,4 @@
-# Configuring Service Catalog Portfolios in
-
-Jira
+# Configuring Service Catalog Portfolios in Jira
 
 This section describes how to configure AWS Service Catalog portfolios within
 Jira.
@@ -42,9 +40,7 @@ and Jira agents should maintain security in their Jira
 accounts. 5. If products in this portfolio do not require approvals, choose
 **Save**.
 
-## Configuring Jira Service Management approvals
-
-for products in Service Catalog Portfolios
+## Configuring Jira Service Management approvals for products in Service Catalog Portfolios
 
 The AWS Service Management Connector for Jira Service Management
 enables administrators to configure approvals for products at the
@@ -72,9 +68,7 @@ If a portfolio only has a group associated with
 **Permissions to request**, products in the
 portfolio immediately provision when you submit the product request.
 
-## Viewing products and
-
-budgets
+## Viewing products and budgets
 
 The **Available Products** tab lists the products
 in the portfolio and budgetary information on each. The
@@ -87,9 +81,7 @@ Find details about additional configurations for the AWS Service Catalog
 request form and Automated Tags in the next section Configuring
 Connector Settings.
 
-## Configuring Connector
-
-Settings (Jira Project Enablement and Request Type)
+## Configuring Connector Settings (Jira Project Enablement and Request Type)
 
 In addition to configuring AWS accounts, the AWS Service
 Management Connector contains AWS services and UI settings for
@@ -102,13 +94,9 @@ There is no project-account association for AWS Service Catalog.
 Project-account visibility is determined by the permissions groups
 that are granted permission to provision.
 
-## Connector Features Enabled
+## Connector Features Enabled by Default
 
-by Default
-
-###### To configure the default Connector features for specific AWS
-
-services
+###### To configure the default Connector features for specific AWS services
 
 For a new installation of Connector, Service Management Connector
 enables the default project configuration for all Connector features
@@ -125,9 +113,7 @@ enable new features.
    not.
 3. Choose **Save**.
 
-## UI Settings
-
-(AWS Service Catalog)
+## UI Settings (AWS Service Catalog)
 
 Configure the AWS Service Catalog product widget components to make them
 viewable to internal customers and Jira agents.
@@ -164,9 +150,7 @@ product components.
 
 4. Choose **Save**.
 
-## Configuring AWS
-
-TagOptions for Provisioned Products
+## Configuring AWS TagOptions for Provisioned Products
 
 The AWS Service Management Connector enables Jira administrators
 to add tags (metadata) to provisioned products globally across the
@@ -195,9 +179,7 @@ provisioned product in Service Catalog.
 | Project name        | ${PROJECT_NAME} |
 | Project code        | ${PROJECT_CODE} |
 
-###### To add TagOptions to Service Catalog integration in Jira Service
-
-Management
+###### To add TagOptions to Service Catalog integration in Jira Service Management
 
 1. Navigate to the **Settings** menu, and then
    choose **Apps**.
@@ -213,9 +195,7 @@ Management
 
 5. Choose **Add**.
 
-## Projects Enabled for the
-
-Connector
+## Projects Enabled for the Connector
 
 The AWS Service Management Connector for Jira Service Management
 must be associated with one or more Jira projects and Jira Service
@@ -226,9 +206,7 @@ each Jira project.
 AWS Service Catalog,AWS Systems Manager Incident Manager, AWS Security Hub CSPM, Support, AWS Systems Manager Automation,
 AWS Systems Manager OpsCenter and AWS Health**
 
-###### To configure the Jira projects for AWS Service Catalog, AWS Systems Manager Incident Manager,
-
-AWS Security Hub CSPM, Support, and AWS Systems Manager Automation
+###### To configure the Jira projects for AWS Service Catalog, AWS Systems Manager Incident Manager, AWS Security Hub CSPM, Support, and AWS Systems Manager Automation
 
 1. Navigate to the **Settings** menu, and then
    choose **Apps**.

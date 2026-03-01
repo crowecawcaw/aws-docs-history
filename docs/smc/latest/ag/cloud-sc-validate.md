@@ -1,6 +1,4 @@
-# Validating AWS Service Catalog integration in
-
-Jira Service Management Cloud
+# Validating AWS Service Catalog integration in Jira Service Management Cloud
 
 This section describes how you can use service integration features to validate
 AWS Service Management Connector for Jira Service Management Cloud installation.

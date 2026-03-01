@@ -1,13 +1,9 @@
-# Validating AWS Systems Manager OpsCenter
-
-integration in ServiceNow
+# Validating AWS Systems Manager OpsCenter integration in ServiceNow
 
 This section describes how to validate AWS Systems Manager OpsCenter integration in
 ServiceNow.
 
-###### \*\*To view OpsItems from AWS Systems Manager -
-
-OpsCenter\*\*
+###### **To view OpsItems from AWS Systems Manager - OpsCenter**
 
 To view AWS OpsItem, you must have the role,
 `x_126749_aws_sc.opscenter_manager`, with the Connector scope
@@ -29,9 +25,7 @@ If the Connector configuration does not to automatically create a
 ServiceNow Incident when a new Finding syncs, you can create one manually.
 To do so, choose the link at the bottom of the form.
 
-###### \*\*To execute an AWS Systems Manager – Automation Document
-
-from an AWS OpsItems associated to a ServiceNow Incident\*\*
+###### **To execute an AWS Systems Manager – Automation Document from an AWS OpsItems associated to a ServiceNow Incident**
 
 One of the following conditions must be true to view or execute automation
 documents (runbooks):

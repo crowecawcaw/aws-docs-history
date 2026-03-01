@@ -5,9 +5,7 @@ Connector aligns with the Change Management process in ServiceNow. It enables yo
 align the internal Change Management process for executing pre-approved change
 templates directly from a ServiceNow instance.
 
-###### \*\*To conﬁgure the AWS Support integration system
-
-properties\*\*
+###### **To conﬁgure the AWS Support integration system properties**
 
 1. In the navigator, enter `AWS Service
 Management`.

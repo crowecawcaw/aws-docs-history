@@ -1,6 +1,4 @@
-# Prerequisites for AWS Service
-
-Management Connector for Jira Service Management Cloud
+# Prerequisites for AWS Service Management Connector for Jira Service Management Cloud
 
 Before installing the AWS Service Management Connector for
 Atlassian's Jira Service Management Cloud, you must have an AWS account
@@ -46,9 +44,7 @@ user guide_.
 Your account must have a Business or Enterprise Support plan to
 use support integration with the Connector.
 
-## Jira Service Management Cloud
-
-prerequisites
+## Jira Service Management Cloud prerequisites
 
 In addition to the AWS account, you must have an existing Jira
 Project, or create a new Project. The initial installation should

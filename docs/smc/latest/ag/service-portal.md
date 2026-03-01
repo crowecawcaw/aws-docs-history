@@ -1,6 +1,4 @@
-# Ordering Service Catalog products through the ServiceNow
-
-Service portal
+# Ordering Service Catalog products through the ServiceNow Service portal
 
 The Connector for ServiceNow supports the ordering of Service Catalog products through
 Service Portal. You can use the **Service Catalog** and **Order Something** views. The

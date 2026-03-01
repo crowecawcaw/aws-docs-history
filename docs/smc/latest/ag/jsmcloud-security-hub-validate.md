@@ -1,6 +1,4 @@
-# Validating AWS Security Hub CSPM integration in
-
-Jira Service Management Cloud
+# Validating AWS Security Hub CSPM integration in Jira Service Management Cloud
 
 This section describes how to validate AWS Security Hub CSPM Findings, update AWS Systems Manager OpsItems, and view
 AWS related resources in Jira Service Management.

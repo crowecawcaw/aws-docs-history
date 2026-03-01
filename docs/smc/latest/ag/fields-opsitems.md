@@ -1,6 +1,4 @@
-# Fields mapped from OpsCenter OpsItem records
-
-to ServiceNow Incident records
+# Fields mapped from OpsCenter OpsItem records to ServiceNow Incident records
 
 This table shows how AWS OpsItems map to ServiceNow Incidents.
 

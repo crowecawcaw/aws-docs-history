@@ -1,13 +1,9 @@
-# Synchronizing AWS Security Hub CSPM to the Connector in
-
-ServiceNow
+# Synchronizing AWS Security Hub CSPM to the Connector in ServiceNow
 
 This section shows you how to synchronize AWS Security Hub CSPM to the Connector in
 ServiceNow.
 
-###### To configure AWS Security Hub CSPM synchronization behavior to the Connector in
-
-ServiceNow
+###### To configure AWS Security Hub CSPM synchronization behavior to the Connector in ServiceNow
 
 1. In the ServiceNow filter navigator in the fulfiller (stand user interface)
    view, enter `AWS Service Management Connector`.

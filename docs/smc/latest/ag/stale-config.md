@@ -1,6 +1,4 @@
-# Addressing stale AWS Config items in the
-
-ServiceNow CMDB
+# Addressing stale AWS Config items in the ServiceNow CMDB
 
 ###### Note
 

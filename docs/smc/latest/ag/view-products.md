@@ -1,6 +1,4 @@
-# Viewing products in the Standard User Interface
-
-(Fulfiller View)
+# Viewing products in the Standard User Interface (Fulfiller View)
 
 View provisioned products as an end user and from the scoped app as an administrator.
 

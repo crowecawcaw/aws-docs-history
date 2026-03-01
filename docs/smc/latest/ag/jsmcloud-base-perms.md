@@ -12,18 +12,12 @@ rotating IAM user access keys. For more information, refer to
 
 ###### Topics
 
-- [Available template for
-  baseline permissions](#baseline-permissions-template "#baseline-permissions-template")
-- [Creating AWS Service Management Connector Sync
-  user](jsmcloud-scsyncuser.md "jsmcloud-scsyncuser.md")
-- [Creating AWS Service Management
-  Connector end user](jsmcloud-scenduser.md "jsmcloud-scenduser.md")
-- [Creating SCConnectLaunch
-  role](jsmcloud-scconnectlaunch.md "jsmcloud-scconnectlaunch.md")
+- [Available template for baseline permissions](#baseline-permissions-template "#baseline-permissions-template")
+- [Creating AWS Service Management Connector Sync user](jsmcloud-scsyncuser.md "jsmcloud-scsyncuser.md")
+- [Creating AWS Service Management Connector end user](jsmcloud-scenduser.md "jsmcloud-scenduser.md")
+- [Creating SCConnectLaunch role](jsmcloud-scconnectlaunch.md "jsmcloud-scconnectlaunch.md")
 
-## Available template for
-
-baseline permissions
+## Available template for baseline permissions
 
 For an CloudFormation template to configure Jira Service Management, refer
 to [AWS commercial Regions](https://servicecatalogconnector.s3.amazonaws.com/SMC_ConnectorforJSMCloud-AWS_Configurations_Commercialv7.0.0.json "https://servicecatalogconnector.s3.amazonaws.com/SMC_ConnectorforJSMCloud-AWS_Configurations_Commercialv7.0.0.json") and [AWS GovCloud (US) Regions](https://servicecatalogconnector.s3.amazonaws.com/SMC_ConnectorforJSMCloud-AWS_Configurations_GovCloudv7.0.0.json "https://servicecatalogconnector.s3.amazonaws.com/SMC_ConnectorforJSMCloud-AWS_Configurations_GovCloudv7.0.0.json"). For each AWS account, the

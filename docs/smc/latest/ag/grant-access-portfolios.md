@@ -1,6 +1,4 @@
-# Granting access to AWS Service Catalog
-
-portfolios
+# Granting access to AWS Service Catalog portfolios
 
 This release of the Connector does not require you to link AWS identities to
 ServiceNow roles. To grant access to Service Catalog products in ServiceNow, you must establish

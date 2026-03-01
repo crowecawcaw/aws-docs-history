@@ -1,6 +1,4 @@
-# Viewing budgets related to Service Catalog portfolios and
-
-products
+# Viewing budgets related to Service Catalog portfolios and products
 
 ServiceNow administrators can view budgets and actual costs related to Service Catalog
 portfolios and products in the ServiceNow standard user interface.

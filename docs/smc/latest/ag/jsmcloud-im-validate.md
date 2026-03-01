@@ -1,6 +1,4 @@
-# Validating AWS Systems Manager Incident Manager
-
-integration
+# Validating AWS Systems Manager Incident Manager integration
 
 This section describes how to validate AWS Systems Manager Incident Manager integration in
 Jira.

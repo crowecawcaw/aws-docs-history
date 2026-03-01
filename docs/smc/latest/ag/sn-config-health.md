@@ -30,5 +30,4 @@ to **Scheduled Jobs**, and modify the **Repeat Interval** value of the **Synchro
 ###### Note
 
 You can use baseline CloudFormation tempates to automate AWS Health integration features.
-For more information, refer to [Setting baseline
-permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md "sn-base-perms.md").
+For more information, refer to [Setting baseline permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md "sn-base-perms.md").

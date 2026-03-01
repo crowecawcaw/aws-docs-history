@@ -1,6 +1,4 @@
-# Enabling the AWS Service Catalog request type in the Jira
-
-Customer Portal
+# Enabling the AWS Service Catalog request type in the Jira Customer Portal
 
 The Jira Customer Portal enables registered Atlassian site internal
 customers and Jira agents to provision resources using the Jira Service

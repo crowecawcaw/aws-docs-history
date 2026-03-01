@@ -2,9 +2,7 @@
 
 This section shows you how to integrate Support in ServiceNow.
 
-###### \*\*To conﬁgure the Support integration System
-
-Properties\*\*
+###### **To conﬁgure the Support integration System Properties**
 
 1. In the navigator, enter `AWS Service
 Management`.

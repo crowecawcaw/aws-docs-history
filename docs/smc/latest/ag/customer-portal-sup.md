@@ -1,15 +1,11 @@
-# Enabling the Support request type in
-
-the Jira Customer Portal
+# Enabling the Support request type in the Jira Customer Portal
 
 The connector enables registered Atlassian site internal customers and
 Jira agents to create and manage Support cases using the Jira Service
 Management (JSM) Customer portal. The Customer Portal does not require
 Jira Agent permissions.
 
-###### To enable the Support case request type in Jira Customer
-
-Portal
+###### To enable the Support case request type in Jira Customer Portal
 
 1. Log in to your Atlassian site as an administrator.
 2. Select the desired **Project**.

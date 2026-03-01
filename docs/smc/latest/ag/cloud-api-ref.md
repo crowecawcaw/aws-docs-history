@@ -1,6 +1,4 @@
-# Reference: AWS API calls for the AWS
-
-Service Management Connector
+# Reference: AWS API calls for the AWS Service Management Connector
 
 The following provides the reference AWS API calls for AWS
 Service Management Connector.

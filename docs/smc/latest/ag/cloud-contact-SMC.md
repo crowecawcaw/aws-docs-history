@@ -1,13 +1,9 @@
-# Contacting the Service Management
-
-Connector specialist team
+# Contacting the Service Management Connector specialist team
 
 You can contact the AWS Service Management Connector (SMC)
 specialist team directly from the connector using an Support case.
 
-###### To create a support case with the SMC specialist team from Support
-
-console
+###### To create a support case with the SMC specialist team from Support console
 
 1. In the console, choose **Technical Support**.
 2. Complete the form's required fields:

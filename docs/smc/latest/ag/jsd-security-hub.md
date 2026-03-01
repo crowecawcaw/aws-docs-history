@@ -4,9 +4,7 @@ This section describes how to view AWS Security Hub CSPM Findings, update
 AWS Systems Manager OpsItems, and view AWS related resources in AWS Systems Manager
 OpsItems in Jira Service Management.
 
-###### To view AWS Security Hub CSPM Findings in Jira Service Management from
-
-AWS Systems Manager
+###### To view AWS Security Hub CSPM Findings in Jira Service Management from AWS Systems Manager
 
 1. Log in to your **Jira Agent** view
    as an end user.
@@ -40,9 +38,7 @@ sync between AWS and Jira Service Management. Only the fields
 Severity, Priority, and Criticality update in the AWS account from
 Jira Service Management.
 
-###### To view AWS related resources in AWS Security Hub CSPM Findings through
-
-Jira Service Management
+###### To view AWS related resources in AWS Security Hub CSPM Findings through Jira Service Management
 
 1. Log in to your **Jira Agent** view
    as an end user.

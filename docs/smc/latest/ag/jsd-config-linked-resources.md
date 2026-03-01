@@ -1,6 +1,4 @@
-# AWS Config Linked
-
-Resources
+# AWS Config Linked Resources
 
 The **AWS Config Linked Resources** field should be set
 to the JSON string representation of a list of objects (maps)

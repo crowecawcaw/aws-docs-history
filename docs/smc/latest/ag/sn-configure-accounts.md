@@ -1,6 +1,4 @@
-# Configuring AWS accounts to synchronize in
-
-the Connector
+# Configuring AWS accounts to synchronize in the Connector
 
 Learn how to configuring AWS accounts to synchronize in
 the Connector.

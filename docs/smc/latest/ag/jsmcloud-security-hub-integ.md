@@ -37,5 +37,4 @@ Step 2.
 
 You can use the AWS CloudFormation templates for the Connector for Jira Service Management to
 automate the AWS Config custom resource and AWS Security Hub CSPM integration features. For more information, refer to
-[Setting baseline
-permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md "sn-base-perms.md").
+[Setting baseline permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md "sn-base-perms.md").

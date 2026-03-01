@@ -1,6 +1,4 @@
-# Products and
-
-budgets
+# Products and budgets
 
 For reference, two other tabs in the **Admin - AWS
 Accounts - Manage** section let you view information on

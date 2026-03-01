@@ -1,6 +1,4 @@
-# Updating the AWS Load Balancer resource
-
-details in the ServiceNow CMDB
+# Updating the AWS Load Balancer resource details in the ServiceNow CMDB
 
 AWS Load Balancer resources map to the ServiceNow table: Cloud Load Balancer
 (`cmdb_ci_cloud_load_balancer`).

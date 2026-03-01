@@ -1,6 +1,4 @@
-# Validating AWS Systems Manager Automation
-
-integration
+# Validating AWS Systems Manager Automation integration
 
 To validate AWS Systems Manager Automation
 integration, execute an automation document and view automation executions.

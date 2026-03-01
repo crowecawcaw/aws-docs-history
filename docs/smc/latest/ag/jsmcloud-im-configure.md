@@ -1,6 +1,4 @@
-# Configuring AWS Systems Manager Incident Manager
-
-integration
+# Configuring AWS Systems Manager Incident Manager integration
 
 To allow the connector to synchronize Incidents from AWS Systems Manager Incident Manager for a specific AWS Region,
 you must first enable Incident Manager in that AWS account and Region. For information about enabling

@@ -41,9 +41,7 @@ Under Support fields section
 5. Choose **Create**.
 6. Choose the Incident you created from the list. The **AWS Case Id** and **AWS Case Status** displays.
 
-###### For AWS managed services Accelerate customers to create AMS
-
-Accelerate Report Incident in Jira
+###### For AWS managed services Accelerate customers to create AMS Accelerate Report Incident in Jira
 
 1. Log in to your **Jira Agent** view
    as an end user.
@@ -76,9 +74,7 @@ section
 5. Choose **Create**.
 6. Choose the Incident you created from the list. The **AWS case Id** and **AWS case status** displays.
 
-###### To add a correspondence and attachment to an existing Support case
-
-in Jira incident
+###### To add a correspondence and attachment to an existing Support case in Jira incident
 
 1. Log in to your **Jira Agent** view
    as an end user

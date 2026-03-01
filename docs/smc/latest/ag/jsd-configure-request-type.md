@@ -1,11 +1,8 @@
-# Configuring project
-
-request type groups
+# Configuring project request type groups
 
 The AWS request type must be in a group for users to be able to
 access it in Jira Service Management. Enabling Jira projects, as
-described in [Configuring Connector
-Settings (Jira Project Enablement and Request Type)](jsd-configure-connector.md "jsd-configure-connector.md"), makes AWS product
+described in [Configuring Connector Settings (Jira Project Enablement and Request Type)](jsd-configure-connector.md "jsd-configure-connector.md"), makes AWS product
 request types available, but Jira Service Management users won't see
 the request type until you add it to a **Request Type
 Group**.

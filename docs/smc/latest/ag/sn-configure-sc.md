@@ -13,11 +13,7 @@ in the _AWS workshop studio_.
 ###### Topics
 
 - [Configuring AWS Service Catalog](sn-config-sc.md "sn-config-sc.md")
-- [Configuring AWS Service Catalog in
-  ServiceNow](sn-config-sn.md "sn-config-sn.md")
-- [Using service integration features to validate AWS Service Catalog integration in
-  ServiceNow](sn-sc-validate.md "sn-sc-validate.md")
-- [Viewing products in the Standard User Interface
-  (Fulfiller View)](view-products.md "view-products.md")
-- [Ordering Service Catalog products through the ServiceNow
-  Service portal](service-portal.md "service-portal.md")
+- [Configuring AWS Service Catalog in ServiceNow](sn-config-sn.md "sn-config-sn.md")
+- [Using service integration features to validate AWS Service Catalog integration in ServiceNow](sn-sc-validate.md "sn-sc-validate.md")
+- [Viewing products in the Standard User Interface (Fulfiller View)](view-products.md "view-products.md")
+- [Ordering Service Catalog products through the ServiceNow Service portal](service-portal.md "service-portal.md")

@@ -1,6 +1,4 @@
-# Configuring Service Catalog portfolios
-
-in Jira
+# Configuring Service Catalog portfolios in Jira
 
 This section describes how to configure AWS Service Catalog portfolios within
 Jira.

@@ -1,8 +1,6 @@
 # Configuring core operational settings
 
-###### To configure operational settings for the AWS Service
-
-Management Connector for Jira Service Management
+###### To configure operational settings for the AWS Service Management Connector for Jira Service Management
 
 1. In the left navigation menu, under **AWS Service
    Management Connector**, choose **Connector

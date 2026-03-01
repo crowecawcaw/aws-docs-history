@@ -1,6 +1,4 @@
-# Validating Support integration in
-
-Jira Service Management Cloud
+# Validating Support integration in Jira Service Management Cloud
 
 This section describes how to create, view, and manage integration features of
 Support.

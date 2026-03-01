@@ -1,6 +1,4 @@
-# Installing ServiceNow Connector scoped
-
-application
+# Installing ServiceNow Connector scoped application
 
 The AWS Service Management Connector for ServiceNow is a conventional, scoped application that was
 developed and released through a ServiceNow update set. Update sets are code changes

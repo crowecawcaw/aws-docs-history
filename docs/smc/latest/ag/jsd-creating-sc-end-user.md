@@ -1,6 +1,4 @@
-# Creating AWS Service
-
-Management Connector End User
+# Creating AWS Service Management Connector End User
 
 The following section describes how to create the AWS Service
 Management Connector end user and associate the appropriate IAM

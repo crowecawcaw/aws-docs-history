@@ -1,6 +1,4 @@
-# Creating SCConnectLaunch
-
-role
+# Creating SCConnectLaunch role
 
 This section describes how to create the
 `SCConnectLaunch` role. This role places baseline AWS
@@ -19,9 +17,7 @@ permissions to Amazon EC2 and Amazon S3 services. If your products contain
 additional AWS services, you must either include those services in
 the `SCConnectLaunch` role or create a new launch role.
 
-###### \*\*To create SCConnectLaunch
-
-role\*\*
+###### **To create SCConnectLaunch role**
 
 1. Create this policy: `AWSCloudFormationFullAccess`
    policy and then follow the instructions in [Creating

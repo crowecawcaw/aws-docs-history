@@ -45,9 +45,7 @@ Support in order to validate integration.
 
 The **AWS Case Id** and **AWS Case Status** displays.
 
-###### For AWS Managed Services Accelerate customer to create AMS Accelerate Service
-
-Request
+###### For AWS Managed Services Accelerate customer to create AMS Accelerate Service Request
 
 1. Log in to your ServiceNow instance as a user (for example, System
    Administrator) in the fulﬁller view (standard user interface view).
@@ -74,9 +72,7 @@ Request
 
 The **AWS Case Id** and **AWS Case Status** displays.
 
-###### For AWS Managed Services Accelerate customer to create AMS Accelerate Report
-
-Incident
+###### For AWS Managed Services Accelerate customer to create AMS Accelerate Report Incident
 
 1. Log in to your ServiceNow instance as a user (for example, System
    Administrator) in the fulﬁller view (standard user interface view).
@@ -139,9 +135,7 @@ The **AWS Case Id** and **AWS Case Status** displays.
    **Resolution Notes** fields.
 7. On the Incident form header, choose **Resolve**.
 
-## Fields mapped from Support Case records to ServiceNow
-
-Incident records
+## Fields mapped from Support Case records to ServiceNow Incident records
 
 This table shows how Support Case map to ServiceNow Incidents.
 

@@ -1,6 +1,4 @@
-# Configuring Connector
-
-Settings (Jira Project Enablement and Request Type)
+# Configuring Connector Settings (Jira Project Enablement and Request Type)
 
 In addition to configuring AWS accounts, the AWS Service
 Management Connector contains AWS services and UI settings

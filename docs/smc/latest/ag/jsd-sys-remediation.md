@@ -1,6 +1,4 @@
-# AWS Systems Manager Automation Suggested
-
-Remediation
+# AWS Systems Manager Automation Suggested Remediation
 
 The **AWS Systems Manager Automation Suggested Remediation** field should be set to the JSON string that represents a list
 of objects (maps) that correspond to the automation documents as

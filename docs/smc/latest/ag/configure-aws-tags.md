@@ -1,6 +1,4 @@
-# Configuring AWS tags for provisioned
-
-products
+# Configuring AWS tags for provisioned products
 
 The AWS Service Management Connector enables ServiceNow administrators to add
 tags (metadata) to provisioned products globally across the scoped app or granularly
@@ -42,9 +40,7 @@ are not viewable by end users.
 Choose the Service Catalog portfolio, enter the Key and Value entries, and choose
 **Submit**.
 
-###### To add in-scope ServiceNow request item AWS tags to Service Catalog provisioned
-
-products derived from ServiceNow
+###### To add in-scope ServiceNow request item AWS tags to Service Catalog provisioned products derived from ServiceNow
 
 1. In the AWS Service Management scoped app, choose **Setup**, then the **Automated
    Tags** module.
@@ -55,9 +51,7 @@ products derived from ServiceNow
    check**. The Portfolio field appears. Select the AWS Service Catalog
    portfolio, enter the Key and Value entries, and choose **Submit**.
 
-###### To add tags to AWS provisioned products from ServiceNow tables and fields
-
-that are selectable by end users
+###### To add tags to AWS provisioned products from ServiceNow tables and fields that are selectable by end users
 
 1. In the AWS Service Management scoped app, choose **Setup**, then the **Automated
    Tags** module.

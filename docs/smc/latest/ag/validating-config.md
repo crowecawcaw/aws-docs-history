@@ -1,6 +1,4 @@
-# Validating the synchronization of Amazon WorkSpaces
-
-from AWS Config
+# Validating the synchronization of Amazon WorkSpaces from AWS Config
 
 Validate the synchronization of Amazon WorkSpaces in AWS Config by executing a scheduled job.
 

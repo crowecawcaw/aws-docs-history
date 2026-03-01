@@ -1,6 +1,4 @@
-# Adding the My AWS Products widget to the
-
-Service Portal view
+# Adding the My AWS Products widget to the Service Portal view
 
 We recommend ServiceNow administrators add the **My AWS
 Products** widget to the ServiceNow Portal view. The widget enables

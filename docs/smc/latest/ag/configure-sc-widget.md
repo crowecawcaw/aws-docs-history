@@ -1,6 +1,4 @@
-# Configuring the AWS Service Catalog product widget
-
-components and assignment group for closed change records
+# Configuring the AWS Service Catalog product widget components and assignment group for closed change records
 
 To address the varying personas of end users requesting AWS products, the
 Connector for ServiceNow includes a scoped app setting to enable or disable
@@ -31,9 +29,7 @@ application mode. 2. Deselect any AWS product component to enable:
    assignment group. This group associates with closed change records from post
    provision actions of products (such as terminate, update, or self-service actions).
 
-###### To associate the assignment group for change records from AWS Service Catalog post
-
-provision actions
+###### To associate the assignment group for change records from AWS Service Catalog post provision actions
 
 1. In the navigator, enter `System Properties` and
    choose **AWS Service Catalog**. Make sure you are in the

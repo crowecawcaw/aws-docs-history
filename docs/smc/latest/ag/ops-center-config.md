@@ -1,15 +1,11 @@
-# Associate Jira projects to the AWS Systems Manager OpsCenter
-
-integration
+# Associate Jira projects to the AWS Systems Manager OpsCenter integration
 
 Once you've enabled projects for the Connector, AWS Systems Manager
 OpsCenter requires Jira admins to associate Jira project(s) to this
 integration, as well as determine the full sync and delta sync
 intervals.
 
-###### To associate the Jira projects enabled for the Connector to the
-
-AWS Systems Manager OpsCenter integration features
+###### To associate the Jira projects enabled for the Connector to the AWS Systems Manager OpsCenter integration features
 
 1. In the left navigation menu, under **AWS Service
    Management Connector**, choose **Connector

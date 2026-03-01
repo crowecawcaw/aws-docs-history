@@ -1,16 +1,11 @@
-# Configuring projects enabled for the
-
-Connector
+# Configuring projects enabled for the Connector
 
 The AWS Service Management Connector for Jira Service Management
 requires the add-on to be associated to one or more Jira projects and
 for JSM request types. You can configure which Connector features are
 enabled for each Jira project.
 
-###### To configure the Jira projects for AWS Service Catalog, AWS Config, AWS Systems Manager
-
-Automation, AWS Systems Manager OpsCenter, AWS Security Hub CSPM, Support, and
-AWS Systems Manager Incident Manager.
+###### To configure the Jira projects for AWS Service Catalog, AWS Config, AWS Systems Manager Automation, AWS Systems Manager OpsCenter, AWS Security Hub CSPM, Support, and AWS Systems Manager Incident Manager.
 
 1. In the left navigation menu, under **AWS
    Service Management Connector**, choose **Connector settings**.

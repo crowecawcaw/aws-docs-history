@@ -1,6 +1,4 @@
-# Setting baseline
-
-permissions for AWS Service Management Connector for ServiceNow
+# Setting baseline permissions for AWS Service Management Connector for ServiceNow
 
 This section describes how to configure Identity and Access Management (IAM)
 permissions, AWS Service Catalog, and other AWS services to use AWS Service Management

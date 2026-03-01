@@ -1,6 +1,4 @@
-# Validating AWS Config integration in
-
-ServiceNow
+# Validating AWS Config integration in ServiceNow
 
 To see AWS Config details, configure the service settings to record data for the
 resource types of interest. For more information, see [Setting Up AWS Config with the

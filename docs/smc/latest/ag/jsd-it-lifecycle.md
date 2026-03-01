@@ -87,10 +87,7 @@ See the examples below, or for more information on the REST API, see
 [JIRA Developer Documentation : Updating an Issue through the JIRA
 REST APIs](https://developer.atlassian.com/server/jira/platform/updating-an-issue-via-the-jira-rest-apis-6848604/ "https://developer.atlassian.com/server/jira/platform/updating-an-issue-via-the-jira-rest-apis-6848604/").
 
-## Sample Use Case: Automatically Creating
-
-Issues for IT Lifecycle Management - Remediating non-compliant public
-S3 buckets
+## Sample Use Case: Automatically Creating Issues for IT Lifecycle Management - Remediating non-compliant public S3 buckets
 
 Once you enable the fields to an issue and create the Systems
 Manager Automation Document, you can set up rules to automatically

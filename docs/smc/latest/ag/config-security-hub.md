@@ -1,6 +1,4 @@
-# Configuring AWS Security Hub CSPM
-
-Integration
+# Configuring AWS Security Hub CSPM Integration
 
 AWS Security Hub CSPM enables users to view security findings from AWS services,
 such as Amazon Guard Duty, Amazon Inspector, as well as AWS Partner
@@ -57,9 +55,7 @@ You can use the available AWS CloudFormation templates for the JSM connector
 to configure your AWS account to enable AWS Service Catalog integration. For more
 information, see [Baseline Permissions](jsd-baseline-permissions.md "jsd-baseline-permissions.md").
 
-## Video: Bidirectional integration with Atlassian Jira Service
-
-Management
+## Video: Bidirectional integration with Atlassian Jira Service Management
 
 This video (8:40) describes how to set up a bidirectional
 integration with Atlassian Jira Service Management. This feature makes

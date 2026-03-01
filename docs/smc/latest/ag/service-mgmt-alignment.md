@@ -1,6 +1,4 @@
-# Service management
-
-alignment
+# Service management alignment
 
 This Connector aligns to industry best practices, such as ITIL®’s
 service management areas by enabling tools (services) with the

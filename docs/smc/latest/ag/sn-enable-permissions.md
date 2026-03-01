@@ -1,6 +1,4 @@
-# Enabling permissions on ServiceNow
-
-Platform
+# Enabling permissions on ServiceNow Platform
 
 For AWS products to display under AWS portfolios as sub-categories in the
 ServiceNow Service Catalog, you need to modify the Application Access form for
@@ -21,9 +19,7 @@ scoped API is not available for the Catalog Item Category table.
    **Can Update**, and **Can Delete** on the form.
 5. Choose **Update**.
 
-###### To enable the connector to control visibility of Service Catalog products on Service Portal
-
-through Allowed Groups
+###### To enable the connector to control visibility of Service Catalog products on Service Portal through Allowed Groups
 
 ###### Note
 

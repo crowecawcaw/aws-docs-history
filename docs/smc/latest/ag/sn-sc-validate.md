@@ -1,6 +1,4 @@
-# Using service integration features to validate AWS Service Catalog integration in
-
-ServiceNow
+# Using service integration features to validate AWS Service Catalog integration in ServiceNow
 
 This section describes how you can use service integration features to validate
 AWS Service Management Connector for ServiceNow installation.
@@ -25,9 +23,7 @@ acknowledging the submission.
 End users can view products in two places on the ServiceNow portal: **request items (Requests)** or **My
 AWS Service Catalog Products** widgets.
 
-###### \*\*To view products in Service Portal
-
-Requests\*\*
+###### **To view products in Service Portal Requests**
 
 1. Choose **Requests** in the home page navigation
    bar.
@@ -40,9 +36,7 @@ AWS product events and outputs update the request item. When you
 terminate the AWS product, the ServiceNow request
 item enters a state of **Closed Complete**.
 
-###### \*\*To view products in the My AWS
-
-Products widget Service Portal Requests\*\*
+###### **To view products in the My AWS Products widget Service Portal Requests**
 
 1. In the **My AWS Products**
    widget, choose the AWS Select product name on the request
@@ -77,9 +71,7 @@ Products widget Service Portal Requests\*\*
    Groups**.
 3. Choose the AppRegistry attribute group.
 
-## Video: Integrate AWS Products into Your ServiceNow Portal with the AWS
-
-Service Management Connector
+## Video: Integrate AWS Products into Your ServiceNow Portal with the AWS Service Management Connector
 
 This video (18:33) describes how to integrate AWS products in your ServiceNow
 Portal with the AWS Service Management Connector.

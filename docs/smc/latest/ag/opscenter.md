@@ -2,9 +2,7 @@
 
 To validate AWS Systems Manager OpsCenter integration, view or create OpsItems.
 
-###### To view OpsItems in Jira Service Management from
-
-AWS Systems Manager
+###### To view OpsItems in Jira Service Management from AWS Systems Manager
 
 1. Log in to your **Jira Agent** view
    as an end user.
@@ -70,9 +68,7 @@ Updates to OpsItem fields from Jira Service Management
 displays in the AWS account view of OpsItem on the next sync
 between AWS and Jira Service Management.
 
-###### To view AWS related resources in AWS Systems Manager OpsItems through
-
-Jira Service Management
+###### To view AWS related resources in AWS Systems Manager OpsItems through Jira Service Management
 
 1. Log in to your **Jira Agent** view
    as an end user.
@@ -85,9 +81,7 @@ Jira Service Management
 4. Choose the AWS related resource section of the OpsItem
    selected. This section displays the related resource details.
 
-###### To execute runbooks on AWS Systems Manager OpsItems through Jira Service
-
-Management
+###### To execute runbooks on AWS Systems Manager OpsItems through Jira Service Management
 
 1.  Log in to your **Jira Agent** view
     as an end user.

@@ -12,16 +12,14 @@ Two tag types are available in this release:
 - AWS Service Catalog Request Type tags in which the admin can enter the
   following syntax for key and value:
 
-AWS Service Catalog Request Type tags | **Key** | **Value** |
+AWS Service Catalog Request Type tags| **Key** | **Value** |
 | Project Code | ${PROJECT_CODE} |
 | Project Name | ${PROJECT_NAME} |
 | Project Name | ${ISSUE_ID} |
 | Username | ${USERNAME} |
 | Opened By | ${OPENED_BY} |
 
-###### To add generic AWS tags to AWS Service Catalog provisioned products in
-
-Jira Service Management
+###### To add generic AWS tags to AWS Service Catalog provisioned products in Jira Service Management
 
 1. In the left navigation menu, under **AWS
    Service Management**, select **Automated Tags**.
@@ -34,9 +32,7 @@ Jira Service Management
    tag. Choose the **+** icon to
    insert.
 
-###### To add in-scope request type AWS tags to AWS Service Catalog provisioned
-
-products derived from Jira Service Management
+###### To add in-scope request type AWS tags to AWS Service Catalog provisioned products derived from Jira Service Management
 
 1. In the left navigation menu, under **AWS
    Service Management**, choose **Automated Tags**.

@@ -6,18 +6,12 @@ Service Management.
 
 ###### Topics
 
-- [Available template for baseline
-  permissions](#template-baseline "#template-baseline")
-- [Creating AWS Service
-  Management Connector Sync User](jsd-creating-sc-sync-user.md "jsd-creating-sc-sync-user.md")
-- [Creating AWS Service
-  Management Connector End User](jsd-creating-sc-end-user.md "jsd-creating-sc-end-user.md")
-- [Creating
-  SCConnectLaunch Role](jsd-creating-scconnectlaunch-role.md "jsd-creating-scconnectlaunch-role.md")
+- [Available template for baseline permissions](#template-baseline "#template-baseline")
+- [Creating AWS Service Management Connector Sync User](jsd-creating-sc-sync-user.md "jsd-creating-sc-sync-user.md")
+- [Creating AWS Service Management Connector End User](jsd-creating-sc-end-user.md "jsd-creating-sc-end-user.md")
+- [Creating SCConnectLaunch Role](jsd-creating-scconnectlaunch-role.md "jsd-creating-scconnectlaunch-role.md")
 
-## Available template for baseline
-
-permissions
+## Available template for baseline permissions
 
 To use an AWS CloudFormation template to set up the AWS configurations of
 the Connector for Jira Service Management, see the AWS configurations

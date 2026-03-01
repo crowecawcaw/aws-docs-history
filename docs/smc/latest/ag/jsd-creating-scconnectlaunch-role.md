@@ -1,6 +1,4 @@
-# Creating
-
-SCConnectLaunch Role
+# Creating SCConnectLaunch Role
 
 The following section describes how to create the
 **SCConnectLaunch** role. This role places baseline

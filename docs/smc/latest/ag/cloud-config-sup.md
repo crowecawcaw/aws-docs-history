@@ -31,8 +31,7 @@ Jira Service Management Cloud.
 ###### Note
 
 You can use baseline AWS CloudFormation templates for the Connector for JSM Cloud to automate the Support integration features.
-For more information, see [Setting baseline
-permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md "sn-base-perms.md").
+For more information, see [Setting baseline permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md "sn-base-perms.md").
 
 To create the required Amazon SQS queue and EventBridge rule, use Connector for JSM Cloud -
 [AWS Support Commercial Regions](https://servicecatalogconnector.s3.amazonaws.com/SMC_ConnectorforJSMCloud-AWS_Support_Commercial.json "https://servicecatalogconnector.s3.amazonaws.com/SMC_ConnectorforJSMCloud-AWS_Support_Commercial.json")

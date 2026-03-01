@@ -1,6 +1,4 @@
-# Upgrading to AWS
-
-Service Management Connector from a previous version
+# Upgrading to AWS Service Management Connector from a previous version
 
 To upgrade to AWS Service Management Connector from a previous Connector
 version in a ServiceNow Production instance, you must:
@@ -36,9 +34,7 @@ a ServiceNow support case and provides a new release if needed.
   - ServiceNow platform admin communications
   - End user communications
 
-## Delete application
-
-files
+## Delete application files
 
 (Optional) When you upgrade to the latest connector version, you
 may have application files that are no longer required. While these

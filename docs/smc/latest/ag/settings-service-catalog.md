@@ -1,6 +1,4 @@
-# Configuring UI Settings
-
-(AWS Service Catalog)
+# Configuring UI Settings (AWS Service Catalog)
 
 Configure the AWS Service Catalog product widget components to make them
 viewable to end users.

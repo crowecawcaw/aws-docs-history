@@ -4,9 +4,7 @@ After you enable projects for the Connector, Support integration
 requires Jira admins to associate Jira project(s) to this integration,
 as well as determine the SQS Queue Name and sync intervals.
 
-###### To associate the Jira projects enabled for the Connector to the
-
-AWS Systems Manager OpsCenter integration features
+###### To associate the Jira projects enabled for the Connector to the AWS Systems Manager OpsCenter integration features
 
 1. In the left navigation menu, under **AWS
    Service Management Connector**, choose C**onnector settings**.

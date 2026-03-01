@@ -1,6 +1,4 @@
-# Configuring Jira Service
-
-Management
+# Configuring Jira Service Management
 
 The AWS Service Management Connector for Jira
 Service Management is a conventional Jira Service Management add-on.
@@ -16,9 +14,6 @@ include:
 
 ###### Topics
 
-- [Installing Jira Service
-  Management Connector add-on](install-jsd-connector.md "install-jsd-connector.md")
-- [Configuring AWS
-  Accounts and Regions](jsd-configure-accounts-regions.md "jsd-configure-accounts-regions.md")
-- [Configuring Service Catalog portfolios
-  in Jira](config-SC-portfolios-jsd.md "config-SC-portfolios-jsd.md")
+- [Installing Jira Service Management Connector add-on](install-jsd-connector.md "install-jsd-connector.md")
+- [Configuring AWS Accounts and Regions](jsd-configure-accounts-regions.md "jsd-configure-accounts-regions.md")
+- [Configuring Service Catalog portfolios in Jira](config-SC-portfolios-jsd.md "config-SC-portfolios-jsd.md")

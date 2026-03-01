@@ -1,6 +1,4 @@
-# Configuring AWS
-
-Accounts and Regions
+# Configuring AWS Accounts and Regions
 
 After you install the AWS Service Management Connector, you need
 to configure it. To do so, choose the Jira administration icon in the

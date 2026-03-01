@@ -1,14 +1,10 @@
-# Validating AWS Systems Manager Automation in Jira Service
-
-Management Cloud
+# Validating AWS Systems Manager Automation in Jira Service Management Cloud
 
 To allow the Connector to execute Automation Documents, you must ensure that the
 Connector's sync user and end user have the required permissions. For more information,
 review [Setting up Automation](../../../systems-manager/latest/userguide/automation-setup.md "../../../systems-manager/latest/userguide/automation-setup.md") in the _AWS Systems Manager user guide_.
 
-###### \*\*To execute a AWS Systems Manager Automation Document from Jira agent
-
-view\*\*
+###### **To execute a AWS Systems Manager Automation Document from Jira agent view**
 
 1. Log in to your Jira Agent view.
 2. Open the desired **Jira project** and then navigate to the
@@ -22,9 +18,7 @@ view\*\*
    was created. When the automation document execution starts, you are able to view the
    details in the Automation panel within the Jira issue.
 
-###### \*\*To view provisioned products using the Jira Agent
-
-view\*\*
+###### **To view provisioned products using the Jira Agent view**
 
 1. Log in to your Jira Agent view.
 2. Use Jira filters to display only issues with the **Support Automation

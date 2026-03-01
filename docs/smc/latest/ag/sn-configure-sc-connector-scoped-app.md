@@ -1,13 +1,9 @@
-# Configuring AWS Service
-
-Management Connector scoped application
+# Configuring AWS Service Management Connector scoped application
 
 After installing and configuring the AWS Service Management Connector, you must
 configure the scoped application and applicable roles.
 
-###### To configure the AWS Service Management Connector scoped application
-
-permissions
+###### To configure the AWS Service Management Connector scoped application permissions
 
 1. In your ServiceNow instance, create a user group called
    **Order_AWS_Products**.

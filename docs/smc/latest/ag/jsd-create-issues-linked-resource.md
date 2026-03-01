@@ -1,6 +1,4 @@
-# Creating issues with
-
-suggestions and a linked AWS resource from AWS Systems Manager
+# Creating issues with suggestions and a linked AWS resource from AWS Systems Manager
 
 A Systems Manager Automation Document can automatically create a
 Jira issue with the fields set to have a linked AWS resource and up to

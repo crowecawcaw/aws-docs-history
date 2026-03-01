@@ -1,6 +1,4 @@
-# Creating AWS Service Management Connector Sync
-
-user
+# Creating AWS Service Management Connector Sync user
 
 This section describes how to create the AWS Sync user and
 associate the appropriate IAM permission. To perform this task, you

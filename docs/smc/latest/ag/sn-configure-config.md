@@ -14,7 +14,5 @@ required files include the custom resource schema.
 ###### Topics
 
 - [Configuring system properties, aggregators, and custom resources](sn-configuration-integ.md "sn-configuration-integ.md")
-- [Validating AWS Config integration in
-  ServiceNow](sn-validate-config.md "sn-validate-config.md")
-- [Updating the AWS Load Balancer resource
-  details in the ServiceNow CMDB](update-balancer.md "update-balancer.md")
+- [Validating AWS Config integration in ServiceNow](sn-validate-config.md "sn-validate-config.md")
+- [Updating the AWS Load Balancer resource details in the ServiceNow CMDB](update-balancer.md "update-balancer.md")

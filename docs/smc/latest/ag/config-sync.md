@@ -1,6 +1,4 @@
-# Configuring synchronization of AWS Config
-
-data using an Aggregator in ServiceNow CMDB
+# Configuring synchronization of AWS Config data using an Aggregator in ServiceNow CMDB
 
 **Prerequisite**: You need to opt-in and
 configure the AWS account that contains the aggregated AWS Config resources details

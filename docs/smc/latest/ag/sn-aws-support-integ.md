@@ -16,6 +16,5 @@ Started with AWS Managed Services.](../../../managedservices/latest/accelerate-g
 
 - [Configuring Support integration in ServiceNow](sn-support-config-aws.md "sn-support-config-aws.md")
 - [Configuring ServiceNow for integration with Support](sn-aws-support-config.md "sn-aws-support-config.md")
-- [Advanced Mode for Support
-  integration (optional)](enabling-advanced-mode-aws-support.md "enabling-advanced-mode-aws-support.md")
+- [Advanced Mode for Support integration (optional)](enabling-advanced-mode-aws-support.md "enabling-advanced-mode-aws-support.md")
 - [Validating Support in ServiceNow](sn-aws-support-validate.md "sn-aws-support-validate.md")

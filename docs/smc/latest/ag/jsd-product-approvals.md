@@ -1,6 +1,4 @@
-# Jira Service Management Approvals
-
-for Products in Service Catalog Portfolios
+# Jira Service Management Approvals for Products in Service Catalog Portfolios
 
 The AWS Service Management Connector for Jira Service Management
 enables administrators to configure approvals for products at the

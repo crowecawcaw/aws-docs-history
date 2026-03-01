@@ -1,6 +1,4 @@
-# Jira Service
-
-Management supported versions
+# Jira Service Management supported versions
 
 The AWS Service Management Connector (connector) for Jira Service Management Data Center
 supports Jira software (Jira Service Management) release for both the

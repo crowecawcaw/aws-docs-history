@@ -1,6 +1,4 @@
-# Validating AWS Systems Manager Change
-
-Manager integration in ServiceNow
+# Validating AWS Systems Manager Change Manager integration in ServiceNow
 
 This section describes how to validate AWS Systems Manager Change Manager integration in
 ServiceNow.

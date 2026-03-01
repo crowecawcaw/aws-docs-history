@@ -1,6 +1,4 @@
-# ServiceNow permissions for administrators of
-
-the Connector scoped app
+# ServiceNow permissions for administrators of the Connector scoped app
 
 The AWS Service Management scoped app has two ServiceNow roles that enable
 access to configure the application. This feature enables system admins to grant one
@@ -36,9 +34,7 @@ users or to one administrator user.
    catalog home page, choose the first **Add Here** link on
    the second row of the selection panel at the bottom of the page.
 
-###### To add AWS Systems Manager automation documents (runbook) to ServiceNow Service Catalog
-
-categories
+###### To add AWS Systems Manager automation documents (runbook) to ServiceNow Service Catalog categories
 
 1. Choose **Self Service | Service Catalog** and select the
    **Add content** icon in the upper right.
@@ -63,9 +59,7 @@ To achieve a closed change request from post provisioned actions, add a change
 request type and configure the `sys_id` for the group assigned to the
 closed change records in the Connector AWS Service Catalog system properties.
 
-###### To add a change request type for closed change request from post provisioned
-
-actions
+###### To add a change request type for closed change request from post provisioned actions
 
 1. If you upgrade from a previous version of the AWS Service Management
    scoped app, you must remove the **AWS Product
@@ -89,9 +83,7 @@ Event`
 
 6. Submit the form.
 
-###### To add a change request type for executing AWS Systems Manager Change Manager change
-
-templates
+###### To add a change request type for executing AWS Systems Manager Change Manager change templates
 
 You must add a new change request type called `AWSChangeRequest`
 for the scoped application to view and execute AWS Change Manager change

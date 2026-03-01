@@ -1,6 +1,4 @@
-# Contacting Service Management Connector specialist
-
-team
+# Contacting Service Management Connector specialist team
 
 In AWS Service Management Connector, you can now directly contact the AWS SMC
 Specialist team through an Support case directly from the Connector.

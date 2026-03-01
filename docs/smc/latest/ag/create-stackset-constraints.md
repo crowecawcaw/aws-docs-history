@@ -3,9 +3,7 @@
 CloudFormation StackSets enable users to create and deploy products across multiple
 accounts and Regions.
 
-###### \*\*To apply a stack set constraint to a Service Catalog
-
-product\*\*
+###### **To apply a stack set constraint to a Service Catalog product**
 
 1. As a catalog admin in Service Catalog, choose the portfolio that contains the
    product.

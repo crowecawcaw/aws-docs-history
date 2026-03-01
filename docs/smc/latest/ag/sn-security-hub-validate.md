@@ -1,6 +1,4 @@
-# Validating AWS Security Hub CSPM integration in
-
-ServiceNow
+# Validating AWS Security Hub CSPM integration in ServiceNow
 
 This section describes how to validate AWS Security Hub CSPM integration in ServiceNow.
 

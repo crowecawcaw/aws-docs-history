@@ -1,14 +1,10 @@
-# Creating AWS Service Management
-
-Connector end user
+# Creating AWS Service Management Connector end user
 
 This section describes how to create the AWS Service Management
 Connector end user and associates the appropriate IAM permission. To
 perform this task, you need IAM permissions to create new users.
 
-###### \*\*To create AWS Service Management
-
-Connector end user\*\*
+###### **To create AWS Service Management Connector end user**
 
 1. Follow the instructions in [Creating an
    IAM user in your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") to create a user

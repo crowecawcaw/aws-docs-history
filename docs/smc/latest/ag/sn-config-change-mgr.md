@@ -19,9 +19,7 @@ document will be tracked and synched. Steps which have nested automations will n
 the events synced. This can however be traced separately in the AWS CloudTrail console using
 Lake feature by their unique automation execution ID.
 
-## Fields mapped from AWS Change Request
-
-Ops Item records to ServiceNow Change Request records
+## Fields mapped from AWS Change Request Ops Item records to ServiceNow Change Request records
 
 This table shows how AWS Change Request Ops items map to ServiceNow Change
 Request.

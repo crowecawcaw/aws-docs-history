@@ -1,6 +1,4 @@
-# AWS Service Management Connector
-
-for Jira Service Management Cloud
+# AWS Service Management Connector for Jira Service Management Cloud
 
 The AWS Service Management Connector (SMC) streamlines cloud operations of AWS resources
 with your existing operational IT Service Management (ITSM) tooling. The

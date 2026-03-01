@@ -1,6 +1,4 @@
-# Integrating AWS Systems Manager Automation in
-
-ServiceNow
+# Integrating AWS Systems Manager Automation in ServiceNow
 
 To allow the Connector to execute Automation Documents, you must ensure that the Connector
 Sync and End user has the permissions required to sync and execute Automation Documents.
