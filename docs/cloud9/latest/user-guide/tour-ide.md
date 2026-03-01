@@ -2,10 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Tour
-
-of
-the AWS Cloud9 IDE
+# Tour of the AWS Cloud9 IDE
 
 This topic provides a basic tour of the AWS Cloud9 integrated development environment (IDE). To take full advantage of this tour,
 follow the steps shown below in sequence.
@@ -33,8 +30,7 @@ follow the steps shown below in sequence.
 ## Prerequisites
 
 To go on this tour, you must have an AWS account and an open AWS Cloud9 development environment. To learn how
-to do these things, you can follow the steps in [Getting started with
-AWS Cloud9](tutorials-basic.md "tutorials-basic.md"). Alternatively, you can explore separate related
+to do these things, you can follow the steps in [Getting started with AWS Cloud9](tutorials-basic.md "tutorials-basic.md"). Alternatively, you can explore separate related
 topics such as [Setting up AWS Cloud9](setting-up.md "setting-up.md") and [Working with environments in AWS Cloud9](environments.md "environments.md").
 
 ###### Warning

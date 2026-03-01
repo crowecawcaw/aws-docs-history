@@ -404,7 +404,7 @@ redirected to the home page. When the account is created successfully, a green
 flash bar appears at the top of the AWS Cloud9 console. You can select the new
 environment and choose **Open in Cloud9** to launch the IDE.
 
-![AWS Cloud9 IDE selector in the AWS Cloud9 console](images/cloud9-ide-open.png)
+![AWS Cloud9 IDE selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/cloud9-ide-open.png)
 
 If the account fails to create, a red flash bar appears at the top of the AWS Cloud9
 console. Your account might fail to create due to a problem with your web browser,
@@ -439,9 +439,7 @@ Also, to prevent ongoing charges to your AWS account after you're done using thi
 
 To delete the environment, see [Deleting an environment in AWS Cloud9](delete-environment.md "delete-environment.md").
 
-### Step 6.2: Remove
-
-AWS Cloud9 support files from the container
+### Step 6.2: Remove AWS Cloud9 support files from the container
 
 After you delete the environment, some AWS Cloud9 support files still remain in the container. If you want to keep using the container but no longer
 need these support files, delete the `.c9` folder from the directory on the container that you specified AWS Cloud9 to start from after it logs in.
@@ -451,9 +449,7 @@ For example, if the directory is `~`, run the **`rm`** command with the **`-r`**
 sudo rm -r ~/.c9
 ```
 
-### Step 6.3:
-
-Remove Docker support files from the instance
+### Step 6.3: Remove Docker support files from the instance
 
 If you no longer want to keep the Docker container, the Docker image, and Docker on the Amazon EC2 instance, but you want to keep the instance, you
 can remove these Docker support files as follows.
@@ -503,8 +499,6 @@ sudo rm /tmp/Dockerfile
 sudo rm /tmp/authorized_keys
 ```
 
-### Step 6.4: Terminate the
-
-instance
+### Step 6.4: Terminate the instance
 
 To terminate the Amazon EC2 instance, see [Terminate Your Instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md") in the _Amazon EC2 User Guide_.

@@ -294,9 +294,7 @@ contents of the local and remote repositories.
 
 ![Option for synching local and remote branches](images/sync-branch-local-remote.png)
 
-### Push and pull content between local and remote
-
-repositories
+### Push and pull content between local and remote repositories
 
 When using Git to collaborate on a shared project, you typically start by pulling recent
 changes by other team members from the remote repository into your local repo. And after you

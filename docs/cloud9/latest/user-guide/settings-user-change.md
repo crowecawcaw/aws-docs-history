@@ -2,10 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Customize your
-
-user
-settings
+# Customize your user settings
 
 These sections describe the kinds of user settings that you can change in the
 **User Settings** pane on the **Preferences** tab:
@@ -92,9 +89,7 @@ warning dialog box.
 AWS Cloud9 underlines text that's entered by other environment members with related
 highlights in the gutter.
 
-## Tree and
-
-Go panel
+## Tree and Go panel
 
 \***\*Scope Go to Anything to Favorites\*\***
 
@@ -232,9 +227,7 @@ AWS Cloud9 prompts you to save any unsaved configuration tab before it's closed.
 
 AWS Cloud9 keeps a log of all attempted runs.
 
-## Code editor
-
-(Ace)
+## Code editor (Ace)
 
 \***\*Auto-pair Brackets, Quotes, etc.\*\***
 

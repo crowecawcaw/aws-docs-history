@@ -11,9 +11,7 @@ no longer using, delete the environment.
   Console](#delete-environment-console "#delete-environment-console")
 - [Deleting an Environment with Code](#delete-environment-code "#delete-environment-code")
 
-## Deleting an Environment with the
-
-console
+## Deleting an Environment with the console
 
 ###### Warning
 

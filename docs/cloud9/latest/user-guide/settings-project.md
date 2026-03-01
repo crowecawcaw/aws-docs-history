@@ -2,10 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Working with project settings in the
-
-AWS Cloud9
-IDE
+# Working with project settings in the AWS Cloud9 IDE
 
 _Project settings_, which apply only to the current AWS Cloud9 development environment, include the
 following kinds of settings:
@@ -38,9 +35,7 @@ following kinds of settings:
 
 For more information about how you can make changes in your project settings, see [Customize your project settings](settings-project-change.md "settings-project-change.md").
 
-## Apply the current project settings for an environment to
-
-another environment
+## Apply the current project settings for an environment to another environment
 
 1. In both the source and target environment, on the menu bar of the AWS Cloud9 IDE, choose
    **AWS Cloud9, Open Your Project Settings**.

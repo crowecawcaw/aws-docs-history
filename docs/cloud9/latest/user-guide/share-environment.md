@@ -109,9 +109,7 @@ following criteria.
     or a federated user assume the role, see coverage of assuming roles in [Using IAM
     Roles](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/UserGuide/id_roles_use.md") in the _IAM User Guide_.
 
-### Attach an AWS managed policy
-
-for AWS Cloud9 to a group using the console
+### Attach an AWS managed policy for AWS Cloud9 to a group using the console
 
 The following procedure outlines how to attach an AWS managed policy for AWS Cloud9 to a group using the console.
 
@@ -132,9 +130,7 @@ Policies**, choose **Attach Policy**. 6. In the list of policy names, choose one
 (If you don't see one of these policy names in the list, type the policy name
 in the **Search** box to display it.) 7. Choose **Attach policy**.
 
-### Attach an AWS managed policy for
-
-AWS Cloud9 to a group using the AWS CLI
+### Attach an AWS managed policy for AWS Cloud9 to a group using the AWS CLI
 
 ###### Note
 
@@ -160,9 +156,7 @@ policies.
 - `AWSCloud9EnvironmentMember` to enable each user in the group to be a
   member only
 
-## Invite a user in the same account as the
-
-Environment
+## Invite a user in the same account as the Environment
 
 Use the instructions in this section to share an AWS Cloud9 development environment that you own in your
 AWS account with a user in that same account.
@@ -227,9 +221,7 @@ limited time). However, temporary credentials still enable a read/write member t
 take actions in AWS from the environment on your behalf. 7. Contact the user to let them know they can open this environment and begin using
 it.
 
-## Have an AWS Cloud9 administrator in the same
-
-account as the Environment invite themself or others
+## Have an AWS Cloud9 administrator in the same account as the Environment invite themself or others
 
 ###### Note
 

@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Customer managed policy examples for teams using
-
-AWS Cloud9
+# Customer managed policy examples for teams using AWS Cloud9
 
 The following are some examples of policies that you can use to restrict the environments
 that users in a group can create in an AWS account.
@@ -18,9 +16,7 @@ that users in a group can create in an AWS account.
 - [Allow users in a group
   to create only a single EC2 environment per AWS Region](#setup-teams-policy-examples-single-ec2-environment "#setup-teams-policy-examples-single-ec2-environment")
 
-## Prevent users in a group
-
-from creating environments
+## Prevent users in a group from creating environments
 
 The following customer managed policy, when attached to an AWS Cloud9 users group, prevents
 those users from creating environments in an AWS account. This is useful if you want an
@@ -52,9 +48,7 @@ The preceding customer managed policy explicitly overrides `"Effect":
 `AWSCloud9User` managed policy that's already attached to the AWS Cloud9 users
 group.
 
-## Prevent users in a
-
-group from creating EC2 environments
+## Prevent users in a group from creating EC2 environments
 
 The following customer managed policy, when attached to an AWS Cloud9 users group, prevents
 those users from creating EC2 environments in an AWS account. This is useful if you want an
@@ -84,9 +78,7 @@ The preceding customer managed policy explicitly overrides `"Effect":
 `"Resource": "*"` in the `AWSCloud9User` managed policy that's
 already attached to the AWS Cloud9 users group.
 
-## Allow users in a group
-
-to create EC2 environments only with specific Amazon EC2 instance types
+## Allow users in a group to create EC2 environments only with specific Amazon EC2 instance types
 
 The following customer managed policy, when attached to an AWS Cloud9 users group, allows
 users in the user group to create EC2 environments that only use instance types starting with
@@ -171,9 +163,7 @@ To prevent those users from creating SSH environments altogether, remove
 `"cloud9:CreateEnvironmentSSH",` from the preceding customer managed
 policy.
 
-## Allow users in a group
-
-to create only a single EC2 environment in each AWS Region
+## Allow users in a group to create only a single EC2 environment in each AWS Region
 
 The following customer managed policy, when attached to an AWS Cloud9 users group, allows
 each of those users to create a maximum of one EC2 environment in each AWS Region that AWS Cloud9 is
@@ -262,5 +252,4 @@ prevent those users from creating SSH environments altogether, remove
 `"cloud9:CreateEnvironmentSSH",` from the preceding customer managed
 policy.
 
-For more examples, see [Customer managed
-policy examples](security-iam.md#auth-and-access-control-customer-policies-examples "security-iam.md#auth-and-access-control-customer-policies-examples").
+For more examples, see [Customer managed policy examples](security-iam.md#auth-and-access-control-customer-policies-examples "security-iam.md#auth-and-access-control-customer-policies-examples").

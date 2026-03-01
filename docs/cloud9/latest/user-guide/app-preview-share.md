@@ -12,18 +12,12 @@ your server's documentation.
 
 ###### Topics
 
-- [Step 1: Get the ID and the IP address
-  of the instance](#app-preview-share-get-metadata "#app-preview-share-get-metadata")
-- [Step 2: Set up the security group for
-  the instance](#app-preview-share-security-group "#app-preview-share-security-group")
-- [Step 3: Set up the subnet for the
-  instance](#app-preview-share-subnet "#app-preview-share-subnet")
-- [Step 4: Share your running application's
-  URL](#app-preview-share-url "#app-preview-share-url")
+- [Step 1: Get the ID and the IP address of the instance](#app-preview-share-get-metadata "#app-preview-share-get-metadata")
+- [Step 2: Set up the security group for the instance](#app-preview-share-security-group "#app-preview-share-security-group")
+- [Step 3: Set up the subnet for the instance](#app-preview-share-subnet "#app-preview-share-subnet")
+- [Step 4: Share your running application's URL](#app-preview-share-url "#app-preview-share-url")
 
-## Step 1: Get the ID and the IP address
-
-of the instance
+## Step 1: Get the ID and the IP address of the instance
 
 In this step, you note the instance ID and public IP address for the Amazon EC2 instance
 that's connected to the environment. You need the instance ID in a later step to allow
@@ -81,9 +75,7 @@ _Amazon EC2 User Guide_. Allocating an Elastic IP address
 might cause your AWS account to incur charges. For more information, see
 [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
 
-## Step 2: Set up the security group for
-
-the instance
+## Step 2: Set up the security group for the instance
 
 In this step, on the Amazon EC2 console, set up the Amazon EC2 security group for the instance
 that's connected to the environment. Set it up to allow incoming HTTP requests over port 8080,
@@ -101,8 +93,7 @@ For an additional layer of security, set up a network access control list (ACL)
 for a subnet in a VPC that the instance can use. For more information about security
 groups and network ACLs, see the following:
 
-- [Step 3: Set up the subnet for the
-  instance](#app-preview-share-subnet "#app-preview-share-subnet")
+- [Step 3: Set up the subnet for the instance](#app-preview-share-subnet "#app-preview-share-subnet")
 - [Security](../../../vpc/latest/userguide/VPC_Security.md "../../../vpc/latest/userguide/VPC_Security.md") in the
   _Amazon VPC User Guide_
 - [Security Groups for Your
@@ -138,8 +129,7 @@ groups and network ACLs, see the following:
    Rule** and **Port Range** set to
    **8080**, **8081**, or
    **8082**, choose **Cancel**, and skip ahead
-   to [Step 3: Set up the subnet for the
-   instance](#app-preview-share-subnet "#app-preview-share-subnet"). Otherwise, choose
+   to [Step 3: Set up the subnet for the instance](#app-preview-share-subnet "#app-preview-share-subnet"). Otherwise, choose
    **Edit**.
 5. In the **Edit inbound rules** dialog box, choose **Add
    Rule**.
@@ -157,9 +147,7 @@ specific IP addresses, choose **Custom** and then enter the IP
 address range. Alternatively, choose **My IP** to restrict
 requests to be only from your IP address. 9. Choose **Save**.
 
-## Step 3: Set up the subnet for the
-
-instance
+## Step 3: Set up the subnet for the instance
 
 Use the Amazon EC2 and Amazon VPC consoles to set up a subnet for the Amazon EC2 instance that's
 connected to the environment. Then, allow incoming HTTP requests over port 8080, 8081, or 8082.
@@ -203,8 +191,7 @@ next to **Network ACL**. 8. In the list of network ACLs, select the network ACL.
 ACL.) 9. Look on the **Inbound Rules** tab for the network ACL. If a
 rule already exists where **Type** is set to **HTTP\*
 (8080)**, **HTTP\* (8081)**, or **HTTP\*
-(8082)**, skip ahead to [Step 4: Share your running application's
-URL](#app-preview-share-url "#app-preview-share-url"). Otherwise, choose
+(8082)**, skip ahead to [Step 4: Share your running application's URL](#app-preview-share-url "#app-preview-share-url"). Otherwise, choose
 **Edit**. 10. Choose **Add another rule**. 11. For **Rule #**, enter a number for the rule (for example,
 `200`). 12. For **Type**, choose **Custom TCP
 Rule**. 13. For **Port Range**, type `8080`, `8081`,
@@ -213,9 +200,7 @@ incoming requests from. For example, to allow incoming requests from any IP
 address, enter `0.0.0.0/0`. 15. With **Allow / Deny** set to **ALLOW**,
 choose **Save**.
 
-## Step 4: Share your running application's
-
-URL
+## Step 4: Share your running application's URL
 
 After your application is running, you can share your application with others by
 providing your application's URL. For this, you need the public IP address that you
@@ -226,8 +211,7 @@ information. The following is an example application URL:
 `http://192.0.2.0:8080/index.html` using HTTP over port 8080.
 
 If the resulting web browser tab displays an error, or the tab is blank, follow the
-troubleshooting steps in [Can't display your running application
-outside of the IDE](troubleshooting.md#troubleshooting-app-sharing "troubleshooting.md#troubleshooting-app-sharing").
+troubleshooting steps in [Can't display your running application outside of the IDE](troubleshooting.md#troubleshooting-app-sharing "troubleshooting.md#troubleshooting-app-sharing").
 
 ###### Note
 

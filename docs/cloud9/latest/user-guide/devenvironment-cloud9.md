@@ -115,9 +115,7 @@ You can only delete a Dev Environment from the **Dev Environments** page
 in CodeCatalyst. For more information about how to delete a Dev Environment, see [Deleting a
 Dev Environment](../../../codecatalyst/latest/userguide/devenvironment-delete.md "../../../codecatalyst/latest/userguide/devenvironment-delete.md") in the _Amazon CodeCatalyst guide_.
 
-## Editing the repository
-
-devfile for a Dev Environment
+## Editing the repository devfile for a Dev Environment
 
 To change the configuration of a Dev Environment, edit the devfile. You can
 usedevfiles to standardize your development Dev Environment across
@@ -138,9 +136,7 @@ If dependencies are missing, some AWS Cloud9 IDE features might not work in cust
 devfile. It might require additional effort to make them work
 on some platforms other than Linux x64.
 
-###### To edit the repository
-
-devfile for a Dev Environment in AWS Cloud9
+###### To edit the repository devfile for a Dev Environment in AWS Cloud9
 
 1. In the CodeCatalyst console, navigate to your Dev Environment through the
    AWS Cloud9 IDE.

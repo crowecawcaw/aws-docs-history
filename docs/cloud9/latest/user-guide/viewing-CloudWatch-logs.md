@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Viewing CloudWatch log groups and log streams using the
-
-AWS Toolkit
+# Viewing CloudWatch log groups and log streams using the AWS Toolkit
 
 A _log stream_ is a sequence of log events that share the same source.
 Each separate source of logs into CloudWatch Logs makes up a separate log stream.
@@ -19,12 +17,9 @@ _Amazon CloudWatch User Guide_.
 
 ###### Topics
 
-- [Viewing log groups and log streams with the
-  CloudWatch Logs node](#viewing-log-groups "#viewing-log-groups")
+- [Viewing log groups and log streams with the CloudWatch Logs node](#viewing-log-groups "#viewing-log-groups")
 
-## Viewing log groups and log streams with the
-
-**CloudWatch Logs** node
+## Viewing log groups and log streams with the **CloudWatch Logs** node
 
 1. Open AWS Explorer, if it isn't already open.
 2. Click the **CloudWatch Logs** node to expand the list of log groups.

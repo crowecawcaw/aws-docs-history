@@ -19,9 +19,7 @@ The necessary prerequisites for creating a serverless application include the
 CLI**. These are included with AWS Cloud9. If AWS SAM CLI is not installed, or if it is outdated, you might need to run an install or upgrade.
 For instructions on how to install AWS SAM CLI, see [Installing the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/install-sam-cli.md#install-sam-cli-instructions "../../../serverless-application-model/latest/developerguide/install-sam-cli.md#install-sam-cli-instructions") and for instructions on how to upgrade the AWS SAM CLI, see [Upgrading the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade "../../../serverless-application-model/latest/developerguide/manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade").
 
-### Create a serverless application with the
-
-AWS Toolkit
+### Create a serverless application with the AWS Toolkit
 
 This example shows how to create a serverless application with the AWS Toolkit by
 using the [AWS Serverless Application Model
@@ -100,12 +98,9 @@ runtimes:
 - Python – 3.7, 3.8, 3.9, 3.10 (Python 2.7 and 3.6 serverless applications
   can be run but not debugged by the AWS Toolkit.)
   Your language choice also affects how context-aware links indicate eligible Lambda
-  handlers. For more information, see [Running and debugging serverless functions
-  directly from code](#run-debug-no-template "#run-debug-no-template").
+  handlers. For more information, see [Running and debugging serverless functions directly from code](#run-debug-no-template "#run-debug-no-template").
 
-### Using SAM templates to run and debug
-
-serverless applications
+### Using SAM templates to run and debug serverless applications
 
 For applications that are run and debugged using a SAM template, a YAML-formatted
 file describes the application's behavior and the resources it uses. If you create a
@@ -115,9 +110,7 @@ project.
 
 In this procedure, use the example application that was created in [Creating a serverless application](#sam-create "#sam-create").
 
-### To use a SAM template to run and debug a
-
-serverless application
+### To use a SAM template to run and debug a serverless application
 
 1. To view your application files that make up your serverless application,
    go to the **Environment** window.
@@ -145,8 +138,7 @@ provides a debugging configuration with default attributes. 4. Edit or confirm v
      `AWS::Serverless::Function`.
 
 For more information about these and other entries in the
-`launch.json` file, see [Configuration options for debugging serverless
-applications](sam-debug-config-ref.md "sam-debug-config-ref.md"). 5. If you're satisfied with your debug configuration, save
+`launch.json` file, see [Configuration options for debugging serverless applications](sam-debug-config-ref.md "sam-debug-config-ref.md"). 5. If you're satisfied with your debug configuration, save
 `launch.json`. Then, choose the green "play" button
 next to **RUN** to start debugging.
 
@@ -157,9 +149,7 @@ If your SAM application fails to run, check the
 a Docker image not building. You might need to free up disk space in
 your environment.
 
-For more information, see [Error running SAM applications
-locally in AWS Toolkit because the AWS Cloud9 environment doesn't have enough disk
-space](troubleshooting.md#troubleshooting-dockerimage-toolkit "troubleshooting.md#troubleshooting-dockerimage-toolkit").
+For more information, see [Error running SAM applications locally in AWS Toolkit because the AWS Cloud9 environment doesn't have enough disk space](troubleshooting.md#troubleshooting-dockerimage-toolkit "troubleshooting.md#troubleshooting-dockerimage-toolkit").
 
 When the debugging sessions starts, the **DEBUG CONSOLE**
 panel shows debugging output and displays any values that are returned by
@@ -182,9 +172,7 @@ Traceback (most recent call last):
 ...requests.exceptions.HTTPError: 500 Server Error: Internal Server Error ...
 ```
 
-### Running and debugging serverless functions
-
-directly from code
+### Running and debugging serverless functions directly from code
 
 When testing the AWS SAM application, you can choose to run and debug only the Lambda
 function. Exclude other resources that are defined by the SAM template. This
@@ -199,9 +187,7 @@ and runtime you're using for your application.
 | JavaScript (Node.js 10.x, 12.x, and 14.x) | The function has the following features:<br>• It's an exported function with up to three<br>parameters.<br>• It has a `package.json` file in its<br>parent folder within the workspace folder. |
 | Python (3.7, 3.8, 3.9, and 3.10)          | The function has the following features:<br>• It's a top-level function.<br>• It has a `requirements.txt` file in<br>its parent folder within the workspace folder.                            |
 
-### To run and debug a serverless application
-
-directly from the application code
+### To run and debug a serverless application directly from the application code
 
 1. To view your serverless application files, navigate to the application
    folder by choosing the folder icon next to the editor.
@@ -212,7 +198,7 @@ directly from the application code
 3. In the inline action that identifies an eligible Lambda handler function,
    choose `Add Debug Configuration`. If the add debug configuration
    option doesn't appear, you must enable code lenses. To enable code lenses,
-   see [Enabling AWS Toolkit code lenses](enable-code-lenses.md "enable-code-lenses.md") .
+   see [Enabling AWS Toolkit code lenses](enable-code-lenses.md "enable-code-lenses.md").
 
 ![Access the Add Debug Configuration option in the inline action for a Lambda function handler.](images/direct_invoke_config.png) 4. Select the runtime where your SAM application runs. 5. In the editor for the `launch.json` file, edit or
 confirm values for the following configuration properties:
@@ -255,9 +241,7 @@ channel in the **Output** panel.
 
 If you see Docker mentioned in error messages, see this [note](#docker-problem "#docker-problem").
 
-### Running and debugging local Amazon API Gateway
-
-resources
+### Running and debugging local Amazon API Gateway resources
 
 You can run or debug AWS SAM API Gateway local resources that are specified in
 `template.yaml`. Do so by running an AWS Cloud9 launch configuration of
@@ -278,7 +262,7 @@ are called "API Gateway V2 APIs."
      project, hover over the Lambda handler, and choose **Add
      Debug Configuration** If the add debug configuration
      option doesn't appear, enable code lenses. To enable code lenses,
-     see [Enabling AWS Toolkit code lenses](enable-code-lenses.md "enable-code-lenses.md") .). Then, in the menu,
+     see [Enabling AWS Toolkit code lenses](enable-code-lenses.md "enable-code-lenses.md").). Then, in the menu,
      choose the item marked API Event.
    - **Option 2** Edit
      `launch.json` and create a new launch configuration
@@ -404,15 +388,13 @@ the request (for example, `"querystring":
 
 How AWS connection information is provided. For more
 information, see the **AWS connection (`aws`)
-properties** table in [Configuration options for debugging serverless
-applications](sam-debug-config-ref.md "sam-debug-config-ref.md").
+properties** table in [Configuration options for debugging serverless applications](sam-debug-config-ref.md "sam-debug-config-ref.md").
 
 **sam**
 
 How the AWS SAM CLI builds the application. For more information,
 see the **AWS SAM CLI ("`sam`")
-properties** in [Configuration options for debugging serverless
-applications](sam-debug-config-ref.md "sam-debug-config-ref.md").
+properties** in [Configuration options for debugging serverless applications](sam-debug-config-ref.md "sam-debug-config-ref.md").
 
 ## Syncing a serverless application
 
@@ -471,9 +453,7 @@ When the deployment is complete, you'll see your application that's listed in th
 **AWS Explorer**. To learn how to invoke the Lambda function
 that was created as part of the application, see [Invoking remote Lambda functions](lambda-toolkit.md#remote-lambda "lambda-toolkit.md#remote-lambda").
 
-## Deleting a serverless application from the AWS
-
-Cloud
+## Deleting a serverless application from the AWS Cloud
 
 Deleting a serverless application involves deleting the CloudFormation stack that you
 previously deployed to the AWS Cloud. Note that this procedure does not delete your

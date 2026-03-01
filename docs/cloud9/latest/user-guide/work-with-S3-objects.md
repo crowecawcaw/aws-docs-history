@@ -9,16 +9,12 @@ metadata.
 
 ###### Topics
 
-- [Uploading a file to an Amazon S3
-  bucket](#uploading-s3-object-to-bucket "#uploading-s3-object-to-bucket")
+- [Uploading a file to an Amazon S3 bucket](#uploading-s3-object-to-bucket "#uploading-s3-object-to-bucket")
 - [Downloading an Amazon S3 object](#downloading-s3-object "#downloading-s3-object")
 - [Deleting an Amazon S3 object](#deleting-s3-object "#deleting-s3-object")
-- [Generating a presigned URL for an Amazon S3
-  object](#presigned-s3-object "#presigned-s3-object")
+- [Generating a presigned URL for an Amazon S3 object](#presigned-s3-object "#presigned-s3-object")
 
-## Uploading a file to an Amazon S3
-
-bucket
+## Uploading a file to an Amazon S3 bucket
 
 You can use the Toolkit interface or a command to upload a file to a bucket
 
@@ -81,9 +77,7 @@ the _Amazon Simple Storage Service User Guide_.
    **Delete**.
 3. Choose **Delete** to confirm the deletion.
 
-## Generating a presigned URL for an Amazon S3
-
-object
+## Generating a presigned URL for an Amazon S3 object
 
 With presigned URLS, an object owner can share private Amazon S3 objects with others by
 granting time-limited permission to download the objects. For more information, see

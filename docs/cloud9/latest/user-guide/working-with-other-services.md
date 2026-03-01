@@ -10,8 +10,7 @@ The topics in this section how to do this.
 ###### Important
 
 The AWS Toolkit feature provides a convenient visual interface for working with key
-AWS services such as AWS Lambda, the AWS Serverless Application Model, and Amazon S3. For more information, see [Working with
-AWS Toolkit](toolkit-welcome.md "toolkit-welcome.md").
+AWS services such as AWS Lambda, the AWS Serverless Application Model, and Amazon S3. For more information, see [Working with AWS Toolkit](toolkit-welcome.md "toolkit-welcome.md").
 
 ###### Topics
 

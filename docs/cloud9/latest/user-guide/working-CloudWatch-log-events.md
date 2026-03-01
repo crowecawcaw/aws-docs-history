@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Working with CloudWatch log events in log
-
-streams
+# Working with CloudWatch log events in log streams
 
 After you opened the **Log Stream** window, you can access the log events in
 each stream. Log events are records of activity recorded by the application or resource being
@@ -13,8 +11,7 @@ monitored.
 ###### Topics
 
 - [Viewing and copying log stream information](#viewing-log-events "#viewing-log-events")
-- [Save the contents of the log stream editor to a local
-  file](#saving-CW-logs "#saving-CW-logs")
+- [Save the contents of the log stream editor to a local file](#saving-CW-logs "#saving-CW-logs")
 
 ## Viewing and copying log stream information
 
@@ -48,9 +45,7 @@ options:
      (right-click) menu for the tab of the **Log Stream** window and
      choose **Copy Log Stream Name**.
 
-## Save the contents of the log stream editor to a local
-
-file
+## Save the contents of the log stream editor to a local file
 
 You can download the contents of the CloudWatch log stream editor to a `log`
 file on your local machine.

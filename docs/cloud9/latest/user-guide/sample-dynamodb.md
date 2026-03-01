@@ -43,9 +43,7 @@ requirements:
   open.** When you open an environment, AWS Cloud9 opens the IDE for that environment in your
   web browser. For more information, see [Opening an environment in AWS Cloud9](open-environment.md "open-environment.md").
 
-## Step 1: Install and configure the AWS CLI, the
-
-AWS CloudShell, or both in your environment
+## Step 1: Install and configure the AWS CLI, the AWS CloudShell, or both in your environment
 
 In this step, you use the AWS Cloud9 IDE to install and configure the AWS CLI, the AWS CloudShell, or
 both in your environment so you can run commands to interact with DynamoDB. Then you use the AWS CLI

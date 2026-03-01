@@ -87,9 +87,7 @@ On the file preview tab, choose one of the following from the preview type list:
 - **Markdown**: Previews any file containing Markdown format. Attempts
   to preview any other file type, but might display unexpected content.
 
-## Open a file preview in a separate web browser
-
-tab
+## Open a file preview in a separate web browser tab
 
 On the file preview tab, choose **Pop Out Into New Window**.
 

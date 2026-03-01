@@ -13,17 +13,13 @@ charges for services such as Amazon EC2 and Amazon S3. For more information, see
 
 - [Prerequisites](#sample-dotnetcore-prereqs "#sample-dotnetcore-prereqs")
 - [Step 1: Install required tools](#sample-dotnetcore-setup "#sample-dotnetcore-setup")
-- [Step 2 (Optional): Install the .NET CLI
-  extension for Lambda functions](#sample-dotnetcore-lambda "#sample-dotnetcore-lambda")
-- [Step 3: Create a .NET console application
-  project](#sample-dotnetcore-app "#sample-dotnetcore-app")
+- [Step 2 (Optional): Install the .NET CLI extension for Lambda functions](#sample-dotnetcore-lambda "#sample-dotnetcore-lambda")
+- [Step 3: Create a .NET console application project](#sample-dotnetcore-app "#sample-dotnetcore-app")
 - [Step 4: Add code](#sample-dotnetcore-code "#sample-dotnetcore-code")
 - [Step 5: Build and run the code](#sample-dotnetcore-run "#sample-dotnetcore-run")
-- [Step 6: Create and set up a .NET console
-  application project that uses the AWS SDK for .NET](#sample-dotnetcore-sdk "#sample-dotnetcore-sdk")
+- [Step 6: Create and set up a .NET console application project that uses the AWS SDK for .NET](#sample-dotnetcore-sdk "#sample-dotnetcore-sdk")
 - [Step 7: Add AWS SDK code](#sample-dotnetcore-sdk-code "#sample-dotnetcore-sdk-code")
-- [Step 8: Build and run the AWS SDK
-  code](#sample-dotnetcore-sdk-run "#sample-dotnetcore-sdk-run")
+- [Step 8: Build and run the AWS SDK code](#sample-dotnetcore-sdk-run "#sample-dotnetcore-sdk-run")
 - [Step 9: Clean up](#sample-dotnetcore-clean-up "#sample-dotnetcore-clean-up")
 
 ## Prerequisites
@@ -54,8 +50,7 @@ dotnet --version
 ```
 
 If the .NET Command Line Tools version is displayed, and the version is 2.0 or
-greater, skip ahead to [Step 3: Create a .NET console application
-project](#sample-dotnetcore-app "#sample-dotnetcore-app"). If the version is less than 2.0, or if an
+greater, skip ahead to [Step 3: Create a .NET console application project](#sample-dotnetcore-app "#sample-dotnetcore-app"). If the version is less than 2.0, or if an
 error such as `bash: dotnet: command not found` is displayed, continue on
 to install the .NET SDK. 2. For Amazon Linux, in a terminal session in the AWS Cloud9 IDE, run the following commands to
 help ensure the latest security updates and bug fixes are installed, and to install a
@@ -156,9 +151,7 @@ delete it as follows.
 rm dotnet-install.sh
 ```
 
-## Step 2 (Optional): Install the .NET CLI
-
-extension for Lambda functions
+## Step 2 (Optional): Install the .NET CLI extension for Lambda functions
 
 Although not required for this tutorial, you can deploy AWS Lambda functions and
 AWS Serverless Application Model applications using the .NET CLI if you also install the
@@ -180,9 +173,7 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.dotnet:$HOME/.dotnet/tools
 export DOTNET_ROOT=$HOME/.dotnet
 ```
 
-## Step 3: Create a .NET console application
-
-project
+## Step 3: Create a .NET console application project
 
 In this step, you use .NET to create a project named `hello`. This project
 contains all of the files that .NET needs to run a simple application from the terminal in
@@ -333,9 +324,7 @@ name depending on the version you've installed. 3. Create a runner for .NET as f
    The sum of 5 and 9 is 14.
    ```
 
-## Step 6: Create and set up a .NET console
-
-application project that uses the AWS SDK for .NET
+## Step 6: Create and set up a .NET console application project that uses the AWS SDK for .NET
 
 You can enhance this sample to use the AWS SDK for .NET to create an Amazon S3 bucket, list your
 available buckets, and then delete the bucket you just created.
@@ -377,9 +366,7 @@ For the names and versions of other AWS related packages in NuGet, see
 [NuGet
 packages tagged with aws-sdk](https://www.nuget.org/packages?q=Tags%3A%22aws-sdk%22 "https://www.nuget.org/packages?q=Tags%3A%22aws-sdk%22") on the NuGet website.
 
-### To set up AWS credentials
-
-management
+### To set up AWS credentials management
 
 Each time you use the AWS SDK for .NET to call an AWS service, you must provide a set of
 AWS credentials with the call. These credentials determine whether the AWS SDK for .NET has
@@ -490,9 +477,7 @@ namespace s3
 }
 ```
 
-## Step 8: Build and run the AWS SDK
-
-code
+## Step 8: Build and run the AWS SDK code
 
 In this step, you build the project and its dependencies into a set of binary files,
 including a runnable application file. Then you run the application.

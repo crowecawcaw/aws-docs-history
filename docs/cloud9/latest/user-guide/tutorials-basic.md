@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Getting started with
-
-AWS Cloud9
+# Getting started with AWS Cloud9
 
 Use this tutorial to get started with AWS Cloud9.
 You can use AWS Cloud9
@@ -15,9 +13,7 @@ the AWS Cloud9 IDE to code, run, and debug your first application. For more
 information about AWS Cloud9, see [What is AWS Cloud9](welcome.md "welcome.md").
 
 To learn more
-about AWS Cloud9 IDE, see [Tour
-of
-the AWS Cloud9 IDE](tour-ide.md "tour-ide.md").
+about AWS Cloud9 IDE, see [Tour of the AWS Cloud9 IDE](tour-ide.md "tour-ide.md").
 
 This tutorial takes approximately one hour to complete.
 
@@ -59,7 +55,7 @@ console
    AWS Region to create the environment in. For a list of available AWS Regions, see [AWS Cloud9](../../../general/latest/gr/rande.md#cloud9_region "../../../general/latest/gr/rande.md#cloud9_region") in the
    _AWS General Reference_.
 
-![AWS Region selector in the AWS Cloud9 console](images/consolas_region_new_UX.png) 3. Choose the large **Create environment** button in one of the locations
+![AWS Region selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/consolas_region_new_UX.png) 3. Choose the large **Create environment** button in one of the locations
 shown.
 
 If you don't already have AWS Cloud9 environments, the button is shown on a welcome
@@ -160,7 +156,7 @@ to the home page. If the account is successfully created, a green flash bar appe
 of the AWS Cloud9 console. You can select the new environment and choose **Open in
 Cloud9** to launch the IDE.
 
-![AWS Cloud9 IDE selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/cloud9-ide-open.png)
+![AWS Cloud9 IDE selector in the AWS Cloud9 console](images/cloud9-ide-open.png)
 
 If the account fails to create, a red flash bar appears at the top of the AWS Cloud9 console.
 Your account might fail to create because of a problem with your web browser, your AWS
@@ -253,8 +249,7 @@ In the preceding command:
     When using this option, you need to create the
      `AWSCloud9SSMAccessRole` service role and
      `AWSCloud9SSMInstanceProfile` if they aren't already
-     created. For more information, see [Managing instance profiles for Systems Manager
-     with the AWS CLI](ec2-ssm.md#aws-cli-instance-profiles "ec2-ssm.md#aws-cli-instance-profiles").
+     created. For more information, see [Managing instance profiles for Systems Manager with the AWS CLI](ec2-ssm.md#aws-cli-instance-profiles "ec2-ssm.md#aws-cli-instance-profiles").
     * `--subnet-id` represents the subnet you want AWS Cloud9 to use.
      Replace `subnet-12a3456b` with the ID of the subnet of an
      Amazon Virtual Private Cloud (VPC), which must be compatible with AWS Cloud9. For more information,
@@ -490,8 +485,7 @@ started with AWS Cloud9 Console](tutorials-basic.md "tutorials-basic.md").
   the
   following
   topic:
-  - [Working with Amazon Lightsail instances in the
-    AWS Cloud9 IDE](lightsail-instances.md "lightsail-instances.md")
+  - [Working with Amazon Lightsail instances in the AWS Cloud9 IDE](lightsail-instances.md "lightsail-instances.md")
 
 - While the AWS Cloud9 development environment is being created, you're directed AWS Cloud9 to create an Amazon EC2
   instance. AWS Cloud9 created the instance and then connected the environment to it. You can
@@ -506,11 +500,11 @@ Explore any or all of the following topics to continue getting familiar with AWS
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Learn more about what you can do with an environment.                                                                                                                                                | [Working with environments in AWS Cloud9](environments.md "environments.md")                                                                                      |
 | Try other computer languages.                                                                                                                                                                        | [Tutorials for AWS Cloud9](tutorials.md "tutorials.md")                                                                                                           |
-| Learn more about the AWS Cloud9 IDE.                                                                                                                                                                 | [Tour<br>of<br>the AWS Cloud9 IDE](tour-ide.md "tour-ide.md") in [Working with the IDE](ide.md "ide.md")                                                          |
+| Learn more about the AWS Cloud9 IDE.                                                                                                                                                                 | [Tour of the AWS Cloud9 IDE](tour-ide.md "tour-ide.md") in [Working with the IDE](ide.md "ide.md")                                                                |
 | Invite others to use your new environment in real time and with text chat<br>support.                                                                                                                | [Working with shared environment in AWS Cloud9](share-environment.md "share-environment.md")                                                                      |
 | Create SSH environments. These are environments that use cloud compute<br>instances or servers that you create, instead of an Amazon EC2 instance that<br>AWS Cloud9 creates for you.                | [Creating an environment in AWS Cloud9](create-environment.md "create-environment.md") and [SSH environment host requirements](ssh-settings.md "ssh-settings.md") |
 | Create, run, and debug code in AWS Lambda functions and serverless applications using the AWS Toolkit.                                                                                               | [Working with AWS Lambda functions using the AWS Toolkit](lambda-toolkit.md "lambda-toolkit.md")                                                                  |
-| Use AWS Cloud9 with Amazon Lightsail.                                                                                                                                                                | [Working with Amazon Lightsail instances in the<br>AWS Cloud9 IDE](lightsail-instances.md "lightsail-instances.md")                                               |
+| Use AWS Cloud9 with Amazon Lightsail.                                                                                                                                                                | [Working with Amazon Lightsail instances in the AWS Cloud9 IDE](lightsail-instances.md "lightsail-instances.md")                                                  |
 | Use AWS Cloud9 with AWS CodePipeline.                                                                                                                                                                | [Working with AWS CodePipeline in the AWS Cloud9 IDE](codepipeline-repos.md "codepipeline-repos.md")                                                              |
 | Use AWS Cloud9 with the AWS CLI, the AWS CloudShell, AWS CodeCommit, the AWS Cloud<br>Development Kit (AWS CDK), GitHub, or Amazon DynamoDB, and Node.js, Python,<br>or other programming languages. | [Tutorials for AWS Cloud9](tutorials.md "tutorials.md")                                                                                                           |
 | Work with code for intelligent robotics applications in AWS<br>RoboMaker.                                                                                                                            | [Developing with<br>AWS Cloud9](../../../robomaker/latest/dg/cloud9.md "../../../robomaker/latest/dg/cloud9.md") in the _AWS RoboMaker Developer Guide_           |

@@ -24,9 +24,7 @@ Pause over the information icons to read brief descriptions of the settings.
 You can access detailed documentation on the Git commands listed from the official Git
 site: [https://git-scm.com/doc](https://git-scm.com/doc "https://git-scm.com/doc").
 
-## Reference for Git commands available from Git panel
-
-menu
+## Reference for Git commands available from Git panel menu
 
 You access the options on the **Git panel** menu by choosing the symbol
 opposite the repository's name.
@@ -63,9 +61,7 @@ opposite the repository's name.
 | **Stash (include Untracked)**  | Adds all files, including untracked files, in the working directory to a named<br>stash.                                                                                 |
 | **Show Git Output**            | Displays a window showing the Git commands that are run when you interact with<br>the Git panel interface.                                                               |
 
-## Git commands available from the Git panel search
-
-field
+## Git commands available from the Git panel search field
 
 You can also access some supported Git command that aren't available in the Git panel
 menu by typing "git" in the search box:

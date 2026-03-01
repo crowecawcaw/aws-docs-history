@@ -179,9 +179,7 @@ AWS SDK for Go and set your `GOPATH` environment variable, you must set up crede
 management in your environment. The AWS SDK for Go needs these credentials to interact with AWS
 services.
 
-### To set your GOPATH environment
-
-variable
+### To set your GOPATH environment variable
 
 1. Open your `~/.bashrc` file for editing.
 2. After the last line in the file, type this code.
@@ -216,9 +214,7 @@ Go installs the AWS SDK for Go source into the location specified by your
 `GOPATH` environment variable, which is the `go` folder
 in your environment.
 
-### To set up credentials management in your
-
-environment
+### To set up credentials management in your environment
 
 Each time you use the AWS SDK for Go to call an AWS service, you must provide a set of
 credentials with the call. These credentials determine whether the AWS SDK for Go has the

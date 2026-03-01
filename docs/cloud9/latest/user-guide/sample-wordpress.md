@@ -48,9 +48,7 @@ steps:
 3. Configuring the Apache server that hosts the WordPress site
 4. Previewing the WordPress web content that's hosted by the Apache server
 
-## Step 1: Installing and configuring MariaDB
-
-Server
+## Step 1: Installing and configuring MariaDB Server
 
 1. In the AWS Cloud9 IDE, choose **Window**, **New
    Terminal** and enter the following commands to install and start a MariaDB
@@ -84,9 +82,7 @@ MariaDB [(none)]> grant all privileges on wp_test.* to root@localhost identified
 
 4. To log out of the MariaDB client, run the `exit` command.
 
-## Step 2: Installing and configuring
-
-WordPress
+## Step 2: Installing and configuring WordPress
 
 1. In the IDE terminal window, navigate to the `environment` directory
    and then create the directories `config` and
@@ -158,9 +154,7 @@ define('FORCE_SSL', true);
 if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') $_SERVER['HTTPS'] = 'on';
 ```
 
-## Step 3: Configuring your Apache HTTP
-
-Server
+## Step 3: Configuring your Apache HTTP Server
 
 1. In the AWS Cloud9 IDE terminal window, make sure that you have Apache installed:
 

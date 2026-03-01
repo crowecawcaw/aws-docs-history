@@ -37,9 +37,7 @@ experience when using AWS Cloud9 on CodeCatalyst:
 - Custom AMI support that is available through the specification of custom images.
 - Devfile support that enables you to describe configurations as code.
 
-## Replicating your AWS Cloud9 code
-
-resources in CodeCatalyst using the replication tool
+## Replicating your AWS Cloud9 code resources in CodeCatalyst using the replication tool
 
 The following procedure details how to copy and run the replication tool to
 complete the replication process.

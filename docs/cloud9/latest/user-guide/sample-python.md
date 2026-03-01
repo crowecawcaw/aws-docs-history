@@ -154,9 +154,7 @@ python -m pip show boto3            # Verify boto3 is installed for the current 
 For more information, see the "Installation" section of [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html") in the
 AWS SDK for Python (Boto3).
 
-### Set up credentials in your
-
-environment
+### Set up credentials in your environment
 
 Each time you use the AWS SDK for Python (Boto3) to call an AWS service, you must provide a set
 of credentials with the call. These credentials determine whether the SDK has the

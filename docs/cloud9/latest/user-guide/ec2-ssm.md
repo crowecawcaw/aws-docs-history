@@ -40,8 +40,7 @@ doesn't require the following:
   If creating an environment using the [AWS CLI](tutorials-basic.md#tutorial-create-environment "tutorials-basic.md#tutorial-create-environment"), you can configure a no-ingress EC2 instance by setting the
   `--connection-type CONNECT_SSM` option when calling the
   `create-environment-ec2` command. For more information about creating the
-  required service role and instance profile, see [Managing instance profiles for Systems Manager
-  with the AWS CLI](#aws-cli-instance-profiles "#aws-cli-instance-profiles").
+  required service role and instance profile, see [Managing instance profiles for Systems Manager with the AWS CLI](#aws-cli-instance-profiles "#aws-cli-instance-profiles").
 
 After you complete creating an environment that uses a no-ingress EC2 instance, confirm the
 following:
@@ -49,8 +48,7 @@ following:
 - Systems Manager Session Manager has permissions to perform actions on the EC2 instance on your
   behalf. For more information, see [Managing Systems Manager permissions](#service-role-ssm "#service-role-ssm").
 - AWS Cloud9 users can access the instance managed by Session Manager. For more
-  information, see [Giving users access to instances managed by
-  Session Manager](#access-ec2-session "#access-ec2-session").
+  information, see [Giving users access to instances managed by Session Manager](#access-ec2-session "#access-ec2-session").
 
 ## Benefits of using Systems Manager for EC2 environments
 
@@ -144,8 +142,7 @@ profiles aren't displayed in the IAM console.)
 
 If you create a no-ingress EC2 environment for the first time with AWS CLI, you must
 explicitly define the required service role and instance profile. For more
-information, see [Managing instance profiles for Systems Manager
-with the AWS CLI](#aws-cli-instance-profiles "#aws-cli-instance-profiles").
+information, see [Managing instance profiles for Systems Manager with the AWS CLI](#aws-cli-instance-profiles "#aws-cli-instance-profiles").
 
 ###### Important
 
@@ -169,9 +166,7 @@ If you no longer need to use Systems Manager to access an instance, you can dele
 [Deleting roles or
 instance profiles](../../../IAM/latest/UserGuide/id_roles_manage_delete.md "../../../IAM/latest/UserGuide/id_roles_manage_delete.md") in the _IAM User Guide_.
 
-### Managing instance profiles for Systems Manager
-
-with the AWS CLI
+### Managing instance profiles for Systems Manager with the AWS CLI
 
 You can also create a no-ingress EC2 environment with the AWS CLI. When you call
 `create-environment-ec2`, set the `--connection-type`
@@ -196,9 +191,7 @@ aws iam create-instance-profile --instance-profile-name AWSCloud9SSMInstanceProf
 aws iam add-role-to-instance-profile --instance-profile-name AWSCloud9SSMInstanceProfile --role-name AWSCloud9SSMAccessRole
 ```
 
-## Giving users access to instances managed by
-
-Session Manager
+## Giving users access to instances managed by Session Manager
 
 To open an AWS Cloud9 environment that's connected to an EC2 instance through Systems Manager, a user
 must have permission for the API operation, `StartSession`. This operation
@@ -206,10 +199,10 @@ initiates a connection to the managed EC2 instance for a Session Manager session
 users access by using an AWS Cloud9 specific managed policy (recommended) or by editing an
 IAM policy and adding the necessary permissions.
 
-| Method                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Use AWS Cloud9-specific managed policy                | We recommend using AWS managed policies to allow users to access<br>EC2 instances managed by Systems Manager. Managed policies provide a set of<br>permissions for standard AWS Cloud9 use cases and can be easily attached<br>to an IAM entity.<br>All the managed policies also include the permissions to run the<br>`StartSession` API operation. The following are<br>managed policies specific to AWS Cloud9:<br>• `AWSCloud9Administrator`<br>(`arn:aws:iam::aws:policy/AWSCloud9Administrator`)<br>• `AWSCloud9User`<br>(`arn:aws:iam::aws:policy/AWSCloud9User`)<br>• `AWSCloud9EnvironmentMember`<br>(`arn:aws:iam::aws:policy/AWSCloud9EnvironmentMember`)<br>ImportantIf you are creating a AWS Cloud9 environment and are using Amazon EC2 Systems Manager with either the `AWSCloud9Administrator` or<br>`AWSCloud9User` policies attached, you must also attach a custom policy that has specific IAM permissions, see [Custom IAM policy for SSM environment creation](security-iam.md#custom-policy-ssm-environment "security-iam.md#custom-policy-ssm-environment").<br>This is due to a permissions issue with the `AWSCloud9Administrator` and `AWSCloud9User` policies.<br>For more information, see [AWS managed policies for<br>AWS Cloud9](security-iam.md#auth-and-access-control-managed-policies "security-iam.md#auth-and-access-control-managed-policies"). |
-| Edit an IAM policy and add required policy statements | To edit an existing policy, you can add permissions for the<br>`StartSession` API. To edit a policy using the<br>AWS Management Console or AWS CLI, follow the instructions that are provided by<br>[Editing<br>IAM policies](../../../IAM/latest/UserGuide.md#edit-managed-policy-console "../../../IAM/latest/UserGuide.md#edit-managed-policy-console") in the<br>_IAM User Guide_.<br>When editing the policy, add the [policy statement](#policy-statement "#policy-statement") (see the following) that allows the<br>`ssm:startSession` API operation to run.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Method                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Use AWS Cloud9-specific managed policy                | We recommend using AWS managed policies to allow users to access<br>EC2 instances managed by Systems Manager. Managed policies provide a set of<br>permissions for standard AWS Cloud9 use cases and can be easily attached<br>to an IAM entity.<br>All the managed policies also include the permissions to run the<br>`StartSession` API operation. The following are<br>managed policies specific to AWS Cloud9:<br>• `AWSCloud9Administrator`<br>(`arn:aws:iam::aws:policy/AWSCloud9Administrator`)<br>• `AWSCloud9User`<br>(`arn:aws:iam::aws:policy/AWSCloud9User`)<br>• `AWSCloud9EnvironmentMember`<br>(`arn:aws:iam::aws:policy/AWSCloud9EnvironmentMember`)<br>ImportantIf you are creating a AWS Cloud9 environment and are using Amazon EC2 Systems Manager with either the `AWSCloud9Administrator` or<br>`AWSCloud9User` policies attached, you must also attach a custom policy that has specific IAM permissions, see [Custom IAM policy for SSM environment creation](security-iam.md#custom-policy-ssm-environment "security-iam.md#custom-policy-ssm-environment").<br>This is due to a permissions issue with the `AWSCloud9Administrator` and `AWSCloud9User` policies.<br>For more information, see [AWS managed policies for AWS Cloud9](security-iam.md#auth-and-access-control-managed-policies "security-iam.md#auth-and-access-control-managed-policies"). |
+| Edit an IAM policy and add required policy statements | To edit an existing policy, you can add permissions for the<br>`StartSession` API. To edit a policy using the<br>AWS Management Console or AWS CLI, follow the instructions that are provided by<br>[Editing<br>IAM policies](../../../IAM/latest/UserGuide.md#edit-managed-policy-console "../../../IAM/latest/UserGuide.md#edit-managed-policy-console") in the<br>_IAM User Guide_.<br>When editing the policy, add the [policy statement](#policy-statement "#policy-statement") (see the following) that allows the<br>`ssm:startSession` API operation to run.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 You can use the following
 permissions to run the `StartSession` API operation. The
@@ -249,9 +242,7 @@ and `AWSCloud9EnvironmentMember`.
         }
 ```
 
-## Using CloudFormation to create no-ingress
-
-EC2 environments
+## Using CloudFormation to create no-ingress EC2 environments
 
 When using an [CloudFormation
 template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md") to define a no-ingress Amazon EC2 development environment, do the
@@ -259,16 +250,12 @@ following before creating the stack:
 
 1. Create the `AWSCloud9SSMAccessRole` service role and
    `AWSCloud9SSMInstanceProfile` instance profile. For more
-   information, see [Creating service role and instance
-   profile with an CloudFormation template](#creating-cfn-instance-profile "#creating-cfn-instance-profile").
+   information, see [Creating service role and instance profile with an CloudFormation template](#creating-cfn-instance-profile "#creating-cfn-instance-profile").
 2. Update the policy for the IAM entity calling CloudFormation. This way, the entity can
    start a Session Manager session that connects to the EC2 instance. For more information,
-   see [Adding Systems Manager permissions to an IAM
-   policy](#updating-IAM-policy "#updating-IAM-policy").
+   see [Adding Systems Manager permissions to an IAM policy](#updating-IAM-policy "#updating-IAM-policy").
 
-### Creating service role and instance
-
-profile with an CloudFormation template
+### Creating service role and instance profile with an CloudFormation template
 
 You need to create the service role `AWSCloud9SSMAccessRole` and the
 instance profile `AWSCloud9SSMInstanceProfile` to enable Systems Manager to manage
@@ -328,9 +315,7 @@ Resources:
 
 ```
 
-### Adding Systems Manager permissions to an IAM
-
-policy
+### Adding Systems Manager permissions to an IAM policy
 
 After [defining a service role and
 instance profile](#creating-cfn-instance-profile "#creating-cfn-instance-profile") in the [CloudFormation
@@ -372,9 +357,7 @@ CloudFormation.
         }
 ```
 
-## Configuring VPC endpoints for Amazon S3 to download
-
-dependencies
+## Configuring VPC endpoints for Amazon S3 to download dependencies
 
 If your AWS Cloud9 environment’s EC2 instance doesn't have access to the internet, create a
 VPC endpoint for a specified Amazon S3 bucket. This bucket contains the dependencies that are
@@ -390,9 +373,7 @@ You can create and configure VPC endpoints using the AWS Management Console, AWS
 API. The following procedure shows how to create a VPC endpoint by using the console
 interface.
 
-## Create and configure a VPC endpoint for
-
-Amazon S3
+## Create and configure a VPC endpoint for Amazon S3
 
 1. In the AWS Management Console, go to the console page for Amazon VPC.
 2. Choose **Endpoints** in the navigation bar.
@@ -488,9 +469,7 @@ bucket and its dependencies.
 For more information about this feature, see [Endpoints for Amazon S3](../../../vpc/latest/privatelink/vpc-endpoints-s3.md "../../../vpc/latest/privatelink/vpc-endpoints-s3.md") in the _AWS PrivateLink
 Guide_.
 
-## Configuring VPC endpoints for private
-
-connectivity
+## Configuring VPC endpoints for private connectivity
 
 When you launch an instance into a subnet with the **access using
 Systems Manager** option, its security group doesn't have an inbound rule to allow

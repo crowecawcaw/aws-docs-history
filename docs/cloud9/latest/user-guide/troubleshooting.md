@@ -17,17 +17,14 @@ might be required to sign in when you enter this forum. You can also [contact us
 - [Other AWS services](#troubleshooting-other-services-group "#troubleshooting-other-services-group")
 - [Application preview](#troubleshooting-preview-group "#troubleshooting-preview-group")
 - [Performance](#troubleshooting-performance-group "#troubleshooting-performance-group")
-- [Third party applications and
-  services](#troubleshooting-third-party-group "#troubleshooting-third-party-group")
+- [Third party applications and services](#troubleshooting-third-party-group "#troubleshooting-third-party-group")
 
 ## Installer
 
 The following section outlines troubleshooting issues related to the AWS Cloud9
 installer.
 
-### The AWS Cloud9 installer hangs or
-
-fails
+### The AWS Cloud9 installer hangs or fails
 
 **Issue:** When you [download and run the AWS Cloud9 Installer](installer.md#installer-download-run "installer.md#installer-download-run"), one or more error occurs, and the
 installer script doesn't show `Done`.
@@ -38,9 +35,7 @@ errors that it can't recover from and fails as a result.
 **Solution:** For more information, see [Troubleshooting the AWS Cloud9 Installer](installer.md#installer-troubleshooting "installer.md#installer-troubleshooting").
 Refer to the common issues, possible causes, and recommended solutions provided.
 
-### AWS Cloud9 installer doesn't finish after
-
-displaying: "Package Cloud9 IDE 1"
+### AWS Cloud9 installer doesn't finish after displaying: "Package Cloud9 IDE 1"
 
 **Issue:** AWS Cloud9 is installed on your existing Amazon EC2
 instance or on your own server as part of the process of creating an SSH development
@@ -92,9 +87,7 @@ export NODE_EXTRA_CA_CERTS=[path_to_pem_certificate]
 
 - If you are using a no-ingress Amazon EC2 instance you must ensure an Amazon VPC endpoint for Amazon S3 is configured. For more information on this, see [Configuring Amazon VPC endpoints for Amazon S3 download dependencies.](ec2-ssm.md#configure-s3-endpoint "ec2-ssm.md#configure-s3-endpoint")
 
-### SSH environment error: "Python version 3 is
-
-required to install pty.js"
+### SSH environment error: "Python version 3 is required to install pty.js"
 
 **Issue:** After you open an AWS Cloud9 SSH development environment, the terminal in
 the AWS Cloud9 IDE displays a message that begins with "Python version 3 is required to
@@ -116,9 +109,7 @@ check your version, from your server's terminal, run the command **`python --ver
 The following section outlines troubleshooting issues related to the AWS Cloud9
 Environment.
 
-### Environment creation error: "We
-
-are unable to create EC2 instances ..."
+### Environment creation error: "We are unable to create EC2 instances ..."
 
 **Issue:** When you try to create an AWS Cloud9 development environment, a
 message appears with the phrase "We are unable to create EC2 instances in your account
@@ -136,9 +127,7 @@ creation quota for your account. To avoid exhausting the stack creation quota, y
 delete these failed stacks. For more information, see [Deleting a Stack on the AWS CloudFormation
 Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the _AWS CloudFormation User Guide_.
 
-### Environment creation error: "Not
-
-authorized to perform sts:AssumeRole"
+### Environment creation error: "Not authorized to perform sts:AssumeRole"
 
 **Issue:** When you try to create a new environment, you see this
 error: "Not authorized to perform sts:AssumeRole," and the environment isn't created.
@@ -159,9 +148,7 @@ If you can't do this, check with your AWS account administrator.
 
 After you run this command, try creating the environment again.
 
-### Federated identities can't
-
-create environments
+### Federated identities can't create environments
 
 **Issue:** When you try to use an AWS federated identity
 to create an AWS Cloud9 development environment, an access error message is displayed, and the environment isn't
@@ -190,9 +177,7 @@ iam create-service-linked-role --aws-service-name cloud9.amazonaws.com
 For more information, see [Using Service-Linked Roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the
 _IAM User Guide_.
 
-### Console error: "User is not
-
-authorized to perform action on resource"
+### Console error: "User is not authorized to perform action on resource"
 
 **Issue:** When you try to use the AWS Cloud9 console to create
 or manage an AWS Cloud9 development environment, you see an error that contains a phrase similar to "User
@@ -214,11 +199,9 @@ with doesn't have the correct AWS access permissions to perform the action.
 access permissions, and then try to perform the action again. For more information, see
 the following:
 
-- [Step 2: Add AWS Cloud9 access permissions to the
-  group](setup.md#setup-give-user-access "setup.md#setup-give-user-access") in
+- [Step 2: Add AWS Cloud9 access permissions to the group](setup.md#setup-give-user-access "setup.md#setup-give-user-access") in
   _Team Setup_
-- [Step 6. Enable groups and users
-  within the organization to use AWS Cloud9](setup-enterprise.md#setup-enterprise-groups-users-access "setup-enterprise.md#setup-enterprise-groups-users-access") in _Enterprise
+- [Step 6. Enable groups and users within the organization to use AWS Cloud9](setup-enterprise.md#setup-enterprise-groups-users-access "setup-enterprise.md#setup-enterprise-groups-users-access") in _Enterprise
   Setup_
 - [About environment member access roles](share-environment.md#share-environment-member-roles "share-environment.md#share-environment-member-roles") in _Working with
   Shared Environments_
@@ -264,17 +247,13 @@ display for more than five minutes.
   more information see the following, or check with your AWS account
   administrator:
 
-      + [Step 2: Add AWS Cloud9 access permissions to the
-       group](setup.md#setup-give-user-access "setup.md#setup-give-user-access") in *Team
+      + [Step 2: Add AWS Cloud9 access permissions to the group](setup.md#setup-give-user-access "setup.md#setup-give-user-access") in *Team
        Setup*
-      + [AWS managed policies for
-       AWS Cloud9](security-iam.md#auth-and-access-control-managed-policies "security-iam.md#auth-and-access-control-managed-policies") in
+      + [AWS managed policies for AWS Cloud9](security-iam.md#auth-and-access-control-managed-policies "security-iam.md#auth-and-access-control-managed-policies") in
        *Authentication and Access Control*
-      + [Customer managed policy examples for teams using
-       AWS Cloud9](setup-teams-policy-examples.md "setup-teams-policy-examples.md") in *Advanced Team
+      + [Customer managed policy examples for teams using AWS Cloud9](setup-teams-policy-examples.md "setup-teams-policy-examples.md") in *Advanced Team
        Setup*
-      + [Customer managed
-       policy examples](security-iam.md#auth-and-access-control-customer-policies-examples "security-iam.md#auth-and-access-control-customer-policies-examples") in
+      + [Customer managed policy examples](security-iam.md#auth-and-access-control-customer-policies-examples "security-iam.md#auth-and-access-control-customer-policies-examples") in
        *Authentication and Access Control*
       + [Changing
        Permissions for an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md") in the
@@ -321,11 +300,7 @@ display for more than five minutes.
   with it or your own server is set up correctly to allow AWS Cloud9 to access it. Then,
   try opening the environment again. For more information, see [SSH environment host requirements](ssh-settings.md "ssh-settings.md").
 
-### Can't open AWS Cloud9 environment: "This
-
-environment cannot be currently accessed by collaborators. Please wait until the
-removal of managed temporary credentials is complete, or contact the owner of this
-environment."
+### Can't open AWS Cloud9 environment: "This environment cannot be currently accessed by collaborators. Please wait until the removal of managed temporary credentials is complete, or contact the owner of this environment."
 
 **Issue:** If a new collaborator is added to an environment by
 someone who isn't the environment owner, AWS managed temporary credentials are disabled. The credentials are
@@ -337,8 +312,7 @@ can't access the AWS Cloud9 environment.
 AWS managed temporary credentials is being deleted is a security measure. This allows environment owners to
 confirm that only trusted collaborators can access managed credentials. If they're
 satisfied that the list of collaborators is valid, environment owners can re-enable
-managed credentials so they can be shared. For more information, see [Controlling access to
-AWS managed temporary credentials](security-iam.md#temporary-managed-credentials-control "security-iam.md#temporary-managed-credentials-control").
+managed credentials so they can be shared. For more information, see [Controlling access to AWS managed temporary credentials](security-iam.md#temporary-managed-credentials-control "security-iam.md#temporary-managed-credentials-control").
 
 **Recommended solutions:** Wait for the
 `~/.aws/credentials` file to be fully deleted before trying again
@@ -358,9 +332,7 @@ by reviewing the card for an environment in the **Your
 environments** page on the console. The environment owner is also listed
 in the **Environment details** page.
 
-### Environment deletion error: "One or
-
-more environments failed to delete"
+### Environment deletion error: "One or more environments failed to delete"
 
 **Issue:** When you attempt to delete one or more
 environments in the AWS Cloud9 console, a message is displayed that reads "one or more
@@ -405,9 +377,7 @@ the failed stack, and then select the **Resources** section. Go to the
 console in AWS for each resource in this list, and then use that console to delete the
 resource.
 
-### Changing timeout time for an environment
-
-in AWS Cloud9 IDE
+### Changing timeout time for an environment in AWS Cloud9 IDE
 
 **Issue:** Users want to update the timeout time for Amazon EC2
 environments.
@@ -425,10 +395,7 @@ be too short for some users.
    instance** section.
 4. Select the timeout value from the list available and update.
 
-### Error running SAM applications
-
-locally in AWS Toolkit because the AWS Cloud9 environment doesn't have enough disk
-space
+### Error running SAM applications locally in AWS Toolkit because the AWS Cloud9 environment doesn't have enough disk space
 
 **Issue:** Error occurs when you use the AWS Toolkit to
 run AWS SAM CLI commands for applications defined by SAM templates.
@@ -465,9 +432,7 @@ restrictions, switch to a development environment uses a different [instance typ
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
-### Can't load IDE using earlier versions of
-
-Microsoft Edge browser
+### Can't load IDE using earlier versions of Microsoft Edge browser
 
 **Issue:**
 `HTTP403: FORBIDDEN` error is returned when trying to load AWS Cloud9 IDE using
@@ -484,9 +449,7 @@ and installed.
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
-### Can't create the sub-folder structure **/home/ec2-user/environment/home/ec2-user/environment** in the
-
-AWS Cloud9 IDE File Explorer.
+### Can't create the sub-folder structure **/home/ec2-user/environment/home/ec2-user/environment** in the AWS Cloud9 IDE File Explorer.
 
 **Issue:** When you create the sub-folder structure
 **/home/ec2-user/environment/home/ec2-user/environment**
@@ -506,10 +469,7 @@ structure.
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
-### Can't create the sub-folder structure
-
-**/projects/projects** within the File Explorer of
-the AWS Cloud9 IDE for CodeCatalyst.
+### Can't create the sub-folder structure **/projects/projects** within the File Explorer of the AWS Cloud9 IDE for CodeCatalyst.
 
 **Issue:** When you create the sub-folder structure
 **/projects/projects** in the AWS Cloud9 IDE File Explorer for
@@ -528,9 +488,7 @@ structure.
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
-### Can't interact with the terminal window in AWS Cloud9
-
-because of `tmux` session errors
+### Can't interact with the terminal window in AWS Cloud9 because of `tmux` session errors
 
 **Issue:** When you attempt to launch a new terminal
 window in AWS Cloud9, the expected command line interface isn't available. There's no command
@@ -609,9 +567,7 @@ sudo rmdir /tmp/tmux-*
 
 The following section outlines troubleshooting issues related to Amazon EC2.
 
-### Amazon EC2 instances aren't automatically
-
-updated
+### Amazon EC2 instances aren't automatically updated
 
 **Issue:** Recent system updates are not automatically
 applied to an Amazon EC2 instance that connects to an AWS Cloud9 development environment.
@@ -635,9 +591,7 @@ that's connected to the instance to store the generated public key on the instan
 use the SSH remote access utility along with the generated private key to access the
 instance. For more information, see your utility's documentation.
 
-### AWS CLI or AWS-shell error: "The
-
-security token included in the request is invalid" in an EC2 environment
+### AWS CLI or AWS-shell error: "The security token included in the request is invalid" in an EC2 environment
 
 **Issue:** When you try to use the AWS Command Line Interface (AWS CLI) or the
 AWS-shell to run a command in the AWS Cloud9 IDE for an EC2 environment, an error displays: "The
@@ -657,16 +611,12 @@ AWS managed temporary credentials enabled and one of the following occurred:
 - Run only those commands that are allowed by AWS managed temporary credentials. If you need to run
   a command that's not allowed by AWS managed temporary credentials, configure the AWS CLI or AWS-shell
   in the environment with a set of permanent credentials. This removes this limitation.
-  For instructions, see [Create and store permanent access credentials
-  in an Environment](credentials.md#credentials-permanent-create "credentials.md#credentials-permanent-create").
+  For instructions, see [Create and store permanent access credentials in an Environment](credentials.md#credentials-permanent-create "credentials.md#credentials-permanent-create").
 - For deactivated or expired credentials, ensure that the environment owner opens the
   environment so that AWS Cloud9 can refresh temporary credentials in the environment. For more
-  information, see [Controlling access to
-  AWS managed temporary credentials](security-iam.md#temporary-managed-credentials-control "security-iam.md#temporary-managed-credentials-control").
+  information, see [Controlling access to AWS managed temporary credentials](security-iam.md#temporary-managed-credentials-control "security-iam.md#temporary-managed-credentials-control").
 
-### Can't connect to EC2 environment because VPC's IP addresses are
-
-used by Docker
+### Can't connect to EC2 environment because VPC's IP addresses are used by Docker
 
 **Issue:** For an EC2 environment, if you launch the EC2
 instance into an Amazon VPC that uses the IPv4 Classless Inter-Domain Routing (CIDR) block
@@ -694,9 +644,7 @@ change the IP address range of an existing VPC or subnet.)
 For configuration information, see [VPC and subnet sizing](../../../vpc/latest/userguide/how-it-works.md#VPC_Sizing "../../../vpc/latest/userguide/how-it-works.md#VPC_Sizing") in the
 Amazon VPC User Guide.
 
-### Can't create the sub-folder structure **/home/ec2-user/environment/home/ec2-user/environment** in the
-
-AWS Cloud9 IDE File Explorer.
+### Can't create the sub-folder structure **/home/ec2-user/environment/home/ec2-user/environment** in the AWS Cloud9 IDE File Explorer.
 
 **Issue:** When you create the sub-folder structure
 **/home/ec2-user/environment/home/ec2-user/environment**
@@ -714,9 +662,7 @@ issue and only affects the AWS Cloud9 IDE File Explorer.
 **Recommended solutions**: Use a different file name and
 structure.
 
-### Can't launch AWS Cloud9 from console when an AWS License Manager
-
-license configuration is associated with Amazon EC2 instances
+### Can't launch AWS Cloud9 from console when an AWS License Manager license configuration is associated with Amazon EC2 instances
 
 **Issue:** When you try to launch an AWS Cloud9 EC2
 environment from the console, an error message `unable to access your
@@ -741,9 +687,7 @@ allows EC2 actions when a `license-configuration` applies to the instance.
 You can replace the old role simply by deleting it. The updated role is then created
 automatically.
 
-### Can't run some commands or scripts in an
-
-EC2 environment
+### Can't run some commands or scripts in an EC2 environment
 
 **Issue:** After you open an AWS Cloud9 EC2 development environment, you can't
 install some types of packages, run commands such as `yum` or
@@ -758,10 +702,7 @@ Ubuntu Server.
 commands or scripts in the IDE for an EC2 environment, ensure they are compatible with either
 RHEL (for Amazon Linux) or Ubuntu Server, depending on the instance for that environment.
 
-### Error message reporting "Instance profile
-
-AWSCloud9SSMInstanceProfile does not exist in account" when creating EC2 environment using
-CloudFormation
+### Error message reporting "Instance profile AWSCloud9SSMInstanceProfile does not exist in account" when creating EC2 environment using CloudFormation
 
 **Issue:** When using the [AWS::Cloud9::EnvironmentEC2](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md") CloudFormation resource to create an EC2 environment, users
 receive an error message that **`Instance profile AWSCloud9SSMInstanceProfile
@@ -778,13 +719,9 @@ created automatically. But when using CloudFormation or AWS CLI to create your f
 environment, you must create these IAM resources manually.
 
 **Recommended solution:** For information about editing
-your CloudFormation template and updating IAM permissions, see [Using CloudFormation to create no-ingress
-EC2 environments](ec2-ssm.md#cfn-role-and-permissions "ec2-ssm.md#cfn-role-and-permissions")
+your CloudFormation template and updating IAM permissions, see [Using CloudFormation to create no-ingress EC2 environments](ec2-ssm.md#cfn-role-and-permissions "ec2-ssm.md#cfn-role-and-permissions")
 
-### Error message reporting "not authorized to
-
-`perform: ssm:StartSession` on resource" when creating EC2 environment using
-CloudFormation
+### Error message reporting "not authorized to `perform: ssm:StartSession` on resource" when creating EC2 environment using CloudFormation
 
 **Issue:** When using the [AWS::Cloud9::EnvironmentEC2](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.md") CloudFormation resource to create an EC2 environment, users
 receive an `AccessDeniedException` and are informed that they're "not
@@ -795,14 +732,9 @@ authorized to perform: `ssm:StartSession` on resource."
 EC2 environments that use Systems Manager for no-ingress instances.
 
 **Recommended solution:** For information about editing
-your CloudFormation template and updating IAM permissions, see [Using CloudFormation to create no-ingress
-EC2 environments](ec2-ssm.md#cfn-role-and-permissions "ec2-ssm.md#cfn-role-and-permissions").
+your CloudFormation template and updating IAM permissions, see [Using CloudFormation to create no-ingress EC2 environments](ec2-ssm.md#cfn-role-and-permissions "ec2-ssm.md#cfn-role-and-permissions").
 
-### Error message reporting no authorization "to
-
-perform: `iam:GetInstanceProfile` on resource: instance profile
-`AWSCloud9SSMInstanceProfile`" when creating EC2 environment using
-AWS CLI
+### Error message reporting no authorization "to perform: `iam:GetInstanceProfile` on resource: instance profile `AWSCloud9SSMInstanceProfile`" when creating EC2 environment using AWS CLI
 
 **Issue:** When using the [AWS CLI](tutorials-basic.md#tutorial-create-environment "tutorials-basic.md#tutorial-create-environment") to create an EC2 environment, users
 receive an `AccessDeniedException` and are informed that their AWS Cloud9
@@ -815,12 +747,9 @@ EC2 environments that use Systems Manager for no-ingress instances.
 
 **Recommended solution:** For information about adding
 the required `AWSCloud9SSMAccessRole` service role and
-`AWSCloud9SSMInstanceProfile` to your AWS Cloud9 environment, see [Managing instance profiles for Systems Manager
-with the AWS CLI](ec2-ssm.md#aws-cli-instance-profiles "ec2-ssm.md#aws-cli-instance-profiles").
+`AWSCloud9SSMInstanceProfile` to your AWS Cloud9 environment, see [Managing instance profiles for Systems Manager with the AWS CLI](ec2-ssm.md#aws-cli-instance-profiles "ec2-ssm.md#aws-cli-instance-profiles").
 
-### Failure to create environment when default
-
-encryption is applied to Amazon EBS volumes
+### Failure to create environment when default encryption is applied to Amazon EBS volumes
 
 **Issue:**
 `Failed to create environments. The development environment '[environment-ID]'
@@ -840,9 +769,7 @@ customer managed key that's used by your Amazon EBS volumes.
 For more information about this task, see [Create an AWS Cloud9 that uses Amazon EBS volumes with default encryption](../../../prescriptive-guidance/latest/patterns/create-an-aws-cloud9-ide-that-uses-amazon-ebs-volumes-with-default-encryption.md "../../../prescriptive-guidance/latest/patterns/create-an-aws-cloud9-ide-that-uses-amazon-ebs-volumes-with-default-encryption.md") in
 _AWS Prescriptive Guidance Patterns_.
 
-### VPC error for EC2-Classic accounts: "Unable to
-
-access your environment"
+### VPC error for EC2-Classic accounts: "Unable to access your environment"
 
 **Issue:** EC2-Classic was introduced in the original
 release of Amazon EC2. If you use an AWS account that was set up before December 4, 2013,
@@ -894,10 +821,7 @@ and subnet that you can launch your EC2 instance into.
 The following section outlines troubleshooting issues related to other AWS
 services.
 
-### Can't create the sub-folder structure
-
-**/projects/projects** within the File Explorer of
-the AWS Cloud9 IDE for CodeCatalyst.
+### Can't create the sub-folder structure **/projects/projects** within the File Explorer of the AWS Cloud9 IDE for CodeCatalyst.
 
 **Issue:** When you create the sub-folder structure
 **/projects/projects** in the AWS Cloud9 IDE File Explorer for
@@ -914,9 +838,7 @@ AWS Cloud9 IDE File Explorer for CodeCatalyst.
 **Recommended solutions**: Use a different file name and
 structure.
 
-### Can't display your running application
-
-outside of the IDE
+### Can't display your running application outside of the IDE
 
 **Issue:** When you or others try to display your running
 application in a web browser tab outside of the IDE, that web browser tab displays an
@@ -959,21 +881,18 @@ error, or the tab is blank.
   example, an Amazon EC2 instance). Then, ensure all the security groups that are
   associated with the corresponding instance allow inbound traffic over the
   protocols, ports, and IP addresses that the application requires. For
-  instructions, see [Step 2: Set up the security group for
-  the instance](app-preview-share.md#app-preview-share-security-group "app-preview-share.md#app-preview-share-security-group") in _Share a running
+  instructions, see [Step 2: Set up the security group for the instance](app-preview-share.md#app-preview-share-security-group "app-preview-share.md#app-preview-share-security-group") in _Share a running
   application over the internet_. See also [Security Groups for Your
   VPC](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") in the _Amazon VPC User Guide_.
 - Suppose that the application is running on an AWS cloud compute instance.
   Moreover, a network ACL exists for the subnet in the VPC that's associated with
   the corresponding instance. Then, ensure that network ACL allows inbound traffic
   over the protocols, ports, and IP addresses that the application requires. For
-  instructions, see [Step 3: Set up the subnet for the
-  instance](app-preview-share.md#app-preview-share-subnet "app-preview-share.md#app-preview-share-subnet") in _Share a running
+  instructions, see [Step 3: Set up the subnet for the instance](app-preview-share.md#app-preview-share-subnet "app-preview-share.md#app-preview-share-subnet") in _Share a running
   application over the internet_. See also [Network ACLs](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the
   _Amazon VPC User Guide_.
 - Ensure that the requesting URL, including the protocol (and port, if it must be
-  specified), is correct. For more information, see [Step 4: Share your running application's
-  URL](app-preview-share.md#app-preview-share-url "app-preview-share.md#app-preview-share-url") in
+  specified), is correct. For more information, see [Step 4: Share your running application's URL](app-preview-share.md#app-preview-share-url "app-preview-share.md#app-preview-share-url") in
   _Share a running application over the internet_.
 - We don't recommend requesting a URL with the format
   `https://12a34567b8cd9012345ef67abcd890e1.vfs.cloud9.us-east-2.amazonaws.com/`
@@ -989,8 +908,7 @@ error, or the tab is blank.
   Determine whether the instance's public IP address has changed. The instance's
   public IP address might change anytime the instance restarts. To prevent this IP
   address from changing, you can allocate an Elastic IP address and assign it to the
-  running instance. For more information, see [Step 4: Share your running application's
-  URL](app-preview-share.md#app-preview-share-url "app-preview-share.md#app-preview-share-url") in _Share a running
+  running instance. For more information, see [Step 4: Share your running application's URL](app-preview-share.md#app-preview-share-url "app-preview-share.md#app-preview-share-url") in _Share a running
   application over the internet_.
 - If the web request originates from a VPN, ensure that VPN allows traffic over
   the protocols, ports, and IP addresses that the application requires. If you can't
@@ -1005,9 +923,7 @@ error, or the tab is blank.
   `curl` command, followed by the URL. If this command displays an
   error message, there might be some other issue that's not related to AWS Cloud9.
 
-### Error when running AWS Toolkit: "Your environment is
-
-running out of inodes, please increase 'fs.inotify.max_user_watches' limit."
+### Error when running AWS Toolkit: "Your environment is running out of inodes, please increase 'fs.inotify.max_user_watches' limit."
 
 **Issue:** A file watcher utility that AWS Toolkit uses
 is approaching its current limit or quota of files it can watch.
@@ -1027,9 +943,7 @@ number of files that can be handled by file watcher, do the following:
 sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf' && sudo sysctl -p
 ```
 
-### Lambda local function run error:
-
-Cannot install SAM Local
+### Lambda local function run error: Cannot install SAM Local
 
 **Issue:** After you attempt to run the local version of an
 AWS Lambda function in the AWS Cloud9 IDE, a dialog box is displayed. The dialog box states
@@ -1051,10 +965,7 @@ To see how AWS Cloud9 is doing with attempting to install SAM Local, choose
 To install SAM Local yourself, follow the instructions in [Installing the AWS SAM CLI
 on Linux](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install-linux.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install-linux.md") in the _AWS Serverless Application Model Developer Guide._
 
-### AWS Control Tower error when trying to create
-
-an Amazon EC2 environment using AWS Cloud9: "The environment creation failed with the error:
-The following hook(s) failed:[ControlTower::Guard::Hook]."
+### AWS Control Tower error when trying to create an Amazon EC2 environment using AWS Cloud9: "The environment creation failed with the error: The following hook(s) failed:[ControlTower::Guard::Hook]."
 
 **Issue:** A compatibility issue exists with AWS Cloud9 and
 the AWS Control Tower proactive control _CT.EC2.PR.8_. If
@@ -1069,9 +980,7 @@ time.
 control*CT.EC2.PR.8* from the AWS Control Tower console
 and re-create the environment in AWS Cloud9.
 
-### Failure to create environment when default
-
-encryption is applied to Amazon EBS volumes
+### Failure to create environment when default encryption is applied to Amazon EBS volumes
 
 **Issue:**
 `Failed to create environments. The development environment '[environment-ID]'
@@ -1093,9 +1002,7 @@ _AWS Prescriptive Guidance Patterns_.
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
-### Can't launch AWS Cloud9 from console when an AWS License Manager
-
-license configuration is associated with Amazon EC2 instances
+### Can't launch AWS Cloud9 from console when an AWS License Manager license configuration is associated with Amazon EC2 instances
 
 **Issue:** When you try to launch an AWS Cloud9 EC2
 environment from the console, an error message `unable to access your
@@ -1127,9 +1034,7 @@ automatically.
 The following section outlines troubleshooting issues related to the application
 preview.
 
-### After reloading an environment, you must
-
-refresh application preview
+### After reloading an environment, you must refresh application preview
 
 **Issue:** After you reload an environment that displays an
 application preview tab, the tab doesn't display the application preview.
@@ -1143,9 +1048,7 @@ reload application preview tabs whenever an environment is reloaded.
 application preview tab, to display the application preview, choose the **Click
 to load the page** button on the tab.
 
-### Application preview or file preview notice:
-
-"Third-party cookies disabled"
+### Application preview or file preview notice: "Third-party cookies disabled"
 
 **Issue:** When you attempt to preview [an application](app-preview.md "app-preview.md") or [a
 file](file-preview.md "file-preview.md"), a notice is displayed with the following message: "Preview functionality
@@ -1203,9 +1106,7 @@ AWS Regions where you want to use AWS Cloud9.
 | Middle East (Bahrain)     | `*.vfs.cloud9.me-south-1.amazonaws.com`<br>`vfs.cloud9.me-south-1.amazonaws.com`         |
 | South America (São Paulo) | `*.vfs.cloud9.sa-east-1.amazonaws.com`<br>`vfs.cloud9.sa-east-1.amazonaws.com`           |
 
-### Application preview tab displays an error
-
-or is blank
+### Application preview tab displays an error or is blank
 
 **Issue:** On the menu bar in the IDE, when you choose
 **Preview, Preview Running Application** or **Tools,
@@ -1265,9 +1166,7 @@ a preview tab in the IDE, the tab displays an error, or the tab is blank.
   choosing the **Refresh** button (the circular arrow) on the
   corresponding application preview tab, if the tab is already visible.
 
-### Can't preview web content in the IDE
-
-because the connection to the site isn't secure
+### Can't preview web content in the IDE because the connection to the site isn't secure
 
 **Issue:** When you try to access web content such as a
 WordPress site that's hosted in an AWS Cloud9 EC2 environment, the IDE preview window can't
@@ -1284,9 +1183,7 @@ scripts or content from the web site that you're trying to preview in the IDE. F
 instructions for your web server or content management system for guidance on
 implementing HTTPS.
 
-### Previewing a file returns a
-
-499 error
+### Previewing a file returns a 499 error
 
 **Issue:** When you try to use the AWS Cloud9 IDE to preview a
 file that contains a `<script>` element that contains the
@@ -1308,9 +1205,7 @@ and try to preview it again.
 
 The following section outlines troubleshooting issues related to performance.
 
-### AWS Cloud9 IDE freezing for a significant
-
-amount of time
+### AWS Cloud9 IDE freezing for a significant amount of time
 
 **Issue:** During start-up, and when performing a refresh,
 the AWS Cloud9 IDE terminal freezes for a significant amount of time and becomes
@@ -1333,9 +1228,7 @@ search_. To do this navigate to _Preferences > Project Settings >
 Find in Files_. Be aware that this will cause folders that are ignored to
 not show up in a file search.
 
-### Console warning: "Switching to
-
-the minimal code completion engine..."
+### Console warning: "Switching to the minimal code completion engine..."
 
 **Issue:** When working in the AWS Cloud9 console (for
 example, when opening the IDE or refreshing the IDE's web page), you see this message:
@@ -1359,9 +1252,7 @@ capacity.
 Choosing a larger Amazon EC2 instance might cause your AWS account to incur
 additional charges. For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
 
-### IDE warning: "This environment is running
-
-low on memory" or "This environment has high CPU load"
+### IDE warning: "This environment is running low on memory" or "This environment has high CPU load"
 
 **Issue:** While the IDE is running, you see a message
 that contains the phrase "this environment is running low on memory" or "this environment has high
@@ -1409,9 +1300,7 @@ sudo swapon /var/swapfile
 ```
 
 - Move or resize the environment to an instance or server with more compute resources.
-  To move or resize Amazon EC2 instances, see [Moving an AWS Cloud9 IDE
-  from
-  Amazon EBS volumes](move-environment.md "move-environment.md"). For other instance or server types, refer
+  To move or resize Amazon EC2 instances, see [Moving an AWS Cloud9 IDE from Amazon EBS volumes](move-environment.md "move-environment.md"). For other instance or server types, refer
   to your instance's or server's documentation.
 
 ### Unable to upload files in the AWS Cloud9 IDE
@@ -1437,9 +1326,7 @@ megabyte/second.
 transferring files, use the CLI in your AWS Cloud9 IDE to upload files to Amazon S3 and then use
 Amazon S3 to download the files from there.
 
-### Can't preview web content in the IDE
-
-because the connection to the site isn't secure
+### Can't preview web content in the IDE because the connection to the site isn't secure
 
 **Issue:** When you try to access web content such as a
 WordPress site that's hosted in an AWS Cloud9 EC2 environment, the IDE preview window can't
@@ -1458,16 +1345,12 @@ implementing HTTPS.
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
-## Third party applications and
-
-services
+## Third party applications and services
 
 The following section outlines troubleshooting issues related to third party
 applications and services.
 
-### Can't interact with the terminal window in AWS Cloud9
-
-because of `tmux` session errors
+### Can't interact with the terminal window in AWS Cloud9 because of `tmux` session errors
 
 **Issue:** When you attempt to launch a new terminal
 window in AWS Cloud9, the expected command line interface isn't available. There's no command
@@ -1540,9 +1423,7 @@ sudo chmod 777 /tmp
 sudo rmdir /tmp/tmux-*
 ```
 
-### Can't load IDE using earlier versions of
-
-Microsoft Edge browser
+### Can't load IDE using earlier versions of Microsoft Edge browser
 
 **Issue:**
 `HTTP403: FORBIDDEN` error is returned when trying to load AWS Cloud9 IDE using
@@ -1557,9 +1438,7 @@ choose **Settings** and then choose **About Microsoft
 Edge**. If an update is required, it's automatically downloaded
 and installed.
 
-### Error with `gdb`
-
-when debugging C++ projects
+### Error with `gdb` when debugging C++ projects
 
 **Issue:** Error reported for `gdb`
 debugger when trying to debug C++ project in the IDE.

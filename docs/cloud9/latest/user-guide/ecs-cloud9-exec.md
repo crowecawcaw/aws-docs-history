@@ -44,17 +44,13 @@ communicate with the SSM service.
 For information about the IAM role and policy that's specific to Amazon ECS Exec, see
 [IAM permissions required for ECS Exec](../../../AmazonECS/latest/developerguide/ecs-exec.md#ecs-exec-enabling-and-using "../../../AmazonECS/latest/developerguide/ecs-exec.md#ecs-exec-enabling-and-using") in the _Amazon ECS_ _Developer Guide_.
 
-##
-
-Working with the Amazon ECS Exec
+## Working with the Amazon ECS Exec
 
 You can enable or disable the Amazon ECS Exec directly from the AWS Explorer in the
 AWS Toolkit for AWS Cloud9. When you enabled Amazon ECS Exec, choose containers from the Amazon ECS
 menu, and run commands against them.
 
-###
-
-Enabling Amazon ECS Exec
+### Enabling Amazon ECS Exec
 
 1. From the AWS Explorer, locate and expand the Amazon ECS menu.
 2. Expand the cluster with the service that you want to modify.
@@ -65,9 +61,7 @@ Enabling Amazon ECS Exec
 This step starts a new deployment of your service and might take a few minutes. For more
 information, see the note at the beginning of this section.
 
-###
-
-Disabling Amazon ECS Exec
+### Disabling Amazon ECS Exec
 
 1. From the AWS Explorer, locate and expand the Amazon ECS menu.
 2. Expand the cluster that contains the service that you want.
@@ -78,9 +72,7 @@ Disabling Amazon ECS Exec
 This step starts a new deployment of your service and might take a few minutes. For more
 information, see the note at the beginning of this section.
 
-###
-
-Running commands against a Container
+### Running commands against a Container
 
 To run commands against a container using the AWS Explorer, Amazon ECS Exec must be enabled. If it's not enabled, see the [Enabling Amazon ECS Exec](#enabling-exec "#enabling-exec") procedure in this section.
 

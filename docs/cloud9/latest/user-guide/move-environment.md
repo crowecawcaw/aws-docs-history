@@ -2,10 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Moving an AWS Cloud9 IDE
-
-from
-Amazon EBS volumes
+# Moving an AWS Cloud9 IDE from Amazon EBS volumes
 
 You can move an AWS Cloud9 development environment from one Amazon EC2 instance to another. For example, you might want
 to do the following actions:
@@ -123,9 +120,7 @@ Type** earlier in this procedure, nothing happens after you choose
 For more information about the preceding procedure, see [Changing the instance type](../../../AWSEC2/latest/UserGuide/ec2-instance-resize.md "../../../AWSEC2/latest/UserGuide/ec2-instance-resize.md") in the
 _Amazon EC2 User Guide_.
 
-## Moving an AWS Cloud9 EC2 environment to a different Amazon
-
-Machine Image (AMI)
+## Moving an AWS Cloud9 EC2 environment to a different Amazon Machine Image (AMI)
 
 This topic explains how to migrate an AWS Cloud9 EC2 environment from one Amazon Linux AMI to another AWS Cloud9
 supported AMI.
@@ -150,8 +145,7 @@ procedures:
    While choosing the **Platform**, select the platform that you
    want to migrate your environment to. 2. By default, environments are created with 10 GiB volume. If you don't have
    sufficient space to upload or unpack the archive to the new environment, complete the
-   steps in [Resize an Amazon EBS volume that an environment
-   uses](move-environment-resize.md "move-environment-resize.md") procedure to resize Amazon EBS volume
+   steps in [Resize an Amazon EBS volume that an environment uses](move-environment-resize.md "move-environment-resize.md") procedure to resize Amazon EBS volume
    size.
 
 2. Open the environment that you want to migrate in the AWS Cloud9 IDE.
@@ -211,8 +205,7 @@ are located outside the `~/environment` directory.
    While choosing the **Platform**, select the platform that you
    want to migrate your environment to. 2. By default, environments are created with 10 GiB volume. If you don’t have
    sufficient space to move files from the source volume to the new environment, complete
-   the steps in [Resize an Amazon EBS volume that an environment
-   uses](move-environment-resize.md "move-environment-resize.md") procedure to resize Amazon EBS
+   the steps in [Resize an Amazon EBS volume that an environment uses](move-environment-resize.md "move-environment-resize.md") procedure to resize Amazon EBS
    volume size.
 
 4. Complete the following steps to detach the volume from the existing instance:

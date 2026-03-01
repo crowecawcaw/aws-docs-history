@@ -14,16 +14,12 @@ press `Enter`.
 
 ![The chat area in the AWS Cloud9 IDE](images/ide-collaborate-chat.png)
 
-## View chat messages in a shared
-
-Environment
+## View chat messages in a shared Environment
 
 With the shared environment open, in the **Collaborate** window, expand
 **Group Chat**, if the list of chat messages isn't visible.
 
-## Delete chat messages from a shared
-
-Environment
+## Delete chat messages from a shared Environment
 
 With the shared environment open, in the **Collaborate** window, open the
 context (right-click) menu for the chat message in **Group Chat**. Then,
@@ -33,9 +29,7 @@ choose **Delete Message**.
 
 When you delete a chat message, it is deleted from the environment for all members.
 
-## Delete all chat messages from a shared
-
-Environment
+## Delete all chat messages from a shared Environment
 
 With the shared environment open, in the **Collaborate** window, open a
 context (right-click) menu anywhere in **Group Chat**. Then, choose

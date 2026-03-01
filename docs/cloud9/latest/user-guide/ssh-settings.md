@@ -40,9 +40,7 @@ For more information, see [AWS managed temporary credentials](security-iam.md#au
   If you want to create an EC2 environment instead, see [Creating an EC2 Environment](create-environment-main.md "create-environment-main.md"). Otherwise, continue reading for information
   about creating SSH environments.
 
-## When and how to create an
-
-SSH Environment
+## When and how to create an SSH Environment
 
 You must create an SSH environment instead of an EC2 environment whenever you have any of the
 following requirements:

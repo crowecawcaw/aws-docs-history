@@ -26,10 +26,8 @@ the _AWS Cloud9 Guide_.
 
 ###### Topics
 
-- [Getting started with Amazon CodeCatalyst in
-  AWS Cloud9](ide-toolkits-cloud9-getstarted.md "ide-toolkits-cloud9-getstarted.md")
+- [Getting started with Amazon CodeCatalyst in AWS Cloud9](ide-toolkits-cloud9-getstarted.md "ide-toolkits-cloud9-getstarted.md")
 - [Migrate from AWS Cloud9 to Amazon CodeCatalyst](c9-replication-cc.md "c9-replication-cc.md")
 - [Using the replication tool](c9-replication-cc-tool.md "c9-replication-cc-tool.md")
-- [FAQs about the replication
-  process](faqs-replication-tool.md "faqs-replication-tool.md")
+- [FAQs about the replication process](faqs-replication-tool.md "faqs-replication-tool.md")
 - [Dev Environments in Amazon CodeCatalyst](devenvironment-cloud9.md "devenvironment-cloud9.md")

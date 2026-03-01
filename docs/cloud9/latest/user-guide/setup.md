@@ -53,10 +53,8 @@ instead. For related information, see the following resources:
 ###### Topics
 
 - [Prerequisites](#setup-prerequisites "#setup-prerequisites")
-- [Step 1: Create an IAM group and user, and
-  add the user to the group](#setup-create-iam-resources "#setup-create-iam-resources")
-- [Step 2: Add AWS Cloud9 access permissions to the
-  group](#setup-give-user-access "#setup-give-user-access")
+- [Step 1: Create an IAM group and user, and add the user to the group](#setup-create-iam-resources "#setup-create-iam-resources")
+- [Step 2: Add AWS Cloud9 access permissions to the group](#setup-give-user-access "#setup-give-user-access")
 - [Step 3: Sign in to the AWS Cloud9 console](#setup-sign-in-ide "#setup-sign-in-ide")
 - [Next steps](#setup-next-steps "#setup-next-steps")
 
@@ -120,9 +118,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Step 1: Create an IAM group and user, and
-
-add the user to the group
+## Step 1: Create an IAM group and user, and add the user to the group
 
 In this step, you create a group and a user in AWS Identity and Access Management (IAM), add the user to the
 group, and then use the user to access AWS Cloud9. This is an AWS security best practice. For
@@ -143,9 +139,7 @@ You can complete these tasks using the [AWS Management Console](#setup-create-ia
 To watch a 9-minute video related to the following console procedures, see [How do I set up an IAM user and sign
 in to the AWS Management Console using IAM credentials](https://www.youtube.com/watch?v=XMi5fXL2Hes "https://www.youtube.com/watch?v=XMi5fXL2Hes") on YouTube.
 
-### Step 1.1: Create an IAM
-
-group with the console
+### Step 1.1: Create an IAM group with the console
 
 1. Sign in to the AWS Management Console, if you aren't already signed in, at [https://console.aws.amazon.com/codecommit](https://console.aws.amazon.com/codecommit "https://console.aws.amazon.com/codecommit").
 
@@ -177,9 +171,7 @@ troubleshoot issues with AWS resource access.
 Skip ahead to [Step 2.2:
 Create an IAM user and add the user to the group with the console](#setup-create-iam-resources-user-console "#setup-create-iam-resources-user-console").
 
-### Step 1.2: Create an IAM group
-
-with the AWS CLI
+### Step 1.2: Create an IAM group with the AWS CLI
 
 ###### Note
 
@@ -223,9 +215,7 @@ troubleshoot issues with AWS resource access.
 Skip ahead to [Step 2.2: Create an
 IAM user and add the user to the group with the AWS CLI](#setup-create-iam-resources-user-cli "#setup-create-iam-resources-user-cli").
 
-### Step 1.3: Create an IAM user
-
-and add the user to the group with the console
+### Step 1.3: Create an IAM user and add the user to the group with the console
 
 1. With the IAM console open from the previous procedure, in the navigation
    pane, choose **Users**.
@@ -277,9 +267,7 @@ _IAM User Guide_.
     and then skip ahead to [Step 3: Add AWS Cloud9
     access permissions to the group](#setup-give-user-access "#setup-give-user-access").
 
-### Step 1.4: Create an IAM user and
-
-add the user to the group with the AWS CLI
+### Step 1.4: Create an IAM user and add the user to the group with the AWS CLI
 
 ###### Note
 
@@ -329,9 +317,7 @@ aws iam add-user-to-group --group-name MyCloud9Group --user-name MyCloud9User
 6. Repeat this procedure for each additional IAM user that you want to
    create.
 
-## Step 2: Add AWS Cloud9 access permissions to the
-
-group
+## Step 2: Add AWS Cloud9 access permissions to the group
 
 By default, most IAM groups and users don't have access to any AWS services,
 including AWS Cloud9, (an exception is IAM administrator groups and IAM administrator users,
@@ -348,9 +334,7 @@ that person before starting the following procedure.
 You can complete this task using the [AWS Management Console](#setup-give-user-access-console "#setup-give-user-access-console") or the [AWS
 CLI](#setup-give-user-access-cli "#setup-give-user-access-cli").
 
-### Step 2.1: Add AWS Cloud9 access permissions to the
-
-group with the console
+### Step 2.1: Add AWS Cloud9 access permissions to the group with the console
 
 1. Sign in to the AWS Management Console, if you aren't already signed in, at [https://console.aws.amazon.com/codecommit](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 
@@ -412,9 +396,7 @@ _IAM User Guide_.
 Skip ahead to [Step 4: Sign in to the AWS Cloud9
 console](#setup-sign-in-ide "#setup-sign-in-ide").
 
-### Step 2.2: Add AWS Cloud9 access permissions to the group
-
-with the AWS CLI
+### Step 2.2: Add AWS Cloud9 access permissions to the group with the AWS CLI
 
 ###### Note
 

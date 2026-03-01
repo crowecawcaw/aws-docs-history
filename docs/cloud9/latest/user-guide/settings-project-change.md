@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Customize your project
-
-settings
+# Customize your project settings
 
 These sections describe the kinds of project settings that you can change on the
 **Preferences** tab's **Project Settings**
@@ -296,9 +294,7 @@ character.
 If enabled, AWS Cloud9 indents `<head>` and
 `<body>` sections in HTML code.
 
-## TypeScript
-
-support
+## TypeScript support
 
 \***\*Format Code on Save\*\***
 
@@ -334,9 +330,7 @@ PHP files are saved.
 The path to any custom code formatting configuration for PHP
 code.
 
-## Python
-
-support
+## Python support
 
 \***\*Enable Python code completion\*\***
 

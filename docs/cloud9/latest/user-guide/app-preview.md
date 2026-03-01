@@ -132,12 +132,10 @@ displays the application's output on the tab.
 ###### Note
 
 If the application preview tab displays an error or is blank, follow the troubleshooting
-steps in [Application preview tab displays an error
-or is blank](troubleshooting.md#troubleshooting-app-preview "troubleshooting.md#troubleshooting-app-preview"). If when you attempt to preview an
+steps in [Application preview tab displays an error or is blank](troubleshooting.md#troubleshooting-app-preview "troubleshooting.md#troubleshooting-app-preview"). If when you attempt to preview an
 application or file, you get the following notice _"Preview functionality is
 disabled because your browser has third-party cookies disabled"_, follow
-the troubleshooting steps in [Application preview or file preview notice:
-"Third-party cookies disabled"](troubleshooting.md#troubleshooting-preview "troubleshooting.md#troubleshooting-preview").
+the troubleshooting steps in [Application preview or file preview notice: "Third-party cookies disabled"](troubleshooting.md#troubleshooting-preview "troubleshooting.md#troubleshooting-preview").
 
 ###### Note
 

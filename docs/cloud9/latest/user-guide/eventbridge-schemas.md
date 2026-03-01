@@ -46,9 +46,7 @@ In the **AWS Explorer**, do one or more of the following:
 To display the schema in the dialog box, select the title of the
 schema.
 
-## Generate code for an available
-
-Schema
+## Generate code for an available Schema
 
 1. In the **AWS Explorer**, expand
    **Schemas**.

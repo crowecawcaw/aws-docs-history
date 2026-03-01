@@ -30,9 +30,7 @@ The following steps outline how to update the timeout period for an Amazon EC2 e
 3. In the **Preferences** window scroll to the **Amazon EC2 instance** section.
 4. Select the timeout value from the list available and update.
 
-## Change environment settings with the
-
-console
+## Change environment settings with the console
 
 1. Sign in to the AWS Cloud9 console as follows:
    - If you're the only individual using your AWS account or you're an

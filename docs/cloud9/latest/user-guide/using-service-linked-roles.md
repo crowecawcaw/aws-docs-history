@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Using service-linked roles for
-
-AWS Cloud9
+# Using service-linked roles for AWS Cloud9
 
 AWS Cloud9 uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md"). A service-linked role is a unique type of IAM role
 that's linked directly to AWS Cloud9. Service-linked roles are predefined by
@@ -33,9 +31,7 @@ role documentation for that service.
 - [Supported Regions for AWS Cloud9 service-linked
   roles](#slr-regions "#slr-regions")
 
-## Service-linked role permissions for
-
-AWS Cloud9
+## Service-linked role permissions for AWS Cloud9
 
 AWS Cloud9 uses the service-linked role named AWSServiceRoleForAWSCloud9. This service-linked role
 trusts the service `cloud9.amazonaws.com` to assume the role.
@@ -199,16 +195,12 @@ a service-linked role.
 }
 ```
 
-## Creating a service-linked role for
-
-AWS Cloud9
+## Creating a service-linked role for AWS Cloud9
 
 You don't need to create a service-linked role. When you create an AWS Cloud9 development environment,
 AWS Cloud9 creates the service-linked role for you.
 
-## Editing a service-linked role for
-
-AWS Cloud9
+## Editing a service-linked role for AWS Cloud9
 
 You can't edit the AWSServiceRoleForAWSCloud9 service-linked role in AWS Cloud9. For example, after
 you create a service-linked role, you can't change the name of the role because various
@@ -216,17 +208,13 @@ entities might reference the role. However, you can edit the description of the 
 using IAM. For more information, see [Editing a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AWS Cloud9
+## Deleting a service-linked role for AWS Cloud9
 
 If you no longer need to use a feature or service that requires a service-linked role,
 we recommend that you delete that role. That way you don’t have an unused entity that
 isn't actively monitored or maintained.
 
-### Deleting a
-
-service-linked role in IAM
+### Deleting a service-linked role in IAM
 
 Before you can use IAM to delete a service-linked role, you must remove any
 AWS Cloud9 resources used by the role. To remove AWS Cloud9 resources, see
@@ -236,9 +224,7 @@ You can use the IAM console to delete the AWSServiceRoleForAWSCloud9 service-lin
 more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for AWS Cloud9 service-linked
-
-roles
+## Supported Regions for AWS Cloud9 service-linked roles
 
 AWS Cloud9 supports using service-linked roles in all the Regions where the service
 is available. For more information, see [AWS Cloud9](../../../general/latest/gr/rande.md#cloud9_region "../../../general/latest/gr/rande.md#cloud9_region")

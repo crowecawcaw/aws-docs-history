@@ -18,8 +18,7 @@ You can use the AWS Toolkit to do the following with Step Functions:
 - [Prerequisites](#bulding-stepfunctions-pre "#bulding-stepfunctions-pre")
 - [Create and publish a state machine](#state-machine-create "#state-machine-create")
 - [Run a state machine in AWS Toolkit](#starting-stepfunctions "#starting-stepfunctions")
-- [Download a state machine definition file and visualize its
-  workflow](#sfn-download "#sfn-download")
+- [Download a state machine definition file and visualize its workflow](#sfn-download "#sfn-download")
 
 ## Prerequisites
 
@@ -90,9 +89,7 @@ the ARN of the process ID. You can use that process ID to check in the AWS Step 
 whether the workflow ran successfully. You can also see the timestamps for when your
 workflow started and ended.
 
-## Download a state machine definition file and visualize its
-
-workflow
+## Download a state machine definition file and visualize its workflow
 
 To download a state machine means you download a file containing JSON text that represents the structure of that state machine. You can then edit this file to create a new state machine or update an existing one. For more information, see [Amazon States Language](../../../step-functions/latest/dg/concepts-amazon-states-language.md "../../../step-functions/latest/dg/concepts-amazon-states-language.md") in the _AWS Step Functions Developer Guide_.
 

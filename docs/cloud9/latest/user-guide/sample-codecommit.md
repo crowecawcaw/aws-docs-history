@@ -37,9 +37,7 @@ requirements:
   open.** When you open an environment, AWS Cloud9 opens the IDE for that environment in your
   web browser. For more information, see [Opening an environment in AWS Cloud9](open-environment.md "open-environment.md").
 
-## Step 1: Set up your IAM group with
-
-required access permissions
+## Step 1: Set up your IAM group with required access permissions
 
 Suppose that your AWS credentials are associated with an administrator user in your
 AWS account, and you want to use that user to work with CodeCommit Then, skip ahead to [Step 2: Create a Repository in
@@ -48,9 +46,7 @@ AWS CodeCommit](#sample-codecommit-create-repo "#sample-codecommit-create-repo")
 You can complete this step using the [AWS Management Console](#sample-codecommit-permissions-console "#sample-codecommit-permissions-console") or the
 [AWS Command Line Interface (AWS CLI)](#sample-codecommit-permissions-cli "#sample-codecommit-permissions-cli").
 
-### Set up your IAM group with
-
-required access permissions using the console
+### Set up your IAM group with required access permissions using the console
 
 1. Sign in to the AWS Management Console, if you aren't already signed in.
 
@@ -79,9 +75,7 @@ _AWS CodeCommit User Guide_.
 Skip ahead to [Step 2: Create a
 Repository in AWS CodeCommit](#sample-codecommit-create-repo "#sample-codecommit-create-repo").
 
-### Set up your IAM group with
-
-required access permissions using the AWS CLI
+### Set up your IAM group with required access permissions using the AWS CLI
 
 Run the IAM `attach-group-policy` command, specifying the group's name and
 the Amazon Resource Name (ARN) of the AWS managed policy that describes the required
@@ -106,9 +100,7 @@ To see the list of access permissions that these AWS managed policies give to a
 group, see [AWS Managed (Predefined) Policies for AWS CodeCommit](../../../codecommit/latest/userguide/auth-and-access-control-iam-identity-based-access-control.md#managed-policies "../../../codecommit/latest/userguide/auth-and-access-control-iam-identity-based-access-control.md#managed-policies") in the
 _AWS CodeCommit User Guide_.
 
-## Step 2: Create a repository in
-
-CodeCommit
+## Step 2: Create a repository in CodeCommit
 
 In this step, you create a remote code repository in CodeCommit by using the CodeCommit
 console.
@@ -119,9 +111,7 @@ Repository](#sample-codecommit-connect-repo "#sample-codecommit-connect-repo").
 You can complete this step using the [AWS Management Console](#sample-codecommit-create-repo-console "#sample-codecommit-create-repo-console") or the
 [AWS Command Line Interface (AWS CLI)](#sample-codecommit-create-repo-cli "#sample-codecommit-create-repo-cli").
 
-### Create a repository in CodeCommit
-
-using the console
+### Create a repository in CodeCommit using the console
 
 1. Suppose that you're signed in to the AWS Management Console as an administrator user from
    the previous step, and you don't want to use the administrator user to create the
@@ -146,9 +136,7 @@ for the AWS Cloud9 sample.`
 Skip ahead to [Step 3: Connect Your
 Environment to the Remote Repository](#sample-codecommit-connect-repo "#sample-codecommit-connect-repo").
 
-### Create a repository in CodeCommit using
-
-the AWS CLI
+### Create a repository in CodeCommit using the AWS CLI
 
 Run the AWS CodeCommit `create-repository` command. Specify the repository's
 name, an optional description, and the AWS Region to create the repository in.
@@ -163,9 +151,7 @@ AWS Region to create the repository in. For a list of supported Regions, see [AW
 If you choose to use a different repository name, substitute it throughout this
 sample.
 
-## Step 3: Connect your environment to the remote
-
-repository
+## Step 3: Connect your environment to the remote repository
 
 In this step, you use the AWS Cloud9 IDE to connect to the CodeCommit repository that you created
 or identified in the previous step.
@@ -184,9 +170,7 @@ AWS Cloud9 development environment.
 | EC2 environment      | 1. From a terminal session in the IDE, run the following two<br>commands:<br>`<br>git config --global credential.helper '!aws codecommit credential-helper $@'<br>git config --global credential.UseHttpPath true<br>`<br>For more information, see [Step 2: Configure the AWS CLI Credential Helper On Your AWS Cloud9<br>EC2 Development Environment](../../../codecommit/latest/userguide/setting-up-ide-c9.md#setting-up-ide-c9-credentials "../../../codecommit/latest/userguide/setting-up-ide-c9.md#setting-up-ide-c9-credentials") in *Integrate AWS Cloud9 with AWS CodeCommit<br>• in the<br>*AWS CodeCommit User Guide\*.<br>2. Skip ahead to [Step 4:<br>Clone the Remote Repository into Your Environment](#sample-codecommit-clone-repo "#sample-codecommit-clone-repo") later in<br>this topic.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | SSH environment      | 1. If Git isn't already installed in the environment, use a<br>terminal session in the IDE to install it. For more information, see<br>[Step 2: Install Git](../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git "../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git") in *Setup<br>Steps for SSH Connections to AWS CodeCommit Repositories on Linux,<br>macOS, or Unix<br>• in the<br>*AWS CodeCommit User Guide*.<br>2. Complete [Step 3: Configure Credentials on Linux, macOS, or Unix](../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git "../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git") in<br>*Setup Steps for SSH Connections to AWS CodeCommit Repositories on Linux, macOS, or Unix<br>• in the<br>_AWS CodeCommit User Guide_.<br>When you're instructed to sign in to the AWS Management Console and open the<br>IAM console, we recommend you sign in using credentials for an<br>administrator user in your AWS account. If you cannot do this, check<br>with your AWS account administrator.<br>3. Skip ahead to [Step 4:<br>Clone the Remote Repository into Your Environment](#sample-codecommit-clone-repo "#sample-codecommit-clone-repo") later in<br>this topic. |
 
-## Step 4: Clone the remote repository into
-
-your environment
+## Step 4: Clone the remote repository into your environment
 
 In this step, you use the AWS Cloud9 IDE to clone the remote repository in CodeCommit into your
 environment.

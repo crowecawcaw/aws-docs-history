@@ -28,8 +28,7 @@ Amazon EBS encryption encrypts the following data:
 - Encryption of an existing Amazon EBS volume used by an
   EC2 environment – You can encrypt specific Amazon EBS volumes that are already
   created for EC2 instances. This option involves using the AWS Key Management Service (AWS KMS) to manage
-  access to the encrypted volumes. For the relevant procedure, see [Encrypt an existing Amazon EBS volume that AWS Cloud9
-  uses](#encrypting-existing-volume "#encrypting-existing-volume").
+  access to the encrypted volumes. For the relevant procedure, see [Encrypt an existing Amazon EBS volume that AWS Cloud9 uses](#encrypting-existing-volume "#encrypting-existing-volume").
 
 ###### Important
 
@@ -43,9 +42,7 @@ To provide access, add the service-linked role for AWS Cloud9,
 volumes. For more information about this task, see [Create an AWS Cloud9 IDE that uses Amazon EBS volumes with default encryption](../../../prescriptive-guidance/latest/patterns/create-an-aws-cloud9-ide-that-uses-amazon-ebs-volumes-with-default-encryption.md "../../../prescriptive-guidance/latest/patterns/create-an-aws-cloud9-ide-that-uses-amazon-ebs-volumes-with-default-encryption.md") in
 _AWS Prescriptive Guidance Patterns_.
 
-## Encrypt an existing Amazon EBS volume that AWS Cloud9
-
-uses
+## Encrypt an existing Amazon EBS volume that AWS Cloud9 uses
 
 Encrypting an existing Amazon EBS volume involves using AWS KMS to create a KMS key. After
 you create a snapshot of the volume to replace, you use the KMS key to encrypt a copy of

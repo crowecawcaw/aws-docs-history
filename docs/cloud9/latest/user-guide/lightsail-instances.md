@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Working with Amazon Lightsail instances in the
-
-AWS Cloud9 IDE
+# Working with Amazon Lightsail instances in the AWS Cloud9 IDE
 
 You can use the AWS Cloud9 IDE to work with code on Amazon Lightsail instances that are
 preconfigured with popular applications and frameworks. They include WordPress,
@@ -41,9 +39,7 @@ SSH Development Environment](#lightsail-instances-environment "#lightsail-instan
 
 IDE to Change the Code on the Instance](#lightsail-instances-change-code "#lightsail-instances-change-code")
 
-## Step 1: Create a Linux-based Lightsail
-
-instance
+## Step 1: Create a Linux-based Lightsail instance
 
 In this step, you use the Lightsail console to create an Amazon EC2 instance that runs an
 app in a Linux-based distribution. This instance automatically includes the
@@ -129,9 +125,7 @@ Node.js, as described in the previous step in this procedure.
 Then, run the command `which node` again and note the new value that
 appears. 8. [Download and run the AWS Cloud9 Installer](installer.md#installer-download-run "installer.md#installer-download-run") on the instance.
 
-## Step 3: Create and connect to an
-
-AWS Cloud9 SSH Development Environment
+## Step 3: Create and connect to an AWS Cloud9 SSH Development Environment
 
 In this step, you use the AWS Cloud9 console and the instance's terminal to create an SSH environment and then connect the environment to the running instance.
 
@@ -205,9 +199,7 @@ If AWS Cloud9 doesn't display the IDE after at least five minutes, there might b
 virtual private cloud (VPC). For possible fixes, see
 [Cannot Open an Environment](troubleshooting.md#troubleshooting-env-loading "troubleshooting.md#troubleshooting-env-loading") in _Troubleshooting_.
 
-## Step 4: Use the AWS Cloud9 IDE to change the code on the
-
-instance
+## Step 4: Use the AWS Cloud9 IDE to change the code on the instance
 
 Now that the IDE appears for the new environment, you can use the terminal session in the
 IDE instead of the Lightsail terminal session. The IDE provides a rich code editing
@@ -215,9 +207,7 @@ experience with support for several programming languages and runtime debuggers.
 also includes color themes, shortcut keybindings, programming language-specific syntax
 coloring and code formatting.
 
-To learn how to use the IDE, see [Tour
-of
-the AWS Cloud9 IDE](tour-ide.md "tour-ide.md").
+To learn how to use the IDE, see [Tour of the AWS Cloud9 IDE](tour-ide.md "tour-ide.md").
 
 To learn how to change the code on your instance, we recommend the following
 resources:

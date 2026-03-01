@@ -19,18 +19,15 @@ Use the following checklist to confirm that the VPC meets **all** of the followi
 - The VPC can be in the same AWS account and AWS Region as the AWS Cloud9 development environment or
   The VPC can be a shared VPC in a different AWS account than the environment. However, the
   VPC must be in the same AWS Region as the environment. For more information on Amazon VPCs for
-  an AWS Region, see [View a list of VPCs for an
-  AWS Region](#vpc-settings-requirements-list-vpcs "#vpc-settings-requirements-list-vpcs"). For more instructions on
+  an AWS Region, see [View a list of VPCs for an AWS Region](#vpc-settings-requirements-list-vpcs "#vpc-settings-requirements-list-vpcs"). For more instructions on
   creating an Amazon VPC for AWS Cloud9, see [Create a VPC plus other VPC resources](#vpc-settings-create-vpc "#vpc-settings-create-vpc"). For information about working with
   shared Amazon VPCs, see [Working with shared
   VPCs](../../../vpc/latest/userguide/vpc-sharing.md "../../../vpc/latest/userguide/vpc-sharing.md") in the _Amazon VPC User Guide._
 - A VPC must have a public subnet. A subnet is public if its traffic is routed to an
-  internet gateway. For a list of subnets for an Amazon VPC, see [View a list of subnets for a
-  VPC](#vpc-settings-requirements-subnets-view "#vpc-settings-requirements-subnets-view").
+  internet gateway. For a list of subnets for an Amazon VPC, see [View a list of subnets for a VPC](#vpc-settings-requirements-subnets-view "#vpc-settings-requirements-subnets-view").
 - If your environment is accessing its EC2 instance directly though SSH, the
   instance can be launched into a public subnet only. For information about confirming
-  whether a subnet is public, see [Confirm whether a subnet is
-  public](#vpc-settings-requirements-subnet-public "#vpc-settings-requirements-subnet-public").
+  whether a subnet is public, see [Confirm whether a subnet is public](#vpc-settings-requirements-subnet-public "#vpc-settings-requirements-subnet-public").
 - If you're accessing a [no-ingress Amazon EC2 instance](ec2-ssm.md "ec2-ssm.md")
   using Systems Manager, the instance can be launched into either a public or a private
   subnet.
@@ -39,25 +36,18 @@ Use the following checklist to confirm that the VPC meets **all** of the followi
   connect to Systems Manager.
 - If you're using a private subnet, allow the instance for the subnet to communicate
   with the internet by hosting a NAT gateway in a public subnet. For more information
-  about viewing or changing settings for an internet gateway, see [View or change
-  settings for an internet gateway](#vpc-settings-requirements-internet-gateway-view "#vpc-settings-requirements-internet-gateway-view")
+  about viewing or changing settings for an internet gateway, see [View or change settings for an internet gateway](#vpc-settings-requirements-internet-gateway-view "#vpc-settings-requirements-internet-gateway-view")
 - The public subnet must have a route table with a minimum set of routes. To learn
-  how to confirm whether a subnet has a route table, see[Confirm whether a subnet
-  has a route table](#vpc-settings-requirements-subnet-route-table "#vpc-settings-requirements-subnet-route-table"). For information
-  about how to create a route table, see [Create a route
-  table](#vpc-settings-requirements-route-table-create "#vpc-settings-requirements-route-table-create").
+  how to confirm whether a subnet has a route table, see[Confirm whether a subnet has a route table](#vpc-settings-requirements-subnet-route-table "#vpc-settings-requirements-subnet-route-table"). For information
+  about how to create a route table, see [Create a route table](#vpc-settings-requirements-route-table-create "#vpc-settings-requirements-route-table-create").
 - The associated security groups for the VPC (or for the AWS Cloud compute
   instance, depending on your architecture) must allow a minimum set of inbound and
-  outbound traffic. For a list of security groups for an Amazon VPC, see [View a list of
-  security groups for a VPC](#vpc-settings-requirements-security-groups-vpc-view "#vpc-settings-requirements-security-groups-vpc-view"). For more
-  information about creating a security group in an Amazon VPC, see [Create a security
-  group in a VPC](#vpc-settings-requirements-security-group-vpc-create "#vpc-settings-requirements-security-group-vpc-create").
+  outbound traffic. For a list of security groups for an Amazon VPC, see [View a list of security groups for a VPC](#vpc-settings-requirements-security-groups-vpc-view "#vpc-settings-requirements-security-groups-vpc-view"). For more
+  information about creating a security group in an Amazon VPC, see [Create a security group in a VPC](#vpc-settings-requirements-security-group-vpc-create "#vpc-settings-requirements-security-group-vpc-create").
 - For an additional layer of security, if the VPC has a network ACL, the network ACL
   must allow a minimum set of inbound and outbound traffic. To confirm whether an Amazon VPC
-  has at least one network ACL, see [Confirm whether a VPC
-  has at least one network ACL](#vpc-settings-requirements-network-acl-confirm "#vpc-settings-requirements-network-acl-confirm"). For information
-  about creating a network ACL, see [Create a network
-  ACL](#vpc-settings-requirements-network-acl-create "#vpc-settings-requirements-network-acl-create").
+  has at least one network ACL, see [Confirm whether a VPC has at least one network ACL](#vpc-settings-requirements-network-acl-confirm "#vpc-settings-requirements-network-acl-confirm"). For information
+  about creating a network ACL, see [Create a network ACL](#vpc-settings-requirements-network-acl-create "#vpc-settings-requirements-network-acl-create").
 - If your development environment is [using SSM to access
   an EC2 instance](ec2-ssm.md "ec2-ssm.md"), ensure that the instance is assigned a public IP address
   by the public subnet it's launched into. To do so, you must enable the automatic
@@ -77,9 +67,7 @@ If you use the AWS CLI or the AWS CloudShell, we recommend that you configure th
 the AWS CloudShell with the credentials for an administrator in your AWS account. If you
 can't do this, check with your AWS account administrator.
 
-### View a list of VPCs for an
-
-AWS Region
+### View a list of VPCs for an AWS Region
 
 To use the Amazon VPC console, in the AWS navigation bar, choose the AWS Region that
 AWS Cloud9 creates the environment in. Then, choose **Your VPCs** in the
@@ -98,9 +86,7 @@ with the `aws-shell`, omit `aws`.
 
 The output contains the list of VPC IDs.
 
-### View a list of subnets for a
-
-VPC
+### View a list of subnets for a VPC
 
 To use the Amazon VPC console, choose **Your VPCs** in the navigation
 pane. Note the ID of the VPC in the **VPC ID** column. Then choose
@@ -120,9 +106,7 @@ with the `aws-shell`, omit `aws`.
 
 In the output, look for subnets that match the VPC ID.
 
-### Confirm whether a subnet is
-
-public
+### Confirm whether a subnet is public
 
 ###### Important
 
@@ -175,9 +159,7 @@ omit `aws`.
 In the output, if there's at least one result that starts with `igw-`, the
 VPC contains an internet gateway.
 
-### View or change
-
-settings for an internet gateway
+### View or change settings for an internet gateway
 
 To use the Amazon VPC console, choose **Internet Gateways** in the
 navigation pane. Select the box next to the internet gateway. To see the settings, look
@@ -196,9 +178,7 @@ contains the internet gateway, and replace `igw-1234ab5c` with the internet
 gateway ID. To run the preceding command with the `aws-shell`, omit
 `aws`.
 
-### Create an internet
-
-gateway
+### Create an internet gateway
 
 To use the Amazon VPC console, choose **Internet Gateways** in the
 navigation pane. Choose **Create internet gateway**, and then follow
@@ -217,9 +197,7 @@ command with the `aws-shell`, omit `aws`.
 
 The output contains the ID of the new internet gateway.
 
-### Attach an internet
-
-gateway to a VPC
+### Attach an internet gateway to a VPC
 
 To use the Amazon VPC console, choose **Internet Gateways** in the
 navigation pane. Select the box next to the internet gateway. Choose **Actions,
@@ -237,9 +215,7 @@ contains the internet gateway. Replace `igw-a1b2cdef` with the internet
 gateway ID. And replace `vpc-1234ab56` with the VPC ID. To run the preceding
 command with the `aws-shell`, omit `aws`.
 
-### Confirm whether a subnet
-
-has a route table
+### Confirm whether a subnet has a route table
 
 To use the Amazon VPC console, choose **Subnets** in the navigation pane.
 Select the box next to the public subnet for the VPC that you want AWS Cloud9 to use. On the
@@ -278,9 +254,7 @@ omit `aws`.
 In the output, if there's at least one result, the VPC has at least one route
 table.
 
-### Attach a route table to a
-
-subnet
+### Attach a route table to a subnet
 
 To use the Amazon VPC console, choose **Route Tables** in the navigation
 pane. Select the box next to the route table that you want to attach. On the
@@ -299,9 +273,7 @@ contains the route table. Replace `subnet-12a3456b` with the subnet ID. And
 replace `rtb-ab12cde3` with the route table ID. To run the preceding command
 with the `aws-shell`, omit `aws`.
 
-### Create a route
-
-table
+### Create a route table
 
 To use the Amazon VPC console, choose **Route Tables** in the navigation
 pane. Choose **Create Route Table**, and then follow the on-screen
@@ -321,9 +293,7 @@ double quotation marks (" "). To run the preceding command with the
 
 The output contains the ID of the new route table.
 
-### View or change settings for
-
-a route table
+### View or change settings for a route table
 
 To use the Amazon VPC console, choose **Route Tables** in the navigation
 pane. Select the box next to the route table. To see the settings, look at each of the
@@ -342,9 +312,7 @@ contains the route table, and replace `rtb-ab12cde3` with the route table ID.
 To run the preceding command with the `aws-shell`, omit
 `aws`.
 
-### Minimum suggested route
-
-table settings for AWS Cloud9
+### Minimum suggested route table settings for AWS Cloud9
 
 | **Destination** | **Target**                | **Status** | **Propagated** |
 | --------------- | ------------------------- | ---------- | -------------- |
@@ -354,9 +322,7 @@ table settings for AWS Cloud9
 In these settings, `*CIDR-BLOCK*` is the CIDR block for
 the subnet, and `igw-*INTERNET-GATEWAY-ID*` is the ID of a compatible internet gateway.
 
-### View a list of
-
-security groups for a VPC
+### View a list of security groups for a VPC
 
 To use the Amazon VPC console, choose **Security Groups** in the
 navigation pane. In the **Search Security Groups** box, enter the VPC
@@ -377,9 +343,7 @@ omit `aws`.
 
 The output contains the list of security group IDs for that VPC.
 
-### View a list of
-
-security groups for an AWS Cloud compute instance
+### View a list of security groups for an AWS Cloud compute instance
 
 To use the Amazon EC2 console, expand **Instances** in the navigation
 pane, and then choose **Instances**. In the list of instances, choose
@@ -401,9 +365,7 @@ with double quotation marks (" "). To run the preceding command with the
 
 The output contains the list of security group IDs for that instance.
 
-### View or change
-
-settings for a security group in a VPC
+### View or change settings for a security group in a VPC
 
 To use the Amazon VPC console, choose **Security Groups** in the
 navigation pane. Select the box next to the security group. To see the settings, look at
@@ -422,9 +384,7 @@ contains the instance, and replace `sg-12a3b456` with the security group ID.
 To run the preceding command with the `aws-shell`, omit
 `aws`.
 
-### View or change
-
-settings for an AWS Cloud compute instance security group
+### View or change settings for an AWS Cloud compute instance security group
 
 To use the Amazon EC2 console, expand **Instances** in the navigation
 pane, and then choose **Instances**. In the list of instances, select
@@ -445,9 +405,7 @@ contains the instance, and replace `sg-12a3b456` with the security group ID.
 To run the preceding command with the `aws-shell`, omit
 `aws`.
 
-### Minimum inbound and
-
-outbound traffic settings for AWS Cloud9
+### Minimum inbound and outbound traffic settings for AWS Cloud9
 
 ###### Important
 
@@ -518,9 +476,7 @@ _Amazon VPC User Guide_.
   VPC](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md")
 - [Network ACLs](../../../vpc/latest/userguide/VPC_ACLs.md "../../../vpc/latest/userguide/VPC_ACLs.md")
 
-### Create a security
-
-group in a VPC
+### Create a security group in a VPC
 
 To use the Amazon VPC or Amazon EC2 consoles, do one of the following actions:
 
@@ -542,9 +498,7 @@ In the preceding command, replace `us-east-2` with the AWS Region that
 contains the VPC, and replace `vpc-1234ab56` with the VPC ID. To run the
 preceding command with the `aws-shell`, omit `aws`.
 
-### Confirm whether a VPC
-
-has at least one network ACL
+### Confirm whether a VPC has at least one network ACL
 
 To use the Amazon VPC console, choose **Your VPCs** in the navigation
 pane. Choose the box next to the VPC that you want AWS Cloud9 to use. On the
@@ -566,9 +520,7 @@ omit `aws`.
 If the output contains at least one entry in the list, the VPC has at least one
 network ACL.
 
-### View a list of network
-
-ACLs for a VPC
+### View a list of network ACLs for a VPC
 
 To use the Amazon VPC console, choose **Network ACLs** in the navigation
 pane. In the **Search Network ACLs** box, enter the VPC ID or name, and
@@ -589,9 +541,7 @@ omit `aws`.
 
 The output contains a list of network ACLs for that VPC.
 
-### View or change settings for
-
-a network ACL
+### View or change settings for a network ACL
 
 To use the Amazon VPC console, choose **Network ACLs** in the navigation
 pane. Choose the box next to the network ACL. To see the settings, look at each of the
@@ -610,9 +560,7 @@ contains the network ACL, and replace `acl-1234ab56` with the network ACL ID.
 To run the preceding command with the `aws-shell`, omit
 `aws`.
 
-### Create a network
-
-ACL
+### Create a network ACL
 
 To use the Amazon VPC console, choose **Network ACLs** in the navigation
 pane. Choose **Create Network ACL**, and then follow the on-screen

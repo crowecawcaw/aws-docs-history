@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Configuration options for debugging serverless
-
-applications
+# Configuration options for debugging serverless applications
 
 With inline actions, you can easily find and define properties for invoking Lambda functions directly or with the SAM template. You can also define properties for
 `"lambda"` (how the function runs), `"sam"` (how the AWS SAM CLI
@@ -40,9 +38,7 @@ file.
 | `skipNewImageCheck`              | Specifies whether the command should skip pulling down the latest<br>Docker image for Lambda runtime.                                                                                                                                                                                                                                                                             | `false`           |
 | `template`                       | Customizes your SAM template by using parameters to input customer<br>values to it. For more information, see [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the<br>_AWS CloudFormation User Guide_.                                                  | `"parameters":{}` |
 
-AWS
-connection
-(`"aws"`) properties| Property | Description | Default value |
-| --- | --- | --- |
-| `credentials` | Selects a specific profile (for example,<br>`profile:default`) from your credential file<br>to get AWS credentials. | The AWS credentials provided by your existing shared AWS config file or shared AWS<br>credentials file. |
-| `Region` | Sets the AWS Region of the service (for example,<br>us-east-1). | The default AWS Region associated with the active credentials<br>profile. |
+| AWS connection (`"aws"`) properties | Property                                                                                                            | Description                                                                                             | Default value |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------- |
+| `credentials`                       | Selects a specific profile (for example,<br>`profile:default`) from your credential file<br>to get AWS credentials. | The AWS credentials provided by your existing shared AWS config file or shared AWS<br>credentials file. |
+| `Region`                            | Sets the AWS Region of the service (for example,<br>us-east-1).                                                     | The default AWS Region associated with the active credentials<br>profile.                               |

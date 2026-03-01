@@ -2,10 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Working with themes in the
-
-AWS Cloud9
-IDE
+# Working with themes in the AWS Cloud9 IDE
 
 A _theme_ defines your overall IDE colors. This applies across each
 AWS Cloud9 development environment associated with your IAM user. As you make changes to your theme, AWS Cloud9 pushes

@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# AMI
-
-contents for an AWS Cloud9 EC2 Development Environment
+# AMI contents for an AWS Cloud9 EC2 Development Environment
 
 Use the following information to get details about Amazon Machine Images (AMIs) that
 AWS Cloud9 uses for an EC2 environment.

@@ -198,9 +198,7 @@ php composer.phar require psr/log ext-curl doctrine/cache aws/aws-php-sns-messag
 
 For more information, see [Installation](../../../sdk-for-php/v3/developer-guide/installation.md "../../../sdk-for-php/v3/developer-guide/installation.md") in the _AWS SDK for PHP Developer Guide_.
 
-### To set up credentials management in your
-
-environment
+### To set up credentials management in your environment
 
 Each time you use the AWS SDK for PHP to call an AWS service, you must provide a set of
 credentials with the call. These credentials determine whether the AWS SDK for PHP has the
@@ -337,9 +335,7 @@ My buckets now are:
 To prevent ongoing charges to your AWS account after you're done using this sample,
 you should delete the environment. For instructions, see [Deleting an environment in AWS Cloud9](delete-environment.md "delete-environment.md").
 
-### Troubleshooting issues with PHP runner for
-
-AWS Cloud9
+### Troubleshooting issues with PHP runner for AWS Cloud9
 
 In the event that you encounter issues with the PHP CLI runner, you must ensure that
 the runner has been set to PHP and that debugger mode is enabled.

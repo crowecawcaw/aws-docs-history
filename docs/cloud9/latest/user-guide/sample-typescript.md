@@ -15,8 +15,7 @@ charges for services such as Amazon EC2 and Amazon S3. For more information, see
 - [Step 1: Install required tools](#sample-typescript-install "#sample-typescript-install")
 - [Step 2: Add code](#sample-typescript-code "#sample-typescript-code")
 - [Step 3: Run the code](#sample-typescript-run "#sample-typescript-run")
-- [Step 4: Install and configure the
-  AWS SDK for JavaScript in Node.js](#sample-typescript-sdk "#sample-typescript-sdk")
+- [Step 4: Install and configure the AWS SDK for JavaScript in Node.js](#sample-typescript-sdk "#sample-typescript-sdk")
 - [Step 5: Add AWS SDK code](#sample-typescript-sdk-code "#sample-typescript-sdk-code")
 - [Step 6: Run the AWS SDK code](#sample-typescript-sdk-run "#sample-typescript-sdk-run")
 - [Step 7: Clean up](#sample-typescript-clean-up "#sample-typescript-clean-up")
@@ -190,9 +189,7 @@ The sum of 5 and 9 is 14.
 Instead of creating a new run configuration in the IDE, you can also execute this
 code by running the command **`node hello.js 5 9`** from the terminal.
 
-## Step 4: Install and configure the
-
-AWS SDK for JavaScript in Node.js
+## Step 4: Install and configure the AWS SDK for JavaScript in Node.js
 
 You can enhance this sample to use the AWS SDK for JavaScript in Node.js to create an Amazon S3 bucket, list your
 available buckets, and then delete the bucket you just created.
@@ -217,9 +214,7 @@ These folders contain source code and dependencies for the AWS SDK for JavaScrip
 information, see [Installing the SDK for
 JavaScript](../../../sdk-for-javascript/latest/developer-guide/installing-jssdk.md "../../../sdk-for-javascript/latest/developer-guide/installing-jssdk.md") in the _AWS SDK for JavaScript Developer Guide_.
 
-### To set up credentials management in your
-
-environment
+### To set up credentials management in your environment
 
 Each time you use the AWS SDK for JavaScript in Node.js to call an AWS service, you must provide a set of
 credentials with the call. These credentials determine whether the AWS SDK for JavaScript in Node.js has the

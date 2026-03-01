@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Manually stopping your environment's EC2
-
-instance
+# Manually stopping your environment's EC2 instance
 
 The [EC2 Instance](settings-project-change.md#settings-project-change-ec2-instance "settings-project-change.md#settings-project-change-ec2-instance") setting
 allows you to automatically stop your environment's Amazon EC2 instance as quickly as 30 minutes

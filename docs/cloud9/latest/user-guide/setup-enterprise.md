@@ -59,9 +59,7 @@ steps according to the AWS resources that you already have.
 | Yes                                                                                                                           | Yes                                                                                  | Yes                                                                     | Yes                                                         | No                                                                                                     | [Step 5. Set up groups and<br>users within the organization](#setup-enterprise-set-up-groups-users "#setup-enterprise-set-up-groups-users")                   |
 | Yes                                                                                                                           | Yes                                                                                  | Yes                                                                     | Yes                                                         | Yes                                                                                                    | [Step 6. Enable groups and<br>users within the organization to use AWS Cloud9](#setup-enterprise-groups-users-access "#setup-enterprise-groups-users-access") |
 
-## Step 1: Create a management account for
-
-the organization
+## Step 1: Create a management account for the organization
 
 ###### Note
 
@@ -90,9 +88,7 @@ To create a management account:
 After you finish creating the account, AWS will send you a confirmation email. Do not
 go to the next step until you get this confirmation.
 
-## Step 2: Create an organization for
-
-the management account
+## Step 2: Create an organization for the management account
 
 ###### Note
 
@@ -115,9 +111,7 @@ instructions in the _AWS Organizations User Guide_:
 To watch a 4-minute video related to these procedures, see [AWS Knowledge Center Videos: How do
 I get started with AWS Organizations](https://www.youtube.com/watch?v=mScBPL8VV48 "https://www.youtube.com/watch?v=mScBPL8VV48") on YouTube.
 
-## Step 3: Add member accounts to the
-
-organization
+## Step 3: Add member accounts to the organization
 
 ###### Note
 
@@ -148,9 +142,7 @@ as members of the organization:
 - [Creating an AWS account in your organization](../../../organizations/latest/userguide/orgs_manage_accounts_create.md "../../../organizations/latest/userguide/orgs_manage_accounts_create.md")
 - [Inviting an AWS account to join your organization](../../../organizations/latest/userguide/orgs_manage_accounts_invites.md "../../../organizations/latest/userguide/orgs_manage_accounts_invites.md")
 
-## Step 4: Enable IAM Identity Center across the
-
-organization
+## Step 4: Enable IAM Identity Center across the organization
 
 ###### Note
 
@@ -167,9 +159,7 @@ Guide_:
    prerequisites](../../../singlesignon/latest/userguide/get-started-prereqs-considerations.md "../../../singlesignon/latest/userguide/get-started-prereqs-considerations.md")
 2. [Enable IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md")
 
-## Step 5. Set up groups and users
-
-within the organization
+## Step 5. Set up groups and users within the organization
 
 ###### Note
 
@@ -213,9 +203,7 @@ permissions to use AWS Cloud9.
   AWS Directory Service for the organization, see [Connect to your Microsoft AD directory](../../../singlesignon/latest/userguide/manage-your-directory-connected.md "../../../singlesignon/latest/userguide/manage-your-directory-connected.md") in the _AWS IAM Identity Center User
   Guide_.
 
-## Step 6. Enable groups and users
-
-within the organization to use AWS Cloud9
+## Step 6. Enable groups and users within the organization to use AWS Cloud9
 
 By default, most users and groups in an organization in AWS Organizations don't have access to
 any AWS services, including AWS Cloud9. In this step, you use IAM Identity Center to allow groups and users

@@ -33,9 +33,7 @@ some approaches.
 | EC2 or SSH       | Store your permanent AWS access credentials within the environment.<br>This approach is less secure than using temporary AWS access credentials.<br>However, it's the only supported approach for an SSH environment.<br>For instructions, see [Create<br>and Store Permanent Access Credentials in an Environment](#credentials-permanent-create "#credentials-permanent-create").                                                                                                                                                                                                                                                                                   |
 | EC2 or SSH       | Insert your permanent AWS access credentials directly into your code.<br>We discourage this approach because it doesn't follow AWS security best<br>practices.<br>Because we discourage this approach, we do not cover it in this<br>topic.                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-## Create and use an instance profile to manage temporary
-
-credentials
+## Create and use an instance profile to manage temporary credentials
 
 ###### Note
 
@@ -56,9 +54,7 @@ Environment](create-environment.md "create-environment.md").
 You can complete these tasks with the [IAM and Amazon EC2 consoles](#credentials-temporary-create-console "#credentials-temporary-create-console") or the
 [AWS Command Line Interface (AWS CLI)](#credentials-temporary-create-cli "#credentials-temporary-create-cli").
 
-### Create an instance profile with the
-
-IAM console
+### Create an instance profile with the IAM console
 
 ###### Note
 
@@ -95,9 +91,7 @@ enter a name for the role (for example,
 Skip ahead to [Attach an Instance
 Profile to an Instance with the Amazon EC2 Console](#credentials-temporary-attach-console "#credentials-temporary-attach-console").
 
-### Create an instance profile with the
-
-AWS CLI
+### Create an instance profile with the AWS CLI
 
 ###### Note
 
@@ -185,9 +179,7 @@ aws iam add-role-to-instance-profile --role-name my-demo-cloud9-instance-profile
 Skip ahead to Create an Instance
 Profile with the AWS CLI.
 
-### Attach an instance profile to an
-
-instance with the Amazon EC2 console
+### Attach an instance profile to an instance with the Amazon EC2 console
 
 1. Sign in to the Amazon EC2 console, at [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2").
 
@@ -227,9 +219,7 @@ aws-shell, or both to call AWS services, see the [AWS CLI and aws-shell Sample](
 from your code, see our other [tutorials and
 samples](tutorials.md "tutorials.md").
 
-### Attach an instance profile to an
-
-instance with the AWS CLI
+### Attach an instance profile to an instance with the AWS CLI
 
 ###### Note
 
@@ -277,9 +267,7 @@ aws-shell, or both to call AWS services, see the [AWS CLI and aws-shell Sample](
 from your code, see our other [tutorials and
 samples](tutorials.md "tutorials.md").
 
-## Create and store permanent access credentials
-
-in an Environment
+## Create and store permanent access credentials in an Environment
 
 ###### Note
 
@@ -309,9 +297,7 @@ To grant users programmatic access, choose one of the following options.
 | IAM                                                          | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                                   | Following the instructions in [Using temporary<br>credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the _IAM User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | IAM                                                          | (Not recommended)Use long-term credentials to sign programmatic requests<br>to the AWS CLI, AWS SDKs, or AWS APIs.                  | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Authenticating using IAM user credentials](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in<br>the _AWS Command Line Interface User Guide_.<br>• For AWS SDKs and tools, see [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the<br>_AWS SDKs and Tools Reference Guide_.<br>• For AWS APIs, see [Managing access keys for<br>IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_. |
 
-### Create permanent access credentials with
-
-the AWS CLI
+### Create permanent access credentials with the AWS CLI
 
 ###### Note
 
@@ -343,9 +329,7 @@ to view the user's AWS secret access key. To generate a new AWS secret access ke
 the user later if needed, see [Creating, Modifying, and Viewing Access Keys (API, CLI, PowerShell)](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey_CLIAPI "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey_CLIAPI") in the
 _IAM User Guide_.
 
-### Store permanent access credentials in
-
-an Environment
+### Store permanent access credentials in an Environment
 
 In this procedure, you use the AWS Cloud9 IDE to store your permanent AWS access
 credentials in your environment. This procedure assumes you already created an environment in AWS Cloud9,

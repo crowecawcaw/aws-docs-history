@@ -58,9 +58,7 @@ _Amazon VPC User Guide_.
 To use these IP address ranges when configuring SSH environments that use your own network,
 see the documentation for your network or your network administrator.
 
-## IP addresses not in
-
-`ip-ranges.json`
+## IP addresses not in `ip-ranges.json`
 
 AWS Cloud9 IP address ranges for the following AWS Regions aren't currently provided in the
 `ip-ranges.json` file: Asia Pacific (Hong Kong), Europe (Milan), and

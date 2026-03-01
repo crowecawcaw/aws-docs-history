@@ -113,9 +113,7 @@ at the root level of an environment that isn't part of a project. The IDE might 
 This might result in no references or definitions found, even though those references or definitions actually exist in
 language projects elsewhere across the same environment.
 
-### Create a TypeScript Language
-
-Project
+### Create a TypeScript Language Project
 
 1. Ensure you have TypeScript installed in the environment. For more information, see [Step 1: Install required tools](sample-typescript.md#sample-typescript-install "sample-typescript.md#sample-typescript-install") in the [TypeScript tutorial for AWS Cloud9](sample-typescript.md "sample-typescript.md").
 2. From a terminal session in the IDE for the environment, switch to the directory where you want to create the project. If the directory doesn't exist, create it and then

@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Working with Systems Manager automation
-
-documents
+# Working with Systems Manager automation documents
 
 With AWS Systems Manager, you have visibility and control of your infrastructure on AWS. Systems Manager
 provides a unified user interface that you can use to view operational data from multiple
@@ -19,16 +17,14 @@ outlines how to create, edit, publish, and delete automation documents with AWS 
 ###### Topics
 
 - [Assumptions and prerequisites](#systems-manager-assumptions "#systems-manager-assumptions")
-- [IAM permissions for Systems Manager Automation
-  documents](#systems-manager-permissions "#systems-manager-permissions")
+- [IAM permissions for Systems Manager Automation documents](#systems-manager-permissions "#systems-manager-permissions")
 - [Creating a new Systems Manager automation document](#systems-manager-create "#systems-manager-create")
 - [Publishing a Systems Manager automation document](#systems-manager-publish "#systems-manager-publish")
 - [Editing an existing Systems Manager automation document](#systems-manager-open "#systems-manager-open")
 - [Working with versions](#systems-manager-edit-default-version "#systems-manager-edit-default-version")
 - [Deleting a Systems Manager automation document](#systems-manager-delete "#systems-manager-delete")
 - [Running a Systems Manager automation document](#systems-manager-run "#systems-manager-run")
-- [Troubleshooting Systems Manager automation documents in
-  AWS Toolkit](systems-manager-troubleshoot.md "systems-manager-troubleshoot.md")
+- [Troubleshooting Systems Manager automation documents in AWS Toolkit](systems-manager-troubleshoot.md "systems-manager-troubleshoot.md")
 
 ## Assumptions and prerequisites
 
@@ -38,9 +34,7 @@ Before you begin, make sure you met the following conditions:
 - You’re familiar with Systems Manager automation use cases. For more information, see [AWS Systems
   Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md") in the _AWS Systems Manager User Guide_.
 
-## IAM permissions for Systems Manager Automation
-
-documents
+## IAM permissions for Systems Manager Automation documents
 
 To create, edit, publish, and delete Systems Manager automation documents, you must have a
 credentials profile that contains the necessary AWS Identity and Access Management (IAM) permissions. The following

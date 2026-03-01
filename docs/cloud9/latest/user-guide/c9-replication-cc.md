@@ -50,9 +50,7 @@ console.
   AWS Cloud9 code resources to source repositories in CodeCatalyst](#c9-replication-cc-source-repo-creation "#c9-replication-cc-source-repo-creation")
 - [Step 5. Creating a Dev Environment in CodeCatalyst using AWS Cloud9](#dev-environment-creation "#dev-environment-creation")
 
-## Step 1. Signing up to Amazon CodeCatalyst and
-
-creating a Space
+## Step 1. Signing up to Amazon CodeCatalyst and creating a Space
 
 You can sign up for Amazon CodeCatalyst without an invitation to an existing space or
 project. When you sign up, you create a space and project. You can enter your
@@ -171,9 +169,7 @@ information about this role and its permissions, see [Space administrator role](
 After you create a project, the next step in the replication process is to
 create one or more source repositories.
 
-## Step 3. Creating a source repository
-
-in your project
+## Step 3. Creating a source repository in your project
 
 Within the project that you just created, you need to create a source repository.
 This repository contains a single file, a **README.md** file, which
@@ -218,9 +214,7 @@ The clone URL and PAT will be used in the step 4, and referenced as
 After you create a source repository within your project, replicate your AWS Cloud9
 data to this source repository.
 
-## Step 4. Replicating
-
-your AWS Cloud9 code resources to source repositories in CodeCatalyst
+## Step 4. Replicating your AWS Cloud9 code resources to source repositories in CodeCatalyst
 
 The type of source repository that you have in your AWS Cloud9 environment
 determines the replication method that you follow to get your code resources into
@@ -235,9 +229,7 @@ the CodeCatalyst source repository that you created. The options are as follows:
   AWS Cloud9](#c9-replication-cc-source-norepo-creation "#c9-replication-cc-source-norepo-creation"). This option means you would not be using any source
   repository in AWS Cloud9.
 
-### Using
-
-GitHub repositories in CodeCatalyst
+### Using GitHub repositories in CodeCatalyst
 
 With the **GitHub repositories**
 extension, you can use linked GitHub repositories from AWS Cloud9 in
@@ -290,9 +282,7 @@ repositories** extension, connect your GitHub
 account to your CodeCatalyst space. To connect your GitHub
 account, perform the following steps.
 
-###### Step 2. To connect your GitHub account to
-
-CodeCatalyst
+###### Step 2. To connect your GitHub account to CodeCatalyst
 
 1. In the **Connected Github accounts** tab, choose
    **Connect GitHub account** to go to
@@ -316,10 +306,7 @@ CodeCatalyst is to link the repository to the CodeCatalyst project where you wan
 To link your GitHub repository to a CodeCatalyst project, perform the
 following steps outlined in Step 3 of the overall process:
 
-###### Step 3. To link a GitHub repository to a CodeCatalyst
-
-project from the GitHub repositories extension details
-page
+###### Step 3. To link a GitHub repository to a CodeCatalyst project from the GitHub repositories extension details page
 
 1. In the **Linked GitHub repositories** tab, choose
    **Link GitHub repository.**.
@@ -344,9 +331,7 @@ You need to create a personal access token (PAT) in Amazon CodeCatalyst
 before replicating your environment from AWS Cloud9 using a non-GitHub
 repository. The following section outlines how to create this token.
 
-#### Creating a personal access
-
-token in Amazon CodeCatalyst
+#### Creating a personal access token in Amazon CodeCatalyst
 
 You can access the source repository that you created in your project on a
 local computer with a Git client or in an integrated
@@ -437,17 +422,13 @@ You can now create
 Dev Environments from this branch and open them with AWS Cloud9. The steps to do this
 are outlined in [Step 5: Creating a Dev Environment using AWS Cloud9 in CodeCatalyst](#dev-environment-creation "#dev-environment-creation")
 
-#### Using an
-
-empty repository in AWS Cloud9
+#### Using an empty repository in AWS Cloud9
 
 First create a personal access token (PAT) in Amazon CodeCatalyst before you
 can replicate your environment from AWS Cloud9 using an empty repository. The
 following section outlines how to create this token.
 
-##### Creating a personal access
-
-token in Amazon CodeCatalyst
+##### Creating a personal access token in Amazon CodeCatalyst
 
 You can access the source repository that you created in your project on a
 local computer with a Git client or in an integrated
@@ -490,9 +471,7 @@ secure location, you can create another one.
 After you create the PAT for your source repository, replicate your data
 from your AWS Cloud9 environment to CodeCatalyst by initiating an empty repository in your AWS Cloud9 environment and pointing to the source repository you created in CodeCatalyst, as outlined in the section below.
 
-##### Initiating an
-
-empty repository in AWS Cloud9
+##### Initiating an empty repository in AWS Cloud9
 
 If you don't have any source repository that's set up in AWS Cloud9, then
 initiate an empty repository in AWS Cloud9. Additionally, point to the source

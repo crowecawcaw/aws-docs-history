@@ -16,9 +16,7 @@ elements:
   pane](#configuration-options "#configuration-options"): Modify settings that affect how you can interact with AWS services in
   AWS Toolkit.
 
-## Using AWS Explorer to work with services and
-
-resources in multiple Regions
+## Using AWS Explorer to work with services and resources in multiple Regions
 
 With the **AWS Explorer** window, you can select AWS services and
 work with specific resources that are associated with that service. In **AWS
@@ -84,8 +82,8 @@ The following tables provides an overview of the options available on the
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | **Refresh AWS Explorer**          | Choose this option to refresh \*_AWS Explorer_<br>• to show any<br>AWS services that were modified since you last opened the window.                                                                                                                          |
 | **Connect to AWS**                | Connects AWS Toolkit to an AWS account using credentials that are stored in a<br>_profile_. For more information, see [Managing access credentials for AWS Toolkit](toolkit-welcome.md#credentials-for-toolkit "toolkit-welcome.md#credentials-for-toolkit"). |
-| **Show region in the Explorer**   | Displays an AWS Region in the \*_AWS Explorer_<br>• window. For<br>more information, see [Using AWS Explorer to work with services and<br>resources in multiple Regions](#working-with-aws-explorer "#working-with-aws-explorer").                            |
-| **Hide region from the Explorer** | Hides an AWS Region in the \*_AWS Explorer_<br>• window. For<br>more information, see [Using AWS Explorer to work with services and<br>resources in multiple Regions](#working-with-aws-explorer "#working-with-aws-explorer")                                |
+| **Show region in the Explorer**   | Displays an AWS Region in the \*_AWS Explorer_<br>• window. For<br>more information, see [Using AWS Explorer to work with services and resources in multiple Regions](#working-with-aws-explorer "#working-with-aws-explorer").                               |
+| **Hide region from the Explorer** | Hides an AWS Region in the \*_AWS Explorer_<br>• window. For<br>more information, see [Using AWS Explorer to work with services and resources in multiple Regions](#working-with-aws-explorer "#working-with-aws-explorer")                                   |
 | **Create new SAM Application**    | Generates a set of code files for a new AWS serverless application. For more<br>information about how to create and deploy SAM applications, see [Working with AWS SAM using the AWS Toolkit](serverless-apps-toolkit.md "serverless-apps-toolkit.md").       |
 | **Deploy SAM Application**        | Deploys a serverless application to AWS. For more information about how to<br>create and deploy SAM applications, see [Working with AWS SAM using the AWS Toolkit](serverless-apps-toolkit.md "serverless-apps-toolkit.md").                                  |
 | **View Quick Start**              | Opens the Quick Start guide.                                                                                                                                                                                                                                  |
@@ -95,9 +93,7 @@ The following tables provides an overview of the options available on the
 | **Submit Quick Feedback**         | Submit private, one-way feedback to the AWS Toolkit development team. For issues<br>that require conversations or bug fixes, submit an issue in Github by selecting the<br>\*_Create a New Issue on Github_<br>• menu option.                                 |
 | **About AWS Toolkit**             | Displays information about the version of the Toolkit running and the Amazon<br>operating system that it's configured for.                                                                                                                                    |
 
-## Modifying AWS Toolkit settings using the AWS
-
-Configuration pane
+## Modifying AWS Toolkit settings using the AWS Configuration pane
 
 To access the **AWS Configuration** pane, choose
 **AWS Cloud9**, **Preferences**. Next, in the

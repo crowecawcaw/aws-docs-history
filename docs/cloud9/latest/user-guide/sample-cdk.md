@@ -54,9 +54,7 @@ sample that is written in the TypeScript programming language.
    languages.)
 4. The [AWS CDK](#sample-cdk-install-cdk "#sample-cdk-install-cdk").
 
-### Step 1.1: Install Node Version Manager
-
-(nvm)
+### Step 1.1: Install Node Version Manager (nvm)
 
 1. In a terminal session in the AWS Cloud9 IDE, ensure the latest security updates and
    bug fixes are installed. To do this, run the **`yum update`** (for Amazon Linux) or **`apt update`** command (for Ubuntu Server). (To start a new terminal session, on the
@@ -360,8 +358,7 @@ region was configured, make sure that your AWS credentials are set correctly in
 the IDE, and then run the **`cdk deploy`** command again. For more information, see [Calling AWS services from an environment in AWS Cloud9](credentials.md "credentials.md"). 4. To confirm that the Amazon SNS topic and Amazon SQS queue were successfully deployed, send a
 message to the topic, and then check the queue for the received message. To do this,
 you can use a tool such as the AWS Command Line Interface (AWS CLI) or the AWS CloudShell. For more
-information about these tools, see the [AWS CLI
-and aws-shell tutorial for AWS Cloud9](sample-aws-cli.md "sample-aws-cli.md").
+information about these tools, see the [AWS CLI and aws-shell tutorial for AWS Cloud9](sample-aws-cli.md "sample-aws-cli.md").
 
 For example, to send a message to the topic, with the terminal session still open
 in the IDE, use the AWS CLI to run the Amazon SNS**`publish`** command, supplying the message's subject and body, the AWS Region for

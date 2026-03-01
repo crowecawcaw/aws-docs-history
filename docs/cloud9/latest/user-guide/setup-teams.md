@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Additional setup options for
-
-AWS Cloud9
+# Additional setup options for AWS Cloud9
 
 This topic assumes you already completed the setup steps in [Team
 Setup](setup.md "setup.md") or [Enterprise Setup](setup-enterprise.md "setup-enterprise.md").
@@ -43,9 +41,7 @@ topic, follow the instructions to create a custom permission set. For related cu
 permissions policies, see [Customer managed
 policy examples for teams using AWS Cloud9](setup-teams-policy-examples.md "setup-teams-policy-examples.md") later in this topic.
 
-### Step 1.1:
-
-Create a customer managed policy using the console
+### Step 1.1: Create a customer managed policy using the console
 
 1. Sign in to the AWS Management Console, if you aren't already signed in.
 
@@ -66,9 +62,7 @@ Repeat this step for each additional customer managed policy that you want to cr
 Then, skip ahead to [Add customer managed
 policies to a group using the console](#setup-teams-add-policy-console "#setup-teams-add-policy-console").
 
-### Step 1.2:
-
-Create a customer managed policy using the AWS CLI
+### Step 1.2: Create a customer managed policy using the AWS CLI
 
 1. On the computer where you run the AWS CLI, create a file to describe the policy (for
    example, `policy.json`).
@@ -96,9 +90,7 @@ policy.
 Skip ahead to [Add customer managed Policies
 to a Group Using the AWS CLI](#setup-teams-add-policy-cli "#setup-teams-add-policy-cli").
 
-## Step 2: Add customer managed policies to a
-
-group
+## Step 2: Add customer managed policies to a group
 
 You can add customer managed policies to a group by using the [AWS Management Console](#setup-teams-add-policy-console "#setup-teams-add-policy-console") or the [AWS Command Line Interface (AWS CLI)](#setup-teams-add-policy-cli "#setup-teams-add-policy-cli"). For more
 information, see
@@ -113,9 +105,7 @@ instructions in [Assign
 User Access](../../../singlesignon/latest/userguide/useraccess.md#assignusers "../../../singlesignon/latest/userguide/useraccess.md#assignusers") in the _AWS IAM Identity Center User Guide_
 instead.
 
-### Step 2.1:
-
-Add customer managed policies to a group using the console
+### Step 2.1: Add customer managed policies to a group using the console
 
 1. With the IAM console open from the previous procedure, in the service's navigation
    pane, choose **Groups**.
@@ -127,9 +117,7 @@ Add customer managed policies to a group using the console
    list, enter the policy name in the **Filter** box to display it.
 5. Choose **Attach Policy**.
 
-### Step 2.2:
-
-Add customer managed policies to a group using the AWS CLI
+### Step 2.2: Add customer managed policies to a group using the AWS CLI
 
 ###### Note
 

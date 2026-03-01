@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# Working with
-
-AWS Toolkit
+# Working with AWS Toolkit
 
 You can
 navigate and interact with AWS services using the AWS Toolkit through the AWS Explorer
@@ -81,8 +79,7 @@ To fix this issue, create a VPC endpoint for Amazon S3. This grants access to an
 in your AWS Region that contains the dependencies that are required to keep your IDE up
 to date.
 
-For more information, see [Configuring VPC endpoints for Amazon S3 to download
-dependencies](ec2-ssm.md#configure-s3-endpoint "ec2-ssm.md#configure-s3-endpoint").
+For more information, see [Configuring VPC endpoints for Amazon S3 to download dependencies](ec2-ssm.md#configure-s3-endpoint "ec2-ssm.md#configure-s3-endpoint").
 
 ## Managing access credentials for AWS Toolkit
 
@@ -99,9 +96,7 @@ own set of credentials. This set is called a _profile_. Profiles feature
 long-term credentials called access keys. You can get these access keys from the IAM
 console.
 
-###### Create a profile to provide access credential for
-
-AWS Toolkit
+###### Create a profile to provide access credential for AWS Toolkit
 
 1. To get your access keys (consisting of an _access key ID_ and
    _secret access key_), go to the IAM console at [https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
@@ -144,9 +139,7 @@ If the selected profile contains valid access credentials, the **AWS
 Explorer** pane refreshes to display the AWS services that you can now
 access.
 
-### Using IAM roles to grant permissions to applications
-
-on EC2 instances
+### Using IAM roles to grant permissions to applications on EC2 instances
 
 You can also use an IAM role to manage temporary credentials for applications that run
 on an EC2 instance. The role supplies temporary permissions that applications can use when
@@ -173,15 +166,13 @@ The following screenshot shows three key UI components of the AWS Toolkit.
    that are accessible through the Toolkit. You can toggle between showing and hiding the
    **AWS Explorer** using the AWS option at the left side of the
    integrated development environment (IDE). For more about using this interface component
-   and accessing AWS services for different AWS Regions, see [Using AWS Explorer to work with services and
-   resources in multiple Regions](toolkit-navigation.md#working-with-aws-explorer "toolkit-navigation.md#working-with-aws-explorer").
+   and accessing AWS services for different AWS Regions, see [Using AWS Explorer to work with services and resources in multiple Regions](toolkit-navigation.md#working-with-aws-explorer "toolkit-navigation.md#working-with-aws-explorer").
 2. **Toolkit** menu: Used to manage connections to AWS, customize the
    display of the **AWS Explorer** window, create and deploy serverless
    applications, work with GitHub repositories, and access documentation. For more
    information, see [Accessing and using the AWS Toolkit menu](toolkit-navigation.md#toolkit-menu "toolkit-navigation.md#toolkit-menu").
 3. **AWS Configuration** pane: Used to customize the behavior of
-   AWS services that you interact with using the Toolkit. For more information, see [Modifying AWS Toolkit settings using the AWS
-   Configuration pane](toolkit-navigation.md#configuration-options "toolkit-navigation.md#configuration-options").
+   AWS services that you interact with using the Toolkit. For more information, see [Modifying AWS Toolkit settings using the AWS Configuration pane](toolkit-navigation.md#configuration-options "toolkit-navigation.md#configuration-options").
 
 ## Disabling AWS Toolkit
 

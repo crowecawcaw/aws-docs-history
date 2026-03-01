@@ -26,8 +26,7 @@ information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https
 - [Step 2: Add code](#sample-java-code "#sample-java-code")
 - [Step 3: Build and run the code](#sample-java-run "#sample-java-run")
 - [Step 4: Set up to use the AWS SDK for Java](#sample-java-sdk "#sample-java-sdk")
-- [Step 5: Set up AWS credentials management in your
-  environment](#sample-java-sdk-creds "#sample-java-sdk-creds")
+- [Step 5: Set up AWS credentials management in your environment](#sample-java-sdk-creds "#sample-java-sdk-creds")
 - [Step 6: Add AWS SDK code](#sample-java-sdk-code "#sample-java-sdk-code")
 - [Step 7: Build and run the AWS SDK code](#sample-java-sdk-run "#sample-java-sdk-run")
 - [Step 8: Clean up](#sample-java-clean-up "#sample-java-clean-up")
@@ -348,8 +347,7 @@ the following:
      version to use is declared by the `version` setting. To use a different
      version, replace this version number.
 
-Skip ahead to [Step 5: Set up AWS credentials management in your
-environment](#sample-java-sdk-creds "#sample-java-sdk-creds").
+Skip ahead to [Step 5: Set up AWS credentials management in your environment](#sample-java-sdk-creds "#sample-java-sdk-creds").
 
 ### Set up with Gradle
 
@@ -497,9 +495,7 @@ specify declarations such as the following:
      AWS SDK for Java library files. `mavenBom` declares the version to use. If you
      want to use a different version, replace this version number.
 
-## Step 5: Set up AWS credentials management in your
-
-environment
+## Step 5: Set up AWS credentials management in your environment
 
 Each time you use the AWS SDK for Java to call an AWS service, you must provide a set of AWS
 credentials with the call. These credentials determine whether the AWS SDK for Java has the

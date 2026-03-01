@@ -2,9 +2,7 @@ AWS Cloud9 is no longer available to new customers. Existing customers of
 AWS Cloud9 can continue to use the service as normal.
 [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
 
-# AWS CLI
-
-and aws-shell tutorial for AWS Cloud9
+# AWS CLI and aws-shell tutorial for AWS Cloud9
 
 The following tutorial enables you to set up the AWS Command Line Interface (AWS CLI), the aws-shell, or both
 in an AWS Cloud9 development environment. The AWS CLI and the aws-shell are unified tools that provide a consistent
@@ -29,12 +27,9 @@ charges for services such as Amazon EC2 and Amazon S3. For more information, see
 ###### Topics
 
 - [Prerequisites](#sample-aws-cli-prereqs "#sample-aws-cli-prereqs")
-- [Step 1: Install the AWS CLI, the aws-shell, or both
-  in your environment](#sample-aws-cli-install "#sample-aws-cli-install")
-- [Step 2: Set up credentials management in your
-  environment](#sample-aws-cli-creds "#sample-aws-cli-creds")
-- [Step 3: Run basic commands with the AWS CLI or the
-  aws-shell in your environment](#sample-aws-cli-run "#sample-aws-cli-run")
+- [Step 1: Install the AWS CLI, the aws-shell, or both in your environment](#sample-aws-cli-install "#sample-aws-cli-install")
+- [Step 2: Set up credentials management in your environment](#sample-aws-cli-creds "#sample-aws-cli-creds")
+- [Step 3: Run basic commands with the AWS CLI or the aws-shell in your environment](#sample-aws-cli-run "#sample-aws-cli-run")
 - [Step 4: Clean up](#sample-aws-cli-clean-up "#sample-aws-cli-clean-up")
 
 ## Prerequisites
@@ -51,16 +46,13 @@ requirements:
   open.** When you open an environment, AWS Cloud9 opens the IDE for that environment in your
   web browser. For more information, see [Opening an environment in AWS Cloud9](open-environment.md "open-environment.md").
 
-## Step 1: Install the AWS CLI, the aws-shell, or both
-
-in your environment
+## Step 1: Install the AWS CLI, the aws-shell, or both in your environment
 
 In this step, you use the AWS Cloud9 IDE to install the AWS CLI, the aws-shell, or both in your
 environment so you can run commands to interact with AWS.
 
 If you are using an AWS Cloud9 EC2 development environment and you only want to use the AWS CLI, you can skip ahead
-to [Step 3: Run basic commands with the AWS CLI or the
-aws-shell in your environment](#sample-aws-cli-run "#sample-aws-cli-run"). This is because
+to [Step 3: Run basic commands with the AWS CLI or the aws-shell in your environment](#sample-aws-cli-run "#sample-aws-cli-run"). This is because
 the AWS CLI is already installed in an EC2 environment, and a set of AWS access credentials is
 already set up in the environment. For more information, see [AWS managed temporary credentials](security-iam.md#auth-and-access-control-temporary-managed-credentials "security-iam.md#auth-and-access-control-temporary-managed-credentials").
 
@@ -71,8 +63,7 @@ If you are not using an EC2 environment, do the following to install the AWS CLI
    **Window**, **New Terminal**.) If the AWS CLI is
    installed, the version number is displayed, with information such as the version
    numbers of Python and the operating system version number of your Amazon EC2 instance or
-   your own server. If the AWS CLI is installed, skip ahead to [Step 2: Set up credentials management in your
-   environment](#sample-aws-cli-creds "#sample-aws-cli-creds").
+   your own server. If the AWS CLI is installed, skip ahead to [Step 2: Set up credentials management in your environment](#sample-aws-cli-creds "#sample-aws-cli-creds").
 2. To install the AWS CLI, see [Installing the
    AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") in the _AWS Command Line Interface User Guide_. For example, for an
    EC2 environment running Amazon Linux, run these three commands, one at a time, in the terminal to
@@ -99,8 +90,7 @@ If you want to install the aws-shell, do the following:
    installed. In the terminal, run the **`aws-shell`** command. (To start a new terminal session, on the menu bar, choose
    **Window**, **New Terminal**.) If the aws-shell
    is installed, the `aws>` prompt is displayed. If the aws-shell is
-   installed, skip ahead to [Step 2: Set up credentials management in your
-   environment](#sample-aws-cli-creds "#sample-aws-cli-creds").
+   installed, skip ahead to [Step 2: Set up credentials management in your environment](#sample-aws-cli-creds "#sample-aws-cli-creds").
 2. To install the aws-shell, you use pip. To use pip, you must have Python
    installed.
 
@@ -124,25 +114,20 @@ rm get-pip.py                             # Delete the pip install file, as it i
 sudo pip install aws-shell
 ```
 
-## Step 2: Set up credentials management in your
-
-environment
+## Step 2: Set up credentials management in your environment
 
 Each time you use the AWS CLI or the aws-shell to call an AWS service, you must provide
 a set of credentials with the call. These credentials determine whether the AWS CLI or the
 aws-shell has the appropriate permissions to make that call. If the credentials don't cover
 the appropriate permissions, the call will fail.
 
-If you are using an AWS Cloud9 EC2 development environment, you can skip ahead to [Step 3: Run basic commands with the AWS CLI or the
-aws-shell in your environment](#sample-aws-cli-run "#sample-aws-cli-run"). This is because
+If you are using an AWS Cloud9 EC2 development environment, you can skip ahead to [Step 3: Run basic commands with the AWS CLI or the aws-shell in your environment](#sample-aws-cli-run "#sample-aws-cli-run"). This is because
 credentials are already set up in an EC2 environment. For more information, see [AWS managed temporary credentials](security-iam.md#auth-and-access-control-temporary-managed-credentials "security-iam.md#auth-and-access-control-temporary-managed-credentials").
 
 If you are not using an EC2 environment, you must manually store your credentials within the
 environment. To do this, follow the instructions in [Calling AWS services from an environment in AWS Cloud9](credentials.md "credentials.md"), and then return to this topic.
 
-## Step 3: Run basic commands with the AWS CLI or the
-
-aws-shell in your environment
+## Step 3: Run basic commands with the AWS CLI or the aws-shell in your environment
 
 In this step, you use the AWS CLI or the aws-shell in your environment to create a bucket in
 Amazon S3, list your available buckets, and then delete the bucket.

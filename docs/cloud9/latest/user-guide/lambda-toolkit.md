@@ -21,8 +21,7 @@ Serverless Application Model (SAM), see [Working with AWS SAM using the AWS Tool
 ###### Topics
 
 - [Invoking remote Lambda functions](#remote-lambda "#remote-lambda")
-- [Downloading, uploading, and deleting Lambda
-  functions](#import-upload-delete-lambda "#import-upload-delete-lambda")
+- [Downloading, uploading, and deleting Lambda functions](#import-upload-delete-lambda "#import-upload-delete-lambda")
 
 ## Invoking remote Lambda functions
 
@@ -71,9 +70,7 @@ Choose **Invoke** to call the Lambda and pass in the payload.
 
 You see the output of the Lambda function in the AWS Lambda tab.
 
-## Downloading, uploading, and deleting Lambda
-
-functions
+## Downloading, uploading, and deleting Lambda functions
 
 The AWS Toolkit provides the options for importing and uploading Lambda functions in
 AWS Cloud9 IDE.
@@ -128,8 +125,7 @@ files` command. Choose the command to run it.
    1. Choose **Go** (the magnifying glass icon) on the left of the IDE, and type "config" to display the `AWS: SAM Debug Configuration Editor` command. Choose the command to run it.
    2. The **SAM Debug Configuration Editor** displays. You can use this
       editor to define launch configuration properties. For information, see the step for
-      [configuring launch properties](serverless-apps-toolkit.md#properties "serverless-apps-toolkit.md#properties") in [Using SAM templates to run and debug
-      serverless applications](serverless-apps-toolkit.md#sam-run-debug-template "serverless-apps-toolkit.md#sam-run-debug-template").
+      [configuring launch properties](serverless-apps-toolkit.md#properties "serverless-apps-toolkit.md#properties") in [Using SAM templates to run and debug serverless applications](serverless-apps-toolkit.md#sam-run-debug-template "serverless-apps-toolkit.md#sam-run-debug-template").
 
    ###### Note
 
@@ -247,8 +243,7 @@ remotely. That way, you can download or invoke it from other AWS Cloud9 developm
 environments.
 
 If you want to create a Lambda function from scratch, we recommend following the steps
-to [Create a serverless application with the
-AWS Toolkit](serverless-apps-toolkit.md#create-serverless-app "serverless-apps-toolkit.md#create-serverless-app").
+to [Create a serverless application with the AWS Toolkit](serverless-apps-toolkit.md#create-serverless-app "serverless-apps-toolkit.md#create-serverless-app").
 
 ### Deleting a Lambda function
 

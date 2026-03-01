@@ -29,9 +29,7 @@ Pricing](https://aws.amazon.com/codepipeline/pricing/ "https://aws.amazon.com/co
 - [Step 3: Prepare to Work with AWS CodePipeline](#codepipeline-repos-setup "#codepipeline-repos-setup")
 - [Step 4: Create a Pipeline in AWS CodePipeline](#codepipeline-repos-create-pipeline "#codepipeline-repos-create-pipeline")
 
-## Step 1: Create or identify your source
-
-code repository
+## Step 1: Create or identify your source code repository
 
 In this step, you create or identify a source code repository that is compatible with
 CodePipeline.
@@ -68,9 +66,7 @@ supports:
   [Git panel](source-control-gitpanel.md "source-control-gitpanel.md") interface. If you don't yet have an account or repository set up on
   GitHub, refer to the [relevant documentation](https://docs.github.com/en/github "https://docs.github.com/en/github") for instructions.
 
-## Step 2: Create an AWS Cloud9 Development Environment,
-
-connect it to the code repository, and upload your code
+## Step 2: Create an AWS Cloud9 Development Environment, connect it to the code repository, and upload your code
 
 In this step, you create an AWS Cloud9 development environment in the AWS Cloud9 console. You then connect the environment
 to the repository that CodePipeline will use. Finally, you use the AWS Cloud9 IDE for the environment to
@@ -106,9 +102,7 @@ For this step, follow these instructions in [Step 3: Use an IAM Managed Policy t
 User](../../../codepipeline/latest/userguide/getting-started-codepipeline.md#assign-permissions "../../../codepipeline/latest/userguide/getting-started-codepipeline.md#assign-permissions") in the _AWS CodePipeline User Guide_, and then return to this
 topic.
 
-## Step 4: Create a pipeline in
-
-AWS CodePipeline
+## Step 4: Create a pipeline in AWS CodePipeline
 
 In this step, you create a pipeline in CodePipeline that uses the repository you created or
 identified earlier in this topic.
