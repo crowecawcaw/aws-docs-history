@@ -1,12 +1,9 @@
-# Get the routing profile
-
-of the agent in Amazon Connect Agent Workspace
+# Get the routing profile of the agent in Amazon Connect Agent Workspace
 
 Returns the routing profile of the agent currently logged in to the Amazon Connect agent workspace.
 The routing profile contains the following fields:
 
-- `channelConcurrencyMap`: See agent.[Get the limit of
-  contacts for the agent in Amazon Connect Agent Workspace](3P-apps-agent-requests-getchannelconcurrency.md "3P-apps-agent-requests-getchannelconcurrency.md") for more
+- `channelConcurrencyMap`: See agent.[Get the limit of contacts for the agent in Amazon Connect Agent Workspace](3P-apps-agent-requests-getchannelconcurrency.md "3P-apps-agent-requests-getchannelconcurrency.md") for more
   info.
 - `defaultOutboundQueue`: The default queue which should be
   associated with outbound contacts. See queues for details on properties.

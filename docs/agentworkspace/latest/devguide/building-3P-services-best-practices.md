@@ -1,10 +1,6 @@
-# Best practices and
+# Best practices and recommendations
 
-recommendations
-
-## Service creation
-
-management
+## Service creation management
 
 - Keep onCreate operations lightweight to ensure a reasonable loading time
   for Agents
@@ -32,9 +28,7 @@ management
 - Ensure applications share the same origin as the third-party
   service
 
-## Service
-
-coordination
+## Service coordination
 
 - Consolidate interdependent behaviors within a single service
   - For example, any applications launched on the startup of the

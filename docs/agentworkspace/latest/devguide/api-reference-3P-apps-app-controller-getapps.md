@@ -1,6 +1,4 @@
-# Get all active
-
-application information in Amazon Connect Agent Workspace
+# Get all active application information in Amazon Connect Agent Workspace
 
 Returns the application information for all active application instances in the
 Amazon Connect agent workspace.

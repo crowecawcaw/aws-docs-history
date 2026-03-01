@@ -1,6 +1,4 @@
-# Subscribe a callback function
-
-when an Amazon Connect Agent Workspace contact is connected
+# Subscribe a callback function when an Amazon Connect Agent Workspace contact is connected
 
 Subscribes a callback function to-be-invoked whenever a contact Connected event
 occurs in the Amazon Connect agent workspace. If no contact ID is provided, then it uses the context of

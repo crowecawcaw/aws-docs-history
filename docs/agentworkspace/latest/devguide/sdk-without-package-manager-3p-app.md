@@ -69,9 +69,7 @@ contactClient.onCleared(function (event) {
 });
 ```
 
-## Key points for
-
-third-party apps
+## Key points for third-party apps
 
 1. Call `AmazonConnectSDK.AmazonConnectApp.init()` before using
    any SDK functionality

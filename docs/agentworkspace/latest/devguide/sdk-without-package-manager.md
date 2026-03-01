@@ -1,6 +1,4 @@
-# Using the Amazon Connect SDK without a package
-
-manager
+# Using the Amazon Connect SDK without a package manager
 
 This guide is intended for developers building Amazon Connect integrations who do not
 use npm, webpack, or other JavaScript package managers and bundlers in their web

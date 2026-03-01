@@ -5,9 +5,7 @@ throughout a page's life. If you launch an application once at startup and keep 
 lifecycle management is optional. However, if you launch and close apps as part of the
 user's workflow, then these lifecycle states help you create a better user experience.
 
-## Managing application
-
-lifecycle
+## Managing application lifecycle
 
 Application creation begins after an iframe is set in the AppHost. You can
 subscribe to AppHost's `onCreated` event to control when the iframe
@@ -48,9 +46,7 @@ making it visible again.
 | `Started` | The application is visible and actively synchronizing data.       |
 | `Stopped` | The application is not visible. Background operations are paused. |
 
-## Handle lifecycle
-
-events
+## Handle lifecycle events
 
 Implement application lifecycle event handlers to manage iframe visibility and
 cleanup operations:

@@ -1,6 +1,4 @@
-# Subscribe to session expiration
-
-warning event in Amazon Connect Agent Workspace
+# Subscribe to session expiration warning event in Amazon Connect Agent Workspace
 
 Subscribes a callback function to be invoked whenever the agent's session is about to
 expire due to inactivity.

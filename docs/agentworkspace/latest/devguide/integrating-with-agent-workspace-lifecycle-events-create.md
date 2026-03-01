@@ -1,6 +1,4 @@
-# The
-
-create event in Amazon Connect Agent Workspace
+# The create event in Amazon Connect Agent Workspace
 
 The create event in the Amazon Connect agent workspace results in the `onCreate` handler passed into the `AmazonConnectApp.init()` to
 be invoked. `Init` should be called in an application once it has successfully

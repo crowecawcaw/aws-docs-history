@@ -1,6 +1,4 @@
-# Sets the agent state to Offline
-
-in Amazon Connect Agent Workspace
+# Sets the agent state to Offline in Amazon Connect Agent Workspace
 
 Sets the agent state to Offline. The promise resolves after the agent state is
 set in the backend.

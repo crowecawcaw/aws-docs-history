@@ -3,9 +3,7 @@
 This section describes common issues and resolutions when integrating AWS-managed
 applications.
 
-## Application launch
-
-failures
+## Application launch failures
 
 **Symptoms**
 
@@ -50,9 +48,7 @@ Applications fail to launch, display error messages, or the iframe remains blank
   - Ensure CSP allows communication with Amazon Connect domains either
     via response headers or meta tags in the HTML head.
 
-## Application not
-
-appearing in catalog
+## Application not appearing in catalog
 
 **Symptoms**
 

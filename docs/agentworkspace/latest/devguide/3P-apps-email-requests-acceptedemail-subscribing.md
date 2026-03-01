@@ -1,6 +1,4 @@
-# Subscribe to
-
-accepted email notifications in Amazon Connect Agent Workspace
+# Subscribe to accepted email notifications in Amazon Connect Agent Workspace
 
 Subscribes a callback function to-be-invoked whenever an inbound email contact has
 been accepted.

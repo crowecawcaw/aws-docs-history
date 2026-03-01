@@ -1,6 +1,4 @@
-# Subscribe to
-
-participant state change events in Amazon Connect Agent Workspace
+# Subscribe to participant state change events in Amazon Connect Agent Workspace
 
 Subscribes to participant state change events. This event fires when a participant's
 state

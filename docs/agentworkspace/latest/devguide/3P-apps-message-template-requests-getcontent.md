@@ -1,6 +1,4 @@
-# Get content of a
-
-message template in Amazon Connect Agent Workspace
+# Get content of a message template in Amazon Connect Agent Workspace
 
 Gets the content of a message template. This includes plaintext or html content of the
 body of the message template as a string, the subject of the message template, and

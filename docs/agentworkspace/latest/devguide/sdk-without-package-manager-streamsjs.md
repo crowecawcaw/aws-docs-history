@@ -75,9 +75,7 @@ connect.core.onInitialized(function () {
 });
 ```
 
-## Hosting Connect
-
-first-party apps (optional)
+## Hosting Connect first-party apps (optional)
 
 If you want to host Connect first-party apps like Cases or Step-by-Step Guides
 alongside your CCP, include the `@amazon-connect/app-manager` package in
@@ -94,9 +92,7 @@ connect.core.initCCP(ccpContainer, {
 });
 ```
 
-## Key points for
-
-StreamsJS integration
+## Key points for StreamsJS integration
 
 1. Load the Streams library before the SDK bundle
 2. Retrieve the provider using `connect.core.getSDKClientConfig().provider` after CCP initializes

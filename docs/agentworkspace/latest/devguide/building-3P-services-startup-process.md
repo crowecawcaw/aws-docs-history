@@ -1,6 +1,4 @@
-# Agent workspace startup
-
-process
+# Agent workspace startup process
 
 Third-party services follow this process in the Amazon Connect agent
 workspace:

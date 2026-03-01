@@ -1,6 +1,4 @@
-# Get the list of Quick
-
-Connect endpoints associated with a given queue in Amazon Connect Agent Workspace
+# Get the list of Quick Connect endpoints associated with a given queue in Amazon Connect Agent Workspace
 
 Get the list of Quick Connect endpoints associated with the given queue(s).
 Optionally you can pass in a parameter to override the default max-results value of 500.

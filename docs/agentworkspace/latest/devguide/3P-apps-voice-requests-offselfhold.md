@@ -1,6 +1,4 @@
-# Unsubscribe from self hold events
-
-in Amazon Connect Agent Workspace
+# Unsubscribe from self hold events in Amazon Connect Agent Workspace
 
 Unsubscribes from self hold events.
 

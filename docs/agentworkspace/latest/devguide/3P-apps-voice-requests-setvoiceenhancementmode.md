@@ -1,6 +1,4 @@
-# Set the voice
-
-enhancement mode in Amazon Connect Agent Workspace
+# Set the voice enhancement mode in Amazon Connect Agent Workspace
 
 Sets the voice enhancement mode of the user that's currently logged in to Amazon
 Connect agent workspace. The voice enhancement mode can have the following values:

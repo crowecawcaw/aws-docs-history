@@ -1,7 +1,4 @@
-# Subscribe to participant
-
-added
-events in Amazon Connect Agent Workspace
+# Subscribe to participant added events in Amazon Connect Agent Workspace
 
 Subscribes to participant added events. This event fires when a new participant joins
 a

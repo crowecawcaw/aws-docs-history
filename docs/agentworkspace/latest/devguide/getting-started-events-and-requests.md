@@ -1,6 +1,4 @@
-# Events and requests in Amazon Connect
-
-Agent Workspace
+# Events and requests in Amazon Connect Agent Workspace
 
 App developers can easily create applications that seamlessly integrate into the
 agent workspace experience in the Amazon Connect agent workspace with the event and

@@ -1,6 +1,4 @@
-# Transfer a contact to another
-
-agent in Amazon Connect Agent Workspace
+# Transfer a contact to another agent in Amazon Connect Agent Workspace
 
 Performs a cold transfer by transferring the given contact to another agent using a
 quick connect and disconnecting from the contact. The quick connect type has to be

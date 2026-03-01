@@ -1,6 +1,4 @@
-# Amazon Connect Agent Workspace AppController
-
-API
+# Amazon Connect Agent Workspace AppController API
 
 The Amazon Connect SDK provides an `AppControllerClient` to control applications in the Amazon Connect
 agent workspace.

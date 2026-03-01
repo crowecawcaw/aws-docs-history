@@ -1,6 +1,4 @@
-# Get application
-
-information in Amazon Connect Agent Workspace
+# Get application information in Amazon Connect Agent Workspace
 
 Returns the application information for the given application instance ID in the
 Amazon Connect agent workspace.

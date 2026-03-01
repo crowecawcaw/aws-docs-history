@@ -1,6 +1,4 @@
-# Subscribe to participant hold
-
-events in Amazon Connect Agent Workspace
+# Subscribe to participant hold events in Amazon Connect Agent Workspace
 
 Subscribes to events when any participant is put on hold.
 

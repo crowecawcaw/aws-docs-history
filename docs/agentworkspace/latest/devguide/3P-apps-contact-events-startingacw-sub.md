@@ -1,6 +1,4 @@
-# Subscribe a callback
-
-function when an Amazon Connect Agent Workspace contact starts ACW
+# Subscribe a callback function when an Amazon Connect Agent Workspace contact starts ACW
 
 Subscribes a callback function to-be-invoked whenever a contact StartingAcw event
 occurs in the Amazon Connect agent workspace. If no contact ID is provided, then it uses the context of

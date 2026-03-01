@@ -1,6 +1,4 @@
-# Integrate application with Amazon Connect
-
-Agent Workspace contact data
+# Integrate application with Amazon Connect Agent Workspace contact data
 
 To integrate your application with contact data from the Amazon Connect
 agent workspace, instantiate
@@ -75,9 +73,7 @@ contactClient.onIncoming(handler);
 
 ```
 
-## Example contact
-
-event
+## Example contact event
 
 The following code sample subscribes a callback to the connected event topic.
 Whenever a contact is connected to the agent, the agent workspace will invoke
@@ -104,9 +100,7 @@ contactClient.onConnected(handler, contactId);
 
 ```
 
-## Example contact
-
-request
+## Example contact request
 
 The following code sample submits a `getQueue` request and then
 logs the returned data to the console.

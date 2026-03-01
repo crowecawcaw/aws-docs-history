@@ -1,6 +1,4 @@
-# Integrating AWS-managed applications
-
-with Amazon Connect Streams
+# Integrating AWS-managed applications with Amazon Connect Streams
 
 This guide demonstrates how to integrate AWS-managed applications with your existing
 applications built using Amazon Connect Streams. This integration extends your custom
@@ -9,9 +7,7 @@ By embedding AWS-managed applications into your custom agent application, you ca
 leverage their features without additional development effort, while maintaining control
 over application access through Security Profiles.
 
-## Amazon Connect
-
-Streams
+## Amazon Connect Streams
 
 Amazon Connect Streams is a JavaScript library that integrates the Contact Control
 Panel (CCP) and other agent functionality into existing web applications. This

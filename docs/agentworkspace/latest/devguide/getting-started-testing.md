@@ -1,15 +1,11 @@
-# Test your application for Amazon Connect Agent Workspace
-
-locally
+# Test your application for Amazon Connect Agent Workspace locally
 
 Once you have a minimal version of the app that you want to use in the Amazon Connect
 agent workspace with the Amazon Connect SDK that you want to test in the agent
 workspace, run your app locally and create an application in the AWS console with an _AccessUrl_ using the localhost endpoint, like `http://localhost:3000`
 .
 
-## Creating an
-
-application and associating to your instance
+## Creating an application and associating to your instance
 
 ###### Note
 
@@ -78,7 +74,5 @@ you should see the following series of logs entries.
 
 ```
 
-If you see these, then your app correctly integrates with the _Amazon Connect Amazon Connect SDK_ and the [The
-create event in Amazon Connect Agent Workspace](integrating-with-agent-workspace-lifecycle-events-create.md "integrating-with-agent-workspace-lifecycle-events-create.md") / [The
-destroy event in Amazon Connect Agent Workspace](integrating-with-agent-workspace-lifecycle-events-destroy.md "integrating-with-agent-workspace-lifecycle-events-destroy.md")destroy
+If you see these, then your app correctly integrates with the _Amazon Connect Amazon Connect SDK_ and the [The create event in Amazon Connect Agent Workspace](integrating-with-agent-workspace-lifecycle-events-create.md "integrating-with-agent-workspace-lifecycle-events-create.md") / [The destroy event in Amazon Connect Agent Workspace](integrating-with-agent-workspace-lifecycle-events-destroy.md "integrating-with-agent-workspace-lifecycle-events-destroy.md")destroy
 lifecycle events.

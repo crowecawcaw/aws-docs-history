@@ -1,6 +1,4 @@
-# Troubleshoot
-
-application setup in Amazon Connect Agent Workspace
+# Troubleshoot application setup in Amazon Connect Agent Workspace
 
 You can use the [Amazon Connect SDK's](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK")
 `AppConfig` object to retrieve data about your applications’s setup in the Amazon Connect

@@ -1,7 +1,4 @@
-# Disconnect a
-
-participant
-from a contact in Amazon Connect Agent Workspace
+# Disconnect a participant from a contact in Amazon Connect Agent Workspace
 
 Disconnects a specific participant from the contact.
 

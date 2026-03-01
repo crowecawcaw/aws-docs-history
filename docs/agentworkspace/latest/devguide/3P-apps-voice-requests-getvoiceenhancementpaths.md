@@ -1,6 +1,4 @@
-# Get voice enhancement
-
-model paths in Amazon Connect Agent Workspace
+# Get voice enhancement model paths in Amazon Connect Agent Workspace
 
 Returns the voice enhancements models static assets URL paths.
 

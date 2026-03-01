@@ -1,6 +1,4 @@
-# Get all the
-
-availability states configured for the current agent in Amazon Connect Agent Workspace
+# Get all the availability states configured for the current agent in Amazon Connect Agent Workspace
 
 Get all the availability states configured for the current agent.
 

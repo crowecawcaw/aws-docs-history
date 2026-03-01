@@ -11,9 +11,7 @@ The following prerequisites are required:
 - npm (comes with Node.js)
 - A text editor
 
-## Step 1: Create the build project
-
-directory
+## Step 1: Create the build project directory
 
 Create a new directory to hold your build configuration. This directory will
 contain npm tooling but the output bundle will be usable without npm.
@@ -24,18 +22,14 @@ mkdir connect-sdk-bundle
 cd connect-sdk-bundle
 ```
 
-## Step 2: Initialize the npm
-
-project
+## Step 2: Initialize the npm project
 
 ```
 
 npm init -y
 ```
 
-## Step 3: Install the SDK packages
-
-you need
+## Step 3: Install the SDK packages you need
 
 For an email-based solution using EmailClient and ContactClient:
 
@@ -130,9 +124,7 @@ window.AmazonConnectSDK = {
 };
 ```
 
-## Step 6: Add build scripts to
-
-package.json
+## Step 6: Add build scripts to package.json
 
 Edit `package.json` to add build scripts:
 
@@ -164,9 +156,7 @@ This creates the following files in the `dist/` directory:
 - `connect-sdk-app.bundle.js` - Bundle for third-party apps
 - `connect-sdk-app.bundle.js.map` - Source map for debugging
 
-## Step 8: Copy the bundle to your
-
-project
+## Step 8: Copy the bundle to your project
 
 Copy the appropriate `.js` file (and optionally the `.map`
 file for debugging) to your static website's assets folder:
@@ -178,9 +168,7 @@ cp dist/connect-sdk-streams.bundle.js /path/to/your/website/assets/vendor/
 cp dist/connect-sdk-app.bundle.js /path/to/your/website/assets/vendor/
 ```
 
-## Complete build
-
-project structure
+## Complete build project structure
 
 After completing all steps, your build project should look like this:
 

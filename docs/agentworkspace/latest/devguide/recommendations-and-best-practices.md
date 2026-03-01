@@ -1,24 +1,16 @@
-# Recommendations and best practices for
-
-Amazon Connect Agent Workspace
+# Recommendations and best practices for Amazon Connect Agent Workspace
 
 Use the following recommendations and best practices to optimize applications in the Amazon Connect agent workspace.
 
 ###### Topics
 
-- [Ensuring that apps can
-  only be embedded in the Amazon Connect agent workspace](#recommendations-and-best-practices-embedded "#recommendations-and-best-practices-embedded")
-- [Using multiple
-  domains within an app](#recommendations-and-best-practices-multiple-domains "#recommendations-and-best-practices-multiple-domains")
-- [Initializing
-  Streams](#recommendations-and-best-practices-streams "#recommendations-and-best-practices-streams")
+- [Ensuring that apps can only be embedded in the Amazon Connect agent workspace](#recommendations-and-best-practices-embedded "#recommendations-and-best-practices-embedded")
+- [Using multiple domains within an app](#recommendations-and-best-practices-multiple-domains "#recommendations-and-best-practices-multiple-domains")
+- [Initializing Streams](#recommendations-and-best-practices-streams "#recommendations-and-best-practices-streams")
 - [Accessibility](#recommendations-and-best-practices-accessibility "#recommendations-and-best-practices-accessibility")
-- [Theming and
-  styling](#recommendations-and-best-practices-theming-and-styling "#recommendations-and-best-practices-theming-and-styling")
+- [Theming and styling](#recommendations-and-best-practices-theming-and-styling "#recommendations-and-best-practices-theming-and-styling")
 
-## Ensuring that apps can
-
-only be embedded in the Amazon Connect agent workspace
+## Ensuring that apps can only be embedded in the Amazon Connect agent workspace
 
 It is recommended that apps correctly set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy") header with [frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors") to only allow Amazon Connect instances.
 
@@ -28,9 +20,7 @@ Content-Security-Policy: frame-ancestors https://*.awsapps.com https://*.my.conn
 
 ```
 
-## Using multiple
-
-domains within an app
+## Using multiple domains within an app
 
 Apps that use multiple domains, such as those supporting login flows, must add
 additional domains to the approved origins list on the application configuration. Both
@@ -39,9 +29,7 @@ added to the _Approved Origins_ will be incorporated into the Content
 Security Policy for the agent workspace, allowing iframe integration for these
 domains.
 
-## Initializing
-
-Streams
+## Initializing Streams
 
 Initializing the CCP via Streams, even if hidden, is not supported in third-party
 applications. You must instead use contact and agent events when they are
@@ -95,9 +83,7 @@ that your app meets these guidelines.
    tests performed, and the results obtained to demonstrate your commitment to
    accessibility.
 
-## Theming and
-
-styling
+## Theming and styling
 
 The [Amazon Connect SDK](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK") includes a
 standard Amazon Connect theme. We recommend that you use the theming package on top of

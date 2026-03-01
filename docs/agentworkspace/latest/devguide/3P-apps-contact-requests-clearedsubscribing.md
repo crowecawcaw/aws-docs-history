@@ -1,6 +1,4 @@
-# Creates a subscription
-
-whenever a contact cleared event occurs in Amazon Connect Agent Workspace
+# Creates a subscription whenever a contact cleared event occurs in Amazon Connect Agent Workspace
 
 It creates a subscription whenever a contact cleared event occurs in Amazon
 Connect agent workspace. If no contact ID is provided, then it uses the context of

@@ -1,14 +1,10 @@
-# Service implementation
-
-patterns
+# Service implementation patterns
 
 third-party services can implement various patterns to extend the agent workspace
 functionality. The following examples demonstrate some of our key Amazon Connect SDK
 capabilities:
 
-## Launching an
-
-application on startup
+## Launching an application on startup
 
 ```
 
@@ -48,9 +44,7 @@ const onCreateHandler = async (event: ServiceCreatedEvent) => {
 };
 ```
 
-## Contact event
-
-listening with application launching functionality
+## Contact event listening with application launching functionality
 
 ```
 
@@ -118,9 +112,7 @@ async function registerEventHandlers() {
 }
 ```
 
-## Authentication popup
-
-functionality
+## Authentication popup functionality
 
 ```
 

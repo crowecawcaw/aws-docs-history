@@ -1,6 +1,4 @@
-# Subscribe to self resume events in
-
-Amazon Connect Agent Workspace
+# Subscribe to self resume events in Amazon Connect Agent Workspace
 
 Subscribes to events when the current user's participant is taken off hold.
 

@@ -1,6 +1,4 @@
-# Get the initial ID of
-
-the contact in Amazon Connect Agent Workspace
+# Get the initial ID of the contact in Amazon Connect Agent Workspace
 
 Returns the original (initial) contact id from which this contact was transferred
 in the Amazon Connect agent workspace, or none if this is not an internal Connect transfer. This is

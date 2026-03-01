@@ -1,8 +1,6 @@
 # Building third-party services in the Amazon Connect Agent Workspace
 
-## What is a third-party (3P)
-
-service?
+## What is a third-party (3P) service?
 
 third-party (3P) services are headless applications that customers can build and
 integrate into Amazon Connect agent workspace. Services begin running when the
@@ -24,9 +22,7 @@ throughout the agent workspace session. They provide powerful capabilities for
 establishing contact event listeners, enabling custom authentication flows, and managing
 other agent workspace-wide functionality.
 
-## Common use cases for 3P
-
-services
+## Common use cases for 3P services
 
 These are common use cases for third-party services:
 
@@ -40,9 +36,7 @@ These are common use cases for third-party services:
   accept or leave contacts.
 - Manage authentication flows that need to run when the agent workspace loads.
 
-## Understanding when to use each
-
-option
+## Understanding when to use each option
 
 ### When to use a third-party application
 
@@ -52,9 +46,7 @@ Choose a third-party application when you need:
 - Functionality that needs to be visible and directly interactive for the
   agent
 
-### When to use a third-party
-
-service
+### When to use a third-party service
 
 Choose a third-party service when you need:
 

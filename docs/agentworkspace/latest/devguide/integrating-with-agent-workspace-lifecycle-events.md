@@ -1,6 +1,4 @@
-# Application
-
-lifecycle events in Amazon Connect Agent Workspace
+# Application lifecycle events in Amazon Connect Agent Workspace
 
 There are lifecycle states that an app can move between from when the app is
 initially opened to when it is closed in the Amazon Connect agent workspace. This

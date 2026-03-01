@@ -26,9 +26,7 @@ npm install @amazon-connect/app-manager
 If you do not use NPM, refer to [Using
 Amazon Connect SDK without pacakage manager](sdk-without-package-manager.md "sdk-without-package-manager.md")
 
-## Step 2: Add the AppManager plugin
-
-in CCP initialization
+## Step 2: Add the AppManager plugin in CCP initialization
 
 Update the existing CCP initialization code to include the AppManager plugin.
 
@@ -72,9 +70,7 @@ const provider = connect.core.getSDKClientConfig().provider;
 - Replace `<connect-instance-alias>` with your Amazon
   Connect instance alias.
 
-## Step 3: Embed a page for
-
-AWS-managed application
+## Step 3: Embed a page for AWS-managed application
 
 Add an iframe element to the desired location for displaying the Worklist
 AWS-managed application:
@@ -89,9 +85,7 @@ AWS-managed application:
 AppManager configures the iframe source, do not manually set the `src`
 attribute in iframe.
 
-## Step 4: Launch AWS-managed
-
-application
+## Step 4: Launch AWS-managed application
 
 Launch the Worklist AWS-managed application using the AppManager `launchApp`
 API:

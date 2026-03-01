@@ -1,6 +1,4 @@
-# Prerequisites for developing third-party
-
-applications for Amazon Connect Agent Workspace
+# Prerequisites for developing third-party applications for Amazon Connect Agent Workspace
 
 To develop and test an application for use in Amazon Connect
 agent workspace, you must have the following:

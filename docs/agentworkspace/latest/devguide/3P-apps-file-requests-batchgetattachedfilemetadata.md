@@ -1,6 +1,4 @@
-# Get metadata
-
-about multiple attached files in Amazon Connect Agent Workspace
+# Get metadata about multiple attached files in Amazon Connect Agent Workspace
 
 Get metadata about multiple attached files on an associated resource while
 handling an active contact. The activeContactId is the id of the contact the agent

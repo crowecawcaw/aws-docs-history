@@ -1,6 +1,4 @@
-# Integrate application with Amazon Connect
-
-Agent Workspace agent data
+# Integrate application with Amazon Connect Agent Workspace agent data
 
 To integrate your application with agent data from the Amazon Connect agent workspace,
 instantiate
@@ -48,9 +46,7 @@ agentClient.onStateChanged(handler);
 
 ```
 
-## Example agent
-
-request
+## Example agent request
 
 The following code sample submits a `getARN` request and then logs
 the returned data to the console.

@@ -1,8 +1,6 @@
 # Advanced configuration
 
-## Prevent duplicate
-
-application instances
+## Prevent duplicate application instances
 
 When you launch an application multiple times, AppManager creates multiple
 application instances by default. You can use launch keys when starting applications
@@ -23,15 +21,12 @@ an application with a matching launch key is already running, AppManager returns
 existing instance rather than creating a new instance and triggers `onAppHostFocused` event. This event could be leveraged to bring the
 application to focus when it's being launched again.
 
-## Dynamic application
-
-launch and management
+## Dynamic application launch and management
 
 AppManager provides `onAppHostAdded` and `onAppHostRemoved`
 notifications to indicate when a new application is launched or destroyed. These
 events could be leveraged to dynamically create and destroy iframes. For an example
-implementation, see [Example implementation of
-dynamic application management with React](integrate-aws-managed-apps-react-example.md "integrate-aws-managed-apps-react-example.md")
+implementation, see [Example implementation of dynamic application management with React](integrate-aws-managed-apps-react-example.md "integrate-aws-managed-apps-react-example.md")
 section below.
 
 ## Attach metadata to appHost
@@ -55,9 +50,7 @@ const appHost = await appManager.launchApp("Worklist", launchOptions);
 console.log("AppManagerData attached to AppHost", appHost.appManagerData);
 ```
 
-## Support Global
-
-Resiliency
+## Support Global Resiliency
 
 Amazon Connect Global Resiliency features provide automatic failover between AWS
 Regions. When your Amazon Connect instance is configured for Global Resiliency, you

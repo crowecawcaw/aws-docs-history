@@ -1,6 +1,4 @@
-# Authentication for applications in
-
-Amazon Connect Agent Workspace
+# Authentication for applications in Amazon Connect Agent Workspace
 
 Apps in the Amazon Connect agent workspace must provide their own authentication to
 their users. It
