@@ -23,13 +23,11 @@ preventive controls.
 
 Some controls prevent modification of compliance reporting mechanisms.
 
-- [Disallow Changes to AWS Config Rules Set Up by
-  AWS Control Tower](mandatory-controls.md#config-rule-disallow-changes "mandatory-controls.md#config-rule-disallow-changes") (Mandatory, preventive
+- [Disallow Changes to AWS Config Rules Set Up by AWS Control Tower](mandatory-controls.md#config-rule-disallow-changes "mandatory-controls.md#config-rule-disallow-changes") (Mandatory, preventive
   control)
 - [Disallow Deletion of AWS Config Aggregation Authorizations Created by AWS Control Tower](mandatory-controls.md#config-aggregation-authorization-policy "mandatory-controls.md#config-aggregation-authorization-policy") (Mandatory, preventive
   control)
-- [Disallow Changes to Tags Created by
-  AWS Control Tower for AWS Config Resources](mandatory-controls.md#cloudwatch-disallow-config-changes "mandatory-controls.md#cloudwatch-disallow-config-changes") (Mandatory, preventive
+- [Disallow Changes to Tags Created by AWS Control Tower for AWS Config Resources](mandatory-controls.md#cloudwatch-disallow-config-changes "mandatory-controls.md#cloudwatch-disallow-config-changes") (Mandatory, preventive
   control)
 - [Disallow Configuration Changes to AWS Config](mandatory-controls.md#config-disallow-changes "mandatory-controls.md#config-disallow-changes") (Mandatory, preventive control)
   In contrast to preventive controls, detective controls notify you of resources that
@@ -39,12 +37,9 @@ Some controls prevent modification of compliance reporting mechanisms.
 compliance**
 
 For information about how to receive appropriate drift and control compliance
-notifications by Amazon SNS, see [Compliance notifications by SNS in the audit
-account](receive-notifications.md "receive-notifications.md").
+notifications by Amazon SNS, see [Compliance notifications by SNS in the audit account](receive-notifications.md "receive-notifications.md").
 
-## Publishers and subscribers for SNS
-
-topics
+## Publishers and subscribers for SNS topics
 
 ###### The `aws-controltower-AllConfigNotifications` topic:
 
@@ -67,9 +62,7 @@ topics
   `aws-controltower-AggregateSecurityNotifications`
   topic.
 
-###### The `aws-controltower-AggregateSecurityNotifications`
-
-topic:
+###### The `aws-controltower-AggregateSecurityNotifications` topic:
 
 - This topic receives notifications from
   `aws-controltower-SecurityNotifications`, forwarded by the

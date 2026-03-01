@@ -4,8 +4,7 @@
 
 - [[CT.KMS.PR.1] Require any AWS KMS key to have rotation configured](#ct-kms-pr-1-description "#ct-kms-pr-1-description")
 - [[CT.KMS.PR.2] Require that an AWS Key Management Service asymmetric key with RSA key material used for encryption has a key length greater than 2048 bits](#ct-kms-pr-2-description "#ct-kms-pr-2-description")
-- [[CT.KMS.PR.3] Require an AWS Key Management Service key policy to have a statement that limits
-  creation of AWS KMS grants to AWS services](#ct-kms-pr-3-description "#ct-kms-pr-3-description")
+- [[CT.KMS.PR.3] Require an AWS Key Management Service key policy to have a statement that limits creation of AWS KMS grants to AWS services](#ct-kms-pr-3-description "#ct-kms-pr-3-description")
 
 ## [CT.KMS.PR.1] Require any AWS KMS key to have rotation configured
 
@@ -557,9 +556,7 @@ Resources:
 
 ```
 
-## [CT.KMS.PR.3] Require an AWS Key Management Service key policy to have a statement that limits
-
-creation of AWS KMS grants to AWS services
+## [CT.KMS.PR.3] Require an AWS Key Management Service key policy to have a statement that limits creation of AWS KMS grants to AWS services
 
 This control checks whether an AWS KMS key has an associated key policy statement that limits creation of
 AWS KMS grants to AWS services only.

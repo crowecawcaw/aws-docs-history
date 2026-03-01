@@ -1,6 +1,4 @@
-# Compliance notifications by SNS in the audit
-
-account
+# Compliance notifications by SNS in the audit account
 
 ###### Note
 

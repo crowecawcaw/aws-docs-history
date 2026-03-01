@@ -4,12 +4,9 @@
 
 - [[CT.LAMBDA.PR.2] Require AWS Lambda function policies to prohibit public access](#ct-lambda-pr-2-description "#ct-lambda-pr-2-description")
 - [[CT.LAMBDA.PR.3] Require an AWS Lambda function to be in a customer-managed Amazon Virtual Private Cloud (VPC)](#ct-lambda-pr-3-description "#ct-lambda-pr-3-description")
-- [[CT.LAMBDA.PR.4] Require an AWS Lambda layer permission to grant access to
-  an AWS organization or specific AWS account](#ct-lambda-pr-4-description "#ct-lambda-pr-4-description")
-- [[CT.LAMBDA.PR.5] Require an AWS Lambda function URL to
-  use AWS IAM-based authentication](#ct-lambda-pr-5-description "#ct-lambda-pr-5-description")
-- [[CT.LAMBDA.PR.6] Require an AWS Lambda function URL CORS policy to restrict access to
-  specific origins](#ct-lambda-pr-6-description "#ct-lambda-pr-6-description")
+- [[CT.LAMBDA.PR.4] Require an AWS Lambda layer permission to grant access to an AWS organization or specific AWS account](#ct-lambda-pr-4-description "#ct-lambda-pr-4-description")
+- [[CT.LAMBDA.PR.5] Require an AWS Lambda function URL to use AWS IAM-based authentication](#ct-lambda-pr-5-description "#ct-lambda-pr-5-description")
+- [[CT.LAMBDA.PR.6] Require an AWS Lambda function URL CORS policy to restrict access to specific origins](#ct-lambda-pr-6-description "#ct-lambda-pr-6-description")
 
 ## [CT.LAMBDA.PR.2] Require AWS Lambda function policies to prohibit public access
 
@@ -879,9 +876,7 @@ Resources:
 
 ```
 
-## [CT.LAMBDA.PR.4] Require an AWS Lambda layer permission to grant access to
-
-an AWS organization or specific AWS account
+## [CT.LAMBDA.PR.4] Require an AWS Lambda layer permission to grant access to an AWS organization or specific AWS account
 
 This control checks whether an AWS Lambda layer permission has been configured to grant
 access to an AWS organization or to a specific AWS account only, by ensuring that public access
@@ -1177,9 +1172,7 @@ Resources:
 
 ```
 
-## [CT.LAMBDA.PR.5] Require an AWS Lambda function URL to
-
-use AWS IAM-based authentication
+## [CT.LAMBDA.PR.5] Require an AWS Lambda function URL to use AWS IAM-based authentication
 
 This control checks whether an AWS Lambda function URL is configured to use authentication that's
 based on IAM.
@@ -1468,9 +1461,7 @@ Resources:
 
 ```
 
-## [CT.LAMBDA.PR.6] Require an AWS Lambda function URL CORS policy to restrict access to
-
-specific origins
+## [CT.LAMBDA.PR.6] Require an AWS Lambda function URL CORS policy to restrict access to specific origins
 
 This control checks whether an AWS Lambda function URL is configured with a cross-origin resource sharing
 (CORS) policy that does not grant access to all origins.

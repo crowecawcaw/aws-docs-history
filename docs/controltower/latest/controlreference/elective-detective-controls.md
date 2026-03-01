@@ -4,16 +4,11 @@ The following elective controls have detective behavior.
 
 ###### Topics
 
-- [Detect Whether MFA is Enabled for
-  AWS IAM Users](#disallow-access-mfa "#disallow-access-mfa")
-- [Detect Whether MFA is Enabled
-  for AWS IAM Users of the AWS Console](#disallow-console-access-mfa "#disallow-console-access-mfa")
-- [Detect Whether Versioning for
-  Amazon S3 Buckets is Enabled](#disallow-s3-no-versioning "#disallow-s3-no-versioning")
+- [Detect Whether MFA is Enabled for AWS IAM Users](#disallow-access-mfa "#disallow-access-mfa")
+- [Detect Whether MFA is Enabled for AWS IAM Users of the AWS Console](#disallow-console-access-mfa "#disallow-console-access-mfa")
+- [Detect Whether Versioning for Amazon S3 Buckets is Enabled](#disallow-s3-no-versioning "#disallow-s3-no-versioning")
 
-## Detect Whether MFA is Enabled for
-
-AWS IAM Users
+## Detect Whether MFA is Enabled for AWS IAM Users
 
 This control detects whether MFA is enabled for AWS IAM users. You can
 protect your account by requiring MFA for all AWS users in the account.
@@ -66,9 +61,7 @@ Resources:
 
 ```
 
-## Detect Whether MFA is Enabled
-
-for AWS IAM Users of the AWS Console
+## Detect Whether MFA is Enabled for AWS IAM Users of the AWS Console
 
 Protects your account by requiring MFA for all AWS IAM users in the
 console. MFA reduces vulnerability risks from weak authentication by
@@ -121,9 +114,7 @@ Resources:
 
 ```
 
-## Detect Whether Versioning for
-
-Amazon S3 Buckets is Enabled
+## Detect Whether Versioning for Amazon S3 Buckets is Enabled
 
 Detects whether your Amazon S3 buckets are enabled for versioning. Versioning
 allows you to recover objects from accidental deletion or overwrite. This

@@ -1,6 +1,4 @@
-# AWS Control Tower compliance status for OUs and
-
-accounts
+# AWS Control Tower compliance status for OUs and accounts
 
 Compliance is reported in the AWS Control Tower dashboard for accounts and OUs. This
 section lists the possible categories of compliance and non-compliance in AWS Control Tower,
@@ -22,10 +20,7 @@ the drift status of the landing zone environment. The control
 **State** and **Status** information is
 available in the AWS Control Tower console. Enabled controls can be viewed through the public API.
 
-###### \*\*The following list gives more information about compliance
-
-status as reported specifically for OUs and their member
-accounts.\*\*
+###### **The following list gives more information about compliance status as reported specifically for OUs and their member accounts.**
 
 - **`Compliant`** – Compliance rules
   are properly in place. No violations have been detected for any resources.

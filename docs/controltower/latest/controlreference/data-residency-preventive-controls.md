@@ -4,16 +4,11 @@ The following data residency controls have preventive behavior.
 
 ###### Topics
 
-- [Disallow internet access for an Amazon
-  VPC instance managed by a customer](#disallow-vpc-internet-access "#disallow-vpc-internet-access")
-- [Disallow Amazon Virtual Private Network (VPN)
-  connections](#prevent-vpn-connection "#prevent-vpn-connection")
-- [Disallow cross-region networking for
-  Amazon EC2, Amazon CloudFront, and AWS Global Accelerator](#prevent-cross-region-networking "#prevent-cross-region-networking")
+- [Disallow internet access for an Amazon VPC instance managed by a customer](#disallow-vpc-internet-access "#disallow-vpc-internet-access")
+- [Disallow Amazon Virtual Private Network (VPN) connections](#prevent-vpn-connection "#prevent-vpn-connection")
+- [Disallow cross-region networking for Amazon EC2, Amazon CloudFront, and AWS Global Accelerator](#prevent-cross-region-networking "#prevent-cross-region-networking")
 
-## Disallow internet access for an Amazon
-
-VPC instance managed by a customer
+## Disallow internet access for an Amazon VPC instance managed by a customer
 
 This control disallows internet access for an Amazon Virtual Private Cloud (VPC)
 instance managed by a customer, rather than by an AWS service.
@@ -68,9 +63,7 @@ JSON
 
 ```
 
-## Disallow Amazon Virtual Private Network (VPN)
-
-connections
+## Disallow Amazon Virtual Private Network (VPN) connections
 
 This control prevents Virtual Private Network (VPN) connections (Site-to-Site VPN
 and Client VPN) to an Amazon Virtual Private Cloud (VPC).
@@ -113,9 +106,7 @@ JSON
 
 ```
 
-## Disallow cross-region networking for
-
-Amazon EC2, Amazon CloudFront, and AWS Global Accelerator
+## Disallow cross-region networking for Amazon EC2, Amazon CloudFront, and AWS Global Accelerator
 
 This control prevents configuring cross-region networking connections from Amazon
 EC2, Amazon CloudFront, and AWS Global Accelerator services. It prevents VPC peering and

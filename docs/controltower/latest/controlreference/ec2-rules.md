@@ -8,10 +8,7 @@
 - [[CT.EC2.PR.4] Require that any Amazon EC2 security group rule does not use the source IP range 0.0.0.0/0 or ::/0 for specific high-risk ports](#ct-ec2-pr-4-description "#ct-ec2-pr-4-description")
 - [[CT.EC2.PR.5] Require any Amazon EC2 network ACL to prevent ingress from 0.0.0.0/0 to port 22 or port 3389](#ct-ec2-pr-5-description "#ct-ec2-pr-5-description")
 - [[CT.EC2.PR.6] Require that Amazon EC2 transit gateways refuse automatic Amazon VPC attachment requests](#ct-ec2-pr-6-description "#ct-ec2-pr-6-description")
-- [[CT.EC2.PR.7] Require an Amazon EBS volume
-  resource to be encrypted at rest when defined by means of the
-  AWS::EC2::Instance BlockDeviceMappings property or
-  AWS::EC2::Volume resource type](#ct-ec2-pr-7-description "#ct-ec2-pr-7-description")
+- [[CT.EC2.PR.7] Require an Amazon EBS volume resource to be encrypted at rest when defined by means of the AWS::EC2::Instance BlockDeviceMappings property or AWS::EC2::Volume resource type](#ct-ec2-pr-7-description "#ct-ec2-pr-7-description")
 - [[CT.EC2.PR.8] Require an Amazon EC2 instance to set AssociatePublicIpAddress to false on a new network interface created by means of the NetworkInterfaces property in the AWS::EC2::Instance resource](#ct-ec2-pr-8-description "#ct-ec2-pr-8-description")
 - [[CT.EC2.PR.9] Require any Amazon EC2 launch template not to auto-assign public IP addresses to network interfaces](#ct-ec2-pr-9-description "#ct-ec2-pr-9-description")
 - [[CT.EC2.PR.10] Require Amazon EC2 launch templates to have Amazon CloudWatch detailed monitoring activated](#ct-ec2-pr-10-description "#ct-ec2-pr-10-description")
@@ -1985,11 +1982,7 @@ Resources:
 
 ```
 
-## [CT.EC2.PR.7] Require an Amazon EBS volume
-
-resource to be encrypted at rest when defined by means of the
-**AWS::EC2::Instance BlockDeviceMappings** property or
-**AWS::EC2::Volume** resource type
+## [CT.EC2.PR.7] Require an Amazon EBS volume resource to be encrypted at rest when defined by means of the **AWS::EC2::Instance BlockDeviceMappings** property or **AWS::EC2::Volume** resource type
 
 This control checks whether your standalone Amazon EC2 EBS volume and Amazon Elastic Block Store (EBS)
 volume created through EC2 instance Block Device Mappings are encrypted at rest.

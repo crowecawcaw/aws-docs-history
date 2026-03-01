@@ -23,9 +23,7 @@ are supported in all AWS Regions.
 
 ###### Topics
 
-- [Controls implemented with resource control policies
-  (RCPs)](rcp-controls.md "rcp-controls.md")
+- [Controls implemented with resource control policies (RCPs)](rcp-controls.md "rcp-controls.md")
 - [Controls implemented with declarative policies](declarative-controls.md "declarative-controls.md")
 - [Controls for AWS Backup](backup-controls.md "backup-controls.md")
-- [Digital sovereignty
-  controls](digital-sovereignty-controls.md "digital-sovereignty-controls.md")
+- [Digital sovereignty controls](digital-sovereignty-controls.md "digital-sovereignty-controls.md")

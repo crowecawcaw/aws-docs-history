@@ -4,37 +4,22 @@ The following data residency controls have detective behavior.
 
 ###### Topics
 
-- [Detect whether public IP
-  addresses for Amazon EC2 autoscaling are enabled through launch configurations](#autoscaling-launch-config-public-ip-disabled "#autoscaling-launch-config-public-ip-disabled")
-- [Detect whether replication instances for
-  AWS Database Migration Service are public](#dms-replication-not-public "#dms-replication-not-public")
-- [Detect whether Amazon EBS
-  snapshots are restorable by all AWS accounts](#ebs-snapshot-public-restorable-check "#ebs-snapshot-public-restorable-check")
-- [Detect whether any Amazon EC2 instance has
-  an associated public IPv4 address](#ec2-instance-no-public-ip "#ec2-instance-no-public-ip")
+- [Detect whether public IP addresses for Amazon EC2 autoscaling are enabled through launch configurations](#autoscaling-launch-config-public-ip-disabled "#autoscaling-launch-config-public-ip-disabled")
+- [Detect whether replication instances for AWS Database Migration Service are public](#dms-replication-not-public "#dms-replication-not-public")
+- [Detect whether Amazon EBS snapshots are restorable by all AWS accounts](#ebs-snapshot-public-restorable-check "#ebs-snapshot-public-restorable-check")
+- [Detect whether any Amazon EC2 instance has an associated public IPv4 address](#ec2-instance-no-public-ip "#ec2-instance-no-public-ip")
 - [Detect whether Amazon S3 settings to block public access are set as true for the account](#s3-account-level-public-access-blocks-periodic "#s3-account-level-public-access-blocks-periodic")
-- [Detects whether an Amazon EKS endpoint
-  is blocked from public access](#eks-endpoint-no-public-access "#eks-endpoint-no-public-access")
-- [Detect whether an Amazon OpenSearch Service
-  domain is in Amazon VPC](#elasticsearch-in-vpc-only "#elasticsearch-in-vpc-only")
-- [Detect whether any Amazon EMR cluster master
-  nodes have public IP addresses](#emr-master-no-public-ip "#emr-master-no-public-ip")
-- [Detect whether the AWS Lambda
-  function policy attached to the Lambda resource blocks public access](#lambda-function-public-access-prohibited "#lambda-function-public-access-prohibited")
-- [Detect whether public routes exist in the
-  route table for an Internet Gateway (IGW)](#no-unrestricted-route-to-igw "#no-unrestricted-route-to-igw")
-- [Detect whether Amazon Redshift
-  clusters are blocked from public access](#redshift-cluster-public-access-check "#redshift-cluster-public-access-check")
-- [Detect whether an Amazon
-  SageMaker notebook instance allows direct internet access](#sagemaker-notebook-no-direct-internet-access "#sagemaker-notebook-no-direct-internet-access")
-- [Detect whether any Amazon VPC
-  subnets are assigned a public IP address](#subnet-auto-assign-public-ip-disabled "#subnet-auto-assign-public-ip-disabled")
-- [Detect whether AWS Systems Manager documents
-  owned by the account are public](#ssm-document-not-public "#ssm-document-not-public")
+- [Detects whether an Amazon EKS endpoint is blocked from public access](#eks-endpoint-no-public-access "#eks-endpoint-no-public-access")
+- [Detect whether an Amazon OpenSearch Service domain is in Amazon VPC](#elasticsearch-in-vpc-only "#elasticsearch-in-vpc-only")
+- [Detect whether any Amazon EMR cluster master nodes have public IP addresses](#emr-master-no-public-ip "#emr-master-no-public-ip")
+- [Detect whether the AWS Lambda function policy attached to the Lambda resource blocks public access](#lambda-function-public-access-prohibited "#lambda-function-public-access-prohibited")
+- [Detect whether public routes exist in the route table for an Internet Gateway (IGW)](#no-unrestricted-route-to-igw "#no-unrestricted-route-to-igw")
+- [Detect whether Amazon Redshift clusters are blocked from public access](#redshift-cluster-public-access-check "#redshift-cluster-public-access-check")
+- [Detect whether an Amazon SageMaker notebook instance allows direct internet access](#sagemaker-notebook-no-direct-internet-access "#sagemaker-notebook-no-direct-internet-access")
+- [Detect whether any Amazon VPC subnets are assigned a public IP address](#subnet-auto-assign-public-ip-disabled "#subnet-auto-assign-public-ip-disabled")
+- [Detect whether AWS Systems Manager documents owned by the account are public](#ssm-document-not-public "#ssm-document-not-public")
 
-## Detect whether public IP
-
-addresses for Amazon EC2 autoscaling are enabled through launch configurations
+## Detect whether public IP addresses for Amazon EC2 autoscaling are enabled through launch configurations
 
 This control detects whether Amazon EC2 Auto Scaling groups have public IP addresses
 enabled through launch configurations.
@@ -74,9 +59,7 @@ Resources:
 
 ```
 
-## Detect whether replication instances for
-
-AWS Database Migration Service are public
+## Detect whether replication instances for AWS Database Migration Service are public
 
 This control detects whether AWS Database Migration Service replication instances
 are public.
@@ -138,9 +121,7 @@ Resources:
 
 ```
 
-## Detect whether Amazon EBS
-
-snapshots are restorable by all AWS accounts
+## Detect whether Amazon EBS snapshots are restorable by all AWS accounts
 
 This control detects whether all AWS accounts have access to restore Amazon EBS
 snapshots.
@@ -204,9 +185,7 @@ Resources:
 
 ```
 
-## Detect whether any Amazon EC2 instance has
-
-an associated public IPv4 address
+## Detect whether any Amazon EC2 instance has an associated public IPv4 address
 
 This control detects whether an Amazon Elastic Compute Cloud (Amazon EC2) instance
 has an associated public IPv4 address. This control applies only to IPv4
@@ -317,9 +296,7 @@ Resources:
         - !Ref MaximumExecutionFrequency
 ```
 
-## Detects whether an Amazon EKS endpoint
-
-is blocked from public access
+## Detects whether an Amazon EKS endpoint is blocked from public access
 
 This control detects whether an Amazon Elastic Kubernetes Service (Amazon EKS)
 endpoint is blocked from public access.
@@ -379,9 +356,7 @@ Resources:
         - !Ref MaximumExecutionFrequency
 ```
 
-## Detect whether an Amazon OpenSearch Service
-
-domain is in Amazon VPC
+## Detect whether an Amazon OpenSearch Service domain is in Amazon VPC
 
 This control detects whether an Amazon OpenSearch Service domain is in Amazon VPC.
 
@@ -440,9 +415,7 @@ Resources:
         - !Ref MaximumExecutionFrequency
 ```
 
-## Detect whether any Amazon EMR cluster master
-
-nodes have public IP addresses
+## Detect whether any Amazon EMR cluster master nodes have public IP addresses
 
 This control detects whether any Amazon EMR cluster master nodes have public IP
 addresses.
@@ -503,9 +476,7 @@ Resources:
         - !Ref MaximumExecutionFrequency
 ```
 
-## Detect whether the AWS Lambda
-
-function policy attached to the Lambda resource blocks public access
+## Detect whether the AWS Lambda function policy attached to the Lambda resource blocks public access
 
 This control detects whether the AWS Lambda function policy attached to the Lambda
 resource blocks public access.
@@ -543,9 +514,7 @@ Resources:
         SourceIdentifier: LAMBDA_FUNCTION_PUBLIC_ACCESS_PROHIBITED
 ```
 
-## Detect whether public routes exist in the
-
-route table for an Internet Gateway (IGW)
+## Detect whether public routes exist in the route table for an Internet Gateway (IGW)
 
 This control detects whether public routes exist in the route table associated with
 an Internet Gateway (IGW).
@@ -588,9 +557,7 @@ Resources:
         SourceIdentifier: NO_UNRESTRICTED_ROUTE_TO_IGW
 ```
 
-## Detect whether Amazon Redshift
-
-clusters are blocked from public access
+## Detect whether Amazon Redshift clusters are blocked from public access
 
 This control detects whether Amazon Redshift clusters are blocked from public
 access.
@@ -629,9 +596,7 @@ Resources:
         SourceIdentifier: REDSHIFT_CLUSTER_PUBLIC_ACCESS_CHECK
 ```
 
-## Detect whether an Amazon
-
-SageMaker notebook instance allows direct internet access
+## Detect whether an Amazon SageMaker notebook instance allows direct internet access
 
 This control detects whether an Amazon SageMaker notebook instance allows direct
 internet access.
@@ -691,9 +656,7 @@ Resources:
         - !Ref MaximumExecutionFrequency
 ```
 
-## Detect whether any Amazon VPC
-
-subnets are assigned a public IP address
+## Detect whether any Amazon VPC subnets are assigned a public IP address
 
 This control detects whether Amazon Virtual Private Cloud (Amazon VPC) subnets are
 assigned a public IP address.
@@ -732,9 +695,7 @@ Resources:
         SourceIdentifier: SUBNET_AUTO_ASSIGN_PUBLIC_IP_DISABLED
 ```
 
-## Detect whether AWS Systems Manager documents
-
-owned by the account are public
+## Detect whether AWS Systems Manager documents owned by the account are public
 
 This control detects whether AWS Systems Manager documents owned by the account are
 public.

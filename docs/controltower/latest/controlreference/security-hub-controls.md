@@ -44,9 +44,7 @@ To identify a Security Hub CSPM control by control ID in AWS Control Tower, you 
 aws controlcatalog list-controls --filter '{"Implementations":{"Identifiers":["CodeBuild.1"],"Types":["AWS::SecurityHub::SecurityControl"]}}'
 ```
 
-## Enable or remove controls for the
-
-Service-Managed Standard
+## Enable or remove controls for the Service-Managed Standard
 
 To avoid drift, always enable and remove controls for the Service-Managed Standard by
 means of the AWS Control Tower service, either in the console or by calling the AWS Control Tower APIs,

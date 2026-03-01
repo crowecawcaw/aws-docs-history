@@ -79,8 +79,7 @@ resources that are non-compliant; therefore, no resource details are shown on th
 **Receive compliance status updates**
 
 To receive updates about compliance, you can subscribe to SNS topics that send
-notifications when resource compliance status changes. See [Compliance notifications by SNS in the audit
-account](receive-notifications.md "receive-notifications.md"), later in
+notifications when resource compliance status changes. See [Compliance notifications by SNS in the audit account](receive-notifications.md "receive-notifications.md"), later in
 this chapter.
 
 For more information on how AWS Control Tower collects information about resources, see the

@@ -27,8 +27,7 @@ The Control Catalog was formerly called the Controls Library. We have renamed it
 - [Detective controls](detective-controls.md "detective-controls.md")
 - [Controls with parameters](control-parameter-concepts.md "control-parameter-concepts.md")
 - [Optional controls](optional-controls.md "optional-controls.md")
-- [Strongly recommended
-  controls](strongly-recommended-controls.md "strongly-recommended-controls.md")
+- [Strongly recommended controls](strongly-recommended-controls.md "strongly-recommended-controls.md")
 - [Elective controls](elective-controls.md "elective-controls.md")
 - [Search for controls with Amazon Q](q-search.md "q-search.md")
 

@@ -10,8 +10,7 @@
 - [[CT.AUTOSCALING.PR.8] Require an Amazon EC2 Auto Scaling group to have EC2 launch templates configured](#ct-autoscaling-pr-8-description "#ct-autoscaling-pr-8-description")
 - [[CT.AUTOSCALING.PR.9] Require an Amazon EBS volume configured through an Amazon EC2 Auto Scaling launch configuration to encrypt data at rest](#ct-autoscaling-pr-9-description "#ct-autoscaling-pr-9-description")
 - [[CT.AUTOSCALING.PR.10] Require an Amazon EC2 Auto Scaling group to use only AWS Nitro instance types when overriding a launch template](#ct-autoscaling-pr-10-description "#ct-autoscaling-pr-10-description")
-- [[CT.AUTOSCALING.PR.11] Require only AWS Nitro instance types that support network traffic encryption between
-  instances to be added to an Amazon EC2 Auto Scaling group, when overriding a launch template](#ct-autoscaling-pr-11-description "#ct-autoscaling-pr-11-description")
+- [[CT.AUTOSCALING.PR.11] Require only AWS Nitro instance types that support network traffic encryption between instances to be added to an Amazon EC2 Auto Scaling group, when overriding a launch template](#ct-autoscaling-pr-11-description "#ct-autoscaling-pr-11-description")
 
 ## [CT.AUTOSCALING.PR.1] Require an Amazon EC2 Auto Scaling group to have multiple Availability Zones
 
@@ -2855,9 +2854,7 @@ Resources:
 
 ```
 
-## [CT.AUTOSCALING.PR.11] Require only AWS Nitro instance types that support network traffic encryption between
-
-instances to be added to an Amazon EC2 Auto Scaling group, when overriding a launch template
+## [CT.AUTOSCALING.PR.11] Require only AWS Nitro instance types that support network traffic encryption between instances to be added to an Amazon EC2 Auto Scaling group, when overriding a launch template
 
 This control checks whether an Amazon EC2 Auto Scaling group uses AWS Nitro instance types that
 support network traffic encryption between instances, when overriding a launch template. The Auto Scaling

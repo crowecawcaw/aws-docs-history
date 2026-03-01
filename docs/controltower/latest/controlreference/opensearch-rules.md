@@ -2142,13 +2142,13 @@ This control checks whether Elasticsearch domains are configured with at least t
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Elasticsearch::Domain`
 - **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.7 rule specification](#ct-opensearch-pr-7-rule "#ct-opensearch-pr-7-rule")
+  [CT.OPENSEARCH.PR.7rule specification](#ct-opensearch-pr-7-rule "#ct-opensearch-pr-7-rule")
 
 **Details and examples**
 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
-  [CT.OPENSEARCH.PR.7 rule specification](#ct-opensearch-pr-7-rule "#ct-opensearch-pr-7-rule")
+  [CT.OPENSEARCH.PR.7rule specification](#ct-opensearch-pr-7-rule "#ct-opensearch-pr-7-rule")
 - For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.7 example templates](#ct-opensearch-pr-7-templates "#ct-opensearch-pr-7-templates")
@@ -2307,7 +2307,7 @@ ElasticsearchDomain:
 
 ```
 
-### CT.OPENSEARCH.PR.7 rule specification
+### CT.OPENSEARCH.PR.7rule specification
 
 ```
 
@@ -2554,13 +2554,13 @@ This control checks whether Elasticsearch Service domains are configured to requ
 - **Control behavior:** Proactive
 - **Resource types:** `AWS::Elasticsearch::Domain`
 - **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.8 rule specification](#ct-opensearch-pr-8-rule "#ct-opensearch-pr-8-rule")
+  [CT.OPENSEARCH.PR.8rule specification](#ct-opensearch-pr-8-rule "#ct-opensearch-pr-8-rule")
 
 **Details and examples**
 
 - For details about the PASS, FAIL, and SKIP behaviors associated with
   this control, see the:
-  [CT.OPENSEARCH.PR.8 rule specification](#ct-opensearch-pr-8-rule "#ct-opensearch-pr-8-rule")
+  [CT.OPENSEARCH.PR.8rule specification](#ct-opensearch-pr-8-rule "#ct-opensearch-pr-8-rule")
 - For examples of PASS and FAIL CloudFormation Templates related to
   this control, see:
   [CT.OPENSEARCH.PR.8 example templates](#ct-opensearch-pr-8-templates "#ct-opensearch-pr-8-templates")
@@ -2652,7 +2652,7 @@ ElasticsearchDomain:
 
 ```
 
-### CT.OPENSEARCH.PR.8 rule specification
+### CT.OPENSEARCH.PR.8rule specification
 
 ```
 

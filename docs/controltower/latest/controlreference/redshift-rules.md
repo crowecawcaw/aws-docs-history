@@ -10,8 +10,7 @@
 - [[CT.REDSHIFT.PR.6] Require an Amazon Redshift cluster to have a unique administrator username](#ct-redshift-pr-6-description "#ct-redshift-pr-6-description")
 - [[CT.REDSHIFT.PR.7] Require an Amazon Redshift cluster to have a unique database name](#ct-redshift-pr-7-description "#ct-redshift-pr-7-description")
 - [[CT.REDSHIFT.PR.8] Require an Amazon Redshift cluster to be encrypted](#ct-redshift-pr-8-description "#ct-redshift-pr-8-description")
-- [[CT.REDSHIFT.PR.9] Require that an Amazon Redshift cluster parameter group
-  is configured to use Secure Sockets Layer (SSL) for encryption of data in transit](#ct-redshift-pr-9-description "#ct-redshift-pr-9-description")
+- [[CT.REDSHIFT.PR.9] Require that an Amazon Redshift cluster parameter group is configured to use Secure Sockets Layer (SSL) for encryption of data in transit](#ct-redshift-pr-9-description "#ct-redshift-pr-9-description")
 
 ## [CT.REDSHIFT.PR.1] Require an Amazon Redshift cluster to prohibit public access
 
@@ -2106,9 +2105,7 @@ Resources:
 
 ```
 
-## [CT.REDSHIFT.PR.9] Require that an Amazon Redshift cluster parameter group
-
-is configured to use Secure Sockets Layer (SSL) for encryption of data in transit
+## [CT.REDSHIFT.PR.9] Require that an Amazon Redshift cluster parameter group is configured to use Secure Sockets Layer (SSL) for encryption of data in transit
 
 This control checks whether an Amazon Redshift cluster parameter group is configured to require encryption by
 means of Secure Sockets Layer (SSL), for data in transit.

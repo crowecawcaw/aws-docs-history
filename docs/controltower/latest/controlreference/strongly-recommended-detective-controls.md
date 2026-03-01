@@ -1,39 +1,23 @@
-# Strongly recommended
-
-controls with detective behavior
+# Strongly recommended controls with detective behavior
 
 The following strongly recommended controls have detective behavior.
 
 ###### Topics
 
-- [Detect Whether Encryption is Enabled
-  for Amazon EBS Volumes Attached to Amazon EC2 Instances](#ebs-enable-encryption "#ebs-enable-encryption")
-- [Detect Whether Unrestricted Incoming
-  TCP Traffic is Allowed](#rdp-disallow-internet "#rdp-disallow-internet")
-- [Detect Whether Unrestricted Internet
-  Connection Through SSH is Allowed](#ssh-disallow-internet "#ssh-disallow-internet")
-- [Detect Whether MFA for the Root User is
-  Enabled](#enable-root-mfa "#enable-root-mfa")
-- [Detect Whether Public Read Access
-  to Amazon S3 Buckets is Allowed](#s3-disallow-public-read "#s3-disallow-public-read")
-- [Detect Whether Public Write
-  Access to Amazon S3 Buckets is Allowed](#s3-disallow-public-write "#s3-disallow-public-write")
-- [Detect Whether Amazon EBS Volumes are
-  Attached to Amazon EC2 Instances](#disallow-unattached-ebs "#disallow-unattached-ebs")
-- [Detect Whether Amazon EBS
-  Optimization is Enabled for Amazon EC2 Instances](#disallow-not-ebs-optimized "#disallow-not-ebs-optimized")
-- [Detect Whether Public Access to
-  Amazon RDS Database Instances is Enabled](#disallow-rds-public-access "#disallow-rds-public-access")
-- [Detect Whether Public
-  Access to Amazon RDS Database Snapshots is Enabled](#disallow-rds-snapshot-public-access "#disallow-rds-snapshot-public-access")
-- [Detect Whether Storage
-  Encryption is Enabled for Amazon RDS Database Instances](#disallow-rds-storage-unencrypted "#disallow-rds-storage-unencrypted")
-- [Detect whether an
-  account has AWS CloudTrail or CloudTrail Lake enabled](#ensure-cloudtrail-enabled-recommended "#ensure-cloudtrail-enabled-recommended")
+- [Detect Whether Encryption is Enabled for Amazon EBS Volumes Attached to Amazon EC2 Instances](#ebs-enable-encryption "#ebs-enable-encryption")
+- [Detect Whether Unrestricted Incoming TCP Traffic is Allowed](#rdp-disallow-internet "#rdp-disallow-internet")
+- [Detect Whether Unrestricted Internet Connection Through SSH is Allowed](#ssh-disallow-internet "#ssh-disallow-internet")
+- [Detect Whether MFA for the Root User is Enabled](#enable-root-mfa "#enable-root-mfa")
+- [Detect Whether Public Read Access to Amazon S3 Buckets is Allowed](#s3-disallow-public-read "#s3-disallow-public-read")
+- [Detect Whether Public Write Access to Amazon S3 Buckets is Allowed](#s3-disallow-public-write "#s3-disallow-public-write")
+- [Detect Whether Amazon EBS Volumes are Attached to Amazon EC2 Instances](#disallow-unattached-ebs "#disallow-unattached-ebs")
+- [Detect Whether Amazon EBS Optimization is Enabled for Amazon EC2 Instances](#disallow-not-ebs-optimized "#disallow-not-ebs-optimized")
+- [Detect Whether Public Access to Amazon RDS Database Instances is Enabled](#disallow-rds-public-access "#disallow-rds-public-access")
+- [Detect Whether Public Access to Amazon RDS Database Snapshots is Enabled](#disallow-rds-snapshot-public-access "#disallow-rds-snapshot-public-access")
+- [Detect Whether Storage Encryption is Enabled for Amazon RDS Database Instances](#disallow-rds-storage-unencrypted "#disallow-rds-storage-unencrypted")
+- [Detect whether an account has AWS CloudTrail or CloudTrail Lake enabled](#ensure-cloudtrail-enabled-recommended "#ensure-cloudtrail-enabled-recommended")
 
-## Detect Whether Encryption is Enabled
-
-for Amazon EBS Volumes Attached to Amazon EC2 Instances
+## Detect Whether Encryption is Enabled for Amazon EBS Volumes Attached to Amazon EC2 Instances
 
 This control detects whether the Amazon EBS volumes attached to an Amazon EC2
 instance are encrypted. This control does not change the status of the
@@ -64,9 +48,7 @@ Resources:
 
 ```
 
-## Detect Whether Unrestricted Incoming
-
-TCP Traffic is Allowed
+## Detect Whether Unrestricted Incoming TCP Traffic is Allowed
 
 This control helps reduce a server's exposure to risk by detecting whether
 unrestricted incoming TCP traffic is allowed. It detects whether internet
@@ -175,9 +157,7 @@ Resources:
 
 ```
 
-## Detect Whether Unrestricted Internet
-
-Connection Through SSH is Allowed
+## Detect Whether Unrestricted Internet Connection Through SSH is Allowed
 
 This control detects whether internet connections are allowed through
 remote services such as the Secure Shell (SSH) protocol. This control does
@@ -212,9 +192,7 @@ Resources:
         SourceIdentifier: INCOMING_SSH_DISABLED
 ```
 
-## Detect Whether MFA for the Root User is
-
-Enabled
+## Detect Whether MFA for the Root User is Enabled
 
 This control detects whether multi-factor authentication (MFA) is enabled
 for the root user of the management account. MFA reduces vulnerability risks
@@ -266,9 +244,7 @@ Resources:
           - !Ref MaximumExecutionFrequency
 ```
 
-## Detect Whether Public Read Access
-
-to Amazon S3 Buckets is Allowed
+## Detect Whether Public Read Access to Amazon S3 Buckets is Allowed
 
 This control detects whether public read access is allowed to Amazon S3
 buckets. It helps you maintain secure access to data stored in the buckets.
@@ -300,9 +276,7 @@ Resources:
 
 ```
 
-## Detect Whether Public Write
-
-Access to Amazon S3 Buckets is Allowed
+## Detect Whether Public Write Access to Amazon S3 Buckets is Allowed
 
 This control detects whether public write access is allowed to Amazon S3
 buckets. It helps you maintain secure access to data stored in the buckets.
@@ -335,9 +309,7 @@ Resources:
 
 ```
 
-## Detect Whether Amazon EBS Volumes are
-
-Attached to Amazon EC2 Instances
+## Detect Whether Amazon EBS Volumes are Attached to Amazon EC2 Instances
 
 This control detects whether an Amazon EBS volume device persists independently
 from an Amazon EC2 instance. This control does not change the status of the
@@ -383,9 +355,7 @@ Resources:
           - AWS::EC2::Volume
 ```
 
-## Detect Whether Amazon EBS
-
-Optimization is Enabled for Amazon EC2 Instances
+## Detect Whether Amazon EBS Optimization is Enabled for Amazon EC2 Instances
 
 Detects whether Amazon EC2 instances are launched without an Amazon EBS volume that
 is optimized for performance. Amazon EBS-optimized volumes minimize contention
@@ -418,9 +388,7 @@ Resources:
 
 ```
 
-## Detect Whether Public Access to
-
-Amazon RDS Database Instances is Enabled
+## Detect Whether Public Access to Amazon RDS Database Instances is Enabled
 
 Detects whether your Amazon RDS database instances allow public access. You can
 secure your Amazon RDS database instances by disallowing public access. This
@@ -451,9 +419,7 @@ Resources:
           - AWS::RDS::DBInstance
 ```
 
-## Detect Whether Public
-
-Access to Amazon RDS Database Snapshots is Enabled
+## Detect Whether Public Access to Amazon RDS Database Snapshots is Enabled
 
 Detects whether your Amazon RDS database snapshots have public access enabled.
 You can protect your information by disabling public access. This control
@@ -485,9 +451,7 @@ Resources:
 
 ```
 
-## Detect Whether Storage
-
-Encryption is Enabled for Amazon RDS Database Instances
+## Detect Whether Storage Encryption is Enabled for Amazon RDS Database Instances
 
 Detects Amazon RDS database instances that are not encrypted at rest. You can
 secure your Amazon RDS database instances at rest by encrypting the underlying
@@ -519,9 +483,7 @@ Resources:
           - AWS::RDS::DBInstance
 ```
 
-## Detect whether an
-
-account has AWS CloudTrail or CloudTrail Lake enabled
+## Detect whether an account has AWS CloudTrail or CloudTrail Lake enabled
 
 This control detects whether an account has AWS CloudTrail or CloudTrail Lake enabled.
 The rule is NON_COMPLIANT if either CloudTrail or CloudTrail Lake is not enabled in an

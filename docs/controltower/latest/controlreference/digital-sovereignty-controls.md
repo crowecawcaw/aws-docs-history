@@ -1,6 +1,4 @@
-# Digital sovereignty
-
-controls
+# Digital sovereignty controls
 
 _Digital sovereignty_ means control over digital assets. AWS Control Tower
 offers a group of controls that are designed to enhance your digital sovereignty governance
@@ -9,8 +7,7 @@ posture. The pillars of this posture are as follows:
 - _Data residency:_ Control over the location of your
   data.
 
-For more information, see [Controls that enhance data residency
-protection](data-residency-controls.md "data-residency-controls.md").
+For more information, see [Controls that enhance data residency protection](data-residency-controls.md "data-residency-controls.md").
 
 - _Granular access:_ Access restrictions that limit all access to
   your data, unless the access is requested by you, or by a partner whom you

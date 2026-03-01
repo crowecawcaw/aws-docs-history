@@ -1,6 +1,4 @@
-# Exception to controls for the
-
-Security OU
+# Exception to controls for the Security OU
 
 For customers on LZ v4.0:
 

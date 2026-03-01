@@ -24,9 +24,7 @@ Amazon S3 Buckets is Allowed** on an OU, you can determine whether an entity (su
 would be permitted to have read access over the internet to any Amazon S3 buckets, for any accounts under that
 OU.
 
-## Exception to controls for the management
-
-account
+## Exception to controls for the management account
 
 The root user and any administrators in the management account can perform work
 that controls would otherwise deny. This exception is intentional. It prevents the

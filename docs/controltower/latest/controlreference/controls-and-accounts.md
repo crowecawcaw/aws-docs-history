@@ -1,6 +1,4 @@
-# Considerations for controls and
-
-accounts
+# Considerations for controls and accounts
 
 When working with controls and accounts, consider the following properties:
 

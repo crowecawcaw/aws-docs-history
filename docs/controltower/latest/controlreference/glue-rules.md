@@ -2,12 +2,9 @@
 
 ###### Topics
 
-- [[CT.GLUE.PR.1] Require an AWS Glue job to have an associated
-  security configuration](#ct-glue-pr-1-description "#ct-glue-pr-1-description")
+- [[CT.GLUE.PR.1] Require an AWS Glue job to have an associated security configuration](#ct-glue-pr-1-description "#ct-glue-pr-1-description")
 
-## [CT.GLUE.PR.1] Require an AWS Glue job to have an associated
-
-security configuration
+## [CT.GLUE.PR.1] Require an AWS Glue job to have an associated security configuration
 
 This control checks whether an AWS Glue job has an associated security configuration.
 

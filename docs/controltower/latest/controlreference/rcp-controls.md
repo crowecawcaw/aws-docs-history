@@ -1,6 +1,4 @@
-# Controls implemented with resource control policies
-
-(RCPs)
+# Controls implemented with resource control policies (RCPs)
 
 This section provides information about AWS Control Tower controls that are implemented by resource
 control policies (RCPs). RCPs are a type of policy, which can enforce

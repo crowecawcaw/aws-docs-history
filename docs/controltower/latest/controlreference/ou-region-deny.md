@@ -40,9 +40,7 @@ In the AWS Control Tower console, you can view the OUs on which this control is 
 5. You'll be able to see a summary of your selected values before you enable the control.
 6. Select **Enable control** at the lower right.
 
-## CT.MULTISERVICE.PV.1: Deny access to AWS based on the requested
-
-AWS Region for an organizational unit
+## CT.MULTISERVICE.PV.1: Deny access to AWS based on the requested AWS Region for an organizational unit
 
 The OU Region deny control, **CT.MULTISERVICE.PV.1**, is configurable. You can select specific OUs to which
 it applies, rather than applying it to your entire AWS Control Tower landing zone. This control

@@ -4,8 +4,7 @@
 
 - [[CT.APIGATEWAY.PR.1] Require an Amazon API Gateway REST and WebSocket API to have logging activated](#ct-apigateway-pr-1-description "#ct-apigateway-pr-1-description")
 - [[CT.APIGATEWAY.PR.2] Require an Amazon API Gateway REST API stage to have AWS X-Ray tracing activated](#ct-apigateway-pr-2-description "#ct-apigateway-pr-2-description")
-- [[CT.APIGATEWAY.PR.3] Require that an
-  Amazon API Gateway REST API stage has encryption at rest configured for cache data](#ct-apigateway-pr-3-description "#ct-apigateway-pr-3-description")
+- [[CT.APIGATEWAY.PR.3] Require that an Amazon API Gateway REST API stage has encryption at rest configured for cache data](#ct-apigateway-pr-3-description "#ct-apigateway-pr-3-description")
 - [[CT.APIGATEWAY.PR.4] Require an Amazon API Gateway V2 stage to have access logging activated](#ct-apigateway-pr-4-description "#ct-apigateway-pr-4-description")
 - [[CT.APIGATEWAY.PR.5] Require Amazon API Gateway V2 Websocket and HTTP routes to specify an authorization type](#ct-apigateway-pr-5-description "#ct-apigateway-pr-5-description")
 - [[CT.APIGATEWAY.PR.6] Require an Amazon API Gateway REST domain to use a security policy that specifies a minimum TLS protocol version of TLSv1.2](#ct-apigateway-pr-6-description "#ct-apigateway-pr-6-description")
@@ -661,9 +660,7 @@ Resources:
 
 ```
 
-## [CT.APIGATEWAY.PR.3] Require that an
-
-Amazon API Gateway REST API stage has encryption at rest configured for cache data
+## [CT.APIGATEWAY.PR.3] Require that an Amazon API Gateway REST API stage has encryption at rest configured for cache data
 
 This control checks whether an
 Amazon API Gateway REST API stage that has caching enabled also encrypts the

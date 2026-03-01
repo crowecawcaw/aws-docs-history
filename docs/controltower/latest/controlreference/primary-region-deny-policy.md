@@ -1,6 +1,4 @@
-# Deny access to AWS based on the requested
-
-AWS Region
+# Deny access to AWS based on the requested AWS Region
 
 *This control is commonly referred to as the Region deny control,
 or *landing zone* Region deny control.*

@@ -1,6 +1,4 @@
-# Introduction: AWS Control Tower Controls Reference
-
-Guide
+# Introduction: AWS Control Tower Controls Reference Guide
 
 The _AWS Control Tower Controls Reference Guide_ accompanies the [_AWS Control Tower User Guide_](../userguide/what-is-control-tower.md "../userguide/what-is-control-tower.md"). It gives information about the controls that are specific to the AWS Control Tower environment.
 

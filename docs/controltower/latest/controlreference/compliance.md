@@ -37,10 +37,8 @@ regulations, sometimes referred to as _frameworks_.
 
 ###### Examples of compliance rules (controls) in AWS Control Tower:
 
-- [Detect Whether Public Write
-  Access to Amazon S3 Buckets is Allowed](strongly-recommended-detective-controls.md#s3-disallow-public-write "strongly-recommended-detective-controls.md#s3-disallow-public-write")
-- [Detect Whether Unrestricted Incoming
-  TCP Traffic is Allowed](strongly-recommended-detective-controls.md#rdp-disallow-internet "strongly-recommended-detective-controls.md#rdp-disallow-internet")
+- [Detect Whether Public Write Access to Amazon S3 Buckets is Allowed](strongly-recommended-detective-controls.md#s3-disallow-public-write "strongly-recommended-detective-controls.md#s3-disallow-public-write")
+- [Detect Whether Unrestricted Incoming TCP Traffic is Allowed](strongly-recommended-detective-controls.md#rdp-disallow-internet "strongly-recommended-detective-controls.md#rdp-disallow-internet")
 
 ###### Examples of governmental compliance regulations (frameworks):
 

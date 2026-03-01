@@ -1,6 +1,4 @@
-# Controls that enhance data residency
-
-protection
+# Controls that enhance data residency protection
 
 These elective controls complement your enterprise's data residency posture. By applying
 these controls together, you can set up your multi-account environment to help detect and

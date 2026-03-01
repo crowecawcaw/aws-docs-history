@@ -5,10 +5,8 @@
 - [[CT.NEPTUNE.PR.1] Require an Amazon Neptune DB cluster to have AWS Identity and Access Management (IAM) database authentication enabled](#ct-neptune-pr-1-description "#ct-neptune-pr-1-description")
 - [[CT.NEPTUNE.PR.2] Require an Amazon Neptune DB cluster to have deletion protection enabled](#ct-neptune-pr-2-description "#ct-neptune-pr-2-description")
 - [[CT.NEPTUNE.PR.3] Require an Amazon Neptune DB cluster to have storage encryption enabled](#ct-neptune-pr-3-description "#ct-neptune-pr-3-description")
-- [[CT.NEPTUNE.PR.4] Require an Amazon Neptune DB cluster to
-  enable Amazon CloudWatch Logs export for audit logs](#ct-neptune-pr-4-description "#ct-neptune-pr-4-description")
-- [[CT.NEPTUNE.PR.5] Require an Amazon Neptune DB cluster to set a
-  backup retention period greater than or equal to seven days](#ct-neptune-pr-5-description "#ct-neptune-pr-5-description")
+- [[CT.NEPTUNE.PR.4] Require an Amazon Neptune DB cluster to enable Amazon CloudWatch Logs export for audit logs](#ct-neptune-pr-4-description "#ct-neptune-pr-4-description")
+- [[CT.NEPTUNE.PR.5] Require an Amazon Neptune DB cluster to set a backup retention period greater than or equal to seven days](#ct-neptune-pr-5-description "#ct-neptune-pr-5-description")
 
 ## [CT.NEPTUNE.PR.1] Require an Amazon Neptune DB cluster to have AWS Identity and Access Management (IAM) database authentication enabled
 
@@ -599,9 +597,7 @@ Resources:
 
 ```
 
-## [CT.NEPTUNE.PR.4] Require an Amazon Neptune DB cluster to
-
-enable Amazon CloudWatch Logs export for audit logs
+## [CT.NEPTUNE.PR.4] Require an Amazon Neptune DB cluster to enable Amazon CloudWatch Logs export for audit logs
 
 This control checks whether an Amazon Neptune cluster is configured to send audit logs to
 Amazon CloudWatch Logs.
@@ -812,9 +808,7 @@ Resources:
 
 ```
 
-## [CT.NEPTUNE.PR.5] Require an Amazon Neptune DB cluster to set a
-
-backup retention period greater than or equal to seven days
+## [CT.NEPTUNE.PR.5] Require an Amazon Neptune DB cluster to set a backup retention period greater than or equal to seven days
 
 This control checks whether Amazon Neptune DB clusters have configured automatic backups with a retention period set to
 7 or more days (>=7). The default retention period is one day.

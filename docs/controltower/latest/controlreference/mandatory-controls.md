@@ -19,28 +19,21 @@ changes to the mandatory controls.
 - AWS Control Tower will no longer deploy the below controls from landing zone 4.0 because these protect the account trails which were deployed
   in landing zone 2.9 and below. These controls would still be applied for landing zone versions below 4.0 and would be deleted once customers
   upgrade to versions 4.0 and above.
-  - [Disallow Configuration Changes to
-    CloudTrail](#cloudtrail-configuration-changes "#cloudtrail-configuration-changes")Disallow Configuration Changes to CloudTrail
-  - [Integrate CloudTrail Events with Amazon
-    CloudWatch Logs](#cloudtrail-integrate-events-logs "#cloudtrail-integrate-events-logs")Integrate CloudTrail Events with Amazon CloudWatch Logs
+  - [Disallow Configuration Changes to CloudTrail](#cloudtrail-configuration-changes "#cloudtrail-configuration-changes")Disallow Configuration Changes to CloudTrail
+  - [Integrate CloudTrail Events with Amazon CloudWatch Logs](#cloudtrail-integrate-events-logs "#cloudtrail-integrate-events-logs")Integrate CloudTrail Events with Amazon CloudWatch Logs
   - [Enable CloudTrail in All Available Regions](#cloudtrail-enable-region "#cloudtrail-enable-region")Enable CloudTrail in All Available Regions
-  - [Enable Integrity Validation for CloudTrail Log
-    File](#cloudtrail-enable-validation "#cloudtrail-enable-validation")Enable Integrity Validation for CloudTrail Log File
+  - [Enable Integrity Validation for CloudTrail Log File](#cloudtrail-enable-validation "#cloudtrail-enable-validation")Enable Integrity Validation for CloudTrail Log File
 
 - The following detective mandatory control will be removed:
-  - [Detect whether shared accounts
-    under the Security organizational unit have AWS CloudTrail or CloudTrail Lake
-    enabled](#ensure-cloudtrail-enabled-mandatory "#ensure-cloudtrail-enabled-mandatory")Detect whether shared accounts under the Security organizational unit have AWS CloudTrail or CloudTrail Lake enabled
+  - [Detect whether shared accounts under the Security organizational unit have AWS CloudTrail or CloudTrail Lake enabled](#ensure-cloudtrail-enabled-mandatory "#ensure-cloudtrail-enabled-mandatory")Detect whether shared accounts under the Security organizational unit have AWS CloudTrail or CloudTrail Lake enabled
 
 - The following controls will be removed if the customer has AWS Config integration enabled and are upgrading to landing zone 4.0 and above
   (Note: Customers on landing zone versions below 4.0 have AWS Config integration enabled by default). These controls are related to legacy
   AWS Config aggregators and are no longer required for Service-Linked Config Aggregator. Read more on the Service-linked Config aggregator
   [here](../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/config-mgmt.md "../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/config-mgmt.md").
-  - [Disallow Changes to Tags Created by
-    AWS Control Tower for AWS Config Resources](#cloudwatch-disallow-config-changes "#cloudwatch-disallow-config-changes")
+  - [Disallow Changes to Tags Created by AWS Control Tower for AWS Config Resources](#cloudwatch-disallow-config-changes "#cloudwatch-disallow-config-changes")
   - [Disallow Deletion of AWS Config Aggregation Authorizations Created by AWS Control Tower](#config-aggregation-authorization-policy "#config-aggregation-authorization-policy")
-  - [Disallow Changes to AWS Config Rules Set Up by
-    AWS Control Tower](#config-rule-disallow-changes "#config-rule-disallow-changes")
+  - [Disallow Changes to AWS Config Rules Set Up by AWS Control Tower](#config-rule-disallow-changes "#config-rule-disallow-changes")
 
 - The AWS CloudTrail integration tied to the manifest `centralizedLogging` configuration has two new controls
   starting landing zone 4.0
@@ -169,26 +162,17 @@ changes to the mandatory controls.
 - On landing zone 4.0, AWS Control Tower will disable the following controls as they are replaced with a single unified
   preventive control for AWS Config integration. The security governance boundary remains the same,
   but with reduced SCP space.
-  - [Disallow Changes to Encryption
-    Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-changes-s3-buckets-created "#disallow-changes-s3-buckets-created")
-  - [Disallow Changes to
-    Logging Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-logging-changes-s3-buckets-created "#disallow-logging-changes-s3-buckets-created")
-  - [Disallow Changes to Bucket
-    Policy for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-policy-changes-s3-buckets-created "#disallow-policy-changes-s3-buckets-created")
-  - [Disallow Changes to
-    Lifecycle Configuration for AWS Control Tower Created Amazon S3 Buckets in Log
-    Archive](#disallow-lifecycle-changes-s3-buckets-created "#disallow-lifecycle-changes-s3-buckets-created")
-  - [Disallow Deletion of Log
-    Archive](#disallow-audit-bucket-deletion "#disallow-audit-bucket-deletion")
-  - [Detect Public Write Access Setting for Log
-    Archive](#log-archive-public-write "#log-archive-public-write")
-  - [Detect Public Read Access Setting for Log
-    Archive](#log-archive-public-read "#log-archive-public-read")
+  - [Disallow Changes to Encryption Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-changes-s3-buckets-created "#disallow-changes-s3-buckets-created")
+  - [Disallow Changes to Logging Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-logging-changes-s3-buckets-created "#disallow-logging-changes-s3-buckets-created")
+  - [Disallow Changes to Bucket Policy for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-policy-changes-s3-buckets-created "#disallow-policy-changes-s3-buckets-created")
+  - [Disallow Changes to Lifecycle Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-lifecycle-changes-s3-buckets-created "#disallow-lifecycle-changes-s3-buckets-created")
+  - [Disallow Deletion of Log Archive](#disallow-audit-bucket-deletion "#disallow-audit-bucket-deletion")
+  - [Detect Public Write Access Setting for Log Archive](#log-archive-public-write "#log-archive-public-write")
+  - [Detect Public Read Access Setting for Log Archive](#log-archive-public-read "#log-archive-public-read")
 
 - AWS Control Tower is updating the following controls for all landing zone versions, this change will take place when customers
   update/reset their existing setup.
-  - [Disallow Changes to Amazon SNS Set Up by
-    AWS Control Tower](#sns-disallow-changes "#sns-disallow-changes")
+  - [Disallow Changes to Amazon SNS Set Up by AWS Control Tower](#sns-disallow-changes "#sns-disallow-changes")
 
   The change is to specify three explicit SNS topic ARNs in the Resource section instead
   of using a wildcard pattern
@@ -231,28 +215,16 @@ the Security OU.
 
 ###### Topics
 
-- [Disallow Changes to Encryption
-  Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-changes-s3-buckets-created "#disallow-changes-s3-buckets-created")
-- [Disallow Changes to
-  Logging Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-logging-changes-s3-buckets-created "#disallow-logging-changes-s3-buckets-created")
-- [Disallow Changes to Bucket
-  Policy for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-policy-changes-s3-buckets-created "#disallow-policy-changes-s3-buckets-created")
-- [Disallow Changes to
-  Lifecycle Configuration for AWS Control Tower Created Amazon S3 Buckets in Log
-  Archive](#disallow-lifecycle-changes-s3-buckets-created "#disallow-lifecycle-changes-s3-buckets-created")
-- [Disallow Deletion of Log
-  Archive](#disallow-audit-bucket-deletion "#disallow-audit-bucket-deletion")
-- [Detect Public Read Access Setting for Log
-  Archive](#log-archive-public-read "#log-archive-public-read")
-- [Detect Public Write Access Setting for Log
-  Archive](#log-archive-public-write "#log-archive-public-write")
-- [Detect whether shared accounts
-  under the Security organizational unit have AWS CloudTrail or CloudTrail Lake
-  enabled](#ensure-cloudtrail-enabled-mandatory "#ensure-cloudtrail-enabled-mandatory")
+- [Disallow Changes to Encryption Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-changes-s3-buckets-created "#disallow-changes-s3-buckets-created")
+- [Disallow Changes to Logging Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-logging-changes-s3-buckets-created "#disallow-logging-changes-s3-buckets-created")
+- [Disallow Changes to Bucket Policy for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-policy-changes-s3-buckets-created "#disallow-policy-changes-s3-buckets-created")
+- [Disallow Changes to Lifecycle Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-lifecycle-changes-s3-buckets-created "#disallow-lifecycle-changes-s3-buckets-created")
+- [Disallow Deletion of Log Archive](#disallow-audit-bucket-deletion "#disallow-audit-bucket-deletion")
+- [Detect Public Read Access Setting for Log Archive](#log-archive-public-read "#log-archive-public-read")
+- [Detect Public Write Access Setting for Log Archive](#log-archive-public-write "#log-archive-public-write")
+- [Detect whether shared accounts under the Security organizational unit have AWS CloudTrail or CloudTrail Lake enabled](#ensure-cloudtrail-enabled-mandatory "#ensure-cloudtrail-enabled-mandatory")
 
-### Disallow Changes to Encryption
-
-Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive
+### Disallow Changes to Encryption Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive
 
 This control prevents changes to encryption for the Amazon S3 buckets that AWS Control Tower creates
 in the log archive account. This is a preventive control with mandatory guidance. By
@@ -285,9 +257,7 @@ JSON
 
 ```
 
-### Disallow Changes to
-
-Logging Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive
+### Disallow Changes to Logging Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive
 
 This control prevents changes to logging configuration for the Amazon S3 buckets that
 AWS Control Tower creates in the log archive account. This is a preventive control with mandatory
@@ -320,9 +290,7 @@ JSON
 
 ```
 
-### Disallow Changes to Bucket
-
-Policy for AWS Control Tower Created Amazon S3 Buckets in Log Archive
+### Disallow Changes to Bucket Policy for AWS Control Tower Created Amazon S3 Buckets in Log Archive
 
 This control prevents changes to bucket policy for the Amazon S3 buckets that AWS Control Tower
 creates in the log archive account. This is a preventive control with mandatory
@@ -356,10 +324,7 @@ JSON
 
 ```
 
-### Disallow Changes to
-
-Lifecycle Configuration for AWS Control Tower Created Amazon S3 Buckets in Log
-Archive
+### Disallow Changes to Lifecycle Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive
 
 This control prevents lifecycle configuration changes for the Amazon S3 buckets that
 AWS Control Tower creates in the log archive account. This is a preventive control with mandatory
@@ -392,9 +357,7 @@ JSON
 
 ```
 
-### Disallow Deletion of Log
-
-Archive
+### Disallow Deletion of Log Archive
 
 This control prevents deletion of Amazon S3 buckets created by AWS Control Tower in the log archive
 account. This is a preventive control with mandatory guidance. By default, this control
@@ -428,9 +391,7 @@ JSON
 
 ```
 
-### Detect Public Read Access Setting for Log
-
-Archive
+### Detect Public Read Access Setting for Log Archive
 
 This control detects whether public read access is enabled to the Amazon S3 buckets in the
 log archive shared account. This control does not change the status of the account. This
@@ -460,9 +421,7 @@ Resources:
           - AWS::S3::Bucket
 ```
 
-### Detect Public Write Access Setting for Log
-
-Archive
+### Detect Public Write Access Setting for Log Archive
 
 This control detects whether public write access is enabled to the Amazon S3 buckets in the
 log archive shared account. This control does not change the status of the account. This
@@ -493,10 +452,7 @@ Resources:
 
 ```
 
-### Detect whether shared accounts
-
-under the Security organizational unit have AWS CloudTrail or CloudTrail Lake
-enabled
+### Detect whether shared accounts under the Security organizational unit have AWS CloudTrail or CloudTrail Lake enabled
 
 This control detects whether shared accounts under the Security organizational unit
 have AWS CloudTrail or CloudTrail Lake enabled. The rule is NON_COMPLIANT if either CloudTrail or CloudTrail
@@ -537,36 +493,23 @@ identical by design. The sample code is correct.
 
 ###### Topics
 
-- [Disallow Changes to Amazon CloudWatch Logs
-  Log Groups set up by AWS Control Tower](#log-group-deletion-policy "#log-group-deletion-policy")
+- [Disallow Changes to Amazon CloudWatch Logs Log Groups set up by AWS Control Tower](#log-group-deletion-policy "#log-group-deletion-policy")
 - [Disallow Deletion of AWS Config Aggregation Authorizations Created by AWS Control Tower](#config-aggregation-authorization-policy "#config-aggregation-authorization-policy")
-- [Disallow Configuration Changes to
-  CloudTrail](#cloudtrail-configuration-changes "#cloudtrail-configuration-changes")
-- [Integrate CloudTrail Events with Amazon
-  CloudWatch Logs](#cloudtrail-integrate-events-logs "#cloudtrail-integrate-events-logs")
+- [Disallow Configuration Changes to CloudTrail](#cloudtrail-configuration-changes "#cloudtrail-configuration-changes")
+- [Integrate CloudTrail Events with Amazon CloudWatch Logs](#cloudtrail-integrate-events-logs "#cloudtrail-integrate-events-logs")
 - [Enable CloudTrail in All Available Regions](#cloudtrail-enable-region "#cloudtrail-enable-region")
-- [Enable Integrity Validation for CloudTrail Log
-  File](#cloudtrail-enable-validation "#cloudtrail-enable-validation")
-- [Disallow Changes to Amazon CloudWatch Set Up by
-  AWS Control Tower](#cloudwatch-disallow-changes "#cloudwatch-disallow-changes")
-- [Disallow Changes to Tags Created by
-  AWS Control Tower for AWS Config Resources](#cloudwatch-disallow-config-changes "#cloudwatch-disallow-config-changes")
+- [Enable Integrity Validation for CloudTrail Log File](#cloudtrail-enable-validation "#cloudtrail-enable-validation")
+- [Disallow Changes to Amazon CloudWatch Set Up by AWS Control Tower](#cloudwatch-disallow-changes "#cloudwatch-disallow-changes")
+- [Disallow Changes to Tags Created by AWS Control Tower for AWS Config Resources](#cloudwatch-disallow-config-changes "#cloudwatch-disallow-config-changes")
 - [Disallow Configuration Changes to AWS Config](#config-disallow-changes "#config-disallow-changes")
 - [Enable AWS Config in All Available Regions](#config-enable-regions "#config-enable-regions")
-- [Disallow Changes to AWS Config Rules Set Up by
-  AWS Control Tower](#config-rule-disallow-changes "#config-rule-disallow-changes")
-- [Disallow Changes to AWS IAM Roles Set Up by
-  AWS Control Tower and AWS CloudFormation](#iam-disallow-changes "#iam-disallow-changes")
-- [Disallow Changes to AWS Lambda Functions Set
-  Up by AWS Control Tower](#lambda-disallow-changes "#lambda-disallow-changes")
-- [Disallow Changes to Amazon SNS Set Up by
-  AWS Control Tower](#sns-disallow-changes "#sns-disallow-changes")
-- [Disallow Changes to Amazon SNS
-  Subscriptions Set Up by AWS Control Tower](#sns-subscriptions-disallow-changes "#sns-subscriptions-disallow-changes")
+- [Disallow Changes to AWS Config Rules Set Up by AWS Control Tower](#config-rule-disallow-changes "#config-rule-disallow-changes")
+- [Disallow Changes to AWS IAM Roles Set Up by AWS Control Tower and AWS CloudFormation](#iam-disallow-changes "#iam-disallow-changes")
+- [Disallow Changes to AWS Lambda Functions Set Up by AWS Control Tower](#lambda-disallow-changes "#lambda-disallow-changes")
+- [Disallow Changes to Amazon SNS Set Up by AWS Control Tower](#sns-disallow-changes "#sns-disallow-changes")
+- [Disallow Changes to Amazon SNS Subscriptions Set Up by AWS Control Tower](#sns-subscriptions-disallow-changes "#sns-subscriptions-disallow-changes")
 
-### Disallow Changes to Amazon CloudWatch Logs
-
-Log Groups set up by AWS Control Tower
+### Disallow Changes to Amazon CloudWatch Logs Log Groups set up by AWS Control Tower
 
 This control prevents changes to the retention policy for Amazon CloudWatch Logs log groups
 that AWS Control Tower created in the log archive account when you set up your landing zone. It
@@ -642,9 +585,7 @@ JSON
 
 ```
 
-### Disallow Configuration Changes to
-
-CloudTrail
+### Disallow Configuration Changes to CloudTrail
 
 This control prevents configuration changes to CloudTrail in your landing zone. This is a
 preventive control with mandatory guidance. By default, this control is enabled on all
@@ -679,9 +620,7 @@ JSON
 
 ```
 
-### Integrate CloudTrail Events with Amazon
-
-CloudWatch Logs
+### Integrate CloudTrail Events with Amazon CloudWatch Logs
 
 This control performs real-time analysis of activity data by sending CloudTrail events to
 CloudWatch Logs log files. This is a preventive control with mandatory guidance. By default, this
@@ -750,9 +689,7 @@ JSON
 
 ```
 
-### Enable Integrity Validation for CloudTrail Log
-
-File
+### Enable Integrity Validation for CloudTrail Log File
 
 This control enables integrity validation for the CloudTrail log file in all accounts and
 OUs. It protects the integrity of account activity logs using CloudTrail log file validation,
@@ -789,9 +726,7 @@ JSON
 
 ```
 
-### Disallow Changes to Amazon CloudWatch Set Up by
-
-AWS Control Tower
+### Disallow Changes to Amazon CloudWatch Set Up by AWS Control Tower
 
 This control disallows changes to Amazon CloudWatch; as it was configured by AWS Control Tower when you
 set up your landing zone. This is a preventive control with mandatory guidance. By
@@ -829,9 +764,7 @@ JSON
 
 ```
 
-### Disallow Changes to Tags Created by
-
-AWS Control Tower for AWS Config Resources
+### Disallow Changes to Tags Created by AWS Control Tower for AWS Config Resources
 
 This control prevents changes to the tags that AWS Control Tower created when you set up your
 landing zone, for AWS Config resources that collect configuration and compliance data. It
@@ -945,9 +878,7 @@ JSON
 
 ```
 
-### Disallow Changes to AWS Config Rules Set Up by
-
-AWS Control Tower
+### Disallow Changes to AWS Config Rules Set Up by AWS Control Tower
 
 This control disallows changes to AWS Config Rules that were implemented by AWS Control Tower when the
 landing zone was set up. This is a preventive control with mandatory guidance. By
@@ -986,9 +917,7 @@ JSON
 
 ```
 
-### Disallow Changes to AWS IAM Roles Set Up by
-
-AWS Control Tower and AWS CloudFormation
+### Disallow Changes to AWS IAM Roles Set Up by AWS Control Tower and AWS CloudFormation
 
 This control disallows changes to the AWS IAM roles that AWS Control Tower created when the
 landing zone was set up. This is a preventive control with mandatory guidance. By
@@ -1114,9 +1043,7 @@ JSON
 
 ```
 
-### Disallow Changes to AWS Lambda Functions Set
-
-Up by AWS Control Tower
+### Disallow Changes to AWS Lambda Functions Set Up by AWS Control Tower
 
 This control disallows changes to AWS Lambda functions set up by AWS Control Tower. This is a
 preventive control with mandatory guidance. By default, this control is enabled in all
@@ -1160,9 +1087,7 @@ JSON
 
 ```
 
-### Disallow Changes to Amazon SNS Set Up by
-
-AWS Control Tower
+### Disallow Changes to Amazon SNS Set Up by AWS Control Tower
 
 This control disallows changes to Amazon SNS set up by AWS Control Tower. It protects the integrity
 of Amazon SNS notification settings for your landing zone. This is a preventive control with
@@ -1200,9 +1125,7 @@ JSON
 
 ```
 
-### Disallow Changes to Amazon SNS
-
-Subscriptions Set Up by AWS Control Tower
+### Disallow Changes to Amazon SNS Subscriptions Set Up by AWS Control Tower
 
 This control disallows changes to Amazon SNS subscriptions set up by AWS Control Tower. It protects
 the integrity of Amazon SNS subscriptions settings for your landing zone, to trigger

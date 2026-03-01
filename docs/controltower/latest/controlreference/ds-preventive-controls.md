@@ -1,6 +1,4 @@
-# Preventive controls that assist with digital
-
-sovereignty
+# Preventive controls that assist with digital sovereignty
 
 These preventive controls are designed to assist you with your digital sovereignty
 governance posture.

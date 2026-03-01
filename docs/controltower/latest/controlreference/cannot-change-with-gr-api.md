@@ -1,6 +1,4 @@
-# Controls that cannot be changed with the
-
-AWS Control Tower APIs
+# Controls that cannot be changed with the AWS Control Tower APIs
 
 The following controls cannot be activated or deactivated by means of the AWS Control Tower
 APIs. Except for the landing zone Region deny control, all of these are mandatory controls. In

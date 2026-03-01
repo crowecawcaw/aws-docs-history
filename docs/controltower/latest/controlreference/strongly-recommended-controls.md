@@ -1,6 +1,4 @@
-# Strongly recommended
-
-controls
+# Strongly recommended controls
 
 Strongly recommended controls are owned by AWS Control Tower. They are based on best
 practices for well-architected multi-account environments. These controls are
@@ -10,7 +8,5 @@ recommended controls available in AWS Control Tower.
 
 ###### Topics
 
-- [Strongly recommended
-  controls with preventive behavior](strongly-recommended-preventive-controls.md "strongly-recommended-preventive-controls.md")
-- [Strongly recommended
-  controls with detective behavior](strongly-recommended-detective-controls.md "strongly-recommended-detective-controls.md")
+- [Strongly recommended controls with preventive behavior](strongly-recommended-preventive-controls.md "strongly-recommended-preventive-controls.md")
+- [Strongly recommended controls with detective behavior](strongly-recommended-detective-controls.md "strongly-recommended-detective-controls.md")

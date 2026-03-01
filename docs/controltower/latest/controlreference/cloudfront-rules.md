@@ -3,9 +3,7 @@
 ###### Topics
 
 - [[CT.CLOUDFRONT.PR.1] Require an Amazon CloudFront distribution to have a default root object configured](#ct-cloudfront-pr-1-description "#ct-cloudfront-pr-1-description")
-- [[CT.CLOUDFRONT.PR.2] Require any
-  Amazon CloudFront distributions with Amazon S3 backed origins to have an origin access identity
-  configured](#ct-cloudfront-pr-2-description "#ct-cloudfront-pr-2-description")
+- [[CT.CLOUDFRONT.PR.2] Require any Amazon CloudFront distributions with Amazon S3 backed origins to have an origin access identity configured](#ct-cloudfront-pr-2-description "#ct-cloudfront-pr-2-description")
 - [[CT.CLOUDFRONT.PR.3] Require an Amazon CloudFront distribution to have encryption in transit configured](#ct-cloudfront-pr-3-description "#ct-cloudfront-pr-3-description")
 - [[CT.CLOUDFRONT.PR.4] Require an Amazon CloudFront distribution to have origin failover configured](#ct-cloudfront-pr-4-description "#ct-cloudfront-pr-4-description")
 - [[CT.CLOUDFRONT.PR.5] Require any Amazon CloudFront distribution to have logging enabled](#ct-cloudfront-pr-5-description "#ct-cloudfront-pr-5-description")
@@ -306,10 +304,7 @@ ParametersInCacheKeyAndForwardedToOrigin:
 
 ```
 
-## [CT.CLOUDFRONT.PR.2] Require any
-
-Amazon CloudFront distributions with Amazon S3 backed origins to have an origin access identity
-configured
+## [CT.CLOUDFRONT.PR.2] Require any Amazon CloudFront distributions with Amazon S3 backed origins to have an origin access identity configured
 
 This control checks whether Amazon CloudFront distributions backed by Amazon S3 are
 configured with an origin access identity.

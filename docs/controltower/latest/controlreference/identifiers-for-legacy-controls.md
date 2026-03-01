@@ -1,6 +1,4 @@
-# Identifiers for legacy
-
-controls
+# Identifiers for legacy controls
 
 The following section contains the Regional `API controlIdentifier`
 designations of the legacy **Strongly recommended** and
@@ -17,9 +15,7 @@ Mandatory controls cannot be deactivated by the control APIs.
 Each item in the list that follows serves as a link, which provides more information
 about these individual (legacy) controls that are owned by AWS Control Tower, as given in [The AWS Control Tower Control Catalog](controls-reference.md "controls-reference.md").
 
-###### Designations for legacy Elective
-
-controls
+###### Designations for legacy Elective controls
 
 - [arn:aws:controltower:REGION::control/AWS-GR_AUDIT_BUCKET_ENCRYPTION_ENABLED](../userguide/elective-controls.md#log-archive-encryption-enabled "../userguide/elective-controls.md#log-archive-encryption-enabled")
 - [arn:aws:controltower:REGION::control/AWS-GR_AUDIT_BUCKET_LOGGING_ENABLED](../userguide/elective-controls.md#log-archive-access-enabled "../userguide/elective-controls.md#log-archive-access-enabled")
@@ -31,9 +27,7 @@ controls
 - [arn:aws:controltower:REGION::control/AWS-GR_RESTRICT_S3_DELETE_WITHOUT_MFA](../userguide/elective-controls.md#disallow-s3-delete-mfa "../userguide/elective-controls.md#disallow-s3-delete-mfa")
 - [arn:aws:controltower:REGION::control/AWS-GR_S3_VERSIONING_ENABLED](../userguide/elective-controls.md#disallow-s3-no-versioning "../userguide/elective-controls.md#disallow-s3-no-versioning")
 
-###### Designations for legacy Data residency
-
-controls (elective)
+###### Designations for legacy Data residency controls (elective)
 
 - [arn:aws:controltower:REGION::control/AWS-GR_SUBNET_AUTO_ASSIGN_PUBLIC_IP_DISABLED](../userguide/data-residency-controls.md#subnet-auto-assign-public-ip-disabled "../userguide/data-residency-controls.md#subnet-auto-assign-public-ip-disabled")
 - [arn:aws:controltower:REGION::control/AWS-GR_AUTOSCALING_LAUNCH_CONFIG_PUBLIC_IP_DISABLED](../userguide/data-residency-controls.md#autoscaling-launch-config-public-ip-disabled "../userguide/data-residency-controls.md#autoscaling-launch-config-public-ip-disabled")
@@ -53,9 +47,7 @@ controls (elective)
 - [arn:aws:controltower:REGION::control/AWS-GR_SAGEMAKER_NOTEBOOK_NO_DIRECT_INTERNET_ACCESS](../userguide/data-residency-controls.md#sagemaker-notebook-no-direct-internet-access "../userguide/data-residency-controls.md#sagemaker-notebook-no-direct-internet-access")
 - [arn:aws:controltower:REGION::control/AWS-GR_SSM_DOCUMENT_NOT_PUBLIC](../userguide/data-residency-controls.md#ssm-document-not-public "../userguide/data-residency-controls.md#ssm-document-not-public")
 
-###### Designations for legacy Strongly
-
-recommended controls
+###### Designations for legacy Strongly recommended controls
 
 - [arn:aws:controltower:REGION::control/AWS-GR_ENCRYPTED_VOLUMES](../userguide/strongly-recommended-controls.md#ebs-enable-encryption "../userguide/strongly-recommended-controls.md#ebs-enable-encryption")
 - [arn:aws:controltower:REGION::control/AWS-GR_EBS_OPTIMIZED_INSTANCE](../userguide/strongly-recommended-controls.md#disallow-not-ebs-optimized "../userguide/strongly-recommended-controls.md#disallow-not-ebs-optimized")

@@ -31,8 +31,7 @@
 - [[CT.RDS.PR.27] Require an Amazon Relational Database Service DB cluster parameter group to require Transport Layer Security (TLS) connections for supported engine types](#ct-rds-pr-27-description "#ct-rds-pr-27-description")
 - [[CT.RDS.PR.28] Require an Amazon Relational Database Service DB parameter group to require Transport Layer Security (TLS) connections for supported engine types](#ct-rds-pr-28-description "#ct-rds-pr-28-description")
 - [[CT.RDS.PR.29] Require an Amazon RDS cluster not be configured to be publicly accessible by means of the 'PubliclyAccessible' property](#ct-rds-pr-29-description "#ct-rds-pr-29-description")
-- [[CT.RDS.PR.30] Require that an Amazon RDS database instance has encryption at rest configured to use a KMS key that you specify
-  for supported engine types](#ct-rds-pr-30-description "#ct-rds-pr-30-description")
+- [[CT.RDS.PR.30] Require that an Amazon RDS database instance has encryption at rest configured to use a KMS key that you specify for supported engine types](#ct-rds-pr-30-description "#ct-rds-pr-30-description")
 
 ## [CT.RDS.PR.1] Require that an Amazon RDS database instance is configured with multiple Availability Zones
 
@@ -9554,9 +9553,7 @@ Resources:
 
 ```
 
-## [CT.RDS.PR.30] Require that an Amazon RDS database instance has encryption at rest configured to use a KMS key that you specify
-
-for supported engine types
+## [CT.RDS.PR.30] Require that an Amazon RDS database instance has encryption at rest configured to use a KMS key that you specify for supported engine types
 
 This control checks whether storage encryption is enabled for your Amazon RDS database (DB) instance, and that the encryption uses a KMS key that you specify for supported
 engine types.

@@ -8,8 +8,7 @@ deactivate these optional controls through the AWS Control Tower console, or by 
 
 - [Proactive controls](proactive-controls.md "proactive-controls.md"),
   which are based on CloudFormation hooks.
-- [Controls implemented with resource control policies
-  (RCPs)](rcp-controls.md "rcp-controls.md"),
+- [Controls implemented with resource control policies (RCPs)](rcp-controls.md "rcp-controls.md"),
   which are based on RCPs from AWS Organizations. For more information, see [Resource control policies](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the AWS Organizations documentation.
 - [Controls implemented with declarative policies](declarative-controls.md "declarative-controls.md"),
   which are based on _declarative policies_ from AWS Organizations. For more information, see [Declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative.md "../../../organizations/latest/userguide/orgs_manage_policies_declarative.md") in the AWS Organizations documentation.
