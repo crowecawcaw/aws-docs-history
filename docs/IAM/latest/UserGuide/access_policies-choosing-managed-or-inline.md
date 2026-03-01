@@ -1,6 +1,4 @@
-# Choose between managed policies
-
-and inline policies
+# Choose between managed policies and inline policies
 
 Consider your use cases when deciding between managed and inline policies. In most cases,
 we recommend that you use managed policies instead of inline policies.
@@ -46,8 +44,7 @@ A policy version is different from a `Version` policy element.
 The `Version` policy element is used within a policy and defines
 the version of the policy language. To learn more about policy versions, see
 [Versioning IAM policies](access_policies_managed-versioning.md "access_policies_managed-versioning.md"). To learn more
-about the `Version` policy element see [IAM JSON policy elements:
-Version](reference_policies_elements_version.md "reference_policies_elements_version.md").
+about the `Version` policy element see [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md").
 
 **Delegating permissions management**
 
@@ -77,9 +74,7 @@ example, to add permissions for new AWS services, without you having to make
 changes. The updates are automatically applied to the principal entities that
 you have attached the AWS managed policy to.
 
-## Get started with managed
-
-policies
+## Get started with managed policies
 
 We recommend using policies that [grant least
 privilege](access_policies.md#grant-least-priv "access_policies.md#grant-least-priv"), or granting only the permissions required to perform a task. The
@@ -94,8 +89,7 @@ privilege permissions. You must consider the security risk of granting your prin
 more permissions than they need to do their job.
 
 You can attach AWS managed policies, including job functions, to any IAM identity.
-For more information, see [Adding and removing IAM identity
-permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
+For more information, see [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
 
 To switch to least privilege permissions, you can run AWS Identity and Access Management and Access Analyzer to monitor
 the principals with AWS managed policies. After learning which permissions they are

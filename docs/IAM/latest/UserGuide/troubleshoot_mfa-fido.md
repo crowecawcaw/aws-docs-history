@@ -5,16 +5,12 @@ working with FIDO2 security keys.
 
 ###### Topics
 
-- [I can't enable my FIDO security
-  key](#troubleshoot_mfa-fido-cant-enable "#troubleshoot_mfa-fido-cant-enable")
-- [I can't sign in using my FIDO security
-  key](#troubleshoot_mfa-fido-signin "#troubleshoot_mfa-fido-signin")
+- [I can't enable my FIDO security key](#troubleshoot_mfa-fido-cant-enable "#troubleshoot_mfa-fido-cant-enable")
+- [I can't sign in using my FIDO security key](#troubleshoot_mfa-fido-signin "#troubleshoot_mfa-fido-signin")
 - [I lost or broke my FIDO security key](#troubleshoot_mfa-fido-lost "#troubleshoot_mfa-fido-lost")
 - [Other issues](#troubleshoot_mfa-fido-other-issues "#troubleshoot_mfa-fido-other-issues")
 
-## I can't enable my FIDO security
-
-key
+## I can't enable my FIDO security key
 
 Consult the following solutions depending on your status as an IAM user or system
 administrator
@@ -32,8 +28,7 @@ To create and use passkeys, Windows users should use [cross-device authenticatio
 mobile device or hardware security key to sign in on another device like a laptop.
 
 For
-information on devices and browsers you can use with WebAuthn and AWS, see [Supported configurations
-for using passkeys and security keys](id_credentials_mfa_fido_supported_configurations.md "id_credentials_mfa_fido_supported_configurations.md").
+information on devices and browsers you can use with WebAuthn and AWS, see [Supported configurations for using passkeys and security keys](id_credentials_mfa_fido_supported_configurations.md "id_credentials_mfa_fido_supported_configurations.md").
 
 - Are you using any browser plugins?
 
@@ -53,15 +48,11 @@ appropriate permissions. Contact your system administrator.
 ### System administrators
 
 If your IAM users can't enable their FIDO security keys despite using a supported
-configuration, check their permissions. For a detailed example, see [IAM tutorial: Permit users to manage
-their credentials and MFA settings](tutorial_users-self-manage-mfa-and-creds.md "tutorial_users-self-manage-mfa-and-creds.md").
+configuration, check their permissions. For a detailed example, see [IAM tutorial: Permit users to manage their credentials and MFA settings](tutorial_users-self-manage-mfa-and-creds.md "tutorial_users-self-manage-mfa-and-creds.md").
 
-## I can't sign in using my FIDO security
+## I can't sign in using my FIDO security key
 
-key
-
-If you can't sign in to the AWS Management Console using your FIDO security key, first see [Supported configurations
-for using passkeys and security keys](id_credentials_mfa_fido_supported_configurations.md "id_credentials_mfa_fido_supported_configurations.md"). If you're using a
+If you can't sign in to the AWS Management Console using your FIDO security key, first see [Supported configurations for using passkeys and security keys](id_credentials_mfa_fido_supported_configurations.md "id_credentials_mfa_fido_supported_configurations.md"). If you're using a
 supported configuration but cannot sign in, contact your system administrator for assistance.
 
 ## I lost or broke my FIDO security key
@@ -69,8 +60,7 @@ supported configuration but cannot sign in, contact your system administrator fo
 Up to **eight** MFA devices of any combination of the [currently supported MFA types](https://aws.amazon.com/iam/features/mfa/ "https://aws.amazon.com/iam/features/mfa/") can be
 assigned to a user. With multiple MFA devices, you only need one MFA device to sign in to the
 AWS Management Console. Replacing a FIDO security key is similar to replacing a hardware TOTP token. If you
-lose or break any type of MFA device, see [Recover an MFA protected identity in
-IAM](id_credentials_mfa_lost-or-broken.md "id_credentials_mfa_lost-or-broken.md").
+lose or break any type of MFA device, see [Recover an MFA protected identity in IAM](id_credentials_mfa_lost-or-broken.md "id_credentials_mfa_lost-or-broken.md").
 
 ## Other issues
 

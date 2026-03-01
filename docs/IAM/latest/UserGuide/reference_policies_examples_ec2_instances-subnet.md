@@ -1,6 +1,4 @@
-# Amazon EC2: Allows launching EC2
-
-instances in a specific subnet, programmatically and in the console
+# Amazon EC2: Allows launching EC2 instances in a specific subnet, programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows listing information for all EC2 objects and launching EC2
 instances in a specific subnet. This policy defines permissions for programmatic and console access. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.

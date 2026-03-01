@@ -3,9 +3,7 @@
 You can view an action summary for each action listed in the policy summary that grants
 permissions.
 
-## Viewing action summaries
-
-from the **Policies** page
+## Viewing action summaries from the **Policies** page
 
 You can view the action summary for managed policies.
 
@@ -21,9 +19,7 @@ You can view the action summary for managed policies.
 6. In the service summary list of actions, choose the name of the action that you want to
    view.
 
-## Viewing action
-
-summaries for a policy attached to a user
+## Viewing action summaries for a policy attached to a user
 
 You can view the action summary for any policy that is attached to a user.
 
@@ -54,9 +50,7 @@ policy is a managed policy, then you are taken to the service summary for that p
 the **Policies** page. 7. In the service summary list of actions, choose the name of the action that you want to
 view.
 
-## Viewing action
-
-summaries for a policy attached to a role
+## Viewing action summaries for a policy attached to a role
 
 You can view the action summary for any policy that is attached to a role.
 

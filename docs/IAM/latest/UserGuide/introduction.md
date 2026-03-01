@@ -50,8 +50,7 @@ groups, roles, or policies. We recommend that you do not include such IAM change
 critical, high-availability code paths of your application. Instead, make IAM changes in
 a separate initialization or setup routine that you run less frequently. Also, be sure
 to verify that the changes have been propagated before production workflows depend on
-them. For more information, see [Changes that I make are not always
-immediately visible](troubleshoot.md#troubleshoot_general_eventual-consistency "troubleshoot.md#troubleshoot_general_eventual-consistency").
+them. For more information, see [Changes that I make are not always immediately visible](troubleshoot.md#troubleshoot_general_eventual-consistency "troubleshoot.md#troubleshoot_general_eventual-consistency").
 
 **Service cost information**
 
@@ -65,5 +64,4 @@ page](https://aws.amazon.com/pricing/ "https://aws.amazon.com/pricing/").
 
 **Integration with other AWS services**
 
-IAM is integrated with many AWS services. For a list of AWS services that work with IAM and the IAM features the services support, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+IAM is integrated with many AWS services. For a list of AWS services that work with IAM and the IAM features the services support, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").

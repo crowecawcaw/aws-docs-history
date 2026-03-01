@@ -1,6 +1,4 @@
-# Use multi-factor authentication with your
-
-identities
+# Use multi-factor authentication with your identities
 
 Using multi-factor authentication (MFA) with your identities is another IAM best
 practice. MFA is an additional security layer that requires users to provide additional

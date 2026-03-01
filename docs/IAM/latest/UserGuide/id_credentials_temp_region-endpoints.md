@@ -7,8 +7,7 @@ AWS has made changes to the AWS Security Token Service (AWS STS) global endpoint
 enhance its resiliency and performance. AWS STS requests to the global endpoint are
 automatically served in the same AWS Region as your workloads. These changes will not be
 deployed to opt-in Regions. We recommend that you use the appropriate AWS STS regional
-endpoints. For more information, see [AWS STS global endpoint
-changes](#reference_sts_global_endpoint_changes "#reference_sts_global_endpoint_changes").
+endpoints. For more information, see [AWS STS global endpoint changes](#reference_sts_global_endpoint_changes "#reference_sts_global_endpoint_changes").
 
 The following table lists the Regions and their endpoints. It indicates which ones are
 activated by default and which ones you can activate or deactivate.
@@ -58,9 +57,7 @@ in these Regions.
 ²To use AWS in China, you need an account and credentials specific to
 AWS in China.
 
-## AWS STS global endpoint
-
-changes
+## AWS STS global endpoint changes
 
 AWS has made changes to the AWS Security Token Service (AWS STS) global endpoint
 (`https://sts.amazonaws.com`) in Regions [enabled by default](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md")
@@ -95,8 +92,7 @@ following measures:
 - CloudTrail logs for operations performed by the AWS STS global endpoint and Regional
   endpoints have additional fields `endpointType` and
   `awsServingRegion` to indicate which endpoint and Region served
-  the request. For CloudTrail log examples, see [Example AWS STS API
-  event using the global endpoint in CloudTrail log file](cloudtrail-integration.md#stscloudtrailexample-assumerole-sts-global-endpoint "cloudtrail-integration.md#stscloudtrailexample-assumerole-sts-global-endpoint").
+  the request. For CloudTrail log examples, see [Example AWS STS API event using the global endpoint in CloudTrail log file](cloudtrail-integration.md#stscloudtrailexample-assumerole-sts-global-endpoint "cloudtrail-integration.md#stscloudtrailexample-assumerole-sts-global-endpoint").
 - Requests made to the AWS STS global endpoint have a value of
   `us-east-1` for the `aws:RequestedRegion`
   condition key, regardless of which Region served the request.
@@ -123,5 +119,4 @@ us-east-1.
 [Services that support TLS details in CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-supported-tls-details.md "../../../awscloudtrail/latest/userguide/cloudtrail-supported-tls-details.md") in the _AWS CloudTrail
 User Guide_
 
-For more information, see [Logging IAM and AWS STS API calls
-with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md").
+For more information, see [Logging IAM and AWS STS API calls with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md").

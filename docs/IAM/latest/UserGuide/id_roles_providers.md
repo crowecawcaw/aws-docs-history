@@ -75,8 +75,7 @@ and provide a way to access AWS by relying on temporary security credentials wit
 session. Additionally, you might have machines outside of AWS that need access to your AWS
 environments. For machines that run outside of AWS you can use [IAM Roles Anywhere](../../../rolesanywhere/latest/userguide/introduction.md "../../../rolesanywhere/latest/userguide/introduction.md"). For more
 information about roles, see [IAM roles](id_roles.md "id_roles.md"). For details
-about how to use roles to delegate access across AWS accounts, see [IAM tutorial: Delegate access across
-AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
+about how to use roles to delegate access across AWS accounts, see [IAM tutorial: Delegate access across AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
 
 To link an IdP directly to IAM, you create an identity provider entity to establish a
 trust relationship between your AWS account and the IdP. IAM supports IdPs that are
@@ -105,5 +104,4 @@ temporary sessions in an IAM role.
 
 - For a demonstration on how to create a custom federation proxy that enables single
   sign-on (SSO) into the AWS Management Console using your organization's authentication system, see
-  [Enable custom identity broker
-  access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
+  [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").

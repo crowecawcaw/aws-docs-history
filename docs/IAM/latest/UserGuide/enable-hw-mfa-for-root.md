@@ -1,6 +1,4 @@
-# Enable a hardware TOTP token for the root user
-
-(console)
+# Enable a hardware TOTP token for the root user (console)
 
 You can configure and enable a physical MFA device for your root user from the AWS Management Console
 only, not from the AWS CLI or AWS API.

@@ -1,6 +1,4 @@
-# IAM: Assume roles that have
-
-a specific tag
+# IAM: Assume roles that have a specific tag
 
 This example shows how you might create an identity-based policy that allows an IAM user to assume roles with the tag key-value pair
 `Project = ExampleCorpABC`. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.
@@ -8,8 +6,7 @@ Then, follow the directions in [create a policy](access_policies_create.md "acce
 
 If a role with this tag exists in the same account as the user, then the user can assume that role. If a role with this tag exists in an account other
 than the user's, it requires additional permissions. The cross-account role's trust policy must also allow the user or all members of the user's account
-to assume the role. For information about using roles for cross-account access, see [Access for an IAM user in another
-AWS account that you own](id_roles_common-scenarios_aws-accounts.md "id_roles_common-scenarios_aws-accounts.md").
+to assume the role. For information about using roles for cross-account access, see [Access for an IAM user in another AWS account that you own](id_roles_common-scenarios_aws-accounts.md "id_roles_common-scenarios_aws-accounts.md").
 
 JSON
 

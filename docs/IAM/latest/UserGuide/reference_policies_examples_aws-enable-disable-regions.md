@@ -1,6 +1,4 @@
-# AWS: Allows
-
-enabling and disabling AWS Regions
+# AWS: Allows enabling and disabling AWS Regions
 
 This example shows how you might create an identity-based policy that allows an administrator to enable and disable the Asia Pacific
 (Hong Kong) Region (ap-east-1). This policy defines permissions for programmatic and console access. This setting appears in the

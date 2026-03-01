@@ -1,6 +1,4 @@
-# IAM: Limits managed policies
-
-that can be applied to an IAM user, group, or role
+# IAM: Limits managed policies that can be applied to an IAM user, group, or role
 
 This example shows how you might create an identity-based policy that limits customer managed and AWS managed policies that can be applied
 to an IAM user, group, or role. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.

@@ -10,10 +10,8 @@ The number and size of IAM resources in an AWS account are limited. For more inf
 ###### Topics
 
 - [Creating IAM policies](#access_policies_create-start "#access_policies_create-start")
-- [Creating policies using the JSON
-  editor](#access_policies_create-json-editor "#access_policies_create-json-editor")
-- [Creating policies with the visual
-  editor](#access_policies_create-visual-editor "#access_policies_create-visual-editor")
+- [Creating policies using the JSON editor](#access_policies_create-json-editor "#access_policies_create-json-editor")
+- [Creating policies with the visual editor](#access_policies_create-visual-editor "#access_policies_create-visual-editor")
 - [Importing existing managed policies](#access_policies_create-copy "#access_policies_create-copy")
 
 ## Creating IAM policies
@@ -31,9 +29,7 @@ methods:
 
 The number and size of IAM resources in an AWS account are limited. For more information, see [IAM and AWS STS quotas](reference_iam-quotas.md "reference_iam-quotas.md").
 
-## Creating policies using the JSON
-
-editor
+## Creating policies using the JSON editor
 
 You can type or paste policies in JSON by choosing the **JSON** option.
 This method is useful for copying an [example
@@ -84,12 +80,9 @@ the permissions that are granted by your policy. 10. (Optional) Add metadata to 
 information about using tags in IAM, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md"). 11. Choose **Create policy** to save your new policy.
 
 After you create a policy, you can attach it to your groups, users, or roles. For more
-information, see [Adding and removing IAM identity
-permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
+information, see [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
 
-## Creating policies with the visual
-
-editor
+## Creating policies with the visual editor
 
 The visual editor in the IAM console guides you through creating a policy without having
 to write JSON syntax. To view an example of using the visual editor to create a policy, see
@@ -139,8 +132,7 @@ You can specify resources in the following ways:
      Names (ARN). You can use the visual ARN editor or list ARNs manually. For more
      information about ARN syntax, see [Amazon Resource Name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md")
      in the *AWS General Reference Guide*. For information about using ARNs in
-     the `Resource` element of a policy, see [IAM JSON policy elements:
-     Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md").
+     the `Resource` element of a policy, see [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md").
     * Choose **Any in this account** next to a resource to grant
      permissions to any resources of that type.
     * Choose **All** to choose all resources for the service.
@@ -173,8 +165,7 @@ block. All the conditions must be true for the permission block to be considered
 In other words, consider the conditions to be connected by a logical "AND"
 operator.
 
-For more information about the **Condition** element, see [IAM JSON policy elements:
-Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md") in the [IAM JSON policy reference](reference_policies.md "reference_policies.md"). 8. To add more permission blocks, choose **Add more permissions**. For
+For more information about the **Condition** element, see [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md") in the [IAM JSON policy reference](reference_policies.md "reference_policies.md"). 8. To add more permission blocks, choose **Add more permissions**. For
 each block, repeat steps 2 through 5.
 
 ###### Note
@@ -196,8 +187,7 @@ make sure that you have granted the intended permissions. 12. (Optional) Add met
 information about using tags in IAM, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md"). 13. Choose **Create policy** to save your new policy.
 
 After you create a policy, you can attach it to your groups, users, or roles. For more
-information, see [Adding and removing IAM identity
-permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
+information, see [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
 
 ## Importing existing managed policies
 
@@ -267,5 +257,4 @@ defined in this policy** and then choose **Create policy** to
 save your work.
 
 After you create a policy, you can attach it to your groups, users, or roles. For more
-information, see [Adding and removing IAM identity
-permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
+information, see [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").

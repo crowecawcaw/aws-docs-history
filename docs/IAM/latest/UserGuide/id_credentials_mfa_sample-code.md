@@ -1,6 +1,4 @@
-# Sample code: Requesting credentials with
-
-multi-factor authentication
+# Sample code: Requesting credentials with multi-factor authentication
 
 The following examples show how to call `GetSessionToken` and
 `AssumeRole` operations and pass MFA authentication parameters. No
@@ -8,9 +6,7 @@ permissions are required to call `GetSessionToken`, but you must have a policy
 that allows you to call `AssumeRole`. The credentials returned are then used to
 list all S3 buckets in the account.
 
-## Calling GetSessionToken with
-
-MFA authentication
+## Calling GetSessionToken with MFA authentication
 
 The following example shows how to call `GetSessionToken` and pass MFA
 authentication information. The temporary security credentials returned by the
@@ -216,17 +212,14 @@ def list_buckets_with_session_token_with_mfa(mfa_serial_number, mfa_totp, sts_cl
   [GetSessionToken](../../../goto/boto3/sts-2011-06-15/GetSessionToken.md "../../../goto/boto3/sts-2011-06-15/GetSessionToken.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
-## Calling AssumeRole with MFA
-
-authentication
+## Calling AssumeRole with MFA authentication
 
 The following examples show how to call `AssumeRole` and pass MFA
 authentication information. The temporary security credentials returned by
 `AssumeRole` are then used to list all Amazon S3 buckets in the
 account.
 
-For more information about this scenario, see [Scenario: MFA protection for
-cross-account delegation](id_credentials_mfa_configure-api-require.md#MFAProtectedAPI-cross-account-delegation "id_credentials_mfa_configure-api-require.md#MFAProtectedAPI-cross-account-delegation").
+For more information about this scenario, see [Scenario: MFA protection for cross-account delegation](id_credentials_mfa_configure-api-require.md#MFAProtectedAPI-cross-account-delegation "id_credentials_mfa_configure-api-require.md#MFAProtectedAPI-cross-account-delegation").
 
 The following code examples show how to use `AssumeRole`.
 

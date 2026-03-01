@@ -5,16 +5,13 @@ actions in your AWS account. For more information, see [Creating IAM policies](a
 
 For information about how to use roles to delegate permissions, see [Roles terms and concepts](id_roles.md#id_roles_terms-and-concepts "id_roles.md#id_roles_terms-and-concepts").
 
-## Creating an IAM role
-
-using a custom trust policy (console)
+## Creating an IAM role using a custom trust policy (console)
 
 You can use the AWS Management Console to create a role that an IAM user can assume. For example,
 assume that your organization has multiple AWS accounts to isolate a development
 environment from a production environment. For high-level information about creating a
 role that allows users in the development account to access resources in the production
-account, see [Example scenario using
-separate development and production accounts](id_roles_common-scenarios_aws-accounts.md#id_roles_common-scenarios_aws-accounts-example "id_roles_common-scenarios_aws-accounts.md#id_roles_common-scenarios_aws-accounts-example").
+account, see [Example scenario using separate development and production accounts](id_roles_common-scenarios_aws-accounts.md#id_roles_common-scenarios_aws-accounts-example "id_roles_common-scenarios_aws-accounts.md#id_roles_common-scenarios_aws-accounts-example").
 
 ###### To create a role using a custom trust policy (console)
 

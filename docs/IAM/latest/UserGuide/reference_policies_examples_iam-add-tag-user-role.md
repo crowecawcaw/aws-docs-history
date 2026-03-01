@@ -1,6 +1,4 @@
-# IAM: Add a specific
-
-tag with specific values
+# IAM: Add a specific tag with specific values
 
 This example shows how you might create an identity-based policy that allows adding only the tag key `CostCenter` and either
 the tag value `A-123` or the tag value `B-456` to any IAM user or
@@ -18,8 +16,7 @@ includes the `CostCenter` tag key with one of the listed tag values.
 The second condition uses the `ForAllValues:StringEquals` condition operator.
 The condition returns true if all of the tag keys in the request match the key in the
 policy. This means that the only tag key in the request must be `CostCenter`. For
-more information about using `ForAllValues`, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+more information about using `ForAllValues`, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 JSON
 

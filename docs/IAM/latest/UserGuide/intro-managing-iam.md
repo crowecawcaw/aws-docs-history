@@ -99,9 +99,7 @@ you used to sign-in to the console. Depending on your experience, you may find t
 to be a more efficient method of managing your AWS account. For more information, see
 [Use AWS CloudShell to work with AWS Identity and Access Management](using-aws-with-cloudshell.md "using-aws-with-cloudshell.md")
 
-### AWS Command Line Interface (CLI) and
-
-Software Development Kits (SDKs)
+### AWS Command Line Interface (CLI) and Software Development Kits (SDKs)
 
 IAM Identity Center and IAM users use different methods to authenticate their credentials when
 they authenticate through the CLI or the application interfaces (APIs) in the

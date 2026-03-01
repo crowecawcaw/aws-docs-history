@@ -41,8 +41,7 @@ By default, your role session lasts for one hour. When you assume this role usin
 AWS STS [`AssumeRole*`](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") API
 operations, you can specify a value for the `DurationSeconds` parameter. This value
 can range from 900 seconds (15 minutes) up to the maximum session duration setting for the role.
-To learn how to view the maximum value for your role, see [Update the maximum session duration
-for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
+To learn how to view the maximum value for your role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
 
 If you use role chaining, your session is limited to a maximum of one hour. If you then use
 the `DurationSeconds` parameter to provide a value greater than one hour, the

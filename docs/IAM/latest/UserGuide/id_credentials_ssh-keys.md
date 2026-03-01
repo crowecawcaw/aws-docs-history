@@ -1,6 +1,4 @@
-# IAM credentials for CodeCommit: Git credentials, SSH keys, and
-
-AWS access keys
+# IAM credentials for CodeCommit: Git credentials, SSH keys, and AWS access keys
 
 CodeCommit is a managed version control service that hosts private Git repositories in the AWS
 cloud. To use CodeCommit, you configure your Git client to communicate with CodeCommit repositories. As
@@ -25,9 +23,7 @@ _AWS CodeCommit User Guide_.
 
 See the following sections for more information about each option.
 
-## Use Git credentials and HTTPS with CodeCommit
-
-(recommended)
+## Use Git credentials and HTTPS with CodeCommit (recommended)
 
 With Git credentials, you generate a static user name and password pair for your IAM
 user, and then use those credentials for HTTPS connections. You can also use these credentials
@@ -102,8 +98,7 @@ also the only method that works with federated access and temporary credentials.
 See
 the following topics for more information:
 
-- To learn more about federated access, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md") and [Access to externally
-  authenticated users (identity federation)](id_roles_common-scenarios_federated-users.md "id_roles_common-scenarios_federated-users.md").
+- To learn more about federated access, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md") and [Access to externally authenticated users (identity federation)](id_roles_common-scenarios_federated-users.md "id_roles_common-scenarios_federated-users.md").
 - To learn more about temporary credentials, see [Temporary security credentials in IAM](id_credentials_temp.md "id_credentials_temp.md") and [Temporary Access to CodeCommit
   Repositories](../../../codecommit/latest/userguide/temporary-access.md "../../../codecommit/latest/userguide/temporary-access.md").
 

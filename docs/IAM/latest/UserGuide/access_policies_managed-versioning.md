@@ -15,8 +15,7 @@ time.
 ![Changes to managed policies become new versions of the policy](images/policies-managed-policies-versions-overview.diagram.png)
 A policy version is different from a `Version` policy element. The
 `Version` policy element is used within a policy and defines the version of the
-policy language. To learn more about the `Version` policy element see [IAM JSON policy elements:
-Version](reference_policies_elements_version.md "reference_policies_elements_version.md").
+policy language. To learn more about the `Version` policy element see [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md").
 
 You can use versions to track changes to a managed policy. For example, you might make a
 change to a managed policy and then discover that the change had unintended effects. In this
@@ -29,10 +28,8 @@ The following topics explain how you can use versioning for managed policies.
 
 - [Version limits](#version-limits "#version-limits")
 - [Use versions to roll back changes](#versions-roll-back "#versions-roll-back")
-- [Permissions for setting the default version of a
-  policy](#policy-version-permissions "#policy-version-permissions")
-- [Setting the default version of customer managed
-  policies](#default-version "#default-version")
+- [Permissions for setting the default version of a policy](#policy-version-permissions "#policy-version-permissions")
+- [Setting the default version of customer managed policies](#default-version "#default-version")
 
 ## Version limits
 
@@ -71,9 +68,7 @@ again to add permission to administer the second Amazon S3 bucket. IAM creates a
 version of the policy, identified as v3. You set version v3 as the default, and this version
 works as intended. At this point, you delete version v2 of the policy.
 
-## Permissions for setting the default version of a
-
-policy
+## Permissions for setting the default version of a policy
 
 The permissions that are required to set the default version of a policy correspond to the
 AWS API operations for the task. You can use the `CreatePolicyVersion` or
@@ -113,9 +108,7 @@ JSON
 
 ```
 
-## Setting the default version of customer managed
-
-policies
+## Setting the default version of customer managed policies
 
 One of the versions of a managed policy is set as the _default_
 version. The policy's default version is the operative version—that is, it's the

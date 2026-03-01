@@ -1,6 +1,4 @@
-# Programmatic access with AWS security
-
-credentials
+# Programmatic access with AWS security credentials
 
 We recommend using short-term access keys when possible to make programmatic calls to AWS
 or to use the AWS Command Line Interface or AWS Tools for PowerShell. However, you can also use long-term AWS access keys
@@ -16,8 +14,7 @@ In many scenarios, you don't need long-term access keys that never expire (as yo
 you create access keys for an IAM user). Instead, you can create IAM roles and generate
 temporary security credentials. Temporary security credentials include an access key ID and a
 secret access key, but they also include a security token that indicates when the credentials
-expire. After they expire, they're no longer valid. For more information, see [Alternatives to
-long-term access keys](#security-creds-alternatives-to-long-term-access-keys "#security-creds-alternatives-to-long-term-access-keys")
+expire. After they expire, they're no longer valid. For more information, see [Alternatives to long-term access keys](#security-creds-alternatives-to-long-term-access-keys "#security-creds-alternatives-to-long-term-access-keys")
 
 Access key IDs beginning with `AKIA` are long-term access keys for an IAM user
 or an AWS account root user. Access key IDs beginning with `ASIA` are temporary
@@ -34,9 +31,7 @@ To grant users programmatic access, choose one of the following options.
 | IAM                                                          | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                                   | Following the instructions in [Using temporary<br>credentials with AWS resources](id_credentials_temp_use-resources.md "id_credentials_temp_use-resources.md") in the _IAM User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | IAM                                                          | (Not recommended)Use long-term credentials to sign programmatic requests<br>to the AWS CLI, AWS SDKs, or AWS APIs.                  | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Authenticating using IAM user credentials](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in<br>the _AWS Command Line Interface User Guide_.<br>• For AWS SDKs and tools, see [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the<br>_AWS SDKs and Tools Reference Guide_.<br>• For AWS APIs, see [Managing access keys for<br>IAM users](id_credentials_access-keys.md "id_credentials_access-keys.md") in the _IAM User Guide_. |
 
-## Alternatives to
-
-long-term access keys
+## Alternatives to long-term access keys
 
 For many common use cases, there are alternatives to long-term access keys. To improve
 your account security, consider the following.

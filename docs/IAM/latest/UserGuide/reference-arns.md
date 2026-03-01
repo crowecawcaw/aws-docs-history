@@ -1,6 +1,4 @@
-# Identify AWS resources with Amazon Resource Names
-
-(ARNs)
+# Identify AWS resources with Amazon Resource Names (ARNs)
 
 Amazon Resource Names (ARNs) uniquely identify AWS resources. We require an ARN when you
 need to specify a resource unambiguously across all of AWS, such as in IAM policies,

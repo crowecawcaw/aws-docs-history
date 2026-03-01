@@ -1,6 +1,4 @@
-# Integrate third-party SAML solution
-
-providers with AWS
+# Integrate third-party SAML solution providers with AWS
 
 ###### Note
 

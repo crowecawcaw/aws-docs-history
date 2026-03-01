@@ -2,12 +2,9 @@
 
 You can list the IAM users in your AWS account or in a specific IAM group, and list
 all the IAM groups that a user is in. For information about the permissions that you
-need in order to list users, see [Permissions required to access IAM
-resources](access_permissions-required.md "access_permissions-required.md").
+need in order to list users, see [Permissions required to access IAM resources](access_permissions-required.md "access_permissions-required.md").
 
-## To list all the IAM users in your
-
-account
+## To list all the IAM users in your account
 
 Console
 
@@ -29,9 +26,7 @@ Call the following operation:
 
 - `ListUsers`
 
-## To list the IAM users in an
-
-IAM group
+## To list the IAM users in an IAM group
 
 Console
 
@@ -56,9 +51,7 @@ Call the following operation:
 
 - `GetGroup`
 
-## To list all the IAM groups that
-
-a user is in
+## To list all the IAM groups that a user is in
 
 Console
 

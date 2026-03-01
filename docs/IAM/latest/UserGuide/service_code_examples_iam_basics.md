@@ -1,6 +1,4 @@
-# Basic examples for
-
-IAM using AWS SDKs
+# Basic examples for IAM using AWS SDKs
 
 The following code examples show how to use the basics of AWS Identity and Access Management with AWS
 SDKs.

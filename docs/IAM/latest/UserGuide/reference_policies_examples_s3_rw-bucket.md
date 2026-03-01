@@ -1,6 +1,4 @@
-# Grant read and write access to Amazon S3
-
-bucket objects
+# Grant read and write access to Amazon S3 bucket objects
 
 This example shows how you might create an identity-based policy that allows `Read` and `Write` access to objects in
 a specific Amazon S3 bucket. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.
@@ -37,5 +35,4 @@ JSON
 ###### Note
 
 To allow `Read` and `Write` access to an object in an Amazon S3 bucket
-and also include additional permissions for console access, see [Amazon S3: Allows read and
-write access to objects in an S3 Bucket, programmatically and in the console](reference_policies_examples_s3_rw-bucket-console.md "reference_policies_examples_s3_rw-bucket-console.md").
+and also include additional permissions for console access, see [Amazon S3: Allows read and write access to objects in an S3 Bucket, programmatically and in the console](reference_policies_examples_s3_rw-bucket-console.md "reference_policies_examples_s3_rw-bucket-console.md").

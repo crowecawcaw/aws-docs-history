@@ -1,24 +1,18 @@
-# Example scenarios for using
-
-last accessed information
+# Example scenarios for using last accessed information
 
 You can use last accessed information to make decisions about the permissions that you
-grant to your IAM entities or AWS Organizations entities. For more information, see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+grant to your IAM entities or AWS Organizations entities. For more information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
 ###### Note
 
 Before you view the access information for an entity or policy in IAM or AWS Organizations,
 make sure that you understand the reporting period, reported entities, and the evaluated
-policy types for your data. For more details, see [Things to know about last accessed
-information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
+policy types for your data. For more details, see [Things to know about last accessed information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
 
 It's up to you as an administrator to balance the accessibility and least privilege that's
 appropriate for your company.
 
-## Using information to reduce
-
-permissions for an IAM group
+## Using information to reduce permissions for an IAM group
 
 You can use last accessed information to reduce IAM group permissions to include only
 those services that your users need. This method is an important step in [granting least privilege](best-practices.md#grant-least-privilege "best-practices.md#grant-least-privilege") at a service
@@ -130,9 +124,7 @@ can use to reduce the policy's permissions to include only the actions and resou
 the developers need. For more information, see [Viewing CloudTrail Events in the CloudTrail
 Console](../../../awscloudtrail/latest/userguide/view-cloudtrail-events-console.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events-console.md") in the _AWS CloudTrail User Guide_.
 
-## Using information
-
-to reduce permissions for an IAM user
+## Using information to reduce permissions for an IAM user
 
 You can use last accessed information to reduce the permissions for an individual IAM
 user.
@@ -197,9 +189,7 @@ policy is not attached to any other IAM identities. She investigates within her 
 to make sure that the policy will not be needed in the future, and then she deletes
 it.
 
-## Using information before deleting
-
-IAM resources
+## Using information before deleting IAM resources
 
 You can use last accessed information before you delete an IAM resource to make sure
 that a certain amount of time has passed since someone last used the resource. This applies
@@ -212,9 +202,7 @@ topics:
 - **Policies** – [Delete IAM policies (this also detaches
   the policy from identities)](access_policies_manage-delete.md "access_policies_manage-delete.md")
 
-## Using information before editing IAM
-
-policies
+## Using information before editing IAM policies
 
 You can review last accessed information for an IAM identity (user, group, or role),
 or for an IAM policy before editing a policy that affects that resource. This is
@@ -334,9 +322,7 @@ to access a service can help you when you complete any of the following tasks:
 - **Groups** – [Removing users from a
   group](id_groups_manage_add-remove-users.md "id_groups_manage_add-remove-users.md")
 
-## Using information
-
-to refine permissions for an organizational unit
+## Using information to refine permissions for an organizational unit
 
 You can use last accessed information to refine the permissions for an organizational
 unit (OU) in AWS Organizations.

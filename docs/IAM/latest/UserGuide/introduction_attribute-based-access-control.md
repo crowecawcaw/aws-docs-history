@@ -1,6 +1,4 @@
-# Define permissions based on
-
-attributes with ABAC authorization
+# Define permissions based on attributes with ABAC authorization
 
 Attribute-based access control (ABAC) is an authorization strategy that defines permissions
 based on attributes. AWS calls these attributes _tags_. You
@@ -18,16 +16,12 @@ Set the tag value of the first IAM role to `Heart`, the second to
 `Star`, and the third to `Lightning`. You can then use a single
 policy that allows access when the IAM role and the AWS resource have the tag value
 `access-project`. For a detailed tutorial that demonstrates how to use ABAC in
-AWS, see [IAM tutorial: Define permissions to
-access AWS resources based on tags](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md"). To learn about services that
-support ABAC, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+AWS, see [IAM tutorial: Define permissions to access AWS resources based on tags](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md"). To learn about services that
+support ABAC, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 ![This diagram illustrates that the tags applied to a principal must match the tags applied to a resource for the user to be granted permissions to the resource. Tags be applied to IAM groups, resource groups, individual users and individual resources.](images/tutorial-abac-concept-23.png)
 
-## Comparison of
-
-ABAC to the traditional RBAC model
+## Comparison of ABAC to the traditional RBAC model
 
 The traditional authorization model used in IAM is role-based access control (RBAC).
 RBAC defines permissions based on a person's job function, or _role_, which is distinct from an IAM role. IAM does include [managed policies for job functions](access_policies_job-functions.md "access_policies_job-functions.md") that
@@ -94,5 +88,4 @@ container.
   their resulting principal. You can then use ABAC to allow or deny permissions based
   on those attributes.
 
-For a detailed tutorial that demonstrates how to use ABAC in AWS, see [IAM tutorial: Define permissions to
-access AWS resources based on tags](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md").
+For a detailed tutorial that demonstrates how to use ABAC in AWS, see [IAM tutorial: Define permissions to access AWS resources based on tags](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md").

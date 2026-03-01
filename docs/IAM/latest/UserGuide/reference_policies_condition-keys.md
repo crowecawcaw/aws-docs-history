@@ -1,6 +1,4 @@
-# AWS global condition context
-
-keys
+# AWS global condition context keys
 
 When a [principal](../../../glossary/latest/reference/glos-chap.md#principal "../../../glossary/latest/reference/glos-chap.md#principal") makes a [request](intro-structure.md#intro-structure-request "intro-structure.md#intro-structure-request") to
 AWS, AWS gathers the request information into a [request context](intro-structure.md#intro-structure-request "intro-structure.md#intro-structure-request"). You can use the `Condition` element of a JSON policy
@@ -53,8 +51,7 @@ operators](reference_policies_elements_condition_operators.md "reference_policie
 To compare your condition against a request context with multiple key values, you must
 use the `ForAllValues` or `ForAnyValue` set operators. Use set
 operators only with multivalued condition keys. Do not use set operators with
-single-valued condition keys. For more information, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+single-valued condition keys. For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 | Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                          | Properties of the network                                                                                                                                      | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -78,9 +75,7 @@ which could pose a security risk.
 - `aws:VpceAccount`
 - `aws:VpceOrgID`
 
-## Properties of the
-
-principal
+## Properties of the principal
 
 Use the following condition keys to compare details about the principal making the
 request with the principal properties that you specify in the policy. For a list of
@@ -209,8 +204,7 @@ AWS STS federated user principal, or AWS account root user. In a policy, this co
 ensures that the requester is an account member within the specified organization
 root or organizational units (OUs) in AWS Organizations. An AWS Organizations path is a text
 representation of the structure of an AWS Organizations entity. For more information about
-using and understanding paths, see [Understand the
-AWS Organizations entity path](access_policies_last-accessed-view-data-orgs.md#access_policies_last-accessed-viewing-orgs-entity-path "access_policies_last-accessed-view-data-orgs.md#access_policies_last-accessed-viewing-orgs-entity-path").
+using and understanding paths, see [Understand the AWS Organizations entity path](access_policies_last-accessed-view-data-orgs.md#access_policies_last-accessed-viewing-orgs-entity-path "access_policies_last-accessed-view-data-orgs.md#access_policies_last-accessed-viewing-orgs-entity-path").
 
 - **Availability** – This key is included
   in the request context only if the principal is a member of an organization.
@@ -274,8 +268,7 @@ The following condition allows access for every principal in the
 keys can have multiple values in the request context. When you use multiple values
 with the `ForAnyValue` condition operator, the principal's path must
 match one of the paths listed in the policy. For more information about multivalued
-condition keys, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+condition keys, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 ```
     "Condition": {
@@ -528,8 +521,7 @@ service principal names associated with the Regional instance of the service.
 `aws:PrincipalServiceNamesList` is a multivalued condition key.
 Multivalued keys can have multiple values in the request context. You must use the
 `ForAnyValue` or `ForAllValues` set operators with [string condition operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String") for this key. For
-more information about multivalued condition keys, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+more information about multivalued condition keys, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 ### aws:PrincipalType
 
@@ -572,9 +564,7 @@ principals, see [How to specify a principal](reference_policies_elements_princip
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
 - **Value type** – Single-valued
 
-## Properties of a role
-
-session
+## Properties of a role session
 
 Use the following condition keys to compare properties of the role session at the time
 the session was generated. These condition keys are only available when a request is
@@ -582,16 +572,14 @@ made by a principal with role session or federated user principal credentials. T
 values for these condition keys are embedded in the role’s session token.
 
 A [role](reference_policies_elements_principal.md#principal-roles "reference_policies_elements_principal.md#principal-roles") is a type of principal. You can also use
-the condition keys from the [Properties of the
-principal](#condition-keys-principal-properties "#condition-keys-principal-properties") section to evaluate the properties
+the condition keys from the [Properties of the principal](#condition-keys-principal-properties "#condition-keys-principal-properties") section to evaluate the properties
 of a role when a role is making a request.
 
 ### aws:AssumedRoot
 
 Use this key to check whether the request was made using [AssumeRoot](../../../STS/latest/APIReference/API_AssumeRoot.md "../../../STS/latest/APIReference/API_AssumeRoot.md"). `AssumeRoot` returns short term credentials for
 a privileged root user session you can use to take privileged actions on member
-accounts in your organization. For more information, see [Centrally manage root access for member
-accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
+accounts in your organization. For more information, see [Centrally manage root access for member accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
 
 - **Availability** – This key is included
   in the request context only when the principal uses credentials from [AssumeRoot](../../../STS/latest/APIReference/API_AssumeRoot.md "../../../STS/latest/APIReference/API_AssumeRoot.md") to make the request.
@@ -670,8 +658,7 @@ issued with the date and time that you specify in the policy.
 - **Data type** – [Date](reference_policies_elements_condition_operators.md#Conditions_Date "reference_policies_elements_condition_operators.md#Conditions_Date")
 - **Value type** – Single-valued
 
-To learn which services support using temporary credentials, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+To learn which services support using temporary credentials, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 ### aws:MultiFactorAuthAge
 
@@ -756,8 +743,7 @@ happen:
   create an Amazon EC2 instance. For the subsequent request, AWS uses temporary
   credentials.
 
-To learn which services support using temporary credentials, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+To learn which services support using temporary credentials, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 The `aws:MultiFactorAuthPresent` key is not present when an API or CLI
 command is called with long-term credentials, such as user access key pairs.
@@ -1097,8 +1083,7 @@ JSON
 
 ```
 
-To learn more about using source identity information, see [Monitor and control actions
-taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md").
+To learn more about using source identity information, see [Monitor and control actions taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md").
 
 ### ec2:RoleDelivery
 
@@ -1665,8 +1650,7 @@ Some AWS services access your resources from their networks when they act on
 your behalf. If you use such services, you will need to edit the above policy
 example to allow AWS services access your resources from outside your network. For
 more information on access patterns that need to be accounted for when enforcing
-access controls based on the request origin, see [Establish permissions guardrails using
-data perimeters](access_policies_data-perimeters.md "access_policies_data-perimeters.md").
+access controls based on the request origin, see [Establish permissions guardrails using data perimeters](access_policies_data-perimeters.md "access_policies_data-perimeters.md").
 
 ### aws:VpceOrgID
 
@@ -1746,8 +1730,7 @@ specified organization or from networks of AWS services that act on your behalf.
 Some organizations may need to further edit this policy to meet the needs of their
 organization, for example, allow third-party partner access. For more information on
 access patterns that need to be accounted for when enforcing access controls based
-on the request origin, see [Establish permissions guardrails using
-data perimeters](access_policies_data-perimeters.md "access_policies_data-perimeters.md").
+on the request origin, see [Establish permissions guardrails using data perimeters](access_policies_data-perimeters.md "access_policies_data-perimeters.md").
 
 JSON
 
@@ -1890,8 +1873,7 @@ Some AWS services access your resources from their networks when they act on
 your behalf. If you use such services, you will need to edit the above policy
 example to allow AWS services access your resources from outside your network. For
 more information on access patterns that need to be accounted for when enforcing
-access controls based on the request origin, see [Establish permissions guardrails using
-data perimeters](access_policies_data-perimeters.md "access_policies_data-perimeters.md").
+access controls based on the request origin, see [Establish permissions guardrails using data perimeters](access_policies_data-perimeters.md "access_policies_data-perimeters.md").
 
 ### aws:VpcSourceIp
 
@@ -2080,8 +2062,7 @@ resources.
 Certain AWS services, such as AWS Data Exchange, rely on access to resources outside of your
 AWS accounts for normal operations. If you use the element
 `aws:ResourceAccount` in your policies, include additional statements
-to create exemptions for those services. The example policy [AWS: Deny access to
-Amazon S3 resources outside your account except AWS Data Exchange](reference_policies_examples_resource_account_data_exch.md "reference_policies_examples_resource_account_data_exch.md")
+to create exemptions for those services. The example policy [AWS: Deny access to Amazon S3 resources outside your account except AWS Data Exchange](reference_policies_examples_resource_account_data_exch.md "reference_policies_examples_resource_account_data_exch.md")
 demonstrates how to deny access based on the resource account while defining
 exceptions for service-owned resources.
 
@@ -2096,8 +2077,7 @@ the policy. In a policy, this condition key ensures that the resource belongs to
 account member within the specified organization root or organizational units (OUs)
 in AWS Organizations. An AWS Organizations path is a text representation of the structure of an
 Organizations entity. For more information about using and understanding paths, see
-[Understand the
-AWS Organizations entity path](access_policies_last-accessed-view-data-orgs.md#access_policies_last-accessed-viewing-orgs-entity-path "access_policies_last-accessed-view-data-orgs.md#access_policies_last-accessed-viewing-orgs-entity-path")
+[Understand the AWS Organizations entity path](access_policies_last-accessed-view-data-orgs.md#access_policies_last-accessed-viewing-orgs-entity-path "access_policies_last-accessed-view-data-orgs.md#access_policies_last-accessed-viewing-orgs-entity-path")
 
 - **Availability** – This key is included
   in the request context only if the account that owns the resource is a
@@ -2157,8 +2137,7 @@ For additional considerations for the above unsupported actions, see the
 `aws:ResourceOrgPaths` is a multivalued condition key. Multivalued keys
 can have multiple values in the request context. You must use the
 `ForAnyValue` or `ForAllValues` set operators with [string condition operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String") for this key. For
-more information about multivalued condition keys, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+more information about multivalued condition keys, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 For example, the following condition returns `True` for resources that
 belong to the organization `o-a1b2c3d4e5`. When you include a wildcard,
@@ -2204,8 +2183,7 @@ resources.
 Certain AWS services, such as AWS Data Exchange, rely on access to resources outside of your
 AWS accounts for normal operations. If you use the
 `aws:ResourceOrgPaths` key in your policies, include additional
-statements to create exemptions for those services. The example policy [AWS: Deny access to
-Amazon S3 resources outside your account except AWS Data Exchange](reference_policies_examples_resource_account_data_exch.md "reference_policies_examples_resource_account_data_exch.md")
+statements to create exemptions for those services. The example policy [AWS: Deny access to Amazon S3 resources outside your account except AWS Data Exchange](reference_policies_examples_resource_account_data_exch.md "reference_policies_examples_resource_account_data_exch.md")
 demonstrates how to deny access based on the resource account while defining
 exceptions for service-owned resources. You can create a similar policy to restrict
 access to resources within an organizational unit (OU) using the
@@ -2325,8 +2303,7 @@ resources.
 Certain AWS services, such as AWS Data Exchange, rely on access to resources outside of your
 AWS accounts for normal operations. If you use the `aws:ResourceOrgID`
 key in your policies, include additional statements to create exemptions for those
-services. The example policy [AWS: Deny access to
-Amazon S3 resources outside your account except AWS Data Exchange](reference_policies_examples_resource_account_data_exch.md "reference_policies_examples_resource_account_data_exch.md")
+services. The example policy [AWS: Deny access to Amazon S3 resources outside your account except AWS Data Exchange](reference_policies_examples_resource_account_data_exch.md "reference_policies_examples_resource_account_data_exch.md")
 demonstrates how to deny access based on the resource account while defining
 exceptions for service-owned resources. You can create a similar policy to restrict
 access to resources within your organization using the
@@ -2347,8 +2324,7 @@ Use this key to compare the tag key-value pair that you specify in the policy wi
 the key-value pair attached to the resource. For example, you could require that
 access to a resource is allowed only if the resource has the attached tag key
 `"Dept"` with the value `"Marketing"`. For more
-information, see [Controlling access to AWS
-resources](access_tags.md#access_tags_control-resources "access_tags.md#access_tags_control-resources").
+information, see [Controlling access to AWS resources](access_tags.md#access_tags_control-resources "access_tags.md#access_tags_control-resources").
 
 - **Availability** – This key is included
   in the request context when the requested resource already has attached tags
@@ -2373,15 +2349,13 @@ your policy, then the condition matches a resource tag value named
 `PRODUCTION`.
 
 For examples of using the `aws:ResourceTag` key to control access to
-IAM resources, see [Controlling access to AWS
-resources](access_tags.md#access_tags_control-resources "access_tags.md#access_tags_control-resources").
+IAM resources, see [Controlling access to AWS resources](access_tags.md#access_tags_control-resources "access_tags.md#access_tags_control-resources").
 
 For examples of using the `aws:ResourceTag` key to control access to
 other AWS resources, see [Controlling access to AWS resources using tags](access_tags.md "access_tags.md").
 
 For a tutorial on using the `aws:ResourceTag` condition key for
-attribute based access control (ABAC), see [IAM tutorial: Define permissions to
-access AWS resources based on tags](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md").
+attribute based access control (ABAC), see [IAM tutorial: Define permissions to access AWS resources based on tags](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md").
 
 ## Properties of the request
 
@@ -2651,8 +2625,7 @@ initiated through any AWS MCP server:
 
 Use this key to compare the date and time of the request with the date and time
 that you specify in the policy. To view an example policy that uses this condition
-key, see [AWS: Allows access based on date and
-time](reference_policies_examples_aws-dates.md "reference_policies_examples_aws-dates.md").
+key, see [AWS: Allows access based on date and time](reference_policies_examples_aws-dates.md "reference_policies_examples_aws-dates.md").
 
 - **Availability** – This key is always
   included in the request context.
@@ -2798,8 +2771,7 @@ JSON
 Use this key to compare the tag key-value pair that was passed in the request with
 the tag pair that you specify in the policy. For example, you could check whether
 the request includes the tag key `"Dept"` and that it has the value
-`"Accounting"`. For more information, see [Controlling access during AWS
-requests](access_tags.md#access_tags_control-requests "access_tags.md#access_tags_control-requests").
+`"Accounting"`. For more information, see [Controlling access during AWS requests](access_tags.md#access_tags_control-requests "access_tags.md#access_tags_control-requests").
 
 - **Availability** – This key is included
   in the request context when tag key-value pairs are passed in the request.
@@ -2854,8 +2826,7 @@ JSON
 Use this key to compare the tag keys in a request with the keys that you specify
 in the policy. We recommend that when you use policies to control access using tags,
 use the `aws:TagKeys` condition key to define what tag keys are allowed.
-For example policies and more information, see [Controlling access based on tag
-keys](access_tags.md#access_tags_control-tag-keys "access_tags.md#access_tags_control-tag-keys").
+For example policies and more information, see [Controlling access based on tag keys](access_tags.md#access_tags_control-tag-keys "access_tags.md#access_tags_control-tag-keys").
 
 - **Availability** – This key is included
   in the request context if the operation supports passing tags in the
@@ -2871,8 +2842,7 @@ example, `["Dept","Cost-Center"]`).
 Because you can include multiple tag key-value pairs in a request, the request
 content could be a [multivalued](reference_policies_condition-single-vs-multi-valued-context-keys.md "reference_policies_condition-single-vs-multi-valued-context-keys.md") request. In this case, you must use the
 `ForAllValues` or `ForAnyValue` set operators. For more
-information, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 Some services support tagging with resource operations, such as creating,
 modifying, or deleting a resource. To allow tagging and operations as a single call,
@@ -3187,8 +3157,7 @@ to an organization.
 `aws:SourceOrgPaths` is a multivalued condition key. Multivalued keys
 can have multiple values in the request context. You must use the
 `ForAnyValue` or `ForAllValues` set operators with [string condition operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String") for this key. For
-more information about multivalued condition keys, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+more information about multivalued condition keys, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 ### aws:UserAgent
 

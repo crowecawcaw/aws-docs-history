@@ -1,6 +1,4 @@
-# Grant a user permissions to pass a role to an AWS
-
-service
+# Grant a user permissions to pass a role to an AWS service
 
 To configure many AWS services, you must _pass_ an IAM
 role to the service. This allows the service to assume the role later and perform actions on
@@ -25,8 +23,7 @@ user's IAM user, role, or group.
   service that shares the same AWS account. To pass a role in Account A to a service in
   Account B, you must first create an IAM role in Account B that can assume the role from
   Account A, and then the role in Account B can be passed to the service. For details, see
-  [Cross account resource
-  access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
+  [Cross account resource access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
 - Do not try to control who can pass a role by tagging the role and then using the
   `ResourceTag` condition key in a policy with the `iam:PassRole`
   action. This approach does not have reliable results.
@@ -45,8 +42,7 @@ an Auto Scaling group and you don't have the `iam:PassRole` permission, you rece
 an error. If you don't explicitly specify the role, the `iam:PassRole` permission is
 not required, and the default is to use `AWSServiceRoleForAutoScaling` role for all
 operations that are performed on that group. To learn which services support service-linked
-roles, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn which services
+roles, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn which services
 automatically create a service-linked role when you perform an action in that service, choose
 the **Yes** link and view the service-linked role documentation for the
 service.
@@ -59,8 +55,7 @@ the IAM policy statement.
 
 You can use the `Condition` element in a JSON policy to test the value of keys
 included in the request context of all AWS requests. To learn more about using condition keys
-in a policy, see [IAM JSON policy elements:
-Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md"). The `iam:PassedToService`
+in a policy, see [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md"). The `iam:PassedToService`
 condition key can be used to specify the service principal of the service to which a role can be
 passed. To learn more about using the `iam:PassedToService` condition key in a
 policy, see [iam:PassedToService](reference_policies_iam-condition-keys.md#ck_PassedToService "reference_policies_iam-condition-keys.md#ck_PassedToService").
@@ -202,9 +197,7 @@ you can replace the role name in the resource ARN with a wildcard, as follows.
         "Resource": "arn:aws:iam::`account-id`:role/RDS-*"
 ```
 
-## `iam:PassRole` actions in AWS CloudTrail
-
-logs
+## `iam:PassRole` actions in AWS CloudTrail logs
 
 `PassRole` is not an API call. `PassRole` is a permission, meaning no
 CloudTrail logs are generated for IAM `PassRole`. To review what roles are passed to

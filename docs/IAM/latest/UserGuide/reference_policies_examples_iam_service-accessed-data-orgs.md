@@ -1,6 +1,4 @@
-# IAM: View
-
-service last accessed information for an AWS Organizations policy
+# IAM: View service last accessed information for an AWS Organizations policy
 
 This example shows how you might create an identity-based policy that allows viewing service last accessed information for a specific
 AWS Organizations policy. This policy allows retrieving data for the service control policy (SCP) with
@@ -11,8 +9,7 @@ organization. This policy defines permissions for programmatic and console acces
 Then, follow the directions in [create a policy](access_policies_create.md "access_policies_create.md") or [edit a policy](access_policies_manage-edit.md "access_policies_manage-edit.md").
 
 For important information about last accessed information, including permissions required,
-troubleshooting, and supported Regions, see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+troubleshooting, and supported Regions, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
 JSON
 

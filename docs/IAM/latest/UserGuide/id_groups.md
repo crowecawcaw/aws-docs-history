@@ -14,8 +14,7 @@ You can attach an identity-based policy to a user group so that all of the users
 group receive the policy's permissions. You cannot identify a user group as a
 `Principal` in a policy (such as a resource-based policy) because groups relate to
 permissions, not authentication, and principals are authenticated IAM entities. For more
-information about policy types, see [Identity-based policies and
-resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md").
+information about policy types, see [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md").
 
 Here are some important characteristics of IAM groups:
 

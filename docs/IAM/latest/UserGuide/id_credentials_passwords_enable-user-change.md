@@ -1,6 +1,4 @@
-# Permit IAM users to change
-
-their own passwords
+# Permit IAM users to change their own passwords
 
 ###### Note
 
@@ -37,8 +35,7 @@ Console
    **Save changes**. This allows all users in the account access to the
    `iam:ChangePassword` action for only their user and to the
    `iam:GetAccountPasswordPolicy` action.
-6. Provide users with the following instructions for changing their passwords: [How an IAM user changes their own
-   password](id_credentials_passwords_user-change-own.md "id_credentials_passwords_user-change-own.md").
+6. Provide users with the following instructions for changing their passwords: [How an IAM user changes their own password](id_credentials_passwords_user-change-own.md "id_credentials_passwords_user-change-own.md").
 
 AWS CLI
 Run the following command:
@@ -94,18 +91,14 @@ console, the AWS CLI, Tools for Windows PowerShell, or the API. It also grants a
 action, which lets the user view the current password policy; this permission is required so
 that the user can view the account password policy on the **Change
 password** page. The user must be allowed to read the current password policy to
-ensure that the changed password meets the requirements of the policy. 7. Provide users with the following instructions for changing their passwords: [How an IAM user changes their own
-password](id_credentials_passwords_user-change-own.md "id_credentials_passwords_user-change-own.md").
+ensure that the changed password meets the requirements of the policy. 7. Provide users with the following instructions for changing their passwords: [How an IAM user changes their own password](id_credentials_passwords_user-change-own.md "id_credentials_passwords_user-change-own.md").
 
 ### For more information
 
 For more information on managing credentials, see the following topics:
 
-- [Permit IAM users to change
-  their own passwords](id_credentials_passwords_enable-user-change.md "id_credentials_passwords_enable-user-change.md")
+- [Permit IAM users to change their own passwords](id_credentials_passwords_enable-user-change.md "id_credentials_passwords_enable-user-change.md")
 - [User passwords in AWS](id_credentials_passwords.md "id_credentials_passwords.md")
-- [Set an account password policy for
-  IAM users](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md")
+- [Set an account password policy for IAM users](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md")
 - [Manage IAM policies](access_policies_manage.md "access_policies_manage.md")
-- [How an IAM user changes their own
-  password](id_credentials_passwords_user-change-own.md "id_credentials_passwords_user-change-own.md")
+- [How an IAM user changes their own password](id_credentials_passwords_user-change-own.md "id_credentials_passwords_user-change-own.md")

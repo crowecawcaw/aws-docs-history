@@ -53,8 +53,7 @@ Use an IAM role and temporary security credentials in these scenarios:
 - **You need to grant cross-account access.** Use
   an IAM role to establish trust between accounts, and then grant users in one
   account limited permissions to access the trusted account. For more
-  information, see [IAM tutorial: Delegate access across
-  AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
+  information, see [IAM tutorial: Delegate access across AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
 - **You have a mobile app.** Don't embed access
   keys with the app, even in encrypted storage. Instead, use [Amazon Cognito](https://aws.amazon.com/cognito/ "https://aws.amazon.com/cognito/") to manage user identities in
   your app. This service lets you authenticate users using Login with Amazon,
@@ -70,8 +69,7 @@ Use an IAM role and temporary security credentials in these scenarios:
   has an on-premises identity store.** If users can authenticate
   inside your organization, you can write an application that can issue them
   temporary security credentials for access to AWS resources. For more
-  information, see [Enable custom identity broker
-  access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
+  information, see [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
 - **Use conditions in IAM policies to only allow access
   from expected networks.** You can limit where and how your access
   keys are used by implementing [IAM policies
@@ -211,15 +209,12 @@ to use access keys:
 - [Configure IAM roles for
   Amazon EC2](../../../sdk-for-java/latest/developer-guide/java-dg-roles.md "../../../sdk-for-java/latest/developer-guide/java-dg-roles.md") in the _AWS SDK for Java 2.x_
 
-## Using access keys and secret key
-
-credentials for console access
+## Using access keys and secret key credentials for console access
 
 It is possible to use access key and secret key credentials for direct AWS Management Console
 access, not just the AWS CLI. This can be achieved using the AWS STS [`GetFederationToken`](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md") API call. By constructing a console URL
 using the temporary credentials and token provided by `GetFederationToken`,
-IAM principals can access the console. For more information, see [Enable custom identity broker
-access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
+IAM principals can access the console. For more information, see [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
 
 It is worth clarifying that when signing into the console directly using IAM or
 root user credentials with MFA enabled, MFA will be required. However, if the method

@@ -1,6 +1,4 @@
-# Elements of an AWS API request
-
-signature
+# Elements of an AWS API request signature
 
 ###### Important
 

@@ -1,6 +1,4 @@
-# Perform a privileged task on an AWS Organizations
-
-member account
+# Perform a privileged task on an AWS Organizations member account
 
 The AWS Organizations management account or a delegated administrator account for IAM can perform
 some root user tasks on member accounts using short-term root access. These tasks can only be
@@ -24,18 +22,13 @@ Before you can launch a privileged session, you must have the following
 settings:
 
 - You have enabled centralized root access in your organization. For steps to
-  enable this feature, see [Centralize root access for member
-  accounts](id_root-enable-root-access.md "id_root-enable-root-access.md").
+  enable this feature, see [Centralize root access for member accounts](id_root-enable-root-access.md "id_root-enable-root-access.md").
 - Your management account or delegated administrator account has the following
   permissions: `sts:AssumeRoot`
 
-## Taking a privileged action on
+## Taking a privileged action on a member account (console)
 
-a member account (console)
-
-###### To launch a session for privileged action in a member account in the
-
-AWS Management Console
+###### To launch a session for privileged action in a member account in the AWS Management Console
 
 1.  Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2.  In the navigation pane of the console, choose **Root access
@@ -83,13 +76,9 @@ AWS Management Console
          the root user password](reset-root-password.md "reset-root-password.md") and sign in to the member
          account root user.
 
-## Taking a privileged action on a
+## Taking a privileged action on a member account (AWS CLI)
 
-member account (AWS CLI)
-
-###### To launch a session for privileged action in a member account from the
-
-AWS Command Line Interface
+###### To launch a session for privileged action in a member account from the AWS Command Line Interface
 
 1. Use the following command to assume a root user session: [aws sts assume-root](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-root.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-root.html").
 
@@ -171,13 +160,9 @@ aws sts assume-root \
      - [get-login-profile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-login-profile.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-login-profile.html")
      - [create-login-profile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-login-profile.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-login-profile.html")
 
-## Taking a privileged action on a
+## Taking a privileged action on a member account (AWS API)
 
-member account (AWS API)
-
-###### To launch a session for privileged action in a member account from the AWS
-
-API
+###### To launch a session for privileged action in a member account from the AWS API
 
 1. Use the following command to assume a root user session: [AssumeRoot](../../../STS/latest/APIReference/API_AssumeRoot.md "../../../STS/latest/APIReference/API_AssumeRoot.md").
 

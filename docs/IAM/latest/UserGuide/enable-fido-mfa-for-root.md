@@ -1,6 +1,4 @@
-# Enable a passkey or security key for the root user
-
-(console)
+# Enable a passkey or security key for the root user (console)
 
 You can configure and enable a passkey for your root user from the AWS Management Console only, not from
 the AWS CLI or AWS API.

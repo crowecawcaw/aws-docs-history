@@ -1,14 +1,9 @@
-# AWS:
-
-Allows MFA-authenticated IAM users to manage their own MFA device on the Security
-credentials page
+# AWS: Allows MFA-authenticated IAM users to manage their own MFA device on the Security credentials page
 
 This example shows how you might create an identity-based policy that allows IAM users that are authenticated through [multi-factor authentication (MFA)](id_credentials_mfa.md "id_credentials_mfa.md") to manage their
 own MFA device on the **Security credentials** page. This AWS Management Console page
 displays account and user information, but the user can only view and edit their own MFA
-device. To allow users to manage all of their own credentials with MFA, see [AWS: Allows
-MFA-authenticated IAM users to manage their own credentials on the Security
-credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md "reference_policies_examples_aws_my-sec-creds-self-manage.md").
+device. To allow users to manage all of their own credentials with MFA, see [AWS: Allows MFA-authenticated IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md "reference_policies_examples_aws_my-sec-creds-self-manage.md").
 
 ###### Note
 
@@ -21,8 +16,7 @@ services. This policy will deny that access if the IAM user is not
 MFA-authenticated.
 
 To learn how users can access the **Security credentials** page, see
-[How IAM users change their own password
-(console)](id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console "id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console").
+[How IAM users change their own password (console)](id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console "id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console").
 
 **What does this policy do?**
 
@@ -74,8 +68,7 @@ using MFA should never be allowed to delete their MFA device. Users might see th
 if they previously began assigning a virtual MFA device to their user and cancelled the
 process. To resolve this issue, you or another administrator must delete the user's
 existing virtual MFA device using the AWS CLI or AWS API. For more information, see
-[I am not authorized to
-perform: iam:DeleteVirtualMFADevice](troubleshoot.md#troubleshoot_general_access-denied-delete-mfa "troubleshoot.md#troubleshoot_general_access-denied-delete-mfa").
+[I am not authorized to perform: iam:DeleteVirtualMFADevice](troubleshoot.md#troubleshoot_general_access-denied-delete-mfa "troubleshoot.md#troubleshoot_general_access-denied-delete-mfa").
 
 JSON
 

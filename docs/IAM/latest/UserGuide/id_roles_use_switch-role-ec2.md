@@ -1,6 +1,4 @@
-# Use an IAM role to grant permissions to
-
-applications running on Amazon EC2 instances
+# Use an IAM role to grant permissions to applications running on Amazon EC2 instances
 
 Applications that run on an Amazon EC2 instance must include AWS credentials in the AWS API
 requests. You could have your developers store AWS credentials directly within the Amazon EC2
@@ -51,16 +49,12 @@ running instance, see [IAM Roles for Amazon EC2](../../../AWSEC2/latest/UserGuid
 
 ###### Topics
 
-- [How do roles for Amazon EC2 instances
-  work?](#roles-usingrole-ec2instance-roles "#roles-usingrole-ec2instance-roles")
-- [Permissions required for using roles
-  with Amazon EC2](#roles-usingrole-ec2instance-permissions "#roles-usingrole-ec2instance-permissions")
+- [How do roles for Amazon EC2 instances work?](#roles-usingrole-ec2instance-roles "#roles-usingrole-ec2instance-roles")
+- [Permissions required for using roles with Amazon EC2](#roles-usingrole-ec2instance-permissions "#roles-usingrole-ec2instance-permissions")
 - [How do I get started?](#roles-usingrole-ec2instance-get-started "#roles-usingrole-ec2instance-get-started")
 - [Related information](#roles-usingrole-ec2instance-related-info "#roles-usingrole-ec2instance-related-info")
 
-## How do roles for Amazon EC2 instances
-
-work?
+## How do roles for Amazon EC2 instances work?
 
 In the following figure, a developer runs an application on an Amazon EC2 instance that
 requires access to the S3 bucket named `amzn-s3-demo-bucket-photos`. An
@@ -118,9 +112,7 @@ before the current set expires. The expiration time is included in the informati
 returned in the `iam/security-credentials/`role-name``
 category.
 
-## Permissions required for using roles
-
-with Amazon EC2
+## Permissions required for using roles with Amazon EC2
 
 To launch an instance with a role, the developer must have permission to launch Amazon EC2
 instances and permission to pass IAM roles.
@@ -165,9 +157,7 @@ JSON
 
 ```
 
-### Restricting which roles can be passed
-
-to Amazon EC2 instances (using PassRole)
+### Restricting which roles can be passed to Amazon EC2 instances (using PassRole)
 
 You can use the `PassRole` permission to restrict which role a user can pass
 to an Amazon EC2 instance when the user launches the instance. This helps prevent the user from
@@ -226,9 +216,7 @@ JSON
 
 ```
 
-### Allowing an instance profile role to
-
-switch to a role in another account
+### Allowing an instance profile role to switch to a role in another account
 
 You can allow an application running on an Amazon EC2 instance to run commands in another
 account. To do this, you must allow the Amazon EC2 instance role in the first account to switch

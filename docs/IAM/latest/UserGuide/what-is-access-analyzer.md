@@ -15,9 +15,7 @@ AWS Identity and Access Management Access Analyzer provides the following capabi
 - IAM Access Analyzer [generates IAM
   policies](#what-is-access-analyzer-policy-generation "#what-is-access-analyzer-policy-generation") based on access activity in your AWS CloudTrail logs.
 
-## Identifying resources shared
-
-with an external entity
+## Identifying resources shared with an external entity
 
 IAM Access Analyzer helps you identify the resources in your organization and accounts, such as
 Amazon S3 buckets or IAM roles, shared with an external entity. This lets you identify unintended
@@ -31,8 +29,7 @@ resources shared with an external entity, you can use IAM Access Analyzer findin
 policy affects public and cross-account access to your resource before deploying resource
 permissions. The findings are organized in a visual summary dashboard. The dashboard highlights
 the split between public and cross-account access findings, and provides a breakdown of findings
-by resource type. To learn more about the dashboard, see [View the IAM Access Analyzer findings
-dashboard](access-analyzer-dashboard.md "access-analyzer-dashboard.md").
+by resource type. To learn more about the dashboard, see [View the IAM Access Analyzer findings dashboard](access-analyzer-dashboard.md "access-analyzer-dashboard.md").
 
 ###### Note
 
@@ -98,9 +95,7 @@ IAM Access Analyzer analyzes the following resource types for external access:
 - [Amazon DynamoDB streams](access-analyzer-resources.md#access-analyzer-ddb-stream "access-analyzer-resources.md#access-analyzer-ddb-stream")
 - [Amazon DynamoDB tables](access-analyzer-resources.md#access-analyzer-ddb-table "access-analyzer-resources.md#access-analyzer-ddb-table")
 
-## Identifying internal access to
-
-business-critical resources
+## Identifying internal access to business-critical resources
 
 For your selected business-critical resources, IAM Access Analyzer helps you identify which
 principals within your organization or account have access to them. This analysis supports
@@ -127,9 +122,7 @@ IAM Access Analyzer analyzes the following resource types for internal access:
 - [Amazon DynamoDB streams](access-analyzer-resources.md#access-analyzer-ddb-stream "access-analyzer-resources.md#access-analyzer-ddb-stream")
 - [Amazon DynamoDB tables](access-analyzer-resources.md#access-analyzer-ddb-table "access-analyzer-resources.md#access-analyzer-ddb-table")
 
-## Identifying unused access
-
-granted to IAM users and roles
+## Identifying unused access granted to IAM users and roles
 
 IAM Access Analyzer helps you identify and review unused access in your AWS organization and
 accounts. IAM Access Analyzer continuously monitors all IAM roles and users in your AWS
@@ -139,18 +132,14 @@ roles and users, the findings provide visibility into unused services and action
 
 IAM Access Analyzer reviews last accessed information for all roles in your AWS organization and
 accounts to help you identify unused access. IAM action last accessed information helps you
-identify unused actions for roles in your AWS accounts. For more information, see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+identify unused actions for roles in your AWS accounts. For more information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
 The findings for external, internal, and unused access analyzers are organized into a visual
 summary dashboard. The dashboard highlights your AWS resources and AWS accounts that have the
 most findings and provides a breakdown of findings by type. For more information about the
-dashboard, see [View the IAM Access Analyzer findings
-dashboard](access-analyzer-dashboard.md "access-analyzer-dashboard.md").
+dashboard, see [View the IAM Access Analyzer findings dashboard](access-analyzer-dashboard.md "access-analyzer-dashboard.md").
 
-## Validating policies against AWS
-
-best practices
+## Validating policies against AWS best practices
 
 You can validate your policies against IAM [policy grammar](reference_policies_grammar.md "reference_policies_grammar.md") and [AWS best practices](best-practices.md "best-practices.md") using the
 basic policy checks provided by IAM Access Analyzer policy validation. You can create or edit a policy
@@ -158,12 +147,9 @@ using the AWS CLI, AWS API, or JSON policy editor in the IAM console. You can vi
 validation check findings that include security warnings, errors, general warnings, and
 suggestions for your policy. These findings provide actionable recommendations that help you
 author policies that are functional and conform to AWS best practices. To learn more about
-validating policies using policy validation, see [Validate policies with
-IAM Access Analyzer](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").
+validating policies using policy validation, see [Validate policies with IAM Access Analyzer](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").
 
-## Validating policies against your
-
-specified security standards
+## Validating policies against your specified security standards
 
 You can validate your policies against your specified security standards using the
 IAM Access Analyzer custom policy checks. You can create or edit a policy using the AWS CLI, AWS API,
@@ -172,8 +158,7 @@ updated policy grants new access compared to the existing version. Through AWS C
 you can also check specific IAM actions that you consider critical are not allowed by a policy.
 These checks highlight a policy statement that grants new access. You can update the policy
 statement and re-run the checks until the policy conform to your security standard. To learn more
-about validating policies using custom policy checks, see [Validate policies with IAM Access Analyzer custom policy
-checks](access-analyzer-custom-policy-checks.md "access-analyzer-custom-policy-checks.md").
+about validating policies using custom policy checks, see [Validate policies with IAM Access Analyzer custom policy checks](access-analyzer-custom-policy-checks.md "access-analyzer-custom-policy-checks.md").
 
 ## Generating policies
 

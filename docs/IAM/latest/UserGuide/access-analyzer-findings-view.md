@@ -30,17 +30,14 @@ are from a recent change in your environment.
    findings** sections to view all active findings of the selected
    type.
 
-For more information on viewing the findings dashboard, see [View the IAM Access Analyzer findings
-dashboard](access-analyzer-dashboard.md "access-analyzer-dashboard.md").
+For more information on viewing the findings dashboard, see [View the IAM Access Analyzer findings dashboard](access-analyzer-dashboard.md "access-analyzer-dashboard.md").
 
 ###### Note
 
 Findings are displayed only if you have permission to view findings for the
 analyzer.
 
-## External and internal access
-
-findings
+## External and internal access findings
 
 ###### Note
 

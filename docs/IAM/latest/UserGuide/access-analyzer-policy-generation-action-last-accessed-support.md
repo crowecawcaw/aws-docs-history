@@ -1,6 +1,4 @@
-# IAM Access Analyzer
-
-policy generation services
+# IAM Access Analyzer policy generation services
 
 The following table lists the AWS services for which IAM Access Analyzer generates policies with
 action-level information. For a list of actions in each service, see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the

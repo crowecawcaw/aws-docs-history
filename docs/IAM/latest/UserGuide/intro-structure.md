@@ -72,9 +72,7 @@ To learn more about the IAM entities, see [IAM users](id_users.md "id_users.md")
 AWS recommends that you use multi-factor authentication (MFA) with all users to increase
 the security of your account. To learn more about MFA, see [AWS Multi-factor authentication in IAM](id_credentials_mfa.md "id_credentials_mfa.md").
 
-## Authorization and permission policy
-
-basics
+## Authorization and permission policy basics
 
 Authorization refers to the principal having the required permissions to complete their
 request. During authorization, IAM identifies the policies that apply to the request using

@@ -1,6 +1,4 @@
-# Amazon RDS: Allows tag owners full access
-
-to RDS resources that they have tagged
+# Amazon RDS: Allows tag owners full access to RDS resources that they have tagged
 
 This example shows how you might create an identity-based policy that allows tag owners full access to RDS resources that they have
 tagged. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI.

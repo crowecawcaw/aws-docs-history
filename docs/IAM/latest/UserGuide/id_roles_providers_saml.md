@@ -40,35 +40,22 @@ IAM federation supports these use cases:
   select an option to go to AWS, and be redirected to the console without having to provide
   additional sign-in information. You can use a third-party SAML IdP to establish SSO access
   to the console or you can create a custom IdP to enable console access for your external
-  users. For more information about building a custom IdP, see [Enable custom identity broker
-  access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
+  users. For more information about building a custom IdP, see [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
 
 ###### Topics
 
-- [Using SAML-based federation for API access to
-  AWS](#CreatingSAML-configuring "#CreatingSAML-configuring")
-- [Overview of configuring SAML 2.0-based
-  federation](#CreatingSAML-configuring-IdP "#CreatingSAML-configuring-IdP")
-- [Overview of the role to allow SAML-federated
-  access to your AWS resources](#CreatingSAML-configuring-role "#CreatingSAML-configuring-role")
-- [Uniquely identifying users in SAML-based
-  federation](#CreatingSAML-userid "#CreatingSAML-userid")
-- [Create a SAML identity provider in
-  IAM](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md")
-- [Configure your SAML 2.0 IdP with
-  relying party trust and adding claims](id_roles_providers_create_saml_relying-party.md "id_roles_providers_create_saml_relying-party.md")
-- [Integrate third-party SAML solution
-  providers with AWS](id_roles_providers_saml_3rd-party.md "id_roles_providers_saml_3rd-party.md")
-- [Configure SAML assertions for the
-  authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md")
-- [Enabling SAML 2.0 federated principals
-  to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md")
-- [View a SAML response in your
-  browser](troubleshoot_saml_view-saml-response.md "troubleshoot_saml_view-saml-response.md")
+- [Using SAML-based federation for API access to AWS](#CreatingSAML-configuring "#CreatingSAML-configuring")
+- [Overview of configuring SAML 2.0-based federation](#CreatingSAML-configuring-IdP "#CreatingSAML-configuring-IdP")
+- [Overview of the role to allow SAML-federated access to your AWS resources](#CreatingSAML-configuring-role "#CreatingSAML-configuring-role")
+- [Uniquely identifying users in SAML-based federation](#CreatingSAML-userid "#CreatingSAML-userid")
+- [Create a SAML identity provider in IAM](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md")
+- [Configure your SAML 2.0 IdP with relying party trust and adding claims](id_roles_providers_create_saml_relying-party.md "id_roles_providers_create_saml_relying-party.md")
+- [Integrate third-party SAML solution providers with AWS](id_roles_providers_saml_3rd-party.md "id_roles_providers_saml_3rd-party.md")
+- [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md")
+- [Enabling SAML 2.0 federated principals to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md")
+- [View a SAML response in your browser](troubleshoot_saml_view-saml-response.md "troubleshoot_saml_view-saml-response.md")
 
-## Using SAML-based federation for API access to
-
-AWS
+## Using SAML-based federation for API access to AWS
 
 Assume that you want to provide a way for employees to copy data from their computers to a
 backup folder. You build an application that users can run on their computers. On the back
@@ -92,9 +79,7 @@ access to AWS. Instead, the following process is used:
 6. The API response to the client app includes temporary security credentials.
 7. The client app uses the temporary security credentials to call Amazon S3 API operations.
 
-## Overview of configuring SAML 2.0-based
-
-federation
+## Overview of configuring SAML 2.0-based federation
 
 Before you can use SAML 2.0-based federation as described in the preceding scenario and
 diagram, you must configure your organization's IdP and your AWS account to trust each
@@ -139,11 +124,10 @@ concerned about expired X.509 certificates, we recommend monitoring certificate 
 dates and rotating certificates according to your organization’s governance and security
 policies. 3. In the IAM console, you create a SAML identity provider. As part of this process,
 you upload the SAML metadata document and private
-decryption key that was produced by the IdP in your organization in [Step 2](#createxml "#createxml"). For more information, see [Create a SAML identity provider in
-IAM](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md"). 4. In IAM, you create one or more IAM roles. In the role's trust policy, you set the
+decryption key that was produced by the IdP in your organization in [Step 2](#createxml "#createxml"). For more information, see [Create a SAML identity provider in IAM](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md"). 4. In IAM, you create one or more IAM roles. In the role's trust policy, you set the
 SAML provider as the principal, which establishes a trust relationship between your
 organization and AWS. The role's permission policy establishes what users from your
-organization are allowed to do in AWS. For more information, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md") .
+organization are allowed to do in AWS. For more information, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md").
 
 ###### Note
 
@@ -153,12 +137,10 @@ organization to the IAM roles. Note that different users and groups in your orga
 might map to different IAM roles. The exact steps for performing the mapping depend on
 what IdP you're using. In the [earlier scenario](#CreatingSAML-configuring "#CreatingSAML-configuring") of an Amazon S3 folder for
 users, it's possible that all users will map to the same role that provides Amazon S3
-permissions. For more information, see [Configure SAML assertions for the
-authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
+permissions. For more information, see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
 
 If your IdP enables SSO to the AWS console, then you can configure the maximum
-duration of the console sessions. For more information, see [Enabling SAML 2.0 federated principals
-to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md"). 6. In the application that you're creating, you call the AWS Security Token Service
+duration of the console sessions. For more information, see [Enabling SAML 2.0 federated principals to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md"). 6. In the application that you're creating, you call the AWS Security Token Service
 `AssumeRoleWithSAML` API, passing it the ARN of the SAML provider you created
 in [Step 3](#samlovrcreateentity "#samlovrcreateentity"), the ARN of the
 role to assume that you created in [Step 4](#samlovrcreaterole "#samlovrcreaterole"), and the SAML assertion about the current user that you
@@ -170,9 +152,7 @@ which your application can use to make signed requests to AWS. Your application 
 information about the current user and can access user-specific folders in Amazon S3, as
 described in the previous scenario.
 
-## Overview of the role to allow SAML-federated
-
-access to your AWS resources
+## Overview of the role to allow SAML-federated access to your AWS resources
 
 The roles that you create in IAM define what SAML federated principals from your organization are
 allowed to do in AWS. When you create the trust policy for the role, you specify the SAML
@@ -264,12 +244,9 @@ For example, if users from your organization are allowed to administer Amazon El
 you must explicitly allow Amazon EC2 actions in the permissions policy, such as those in the
 **AmazonEC2FullAccess** managed policy.
 
-For more information about the SAML keys that you can check in a policy, see [Available keys for SAML-based AWS STS
-federation](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml").
+For more information about the SAML keys that you can check in a policy, see [Available keys for SAML-based AWS STS federation](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml").
 
-## Uniquely identifying users in SAML-based
-
-federation
+## Uniquely identifying users in SAML-based federation
 
 When you create access policies in IAM, it's often useful to be able to specify
 permissions based on the identity of users. For example, for users who have been federated
@@ -300,8 +277,7 @@ resources like Amazon S3 folders.
   provider in IAM. The concatenation of the account ID and friendly name of the SAML
   provider is available to IAM policies as the key `saml:doc`. The account ID
   and provider name must be separated by a '/' as in "123456789012/provider_name".
-  For more information, see the `saml:doc` key at [Available keys for SAML-based AWS STS
-  federation](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml").
+  For more information, see the `saml:doc` key at [Available keys for SAML-based AWS STS federation](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml").
 
 The combination of `NameQualifier` and `Subject` can be used to
 uniquely identify a SAML federated principal. The following pseudocode shows how this value is
@@ -313,8 +289,7 @@ represents a function that produces Base-64 encoded version of the hash output.
  ) )`
 
 For more information about the policy keys that are available for SAML-based
-federation, see [Available keys for SAML-based AWS STS
-federation](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml").
+federation, see [Available keys for SAML-based AWS STS federation](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml").
 
 - `saml:sub` (string). This is the subject of the claim, which includes a
   value that uniquely identifies an individual user within an organization (for example,
@@ -325,8 +300,7 @@ federation](reference_policies_iam-condition-keys.md#condition-keys-saml "refere
   value of `persistent` indicates that the value in `saml:sub` is the
   same for a user across all sessions. If the value is `transient`, the user has
   a different `saml:sub` value for each session. For information about the
-  `NameID` element's `Format` attribute, see [Configure SAML assertions for the
-  authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
+  `NameID` element's `Format` attribute, see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
 
 The following example shows a permission policy that uses the preceding keys to grant
 permissions to a user-specific folder in Amazon S3. The policy assumes that the Amazon S3 objects are
@@ -381,5 +355,4 @@ JSON
 
 ```
 
-For more information about mapping assertions from the IdP to policy keys, see [Configure SAML assertions for the
-authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
+For more information about mapping assertions from the IdP to policy keys, see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").

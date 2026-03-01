@@ -1,6 +1,4 @@
-# Logging IAM and AWS STS API calls
-
-with AWS CloudTrail
+# Logging IAM and AWS STS API calls with AWS CloudTrail
 
 IAM and AWS STS are integrated with AWS CloudTrail, a service that provides a
 record of actions taken by an IAM user or role. CloudTrail captures all API calls for
@@ -16,26 +14,17 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../aws
 
 ###### Topics
 
-- [IAM and AWS STS information in
-  CloudTrail](#iam-info-in-cloudtrail "#iam-info-in-cloudtrail")
+- [IAM and AWS STS information in CloudTrail](#iam-info-in-cloudtrail "#iam-info-in-cloudtrail")
 - [Logging IAM and AWS STS API requests](#cloudtrail-integration_apis "#cloudtrail-integration_apis")
-- [Logging API requests to other
-  AWS services](#cloudtrail-integration_api-other-services "#cloudtrail-integration_api-other-services")
+- [Logging API requests to other AWS services](#cloudtrail-integration_api-other-services "#cloudtrail-integration_api-other-services")
 - [Logging user sign-in events](#cloudtrail-integration_signin-users "#cloudtrail-integration_signin-users")
-- [Logging sign-in events for temporary
-  credentials](#cloudtrail-integration_signin-tempcreds "#cloudtrail-integration_signin-tempcreds")
-- [Example IAM API events in CloudTrail
-  log](#cloudtrail-integration_examples-iam-api "#cloudtrail-integration_examples-iam-api")
-- [Example AWS STS API events in CloudTrail
-  log](#cloudtrail-integration_examples-sts-api "#cloudtrail-integration_examples-sts-api")
-- [Example sign-in events in CloudTrail
-  log](#cloudtrail-integration_examples-signin "#cloudtrail-integration_examples-signin")
-- [IAM role trust policy
-  behavior](#cloudtrail-integration_role-trust-behavior "#cloudtrail-integration_role-trust-behavior")
+- [Logging sign-in events for temporary credentials](#cloudtrail-integration_signin-tempcreds "#cloudtrail-integration_signin-tempcreds")
+- [Example IAM API events in CloudTrail log](#cloudtrail-integration_examples-iam-api "#cloudtrail-integration_examples-iam-api")
+- [Example AWS STS API events in CloudTrail log](#cloudtrail-integration_examples-sts-api "#cloudtrail-integration_examples-sts-api")
+- [Example sign-in events in CloudTrail log](#cloudtrail-integration_examples-signin "#cloudtrail-integration_examples-signin")
+- [IAM role trust policy behavior](#cloudtrail-integration_role-trust-behavior "#cloudtrail-integration_role-trust-behavior")
 
-## IAM and AWS STS information in
-
-CloudTrail
+## IAM and AWS STS information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity occurs in
 IAM or AWS STS, that activity is recorded in a CloudTrail event along with other
@@ -91,9 +80,7 @@ For example, calls to the IAM `CreateUser`, `DeleteRole`,
 
 Examples for this type of log entry are presented later in this topic.
 
-## Logging API requests to other
-
-AWS services
+## Logging API requests to other AWS services
 
 Authenticated requests to other AWS service API operations are logged by CloudTrail, and these
 log entries contain information about who generated the request.
@@ -117,8 +104,7 @@ _AWS CloudTrail User Guide_.
 As a security best practice, AWS does not log the entered IAM user name text when the
 sign-in failure is caused by _an incorrect user name_. The user name text
 is masked by the value `HIDDEN_DUE_TO_SECURITY_REASONS`. For an example of this,
-see [Example sign-in failure event caused by incorrect user
-name](#hiddensecurity "#hiddensecurity"), later in this topic. The
+see [Example sign-in failure event caused by incorrect user name](#hiddensecurity "#hiddensecurity"), later in this topic. The
 user name text is obscured because such failures might be caused by user errors. Logging these
 errors could expose potentially sensitive information. For example:
 
@@ -128,9 +114,7 @@ errors could expose potentially sensitive information. For example:
 - You forget which account you are signing in to and accidentally type the account name
   of your personal email account, your bank sign-in identifier, or some other private ID.
 
-## Logging sign-in events for temporary
-
-credentials
+## Logging sign-in events for temporary credentials
 
 When a principal requests temporary credentials, the principal type determines how CloudTrail
 logs the event. This can be complicated when a principal assumes a role in another account.
@@ -181,17 +165,13 @@ credentials.
 | GetFederationToken        | Included                      | false     |
 | GetSessionToken           | Included                      | false     |
 
-## Example IAM API events in CloudTrail
-
-log
+## Example IAM API events in CloudTrail log
 
 CloudTrail log files contain events that are formatted using JSON. An API event represents a
 single API request and includes information about the principal, the requested action, any
 parameters, and the date and time of the action.
 
-### Example IAM API event in CloudTrail log
-
-file
+### Example IAM API event in CloudTrail log file
 
 The following example shows a
 CloudTrail log entry for a request made for the IAM `GetUserPolicy` action.
@@ -252,17 +232,13 @@ request was made by an IAM user named `JaneDoe` on July 15, 2014 at 9:40 PM
 (UTC). In this case, the request originated in the AWS Management Console, as you can tell from the
 `userAgent` element.
 
-## Example AWS STS API events in CloudTrail
-
-log
+## Example AWS STS API events in CloudTrail log
 
 CloudTrail log files contain events that are formatted using JSON. An API event represents a
 single API request and includes information about the principal, the requested action, any
 parameters, and the date and time of the action.
 
-### Example cross-account AWS STS API events in CloudTrail
-
-log files
+### Example cross-account AWS STS API events in CloudTrail log files
 
 The IAM user named `John` in account 777788889999 calls the
 AWS STS [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") action to assume the role `EC2-dev` in account 111122223333. The account administrator requires users to set a source identity
@@ -360,9 +336,7 @@ entry for the same request.
 }
 ```
 
-### Example AWS STS role chaining API event
-
-in CloudTrail log file
+### Example AWS STS role chaining API event in CloudTrail log file
 
 The following example shows a CloudTrail log entry for a request made by John Doe in account 111111111111. John previously used his `John` user to assume the
 `JohnRole1` role. For this request, he uses the credentials from that role to
@@ -372,8 +346,7 @@ when he assumed the `John1` role persists in the request to assume
 role, the request is denied. John passes two [session
 tags](id_session-tags.md "id_session-tags.md") into the request. He sets those two tags as transitive. The request inherits
 the `Department` tag as transitive because John set it as transitive when he
-assumed `JohnRole1`. For more information about source identity, see [Monitor and control actions
-taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md"). For more information about
+assumed `JohnRole1`. For more information about source identity, see [Monitor and control actions taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md"). For more information about
 transitive keys in role chains, see [Chaining roles with session tags](id_session-tags.md#id_session-tags_role-chaining "id_session-tags.md#id_session-tags_role-chaining").
 
 ```
@@ -456,9 +429,7 @@ transitive keys in role chains, see [Chaining roles with session tags](id_sessio
 
 ```
 
-### Example AWS service AWS STS API event in
-
-CloudTrail log file
+### Example AWS service AWS STS API event in CloudTrail log file
 
 The following example shows a CloudTrail log entry for a request made by an AWS service
 calling another service API using permissions from a service role. It shows the CloudTrail log
@@ -504,9 +475,7 @@ entry for the request made in account 777788889999.
 }
 ```
 
-### Example SAML AWS STS API event in CloudTrail log
-
-file
+### Example SAML AWS STS API event in CloudTrail log file
 
 The following example shows a CloudTrail log entry for a request made for the AWS STS [AssumeRoleWithSAML](../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md "../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md") action. The request includes the SAML attributes
 `CostCenter` and `Project` that are passed through the SAML
@@ -596,9 +565,7 @@ persists.
 }
 ```
 
-### Example OIDC AWS STS API event in
-
-CloudTrail log file
+### Example OIDC AWS STS API event in CloudTrail log file
 
 The following example shows a CloudTrail log entry for a request made for the AWS STS [AssumeRoleWithWebIdentity](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md") action. The request includes the attributes
 `CostCenter` and `Project` that are passed through the OpenID
@@ -687,9 +654,7 @@ the IdP configuration to verify the OIDC IdP server certificate.
 
 ```
 
-### Example AWS STS API
-
-event using the global endpoint in CloudTrail log file
+### Example AWS STS API event using the global endpoint in CloudTrail log file
 
 For requests to the AWS Security Token Service (AWS STS) global endpoint
 (`https://sts.amazonaws.com`), AWS STS includes additional AWS CloudTrail log fields:
@@ -863,17 +828,13 @@ global endpoint in the Europe (Stockholm) Region.
 }
 ```
 
-## Example sign-in events in CloudTrail
-
-log
+## Example sign-in events in CloudTrail log
 
 CloudTrail log files contain events that are formatted using JSON. A sign-in event represents a
 single sign-in request and includes information about the sign-in principal, the Region, and
 the date and time of the action.
 
-### Example sign-in success event in
-
-CloudTrail log file
+### Example sign-in success event in CloudTrail log file
 
 The following example shows a CloudTrail log entry for a successful sign-in event.
 
@@ -1023,9 +984,7 @@ The following example shows a CloudTrail log entry for a successful OAuth2 token
 For more details about the information contained in CloudTrail log files, see [CloudTrail Event Reference](../../../awscloudtrail/latest/userguide/eventreference.md "../../../awscloudtrail/latest/userguide/eventreference.md") in the
 _AWS CloudTrail User Guide_.
 
-### Example sign-in failure event in
-
-CloudTrail log file
+### Example sign-in failure event in CloudTrail log file
 
 The following example shows a CloudTrail log entry for a failed sign-in event.
 
@@ -1065,9 +1024,7 @@ also see that the sign-in attempt failed, as shown in the `responseElements`
 element. You can see that `JaneDoe` tried to sign in to the Amazon SNS console at 5:35
 PM (UTC) on July 8, 2014.
 
-### Example sign-in failure event caused by incorrect user
-
-name
+### Example sign-in failure event caused by incorrect user name
 
 The following example shows a CloudTrail log entry for an unsuccessful sign-in event caused by
 the user entering an incorrect user name. AWS masks the `userName` text with
@@ -1105,9 +1062,7 @@ information.
 }
 ```
 
-## IAM role trust policy
-
-behavior
+## IAM role trust policy behavior
 
 On September 21st, 2022, AWS made changes to IAM role trust policy behavior to require
 explicit allows in a role trust policy when a role assumes itself. IAM roles in the legacy

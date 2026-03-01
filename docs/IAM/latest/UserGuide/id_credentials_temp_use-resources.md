@@ -1,6 +1,4 @@
-# Use temporary credentials with AWS
-
-resources
+# Use temporary credentials with AWS resources
 
 You can use temporary security credentials to make programmatic requests for AWS resources
 using the AWS CLI or AWS API (using the [AWS SDKs](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/")).
@@ -38,19 +36,13 @@ globally. For more information, see [Manage AWS STS in an AWS Region](id_credent
 
 ###### Contents
 
-- [Using temporary credentials in Amazon EC2
-  instances](id_credentials_temp_use-resources.md#using-temp-creds-sdk-ec2-instances "id_credentials_temp_use-resources.md#using-temp-creds-sdk-ec2-instances")
-- [Using temporary security credentials with the AWS
-  SDKs](id_credentials_temp_use-resources.md#using-temp-creds-sdk "id_credentials_temp_use-resources.md#using-temp-creds-sdk")
-- [Using temporary security credentials with the
-  AWS CLI](id_credentials_temp_use-resources.md#using-temp-creds-sdk-cli "id_credentials_temp_use-resources.md#using-temp-creds-sdk-cli")
-- [Using temporary security credentials with API
-  operations](id_credentials_temp_use-resources.md#RequestWithSTS "id_credentials_temp_use-resources.md#RequestWithSTS")
+- [Using temporary credentials in Amazon EC2 instances](id_credentials_temp_use-resources.md#using-temp-creds-sdk-ec2-instances "id_credentials_temp_use-resources.md#using-temp-creds-sdk-ec2-instances")
+- [Using temporary security credentials with the AWS SDKs](id_credentials_temp_use-resources.md#using-temp-creds-sdk "id_credentials_temp_use-resources.md#using-temp-creds-sdk")
+- [Using temporary security credentials with the AWS CLI](id_credentials_temp_use-resources.md#using-temp-creds-sdk-cli "id_credentials_temp_use-resources.md#using-temp-creds-sdk-cli")
+- [Using temporary security credentials with API operations](id_credentials_temp_use-resources.md#RequestWithSTS "id_credentials_temp_use-resources.md#RequestWithSTS")
 - [More information](id_credentials_temp_use-resources.md#using-temp-creds-more-info "id_credentials_temp_use-resources.md#using-temp-creds-more-info")
 
-## Using temporary credentials in Amazon EC2
-
-instances
+## Using temporary credentials in Amazon EC2 instances
 
 If you want to run AWS CLI commands or code inside an EC2 instance, the recommended way to
 get credentials is to use [roles for
@@ -74,9 +66,7 @@ For more information and for examples, see the following:
 - [Creating a Role](../../../sdk-for-ruby/latest/developer-guide/iam-example-create-role.md "../../../sdk-for-ruby/latest/developer-guide/iam-example-create-role.md") —
   AWS SDK for Ruby
 
-## Using temporary security credentials with the AWS
-
-SDKs
+## Using temporary security credentials with the AWS SDKs
 
 To use temporary security credentials in code, you programmatically call an AWS STS API
 like `AssumeRole` and extract the resulting credentials and session token. You then
@@ -107,9 +97,7 @@ You must make sure that you get a new set of credentials before the old ones exp
 some SDKs, you can use a provider that manages the process of refreshing credentials for you;
 check the documentation for the SDK you're using.
 
-## Using temporary security credentials with the
-
-AWS CLI
+## Using temporary security credentials with the AWS CLI
 
 You can use temporary security credentials with the AWS CLI. This can be useful for testing
 policies.
@@ -159,9 +147,7 @@ variables and therefore uses the temporary credentials.
 `C:\>` `aws ec2 describe-instances --region us-west-1`
 ```
 
-## Using temporary security credentials with API
-
-operations
+## Using temporary security credentials with API operations
 
 If you're making direct HTTPS API requests to AWS, you can sign those requests with the
 temporary security credentials that you get from the AWS Security Token Service (AWS STS). To do this, you use

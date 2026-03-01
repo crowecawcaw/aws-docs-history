@@ -1,6 +1,4 @@
-# Tag customer managed
-
-policies
+# Tag customer managed policies
 
 You can use IAM tag key-value pairs to add custom attributes to your customer managed
 policies. For example, to tag a policy with department information, you can add the tag key
@@ -8,15 +6,12 @@ policies. For example, to tag a policy with department information, you can add 
 might want to tag policies to indicate that they are for a specific environment, such as
 `Environment = lab`. You can use tags to control access to
 resources or to control what tags can be attached to a resource. To learn more about using
-tags to control access, see [Controlling access to and for IAM users and roles using
-tags](access_iam-tags.md "access_iam-tags.md").
+tags to control access, see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md "access_iam-tags.md").
 
 You can also use tags in AWS STS to add custom attributes when you assume a role or federate
 a user. For more information, see [Pass session tags in AWS STS](id_session-tags.md "id_session-tags.md").
 
-## Permissions required for
-
-tagging customer managed policies
+## Permissions required for tagging customer managed policies
 
 You must configure permissions to allow an IAM entity (users or roles) to tag
 customer managed policies. You can specify one or all of the following IAM tag actions
@@ -26,16 +21,13 @@ in an IAM policy:
 - `iam:TagPolicy`
 - `iam:UntagPolicy`
 
-###### To allow an IAM entity (user or role) to add, list, or remove a tag for a
-
-customer managed policy
+###### To allow an IAM entity (user or role) to add, list, or remove a tag for a customer managed policy
 
 Add the following statement to the permissions policy for the IAM entity that
 needs to manage tags. Use your account number and replace
 `<policyname>` with the name of the policy whose
 tags need to be managed. To learn how to create a policy using this example JSON
-policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -49,9 +41,7 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 }
 ```
 
-###### To allow an IAM entity (user or role) to add a tag to a specific customer
-
-managed policy
+###### To allow an IAM entity (user or role) to add a tag to a specific customer managed policy
 
 Add the following statement to the permissions policy for the IAM entity that
 needs to add, but not remove, tags for a specific policy.
@@ -63,8 +53,7 @@ The `iam:TagPolicy` action requires that you also include the
 
 To use this policy, replace `<policyname>` with the name
 of the policy whose tags need to be managed. To learn how to create a policy using this
-example JSON policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -79,9 +68,7 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 
 Alternatively, you can use an AWS managed policy such as [IAMFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess") to provide full access to IAM.
 
-## Managing tags on IAM
-
-customer managed policies (console)
+## Managing tags on IAM customer managed policies (console)
 
 You can manage tags for IAM customer managed policies from the AWS Management Console.
 
@@ -98,16 +85,12 @@ You can manage tags for IAM customer managed policies from the AWS Management Co
 4. Add or remove tags to complete the set of tags. Then choose **Save
    changes**.
 
-## Managing tags on IAM
-
-customer managed policies (AWS CLI or AWS API)
+## Managing tags on IAM customer managed policies (AWS CLI or AWS API)
 
 You can list, attach, or remove tags for IAM customer managed policies. You can use
 the AWS CLI or the AWS API to manage tags for IAM customer managed policies.
 
-###### To list the tags currently attached to an IAM customer managed policy (AWS CLI or
-
-AWS API)
+###### To list the tags currently attached to an IAM customer managed policy (AWS CLI or AWS API)
 
 - AWS CLI: [aws iam
   list-policy-tags](../../../cli/latest/reference/iam/list-policy-tags.md "../../../cli/latest/reference/iam/list-policy-tags.md")

@@ -1,6 +1,4 @@
-# View the IAM Access Analyzer findings
-
-dashboard
+# View the IAM Access Analyzer findings dashboard
 
 AWS Identity and Access Management Access Analyzer organizes external, internal, and unused access findings into a visual
 summary dashboard. The dashboard helps you gain visibility into the effective use of
@@ -26,9 +24,7 @@ The summary dashboards give you a high-level view of the access issues detected 
 IAM Access Analyzer across your AWS environment. You can then drill down into the individual
 findings to investigate further and take appropriate actions to resolve them.
 
-## Viewing the summary
-
-dashboard for external and internal access analyzers
+## Viewing the summary dashboard for external and internal access analyzers
 
 ###### Note
 
@@ -77,9 +73,7 @@ In the preceding image, the resource findings dashboard is visible from within t
    findings** for a complete list of active findings for the selected
    analyzers.
 
-## Viewing the summary dashboard for
-
-unused access analyzers
+## Viewing the summary dashboard for unused access analyzers
 
 ###### Note
 

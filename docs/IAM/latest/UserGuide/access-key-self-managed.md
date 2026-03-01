@@ -1,27 +1,19 @@
-# How IAM users can manage their own access
-
-keys
+# How IAM users can manage their own access keys
 
 IAM administrators can grant IAM users the permission to self-manage their access
-keys by attaching the policy described in [Permissions required to manage access
-keys](access-keys_required-permissions.md "access-keys_required-permissions.md").
+keys by attaching the policy described in [Permissions required to manage access keys](access-keys_required-permissions.md "access-keys_required-permissions.md").
 
 With these permissions, IAM user can use the following procedures to create, activate,
 deactivate, and delete the access keys associated with their username.
 
 ###### Topics
 
-- [Create an access key for yourself
-  (console)](#Using_CreateAccessKey "#Using_CreateAccessKey")
-- [Deactivate your access key
-  (console)](#deactivate-access-key-seccreds "#deactivate-access-key-seccreds")
-- [Activate your access key
-  (console)](#activate-access-key-seccreds "#activate-access-key-seccreds")
+- [Create an access key for yourself (console)](#Using_CreateAccessKey "#Using_CreateAccessKey")
+- [Deactivate your access key (console)](#deactivate-access-key-seccreds "#deactivate-access-key-seccreds")
+- [Activate your access key (console)](#activate-access-key-seccreds "#activate-access-key-seccreds")
 - [Delete your access key (console)](#delete-access-key-seccreds "#delete-access-key-seccreds")
 
-## Create an access key for yourself
-
-(console)
+## Create an access key for yourself (console)
 
 If you have been granted the appropriate permissions you can use the AWS Management Console to
 create access keys for yourself.
@@ -58,9 +50,7 @@ or **Download .csv file**. This is your only opportunity to save
 your secret access key. After you've saved your secret access key in a secure
 location, choose **Done**.
 
-## Deactivate your access key
-
-(console)
+## Deactivate your access key (console)
 
 If you have been granted the appropriate permissions you can use the AWS Management Console to
 deactivate your access key.
@@ -87,9 +77,7 @@ deactivate, then choose **Actions**, then choose
 **Deactivate**. A deactivated access key still counts toward
 your limit of two access keys.
 
-## Activate your access key
-
-(console)
+## Activate your access key (console)
 
 If you have been granted the appropriate permissions you can use the AWS Management Console to
 activate your access key.

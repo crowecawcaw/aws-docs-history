@@ -26,9 +26,7 @@ While MFA is enforced for root users by default, it requires customer action to 
 the initial account creation or as prompted during sign-in. For more information about using MFA
 to protect the root user, see [Multi-factor authentication for AWS account root user](enable-mfa-for-root.md "enable-mfa-for-root.md").
 
-## Centrally manage root access for member
-
-accounts
+## Centrally manage root access for member accounts
 
 To help you manage credentials at scale, you can centrally secure access to root user
 credentials for member accounts in AWS Organizations. When you enable AWS Organizations, you combine all your
@@ -72,8 +70,7 @@ account.
 
 To simplify managing privileged root user credentials across member accounts in AWS Organizations, you
 can enable centralized root access to help you centrally secure highly privileged access to
-your AWS accounts. [Centrally manage root access for member
-accounts](#id_root-user-access-management "#id_root-user-access-management") lets you centrally remove and prevent
+your AWS accounts. [Centrally manage root access for member accounts](#id_root-user-access-management "#id_root-user-access-management") lets you centrally remove and prevent
 long-term root user credential recovery, improving account security in your organization. After
 you enable this feature, you can perform the following privileged tasks on member
 accounts.
@@ -149,8 +146,7 @@ information, alternate contacts, and AWS Regions of member accounts.
   delete an Amazon S3 bucket policy that denies all principals](https://aws.amazon.com/premiumsupport/knowledge-center/change-vpc-endpoint-s3-bucket-policy/ "https://aws.amazon.com/premiumsupport/knowledge-center/change-vpc-endpoint-s3-bucket-policy/").
 
 You can use privileged actions to unlock an Amazon S3 bucket with a misconfigured bucket
-policy. For details, see [Perform a privileged task on an AWS Organizations
-member account](id_root-user-privileged-task.md "id_root-user-privileged-task.md").
+policy. For details, see [Perform a privileged task on an AWS Organizations member account](id_root-user-privileged-task.md "id_root-user-privileged-task.md").
 
 ###### Amazon Simple Queue Service Task
 
@@ -158,8 +154,7 @@ member account](id_root-user-privileged-task.md "id_root-user-privileged-task.md
   an Amazon SQS resource-based policy that denies all principals](https://aws.amazon.com/premiumsupport/knowledge-center/sqs-queue-access-issues-deny-policy "https://aws.amazon.com/premiumsupport/knowledge-center/sqs-queue-access-issues-deny-policy").
 
 You can use privileged actions to unlock an Amazon SQS queue with a misconfigured
-resource-based policy. For details, see [Perform a privileged task on an AWS Organizations
-member account](id_root-user-privileged-task.md "id_root-user-privileged-task.md").
+resource-based policy. For details, see [Perform a privileged task on an AWS Organizations member account](id_root-user-privileged-task.md "id_root-user-privileged-task.md").
 
 ## Additional resources
 

@@ -1,6 +1,4 @@
-# Previewing access in Amazon S3
-
-console
+# Previewing access in Amazon S3 console
 
 After you complete your bucket policy in the Amazon S3 console you have the option to preview
 public and cross-account access to your Amazon S3 bucket. You can validate that your policy
@@ -13,12 +11,9 @@ save your Amazon S3 bucket policy at any time.
 To preview external access to your bucket, you must have an active account analyzer in
 your bucket’s region with the account as the zone of trust. You must also have the
 permissions required to use IAM Access Analyzer and preview access. For more information on
-enabling IAM Access Analyzer and permissions required, see [Getting started with
-AWS Identity and Access Management Access Analyzer](access-analyzer-getting-started.md "access-analyzer-getting-started.md").
+enabling IAM Access Analyzer and permissions required, see [Getting started with AWS Identity and Access Management Access Analyzer](access-analyzer-getting-started.md "access-analyzer-getting-started.md").
 
-###### To preview access to your Amazon S3 bucket when you create or edit your bucket
-
-policy
+###### To preview access to your Amazon S3 bucket when you create or edit your bucket policy
 
 1. Once you finish creating or editing your bucket policy, ensure your policy is a
    valid Amazon S3 bucket policy. The policy ARN must match the bucket ARN and the [policy

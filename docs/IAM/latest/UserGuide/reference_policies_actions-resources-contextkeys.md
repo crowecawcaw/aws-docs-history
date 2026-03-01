@@ -198,6 +198,7 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [Amazon ElastiCache](list_amazonelasticache.md "list_amazonelasticache.md")
 - [AWS Elemental Appliances and Software](list_awselementalappliancesandsoftware.md "list_awselementalappliancesandsoftware.md")
 - [AWS Elemental Appliances and Software Activation Service](list_awselementalappliancesandsoftwareactivationservice.md "list_awselementalappliancesandsoftwareactivationservice.md")
+- [AWS Elemental Inference](list_awselementalinference.md "list_awselementalinference.md")
 - [AWS Elemental MediaConnect](list_awselementalmediaconnect.md "list_awselementalmediaconnect.md")
 - [AWS Elemental MediaConvert](list_awselementalmediaconvert.md "list_awselementalmediaconvert.md")
 - [AWS Elemental MediaLive](list_awselementalmedialive.md "list_awselementalmedialive.md")

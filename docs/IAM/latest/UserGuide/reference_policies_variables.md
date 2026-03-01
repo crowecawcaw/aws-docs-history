@@ -17,8 +17,7 @@ prevent variables from causing invalid statements, use the [...IfExists conditio
 - [Tags as policy variables](#policy-vars-tags "#policy-vars-tags")
 - [Where you can use policy variables](#policy-vars-wheretouse "#policy-vars-wheretouse")
 - [Policy variables with no value](#policy-vars-no-value "#policy-vars-no-value")
-- [Request information that you can use for policy
-  variables](#policy-vars-infotouse "#policy-vars-infotouse")
+- [Request information that you can use for policy variables](#policy-vars-infotouse "#policy-vars-infotouse")
 - [Specifying default values](#policy-vars-default-values "#policy-vars-default-values")
 - [For more information](#policy-vars-formoreinfo "#policy-vars-formoreinfo")
 
@@ -142,8 +141,7 @@ A `Version` policy element is different from a policy version. The
 policy language. A policy version, on the other hand, is created when you change a customer
 managed policy in IAM. The changed policy doesn't overwrite the existing policy. Instead,
 IAM creates a new version of the managed policy. To learn more about the
-`Version` policy element see [IAM JSON policy elements:
-Version](reference_policies_elements_version.md "reference_policies_elements_version.md"). To learn more about policy versions, see
+`Version` policy element see [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md"). To learn more about policy versions, see
 [Versioning IAM policies](access_policies_managed-versioning.md "access_policies_managed-versioning.md").
 
 A policy that allows a principal to get objects from the /David path of an S3 bucket looks
@@ -241,8 +239,7 @@ Editor](../../../awsconsolehelpdocs/latest/gsg/tag-editor.md "../../../awsconsol
 
 You can tag IAM resources to simplify discovering, organizing, and tracking your IAM
 resources. You can also tag IAM identities to control access to resources or to tagging
-itself. To learn more about using tags to control access, see [Controlling access to and for IAM users and roles using
-tags](access_iam-tags.md "access_iam-tags.md").
+itself. To learn more about using tags to control access, see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md "access_iam-tags.md").
 
 ## Where you can use policy variables
 
@@ -295,8 +292,7 @@ involves the string operators or the ARN operators. String operators include
 operators include `ArnEquals` and `ArnLike`. You can't use a policy
 variable with other operators, such as `Numeric`, `Date`,
 `Boolean`, `Binary`, `IP Address`, or `Null`
-operators. For more information about condition operators, see [IAM JSON policy elements:
-Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md").
+operators. For more information about condition operators, see [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md").
 
 When referencing a tag in a `Condition` element expression, use the relevant
 prefix and key name as the condition key. Then use the value that you want to test in the
@@ -340,11 +336,9 @@ when:
 - You are using service specific condition context keys in requests to resources that do
   not support that condition key.
 - Tags on IAM principals, sessions, resources, or requests are not present.
-- Other circumstances as listed for each global condition context key in [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
+- Other circumstances as listed for each global condition context key in [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
 
-When you use a variable with no value in the condition element of an IAM policy, [IAM JSON policy elements:
-Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md") like
+When you use a variable with no value in the condition element of an IAM policy, [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md") like
 `StringEquals` or `StringLike` do not match, and the policy statement
 does not take effect.
 
@@ -380,9 +374,7 @@ JSON
 
 ```
 
-## Request information that you can use for policy
-
-variables
+## Request information that you can use for policy variables
 
 You can use the `Condition` element of a JSON policy to compare keys in the
 [request
@@ -405,7 +397,7 @@ of principals.
 | IAM user                                                                                                                                                                                                                                                                                        | `IAM-user-name` | [unique ID](reference_identifiers.md#identifiers-unique-ids "reference_identifiers.md#identifiers-unique-ids")                                                                                                                                                                                                                                                                                                                                                                                               | `User`              |
 | AWS STS federated user principal                                                                                                                                                                                                                                                                | (not present)   | `account`:`caller-specified-name`                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `FederatedUser`     |
 | OIDC federated principal For information about policy keys that are<br>available when you use web identity federation, see [Available keys for AWS OIDC federation](reference_policies_iam-condition-keys.md#condition-keys-wif "reference_policies_iam-condition-keys.md#condition-keys-wif"). | (not present)   | `role-id`:`caller-specified-role-name`<br>where `role-id` is the [unique id of the role](reference_identifiers.md#identifiers-unique-ids "reference_identifiers.md#identifiers-unique-ids") and the caller-specified-role-name is specified by<br>the [RoleSessionName parameter](../APIReference/API_AssumeRole.md#API_AssumeRoleWithWebIdentity_RequestParameters "../APIReference/API_AssumeRole.md#API_AssumeRoleWithWebIdentity_RequestParameters") passed to the AssumeRoleWithWebIdentity<br>request. | `AssumedRole`       |
-| SAML federated principal For information about policy keys that are<br>available when you use SAML federation, see [Uniquely identifying users in SAML-based<br>federation](id_roles_providers_saml.md#CreatingSAML-userid "id_roles_providers_saml.md#CreatingSAML-userid").                   | (not present)   | `role-id`:`caller-specified-role-name`<br>where `role-id` is the [unique id of the role](reference_identifiers.md#identifiers-unique-ids "reference_identifiers.md#identifiers-unique-ids") and the caller-specified-role-name is specified by<br>the Attribute element with the [Name attribute](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md") set to<br>https://aws.amazon.com/SAML/attributes/RoleSessionName.                                             | `AssumedRole`       |
+| SAML federated principal For information about policy keys that are<br>available when you use SAML federation, see [Uniquely identifying users in SAML-based federation](id_roles_providers_saml.md#CreatingSAML-userid "id_roles_providers_saml.md#CreatingSAML-userid").                      | (not present)   | `role-id`:`caller-specified-role-name`<br>where `role-id` is the [unique id of the role](reference_identifiers.md#identifiers-unique-ids "reference_identifiers.md#identifiers-unique-ids") and the caller-specified-role-name is specified by<br>the Attribute element with the [Name attribute](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md") set to<br>https://aws.amazon.com/SAML/attributes/RoleSessionName.                                             | `AssumedRole`       |
 | Assumed role                                                                                                                                                                                                                                                                                    | (not present)   | `role-id`:`caller-specified-role-name`<br>where `role-id` is the [unique id<br>of the role](reference_identifiers.md#identifiers-unique-ids "reference_identifiers.md#identifiers-unique-ids") and the caller-specified-role-name is specified by the<br>[RoleSessionName parameter](../../../STS/latest/APIReference/API_AssumeRole.md#API_AssumeRole_RequestParameters "../../../STS/latest/APIReference/API_AssumeRole.md#API_AssumeRole_RequestParameters") passed to the AssumeRole request.            | `AssumedRole`       |
 | Role assigned to an Amazon EC2 instance                                                                                                                                                                                                                                                         | (not present)   | `role-id`:`ec2-instance-id`<br>where `role-id` is [the unique<br>id of the role](reference_identifiers.md#identifiers-unique-ids "reference_identifiers.md#identifiers-unique-ids") and the ec2-instance-id is the [unique identifier of the EC2 instance](../../../AWSEC2/latest/APIReference/API_DescribeInstances.md "../../../AWSEC2/latest/APIReference/API_DescribeInstances.md").                                                                                                                     | `AssumedRole`       |
 | Anonymous caller (Amazon SQS, Amazon SNS, and Amazon S3 only)                                                                                                                                                                                                                                   | (not present)   | `anonymous`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `Anonymous`         |
@@ -427,9 +419,7 @@ note the following:
   console. You can also display the instance ID by running the AWS CLI command: `aws
 ec2 describe-instances`
 
-### Information available in requests for federated
-
-principals
+### Information available in requests for federated principals
 
 Federated principals are users who are authenticated using a system other than IAM.
 For example, a company might have an application for use in-house that makes calls to AWS.

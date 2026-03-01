@@ -14,10 +14,9 @@ different account. While using the role, the user can perform only the actions a
 the resources permitted by the role; their original user permissions are suspended. When the
 user exits the role, the original user permissions are restored.
 
-For more information, see [Create a role to give permissions to an IAM
-user](id_roles_create_for-user.md "id_roles_create_for-user.md").
+For more information, see [Create a role to give permissions to an IAM user](id_roles_create_for-user.md "id_roles_create_for-user.md").
 
-For more information about creating roles for cross account access, see [Create a role using custom trust policies](id_roles_create_for-custom.md "id_roles_create_for-custom.md") .
+For more information about creating roles for cross account access, see [Create a role using custom trust policies](id_roles_create_for-custom.md "id_roles_create_for-custom.md").
 
 ###### Roles for AWS services
 
@@ -27,8 +26,7 @@ must have an IAM policy with the permissions that allow the service to perform a
 associated with that service. Different permissions are required for each AWS
 service.
 
-For more information about creating service roles, see [Create a role to delegate permissions to an
-AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md").
+For more information about creating service roles, see [Create a role to delegate permissions to an AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md").
 
 For more information about creating service-linked roles, see [Create a service-linked role](id_roles_create-service-linked-role.md "id_roles_create-service-linked-role.md").
 
@@ -41,4 +39,4 @@ those external identities permissions to use AWS resources in your account. Iden
 providers help keep your AWS account secure because you don't have to distribute or embed
 long-term security credentials, such as access keys, in your application.
 
-For more information, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md") .
+For more information, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md").

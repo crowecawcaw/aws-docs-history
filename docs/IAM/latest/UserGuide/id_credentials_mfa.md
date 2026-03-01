@@ -56,8 +56,7 @@ to sign in on another device like a laptop. For more information, see [cross-dev
 
 You can sync passkeys across your devices to facilitate sign-ins with AWS, enhancing
 usability and recoverability. For more information about enabling passkeys and security
-keys, see [Enable a passkey or security key for the root user
-(console)](enable-fido-mfa-for-root.md "enable-fido-mfa-for-root.md").
+keys, see [Enable a passkey or security key for the root user (console)](enable-fido-mfa-for-root.md "enable-fido-mfa-for-root.md").
 
 The FIDO Alliance maintains a list of all [FIDO Certified
 products](https://fidoalliance.org/certification/fido-certified-products/ "https://fidoalliance.org/certification/fido-certified-products/") that are compatible with FIDO specifications.
@@ -75,8 +74,7 @@ approval or while you wait for your hardware to arrive. For a list of a few supp
 that you can use as virtual MFA devices, see [Multi-Factor Authentication
 (MFA)](https://aws.amazon.com/iam/features/mfa/?audit=2019q1 "https://aws.amazon.com/iam/features/mfa/?audit=2019q1").
 
-For instructions on setting up a virtual MFA device for an IAM user, see [Assign a virtual MFA device in the
-AWS Management Console](id_credentials_mfa_enable_virtual.md "id_credentials_mfa_enable_virtual.md").
+For instructions on setting up a virtual MFA device for an IAM user, see [Assign a virtual MFA device in the AWS Management Console](id_credentials_mfa_enable_virtual.md "id_credentials_mfa_enable_virtual.md").
 
 ###### Note
 
@@ -120,8 +118,7 @@ You can enable a passkey or security key from the AWS Management Console only, n
 AWS API. Before you can enable a security key, you must have physical access to the
 device.
 
-For instructions on setting up a hardware TOTP token for an IAM user, see [Assign a hardware TOTP token in the
-AWS Management Console](id_credentials_mfa_enable_physical.md "id_credentials_mfa_enable_physical.md").
+For instructions on setting up a hardware TOTP token for an IAM user, see [Assign a hardware TOTP token in the AWS Management Console](id_credentials_mfa_enable_physical.md "id_credentials_mfa_enable_physical.md").
 
 ###### Note
 

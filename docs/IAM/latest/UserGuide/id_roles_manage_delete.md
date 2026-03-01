@@ -14,18 +14,15 @@ Make sure that you do not have any Amazon EC2 instances running with the role or
 If you prefer not to permanently delete a role, you can disable a role. To do this, change
 the role policies and then revoke all current sessions. For example, you could add a policy to
 the role that denied access to all of AWS. You could also edit the trust policy to deny access
-to anyone attempting to assume the role. For more information about revoking sessions, see [Revoke IAM role temporary security
-credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
+to anyone attempting to assume the role. For more information about revoking sessions, see [Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
 
 ###### Topics
 
 - [Viewing role access](#roles-delete_prerequisites "#roles-delete_prerequisites")
 - [Deleting a service-linked role](#id_roles_manage_delete_slr "#id_roles_manage_delete_slr")
-- [Deleting an IAM role
-  (console)](#roles-managingrole-deleting-console "#roles-managingrole-deleting-console")
+- [Deleting an IAM role (console)](#roles-managingrole-deleting-console "#roles-managingrole-deleting-console")
 - [Deleting an IAM role (AWS CLI)](#roles-managingrole-deleting-cli "#roles-managingrole-deleting-cli")
-- [Deleting an IAM role (AWS
-  API)](#roles-managingrole-deleting-api "#roles-managingrole-deleting-api")
+- [Deleting an IAM role (AWS API)](#roles-managingrole-deleting-api "#roles-managingrole-deleting-api")
 - [Related information](#roles-managingrole-deleting-related-info "#roles-managingrole-deleting-related-info")
 
 ## Viewing role access
@@ -44,8 +41,7 @@ the role last activity includes the last attempt to access any service in AWS.
 The tracking period for a role last activity and Last Accessed data is for the trailing
 400 days. This period can be shorter if your Region began supporting these features within
 the last year. The role might have been used more than 400 days ago. For more information
-about the tracking period, see [Where AWS tracks last accessed
-information](access_policies_last-accessed.md#last-accessed_tracking-period "access_policies_last-accessed.md#last-accessed_tracking-period").
+about the tracking period, see [Where AWS tracks last accessed information](access_policies_last-accessed.md#last-accessed_tracking-period "access_policies_last-accessed.md#last-accessed_tracking-period").
 
 ###### To view when a role was last used (console)
 
@@ -94,9 +90,7 @@ page also indicates that the role is a service-linked role.
 If the service does not include documentation for deleting the service-linked role, you
 can use the IAM console, AWS CLI, or API to delete the role.
 
-## Deleting an IAM role
-
-(console)
+## Deleting an IAM role (console)
 
 When you use the AWS Management Console to delete a role, IAM automatically detaches managed
 policies associated with the role. It also automatically deletes any inline policies
@@ -213,9 +207,7 @@ ARN: `arn:aws:iam::123456789012:role/myrole`, you refer to the role as
 `aws iam delete-instance-profile --instance-profile-name `instance-profile-name``
 ```
 
-## Deleting an IAM role (AWS
-
-API)
+## Deleting an IAM role (AWS API)
 
 When you use the IAM API to delete a role, you must first delete inline policies
 associated with the role. You must also detach managed policies associated with the role. If

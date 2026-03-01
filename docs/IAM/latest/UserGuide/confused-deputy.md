@@ -35,9 +35,7 @@ The confused deputy problem arises when an actor uses the trust of an AWS servic
 service principal to gain access to resources that they are not intended to have access
 to.
 
-## Cross-account confused deputy
-
-prevention
+## Cross-account confused deputy prevention
 
 The following diagram illustrates the cross-account confused deputy problem.
 
@@ -138,9 +136,7 @@ The following diagram illustrates this.
 The external ID helps prevent any other customer from tricking Example Corp into
 unwittingly accessing your resources.
 
-## Cross-service confused deputy
-
-prevention
+## Cross-service confused deputy prevention
 
 The following diagram demonstrates the cross-service confused deputy problem using the
 CloudTrail and Amazon S3 interaction example, where an unauthorized actor writes CloudTrail logs to an
@@ -198,9 +194,7 @@ and whether `aws:SourceArn`, `aws:SourceAccount`,
 `aws:SourceOrgID`, and `aws:SourceOrgPaths` are
 supported.
 
-## Cross-service
-
-confused deputy protection with resource-based policies
+## Cross-service confused deputy protection with resource-based policies
 
 The following example policy grants the service principal
 `cloudtrail.amazonaws.com` access to the Amazon S3 bucket,

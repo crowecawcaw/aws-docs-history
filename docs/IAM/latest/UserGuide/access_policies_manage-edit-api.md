@@ -12,12 +12,9 @@ For more information about policy structure and syntax, see [Policies and permis
 Before you change the permissions for a policy, you should review its recent service-level
 activity. This is important because you don't want to remove access from a principal (person
 or application) who is using it. For more information about viewing last accessed information,
-see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
-## Editing customer managed policies (AWS
-
-API)
+## Editing customer managed policies (AWS API)
 
 You can edit a customer managed policy using the AWS API.
 
@@ -52,9 +49,7 @@ versions.
    operation:
    - [ValidatePolicy](../../../access-analyzer/latest/APIReference/API_ValidatePolicy.md "../../../access-analyzer/latest/APIReference/API_ValidatePolicy.md")
 
-## Setting the
-
-default version of a customer managed policy (AWS API)
+## Setting the default version of a customer managed policy (AWS API)
 
 You can set a default version of a customer managed policy from the AWS API.
 
@@ -67,9 +62,7 @@ You can set a default version of a customer managed policy from the AWS API.
    operation:
    - [SetDefaultPolicyVersion](../APIReference/API_SetDefaultPolicyVersion.md "../APIReference/API_SetDefaultPolicyVersion.md")
 
-## Deleting a version of
-
-a customer managed policy (AWS API)
+## Deleting a version of a customer managed policy (AWS API)
 
 You can delete a version of a customer managed policy from the AWS API.
 

@@ -5,20 +5,14 @@ an identity provider (IdP), you can manage your user identities outside of AWS a
 external user identities permissions to access AWS resources in your account. For more
 information about federation and identity providers, see [Identity providers and federation into AWS](id_roles_providers.md "id_roles_providers.md").
 
-## Creating a role for OIDC and SAML
-
-federated principals (console)
+## Creating a role for OIDC and SAML federated principals (console)
 
 The procedures for creating a role depends on your choice of third party providers:
 
-- For OpenID Connect (OIDC), see [Create a role for OpenID Connect federation
-  (console)](id_roles_create_for-idp_oidc.md "id_roles_create_for-idp_oidc.md").
-- For SAML 2.0, see [Create a role for SAML 2.0 federation
-  (console)](id_roles_create_for-idp_saml.md "id_roles_create_for-idp_saml.md").
+- For OpenID Connect (OIDC), see [Create a role for OpenID Connect federation (console)](id_roles_create_for-idp_oidc.md "id_roles_create_for-idp_oidc.md").
+- For SAML 2.0, see [Create a role for SAML 2.0 federation (console)](id_roles_create_for-idp_saml.md "id_roles_create_for-idp_saml.md").
 
-## Creating a role for federated access
-
-(AWS CLI)
+## Creating a role for federated access (AWS CLI)
 
 The steps to create a role for the supported identity providers (OIDC or SAML) from the
 AWS CLI are identical. The difference is in the contents of the trust policy that you create in
@@ -43,8 +37,7 @@ or
 
 Create an inline permissions policy for the role: [aws iam put-role-policy](../../../cli/latest/reference/iam/put-role-policy.md "../../../cli/latest/reference/iam/put-role-policy.md") 3. (Optional) Add custom attributes to the role by attaching tags: [aws iam tag-role](../../../cli/latest/reference/iam/tag-role.md "../../../cli/latest/reference/iam/tag-role.md")
 
-For more information, see [Managing tags on IAM roles (AWS CLI or
-AWS API)](id_tags_roles.md#id_tags_roles_procs-cli-api "id_tags_roles.md#id_tags_roles_procs-cli-api"). 4. (Optional) Set the [permissions
+For more information, see [Managing tags on IAM roles (AWS CLI or AWS API)](id_tags_roles.md#id_tags_roles_procs-cli-api "id_tags_roles.md#id_tags_roles_procs-cli-api"). 4. (Optional) Set the [permissions
 boundary](access_policies_boundaries.md "access_policies_boundaries.md") for the role: [aws iam
 put-role-permissions-boundary](../../../cli/latest/reference/iam/put-role-permissions-boundary.md "../../../cli/latest/reference/iam/put-role-permissions-boundary.md")
 
@@ -108,9 +101,7 @@ $` `aws iam create-role --role-name Test-Cognito-Role --assume-role-policy-docum
 `# Attach the permissions policy to the role to specify what it is allowed to do.``aws iam put-role-policy --role-name Test-Cognito-Role --policy-name Perms-Policy-For-CognitoFederation --policy-document file://C:\policies\permspolicyforcognitofederation.json`
 ```
 
-## Creating a role for federated access
-
-(AWS API)
+## Creating a role for federated access (AWS API)
 
 The steps to create a role for the supported identity providers (OIDC or SAML) from the
 AWS CLI are identical. The difference is in the contents of the trust policy that you create in
@@ -119,9 +110,7 @@ the prerequisite steps. Begin by following the steps in the **Prerequisites** se
 - For an OIDC provider, see [Prerequisites for creating a role for OIDC](id_roles_create_for-idp_oidc.md#idp_oidc_Prerequisites "id_roles_create_for-idp_oidc.md#idp_oidc_Prerequisites").
 - For a SAML provider, see [Prerequisites for creating a role for SAML](id_roles_create_for-idp_saml.md#idp_saml_Prerequisites "id_roles_create_for-idp_saml.md#idp_saml_Prerequisites").
 
-###### To create a role (AWS
-
-API)
+###### To create a role (AWS API)
 
 1. Create a role: [CreateRole](../APIReference/API_CreateRole.md "../APIReference/API_CreateRole.md")
 2. Attach a permissions policy to the role:[AttachRolePolicy](../APIReference/API_AttachRolePolicy.md "../APIReference/API_AttachRolePolicy.md")
@@ -130,8 +119,7 @@ or
 
 Create an inline permissions policy for the role: [PutRolePolicy](../APIReference/API_PutRolePolicy.md "../APIReference/API_PutRolePolicy.md") 3. (Optional) Add custom attributes to the user by attaching tags: [TagRole](../APIReference/API_TagRole.md "../APIReference/API_TagRole.md")
 
-For more information, see [Managing tags on IAM users (AWS CLI or
-AWS API)](id_tags_users.md#id_tags_users_procs-cli-api "id_tags_users.md#id_tags_users_procs-cli-api"). 4. (Optional) Set the [permissions
+For more information, see [Managing tags on IAM users (AWS CLI or AWS API)](id_tags_users.md#id_tags_users_procs-cli-api "id_tags_users.md#id_tags_users_procs-cli-api"). 4. (Optional) Set the [permissions
 boundary](access_policies_boundaries.md "access_policies_boundaries.md") for the role: [PutRolePermissionsBoundary](../APIReference/API_PutRolePermissionsBoundary.md "../APIReference/API_PutRolePermissionsBoundary.md")
 
 A permissions boundary controls the maximum permissions that a role can have.

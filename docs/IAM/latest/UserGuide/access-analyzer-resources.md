@@ -1,6 +1,4 @@
-# IAM Access Analyzer supported resource types for
-
-external and internal access
+# IAM Access Analyzer supported resource types for external and internal access
 
 For external and internal access analyzers, IAM Access Analyzer analyzes the resource-based
 policies that are applied to AWS resources in the Region where you enabled IAM Access Analyzer.
@@ -14,9 +12,7 @@ Internal access analyzers don't support all resource types that external access
 analyzers support. Unused access analyzers only support IAM users and roles. For more
 information, see [Understand how IAM Access Analyzer findings work](access-analyzer-concepts.md "access-analyzer-concepts.md").
 
-## Supported resource types
-
-for external access
+## Supported resource types for external access
 
 - [Amazon Simple Storage Service buckets](#access-analyzer-s3 "#access-analyzer-s3")
 - [Amazon Simple Storage Service directory buckets](#access-analyzer-s3-directory "#access-analyzer-s3-directory")
@@ -34,9 +30,7 @@ for external access
 - [Amazon DynamoDB streams](#access-analyzer-ddb-stream "#access-analyzer-ddb-stream")
 - [Amazon DynamoDB tables](#access-analyzer-ddb-table "#access-analyzer-ddb-table")
 
-## Supported resource types
-
-for internal access
+## Supported resource types for internal access
 
 - [Amazon Simple Storage Service buckets](#access-analyzer-s3 "#access-analyzer-s3")
 - [Amazon Simple Storage Service directory buckets](#access-analyzer-s3-directory "#access-analyzer-s3-directory")

@@ -1,6 +1,4 @@
-# Generate credential reports for your
-
-AWS account
+# Generate credential reports for your AWS account
 
 You can generate and download a _credential report_ that lists all users
 in your account and the status of their various credentials, including passwords, access keys,
@@ -24,13 +22,10 @@ generates and downloads a new report.
 ###### Topics
 
 - [Required permissions](#id_credentials_required_permissions "#id_credentials_required_permissions")
-- [Understanding the report
-  format](#id_credentials_understanding_the_report_format "#id_credentials_understanding_the_report_format")
-- [Getting credential reports
-  (console)](#getting-credential-reports-console "#getting-credential-reports-console")
+- [Understanding the report format](#id_credentials_understanding_the_report_format "#id_credentials_understanding_the_report_format")
+- [Getting credential reports (console)](#getting-credential-reports-console "#getting-credential-reports-console")
 - [Getting credential reports (AWS CLI)](#getting-credential-reports-cliapi "#getting-credential-reports-cliapi")
-- [Getting credential reports (AWS
-  API)](#getting-credential-reports-api "#getting-credential-reports-api")
+- [Getting credential reports (AWS API)](#getting-credential-reports-api "#getting-credential-reports-api")
 
 ## Required permissions
 
@@ -39,9 +34,7 @@ The following permissions are needed to create and download reports:
 - To create a credential report: `iam:GenerateCredentialReport`
 - To download the report: `iam:GetCredentialReport`
 
-## Understanding the report
-
-format
+## Understanding the report format
 
 Credential reports are formatted as comma-separated values (CSV) files. You can open CSV
 files with common spreadsheet software to perform analysis, or you can build an application
@@ -279,9 +272,7 @@ When the user has more than two access keys or certificates, this value is the
 number of additional access keys or certificates and the actions you can use to list the
 access keys or certificates associated with the user.
 
-## Getting credential reports
-
-(console)
+## Getting credential reports (console)
 
 You can use the AWS Management Console to download a credential report as a comma-separated values
 (CSV) file.
@@ -302,9 +293,7 @@ generate-credential-report`](../../../cli/latest/reference/iam/generate-credenti
 2. View the last report that was generated: [`aws iam
 get-credential-report`](../../../cli/latest/reference/iam/get-credential-report.md "../../../cli/latest/reference/iam/get-credential-report.md")
 
-## Getting credential reports (AWS
-
-API)
+## Getting credential reports (AWS API)
 
 ###### To download a credentials report (AWS API)
 

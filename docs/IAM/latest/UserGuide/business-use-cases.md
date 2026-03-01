@@ -9,8 +9,7 @@ This use case looks at two typical ways a fictional company called Example Corp 
 IAM. The first scenario considers Amazon Elastic Compute Cloud (Amazon EC2). The second considers Amazon Simple Storage Service
 (Amazon S3).
 
-For more information about using IAM with other services from AWS, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+For more information about using IAM with other services from AWS, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 ###### Topics
 
@@ -69,9 +68,7 @@ A company like Example Corp typically uses IAM to interact with services like
 Amazon EC2. To understand this part of the use case, you need a basic understanding of Amazon EC2.
 For more information about Amazon EC2, go to the [Amazon EC2 User Guide](../../../AWSEC2/latest/UserGuide.md "../../../AWSEC2/latest/UserGuide.md").
 
-### Amazon EC2 permissions for the user
-
-groups
+### Amazon EC2 permissions for the user groups
 
 To provide "perimeter" control, Nikki attaches a policy to the AllUsers user
 group. This policy denies any AWS request from a user if the originating IP
@@ -125,9 +122,7 @@ Companies like Example Corp would also typically use IAM with Amazon S3. John ha
 created an Amazon S3 bucket for the company called
 _amzn-s3-demo-bucket_.
 
-### Creation of other users and user
-
-groups
+### Creation of other users and user groups
 
 As employees, Zhang Wei and Mary Major each need to be able to create their own
 data in the company's bucket. They also need to read and write shared data that all
@@ -189,9 +184,7 @@ group. With just that simple reassignment, Wei automatically gets all permission
 granted to the `Managers` user group, but can no longer access data in
 the `share/developers` directory.
 
-### Integration with a third-party
-
-business
+### Integration with a third-party business
 
 Organizations often work with partner companies, consultants, and contractors.
 Example Corp has a partner called the Widget Company, and a Widget Company employee

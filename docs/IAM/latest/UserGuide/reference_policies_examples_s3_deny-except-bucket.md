@@ -1,6 +1,4 @@
-# Amazon S3: Restrict management to
-
-a specific S3 bucket
+# Amazon S3: Restrict management to a specific S3 bucket
 
 This example shows how you might create an identity-based policy that restricts management of an Amazon S3 bucket to that specific bucket. This
 policy grants permission to perform all Amazon S3 actions, but deny access to every AWS service
@@ -11,8 +9,7 @@ Then, follow the directions in [create a policy](access_policies_create.md "acce
 
 If this policy is used in combination with other policies (such as the [AmazonS3FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonS3FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonS3FullAccess") or [AmazonEC2FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess") AWS managed policies) that allow actions denied by this policy,
 then access is denied. This is because an explicit deny statement takes precedence over allow
-statements. For more information, see [How AWS
-enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
+statements. For more information, see [How AWS enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
 
 ###### Warning
 

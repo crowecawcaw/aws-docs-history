@@ -1,6 +1,4 @@
-# Processing the
-
-request context
+# Processing the request context
 
 When AWS evaluates and authorizes a request, it assembles the request information into a
 _request context_. The request context contains any information that
@@ -91,8 +89,7 @@ For each policy type, AWS uses the request context to check:
 How AWS evaluates policies depends on the types of policies that apply to the
 request context. These policy types are available for use within a single AWS account.
 For more information about these policy types, see [Policies and permissions in AWS Identity and Access Management](access_policies.md "access_policies.md"). To learn how AWS evaluates policies for
-cross-account access, see [Cross-account policy
-evaluation logic](reference_policies_evaluation-logic-cross-account.md "reference_policies_evaluation-logic-cross-account.md").
+cross-account access, see [Cross-account policy evaluation logic](reference_policies_evaluation-logic-cross-account.md "reference_policies_evaluation-logic-cross-account.md").
 
 - **AWS Organizations resource control policies (RCPs)**
   – AWS Organizations RCPs specify the maximum available permissions for resources
@@ -123,8 +120,7 @@ evaluation logic](reference_policies_evaluation-logic-cross-account.md "referenc
   that are allowed by both its identity-based policies and its permissions
   boundary. In some cases, an implicit deny in a permissions boundary can limit
   the permissions granted by a resource-based policy. For more information, see
-  [How AWS
-  enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
+  [How AWS enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
 - **Identity-based policies** –
   Identity-based policies are attached to an IAM identity (user, group of users,
   or role) and grant permissions to IAM entities (users and roles). If only
@@ -150,9 +146,7 @@ at scale across an organization. Since declarative policies are applied directly
 the service level, they don't directly impact policy evaluation requests and aren't
 included with the request context. For more information, see [Declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative.md "../../../organizations/latest/userguide/orgs_manage_policies_declarative.md") in the AWS Organizations User Guide.
 
-## Example policy evaluation using the PARC
-
-model
+## Example policy evaluation using the PARC model
 
 To illustrate how the request context interacts with policy evaluation, let's consider
 an example policy:

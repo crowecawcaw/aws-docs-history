@@ -1,6 +1,4 @@
-# IAM policy validation check
-
-reference
+# IAM policy validation check reference
 
 You can validate your policies using AWS Identity and Access Management Access Analyzer policy validation. You can create
 or edit a policy using the AWS CLI, AWS API, or JSON policy editor in the IAM console.
@@ -10,12 +8,9 @@ and suggestions for your policy. These findings provide actionable recommendatio
 author policies that are functional and conform to security best practices. The list of basic
 policy checks provided by IAM Access Analyzer are shared below. There is no additional charge
 associated with running the policy validation checks. To learn more about validating policies
-using policy validation, see [Validate policies with
-IAM Access Analyzer](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").
+using policy validation, see [Validate policies with IAM Access Analyzer](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").
 
-## Error
-
-– ARN account not allowed
+## Error – ARN account not allowed
 
 **Issue code:** ARN_ACCOUNT_NOT_ALLOWED
 
@@ -51,9 +46,7 @@ and the namespace is shared by all AWS accounts. To view all of the resource typ
 - [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
 - [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 
-## Error
-
-– ARN Region not allowed
+## Error – ARN Region not allowed
 
 **Issue code:** ARN_REGION_NOT_ALLOWED
 
@@ -86,9 +79,7 @@ geographic region.
 - [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
 - [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 
-## Error
-
-– Data type mismatch
+## Error – Data type mismatch
 
 **Issue code:** DATA_TYPE_MISMATCH
 
@@ -149,8 +140,7 @@ Review the similar condition keys within the same condition block and use the sa
 A _condition block_ is the text within the `Condition` element of a policy statement.
 Condition key _names_ are not case-sensitive. The case-sensitivity of condition key _values_
 depends on the condition operator that you use. For more information about case-sensitivity in condition keys, see
-[IAM JSON policy elements:
-Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
+[IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
 
 **Related terms**
 
@@ -159,9 +149,7 @@ Condition](reference_policies_elements_condition.md "reference_policies_elements
 - [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
 - [AWS service condition keys](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 
-## Error –
-
-Invalid action
+## Error – Invalid action
 
 **Issue code:** INVALID_ACTION
 
@@ -202,9 +190,7 @@ granted by the policy. When using an AWS managed policy as a reference to create
 - [AmazonEMRFullAccessPolicy_v2](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2 "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2")
 - [CloudWatchSyntheticsFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess")
 
-## Error
-
-– Invalid ARN account
+## Error – Invalid ARN account
 
 **Issue code:** INVALID_ARN_ACCOUNT
 
@@ -237,9 +223,7 @@ Update the account ID in the resource ARN. Account IDs are 12-digit integers. To
 - [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
 - [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 
-## Error
-
-– Invalid ARN prefix
+## Error – Invalid ARN prefix
 
 **Issue code:** INVALID_ARN_PREFIX
 
@@ -270,9 +254,7 @@ AWS resource ARNs must include the required `arn:` prefix.
 - [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
 - [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 
-## Error
-
-– Invalid ARN Region
+## Error – Invalid ARN Region
 
 **Issue code:** INVALID_ARN_REGION
 
@@ -304,9 +286,7 @@ see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/re
 - [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
 - [Region names and codes](../../../general/latest/gr/rande.md#region-names-codes "../../../general/latest/gr/rande.md#region-names-codes")
 
-## Error
-
-– Invalid ARN resource
+## Error – Invalid ARN resource
 
 **Issue code:** INVALID_ARN_RESOURCE
 
@@ -339,9 +319,7 @@ Choose the name of the service to view its resource types and ARN formats.
 - [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
 - [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 
-## Error
-
-– Invalid ARN service case
+## Error – Invalid ARN service case
 
 **Issue code:** INVALID_ARN_SERVICE_CASE
 
@@ -509,9 +487,7 @@ Update the condition to use a supported condition operator.
 - [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
 - [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
 
-## Error –
-
-Invalid effect
+## Error – Invalid effect
 
 **Issue code:** INVALID_EFFECT
 
@@ -575,9 +551,7 @@ and choose the service whose keys you want to view.
 
 - [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
 
-## Error
-
-– Invalid partition
+## Error – Invalid partition
 
 **Issue code:** INVALID_PARTITION
 
@@ -610,9 +584,7 @@ A _partition_ is a group of AWS Regions. Each AWS account is scoped to one parti
 
 - [Amazon Resource Names (ARNs) - Partitions](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md")
 
-## Error
-
-– Invalid policy element
+## Error – Invalid policy element
 
 **Issue code:** INVALID_POLICY_ELEMENT
 
@@ -641,9 +613,7 @@ Update the policy to include only supported JSON policy elements.
 
 - [JSON policy elements](reference_policies_elements.md "reference_policies_elements.md")
 
-## Error
-
-– Invalid principal format
+## Error – Invalid principal format
 
 **Issue code:** INVALID_PRINCIPAL_FORMAT
 
@@ -681,9 +651,7 @@ For example, to define access for everyone in an AWS account, use the following 
 - [JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
 - [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md")
 
-## Error
-
-– Invalid principal key
+## Error – Invalid principal key
 
 **Issue code:** INVALID_PRINCIPAL_KEY
 
@@ -717,9 +685,7 @@ Update the key in the principal key-value pair to use a supported principal key.
 
 - [Principal element](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
 
-## Error –
-
-Invalid Region
+## Error – Invalid Region
 
 **Issue code:** INVALID_REGION
 
@@ -751,9 +717,7 @@ see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/re
 - [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
 - [Region names and codes](../../../general/latest/gr/rande.md#region-names-codes "../../../general/latest/gr/rande.md#region-names-codes")
 
-## Error –
-
-Invalid service
+## Error – Invalid service
 
 **Issue code:** INVALID_SERVICE
 
@@ -881,9 +845,7 @@ Binary, IP Address, or Null operators.
 - [Using policy variables in the Condition element](reference_policies_variables.md#policy-vars-conditionelement "reference_policies_variables.md#policy-vars-conditionelement")
 - [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
 
-## Error –
-
-Invalid version
+## Error – Invalid version
 
 **Issue code:** INVALID_VERSION
 
@@ -917,9 +879,7 @@ policy features, include the latest `Version` element before the `Statement`�
 
 - [Version element](reference_policies_elements_version.md "reference_policies_elements_version.md")
 
-## Error
-
-– Json syntax error
+## Error – Json syntax error
 
 **Issue code:** JSON_SYNTAX_ERROR
 
@@ -950,9 +910,7 @@ Your policy includes a syntax error. Check your JSON syntax.
 - [IAM JSON policy elements reference](reference_policies_elements.md "reference_policies_elements.md")
 - [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
 
-## Error
-
-– Json syntax error
+## Error – Json syntax error
 
 **Issue code:** JSON_SYNTAX_ERROR
 
@@ -983,9 +941,7 @@ Your policy includes a syntax error. Check your JSON syntax.
 - [IAM JSON policy elements reference](reference_policies_elements.md "reference_policies_elements.md")
 - [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
 
-## Error –
-
-Missing action
+## Error – Missing action
 
 **Issue code:** MISSING_ACTION
 
@@ -1016,9 +972,7 @@ AWS JSON policies must include an `Action` or `NotAction` element.
 - [NotAction element](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md")
 - [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
 
-## Error
-
-– Missing ARN field
+## Error – Missing ARN field
 
 **Issue code:** MISSING_ARN_FIELD
 
@@ -1051,9 +1005,7 @@ Choose the name of the service to view its resource types and ARN formats.
 - [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
 - [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 
-## Error
-
-– Missing ARN Region
+## Error – Missing ARN Region
 
 **Issue code:** MISSING_ARN_REGION
 
@@ -1085,9 +1037,7 @@ see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/re
 - [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
 - [Region names and codes](../../../general/latest/gr/rande.md#region-names-codes "../../../general/latest/gr/rande.md#region-names-codes")
 
-## Error –
-
-Missing effect
+## Error – Missing effect
 
 **Issue code:** MISSING_EFFECT
 
@@ -1117,9 +1067,7 @@ AWS JSON policies must include an `Effect` element with a value of `Allow` and
 - [Effect element](reference_policies_elements_effect.md "reference_policies_elements_effect.md")
 - [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
 
-## Error
-
-– Missing principal
+## Error – Missing principal
 
 **Issue code:** MISSING_PRINCIPAL
 
@@ -1155,9 +1103,7 @@ For example, to define access for everyone in an AWS account, use the following 
 - [Principal element](reference_policies_elements_principal.md "reference_policies_elements_principal.md")
 - [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md")
 
-## Error
-
-– Missing qualifier
+## Error – Missing qualifier
 
 **Issue code:** MISSING_QUALIFIER
 
@@ -1202,9 +1148,7 @@ qualifiers to your `Condition` element.
 
 - [AWSGlueConsoleSageMakerNotebookFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess")
 
-## Error
-
-– Missing resource
+## Error – Missing resource
 
 **Issue code:** MISSING_RESOURCE
 
@@ -1236,9 +1180,7 @@ All policies except role trust policies must include a `Resource` or `NotResourc
 - [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md")
 - [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
 
-## Error
-
-– Missing statement
+## Error – Missing statement
 
 **Issue code:** MISSING_STATEMENT
 
@@ -1267,9 +1209,7 @@ A JSON policy must include a statement.
 
 - [JSON policy elements](reference_policies_elements.md "reference_policies_elements.md")
 
-## Error
-
-– Null with if exists
+## Error – Null with if exists
 
 **Issue code:** NULL_WITH_IF_EXISTS
 
@@ -1371,9 +1311,7 @@ You can specify the Amazon Resource Name (ARN) using the `aws:PrincipalArn` glob
 - [SCP syntax](../../../organizations/latest/userguide/orgs_manage_policies_scps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_syntax.md")
 - [Global condition keys for principals](reference_policies_condition-keys.md#condition-keys-principalarn "reference_policies_condition-keys.md#condition-keys-principalarn")
 
-## Error
-
-– Unique Sids required
+## Error – Unique Sids required
 
 **Issue code:** UNIQUE_SIDS_REQUIRED
 
@@ -1500,9 +1438,7 @@ Name (ARN) of the resource making a service-to-service request with the ARN that
 
 - [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
 
-## Error
-
-– Unsupported principal
+## Error – Unsupported principal
 
 **Issue code:** UNSUPPORTED_PRINCIPAL
 
@@ -1567,9 +1503,7 @@ policy.
 
 - [JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
 
-## Error –
-
-Unsupported Sid
+## Error – Unsupported Sid
 
 **Issue code:** UNSUPPORTED_SID
 
@@ -1739,9 +1673,7 @@ a space in the variable name.
 
 - [IAM policy elements: Variables](reference_policies_variables.md "reference_policies_variables.md")
 
-## Error –
-
-Empty variable
+## Error – Empty variable
 
 **Issue code:** EMPTY_VARIABLE
 
@@ -1835,9 +1767,7 @@ version of the managed policy.
 - [IAM policy elements: Variables](reference_policies_variables.md "reference_policies_variables.md")
 - [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md")
 
-## Error
-
-– Private IP address
+## Error – Private IP address
 
 **Issue code:** PRIVATE_IP_ADDRESS
 
@@ -1866,9 +1796,7 @@ In this case, the condition would never match.
 - [aws:SourceIp global condition key](reference_policies_condition-keys.md#condition-keys-sourceip "reference_policies_condition-keys.md#condition-keys-sourceip")
 - [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
 
-## Error
-
-– Private NotIpAddress
+## Error – Private NotIpAddress
 
 **Issue code:** PRIVATE_NOT_IP_ADDRESS
 
@@ -2012,9 +1940,7 @@ For example, to [control access to AWS resources](access_tags.md#access_tags_con
 - [Global condition keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
 - [AWS service condition keys](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 
-## Error
-
-– Invalid vpc format
+## Error – Invalid vpc format
 
 **Issue code:** INVALID_VPC_FORMAT
 
@@ -2043,9 +1969,7 @@ The `aws:SourceVpc` condition key must use the prefix `vpc-` followed by either 
 
 - [AWS global condition keys: aws:SourceVpc](reference_policies_condition-keys.md#condition-keys-sourcevpc "reference_policies_condition-keys.md#condition-keys-sourcevpc")
 
-## Error
-
-– Invalid vpce format
+## Error – Invalid vpce format
 
 **Issue code:** INVALID_VPCE_FORMAT
 
@@ -2339,9 +2263,7 @@ Role trust policies apply to the role that they are attached to. You cannot spec
 - [JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
 - [JSON policy elements: NotResource](reference_policies_elements_notresource.md "reference_policies_elements_notresource.md")
 
-## Error
-
-– Type mismatch IP range
+## Error – Type mismatch IP range
 
 **Issue code:** TYPE_MISMATCH_IP_RANGE
 
@@ -2564,9 +2486,7 @@ AWS Organizations resource control policies (RCPs) only support specifying all p
 - [RCP syntax](../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md")
 - [Properties of the principal](reference_policies_condition-keys.md#condition-keys-principal-properties "reference_policies_condition-keys.md#condition-keys-principal-properties")
 
-## Error
-
-– RCP syntax error allow
+## Error – RCP syntax error allow
 
 **Issue code:** RCP_SYNTAX_ERROR_ALLOW
 
@@ -2627,9 +2547,7 @@ AWS Organizations resource control policies (RCPs) do not support the `NotAction
 - [IAM JSON policy elements: Action](reference_policies_elements_action.md "reference_policies_elements_action.md")
 - [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md")
 
-## Error
-
-– RCP syntax error action
+## Error – RCP syntax error action
 
 **Issue code:** RCP_SYNTAX_ERROR_ACTION
 
@@ -2659,9 +2577,7 @@ AWS Organizations resource control policies (RCPs) only support specifying selec
 - [RCP syntax](../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps_syntax.md")
 - [List of AWS services that support RCPs](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md#rcp-supported-services "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md#rcp-supported-services")
 
-## Error
-
-– Missing ARN account
+## Error – Missing ARN account
 
 **Issue code:** MISSING_ARN_ACCOUNT
 
@@ -2693,9 +2609,7 @@ Include an account ID in the resource ARN. Account IDs are 12-digit integers. To
 - [Resource ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns")
 - [AWS service resources with ARN formats](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 
-## Error
-
-– Invalid kms key value
+## Error – Invalid kms key value
 
 **Issue code:** INVALID_KMS_KEY_VALUE
 
@@ -4257,9 +4171,7 @@ is denied, regardless of whether the resource is tagged.
 - [Condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md")
 - [Overview of JSON policies](access_policies.md#access_policies-json "access_policies.md#access_policies-json")
 
-## Security Warning – Deny NotAction with unsupported tag condition key for
-
-service
+## Security Warning – Deny NotAction with unsupported tag condition key for service
 
 **Issue code:** DENY_NOTACTION_WITH_UNSUPPORTED_TAG_CONDITION_KEY_FOR_SERVICE
 

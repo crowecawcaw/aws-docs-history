@@ -1,6 +1,4 @@
-# Create a role for SAML 2.0 federation
-
-(console)
+# Create a role for SAML 2.0 federation (console)
 
 You can use SAML 2.0 federation instead of creating IAM users in your AWS account. With
 an identity provider (IdP), you can manage your user identities outside of AWS and give these
@@ -22,8 +20,7 @@ following prerequisite steps.
 ###### To prepare to create a role for SAML 2.0 federation
 
 1. Before you create a role for SAML-based federation, you must create a SAML provider in
-   IAM. For more information, see [Create a SAML identity provider in
-   IAM](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md").
+   IAM. For more information, see [Create a SAML identity provider in IAM](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md").
 2. Prepare the policies for the role that the SAML 2.0–authenticated users will
    assume. As with any role, a role for the SAML federation includes two policies. One is the
    role trust policy that specifies who can assume the role. The other is the IAM
@@ -118,8 +115,7 @@ federation.
     - If you're creating a role for programmatic and AWS Management Console access, the
       **Sign-in endpoints** section defines the URL your browser displays
       when signing into the console. This endpoint is your identity provider's SAML
-      recipient attribute, which maps to the [saml:aud](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml") context key. For more information, see [Configure SAML assertions for the
-      authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
+      recipient attribute, which maps to the [saml:aud](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml") context key. For more information, see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
       1. Choose **Regional endpoints** or **Non-regional
          endpoint**. We recommend using multiple Regional SAML sign-in endpoints
          to improve federation resiliency.
@@ -165,5 +161,4 @@ more information about using tags in IAM, see [Tags for AWS Identity and Access 
 After you create the role, you complete the SAML trust by configuring your identity
 provider software with information about AWS. This information includes the roles that you
 want your SAML federated users to use. This is referred to as configuring the relying party trust
-between your IdP and AWS. For more information, see [Configure your SAML 2.0 IdP with
-relying party trust and adding claims](id_roles_providers_create_saml_relying-party.md "id_roles_providers_create_saml_relying-party.md").
+between your IdP and AWS. For more information, see [Configure your SAML 2.0 IdP with relying party trust and adding claims](id_roles_providers_create_saml_relying-party.md "id_roles_providers_create_saml_relying-party.md").

@@ -1,32 +1,21 @@
-# Examples of policies for delegating
-
-access
+# Examples of policies for delegating access
 
 The following examples show how you can allow or grant an AWS account access to the
 resources in another AWS account. To learn how to create an IAM policy using these example
-JSON policy documents, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+JSON policy documents, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ###### Topics
 
-- [Using roles to delegate access to the
-  resources of another AWS account resources](#example-delegate-xaccount-rolesapi "#example-delegate-xaccount-rolesapi")
-- [Using a policy to
-  delegate access to services](#id_roles_create_policy-examples-access-to-services "#id_roles_create_policy-examples-access-to-services")
-- [Using a resource-based policy to delegate
-  access to an Amazon S3 bucket in another account](#example-delegate-xaccount-S3 "#example-delegate-xaccount-S3")
-- [Using a resource-based policy to delegate
-  access to an Amazon SQS queue in another account](#example-delegate-xaccount-SQS "#example-delegate-xaccount-SQS")
-- [Cannot delegate access when the account
-  is denied access](#example-delegate-xaccount-SQS-denied "#example-delegate-xaccount-SQS-denied")
+- [Using roles to delegate access to the resources of another AWS account resources](#example-delegate-xaccount-rolesapi "#example-delegate-xaccount-rolesapi")
+- [Using a policy to delegate access to services](#id_roles_create_policy-examples-access-to-services "#id_roles_create_policy-examples-access-to-services")
+- [Using a resource-based policy to delegate access to an Amazon S3 bucket in another account](#example-delegate-xaccount-S3 "#example-delegate-xaccount-S3")
+- [Using a resource-based policy to delegate access to an Amazon SQS queue in another account](#example-delegate-xaccount-SQS "#example-delegate-xaccount-SQS")
+- [Cannot delegate access when the account is denied access](#example-delegate-xaccount-SQS-denied "#example-delegate-xaccount-SQS-denied")
 
-## Using roles to delegate access to the
-
-resources of another AWS account resources
+## Using roles to delegate access to the resources of another AWS account resources
 
 For a tutorial that shows how to use IAM roles to grant users in one account access
-to AWS resources that are in another account, see [IAM tutorial: Delegate access across
-AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
+to AWS resources that are in another account, see [IAM tutorial: Delegate access across AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
 
 ###### Important
 
@@ -43,9 +32,7 @@ delete and recreate a user or role referenced in a trust policy's `Principal`
 element, you must edit the role to replace the ARN. It is transformed into the new principal
 ID when you save the policy.
 
-## Using a policy to
-
-delegate access to services
+## Using a policy to delegate access to services
 
 The following example shows a policy that can be attached to a role. The policy enables
 two services, Amazon EMR and AWS Data Pipeline, to assume the role. The services can then perform any tasks
@@ -75,9 +62,7 @@ JSON
 
 ```
 
-## Using a resource-based policy to delegate
-
-access to an Amazon S3 bucket in another account
+## Using a resource-based policy to delegate access to an Amazon S3 bucket in another account
 
 In this example, account A uses a resource-based policy (an Amazon S3 [bucket policy](../../../AmazonS3/latest/userguide/UsingBucketPolicies.md "../../../AmazonS3/latest/userguide/UsingBucketPolicies.md")) to grant account B full
 access to account A's S3 bucket. Then account B creates an IAM user policy to delegate that
@@ -144,9 +129,7 @@ JSON
 
 ```
 
-## Using a resource-based policy to delegate
-
-access to an Amazon SQS queue in another account
+## Using a resource-based policy to delegate access to an Amazon SQS queue in another account
 
 In the following example, account A has an Amazon SQS queue that uses a resource-based policy
 attached to the queue to grant queue access to account B. Then account B uses an IAM group
@@ -204,9 +187,7 @@ policy can access the queue only between noon and 3:00 p.m. on November 30, 2014
 only perform the `SendMessage` and `ReceiveMessage` actions, as defined
 in account A's Amazon SQS queue policy.
 
-## Cannot delegate access when the account
-
-is denied access
+## Cannot delegate access when the account is denied access
 
 An AWS account cannot delegate access to another account's resources if the other
 account has explicitly denied access to the user's parent account. The deny propagates to the

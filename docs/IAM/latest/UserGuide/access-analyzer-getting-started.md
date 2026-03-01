@@ -1,20 +1,14 @@
-# Getting started with
-
-AWS Identity and Access Management Access Analyzer
+# Getting started with AWS Identity and Access Management Access Analyzer
 
 Use the information in this topic to learn about the requirements necessary to use and
 manage AWS Identity and Access Management Access Analyzer.
 
-## Permissions required to use
-
-IAM Access Analyzer
+## Permissions required to use IAM Access Analyzer
 
 To successfully configure and use IAM Access Analyzer, the account you use must be granted the
 required permissions.
 
-### AWS managed policies for
-
-IAM Access Analyzer
+### AWS managed policies for IAM Access Analyzer
 
 AWS Identity and Access Management Access Analyzer provides AWS managed policies to help you get started
 quickly.
@@ -32,9 +26,7 @@ quickly.
 To view the resources defined by IAM Access Analyzer, see [Resource types defined by IAM Access Analyzer](../../../service-authorization/latest/reference/list_awsiamaccessanalyzer.md#awsiamaccessanalyzer-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awsiamaccessanalyzer.md#awsiamaccessanalyzer-resources-for-iam-policies") in the
 _Service Authorization Reference_.
 
-### Required IAM Access Analyzer service
-
-permissions
+### Required IAM Access Analyzer service permissions
 
 IAM Access Analyzer uses a service-linked role (SLR) named `AWSServiceRoleForAccessAnalyzer`. This SLR
 grants the service read-only access to analyze AWS resources with resource-based policies
@@ -48,8 +40,7 @@ the following scenarios:
 - You create an internal access analyzer with your account as the zone of
   trust.
 
-For more information, see [Using service-linked roles for
-AWS Identity and Access Management Access Analyzer](access-analyzer-using-service-linked-roles.md "access-analyzer-using-service-linked-roles.md").
+For more information, see [Using service-linked roles for AWS Identity and Access Management Access Analyzer](access-analyzer-using-service-linked-roles.md "access-analyzer-using-service-linked-roles.md").
 
 ###### Note
 
@@ -81,9 +72,7 @@ all policies every 24 hours.
 For all types of access analyzers, updates for findings might not be reflected in the
 dashboard immediately.
 
-### Required IAM Access Analyzer permissions
-
-to view the findings dashboard
+### Required IAM Access Analyzer permissions to view the findings dashboard
 
 To view the [IAM Access Analyzer findings
 dashboard](access-analyzer-dashboard.md "access-analyzer-dashboard.md"), the account you use must be granted access to perform the following

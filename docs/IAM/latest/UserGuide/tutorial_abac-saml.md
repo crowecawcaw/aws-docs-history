@@ -12,8 +12,7 @@ permissions to your principals based on their tags. When you use tags to control
 AWS resources, you allow your teams and resources to grow with fewer changes to AWS
 policies. ABAC policies are more flexible than traditional AWS policies, which require you to
 list each individual resource. For more information about ABAC and its advantage over
-traditional policies, see [Define permissions based on
-attributes with ABAC authorization](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md").
+traditional policies, see [Define permissions based on attributes with ABAC authorization](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md").
 
 If your company uses a SAML-based identity provider (IdP) to manage corporate user
 identities, you can use SAML attributes for fine-grained access control in AWS. Attributes can
@@ -22,8 +21,7 @@ assignments. When you pass these attributes as session tags, you can then contro
 AWS based on these session tags.
 
 To complete the [ABAC tutorial](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md")
-by passing SAML attributes to your session principal, complete the tasks in [IAM tutorial: Define permissions to
-access AWS resources based on tags](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md"), with the changes that are included
+by passing SAML attributes to your session principal, complete the tasks in [IAM tutorial: Define permissions to access AWS resources based on tags](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md"), with the changes that are included
 in this topic.
 
 ## Prerequisites
@@ -37,8 +35,7 @@ following:
   However, if you need help remembering an IAM management process, the ABAC tutorial
   provides links where you can view step-by-step instructions.
 - Experience setting up a SAML-based IdP in IAM. To view more details and links to
-  detailed IAM documentation, see [Passing session tags using
-  AssumeRoleWithSAML](id_session-tags.md#id_session-tags_adding-assume-role-saml "id_session-tags.md#id_session-tags_adding-assume-role-saml").
+  detailed IAM documentation, see [Passing session tags using AssumeRoleWithSAML](id_session-tags.md#id_session-tags_adding-assume-role-saml "id_session-tags.md#id_session-tags_adding-assume-role-saml").
 
 ## Step 1: Create test users
 
@@ -59,13 +56,12 @@ role, configure the SAML IdP, and enable AWS Management Console access. For more
 Create a single role that trusts your SAML identity provider and the
 `test-session-tags` user that you created in step 1. The ABAC tutorial uses
 separate roles with different role tags. Because you are passing session tags from your SAML
-IdP, you need only one role. To learn how to create a SAML-based role, see [Create a role for SAML 2.0 federation
-(console)](id_roles_create_for-idp_saml.md "id_roles_create_for-idp_saml.md").
+IdP, you need only one role. To learn how to create a SAML-based role, see [Create a role for SAML 2.0 federation (console)](id_roles_create_for-idp_saml.md "id_roles_create_for-idp_saml.md").
 
 Name the role `access-session-tags`. Attach the
 `access-same-project-team` permissions policy to the role. Edit the role trust
 policy to use the following policy. For detailed instructions on how to edit the trust
-relationship of a role, see [Update a role trust policy](id_roles_update-role-trust-policy.md "id_roles_update-role-trust-policy.md") .
+relationship of a role, see [Update a role trust policy](id_roles_update-role-trust-policy.md "id_roles_update-role-trust-policy.md").
 
 The following role trust policy allows your SAML identity provider and the
 `test-session-tags` user to assume the role. When they assume the role, they
@@ -117,8 +113,7 @@ Engineering or Quality Assurance team.
 
 Configure your SAML IdP to pass the `cost-center`,
 `access-project`, and `access-team` attributes as session tags. For
-more information, see [Passing session tags using
-AssumeRoleWithSAML](id_session-tags.md#id_session-tags_adding-assume-role-saml "id_session-tags.md#id_session-tags_adding-assume-role-saml").
+more information, see [Passing session tags using AssumeRoleWithSAML](id_session-tags.md#id_session-tags_adding-assume-role-saml "id_session-tags.md#id_session-tags_adding-assume-role-saml").
 
 To pass these attributes as session tags, include the following elements in your SAML
 assertion.
@@ -137,14 +132,12 @@ assertion.
 
 ### Step 3C: Enable console access
 
-Enable console access for your federated SAML users. For more information, see [Enabling SAML 2.0 federated principals
-to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md").
+Enable console access for your federated SAML users. For more information, see [Enabling SAML 2.0 federated principals to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md").
 
 ## Step 4: Test creating secrets
 
 Federate into the AWS Management Console using the `access-session-tags` role. For more
-information, see [Enabling SAML 2.0 federated principals
-to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md"). Then follow the instructions in
+information, see [Enabling SAML 2.0 federated principals to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md"). Then follow the instructions in
 [Step 4: Test creating secrets](tutorial_attribute-based-access-control.md#tutorial_abac_step4 "tutorial_attribute-based-access-control.md#tutorial_abac_step4") to create secrets.
 Use different SAML identities with attributes to match the tags that are indicated in the ABAC
 tutorial. For more information, see [Step 4: Test creating secrets](tutorial_attribute-based-access-control.md#tutorial_abac_step4 "tutorial_attribute-based-access-control.md#tutorial_abac_step4").
@@ -187,5 +180,4 @@ different policy to your users or roles that has broader permissions, then the a
 not be limited to require tagging. For example, if you give a user full administrative
 permissions using the `AdministratorAccess` AWS managed policy, then these
 policies don't restrict that access. For more information about how permissions are
-determined when multiple policies are involved, see [How AWS
-enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
+determined when multiple policies are involved, see [How AWS enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").

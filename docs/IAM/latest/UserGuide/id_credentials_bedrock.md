@@ -24,8 +24,7 @@ security credentials](id_credentials_temp_request.md "id_credentials_temp_reques
 
 When you generate a long-term API key, the AWS managed policy [AmazonBedrockLimitedAccess](../../../bedrock/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockLimitedAccess "../../../bedrock/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockLimitedAccess") is automatically attached to the IAM user. This policy
 grants access to core Amazon Bedrock API operations. If you require additional Amazon Bedrock access, you can modify
-the permissions for the IAM user. For information about modifying permissions, see [Adding and removing IAM identity
-permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md"). For more information about how to use an
+the permissions for the IAM user. For information about modifying permissions, see [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md"). For more information about how to use an
 Amazon Bedrock key, see [Use
 an Amazon Bedrock API key](../../../bedrock/latest/userguide/api-keys-use.md "../../../bedrock/latest/userguide/api-keys-use.md") in the _Amazon Bedrock User Guide_.
 
@@ -71,9 +70,7 @@ JSON
 
 ```
 
-## Generating a long-term API Key for
-
-Amazon Bedrock (console)
+## Generating a long-term API Key for Amazon Bedrock (console)
 
 ###### To generate an Amazon Bedrock long-term API key (console)
 
@@ -101,9 +98,7 @@ Store your API key securely. After you close the dialog box, you cannot retrieve
 API key again. If you lose or forget your secret access key, you cannot retrieve it.
 Instead, create a new access key and make the old key inactive.
 
-## Generating a long-term API Key for Amazon Bedrock
-
-(AWS CLI)
+## Generating a long-term API Key for Amazon Bedrock (AWS CLI)
 
 To generate an Amazon Bedrock long-term API key using the AWS CLI, use the following steps:
 
@@ -159,9 +154,7 @@ aws iam list-service-specific-credentials \
     --all-users
 ```
 
-### Update long-term API key status
-
-(AWS CLI)
+### Update long-term API key status (AWS CLI)
 
 To update the status of a long-term API key for Amazon Bedrock, use the [update-service-specific-credential](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-service-specific-credential.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-service-specific-credential.html") command:
 
@@ -172,9 +165,7 @@ aws iam update-service-specific-credential \
     --status `Inactive|Active`
 ```
 
-## Generating a long-term API Key for Amazon Bedrock (AWS
-
-API)
+## Generating a long-term API Key for Amazon Bedrock (AWS API)
 
 You can use the following API operations to generate and manage long-term API keys for
 Amazon Bedrock:

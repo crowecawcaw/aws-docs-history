@@ -1,6 +1,4 @@
-# AWS Lambda: Allows a Lambda function to
-
-access an Amazon DynamoDB table
+# AWS Lambda: Allows a Lambda function to access an Amazon DynamoDB table
 
 This example shows how you might create an identity-based policy that allows read and write access to a specific Amazon DynamoDB table. The
 policy also allows writing log files to CloudWatch Logs. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.

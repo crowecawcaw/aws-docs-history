@@ -1,6 +1,4 @@
-# How an IAM administrator can manage
-
-IAM user access keys
+# How an IAM administrator can manage IAM user access keys
 
 IAM administrators can create, activate, deactivate, and delete the access keys
 associated with individual IAM users. They can also list the IAM users in the account
@@ -8,28 +6,17 @@ which have access keys and locate which IAM user has a specific access key.
 
 ###### Topics
 
-- [To create an access key for an
-  IAM user](#admin-create-access-key "#admin-create-access-key")
-- [To deactivate an access key for an
-  IAM user](#admin-deactivate-access-key "#admin-deactivate-access-key")
-- [To activate an access key for an
-  IAM user](#admin-activate-access-key "#admin-activate-access-key")
-- [To delete an access key for an
-  IAM user](#admin-delete-access-key "#admin-delete-access-key")
-- [To list the access keys for an
-  IAM user](#admin-list-access-key "#admin-list-access-key")
-- [To list the access keys for an
-  IAM user](#admin-list-access-key "#admin-list-access-key")
-- [To display all the access key IDs for users
-  in your account](#admin-list-all-access-keys "#admin-list-all-access-keys")
-- [To use an access key ID to find a
-  user](#admin-find-user-access-keys "#admin-find-user-access-keys")
-- [To find the most recent use of
-  an access key ID](#admin-find-most-recent-use-access-keys "#admin-find-most-recent-use-access-keys")
+- [To create an access key for an IAM user](#admin-create-access-key "#admin-create-access-key")
+- [To deactivate an access key for an IAM user](#admin-deactivate-access-key "#admin-deactivate-access-key")
+- [To activate an access key for an IAM user](#admin-activate-access-key "#admin-activate-access-key")
+- [To delete an access key for an IAM user](#admin-delete-access-key "#admin-delete-access-key")
+- [To list the access keys for an IAM user](#admin-list-access-key "#admin-list-access-key")
+- [To list the access keys for an IAM user](#admin-list-access-key "#admin-list-access-key")
+- [To display all the access key IDs for users in your account](#admin-list-all-access-keys "#admin-list-all-access-keys")
+- [To use an access key ID to find a user](#admin-find-user-access-keys "#admin-find-user-access-keys")
+- [To find the most recent use of an access key ID](#admin-find-most-recent-use-access-keys "#admin-find-most-recent-use-access-keys")
 
-## To create an access key for an
-
-IAM user
+## To create an access key for an IAM user
 
 Console
 
@@ -76,9 +63,7 @@ Call the following operation:
 
 - [`CreateAccessKey`](../APIReference/API_CreateAccessKey.md "../APIReference/API_CreateAccessKey.md")
 
-## To deactivate an access key for an
-
-IAM user
+## To deactivate an access key for an IAM user
 
 Console
 
@@ -107,9 +92,7 @@ Call the following operation:
 
 - [`UpdateAccessKey`](../APIReference/API_UpdateAccessKey.md "../APIReference/API_UpdateAccessKey.md")
 
-## To activate an access key for an
-
-IAM user
+## To activate an access key for an IAM user
 
 Console
 
@@ -135,9 +118,7 @@ Call the following operation:
 
 - [`UpdateAccessKey`](../APIReference/API_UpdateAccessKey.md "../APIReference/API_UpdateAccessKey.md")
 
-## To delete an access key for an
-
-IAM user
+## To delete an access key for an IAM user
 
 After an access key has been deactivated, if it is no longer required, delete
 it.
@@ -169,9 +150,7 @@ Call the following operation:
 
 - [`DeleteAccessKey`](../APIReference/API_DeleteAccessKey.md "../APIReference/API_DeleteAccessKey.md")
 
-## To list the access keys for an
-
-IAM user
+## To list the access keys for an IAM user
 
 You can view a list of the access key IDs associated with an IAM user.
 
@@ -197,9 +176,7 @@ Call the following operation:
 
 - [`ListAccessKeys`](../APIReference/API_ListAccessKeys.md "../APIReference/API_ListAccessKeys.md")
 
-## To list the access keys for an
-
-IAM user
+## To list the access keys for an IAM user
 
 You can view a list of the access key IDs associated with an IAM user.
 
@@ -230,9 +207,7 @@ Call the following operation:
 
 - [`ListAccessKeys`](../APIReference/API_ListAccessKeys.md "../APIReference/API_ListAccessKeys.md")
 
-## To display all the access key IDs for users
-
-in your account
+## To display all the access key IDs for users in your account
 
 You can view a list of the access key IDs for users in your AWS account.
 
@@ -270,9 +245,7 @@ created.
 
 Each IAM user can have two access keys.
 
-## To use an access key ID to find a
-
-user
+## To use an access key ID to find a user
 
 You can use an access key ID to find a user in your AWS account.
 
@@ -286,9 +259,7 @@ Console
    the navigation pane. Choose the user name to go to the user details
    page.
 
-## To find the most recent use of
-
-an access key ID
+## To find the most recent use of an access key ID
 
 The most recent use of an access key is displayed in the user's list on the
 IAM users page, on the user detail page, and is part of the credential report.

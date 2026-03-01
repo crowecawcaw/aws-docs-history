@@ -1,6 +1,4 @@
-# IAM JSON policy elements:
-
-Condition
+# IAM JSON policy elements: Condition
 
 The `Condition` element (or `Condition`
 _block_) lets you specify conditions for when a policy is in
@@ -17,8 +15,7 @@ The context key that you specify in a policy condition can be a [global conditio
 service-specific context key. Global condition context keys have the `aws:` prefix.
 Service-specific context keys have the service's prefix. For example, Amazon EC2 lets you write a
 condition using the `ec2:InstanceType` context key, which is unique to that service.
-To view service-specific IAM context keys with the `iam:` prefix, see [IAM and AWS STS condition context
-keys](reference_policies_iam-condition-keys.md "reference_policies_iam-condition-keys.md").
+To view service-specific IAM context keys with the `iam:` prefix, see [IAM and AWS STS condition context keys](reference_policies_iam-condition-keys.md "reference_policies_iam-condition-keys.md").
 
 Context key _names_ are not case-sensitive. For example, including the
 `aws:SourceIP` context key is equivalent to testing for `AWS:SourceIp`.
@@ -67,10 +64,8 @@ encryption contexts. You can enforce this using the [aws:TagKeys](reference_poli
   [Condition
   operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md").
 - Unless otherwise specified, all context keys can have multiple values. For a description
-  of how to handle context keys that have multiple values, see [Set operators
-  for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
-- For a list of all of the globally available context keys, see [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
+  of how to handle context keys that have multiple values, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+- For a list of all of the globally available context keys, see [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
 - For condition context keys that are defined by each service, see [Actions, Resources, and
   Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
 
@@ -181,8 +176,7 @@ to Amazon DynamoDB might ask to return or update multiple attributes from a tabl
 access to DynamoDB tables can include the `dynamodb:Attributes` context key, which
 contains all the attributes listed in the request. You can test the multiple attributes in the
 request against a list of allowed attributes in a policy by using set operators in the
-`Condition` element. For more information, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+`Condition` element. For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 When the policy is evaluated during a request, AWS replaces the key with the
 corresponding value from the request. (In this example, AWS would use the date and time of
@@ -197,5 +191,4 @@ illustrates this.
 
 ![two condition operator block diagrams. The first block includes two context key placeholders, each with multiple values. The second condition block includes one context key with multiple values.](images/AccessPolicyLanguage_Condition_Block.diagram.png)
 
-For more information, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").

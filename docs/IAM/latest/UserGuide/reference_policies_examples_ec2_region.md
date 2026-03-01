@@ -1,6 +1,4 @@
-# Amazon EC2: Allows full EC2 access within a
-
-specific Region, programmatically and in the console
+# Amazon EC2: Allows full EC2 access within a specific Region, programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows full EC2 access within a specific Region.
 This policy defines permissions for programmatic and console access. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.

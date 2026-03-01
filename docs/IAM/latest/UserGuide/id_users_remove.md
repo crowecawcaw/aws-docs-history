@@ -9,14 +9,11 @@ For more information, see [Deactivating an IAM user](#id_users_deactivating "#id
 
 Once an IAM user and its access keys are deleted, they cannot be restored or recovered.
 
-## Prerequisite – View IAM user
-
-access
+## Prerequisite – View IAM user access
 
 Before you remove a user, review their recent service-level activity. This helps
 prevent removing access from a principal (person or application) who is using it. For
-more information about viewing last accessed information, see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+more information about viewing last accessed information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
 ## Removing an IAM user (console)
 
@@ -54,8 +51,7 @@ Console
 
 If any of the users have active access keys, you must
 deactivate the access keys before deleting the users. For
-more information, see [To deactivate an access key for an
-IAM user](access-keys-admin-managed.md#admin-deactivate-access-key "access-keys-admin-managed.md#admin-deactivate-access-key"). 5. In the confirmation dialog box, enter the username in the text
+more information, see [To deactivate an access key for an IAM user](access-keys-admin-managed.md#admin-deactivate-access-key "access-keys-admin-managed.md#admin-deactivate-access-key"). 5. In the confirmation dialog box, enter the username in the text
 input field to confirm the deletion of the user. Choose
 **Delete**.
 

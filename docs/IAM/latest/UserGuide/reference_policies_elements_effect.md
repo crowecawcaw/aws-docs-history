@@ -1,6 +1,4 @@
-# IAM JSON policy elements:
-
-Effect
+# IAM JSON policy elements: Effect
 
 The `Effect` element is required and specifies whether the statement results in
 an allow or an explicit deny. Valid values for `Effect` are `Allow` and

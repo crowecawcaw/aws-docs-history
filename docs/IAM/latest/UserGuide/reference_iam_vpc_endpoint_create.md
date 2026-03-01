@@ -14,9 +14,7 @@ for IAM, see [VPC endpoint availability](reference_interface_vpc_endpoints.md#re
 If your VPC is in a different Region from the IAM control plane Region, you must use
 AWS Transit Gateway to allow access to the IAM interface VPC endpoint from another Region.
 
-###### To access an IAM interface VPC endpoint from a VPC in a different Region using
-
-AWS Transit Gateway
+###### To access an IAM interface VPC endpoint from a VPC in a different Region using AWS Transit Gateway
 
 1. Create a transit gateway, or use an existing transit gateway to interconnect your
    virtual private clouds (VPCs). A transit gateway is required for each Region. For

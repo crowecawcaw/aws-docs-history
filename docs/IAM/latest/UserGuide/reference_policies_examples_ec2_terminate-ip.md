@@ -1,6 +1,4 @@
-# Amazon EC2: Limits terminating EC2
-
-instances to an IP address range
+# Amazon EC2: Limits terminating EC2 instances to an IP address range
 
 This example shows how you might create an identity-based policy that limits EC2 instances by allowing the action, but explicitly denying
 access when the request comes from outside the specified IP range. The policy is useful when
@@ -11,15 +9,13 @@ Then, follow the directions in [create a policy](access_policies_create.md "acce
 If this policy is used in combination with other policies that allow the
 `ec2:TerminateInstances` action (such as the [AmazonEC2FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess") AWS managed policy), then access is denied. This is
 because an explicit deny statement takes precedence over allow statements. For more
-information, see [How AWS
-enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
+information, see [How AWS enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
 
 ###### Important
 
 The `aws:SourceIp` condition key denies access to an AWS service, such as
 AWS CloudFormation, that makes calls on your behalf. For more information about using the
-`aws:SourceIp` condition key, see [AWS global condition context
-keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
+`aws:SourceIp` condition key, see [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
 
 JSON
 

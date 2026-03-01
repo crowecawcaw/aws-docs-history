@@ -1,6 +1,4 @@
-# IAM JSON policy elements:
-
-Id
+# IAM JSON policy elements: Id
 
 The `Id` element specifies an optional identifier for the policy. The ID is used
 differently in different services. ID is allowed in resource-based policies, but not in

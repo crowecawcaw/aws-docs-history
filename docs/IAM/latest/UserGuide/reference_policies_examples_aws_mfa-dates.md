@@ -1,6 +1,4 @@
-# AWS: Allows specific access using
-
-MFA within specific dates
+# AWS: Allows specific access using MFA within specific dates
 
 This example shows how you might create an identity-based policy that uses multiple conditions, which are evaluated using a logical
 `AND`. It allows full access to the service named `SERVICE-NAME-1`, and

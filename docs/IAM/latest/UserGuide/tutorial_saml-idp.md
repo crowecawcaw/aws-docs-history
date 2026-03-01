@@ -1,6 +1,4 @@
-# IAM tutorial: Use an CloudFormation template to create a SAML
-
-Identity Provider (IdP)
+# IAM tutorial: Use an CloudFormation template to create a SAML Identity Provider (IdP)
 
 To set up SAML federation for your AWS account, you need to create a SAML Identity
 Provider (IdP). This tutorial shows you how to use an CloudFormation template to create a SAML IdP

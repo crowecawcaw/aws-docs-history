@@ -15,12 +15,9 @@ enabled.
    ) is displayed.
    If you want to enable MFA for the account, see one of the following:
 
-- [Enable a virtual MFA device for the root user
-  (console)](enable-virt-mfa-for-root.md "enable-virt-mfa-for-root.md")
-- [Enable a passkey or security key for the root user
-  (console)](enable-fido-mfa-for-root.md "enable-fido-mfa-for-root.md")
-- [Enable a hardware TOTP token for the root user
-  (console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md")
+- [Enable a virtual MFA device for the root user (console)](enable-virt-mfa-for-root.md "enable-virt-mfa-for-root.md")
+- [Enable a passkey or security key for the root user (console)](enable-fido-mfa-for-root.md "enable-fido-mfa-for-root.md")
+- [Enable a hardware TOTP token for the root user (console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md")
 
 ###### To check the MFA status of IAM users
 
@@ -69,9 +66,6 @@ To remove or resync a device, choose the radio button next to the device and cho
 
 For more information on enabling MFA, see the following:
 
-- [Assign a virtual MFA device in the
-  AWS Management Console](id_credentials_mfa_enable_virtual.md "id_credentials_mfa_enable_virtual.md")
-- [Assign a passkey or security key in the
-  AWS Management Console](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md")
-- [Assign a hardware TOTP token in the
-  AWS Management Console](id_credentials_mfa_enable_physical.md "id_credentials_mfa_enable_physical.md")
+- [Assign a virtual MFA device in the AWS Management Console](id_credentials_mfa_enable_virtual.md "id_credentials_mfa_enable_virtual.md")
+- [Assign a passkey or security key in the AWS Management Console](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md")
+- [Assign a hardware TOTP token in the AWS Management Console](id_credentials_mfa_enable_physical.md "id_credentials_mfa_enable_physical.md")

@@ -113,8 +113,7 @@ and defines the version of the policy language. A policy version, on the other h
 is created when you make changes to a customer managed policy in IAM. The changed
 policy doesn't overwrite the existing policy. Instead, IAM creates a new version
 of the managed policy. To learn more about the `Version` policy element
-see [IAM JSON policy elements:
-Version](reference_policies_elements_version.md "reference_policies_elements_version.md"). To learn more about
+see [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md"). To learn more about
 policy versions, see [Versioning IAM policies](access_policies_managed-versioning.md "access_policies_managed-versioning.md").
 
 ```
@@ -308,8 +307,7 @@ Identifies the type of condition being tested, such as
 `NumericLessThan`, `DateGreaterThanEquals`,
 `Bool`, `BinaryEquals`,
 `IpAddress`, `ArnEquals`, etc. For a complete list
-of condition types, see [IAM JSON policy elements:
-Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md").
+of condition types, see [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md").
 
 ```
 "Condition": {
@@ -339,8 +337,7 @@ are available in all AWS services, including
 `aws:PrincipalType`, `aws:SecureTransport`,
 and `aws:userid`.
 
-For a list of AWS condition keys, see [AWS global condition context
-keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md"). For condition
+For a list of AWS condition keys, see [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md"). For condition
 keys that are specific to a service, see the documentation for that
 service such as the following:
 
@@ -374,8 +371,7 @@ service such as the following:
 
 Identifies the value of the condition_key_string that determines
 whether the condition is met. For a complete list of valid values for a
-condition type, see [IAM JSON policy elements:
-Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md").
+condition type, see [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md").
 
 ```
 "Condition":{

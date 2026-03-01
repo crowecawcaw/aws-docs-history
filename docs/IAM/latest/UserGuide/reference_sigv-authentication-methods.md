@@ -48,9 +48,7 @@ in the preceding example:
 | SignedHeaders | A semicolon-separated list of request headers that you used to<br>compute Signature. The list includes header names only, and the<br>header names must be in lowercase. For example:<br>`host;range;x-amz-date`<br>For SigV4a, you must include a region set header that specifies<br>the set of regions the request will be valid in. The header<br>X-Amz-Region-Set is specified as a list of comma separated<br>values.                                                                                                                                                         |
 | Signature     | The 256-bit signature expressed as 64 lowercase hexadecimal<br>characters. For<br>example:`fe5f80f77d5fa3beca038a248ff027d0445342fe2855ddc963176630326f1024`<br>Note that the signature calculations vary depending on the option<br>you choose to transfer the payload.                                                                                                                                                                                                                                                                                                           |
 
-## Query string
-
-parameters
+## Query string parameters
 
 You can use a query string to express a request entirely in a URL. In this case, you
 use query parameters to provide request information, including the authentication

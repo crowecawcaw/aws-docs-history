@@ -23,9 +23,7 @@ removing the user. For more information about removing users, see [Remove or dea
 
 ## Deactivating MFA devices (console)
 
-###### To deactivate an MFA device for another IAM
-
-user (console)
+###### To deactivate an MFA device for another IAM user (console)
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Users**.
@@ -40,9 +38,7 @@ The device is removed from AWS. It cannot be used to sign in or authenticate
 requests until it is reactivated and associated with an AWS user or
 AWS account root user.
 
-###### To deactivate the MFA device for your AWS account root user
-
-(console)
+###### To deactivate the MFA device for your AWS account root user (console)
 
 1. Sign in to the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") as the account owner by choosing **Root user** and entering your AWS account email address. On the next page, enter your password.
 

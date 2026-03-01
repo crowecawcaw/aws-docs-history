@@ -17,8 +17,7 @@ following topics provide common scenarios to use IAM identity providers.
 ###### Topics
 
 - [Amazon Cognito for mobile apps](#id_roles_providers_oidc_cognito "#id_roles_providers_oidc_cognito")
-- [OIDC federation for mobile
-  apps](#id_roles_providers_oidc_manual "#id_roles_providers_oidc_manual")
+- [OIDC federation for mobile apps](#id_roles_providers_oidc_manual "#id_roles_providers_oidc_manual")
 
 ## Amazon Cognito for mobile apps
 
@@ -102,9 +101,7 @@ For more information, see the following:
 - [Sign in (iOS)](https://docs.amplify.aws/lib/auth/signin/q/platform/ios/ "https://docs.amplify.aws/lib/auth/signin/q/platform/ios/") in
   the AWS Amplify Framework Documentation.
 
-## OIDC federation for mobile
-
-apps
+## OIDC federation for mobile apps
 
 For best results, use Amazon Cognito as your identity broker for almost all OIDC federation
 scenarios. Amazon Cognito is easy to use and provides additional capabilities like anonymous
@@ -145,7 +142,7 @@ through Login with Amazon, a second role for the same app if the user signs in t
 Facebook, and a third role for the app if the user signs in through Google. For the trust
 relationship, specify the IdP (like Amazon.com) as the `Principal` (the trusted
 entity), and include a `Condition` that matches the IdP assigned app ID. Examples
-of roles for different providers are described in [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md") . 4. In your application, authenticate your users with the IdP. The specifics of how to do
+of roles for different providers are described in [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md"). 4. In your application, authenticate your users with the IdP. The specifics of how to do
 this vary both according to which IdP you use (Login with Amazon, Facebook, or Google) and
 on which platform your app runs. For example, an Android app's method of authentication can
 differ from that of an iOS app or a JavaScript-based web app.

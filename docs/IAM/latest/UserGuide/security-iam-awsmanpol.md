@@ -204,8 +204,7 @@ account. You can list or get individual root user credential information like:
 
 You can't attach `IAMAuditRootUserCredentials` to your IAM entities. This
 policy is attached to [AssumeRoot](../../../STS/latest/APIReference/API_AssumeRoot.md "../../../STS/latest/APIReference/API_AssumeRoot.md") to perform
-privileged tasks on a member account in your organization. For more information, see [Centrally manage root access for member
-accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
+privileged tasks on a member account in your organization. For more information, see [Centrally manage root access for member accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
 
 JSON
 
@@ -264,8 +263,7 @@ with no root user credentials.
 
 You can't attach `IAMCreateRootUserPassword` to your IAM entities. This
 policy is attached to [AssumeRoot](../../../STS/latest/APIReference/API_AssumeRoot.md "../../../STS/latest/APIReference/API_AssumeRoot.md") to perform
-privileged tasks on a member account in your organization. For more information, see [Centrally manage root access for member
-accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
+privileged tasks on a member account in your organization. For more information, see [Centrally manage root access for member accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
 
 JSON
 
@@ -319,8 +317,7 @@ root user credentials to be deleted.
 
 You can't attach `IAMDeleteRootUserCredentials` to your IAM entities. This
 policy is attached to [AssumeRoot](../../../STS/latest/APIReference/API_AssumeRoot.md "../../../STS/latest/APIReference/API_AssumeRoot.md") to perform
-privileged tasks on a member account in your organization. For more information, see [Centrally manage root access for member
-accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
+privileged tasks on a member account in your organization. For more information, see [Centrally manage root access for member accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
 
 JSON
 
@@ -388,8 +385,7 @@ denies all principals from accessing an Amazon S3 bucket.
 
 You can't attach `S3UnlockBucketPolicy` to your IAM entities. This policy
 is attached to [AssumeRoot](../../../STS/latest/APIReference/API_AssumeRoot.md "../../../STS/latest/APIReference/API_AssumeRoot.md") to perform
-privileged tasks on a member account in your organization. For more information, see [Centrally manage root access for member
-accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
+privileged tasks on a member account in your organization. For more information, see [Centrally manage root access for member accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
 
 JSON
 
@@ -448,8 +444,7 @@ denies all principals from accessing an Amazon SQS queue.
 
 You can't attach `SQSUnlockQueuePolicy` to your IAM entities. This policy
 is attached to [AssumeRoot](../../../STS/latest/APIReference/API_AssumeRoot.md "../../../STS/latest/APIReference/API_AssumeRoot.md") to perform
-privileged tasks on a member account in your organization. For more information, see [Centrally manage root access for member
-accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
+privileged tasks on a member account in your organization. For more information, see [Centrally manage root access for member accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
 
 ### Permissions groupings
 
@@ -464,9 +459,7 @@ provided.
 - **DenyActionsForNonRootUser** – Denies
   access to Amazon SQS actions for all non-root user resources.
 
-## IAM and IAM Access Analyzer updates to AWS
-
-managed policies
+## IAM and IAM Access Analyzer updates to AWS managed policies
 
 View details about updates to IAM and AWS managed policies since the service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to the

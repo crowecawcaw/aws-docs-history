@@ -9,8 +9,7 @@ that user.
 
 If you use access key and secret key credentials for direct AWS Management Console access with the AWS STS
 [`GetFederationToken`](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md") API call, MFA will NOT be required. For more
-information, see [Using access keys and secret key
-credentials for console access](securing_access-keys.md#console-access-security-keys "securing_access-keys.md#console-access-security-keys").
+information, see [Using access keys and secret key credentials for console access](securing_access-keys.md#console-access-security-keys "securing_access-keys.md#console-access-security-keys").
 
 The following topics provide information on how users complete signing in when MFA is
 required.
@@ -44,8 +43,7 @@ Unlike other MFA devices, FIDO security keys do not go out of sync. Administrato
 deactivate a FIDO security key if it's lost or broken. For more information, see [Deactivating MFA devices (console)](id_credentials_mfa_disable.md#deactive-mfa-console "id_credentials_mfa_disable.md#deactive-mfa-console").
 
 For information on browsers that support WebAuthn and FIDO-compliant devices that AWS supports, see
-[Supported configurations
-for using passkeys and security keys](id_credentials_mfa_fido_supported_configurations.md "id_credentials_mfa_fido_supported_configurations.md").
+[Supported configurations for using passkeys and security keys](id_credentials_mfa_fido_supported_configurations.md "id_credentials_mfa_fido_supported_configurations.md").
 
 ## Virtual MFA device
 
@@ -59,8 +57,7 @@ the user can try again with another code.
 A virtual MFA device can go out of sync. If a user cannot sign in to the AWS Management Console after
 several tries, the user is prompted to synchronize the virtual MFA device. The user can follow
 the on-screen prompts to synchronize the virtual MFA device. For information about how you can
-synchronize a device on behalf of a user in your AWS account, see [Resynchronize virtual and hardware MFA
-devices](id_credentials_mfa_sync.md "id_credentials_mfa_sync.md").
+synchronize a device on behalf of a user in your AWS account, see [Resynchronize virtual and hardware MFA devices](id_credentials_mfa_sync.md "id_credentials_mfa_sync.md").
 
 ## Hardware TOTP token
 
@@ -73,5 +70,4 @@ the user can try again with another code.
 A hardware TOTP token can go out of sync. If a user can't sign in to the AWS Management Console after
 several tries, the user is prompted to synchronize the MFA token device. The user can follow
 the on-screen prompts to synchronize the MFA token device. For information about how you can
-synchronize a device on behalf of a user in your AWS account, see [Resynchronize virtual and hardware MFA
-devices](id_credentials_mfa_sync.md "id_credentials_mfa_sync.md").
+synchronize a device on behalf of a user in your AWS account, see [Resynchronize virtual and hardware MFA devices](id_credentials_mfa_sync.md "id_credentials_mfa_sync.md").

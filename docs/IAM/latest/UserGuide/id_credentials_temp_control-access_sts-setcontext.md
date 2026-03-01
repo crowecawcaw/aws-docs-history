@@ -1,6 +1,4 @@
-# Granting permissions to use
-
-identity-enhanced console sessions
+# Granting permissions to use identity-enhanced console sessions
 
 Identity-enhanced console sessions enables AWS IAM Identity Center user and session IDs to be included in
 users' AWS console sessions when they sign in. For example, Amazon Q Developer Pro uses

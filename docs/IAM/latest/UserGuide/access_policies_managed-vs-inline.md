@@ -18,10 +18,8 @@ The following table outlines these policies:
 - [AWS managed policies](#aws-managed-policies "#aws-managed-policies")
 - [Customer managed policies](#customer-managed-policies "#customer-managed-policies")
 - [Inline policies](#inline-policies "#inline-policies")
-- [Choose between managed policies
-  and inline policies](access_policies-choosing-managed-or-inline.md "access_policies-choosing-managed-or-inline.md")
-- [Convert an inline policy to a
-  managed policy](access_policies-convert-inline-to-managed.md "access_policies-convert-inline-to-managed.md")
+- [Choose between managed policies and inline policies](access_policies-choosing-managed-or-inline.md "access_policies-choosing-managed-or-inline.md")
+- [Convert an inline policy to a managed policy](access_policies-convert-inline-to-managed.md "access_policies-convert-inline-to-managed.md")
 - [Deprecated AWS managed policies](access_policies_managed-deprecated.md "access_policies_managed-deprecated.md")
 
 ## AWS managed policies
@@ -104,8 +102,7 @@ includes the policy name. Notice that the same policy can be attached to multipl
 entities—for example, the same **DynamoDB-books-app**
 policy is attached to two different IAM roles.
 
-For more information, see [Define custom IAM permissions with customer managed
-policies](access_policies_create.md "access_policies_create.md")
+For more information, see [Define custom IAM permissions with customer managed policies](access_policies_create.md "access_policies_create.md")
 
 ![Diagram of customer managed policies](images/policies-customer-managed-policies.diagram.png)
 

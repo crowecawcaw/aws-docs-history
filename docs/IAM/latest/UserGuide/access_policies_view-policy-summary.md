@@ -4,9 +4,7 @@ You can view the policy summaries for any policies that are attached to an IAM u
 role. For managed policies, you can view policy summaries on the **Policies**
 page. If your policy does not include a policy summary, see [Missing policy summary](troubleshoot_policies.md#missing-policy-summary "troubleshoot_policies.md#missing-policy-summary") to learn why.
 
-## Viewing policy summaries
-
-from the **Policies** page
+## Viewing policy summaries from the **Policies** page
 
 You can view the policy summary for managed policies on the **Policies**
 page.
@@ -19,9 +17,7 @@ page.
 4. On the **Policy details** page for the policy, view the
    **Permissions** tab to see the policy summary.
 
-## Viewing a policy
-
-summary for a policy attached to a user
+## Viewing a policy summary for a policy attached to a user
 
 You can view the policy summary for any policies that are attached to an
 IAM user.
@@ -38,9 +34,7 @@ IAM user.
 5. In the table of policies for the user, expand the row of the policy that you want to
    view.
 
-## Viewing a policy
-
-summary for a policy attached to a role
+## Viewing a policy summary for a policy attached to a role
 
 You can view the policy summary for any policies that are attached to a role.
 
@@ -69,9 +63,7 @@ policies.
 You can edit a policy for your policy summary using the **Visual**
 option.
 
-###### To edit a policy for your policy summary using the **Visual**
-
-option
+###### To edit a policy for your policy summary using the **Visual** option
 
 1. Open the policy summary as explained in the previous procedures.
 2. Choose **Edit**.
@@ -90,9 +82,7 @@ return to the editing screen. 5. Choose **Save changes** to save your changes.
 You can edit a policy for your policy summary using the **JSON**
 option.
 
-###### To edit a policy for your policy summary using the **JSON**
-
-option
+###### To edit a policy for your policy summary using the **JSON** option
 
 1. Open the policy summary as explained in the previous procedures.
 2. You can use the **Summary** and **JSON** buttons to

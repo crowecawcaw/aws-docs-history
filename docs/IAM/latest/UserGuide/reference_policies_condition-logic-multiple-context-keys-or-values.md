@@ -1,6 +1,4 @@
-# Conditions
-
-with multiple context keys or values
+# Conditions with multiple context keys or values
 
 You can use the `Condition` element of a policy to test multiple context keys or
 multiple values for a single context key in a request. When you make a request to AWS, either
@@ -11,14 +9,10 @@ To learn about information and data included in a request, see [The request cont
 
 ###### Topics
 
-- [Evaluation logic for multiple
-  context keys or values](#reference_policies_multiple-conditions-eval "#reference_policies_multiple-conditions-eval")
-- [Evaluation
-  logic for negated matching condition operators](#reference_policies_multiple-conditions-negated-matching-eval "#reference_policies_multiple-conditions-negated-matching-eval")
+- [Evaluation logic for multiple context keys or values](#reference_policies_multiple-conditions-eval "#reference_policies_multiple-conditions-eval")
+- [Evaluation logic for negated matching condition operators](#reference_policies_multiple-conditions-negated-matching-eval "#reference_policies_multiple-conditions-negated-matching-eval")
 
-## Evaluation logic for multiple
-
-context keys or values
+## Evaluation logic for multiple context keys or values
 
 A `Condition` element can contain multiple condition operators, and each
 condition operator can contain multiple context key-value pairs. Most context keys support
@@ -101,9 +95,7 @@ values in your request.
 | `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | No `aws:PrincipalTag/role` in the request context.<br>`<br>aws:PrincipalTag/department: hr<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/Mary<br>` | **No match** |
 | `<br>"StringEquals": {<br>"aws:PrincipalTag/department": [<br>"finance",<br>"hr",<br>"legal"<br>],<br>"aws:PrincipalTag/role": [<br>"audit",<br>"security"<br>]<br>},<br>"ArnLike": {<br>"aws:PrincipalArn": [<br>"arn:aws:iam::222222222222:user/Ana",<br>"arn:aws:iam::222222222222:user/Mary"<br>]<br>}<br>` | No `aws:PrincipalTag` in the request context.<br>`<br>aws:PrincipalArn:<br>arn:aws:iam::222222222222:user/Mary<br>`                                         | **No match** |
 
-## Evaluation
-
-logic for negated matching condition operators
+## Evaluation logic for negated matching condition operators
 
 Some [condition
 operators,](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md") such as `StringNotEquals` or `ArnNotLike`, use

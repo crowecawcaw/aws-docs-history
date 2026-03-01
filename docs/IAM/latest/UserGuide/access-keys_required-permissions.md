@@ -1,6 +1,4 @@
-# Permissions required to manage access
-
-keys
+# Permissions required to manage access keys
 
 ###### Note
 

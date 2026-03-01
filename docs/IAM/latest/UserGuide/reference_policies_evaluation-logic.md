@@ -7,19 +7,15 @@ completes several steps to determine whether to allow or deny the request.
 1. **Authentication** – AWS first authenticates the
    principal that makes the request, if necessary. This step is not necessary for a few
    services, such as Amazon S3, that allow some requests from anonymous users.
-2. **[Processing the
-   request context](reference_policies_evaluation-logic_policy-eval-reqcontext.md "reference_policies_evaluation-logic_policy-eval-reqcontext.md")**
+2. **[Processing the request context](reference_policies_evaluation-logic_policy-eval-reqcontext.md "reference_policies_evaluation-logic_policy-eval-reqcontext.md")**
    – AWS processes the information gathered in the request to determine which policies
    apply to the request.
-3. **[How AWS
-   enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md")**
+3. **[How AWS enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md")**
    – AWS evaluates all of the policy types and the order of the policies affects how
    they are evaluated. AWS then processes the policies against the request context to
    determine whether the request is allowed or denied.
 
-## Evaluating identity-based policies with
-
-resource-based policies
+## Evaluating identity-based policies with resource-based policies
 
 Identity-based policies and resource-based policies grant permissions to the identities or
 resources to which they are attached. When an IAM entity (user or role) requests access to a
@@ -31,9 +27,7 @@ these policies overrides the allow.
 
 ![Evaluation of identity-based policies and resource-based policies](images/permissions_policies_effective.png)
 
-## Evaluating identity-based policies with
-
-permissions boundaries
+## Evaluating identity-based policies with permissions boundaries
 
 When AWS evaluates the identity-based policies and permissions boundary for a user, the
 resulting permissions are the intersection of the two categories. That means that when you add
@@ -41,14 +35,11 @@ a permissions boundary to a user with existing identity-based policies, you migh
 actions that the user can perform. Alternatively, when you remove a permissions boundary from
 a user, you might increase the actions they can perform. An explicit deny in either of these
 policies overrides the allow. To view information about how other policy types are evaluated
-with permissions boundaries, see [Evaluating effective permissions
-with boundaries](access_policies_boundaries.md#access_policies_boundaries-eval-logic "access_policies_boundaries.md#access_policies_boundaries-eval-logic").
+with permissions boundaries, see [Evaluating effective permissions with boundaries](access_policies_boundaries.md#access_policies_boundaries-eval-logic "access_policies_boundaries.md#access_policies_boundaries-eval-logic").
 
 ![Evaluation of identity-based policies and permissions boundaries](images/permissions_boundary.png)
 
-## Evaluating identity-based policies with AWS Organizations SCPs
-
-or RCPs
+## Evaluating identity-based policies with AWS Organizations SCPs or RCPs
 
 When a user belongs to an account that is a member of an organization and accesses a
 resource that doesn't have a resource-based policy configured, the resulting permissions are

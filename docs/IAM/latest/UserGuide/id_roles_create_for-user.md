@@ -1,6 +1,4 @@
-# Create a role to give permissions to an IAM
-
-user
+# Create a role to give permissions to an IAM user
 
 You can use IAM roles to provide access to your AWS resources. With IAM roles, you
 can establish trust relationships between your _trusting_
@@ -21,21 +19,18 @@ control, then you can use the `externalId` attribute. The external ID can be any
 or number that is agreed upon between you and the administrator of the third-party account. This
 option automatically adds a condition to the trust policy that allows the user to assume the
 role only if the request includes the correct `sts:ExternalID`. For more information,
-see [Access to AWS accounts owned by third
-parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md").
+see [Access to AWS accounts owned by third parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md").
 
 For information about how to use roles to delegate permissions, see [Roles terms and concepts](id_roles.md#id_roles_terms-and-concepts "id_roles.md#id_roles_terms-and-concepts"). For
 information about using a service role to allow services to access resources in your account,
-see [Create a role to delegate permissions to an
-AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md").
+see [Create a role to delegate permissions to an AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md").
 
 ## Creating an IAM role (console)
 
 You can use the AWS Management Console to create a role that an IAM user can assume. For example,
 assume that your organization has multiple AWS accounts to isolate a development environment
 from a production environment. For high-level information about creating a role that allows
-users in the development account to access resources in the production account, see [Example scenario using
-separate development and production accounts](id_roles_common-scenarios_aws-accounts.md#id_roles_common-scenarios_aws-accounts-example "id_roles_common-scenarios_aws-accounts.md#id_roles_common-scenarios_aws-accounts-example").
+users in the development account to access resources in the production account, see [Example scenario using separate development and production accounts](id_roles_common-scenarios_aws-accounts.md#id_roles_common-scenarios_aws-accounts-example "id_roles_common-scenarios_aws-accounts.md#id_roles_common-scenarios_aws-accounts-example").
 
 ###### Minimum permissions
 
@@ -81,8 +76,7 @@ control, and the users will assume this role programmatically, select
 number that is agreed upon between you and the administrator of the third party
 account. This option automatically adds a condition to the trust policy that allows
 the user to assume the role only if the request includes the correct
-`sts:ExternalID`. For more information, see [Access to AWS accounts owned by third
-parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md").
+`sts:ExternalID`. For more information, see [Access to AWS accounts owned by third parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md").
 
 ###### Important
 
@@ -127,8 +121,7 @@ For more information about using tags in IAM, see [Tags for AWS Identity and Acc
 Remember that this is only the first half of the configuration required. You
 must also give individual users in the trusted account permissions to switch to
 the role in the console, or assume the role programmatically. For more information
-about this step, see [Grant a user permissions to switch
-roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
+about this step, see [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
 
 ## Creating an IAM role (AWS CLI)
 
@@ -148,8 +141,7 @@ or
 
 Create an inline permissions policy for the role: [aws iam put-role-policy](../../../cli/latest/reference/iam/put-role-policy.md "../../../cli/latest/reference/iam/put-role-policy.md") 3. (Optional) Add custom attributes to the role by attaching tags: [aws iam tag-role](../../../cli/latest/reference/iam/tag-role.md "../../../cli/latest/reference/iam/tag-role.md")
 
-For more information, see [Managing tags on IAM roles (AWS CLI or
-AWS API)](id_tags_roles.md#id_tags_roles_procs-cli-api "id_tags_roles.md#id_tags_roles_procs-cli-api"). 4. (Optional) Set the [permissions
+For more information, see [Managing tags on IAM roles (AWS CLI or AWS API)](id_tags_roles.md#id_tags_roles_procs-cli-api "id_tags_roles.md#id_tags_roles_procs-cli-api"). 4. (Optional) Set the [permissions
 boundary](access_policies_boundaries.md "access_policies_boundaries.md") for the role: [aws iam
 put-role-permissions-boundary](../../../cli/latest/reference/iam/put-role-permissions-boundary.md "../../../cli/latest/reference/iam/put-role-permissions-boundary.md")
 
@@ -238,8 +230,7 @@ $` `aws iam attach-role-policy --role-name Test-UserAccess-Role --policy-arn arn
 
 Remember that this is only the first half of the configuration required. You must also
 give individual users in the trusted account permissions to switch to the role. For more
-information about this step, see [Grant a user permissions to switch
-roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
+information about this step, see [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
 
 After you create the role and grant it permissions to perform AWS tasks or access AWS
 resources, any users in the `123456789012` account can assume the role. For
@@ -266,11 +257,9 @@ Create an inline permission policy for the role: [PutRolePolicy](../APIReference
 
 Remember that this is only the first half of the configuration required. You must
 also give individual users in the trusted account permissions to switch to the role. For
-more information about this step, see [Grant a user permissions to switch
-roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md"). 3. (Optional) Add custom attributes to the user by attaching tags: [TagRole](../APIReference/API_TagRole.md "../APIReference/API_TagRole.md")
+more information about this step, see [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md"). 3. (Optional) Add custom attributes to the user by attaching tags: [TagRole](../APIReference/API_TagRole.md "../APIReference/API_TagRole.md")
 
-For more information, see [Managing tags on IAM users (AWS CLI or
-AWS API)](id_tags_users.md#id_tags_users_procs-cli-api "id_tags_users.md#id_tags_users_procs-cli-api"). 4. (Optional) Set the [permissions
+For more information, see [Managing tags on IAM users (AWS CLI or AWS API)](id_tags_users.md#id_tags_users_procs-cli-api "id_tags_users.md#id_tags_users_procs-cli-api"). 4. (Optional) Set the [permissions
 boundary](access_policies_boundaries.md "access_policies_boundaries.md") for the role: [PutRolePermissionsBoundary](../APIReference/API_PutRolePermissionsBoundary.md "../APIReference/API_PutRolePermissionsBoundary.md")
 
 A permissions boundary controls the maximum permissions that a role can have.
@@ -280,9 +269,7 @@ After you create the role and grant it permissions to perform AWS tasks or acces
 resources, you must grant permissions to users in the account to allow them to assume the
 role. For more information about assuming a role, see [Switch to an IAM role (AWS API)](id_roles_use_switch-role-api.md "id_roles_use_switch-role-api.md").
 
-## Creating an IAM role
-
-(AWS CloudFormation)
+## Creating an IAM role (AWS CloudFormation)
 
 For information about creating an IAM role in AWS CloudFormation, see the [resource and property reference](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md") and
 [examples](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md#aws-resource-iam-role--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md#aws-resource-iam-role--examples") in the _AWS CloudFormation User Guide_.

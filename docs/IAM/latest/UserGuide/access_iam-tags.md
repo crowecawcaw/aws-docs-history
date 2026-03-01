@@ -1,6 +1,4 @@
-# Controlling access to and for IAM users and roles using
-
-tags
+# Controlling access to and for IAM users and roles using tags
 
 Use the information in the following section to control who can access your IAM users and
 roles and what resources your users and roles can access. For more general information and
@@ -26,14 +24,12 @@ control access to any of the following:
 - **[Resource](access_tags.md#access_tags_control-resources "access_tags.md#access_tags_control-resources")** – Control access to user or role resources based
   on their tags. To do this, use the **aws:ResourceTag/`key-name`** condition key to
   specify which tag key-value pair must be attached to the resource. For more information,
-  see [Controlling access to AWS
-  resources](access_tags.md#access_tags_control-resources "access_tags.md#access_tags_control-resources").
+  see [Controlling access to AWS resources](access_tags.md#access_tags_control-resources "access_tags.md#access_tags_control-resources").
 - **[Request](access_tags.md#access_tags_control-requests "access_tags.md#access_tags_control-requests")** – Control what tags can be passed in an IAM
   request. To do this, use the **aws:RequestTag/`key-name`** condition key to
   specify what tags can be added, changed, or removed from an IAM user or role. This key
   is used the same way for IAM resources and other AWS resources. For more
-  information, see [Controlling access during AWS
-  requests](access_tags.md#access_tags_control-requests "access_tags.md#access_tags_control-requests").
+  information, see [Controlling access during AWS requests](access_tags.md#access_tags_control-requests "access_tags.md#access_tags_control-requests").
 - **[Principal](#access_iam-tags_control-principals "#access_iam-tags_control-principals")** – Control what the person making the request
   (the principal) is allowed to do based on the tags that are attached to that person's
   IAM user or role. To do this, use the **aws:PrincipalTag/`key-name`** condition key to
@@ -44,20 +40,16 @@ control access to any of the following:
   used in a request or by a principal. In this case, the key value does not matter. This
   key behaves similarly for IAM and other AWS services. However, when you tag a user
   in IAM, this also controls whether the principal can make the request to any service.
-  For more information, see [Controlling access based on tag
-  keys](access_tags.md#access_tags_control-tag-keys "access_tags.md#access_tags_control-tag-keys").
+  For more information, see [Controlling access based on tag keys](access_tags.md#access_tags_control-tag-keys "access_tags.md#access_tags_control-tag-keys").
   You can create an IAM policy using the visual editor, using JSON, or by importing an
-  existing managed policy. For details, see [Define custom IAM permissions with customer managed
-  policies](access_policies_create.md "access_policies_create.md").
+  existing managed policy. For details, see [Define custom IAM permissions with customer managed policies](access_policies_create.md "access_policies_create.md").
 
 ###### Note
 
 You can also pass [session tags](id_session-tags.md "id_session-tags.md") when you assume an
 IAM role or federate a user. These are valid only for the length of the session.
 
-## Controlling access for IAM
-
-principals
+## Controlling access for IAM principals
 
 You can control what the principal is allowed to do based on the tags attached to that
 person's identity.
@@ -87,9 +79,7 @@ JSON
 
 ```
 
-## Controlling access based on tag
-
-keys
+## Controlling access based on tag keys
 
 You can use tags in your IAM policies to control whether specific tag keys can be used
 in a request or by a principal.

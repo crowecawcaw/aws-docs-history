@@ -1,13 +1,9 @@
-# Single-valued
-
-context key policy examples
+# Single-valued context key policy examples
 
 The following set of policy examples demonstrate how to create policy conditions with
 single-valued context keys.
 
-## Example:
-
-Multiple condition blocks with single-valued context keys
+## Example: Multiple condition blocks with single-valued context keys
 
 When a condition block has multiple conditions, each with a single context key, all
 context keys must resolve to true for the desired `Allow` or `Deny`
@@ -68,9 +64,7 @@ aws ec2 create-volume \
     --tag-specifications 'ResourceType=volume,Tags=[{Key=project,Value=Feature3},{Key=environment,Value=QA}]'
 ```
 
-## Example:
-
-One condition block with multiple single-valued context keys and values
+## Example: One condition block with multiple single-valued context keys and values
 
 When a condition block contains multiple context keys and each context key has multiple
 values, each context key must resolve to true for at least one key value for the desired

@@ -1,13 +1,10 @@
-# Create a role to delegate permissions to an
-
-AWS service
+# Create a role to delegate permissions to an AWS service
 
 Many AWS services require that you
 use roles to allow the service to access resources in other services on your behalf. A role that
 a service assumes to perform actions on your behalf is called a [service role](id_roles.md#iam-term-service-role "id_roles.md#iam-term-service-role"). When a role serves a specialized purpose
 for a service, it is categorized as a [service-linked role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role"). To see what services support using service-linked roles, or
-whether a service supports any form of temporary credentials, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn how an individual
+whether a service supports any form of temporary credentials, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn how an individual
 service uses roles, choose the service name in the table to view the documentation for that
 service.
 
@@ -136,9 +133,7 @@ administrator delete the service role on their behalf.
 To attach a policy that allows an administrator to access your entire AWS account, use
 the [AdministratorAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AdministratorAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AdministratorAccess") AWS managed policy.
 
-## Creating a role for an AWS service
-
-(console)
+## Creating a role for an AWS service (console)
 
 You can use the AWS Management Console to create a role for a service. Because some services support
 more than one service role, see the [AWS documentation](../../../index.md "../../../index.md")
@@ -232,8 +227,7 @@ To add an inline permissions policy, see the following example:
 `aws iam put-role-policy --role-name Test-Role --policy-name ExamplePolicy
  --policy-document file://AdminPolicy.json` 3. (Optional) Add custom attributes to the role by attaching tags: [aws iam tag-role](../../../cli/latest/reference/iam/tag-role.md "../../../cli/latest/reference/iam/tag-role.md")
 
-For more information, see [Managing tags on IAM roles (AWS CLI or
-AWS API)](id_tags_roles.md#id_tags_roles_procs-cli-api "id_tags_roles.md#id_tags_roles_procs-cli-api"). 4. (Optional) Set the [permissions
+For more information, see [Managing tags on IAM roles (AWS CLI or AWS API)](id_tags_roles.md#id_tags_roles_procs-cli-api "id_tags_roles.md#id_tags_roles_procs-cli-api"). 4. (Optional) Set the [permissions
 boundary](access_policies_boundaries.md "access_policies_boundaries.md") for the role: [aws iam
 put-role-permissions-boundary](../../../cli/latest/reference/iam/put-role-permissions-boundary.md "../../../cli/latest/reference/iam/put-role-permissions-boundary.md")
 
@@ -324,9 +318,7 @@ When you launch the EC2 instance, specify the instance profile name in the
 use the `aws ec2 run-instances` CLI command, specify the
 `--iam-instance-profile` parameter.
 
-## Creating a role for a service (AWS
-
-API)
+## Creating a role for a service (AWS API)
 
 Creating a role from the AWS API involves multiple steps. When you use the console to
 create a role, many of the steps are done for you, but with the API you must explicitly
@@ -344,8 +336,7 @@ or
 
 Create an inline permissions policy for the role: [PutRolePolicy](../APIReference/API_PutRolePolicy.md "../APIReference/API_PutRolePolicy.md") 3. (Optional) Add custom attributes to the user by attaching tags: [TagRole](../APIReference/API_TagRole.md "../APIReference/API_TagRole.md")
 
-For more information, see [Managing tags on IAM users (AWS CLI or
-AWS API)](id_tags_users.md#id_tags_users_procs-cli-api "id_tags_users.md#id_tags_users_procs-cli-api"). 4. (Optional) Set the [permissions
+For more information, see [Managing tags on IAM users (AWS CLI or AWS API)](id_tags_users.md#id_tags_users_procs-cli-api "id_tags_users.md#id_tags_users_procs-cli-api"). 4. (Optional) Set the [permissions
 boundary](access_policies_boundaries.md "access_policies_boundaries.md") for the role: [PutRolePermissionsBoundary](../APIReference/API_PutRolePermissionsBoundary.md "../APIReference/API_PutRolePermissionsBoundary.md")
 
 A permissions boundary controls the maximum permissions that a role can have.

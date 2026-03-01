@@ -1,6 +1,4 @@
-# Previewing access with IAM Access Analyzer
-
-APIs
+# Previewing access with IAM Access Analyzer APIs
 
 You can use [IAM Access Analyzer APIs](../../../access-analyzer/latest/APIReference/Welcome.md "../../../access-analyzer/latest/APIReference/Welcome.md") to preview
 public and cross-account access for your Amazon S3 buckets, AWS KMS keys, IAM roles, Amazon SQS queues
@@ -10,8 +8,7 @@ existing resource you own or a new resource you want to deploy.
 To preview external access to your resource, you must have an active account analyzer for
 the account and region of the resource. You must also have the permissions required to use
 IAM Access Analyzer and preview access. For more information on enabling IAM Access Analyzer and permissions
-required, see [Getting started with
-AWS Identity and Access Management Access Analyzer](access-analyzer-getting-started.md "access-analyzer-getting-started.md").
+required, see [Getting started with AWS Identity and Access Management Access Analyzer](access-analyzer-getting-started.md "access-analyzer-getting-started.md").
 
 To preview access for a resource, you can use the `CreateAccessPreview`
 operation and provide the analyzer ARN and the access control configuration for the
@@ -53,9 +50,7 @@ configuration by default. If the access preview is for a new resource and you le
 configuration option unspecified, the access preview will use the default value depending on
 the resource type. For configuration cases for each resource type, see below.
 
-## Preview access to your Amazon S3
-
-bucket
+## Preview access to your Amazon S3 bucket
 
 To create an access preview for a new Amazon S3 bucket or an existing Amazon S3 bucket that you
 own, you can propose a bucket configuration by specifying the Amazon S3 bucket policy, bucket
@@ -100,9 +95,7 @@ the access preview uses `false`. If the proposed configuration is for a new
 access point or multi-region access point, and you do not specify the access point BPA
 configuration, the access preview uses `true`.
 
-## Preview access to your AWS KMS
-
-key
+## Preview access to your AWS KMS key
 
 To create an access preview for a new AWS KMS key or an existing AWS KMS key that you own,
 you can propose a AWS KMS key configuration by specifying the key policy and the AWS KMS
@@ -120,9 +113,7 @@ key, the access preview uses the proposed list of grant configurations in place 
 existing grants. Otherwise, the access preview uses the existing grants for the
 key.
 
-## Preview access to your IAM
-
-role
+## Preview access to your IAM role
 
 To create an access preview for a new IAM role or an existing IAM role that you
 own, you can propose an IAM role configuration by specifying the trust policy.
@@ -133,9 +124,7 @@ existing IAM role that you own and you do not propose the trust policy, the acce
 preview uses the existing trust policy for the role. The proposed trust policy cannot be
 an empty string.
 
-## Preview access to your Amazon SQS
-
-queue
+## Preview access to your Amazon SQS queue
 
 To create an access preview for a new Amazon SQS queue or an existing Amazon SQS queue that you
 own, you can propose an Amazon SQS queue configuration by specifying the Amazon SQS policy for the
@@ -148,9 +137,7 @@ you do not specify the policy, the access preview assumes an Amazon SQS queue wi
 policy. To propose deletion of an existing Amazon SQS queue policy, you can specify an empty
 string for the Amazon SQS policy.
 
-## Preview access to your
-
-Secrets Manager secret
+## Preview access to your Secrets Manager secret
 
 To create an access preview for a new Secrets Manager secret or an existing Secrets Manager
 secret that you own, you can propose a Secrets Manager secret configuration by specifying the

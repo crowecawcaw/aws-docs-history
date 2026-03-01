@@ -1,6 +1,4 @@
-# Policy summary (list of
-
-services)
+# Policy summary (list of services)
 
 Policies are summarized in three tables: the policy summary, the [service summary](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md"), and the
 [action summary](access_policies_understand-action-summary.md "access_policies_understand-action-summary.md"). The
@@ -16,9 +14,7 @@ recognizes the service, then it is included under the **Explicit deny** or
 **Allow** sections of the table, depending on the effect of the policy
 (`Deny` or `Allow`).
 
-## Understanding the elements of a policy
-
-summary
+## Understanding the elements of a policy summary
 
 In the following example of a policy details page, the
 **SummaryAllElements** policy is a managed policy (customer managed policy)
@@ -34,8 +30,7 @@ In the preceding image, the policy summary is visible from within the
 2. If the policy does not grant permissions to all the actions, resources, and conditions
    defined in the policy, then a warning or error banner appears at the top of the page. The
    policy summary then includes details about the problem. To learn how policy summaries help
-   you to understand and troubleshoot the permissions that your policy grants, see [My policy does not grant the expected
-   permissions](troubleshoot_policies.md#policy-summary-not-grant-permissions "troubleshoot_policies.md#policy-summary-not-grant-permissions").
+   you to understand and troubleshoot the permissions that your policy grants, see [My policy does not grant the expected permissions](troubleshoot_policies.md#policy-summary-not-grant-permissions "troubleshoot_policies.md#policy-summary-not-grant-permissions").
 3. Use the **Summary** and **JSON** buttons to toggle
    between the policy summary and the JSON policy document.
 4. Use the **Search** box to reduce the list of services and find a
@@ -58,15 +53,13 @@ In the preceding image, the policy summary is visible from within the
 2. **Service** – This column lists the services that are defined
    within the policy and provides details for each service. Each service name in the policy
    summary table is a link to the _service summary_ table,
-   which is explained in [Service summary (list of
-   actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md"). In this example,
+   which is explained in [Service summary (list of actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md"). In this example,
    permissions are defined for the Amazon S3, Billing, CodeDeploy, and Amazon EC2 services.
 3. **Access level** – This column tells whether the actions in
    each access level (`List`, `Read`, `Write`,
    `Permission Management`, and `Tagging`) have `Full` or
    `Limited` permissions defined in the policy. For additional details and
-   examples of the access level summary, see [Access levels
-   in policy summaries](access_policies_understand-policy-summary-access-level-summaries.md "access_policies_understand-policy-summary-access-level-summaries.md").
+   examples of the access level summary, see [Access levels in policy summaries](access_policies_understand-policy-summary-access-level-summaries.md "access_policies_understand-policy-summary-access-level-summaries.md").
    - **Full access** – This entry indicates that the service
      has access to all actions within all four of the access levels available for the
      service.
@@ -186,8 +179,7 @@ or conditions with no permissions:
     One or more actions do not have an applicable resource.**
     – The `Deny` statement for Amazon S3 includes more than one resource. It also
     includes more than one action, and some actions support the resources and some do not. To
-    view this policy, see [SummaryAllElements JSON
-    policy document](#policy-summary-example-json "#policy-summary-example-json"). In this case, the
+    view this policy, see [SummaryAllElements JSON policy document](#policy-summary-example-json "#policy-summary-example-json"). In this case, the
     policy includes all Amazon S3 actions, and only the actions that can be performed on a bucket
     or bucket object are denied.
 4.  **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
@@ -206,9 +198,7 @@ or conditions with no permissions:
     – The service has at least one condition key that does not have a supporting
     action.
 
-## **SummaryAllElements** JSON
-
-policy document
+## **SummaryAllElements** JSON policy document
 
 The **SummaryAllElements** policy is not intended for you to use to
 define permissions in your account. Rather, it is included to demonstrate the errors and

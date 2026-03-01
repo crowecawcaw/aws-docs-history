@@ -16,9 +16,7 @@ assume a role, in addition to identity-based policies that specify the actions a
 user or role can access. By configuring these IAM policies, you can help ensure that users and
 applications have the appropriate level of permissions to perform their required tasks.
 
-## When you are performing different job
-
-functions
+## When you are performing different job functions
 
 AWS Identity and Access Management is a core infrastructure service that provides the foundation for access control
 based on identities within AWS. You use IAM every time you access your AWS
@@ -38,9 +36,7 @@ How you use IAM differs, depending on the work that you do in AWS.
 - IAM administrator – If you're an IAM administrator, you manage IAM identities
   and write policies to manage access to IAM.
 
-## When you are authorized to access AWS
-
-resources
+## When you are authorized to access AWS resources
 
 Authentication is how you sign in to AWS using your identity credentials. You must be authenticated as the AWS account root user, an IAM user, or by assuming an IAM role.
 
@@ -60,9 +56,7 @@ An _[IAM role](id_roles.md "id_roles.md")_ is an identity with specific permissi
 
 IAM roles are useful for federated user access, temporary IAM user permissions, cross-account access, cross-service access, and applications running on Amazon EC2. For more information, see [Cross account resource access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md") in the _IAM User Guide_.
 
-## When you create policies and
-
-permissions
+## When you create policies and permissions
 
 You grant permissions to a user by creating a policy, which is a document that lists the
 actions that a user can perform and the resources those actions can affect. Any actions or

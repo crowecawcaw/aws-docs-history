@@ -1,6 +1,4 @@
-# Centralize root access for member
-
-accounts
+# Centralize root access for member accounts
 
 Root user credentials are the initial credentials assigned to each AWS account
 that has complete access to all AWS services and resources in the account. When you enable
@@ -87,9 +85,7 @@ including:
   - `organizations:ListParents`
   - `organizations:ListTagsForResource`
 
-## Enabling centralized root access
-
-(console)
+## Enabling centralized root access (console)
 
 ###### To enable this feature for member accounts in the AWS Management Console
 
@@ -118,9 +114,7 @@ Guide_. 3. In the Capabilities to enable section, choose which features to enabl
    for security or management purposes.
 5. Choose **Enable**.
 
-## Enabling centralized root access
-
-(AWS CLI)
+## Enabling centralized root access (AWS CLI)
 
 ###### To enable centralized root access from the AWS Command Line Interface (AWS CLI)
 
@@ -143,9 +137,7 @@ aws organizations register-delegated-administrator
 
 ```
 
-## Enabling centralized root access (AWS
-
-API)
+## Enabling centralized root access (AWS API)
 
 ###### To enable centralized root access from the AWS API
 

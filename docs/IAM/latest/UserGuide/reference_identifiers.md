@@ -21,8 +21,7 @@ If you use the IAM API or AWS Command Line Interface (AWS CLI) to create IAM res
 optional path. You can use a single path, or nest multiple paths as a folder structure. For
 example, you could use the nested path `/division_abc/subdivision_xyz/product_1234/engineering/` to
 match your company organizational structure. You could then create a policy to allow all users
-in that path to access the policy simulator API. To view this policy, see [IAM: Access the policy
-simulator API based on user path](reference_policies_examples_iam_policy-sim-path.md "reference_policies_examples_iam_policy-sim-path.md"). For information about how
+in that path to access the policy simulator API. To view this policy, see [IAM: Access the policy simulator API based on user path](reference_policies_examples_iam_policy-sim-path.md "reference_policies_examples_iam_policy-sim-path.md"). For information about how
 a friendly name can be specified, see [the User API
 documentation](../APIReference/API_User.md "../APIReference/API_User.md"). For additional examples of how you might use paths, see [IAM ARNs](#identifiers-arns "#identifiers-arns").
 
@@ -289,9 +288,7 @@ _policy variables_. Policy variables can include placeholders for
 runtime information (such as the user's name) as part of the ARN. For more information, see
 [IAM policy elements: Variables and tags](reference_policies_variables.md "reference_policies_variables.md")
 
-### Using wildcards and paths in
-
-ARNs
+### Using wildcards and paths in ARNs
 
 You can use wildcards in the `resource` portion of the ARN to
 specify multiple users or IAM groups or policies. For example, to specify all users
@@ -412,9 +409,7 @@ folders for each employee. IAM user `John` is a member of an IAM
 user group named `User-S3-Access` with permissions that allows users access only to
 their own folders in the bucket. For an example of how you might create an identity-based
 policy that allows IAM users to access their own bucket object in S3 using the friendly name
-of users, see [Amazon S3: Allows
-IAM users access to their S3 home directory, programmatically and in the
-console](reference_policies_examples_s3_home-directory-console.md "reference_policies_examples_s3_home-directory-console.md").
+of users, see [Amazon S3: Allows IAM users access to their S3 home directory, programmatically and in the console](reference_policies_examples_s3_home-directory-console.md "reference_policies_examples_s3_home-directory-console.md").
 
 Suppose that the employee named John leaves your company and you delete the
 corresponding IAM user named `John`. But later another employee named

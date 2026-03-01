@@ -1,6 +1,4 @@
-# Generating a policy based
-
-on access activity
+# Generating a policy based on access activity
 
 You can use the access activity recorded in AWS CloudTrail for an IAM user or IAM role to
 have IAM Access Analyzer generate a customer managed policy to allow access to only the services
@@ -13,8 +11,7 @@ generated:
 - Policy with action-level information – For
   some AWS services, such as Amazon EC2, IAM Access Analyzer can identify the actions found in
   your CloudTrail events and lists the actions used in the policy it generates. For a list
-  of supported services, see [IAM Access Analyzer
-  policy generation services](access-analyzer-policy-generation-action-last-accessed-support.md "access-analyzer-policy-generation-action-last-accessed-support.md"). For some services, IAM Access Analyzer prompts you to add actions for the services to
+  of supported services, see [IAM Access Analyzer policy generation services](access-analyzer-policy-generation-action-last-accessed-support.md "access-analyzer-policy-generation-action-last-accessed-support.md"). For some services, IAM Access Analyzer prompts you to add actions for the services to
   the generated policy.
 - Policy with service-level information –
   IAM Access Analyzer uses [last

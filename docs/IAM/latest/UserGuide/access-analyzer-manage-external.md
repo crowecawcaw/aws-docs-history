@@ -1,6 +1,4 @@
-# Manage an IAM Access Analyzer external access
-
-analyzer
+# Manage an IAM Access Analyzer external access analyzer
 
 To enable an external access analyzer in a Region, you must create an analyzer in that
 Region. You must create an external access analyzer in each Region in which you want to
@@ -11,9 +9,7 @@ monitor access to your resources.
 After you create or update an analyzer, it can take time for findings to be
 available.
 
-## Update an external access
-
-analyzer
+## Update an external access analyzer
 
 Use the following procedure to update an external access analyzer.
 
@@ -28,9 +24,7 @@ Use the following procedure to update an external access analyzer.
 5. On the **Tags** tab, you can manage and create tags for the
    analyzer. For more information, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md").
 
-## Delete an external access
-
-analyzer
+## Delete an external access analyzer
 
 Use the following procedure to delete an external access analyzer. When you delete an
 analyzer, the resources are no longer monitored and no new findings are generated. All

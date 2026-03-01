@@ -8,19 +8,15 @@ boundaries.
 Before you change the permissions for a role, you should review its recent service-level
 activity. This is important because you don't want to remove access from a principal (person
 or application) who is using it. For more information about viewing last accessed information,
-see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
-## Update the permissions
-
-policy for a role
+## Update the permissions policy for a role
 
 To change the permissions allowed by the role, modify the role's permissions policy
 (or policies). You cannot modify the permissions policy for a _[service-linked
 role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role")_ in IAM. You might be able to modify the permissions policy
 within the service that depends on the role. To check whether a service supports this
-feature, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
+feature, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
 services that have **Yes** in the **Service-linked roles** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
@@ -64,8 +60,7 @@ service.
     _[service-linked
     role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role")_ in IAM. You might be able to modify the permissions
     policy within the service that depends on the role. To check whether a service
-    supports this feature, see [AWS services that work with
-    IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
+    supports this feature, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
     services that have **Yes** in the **Service-linked roles** column. Choose a **Yes** with a link to view the service-linked role
     documentation for that service.
 
@@ -97,8 +92,7 @@ policy (or policies). You cannot modify the permissions policy for a
 _[service-linked
 role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role")_ in IAM. You might be able to modify the permissions
 policy within the service that depends on the role. To check whether a service
-supports this feature, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
+supports this feature, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
 services that have **Yes** in the **Service-linked roles** column. Choose a **Yes** with a link to view the service-linked role
 documentation for that service.
 
@@ -122,15 +116,11 @@ To update an inline policy, call the following operation:
 
     * [PutRolePolicy](../APIReference/API_PutRolePolicy.md "../APIReference/API_PutRolePolicy.md")
 
-## Update the permissions
-
-boundary for a role
+## Update the permissions boundary for a role
 
 To change the maximum permissions allowed for a role, modify the role's [permissions boundary](access_policies_boundaries.md "access_policies_boundaries.md").
 
-###### To change the policy used to set the permissions boundary for a
-
-role
+###### To change the policy used to set the permissions boundary for a role
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Roles**.
@@ -146,9 +136,7 @@ role
 Your changes don't take effect until the next time someone assumes
 this role.
 
-###### To change the managed policy used to set the permissions boundary for a
-
-role (AWS CLI)
+###### To change the managed policy used to set the permissions boundary for a role (AWS CLI)
 
 1.  (Optional) To view the current [permissions boundary](access_policies_boundaries.md "access_policies_boundaries.md") for
     a role, run the following command:
@@ -164,9 +152,7 @@ role (AWS CLI)
     If you change the permissions boundary, you change the maximum
     permissions allowed for a role.
 
-###### To change the managed policy used to set the permissions boundary for a
-
-role (AWS API)
+###### To change the managed policy used to set the permissions boundary for a role (AWS API)
 
 1.  (Optional) To view the current [permissions boundary](access_policies_boundaries.md "access_policies_boundaries.md") for
     a role, call the following operation:

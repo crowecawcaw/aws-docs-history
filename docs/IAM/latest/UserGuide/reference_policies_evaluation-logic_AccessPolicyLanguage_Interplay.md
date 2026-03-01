@@ -1,6 +1,4 @@
-# The
-
-difference between explicit and implicit denies
+# The difference between explicit and implicit denies
 
 A request results in an explicit deny if an applicable policy includes a `Deny`
 statement. If policies that apply to a request include an `Allow` statement and a

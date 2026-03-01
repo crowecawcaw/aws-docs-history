@@ -1,6 +1,4 @@
-# Amazon EC2: Allows managing EC2
-
-security groups with a specific tag key-value pair programmatically and in the console
+# Amazon EC2: Allows managing EC2 security groups with a specific tag key-value pair programmatically and in the console
 
 This example shows how you might create an identity-based policy that grants users permission to take certain actions for security groups
 that have the same tag. This policy grants permissions to view security groups in the

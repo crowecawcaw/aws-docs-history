@@ -1,6 +1,4 @@
-# Amazon EC2: Attach or detach Amazon EBS
-
-volumes to EC2 instances based on tags
+# Amazon EC2: Attach or detach Amazon EBS volumes to EC2 instances based on tags
 
 This example shows how you might create an identity-based policy that allows EBS volume owners to attach or detach their EBS volumes
 defined using the tag `VolumeUser` to EC2 instances that are tagged as

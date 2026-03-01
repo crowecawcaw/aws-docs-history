@@ -1,6 +1,4 @@
-# Set an account password policy for
-
-IAM users
+# Set an account password policy for IAM users
 
 You can set a custom password policy on your AWS account to specify complexity
 requirements and mandatory rotation periods for your IAM users' passwords. If you don't set a
@@ -10,8 +8,7 @@ more information, see [Custom password policy options](#password-policy-details 
 ###### Topics
 
 - [Rules for setting a password policy](#password-policy-rules "#password-policy-rules")
-- [Permissions required to set a password
-  policy](#default-policy-permissions-required "#default-policy-permissions-required")
+- [Permissions required to set a password policy](#default-policy-permissions-required "#default-policy-permissions-required")
 - [Default password policy](#default-policy-details "#default-policy-details")
 - [Custom password policy options](#password-policy-details "#password-policy-details")
 - [To set a password policy (console)](#IAMPasswordPolicy "#IAMPasswordPolicy")
@@ -45,9 +42,7 @@ number of failed sign-in attempts. For enhanced security, we recommend that you 
 strong password policy with multi-factor authentication (MFA). For more information about MFA,
 see [AWS Multi-factor authentication in IAM](id_credentials_mfa.md "id_credentials_mfa.md").
 
-## Permissions required to set a password
-
-policy
+## Permissions required to set a password policy
 
 You must configure permissions to allow an IAM entity (user or role) to view or edit
 their account password policy. You can include the following password policy actions in an
@@ -61,8 +56,7 @@ IAM policy:
   change the custom password policy for their account
 
 The following policy allows full access to view and edit the account password policy. To
-learn how to create an IAM policy using this example JSON policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+learn how to create an IAM policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 JSON
 
@@ -86,8 +80,7 @@ JSON
 ```
 
 For information about the permissions required for an IAM user to change their own
-password, see [Permit IAM users to change
-their own passwords](id_credentials_passwords_enable-user-change.md "id_credentials_passwords_enable-user-change.md").
+password, see [Permit IAM users to change their own passwords](id_credentials_passwords_enable-user-change.md "id_credentials_passwords_enable-user-change.md").
 
 ## Default password policy
 
@@ -143,8 +136,7 @@ following conditions:
   permissions policy to each user. Rather, IAM applies the permissions at the
   account-level for all users. Alternatively, you can allow only some users to manage their
   own passwords. To do so, you clear this checkbox. For more information about using
-  policies to limit who can manage passwords, see [Permit IAM users to change
-  their own passwords](id_credentials_passwords_enable-user-change.md "id_credentials_passwords_enable-user-change.md").
+  policies to limit who can manage passwords, see [Permit IAM users to change their own passwords](id_credentials_passwords_enable-user-change.md "id_credentials_passwords_enable-user-change.md").
 - **Prevent password reuse** – You can prevent IAM users from
   reusing a specified number of previous passwords. You can specify a minimum number of 1
   and a maximum number of 24 previous passwords that can't be repeated.

@@ -22,8 +22,7 @@ assign to an Amazon S3 bucket. For more information about tagging strategies, se
 
 In addition to identifying, organizing, and tracking your IAM resources with tags, you can
 use tags in IAM policies to help control who can view and interact with your resources. To
-learn more about using tags to control access, see [Controlling access to and for IAM users and roles using
-tags](access_iam-tags.md "access_iam-tags.md").
+learn more about using tags to control access, see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md "access_iam-tags.md").
 
 You can also use tags in AWS STS to add custom attributes when you assume a role or federate a
 user. For more information, see [Pass session tags in AWS STS](id_session-tags.md "id_session-tags.md").
@@ -34,12 +33,10 @@ user. For more information, see [Pass session tags in AWS STS](id_session-tags.m
 - [Rules for tagging in IAM and AWS STS](#id_tags_rules "#id_tags_rules")
 - [Tag IAM users](id_tags_users.md "id_tags_users.md")
 - [Tag IAM roles](id_tags_roles.md "id_tags_roles.md")
-- [Tag customer managed
-  policies](id_tags_customer-managed-policies.md "id_tags_customer-managed-policies.md")
+- [Tag customer managed policies](id_tags_customer-managed-policies.md "id_tags_customer-managed-policies.md")
 - [Tag OpenID Connect (OIDC) identity providers](id_tags_oidc.md "id_tags_oidc.md")
 - [Tag IAM SAML identity providers](id_tags_saml.md "id_tags_saml.md")
-- [Tag instance profiles for Amazon EC2
-  roles](id_tags_instance-profiles.md "id_tags_instance-profiles.md")
+- [Tag instance profiles for Amazon EC2 roles](id_tags_instance-profiles.md "id_tags_instance-profiles.md")
 - [Tag server certificates](id_tags_server-certificates.md "id_tags_server-certificates.md")
 - [Tag virtual MFA devices](id_tags_virtual-mfa.md "id_tags_virtual-mfa.md")
 - [Pass session tags in AWS STS](id_session-tags.md "id_session-tags.md")
@@ -168,8 +165,7 @@ To control access to engineers in this example using the
 `team` tag, you must create a policy that allows for every
 configuration that might include `Engineering`, including
 `Engineering:QA`. To learn more about using tags in policies,
-see [Controlling access to and for IAM users and roles using
-tags](access_iam-tags.md "access_iam-tags.md").
+see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md "access_iam-tags.md").
 
 ### Applying and editing tags
 

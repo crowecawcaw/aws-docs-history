@@ -1,14 +1,11 @@
-# Access for an IAM user in another
-
-AWS account that you own
+# Access for an IAM user in another AWS account that you own
 
 You can grant your IAM users permission to switch to roles within your AWS account or to
 roles defined in other AWS accounts that you own.
 
 ###### Note
 
-If you want to grant access to an account that you do not own or control, see [Access to AWS accounts owned by third
-parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md") later in this topic.
+If you want to grant access to an account that you do not own or control, see [Access to AWS accounts owned by third parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md") later in this topic.
 
 Imagine that you have Amazon EC2 instances that are critical to your organization. Instead of
 directly granting your users permission to terminate the instances, you can create a role with
@@ -40,9 +37,7 @@ the role, the user can perform only the actions and access only the resources pe
 role; their original user permissions are suspended. When the user exits the role, the original
 user permissions are restored.
 
-## Example scenario using
-
-separate development and production accounts
+## Example scenario using separate development and production accounts
 
 Imagine that your organization has multiple AWS accounts to isolate a development
 environment from a production environment. Users in the development account might occasionally
@@ -119,5 +114,4 @@ to the role and therefore cannot access the S3 bucket in the production account.
 
 For more information, see the following:
 
-- [IAM tutorial: Delegate access across
-  AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md")
+- [IAM tutorial: Delegate access across AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md")

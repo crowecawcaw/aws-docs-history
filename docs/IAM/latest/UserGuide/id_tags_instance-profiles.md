@@ -1,6 +1,4 @@
-# Tag instance profiles for Amazon EC2
-
-roles
+# Tag instance profiles for Amazon EC2 roles
 
 When you launch an Amazon EC2 instance, you specify an IAM role to associate with the
 instance. An instance profile is a container for an IAM role that you can use to pass role
@@ -14,15 +12,12 @@ this gives principals with matching tags access to instance profiles with the sa
 could use multiple tag key-value pairs to specify a team and project: `access-team
  = eng` , and `project = peg`. You can use tags to
 control a user's access to resources or to control what tags can be attached to a user. To
-learn more about using tags to control access, see [Controlling access to and for IAM users and roles using
-tags](access_iam-tags.md "access_iam-tags.md").
+learn more about using tags to control access, see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md "access_iam-tags.md").
 
 You can also use tags in AWS STS to add custom attributes when you assume a role or federate
 a user. For more information, see [Pass session tags in AWS STS](id_session-tags.md "id_session-tags.md").
 
-## Permissions required for tagging
-
-instance profiles
+## Permissions required for tagging instance profiles
 
 You must configure permissions to allow an IAM entity (user or role) to tag instance
 profiles. You can specify one or all of the following IAM tag actions in an IAM
@@ -32,16 +27,13 @@ policy:
 - `iam:TagInstanceProfile`
 - `iam:UntagInstanceProfile`
 
-###### To allow an IAM entity (user or role) to add, list, or remove a tag for an
-
-instance profile
+###### To allow an IAM entity (user or role) to add, list, or remove a tag for an instance profile
 
 Add the following statement to the permissions policy for the IAM entity that
 needs to manage tags. Use your account number and replace
 `<InstanceProfileName>` with the name of the
 instance profile whose tags need to be managed. To learn how to create a policy
-using this example JSON policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -55,9 +47,7 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 }
 ```
 
-###### To allow an IAM entity (user or role) to add a tag to a specific instance
-
-profile
+###### To allow an IAM entity (user or role) to add a tag to a specific instance profile
 
 Add the following statement to the permissions policy for the IAM entity that
 needs to add, but not remove, tags for a specific instance profile.
@@ -69,8 +59,7 @@ The `iam:TagInstanceProfile` action requires that you also include the
 
 To use this policy, replace `<InstanceProfileName>` with
 the name of the instance profile whose tags need to be managed. To learn how to create a
-policy using this example JSON policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -85,16 +74,12 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 
 Alternatively, you can use an AWS managed policy such as [IAMFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess") to provide full access to IAM.
 
-## Managing tags on instance
-
-profiles (AWS CLI or AWS API)
+## Managing tags on instance profiles (AWS CLI or AWS API)
 
 You can list, attach, or remove tags for instance profiles. You can use the AWS CLI or
 the AWS API to manage tags for instance profiles.
 
-###### To list the tags currently attached to an instance profile (AWS CLI or AWS
-
-API)
+###### To list the tags currently attached to an instance profile (AWS CLI or AWS API)
 
 - AWS CLI: [aws iam
   list-instance-profile-tags](../../../cli/latest/reference/iam/list-instance-profile-tags.md "../../../cli/latest/reference/iam/list-instance-profile-tags.md")

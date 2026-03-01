@@ -28,9 +28,7 @@ read-only access to just some Amazon S3 buckets, or permission to administer
 just some Amazon EC2 instances, or to access your billing information but nothing
 else.
 
-## Secure access to AWS resources for applications
-
-that run on Amazon EC2
+## Secure access to AWS resources for applications that run on Amazon EC2
 
 You can use IAM features to securely provide credentials for applications that run
 on EC2 instances. These credentials provide permissions for your application to access

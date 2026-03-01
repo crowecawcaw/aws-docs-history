@@ -6,22 +6,14 @@ when working with IAM roles.
 ###### Topics
 
 - [I can't assume a role](#troubleshoot_roles_cant-assume-role "#troubleshoot_roles_cant-assume-role")
-- [A new role appeared in my AWS
-  account](#troubleshoot_roles_new-role-appeared "#troubleshoot_roles_new-role-appeared")
-- [I can't edit or delete a role in my
-  AWS account](#troubleshoot_roles_cant-edit-delete-role "#troubleshoot_roles_cant-edit-delete-role")
-- [I'm not authorized to perform:
-  iam:PassRole](#troubleshoot_roles_not-auth-passrole "#troubleshoot_roles_not-auth-passrole")
-- [Why can't I assume a role with a 12-hour
-  session? (AWS CLI, AWS API)](#troubleshoot_roles_cant-set-session "#troubleshoot_roles_cant-set-session")
-- [I receive an error when I try to
-  switch roles in the IAM console](#troubleshoot_roles_cant-switch-role-console "#troubleshoot_roles_cant-switch-role-console")
-- [My role has a policy that allows me to
-  perform an action, but I get "access denied"](#troubleshoot_roles_session-policy "#troubleshoot_roles_session-policy")
-- [The service did not create the
-  role's default policy version](#troubleshoot_serviceroles_edited-policy "#troubleshoot_serviceroles_edited-policy")
-- [There is no use case for a
-  service role in the console](#troubleshoot_serviceroles_console-use-case "#troubleshoot_serviceroles_console-use-case")
+- [A new role appeared in my AWS account](#troubleshoot_roles_new-role-appeared "#troubleshoot_roles_new-role-appeared")
+- [I can't edit or delete a role in my AWS account](#troubleshoot_roles_cant-edit-delete-role "#troubleshoot_roles_cant-edit-delete-role")
+- [I'm not authorized to perform: iam:PassRole](#troubleshoot_roles_not-auth-passrole "#troubleshoot_roles_not-auth-passrole")
+- [Why can't I assume a role with a 12-hour session? (AWS CLI, AWS API)](#troubleshoot_roles_cant-set-session "#troubleshoot_roles_cant-set-session")
+- [I receive an error when I try to switch roles in the IAM console](#troubleshoot_roles_cant-switch-role-console "#troubleshoot_roles_cant-switch-role-console")
+- [My role has a policy that allows me to perform an action, but I get "access denied"](#troubleshoot_roles_session-policy "#troubleshoot_roles_session-policy")
+- [The service did not create the role's default policy version](#troubleshoot_serviceroles_edited-policy "#troubleshoot_serviceroles_edited-policy")
+- [There is no use case for a service role in the console](#troubleshoot_serviceroles_console-use-case "#troubleshoot_serviceroles_console-use-case")
 
 ## I can't assume a role
 
@@ -33,7 +25,7 @@ Check the following:
   credentials and automatically update these credentials. This ensures that you always have
   a valid set of credentials. For these services, it's not necessary to assume the current
   role again to obtain temporary credentials. However, if you intend to pass [session tags](id_session-tags.md "id_session-tags.md") or a [session policy](access_policies.md#policies_session "access_policies.md#policies_session"), you need to assume the current role again. To learn how to
-  modify a role trust policy to add the principal role ARN or AWS account ARN, see [Update a role trust policy](id_roles_update-role-trust-policy.md "id_roles_update-role-trust-policy.md") .
+  modify a role trust policy to add the principal role ARN or AWS account ARN, see [Update a role trust policy](id_roles_update-role-trust-policy.md "id_roles_update-role-trust-policy.md").
 - When you assume a role using the AWS Management Console, make sure to use the exact name of your
   role. Role names are case sensitive when you assume a role.
 - When you assume a role using AWS STS API or AWS CLI, make sure to use the exact name of
@@ -116,12 +108,9 @@ CS`. Otherwise, you cannot assume the role. To learn about tagging IAM users and
   roles to require identities to pass a custom string that identifies the person or
   application that is performing actions in AWS, called _source
   identity_. Verify whether the role being assumed requires that a source
-  identity is set. For more information about source identity, see [Monitor and control actions
-  taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md").
+  identity is set. For more information about source identity, see [Monitor and control actions taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md").
 
-## A new role appeared in my AWS
-
-account
+## A new role appeared in my AWS account
 
 Some AWS services require that you use a unique type of service role that is linked
 directly to the service. This [service-linked
@@ -139,15 +128,12 @@ resources. You can view the service-linked roles in your account by going to the
 **(Service-linked role)** in the **Trusted entities**
 column of the table.
 
-For information about which services support service-linked roles, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
+For information about which services support service-linked roles, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
 have **Yes** in the **Service-Linked
 Role** column. For information about using the service-linked role for a service,
 choose the **Yes** link.
 
-## I can't edit or delete a role in my
-
-AWS account
+## I can't edit or delete a role in my AWS account
 
 You cannot delete or edit the permissions for a [service-linked role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role") in IAM. These roles
 include predefined trusts and permissions that are required by the service in order to perform
@@ -161,14 +147,11 @@ linked service, if that service supports the action. Be careful when modifying o
 service-linked role because doing so could remove permissions that the service needs to access
 AWS resources.
 
-For information about which services support service-linked roles, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
+For information about which services support service-linked roles, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
 have **Yes** in the **Service-Linked
 Role** column.
 
-## I'm not authorized to perform:
-
-iam:PassRole
+## I'm not authorized to perform: iam:PassRole
 
 When you create a service-linked role, you must have permission to pass that role to the
 service. Some services automatically create a service-linked role in your account when you
@@ -185,14 +168,11 @@ you create an Auto Scaling group. If you try to create an Auto Scaling group wit
 To fix this error, ask your administrator to add the `iam:PassRole` permission
 for you.
 
-To learn which services support service-linked roles, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn whether a service
+To learn which services support service-linked roles, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn whether a service
 automatically creates a service-linked role for you, choose the **Yes** link
 to view the service-linked role documentation for the service.
 
-## Why can't I assume a role with a 12-hour
-
-session? (AWS CLI, AWS API)
+## Why can't I assume a role with a 12-hour session? (AWS CLI, AWS API)
 
 When you use the AWS STS `AssumeRole*` API or `assume-role*` CLI
 operations to assume a role, you can specify a value for the `DurationSeconds`
@@ -201,17 +181,14 @@ session duration** setting for the role. If you specify a value higher than this
 setting, the operation fails. This setting can have a maximum value of 12 hours. For example,
 if you specify a session duration of 12 hours, but your administrator set the maximum session
 duration to 6 hours, your operation fails. To learn how to view the maximum value for your
-role, see [Update the maximum session duration
-for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
+role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
 
 If you use [role
 chaining](id_roles.md#iam-term-role-chaining "id_roles.md#iam-term-role-chaining") (using a role to assume a second role), your session is limited
 to a maximum of one hour. If you then use the `DurationSeconds` parameter to
 provide a value greater than one hour, the operation fails.
 
-## I receive an error when I try to
-
-switch roles in the IAM console
+## I receive an error when I try to switch roles in the IAM console
 
 The information you enter on the **Switch Role** page must match the
 information for the role. Otherwise, the operation fails and you receive the following
@@ -233,9 +210,7 @@ If you continue to receive an error message, contact your administrator to verif
 previous information. The role trust policy or the IAM user policy might limit your access.
 Your administrator can verify the permissions for these policies.
 
-## My role has a policy that allows me to
-
-perform an action, but I get "access denied"
+## My role has a policy that allows me to perform an action, but I get "access denied"
 
 Your role session might be limited by session policies. When you [request temporary security credentials](id_credentials_temp_request.md "id_credentials_temp_request.md")
 programmatically using AWS STS, you can optionally pass inline or managed [session policies](access_policies.md#policies_session "access_policies.md#policies_session"). Session policies are advanced policies
@@ -247,9 +222,7 @@ the role's identity-based policies and the session policies. Alternatively, if y
 administrator or a custom program provides you with temporary credentials, they might have
 included a session policy to limit your access.
 
-## The service did not create the
-
-role's default policy version
+## The service did not create the role's default policy version
 
 A service role is a role that a service assumes to perform actions in your account on your
 behalf. When you set up some AWS service environments, you must define a role for the
@@ -276,8 +249,7 @@ your service operation. First, set the default policy version to V1 and try the 
 again. If V1 was previously deleted, or if choosing V1 doesn't work, then clean up and delete
 the existing policy and role.
 
-For more information on editing managed policies, see [Editing customer managed policies
-(console)](access_policies_manage-edit-console.md#edit-customer-managed-policy-console "access_policies_manage-edit-console.md#edit-customer-managed-policy-console"). For more information about policy
+For more information on editing managed policies, see [Editing customer managed policies (console)](access_policies_manage-edit-console.md#edit-customer-managed-policy-console "access_policies_manage-edit-console.md#edit-customer-managed-policy-console"). For more information about policy
 versions, see [Versioning IAM policies](access_policies_managed-versioning.md "access_policies_managed-versioning.md").
 
 ###### To delete a service role and its policy
@@ -295,8 +267,7 @@ versions, see [Versioning IAM policies](access_policies_managed-versioning.md "a
       policy document from the existing policy. Then create the new managed policy and paste
       the JSON document as described in [Creating Policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
    2. For each affected identity, attach the new policy and then detach the old one. For
-      more information, see [Adding and removing IAM identity
-      permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
+      more information, see [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
 
 5. In the navigation pane, choose **Roles**.
 6. In the list of roles, choose the name of the role that you want to delete.
@@ -315,9 +286,7 @@ versions, see [Versioning IAM policies](access_policies_managed-versioning.md "a
    policy](access_policies_manage-delete-console.md#delete-customer-managed-policy-console "access_policies_manage-delete-console.md#delete-customer-managed-policy-console").
 9. [Delete the role](id_roles_manage_delete.md#roles-managingrole-deleting-console "id_roles_manage_delete.md#roles-managingrole-deleting-console").
 
-## There is no use case for a
-
-service role in the console
+## There is no use case for a service role in the console
 
 Some services require that you manually create a service role to grant the service
 permissions to perform actions on your behalf. If the service is not listed in the IAM
@@ -331,8 +300,7 @@ by the service.
 
 You can find the service principal for some services by checking the following:
 
-1. Open [AWS services that work with
-   IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+1. Open [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 2. Check whether the service has **Yes** in the **Service-linked
    roles** column.
 3. Choose the **Yes** link to view the service-linked role documentation
@@ -343,8 +311,7 @@ You can manually create a service role using [AWS CLI commands](id_roles_create_
 service role using the IAM console, complete the following tasks:
 
 1. Create an IAM role using your account ID. Do not attach a policy or grant any
-   permissions. For details, see [Create a role to give permissions to an IAM
-   user](id_roles_create_for-user.md "id_roles_create_for-user.md").
+   permissions. For details, see [Create a role to give permissions to an IAM user](id_roles_create_for-user.md "id_roles_create_for-user.md").
 2. Open the role and edit the trust relationship. Instead of trusting the account, the
    role must trust the service. For example, update the following `Principal`
    element:

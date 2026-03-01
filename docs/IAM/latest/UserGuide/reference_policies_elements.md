@@ -16,8 +16,7 @@ The details of what goes into a policy vary for each service, depending on what 
 service makes available, what types of resources it contains, and so on. When you're writing
 policies for a specific service, it's helpful to see examples of policies for that service. For
 a list of all the services that support IAM, and for links to the documentation in those
-services that discusses IAM and policies, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+services that discusses IAM and policies, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 When you create or edit a JSON policy, IAM can perform policy validation to help you create an effective policy. IAM identifies JSON syntax errors, while IAM Access Analyzer provides
 additional policy checks with recommendations to help you further refine your policies. To learn more about policy validation, see [IAM policy validation](access_policies_policy-validator.md "access_policies_policy-validator.md"). To learn more about IAM Access Analyzer policy checks and actionable recommendations, see [IAM Access Analyzer policy validation](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").

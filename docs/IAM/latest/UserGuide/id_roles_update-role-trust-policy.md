@@ -18,9 +18,7 @@ role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-lin
   temporary credentials. However, if you intend to pass [session tags](id_session-tags.md "id_session-tags.md") or a [session policy](access_policies.md#policies_session "access_policies.md#policies_session"), you need to assume the
   current role again.
 
-## Updating a role trust policy
-
-(console)
+## Updating a role trust policy (console)
 
 ###### To change a role trust policy in the AWS Management Console
 
@@ -52,8 +50,7 @@ The administrator for the newly trusted account must grant the users the
 permission to assume the role. To do that, the administrator must create or edit
 a policy that is attached to the user to allow the user access to the
 `sts:AssumeRole` action. For more information, see the following
-procedure or [Grant a user permissions to switch
-roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
+procedure or [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
 
 The following policy snippet shows how to reference two AWS services in the
 `Principal` element:
@@ -74,8 +71,7 @@ For more information about policy structure and syntax, see [Policies and permis
 
 ###### To allow users in a trusted external account to use the role (console)
 
-For more information and detail about this procedure, see [Grant a user permissions to switch
-roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
+For more information and detail about this procedure, see [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
 
 1. Sign in to the trusted external AWS account.
 2. Decide whether to attach the permissions to a user or to a group. In the
@@ -108,9 +104,7 @@ roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch
 Replace the ARN in the statement with the ARN of the role that the user can
 assume. 6. Follow the prompts on screen to finish editing the policy.
 
-## Updating a role trust policy
-
-(AWS CLI)
+## Updating a role trust policy (AWS CLI)
 
 You can use the AWS CLI to change who can assume a role.
 
@@ -158,8 +152,7 @@ The administrator for the newly trusted account must grant the users the
 permission to assume the role. To do that, the administrator must create or edit
 a policy that is attached to the user to allow the user access to the
 `sts:AssumeRole` action. For more information, see the following
-procedure or [Grant a user permissions to switch
-roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md"). 4. To use the file that you just created to update the trust policy, run the
+procedure or [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md"). 4. To use the file that you just created to update the trust policy, run the
 following command:
 
     * [aws iam
@@ -167,8 +160,7 @@ following command:
 
 ###### To allow users in a trusted external account to use the role (AWS CLI)
 
-For more information and detail about this procedure, see [Grant a user permissions to switch
-roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
+For more information and detail about this procedure, see [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
 
 1. Create a JSON file that contains a permissions policy that grants permissions
    to assume the role. For example, the following policy contains the minimum
@@ -212,9 +204,7 @@ users or groups in your account:
    - [aws iam
      attach-group-policy](../../../cli/latest/reference/iam/attach-group-policy.md "../../../cli/latest/reference/iam/attach-group-policy.md")
 
-## Updating a role trust policy (AWS
-
-API)
+## Updating a role trust policy (AWS API)
 
 You can use the AWS API to change who can assume a role.
 
@@ -260,16 +250,14 @@ The administrator for the newly trusted account must grant the users the
 permission to assume the role. To do that, the administrator must create or edit
 a policy that is attached to the user to allow the user access to the
 `sts:AssumeRole` action. For more information, see the following
-procedure or [Grant a user permissions to switch
-roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md"). 4. To use the file that you just created to update the trust policy, call the
+procedure or [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md"). 4. To use the file that you just created to update the trust policy, call the
 following operation:
 
     * [UpdateAssumeRolePolicy](../APIReference/API_UpdateAssumeRolePolicy.md "../APIReference/API_UpdateAssumeRolePolicy.md")
 
 ###### To allow users in a trusted external account to use the role (AWS API)
 
-For more information and detail about this procedure, see [Grant a user permissions to switch
-roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
+For more information and detail about this procedure, see [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
 
 1. Create a JSON file that contains a permissions policy that grants permissions
    to assume the role. For example, the following policy contains the minimum

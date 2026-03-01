@@ -1,6 +1,4 @@
-# View a SAML response in your
-
-browser
+# View a SAML response in your browser
 
 The following procedures describe how to view the SAML response from your service provider
 from in your browser when troubleshooting a SAML 2.0–related issue.
@@ -134,10 +132,8 @@ Check whether the values contain errors, and confirm that the following configur
 are correct.
 
 - The claim rules meet the required elements and all ARNs are correct. For more
-  information, see [Configure your SAML 2.0 IdP with
-  relying party trust and adding claims](id_roles_providers_create_saml_relying-party.md "id_roles_providers_create_saml_relying-party.md").
+  information, see [Configure your SAML 2.0 IdP with relying party trust and adding claims](id_roles_providers_create_saml_relying-party.md "id_roles_providers_create_saml_relying-party.md").
 - You uploaded the latest metadata file from your IdP into AWS in your SAML provider.
-  For more information, see [Enabling SAML 2.0 federated principals
-  to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md").
+  For more information, see [Enabling SAML 2.0 federated principals to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md").
 - You correctly configured the IAM role's trust policy. For more information, see
   [Methods to assume a role](id_roles_manage-assume.md "id_roles_manage-assume.md").

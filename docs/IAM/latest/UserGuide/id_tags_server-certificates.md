@@ -13,15 +13,12 @@ add the tag key `owner` and the tag value
 `net-eng`. Or you can specify a cost center by adding the tag key
 `CostCenter` and the tag value `1234`. You can
 use tags to control access to resources or to control what tags can be attached to
-resources. To learn more about using tags to control access, see [Controlling access to and for IAM users and roles using
-tags](access_iam-tags.md "access_iam-tags.md").
+resources. To learn more about using tags to control access, see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md "access_iam-tags.md").
 
 You can also use tags in AWS STS to add custom attributes when you assume a role or federate
 a user. For more information, see [Pass session tags in AWS STS](id_session-tags.md "id_session-tags.md").
 
-## Permissions required for
-
-tagging server certificates
+## Permissions required for tagging server certificates
 
 You must configure permissions to allow an IAM entity (user or role) to tag server
 certificates. You can specify one or all of the following IAM tag actions in an IAM
@@ -31,16 +28,13 @@ policy:
 - `iam:TagServerCertificate`
 - `iam:UntagServerCertificate`
 
-###### To allow an IAM entity (user or role) to add, list, or remove a tag for a
-
-server certificate
+###### To allow an IAM entity (user or role) to add, list, or remove a tag for a server certificate
 
 Add the following statement to the permissions policy for the IAM entity that
 needs to manage tags. Use your account number and replace
 `<CertificateName>` with the name of the server
 certificate whose tags need to be managed. To learn how to create a policy using
-this example JSON policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -54,9 +48,7 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 }
 ```
 
-###### To allow an IAM entity (user or role) to add a tag to a specific server
-
-certificate
+###### To allow an IAM entity (user or role) to add a tag to a specific server certificate
 
 Add the following statement to the permissions policy for the IAM entity that
 needs to add, but not remove, tags for a specific server certificate.
@@ -68,8 +60,7 @@ the `iam:ListServerCertificateTags` action.
 
 To use this policy, replace `<CertificateName>` with the
 name of the server certificate whose tags need to be managed. To learn how to create a
-policy using this example JSON policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -84,16 +75,12 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 
 Alternatively, you can use an AWS managed policy such as [IAMFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess") to provide full access to IAM.
 
-## Managing tags on server
-
-certificates (AWS CLI or AWS API)
+## Managing tags on server certificates (AWS CLI or AWS API)
 
 You can list, attach, or remove tags for server certificates. You can use the AWS CLI or
 the AWS API to manage tags for server certificates.
 
-###### To list the tags currently attached to a server certificate (AWS CLI or AWS
-
-API)
+###### To list the tags currently attached to a server certificate (AWS CLI or AWS API)
 
 - AWS CLI: [aws iam
   list-server-certificate-tags](../../../cli/latest/reference/iam/list-server-certificate-tags.md "../../../cli/latest/reference/iam/list-server-certificate-tags.md")

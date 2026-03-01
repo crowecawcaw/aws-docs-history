@@ -1,6 +1,4 @@
-# Permissions boundaries for IAM
-
-entities
+# Permissions boundaries for IAM entities
 
 AWS supports _permissions boundaries_ for IAM
 entities (users or roles). A permissions boundary is an advanced feature for using a managed
@@ -21,8 +19,7 @@ boundary policy attached, regardless of the values specified in the
 otherwise have access to the resource to lose access. We recommend changing your
 resource-based policy statements to use the condition operator [ArnNotEquals](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN") with the [aws:PrincipalArn](reference_policies_condition-keys.md#condition-keys-principalarn "reference_policies_condition-keys.md#condition-keys-principalarn") context
 key to limit access instead of the `NotPrincipal` element. For information
-about the `NotPrincipal` element, see [AWS JSON policy elements:
-NotPrincipal](reference_policies_elements_notprincipal.md "reference_policies_elements_notprincipal.md").
+about the `NotPrincipal` element, see [AWS JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md "reference_policies_elements_notprincipal.md").
 
 You can use an AWS managed policy or a customer managed policy to set the boundary for
 an IAM entity (user or role). That policy limits the maximum permissions for the user or
@@ -82,9 +79,7 @@ permission to perform any operations in AWS. You must add a different permission
 to allow actions in other services, such as Amazon S3. Alternatively, you could update the
 permissions boundary to allow her to create a user in IAM.
 
-## Evaluating effective permissions
-
-with boundaries
+## Evaluating effective permissions with boundaries
 
 The permissions boundary for an IAM entity (user or role) sets the maximum
 permissions that the entity can have. This can change the effective permissions for that
@@ -183,9 +178,7 @@ Policies](access_policies.md#policies_session "access_policies.md#policies_sessi
 
 ![Evaluation of a session policy, permissions boundary, and identity-based policy](images/EffectivePermissions-session-boundary-id.png)
 
-## Delegating responsibility to
-
-others using permissions boundaries
+## Delegating responsibility to others using permissions boundaries
 
 You can use permissions boundaries to delegate permissions management tasks, such as
 user creation, to IAM users in your account. This permits others to perform tasks on

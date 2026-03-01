@@ -1,6 +1,4 @@
-# IAM and AWS STS condition context
-
-keys
+# IAM and AWS STS condition context keys
 
 You can use the `Condition` element in a JSON policy to test the value of keys
 that are included in the request context of all AWS requests. These keys provide information
@@ -8,8 +6,7 @@ about the request itself or the resources that the request references. You can c
 have specified values before allowing the action requested by the user. This gives you
 granular control over when your JSON policy statements match or don't match an incoming
 request. For information about how to use the `Condition` element in a JSON policy,
-see [IAM JSON policy elements:
-Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
+see [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
 
 This topic describes the keys defined and provided by the IAM service (with an
 `iam:` prefix) and the AWS Security Token Service (AWS STS) service (with an `sts:`
@@ -24,10 +21,8 @@ in the _Amazon Simple Storage Service User Guide_.
 
 - [Available keys for IAM](#available-keys-for-iam "#available-keys-for-iam")
 - [Available keys for AWS OIDC federation](#condition-keys-wif "#condition-keys-wif")
-- [Available keys for SAML-based AWS STS
-  federation](#condition-keys-saml "#condition-keys-saml")
-- [Cross-service SAML-based AWS STS federation
-  context keys](#cross-condition-keys-saml "#cross-condition-keys-saml")
+- [Available keys for SAML-based AWS STS federation](#condition-keys-saml "#condition-keys-saml")
+- [Cross-service SAML-based AWS STS federation context keys](#cross-condition-keys-saml "#cross-condition-keys-saml")
 - [Available keys for AWS STS](#condition-keys-sts "#condition-keys-sts")
 
 ## Available keys for IAM
@@ -97,8 +92,7 @@ This condition key is supported by the [`CreateServiceLinkedRole`](../APIReferen
 ###### Tip
 
 For information about which services support using service-linked roles, see
-[AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
+[AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
 services that have **Yes** in the **Service-Linked Role** column. Choose a **Yes** with a link to view the service-linked role
 documentation for that service.
 
@@ -274,8 +268,7 @@ Works with [string operators](reference_policies_elements_condition_operators.md
 
 Checks that the policy with the specified AWS Organizations ID matches the policy used
 in the request. To view an example IAM policy that uses this condition key, see
-[IAM: View
-service last accessed information for an AWS Organizations policy](reference_policies_examples_iam_service-accessed-data-orgs.md "reference_policies_examples_iam_service-accessed-data-orgs.md").
+[IAM: View service last accessed information for an AWS Organizations policy](reference_policies_examples_iam_service-accessed-data-orgs.md "reference_policies_examples_iam_service-accessed-data-orgs.md").
 
 **iam:PassedToService**
 
@@ -297,8 +290,7 @@ write log data to an Amazon S3 bucket on their behalf. Then the user must attach
 permissions policy and a trust policy to the new service role. In this case, the
 trust policy must specify `cloudwatch.amazonaws.com` in the
 `Principal` element. To view a policy that allows the user to pass
-the role to CloudWatch, see [IAM: Pass an IAM role to a
-specific AWS service](reference_policies_examples_iam-passrole-service.md "reference_policies_examples_iam-passrole-service.md").
+the role to CloudWatch, see [IAM: Pass an IAM role to a specific AWS service](reference_policies_examples_iam-passrole-service.md "reference_policies_examples_iam-passrole-service.md").
 
 By using this condition key, you can ensure that users create service roles
 only for the services that you specify. For example, if a user with the preceding
@@ -319,8 +311,7 @@ Some services do not support this condition key.
 Works with [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN").
 
 Checks that the specified policy is attached as permissions boundary on the
-IAM principal resource. For more information, see [Permissions boundaries for IAM
-entities](access_policies_boundaries.md "access_policies_boundaries.md")
+IAM principal resource. For more information, see [Permissions boundaries for IAM entities](access_policies_boundaries.md "access_policies_boundaries.md")
 
 **iam:PolicyARN**
 
@@ -699,8 +690,7 @@ default implementation in their OIDC JWT ID token.
 | sub                   | sub                                                                                      | Yes                  |
 
 For more information about using OIDC condition context keys with GitHub, see
-[Configuring a role for GitHub OIDC identity
-provider](id_roles_create_for-idp_oidc.md#idp_oidc_Create_GitHub "id_roles_create_for-idp_oidc.md#idp_oidc_Create_GitHub"). For more information about Google `aud` and `azp`
+[Configuring a role for GitHub OIDC identity provider](id_roles_create_for-idp_oidc.md#idp_oidc_Create_GitHub "id_roles_create_for-idp_oidc.md#idp_oidc_Create_GitHub"). For more information about Google `aud` and `azp`
 fields, see the [Google
 Identity Platform OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect "https://developers.google.com/identity/protocols/OpenIDConnect") Guide.
 
@@ -1203,21 +1193,21 @@ AWS. You can use these keys to control access to a role. To do that, compare the
 **AWS STS condition keys** to the values in the
 **IdP JWT claim** column.
 
-| AWS STS condition key | IdP JWT claim       | Available in session |
-| --------------------- | ------------------- | -------------------- |
-| organization_number   | organization_number | No                   |
+| AWS STS condition key      | IdP JWT claim              | Available in session |
+| -------------------------- | -------------------------- | -------------------- |
+| google/organization_number | google:organization_number | No                   |
 
-**organization_number**
+**google/organization_number**
 
-Works with [string
-operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+Works with [numeric
+operators](reference_policies_elements_condition_operators.md#Conditions_Numeric "reference_policies_elements_condition_operators.md#Conditions_Numeric").
 
 **Example** –
-`accounts.google.com:organization_number`
+`accounts.google.com:google/organization_number`
 
 This key verifies that a token represents a Google identity belonging to a specific Google Cloud or Google Workspace organization. Use this to restrict access to users from specific organizations, ensuring that only identities from your organization can assume the role.
 
-The following example trust policy uses the `organization_number` claim to limit access to a role.
+The following example trust policy uses the `google/organization_number` claim to limit access to a role.
 
 ```
 {
@@ -1230,8 +1220,8 @@ The following example trust policy uses the `organization_number` claim to limit
          },
          "Action": "sts:AssumeRoleWithWebIdentity",
          "Condition": {
-            "StringEquals": {
-                "accounts.google.com:organization_number": "123456"
+            "NumericEquals": {
+                "accounts.google.com:google/organization_number": "123456"
                }
            }
         }
@@ -1331,9 +1321,7 @@ The following example trust policy uses the `rpst_id` claim to limit access to a
   Guide](../../../cognito/latest/developerguide/cognito-identity.md "../../../cognito/latest/developerguide/cognito-identity.md")
 - [OIDC federation](id_roles_providers_oidc.md "id_roles_providers_oidc.md")
 
-## Available keys for SAML-based AWS STS
-
-federation
+## Available keys for SAML-based AWS STS federation
 
 If you are working with [SAML-based
 federation](../../../STS/latest/UsingSTS/CreatingSAML.md "../../../STS/latest/UsingSTS/CreatingSAML.md") using AWS Security Token Service (AWS STS), you can include additional condition keys in
@@ -1515,8 +1503,7 @@ character:
 
 The concatenation of the account ID and friendly name of the SAML provider
 is available to IAM policies as the key `saml:doc`. For more
-information, see [Uniquely identifying users in SAML-based
-federation](id_roles_providers_saml.md#CreatingSAML-userid "id_roles_providers_saml.md#CreatingSAML-userid").
+information, see [Uniquely identifying users in SAML-based federation](id_roles_providers_saml.md#CreatingSAML-userid "id_roles_providers_saml.md#CreatingSAML-userid").
 
 **saml:organizationStatus[]**
 
@@ -1549,8 +1536,7 @@ and `NameID` elements used in your SAML assertion. A value of
 the same for a user between sessions. If the value is `transient`,
 the user has a different `saml:sub` value for each session. For
 information about the `NameID` element's `Format`
-attribute, see [Configure SAML assertions for the
-authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
+attribute, see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
 
 **saml:surname[]**
 
@@ -1588,9 +1574,7 @@ like the following:
 }
 ```
 
-## Cross-service SAML-based AWS STS federation
-
-context keys
+## Cross-service SAML-based AWS STS federation context keys
 
 Some SAML-based federation condition keys can be used in subsequent requests to
 authorize AWS operations in other services and `AssumeRole` calls. These are
@@ -1750,8 +1734,7 @@ you with an external ID, then provide that value in the `ExternalId`
 parameter. This value can be any string, such as a passphrase or account number.
 The primary function of the external ID is to address and prevent the confused
 deputy problem. For more information about the external ID and the confused deputy
-problem, see [Access to AWS accounts owned by third
-parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md").
+problem, see [Access to AWS accounts owned by third parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md").
 
 The `ExternalId` value must have a minimum of 2 characters and a
 maximum of 1,224 characters. The value must be alphanumeric without white space.
@@ -1812,7 +1795,7 @@ The following example condition checks that the context provider ARN passed in
 the request matches the ARN specified in the role trust policy condition. We
 recommend you add a null check with `ForAllValues` to prevent missing
 context keys or context keys with empty values from evaluating to true. For
-details, see [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null") .
+details, see [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null").
 
 JSON
 
@@ -1979,8 +1962,7 @@ JSON
 
 ```
 
-To learn more about using source identity information, see [Monitor and control actions
-taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md").
+To learn more about using source identity information, see [Monitor and control actions taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md").
 
 **sts:TaskPolicyArn**
 
@@ -1995,8 +1977,7 @@ the request when you make a request using [sts:AssumeRoot](../../../STS/latest/A
 Administrators can use this condition key in IAM policies to restrict
 specific roles or users within the management account or delegated administrator
 account from performing certain actions when assuming root credentials. For more
-information, see [Perform a privileged task on an AWS Organizations
-member account](id_root-user-privileged-task.md "id_root-user-privileged-task.md").
+information, see [Perform a privileged task on an AWS Organizations member account](id_root-user-privileged-task.md "id_root-user-privileged-task.md").
 
 **sts:TransitiveTagKeys**
 

@@ -1,6 +1,4 @@
-# Checks for validating
-
-policies
+# Checks for validating policies
 
 IAM Access Analyzer provides policy checks that help validate your IAM policies before you
 attach them to an entity. These include basic policy checks provided by policy validation to
@@ -14,9 +12,7 @@ A charge is associated with each check for new access. For more details about pr
 [IAM Access Analyzer
 pricing](https://aws.amazon.com/iam/access-analyzer/pricing "https://aws.amazon.com/iam/access-analyzer/pricing").
 
-## How custom policy checks
-
-work
+## How custom policy checks work
 
 You can validate your policies against your specified security standards using
 AWS Identity and Access Management Access Analyzer custom policy checks. You can run the following types of custom
@@ -74,9 +70,7 @@ means that IAM Access Analyzer provides a high degree of assurance that a passed
 access wasn't granted by the policy. You can inspect failed checks manually by reviewing
 the policy statement that's reported in the response from IAM Access Analyzer.
 
-## Examples of reference
-
-policies to check for new access
+## Examples of reference policies to check for new access
 
 You can find examples for reference policies and learn how to set up and run a custom
 policy check for new access in the [IAM Access Analyzer custom policy checks samples](https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples "https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples") repository on GitHub.
@@ -102,9 +96,7 @@ suitability to solve the security requirements for your environment.
   a specific AWS organization. Therefore, the custom policy checks can't
   compare new access based on condition key values for the [`aws:PrincipalOrgId`](reference_policies_condition-keys.md#condition-keys-principalorgid "reference_policies_condition-keys.md#condition-keys-principalorgid") and [`aws:PrincipalAccount`](reference_policies_condition-keys.md#condition-keys-principalaccount "reference_policies_condition-keys.md#condition-keys-principalaccount") condition keys.
 
-## Inspect failed
-
-custom policy checks
+## Inspect failed custom policy checks
 
 When a custom policy check fails, the response from IAM Access Analyzer includes the [statement ID (`Sid`)](reference_policies_elements_sid.md "reference_policies_elements_sid.md") of the policy statement that caused the
 check to fail. Although the statement ID is an optional policy element, we recommend

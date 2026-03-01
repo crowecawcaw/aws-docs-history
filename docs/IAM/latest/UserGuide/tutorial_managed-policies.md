@@ -1,6 +1,4 @@
-# IAM tutorial: Create and attach your first customer
-
-managed policy
+# IAM tutorial: Create and attach your first customer managed policy
 
 In this tutorial, you use the AWS Management Console to create a [customer managed policy](access_policies_managed-vs-inline.md#customer-managed-policies "access_policies_managed-vs-inline.md#customer-managed-policies") and then attach that policy
 to an IAM user in your AWS account. The policy you create allows an IAM test user to sign
@@ -137,8 +135,7 @@ can see what your users might experience.
 For related information, see the following resources:
 
 - [Managed policies and inline policies](access_policies_managed-vs-inline.md "access_policies_managed-vs-inline.md")
-- [Control IAM user access to the
-  AWS Management Console](console_controlling-access.md "console_controlling-access.md")
+- [Control IAM user access to the AWS Management Console](console_controlling-access.md "console_controlling-access.md")
 
 ## Summary
 

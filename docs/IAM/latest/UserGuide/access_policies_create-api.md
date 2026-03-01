@@ -21,9 +21,7 @@ Call the following operation:
 
 - [CreatePolicy](../APIReference/API_CreatePolicy.md "../APIReference/API_CreatePolicy.md")
 
-###### To create an inline policy for an IAM identity (group, user, or role) (AWS
-
-API)
+###### To create an inline policy for an IAM identity (group, user, or role) (AWS API)
 
 Call one of the following operations:
 

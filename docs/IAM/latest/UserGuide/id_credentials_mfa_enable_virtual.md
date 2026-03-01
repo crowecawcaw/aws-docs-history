@@ -1,6 +1,4 @@
-# Assign a virtual MFA device in the
-
-AWS Management Console
+# Assign a virtual MFA device in the AWS Management Console
 
 You can use a phone or other device as a virtual multi-factor authentication (MFA) device.
 To do this, install a mobile app that is compliant with [RFC
@@ -27,27 +25,21 @@ apps that you can use, see [Multi-Factor Authentication](https://aws.amazon.com/
 ###### Topics
 
 - [Permissions required](#mfa_enable_virtual_permissions-required "#mfa_enable_virtual_permissions-required")
-- [Enable a virtual MFA device for an
-  IAM user (console)](#enable-virt-mfa-for-iam-user "#enable-virt-mfa-for-iam-user")
+- [Enable a virtual MFA device for an IAM user (console)](#enable-virt-mfa-for-iam-user "#enable-virt-mfa-for-iam-user")
 - [Replace a virtual MFA device](#replace-virt-mfa "#replace-virt-mfa")
 
 ## Permissions required
 
 To manage virtual MFA devices for your IAM user, you must have the permissions from
-the following policy: [AWS:
-Allows MFA-authenticated IAM users to manage their own MFA device on the Security
-credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-mfa-only.md "reference_policies_examples_aws_my-sec-creds-self-manage-mfa-only.md").
+the following policy: [AWS: Allows MFA-authenticated IAM users to manage their own MFA device on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-mfa-only.md "reference_policies_examples_aws_my-sec-creds-self-manage-mfa-only.md").
 
-## Enable a virtual MFA device for an
-
-IAM user (console)
+## Enable a virtual MFA device for an IAM user (console)
 
 You can use IAM in the AWS Management Console to enable and manage a virtual MFA device for an
 IAM user in your account. You can attach tags to your IAM resources, including virtual
 MFA devices, to identify, organize, and control access to them. You can tag virtual MFA
 devices only when you use the AWS CLI or AWS API. To enable and manage an MFA device using
-the AWS CLI or AWS API, see [Assign MFA devices
-in the AWS CLI or AWS API](id_credentials_mfa_enable_cliapi.md "id_credentials_mfa_enable_cliapi.md"). For more information about tagging
+the AWS CLI or AWS API, see [Assign MFA devices in the AWS CLI or AWS API](id_credentials_mfa_enable_cliapi.md "id_credentials_mfa_enable_cliapi.md"). For more information about tagging
 IAM resources, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md").
 
 ###### Note
@@ -58,10 +50,7 @@ will use a virtual MFA device running on a smartphone. In that case, you must ha
 smartphone available in order to finish the wizard. Because of this, you might want to
 let users configure and manage their own virtual MFA devices. In that case, you must
 grant users the permissions to perform the necessary IAM actions. For more information
-and for an example of an IAM policy that grants these permissions, see the [IAM tutorial: Permit users to manage
-their credentials and MFA settings](tutorial_users-self-manage-mfa-and-creds.md "tutorial_users-self-manage-mfa-and-creds.md") and example policy [AWS:
-Allows MFA-authenticated IAM users to manage their own MFA device on the Security
-credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-mfa-only.md "reference_policies_examples_aws_my-sec-creds-self-manage-mfa-only.md").
+and for an example of an IAM policy that grants these permissions, see the [IAM tutorial: Permit users to manage their credentials and MFA settings](tutorial_users-self-manage-mfa-and-creds.md "tutorial_users-self-manage-mfa-and-creds.md") and example policy [AWS: Allows MFA-authenticated IAM users to manage their own MFA device on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-mfa-only.md "reference_policies_examples_aws_my-sec-creds-self-manage-mfa-only.md").
 
 ###### To enable a virtual MFA device for an IAM user (console)
 
@@ -137,8 +126,6 @@ the new device for the user.
 
 - To deactivate the device currently associated with another IAM user, see [Deactivate an MFA device](id_credentials_mfa_disable.md "id_credentials_mfa_disable.md").
 - To add a replacement virtual MFA device for another IAM user, follow the steps
-  in the procedure [Enable a virtual MFA device for an
-  IAM user (console)](#enable-virt-mfa-for-iam-user "#enable-virt-mfa-for-iam-user") above.
+  in the procedure [Enable a virtual MFA device for an IAM user (console)](#enable-virt-mfa-for-iam-user "#enable-virt-mfa-for-iam-user") above.
 - To add a replacement virtual MFA device for the AWS account root user, follow the steps in
-  the procedure [Enable a virtual MFA device for the root user
-  (console)](enable-virt-mfa-for-root.md "enable-virt-mfa-for-root.md").
+  the procedure [Enable a virtual MFA device for the root user (console)](enable-virt-mfa-for-root.md "enable-virt-mfa-for-root.md").

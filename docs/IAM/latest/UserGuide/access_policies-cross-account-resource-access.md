@@ -1,6 +1,4 @@
-# Cross account resource
-
-access in IAM
+# Cross account resource access in IAM
 
 For some AWS services, you can grant cross-account access to your resources using IAM.
 To do this, you can attach a resource policy directly to the resource that you want to
@@ -12,8 +10,7 @@ resource-based policy specifies who (which principal) can access that resource.
 Use a role as a proxy when you want to access resources in another account that do not
 support resource-based policies.
 
-For details about the differences between these policy types, see [Identity-based policies and
-resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md").
+For details about the differences between these policy types, see [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md").
 
 ###### Note
 
@@ -23,9 +20,7 @@ single partition. For example, you have an account in US West (N. California) in
 `aws-cn` partition. You can't use a resource-based policy in your account
 in China to allow access for users in your standard AWS account.
 
-## Cross-account access using
-
-roles
+## Cross-account access using roles
 
 Not all AWS services support resource-based policies. For these services, you can
 use cross-account IAM roles to centralize permission management when providing
@@ -100,16 +95,13 @@ arn:aws:iam::`Customer-Account-ID`:role/`APNPartner`
 ###### Note
 
 We recommend using an external ID in multi-tenant situations. For details,
-see [Access to AWS accounts owned by third
-parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md"). 4. When the APN Partner’s software needs to access the customer’s account, the
+see [Access to AWS accounts owned by third parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md"). 4. When the APN Partner’s software needs to access the customer’s account, the
 software calls the [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") API in
 the AWS Security Token Service with the ARN of the role in the customer’s account. STS returns a
 temporary AWS credential that allows the software to do its work.
 
-For another example of granting cross-account access using roles, see [Access for an IAM user in another
-AWS account that you own](id_roles_common-scenarios_aws-accounts.md "id_roles_common-scenarios_aws-accounts.md"). You can also follow the
-[IAM tutorial: Delegate access across
-AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
+For another example of granting cross-account access using roles, see [Access for an IAM user in another AWS account that you own](id_roles_common-scenarios_aws-accounts.md "id_roles_common-scenarios_aws-accounts.md"). You can also follow the
+[IAM tutorial: Delegate access across AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
 
 ## Cross-account access using resource-based policies
 
@@ -129,8 +121,7 @@ organization or account) have access to assume your roles, see [Identifying reso
 
 The following list includes some of the AWS services that support resource-based
 policies. For a complete list of the growing number of AWS services that support
-attaching permission policies to resources instead of principals, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
+attaching permission policies to resources instead of principals, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
 services that have **Yes** in the **Resource Based** column.
 
 - **Amazon S3 buckets** — The policy is attached

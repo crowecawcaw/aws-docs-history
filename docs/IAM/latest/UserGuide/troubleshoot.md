@@ -5,20 +5,14 @@ AWS Identity and Access Management (IAM).
 
 ###### Issues
 
-- [I can't sign in to my AWS
-  account](#troubleshoot_general_cant-sign-in "#troubleshoot_general_cant-sign-in")
+- [I can't sign in to my AWS account](#troubleshoot_general_cant-sign-in "#troubleshoot_general_cant-sign-in")
 - [I lost my access keys](#troubleshoot_general_access-keys "#troubleshoot_general_access-keys")
-- [Policy variables aren't
-  working](#troubleshoot_general_policy-variables-dont-work "#troubleshoot_general_policy-variables-dont-work")
-- [Changes that I make are not always
-  immediately visible](#troubleshoot_general_eventual-consistency "#troubleshoot_general_eventual-consistency")
-- [I am not authorized to
-  perform: iam:DeleteVirtualMFADevice](#troubleshoot_general_access-denied-delete-mfa "#troubleshoot_general_access-denied-delete-mfa")
-- [How do I securely create
-  IAM users?](#troubleshoot_general_securely-create-iam-users "#troubleshoot_general_securely-create-iam-users")
+- [Policy variables aren't working](#troubleshoot_general_policy-variables-dont-work "#troubleshoot_general_policy-variables-dont-work")
+- [Changes that I make are not always immediately visible](#troubleshoot_general_eventual-consistency "#troubleshoot_general_eventual-consistency")
+- [I am not authorized to perform: iam:DeleteVirtualMFADevice](#troubleshoot_general_access-denied-delete-mfa "#troubleshoot_general_access-denied-delete-mfa")
+- [How do I securely create IAM users?](#troubleshoot_general_securely-create-iam-users "#troubleshoot_general_securely-create-iam-users")
 - [Additional resources](#troubleshoot_general_resources "#troubleshoot_general_resources")
-- [Troubleshoot access denied error
-  messages](troubleshoot_access-denied.md "troubleshoot_access-denied.md")
+- [Troubleshoot access denied error messages](troubleshoot_access-denied.md "troubleshoot_access-denied.md")
 - [Troubleshoot issues with the root user](troubleshooting_root-user.md "troubleshooting_root-user.md")
 - [Troubleshoot IAM policies](troubleshoot_policies.md "troubleshoot_policies.md")
 - [Troubleshoot Passkeys and FIDO Security Keys](troubleshoot_mfa-fido.md "troubleshoot_mfa-fido.md")
@@ -27,9 +21,7 @@ AWS Identity and Access Management (IAM).
 - [Troubleshoot IAM and Amazon S3](troubleshoot_iam-s3.md "troubleshoot_iam-s3.md")
 - [Troubleshoot SAML federation with IAM](troubleshoot_saml.md "troubleshoot_saml.md")
 
-## I can't sign in to my AWS
-
-account
+## I can't sign in to my AWS account
 
 Verify that you have the correct credentials and that you are using the correct method to
 sign in. For more information, see [Troubleshooting sign-in
@@ -51,9 +43,7 @@ Access keys consist of two parts:
 If you lose your secret access key, you must delete the access key and create a new one.
 For more instructions, see [Update access keys](id-credentials-access-keys-update.md "id-credentials-access-keys-update.md").
 
-## Policy variables aren't
-
-working
+## Policy variables aren't working
 
 If your policy variables are not working, one of the following errors has occurred:
 
@@ -70,17 +60,14 @@ A `Version` policy element is different from a policy version. The
 the policy language. A policy version is created when you modify a customer managed
 policy in IAM. The changed policy doesn't overwrite the existing policy. Instead,
 IAM creates a new version of the managed policy. To learn more about the
-`Version` policy element see [IAM JSON policy elements:
-Version](reference_policies_elements_version.md "reference_policies_elements_version.md"). To learn more about policy
+`Version` policy element see [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md"). To learn more about policy
 versions, see [Versioning IAM policies](access_policies_managed-versioning.md "access_policies_managed-versioning.md").
 
 **Variable characters are in the wrong letter case.**
 
 Verify that your policy variables are in the right case. For details, see [IAM policy elements: Variables and tags](reference_policies_variables.md "reference_policies_variables.md").
 
-## Changes that I make are not always
-
-immediately visible
+## Changes that I make are not always immediately visible
 
 As a service that is accessed through computers in data centers around the world, IAM
 uses a distributed computing model called [eventual consistency](https://wikipedia.org/wiki/Eventual_consistency "https://wikipedia.org/wiki/Eventual_consistency").
@@ -116,9 +103,7 @@ following resources:
 - **Amazon S3**: [Amazon S3 Data Consistency
   Model](../../../AmazonS3/latest/userguide/Welcome.md#ConsistencyModel "../../../AmazonS3/latest/userguide/Welcome.md#ConsistencyModel") in the _Amazon Simple Storage Service User Guide_
 
-## I am not authorized to
-
-perform: iam:DeleteVirtualMFADevice
+## I am not authorized to perform: iam:DeleteVirtualMFADevice
 
 You might receive the following error when you attempt to assign or remove a virtual MFA
 device for yourself or others:
@@ -150,9 +135,7 @@ list-virtual-mfa-devices`](../../../cli/latest/reference/iam/list-virtual-mfa-de
 delete-virtual-mfa-device`](../../../cli/latest/reference/iam/delete-virtual-mfa-device.md "../../../cli/latest/reference/iam/delete-virtual-mfa-device.md")
    - AWS API: [`DeleteVirtualMFADevice`](../APIReference/API_DeleteVirtualMFADevice.md "../APIReference/API_DeleteVirtualMFADevice.md")
 
-## How do I securely create
-
-IAM users?
+## How do I securely create IAM users?
 
 If you have employees that require access to AWS, you might choose to create IAM users
 or [use IAM Identity Center for authentication](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md"). If you use
@@ -175,9 +158,7 @@ Use the following secure workflow to create a new user in IAM:
    can sign in successfully before you will grant them permissions.
 4. After the employee confirms, add the permissions that they need. As a security best
    practice, add a policy that requires the user to authenticate using MFA to manage their
-   credentials. For an example policy, see [AWS: Allows
-   MFA-authenticated IAM users to manage their own credentials on the Security
-   credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md "reference_policies_examples_aws_my-sec-creds-self-manage.md").
+   credentials. For an example policy, see [AWS: Allows MFA-authenticated IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md "reference_policies_examples_aws_my-sec-creds-self-manage.md").
 
 ## Additional resources
 
@@ -186,8 +167,7 @@ The following resources can help you troubleshoot as you work with AWS.
 - **[AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md")** – Use AWS CloudTrail to track a
   history of API calls made to AWS and store that information in log files. This helps you
   determine which users and accounts accessed resources in your account, when the calls were
-  made, what actions were requested, and more. For more information, see [Logging IAM and AWS STS API calls
-  with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md").
+  made, what actions were requested, and more. For more information, see [Logging IAM and AWS STS API calls with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md").
 - **[AWS Knowledge
   Center](https://aws.amazon.com/premiumsupport/knowledge-center/ "https://aws.amazon.com/premiumsupport/knowledge-center/")** – Find FAQs and links to other resources to help you
   troubleshoot issues.

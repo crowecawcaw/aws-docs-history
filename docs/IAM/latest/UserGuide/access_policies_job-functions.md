@@ -58,8 +58,7 @@ permissions to every service and resource in AWS.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants all actions for
 all AWS services and for all resources in the account. For more information about the
@@ -85,8 +84,7 @@ entire AWS service.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants full permissions
 for managing billing, costs, payment methods, budgets, and reports. For additional cost
@@ -113,8 +111,7 @@ databases in the AWS Cloud.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants permissions to
 create, configure, and maintain databases. It includes access to AWS database services, such
@@ -124,8 +121,7 @@ Guide_.
 
 This job function policy supports the ability to pass roles to AWS services. The policy
 allows the `iam:PassRole` action for only those roles named in the following table.
-For more information, see [Creating roles and attaching
-policies (console)](access_policies_job-functions_create-policies.md "access_policies_job-functions_create-policies.md") later in this topic.
+For more information, see [Creating roles and attaching policies (console)](access_policies_job-functions_create-policies.md "access_policies_job-functions_create-policies.md") later in this topic.
 
 | Use case                                                                                | Role name (\<br>• is a wildcard)                                                                                                                                                                                                                           | Service role type to select                                                                                                                                                                                        | Select this AWS managed policy                                                                                                                                                                                                                                                      |
 | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -149,8 +145,7 @@ intelligence.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants permissions to
 create, manage, and run queries on an Amazon EMR cluster and perform data analytics with tools such
@@ -162,8 +157,7 @@ see [DataScientist](../../../aws-managed-policy/latest/reference/DataScientist.m
 This job function policy supports the ability to pass roles to AWS services. One
 statement allows passing any role to SageMaker AI. Another statement allows the
 `iam:PassRole` action for only those roles named in the following table. For more
-information, see [Creating roles and attaching
-policies (console)](access_policies_job-functions_create-policies.md "access_policies_job-functions_create-policies.md") later in this topic.
+information, see [Creating roles and attaching policies (console)](access_policies_job-functions_create-policies.md "access_policies_job-functions_create-policies.md") later in this topic.
 
 | Use case                                                                                | Role name (\<br>• is a wildcard)                                                                                                                                                                        | Service role type to select                                                                                                                                                                                                                                         | AWS managed policy to select                                                                                                                                                                                                                                                               |
 | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -185,8 +179,7 @@ development.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** The first statement of this policy
 uses the [NotAction](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md")
@@ -210,8 +203,7 @@ maintaining AWS network resources.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants permissions to
 create and maintain network resources in Auto Scaling, Amazon EC2, AWS Direct Connect, Route 53, Amazon CloudFront,
@@ -221,8 +213,7 @@ Guide_.
 
 This job function requires the ability to pass roles to AWS services. The policy grants
 `iam:GetRole` and `iam:PassRole` for only those roles named in the
-following table. For more information, see [Creating roles and attaching
-policies (console)](access_policies_job-functions_create-policies.md "access_policies_job-functions_create-policies.md") later in this topic.
+following table. For more information, see [Creating roles and attaching policies (console)](access_policies_job-functions_create-policies.md "access_policies_job-functions_create-policies.md") later in this topic.
 
 | Use case                                                                                                                                  | Role name (\<br>• is a wildcard)                                                                                                    | Service role type to select                                                                                                                                                                      | AWS managed policy to select                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -244,8 +235,7 @@ Amazon DynamoDB tables.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants permissions to
 list, get, describe, and otherwise view resources and their attributes. It does not include
@@ -268,8 +258,7 @@ to other AWS services.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants permissions to
 call any AWS MCP service action. You can use when you do not need to specify permissions
@@ -290,8 +279,7 @@ breaches or potential malicious activity.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants permissions to
 view configuration data for many AWS services and to review their logs. For more information
@@ -309,8 +297,7 @@ support cases, and views the status of existing cases.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants permissions to
 create and update Support cases. For more information about the managed policy, see [AWSSupportAccess](../../../aws-managed-policy/latest/reference/AWSSupportAccess.md "../../../aws-managed-policy/latest/reference/AWSSupportAccess.md") in _AWS Managed Policy Reference
@@ -327,8 +314,7 @@ development operations.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants permissions to
 create and maintain resources across a large variety of AWS services, including AWS CloudTrail,
@@ -339,10 +325,8 @@ Guide_.
 
 This job function requires the ability to pass roles to AWS services. The policy grants
 `iam:GetRole` and `iam:PassRole` for only those roles named in the
-following table. For more information, see [Creating roles and attaching
-policies (console)](access_policies_job-functions_create-policies.md "access_policies_job-functions_create-policies.md") later in this topic. For
-more information about job function policy updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+following table. For more information, see [Creating roles and attaching policies (console)](access_policies_job-functions_create-policies.md "access_policies_job-functions_create-policies.md") later in this topic. For
+more information about job function policy updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 | Use case                                                                          | Role name (\<br>• is a wildcard)                                                                                                                 | Service role type to select               | AWS managed policy to select                                                                                                                                                                                                                                                                 |
 | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -363,17 +347,14 @@ metadata that goes beyond the quota and list information for resources.
 **Policy updates:** AWS maintains and updates this policy.
 For a history of changes for this policy, view the policy in the IAM console and then choose
 the **Policy versions** tab. For more information about job function policy
-updates, see [Updates to AWS managed policies
-for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
+updates, see [Updates to AWS managed policies for job functions](#security-iam-awsmanpol-jobfunction-updates "#security-iam-awsmanpol-jobfunction-updates").
 
 **Policy description:** This policy grants
 `List*`, `Describe*`, `Get*`, `View*`, and
 `Lookup*` access to resources for AWS services. To see what actions this policy
 includes for each service, see [ViewOnlyAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/job-function/ViewOnlyAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/job-function/ViewOnlyAccess"). For more information about the managed policy, see [ViewOnlyAccess](../../../aws-managed-policy/latest/reference/ViewOnlyAccess.md "../../../aws-managed-policy/latest/reference/ViewOnlyAccess.md") in _AWS Managed Policy Reference Guide_.
 
-## Updates to AWS managed policies
-
-for job functions
+## Updates to AWS managed policies for job functions
 
 These policies are all maintained by AWS and are kept up to date to include support for
 new services and new capabilities as they are added by AWS services. These policies cannot

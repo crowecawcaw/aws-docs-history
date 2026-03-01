@@ -22,8 +22,7 @@ account, or deactivate the user.
 
 For more information about adding, changing, or removing managed policies for an IAM user,
 see [Change permissions for an IAM user](id_users_change-permissions.md "id_users_change-permissions.md").
-For information about managing inline policies for IAM users, see [Adding and removing IAM identity
-permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md"), [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md"), and [Delete IAM policies](access_policies_manage-delete.md "access_policies_manage-delete.md"). As a
+For information about managing inline policies for IAM users, see [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md"), [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md"), and [Delete IAM policies](access_policies_manage-delete.md "access_policies_manage-delete.md"). As a
 best practice, use managed policies instead of inline policies. _AWS managed
 policies_ grant permissions for many common use cases. Keep in mind that AWS
 managed policies might not grant least-privilege permissions for your specific use cases because
@@ -43,15 +42,13 @@ required permissions to your workloads. For more information about policy genera
 [IAM Access Analyzer policy
 generation](access-analyzer-policy-generation.md "access-analyzer-policy-generation.md").
 
-For information about managing IAM user passwords, see [Manage passwords for
-IAM users](id_credentials_passwords_admin-change-user.md "id_credentials_passwords_admin-change-user.md").
+For information about managing IAM user passwords, see [Manage passwords for IAM users](id_credentials_passwords_admin-change-user.md "id_credentials_passwords_admin-change-user.md").
 
 ## Renaming an IAM user
 
 To change a user's name or path, you must use the AWS CLI, Tools for Windows PowerShell, or AWS API. There is no
 option in the console to rename a user. For information about the permissions that you need in
-order to rename a user, see [Permissions required to access IAM
-resources](access_permissions-required.md "access_permissions-required.md").
+order to rename a user, see [Permissions required to access IAM resources](access_permissions-required.md "access_permissions-required.md").
 
 When you change a user's name or path, the following happens:
 

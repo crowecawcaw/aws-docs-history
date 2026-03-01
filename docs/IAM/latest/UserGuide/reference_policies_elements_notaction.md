@@ -1,6 +1,4 @@
-# IAM JSON policy elements:
-
-NotAction
+# IAM JSON policy elements: NotAction
 
 `NotAction` is an advanced policy element that explicitly matches everything
 _except_ the specified list of actions. Using
@@ -83,5 +81,4 @@ JSON
 ```
 
 For an example policy that denies access to actions outside of specific Regions, except for
-actions from specific services, see [AWS: Denies access
-to AWS based on the requested Region](reference_policies_examples_aws_deny-requested-region.md "reference_policies_examples_aws_deny-requested-region.md").
+actions from specific services, see [AWS: Denies access to AWS based on the requested Region](reference_policies_examples_aws_deny-requested-region.md "reference_policies_examples_aws_deny-requested-region.md").

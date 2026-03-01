@@ -1,6 +1,4 @@
-# IAM: Access the policy
-
-simulator console
+# IAM: Access the policy simulator console
 
 This example shows how you might create an identity-based policy that allows using the policy simulator console for policies attached to a
 user, group, or role in the current AWS account. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI.

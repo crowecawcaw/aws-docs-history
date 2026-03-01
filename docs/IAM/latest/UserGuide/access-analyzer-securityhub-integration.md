@@ -1,6 +1,4 @@
-# Integrate IAM Access Analyzer with
-
-AWS Security Hub CSPM
+# Integrate IAM Access Analyzer with AWS Security Hub CSPM
 
 [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") provides a comprehensive view of your security state across AWS. It helps
 you assess your environment against security industry standards and best practices. Security Hub CSPM
@@ -14,31 +12,20 @@ posture.
 
 ###### Contents
 
-- [How IAM Access Analyzer
-  sends findings to Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-sending-findings "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-sending-findings")
-  - [Types of findings
-    that IAM Access Analyzer sends](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-types "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-types")
-  - [Latency for
-    sending findings](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-latency "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-latency")
-  - [Retrying when Security Hub CSPM is
-    not available](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-retry-send "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-retry-send")
-  - [Updating existing
-    findings in Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-updates "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-updates")
+- [How IAM Access Analyzer sends findings to Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-sending-findings "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-sending-findings")
+  - [Types of findings that IAM Access Analyzer sends](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-types "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-types")
+  - [Latency for sending findings](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-latency "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-latency")
+  - [Retrying when Security Hub CSPM is not available](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-retry-send "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-retry-send")
+  - [Updating existing findings in Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-updates "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-updates")
 
-- [Viewing
-  IAM Access Analyzer findings in Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-viewing-findings "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-viewing-findings")
+- [Viewing IAM Access Analyzer findings in Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-viewing-findings "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-viewing-findings")
   - [Interpreting IAM Access Analyzer finding names in Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-intrepreting-finding-names "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-intrepreting-finding-names")
 
-- [Typical findings
-  from IAM Access Analyzer](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-example "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-example")
-- [Enabling and configuring the
-  integration](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-enable "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-enable")
-- [How to stop sending
-  findings](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-disable "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-disable")
+- [Typical findings from IAM Access Analyzer](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-example "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-example")
+- [Enabling and configuring the integration](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-enable "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-enable")
+- [How to stop sending findings](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-disable "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-disable")
 
-## How IAM Access Analyzer
-
-sends findings to Security Hub CSPM
+## How IAM Access Analyzer sends findings to Security Hub CSPM
 
 In Security Hub CSPM, security issues are tracked as findings. Some findings come from issues that are
 detected by other AWS services or by third-party partners. Security Hub CSPM also has a set of rules
@@ -70,9 +57,7 @@ list of external principals with cross-account access outside the zone of trust 
 analyzer, you must view the findings in IAM Access Analyzer. Details about the resource control
 policy (RCP) are available in the resource detail section.
 
-### Types of findings
-
-that IAM Access Analyzer sends
+### Types of findings that IAM Access Analyzer sends
 
 IAM Access Analyzer sends the findings to Security Hub CSPM using the [AWS Security Finding
 Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md"). In ASFF, the `Types` field provides the finding type.
@@ -91,9 +76,7 @@ Findings from IAM Access Analyzer can have the following values for `Types`.
 - Unused access findings – Software and Configuration Checks/AWS Security
   Best Practices/Unused IAM User Access Key
 
-### Latency for
-
-sending findings
+### Latency for sending findings
 
 When IAM Access Analyzer creates a new finding, it is usually sent to Security Hub CSPM within 30 minutes.
 However, there are rare cases when IAM Access Analyzer may not be notified about a policy change.
@@ -111,16 +94,12 @@ For example:
 In these situations, IAM Access Analyzer analyzes the new or updated policy during the next
 periodic scan.
 
-### Retrying when Security Hub CSPM is
-
-not available
+### Retrying when Security Hub CSPM is not available
 
 If Security Hub CSPM is not available, IAM Access Analyzer retries sending the findings on a periodic
 basis.
 
-### Updating existing
-
-findings in Security Hub CSPM
+### Updating existing findings in Security Hub CSPM
 
 After sending a finding to Security Hub CSPM, IAM Access Analyzer continues to send updates to reflect any
 additional observations of the finding activity to Security Hub CSPM. These updates are reflected within
@@ -138,9 +117,7 @@ an unused access finding is resolved in IAM Access Analyzer, then the correspond
 is also resolved. The Security Hub CSPM finding is updated when you update the IAM user or role that
 generated the unused access finding.
 
-## Viewing
-
-IAM Access Analyzer findings in Security Hub CSPM
+## Viewing IAM Access Analyzer findings in Security Hub CSPM
 
 To view your IAM Access Analyzer findings in Security Hub CSPM, choose **See findings** in
 the **AWS: IAM Access Analyzer** section of the summary page.
@@ -166,9 +143,7 @@ Security Hub CSPM.
 | Software and Configuration Checks/AWS Security Best Practices/Unused IAM<br>User Password   | <resource ARN> contains unused IAM user password   | A user or role contains an unused IAM user password.                                                                                               |
 | Software and Configuration Checks/AWS Security Best Practices/Unused IAM<br>User Access Key | <resource ARN> contains unused IAM user access key | A user or role contains an unused IAM user access key.                                                                                             |
 
-## Typical findings
-
-from IAM Access Analyzer
+## Typical findings from IAM Access Analyzer
 
 IAM Access Analyzer sends findings to Security Hub CSPM using the [AWS Security Finding
 Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md").
@@ -284,9 +259,7 @@ findings.
 }
 ```
 
-## Enabling and configuring the
-
-integration
+## Enabling and configuring the integration
 
 To use the integration with Security Hub CSPM, you must enable Security Hub CSPM. For information on how to enable
 Security Hub CSPM, see [Setting up Security
@@ -295,9 +268,7 @@ Hub](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../se
 When you enable both IAM Access Analyzer and Security Hub CSPM, the integration is enabled automatically.
 IAM Access Analyzer immediately begins to send findings to Security Hub CSPM.
 
-## How to stop sending
-
-findings
+## How to stop sending findings
 
 To stop sending findings to Security Hub CSPM, you can use either the Security Hub CSPM console or the API.
 

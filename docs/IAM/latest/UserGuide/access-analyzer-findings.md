@@ -46,8 +46,7 @@ access:
   identity-based policies attached to roles to determine the services and actions that those roles
   can access. IAM Access Analyzer supports review of unused permissions for all service-level
   permissions. For a complete list of action-level permissions that are supported for unused
-  access findings, see [IAM action last
-  accessed information services and actions](access_policies_last-accessed-action-last-accessed.md "access_policies_last-accessed-action-last-accessed.md").
+  access findings, see [IAM action last accessed information services and actions](access_policies_last-accessed-action-last-accessed.md "access_policies_last-accessed-action-last-accessed.md").
 
 ###### Note
 
@@ -59,25 +58,18 @@ analyzer per month. For more details about pricing, see [IAM Access Analyzer pri
 ###### Topics
 
 - [Understand how IAM Access Analyzer findings work](access-analyzer-concepts.md "access-analyzer-concepts.md")
-- [Getting started with
-  AWS Identity and Access Management Access Analyzer](access-analyzer-getting-started.md "access-analyzer-getting-started.md")
-- [View the IAM Access Analyzer findings
-  dashboard](access-analyzer-dashboard.md "access-analyzer-dashboard.md")
+- [Getting started with AWS Identity and Access Management Access Analyzer](access-analyzer-getting-started.md "access-analyzer-getting-started.md")
+- [View the IAM Access Analyzer findings dashboard](access-analyzer-dashboard.md "access-analyzer-dashboard.md")
 - [Review IAM Access Analyzer findings](access-analyzer-findings-view.md "access-analyzer-findings-view.md")
 - [Filter IAM Access Analyzer findings](access-analyzer-findings-filter.md "access-analyzer-findings-filter.md")
 - [Archive IAM Access Analyzer findings](access-analyzer-findings-archive.md "access-analyzer-findings-archive.md")
 - [Resolve IAM Access Analyzer findings](access-analyzer-findings-remediate.md "access-analyzer-findings-remediate.md")
 - [IAM Access Analyzer error findings](access-analyzer-error-findings.md "access-analyzer-error-findings.md")
-- [IAM Access Analyzer supported resource types for
-  external and internal access](access-analyzer-resources.md "access-analyzer-resources.md")
-- [Delegated administrator for
-  IAM Access Analyzer](access-analyzer-delegated-administrator.md "access-analyzer-delegated-administrator.md")
+- [IAM Access Analyzer supported resource types for external and internal access](access-analyzer-resources.md "access-analyzer-resources.md")
+- [Delegated administrator for IAM Access Analyzer](access-analyzer-delegated-administrator.md "access-analyzer-delegated-administrator.md")
 - [Archive rules](access-analyzer-archive-rules.md "access-analyzer-archive-rules.md")
-- [Monitoring AWS Identity and Access Management Access Analyzer with
-  Amazon EventBridge](access-analyzer-eventbridge.md "access-analyzer-eventbridge.md")
-- [Integrate IAM Access Analyzer with
-  AWS Security Hub CSPM](access-analyzer-securityhub-integration.md "access-analyzer-securityhub-integration.md")
+- [Monitoring AWS Identity and Access Management Access Analyzer with Amazon EventBridge](access-analyzer-eventbridge.md "access-analyzer-eventbridge.md")
+- [Integrate IAM Access Analyzer with AWS Security Hub CSPM](access-analyzer-securityhub-integration.md "access-analyzer-securityhub-integration.md")
 - [Logging IAM Access Analyzer API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [IAM Access Analyzer filter keys](access-analyzer-reference-filter-keys.md "access-analyzer-reference-filter-keys.md")
-- [Using service-linked roles for
-  AWS Identity and Access Management Access Analyzer](access-analyzer-using-service-linked-roles.md "access-analyzer-using-service-linked-roles.md")
+- [Using service-linked roles for AWS Identity and Access Management Access Analyzer](access-analyzer-using-service-linked-roles.md "access-analyzer-using-service-linked-roles.md")

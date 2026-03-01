@@ -25,12 +25,8 @@ fix policies that are not providing the permissions that you expect.
 
 ###### Topics
 
-- [Policy summary (list of
-  services)](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md")
-- [Access levels
-  in policy summaries](access_policies_understand-policy-summary-access-level-summaries.md "access_policies_understand-policy-summary-access-level-summaries.md")
-- [Service summary (list of
-  actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md")
-- [Action summary (list of
-  resources)](access_policies_understand-action-summary.md "access_policies_understand-action-summary.md")
+- [Policy summary (list of services)](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md")
+- [Access levels in policy summaries](access_policies_understand-policy-summary-access-level-summaries.md "access_policies_understand-policy-summary-access-level-summaries.md")
+- [Service summary (list of actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md")
+- [Action summary (list of resources)](access_policies_understand-action-summary.md "access_policies_understand-action-summary.md")
 - [Examples of policy summaries](access_policies_policy-summary-examples.md "access_policies_policy-summary-examples.md")

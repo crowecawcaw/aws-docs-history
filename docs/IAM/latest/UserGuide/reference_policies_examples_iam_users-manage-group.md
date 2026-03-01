@@ -1,6 +1,4 @@
-# IAM: Allows specific
-
-IAM users to manage a group programmatically and in the console
+# IAM: Allows specific IAM users to manage a group programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows specific IAM users to manage the `AllUsers`
 group. This policy defines permissions for programmatic and console access. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.

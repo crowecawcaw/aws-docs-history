@@ -1,6 +1,4 @@
-# Identity-based policies and
-
-resource-based policies
+# Identity-based policies and resource-based policies
 
 A policy is an object in AWS that, when associated with an identity or resource, defines
 their permissions. When you create a permissions policy to restrict access to a resource, you
@@ -18,8 +16,7 @@ be [managed or inline](access_policies_managed-vs-inline.md "access_policies_man
 **Resource-based policies** are attached to a resource. For
 example, you can attach resource-based policies to Amazon S3 buckets, Amazon SQS queues, VPC endpoints,
 AWS Key Management Service encryption keys, and Amazon DynamoDB tables and streams. For a list of services that
-support resource-based policies, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+support resource-based policies, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 With resource-based policies, you can specify who has access to the resource and what
 actions they can perform on it.
@@ -34,15 +31,12 @@ _resource-level_ permissions. You can attach resource-based policies
 directly to a resource, as described in this topic. Resource-level permissions refer to the
 ability to use [ARNs](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns") to specify individual resources
 in a policy. Resource-based policies are supported only by some AWS services. For a list
-of which services support resource-based policies and resource-level permissions, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+of which services support resource-based policies and resource-level permissions, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 To learn how identity-based policies and resource-based policies interact within the same
-account, see [Policy evaluation
-for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
+account, see [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
 
-To learn how the policies interact across accounts, see [Cross-account policy
-evaluation logic](reference_policies_evaluation-logic-cross-account.md "reference_policies_evaluation-logic-cross-account.md").
+To learn how the policies interact across accounts, see [Cross-account policy evaluation logic](reference_policies_evaluation-logic-cross-account.md "reference_policies_evaluation-logic-cross-account.md").
 
 To better understand these concepts, view the following figure. The administrator of the
 `123456789012` account attached _identity-based
@@ -95,8 +89,7 @@ have an identity-based policy that allows them to make a request to the resource
 `Account B`. Also, the resource-based policy in `Account B` must
 allow the requester in `Account A` to access the resource. There must be
 policies in both accounts that allow the operation, otherwise the request fails. For more
-information about using resource-based policies for cross-account access, see [Cross account resource
-access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
+information about using resource-based policies for cross-account access, see [Cross account resource access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
 
 A user who has specific permissions might request a resource that also has a permissions
 policy attached to it. In that case, AWS evaluates both sets of permissions when determining

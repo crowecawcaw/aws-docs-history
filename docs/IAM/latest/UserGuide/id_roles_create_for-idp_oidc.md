@@ -1,6 +1,4 @@
-# Create a role for OpenID Connect federation
-
-(console)
+# Create a role for OpenID Connect federation (console)
 
 You can use OpenID Connect (OIDC) federated identity providers instead of creating AWS Identity and Access Management
 users in your AWS account. With an identity provider (IdP), you can manage your user
@@ -30,8 +28,7 @@ prerequisite steps.
      2.0 for Login (OpenID Connect)](https://developers.google.com/accounts/docs/OAuth2Login "https://developers.google.com/accounts/docs/OAuth2Login") on the Google developers site.
 
 2. After you receive the required information from the IdP, create an IdP in IAM. For
-   more information, see [Create an OpenID Connect (OIDC) identity
-   provider in IAM](id_roles_providers_create_oidc.md "id_roles_providers_create_oidc.md").
+   more information, see [Create an OpenID Connect (OIDC) identity provider in IAM](id_roles_providers_create_oidc.md "id_roles_providers_create_oidc.md").
 
 ###### Important
 
@@ -252,11 +249,10 @@ For recognized shared
 OpenID Connect (OIDC) identity providers (IdPs), IAM requires explicit evaluation of
 specific claims in JSON Web Tokens (JWTs) known as _identity-provider
 controls_. For more information about which OIDC IdPs have
-_identity-provider controls_, see [Identity-provider controls for
-shared OIDC providers](id_roles_providers_oidc_secure-by-default.md "id_roles_providers_oidc_secure-by-default.md").
+_identity-provider controls_, see [Identity-provider controls for shared OIDC providers](id_roles_providers_oidc_secure-by-default.md "id_roles_providers_oidc_secure-by-default.md").
 
 The following procedure describes how to create the role for OIDC federation in the
-AWS Management Console. To create a role from the AWS CLI or AWS API, see the procedures at [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md") .
+AWS Management Console. To create a role from the AWS CLI or AWS API, see the procedures at [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md").
 
 ###### Important
 
@@ -297,8 +293,7 @@ console to create a role for OIDC federation.
    For information about how to configure AWS to trust GitHub's OIDC provider as
    a federated identity, see [GitHub Docs - Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services "https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services"). For information
    about best practices for limiting access for roles associated with the IAM IdP for
-   GitHub, see [Configuring a role for GitHub OIDC identity
-   provider](#idp_oidc_Create_GitHub "#idp_oidc_Create_GitHub") on this page.
+   GitHub, see [Configuring a role for GitHub OIDC identity provider](#idp_oidc_Create_GitHub "#idp_oidc_Create_GitHub") on this page.
    - If you want to create a role for HashiCorp Cloud Platform (HCP) Terraform, you
      must start by adding the Terraform OIDC provider to IAM. After you've added the
      Terraform OIDC provider to IAM, choose **app.terraform.io**.
@@ -367,7 +362,7 @@ console to create a role for OIDC federation.
    your application can use the permissions that the role grants. For example, you can add a
    condition that grants access to AWS resources only for a specific IAM user ID. You can
    also add conditions to the trust policy after the role is created. For more information,
-   see [Update a role trust policy](id_roles_update-role-trust-policy.md "id_roles_update-role-trust-policy.md") .
+   see [Update a role trust policy](id_roles_update-role-trust-policy.md "id_roles_update-role-trust-policy.md").
 7. Review your OIDC information and then choose **Next**.
 8. IAM includes a list of the AWS managed and customer managed policies in your
    account. Select the policy to use for the permissions policy, or choose **Create
@@ -391,9 +386,7 @@ in the **Step 1: Select trusted entities** or **Step 2: Add
 permissions** sections. 14. (Optional) To add metadata to the role, attach tags as key–value pairs. For more
 information about using tags in IAM, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md"). 15. Review the role and then choose **Create role**.
 
-## Configuring a role for GitHub OIDC identity
-
-provider
+## Configuring a role for GitHub OIDC identity provider
 
 If you use GitHub as an OpenID Connect (OIDC) identity provider (IdP), best practice is to
 limit the entities that can assume the role associated with the IAM IdP. When you include a

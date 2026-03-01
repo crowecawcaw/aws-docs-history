@@ -1,6 +1,4 @@
-# Amazon EC2: Requires MFA (GetSessionToken) for
-
-specific EC2 operations
+# Amazon EC2: Requires MFA (GetSessionToken) for specific EC2 operations
 
 This example shows how you might create an identity-based policy that allows full access to all AWS API operations in Amazon EC2. However,
 it explicitly denies access to `StopInstances` and
@@ -9,8 +7,7 @@ it explicitly denies access to `StopInstances` and
 programmatically, the user must include optional `SerialNumber` and
 `TokenCode` values while calling the `GetSessionToken` operation.
 This operation returns temporary credentials that were authenticated using MFA. To learn
-more about GetSessionToken, see [Requesting credentials for users in untrusted
-environments](id_credentials_temp_request.md#api_getsessiontoken "id_credentials_temp_request.md#api_getsessiontoken").
+more about GetSessionToken, see [Requesting credentials for users in untrusted environments](id_credentials_temp_request.md#api_getsessiontoken "id_credentials_temp_request.md#api_getsessiontoken").
 
 What does this policy do?
 

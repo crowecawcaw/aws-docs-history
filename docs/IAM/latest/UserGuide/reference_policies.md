@@ -21,12 +21,10 @@ This reference includes the following sections.
   policies to grant the permissions that are needed to carry out the tasks expected of someone
   in a specific job function. These policies consolidate permissions for many services into a
   single policy.
-- [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md") — This section includes a list
+- [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md") — This section includes a list
   of all the AWS global condition keys that you can use to limit permissions in an IAM
   policy.
-- [IAM and AWS STS condition context
-  keys](reference_policies_iam-condition-keys.md "reference_policies_iam-condition-keys.md") — This section includes a
+- [IAM and AWS STS condition context keys](reference_policies_iam-condition-keys.md "reference_policies_iam-condition-keys.md") — This section includes a
   list of all the IAM and AWS STS condition keys that you can use to limit permissions in an
   IAM policy.
 - [Actions, Resources,

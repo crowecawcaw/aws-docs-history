@@ -1,6 +1,4 @@
-# Create an IAM Access Analyzer external access
-
-analyzer
+# Create an IAM Access Analyzer external access analyzer
 
 To enable an external access analyzer in a Region, you must create an analyzer in that
 Region. You must create an external access analyzer in each Region in which you want to
@@ -11,9 +9,7 @@ monitor access to your resources.
 After you create or update an analyzer, it can take time for findings to be
 available.
 
-## Create an external access
-
-analyzer with the AWS account as the zone of trust
+## Create an external access analyzer with the AWS account as the zone of trust
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -37,9 +33,7 @@ account as the zone of trust. 8. Optional. Add any tags that you want to apply t
 When you create an external access analyzer to enable IAM Access Analyzer, a service-linked
 role named `AWSServiceRoleForAccessAnalyzer` is created in your account.
 
-## Create an external access
-
-analyzer with the organization as the zone of trust
+## Create an external access analyzer with the organization as the zone of trust
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

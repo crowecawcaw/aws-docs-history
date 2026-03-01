@@ -43,26 +43,22 @@ information about role session permissions, see [Session policies](access_polici
 ³ **Maximum session duration setting**. Use the
 `DurationSeconds` parameter to specify the duration of your role session
 from 900 seconds (15 minutes) up to the maximum session duration setting for the role.
-To learn how to view the maximum value for your role, see [Update the maximum session duration
-for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
+To learn how to view the maximum value for your role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
 
 ⁴ **GetCallerIdentity**. No permissions are
 required to perform this operation. If an administrator adds a policy to your IAM user
 or role that explicitly denies access to the `sts:GetCallerIdentity` action,
 you can still perform this operation. Permissions are not required because the same
 information is returned when an IAM user or role is denied access. To view an example
-response, see [I am not authorized to
-perform: iam:DeleteVirtualMFADevice](troubleshoot.md#troubleshoot_general_access-denied-delete-mfa "troubleshoot.md#troubleshoot_general_access-denied-delete-mfa").
+response, see [I am not authorized to perform: iam:DeleteVirtualMFADevice](troubleshoot.md#troubleshoot_general_access-denied-delete-mfa "troubleshoot.md#troubleshoot_general_access-denied-delete-mfa").
 
 ⁵ **Single sign-on (SSO) to the console**. To
 support SSO, AWS lets you call a federation endpoint (`https://signin.aws.amazon.com/federation`) and
 pass temporary security credentials. The endpoint returns a token that you can use to
 construct a URL that signs a user directly into the console without requiring a
-password. For more information, see [Enabling SAML 2.0 federated principals
-to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md") and [How to Enable Cross-Account Access to the AWS Management Console](https://aws.amazon.com/blogs/security/how-to-enable-cross-account-access-to-the-aws-management-console "https://aws.amazon.com/blogs/security/how-to-enable-cross-account-access-to-the-aws-management-console") in the
+password. For more information, see [Enabling SAML 2.0 federated principals to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md") and [How to Enable Cross-Account Access to the AWS Management Console](https://aws.amazon.com/blogs/security/how-to-enable-cross-account-access-to-the-aws-management-console "https://aws.amazon.com/blogs/security/how-to-enable-cross-account-access-to-the-aws-management-console") in the
 AWS Security Blog.
 
 ⁶ After you retrieve your temporary credentials, you can't access the AWS Management Console
 by passing the credentials to the federation single sign-on endpoint. For more
-information, see [Enable custom identity broker
-access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
+information, see [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").

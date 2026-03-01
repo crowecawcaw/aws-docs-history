@@ -1,6 +1,4 @@
-# Monitoring AWS Identity and Access Management Access Analyzer with
-
-Amazon EventBridge
+# Monitoring AWS Identity and Access Management Access Analyzer with Amazon EventBridge
 
 Use the information in this topic to learn how to monitor IAM Access Analyzer findings and access
 previews with Amazon EventBridge. EventBridge is the new version of Amazon CloudWatch Events.
@@ -36,9 +34,7 @@ deleted, the finding status is not changed. Instead, the `isDeleted` attribute i
 set to `true`. IAM Access Analyzer also sends events for newly created access previews
 and access preview status changes to EventBridge.
 
-## Example external access findings
-
-events
+## Example external access findings events
 
 The following is an example IAM Access Analyzer external access finding event sent to EventBridge. The
 `id` listed is the ID for the event in EventBridge. To learn more, see [Events and Event Patterns in
@@ -119,9 +115,7 @@ generated when IAM Access Analyzer can't analyze the resource. Events for error 
 }
 ```
 
-## Example
-
-internal access findings events
+## Example internal access findings events
 
 The following is an example IAM Access Analyzer internal access finding event sent to EventBridge. The
 `id` listed is the ID for the event in EventBridge. To learn more, see [Events and Event Patterns in
@@ -206,9 +200,7 @@ generated when IAM Access Analyzer can't analyze the resource. Events for error 
 }
 ```
 
-## Example unused
-
-access findings related events
+## Example unused access findings related events
 
 The following is an example IAM Access Analyzer unused access finding event sent to EventBridge. The
 `id` listed is the ID for the event in EventBridge. To learn more, see [Events and Event Patterns in
@@ -286,9 +278,7 @@ generated when IAM Access Analyzer can't analyze the resource. Events for error 
 
 ```
 
-## Example access preview
-
-events
+## Example access preview events
 
 The following example shows data for the first event that is sent to EventBridge when you create
 an access preview. The `resources` array is a singleton with the ARN of the
@@ -509,9 +499,7 @@ The following procedure describes how to create an event rule using the console.
     To learn more about creating rules, see [Creating Amazon EventBridge rules that
     react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _Amazon EventBridge User Guide_.
 
-### Creating an event rule using the
-
-CLI
+### Creating an event rule using the CLI
 
 1. Use the following to create a rule for Amazon EventBridge using the AWS CLI. Replace the rule
    name `TestRule` with the name for your rule.

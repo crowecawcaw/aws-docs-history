@@ -1,6 +1,4 @@
-# IAM: Access the policy
-
-simulator API based on user path
+# IAM: Access the policy simulator API based on user path
 
 This example shows how you might create an identity-based policy that allows using the policy simulator API only for those users that have
 the path `Department/Development`.
@@ -29,5 +27,4 @@ JSON
 ###### Note
 
 To create a policy that allows using the policy simulator console for those users that
-have the path `Department/Development`, see [IAM: Access the
-policy simulator console based on user path](reference_policies_examples_iam_policy-sim-path-console.md "reference_policies_examples_iam_policy-sim-path-console.md").
+have the path `Department/Development`, see [IAM: Access the policy simulator console based on user path](reference_policies_examples_iam_policy-sim-path-console.md "reference_policies_examples_iam_policy-sim-path-console.md").

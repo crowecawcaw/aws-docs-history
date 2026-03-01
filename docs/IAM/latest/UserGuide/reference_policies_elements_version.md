@@ -1,6 +1,4 @@
-# IAM JSON policy elements:
-
-Version
+# IAM JSON policy elements: Version
 
 ###### Disambiguation note
 

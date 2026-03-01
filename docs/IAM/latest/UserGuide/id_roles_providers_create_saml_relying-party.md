@@ -1,6 +1,4 @@
-# Configure your SAML 2.0 IdP with
-
-relying party trust and adding claims
+# Configure your SAML 2.0 IdP with relying party trust and adding claims
 
 When you create an IAM identity provider and role for SAML access, you are telling AWS
 about the external identity provider (IdP) and what its users are allowed to do. Your next step
@@ -36,17 +34,14 @@ responses from your IdP contain the necessary attributes that AWS uses in IAM po
 check permissions for SAML federated principals. For more information, see the following
 topics:
 
-- [Overview of the role to allow SAML-federated
-  access to your AWS resources](id_roles_providers_saml.md#CreatingSAML-configuring-role "id_roles_providers_saml.md#CreatingSAML-configuring-role"). This topic discusses using SAML-specific keys in IAM policies and how to use them to
+- [Overview of the role to allow SAML-federated access to your AWS resources](id_roles_providers_saml.md#CreatingSAML-configuring-role "id_roles_providers_saml.md#CreatingSAML-configuring-role"). This topic discusses using SAML-specific keys in IAM policies and how to use them to
   restrict permissions for SAML federated principals.
-- [Configure SAML assertions for the
-  authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md"). This topic discusses how to
+- [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md"). This topic discusses how to
   configure SAML claims that include information about the user. The claims are bundled into a
   SAML assertion and included in the SAML response that is sent to AWS. You must ensure that
   the information needed by AWS policies is included in the SAML assertion in a form that
   AWS can recognize and use.
-- [Integrate third-party SAML solution
-  providers with AWS](id_roles_providers_saml_3rd-party.md "id_roles_providers_saml_3rd-party.md"). This topic provides links to documentation
+- [Integrate third-party SAML solution providers with AWS](id_roles_providers_saml_3rd-party.md "id_roles_providers_saml_3rd-party.md"). This topic provides links to documentation
   provided by third-party organizations about how to integrate identity solutions with AWS.
 
 ###### Note

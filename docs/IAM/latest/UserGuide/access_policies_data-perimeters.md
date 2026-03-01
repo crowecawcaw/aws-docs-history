@@ -1,6 +1,4 @@
-# Establish permissions guardrails using
-
-data perimeters
+# Establish permissions guardrails using data perimeters
 
 Data perimeter guardrails are meant to serve as always-on boundaries to help protect your
 data across a broad set of AWS accounts and resources. Data perimeters follow IAM
@@ -37,9 +35,7 @@ controls. To better inform the iterative risk-based approach to data perimeter
 implementation, you need to understand what security risks and threat vectors are addressed
 by data perimeter controls as well as your security priorities.
 
-## Data perimeter
-
-controls
+## Data perimeter controls
 
 Data perimeter coarse-grained controls help you achieve six distinct security
 objectives across three data perimeters through the implementation of different
@@ -63,16 +59,14 @@ permissions by using tools such as [IAM Access Analyzer](what-is-access-analyzer
 To enforce data perimeter controls on resources that are currently not supported by
 RCPs, you can use resource-based policies that are attached to resources directly. For a
 list of services that support RCPs and resource-based policies, see [Resource control
-policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") and [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") and [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 To enforce network perimeter controls, we recommend that you use
 `aws:VpceOrgID`, `aws:VpceOrgPaths`, and
 `aws:VpceAccount` only if all services you want to restrict access to are
 currently supported. Using these condition keys with unsupported services can lead to
 unintended authorization results. For a list of services that support the keys, see the
-[AWS global condition context
-keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md"). If you need to enforce the
+[AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md"). If you need to enforce the
 controls on a wider range of services, consider using `aws:SourceVpc` and
 `aws:SourceVpce` instead.
 
@@ -90,9 +84,7 @@ your definition of trusted identities. Use these keys in resource control polici
 restrict access to resources, or in [VPC endpoint
 policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") to restrict access to your networks.
 
-### Identities owned by
-
-you
+### Identities owned by you
 
 You can use the following condition keys to define IAM principals that you
 create and manage in your AWS accounts.
@@ -109,9 +101,7 @@ create and manage in your AWS accounts.
   this condition key to ensure resources can only be accessed by the principal
   account that you specify in the policy.
 
-### Identities of AWS
-
-services acting on your behalf
+### Identities of AWS services acting on your behalf
 
 You can use the following condition keys to allow AWS services to use their own
 identities to access your resources when they act on your behalf.
@@ -138,9 +128,7 @@ identities, or in [VPC endpoint
 policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") to restrict which resources can be accessed from your
 networks.
 
-### Resources owned by
-
-you
+### Resources owned by you
 
 You can use the following condition keys to define AWS resources that you create
 and manage in your AWS accounts.
@@ -155,9 +143,7 @@ and manage in your AWS accounts.
   this condition key to ensure the resource that is being accessed belongs to
   the specified AWS account.
 
-### Resources of AWS
-
-services acting on your behalf
+### Resources of AWS services acting on your behalf
 
 In some cases, you may need to permit access to AWS owned resources, resources
 that do not belong to your organization and that are accessed by your principals or
@@ -179,9 +165,7 @@ policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_sc
 or in [resource control
 policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") to constrain resource access to expected networks.
 
-### Networks owned by
-
-you
+### Networks owned by you
 
 You can use the following condition keys to define networks your employees and
 applications are expected to use to access your resources, such as your corporate IP
@@ -209,13 +193,10 @@ CIDR range and your VPCs.
 `aws:VpceAccount`, `aws:VpceOrgPaths`, and
 `aws:VpceOrgID` are particularly useful for implementing network
 perimeter controls that scale automatically with your VPC endpoint usage, without
-requiring updates to policies when you create new endpoints. See the [AWS global condition context
-keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md") for the list of
+requiring updates to policies when you create new endpoints. See the [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md") for the list of
 AWS services that support these keys.
 
-### Networks of AWS
-
-services acting on your behalf
+### Networks of AWS services acting on your behalf
 
 You can use the following condition keys to allow AWS services to access your
 resources from their networks when they act on your behalf.
@@ -232,9 +213,7 @@ that access your resources from outside your network. For more information, see
 [Establishing a data perimeter on AWS: Allow access to company data only from
 expected networks](https://aws.amazon.com/blogs/security/establishing-a-data-perimeter-on-aws-allow-access-to-company-data-only-from-expected-networks/ "https://aws.amazon.com/blogs/security/establishing-a-data-perimeter-on-aws-allow-access-to-company-data-only-from-expected-networks/").
 
-## Resources to learn more
-
-about data perimeters
+## Resources to learn more about data perimeters
 
 The following resources can help you learn more about data perimeters across
 AWS.

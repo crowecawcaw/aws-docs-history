@@ -1,6 +1,4 @@
-# Create an IAM user for workloads that can't use
-
-IAM roles
+# Create an IAM user for workloads that can't use IAM roles
 
 ###### Important
 

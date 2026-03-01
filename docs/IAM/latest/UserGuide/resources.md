@@ -6,8 +6,7 @@ IAM can help you secure your AWS account and resources.
 ###### Topics
 
 - [Identities](#resources-users-and-groups "#resources-users-and-groups")
-- [Credentials (passwords, access keys, and MFA
-  devices)](#resources-credentials "#resources-credentials")
+- [Credentials (passwords, access keys, and MFA devices)](#resources-credentials "#resources-credentials")
 - [Permissions and policies](#resources-permissions-and-policies "#resources-permissions-and-policies")
 - [Federation and delegation](#resources-federation-and-delegation "#resources-federation-and-delegation")
 - [IAM and other AWS products](#resources-iam-and-other-services "#resources-iam-and-other-services")
@@ -23,9 +22,7 @@ Consult these resources for creating, managing, and using identities.
   IAM Identity Center.
 - **[IAM Identities](id.md "id.md")** – An in-depth discussion of users, groups, and roles.
 
-## Credentials (passwords, access keys, and MFA
-
-devices)
+## Credentials (passwords, access keys, and MFA devices)
 
 Review the following guides to manage
 passwords, access keys,
@@ -81,8 +78,7 @@ sign-in process, or users from an Internet identity provider like Login with Ama
 Google, or any other OpenID Connect (OIDC) compatible identity provider. In these cases, the
 users get temporary security credentials to access AWS resources.
 
-- **[IAM tutorial: Delegate access across
-  AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md")** – Guides you
+- **[IAM tutorial: Delegate access across AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md")** – Guides you
   through granting cross-account access to an IAM user in another AWS account.
 - **[Common scenarios for temporary credentials](id_credentials_temp.md#sts-introduction "id_credentials_temp.md#sts-introduction")** – Describes ways in which users
   can be federated into AWS after being authenticated outside of AWS.
@@ -92,8 +88,7 @@ users get temporary security credentials to access AWS resources.
 Most AWS products are integrated with IAM so that you can use IAM features to help
 protect access to the resources in those products. The following resources discuss IAM and
 security for some of the most popular AWS products. For a complete list of products that
-work with IAM, including links to more information on each, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+work with IAM, including links to more information on each, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 ### Using IAM with Amazon EC2
 

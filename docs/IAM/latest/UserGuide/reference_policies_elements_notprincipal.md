@@ -1,13 +1,10 @@
-# AWS JSON policy elements:
-
-NotPrincipal
+# AWS JSON policy elements: NotPrincipal
 
 The `NotPrincipal` element uses `"Effect":"Deny"` to deny access to
 all principals **_except_** the
 principal specified in the `NotPrincipal` element. A principal can be an IAM user,
 AWS STS federated user principal, IAM role, assumed role session, AWS account, AWS service, or other
-principal type. For more information about principals, see [AWS JSON policy elements:
-Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md").
+principal type. For more information about principals, see [AWS JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md").
 
 `NotPrincipal` must be used with `"Effect":"Deny"`. Using it with
 `"Effect":"Allow"` is not supported.
@@ -35,8 +32,7 @@ operators instead.
   otherwise have access to the resource to lose access. We recommend changing your
   resource-based policy statements to use the condition operator [ArnNotEquals](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN") with the [aws:PrincipalArn](reference_policies_condition-keys.md#condition-keys-principalarn "reference_policies_condition-keys.md#condition-keys-principalarn") context key
   to limit access instead of the `NotPrincipal` element. For information about
-  permissions boundaries, see [Permissions boundaries for IAM
-  entities](access_policies_boundaries.md "access_policies_boundaries.md").
+  permissions boundaries, see [Permissions boundaries for IAM entities](access_policies_boundaries.md "access_policies_boundaries.md").
 - When you use `NotPrincipal`, you must also specify the account ARN of the
   not-denied principal. Otherwise, the policy might deny access to the entire account
   containing the principal. Depending on the service that you include in your policy, AWS
@@ -49,9 +45,7 @@ operators instead.
 - The `NotPrincipal` element isn’t supported in Service Control Policies
   (SCP) and Resource Control Policies (RCP).
 
-## Alternatives to the `NotPrincipal`
-
-element
+## Alternatives to the `NotPrincipal` element
 
 When managing access control in AWS, there may be scenarios where you need to explicitly
 deny all principals access to a resource, except for one or more principals you specify. AWS
@@ -100,9 +94,7 @@ JSON
 
 ```
 
-## Example scenario using a service
-
-principal
+## Example scenario using a service principal
 
 You can use a Deny statement to prevent all service principals, except those specified in
 the `Condition` element, from accessing or manipulating your resources. This

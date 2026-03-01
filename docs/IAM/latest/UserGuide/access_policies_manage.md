@@ -9,18 +9,14 @@ multiple policies to an identity, and each policy can contain multiple permissio
 ###### Topics
 
 - [Additional resources](#access_policies_manage-additional-resources "#access_policies_manage-additional-resources")
-- [Define custom IAM permissions with customer managed
-  policies](access_policies_create.md "access_policies_create.md")
+- [Define custom IAM permissions with customer managed policies](access_policies_create.md "access_policies_create.md")
 - [IAM policy validation](access_policies_policy-validator.md "access_policies_policy-validator.md")
-- [IAM policy testing with the IAM policy
-  simulator](access_policies_testing-policies.md "access_policies_testing-policies.md")
-- [Adding and removing IAM identity
-  permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md")
+- [IAM policy testing with the IAM policy simulator](access_policies_testing-policies.md "access_policies_testing-policies.md")
+- [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md")
 - [Versioning IAM policies](access_policies_managed-versioning.md "access_policies_managed-versioning.md")
 - [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md")
 - [Delete IAM policies](access_policies_manage-delete.md "access_policies_manage-delete.md")
-- [Refine permissions in AWS using last
-  accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md")
+- [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md")
 
 ## Additional resources
 

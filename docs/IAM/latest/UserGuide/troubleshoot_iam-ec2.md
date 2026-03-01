@@ -4,29 +4,20 @@ The following information can help you troubleshoot IAM issues with Amazon EC2.
 
 ###### Topics
 
-- [When I try to launch an instance, I don't
-  see the role in the Amazon EC2 console IAM Role list](#troubleshoot_iam-ec2_missingrole "#troubleshoot_iam-ec2_missingrole")
-- [The credentials on my instance are for the
-  wrong role](#troubleshoot_iam-ec2_wrongrole "#troubleshoot_iam-ec2_wrongrole")
-- [When I attempt to call the
-  AddRoleToInstanceProfile, I get an AccessDenied error](#troubleshoot_iam-ec2_access-denied-adding-role "#troubleshoot_iam-ec2_access-denied-adding-role")
-- [Amazon EC2: When I try to launch an
-  instance with a role, I get an AccessDenied error](#troubleshoot_iam-ec2_access-denied-launch "#troubleshoot_iam-ec2_access-denied-launch")
-- [I can't access the temporary security
-  credentials on my EC2 instance](#troubleshoot_iam-ec2_no-keys "#troubleshoot_iam-ec2_no-keys")
-- [What do the errors from the
-  info document in the IAM subtree mean?](#troubleshoot_iam-ec2_errors-info-doc "#troubleshoot_iam-ec2_errors-info-doc")
+- [When I try to launch an instance, I don't see the role in the Amazon EC2 console IAM Role list](#troubleshoot_iam-ec2_missingrole "#troubleshoot_iam-ec2_missingrole")
+- [The credentials on my instance are for the wrong role](#troubleshoot_iam-ec2_wrongrole "#troubleshoot_iam-ec2_wrongrole")
+- [When I attempt to call the AddRoleToInstanceProfile, I get an AccessDenied error](#troubleshoot_iam-ec2_access-denied-adding-role "#troubleshoot_iam-ec2_access-denied-adding-role")
+- [Amazon EC2: When I try to launch an instance with a role, I get an AccessDenied error](#troubleshoot_iam-ec2_access-denied-launch "#troubleshoot_iam-ec2_access-denied-launch")
+- [I can't access the temporary security credentials on my EC2 instance](#troubleshoot_iam-ec2_no-keys "#troubleshoot_iam-ec2_no-keys")
+- [What do the errors from the info document in the IAM subtree mean?](#troubleshoot_iam-ec2_errors-info-doc "#troubleshoot_iam-ec2_errors-info-doc")
 
-## When I try to launch an instance, I don't
-
-see the role in the Amazon EC2 console **IAM Role** list
+## When I try to launch an instance, I don't see the role in the Amazon EC2 console **IAM Role** list
 
 Check the following:
 
 - If you are signed in as an IAM user, verify that you have permission to call
   `ListInstanceProfiles`. For information about the permissions necessary to
-  work with roles, see [Permissions required for using roles
-  with Amazon EC2](id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-permissions "id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-permissions"). For information about adding
+  work with roles, see [Permissions required for using roles with Amazon EC2](id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-permissions "id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-permissions"). For information about adding
   permissions to a user, see [Manage IAM policies](access_policies_manage.md "access_policies_manage.md").
 
 If you cannot modify your own permissions, you must contact an administrator who can
@@ -53,9 +44,7 @@ created with the same name as the role, and the role is automatically added to t
 instance profile. An instance profile can contain only one IAM role, and that limit
 cannot be increased.
 
-## The credentials on my instance are for the
-
-wrong role
+## The credentials on my instance are for the wrong role
 
 The role in the instance profile might have been replaced recently. If so, your
 application will need to wait for the next automatically scheduled credential rotation before
@@ -65,9 +54,7 @@ To force the change, you must [disassociate the instance
 profile](../../../AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.md "../../../AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.md") and then [associate the instance profile](../../../AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.md "../../../AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.md"), or you can stop your instance and then restart
 it.
 
-## When I attempt to call the
-
-`AddRoleToInstanceProfile`, I get an `AccessDenied` error
+## When I attempt to call the `AddRoleToInstanceProfile`, I get an `AccessDenied` error
 
 If you are making requests as an IAM user, verify that you have the following
 permissions:
@@ -79,9 +66,7 @@ permissions:
 For more information about the permissions necessary to work with roles, see [How do I get started?](id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-get-started "id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-get-started"). For information about adding
 permissions to a user, see [Manage IAM policies](access_policies_manage.md "access_policies_manage.md").
 
-## Amazon EC2: When I try to launch an
-
-instance with a role, I get an `AccessDenied` error
+## Amazon EC2: When I try to launch an instance with a role, I get an `AccessDenied` error
 
 Check the following:
 
@@ -104,15 +89,12 @@ Check the following:
 For more information about the permissions necessary to work with roles, see see [How do I get started?](id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-get-started "id_roles_use_switch-role-ec2.md#roles-usingrole-ec2instance-get-started"). For information about adding
 permissions to a user, see [Manage IAM policies](access_policies_manage.md "access_policies_manage.md").
 
-## I can't access the temporary security
-
-credentials on my EC2 instance
+## I can't access the temporary security credentials on my EC2 instance
 
 To access temporary security credentials on your EC2 instance, you must first use the
 IAM console to create a role. Then you launch an EC2 instance that uses that role and
 examine the running instance. For more information, see **How Do I Get
-Started?** in [Use an IAM role to grant permissions to
-applications running on Amazon EC2 instances](id_roles_use_switch-role-ec2.md "id_roles_use_switch-role-ec2.md").
+Started?** in [Use an IAM role to grant permissions to applications running on Amazon EC2 instances](id_roles_use_switch-role-ec2.md "id_roles_use_switch-role-ec2.md").
 
 If you still can't access your temporary security credentials on your EC2 instance, check
 the following:
@@ -134,21 +116,15 @@ describe-instances` CLI command.
 ```
 
 - Check the `info` document in the IAM subtree for an error. If you have an
-  error, see [What do the errors from the
-  info document in the IAM subtree mean?](#troubleshoot_iam-ec2_errors-info-doc "#troubleshoot_iam-ec2_errors-info-doc") for more information.
+  error, see [What do the errors from the info document in the IAM subtree mean?](#troubleshoot_iam-ec2_errors-info-doc "#troubleshoot_iam-ec2_errors-info-doc") for more information.
 
 ```
 `[ec2-user@domU-12-31-39-0A-8D-DE ~]$` `GET http://169.254.169.254/latest/meta-data/iam/info; echo`
 ```
 
-## What do the errors from the
+## What do the errors from the `info` document in the IAM subtree mean?
 
-`info` document in the IAM subtree mean?
-
-### The
-
-`iam/info` document indicates
-`"Code":"InstanceProfileNotFound"`
+### The `iam/info` document indicates `"Code":"InstanceProfileNotFound"`
 
 Your IAM instance profile has been deleted and Amazon EC2 can no longer provide credentials
 to your instance. You must attach a valid instance profile to your Amazon EC2 instance.
@@ -166,10 +142,7 @@ deleted and another was created with the same name:
 If the IDs are different, then the instance profile attached to your instances is no
 longer valid. You must attach a valid instance profile to the instance.
 
-### The `iam/info`
-
-document indicates a success but indicates `"Message":"Instance Profile does not
- contain a role..."`
+### The `iam/info` document indicates a success but indicates `"Message":"Instance Profile does not contain a role..."`
 
 The role has been removed from the instance profile by the IAM
 `RemoveRoleFromInstanceProfile` action. You can use the IAM
@@ -181,10 +154,7 @@ To force the change, you must [disassociate the instance
 profile](../../../AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.md "../../../AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.md") and then [associate the instance profile](../../../AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.md "../../../AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.md"), or you can stop your instance and then restart
 it.
 
-### The
-
-`iam/security-credentials/[role-name]` document indicates
-`"Code":"AssumeRoleUnauthorizedAccess"`
+### The `iam/security-credentials/[role-name]` document indicates `"Code":"AssumeRoleUnauthorizedAccess"`
 
 Amazon EC2 does not have permission to assume the role. Permission to assume the role is
 controlled by the trust policy attached to the role, like the example that follows. Use the

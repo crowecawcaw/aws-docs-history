@@ -1,6 +1,4 @@
-# Revoke IAM role temporary security
-
-credentials
+# Revoke IAM role temporary security credentials
 
 ###### Warning
 
@@ -27,17 +25,14 @@ _before_ the point in time when you revoke the permissions. If the user
 assumes the role _after_ you revoked the permissions, then the deny policy
 does not apply to that user.
 
-For more information on denying access, see [Disabling permissions for
-temporary security credentials](id_credentials_temp_control-access_disable-perms.md "id_credentials_temp_control-access_disable-perms.md").
+For more information on denying access, see [Disabling permissions for temporary security credentials](id_credentials_temp_control-access_disable-perms.md "id_credentials_temp_control-access_disable-perms.md").
 
 ###### Important
 
 This deny policy applies to all users of the specified role, not just those with longer
 duration console sessions.
 
-## Minimum permissions to revoke session permissions
-
-from a role
+## Minimum permissions to revoke session permissions from a role
 
 To successfully revoke session permissions from a role, you must have the
 `PutRolePolicy` permission for the role. This allows you to attach the
@@ -76,8 +71,7 @@ future. This future time choice takes into account the propagation delay of the 
 order to deal with a new session that was acquired or renewed before the updated policy is
 in effect in a given region. Any user who assumes the role more than approximately 30
 seconds after you choose Revoke active sessions is not affected. To learn why changes are
-not always immediately visible, see [Changes that I make are not always
-immediately visible](troubleshoot.md#troubleshoot_general_eventual-consistency "troubleshoot.md#troubleshoot_general_eventual-consistency").
+not always immediately visible, see [Changes that I make are not always immediately visible](troubleshoot.md#troubleshoot_general_eventual-consistency "troubleshoot.md#troubleshoot_general_eventual-consistency").
 
 ###### Note
 
@@ -102,9 +96,7 @@ following commands:
 `C:\>` `del /s /q %UserProfile%\.aws\cli\cache`
 ```
 
-## Revoking session permissions before a specified
-
-time
+## Revoking session permissions before a specified time
 
 You can also revoke session permissions at any time of your choice using the AWS CLI or SDK
 to specify a value for the `aws:TokenIssueTime` key in the Condition element of a policy.

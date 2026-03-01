@@ -1,6 +1,4 @@
-# Permissions required to access IAM
-
-resources
+# Permissions required to access IAM resources
 
 _Resources_ are objects within a service. IAM resources
 include groups, users, roles, and policies. If you are signed in with AWS account root user credentials,
@@ -14,9 +12,7 @@ Throughout the AWS documentation, when we refer to an IAM policy without mention
 any of the specific categories, we mean an identity-based, customer managed policy. For
 details about policy categories, see [Policies and permissions in AWS Identity and Access Management](access_policies.md "access_policies.md").
 
-## Permissions for administering IAM
-
-identities
+## Permissions for administering IAM identities
 
 The permissions that are required to administer IAM groups, users, roles, and
 credentials usually correspond to the API actions for the task. For example, in order to
@@ -109,9 +105,7 @@ users from the group, then detach or delete the group's policies, and then actua
 group. If you want a user to be able to delete a group, you must be sure to give the user
 permissions to perform all of the related actions.
 
-## Permissions for working in the
-
-AWS Management Console
+## Permissions for working in the AWS Management Console
 
 The preceding examples show policies that allow a user to perform the actions with the
 [AWS CLI](http://aws.amazon.com/cli/ "http://aws.amazon.com/cli/") or the [AWS SDKs](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/").
@@ -136,30 +130,23 @@ actions.
 If you want to give users permissions to administer groups, users, roles, policies, and
 credentials with the AWS Management Console, you need to include permissions for the actions that the
 console performs. For some examples of policies that you can use to grant a user for these
-permissions, see [Example policies for
-administering IAM resources](id_credentials_delegate-permissions_examples.md "id_credentials_delegate-permissions_examples.md").
+permissions, see [Example policies for administering IAM resources](id_credentials_delegate-permissions_examples.md "id_credentials_delegate-permissions_examples.md").
 
-## Grant permissions across AWS
-
-accounts
+## Grant permissions across AWS accounts
 
 You can directly grant IAM users in your own account access to your resources. If users
 from another account need access to your resources, you can create an IAM role, which is
 an entity that includes permissions but that isn't associated with a specific user. Users from
 other accounts can then use the role and access resources according to the permissions you've
-assigned to the role. For more information, see [Access for an IAM user in another
-AWS account that you own](id_roles_common-scenarios_aws-accounts.md "id_roles_common-scenarios_aws-accounts.md").
+assigned to the role. For more information, see [Access for an IAM user in another AWS account that you own](id_roles_common-scenarios_aws-accounts.md "id_roles_common-scenarios_aws-accounts.md").
 
 ###### Note
 
-Some services support resource-based policies as described in [Identity-based policies and
-resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md") (such as Amazon S3, Amazon SNS, and Amazon SQS). For those services, an alternative to using roles is to attach a policy to the resource (bucket, topic, or queue)
+Some services support resource-based policies as described in [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md") (such as Amazon S3, Amazon SNS, and Amazon SQS). For those services, an alternative to using roles is to attach a policy to the resource (bucket, topic, or queue)
 that you want to share. The resource-based policy can specify the AWS account that has
 permissions to access the resource.
 
-## Permissions for one service to access
-
-another
+## Permissions for one service to access another
 
 Many AWS services access other AWS services. For example, several AWS
 services—including Amazon EMR, Elastic Load Balancing, and Amazon EC2 Auto Scaling—manage Amazon EC2 instances.
@@ -177,16 +164,14 @@ examples of how permissions are handled for different services:
 
 For details about how to configure permissions properly so that an AWS service is able
 to accomplish the tasks you intend, refer to the documentation for the service you are
-calling. To learn how to create a role for a service, see [Create a role to delegate permissions to an
-AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md").
+calling. To learn how to create a role for a service, see [Create a role to delegate permissions to an AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md").
 
 ###### Configuring a service with an IAM role to work on your behalf
 
 When you want to configure an AWS service to work on your behalf, you typically
 provide the ARN for an IAM role that defines what the service is allowed to do. AWS
 checks to ensure that you have permissions to pass a role to a service. For more
-information, see [Grant a user permissions to pass a role to an AWS
-service](id_roles_use_passrole.md "id_roles_use_passrole.md").
+information, see [Grant a user permissions to pass a role to an AWS service](id_roles_use_passrole.md "id_roles_use_passrole.md").
 
 ## Required actions
 

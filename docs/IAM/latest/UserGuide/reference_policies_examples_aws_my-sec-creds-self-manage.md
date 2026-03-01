@@ -1,7 +1,4 @@
-# AWS: Allows
-
-MFA-authenticated IAM users to manage their own credentials on the Security
-credentials page
+# AWS: Allows MFA-authenticated IAM users to manage their own credentials on the Security credentials page
 
 This example shows how you might create an identity-based policy that allows IAM users that are authenticated using [multi-factor authentication (MFA)](id_credentials_mfa.md "id_credentials_mfa.md") to manage their
 own credentials on the **Security credentials** page. This AWS Management Console
@@ -10,21 +7,17 @@ also view and edit their own passwords, access keys, MFA devices, X.509 certific
 SSH keys and Git credentials. This example policy includes the permissions required to view
 and edit all of the information on the page. It also requires the user to set up and
 authenticate using MFA before performing any other operations in AWS. To allow users to
-manage their own credentials without using MFA, see [AWS:
-Allows IAM users to manage their own credentials on the Security credentials
-page](reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa.md "reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa.md").
+manage their own credentials without using MFA, see [AWS: Allows IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa.md "reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa.md").
 
 To learn how users can access the **Security credentials** page, see
-[How IAM users change their own password
-(console)](id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console "id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console").
+[How IAM users change their own password (console)](id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console "id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console").
 
 ###### Note
 
 - This example policy does not allow users to reset a password while signing in
   to the AWS Management Console for the first time. We recommend that you do not grant
   permissions to new users until after they sign in. For more information, see
-  [How do I securely create
-  IAM users?](troubleshoot.md#troubleshoot_general_securely-create-iam-users "troubleshoot.md#troubleshoot_general_securely-create-iam-users"). This also
+  [How do I securely create IAM users?](troubleshoot.md#troubleshoot_general_securely-create-iam-users "troubleshoot.md#troubleshoot_general_securely-create-iam-users"). This also
   prevents users with an expired password from resetting their password during
   sign in. You can allow this by adding `iam:ChangePassword` and
   `iam:GetAccountPasswordPolicy` to the statement

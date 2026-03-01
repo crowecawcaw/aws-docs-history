@@ -1,6 +1,4 @@
-# IAM: Create new users only
-
-with specific tags
+# IAM: Create new users only with specific tags
 
 This example shows how you might create an identity-based policy that allows the creation of IAM users but only with one or both of the
 `Department` and `JobFunction` tag keys. The
@@ -25,8 +23,7 @@ the tags in the request must be in this list. However, the request can include o
 the tags in the list. For example, you can create an IAM user with only the
 `Department=QualityAssurance` tag. However, you cannot create an IAM user
 with the `JobFunction=employee` tag and the `Project=core` tag. For
-more information about using `ForAllValues`, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+more information about using `ForAllValues`, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 JSON
 

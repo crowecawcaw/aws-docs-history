@@ -31,16 +31,13 @@ By default, your role session lasts for one hour. When you assume this role usin
 `duration-seconds` parameter. This value can range from 900 seconds (15 minutes)
 up to the maximum session duration setting for the role. If you switch roles in the console,
 your session duration is limited to maximum of one hour. To learn how to view the maximum
-value for your role, see [Update the maximum session duration
-for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
+value for your role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
 
 If you use role chaining, your session duration is limited to a maximum of one hour. If you
 then use the `duration-seconds` parameter to provide a value greater than one hour,
 the operation fails.
 
-## Example scenario: Switch to a
-
-production role
+## Example scenario: Switch to a production role
 
 Imagine that you are an IAM user for working in the development environment. In this
 scenario, you occasionally need to work with the production environment at the command line
@@ -120,9 +117,7 @@ credentials in your default profile, which you configured in [Step 1](#step-con
 For more information, see [Assuming a
 Role](../../../cli/latest/userguide/cli-roles.md "../../../cli/latest/userguide/cli-roles.md") in the _AWS Command Line Interface User Guide_.
 
-## Example scenario: Allow an instance
-
-profile role to switch to a role in another account
+## Example scenario: Allow an instance profile role to switch to a role in another account
 
 Imagine that you are using two AWS accounts, and you want to allow an application
 running on an Amazon EC2 instance to run [AWS CLI](http://aws.amazon.com/cli/ "http://aws.amazon.com/cli/")
@@ -261,9 +256,7 @@ behalf as described in this topic, a role session name is automatically created 
 seconds since midnight UTC on January 1, 1970). For more information, see [CloudTrail Event Reference](../../../awscloudtrail/latest/userguide/eventreference.md "../../../awscloudtrail/latest/userguide/eventreference.md") in the
 _AWS CloudTrail User Guide_.
 
-###### To allow an EC2 instance profile role to switch to a cross-account role
-
-(AWS CLI)
+###### To allow an EC2 instance profile role to switch to a cross-account role (AWS CLI)
 
 1. You do not have to configure a default CLI profile. Instead, you can load
    credentials from the EC2 instance profile metadata. Create a new profile for the role

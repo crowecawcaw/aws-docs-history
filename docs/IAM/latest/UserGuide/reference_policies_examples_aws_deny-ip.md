@@ -1,6 +1,4 @@
-# AWS: Denies access to AWS based on
-
-the source IP
+# AWS: Denies access to AWS based on the source IP
 
 This example shows how you might create an identity-based policy that denies access to all AWS actions in the account when the request
 comes from _principals_ outside the specified IP range. The
@@ -24,8 +22,7 @@ range. An AWS service can also make requests using the principal's credentials. 
 principal makes a request from outside the IP range, the request is denied.
 
 For more information about using the `aws:SourceIp` condition key, including
-information about when `aws:SourceIp` may not work in your policy, see [AWS global condition context
-keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
+information about when `aws:SourceIp` may not work in your policy, see [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
 
 JSON
 

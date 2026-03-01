@@ -62,8 +62,7 @@ Refer to the external service documentation for detailed configuration instructi
 
 Create an IAM policy that grants permission to call the [GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md") API and attach the policy to an IAM role that needs to generate tokens.
 
-This example policy grants access to token generation with specific restrictions. It allows requesting tokens only for "https://api.example.com" as the audience and enforces a maximum token lifetime of 5 minutes (300 seconds). Refer to [IAM and AWS STS condition context
-keys](reference_policies_iam-condition-keys.md "reference_policies_iam-condition-keys.md") for a list of condition keys you can use to enforce token properties.
+This example policy grants access to token generation with specific restrictions. It allows requesting tokens only for "https://api.example.com" as the audience and enforces a maximum token lifetime of 5 minutes (300 seconds). Refer to [IAM and AWS STS condition context keys](reference_policies_iam-condition-keys.md "reference_policies_iam-condition-keys.md") for a list of condition keys you can use to enforce token properties.
 
 ### Example IAM policy
 

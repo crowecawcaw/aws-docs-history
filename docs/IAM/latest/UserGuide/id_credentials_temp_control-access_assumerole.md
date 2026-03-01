@@ -23,9 +23,7 @@ permissions assigned by the assumed role. In the case of the `AssumeRoleWithSAML
 `AssumeRoleWithWebIdentity` API operations, there are no policies to evaluate because the
 caller of the API is not an AWS identity.
 
-## Example: Assigning permissions using
-
-AssumeRole
+## Example: Assigning permissions using AssumeRole
 
 You can use the `AssumeRole` API operation with different kinds of policies.
 Here are a few examples.
@@ -66,9 +64,7 @@ JSON
 
 ```
 
-### Session policy passed as a
-
-parameter
+### Session policy passed as a parameter
 
 Imagine that you want to allow a user to assume the same role as in the previous
 example. But in this case you want the role session to have permission only to get and put
@@ -122,9 +118,7 @@ JSON
 
 ```
 
-### Resource-based
-
-policy
+### Resource-based policy
 
 Some AWS resources support resource-based policies, and these policies provide another
 mechanism to define permissions that affect temporary security credentials. Only a few

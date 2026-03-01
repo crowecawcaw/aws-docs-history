@@ -1,6 +1,4 @@
-# IAM tutorial: Define permissions to
-
-access AWS resources based on tags
+# IAM tutorial: Define permissions to access AWS resources based on tags
 
 Attribute-based access control (ABAC) is an authorization strategy that defines permissions
 based on attributes. In AWS, these attributes are called _tags_. You can attach tags to IAM resources, including IAM entities (users or
@@ -9,8 +7,7 @@ permissions to your principals based on their tags. When you use tags to control
 your AWS resources, you allow your teams and resources to grow with fewer changes to AWS
 policies. ABAC policies are more flexible than traditional AWS policies, which require you
 to list each individual resource. For more information about ABAC and its advantage over
-traditional policies, see [Define permissions based on
-attributes with ABAC authorization](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md").
+traditional policies, see [Define permissions based on attributes with ABAC authorization](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md").
 
 ###### Note
 
@@ -19,8 +16,7 @@ multi-valued session tags.
 
 ###### Topics
 
-- [Tutorial
-  overview](#tutorial_attribute-based-access-control-overview "#tutorial_attribute-based-access-control-overview")
+- [Tutorial overview](#tutorial_attribute-based-access-control-overview "#tutorial_attribute-based-access-control-overview")
 - [Prerequisites](#tutorial_abac_prereqs "#tutorial_abac_prereqs")
 - [Step 1: Create test users](#tutorial_abac_step1 "#tutorial_abac_step1")
 - [Step 2: Create the ABAC policy](#tutorial_abac_step2 "#tutorial_abac_step2")
@@ -33,9 +29,7 @@ multi-valued session tags.
 - [Related resources](#tutorial_abac_related "#tutorial_abac_related")
 - [IAM tutorial: Use SAML session tags for ABAC](tutorial_abac-saml.md "tutorial_abac-saml.md")
 
-## Tutorial
-
-overview
+## Tutorial overview
 
 This tutorial shows how to create and test a policy that allows IAM roles with
 principal tags to access resources with matching tags. When a principal makes a request to
@@ -53,8 +47,7 @@ strategy that scales as your company grows.
 
 You choose to use AWS resource tags and IAM role principal tags to implement an ABAC
 strategy for services that support it, beginning with AWS Secrets Manager. To
-learn which services support authorization based on tags, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn which tagging
+learn which services support authorization based on tags, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn which tagging
 condition keys you can use in a policy with each service's actions and resources, see
 [Actions, Resources,
 and Condition Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md"). You can configure your SAML-based or web
@@ -136,9 +129,7 @@ trust policy of the role if they work on only one project and team.
    `access-assume-role`. For more information about creating a JSON policy,
    see [Creating IAM policies](access_policies_create-console.md#access_policies_create-start "access_policies_create-console.md#access_policies_create-start").
 
-###### ABAC policy: Assume any ABAC role, but only when the user and role tags
-
-match
+###### ABAC policy: Assume any ABAC role, but only when the user and role tags match
 
 The following policy allows a user to assume any role in your account with the
 `access-` name prefix. The role must also be tagged with the same
@@ -192,19 +183,13 @@ JSON policy, see [Creating IAM policies](access_policies_create-console.md#acces
 For additional policies that you can adapt for this tutorial, see the following
 pages:
 
-- [Controlling access for IAM
-  principals](access_iam-tags.md#access_iam-tags_control-principals "access_iam-tags.md#access_iam-tags_control-principals")
-- [Amazon EC2: Allows starting or stopping
-  EC2 instances a user has tagged, programmatically and in the console](reference_policies_examples_ec2_tag-owner.md "reference_policies_examples_ec2_tag-owner.md")
-- [EC2: Start or stop instances based
-  on matching principal and resource tags](reference_policies_examples_ec2-start-stop-match-tags.md "reference_policies_examples_ec2-start-stop-match-tags.md")
+- [Controlling access for IAM principals](access_iam-tags.md#access_iam-tags_control-principals "access_iam-tags.md#access_iam-tags_control-principals")
+- [Amazon EC2: Allows starting or stopping EC2 instances a user has tagged, programmatically and in the console](reference_policies_examples_ec2_tag-owner.md "reference_policies_examples_ec2_tag-owner.md")
+- [EC2: Start or stop instances based on matching principal and resource tags](reference_policies_examples_ec2-start-stop-match-tags.md "reference_policies_examples_ec2-start-stop-match-tags.md")
 - [EC2: Start or stop instances based on tags](reference_policies_examples_ec2-start-stop-tags.md "reference_policies_examples_ec2-start-stop-tags.md")
-- [IAM: Assume roles that have
-  a specific tag](reference_policies_examples_iam-assume-tagged-role.md "reference_policies_examples_iam-assume-tagged-role.md")
+- [IAM: Assume roles that have a specific tag](reference_policies_examples_iam-assume-tagged-role.md "reference_policies_examples_iam-assume-tagged-role.md")
 
-###### ABAC Policy: Access Secrets Manager Resources Only When the Principal and Resource Tags
-
-Match
+###### ABAC Policy: Access Secrets Manager Resources Only When the Principal and Resource Tags Match
 
 The following policy allows principals to create, read, edit, and delete resources,
 but only when those resources are tagged with the same key-value pairs as the principal.
@@ -318,8 +303,7 @@ JSON
     condition returns true. This allows `Get*` operations that do not
     allow passing tags in the request. If the requester includes a tag key that is
     not in the list, the condition returns false. Every tag key that is passed in
-    the request must match a member of this list. For more information, see [Set operators
-    for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+    the request must match a member of this list. For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
   - The third condition block returns true if the request supports passing tags,
     if all three of the tags are present, and if they match the principal tag
     values. This block also returns true if the request does not support passing
@@ -354,8 +338,7 @@ denied by default.
 
 Create the following IAM roles and attach the
 `access-same-project-team` policy that you created in the previous
-step. For more information about creating IAM roles, see [Create a role to give permissions to an IAM
-user](id_roles_create_for-user.md "id_roles_create_for-user.md"). If you
+step. For more information about creating IAM roles, see [Create a role to give permissions to an IAM user](id_roles_create_for-user.md "id_roles_create_for-user.md"). If you
 choose to use federation instead of IAM users and roles, see [IAM tutorial: Use SAML session tags for ABAC](tutorial_abac-saml.md "tutorial_abac-saml.md").
 
 | Job function                      | Role name                    | Role tags                                                               | Role description                                                                                           |
@@ -386,8 +369,7 @@ This operation fails because the `access-project` and
 `access-Arnav-peg-eng` user and `access-uni-engineering`
 role.
 
-For more information about switching roles in the AWS Management Console, see [Switch from a user to an IAM role
-(console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md") 3. Switch to the `access-peg-engineering` role. 4. Store a new secret using the following information. To learn how to store a
+For more information about switching roles in the AWS Management Console, see [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md") 3. Switch to the `access-peg-engineering` role. 4. Store a new secret using the following information. To learn how to store a
 secret, see [Creating a Basic Secret](../../../secretsmanager/latest/userguide/manage_create-basic-secret.md "../../../secretsmanager/latest/userguide/manage_create-basic-secret.md") in the _AWS Secrets Manager User
 Guide_.
 
@@ -456,8 +438,7 @@ working as expected by testing your roles in Secrets Manager.
         * `access-uni-engineering`
         * `access-uni-quality-assurance`
 
-    For more information about switching roles in the AWS Management Console, see [Switch from a user to an IAM role
-    (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
+    For more information about switching roles in the AWS Management Console, see [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
 
 3.  In the navigation pane on the left, choose the menu icon to expand the menu and
     then choose **Secrets**.
@@ -533,8 +514,7 @@ engineers, including Nikhil Jayashankar, who will work on only the
 7. On the **Permissions** tab, remove the
    **access-assume-role** permissions policy.
 8. Add the following inline policy named `access-assume-specific-roles`.
-   For more information about adding an inline policy to a user, see [To embed an inline policy for a user or role
-   (console)](access_policies_manage-attach-detach.md#embed-inline-policy-console "access_policies_manage-attach-detach.md#embed-inline-policy-console").
+   For more information about adding an inline policy to a user, see [To embed an inline policy for a user or role (console)](access_policies_manage-attach-detach.md#embed-inline-policy-console "access_policies_manage-attach-detach.md#embed-inline-policy-console").
 
 ###### ABAC policy: Assume only specific roles
 
@@ -600,8 +580,7 @@ Secrets Manager.
         * `access-peg-quality-assurance`
         * `access-cen-engineering`
 
-    For more information about switching roles in the AWS Management Console, see [Switch from a user to an IAM role
-    (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
+    For more information about switching roles in the AWS Management Console, see [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
 
 3.  For each role, try to update the secret description and then try to delete the
     following secrets. For more information, see [Modifying a Secret](../../../secretsmanager/latest/userguide/manage_update-secret.md "../../../secretsmanager/latest/userguide/manage_update-secret.md") and [Deleting and Restoring a Secret](../../../secretsmanager/latest/userguide/manage_delete-restore-secret.md "../../../secretsmanager/latest/userguide/manage_delete-restore-secret.md") in the _AWS Secrets Manager User Guide_.
@@ -636,23 +615,18 @@ different policy to your users or roles that has broader permissions, then the a
 might not be limited to require tagging. For example, if you give a user full
 administrative permissions using the `AdministratorAccess` AWS managed
 policy, then these policies don't restrict that access. For more information about how
-permissions are determined when multiple policies are involved, see [How AWS
-enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
+permissions are determined when multiple policies are involved, see [How AWS enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
 
 ## Related resources
 
 For related information, see the following resources:
 
-- [Define permissions based on
-  attributes with ABAC authorization](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md")
-- [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
-- [Create a role to give permissions to an IAM
-  user](id_roles_create_for-user.md "id_roles_create_for-user.md")
+- [Define permissions based on attributes with ABAC authorization](introduction_attribute-based-access-control.md "introduction_attribute-based-access-control.md")
+- [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
+- [Create a role to give permissions to an IAM user](id_roles_create_for-user.md "id_roles_create_for-user.md")
 - [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md")
 - [Controlling access to AWS resources using tags](access_tags.md "access_tags.md")
-- [Switch from a user to an IAM role
-  (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md")
+- [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md")
 - [IAM tutorial: Use SAML session tags for ABAC](tutorial_abac-saml.md "tutorial_abac-saml.md")
 
 To learn how to monitor the tags in your account, see [Monitor tag changes on AWS resources with serverless workflows and

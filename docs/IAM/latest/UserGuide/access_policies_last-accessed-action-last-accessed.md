@@ -1,6 +1,4 @@
-# IAM action last
-
-accessed information services and actions
+# IAM action last accessed information services and actions
 
 The following table lists the AWS services for which [IAM action last accessed
 information](access_policies_last-accessed.md "access_policies_last-accessed.md") is displayed. For a list of actions in each service, see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the

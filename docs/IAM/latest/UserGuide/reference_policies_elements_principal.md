@@ -1,6 +1,4 @@
-# AWS JSON policy elements:
-
-Principal
+# AWS JSON policy elements: Principal
 
 Use the `Principal` element in a resource-based JSON policy to specify the
 principal that is allowed or denied access to a resource.
@@ -41,8 +39,7 @@ attached.
 - [IAM Identity Center principals](#principal-identity-users "#principal-identity-users")
 - [AWS STS federated user principals](#sts-session-principals "#sts-session-principals")
 - [AWS service principals](#principal-services "#principal-services")
-- [AWS service principals in opt-in
-  Regions](#principal-services-in-opt-in-regions "#principal-services-in-opt-in-regions")
+- [AWS service principals in opt-in Regions](#principal-services-in-opt-in-regions "#principal-services-in-opt-in-regions")
 - [All principals](#principal-anonymous "#principal-anonymous")
 - [More information](#Principal_more-info "#Principal_more-info")
 
@@ -413,8 +410,7 @@ following format:
 ``service-name`.amazonaws.com`
 
 The service principal is defined by the service. You can find the service principal for
-some services by opening [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"), checking whether the service
+some services by opening [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"), checking whether the service
 has **Yes** in the **Service-linked
 role** column, and opening the **Yes** link to view
 the service-linked role documentation for that service. Find the **Service-Linked Role
@@ -436,9 +432,7 @@ one. Instead, you use an array of multiple service principals as the value of a 
 }
 ```
 
-## AWS service principals in opt-in
-
-Regions
+## AWS service principals in opt-in Regions
 
 You can launch resources in several AWS Regions and some of those Regions you must opt
 in to. For a complete list of Regions you must opt in to, see [Managing AWS Regions](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/rande-manage.md") in the _AWS General Reference_ guide.
@@ -529,8 +523,7 @@ For anonymous users, the following elements are equivalent:
 
 You cannot use a wildcard to match part of a principal name or ARN.
 
-The following example shows a resource-based policy that can be used instead of [AWS JSON policy elements:
-NotPrincipal](reference_policies_elements_notprincipal.md "reference_policies_elements_notprincipal.md") to explicitly deny all principals
+The following example shows a resource-based policy that can be used instead of [AWS JSON policy elements: NotPrincipal](reference_policies_elements_notprincipal.md "reference_policies_elements_notprincipal.md") to explicitly deny all principals
 _except_ for the ones specified in the `Condition` element.
 This policy should be [added to an Amazon S3
 bucket](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md").

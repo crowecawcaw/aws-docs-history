@@ -1,15 +1,11 @@
-# Validate policies with IAM Access Analyzer custom policy
-
-checks
+# Validate policies with IAM Access Analyzer custom policy checks
 
 You can use custom policy checks to check for new access based on your security standards.
 A charge is associated with each check for new access. For more details about pricing, see
 [IAM Access Analyzer
 pricing](https://aws.amazon.com/iam/access-analyzer/pricing "https://aws.amazon.com/iam/access-analyzer/pricing").
 
-## Validating policies with
-
-custom policy checks (console)
+## Validating policies with custom policy checks (console)
 
 As an optional step, you can run a custom policy check when editing a policy in the
 JSON policy editor in the IAM console. You can check whether the updated policy grants
@@ -39,16 +35,12 @@ about pricing, see [IAM Access Analyzer pricing](https://aws.amazon.com/iam/acce
 defined in this policy** and then choose **Save
 changes**.
 
-## Validating policies with
-
-custom policy checks (AWS CLI or API)
+## Validating policies with custom policy checks (AWS CLI or API)
 
 You can run IAM Access Analyzer custom policy checks from the AWS CLI or the IAM Access Analyzer
 API.
 
-### To run IAM Access Analyzer
-
-custom policy checks (AWS CLI)
+### To run IAM Access Analyzer custom policy checks (AWS CLI)
 
 - To check whether new access is allowed for an updated policy when compared
   to the existing policy, run the following command: [check-no-new-access](../../../cli/latest/reference/accessanalyzer/check-no-new-access.md "../../../cli/latest/reference/accessanalyzer/check-no-new-access.md")
@@ -57,9 +49,7 @@ custom policy checks (AWS CLI)
 - To check whether a resource policy can grant public access to a specified
   resource type, run the following command: [check-no-public-access](../../../cli/latest/reference/accessanalyzer/check-no-public-access.md "../../../cli/latest/reference/accessanalyzer/check-no-public-access.md")
 
-### To run IAM Access Analyzer
-
-custom policy checks (API)
+### To run IAM Access Analyzer custom policy checks (API)
 
 - To check whether new access is allowed for an updated policy when compared
   to the existing policy, use the [CheckNoNewAccess](../../../access-analyzer/latest/APIReference/API_CheckNoNewAccess.md "../../../access-analyzer/latest/APIReference/API_CheckNoNewAccess.md") API operation.

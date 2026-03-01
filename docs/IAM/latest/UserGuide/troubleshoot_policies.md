@@ -17,46 +17,34 @@ policies.
 Keep in mind that all IAM policies are stored using syntax that begins with the rules of
 [JavaScript Object Notation](http://www.json.org "http://www.json.org") (JSON). You do not have to
 understand this syntax to create or manage your policies. You can create and edit a policy using
-the visual editor in the AWS Management Console. To learn more about JSON syntax in IAM policies, see [Grammar of the IAM JSON policy language](reference_policies_grammar.md "reference_policies_grammar.md") .
+the visual editor in the AWS Management Console. To learn more about JSON syntax in IAM policies, see [Grammar of the IAM JSON policy language](reference_policies_grammar.md "reference_policies_grammar.md").
 
 **Troubleshooting IAM Policy Topics**
 
 - [Troubleshoot using the visual editor](#troubleshoot_policies-viseditor "#troubleshoot_policies-viseditor")
   - [Policy restructuring](#troubleshoot_viseditor-restructure "#troubleshoot_viseditor-restructure")
-  - [Choosing a resource ARN in the visual
-    editor](#troubleshoot_policies-resource-arn "#troubleshoot_policies-resource-arn")
-  - [Denying permissions in the visual
-    editor](#troubleshoot_policies-switch-deny "#troubleshoot_policies-switch-deny")
-  - [Specifying multiple services in
-    the visual editor](#troubleshoot_policies-multiple-services "#troubleshoot_policies-multiple-services")
-  - [Reducing the size of your policy in the visual
-    editor](#troubleshoot_policy-size "#troubleshoot_policy-size")
-  - [Fixing unrecognized services,
-    actions, or resource types in the visual editor](#troubleshoot_policies-unrecognized-visual "#troubleshoot_policies-unrecognized-visual")
+  - [Choosing a resource ARN in the visual editor](#troubleshoot_policies-resource-arn "#troubleshoot_policies-resource-arn")
+  - [Denying permissions in the visual editor](#troubleshoot_policies-switch-deny "#troubleshoot_policies-switch-deny")
+  - [Specifying multiple services in the visual editor](#troubleshoot_policies-multiple-services "#troubleshoot_policies-multiple-services")
+  - [Reducing the size of your policy in the visual editor](#troubleshoot_policy-size "#troubleshoot_policy-size")
+  - [Fixing unrecognized services, actions, or resource types in the visual editor](#troubleshoot_policies-unrecognized-visual "#troubleshoot_policies-unrecognized-visual")
 
 - [Troubleshoot with policy summaries](#troubleshoot_policies-polsum "#troubleshoot_policies-polsum")
   - [Missing policy summary](#missing-policy-summary "#missing-policy-summary")
-  - [Policy summary includes unrecognized
-    services, actions, or resource types](#unrecognized-services-actions "#unrecognized-services-actions")
-  - [Service does not support IAM policy
-    summaries](#unsupported-services-actions "#unsupported-services-actions")
-  - [My policy does not grant the expected
-    permissions](#policy-summary-not-grant-permissions "#policy-summary-not-grant-permissions")
+  - [Policy summary includes unrecognized services, actions, or resource types](#unrecognized-services-actions "#unrecognized-services-actions")
+  - [Service does not support IAM policy summaries](#unsupported-services-actions "#unsupported-services-actions")
+  - [My policy does not grant the expected permissions](#policy-summary-not-grant-permissions "#policy-summary-not-grant-permissions")
 
 - [Troubleshoot policy management](#troubleshoot_policies-policy-manage "#troubleshoot_policies-policy-manage")
-  - [Attaching or detaching a
-    policy in an IAM account](#troubleshoot_roles_cant-attach-detach-policy "#troubleshoot_roles_cant-attach-detach-policy")
-  - [Changing policies for your
-    IAM identities based on their activity](#troubleshoot_change-policies-based-on-activity "#troubleshoot_change-policies-based-on-activity")
+  - [Attaching or detaching a policy in an IAM account](#troubleshoot_roles_cant-attach-detach-policy "#troubleshoot_roles_cant-attach-detach-policy")
+  - [Changing policies for your IAM identities based on their activity](#troubleshoot_change-policies-based-on-activity "#troubleshoot_change-policies-based-on-activity")
 
 - [Troubleshoot JSON policy documents](#troubleshoot_policies-json "#troubleshoot_policies-json")
   - [Validate your policies](#usepolicyvalidation "#usepolicyvalidation")
-  - [I don't have permissions for policy validation
-    in the JSON editor](#nopermsforpolicyvalidation "#nopermsforpolicyvalidation")
+  - [I don't have permissions for policy validation in the JSON editor](#nopermsforpolicyvalidation "#nopermsforpolicyvalidation")
   - [More than one JSON policy object](#morethanonepolicyblock "#morethanonepolicyblock")
   - [More than one JSON statement element](#morethanonestatement "#morethanonestatement")
-  - [More than one effect, action, or resource element in a
-    JSON statement element](#duplicateelement "#duplicateelement")
+  - [More than one effect, action, or resource element in a JSON statement element](#duplicateelement "#duplicateelement")
   - [Missing JSON version element](#missing-version "#missing-version")
 
 ## Troubleshoot using the visual editor
@@ -105,9 +93,7 @@ the restructuring based on the following situations:
 IAM might restructure complex policies or policies that have permission blocks or
 statements that allow multiple services, resource types, or condition keys.
 
-### Choosing a resource ARN in the visual
-
-editor
+### Choosing a resource ARN in the visual editor
 
 When you create or edit a policy using the visual editor, you must first choose a
 service, and then choose actions from that service. If the service and actions that you
@@ -128,12 +114,9 @@ choose from the following options for adding an ARN for a resource type.
 - **Type or paste the ARN** – You can specify
   resources by their [Amazon Resource Name (ARN)](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns").
   You can include a wildcard character (`*`) in any field of the ARN
-  (between each pair of colons). For more information, see [IAM JSON policy elements:
-  Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md").
+  (between each pair of colons). For more information, see [IAM JSON policy elements: Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md").
 
-### Denying permissions in the visual
-
-editor
+### Denying permissions in the visual editor
 
 By default, the policy that you create using the visual editor allows the actions that
 you choose. To deny the chosen actions instead, choose **Switch to deny
@@ -149,9 +132,7 @@ permissions. For more information about how IAM evaluates policy logic, see [Pol
 By default, only the AWS account root user has access to all the resources in that account. So if
 you are not signed in as the root user, you must have permissions granted by a policy.
 
-### Specifying multiple services in
-
-the visual editor
+### Specifying multiple services in the visual editor
 
 When you use the visual editor to construct a policy, you can select only one service at
 a time. This is a best practice because the visual editor then allows you to choose from the
@@ -167,9 +148,7 @@ you save your policy, it might be [restructured](#troubleshoot_viseditor-restruc
 Alternatively, to use JSON syntax (such as wildcards) for services, create, edit, and
 save your policy using the **JSON** editor option.
 
-### Reducing the size of your policy in the visual
-
-editor
+### Reducing the size of your policy in the visual editor
 
 When you use the visual editor to create a policy, IAM creates a JSON document to
 store your policy. You can view this document by switching to the **JSON**
@@ -182,9 +161,7 @@ permission blocks to another policy. The error message includes the number of ch
 that your policy document contains. You can use this information to help you reduce the size
 of your policy.
 
-### Fixing unrecognized services,
-
-actions, or resource types in the visual editor
+### Fixing unrecognized services, actions, or resource types in the visual editor
 
 You might see a warning in the visual editor that your policy includes an unrecognized
 service, action, or resource type.
@@ -217,8 +194,7 @@ following errors has occurred:
 Generally available services are services that are released publicly and are not
 preview or custom services. If an unrecognized service is generally available and the
 name is spelled correctly, then the service does not support the visual editor. To learn
-how to request visual editor or policy summary support for a GA service, see [Service does not support IAM policy
-summaries](#unsupported-services-actions "#unsupported-services-actions").
+how to request visual editor or policy summary support for a GA service, see [Service does not support IAM policy summaries](#unsupported-services-actions "#unsupported-services-actions").
 
 - **Action does not support the visual editor** –
   If your policy includes a supported service with an unsupported action, you must
@@ -228,8 +204,7 @@ summaries](#unsupported-services-actions "#unsupported-services-actions").
 
 If your policy includes a supported service with an unsupported action, then the
 service does not fully support the visual editor. To learn how to request visual editor
-or policy summary support for a GA service, see [Service does not support IAM policy
-summaries](#unsupported-services-actions "#unsupported-services-actions").
+or policy summary support for a GA service, see [Service does not support IAM policy summaries](#unsupported-services-actions "#unsupported-services-actions").
 
 - **Resource type does not support the visual editor**
   – If your policy includes a supported action with an unsupported resource type,
@@ -306,16 +281,13 @@ mismatched resource, then you should review your policy for errors. Test your po
 with the [policy simulator](access_policies_testing-policies.md "access_policies_testing-policies.md") to
 better understand the policy.
 
-### Policy summary includes unrecognized
-
-services, actions, or resource types
+### Policy summary includes unrecognized services, actions, or resource types
 
 In the IAM console, if a [policy
 summary](access_policies_understand.md "access_policies_understand.md") includes a warning symbol (
 ![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
 ), then the policy might include an unrecognized service, action, or
-resource type. To learn about warnings within a policy summary, see [Policy summary (list of
-services)](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md").
+resource type. To learn about warnings within a policy summary, see [Policy summary (list of services)](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md").
 
 ###### Note
 
@@ -337,18 +309,15 @@ following errors has occurred:
   are services that are released publicly and are not preview or custom services. If an
   unrecognized service is generally available and the name is spelled correctly, then the
   service does not support IAM policy summaries. To learn how to request policy summary
-  support for a GA service, see [Service does not support IAM policy
-  summaries](#unsupported-services-actions "#unsupported-services-actions").
+  support for a GA service, see [Service does not support IAM policy summaries](#unsupported-services-actions "#unsupported-services-actions").
 - **Action does not support summaries** – If your
   policy includes a supported service with an unsupported action, then the action is
   included in the **Unrecognized actions** section of the service summary
-  table. To learn about warnings within a service summary, see [Service summary (list of
-  actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md").
+  table. To learn about warnings within a service summary, see [Service summary (list of actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md").
 - **Resource type does not support summaries** –
   If your policy includes a supported action with an unsupported resource type, then the
   resource is included in the **Unrecognized resource types** section of
-  the service summary table. To learn about warnings within a service summary, see [Service summary (list of
-  actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md").
+  the service summary table. To learn about warnings within a service summary, see [Service summary (list of actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md").
 - **Typo** – AWS checks that the JSON is
   syntactically correct, and that the policy does not include typos or other errors as
   part of [policy
@@ -361,9 +330,7 @@ IAM Access Analyzer to validate your IAM policies to ensure secure and functiona
 We recommend that you open your existing policies and review and resolve any policy
 validation recommendations.
 
-### Service does not support IAM policy
-
-summaries
+### Service does not support IAM policy summaries
 
 It is possible for the IAM policy summaries or the visual editor to not support a
 generally available (GA) service or action. Generally available services are services that
@@ -392,9 +359,7 @@ editor`. If you want more than one service to support summaries, type
 <ServiceName3> services add support for IAM policy summaries and the visual
 editor`.
 
-###### To request that a service add IAM policy summary support for a missing
-
-action
+###### To request that a service add IAM policy summary support for a missing action
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Locate the policy that includes the unsupported service:
@@ -420,9 +385,7 @@ IAM policy summary and the visual editor support for the <ActionName1>,
 To request that a different service includes missing actions, repeat the last three
 steps.
 
-### My policy does not grant the expected
-
-permissions
+### My policy does not grant the expected permissions
 
 To assign permissions to a user, group, role, or resource, you create a _policy_, which is a document that defines permissions. The policy
 document includes the following elements:
@@ -459,12 +422,9 @@ defined in the IAM policy:
 - [A condition is
   defined without an applicable action](#mismatch_condition-no-match "#mismatch_condition-no-match")
 
-To view examples of policy summaries that include warnings, see [Policy summary (list of
-services)](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md").
+To view examples of policy summaries that include warnings, see [Policy summary (list of services)](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md").
 
-#### An action is defined without an applicable
-
-resource
+#### An action is defined without an applicable resource
 
 The policy below defines all `ec2:Describe*` actions and defines a specific
 resource. None of the `ec2:Describe` actions are granted because none of these
@@ -473,8 +433,7 @@ action supports resources using [ARNs](reference_identifiers.md#identifiers-arns
 policy's [Resource](reference_policies_elements_resource.md "reference_policies_elements_resource.md")
 element. If an action does not support resource-level permissions, then that statement in
 the policy must use a wildcard (`*`) in the `Resource` element. To
-learn which services support resource-level permissions, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+learn which services support resource-level permissions, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 JSON
 
@@ -515,9 +474,7 @@ JSON
 
 ```
 
-#### A resource is defined without an applicable
-
-action
+#### A resource is defined without an applicable action
 
 The policy below defines an Amazon S3 bucket resource but does not include an S3 action
 that can be performed on that resource. This policy also grants full access to all
@@ -581,9 +538,7 @@ JSON
 Alternately, to fix this policy to provide only CloudFront permissions, remove the S3
 resource.
 
-#### A condition is defined without an applicable
-
-action
+#### A condition is defined without an applicable action
 
 The policy below defines two Amazon S3 actions for all S3 resources, if the S3 prefix
 equals `custom` and the version ID equals `1234`. However, the
@@ -709,9 +664,7 @@ JSON
 
 You can diagnose and resolve issues relating to policy management.
 
-### Attaching or detaching a
-
-policy in an IAM account
+### Attaching or detaching a policy in an IAM account
 
 Some AWS managed policies are linked to a service. These policies are used only with a
 [service-linked role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role") for that service.
@@ -721,9 +674,7 @@ policy to a user, group, or role within IAM. When you create a service-linked ro
 service, this policy is automatically attached to your new role. Because the policy is
 required, you cannot detach the policy from the service-linked role.
 
-### Changing policies for your
-
-IAM identities based on their activity
+### Changing policies for your IAM identities based on their activity
 
 You can update policies for your IAM identities (users, groups, and roles) based on
 their activity. To do this, view your account's events in CloudTrail **Event
@@ -755,9 +706,7 @@ You can diagnose and resolve issues relating to JSON policy documents.
 When you create or edit a JSON policy, IAM can perform policy validation to help you create an effective policy. IAM identifies JSON syntax errors, while IAM Access Analyzer provides
 additional policy checks with recommendations to help you further refine your policies. To learn more about policy validation, see [IAM policy validation](access_policies_policy-validator.md "access_policies_policy-validator.md"). To learn more about IAM Access Analyzer policy checks and actionable recommendations, see [IAM Access Analyzer policy validation](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").
 
-### I don't have permissions for policy validation
-
-in the JSON editor
+### I don't have permissions for policy validation in the JSON editor
 
 In the AWS Management Console, you might receive the following error if you do not have permissions
 to view IAM Access Analyzer policy validation results:
@@ -888,9 +837,7 @@ The value of the `Statement` element is an object array. The array in this
 example consists of two objects, each of which is by itself is a correct value for a
 `Statement` element. Each object in the array is separated by commas.
 
-### More than one effect, action, or resource element in a
-
-JSON statement element
+### More than one effect, action, or resource element in a JSON statement element
 
 On the value side of the `Statement` name/value pair, the object must consist
 of only one `Effect` element, one `Action` element, and one
@@ -997,8 +944,7 @@ A `Version` policy element is different from a policy version. The
 policy language. In comparison, a policy version is created when you change a customer
 managed policy in IAM. The changed policy doesn't overwrite the existing policy. Instead,
 IAM creates a new version of the managed policy. To learn more about the
-`Version` policy element see [IAM JSON policy elements:
-Version](reference_policies_elements_version.md "reference_policies_elements_version.md"). To learn more about policy
+`Version` policy element see [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md"). To learn more about policy
 versions, see [Versioning IAM policies](access_policies_managed-versioning.md "access_policies_managed-versioning.md").
 
 As AWS features evolve, new capabilities are added to IAM policies to support those

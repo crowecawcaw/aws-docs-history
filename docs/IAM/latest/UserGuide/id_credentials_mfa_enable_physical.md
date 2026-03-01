@@ -1,6 +1,4 @@
-# Assign a hardware TOTP token in the
-
-AWS Management Console
+# Assign a hardware TOTP token in the AWS Management Console
 
 A hardware TOTP token generates a six-digit numeric code based upon a time-based one-time
 password (TOTP) algorithm. The user must type a valid code from the device when prompted during
@@ -19,8 +17,7 @@ users on the same device, enhancing their utility for account security. For spec
 purchase information for both device types, see [Multi-Factor Authentication](http://aws.amazon.com/iam/details/mfa/ "http://aws.amazon.com/iam/details/mfa/").
 
 You can enable a hardware TOTP token for an IAM user from the AWS Management Console, the command line,
-or the IAM API. To enable an MFA device for your AWS account root user, see [Enable a hardware TOTP token for the root user
-(console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md").
+or the IAM API. To enable an MFA device for your AWS account root user, see [Enable a hardware TOTP token for the root user (console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md").
 
 You can register up to **eight** MFA devices of any combination
 of the [currently supported MFA
@@ -43,10 +40,8 @@ operation.
 ###### Topics
 
 - [Permissions required](#enable-hw-mfa-for-iam-user-permissions-required "#enable-hw-mfa-for-iam-user-permissions-required")
-- [Enable a hardware TOTP token for your own
-  IAM user (console)](#enable-hw-mfa-for-own-iam-user "#enable-hw-mfa-for-own-iam-user")
-- [Enable a hardware TOTP token for another
-  IAM user (console)](#enable-hw-mfa-for-iam-user "#enable-hw-mfa-for-iam-user")
+- [Enable a hardware TOTP token for your own IAM user (console)](#enable-hw-mfa-for-own-iam-user "#enable-hw-mfa-for-own-iam-user")
+- [Enable a hardware TOTP token for another IAM user (console)](#enable-hw-mfa-for-iam-user "#enable-hw-mfa-for-iam-user")
 - [Replace a physical MFA device](#replace-phys-mfa "#replace-phys-mfa")
 
 ## Permissions required
@@ -93,9 +88,7 @@ JSON
 
 ```
 
-## Enable a hardware TOTP token for your own
-
-IAM user (console)
+## Enable a hardware TOTP token for your own IAM user (console)
 
 You can enable your own hardware TOTP token from the AWS Management Console.
 
@@ -144,9 +137,7 @@ device](id_credentials_mfa_sync.md "id_credentials_mfa_sync.md").
 The device is ready for use with AWS. For information about using MFA with the
 AWS Management Console, see [MFA enabled sign-in](console_sign-in-mfa.md "console_sign-in-mfa.md").
 
-## Enable a hardware TOTP token for another
-
-IAM user (console)
+## Enable a hardware TOTP token for another IAM user (console)
 
 You can enable a hardware TOTP token for another IAM user from the AWS Management Console.
 
@@ -190,9 +181,7 @@ add the new device for the user.
 
 - To deactivate the device currently associated with a user, see [Deactivate an MFA device](id_credentials_mfa_disable.md "id_credentials_mfa_disable.md").
 - To add a replacement hardware TOTP token for an IAM user, follow the steps in the
-  procedure [Enable a hardware TOTP token for another
-  IAM user (console)](#enable-hw-mfa-for-iam-user "#enable-hw-mfa-for-iam-user") earlier in this topic.
+  procedure [Enable a hardware TOTP token for another IAM user (console)](#enable-hw-mfa-for-iam-user "#enable-hw-mfa-for-iam-user") earlier in this topic.
 - To add a replacement hardware TOTP token for the AWS account root user, follow the steps in the
-  procedure [Enable a hardware TOTP token for the root user
-  (console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md")
+  procedure [Enable a hardware TOTP token for the root user (console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md")
   earlier in this topic.

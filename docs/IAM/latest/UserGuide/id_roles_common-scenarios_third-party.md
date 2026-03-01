@@ -1,6 +1,4 @@
-# Access to AWS accounts owned by third
-
-parties
+# Access to AWS accounts owned by third parties
 
 When third parties require access to your organization's AWS resources, you can use roles
 to delegate access to them. For example, a third party might provide a service for managing your
@@ -163,9 +161,7 @@ role must be a principal in the role and must include the correct external ID.
 The following resources can help you learn more about providing access to AWS accounts
 owned by third parties.
 
-- To learn how to allow others to perform actions in your AWS account, see [Create a role using custom trust policies](id_roles_create_for-custom.md "id_roles_create_for-custom.md") .
-- To learn how to grant permission to switch to a role, see [Grant a user permissions to switch
-  roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md")
+- To learn how to allow others to perform actions in your AWS account, see [Create a role using custom trust policies](id_roles_create_for-custom.md "id_roles_create_for-custom.md").
+- To learn how to grant permission to switch to a role, see [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md")
 - To learn how to create and provide trusted users with temporary security credentials,
-  [Permissions for temporary security
-  credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").
+  [Permissions for temporary security credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").

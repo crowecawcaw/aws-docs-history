@@ -1,6 +1,4 @@
-# IAM: Allows
-
-read-only access to the IAM console without reporting
+# IAM: Allows read-only access to the IAM console without reporting
 
 This example shows how you might create an identity-based policy that allows IAM users to perform any IAM action that begins with the
 string `Get` or `List`. As users work with the console, the console makes
@@ -14,8 +12,7 @@ are added to IAM in the future. In that case, the permissions granted by the pol
 automatically allow the user to list and get the details about those new entities.
 
 This policy cannot be used to generate reports or service last accessed details. For a
-different policy that allows this, see [IAM: Allows read-only
-access to the IAM console](reference_policies_examples_iam_read-only-console.md "reference_policies_examples_iam_read-only-console.md").
+different policy that allows this, see [IAM: Allows read-only access to the IAM console](reference_policies_examples_iam_read-only-console.md "reference_policies_examples_iam_read-only-console.md").
 
 JSON
 

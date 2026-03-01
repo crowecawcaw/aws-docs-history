@@ -1,20 +1,13 @@
-# AWS: Allows IAM users to change their own console password on the Security
-
-credentials page
+# AWS: Allows IAM users to change their own console password on the Security credentials page
 
 This example shows how you might create an identity-based policy that allows IAM users to change their own AWS Management Console password on the
 **Security credentials** page. This AWS Management Console page displays account
 and user information, but the user can only access their own password. To allow users to
-manage all of their own credentials with MFA, see [AWS: Allows
-MFA-authenticated IAM users to manage their own credentials on the Security
-credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md "reference_policies_examples_aws_my-sec-creds-self-manage.md"). To allow
-users to manage their own credentials without using MFA, see [AWS:
-Allows IAM users to manage their own credentials on the Security credentials
-page](reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa.md "reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa.md").
+manage all of their own credentials with MFA, see [AWS: Allows MFA-authenticated IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md "reference_policies_examples_aws_my-sec-creds-self-manage.md"). To allow
+users to manage their own credentials without using MFA, see [AWS: Allows IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa.md "reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa.md").
 
 To learn how users can access the **Security credentials** page, see
-[How IAM users change their own password
-(console)](id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console "id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console").
+[How IAM users change their own password (console)](id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console "id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console").
 
 **What does this policy do?**
 

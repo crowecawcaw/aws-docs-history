@@ -7,15 +7,12 @@ Or you could use three separate location tag key-value pairs: `loc-country =
  us`, `loc-state = wa`, and `loc-city =
  seattle`. You can use tags to control a role's access to resources or to
 control what tags can be attached to a role. To learn more about using tags to control
-access, see [Controlling access to and for IAM users and roles using
-tags](access_iam-tags.md "access_iam-tags.md").
+access, see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md "access_iam-tags.md").
 
 You can also use tags in AWS STS to add custom attributes when you assume a role or federate
 a user. For more information, see [Pass session tags in AWS STS](id_session-tags.md "id_session-tags.md").
 
-## Permissions required for tagging IAM
-
-roles
+## Permissions required for tagging IAM roles
 
 You must configure permissions to allow an IAM role to tag other entities (users or
 roles). You can specify one or all of the following IAM tag actions in an IAM
@@ -28,16 +25,13 @@ policy:
 - `iam:TagUser`
 - `iam:UntagUser`
 
-###### To allow an IAM role to add, list, or remove a tag for a
-
-specific user
+###### To allow an IAM role to add, list, or remove a tag for a specific user
 
 Add the following statement to the permissions policy for the IAM role that needs to
 manage tags. Use your account number and replace
 `<username>` with the name of the user whose tags
 need to be managed. To learn how to create a policy using this example JSON policy
-document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -51,17 +45,14 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 }
 ```
 
-###### To allow an IAM role to add a tag to a specific
-
-user
+###### To allow an IAM role to add a tag to a specific user
 
 Add the following statement to the permissions policy for the IAM role that needs to
 add, but not remove, tags for a specific user.
 
 To use this policy, replace `<username>` with the name of
 the user whose tags need to be managed. To learn how to create a policy using this
-example JSON policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -74,15 +65,12 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 }
 ```
 
-###### To allow an IAM role to add, list, or remove a tag for a
-
-specific role
+###### To allow an IAM role to add, list, or remove a tag for a specific role
 
 Add the following statement to the permissions policy for the IAM role that needs to
 manage tags. Replace `<rolename>` with the name of the
 role whose tags need to be managed. To learn how to create a policy using this
-example JSON policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -98,9 +86,7 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 
 Alternatively, you can use an AWS managed policy such as [IAMFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess") to provide full access to IAM.
 
-## Managing tags on IAM roles
-
-(console)
+## Managing tags on IAM roles (console)
 
 You can manage tags for IAM roles from the AWS Management Console.
 
@@ -120,9 +106,7 @@ You can manage tags for IAM roles from the AWS Management Console.
    Then,
    choose **Save changes**.
 
-## Managing tags on IAM roles (AWS CLI or
-
-AWS API)
+## Managing tags on IAM roles (AWS CLI or AWS API)
 
 You can list, attach, or remove tags for IAM roles. You can use the AWS CLI or the
 AWS API to manage tags for IAM roles.

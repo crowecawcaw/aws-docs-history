@@ -1,6 +1,4 @@
-# Cross-account policy
-
-evaluation logic
+# Cross-account policy evaluation logic
 
 You can allow a principal in one account to access resources in a second account. This is
 called cross-account access. When you allow cross-account access, the account where the
@@ -22,8 +20,7 @@ other accounts to assume that role. The role's resource-based policy is called a
 policy. After assuming that role, the allowed principals can use the resulting temporary
 credentials to access multiple resources in your account. This access is defined in the role's
 identity-based permissions policy. To learn how allowing cross-account access using roles is
-different from allowing cross-account access using other resource-based policies, see [Cross account resource
-access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
+different from allowing cross-account access using other resource-based policies, see [Cross account resource access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
 
 ###### Important
 
@@ -35,9 +32,7 @@ AWS Resource Access Manager supports [policy fragments](../../../ram/latest/user
 control which actions that principals are allowed to perform on resources that are shared with
 them.
 
-## Determining whether a cross-account request is
-
-allowed
+## Determining whether a cross-account request is allowed
 
 For cross-account requests, the requester in the trusted `AccountA` must have
 an identity-based policy. That policy must allow them to make a request to the resource in the
@@ -47,8 +42,7 @@ resource.
 
 When you make a cross-account request, AWS performs two evaluations. AWS evaluates the
 request in the trusting account and the trusted account. For more information about how a
-request is evaluated within a single account, see [How AWS
-enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md"). The request is
+request is evaluated within a single account, see [How AWS enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md"). The request is
 allowed only if both evaluations return a decision of `Allow`.
 
 ![Cross-account evaluation](images/policy_cross-account-eval-simple.png)
@@ -57,13 +51,11 @@ allowed only if both evaluations return a decision of `Allow`.
    account, this is a cross-account request.
 2. The requesting principal exists in the trusted account (`AccountA`). When
    AWS evaluates this account, it checks the identity-based policy and any policies that
-   can limit an identity-based policy. For more information, see [Evaluating identity-based policies with
-   permissions boundaries](reference_policies_evaluation-logic.md#policy-eval-basics-id-bound "reference_policies_evaluation-logic.md#policy-eval-basics-id-bound").
+   can limit an identity-based policy. For more information, see [Evaluating identity-based policies with permissions boundaries](reference_policies_evaluation-logic.md#policy-eval-basics-id-bound "reference_policies_evaluation-logic.md#policy-eval-basics-id-bound").
 3. The requested resource exists in the trusting account (`AccountB`). When
    AWS evaluates this account, it checks the resource-based policy that is attached to the
    requested resource and any policies that can limit a resource-based policy. For more
-   information, see [Evaluating identity-based policies with
-   resource-based policies](reference_policies_evaluation-logic.md#policy-eval-basics-id-rdp "reference_policies_evaluation-logic.md#policy-eval-basics-id-rdp").
+   information, see [Evaluating identity-based policies with resource-based policies](reference_policies_evaluation-logic.md#policy-eval-basics-id-rdp "reference_policies_evaluation-logic.md#policy-eval-basics-id-rdp").
 4. AWS allows the request only if both account policy evaluations allow the
    request.
 
@@ -73,9 +65,7 @@ account policy evaluations allow the request.
 
 ![Detailed cross-account policy evaluation](images/PolicyEvaluationCrossAccount.png)
 
-## Example cross-account policy
-
-evaluation
+## Example cross-account policy evaluation
 
 The following example demonstrates a scenario where a role in one account is granted
 permissions by a resource-based policy in a second account.
@@ -161,8 +151,7 @@ is no resource-based policy attached to the `amzn-s3-demo-bucket-production-logs
 bucket. When AWS evaluates account `111111111111`, it returns a
 decision of `Deny`. This is because the `DenyS3Logs` statement in the
 identity-based policy explicitly denies access to any log buckets. For more information about
-how a request is evaluated within a single account, see [How AWS
-enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
+how a request is evaluated within a single account, see [How AWS enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md").
 
 Because the request is explicitly denied within one of the accounts, the final decision is
 to deny the request.

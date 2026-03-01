@@ -1,6 +1,4 @@
-# Prepare for least-privilege
-
-permissions
+# Prepare for least-privilege permissions
 
 Using _least-privilege permissions_ is an IAM best practice
 recommendation. The concept of least-privilege permissions is to grant users the permissions

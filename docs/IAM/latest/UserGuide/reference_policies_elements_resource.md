@@ -1,6 +1,4 @@
-# IAM JSON policy elements:
-
-Resource
+# IAM JSON policy elements: Resource
 
 The `Resource` element in an IAM policy statement defines the object or objects
 that the statement applies to. Statements must include either a `Resource` or a
@@ -37,9 +35,7 @@ In the `Resource` element, the IAM user name is case sensitive.
 "Resource": "arn:aws:iam::`account-ID-without-hyphens`:user/Bob"
 ```
 
-## Using wildcards in resource
-
-ARNs
+## Using wildcards in resource ARNs
 
 You can use wildcard characters (`*` and `?`) within the individual
 segments of an ARN (the parts separated by colons) to represent:
@@ -55,8 +51,7 @@ match beyond the colon boundaries. We recommend you use wildcards (`*` and
 ###### Note
 
 You can't use a wildcard in the service segment that identifies the AWS product. For
-more information about ARN segments, see [Identify AWS resources with Amazon Resource Names
-(ARNs)](reference-arns.md "reference-arns.md")
+more information about ARN segments, see [Identify AWS resources with Amazon Resource Names (ARNs)](reference-arns.md "reference-arns.md")
 
 The following example refers to all IAM users whose path is `/accounting`.
 
@@ -105,9 +100,7 @@ amzn-s3-demo-bucket/test/object.jpg
 amzn-s3-demo-bucket/1/2/test.jpg
 ```
 
-## Specifying multiple
-
-resources
+## Specifying multiple resources
 
 You can specify multiple resources in the `Resource` element by using an array
 of ARNs. The following example refers to two DynamoDB tables.
@@ -119,9 +112,7 @@ of ARNs. The following example refers to two DynamoDB tables.
 ]
 ```
 
-## Using policy variables
-
-in resource ARNs
+## Using policy variables in resource ARNs
 
 In the `Resource` element, you can use JSON [policy variables](reference_policies_variables.md "reference_policies_variables.md") in the part of the ARN that
 identifies the specific resource (that is, in the trailing part of the ARN). For example, you

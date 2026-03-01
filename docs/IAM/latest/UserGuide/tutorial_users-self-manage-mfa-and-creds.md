@@ -1,6 +1,4 @@
-# IAM tutorial: Permit users to manage
-
-their credentials and MFA settings
+# IAM tutorial: Permit users to manage their credentials and MFA settings
 
 You can permit your users to manage their own multi-factor authentication (MFA) devices and
 credentials on the **Security credentials** page. You can use the AWS Management Console to
@@ -20,8 +18,7 @@ This workflow has three basic steps.
 Create a customer managed policy that prohibits all actions **_except_** the few IAM actions. These
 exceptions allow a user to change their own credentials and manage their MFA devices on
 the **Security credentials** page. For more information about accessing
-that page, see [How IAM users change their own password
-(console)](id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console "id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console").
+that page, see [How IAM users change their own password (console)](id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console "id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console").
 
 **[Step 2: Attach policies to your test user group](#tutorial_mfa_step2 "#tutorial_mfa_step2")**
 
@@ -73,9 +70,7 @@ human users to use federation with an identity provider to access AWS using temp
 credentials instead of using IAM users with long-term credentials. We recommend that you only use IAM users
 for [specific use cases](gs-identities-iam-users.md "gs-identities-iam-users.md") not supported by federated users. 2. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 3. In the navigation pane, choose **Policies**, and then choose
 **Create policy**. 4. Choose the **JSON** tab and copy the text from the following JSON
-policy document: [AWS: Allows
-MFA-authenticated IAM users to manage their own credentials on the Security
-credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md "reference_policies_examples_aws_my-sec-creds-self-manage.md"). 5. Paste the policy text into the **JSON** text box. Resolve any
+policy document: [AWS: Allows MFA-authenticated IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md "reference_policies_examples_aws_my-sec-creds-self-manage.md"). 5. Paste the policy text into the **JSON** text box. Resolve any
 security warnings, errors, or general warnings generated during policy validation, and
 then choose **Next**.
 
@@ -139,8 +134,7 @@ You might receive an error that you are not authorized to perform
 `iam:DeleteVirtualMFADevice`. This could happen if someone previously began
 assigning a virtual MFA device to this user and cancelled the process. To continue, you
 or another administrator must delete the user's existing unassigned virtual MFA device.
-For more information, see [I am not authorized to
-perform: iam:DeleteVirtualMFADevice](troubleshoot.md#troubleshoot_general_access-denied-delete-mfa "troubleshoot.md#troubleshoot_general_access-denied-delete-mfa"). 5. For this tutorial, we use a virtual (software-based) MFA device, such as the Google
+For more information, see [I am not authorized to perform: iam:DeleteVirtualMFADevice](troubleshoot.md#troubleshoot_general_access-denied-delete-mfa "troubleshoot.md#troubleshoot_general_access-denied-delete-mfa"). 5. For this tutorial, we use a virtual (software-based) MFA device, such as the Google
 Authenticator app on a mobile phone. Choose **Authenticator app**, and
 then click **Next**.
 

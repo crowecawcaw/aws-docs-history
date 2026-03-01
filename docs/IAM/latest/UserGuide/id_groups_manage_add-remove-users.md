@@ -11,8 +11,7 @@ Before you remove a group, use the group details page to review the members
 **Permissions** tab and review recent service-level activity using the
 **Last Accessed** tab. This helps prevent unintentionally removing access
 from a principal (person or application) who is using it. For more information about viewing
-last accessed information, see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+last accessed information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
 ## Add an IAM user to an IAM group
 

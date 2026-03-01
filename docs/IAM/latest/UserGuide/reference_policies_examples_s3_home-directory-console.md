@@ -1,7 +1,4 @@
-# Amazon S3: Allows
-
-IAM users access to their S3 home directory, programmatically and in the
-console
+# Amazon S3: Allows IAM users access to their S3 home directory, programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows IAM users to access their own home directory bucket object
 in S3. The home directory is a bucket that includes a `home` folder and folders

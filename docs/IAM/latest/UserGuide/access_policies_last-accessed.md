@@ -1,6 +1,4 @@
-# Refine permissions in AWS using last
-
-accessed information
+# Refine permissions in AWS using last accessed information
 
 As an administrator, you might grant permissions to IAM resources (roles, users, user
 groups, or policies) beyond what they require. IAM provides last accessed information to
@@ -16,48 +14,32 @@ access](access-analyzer-findings.md "access-analyzer-findings.md").
 
 ###### Topics
 
-- [Last accessed information types
-  for IAM](#access_policies_last-accessed-data-types "#access_policies_last-accessed-data-types")
-- [Last accessed information for
-  AWS Organizations](#access_policies_last-accessed-orgs "#access_policies_last-accessed-orgs")
-- [Things to know about last accessed
-  information](#access_policies_last-accessed-know "#access_policies_last-accessed-know")
+- [Last accessed information types for IAM](#access_policies_last-accessed-data-types "#access_policies_last-accessed-data-types")
+- [Last accessed information for AWS Organizations](#access_policies_last-accessed-orgs "#access_policies_last-accessed-orgs")
+- [Things to know about last accessed information](#access_policies_last-accessed-know "#access_policies_last-accessed-know")
 - [Permissions required](#access_policies_last-accessed-permissions "#access_policies_last-accessed-permissions")
-- [Troubleshoot activity for
-  IAM and AWS Organizations entities](#access_policies_last-accessed-troubleshooting "#access_policies_last-accessed-troubleshooting")
-- [Where AWS tracks last accessed
-  information](#last-accessed_tracking-period "#last-accessed_tracking-period")
-- [View last accessed information for
-  IAM](access_policies_last-accessed-view-data.md "access_policies_last-accessed-view-data.md")
-- [View last accessed information
-  for AWS Organizations](access_policies_last-accessed-view-data-orgs.md "access_policies_last-accessed-view-data-orgs.md")
-- [Example scenarios for using
-  last accessed information](access_policies_last-accessed-example-scenarios.md "access_policies_last-accessed-example-scenarios.md")
-- [IAM action last
-  accessed information services and actions](access_policies_last-accessed-action-last-accessed.md "access_policies_last-accessed-action-last-accessed.md")
+- [Troubleshoot activity for IAM and AWS Organizations entities](#access_policies_last-accessed-troubleshooting "#access_policies_last-accessed-troubleshooting")
+- [Where AWS tracks last accessed information](#last-accessed_tracking-period "#last-accessed_tracking-period")
+- [View last accessed information for IAM](access_policies_last-accessed-view-data.md "access_policies_last-accessed-view-data.md")
+- [View last accessed information for AWS Organizations](access_policies_last-accessed-view-data-orgs.md "access_policies_last-accessed-view-data-orgs.md")
+- [Example scenarios for using last accessed information](access_policies_last-accessed-example-scenarios.md "access_policies_last-accessed-example-scenarios.md")
+- [IAM action last accessed information services and actions](access_policies_last-accessed-action-last-accessed.md "access_policies_last-accessed-action-last-accessed.md")
 
-## Last accessed information types
-
-for IAM
+## Last accessed information types for IAM
 
 You can view two types of last accessed information for IAM identities: allowed AWS
 service information and allowed action information. The information includes the date and
 time when the attempt to access an AWS API was made. For actions, last accessed
 information reports service management actions. Management actions include creation,
 deletion, and modification actions. To learn more about how to view last accessed
-information for IAM, see [View last accessed information for
-IAM](access_policies_last-accessed-view-data.md "access_policies_last-accessed-view-data.md").
+information for IAM, see [View last accessed information for IAM](access_policies_last-accessed-view-data.md "access_policies_last-accessed-view-data.md").
 
 For example scenarios for using last accessed information to make decisions about the
-permissions that you grant to your IAM identities, see [Example scenarios for using
-last accessed information](access_policies_last-accessed-example-scenarios.md "access_policies_last-accessed-example-scenarios.md").
+permissions that you grant to your IAM identities, see [Example scenarios for using last accessed information](access_policies_last-accessed-example-scenarios.md "access_policies_last-accessed-example-scenarios.md").
 
-To learn more about how the information for management actions is provided, see [Things to know about last accessed
-information](#access_policies_last-accessed-know "#access_policies_last-accessed-know").
+To learn more about how the information for management actions is provided, see [Things to know about last accessed information](#access_policies_last-accessed-know "#access_policies_last-accessed-know").
 
-## Last accessed information for
-
-AWS Organizations
+## Last accessed information for AWS Organizations
 
 If you sign in using management account credentials, you can view service last accessed
 information for an AWS Organizations entity or policy in your organization. AWS Organizations entities
@@ -65,16 +47,12 @@ include the organization root, organizational units (OUs), or accounts. Last acc
 information for AWS Organizations includes information about services that are allowed by a service
 control policy (SCP). The information indicates which principals (root user, IAM user, or
 role) in an organization or account last attempted to access the service and when. To learn
-more about the report and how to view last accessed information for AWS Organizations, see [View last accessed information
-for AWS Organizations](access_policies_last-accessed-view-data-orgs.md "access_policies_last-accessed-view-data-orgs.md").
+more about the report and how to view last accessed information for AWS Organizations, see [View last accessed information for AWS Organizations](access_policies_last-accessed-view-data-orgs.md "access_policies_last-accessed-view-data-orgs.md").
 
 For example scenarios for using last accessed information to make decisions about the
-permissions that you grant to your AWS Organizations entities, see [Example scenarios for using
-last accessed information](access_policies_last-accessed-example-scenarios.md "access_policies_last-accessed-example-scenarios.md").
+permissions that you grant to your AWS Organizations entities, see [Example scenarios for using last accessed information](access_policies_last-accessed-example-scenarios.md "access_policies_last-accessed-example-scenarios.md").
 
-## Things to know about last accessed
-
-information
+## Things to know about last accessed information
 
 Before you use last accessed information from a report to change the permissions for an
 IAM identity or AWS Organizations entity, review the following details about the information.
@@ -85,11 +63,9 @@ IAM identity or AWS Organizations entity, review the following details about the
   period for Amazon S3 actions information began on April, 12, 2020. The tracking period for
   Amazon EC2, IAM, and Lambda actions began on April 7, 2021. The tracking period for all
   other services began on May 23, 2023. For a list of services for which action last
-  accessed information is available, see [IAM action last
-  accessed information services and actions](access_policies_last-accessed-action-last-accessed.md "access_policies_last-accessed-action-last-accessed.md"). For more
+  accessed information is available, see [IAM action last accessed information services and actions](access_policies_last-accessed-action-last-accessed.md "access_policies_last-accessed-action-last-accessed.md"). For more
   information on which Regions action last accessed information is available in, see
-  [Where AWS tracks last accessed
-  information](#last-accessed_tracking-period "#last-accessed_tracking-period").
+  [Where AWS tracks last accessed information](#last-accessed_tracking-period "#last-accessed_tracking-period").
 - **Attempts reported** – The service last
   accessed data includes all attempts to access an AWS API, not just the successful
   attempts. This includes all attempts that were made using the AWS Management Console, the AWS
@@ -125,8 +101,7 @@ event.
   credentials of the principal that generated the report. If you use temporary
   credentials for a role or AWS STS federated user principal, you must generate and retrieve the report
   during the same session. For more information about assumed-role session principals,
-  see [AWS JSON policy elements:
-  Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md").
+  see [AWS JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md").
 - **IAM resources** – The last accessed
   information for IAM includes IAM resources (roles, users, IAM groups, and
   policies) in your account. Last accessed information for AWS Organizations includes principals
@@ -174,9 +149,7 @@ event.
 To view the last accessed information in the AWS Management Console, you must have a policy that
 grants the necessary permissions.
 
-### Permissions for IAM
-
-information
+### Permissions for IAM information
 
 To use the IAM console to view the last accessed information for an IAM user,
 role, or policy, you must have a policy that includes the following actions:
@@ -222,9 +195,7 @@ JSON
 
 ```
 
-### Permissions for
-
-AWS Organizations information
+### Permissions for AWS Organizations information
 
 To use the IAM console to view a report for the root, OU, or account entities in
 AWS Organizations, you must have a policy that includes the following actions:
@@ -276,12 +247,9 @@ JSON
 ```
 
 You can also use the [iam:OrganizationsPolicyId](reference_policies_iam-condition-keys.md#ck_OrganizationsPolicyId "reference_policies_iam-condition-keys.md#ck_OrganizationsPolicyId") condition key to allow generating a report only for
-a specific AWS Organizations policy. For an example policy, see [IAM: View
-service last accessed information for an AWS Organizations policy](reference_policies_examples_iam_service-accessed-data-orgs.md "reference_policies_examples_iam_service-accessed-data-orgs.md").
+a specific AWS Organizations policy. For an example policy, see [IAM: View service last accessed information for an AWS Organizations policy](reference_policies_examples_iam_service-accessed-data-orgs.md "reference_policies_examples_iam_service-accessed-data-orgs.md").
 
-## Troubleshoot activity for
-
-IAM and AWS Organizations entities
+## Troubleshoot activity for IAM and AWS Organizations entities
 
 In some cases, your AWS Management Console last accessed information table might be empty. Or perhaps
 your AWS CLI or AWS API request returns an empty set of information or a null field. In
@@ -304,24 +272,20 @@ these cases, review the following issues:
 - For an IAM entity (user or role), review other policy types that might affect
   the permissions of that entity. These include resource-based policies, access control
   lists, AWS Organizations policies, IAM permissions boundaries, or session policies. For more
-  information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation
-  for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
+  information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
 - For an IAM policy, make sure that the specified managed policy is attached to at
   least one user, group with members, or role.
 - For an AWS Organizations entity (root, OU, or account), make sure that you are signed using
   AWS Organizations management account credentials.
 - Verify that [SCPs are
   enabled in your organization root](../../../organizations/latest/userguide/orgs_manage_policies.md#enable_policies_on_root "../../../organizations/latest/userguide/orgs_manage_policies.md#enable_policies_on_root").
-- Action last accessed information is only available for the actions listed in [IAM action last
-  accessed information services and actions](access_policies_last-accessed-action-last-accessed.md "access_policies_last-accessed-action-last-accessed.md").
+- Action last accessed information is only available for the actions listed in [IAM action last accessed information services and actions](access_policies_last-accessed-action-last-accessed.md "access_policies_last-accessed-action-last-accessed.md").
 
 When you make changes, wait at least four hours for activity to appear in your IAM
 console report. If you use the AWS CLI or AWS API, you must generate a new report to view
 the updated information.
 
-## Where AWS tracks last accessed
-
-information
+## Where AWS tracks last accessed information
 
 AWS collects last accessed information for the standard AWS Regions. When AWS adds
 additional Regions, those Regions are added to the following table, including the date that

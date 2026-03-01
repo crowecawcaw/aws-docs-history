@@ -14,7 +14,5 @@ resource.
 
 ###### Topics
 
-- [Previewing access in Amazon S3
-  console](access-analyzer-preview-access-s3-console.md "access-analyzer-preview-access-s3-console.md")
-- [Previewing access with IAM Access Analyzer
-  APIs](access-analyzer-preview-access-apis.md "access-analyzer-preview-access-apis.md")
+- [Previewing access in Amazon S3 console](access-analyzer-preview-access-s3-console.md "access-analyzer-preview-access-s3-console.md")
+- [Previewing access with IAM Access Analyzer APIs](access-analyzer-preview-access-apis.md "access-analyzer-preview-access-apis.md")

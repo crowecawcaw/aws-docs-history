@@ -1,6 +1,4 @@
-# Supported configurations
-
-for using passkeys and security keys
+# Supported configurations for using passkeys and security keys
 
 You can use FIDO2 device-bound passkeys, also known as security keys, as a multi-factor
 authentication (MFA) method with IAM using currently supported configurations. These
@@ -21,9 +19,7 @@ key, which responds to the authentication challenge issued by AWS. To learn more
 FIDO2 standard, see the [FIDO2
 Project](https://en.wikipedia.org/wiki/FIDO2_Project "https://en.wikipedia.org/wiki/FIDO2_Project").
 
-## FIDO2 devices supported by
-
-AWS
+## FIDO2 devices supported by AWS
 
 IAM supports FIDO2 security devices that connect to your devices through USB,
 Bluetooth, or NFC. IAM also supports platform authenticators such
@@ -76,8 +72,7 @@ browser plugins are incompatible with the FIDO2 standard and can cause unexpecte
 results with FIDO2 security keys.
 
 For information on disabling browser plugins and other troubleshooting tips, see
-[I can't enable my FIDO security
-key](troubleshoot_mfa-fido.md#troubleshoot_mfa-fido-cant-enable "troubleshoot_mfa-fido.md#troubleshoot_mfa-fido-cant-enable").
+[I can't enable my FIDO security key](troubleshoot_mfa-fido.md#troubleshoot_mfa-fido-cant-enable "troubleshoot_mfa-fido.md#troubleshoot_mfa-fido-cant-enable").
 
 ## Device certifications
 
@@ -96,33 +91,19 @@ have the ability to specify the registration of specific authenticators in their
 policies, based on your preferred certification type and level. For more information,
 see the policies below.
 
-### Example policies
-
-for device certifications
+### Example policies for device certifications
 
 The following use cases show sample policies that allow you to register MFA
 devices with FIPS certifications.
 
 ###### Topics
 
-- [Use
-  case 1: Allow registering only devices that have FIPS-140-2 L2
-  certifications](#id_credentials_mfa_fido_certifications_policies_use_case_1 "#id_credentials_mfa_fido_certifications_policies_use_case_1")
-- [Use
-  case 2: Allow registering devices that have FIPS-140-2 L2 and FIDO L1
-  certifications](#id_credentials_mfa_fido_certifications_policies_use_case_2 "#id_credentials_mfa_fido_certifications_policies_use_case_2")
-- [Use
-  case 3: Allow registering devices that have either FIPS-140-2 L2 or
-  FIPS-140-3 L2 certifications](#id_credentials_mfa_fido_certifications_policies_use_case_3 "#id_credentials_mfa_fido_certifications_policies_use_case_3")
-- [Use
-  case 4: Allow registering devices that have FIPS-140-2 L2 certification and
-  support other MFA types like virtual authenticators and hardware
-  TOTP](#id_credentials_mfa_fido_certifications_policies_use_case_4 "#id_credentials_mfa_fido_certifications_policies_use_case_4")
+- [Use case 1: Allow registering only devices that have FIPS-140-2 L2 certifications](#id_credentials_mfa_fido_certifications_policies_use_case_1 "#id_credentials_mfa_fido_certifications_policies_use_case_1")
+- [Use case 2: Allow registering devices that have FIPS-140-2 L2 and FIDO L1 certifications](#id_credentials_mfa_fido_certifications_policies_use_case_2 "#id_credentials_mfa_fido_certifications_policies_use_case_2")
+- [Use case 3: Allow registering devices that have either FIPS-140-2 L2 or FIPS-140-3 L2 certifications](#id_credentials_mfa_fido_certifications_policies_use_case_3 "#id_credentials_mfa_fido_certifications_policies_use_case_3")
+- [Use case 4: Allow registering devices that have FIPS-140-2 L2 certification and support other MFA types like virtual authenticators and hardware TOTP](#id_credentials_mfa_fido_certifications_policies_use_case_4 "#id_credentials_mfa_fido_certifications_policies_use_case_4")
 
-#### Use
-
-case 1: Allow registering only devices that have FIPS-140-2 L2
-certifications
+#### Use case 1: Allow registering only devices that have FIPS-140-2 L2 certifications
 
 JSON
 
@@ -155,10 +136,7 @@ JSON
 
 ```
 
-#### Use
-
-case 2: Allow registering devices that have FIPS-140-2 L2 and FIDO L1
-certifications
+#### Use case 2: Allow registering devices that have FIPS-140-2 L2 and FIDO L1 certifications
 
 JSON
 
@@ -192,10 +170,7 @@ JSON
 
 ```
 
-#### Use
-
-case 3: Allow registering devices that have either FIPS-140-2 L2 or
-FIPS-140-3 L2 certifications
+#### Use case 3: Allow registering devices that have either FIPS-140-2 L2 or FIPS-140-3 L2 certifications
 
 JSON
 
@@ -239,11 +214,7 @@ JSON
 
 ```
 
-#### Use
-
-case 4: Allow registering devices that have FIPS-140-2 L2 certification and
-support other MFA types like virtual authenticators and hardware
-TOTP
+#### Use case 4: Allow registering devices that have FIPS-140-2 L2 certification and support other MFA types like virtual authenticators and hardware TOTP
 
 JSON
 
@@ -294,11 +265,8 @@ and security keys for MFA is not supported in the [AWS CLI](../../../cli/latest/
 access to [MFA-protected API
 operations](id_credentials_mfa_configure-api-require.md "id_credentials_mfa_configure-api-require.md").
 
-## Additional
+## Additional resources
 
-resources
-
-- For more information on using passkeys and security keys in AWS, see [Assign a passkey or security key in the
-  AWS Management Console](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md").
+- For more information on using passkeys and security keys in AWS, see [Assign a passkey or security key in the AWS Management Console](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md").
 - For help with troubleshooting passkeys and security keys in AWS, see [Troubleshoot Passkeys and FIDO Security Keys](troubleshoot_mfa-fido.md "troubleshoot_mfa-fido.md").
 - For general industry information on FIDO2 support, see [FIDO2 Project](https://en.wikipedia.org/wiki/FIDO2_Project "https://en.wikipedia.org/wiki/FIDO2_Project").

@@ -1,6 +1,4 @@
-# IAM tutorial: Use an CloudFormation template to
-
-create a SAML Identity Provider (IdP) and SAML federated IAM role
+# IAM tutorial: Use an CloudFormation template to create a SAML Identity Provider (IdP) and SAML federated IAM role
 
 To get familiar with SAML federation and its capabilities, you'll use an CloudFormation template to
 set up a SAML Identity Provider (IdP) and associated federated IAM role. This tutorial shows
@@ -26,9 +24,7 @@ This tutorial assumes that you have the following already in place:
   this tutorial for formatting your IdP's SAML metadata XML file.
 - A SAML metadata document from your external IdP saved as an XML file.
 
-## Create a SAML IdP and role using
-
-CloudFormation
+## Create a SAML IdP and role using CloudFormation
 
 To create the SAML IdP and federated role, you'll create an CloudFormation template and use it
 to create a stack containing both resources.
@@ -187,9 +183,7 @@ The trust policy should show that the SAML IdP is trusted to assume this role wi
 condition that the SAML audience (`SAML:aud`) matches
 `https://signin.aws.amazon.com/saml`.
 
-## Clean up: delete
-
-resources
+## Clean up: delete resources
 
 As a final step, you'll delete the stack and the resources it contains.
 
@@ -199,9 +193,7 @@ As a final step, you'll delete the stack and the resources it contains.
 
 CloudFormation initiates deletion of the stack and all resources it includes.
 
-## CloudFormation template
-
-details
+## CloudFormation template details
 
 ### Resources
 

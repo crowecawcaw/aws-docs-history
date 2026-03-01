@@ -1,6 +1,4 @@
-# Amazon RDS: Allows restoring RDS
-
-databases, programmatically and in the console
+# Amazon RDS: Allows restoring RDS databases, programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows restoring RDS databases. This policy defines permissions for programmatic and console access.
 

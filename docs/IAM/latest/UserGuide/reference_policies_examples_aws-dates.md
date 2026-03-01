@@ -1,6 +1,4 @@
-# AWS: Allows access based on date and
-
-time
+# AWS: Allows access based on date and time
 
 This example shows how you might create an identity-based policy that allows access to actions based on date and time. This policy
 restricts access to actions that occur between April 1, 2020 and June 30, 2020 (UTC), inclusive.

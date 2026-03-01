@@ -1,12 +1,9 @@
-# View last accessed information for
-
-IAM
+# View last accessed information for IAM
 
 You can view last accessed information for IAM using the AWS Management Console, AWS CLI, or AWS API.
 See the [list of services
 and their actions](access_policies_last-accessed-action-last-accessed.md "access_policies_last-accessed-action-last-accessed.md") for which last accessed information is displayed. For more
-information about last accessed information, see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+information about last accessed information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
 You can view information for the following resource types in IAM. In each case, the
 information includes allowed services for the given reporting period:
@@ -26,12 +23,9 @@ information includes allowed services for the given reporting period:
 
 Before you view the access information for a resource in IAM, make sure you understand
 the reporting period, reported entities, and the evaluated policy types for your
-information. For more details, see [Things to know about last accessed
-information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
+information. For more details, see [Things to know about last accessed information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
 
-## Viewing information for IAM
-
-(console)
+## Viewing information for IAM (console)
 
 You can view last accessed information for IAM on the **Last
 Accessed** tab in the IAM console.
@@ -87,8 +81,7 @@ period. The tracking period for services is for the last 400 days. The
 tracking period for Amazon S3 actions started on April 12, 2020. The tracking
 period for Amazon EC2, IAM, and Lambda actions started on April 7, 2021. The
 tracking period for all other services began on May 23, 2023. To learn more
-about the tracking start dates for each AWS Region, see [Where AWS tracks last accessed
-information](access_policies_last-accessed.md#last-accessed_tracking-period "access_policies_last-accessed.md#last-accessed_tracking-period").
+about the tracking start dates for each AWS Region, see [Where AWS tracks last accessed information](access_policies_last-accessed.md#last-accessed_tracking-period "access_policies_last-accessed.md#last-accessed_tracking-period").
 
 **Not accessed in the tracking period**
 
@@ -102,9 +95,7 @@ absence of tracking information. Instead, we recommend that you use this informa
 to inform and support your overall strategy of granting least privilege. Check your
 policies to confirm that the level of access is appropriate.
 
-## Viewing information for IAM
-
-(AWS CLI)
+## Viewing information for IAM (AWS CLI)
 
 You can use the AWS CLI to retrieve information about the last time that an IAM resource
 was used to attempt to access AWS services and Amazon S3, Amazon EC2, IAM, and Lambda actions. An
@@ -167,14 +158,11 @@ IAM resource can be a user, user group, role, or policy.
     state of policies and does not depend on the generated report. It also does not
     return other policy types, such as resource-based policies, access control lists,
     AWS Organizations policies, IAM permissions boundaries, or session policies. For more
-    information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation
-    for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
+    information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
     - [aws iam
       list-policies-granting-service-access](../../../cli/latest/reference/iam/list-policies-granting-service-access.md "../../../cli/latest/reference/iam/list-policies-granting-service-access.md")
 
-## Viewing information for IAM
-
-(AWS API)
+## Viewing information for IAM (AWS API)
 
 You can use the AWS API to retrieve information about the last time that an IAM
 resource was used to attempt to access AWS services and Amazon S3, Amazon EC2, IAM, and Lambda
@@ -234,6 +222,5 @@ services and actions.
     state of policies and does not depend on the generated report. It also does not
     return other policy types, such as resource-based policies, access control lists,
     AWS Organizations policies, IAM permissions boundaries, or session policies. For more
-    information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation
-    for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
+    information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
     - [ListPoliciesGrantingServiceAccess](../APIReference/API_ListPoliciesGrantingServiceAccess.md "../APIReference/API_ListPoliciesGrantingServiceAccess.md")

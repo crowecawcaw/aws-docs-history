@@ -1,6 +1,4 @@
-# Identity-provider controls for
-
-shared OIDC providers
+# Identity-provider controls for shared OIDC providers
 
 For recognized shared OpenID Connect (OIDC) identity providers (IdPs), IAM requires
 explicit evaluation of specific claims in role trust policies. These required claims, called
@@ -33,9 +31,7 @@ providers:
 | Tenancy Information       | Communicated through unique Issuer    | Communicated through claims in JWT     |
 | Trust Policy Requirements | No specific claim evaluation required | Evaluation of specific claims required |
 
-## Shared OIDC
-
-identity providers with identity-provider controls
+## Shared OIDC identity providers with identity-provider controls
 
 When you create or modify an OIDC provider in IAM, the system automatically
 identifies and evaluates required claims for recognized shared OIDC providers. If
@@ -79,6 +75,5 @@ manner.
 Additional resources:
 
 - For more information about creating an IAM role for OIDC federation, see
-  [Create a role for OpenID Connect federation
-  (console)](id_roles_create_for-idp_oidc.md "id_roles_create_for-idp_oidc.md").
+  [Create a role for OpenID Connect federation (console)](id_roles_create_for-idp_oidc.md "id_roles_create_for-idp_oidc.md").
 - For a list of IAM condition keys that can be used for claims, see [Available keys for AWS OIDC federation](reference_policies_iam-condition-keys.md#condition-keys-wif "reference_policies_iam-condition-keys.md#condition-keys-wif").

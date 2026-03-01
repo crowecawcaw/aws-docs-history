@@ -1,6 +1,4 @@
-# Configure SAML assertions for the
-
-authentication response
+# Configure SAML assertions for the authentication response
 
 After you have verified a user's identity in your organization, the external identity
 provider (IdP) sends an authentication response to the AWS sign-in endpoint URL. This response
@@ -12,8 +10,7 @@ the documentation for your IdP for instructions on how to enter these claims.
 When the IdP sends the response containing the claims to AWS, many of the incoming claims
 map to AWS context keys. These context keys can be checked in IAM policies using the
 `Condition` element. A listing of the available mappings follows in the section
-[Mapping SAML attributes to AWS trust policy context
-keys](#saml-attribute-mapping "#saml-attribute-mapping").
+[Mapping SAML attributes to AWS trust policy context keys](#saml-attribute-mapping "#saml-attribute-mapping").
 
 ## `Subject` and `NameID`
 
@@ -137,9 +134,7 @@ exactly.
 </Attribute>
 ```
 
-## `RoleSessionName` SAML
-
-attribute
+## `RoleSessionName` SAML attribute
 
 You can use an `Attribute` element with the `Name` attribute set to
 `https://aws.amazon.com/SAML/Attributes/RoleSessionName`. This element contains one
@@ -165,9 +160,7 @@ case-sensitive. It must be set to
 </Attribute>
 ```
 
-## `SessionDuration` SAML
-
-attribute
+## `SessionDuration` SAML attribute
 
 (Optional) You can use an `Attribute` element with the `Name`
 attribute set to `https://aws.amazon.com/SAML/Attributes/SessionDuration"`. This element
@@ -197,8 +190,7 @@ maximum duration of the console session.
 When you enable console sessions with an extended duration the risk of compromise of the
 credentials rises. To help you mitigate this risk, you can immediately disable the active
 console sessions for any role by choosing **Revoke Sessions** on the
-**Role Summary** page in the IAM console. For more information, see [Revoke IAM role temporary security
-credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
+**Role Summary** page in the IAM console. For more information, see [Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
 
 ###### Important
 
@@ -230,15 +222,13 @@ long, can contain only alphanumeric characters, underscores, and the following c
 is typically an attribute that is associated with the user such as a user id
 (`john`) or an email address (`johndoe@example.com`). It should not
 be a value that includes a space, like a user's display name (`John Doe`). For more
-information about using source identity, see [Monitor and control actions
-taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md").
+information about using source identity, see [Monitor and control actions taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md").
 
 ###### Important
 
 If your SAML assertion is configured to use the SourceIdentity attribute, then your role trust policy must also
 include the `sts:SetSourceIdentity` action, otherwise the assume role operation
-will fail. For more information about using source identity, see [Monitor and control actions
-taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md").
+will fail. For more information about using source identity, see [Monitor and control actions taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md").
 
 To pass a source identity attribute, include the `AttributeValue` element that
 specifies the value of the source identity. For example, to pass the source identity
@@ -250,9 +240,7 @@ specifies the value of the source identity. For example, to pass the source iden
 
 ```
 
-## Mapping SAML attributes to AWS trust policy context
-
-keys
+## Mapping SAML attributes to AWS trust policy context keys
 
 The tables in this section list commonly used SAML attributes and how they map to trust
 policy condition context keys in AWS. You can use these keys to control access to a role. To

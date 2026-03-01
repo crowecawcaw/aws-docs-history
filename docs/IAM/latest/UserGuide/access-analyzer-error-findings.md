@@ -9,9 +9,7 @@ Error findings indicate that IAM Access Analyzer couldn't complete the analysis 
 resource or for a specific principal-resource pair. These findings help you identify resources
 that might need attention to ensure proper analysis.
 
-## External access error
-
-findings
+## External access error findings
 
 External access analyzers, which identify resources shared outside your account or
 organization, can generate two types of error findings:
@@ -64,9 +62,7 @@ organization, can generate two types of error findings:
 }
 ```
 
-## Internal access error
-
-findings
+## Internal access error findings
 
 Internal access analyzers, which identify access within your account or organization, can
 generate four types of error findings:

@@ -6,16 +6,13 @@ console, API, or CLI. However, after you create a service-linked role, you canno
 name of the role because various entities might reference the role. You can edit the
 description of any role from the IAM console, API, or CLI.
 
-For information about which services support using service-linked roles, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
+For information about which services support using service-linked roles, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
 have **Yes** in the **Service-Linked
 Role** column. To learn whether the service supports editing the service-linked
 role, choose the **Yes** link to view the service-linked role
 documentation for that service.
 
-## Editing a service-linked role
-
-description (console)
+## Editing a service-linked role description (console)
 
 You can use the IAM console to edit the description of a service-linked role.
 
@@ -28,9 +25,7 @@ You can use the IAM console to edit the description of a service-linked role.
    **Edit**.
 4. Enter a new description in the box and choose **Save**.
 
-## Editing a service-linked role description
-
-(AWS CLI)
+## Editing a service-linked role description (AWS CLI)
 
 You can use IAM commands from the AWS CLI to edit the description of a service-linked
 role.
@@ -53,9 +48,7 @@ example, if a role has the following ARN:
 `aws iam update-role --role-name `ROLE-NAME` --description `OPTIONAL-DESCRIPTION``
 ```
 
-## Editing a service-linked role description
-
-(AWS API)
+## Editing a service-linked role description (AWS API)
 
 You can use the AWS API to edit the description of a service-linked role.
 

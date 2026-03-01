@@ -1,6 +1,4 @@
-# Control the use of access keys by attaching an
-
-inline policy to an IAM user
+# Control the use of access keys by attaching an inline policy to an IAM user
 
 As a best practice we recommend that [workloads
 use temporary credentials with IAM roles](best-practices.md#bp-workloads-use-roles "best-practices.md#bp-workloads-use-roles") to access AWS. IAM users with

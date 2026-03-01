@@ -1,6 +1,4 @@
-# IAM tutorial: Use an CloudFormation template to
-
-create a SAML federated IAM role
+# IAM tutorial: Use an CloudFormation template to create a SAML federated IAM role
 
 When you have an existing SAML Identity Provider (IdP) configured in your AWS account,
 you can create federated IAM roles that trust that IdP. This tutorial shows you how to use
@@ -23,16 +21,13 @@ The deployed resource consists of the following:
 This tutorial assumes that you have the following already in place:
 
 - An existing SAML IdP configured in your AWS account. If you don't have one,
-  you can create it using the [IAM tutorial: Use an CloudFormation template to create a SAML
-  Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial.
+  you can create it using the [IAM tutorial: Use an CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial.
 - The ARN of your SAML IdP, which you'll need to specify as a parameter when
   creating the stack.
 - Python 3.6 or later installed on your local machine to run the Python command
   used in this tutorial for formatting your IdP's SAML metadata XML file.
 
-## Create a SAML federated role using
-
-CloudFormation
+## Create a SAML federated role using CloudFormation
 
 To create the SAML federated role, you'll create an CloudFormation template and use it to
 create a stack containing the role.
@@ -75,8 +70,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
     ###### Note
 
-    If you created your SAML IdP using the [IAM tutorial: Use an CloudFormation template to create a SAML
-    Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial, you can find
+    If you created your SAML IdP using the [IAM tutorial: Use an CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial, you can find
     the provider ARN in the Outputs tab of that CloudFormation
     stack. 3. For **RoleName**, you can leave this empty to
     auto-generate a name based on the stack name, or enter a custom name
@@ -144,9 +138,7 @@ The stack will output the following value, which you can view on the
 You'll need this role ARN when configuring your IdP to send the appropriate SAML
 attributes for role assumption.
 
-## Test the SAML federated
-
-role
+## Test the SAML federated role
 
 Once the SAML federated role has been created, you can verify its configuration and
 test the federation setup.
@@ -188,9 +180,7 @@ As a final step, you'll delete the stack and the resources it contains.
 CloudFormation initiates deletion of the stack and all resources it
 includes.
 
-## CloudFormation template
-
-details
+## CloudFormation template details
 
 ### Resources
 

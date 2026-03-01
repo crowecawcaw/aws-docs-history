@@ -7,8 +7,7 @@ Before creating access keys, review the [alternatives to long-term access keys](
 
 Access keys are long-term credentials for an IAM user or the AWS account root user. You can use
 access keys to sign programmatic requests to the AWS CLI or AWS API (directly or using the
-AWS SDK). For more information, see [Programmatic access with AWS security
-credentials](security-creds-programmatic-access.md "security-creds-programmatic-access.md").
+AWS SDK). For more information, see [Programmatic access with AWS security credentials](security-creds-programmatic-access.md "security-creds-programmatic-access.md").
 
 Access keys consist of two parts: an access key ID (for example,
 `AKIAIOSFODNN7EXAMPLE`) and a secret access key (for example,
@@ -44,8 +43,7 @@ When working with access keys, be aware of the following:
 After creating access keys:
 
 - Use AWS CloudTrail to monitor access key usage and detect any unauthorized access
-  attempts. For more information, see [Logging IAM and AWS STS API calls
-  with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md").
+  attempts. For more information, see [Logging IAM and AWS STS API calls with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md").
 - Set up CloudWatch alarms to notify administrators for denied access attempts to help
   detect malicious activities. For more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
 - Regularly review, update, and delete access keys as needed.
@@ -54,13 +52,9 @@ The following topics detail management tasks associated with access keys.
 
 ###### Topics
 
-- [Control the use of access keys by attaching an
-  inline policy to an IAM user](access-keys_inline-policy.md "access-keys_inline-policy.md")
-- [Permissions required to manage access
-  keys](access-keys_required-permissions.md "access-keys_required-permissions.md")
-- [How IAM users can manage their own access
-  keys](access-key-self-managed.md "access-key-self-managed.md")
-- [How an IAM administrator can manage
-  IAM user access keys](access-keys-admin-managed.md "access-keys-admin-managed.md")
+- [Control the use of access keys by attaching an inline policy to an IAM user](access-keys_inline-policy.md "access-keys_inline-policy.md")
+- [Permissions required to manage access keys](access-keys_required-permissions.md "access-keys_required-permissions.md")
+- [How IAM users can manage their own access keys](access-key-self-managed.md "access-key-self-managed.md")
+- [How an IAM administrator can manage IAM user access keys](access-keys-admin-managed.md "access-keys-admin-managed.md")
 - [Update access keys](id-credentials-access-keys-update.md "id-credentials-access-keys-update.md")
 - [Secure access keys](securing_access-keys.md "securing_access-keys.md")

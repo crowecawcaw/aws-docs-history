@@ -1,6 +1,4 @@
-# Service summary (list of
-
-actions)
+# Service summary (list of actions)
 
 Policies are summarized in three tables: the [policy summary](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md"), the service
 summary, and the [action summary](access_policies_understand-action-summary.md "access_policies_understand-action-summary.md"). The
@@ -19,9 +17,7 @@ management**) sections of the table. To view the access level classification tha
 assigned to each action in a service, see [Actions, Resources, and Condition
 Keys for AWS Services](reference_policies_actions-resources-contextkeys.md "reference_policies_actions-resources-contextkeys.md").
 
-## Understanding the elements of a
-
-service summary
+## Understanding the elements of a service summary
 
 The example below is the service summary for Amazon S3 actions that are allowed from a policy
 summary. The actions for this service are grouped by access level. For example, 35
@@ -36,8 +32,7 @@ The service summary page for a managed policy includes the following information
    defined for the service in the policy, then a warning banner appears at the top of the
    page. The service summary then includes details about the problem. To learn how policy
    summaries help you to understand and troubleshoot the permissions that your policy grants,
-   see [My policy does not grant the expected
-   permissions](troubleshoot_policies.md#policy-summary-not-grant-permissions "troubleshoot_policies.md#policy-summary-not-grant-permissions").
+   see [My policy does not grant the expected permissions](troubleshoot_policies.md#policy-summary-not-grant-permissions "troubleshoot_policies.md#policy-summary-not-grant-permissions").
 2. Choose **JSON** to see additional details about the policy. You can
    do this to view all conditions that are applied to the actions. (If you are viewing the
    service summary for an inline policy that is attached directly to a user, you must close

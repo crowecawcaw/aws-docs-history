@@ -1,6 +1,4 @@
-# IAM JSON policy elements:
-
-Action
+# IAM JSON policy elements: Action
 
 The `Action` element describes the specific action or actions that will be
 allowed or denied. Statements must include either an `Action` or

@@ -3,9 +3,7 @@
 You can view a service summary for each service listed in the policy summary that grants
 permissions.
 
-## Viewing service summaries
-
-from the **Policies** page
+## Viewing service summaries from the **Policies** page
 
 You can view the service summary for managed policies on the **Policies**
 page.
@@ -20,9 +18,7 @@ page.
 5. In the policy summary list of services, choose the name of the service that you want
    to view.
 
-## Viewing a service
-
-summary for a policy attached to a user
+## Viewing a service summary for a policy attached to a user
 
 You can view the service summary for any policies that are attached to an
 IAM user.
@@ -53,9 +49,7 @@ from a group, then you are taken to the JSON policy document for that group. If 
 policy is a managed policy, then you are taken to the service summary for that policy on
 the **Policies** page.
 
-## Viewing a service
-
-summary for a policy attached to a role
+## Viewing a service summary for a policy attached to a role
 
 You can view the policy summary for any policies that are attached to a role.
 

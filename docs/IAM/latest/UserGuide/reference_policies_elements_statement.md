@@ -1,6 +1,4 @@
-# IAM JSON policy elements:
-
-Statement
+# IAM JSON policy elements: Statement
 
 The `Statement` element is the main element for a policy. This element is
 required. The `Statement` element can contain a single statement or an array of

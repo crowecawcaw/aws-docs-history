@@ -1,6 +1,4 @@
-# Permissions for
-
-GetFederationToken
+# Permissions for GetFederationToken
 
 The `GetFederationToken` operation is called by an IAM user and returns
 temporary credentials for that user. This operation _federates_
@@ -28,16 +26,12 @@ permissions for the temporary security credentials returned by a call to
 
 ![IAM userThe following illustrations show check marks to indicate that session permissions are the intersection of the user's identity-based policy and the session policies. Session permissions can also be the intersection of the user's identity-based policy and resource-based policies.](images/getfederationtoken-permissions.diagram.png)
 
-## Example: Assigning permissions
-
-using GetFederationToken
+## Example: Assigning permissions using GetFederationToken
 
 You can use the `GetFederationToken` API action with different kinds of
 policies. Here are a few examples.
 
-### Policy attached to the
-
-IAM user
+### Policy attached to the IAM user
 
 In this example, you have a browser-based client application that relies on two backend
 web services. One backend service is your own authentication server that uses your own
@@ -102,9 +96,7 @@ alone doesn't grant any permissions to the AWS STS federated user. If this IAM u
 `GetFederationToken` and does not pass a policy as a parameter of the API call,
 the resulting AWS STS federated user has no effective permissions.
 
-### Session policy
-
-passed as parameter
+### Session policy passed as parameter
 
 The most common way to ensure that the AWS STS federated user is assigned appropriate
 permission is to pass session policies in the `GetFederationToken` API call.
@@ -151,16 +143,13 @@ JSON
 
 ```
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Some AWS resources support resource-based policies, and these policies provide another
 mechanism to grant permissions directly to an AWS STS federated user. Only some AWS services
 support resource-based policies. For example, Amazon S3 has buckets, Amazon SNS has topics, and Amazon SQS
 has queues that you can attach policies to. For a list of all services that support
-resource-based policies, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and review the "Resource-based
+resource-based policies, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and review the "Resource-based
 policies" column of the tables. You can use resource-based policies to assign permissions
 directly to an AWS STS federated user. Do this by specifying the Amazon Resource Name (ARN) of
 the AWS STS federated user in the `Principal` element of the resource-based policy.

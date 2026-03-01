@@ -1,6 +1,4 @@
-# Create a signed AWS API
-
-request
+# Create a signed AWS API request
 
 ###### Important
 
@@ -50,9 +48,7 @@ difference between the two is determined by how the signature is calculated. Wit
 SigV4a, the region set is included in the string to sign, but is not part of the
 credential derivation step.
 
-## Signing requests with temporary
-
-security credentials
+## Signing requests with temporary security credentials
 
 Instead of using long-term credentials to sign a request, you can use temporary
 security credentials provided by AWS Security Token Service (AWS STS).
@@ -71,8 +67,7 @@ requirements.
 
 Arrange the contents of your request (host, action, headers, etc.) into a standard
 canonical format. The canonical request is one of the inputs used to create the
-string to sign. For details on creating the canonical request, see [Elements of an AWS API request
-signature](reference_sigv-signing-elements.md "reference_sigv-signing-elements.md").
+string to sign. For details on creating the canonical request, see [Elements of an AWS API request signature](reference_sigv-signing-elements.md "reference_sigv-signing-elements.md").
 
 ###### Create a hash of the canonical request
 
@@ -299,9 +294,7 @@ request.
 
 `Hex(SHA256Hash("UNSIGNED-PAYLOAD"))`
 
-## Create a hash of the canonical
-
-request
+## Create a hash of the canonical request
 
 Create a hash (digest) of the canonical request using the same algorithm that you used
 to create the hash of the payload. The hash of the canonical request is a string of
@@ -433,9 +426,7 @@ DateRegionServiceKey = *hash*(kRegion, Service)
 SigningKey = *hash*(kService, "aws4_request")
 ```
 
-### Deriving a signing key for
-
-SigV4a
+### Deriving a signing key for SigV4a
 
 To create a signing key for SigV4a, use the following process to derive a key pair
 from the secret access key. For an example of an implementation of this derivation, see

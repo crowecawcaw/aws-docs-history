@@ -36,8 +36,7 @@ Before you can delete service-linked roles you must first delete their related r
 This protects your resources because you can't inadvertently remove permission to access the
 resources.
 
-For information about which services support using service-linked roles, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
+For information about which services support using service-linked roles, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
 have **Yes** in the **Service-Linked
 Role** column. Choose a **Yes** with a link to view
 the service-linked role documentation for that service.
@@ -73,8 +72,7 @@ Some of the use cases include the following:
   people in your workforce who need access to your AWS accounts or to your cloud
   applications. To give users access to your CodeCommit repositories without configuring IAM
   users, you can configure the **git-remote-codecommit** utility. For more
-  information about IAM and CodeCommit, see [IAM credentials for CodeCommit: Git credentials, SSH keys, and
-  AWS access keys](id_credentials_ssh-keys.md "id_credentials_ssh-keys.md"). For more information about configuring the
+  information about IAM and CodeCommit, see [IAM credentials for CodeCommit: Git credentials, SSH keys, and AWS access keys](id_credentials_ssh-keys.md "id_credentials_ssh-keys.md"). For more information about configuring the
   **git-remote-codecommit** utility, see [Connecting to AWS CodeCommit repositories with rotating credentials](../../../codecommit/latest/userguide/temporary-access.md#temporary-access-configure-credentials "../../../codecommit/latest/userguide/temporary-access.md#temporary-access-configure-credentials") in the
   _AWS CodeCommit User Guide_.
 - Amazon Keyspaces (for Apache Cassandra) access – In a situation where you are
@@ -140,11 +138,9 @@ If you are already using a service when it begins supporting service-linked role
 you might receive an email announcing a new role in your account. In this case, the
 service automatically created the service-linked role in your account. You don't need
 to take any action to support this role, and you should not manually delete it. For
-more information, see [A new role appeared in my AWS
-account](troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
+more information, see [A new role appeared in my AWS account](troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
-For information about which services support using service-linked roles, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services
+For information about which services support using service-linked roles, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services
 that have **Yes** in the **Service-Linked Role** column. Choose a **Yes**
 with a link to view the service-linked role documentation for that service. For more
 information, see [Create a service-linked role](id_roles_create-service-linked-role.md "id_roles_create-service-linked-role.md").
@@ -172,8 +168,7 @@ your role. However, if you assume a role using role chaining and provide a
 `DurationSeconds` parameter value greater than one hour, the operation
 fails.
 
-For information about switching to a role in the AWS Management Console, see [Switch from a user to an IAM role
-(console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
+For information about switching to a role in the AWS Management Console, see [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
 
 \***\*Delegation\*\***
 
@@ -223,10 +218,8 @@ using a role as a proxy). These are called resource-based policies, and you can 
 to grant principals in another AWS account access to the resource. Some of these
 resources include Amazon Simple Storage Service (S3) buckets, Amazon Glacier vaults, Amazon Simple Notification Service (SNS) topics, and
 Amazon Simple Queue Service (SQS) queues. To learn which services support resource-based policies, see
-[AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). For more information
-about resource-based policies, see [Cross account resource
-access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
+[AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). For more information
+about resource-based policies, see [Cross account resource access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
 
 ## Additional resources
 
@@ -239,8 +232,7 @@ roles.
   trust policies to define the principals that you trust to assume the role.
 
 For more information and examples of principals you can allow to assume a role, see
-[AWS JSON policy elements:
-Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md").
+[AWS JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md").
 
 - **Identity federation** creates a trust relationship
   between an external identity provider and AWS. You can use your existing OpenID Connect
@@ -269,5 +261,4 @@ For more information, see [IAM JSON policy reference](reference_policies.md "ref
   which you use policies to limit the maximum permissions that an identity-based policy can
   grant to a role. You cannot apply a permissions boundary to a service-linked role.
 
-For more information, see [Permissions boundaries for IAM
-entities](access_policies_boundaries.md "access_policies_boundaries.md").
+For more information, see [Permissions boundaries for IAM entities](access_policies_boundaries.md "access_policies_boundaries.md").

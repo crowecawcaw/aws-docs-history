@@ -41,21 +41,16 @@ Endpoints_](../../../general/latest/gr/rande.md#sts_region "../../../general/lat
 The following are the API operations that you can use to acquire temporary credentials for
 use in your AWS environment and applications.
 
-## Requesting credentials for cross-account delegation and
-
-federation through a custom identity broker
+## Requesting credentials for cross-account delegation and federation through a custom identity broker
 
 The [`AssumeRole`](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") API operation is useful for allowing existing IAM users
 to access AWS resources that they don't already have access to. For example, the user might
 need access to resources in another AWS account. It is also useful as a means to temporarily
 gain privileged access—for example, to provide multi-factor authentication (MFA). You
 must call this API using active credentials. To learn who can call this operation, see [Compare AWS STS credentials](id_credentials_sts-comparison.md "id_credentials_sts-comparison.md"). For
-more information, see [Create a role to give permissions to an IAM
-user](id_roles_create_for-user.md "id_roles_create_for-user.md") and [Secure API access with MFA](id_credentials_mfa_configure-api-require.md "id_credentials_mfa_configure-api-require.md").
+more information, see [Create a role to give permissions to an IAM user](id_roles_create_for-user.md "id_roles_create_for-user.md") and [Secure API access with MFA](id_credentials_mfa_configure-api-require.md "id_credentials_mfa_configure-api-require.md").
 
-###### To request temporary security credentials for cross-account delegation and federation
-
-through a custom identity broker
+###### To request temporary security credentials for cross-account delegation and federation through a custom identity broker
 
 1. Authenticate with your AWS security credentials. This call must be made using valid
    AWS security credentials.
@@ -146,9 +141,7 @@ your plaintext meets the other requirements. The `PackedPolicySize` response
 element indicates by percentage how close the policies and tags for your request are to the
 upper size limit.
 
-## Requesting credentials through an OIDC
-
-provider
+## Requesting credentials through an OIDC provider
 
 The [`AssumeRoleWithWebIdentity`](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md") API operation returns a set of temporary
 AWS security credentials in exchange for a JSON Web Token (JWT). This includes public
@@ -188,9 +181,7 @@ before they expire. For more information, see [AWS SDKs and Tools standardized
 credential providers](../../../sdkref/latest/guide/standardized-credentials.md "../../../sdkref/latest/guide/standardized-credentials.md") in the _AWS SDKs and Tools Reference
 Guide_.
 
-## Requesting credentials through a SAML 2.0 identity
-
-provider
+## Requesting credentials through a SAML 2.0 identity provider
 
 The [`AssumeRoleWithSAML`](../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md "../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md") API operation returns a set of temporary security
 credentials for SAML federated principals who are authenticated by your organization's existing identity
@@ -234,8 +225,7 @@ the following information to you:
      `transient`, or the full `Format` URI from the
      `Subject` and `NameID` elements used in your SAML assertion.
      For information about the `NameID` element's `Format` attribute,
-     see [Configure SAML assertions for the
-     authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
+     see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
 
 3. Use the temporary security credentials returned in the response to make AWS API
    calls. This is the same process as making an AWS API call with long-term security
@@ -247,9 +237,7 @@ you are not using the [AmazonSTSCredentialsProvider](https://aws.amazon.com/blog
 to call `AssumeRoleWithSAML` again. Call this operation to get a new set of
 temporary security credentials before the old ones expire.
 
-## Requesting credentials through a custom identity
-
-broker
+## Requesting credentials through a custom identity broker
 
 The [`GetFederationToken`](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md") API operation returns a set of temporary security
 credentials for AWS STS federated user principals. This API differs from `AssumeRole` in that the
@@ -357,9 +345,7 @@ don't include a policy for the bucket. In that case, you would need to ensure th
 has a policy with an ARN that matches Susan's ARN, such as
 `arn:aws:sts::111122223333:federated-user/Susan`.
 
-## Requesting credentials for users in untrusted
-
-environments
+## Requesting credentials for users in untrusted environments
 
 The [`GetSessionToken`](../../../STS/latest/APIReference/API_GetSessionToken.md "../../../STS/latest/APIReference/API_GetSessionToken.md") API operation returns a set of temporary security
 credentials to an existing IAM user. This is useful for providing enhanced security, such as

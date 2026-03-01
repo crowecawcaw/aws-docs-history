@@ -3,9 +3,7 @@
 Use the information here to help you troubleshoot and fix issues that you might encounter
 when working with Amazon S3 and IAM.
 
-## How do I grant anonymous access
-
-to an Amazon S3 bucket?
+## How do I grant anonymous access to an Amazon S3 bucket?
 
 You use an Amazon S3 bucket policy that specifies a wildcard (\*) in the `principal`
 element, which means anyone can access the bucket. With anonymous access, anyone (including
@@ -13,9 +11,7 @@ users without an AWS account) will be able to access the bucket. For a sample po
 [Example Cases for Amazon S3
 Bucket Policies](../../../AmazonS3/latest/dev/AccessPolicyLanguage_UseCases_s3_a.md "../../../AmazonS3/latest/dev/AccessPolicyLanguage_UseCases_s3_a.md") in the _Amazon Simple Storage Service User Guide_.
 
-## I'm signed in as an AWS account
-
-root user. Why can't I access an Amazon S3 bucket under my account?
+## I'm signed in as an AWS account root user. Why can't I access an Amazon S3 bucket under my account?
 
 In some cases, you might have an IAM user with full access to IAM and Amazon S3. If the
 IAM user assigns a bucket policy to an Amazon S3 bucket and doesn't specify the root user as a

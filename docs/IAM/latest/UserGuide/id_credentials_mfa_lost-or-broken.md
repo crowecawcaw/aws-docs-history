@@ -1,12 +1,9 @@
-# Recover an MFA protected identity in
-
-IAM
+# Recover an MFA protected identity in IAM
 
 If your [virtual MFA device](id_credentials_mfa_enable_virtual.md "id_credentials_mfa_enable_virtual.md") or [hardware TOTP token](id_credentials_mfa_enable_physical.md "id_credentials_mfa_enable_physical.md") appears to be
 functioning properly, but you can't use it to access your AWS resources, it might be out of
 synchronization with AWS. For information about synchronizing a virtual MFA device or hardware
-MFA device, see [Resynchronize virtual and hardware MFA
-devices](id_credentials_mfa_sync.md "id_credentials_mfa_sync.md"). [FIDO security keys](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md") do not go out of
+MFA device, see [Resynchronize virtual and hardware MFA devices](id_credentials_mfa_sync.md "id_credentials_mfa_sync.md"). [FIDO security keys](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md") do not go out of
 sync.
 
 If the [MFA device](id_credentials_mfa.md "id_credentials_mfa.md") for a AWS account root user is lost,
@@ -19,9 +16,7 @@ We recommend that you activate multiple MFA devices. Registering multiple MFA de
 helps ensure continued access if a device is lost or broken. Your AWS account root user and IAM users
 can register up to eight MFA devices of any type.
 
-## Prerequisite – Use another MFA
-
-device
+## Prerequisite – Use another MFA device
 
 If your [multi-factor authentication (MFA) device](id_credentials_mfa.md "id_credentials_mfa.md")
 is lost, damaged, or not working, you can sign in using another MFA device registered to the
@@ -37,8 +32,7 @@ same root user or IAM user.
 3. Authenticate with the type of MFA device that you selected.
 4. The next step varies based on whether you successfully signed in with an alternate MFA
    device.
-   - If you have successfully signed in, you can [Resynchronize virtual and hardware MFA
-     devices](id_credentials_mfa_sync.md "id_credentials_mfa_sync.md"), which
+   - If you have successfully signed in, you can [Resynchronize virtual and hardware MFA devices](id_credentials_mfa_sync.md "id_credentials_mfa_sync.md"), which
      may resolve the issue. If your MFA device is lost or broken, you can deactivate it.
      For instructions on deactivating any MFA device type, see [Deactivate an MFA device](id_credentials_mfa_disable.md "id_credentials_mfa_disable.md").
    - If you can't sign in with MFA, use the steps in [Recovering a root user MFA device](#root-mfa-lost-or-broken "#root-mfa-lost-or-broken") or [Recovering an IAM user MFA device](#iam-user-mfa-lost-or-broken "#iam-user-mfa-lost-or-broken")
@@ -139,16 +133,13 @@ new device.
    so that you can sign in.
 2. The next step varies depending on the type of MFA you are using:
    - For a virtual MFA device, remove the account from your device. Then enable the
-     virtual device as described in [Assign a virtual MFA device in the
-     AWS Management Console](id_credentials_mfa_enable_virtual.md "id_credentials_mfa_enable_virtual.md").
+     virtual device as described in [Assign a virtual MFA device in the AWS Management Console](id_credentials_mfa_enable_virtual.md "id_credentials_mfa_enable_virtual.md").
    - For a FIDO security key, contact the third-party provider for help with replacing
      the device. When you receive the new FIDO security key, enable it as described in
-     [Assign a passkey or security key in the
-     AWS Management Console](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md").
+     [Assign a passkey or security key in the AWS Management Console](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md").
    - For a hardware TOTP token, contact the third-party provider for help with fixing
      or replacing the device. After you have the new physical MFA device, enable the device
-     as described in [Assign a hardware TOTP token in the
-     AWS Management Console](id_credentials_mfa_enable_physical.md "id_credentials_mfa_enable_physical.md").
+     as described in [Assign a hardware TOTP token in the AWS Management Console](id_credentials_mfa_enable_physical.md "id_credentials_mfa_enable_physical.md").
 
 ###### Note
 
@@ -157,5 +148,4 @@ You can have up to eight MFA devices of any combination. For example, if you bre
 FIDO security key and order a new one, you can use virtual MFA or a hardware TOTP token
 until the new FIDO key arrives. 3. If your MFA device is missing or stolen, also change your password in case an attacker
 has stolen the authentication device and might also have your current password. For more
-information, see [Manage passwords for
-IAM users](id_credentials_passwords_admin-change-user.md "id_credentials_passwords_admin-change-user.md")
+information, see [Manage passwords for IAM users](id_credentials_passwords_admin-change-user.md "id_credentials_passwords_admin-change-user.md")

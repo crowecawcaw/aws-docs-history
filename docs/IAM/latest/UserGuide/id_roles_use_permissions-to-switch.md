@@ -1,6 +1,4 @@
-# Grant a user permissions to switch
-
-roles
+# Grant a user permissions to switch roles
 
 When an administrator [creates a role for
 cross-account access](id_roles_create_for-user.md "id_roles_create_for-user.md"), they establish trust between the account that owns the role, the
@@ -121,8 +119,7 @@ account ID or alias and the role name for the two parameters in the following ex
 
 `https://signin.aws.amazon.com/switchrole?account=`your_account_ID_or_alias`&roleName=`optional_path/role_name``
 
-We recommend that you direct your users to [Switch from a user to an IAM role
-(console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md") to walk them through the process. To troubleshoot common issues that you might encounter
+We recommend that you direct your users to [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md") to walk them through the process. To troubleshoot common issues that you might encounter
 when you assume a role, see [I can't assume a role](troubleshoot_roles.md#troubleshoot_roles_cant-assume-role "troubleshoot_roles.md#troubleshoot_roles_cant-assume-role").
 
 ###### Considerations

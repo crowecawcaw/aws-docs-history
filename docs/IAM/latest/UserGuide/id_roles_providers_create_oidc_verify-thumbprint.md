@@ -1,6 +1,4 @@
-# Obtain the thumbprint for an
-
-OpenID Connect identity provider
+# Obtain the thumbprint for an OpenID Connect identity provider
 
 When you [create an OpenID Connect (OIDC)
 identity provider](id_roles_providers_create_oidc.md "id_roles_providers_create_oidc.md") in IAM, IAM requires the thumbprint for the top intermediate

@@ -1,6 +1,4 @@
-# Granting permissions to
-
-create temporary security credentials
+# Granting permissions to create temporary security credentials
 
 By default, IAM users do not have permission to create temporary security credentials for
 AWS STS federated user sessions and roles. You must use a policy to provide your users with these
@@ -73,10 +71,8 @@ JSON
 When you give IAM users permission to create temporary security credentials for AWS STS
 federated users with `GetFederationToken`, be aware that this permits those users
 to delegate their own permissions. For more information about delegating permissions across
-IAM users and AWS accounts, see [Examples of policies for delegating
-access](id_roles_create_policy-examples.md "id_roles_create_policy-examples.md"). For more information about controlling
-permissions in temporary security credentials, see [Permissions for temporary security
-credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").
+IAM users and AWS accounts, see [Examples of policies for delegating access](id_roles_create_policy-examples.md "id_roles_create_policy-examples.md"). For more information about controlling
+permissions in temporary security credentials, see [Permissions for temporary security credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").
 
 ###### Example policy that grants a user limited permission to create temporary security credentials for federated users
 

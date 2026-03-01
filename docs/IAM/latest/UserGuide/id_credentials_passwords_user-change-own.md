@@ -1,6 +1,4 @@
-# How an IAM user changes their own
-
-password
+# How an IAM user changes their own password
 
 If you have been granted permission to change your own IAM user password, you can use a
 special page in the AWS Management Console to do this. You can also use the AWS CLI or AWS API.
@@ -8,20 +6,15 @@ special page in the AWS Management Console to do this. You can also use the AWS 
 ###### Topics
 
 - [Permissions required](#change-own-passwords-permissions-required "#change-own-passwords-permissions-required")
-- [How IAM users change their own password
-  (console)](#ManagingUserPwdSelf-Console "#ManagingUserPwdSelf-Console")
-- [How IAM users change their own password
-  (AWS CLI or AWS API)](#ManagingUserPwdSelf-CLIAPI "#ManagingUserPwdSelf-CLIAPI")
+- [How IAM users change their own password (console)](#ManagingUserPwdSelf-Console "#ManagingUserPwdSelf-Console")
+- [How IAM users change their own password (AWS CLI or AWS API)](#ManagingUserPwdSelf-CLIAPI "#ManagingUserPwdSelf-CLIAPI")
 
 ## Permissions required
 
 To change the password for your own IAM user, you must have the permissions from the
-following policy: [AWS: Allows IAM users to change their own console password on the Security
-credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-password-only.md "reference_policies_examples_aws_my-sec-creds-self-manage-password-only.md").
+following policy: [AWS: Allows IAM users to change their own console password on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-password-only.md "reference_policies_examples_aws_my-sec-creds-self-manage-password-only.md").
 
-## How IAM users change their own password
-
-(console)
+## How IAM users change their own password (console)
 
 The following procedure describes how IAM users can use the AWS Management Console to change their
 own password.
@@ -50,12 +43,9 @@ password**. Then choose **Update password**.
 ###### Note
 
 The new password must meet the requirements of the account password policy. For
-more information, see [Set an account password policy for
-IAM users](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md").
+more information, see [Set an account password policy for IAM users](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md").
 
-## How IAM users change their own password
-
-(AWS CLI or AWS API)
+## How IAM users change their own password (AWS CLI or AWS API)
 
 The following procedure describes how IAM users can use the AWS CLI or AWS API to
 change their own password.

@@ -1,20 +1,16 @@
-# Enable custom identity broker
-
-access to the AWS console
+# Enable custom identity broker access to the AWS console
 
 You can write and run code to create a URL that lets users who sign in to your
 organization's network securely access the AWS Management Console. The URL includes a sign-in token that you
 get from AWS and that authenticates the user to AWS. The resulting console session might
 include a distinct `AccessKeyId` due to federation. To trace the access key usage for
-federation sign-in through related CloudTrail events, see [Logging IAM and AWS STS API calls
-with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md") and [AWS Management Console sign-in events](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.md").
+federation sign-in through related CloudTrail events, see [Logging IAM and AWS STS API calls with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md") and [AWS Management Console sign-in events](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.md").
 
 ###### Note
 
 If your organization uses an identity provider (IdP) that is compatible with SAML, you can
 set up access to the console without writing code. This works with providers like Microsoft's
-Active Directory Federation Services or open-source Shibboleth. For details, see [Enabling SAML 2.0 federated principals
-to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md").
+Active Directory Federation Services or open-source Shibboleth. For details, see [Enabling SAML 2.0 federated principals to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md").
 
 To enable your organization's users to access the AWS Management Console, you can create a custom
 _identity broker_ that performs the following steps:
@@ -30,8 +26,7 @@ _identity broker_ that performs the following steps:
       you use `DurationSeconds` in an `AssumeRole*` operation, you must
       call it as an IAM user with long-term credentials. Otherwise, the call to the
       federation endpoint in step 3 fails. To learn how to view or change the maximum value
-      for a role, see [Update the maximum session duration
-      for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
+      for a role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
     - If you use the `GetFederationToken` API operation to get the credentials,
       you can include the `DurationSeconds` parameter in your call. This parameter
       specifies the duration of your role session. The value can range from 900 seconds (15
@@ -96,8 +91,7 @@ the following topics.
 - [Example code using IAM query API operations](#STSConsoleLink_manual "#STSConsoleLink_manual")
 - [Example code using Python](#STSConsoleLink_programPython "#STSConsoleLink_programPython")
 - [Example code using Java](#STSConsoleLink_programJava "#STSConsoleLink_programJava")
-- [Example showing how to construct the URL
-  (Ruby)](#STSConsoleLink_programRuby "#STSConsoleLink_programRuby")
+- [Example showing how to construct the URL (Ruby)](#STSConsoleLink_programRuby "#STSConsoleLink_programRuby")
 
 ## Example code using IAM query API operations
 
@@ -130,8 +124,7 @@ When you use the [GetFederationToken](../../../STS/latest/APIReference/API_GetFe
 specify the permissions that the credentials grant to the user who assumes the role. For
 any of the API operations that begin with `AssumeRole*`, you use an IAM
 role to assign permissions. For the other API operations, the mechanism varies with the
-API. For more details, see [Permissions for temporary security
-credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md"). Additionally, if you use the
+API. For more details, see [Permissions for temporary security credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md"). Additionally, if you use the
 `AssumeRole*` API operations, you must call them as an IAM user with
 long-term credentials. Otherwise, the call to the federation endpoint in step 3
 fails. 3. After you obtain the temporary security credentials, build them into a JSON session
@@ -214,8 +207,7 @@ federation endpoint.
 When you enable console sessions with an extended duration, you increase the risk of
 credential exposure. To help you mitigate this risk, you can immediately disable the
 active console sessions for any role by choosing **Revoke Sessions** on
-the **Role Summary** IAM console page. For more information, see [Revoke IAM role temporary security
-credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
+the **Role Summary** IAM console page. For more information, see [Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
 
 The following is an example of what your request might look like. The lines are
 wrapped here for readability, but you should submit it as a one-line string.
@@ -555,9 +547,7 @@ String loginURL = signInURL + "?Action=login" +
 
 ```
 
-## Example showing how to construct the URL
-
-(Ruby)
+## Example showing how to construct the URL (Ruby)
 
 The following example shows how to use Ruby to programmatically construct a URL that gives
 users direct access to the AWS Management Console. This code snippet uses the [AWS SDK for Ruby](http://aws.amazon.com/documentation/sdkforruby/ "http://aws.amazon.com/documentation/sdkforruby/").

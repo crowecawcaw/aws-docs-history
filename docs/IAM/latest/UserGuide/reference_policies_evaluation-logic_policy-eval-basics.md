@@ -1,19 +1,13 @@
-# Policy evaluation
+# Policy evaluation for requests within a single account
 
-for requests within a single account
-
-## Policy evaluation for an IAM
-
-role
+## Policy evaluation for an IAM role
 
 The following flow chart provides details about how a policy evaluation decision is
 made for an IAM role within a single account.
 
 ![Evaluation flow chart for an IAM role within a single account](images/PolicyEvaluationSingleAccountRole.png)
 
-## Policy evaluation for an
-
-IAM user
+## Policy evaluation for an IAM user
 
 The following flow chart provides details about how a policy evaluation decision is
 made for an IAM user within a single account.

@@ -1,6 +1,4 @@
-# Create a SAML identity provider in
-
-IAM
+# Create a SAML identity provider in IAM
 
 An IAM SAML 2.0 identity provider is an entity in IAM that describes an external
 identity provider (IdP) service that supports the [SAML 2.0 (Security Assertion Markup Language
@@ -19,24 +17,20 @@ identity in AWS that doesn't have its own credentials (as a user does). But in t
 role is dynamically assigned to a SAML federated principal that is authenticated by your IdP. The role
 permits your IdP to request temporary security credentials for access to AWS. The policies
 assigned to the role determine what users are allowed to do in AWS. To create a
-role for SAML federation, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md") .
+role for SAML federation, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md").
 
 Finally, after you create the role, you complete the SAML trust by configuring your IdP with
 information about AWS and the roles that you want your SAML federated principals to use. This is
 referred to as configuring relying party trust between your IdP and AWS. To configure relying
-party trust, see [Configure your SAML 2.0 IdP with
-relying party trust and adding claims](id_roles_providers_create_saml_relying-party.md "id_roles_providers_create_saml_relying-party.md").
+party trust, see [Configure your SAML 2.0 IdP with relying party trust and adding claims](id_roles_providers_create_saml_relying-party.md "id_roles_providers_create_saml_relying-party.md").
 
 ###### Topics
 
 - [Prerequisites](#idp-manage-identityprovider-prerequisites "#idp-manage-identityprovider-prerequisites")
-- [Create and manage an IAM SAML identity
-  provider (console)](#idp-manage-identityprovider-console "#idp-manage-identityprovider-console")
+- [Create and manage an IAM SAML identity provider (console)](#idp-manage-identityprovider-console "#idp-manage-identityprovider-console")
 - [Manage SAML encryption keys](#id_federation_manage-saml-encryption "#id_federation_manage-saml-encryption")
-- [Create and manage an IAM SAML Identity
-  Provider (AWS CLI)](#idp-create-identityprovider-CLI "#idp-create-identityprovider-CLI")
-- [Create and manage an IAM SAML identity
-  provider (AWS API)](#idp-create-identityprovider-API "#idp-create-identityprovider-API")
+- [Create and manage an IAM SAML Identity Provider (AWS CLI)](#idp-create-identityprovider-CLI "#idp-create-identityprovider-CLI")
+- [Create and manage an IAM SAML identity provider (AWS API)](#idp-create-identityprovider-API "#idp-create-identityprovider-API")
 - [Next steps](#id_roles_create-for-saml-next-steps "#id_roles_create-for-saml-next-steps")
 
 ## Prerequisites
@@ -108,15 +102,12 @@ pool provides. User pools won't accept assertions encrypted with a certificate t
 IAM has provided.
 
 For instructions on how to configure many of the available IdPs to work with AWS,
-including how to generate the required SAML metadata document, see [Integrate third-party SAML solution
-providers with AWS](id_roles_providers_saml_3rd-party.md "id_roles_providers_saml_3rd-party.md").
+including how to generate the required SAML metadata document, see [Integrate third-party SAML solution providers with AWS](id_roles_providers_saml_3rd-party.md "id_roles_providers_saml_3rd-party.md").
 
 For help with SAML federation, see [Troubleshooting SAML
 federation](troubleshoot_saml.md "troubleshoot_saml.md").
 
-## Create and manage an IAM SAML identity
-
-provider (console)
+## Create and manage an IAM SAML identity provider (console)
 
 You can use the AWS Management Console to create, update, and delete IAM SAML identity providers. For
 help with SAML federation, see [Troubleshooting SAML
@@ -152,7 +143,7 @@ resources. To learn more about tagging SAML identity providers, see [Tag IAM SAM
 Choose **Add tag**. Enter values for each tag key-value pair. 8. Verify the information that you have provided. When you are done, choose **Add
 provider**. 9. Assign an IAM role to your identity provider. This role gives external user
 identities managed by your identity provider permissions to access AWS resources in your
-account. To learn more about creating roles for identity federation, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md") .
+account. To learn more about creating roles for identity federation, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md").
 
 ###### Note
 
@@ -178,8 +169,7 @@ SAML encryption ensures that assertions are secure when passed through intermedi
 third parties. In addition, this feature helps you meet FedRAMP or any internal compliance
 policy requirements that mandate SAML assertions to be encrypted.
 
-To configure an IAM SAML identity provider, see [Create a SAML identity provider in
-IAM](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md").
+To configure an IAM SAML identity provider, see [Create a SAML identity provider in IAM](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md").
 For help with SAML federation, see [Troubleshooting SAML
 federation](troubleshoot_saml.md "troubleshoot_saml.md").
 
@@ -204,9 +194,7 @@ date.
    the expired private key after adding a new private key to ensure the first attempt to
    decrypt your assertion is successful.
 
-## Create and manage an IAM SAML Identity
-
-Provider (AWS CLI)
+## Create and manage an IAM SAML Identity Provider (AWS CLI)
 
 You can use the AWS CLI to create, update, and delete SAML providers. For help with SAML
 federation, see [Troubleshooting SAML
@@ -259,9 +247,7 @@ get-saml-provider`](../../../cli/latest/reference/iam/get-saml-provider.md "../.
    - [`aws iam
 delete-saml-provider`](../../../cli/latest/reference/iam/delete-saml-provider.md "../../../cli/latest/reference/iam/delete-saml-provider.md")
 
-## Create and manage an IAM SAML identity
-
-provider (AWS API)
+## Create and manage an IAM SAML identity provider (AWS API)
 
 You can use the AWS API to create, update, and delete SAML providers. For help with SAML
 federation, see [Troubleshooting SAML
@@ -314,9 +300,7 @@ to a role.
 
 - You must tell the IdP about AWS as a service provider. This is called adding relying
   party trust between your IdP and AWS. The exact process for adding relying party trust
-  depends on what IdP you're using. For details, see [Configure your SAML 2.0 IdP with
-  relying party trust and adding claims](id_roles_providers_create_saml_relying-party.md "id_roles_providers_create_saml_relying-party.md").
+  depends on what IdP you're using. For details, see [Configure your SAML 2.0 IdP with relying party trust and adding claims](id_roles_providers_create_saml_relying-party.md "id_roles_providers_create_saml_relying-party.md").
 - When the IdP sends the response containing the claims to AWS, many of the incoming
   claims map to AWS context keys. You can use these context keys in IAM policies using
-  the Condition element to control access to a role. For details, see [Configure SAML assertions for the
-  authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md")
+  the Condition element to control access to a role. For details, see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md")

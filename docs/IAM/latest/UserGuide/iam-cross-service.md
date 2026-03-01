@@ -28,5 +28,4 @@ defined in IAM to ensure your application can only access the resources it is
 authorized to use. The SDKs provide mechanisms for obtaining and using temporary
 security credentials, as well as validating the permissions required for your
 application's operations.
-For a list of AWS services that work with IAM and the IAM features the services support, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+For a list of AWS services that work with IAM and the IAM features the services support, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").

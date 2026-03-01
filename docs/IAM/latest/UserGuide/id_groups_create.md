@@ -22,8 +22,7 @@ consistent access control. After you create the group, give the group permission
 type of work that you expect the IAM users in the group to do, then add the IAM users to
 the group.
 
-For information about the permissions required to create an IAM group, see [Permissions required to access IAM
-resources](access_permissions-required.md "access_permissions-required.md").
+For information about the permissions required to create an IAM group, see [Permissions required to access IAM resources](access_permissions-required.md "access_permissions-required.md").
 
 ## To create an IAM group and attach policies
 

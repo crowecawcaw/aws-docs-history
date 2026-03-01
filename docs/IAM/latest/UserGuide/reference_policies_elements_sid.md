@@ -1,6 +1,4 @@
-# IAM JSON policy elements:
-
-Sid
+# IAM JSON policy elements: Sid
 
 You can provide a `Sid` (statement ID) as an optional identifier for the policy
 statement. You can assign a `Sid` value to each statement in a statement array. You

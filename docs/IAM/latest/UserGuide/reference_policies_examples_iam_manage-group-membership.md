@@ -1,6 +1,4 @@
-# IAM: Allows managing a
-
-group's membership programmatically and in the console
+# IAM: Allows managing a group's membership programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows updating the membership of the group called
 `MarketingTeam`. This policy defines permissions for programmatic and console access. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.

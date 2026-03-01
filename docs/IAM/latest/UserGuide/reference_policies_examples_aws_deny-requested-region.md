@@ -1,6 +1,4 @@
-# AWS: Denies access
-
-to AWS based on the requested Region
+# AWS: Denies access to AWS based on the requested Region
 
 This example shows how you might create an identity-based policy that denies access to any actions outside the Regions specified using
 the [`aws:RequestedRegion` condition key](reference_policies_condition-keys.md#condition-keys-requestedregion "reference_policies_condition-keys.md#condition-keys-requestedregion"), except for actions in the
@@ -23,8 +21,7 @@ physically located in the `us-west-2` region. To learn about all of the services
 that have a single global endpoint, see [AWS Regions and
 Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the _AWS General Reference_. For more
 information about using the `NotAction` element with the `Deny`
-effect, see [IAM JSON policy elements:
-NotAction](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md").
+effect, see [IAM JSON policy elements: NotAction](reference_policies_elements_notaction.md "reference_policies_elements_notaction.md").
 
 ###### Important
 

@@ -1,6 +1,4 @@
-# Troubleshoot Signature Version 4 signing
-
-for AWS API requests
+# Troubleshoot Signature Version 4 signing for AWS API requests
 
 ###### Important
 
@@ -33,10 +31,8 @@ Regions no longer support SigV2 signing.
 ###### Possible causes
 
 - [Credential errors](#signature-v4-troubleshooting-credential "#signature-v4-troubleshooting-credential")
-- [Canonical request and
-  signing string errors](#signature-v4-troubleshooting-canonical-errors "#signature-v4-troubleshooting-canonical-errors")
-- [Credential scope
-  errors](#signature-v4-troubleshooting-credential-scope "#signature-v4-troubleshooting-credential-scope")
+- [Canonical request and signing string errors](#signature-v4-troubleshooting-canonical-errors "#signature-v4-troubleshooting-canonical-errors")
+- [Credential scope errors](#signature-v4-troubleshooting-credential-scope "#signature-v4-troubleshooting-credential-scope")
 - [Key signing errors](#signature-v4-troubleshooting-key-signing "#signature-v4-troubleshooting-key-signing")
 
 ## Credential errors
@@ -48,15 +44,11 @@ the missing signature](create-signed-request.md#add-signature-to-request "create
 Verify that the authentication credentials for the access key and secret key are
 correct. If the access key is incorrect, then you might receive the error:
 `Unauthorized`. Make sure the entity used to sign the request is
-authorized to make the request. For details, see [Troubleshoot access denied error
-messages](troubleshoot_access-denied.md "troubleshoot_access-denied.md").
+authorized to make the request. For details, see [Troubleshoot access denied error messages](troubleshoot_access-denied.md "troubleshoot_access-denied.md").
 
-## Canonical request and
+## Canonical request and signing string errors
 
-signing string errors
-
-If you incorrectly calculated the canonical request in [Create a hash of the canonical
-request](reference_sigv-create-signed-request.md#create-canonical-request-hash "reference_sigv-create-signed-request.md#create-canonical-request-hash") or [Create a string to sign](reference_sigv-create-signed-request.md#create-string-to-sign "reference_sigv-create-signed-request.md#create-string-to-sign"), the
+If you incorrectly calculated the canonical request in [Create a hash of the canonical request](reference_sigv-create-signed-request.md#create-canonical-request-hash "reference_sigv-create-signed-request.md#create-canonical-request-hash") or [Create a string to sign](reference_sigv-create-signed-request.md#create-string-to-sign "reference_sigv-create-signed-request.md#create-string-to-sign"), the
 signature verification step performed by the service fails with the error
 message:
 
@@ -93,9 +85,7 @@ To verify that the secret key matches the access key ID, you can test them with 
 known working implementation. For example, use an AWS SDK or the AWS CLI to make a
 request to AWS.
 
-### API request
-
-header
+### API request header
 
 When the authorization header is empty, the credential key or signature is missing
 or incorrect, the header doesn’t start with an algorithm name, or the key value
@@ -159,9 +149,7 @@ in Authorization header (hashed with SHA-256 and encoded with Base64):
   determine if the issue is the result of incorrect credentials or signature.
   These errors are covered in the other sections on this page.
 
-## Credential scope
-
-errors
+## Credential scope errors
 
 The credential scope you created in [Create a string to sign](reference_sigv-create-signed-request.md#create-string-to-sign "reference_sigv-create-signed-request.md#create-string-to-sign") restricts a signature to a specific date, Region,
 and service. This string has the following format:

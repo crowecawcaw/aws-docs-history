@@ -27,8 +27,7 @@ condition.
 
 - The _Single-valued_ and _Multivalued_
   classifications are included in the description of each condition context key as
-  _Value type_ in the [AWS global condition context
-  keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md") topic.
+  _Value type_ in the [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md") topic.
 - Multivalued context keys in the [Service Authorization Reference](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") use an `ArrayOf` prefix
   followed by the condition operator category type, such as
   `ArrayOfString` or `ArrayOfARN`, indicating that the
@@ -51,9 +50,7 @@ condition.
   with single-valued context keys. Using condition set operators with
   single-valued context keys can lead to overly permissive policies.
 
-## Set operators
-
-for multivalued context keys
+## Set operators for multivalued context keys
 
 To compare your condition context key against a [request context](intro-structure.md#intro-structure-request "intro-structure.md#intro-structure-request") key with multiple values,
 you must use the `ForAllValues` or `ForAnyValue` set operators.
@@ -82,12 +79,9 @@ Use caution if you use `ForAllValues` with an `Allow`
 effect, as it can be overly permissive if the presence of missing context keys
 in the request context is unexpected. You should always include the [Null](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null") condition operator in
 your policy with a `false` value to check if the context key exists
-and its value is not null. For an example, see [Controlling access based on tag
-keys](access_tags.md#access_tags_control-tag-keys "access_tags.md#access_tags_control-tag-keys").
+and its value is not null. For an example, see [Controlling access based on tag keys](access_tags.md#access_tags_control-tag-keys "access_tags.md#access_tags_control-tag-keys").
 
-#### Example
-
-ForAllValues set operator
+#### Example ForAllValues set operator
 
 In the following example, ForAllValues is used with aws:TagKeys to allow users
 to delete specific tags assigned to an EC2 instance. This policy allows users to
@@ -151,11 +145,9 @@ condition returns `false`.
 When using `ForAnyValue` with a `Deny` effect, if the
 context key is not present in the request, the policy evaluates as **No match**. For consistent behavior, add an explicit
 [Null](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null") condition check in
-your policy to verify whether the context key exists. For details, see [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null") .
+your policy to verify whether the context key exists. For details, see [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null").
 
-#### Example
-
-ForAnyValue set operator
+#### Example ForAnyValue set operator
 
 In the following example, ForAnyValue is used with aws:TagKeys to allow users
 to delete specific tags assigned to an EC2 instance. This policy allows users to

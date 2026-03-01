@@ -1,6 +1,4 @@
-# Define custom IAM permissions with customer managed
-
-policies
+# Define custom IAM permissions with customer managed policies
 
 [Policies](access_policies.md "access_policies.md") define permissions for identities or
 resources in AWS. You can create _customer managed policies_
@@ -13,8 +11,7 @@ identity in IAM. Identity-based policies can include AWS managed policies, custo
 policies, and inline policies. AWS managed policies are created and managed by AWS, and you
 can use them but not manage them. An inline policy is one that you create and embed directly to
 an IAM user group, user, or role. Inline policies can't be reused on other identities or
-managed outside of the identity where they exist. For more information, see [Adding and removing IAM identity
-permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
+managed outside of the identity where they exist. For more information, see [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
 
 It's generally better to use customer managed policies instead of inline policies or
 AWS managed policies. AWS managed policies usually provide broad administrative or read-only

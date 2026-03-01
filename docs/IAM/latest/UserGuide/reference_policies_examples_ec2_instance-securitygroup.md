@@ -1,7 +1,4 @@
-# Amazon EC2: Allows starting
-
-or stopping an EC2 instance and modifying a security group, programmatically and in the
-console
+# Amazon EC2: Allows starting or stopping an EC2 instance and modifying a security group, programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows starting or stopping a specific EC2 instance and modifying a
 specific security group. This policy defines permissions for programmatic and console access. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.

@@ -1,6 +1,4 @@
-# Amazon S3: S3
-
-Bucket access, but production bucket denied without recent MFA
+# Amazon S3: S3 Bucket access, but production bucket denied without recent MFA
 
 This example shows how you might create an identity-based policy that allows an Amazon S3 administrator to access any bucket, including
 updating, adding, and deleting objects. However, it explicitly denies access to the

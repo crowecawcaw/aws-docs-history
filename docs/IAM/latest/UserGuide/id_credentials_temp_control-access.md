@@ -1,6 +1,4 @@
-# Permissions for temporary security
-
-credentials
+# Permissions for temporary security credentials
 
 You can use AWS Security Token Service (AWS STS) to create and provide trusted users with temporary security
 credentials that can control access to your AWS resources. For more information about AWS STS,
@@ -16,15 +14,9 @@ For more information on these topics, see [Access management for AWS resources](
 ###### Topics
 
 - [Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity](id_credentials_temp_control-access_assumerole.md "id_credentials_temp_control-access_assumerole.md")
-- [Monitor and control actions
-  taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md")
-- [Permissions for
-  GetFederationToken](id_credentials_temp_control-access_getfederationtoken.md "id_credentials_temp_control-access_getfederationtoken.md")
-- [Permissions for
-  GetSessionToken](id_credentials_temp_control-access_getsessiontoken.md "id_credentials_temp_control-access_getsessiontoken.md")
-- [Disabling permissions for
-  temporary security credentials](id_credentials_temp_control-access_disable-perms.md "id_credentials_temp_control-access_disable-perms.md")
-- [Granting permissions to
-  create temporary security credentials](id_credentials_temp_control-access_enable-create.md "id_credentials_temp_control-access_enable-create.md")
-- [Granting permissions to use
-  identity-enhanced console sessions](id_credentials_temp_control-access_sts-setcontext.md "id_credentials_temp_control-access_sts-setcontext.md")
+- [Monitor and control actions taken with assumed roles](id_credentials_temp_control-access_monitor.md "id_credentials_temp_control-access_monitor.md")
+- [Permissions for GetFederationToken](id_credentials_temp_control-access_getfederationtoken.md "id_credentials_temp_control-access_getfederationtoken.md")
+- [Permissions for GetSessionToken](id_credentials_temp_control-access_getsessiontoken.md "id_credentials_temp_control-access_getsessiontoken.md")
+- [Disabling permissions for temporary security credentials](id_credentials_temp_control-access_disable-perms.md "id_credentials_temp_control-access_disable-perms.md")
+- [Granting permissions to create temporary security credentials](id_credentials_temp_control-access_enable-create.md "id_credentials_temp_control-access_enable-create.md")
+- [Granting permissions to use identity-enhanced console sessions](id_credentials_temp_control-access_sts-setcontext.md "id_credentials_temp_control-access_sts-setcontext.md")

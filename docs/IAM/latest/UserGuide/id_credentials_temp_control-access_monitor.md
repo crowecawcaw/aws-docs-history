@@ -1,6 +1,4 @@
-# Monitor and control actions
-
-taken with assumed roles
+# Monitor and control actions taken with assumed roles
 
 An [IAM role](id_roles.md "id_roles.md") is an object in IAM that is assigned [permissions](access_policies.md "access_policies.md"). When you [assume that role](id_roles_manage-assume.md "id_roles_manage-assume.md") using an IAM identity or an identity from outside of AWS,
 you receive a session with the permissions that are assigned to the role.
@@ -42,28 +40,17 @@ session tags and role session name:
 
 ###### Topics
 
-- [Setting up to use
-  source identity](#id_credentials_temp_control-access_monitor-setup "#id_credentials_temp_control-access_monitor-setup")
-- [Things to know about
-  source identity](#id_credentials_temp_control-access_monitor-know "#id_credentials_temp_control-access_monitor-know")
-- [Permissions required
-  to set source identity](#id_credentials_temp_control-access_monitor-perms "#id_credentials_temp_control-access_monitor-perms")
-- [Specifying a
-  source identity when assuming a role](#id_credentials_temp_control-access_monitor-specify-sourceid "#id_credentials_temp_control-access_monitor-specify-sourceid")
-- [Using source
-  identity with AssumeRole](#id_credentials_temp_control-access_monitor-assume-role "#id_credentials_temp_control-access_monitor-assume-role")
-- [Using
-  source identity with AssumeRoleWithSAML](#id_credentials_temp_control-access_monitor-assume-role-saml "#id_credentials_temp_control-access_monitor-assume-role-saml")
-- [Using
-  source identity with AssumeRoleWithWebIdentity](#id_credentials_temp_control-access_monitor-assume-role-web-id "#id_credentials_temp_control-access_monitor-assume-role-web-id")
-- [Control
-  access using source identity information](#id_credentials_temp_control-access_monitor-control-access "#id_credentials_temp_control-access_monitor-control-access")
-- [Viewing source identity
-  in CloudTrail](#id_credentials_temp_control-access_monitor-ct "#id_credentials_temp_control-access_monitor-ct")
+- [Setting up to use source identity](#id_credentials_temp_control-access_monitor-setup "#id_credentials_temp_control-access_monitor-setup")
+- [Things to know about source identity](#id_credentials_temp_control-access_monitor-know "#id_credentials_temp_control-access_monitor-know")
+- [Permissions required to set source identity](#id_credentials_temp_control-access_monitor-perms "#id_credentials_temp_control-access_monitor-perms")
+- [Specifying a source identity when assuming a role](#id_credentials_temp_control-access_monitor-specify-sourceid "#id_credentials_temp_control-access_monitor-specify-sourceid")
+- [Using source identity with AssumeRole](#id_credentials_temp_control-access_monitor-assume-role "#id_credentials_temp_control-access_monitor-assume-role")
+- [Using source identity with AssumeRoleWithSAML](#id_credentials_temp_control-access_monitor-assume-role-saml "#id_credentials_temp_control-access_monitor-assume-role-saml")
+- [Using source identity with AssumeRoleWithWebIdentity](#id_credentials_temp_control-access_monitor-assume-role-web-id "#id_credentials_temp_control-access_monitor-assume-role-web-id")
+- [Control access using source identity information](#id_credentials_temp_control-access_monitor-control-access "#id_credentials_temp_control-access_monitor-control-access")
+- [Viewing source identity in CloudTrail](#id_credentials_temp_control-access_monitor-ct "#id_credentials_temp_control-access_monitor-ct")
 
-## Setting up to use
-
-source identity
+## Setting up to use source identity
 
 The way that you set up to use source identity depends on the method used when your
 roles are assumed. For example, your IAM users might assume roles directly using the
@@ -92,9 +79,7 @@ Configure your policies for your production environment, and then add them to
 your production users and roles. 6. Monitor activity – Monitor your
 production role activity using CloudTrail logs.
 
-## Things to know about
-
-source identity
+## Things to know about source identity
 
 Keep the following in mind when working with source identity.
 
@@ -129,9 +114,7 @@ set when the role is assumed. To assume such a role, you can use the AWS CLI or 
 API to call the `AssumeRole` operation and specify the source identity
 parameter.
 
-## Permissions required
-
-to set source identity
+## Permissions required to set source identity
 
 In addition to the action that matches the API operation, you must have the following
 permissions-only action in your policy:
@@ -247,9 +230,7 @@ aws sts assume-role \
 When AWS evaluates the request, the request context contains the
 `sts:SourceIdentity` of `DevUser`.
 
-## Specifying a
-
-source identity when assuming a role
+## Specifying a source identity when assuming a role
 
 You can specify a source identity when you use one of the AWS STS
 `AssumeRole*` API operations to get temporary security credentials for a
@@ -263,9 +244,7 @@ allow end users to access your mobile or web applications, you might use the
 to use source identity with each operation. To learn more about common scenarios for
 temporary credentials, see [Common scenarios for temporary credentials](id_credentials_temp.md#sts-introduction "id_credentials_temp.md#sts-introduction").
 
-## Using source
-
-identity with AssumeRole
+## Using source identity with AssumeRole
 
 The `AssumeRole` operation returns a set of temporary credentials that you
 can use to access AWS resources. You can use IAM user or role credentials to call
@@ -284,15 +263,12 @@ aws sts assume-role \
 
 ```
 
-## Using
-
-source identity with AssumeRoleWithSAML
+## Using source identity with AssumeRoleWithSAML
 
 The principal calling the `AssumeRoleWithSAML` operation is authenticated
 using SAML-based federation. This operation returns a set of temporary credentials that
 you can use to access AWS resources. For more information about using SAML-based
-federation for AWS Management Console access, see [Enabling SAML 2.0 federated principals
-to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md"). For details about AWS CLI or
+federation for AWS Management Console access, see [Enabling SAML 2.0 federated principals to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md"). For details about AWS CLI or
 AWS API access, see [SAML 2.0 federation](id_roles_providers_saml.md "id_roles_providers_saml.md"). For a tutorial of setting up SAML
 federation for your Active Directory users, see [AWS Federated Authentication with Active Directory Federation Services
 (ADFS)](https://aws.amazon.com/blogs/security/aws-federated-authentication-with-active-directory-federation-services-ad-fs/ "https://aws.amazon.com/blogs/security/aws-federated-authentication-with-active-directory-federation-services-ad-fs/") in the AWS Security Blog.
@@ -330,9 +306,7 @@ To pass this attribute, include the following element in your SAML assertion.
 </Attribute>
 ```
 
-## Using
-
-source identity with AssumeRoleWithWebIdentity
+## Using source identity with AssumeRoleWithWebIdentity
 
 The principal calling the `AssumeRoleWithWebIdentity` operation is
 authenticated using OpenID Connect (OIDC)-compliant federation. This
@@ -365,9 +339,7 @@ identity.
 }
 ```
 
-## Control
-
-access using source identity information
+## Control access using source identity information
 
 When a source identity is initially set, the [sts:SourceIdentity](reference_policies_iam-condition-keys.md#ck_sourceidentity "reference_policies_iam-condition-keys.md#ck_sourceidentity") key is present in the request. After a source identity is
 set, the [aws:SourceIdentity](reference_policies_condition-keys.md#condition-keys-sourceidentity "reference_policies_condition-keys.md#condition-keys-sourceidentity") key is
@@ -468,9 +440,7 @@ JSON
 
 ```
 
-### Role chaining and
-
-cross-account requirements
+### Role chaining and cross-account requirements
 
 Imagine that you want to allow users who have assumed `CriticalRole` to
 assume a `CriticalRole_2` in another account. The role session
@@ -557,15 +527,12 @@ persists from the first assumed role session. Therefore, both the
 `aws:SourceIdentity` and `sts:SourceIdentity` keys are
 present in the request context.
 
-## Viewing source identity
-
-in CloudTrail
+## Viewing source identity in CloudTrail
 
 You can use CloudTrail to view the requests made to assume roles or federate users. You can
 also view the role or user requests to take actions in AWS. The CloudTrail log file includes
 information about the source identity set for the assumed-role or federated user
-session. For more information, see [Logging IAM and AWS STS API calls
-with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md")
+session. For more information, see [Logging IAM and AWS STS API calls with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md")
 
 For example, assume that a user makes an AWS STS `AssumeRole` request, and
 sets a source identity. You can find the `sourceIdentity` information in the
@@ -626,7 +593,6 @@ information is present in the `userIdentity` key in the CloudTrail log.
 }
 ```
 
-To see example AWS STS API events in CloudTrail logs, see [Example IAM API events in CloudTrail
-log](cloudtrail-integration.md#cloudtrail-integration_examples-iam-api "cloudtrail-integration.md#cloudtrail-integration_examples-iam-api"). For more details about
+To see example AWS STS API events in CloudTrail logs, see [Example IAM API events in CloudTrail log](cloudtrail-integration.md#cloudtrail-integration_examples-iam-api "cloudtrail-integration.md#cloudtrail-integration_examples-iam-api"). For more details about
 the information contained in CloudTrail log files, see [CloudTrail Event Reference](../../../awscloudtrail/latest/userguide/eventreference.md "../../../awscloudtrail/latest/userguide/eventreference.md") in the
 _AWS CloudTrail User Guide_.

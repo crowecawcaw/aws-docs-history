@@ -1,6 +1,4 @@
-# Switch from a user to an IAM role
-
-(console)
+# Switch from a user to an IAM role (console)
 
 You can switch roles when you sign in as an IAM user, a user in IAM Identity Center, a SAML-federated
 role, or a web-identity federated role. A _role_ specifies a set of
@@ -62,8 +60,7 @@ session.
 
 - You can't switch roles if you sign in as the AWS account root user.
 - Users must be granted permission to switch roles by policy. For instructions, see
-  [Grant a user permissions to switch
-  roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
+  [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md").
 - You can't switch roles in the AWS Management Console to a role that requires an [ExternalId](id_roles_common-scenarios_third-party.md#id_roles_third-party_external-id "id_roles_common-scenarios_third-party.md#id_roles_third-party_external-id") value. You can switch to
   such a role only by calling the [`AssumeRole`](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") API that supports the `ExternalId`
   parameter.
@@ -143,16 +140,10 @@ switch to one of those roles, you can simply choose the role you want. You are o
 to type the account and role information manually if the role isn't displayed on the
 menu.
 
-## Additional
+## Additional resources
 
-resources
-
-- [Grant a user permissions to switch
-  roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md")
-- [Grant a user permissions to pass a role to an AWS
-  service](id_roles_use_passrole.md "id_roles_use_passrole.md")
-- [Create a role to give permissions to an IAM
-  user](id_roles_create_for-user.md "id_roles_create_for-user.md")
-- [Create a role to delegate permissions to an
-  AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md")
+- [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md")
+- [Grant a user permissions to pass a role to an AWS service](id_roles_use_passrole.md "id_roles_use_passrole.md")
+- [Create a role to give permissions to an IAM user](id_roles_create_for-user.md "id_roles_create_for-user.md")
+- [Create a role to delegate permissions to an AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md")
 - [Troubleshoot IAM roles](troubleshoot_roles.md "troubleshoot_roles.md")

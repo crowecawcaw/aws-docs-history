@@ -19,8 +19,7 @@ of the condition are true. The user to be tagged must already have the
 The second condition uses the `ForAllValues:StringEquals` condition operator.
 The condition returns true if all of the tag keys in the request match the key in the
 policy. This means that the only tag key in the request must be `Department`. For
-more information about using `ForAllValues`, see [Set operators
-for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
+more information about using `ForAllValues`, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 JSON
 

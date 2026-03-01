@@ -46,8 +46,7 @@ granted the maximum session duration, or the remaining time in their user sessio
 less. Assume that you set a maximum duration of 5 hours on a role. An IAM user that has been
 signed into the console for 10 hours (out of the default maximum of 12) switches to the role.
 The available role session duration is 2 hours. To learn how to view the maximum value for your
-role, see [Update the maximum session duration
-for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration") later in this page.
+role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration") later in this page.
 
 ###### Notes
 
@@ -61,15 +60,13 @@ for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "i
   credentials and automatically update these credentials. This ensures that you always have
   a valid set of credentials. For these services, it's not necessary to assume the current
   role again to obtain temporary credentials. However, if you intend to pass [session tags](id_session-tags.md "id_session-tags.md") or a [session policy](access_policies.md#policies_session "access_policies.md#policies_session"), you need to assume the current role again. To learn how to
-  modify a role trust policy to add the principal role ARN or AWS account ARN, see [Update a role trust policy](id_roles_update-role-trust-policy.md "id_roles_update-role-trust-policy.md") .
+  modify a role trust policy to add the principal role ARN or AWS account ARN, see [Update a role trust policy](id_roles_update-role-trust-policy.md "id_roles_update-role-trust-policy.md").
 
 ###### Topics
 
-- [Switch from a user to an IAM role
-  (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md")
+- [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md")
 - [Switch to an IAM role (AWS CLI)](id_roles_use_switch-role-cli.md "id_roles_use_switch-role-cli.md")
 - [Switch to an IAM role (Tools for Windows PowerShell)](id_roles_use_switch-role-twp.md "id_roles_use_switch-role-twp.md")
 - [Switch to an IAM role (AWS API)](id_roles_use_switch-role-api.md "id_roles_use_switch-role-api.md")
-- [Use an IAM role to grant permissions to
-  applications running on Amazon EC2 instances](id_roles_use_switch-role-ec2.md "id_roles_use_switch-role-ec2.md")
+- [Use an IAM role to grant permissions to applications running on Amazon EC2 instances](id_roles_use_switch-role-ec2.md "id_roles_use_switch-role-ec2.md")
 - [Use instance profiles](id_roles_use_switch-role-ec2_instance-profiles.md "id_roles_use_switch-role-ec2_instance-profiles.md")

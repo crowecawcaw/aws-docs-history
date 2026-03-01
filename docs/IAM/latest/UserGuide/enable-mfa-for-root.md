@@ -30,8 +30,7 @@ Before you enable MFA for your root user, review and [update
 your account settings and contact information](../../../accounts/latest/reference/manage-acct-update-root-user.md "../../../accounts/latest/reference/manage-acct-update-root-user.md") to make sure that you have access to
 the email and phone number. If your MFA device is lost, stolen, or not working, you can still
 sign in as the root user by verifying your identity using that email and phone number. To learn
-about signing in using alternative factors of authentication, see [Recover an MFA protected identity in
-IAM](id_credentials_mfa_lost-or-broken.md "id_credentials_mfa_lost-or-broken.md"). To disable this feature, contact [AWS Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+about signing in using alternative factors of authentication, see [Recover an MFA protected identity in IAM](id_credentials_mfa_lost-or-broken.md "id_credentials_mfa_lost-or-broken.md"). To disable this feature, contact [AWS Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
 AWS supports the following MFA types for your root user:
 
@@ -61,8 +60,7 @@ to sign in on another device like a laptop. For more information, see [cross-dev
 
 You can sync passkeys across your devices to facilitate sign-ins with AWS, enhancing
 usability and recoverability. For more information about enabling passkeys and security
-keys, see [Enable a passkey or security key for the root user
-(console)](enable-fido-mfa-for-root.md "enable-fido-mfa-for-root.md").
+keys, see [Enable a passkey or security key for the root user (console)](enable-fido-mfa-for-root.md "enable-fido-mfa-for-root.md").
 
 The FIDO Alliance maintains a list of all [FIDO Certified
 products](https://fidoalliance.org/certification/fido-certified-products/ "https://fidoalliance.org/certification/fido-certified-products/") that are compatible with FIDO specifications.
@@ -78,8 +76,7 @@ be unique. A user can't type a code from another user's token to authenticate.
 We do recommend that you use a virtual MFA device while waiting for hardware purchase
 approval or while you wait for your hardware to arrive. For a list of a few supported apps
 that you can use as virtual MFA devices, see [Multi-Factor Authentication
-(MFA)](https://aws.amazon.com/iam/features/mfa/?audit=2019q1 "https://aws.amazon.com/iam/features/mfa/?audit=2019q1"). For instructions on setting up a virtual MFA device with AWS, see [Enable a virtual MFA device for the root user
-(console)](enable-virt-mfa-for-root.md "enable-virt-mfa-for-root.md").
+(MFA)](https://aws.amazon.com/iam/features/mfa/?audit=2019q1 "https://aws.amazon.com/iam/features/mfa/?audit=2019q1"). For instructions on setting up a virtual MFA device with AWS, see [Enable a virtual MFA device for the root user (console)](enable-virt-mfa-for-root.md "enable-virt-mfa-for-root.md").
 
 ## Hardware TOTP tokens
 
@@ -89,8 +86,7 @@ during sign-in. Each MFA device assigned to a user must be unique. A user cannot
 from another user's device to be authenticated. For information on supported hardware MFA
 devices, see [Multi-Factor
 Authentication (MFA)](https://aws.amazon.com/iam/features/mfa/?audit=2019q1 "https://aws.amazon.com/iam/features/mfa/?audit=2019q1"). For instructions on setting up a hardware TOTP token with
-AWS, see [Enable a hardware TOTP token for the root user
-(console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md").
+AWS, see [Enable a hardware TOTP token for the root user (console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md").
 
 If you want to use a physical MFA device, we recommend that you use FIDO security keys
 as an alternative to hardware TOTP devices. FIDO security keys offer the benefits of no
@@ -99,9 +95,6 @@ a single device for enhanced security.
 
 ###### Topics
 
-- [Enable a passkey or security key for the root user
-  (console)](enable-fido-mfa-for-root.md "enable-fido-mfa-for-root.md")
-- [Enable a virtual MFA device for the root user
-  (console)](enable-virt-mfa-for-root.md "enable-virt-mfa-for-root.md")
-- [Enable a hardware TOTP token for the root user
-  (console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md")
+- [Enable a passkey or security key for the root user (console)](enable-fido-mfa-for-root.md "enable-fido-mfa-for-root.md")
+- [Enable a virtual MFA device for the root user (console)](enable-virt-mfa-for-root.md "enable-virt-mfa-for-root.md")
+- [Enable a hardware TOTP token for the root user (console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md")

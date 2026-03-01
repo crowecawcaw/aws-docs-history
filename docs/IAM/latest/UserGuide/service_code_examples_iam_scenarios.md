@@ -1,6 +1,4 @@
-# Scenarios for
-
-IAM using AWS SDKs
+# Scenarios for IAM using AWS SDKs
 
 The following code examples show you how to implement common scenarios in IAM
 with AWS SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions

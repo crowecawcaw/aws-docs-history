@@ -12,12 +12,9 @@ For more information about policy structure and syntax, see [Policies and permis
 Before you change the permissions for a policy, you should review its recent service-level
 activity. This is important because you don't want to remove access from a principal (person
 or application) who is using it. For more information about viewing last accessed information,
-see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
-## Editing customer managed policies
-
-(AWS CLI)
+## Editing customer managed policies (AWS CLI)
 
 You can edit a customer managed policy from the AWS CLI.
 
@@ -52,9 +49,7 @@ versions.
    command:
    - [validate-policy](../../../cli/latest/reference/accessanalyzer/validate-policy.md "../../../cli/latest/reference/accessanalyzer/validate-policy.md")
 
-## Setting the
-
-default version of a customer managed policy (AWS CLI)
+## Setting the default version of a customer managed policy (AWS CLI)
 
 You can set a default version of a customer managed policy from the AWS CLI.
 
@@ -67,9 +62,7 @@ You can set a default version of a customer managed policy from the AWS CLI.
    command:
    - [set-default-policy-version](../../../cli/latest/reference/iam/set-default-policy-version.md "../../../cli/latest/reference/iam/set-default-policy-version.md")
 
-## Deleting a version of
-
-a customer managed policy (AWS CLI)
+## Deleting a version of a customer managed policy (AWS CLI)
 
 You can delete a version of a customer managed policy from the AWS CLI.
 

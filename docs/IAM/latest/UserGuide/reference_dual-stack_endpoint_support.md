@@ -10,9 +10,7 @@ If you use IAM policies that include the `aws:sourceIp` or
 support IPv6 clients. For more information about IPv6 addressing for your VPCs, see [IP addressing for
 your VPCs and subnets](../../../vpc/latest/userguide/vpc-ip-addressing.md "../../../vpc/latest/userguide/vpc-ip-addressing.md") in the _Amazon VPC User Guide_.
 
-## IAM dual-stack endpoint
-
-support
+## IAM dual-stack endpoint support
 
 IAM provides a dual-stack public endpoint that supports both IPv4 and IPv6 clients.
 The IAM dual-stack public endpoint can also be accessed privately from your virtual
@@ -25,9 +23,7 @@ The IAM public endpoint at `https://iam.amazonaws.com`, unlike the dual-stack
 public endpoint, supports only IPv4 clients. When accessed privately from your VPC using
 AWS PrivateLink, the IAM public endpoint can support both IPv4 and IPv6 clients.
 
-## AWS STS dual-stack endpoint
-
-support
+## AWS STS dual-stack endpoint support
 
 AWS STS provides dual-stack regional endpoints that support both IPv4 and IPv6 clients.
 The AWS STS dual-stack regional endpoints can also be accessed privately from your virtual

@@ -6,11 +6,9 @@ company. IAM users can update their own access keys if they have been granted th
 necessary permissions.
 
 For details about granting IAM users permissions to update their own access keys, see
-[AWS: Allows IAM users to manage their own password, access keys, and SSH public
-keys on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-pass-accesskeys-ssh.md "reference_policies_examples_aws_my-sec-creds-self-manage-pass-accesskeys-ssh.md"). You can also apply a password policy to your account to require that all of your IAM
+[AWS: Allows IAM users to manage their own password, access keys, and SSH public keys on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-pass-accesskeys-ssh.md "reference_policies_examples_aws_my-sec-creds-self-manage-pass-accesskeys-ssh.md"). You can also apply a password policy to your account to require that all of your IAM
 users periodically update their passwords and how often they must do so. For more
-information, see [Set an account password policy for
-IAM users](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md").
+information, see [Set an account password policy for IAM users](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md").
 
 ###### Note
 
@@ -21,20 +19,15 @@ credentials.
 
 ###### Topics
 
-- [Updating IAM user access keys
-  (console)](#rotating_access_keys_console "#rotating_access_keys_console")
+- [Updating IAM user access keys (console)](#rotating_access_keys_console "#rotating_access_keys_console")
 - [Updating access keys (AWS CLI)](#rotating_access_keys_cli "#rotating_access_keys_cli")
 - [Updating access keys (AWS API)](#rotating_access_keys_api "#rotating_access_keys_api")
 
-## Updating IAM user access keys
-
-(console)
+## Updating IAM user access keys (console)
 
 You can update access keys from the AWS Management Console.
 
-###### To update access keys for an IAM user without interrupting your applications
-
-(console)
+###### To update access keys for an IAM user without interrupting your applications (console)
 
 1. While the first access key is still active, create a second access key.
    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -85,7 +78,7 @@ You can update access keys from the AWS Management Console.
       **Delete**. Follow the instructions in the dialog to
       first **Deactivate** and then confirm the deletion.
 
-###### To determine which access keys need to be updated or deleted(console)
+###### To determine which access keys need to be updated or deleted (console)
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Users**.

@@ -1,6 +1,4 @@
-# How permissions and
-
-policies provide access management
+# How permissions and policies provide access management
 
 The access management portion of AWS Identity and Access Management (IAM) helps you define what a principal entity
 can do in an account. A principal entity is a person or application authenticated using an IAM
@@ -78,11 +76,9 @@ Federated principals don't have permanent identities in your AWS account the way
 users do. To assign permissions to federated principals, you can create an entity referred to as a
 _role_ and define permissions for the role. When a SAMl or OIDC federated principal signs
 in to AWS, the user is associated with the role and is granted the permissions that are
-defined in the role. For more information, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md") .
+defined in the role. For more information, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md").
 
-## Identity-based and resource-based
-
-policies
+## Identity-based and resource-based policies
 
 Identity-based policies are permissions policies that you attach to an IAM identity,
 such as an IAM user, group, or role. Resource-based policies are permissions policies that
@@ -103,8 +99,7 @@ categorized:
     policies that you create and manage in your AWS account. Customer managed policies
     provide more precise control over your policies than AWS managed policies. You can
     create, edit, and validate an IAM policy in the visual editor or by creating the
-    JSON policy document directly. For more information, see [Define custom IAM permissions with customer managed
-    policies](access_policies_create.md "access_policies_create.md") and [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md").
+    JSON policy document directly. For more information, see [Define custom IAM permissions with customer managed policies](access_policies_create.md "access_policies_create.md") and [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md").
 
 - **Inline policies** – Policies that you create and
   manage and that are embedded directly into a single user, group, or role. In most cases,
@@ -121,10 +116,7 @@ The IAM service supports one type of resource-based policy called a role _trust 
 role is both an identity and a resource that supports resource-based policies, you have to
 attach both a trust policy and an identity-based policy to an IAM role. Trust policies
 define which principal entities (accounts, users, roles, and AWS STS federated user principals) can assume the
-role. To learn how IAM roles are different from other resource-based policies, see [Cross account resource
-access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
+role. To learn how IAM roles are different from other resource-based policies, see [Cross account resource access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
 
-To see which services support resource-based policies, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn more about
-resource-based policies, see [Identity-based policies and
-resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md").
+To see which services support resource-based policies, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn more about
+resource-based policies, see [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md").

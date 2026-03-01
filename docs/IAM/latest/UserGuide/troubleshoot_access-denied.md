@@ -1,6 +1,4 @@
-# Troubleshoot access denied error
-
-messages
+# Troubleshoot access denied error messages
 
 The following information can help you identify, diagnose, and resolve access denied
 errors with AWS Identity and Access Management. Access denied errors appear when AWS explicitly or implicitly
@@ -12,8 +10,7 @@ denies an authorization request.
   `Deny` statement and also no applicable `Allow` statement.
   Because an IAM policy denies an IAM principal by default, the policy must
   explicitly allow the principal to perform an action. Otherwise, the policy
-  implicitly denies access. For more information, see [The
-  difference between explicit and implicit denies](reference_policies_evaluation-logic_AccessPolicyLanguage_Interplay.md "reference_policies_evaluation-logic_AccessPolicyLanguage_Interplay.md").
+  implicitly denies access. For more information, see [The difference between explicit and implicit denies](reference_policies_evaluation-logic_AccessPolicyLanguage_Interplay.md "reference_policies_evaluation-logic_AccessPolicyLanguage_Interplay.md").
   When you make a request to a service or resource, multiple policies may apply to the
   request. Review all applicable policies in addition to the policy specified in the error
   message.
@@ -36,9 +33,7 @@ the [Contact Us](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/cont
 **Still unable to log into your AWS account** and then choose one
 of the available support options.
 
-## I get "access denied" when
-
-I make a request to an AWS service
+## I get "access denied" when I make a request to an AWS service
 
 - Check if the error message includes the type and [Amazon Resource
   Name (ARN)](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns") of the policy responsible for denying access. If this is the
@@ -79,8 +74,7 @@ action.
   resource-based policies can grant you permission. If you make a request to a
   service in a different account, then both your identity-based policies and the
   resource-based policies must grant you permission. To view the services that
-  support resource-based policies, see [AWS services that work with
-  IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+  support resource-based policies, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 - If your policy includes a condition with a key–value pair, review it
   carefully. Examples include the [aws:RequestTag/tag-key](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
   global condition key, the AWS KMS [`kms:EncryptionContext:`encryption_context_key``](kms/latest/developerguide/policy-conditions.md#conditions-kms-encryption-context "kms/latest/developerguide/policy-conditions.md#conditions-kms-encryption-context"),
@@ -90,8 +84,7 @@ multiple results. Because condition key names are not case sensitive, a
 condition that checks for a key named`foo`matches`foo`,
 `Foo`, or `FOO`. If your request includes multiple
   key–value pairs with key names that differ only by case, then your access
-  might be unexpectedly denied. For more information, see [IAM JSON policy elements:
-  Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
+  might be unexpectedly denied. For more information, see [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
 - If you have a [permissions
   boundary](access_policies_boundaries.md "access_policies_boundaries.md"), verify that the policy that is used for the permissions
   boundary allows your request. If your identity-based policies allow the request,
@@ -108,27 +101,21 @@ condition that checks for a key named`foo`matches`foo`,
   AWS CloudTrail, it might be because the VPC endpoint owner account is different from
   the calling account or target role account.
 
-## I get "access denied"
-
-when I make a request with temporary security credentials
+## I get "access denied" when I make a request with temporary security credentials
 
 - First, make sure that you are not denied access for a reason that is unrelated
-  to your temporary credentials. For more information, see [I get "access denied" when
-  I make a request to an AWS service](#troubleshoot_general_access-denied-service "#troubleshoot_general_access-denied-service").
-- Verify that the service accepts temporary security credentials, see [AWS services that work with
-  IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+  to your temporary credentials. For more information, see [I get "access denied" when I make a request to an AWS service](#troubleshoot_general_access-denied-service "#troubleshoot_general_access-denied-service").
+- Verify that the service accepts temporary security credentials, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 - Verify that your requests are being signed correctly and that the request is
   well-formed. For details, see your [toolkit](http://aws.amazon.com/developer/tools/ "http://aws.amazon.com/developer/tools/") documentation or
-  [Use temporary credentials with AWS
-  resources](id_credentials_temp_use-resources.md "id_credentials_temp_use-resources.md").
+  [Use temporary credentials with AWS resources](id_credentials_temp_use-resources.md "id_credentials_temp_use-resources.md").
 - Verify that your temporary security credentials haven't expired. For more
   information, see [Temporary security credentials in IAM](id_credentials_temp.md "id_credentials_temp.md").
 - Verify that the IAM user or role has the correct permissions. Permissions
   for temporary security credentials are derived from an IAM user or role. As a
   result, the permissions are limited to those that are granted to the role whose
   temporary credentials you have assumed. For more information about how
-  permissions for temporary security credentials are determined, see [Permissions for temporary security
-  credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").
+  permissions for temporary security credentials are determined, see [Permissions for temporary security credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").
 - If you assumed a role, your role session might be limited by session policies.
   When you [request temporary security
   credentials](id_credentials_temp_request.md "id_credentials_temp_request.md") programmatically using AWS STS, you can optionally pass
@@ -145,8 +132,7 @@ when I make a request with temporary security credentials
 - If you are an AWS STS federated user principal, your session might be limited by
   session policies. You create a federated user session by signing in to AWS as
   an IAM user and then requesting a federation token. For more information, see
-  [Requesting credentials through a custom identity
-  broker](id_credentials_temp_request.md#api_getfederationtoken "id_credentials_temp_request.md#api_getfederationtoken"). If you or your identity broker
+  [Requesting credentials through a custom identity broker](id_credentials_temp_request.md#api_getfederationtoken "id_credentials_temp_request.md#api_getfederationtoken"). If you or your identity broker
   passed session policies while requesting a federation token, then your session
   is limited by those policies. The resulting session's permissions are the
   intersection of your IAM user identity-based policies and the session
@@ -172,9 +158,7 @@ JSON
 
 ```
 
-## Access denied error message
-
-examples
+## Access denied error message examples
 
 Most access denied error messages appear in the format `User
  `user`is not authorized to perform
@@ -208,9 +192,7 @@ authorization request.
 The following examples show the format for different types of access denied error
 messages.
 
-### Access denied due to a service
-
-control policy – implicit denial
+### Access denied due to a service control policy – implicit denial
 
 1. Check for a missing `Allow` statement for the action in your
    service control policies (SCPs). For the following example, the action is
@@ -224,9 +206,7 @@ User: arn:aws:iam::123456789012:user/John is not authorized to perform: codecomm
 because no service control policy allows the codecommit:ListRespositories action
 ```
 
-### Access denied due to a service
-
-control policy – explicit denial
+### Access denied due to a service control policy – explicit denial
 
 1. If a policy ARN is provided in the error message, check for a `Deny`
    statement for the action in the specified service control policy (SCP). In
@@ -250,9 +230,7 @@ User: arn:aws:iam::123456789012:user/John is not authorized to perform: codecomm
 with an explicit deny in a service control policy
 ```
 
-### Access denied due to a
-
-resource control policy – explicit denial
+### Access denied due to a resource control policy – explicit denial
 
 1. If a policy ARN is provided in the error message, check for a `Deny`
    statement for the action in the specified resource control policy (RCP). In
@@ -278,9 +256,7 @@ on resource: arn:aws:secretsmanager:us-east-1:123456789012:secret:*
 with an explicit deny in a resource control policy
 ```
 
-### Access denied due to
-
-a VPC endpoint policy – implicit denial
+### Access denied due to a VPC endpoint policy – implicit denial
 
 1. Check for a missing `Allow` statement for the action in your
    Virtual Private Cloud (VPC) endpoint policies. For the following example,
@@ -294,9 +270,7 @@ User: arn:aws:iam::123456789012:user/John is not authorized to perform: codecomm
 because no VPC endpoint policy allows the codecommit:ListRepositories action
 ```
 
-### Access denied due to
-
-a VPC endpoint policy – explicit denial
+### Access denied due to a VPC endpoint policy – explicit denial
 
 1. Check for an explicit `Deny` statement for the action in your
    Virtual Private Cloud (VPC) endpoint policies. For the following example,
@@ -311,16 +285,13 @@ on resource: arn:aws:codedeploy:us-east-1:123456789012:deploymentgroup:*
 with an explicit deny in a VPC endpoint policy
 ```
 
-### Access denied
-
-due to a permissions boundary – implicit denial
+### Access denied due to a permissions boundary – implicit denial
 
 1. Check for a missing `Allow` statement for the action in your
    permissions boundary. For the following example, the action is
    `codedeploy:ListDeployments`.
 2. Update your permissions boundary by adding the `Allow`
-   statement to your IAM policy. For more information, see [Permissions boundaries for IAM
-   entities](access_policies_boundaries.md "access_policies_boundaries.md") and [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md").
+   statement to your IAM policy. For more information, see [Permissions boundaries for IAM entities](access_policies_boundaries.md "access_policies_boundaries.md") and [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md").
 
 ```
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codedeploy:ListDeployments
@@ -328,9 +299,7 @@ on resource: arn:aws:codedeploy:us-east-1:123456789012:deploymentgroup:*
 because no permissions boundary allows the codedeploy:ListDeployments action
 ```
 
-### Access denied
-
-due to a permissions boundary – explicit denial
+### Access denied due to a permissions boundary – explicit denial
 
 1. If a policy ARN is provided in the error message, check for a `Deny`
    statement for the action in the specified permissions boundary. In the example
@@ -338,8 +307,7 @@ due to a permissions boundary – explicit denial
 2. If no policy ARN is provided in the error message, check for a `Deny`
    statement for the action in the permissions boundary attached to the principal.
 3. Update your permissions boundary by removing the `Deny` statement
-   from your IAM policy. For more information, see [Permissions boundaries for IAM
-   entities](access_policies_boundaries.md "access_policies_boundaries.md") and [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md").
+   from your IAM policy. For more information, see [Permissions boundaries for IAM entities](access_policies_boundaries.md "access_policies_boundaries.md") and [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md").
 
 Error message with a policy ARN:
 
@@ -355,9 +323,7 @@ User: arn:aws:iam::123456789012:user/John is not authorized to perform: sagemake
 with an explicit deny in a permissions boundary
 ```
 
-### Access denied due
-
-to session policies – implicit denial
+### Access denied due to session policies – implicit denial
 
 1. Check for a missing `Allow` statement for the action in your
    session policies. For the following example, the action is
@@ -371,9 +337,7 @@ User: arn:aws:iam::123456789012:user/John is not authorized to perform: codecomm
 because no session policy allows the codecommit:ListRepositories action
 ```
 
-### Access denied due
-
-to session policies – explicit denial
+### Access denied due to session policies – explicit denial
 
 1. If a policy ARN is provided in the error message, check for a `Deny`
    statement for the action in the specified session policy. In the example
@@ -400,9 +364,7 @@ on resource: arn:aws:codedeploy:us-east-1:123456789012:deploymentgroup:*
 with an explicit deny in a session policy
 ```
 
-### Access
-
-denied due to resource-based policies – implicit denial
+### Access denied due to resource-based policies – implicit denial
 
 1. Check for a missing `Allow` statement for the action in your
    resource-based policy. For the following example, the action is
@@ -415,9 +377,7 @@ User: arn:aws:iam::123456789012:user/John is not authorized to perform: secretsm
 because no resource-based policy allows the secretsmanager:GetSecretValue action
 ```
 
-### Access
-
-denied due to resource-based policies – explicit denial
+### Access denied due to resource-based policies – explicit denial
 
 1. Check for an explicit `Deny` statement for the action in your
    resource-based policy. For the following example, the action is
@@ -431,9 +391,7 @@ on resource: arn:aws:secretsmanager:us-east-1:123456789012:secret:*
 with an explicit deny in a resource-based policy
 ```
 
-### Access denied
-
-due to role trust policies – implicit denial
+### Access denied due to role trust policies – implicit denial
 
 1. Check for a missing `Allow` statement for the action in your
    role trust policy. For the following example, the action is
@@ -446,9 +404,7 @@ User: arn:aws:iam::123456789012:user/John is not authorized to perform: sts:Assu
 because no role trust policy allows the sts:AssumeRole action
 ```
 
-### Access denied
-
-due to role trust policies – explicit denial
+### Access denied due to role trust policies – explicit denial
 
 1. Check for an explicit `Deny` statement for the action in your
    role trust policy. For the following example, the action is
@@ -461,9 +417,7 @@ User: arn:aws:iam::123456789012:user/John is not authorized to perform: sts:Assu
 with an explicit deny in the role trust policy
 ```
 
-### Access
-
-denied due to identity-based policies – implicit denial
+### Access denied due to identity-based policies – implicit denial
 
 1. Check for a missing `Allow` statement for the action in
    identity-based policies attached to the identity. For the following example,
@@ -477,9 +431,7 @@ User: arn:aws:iam::123456789012:role/HR is not authorized to perform: codecommit
 because no identity-based policy allows the codecommit:ListRepositories action
 ```
 
-### Access is
-
-denied due to identity-based policies – explicit denial
+### Access is denied due to identity-based policies – explicit denial
 
 1. If a policy ARN is provided in the error message, check for a `Deny`
    statement for the action in the specified policy. In the example below, the action

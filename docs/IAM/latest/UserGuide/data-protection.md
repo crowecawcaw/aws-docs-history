@@ -58,9 +58,7 @@ You can't manage encryption keys using IAM or AWS STS. For more information abou
 encryption keys, see [What is AWS KMS?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the
 AWS Key Management Service Developer Guide
 
-## Internetwork traffic privacy in IAM
-
-and AWS STS
+## Internetwork traffic privacy in IAM and AWS STS
 
 Requests to IAM must be made using Transport Layer Security protocol (TLS). You can
 secure connections to the AWS STS service by using VPC endpoints. To learn more, see [Interface VPC endpoints](reference_interface_vpc_endpoints.md "reference_interface_vpc_endpoints.md").

@@ -1,6 +1,4 @@
-# Infrastructure security in
-
-AWS Identity and Access Management
+# Infrastructure security in AWS Identity and Access Management
 
 As a managed service, AWS Identity and Access Management is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS

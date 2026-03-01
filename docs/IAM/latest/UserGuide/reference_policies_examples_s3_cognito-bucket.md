@@ -1,6 +1,4 @@
-# Amazon S3: Allows Amazon Cognito users to
-
-access objects in their bucket
+# Amazon S3: Allows Amazon Cognito users to access objects in their bucket
 
 This example shows how you might create an identity-based policy that allows Amazon Cognito users to access objects in a specific Amazon S3 bucket. This
 policy allows access only to objects with a name that includes `cognito`, the name of

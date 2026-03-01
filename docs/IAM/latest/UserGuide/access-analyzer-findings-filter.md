@@ -12,9 +12,7 @@ or contains a value, then enter or choose a property value to filter on.
 
 For a list of filter keys that you can use to create or update an archive rule, see [IAM Access Analyzer filter keys](access-analyzer-reference-filter-keys.md "access-analyzer-reference-filter-keys.md").
 
-## Filtering resources with active
-
-findings
+## Filtering resources with active findings
 
 You can view and filter active findings by resource for a maximum of one external
 access analyzer and a maximum of one internal access analyzer.
@@ -40,9 +38,7 @@ access analyzer and a maximum of one internal access analyzer.
 5. In the **Filter resource type** dropdown, choose a resource
    type to display only resources of the selected type.
 
-## Filtering external access
-
-findings
+## Filtering external access findings
 
 ###### To filter external access findings
 
@@ -214,9 +210,7 @@ access:
   Event Source Token passed in with Alexa integrations, type all or part of the
   token string.
 
-## Filtering internal access
-
-findings
+## Filtering internal access findings
 
 ###### To filter internal access findings
 
@@ -258,9 +252,7 @@ that is monitoring internal access:
 - **Finding id** – To filter by finding ID, type all or
   part of the finding ID.
 
-## Filtering unused access
-
-findings
+## Filtering unused access findings
 
 ###### To filter unused access findings
 

@@ -13,12 +13,9 @@ authenticate with an AWS MFA device.
 ###### Topics
 
 - [Overview](#MFAProtectedAPI-overview "#MFAProtectedAPI-overview")
-- [Scenario: MFA protection for
-  cross-account delegation](#MFAProtectedAPI-cross-account-delegation "#MFAProtectedAPI-cross-account-delegation")
-- [Scenario: MFA protection for access to API
-  operations in the current account](#MFAProtectedAPI-user-mfa "#MFAProtectedAPI-user-mfa")
-- [Scenario: MFA protection for resources
-  that have resource-based policies](#MFAProtectedAPI-resource-policies "#MFAProtectedAPI-resource-policies")
+- [Scenario: MFA protection for cross-account delegation](#MFAProtectedAPI-cross-account-delegation "#MFAProtectedAPI-cross-account-delegation")
+- [Scenario: MFA protection for access to API operations in the current account](#MFAProtectedAPI-user-mfa "#MFAProtectedAPI-user-mfa")
+- [Scenario: MFA protection for resources that have resource-based policies](#MFAProtectedAPI-resource-policies "#MFAProtectedAPI-resource-policies")
 
 ## Overview
 
@@ -91,8 +88,7 @@ JSON
 
 ```
 
-For more information on the condition types for MFA, see [AWS global condition context
-keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md"), [Numeric condition operators](reference_policies_elements_condition_operators.md#Conditions_Numeric "reference_policies_elements_condition_operators.md#Conditions_Numeric"), and [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null") .
+For more information on the condition types for MFA, see [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md"), [Numeric condition operators](reference_policies_elements_condition_operators.md#Conditions_Numeric "reference_policies_elements_condition_operators.md#Conditions_Numeric"), and [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null").
 
 ### Choosing between GetSessionToken and AssumeRole
 
@@ -140,9 +136,7 @@ userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-r
 Details about how to implement these scenarios are provided later in this
 document.
 
-### Important points about MFA-protected API
-
-access
+### Important points about MFA-protected API access
 
 It's important to understand the following aspects of MFA protection for API
 operations:
@@ -182,9 +176,7 @@ operations:
   MFA authenticated, or if they provide an invalid MFA device identifier or invalid
   TOTP.
 
-## Scenario: MFA protection for
-
-cross-account delegation
+## Scenario: MFA protection for cross-account delegation
 
 In this scenario, you want to delegate access to IAM users in another account, but only
 if the users are authenticated with an AWS MFA device. For more information about
@@ -292,12 +284,9 @@ credentials, including the requirement for MFA. If so, Richard successfully assu
 role and can perform any DynamoDB action on the table named `Books` in account A
 while using the role's temporary credentials.
 
-For an example of a program that calls `AssumeRole`, see [Calling AssumeRole with MFA
-authentication](id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-assumerole "id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-assumerole").
+For an example of a program that calls `AssumeRole`, see [Calling AssumeRole with MFA authentication](id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-assumerole "id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-assumerole").
 
-## Scenario: MFA protection for access to API
-
-operations in the current account
+## Scenario: MFA protection for access to API operations in the current account
 
 In this scenario, you should ensure that a user in your AWS account can access sensitive
 API operations only when the user is authenticated using an AWS MFA device.
@@ -349,12 +338,9 @@ of the MFA device and the current TOTP that Sofía gets from her device. 5. User
 provided by `GetSessionToken` to call the Amazon EC2 `StopInstances` or
 `TerminateInstances` action.
 
-For an example of a program that calls `GetSessionToken`, see [Calling GetSessionToken with
-MFA authentication](id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-getsessiontoken "id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-getsessiontoken") later in this document.
+For an example of a program that calls `GetSessionToken`, see [Calling GetSessionToken with MFA authentication](id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-getsessiontoken "id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-getsessiontoken") later in this document.
 
-## Scenario: MFA protection for resources
-
-that have resource-based policies
+## Scenario: MFA protection for resources that have resource-based policies
 
 In this scenario, you are the owner of an S3 bucket, an SQS queue, or an SNS topic. You
 want to make sure that any user from any AWS account who accesses the resource is
@@ -417,8 +403,7 @@ current TOTP that Nikhil gets from his device. 5. Nikhil (or an application that
 `GetSessionToken` to call the Amazon S3 `PutObject` action to upload a
 file to `Account-A-bucket`.
 
-For an example of a program that calls `GetSessionToken`, see [Calling GetSessionToken with
-MFA authentication](id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-getsessiontoken "id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-getsessiontoken") later in this document.
+For an example of a program that calls `GetSessionToken`, see [Calling GetSessionToken with MFA authentication](id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-getsessiontoken "id_credentials_mfa_sample-code.md#MFAProtectedAPI-example-getsessiontoken") later in this document.
 
 ###### Note
 

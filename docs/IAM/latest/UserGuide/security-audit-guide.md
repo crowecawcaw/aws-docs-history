@@ -23,8 +23,7 @@ AWS Security Hub CSPM User Guide.
 - [Review your IAM users](#security-audit-review-users "#security-audit-review-users")
 - [Review your IAM groups](#security-audit-groups "#security-audit-groups")
 - [Review your IAM roles](#security-audit-review-roles "#security-audit-review-roles")
-- [Review your IAM providers for SAML
-  and OpenID Connect (OIDC)](#security-audit-review-saml-providers "#security-audit-review-saml-providers")
+- [Review your IAM providers for SAML and OpenID Connect (OIDC)](#security-audit-review-saml-providers "#security-audit-review-saml-providers")
 - [Review Your mobile apps](#security-audit-review-mobile-apps "#security-audit-review-mobile-apps")
 - [Tips for reviewing IAM policies](#security-audit-review-policy-tips "#security-audit-review-policy-tips")
 
@@ -120,9 +119,7 @@ Take these steps when you audit your IAM roles:
    policy for the role to be sure that it grants suitable permissions to whoever assumes the
    role—see [Tips for reviewing IAM policies](#security-audit-review-policy-tips "#security-audit-review-policy-tips").
 
-## Review your IAM providers for SAML
-
-and OpenID Connect (OIDC)
+## Review your IAM providers for SAML and OpenID Connect (OIDC)
 
 If you have created an IAM entity for establishing trust with a [SAML or OIDC identity provider (IdP)](identity-providers.md "identity-providers.md"),
 take these steps:

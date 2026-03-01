@@ -74,8 +74,7 @@ generate temporary credentials.
 - You might not be able to add, modify, or remove principals or
   permissions in IAM.
 - Your credentials might not reflect changes to your permissions that
-  you recently applied in IAM. For more information, see [Changes that I make are not always
-  immediately visible](troubleshoot.md#troubleshoot_general_eventual-consistency "troubleshoot.md#troubleshoot_general_eventual-consistency").
+  you recently applied in IAM. For more information, see [Changes that I make are not always immediately visible](troubleshoot.md#troubleshoot_general_eventual-consistency "troubleshoot.md#troubleshoot_general_eventual-consistency").
 
 **AWS Management Console**
 
@@ -92,9 +91,7 @@ https://111122223333.signin.aws.amazon.com/console?region=us-west-2_
 - You might not be able to complete [Universal 2nd Factor (U2F)](id_credentials_mfa_enable_u2f.md "id_credentials_mfa_enable_u2f.md") multi-factor authentication
   (MFA).
 
-## Best practices for IAM
-
-resilience
+## Best practices for IAM resilience
 
 AWS has built resilience into AWS Regions and Availability Zones. When you observe
 the following IAM best practices in the systems that interact with your environment,

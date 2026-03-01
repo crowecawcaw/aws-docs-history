@@ -82,8 +82,7 @@ Documentation_.
   user identities. For more information, see [SAML 2.0 federation](id_roles_providers_saml.md "id_roles_providers_saml.md").
   - **Custom federation broker** – You can use
     your organization's authentication system to grant access to AWS resources. For an
-    example scenario, see [Enable custom identity broker
-    access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
+    example scenario, see [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
   - **Federation using SAML 2.0** – You can use
     your organization's authentication system and SAML to grant access to AWS
     resources. For more information and an example scenario, see [SAML 2.0 federation](id_roles_providers_saml.md "id_roles_providers_saml.md").
@@ -94,8 +93,7 @@ Many organizations maintain more than one AWS account. Using roles and cross-acc
 access, you can define user identities in one account, and use those identities to access
 AWS resources in other accounts that belong to your organization. This is known as the
 _delegation_ approach to temporary access. For more information about
-creating cross-account roles, see [Create a role to give permissions to an IAM
-user](id_roles_create_for-user.md "id_roles_create_for-user.md").
+creating cross-account roles, see [Create a role to give permissions to an IAM user](id_roles_create_for-user.md "id_roles_create_for-user.md").
 To learn whether principals in accounts outside of your zone of trust (trusted organization or account) have access to assume your roles, see
 [What is IAM Access Analyzer?](what-is-access-analyzer.md "what-is-access-analyzer.md").
 
@@ -105,8 +103,7 @@ If you run applications on Amazon EC2 instances and those applications need acce
 resources, you can provide temporary security credentials to your instances when you launch
 them. These temporary security credentials are available to all applications that run on the
 instance, so you don't need to store any long-term credentials on the instance. For more
-information, see [Use an IAM role to grant permissions to
-applications running on Amazon EC2 instances](id_roles_use_switch-role-ec2.md "id_roles_use_switch-role-ec2.md").
+information, see [Use an IAM role to grant permissions to applications running on Amazon EC2 instances](id_roles_use_switch-role-ec2.md "id_roles_use_switch-role-ec2.md").
 
 To learn more about IAM Amazon EC2 role credentials, see [IAM roles for Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md")
 in the _Amazon Elastic Compute Cloud User Guide_.
@@ -114,12 +111,9 @@ in the _Amazon Elastic Compute Cloud User Guide_.
 ### Other AWS services
 
 You can use temporary security credentials to access most AWS services. For a list of
-the services that accept temporary security credentials, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+the services that accept temporary security credentials, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
-## Sample applications that use temporary
-
-credentials
+## Sample applications that use temporary credentials
 
 You can use AWS Security Token Service (AWS STS) to create and provide trusted users with temporary security
 credentials that can control access to your AWS resources. For more information about AWS STS,
@@ -131,8 +125,7 @@ applications that implement complete example scenarios:
   2.0](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/ "https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/"). Demonstrates how to delgate access using enterprise federation to AWS using
   Windows Active Directory (AD), Active Directory Federation Services (ADFS) 2.0, and SAML
   (Security Assertion Markup Language) 2.0.
-- [Enable custom identity broker
-  access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md"). Demonstrates how to
+- [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md"). Demonstrates how to
   create a custom federation proxy that enables single sign-on (SSO) so that existing Active
   Directory users can sign in to the AWS Management Console.
 - [How to Use Shibboleth for Single Sign-On to the AWS Management Console.](https://aws.amazon.com/blogs/security/how-to-use-shibboleth-for-single-sign-on-to-the-aws-management-console/ "https://aws.amazon.com/blogs/security/how-to-use-shibboleth-for-single-sign-on-to-the-aws-management-console/"). Shows how to use
@@ -152,9 +145,7 @@ providers for temporary AWS security credentials to access AWS services.
   [Authentication with Amplify](https://docs.amplify.aws/lib/auth/getting-started/q/platform/js/#authentication-with-amplify "https://docs.amplify.aws/lib/auth/getting-started/q/platform/js/#authentication-with-amplify") in the _Amplify
   Documentation_.
 
-## Additional resources for temporary
-
-security credentials
+## Additional resources for temporary security credentials
 
 The following scenarios and applications can guide you in using temporary security
 credentials:

@@ -1,6 +1,4 @@
-# IAM: Allows and
-
-denies access to multiple services programmatically and in the console
+# IAM: Allows and denies access to multiple services programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows full access to several services and limited self-managing
 access in IAM. It also denies access to the Amazon S3 `logs` bucket or the Amazon EC2
@@ -14,8 +12,7 @@ This policy allows full access to every action and resource in multiple services
 policy should be applied only to trusted administrators.
 
 You can use this policy as a permissions boundary to define the maximum permissions that
-an identity-based policy can grant to an IAM user. For more information, see [Delegating responsibility to
-others using permissions boundaries](access_policies_boundaries.md#access_policies_boundaries-delegate "access_policies_boundaries.md#access_policies_boundaries-delegate"). When the policy is used as a
+an identity-based policy can grant to an IAM user. For more information, see [Delegating responsibility to others using permissions boundaries](access_policies_boundaries.md#access_policies_boundaries-delegate "access_policies_boundaries.md#access_policies_boundaries-delegate"). When the policy is used as a
 permissions boundary for a user, the statements define the following boundaries:
 
 - The `AllowServices` statement allows full access to the specified AWS

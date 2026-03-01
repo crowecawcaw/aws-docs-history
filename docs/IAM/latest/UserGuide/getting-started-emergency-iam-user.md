@@ -1,6 +1,4 @@
-# Create an IAM user for emergency
-
-access
+# Create an IAM user for emergency access
 
 An _[IAM user](id_users.md "id_users.md")_ is an identity within
 your AWS account that has specific permissions for a single person or application.

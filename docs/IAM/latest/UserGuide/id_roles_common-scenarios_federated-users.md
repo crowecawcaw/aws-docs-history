@@ -1,6 +1,4 @@
-# Access to externally
-
-authenticated users (identity federation)
+# Access to externally authenticated users (identity federation)
 
 Your users might already have identities outside of AWS, such as in your corporate
 directory. If those users need to work with AWS resources (or work with applications that
@@ -14,9 +12,7 @@ As a security best practice, we recommend you manage user access in [IAM Identit
 identity federation instead of creating IAM users. For information about specific situations
 where an IAM user is required, see [When to create an IAM user (instead of a role)](id.md#id_which-to-choose "id.md#id_which-to-choose").
 
-## Federating users of a
-
-mobile or web-based app with Amazon Cognito
+## Federating users of a mobile or web-based app with Amazon Cognito
 
 If you create a mobile or web-based app that accesses AWS resources, the app needs
 security credentials in order to make programmatic requests to AWS. For most mobile
@@ -27,9 +23,7 @@ providers as those listed in the next section, and it also supports [developer a
 provides API operations for synchronizing user data so that it is preserved as users move
 between devices. For more information, see [Amazon Cognito for mobile apps](id_federation_common_scenarios.md#id_roles_providers_oidc_cognito "id_federation_common_scenarios.md#id_roles_providers_oidc_cognito").
 
-## Federating users with
-
-public identity service providers or OpenID Connect
+## Federating users with public identity service providers or OpenID Connect
 
 Whenever possible, use Amazon Cognito for mobile and web-based application scenarios. Amazon Cognito does
 most of the behind-the-scenes work with public identity provider services for you. It works
@@ -38,9 +32,7 @@ advanced scenarios, you can work directly with a third-party service like Login 
 Facebook, Google, or any IdP that is compatible with OpenID Connect (OIDC). For more
 information about using OIDC federation using one of these services, see [OIDC federation](id_roles_providers_oidc.md "id_roles_providers_oidc.md").
 
-## Federating users with SAML
-
-2.0
+## Federating users with SAML 2.0
 
 If your organization already uses an identity provider software package that supports SAML
 2.0 (Security Assertion Markup Language 2.0), you can create trust between your organization
@@ -50,9 +42,7 @@ call AWS API operations. For example, if your company uses Microsoft Active Dire
 Active Directory Federation Services, then you can federate using SAML 2.0. For more
 information about federating users with SAML 2.0, see [SAML 2.0 federation](id_roles_providers_saml.md "id_roles_providers_saml.md").
 
-## Federating users by
-
-creating a custom identity broker application
+## Federating users by creating a custom identity broker application
 
 If your identity store is not compatible with SAML 2.0, then you can build a custom
 identity broker application to perform a similar function. The broker application
@@ -78,8 +68,7 @@ To get temporary security credentials, the identity broker application calls eit
 credentials, depending on how Bob wants to manage the policies for users and when the
 temporary credentials should expire. (For more information about the differences between these
 API operations, see [Temporary security credentials in IAM](id_credentials_temp.md "id_credentials_temp.md")
-and [Permissions for temporary security
-credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").) The call returns temporary security
+and [Permissions for temporary security credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").) The call returns temporary security
 credentials consisting of an AWS access key ID, a secret access key, and a session token.
 The identity broker application makes these temporary security credentials available to the
 internal company application. The app can then use the temporary credentials to make calls to
@@ -99,5 +88,4 @@ This scenario has the following attributes:
 
 For information about creating temporary security
 credentials, see [Compare AWS STS credentials](id_credentials_sts-comparison.md "id_credentials_sts-comparison.md"). For more information about SAML federated principals
-getting access to the AWS Management Console, see [Enabling SAML 2.0 federated principals
-to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md").
+getting access to the AWS Management Console, see [Enabling SAML 2.0 federated principals to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md").

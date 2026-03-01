@@ -1,6 +1,4 @@
-# Service-specific credentials for
-
-IAM users
+# Service-specific credentials for IAM users
 
 Service-specific credentials are specialized authentication mechanisms designed for
 specific AWS services. These credentials provide simplified authentication compared to
@@ -18,9 +16,7 @@ supported service per IAM user. This limit allows you to maintain one active set
 rotating to a new set when needed. AWS currently supports service-specific credentials for
 the following services:
 
-## Rotating service-specific
-
-credentials
+## Rotating service-specific credentials
 
 As a security best practice, rotate service-specific credentials regularly. To rotate
 credentials without disrupting your applications:
@@ -34,15 +30,12 @@ credentials without disrupting your applications:
 5. Delete the inactive service-specific credentials when you're confident they're no
    longer needed
 
-## Monitoring
-
-service-specific credentials
+## Monitoring service-specific credentials
 
 You can use AWS CloudTrail to monitor the use of service-specific credentials in your AWS
 account. To view CloudTrail events related to service-specific credential usage, review the CloudTrail
 logs for events from the service where the credentials are used. For more information, see
-[Logging IAM and AWS STS API calls
-with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md").
+[Logging IAM and AWS STS API calls with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md").
 
 For additional security, consider setting up CloudWatch alarms to notify you of specific
 credential usage patterns that might indicate unauthorized access or other security

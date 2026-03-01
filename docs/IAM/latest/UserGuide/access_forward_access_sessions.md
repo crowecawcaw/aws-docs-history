@@ -31,9 +31,7 @@ Additional FAS requests can be made by services who have received a FAS request.
 such cases, the requesting principal must have permissions for all services called by
 FAS.
 
-## FAS Requests and IAM policy
-
-conditions
+## FAS Requests and IAM policy conditions
 
 When FAS requests are made, [aws:CalledVia](reference_policies_condition-keys.md#condition-keys-calledvia "reference_policies_condition-keys.md#condition-keys-calledvia"), [aws:CalledViaFirst](reference_policies_condition-keys.md#condition-keys-calledviafirst "reference_policies_condition-keys.md#condition-keys-calledviafirst"), and [aws:CalledViaLast](reference_policies_condition-keys.md#condition-keys-calledvialast "reference_policies_condition-keys.md#condition-keys-calledvialast") condition keys are populated with the service principal of the service that initiated
 the FAS call. The [aws:ViaAWSService](reference_policies_condition-keys.md#condition-keys-viaawsservice "reference_policies_condition-keys.md#condition-keys-viaawsservice") condition key value is set to
@@ -64,9 +62,7 @@ after an initial request is received by a public AWS service endpoint, subsequen
 FAS requests will be made with the same `aws:SourceIP` condition key
 value.
 
-## Example: Allow Amazon S3 access from a VPC or with
-
-FAS
+## Example: Allow Amazon S3 access from a VPC or with FAS
 
 In the following IAM policy example, Amazon S3 GetObject and Athena requests are only
 allowed if they originate from VPC endpoints attached to

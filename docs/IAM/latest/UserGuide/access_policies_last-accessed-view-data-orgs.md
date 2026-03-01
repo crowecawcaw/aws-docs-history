@@ -1,11 +1,8 @@
-# View last accessed information
-
-for AWS Organizations
+# View last accessed information for AWS Organizations
 
 You can view service last accessed information for AWS Organizations using the IAM console, AWS CLI,
 or AWS API. For important information about the data, permissions required, troubleshooting,
-and supported Regions, see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+and supported Regions, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
 When you sign in to the IAM console using AWS Organizations management account credentials, you can
 view information for any entity in your organization. AWS Organizations entities include the organization
@@ -29,12 +26,9 @@ generate-organizations-access-report](../../../cli/latest/reference/iam/generate
 
 Before you view the report, make sure that you understand the management account
 requirements and information, reporting period, reported entities, and the evaluated policy
-types. For more details, see [Things to know about last accessed
-information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
+types. For more details, see [Things to know about last accessed information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
 
-## Understand the
-
-AWS Organizations entity path
+## Understand the AWS Organizations entity path
 
 When you use the AWS CLI or AWS API to generate an AWS Organizations access report, you must
 specify an entity path. A path is a text representation of the structure of an AWS Organizations
@@ -67,9 +61,7 @@ However, another organization might have an OU or root with the same ID as yours
 recommend that you always include the organization ID when you specify an OU or
 root.
 
-## Viewing information for AWS Organizations
-
-(console)
+## Viewing information for AWS Organizations (console)
 
 You can use the IAM console to view service last accessed information for your root,
 OU, account, or policy.
@@ -157,9 +149,7 @@ OU, account, or policy.
    the SCP in the AWS Organizations console. For more information, see [Updating an SCP](../../../organizations/latest/userguide/create-policy.md#update_policy "../../../organizations/latest/userguide/create-policy.md#update_policy") in the
    _AWS Organizations User Guide_.
 
-## Viewing information for
-
-AWS Organizations (AWS CLI)
+## Viewing information for AWS Organizations (AWS CLI)
 
 You can use the AWS CLI to retrieve service last accessed information for your AWS Organizations root,
 OU, account, or policy.
@@ -168,8 +158,7 @@ OU, account, or policy.
 
 1.  Use your AWS Organizations management account credentials with the required IAM and AWS Organizations
     permissions, and confirm that SCPs are enabled for your root. For more information,
-    see [Things to know about last accessed
-    information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
+    see [Things to know about last accessed information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
 2.  Generate a report. The request must include the path of the AWS Organizations entity (root, OU,
     or account) for which you want a report. You can optionally include an
     `organization-policy-id` parameter to view a report for a specific
@@ -193,9 +182,7 @@ OU, account, or policy.
     services that are available to access are those that are allowed by the specified
     policy.
 
-## Viewing information for
-
-AWS Organizations (AWS API)
+## Viewing information for AWS Organizations (AWS API)
 
 You can use the AWS API to retrieve service last accessed information for your AWS Organizations
 root, OU, account, or policy.
@@ -204,8 +191,7 @@ root, OU, account, or policy.
 
 1.  Use your AWS Organizations management account credentials with the required IAM and AWS Organizations
     permissions, and confirm that SCPs are enabled for your root. For more information,
-    see [Things to know about last accessed
-    information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
+    see [Things to know about last accessed information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
 2.  Generate a report. The request must include the path of the AWS Organizations entity (root, OU,
     or account) for which you want a report. You can optionally include an
     `OrganizationsPolicyId` parameter to view a report for a specific

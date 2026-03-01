@@ -1,6 +1,4 @@
-# Control IAM user access to the
-
-AWS Management Console
+# Control IAM user access to the AWS Management Console
 
 IAM users with permission who sign in to your AWS account through the AWS Management Console can
 access your AWS resources. The following list shows the ways that you can grant IAM users
@@ -33,7 +31,7 @@ AWS resources. When you create an IAM user, that user has no permissions by defa
 To give your IAM users the permissions they need, you attach policies to them. If you
 have many IAM users who perform the same tasks with the same resources, you can assign
 those IAM users to a group. Then assign the permissions to that group. For information
-about creating IAM users and groups, see [IAM Identities](id.md "id.md") . For
+about creating IAM users and groups, see [IAM Identities](id.md "id.md"). For
 information about using policies to set permissions, see [Access management for AWS resources](access.md "access.md").
 
 **AWS Discussion Forums**

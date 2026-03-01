@@ -35,8 +35,7 @@ such as listing and creating AWS resources. For more information, see [Access ma
 
 If your organization has an existing identity system, you might want to create a single
 sign-on (SSO) option. SSO gives users access to the AWS Management Console for your account without
-requiring them to have an IAM user identity. SSO also eliminates the need for users to sign in to your organization's site and to AWS separately. For more information, see [Enable custom identity broker
-access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
+requiring them to have an IAM user identity. SSO also eliminates the need for users to sign in to your organization's site and to AWS separately. For more information, see [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
 
 ###### Logging sign-in details in CloudTrail
 

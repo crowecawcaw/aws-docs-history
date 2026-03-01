@@ -6,8 +6,7 @@ monitoring your AWS resources and responding to potential incidents:
 
 - _AWS CloudTrail_ captures all API calls for IAM and AWS STS as events,
   including calls from the console and API calls. To learn more about using CloudTrail with IAM
-  and AWS STS, see [Logging IAM and AWS STS API calls
-  with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md"). For more information about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+  and AWS STS, see [Logging IAM and AWS STS API calls with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md"). For more information about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 - _AWS Identity and Access Management and Access Analyzer_ helps you identify the resources in your
   organization and accounts, such as Amazon S3 buckets or IAM roles, that are shared with an
   external entity. This helps you identify unintended access to your resources and data, which
@@ -22,12 +21,9 @@ monitoring your AWS resources and responding to potential incidents:
   Amazon EC2 instances, CloudTrail, and other sources. CloudWatch Logs can monitor information in the log files and
   notify you when certain thresholds are met. You can also archive your log data in highly
   durable storage. For more information, see the [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md "../../../AmazonCloudWatch/latest/logs.md").
-  For additional resources and security best practices for IAM, see [Security best practices and use cases in
-  AWS Identity and Access Management](best-practices-use-cases.md "best-practices-use-cases.md").
+  For additional resources and security best practices for IAM, see [Security best practices and use cases in AWS Identity and Access Management](best-practices-use-cases.md "best-practices-use-cases.md").
 
 ###### Topics
 
-- [Logging IAM and AWS STS API calls
-  with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md")
-- [Track privileged tasks in
-  AWS CloudTrail](cloudtrail-track-privileged-tasks.md "cloudtrail-track-privileged-tasks.md")
+- [Logging IAM and AWS STS API calls with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md")
+- [Track privileged tasks in AWS CloudTrail](cloudtrail-track-privileged-tasks.md "cloudtrail-track-privileged-tasks.md")

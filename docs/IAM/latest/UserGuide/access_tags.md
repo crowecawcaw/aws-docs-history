@@ -6,8 +6,7 @@ how to tag IAM users and roles, see [Tags for AWS Identity and Access Management
 Additionally, you can control access to the following IAM resources: customer managed
 policies, IAM identity providers, instance profiles, server certificates, and virtual MFA
 devices. To view a tutorial for creating and testing a policy that allows IAM roles with
-principal tags to access resources with matching tags, see [IAM tutorial: Define permissions to
-access AWS resources based on tags](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md"). Use the information in the
+principal tags to access resources with matching tags, see [IAM tutorial: Define permissions to access AWS resources based on tags](tutorial_attribute-based-access-control.md "tutorial_attribute-based-access-control.md"). Use the information in the
 following section to control access to other AWS resources, including IAM resources,
 without tagging IAM users or roles.
 
@@ -32,8 +31,7 @@ determines whether a request is allowed, see [Policy evaluation logic](reference
 Tags are another consideration in this process because tags can be attached to the
 _resource_ or passed in the _request_ to services that support tagging. To control access based on tags,
 you provide tag information in the [condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md") of a policy. To learn whether an AWS service supports
-controlling access using tags, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services
+controlling access using tags, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services
 that have **Yes** in the **ABAC** column. Choose the name of the service to view the
 authorization and access control documentation for that service.
 
@@ -53,17 +51,14 @@ of the following:
   authorization process](#access_tags_control-tag-keys "#access_tags_control-tag-keys")** – Use the **aws:TagKeys** condition key to control whether specific tag
   keys can be in a request.
   You can create an IAM policy visually, using JSON, or by importing an existing managed
-  policy. For details, see [Define custom IAM permissions with customer managed
-  policies](access_policies_create.md "access_policies_create.md").
+  policy. For details, see [Define custom IAM permissions with customer managed policies](access_policies_create.md "access_policies_create.md").
 
 ###### Note
 
 Some services allow users to specify tags when they create the resource if they have
 permissions to use the action that creates the resource.
 
-## Controlling access to AWS
-
-resources
+## Controlling access to AWS resources
 
 You can use conditions in your IAM policies to control access to AWS resources
 based on the tags on that resource. You can do this using the global
@@ -77,8 +72,7 @@ Do not try to control who can pass a role by tagging the role and then using the
 `ResourceTag` condition key in a policy with the
 `iam:PassRole` action. This approach does not have reliable results.
 For more information about permissions required to pass a role to a service, see
-[Grant a user permissions to pass a role to an AWS
-service](id_roles_use_passrole.md "id_roles_use_passrole.md").
+[Grant a user permissions to pass a role to an AWS service](id_roles_use_passrole.md "id_roles_use_passrole.md").
 
 This example shows how you might create an identity-based policy that allows starting or stopping Amazon EC2 instances. These operations
 are allowed only if the instance tag `Owner` has the value of the user
@@ -116,8 +110,7 @@ You can attach this policy to the IAM users in your account. If a user named
 tagged `Owner=richard` or `owner=richard`. Otherwise he
 will be denied access. The tag key `Owner` matches both `Owner`
 and `owner` because condition key names are not case-sensitive. For more
-information, see [IAM JSON policy elements:
-Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
+information, see [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
 
 This example shows how you might create an identity-based policy that uses the `team` principal tag in the resource ARN.
 The policy grants permission to delete Amazon Simple Queue Service queues, but only if the queue name
@@ -140,9 +133,7 @@ JSON
 
 ```
 
-## Controlling access during AWS
-
-requests
+## Controlling access during AWS requests
 
 You can use conditions in your IAM policies to control what tag key-value pairs can
 be passed in a request that applies tags to an AWS resource.
@@ -179,9 +170,7 @@ JSON
 
 ```
 
-## Controlling access based on tag
-
-keys
+## Controlling access based on tag keys
 
 You can use a condition in your IAM policies to control whether specific tag keys
 can be used in a request.

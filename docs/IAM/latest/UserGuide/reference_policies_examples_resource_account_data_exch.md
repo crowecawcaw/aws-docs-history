@@ -1,6 +1,4 @@
-# AWS: Deny access to
-
-Amazon S3 resources outside your account except AWS Data Exchange
+# AWS: Deny access to Amazon S3 resources outside your account except AWS Data Exchange
 
 This example shows how you might create an identity-based policy that denies access to all resources in AWS that don't belong to your
 account, except for the resources that AWS Data Exchange requires for normal

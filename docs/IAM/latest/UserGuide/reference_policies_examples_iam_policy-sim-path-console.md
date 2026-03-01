@@ -1,6 +1,4 @@
-# IAM: Access the
-
-policy simulator console based on user path
+# IAM: Access the policy simulator console based on user path
 
 This example shows how you might create an identity-based policy that allows using the policy simulator console only for those users that
 have the

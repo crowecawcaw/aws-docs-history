@@ -10,28 +10,17 @@ only the permissions that are required to support your specific use case.
 
 ###### Topics
 
-- [How policy generation
-  works](#access-analyzer-policy-generation-howitworks "#access-analyzer-policy-generation-howitworks")
-- [Service and
-  action-level information](#access-analyzer-policy-generation-service-action "#access-analyzer-policy-generation-service-action")
-- [Things to know about generating
-  policies](#access-analyzer-policy-generation-know "#access-analyzer-policy-generation-know")
-- [Permissions required to
-  generate a policy](#access-analyzer-policy-generation-perms "#access-analyzer-policy-generation-perms")
-- [Generate a policy based on
-  CloudTrail activity (console)](#access-analyzer-policy-generation-console "#access-analyzer-policy-generation-console")
-- [Generate a policy
-  using AWS CloudTrail data in another account](#access-analyzer-policy-generation-cross-account "#access-analyzer-policy-generation-cross-account")
-- [Generate a policy based on CloudTrail
-  activity (AWS CLI)](#access-analyzer-policy-generation-cli "#access-analyzer-policy-generation-cli")
-- [Generate a policy based on CloudTrail
-  activity (AWS API)](#access-analyzer-policy-generation-api "#access-analyzer-policy-generation-api")
-- [IAM Access Analyzer
-  policy generation services](access-analyzer-policy-generation-action-last-accessed-support.md "access-analyzer-policy-generation-action-last-accessed-support.md")
+- [How policy generation works](#access-analyzer-policy-generation-howitworks "#access-analyzer-policy-generation-howitworks")
+- [Service and action-level information](#access-analyzer-policy-generation-service-action "#access-analyzer-policy-generation-service-action")
+- [Things to know about generating policies](#access-analyzer-policy-generation-know "#access-analyzer-policy-generation-know")
+- [Permissions required to generate a policy](#access-analyzer-policy-generation-perms "#access-analyzer-policy-generation-perms")
+- [Generate a policy based on CloudTrail activity (console)](#access-analyzer-policy-generation-console "#access-analyzer-policy-generation-console")
+- [Generate a policy using AWS CloudTrail data in another account](#access-analyzer-policy-generation-cross-account "#access-analyzer-policy-generation-cross-account")
+- [Generate a policy based on CloudTrail activity (AWS CLI)](#access-analyzer-policy-generation-cli "#access-analyzer-policy-generation-cli")
+- [Generate a policy based on CloudTrail activity (AWS API)](#access-analyzer-policy-generation-api "#access-analyzer-policy-generation-api")
+- [IAM Access Analyzer policy generation services](access-analyzer-policy-generation-action-last-accessed-support.md "access-analyzer-policy-generation-action-last-accessed-support.md")
 
-## How policy generation
-
-works
+## How policy generation works
 
 IAM Access Analyzer analyzes your CloudTrail events to identify actions and services that have
 been used by an IAM entity (user or role). It then generates an IAM policy that is
@@ -59,9 +48,7 @@ high-level overview of the policy generation process.
   the policy that you create to the user or role whose activity was used to
   generate the policy.
 
-## Service and
-
-action-level information
+## Service and action-level information
 
 When IAM Access Analyzer generates an IAM policy, information is returned to help you to
 further customize the policy. Two categories of information can be returned when a
@@ -70,8 +57,7 @@ policy is generated:
 - Policy with action-level information –
   For some AWS services, such as Amazon EC2, IAM Access Analyzer can identify the actions
   found in your CloudTrail events and lists the actions used in the policy it generates.
-  For a list of supported services, see [IAM Access Analyzer
-  policy generation services](access-analyzer-policy-generation-action-last-accessed-support.md "access-analyzer-policy-generation-action-last-accessed-support.md"). For some services, IAM Access Analyzer prompts you to add actions for the services
+  For a list of supported services, see [IAM Access Analyzer policy generation services](access-analyzer-policy-generation-action-last-accessed-support.md "access-analyzer-policy-generation-action-last-accessed-support.md"). For some services, IAM Access Analyzer prompts you to add actions for the services
   to the generated policy.
 - Policy with service-level information –
   IAM Access Analyzer uses [last
@@ -82,9 +68,7 @@ policy is generated:
 For a list of actions in each service, see [Actions, Resources, and Condition Keys for AWS Services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the
 Service Authorization Reference.
 
-## Things to know about generating
-
-policies
+## Things to know about generating policies
 
 Before you generate a policy, review the following important details.
 
@@ -130,14 +114,11 @@ Before you generate a policy, review the following important details.
     reconfigured due to the restrictions on the S3 logging bucket set by
     AWS Control Tower's service control policies (SCPs).
 
-## Permissions required to
-
-generate a policy
+## Permissions required to generate a policy
 
 The permissions that you need to generate a policy for the first time differ from
 those that you need to generate a policy for subsequent uses. For more information, see
-[Getting started with
-AWS Identity and Access Management Access Analyzer](access-analyzer-getting-started.md "access-analyzer-getting-started.md").
+[Getting started with AWS Identity and Access Management Access Analyzer](access-analyzer-getting-started.md "access-analyzer-getting-started.md").
 
 ###### First-time setup
 
@@ -284,15 +265,11 @@ account as shown in the following policy statement.
 }
 ```
 
-## Generate a policy based on
-
-CloudTrail activity (console)
+## Generate a policy based on CloudTrail activity (console)
 
 You can generate a policy for an IAM user or role.
 
-### Step 1: Generate a
-
-policy based on CloudTrail activity
+### Step 1: Generate a policy based on CloudTrail activity
 
 The following procedure explains how to generate a policy for a role using the
 AWS Management Console.
@@ -319,8 +296,7 @@ existing role or create a new role if a suitable role does not exist. The
 role gives IAM Access Analyzer permissions to access your CloudTrail data on your behalf
 to review access activity to identify the services and actions that have
 been used. To learn more about the permissions required for this role, see
-[Permissions required to
-generate a policy](#access-analyzer-policy-generation-perms "#access-analyzer-policy-generation-perms"). 7. In the **CloudTrail trail to be analyzed** section, specify the
+[Permissions required to generate a policy](#access-analyzer-policy-generation-perms "#access-analyzer-policy-generation-perms"). 7. In the **CloudTrail trail to be analyzed** section, specify the
 CloudTrail trail that logs events for the account.
 
 If you choose a CloudTrail trail that stores logs in a different account, an
@@ -335,9 +311,7 @@ then choose **View generated policy**. You can view the
 generated policy for up to seven days. If you generate another policy, the
 existing policy is replaced with the new one that you generate.
 
-### Step 2: Review
-
-permissions and add actions for services used
+### Step 2: Review permissions and add actions for services used
 
 Review the services and actions that IAM Access Analyzer identified that the role used.
 You can add actions for any services that were used to the generated policy
@@ -358,9 +332,7 @@ template.
 
 2. When you are done adding actions, choose **Next**.
 
-### Step 3: Further
-
-customize the generated policy
+### Step 3: Further customize the generated policy
 
 You can further customize the policy by adding or removing permissions or
 specifying resources.
@@ -397,9 +369,7 @@ options:
     * Choose **Next** to review and create a managed
      policy in the same account.
 
-### Step 4: Review
-
-and create a managed policy
+### Step 4: Review and create a managed policy
 
 If you have permissions to create and attach IAM policies, you can create a
 managed policy from the policy that was generated. You can then attach the policy to
@@ -431,9 +401,7 @@ a user or role in your account.
    that might be attached to the entity. To learn how to attach a managed
    policy, see [Adding IAM identity permissions (console)](access_policies_manage-attach-detach.md#add-policies-console "access_policies_manage-attach-detach.md#add-policies-console").
 
-## Generate a policy
-
-using AWS CloudTrail data in another account
+## Generate a policy using AWS CloudTrail data in another account
 
 You might create CloudTrail trails that store data in central accounts to streamline
 governing activities. For example, you can use AWS Organizations to create a trail that logs all
@@ -455,9 +423,7 @@ you can generate a policy, you must make the following updates:
 2. Verify your Amazon S3 bucket object ownership and bucket permissions policy in
    account B so that IAM Access Analyzer can access objects in the bucket.
 
-###### Step
-
-1: Choose or create a role for cross-account access
+###### Step 1: Choose or create a role for cross-account access
 
 - On the **Generate policy** screen, the option to
   **Use an existing role** is pre-selected for you if a role
@@ -582,9 +548,7 @@ JSON
 
 ```
 
-## Generate a policy based on CloudTrail
-
-activity (AWS CLI)
+## Generate a policy based on CloudTrail activity (AWS CLI)
 
 You can use the following commands to generate a policy using the AWS CLI.
 
@@ -608,9 +572,7 @@ You can use the following commands to generate a policy using the AWS CLI.
 - [aws
   accessanalyzer list-policy-generations](../../../cli/latest/reference/accessanalyzer/list-policy-generations.md "../../../cli/latest/reference/accessanalyzer/list-policy-generations.md")
 
-## Generate a policy based on CloudTrail
-
-activity (AWS API)
+## Generate a policy based on CloudTrail activity (AWS API)
 
 You can use the following operations to generate a policy using the AWS API.
 

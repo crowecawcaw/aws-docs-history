@@ -1,6 +1,4 @@
-# Amazon EC2: Allows starting or stopping
-
-EC2 instances a user has tagged, programmatically and in the console
+# Amazon EC2: Allows starting or stopping EC2 instances a user has tagged, programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows an IAM user to start or stop EC2 instances, but only if the
 instance tag `Owner` has the value of that user's user

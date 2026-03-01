@@ -1,6 +1,4 @@
-# EC2: Start or stop instances based
-
-on matching principal and resource tags
+# EC2: Start or stop instances based on matching principal and resource tags
 
 This example shows how you might create an identity-based policy that allows a principal to start or stop an Amazon EC2 instance when the
 instance's resource tag and the principal's tag have the same value for the tag key

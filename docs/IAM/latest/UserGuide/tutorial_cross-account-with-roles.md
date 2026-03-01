@@ -1,6 +1,4 @@
-# IAM tutorial: Delegate access across
-
-AWS accounts using IAM roles
+# IAM tutorial: Delegate access across AWS accounts using IAM roles
 
 ###### Important
 
@@ -40,8 +38,7 @@ At the end of this tutorial, you have the following:
 
 This workflow has three basic steps:
 
-**[Create a role in the Destination
-Account](#tutorial_cross-account-with-roles-1 "#tutorial_cross-account-with-roles-1")**
+**[Create a role in the Destination Account](#tutorial_cross-account-with-roles-1 "#tutorial_cross-account-with-roles-1")**
 
 First, you use the AWS Management Console to establish trust between the **Destination** account (ID number 999999999999) and the
 **Originating** account (ID number
@@ -58,8 +55,7 @@ In this section, you modify the role policy to deny Analysts access to the
 scenario, and you must explicitly _deny_ the ability to use the
 role.
 
-**[Test access by switching
-roles](#tutorial_cross-account-with-roles-3 "#tutorial_cross-account-with-roles-3")**
+**[Test access by switching roles](#tutorial_cross-account-with-roles-3 "#tutorial_cross-account-with-roles-3")**
 
 Finally, as a Developer, you use the `UpdateData` role to update the
 `amzn-s3-demo-bucket-shared-container` bucket in the **Destination** account. You see how to access the role through
@@ -82,8 +78,7 @@ important to consider the following:
   Language (SAML). For details, see [Integrate external AWS accounts into AWS IAM Identity Center for central access management
   with independent billing using SAML 2.0](https://community.aws/content/2dIMI8N7w7tGxbE0KQMrkSBfae4/aws-iam-identity-center-integration-with-external-aws-accounts-for-independent-billing?lang=en "https://community.aws/content/2dIMI8N7w7tGxbE0KQMrkSBfae4/aws-iam-identity-center-integration-with-external-aws-accounts-for-independent-billing?lang=en")
 - You can associate roles to AWS resources like Amazon EC2 instances or AWS Lambda
-  functions. For details, see [Create a role to delegate permissions to an
-  AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md").
+  functions. For details, see [Create a role to delegate permissions to an AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md").
 - If you want to have an application assume a role in another AWS account, you can
   use the AWS SDK for cross account role assumption. For more information, see [Authentication and
   access](../../../sdkref/latest/guide/access.md "../../../sdkref/latest/guide/access.md") in the _AWS SDKs and Tools Reference
@@ -94,8 +89,7 @@ important to consider the following:
   element in your permissions policy. In that case, the third party can access your
   account only by using the AWS API or a command line tool. The third party cannot
   use the console because it must supply a value for `ExternalId`. For more
-  information about this scenario, see [Access to AWS accounts owned by third
-  parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md"), and [How to enable cross account access to the AWS Management Console](https://aws.amazon.com/blogs/security/how-to-enable-cross-account-access-to-the-aws-management-console "https://aws.amazon.com/blogs/security/how-to-enable-cross-account-access-to-the-aws-management-console") in the AWS Security
+  information about this scenario, see [Access to AWS accounts owned by third parties](id_roles_common-scenarios_third-party.md "id_roles_common-scenarios_third-party.md"), and [How to enable cross account access to the AWS Management Console](https://aws.amazon.com/blogs/security/how-to-enable-cross-account-access-to-the-aws-management-console "https://aws.amazon.com/blogs/security/how-to-enable-cross-account-access-to-the-aws-management-console") in the AWS Security
   Blog.
 
 ## Prerequisites
@@ -119,9 +113,7 @@ This tutorial assumes that you have the following already in place:
   tutorial, but because S3 bucket names must be globally unique, you must use a bucket
   with a different name.
 
-## Create a role in the Destination
-
-Account
+## Create a role in the Destination Account
 
 You can allow users from one AWS account to access resources in another AWS account.
 In this tutorial, we'll do this by creating a role that defines who can access it and what
@@ -147,9 +139,7 @@ For this scenario, you can use the account ID 111111111111 for the
 **Originating** account. However, you should use a
 valid account ID if you use this scenario in your test environment.
 
-###### To create a role in the Destination account that can be used by the Originating
-
-account
+###### To create a role in the Destination account that can be used by the Originating account
 
 1. Sign in to the AWS Management Console as an administrator of the **Destination** account, and open the IAM console.
 2. Before creating the role, prepare the managed policy that defines the permissions
@@ -315,9 +305,7 @@ environment, then we recommend that you do not add it. `"Deny"` permissions make
 the overall permissions picture more complicated to manage and understand. Use
 `"Deny"` permissions only when you do not have a better option.
 
-###### To modify the Analysts role to deny permission to assume the `UpdateData`
-
-role
+###### To modify the Analysts role to deny permission to assume the `UpdateData` role
 
 1. Choose **Roles**, and then choose
    **Analysts**.
@@ -357,9 +345,7 @@ Next, you can see how David, a developer, can access the
 `amzn-s3-demo-bucket-shared-container` bucket in the Destination account.
 David can access the bucket from the AWS Management Console, the AWS CLI, or the AWS API.
 
-## Test access by switching
-
-roles
+## Test access by switching roles
 
 After completing the first two steps of this tutorial, you have a role that grants
 access to a resource in the **Destination** account. You also
@@ -370,9 +356,7 @@ AWS Management Console, the AWS CLI, and the AWS API.
 To get help with common issues that you might encounter when working with IAM roles,
 see [Troubleshoot IAM roles](troubleshoot_roles.md "troubleshoot_roles.md").
 
-### Switch roles
-
-(console)
+### Switch roles (console)
 
 If David needs to update data in the **Destination**
 account in the AWS Management Console, he can do so by using **Switch Role**. He
@@ -431,9 +415,7 @@ bar and then choose **Back to David @
 Destination entry still there from last time. He can simply choose that entry to
 switch roles immediately without reentering the account ID and role name.
 
-### Switch roles
-
-(AWS CLI)
+### Switch roles (AWS CLI)
 
 If David needs to work in the **Destination**
 environment at the command line, he can do so by using the [AWS CLI](http://aws.amazon.com/cli/ "http://aws.amazon.com/cli/"). He runs the `aws sts
@@ -546,9 +528,7 @@ the account ID that owns the bucket. To access resources for other AWS services,
 refer to the AWS CLI documentation for that service for the commands and syntax
 required to reference its resources.
 
-### Using AssumeRole (AWS
-
-API)
+### Using AssumeRole (AWS API)
 
 When David needs to make an update to the **Destination** account from code, he makes an `AssumeRole` call
 to assume the `UpdateData` role. The call returns temporary credentials that
@@ -582,7 +562,7 @@ For a code example (using Python), see [Switch to an IAM role (AWS API)](id_role
 
 The following resources can help you learn more about topics in this tutorial:
 
-- For more information about IAM users, see [IAM Identities](id.md "id.md") .
+- For more information about IAM users, see [IAM Identities](id.md "id.md").
 - For more information about Amazon S3 buckets, see [Create a Bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3/latest/userguide/CreatingABucket.md") in the
   _Amazon Simple Storage Service User Guide_.
 - To learn whether principals in accounts outside of your zone of trust (trusted organization or account) have access to assume your roles, see

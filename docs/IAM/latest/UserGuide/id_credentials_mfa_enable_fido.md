@@ -1,6 +1,4 @@
-# Assign a passkey or security key in the
-
-AWS Management Console
+# Assign a passkey or security key in the AWS Management Console
 
 Passkeys are a type of [multi-factor authentication (MFA)
 device](id_credentials_mfa.md "id_credentials_mfa.md") that you can use to protect your AWS resources. AWS supports synced passkeys
@@ -43,19 +41,13 @@ Guide](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/
 
 ###### Topics
 
-- [Permissions
-  required](#enable-fido-mfa-for-iam-user-permissions-required "#enable-fido-mfa-for-iam-user-permissions-required")
-- [Enable a passkey or security key for your
-  own IAM user (console)](#enable-fido-mfa-for-own-iam-user "#enable-fido-mfa-for-own-iam-user")
-- [Enable a passkey or security key for another
-  IAM user (console)](#enable-fido-mfa-for-iam-user "#enable-fido-mfa-for-iam-user")
+- [Permissions required](#enable-fido-mfa-for-iam-user-permissions-required "#enable-fido-mfa-for-iam-user-permissions-required")
+- [Enable a passkey or security key for your own IAM user (console)](#enable-fido-mfa-for-own-iam-user "#enable-fido-mfa-for-own-iam-user")
+- [Enable a passkey or security key for another IAM user (console)](#enable-fido-mfa-for-iam-user "#enable-fido-mfa-for-iam-user")
 - [Replace a passkey or security key](#replace-fido-mfa "#replace-fido-mfa")
-- [Supported configurations
-  for using passkeys and security keys](id_credentials_mfa_fido_supported_configurations.md "id_credentials_mfa_fido_supported_configurations.md")
+- [Supported configurations for using passkeys and security keys](id_credentials_mfa_fido_supported_configurations.md "id_credentials_mfa_fido_supported_configurations.md")
 
-## Permissions
-
-required
+## Permissions required
 
 To manage a FIDO passkey for your own IAM user while protecting sensitive MFA-related
 actions, you must have the permissions from the following policy:
@@ -105,9 +97,7 @@ JSON
 
 ```
 
-## Enable a passkey or security key for your
-
-own IAM user (console)
+## Enable a passkey or security key for your own IAM user (console)
 
 You can enable a passkey or security key for your own IAM user from the AWS Management Console only,
 not from the AWS CLI or AWS API. Before you can enable a security key, you must have physical
@@ -141,9 +131,7 @@ security key into your computer's USB port and tapping it. 7. Follow the instruc
 You have now registered your passkey or security key for use with AWS. For information
 about using MFA with the AWS Management Console, see [MFA enabled sign-in](console_sign-in-mfa.md "console_sign-in-mfa.md").
 
-## Enable a passkey or security key for another
-
-IAM user (console)
+## Enable a passkey or security key for another IAM user (console)
 
 You can enable a passkey or security for another IAM user from the AWS Management Console only, not
 from the AWS CLI or AWS API.
@@ -178,13 +166,10 @@ authenticator or needs to replace it for any reason, you must first deactivate t
 authenticator. Then you can add a new MFA device for the user.
 
 - To deactivate the device currently associated with an IAM user, see [Deactivate an MFA device](id_credentials_mfa_disable.md "id_credentials_mfa_disable.md").
-- To add a new FIDO security key for an IAM user, see [Enable a passkey or security key for your
-  own IAM user (console)](#enable-fido-mfa-for-own-iam-user "#enable-fido-mfa-for-own-iam-user").
+- To add a new FIDO security key for an IAM user, see [Enable a passkey or security key for your own IAM user (console)](#enable-fido-mfa-for-own-iam-user "#enable-fido-mfa-for-own-iam-user").
 
 If you don't have access to a new passkey or security key, you can enable a new virtual
 MFA device or hardware TOTP token. See one of the following for instructions:
 
-- [Assign a virtual MFA device in the
-  AWS Management Console](id_credentials_mfa_enable_virtual.md "id_credentials_mfa_enable_virtual.md")
-- [Assign a hardware TOTP token in the
-  AWS Management Console](id_credentials_mfa_enable_physical.md "id_credentials_mfa_enable_physical.md")
+- [Assign a virtual MFA device in the AWS Management Console](id_credentials_mfa_enable_virtual.md "id_credentials_mfa_enable_virtual.md")
+- [Assign a hardware TOTP token in the AWS Management Console](id_credentials_mfa_enable_physical.md "id_credentials_mfa_enable_physical.md")

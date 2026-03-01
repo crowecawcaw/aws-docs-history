@@ -17,12 +17,9 @@ For more information about the difference between managed and inline policies, s
 
 Before you delete a policy, you should review its recent service-level activity. This is
 important because you don't want to remove access from a principal (person or application) who
-is using it. For more information about viewing last accessed information, see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+is using it. For more information about viewing last accessed information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
-## Deleting IAM policies
-
-(console)
+## Deleting IAM policies (console)
 
 You might need to delete a customer managed policy when it becomes obsolete or no longer
 aligns with your organization's security requirements and access control needs. By deleting

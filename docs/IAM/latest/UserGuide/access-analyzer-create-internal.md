@@ -1,6 +1,4 @@
-# Create an IAM Access Analyzer internal access
-
-analyzer
+# Create an IAM Access Analyzer internal access analyzer
 
 To enable an internal access analyzer in a Region, you must create an analyzer in that
 Region. You must create an internal access analyzer in each Region in which you want to
@@ -21,9 +19,7 @@ more than 70,000 principals (IAM users and roles combined).
 You can only create one organization-level internal access analyzer in an AWS
 organization.
 
-## Create an internal access
-
-analyzer with the AWS account as the zone of trust
+## Create an internal access analyzer with the AWS account as the zone of trust
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -109,9 +105,7 @@ the analyzer to monitor.
 When you create an internal access analyzer to enable IAM Access Analyzer, a service-linked
 role named `AWSServiceRoleForAccessAnalyzer` is created in your account.
 
-## Create an internal access
-
-analyzer with the organization as the zone of trust
+## Create an internal access analyzer with the organization as the zone of trust
 
 1.  Open the IAM console at
     [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

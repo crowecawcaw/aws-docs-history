@@ -27,8 +27,7 @@ There are different types of users in AWS, each with their own security credenti
   keys](id_credentials_access-keys.md "id_credentials_access-keys.md"), [change passwords](id_credentials_passwords.md "id_credentials_passwords.md"), and [enable MFA](id_credentials_mfa.md "id_credentials_mfa.md").
 
 To simplify managing root user credentials across member accounts in AWS Organizations, you can
-centrally secure the root user credentials of your AWS accounts managed using AWS Organizations. [Centrally manage root access for member
-accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management") lets
+centrally secure the root user credentials of your AWS accounts managed using AWS Organizations. [Centrally manage root access for member accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management") lets
 you centrally remove and prevent long-term root user credential recovery, preventing unintended
 root access at scale.
 

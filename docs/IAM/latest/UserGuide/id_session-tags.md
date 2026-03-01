@@ -24,16 +24,11 @@ tags. These tags come from the following sources:
 
 - [Session tagging operations](#id_session-tags_operations "#id_session-tags_operations")
 - [Things to know about session tags](#id_session-tags_know "#id_session-tags_know")
-- [Permissions required to add session
-  tags](#id_session-tags_permissions-required "#id_session-tags_permissions-required")
-- [Passing session tags using
-  AssumeRole](#id_session-tags_adding-assume-role "#id_session-tags_adding-assume-role")
-- [Passing session tags using
-  AssumeRoleWithSAML](#id_session-tags_adding-assume-role-saml "#id_session-tags_adding-assume-role-saml")
-- [Passing session tags using
-  AssumeRoleWithWebIdentity](#id_session-tags_adding-assume-role-idp "#id_session-tags_adding-assume-role-idp")
-- [Passing session tags using
-  GetFederationToken](#id_session-tags_adding-getfederationtoken "#id_session-tags_adding-getfederationtoken")
+- [Permissions required to add session tags](#id_session-tags_permissions-required "#id_session-tags_permissions-required")
+- [Passing session tags using AssumeRole](#id_session-tags_adding-assume-role "#id_session-tags_adding-assume-role")
+- [Passing session tags using AssumeRoleWithSAML](#id_session-tags_adding-assume-role-saml "#id_session-tags_adding-assume-role-saml")
+- [Passing session tags using AssumeRoleWithWebIdentity](#id_session-tags_adding-assume-role-idp "#id_session-tags_adding-assume-role-idp")
+- [Passing session tags using GetFederationToken](#id_session-tags_adding-getfederationtoken "#id_session-tags_adding-getfederationtoken")
 - [Chaining roles with session tags](#id_session-tags_role-chaining "#id_session-tags_role-chaining")
 - [Using session tags for ABAC](#id_session-tags_using-abac "#id_session-tags_using-abac")
 - [Viewing session tags in CloudTrail](#id_session-tags_ctlogs "#id_session-tags_ctlogs")
@@ -103,9 +98,7 @@ Before you use session tags, review the following details about sessions and tag
   AWS API error message shows how close the policies and tags combined come to the upper
   size limit, by percentage.
 
-## Permissions required to add session
-
-tags
+## Permissions required to add session tags
 
 In addition to the action that matches the API operation, you must have the following
 permissions-only action in your policy:
@@ -236,9 +229,7 @@ JSON
     as transitive by adding another condition block that includes
     `"Null":{"sts:TransitiveTagKeys":"false"}`.
 
-## Passing session tags using
-
-AssumeRole
+## Passing session tags using AssumeRole
 
 The `AssumeRole` operation returns a set of temporary credentials you can use
 to access AWS resources. You can use IAM user or role credentials to call
@@ -268,14 +259,11 @@ aws sts assume-role \
 --external-id Example987
 ```
 
-## Passing session tags using
-
-AssumeRoleWithSAML
+## Passing session tags using AssumeRoleWithSAML
 
 The `AssumeRoleWithSAML` operation authenticates with SAML-based federation.
 This operation returns a set of temporary credentials you can use to access AWS resources.
-For more information about using SAML-based federation for AWS Management Console access, see [Enabling SAML 2.0 federated principals
-to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md"). For details about AWS CLI or AWS
+For more information about using SAML-based federation for AWS Management Console access, see [Enabling SAML 2.0 federated principals to access the AWS Management Console](id_roles_providers_enable-console-saml.md "id_roles_providers_enable-console-saml.md"). For details about AWS CLI or AWS
 API access, see [SAML 2.0 federation](id_roles_providers_saml.md "id_roles_providers_saml.md"). For a tutorial on configuring SAML federation for
 your Active Directory users, see [AWS Federated Authentication with Active Directory Federation Services (ADFS)](https://aws.amazon.com/blogs/security/aws-federated-authentication-with-active-directory-federation-services-ad-fs/ "https://aws.amazon.com/blogs/security/aws-federated-authentication-with-active-directory-federation-services-ad-fs/") in
 the AWS Security Blog.
@@ -288,15 +276,13 @@ the following tasks:
    provider for AWS](id_roles_providers_saml_3rd-party.md "id_roles_providers_saml_3rd-party.md").
 2. [Create a SAML provider in
    IAM](id_roles_providers_create_saml.md "id_roles_providers_create_saml.md")
-3. [Create a role for SAML 2.0 federation
-   (console)](id_roles_create_for-idp_saml.md "id_roles_create_for-idp_saml.md")
+3. [Create a role for SAML 2.0 federation (console)](id_roles_create_for-idp_saml.md "id_roles_create_for-idp_saml.md")
 4. [Finish configuring the SAML
    IdP and create assertions for the SAML authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md")
 
 AWS includes identity providers with certified end-to-end experience for session tags
 with their identity solutions. To learn how to use these identity providers to configure
-session tags, see [Integrate third-party SAML solution
-providers with AWS](id_roles_providers_saml_3rd-party.md "id_roles_providers_saml_3rd-party.md").
+session tags, see [Integrate third-party SAML solution providers with AWS](id_roles_providers_saml_3rd-party.md "id_roles_providers_saml_3rd-party.md").
 
 To pass SAML attributes as session tags, include the `Attribute` element with
 the `Name` attribute set to
@@ -344,9 +330,7 @@ following multi-valued attribute:
 </Attribute>
 ```
 
-## Passing session tags using
-
-AssumeRoleWithWebIdentity
+## Passing session tags using AssumeRoleWithWebIdentity
 
 Use OpenID Connect (OIDC)-compliant federation to authenticate the
 `AssumeRoleWithWebIdentity` operation. This operation returns a set of temporary
@@ -364,9 +348,7 @@ AWS supports two claim formats for including session tags in the JWT:
 - Nested claim format
 - Flattened claim format
 
-### Nested claim
-
-format
+### Nested claim format
 
 The nested claim format uses a structure within the
 `https://aws.amazon.com/tags` namespace in the JWT. In this format:
@@ -406,9 +388,7 @@ The following example demonstrates a decoded JWT using the nested object format:
 }
 ```
 
-### Flattened claim
-
-format
+### Flattened claim format
 
 The flattened claim format is compatible with identity providers that don't support
 nested objects in JWT claims, such as Microsoft Entra ID. In this format:
@@ -455,9 +435,7 @@ your identity provider is configured to issue tokens with the appropriate claim 
 AWS supports both claim formats, so you can choose the one that best fits your identity
 provider's specific requirements.
 
-## Passing session tags using
-
-GetFederationToken
+## Passing session tags using GetFederationToken
 
 The `GetFederationToken` allows you to federate your user. This operation
 returns a set of temporary credentials you can use to access AWS resources. To add tags to
@@ -595,8 +573,7 @@ the _AWS IAM Identity Center User Guide_.
 
 You can use AWS CloudTrail to view the requests used to assume roles or federate users. The CloudTrail
 log file includes information about the principal tags for the assumed-role or federated user
-session. For more information, see [Logging IAM and AWS STS API calls
-with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md").
+session. For more information, see [Logging IAM and AWS STS API calls with AWS CloudTrail](cloudtrail-integration.md "cloudtrail-integration.md").
 
 For example, assume that you make an AWS STS `AssumeRoleWithSAML` request, pass
 session tags, and set those tags as transitive. You can find the following information in your
@@ -624,9 +601,6 @@ CloudTrail log.
 
 You can view the following example CloudTrail logs to view events that use session tags.
 
-- [Example AWS STS role chaining API event
-  in CloudTrail log file](cloudtrail-integration.md#stscloudtrailexample-assumerole "cloudtrail-integration.md#stscloudtrailexample-assumerole")
-- [Example SAML AWS STS API event in CloudTrail log
-  file](cloudtrail-integration.md#stscloudtrailexample_saml "cloudtrail-integration.md#stscloudtrailexample_saml")
-- [Example OIDC AWS STS API event in
-  CloudTrail log file](cloudtrail-integration.md#stscloudtrailexample_web-identity "cloudtrail-integration.md#stscloudtrailexample_web-identity")
+- [Example AWS STS role chaining API event in CloudTrail log file](cloudtrail-integration.md#stscloudtrailexample-assumerole "cloudtrail-integration.md#stscloudtrailexample-assumerole")
+- [Example SAML AWS STS API event in CloudTrail log file](cloudtrail-integration.md#stscloudtrailexample_saml "cloudtrail-integration.md#stscloudtrailexample_saml")
+- [Example OIDC AWS STS API event in CloudTrail log file](cloudtrail-integration.md#stscloudtrailexample_web-identity "cloudtrail-integration.md#stscloudtrailexample_web-identity")

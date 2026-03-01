@@ -27,9 +27,7 @@ resource and then update the external access finding. Changes to a resource cont
 analyzes the new or updated policy during the next periodic scan, which is within 24
 hours.
 
-## How IAM Access Analyzer generates findings for
-
-external access
+## How IAM Access Analyzer generates findings for external access
 
 AWS Identity and Access Management Access Analyzer uses a technology called [Zelkova](https://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova/ "https://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova/") to analyze IAM policies and identify external access to resources.
 
@@ -82,9 +80,7 @@ policies](../../../organizations/latest/userguide/orgs_manage_policies_declarati
 Internal access findings are only available using the [ListFindingsV2](../../../access-analyzer/latest/APIReference/API_ListFindingsV2.md "../../../access-analyzer/latest/APIReference/API_ListFindingsV2.md")
 API action.
 
-## How IAM Access Analyzer generates findings for
-
-internal access
+## How IAM Access Analyzer generates findings for internal access
 
 To analyze internal access, you must create a separate analyzer for internal access
 findings for your resources, even if you’ve already created an analyzer to generate external
@@ -125,9 +121,7 @@ conditions is met:
 Unused access findings are only available using the [ListFindingsV2](../../../access-analyzer/latest/APIReference/API_ListFindingsV2.md "../../../access-analyzer/latest/APIReference/API_ListFindingsV2.md")
 API action.
 
-## How IAM Access Analyzer generates findings for
-
-unused access
+## How IAM Access Analyzer generates findings for unused access
 
 To analyze unused access, you must create a separate analyzer for unused access findings
 for your roles, even if you’ve already created an analyzer to generate external or internal

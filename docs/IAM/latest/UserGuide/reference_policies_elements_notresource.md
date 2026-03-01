@@ -1,6 +1,4 @@
-# IAM JSON policy elements:
-
-NotResource
+# IAM JSON policy elements: NotResource
 
 `NotResource` is an advanced policy element that explicitly matches every
 resource except those specified. Using `NotResource` can result in a shorter policy

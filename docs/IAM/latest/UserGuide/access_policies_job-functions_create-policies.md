@@ -1,6 +1,4 @@
-# Creating roles and attaching
-
-policies (console)
+# Creating roles and attaching policies (console)
 
 Several of the previously listed policies grant the ability to configure AWS services
 with roles that enable those services to perform operations on your behalf. The job function
@@ -57,9 +55,7 @@ the steps in the following procedure.
     information about using tags in IAM, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md") in the _IAM User Guide_.
 13. Review the role, and then choose **Create role**.
 
-## Example 1: Configuring a user as a database administrator
-
-(console)
+## Example 1: Configuring a user as a database administrator (console)
 
 This example shows the steps required to configure Alice, an IAM user, as a [Database Administrator](access_policies_job-functions.md#jf_database-administrator "access_policies_job-functions.md#jf_database-administrator"). You use the information
 in first row of the table in that section and allow the user to enable Amazon RDS monitoring. You
@@ -96,9 +92,7 @@ Amazon RDS databases on their behalf.
     Role** box when they set **Enable Enhanced Monitoring** to
     **Yes**.
 
-## Example 2: Configuring a user as a network administrator
-
-(console)
+## Example 2: Configuring a user as a network administrator (console)
 
 This example shows the steps required to configure Jorge, an IAM user, as a [Network Administrator](access_policies_job-functions.md#jf_network-administrator "access_policies_job-functions.md#jf_network-administrator"). It uses the information in
 the table in that section to allow Jorge to monitor IP traffic going to and from a VPC. It

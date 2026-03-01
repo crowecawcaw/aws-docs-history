@@ -1,6 +1,4 @@
-# Action summary (list of
-
-resources)
+# Action summary (list of resources)
 
 Policies are summarized in three tables: the [policy summary](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md"), the [service summary](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md"), and the
 action summary. The _action summary_ table includes a list of resources and
@@ -13,13 +11,10 @@ service summary. The action summary table includes details about the resource, i
 that apply to each resource. This shows you conditions that apply to some resources but not
 others.
 
-## Understanding the elements of an
-
-action summary
+## Understanding the elements of an action summary
 
 The example below is the action summary for the `PutObject` (Write) action from
-the Amazon S3 service summary (see [Service summary (list of
-actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md")). For this action, the policy
+the Amazon S3 service summary (see [Service summary (list of actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md")). For this action, the policy
 defines multiple conditions on a single resource.
 
 ![Action summary dialog image](images/policies-summary-resource-dialog.png)

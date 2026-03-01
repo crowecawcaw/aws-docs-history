@@ -15,11 +15,7 @@ new password.
 
 ###### Contents
 
-- [Set an account password policy for
-  IAM users](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md")
-- [Manage passwords for
-  IAM users](id_credentials_passwords_admin-change-user.md "id_credentials_passwords_admin-change-user.md")
-- [Permit IAM users to change
-  their own passwords](id_credentials_passwords_enable-user-change.md "id_credentials_passwords_enable-user-change.md")
-- [How an IAM user changes their own
-  password](id_credentials_passwords_user-change-own.md "id_credentials_passwords_user-change-own.md")
+- [Set an account password policy for IAM users](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md")
+- [Manage passwords for IAM users](id_credentials_passwords_admin-change-user.md "id_credentials_passwords_admin-change-user.md")
+- [Permit IAM users to change their own passwords](id_credentials_passwords_enable-user-change.md "id_credentials_passwords_enable-user-change.md")
+- [How an IAM user changes their own password](id_credentials_passwords_user-change-own.md "id_credentials_passwords_user-change-own.md")

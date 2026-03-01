@@ -33,8 +33,7 @@ resources.
 
 ###### Tip
 
-For information about which services support using service-linked roles, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
+For information about which services support using service-linked roles, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
 have **Yes** in the **Service-Linked
 Role** column. Choose a **Yes** with a link to view
 the service-linked role documentation for that service.
@@ -153,8 +152,7 @@ Some AWS services allow you to pass an existing role to the service, instead of 
 a new service-linked role. To do this, a user must have permissions to _pass the role_ to the service. Add the following statement to the permissions
 policy for the IAM entity that needs to pass a role. This policy statement also allows the
 entity to view a list of roles from which they can choose the role to pass. For more
-information, see [Grant a user permissions to pass a role to an AWS
-service](id_roles_use_passrole.md "id_roles_use_passrole.md").
+information, see [Grant a user permissions to pass a role to an AWS service](id_roles_use_passrole.md "id_roles_use_passrole.md").
 
 ```
 {
@@ -171,9 +169,7 @@ service](id_roles_use_passrole.md "id_roles_use_passrole.md").
 }
 ```
 
-## Indirect permissions with
-
-service-linked roles
+## Indirect permissions with service-linked roles
 
 The permissions granted by a service-linked role can be indirectly transferred to other
 users and roles. When a service-linked role is used by an AWS service, that service-linked
@@ -195,13 +191,11 @@ cases, you don't need to manually create a service-linked role. For example, whe
 a specific action (such as creating a resource) in the service, the service might create the
 service-linked role for you. Or if you were using a service before it began supporting
 service-linked roles, then the service might have automatically created the role in your
-account. To learn more, see [A new role appeared in my AWS
-account](troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
+account. To learn more, see [A new role appeared in my AWS account](troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
 In other cases, the service might support creating a service-linked role manually using
 the service console, API, or CLI. For information about which services support using
-service-linked roles, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
+service-linked roles, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the services that
 have **Yes** in the **Service-Linked
 Role** column. To learn whether the service supports creating the service-linked
 role, choose the **Yes** link to view the service-linked role
@@ -216,9 +210,7 @@ Service-linked roles count toward your [IAM roles in
 an AWS account](reference_iam-quotas.md#reference_iam-quotas-entities "reference_iam-quotas.md#reference_iam-quotas-entities") limit, but if you have reached your limit, you can still create
 service-linked roles in your account. Only service-linked roles can exceed the limit.
 
-### Creating a service-linked role
-
-(console)
+### Creating a service-linked role (console)
 
 Before you create a service-linked role in IAM, find out whether the linked service
 automatically creates service-linked roles, In addition, learn whether you can create the
@@ -263,9 +255,7 @@ created. 7. (Optional) For **Description**, edit the description for the new
 service-linked role. 8. You cannot attach tags to service-linked roles during creation. For more information
 about using tags in IAM, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md"). 9. Review the role and then choose **Create role**.
 
-### Creating a service-linked role
-
-(AWS CLI)
+### Creating a service-linked role (AWS CLI)
 
 Before creating a service-linked role in IAM, find out whether the linked service
 automatically creates service-linked roles and whether you can create the role from the
@@ -281,9 +271,7 @@ Run the following command:
 `aws iam create-service-linked-role --aws-service-name `SERVICE-NAME`.amazonaws.com`
 ```
 
-### Creating a service-linked role (AWS
-
-API)
+### Creating a service-linked role (AWS API)
 
 Before creating a service-linked role in IAM, find out whether the linked service
 automatically creates service-linked roles and whether you can create the role from the

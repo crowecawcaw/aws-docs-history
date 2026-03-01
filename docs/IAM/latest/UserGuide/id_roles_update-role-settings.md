@@ -40,9 +40,7 @@ To change the description of the role, modify the description text.
    description parameter:
    - [UpdateRole](../APIReference/API_UpdateRole.md "../APIReference/API_UpdateRole.md")
 
-## Update the maximum session duration
-
-for a role
+## Update the maximum session duration for a role
 
 To specify the maximum session duration setting for roles that are assumed using the
 console, the AWS CLI, or AWS API, modify the maximum session duration setting value.
@@ -50,10 +48,7 @@ This setting can have a value from 1 hour to 12 hours. If you do not specify a v
 the default maximum of 1 hour is applied. This setting does not limit sessions assumed
 by AWS services.
 
-###### To change the maximum session
-
-duration setting for roles that are assumed using the console, AWS CLI, or
-AWS API (console)
+###### To change the maximum session duration setting for roles that are assumed using the console, AWS CLI, or AWS API (console)
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane of the IAM console, choose
@@ -68,8 +63,7 @@ AWS API (console)
 
 Your changes don't take effect until the next time someone assumes
 this role. To learn how to revoke existing sessions for this role, see
-[Revoke IAM role temporary security
-credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
+[Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
 In the AWS Management Console, IAM user sessions are 12 hours by default. IAM users who
 switch roles in the console are granted the role maximum session duration, or
 the remaining time in the user's session, whichever is less.
@@ -95,9 +89,7 @@ of the role session that can be requested using the
 for the `DurationSeconds` parameter, their security credentials
 are valid for one hour.
 
-###### To change the maximum session duration setting for roles that are assumed
-
-using the AWS CLI (AWS CLI)
+###### To change the maximum session duration setting for roles that are assumed using the AWS CLI (AWS CLI)
 
 1.  (Optional) To view the current maximum session duration setting for a
     role, run the following command:
@@ -113,8 +105,7 @@ using the AWS CLI (AWS CLI)
 
     Your changes don't take effect until the next time someone assumes
     this role. To learn how to revoke existing sessions for this role, see
-    [Revoke IAM role temporary security
-    credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
+    [Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
 
 ###### Note
 
@@ -127,9 +118,7 @@ of the role session that can be requested using the
 for the `DurationSeconds` parameter, their security credentials
 are valid for one hour.
 
-###### To change the maximum session duration setting for roles that are assumed
-
-using the API (AWS API)
+###### To change the maximum session duration setting for roles that are assumed using the API (AWS API)
 
 1.  (Optional) To view the current maximum session duration setting for a
     role, call the following operation:
@@ -143,5 +132,4 @@ using the API (AWS API)
 
     Your changes don't take effect until the next time someone assumes
     this role. To learn how to revoke existing sessions for this role, see
-    [Revoke IAM role temporary security
-    credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
+    [Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").

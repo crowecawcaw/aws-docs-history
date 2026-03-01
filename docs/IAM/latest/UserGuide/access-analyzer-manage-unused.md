@@ -1,6 +1,4 @@
-# Manage an IAM Access Analyzer unused access
-
-analyzer
+# Manage an IAM Access Analyzer unused access analyzer
 
 Use the information in this topic to learn about how to update or delete an existing
 unused access analyzer.
@@ -10,9 +8,7 @@ unused access analyzer.
 After you create or update an analyzer, it can take time for findings to be
 available.
 
-## Update an unused access
-
-analyzer
+## Update an unused access analyzer
 
 Use the following procedure to update an unused access analyzer.
 
@@ -81,9 +77,7 @@ pricing](https://aws.amazon.com/iam/access-analyzer/pricing "https://aws.amazon.
 7. On the **Tags** tab, you can manage and create tags for the
    analyzer. For more information, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md").
 
-## Delete an unused access
-
-analyzer
+## Delete an unused access analyzer
 
 Use the following procedure to delete an unused access analyzer. When you delete an
 analyzer, the resources are no longer monitored and no new findings are generated. All

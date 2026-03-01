@@ -1,6 +1,4 @@
-# Track privileged tasks in
-
-AWS CloudTrail
+# Track privileged tasks in AWS CloudTrail
 
 The AWS Organizations management account or a delegated administrator account for IAM can perform
 some root user tasks on member accounts using short-term root access. Short-term privileged

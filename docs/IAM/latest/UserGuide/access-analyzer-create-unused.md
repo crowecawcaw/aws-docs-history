@@ -1,10 +1,6 @@
-# Create an IAM Access Analyzer unused access
+# Create an IAM Access Analyzer unused access analyzer
 
-analyzer
-
-## Create an unused access analyzer
-
-for the current account
+## Create an unused access analyzer for the current account
 
 Use the following procedure to create an unused access analyzer for a single
 AWS account. For unused access, findings for the analyzer do not change based on
@@ -58,9 +54,7 @@ exclusion** to add additional key-value pairs to exclude. 10. Optional. Add any 
 When you create an unused access analyzer to enable IAM Access Analyzer, a service-linked
 role named `AWSServiceRoleForAccessAnalyzer` is created in your account.
 
-## Create an unused access
-
-analyzer with the current organization
+## Create an unused access analyzer with the current organization
 
 Use the following procedure to create an unused access analyzer for an organization to
 centrally review all AWS accounts in an organization. For unused access analysis,
@@ -128,8 +122,7 @@ Excluded accounts cannot include the organization analyzer owner account.
 When new accounts are added to your organization, they are not excluded from
 analysis, even if you previously excluded all current accounts within an
 organizational unit. For more information on excluding accounts after
-creating an unused access analyzer, see [Manage an IAM Access Analyzer unused access
-analyzer](access-analyzer-manage-unused.md "access-analyzer-manage-unused.md"). 10. Optional. In the **Exclude IAM users and roles with tags**
+creating an unused access analyzer, see [Manage an IAM Access Analyzer unused access analyzer](access-analyzer-manage-unused.md "access-analyzer-manage-unused.md"). 10. Optional. In the **Exclude IAM users and roles with tags**
 section, you can specify key-value pairs for IAM users and roles to exclude
 from unused access analysis. Findings will not be generated for excluded
 IAM users and roles that match the key-value pairs. For the **Tag

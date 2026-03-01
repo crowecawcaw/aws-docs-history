@@ -4,8 +4,7 @@ You can attach an [AWS managed
 policy](access_policies_managed-vs-inline.md#aws-managed-policies "access_policies_managed-vs-inline.md#aws-managed-policies")—that is, a prewritten policy provided by AWS—to a user group, as
 explained in the following steps. To attach a customer managed policy—that is, a policy
 with custom permissions that you create—you must first create the policy. For information
-about creating customer managed policies, see [Define custom IAM permissions with customer managed
-policies](access_policies_create.md "access_policies_create.md").
+about creating customer managed policies, see [Define custom IAM permissions with customer managed policies](access_policies_create.md "access_policies_create.md").
 
 For more information about permissions and policies, see [Access management for AWS resources](access.md "access.md").
 

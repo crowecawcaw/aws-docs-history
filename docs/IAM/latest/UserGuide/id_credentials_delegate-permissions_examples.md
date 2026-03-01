@@ -1,6 +1,4 @@
-# Example policies for
-
-administering IAM resources
+# Example policies for administering IAM resources
 
 Following are examples of IAM policies that allow users to perform tasks associated with
 managing IAM users, groups, and credentials. This includes policies that permit users manage
@@ -11,33 +9,23 @@ Amazon EC2, and DynamoDB, see [Example IAM identity-based policies](access_polic
 
 ###### Topics
 
-- [Allow a user to list the account's groups,
-  users, policies, and more for reporting purposes](#iampolicy-example-userlistall "#iampolicy-example-userlistall")
-- [Allow a user to manage a group's
-  membership](#iampolicy-example-usermanagegroups "#iampolicy-example-usermanagegroups")
+- [Allow a user to list the account's groups, users, policies, and more for reporting purposes](#iampolicy-example-userlistall "#iampolicy-example-userlistall")
+- [Allow a user to manage a group's membership](#iampolicy-example-usermanagegroups "#iampolicy-example-usermanagegroups")
 - [Allow a user to manage IAM users](#creds-policies-users "#creds-policies-users")
-- [Allow users to set account password
-  policy](#creds-policies-set-password-policy "#creds-policies-set-password-policy")
-- [Allow users to generate and retrieve
-  IAM credential reports](#iampolicy-generate-credential-report "#iampolicy-generate-credential-report")
+- [Allow users to set account password policy](#creds-policies-set-password-policy "#creds-policies-set-password-policy")
+- [Allow users to generate and retrieve IAM credential reports](#iampolicy-generate-credential-report "#iampolicy-generate-credential-report")
 - [Allow all IAM actions (admin access)](#creds-policies-all-iam "#creds-policies-all-iam")
 
-## Allow a user to list the account's groups,
-
-users, policies, and more for reporting purposes
+## Allow a user to list the account's groups, users, policies, and more for reporting purposes
 
 The following policy allows the user to call any IAM action that starts with the
 string `Get` or `List`, and to generate reports. To view the example
-policy, see [IAM: Allows read-only
-access to the IAM console](reference_policies_examples_iam_read-only-console.md "reference_policies_examples_iam_read-only-console.md").
+policy, see [IAM: Allows read-only access to the IAM console](reference_policies_examples_iam_read-only-console.md "reference_policies_examples_iam_read-only-console.md").
 
-## Allow a user to manage a group's
-
-membership
+## Allow a user to manage a group's membership
 
 The following policy allows the user to update the membership of the group called
-_MarketingGroup_. To view the example policy, see [IAM: Allows managing a
-group's membership programmatically and in the console](reference_policies_examples_iam_manage-group-membership.md "reference_policies_examples_iam_manage-group-membership.md").
+_MarketingGroup_. To view the example policy, see [IAM: Allows managing a group's membership programmatically and in the console](reference_policies_examples_iam_manage-group-membership.md "reference_policies_examples_iam_manage-group-membership.md").
 
 ## Allow a user to manage IAM users
 
@@ -115,24 +103,17 @@ AWS Management Console:
 - `iam:GetAccount*`
 - `iam:ListAccount*`
 
-## Allow users to set account password
-
-policy
+## Allow users to set account password policy
 
 You might give some users permissions to get and update the [password policy](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md") of your
-AWS account. To view the example policy, see [IAM: Allows setting the
-account password requirements programmatically and in the console](reference_policies_examples_iam_set-account-pass-policy.md "reference_policies_examples_iam_set-account-pass-policy.md").
+AWS account. To view the example policy, see [IAM: Allows setting the account password requirements programmatically and in the console](reference_policies_examples_iam_set-account-pass-policy.md "reference_policies_examples_iam_set-account-pass-policy.md").
 
-## Allow users to generate and retrieve
-
-IAM credential reports
+## Allow users to generate and retrieve IAM credential reports
 
 You can give users permission to generate and download a report that lists all users in
 your AWS account. The report also lists the status of various user credentials, including
 passwords, access keys, MFA devices, and signing certificates. For more information about
-credential reports, see [Generate credential reports for your
-AWS account](id_credentials_getting-report.md "id_credentials_getting-report.md"). To view the example policy, see [IAM: Generate and retrieve
-IAM credential reports](reference_policies_examples_iam-credential-report.md "reference_policies_examples_iam-credential-report.md").
+credential reports, see [Generate credential reports for your AWS account](id_credentials_getting-report.md "id_credentials_getting-report.md"). To view the example policy, see [IAM: Generate and retrieve IAM credential reports](reference_policies_examples_iam-credential-report.md "reference_policies_examples_iam-credential-report.md").
 
 ## Allow all IAM actions (admin access)
 

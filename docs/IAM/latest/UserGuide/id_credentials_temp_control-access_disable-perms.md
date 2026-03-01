@@ -1,6 +1,4 @@
-# Disabling permissions for
-
-temporary security credentials
+# Disabling permissions for temporary security credentials
 
 Temporary security credentials are valid until they expire. These credentials are valid for
 the specified duration, from 900 seconds (15 minutes) up to a maximum of 129,600 seconds (36
@@ -34,18 +32,12 @@ Guide_.
 
 ###### Topics
 
-- [Deny access to all IAM role sessions
-  associated with a role](#deny-access-to-all-sessions "#deny-access-to-all-sessions")
-- [Deny access to a specific IAM role
-  session](#deny-access-to-specific-session "#deny-access-to-specific-session")
-- [Deny access to temporary
-  security credentials sessions with condition context keys](#deny-access-to-specific-session-condition-key "#deny-access-to-specific-session-condition-key")
-- [Deny access to a specific principal with
-  resource-based policies](#deny-access-with-resource-based "#deny-access-with-resource-based")
+- [Deny access to all IAM role sessions associated with a role](#deny-access-to-all-sessions "#deny-access-to-all-sessions")
+- [Deny access to a specific IAM role session](#deny-access-to-specific-session "#deny-access-to-specific-session")
+- [Deny access to temporary security credentials sessions with condition context keys](#deny-access-to-specific-session-condition-key "#deny-access-to-specific-session-condition-key")
+- [Deny access to a specific principal with resource-based policies](#deny-access-with-resource-based "#deny-access-with-resource-based")
 
-## Deny access to all IAM role sessions
-
-associated with a role
+## Deny access to all IAM role sessions associated with a role
 
 This procedure denies permissions to **all** IAM role
 sessions associated with a role. Use this approach when you are concerned about suspicious
@@ -66,12 +58,9 @@ the permissions for the role.
 ###### Important
 
 If there's a resource-based policy that allows the principal access, you must also add
-an explicit deny for that resource. See [Deny access to a specific principal with
-resource-based policies](#deny-access-with-resource-based "#deny-access-with-resource-based") for details.
+an explicit deny for that resource. See [Deny access to a specific principal with resource-based policies](#deny-access-with-resource-based "#deny-access-with-resource-based") for details.
 
-###### To deny access to **all** IAM role sessions associated
-
-with a role
+###### To deny access to **all** IAM role sessions associated with a role
 
 1. Sign in to the AWS Management Console and open the IAM console.
 2. In the navigation pane, choose **Roles**..
@@ -120,9 +109,7 @@ After you update the policy, you can [revoke the role’s temporary
 security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md") to immediately revoke all permissions to the role's issued
 credentials.
 
-## Deny access to a specific IAM role
-
-session
+## Deny access to a specific IAM role session
 
 When you update IAM roles with a deny-all policy or delete the role entirely, all users
 that have access to the role are disrupted. You can deny access without impacting the
@@ -137,9 +124,7 @@ You can find the ARNs of federated users using AWS CloudTrail logs. For more inf
 [How to
 Easily Identify Your Federated Users by Using AWS CloudTrail](https://aws.amazon.com/blogs/security/how-to-easily-identify-your-federated-users-by-using-aws-cloudtrail/ "https://aws.amazon.com/blogs/security/how-to-easily-identify-your-federated-users-by-using-aws-cloudtrail/").
 
-## Deny access to temporary
-
-security credentials sessions with condition context keys
+## Deny access to temporary security credentials sessions with condition context keys
 
 You can use condition context keys in identity-based policies in situations where you want
 to deny access to specific temporary security credential sessions without affecting the
@@ -147,8 +132,7 @@ permissions of the IAM user or role that created the credentials. For IAM roles,
 update the policy, you can also [revoke the role’s temporary
 security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md") sessions to immediately revoke all issued credentials.
 
-For more information about condition context keys, see [AWS global condition context
-keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
+For more information about condition context keys, see [AWS global condition context keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md").
 
 ### aws:PrincipalArn
 
@@ -319,9 +303,7 @@ JSON
 For specific examples of principal key values, see [Principal key values](reference_policies_variables.md#principaltable "reference_policies_variables.md#principaltable"). For information about IAM unique identifiers and how to get
 them, see [Unique identifiers](reference_identifiers.md#identifiers-unique-ids "reference_identifiers.md#identifiers-unique-ids").
 
-## Deny access to a specific principal with
-
-resource-based policies
+## Deny access to a specific principal with resource-based policies
 
 To restrict access to a specific principal with a resource-based policy, you can use
 condition context keys [aws:PrincipalArn](reference_policies_condition-keys.md#condition-keys-principalarn "reference_policies_condition-keys.md#condition-keys-principalarn") or [aws:SourceIdentity](reference_policies_condition-keys.md#condition-keys-sourceidentity "reference_policies_condition-keys.md#condition-keys-sourceidentity") in
@@ -394,8 +376,7 @@ in the identity-based policy.
 
 ###### To deny access to a specific principal in a resource-based policy
 
-1. Refer to [AWS services that work with
-   IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") to see if the service supports
+1. Refer to [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") to see if the service supports
    resource-based policies.
 2. Sign in to the AWS Management Console and open the console for the service. Each service has a
    different location in the console for attaching policies.

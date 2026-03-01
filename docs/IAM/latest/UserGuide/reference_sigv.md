@@ -55,8 +55,7 @@ The following steps describe the general process of computing a signature with S
    information contained in the request. If the signatures match, the service
    processes the request. Otherwise, it rejects the request.
 
-For more information, see [Elements of an AWS API request
-signature](reference_sigv-signing-elements.md "reference_sigv-signing-elements.md").
+For more information, see [Elements of an AWS API request signature](reference_sigv-signing-elements.md "reference_sigv-signing-elements.md").
 
 ## How AWS SigV4a works
 
@@ -137,8 +136,7 @@ the URL. For more information, see [Authentication methods](reference_sigv-authe
 - To configure credentials for programmatic access for the AWS CLI, see [Authentication and access credentials](../../../cli/latest/userguide/cli-chap-authentication.md "../../../cli/latest/userguide/cli-chap-authentication.md") in the _AWS
   Command Line Interface User Guide_.
 - The AWS SDKs include source code on GitHub for signing AWS API requests.
-  For code samples, see [Example projects in AWS samples
-  repository](reference_sigv-examples.md#signature-v4-examples-sdk "reference_sigv-examples.md#signature-v4-examples-sdk").
+  For code samples, see [Example projects in AWS samples repository](reference_sigv-examples.md#signature-v4-examples-sdk "reference_sigv-examples.md#signature-v4-examples-sdk").
   - AWS SDK for .NET – [AWS4Signer.cs](https://github.com/aws/aws-sdk-net/blob/master/sdk/src/Core/Amazon.Runtime/Internal/Auth/AWS4Signer.cs "https://github.com/aws/aws-sdk-net/blob/master/sdk/src/Core/Amazon.Runtime/Internal/Auth/AWS4Signer.cs")
   - AWS SDK for C++ – [AWSAuthV4Signer.cpp](https://github.com/aws/aws-sdk-cpp/blob/main/src/aws-cpp-sdk-core/source/auth/signer/AWSAuthV4Signer.cpp "https://github.com/aws/aws-sdk-cpp/blob/main/src/aws-cpp-sdk-core/source/auth/signer/AWSAuthV4Signer.cpp")
   - AWS SDK for Go – [sigv4.go](https://github.com/aws/smithy-go/blob/a4c9efcda6aa54c75d1a130d1320a2709eebf51d/aws-http-auth/sigv4/sigv4.go "https://github.com/aws/smithy-go/blob/a4c9efcda6aa54c75d1a130d1320a2709eebf51d/aws-http-auth/sigv4/sigv4.go")

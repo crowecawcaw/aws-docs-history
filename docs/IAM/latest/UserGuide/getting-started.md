@@ -14,8 +14,7 @@ _AWS IAM Identity Center User Guide._
 ###### Note
 
 IAM is integrated with several AWS products. For a list of services that support
-IAM, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+IAM, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 To learn about getting started with AWS, creating an administrative user, an AWS Organizations, and
 using multiple services to solve a problem such as building and launching your first project,

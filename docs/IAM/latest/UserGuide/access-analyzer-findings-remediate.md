@@ -1,8 +1,6 @@
 # Resolve IAM Access Analyzer findings
 
-## Resolving resource
-
-findings
+## Resolving resource findings
 
 To resolve external and internal access findings generated from unintended access, you
 should modify the policy statement to remove the permissions that allow access to the
@@ -50,9 +48,7 @@ IAM Access Analyzer automatically rescans all policies every 24 hours.
 Resolved findings are deleted 90 days after the last update to the finding
 status.
 
-## Resolving unused access
-
-findings
+## Resolving unused access findings
 
 IAM Access Analyzer provides recommended steps to resolve unused access analyzer findings
 based on the type of finding.
@@ -69,9 +65,7 @@ IAM Access Analyzer charges for unused access analysis based on the number of IA
 and users analyzed per month. For more details about pricing, see [IAM Access Analyzer
 pricing](https://aws.amazon.com/iam/access-analyzer/pricing "https://aws.amazon.com/iam/access-analyzer/pricing").
 
-### Resolving
-
-unused permission findings
+### Resolving unused permission findings
 
 For unused permission findings, IAM Access Analyzer can recommend policies to remove
 from an IAM user or role and provide new policies to replace existing
@@ -104,9 +98,7 @@ scenarios:
    policy** column from the IAM user or role. For more
    information, see [Removing a permissions from a user (console)](id_users_change-permissions.md#users_change_permissions-remove-policy-console "id_users_change-permissions.md#users_change_permissions-remove-policy-console") and [Modifying a role permissions policy (console)](roles-managingrole-editing-console.md#roles-modify_permissions-policy "roles-managingrole-editing-console.md#roles-modify_permissions-policy").
 
-### Resolving unused
-
-role findings
+### Resolving unused role findings
 
 For unused role findings, IAM Access Analyzer recommends deleting the unused IAM
 role.
@@ -120,9 +112,7 @@ role.
    the IAM role.
 5. Delete the IAM role. For more information, see [Deleting an IAM role (console)](id_roles_manage_delete.md#roles-managingrole-deleting-console "id_roles_manage_delete.md#roles-managingrole-deleting-console").
 
-### Resolving
-
-unused access key findings
+### Resolving unused access key findings
 
 For unused access key findings, IAM Access Analyzer recommends deactivating or
 deleting the unused access key.
@@ -136,9 +126,7 @@ deleting the unused access key.
    the access key.
 5. Deactivate or delete the access key. For more information, see [Managing access keys (console)](id_credentials_access-keys.md#Using_CreateAccessKey "id_credentials_access-keys.md#Using_CreateAccessKey").
 
-### Resolving
-
-unused password findings
+### Resolving unused password findings
 
 For unused password findings, IAM Access Analyzer recommends deleting the unused
 password for the IAM user.

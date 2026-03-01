@@ -37,18 +37,12 @@ within this five-minute window are accepted for further evaluation and processin
 
 ###### Topics
 
-- [Additional resources for OIDC
-  federation](#id_roles_providers_oidc_resources "#id_roles_providers_oidc_resources")
-- [Create an OpenID Connect (OIDC) identity
-  provider in IAM](id_roles_providers_create_oidc.md "id_roles_providers_create_oidc.md")
-- [Obtain the thumbprint for an
-  OpenID Connect identity provider](id_roles_providers_create_oidc_verify-thumbprint.md "id_roles_providers_create_oidc_verify-thumbprint.md")
-- [Identity-provider controls for
-  shared OIDC providers](id_roles_providers_oidc_secure-by-default.md "id_roles_providers_oidc_secure-by-default.md")
+- [Additional resources for OIDC federation](#id_roles_providers_oidc_resources "#id_roles_providers_oidc_resources")
+- [Create an OpenID Connect (OIDC) identity provider in IAM](id_roles_providers_create_oidc.md "id_roles_providers_create_oidc.md")
+- [Obtain the thumbprint for an OpenID Connect identity provider](id_roles_providers_create_oidc_verify-thumbprint.md "id_roles_providers_create_oidc_verify-thumbprint.md")
+- [Identity-provider controls for shared OIDC providers](id_roles_providers_oidc_secure-by-default.md "id_roles_providers_oidc_secure-by-default.md")
 
-## Additional resources for OIDC
-
-federation
+## Additional resources for OIDC federation
 
 The following resources can help you learn more about OIDC federation:
 

@@ -1,6 +1,4 @@
-# Amazon S3: Allows read and
-
-write access to objects in an S3 Bucket, programmatically and in the console
+# Amazon S3: Allows read and write access to objects in an S3 Bucket, programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows `Read` and `Write` access to objects
 in a specific S3 bucket. This policy defines permissions for programmatic and console access. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.

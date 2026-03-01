@@ -4,12 +4,9 @@ You can use IAM tag key-values to add custom attributes to IAM OpenID Connect (O
 identity providers. For example, to identify an OIDC identity provider, you can add the tag
 key `google` and the tag value `oidc`. You can use
 tags to control access to resources or to control what tags can be attached to an object. To
-learn more about using tags to control access, see [Controlling access to and for IAM users and roles using
-tags](access_iam-tags.md "access_iam-tags.md").
+learn more about using tags to control access, see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md "access_iam-tags.md").
 
-## Permissions required for tagging IAM OIDC
-
-identity providers
+## Permissions required for tagging IAM OIDC identity providers
 
 You must configure permissions to allow an IAM entity (user or role) to tag IAM
 OIDC identity providers. You can specify one or all of the following IAM tag actions
@@ -19,16 +16,13 @@ in an IAM policy:
 - `iam:TagOpenIDConnectProvider`
 - `iam:UntagOpenIDConnectProvider`
 
-###### To allow an IAM entity to add, list, or remove a tag for an IAM OIDC identity
-
-provider
+###### To allow an IAM entity to add, list, or remove a tag for an IAM OIDC identity provider
 
 Add the following statement to the permissions policy for the IAM entity that
 needs to manage tags. Use your account number and replace
 `<OIDCProviderName>` with the name of the OIDC
 provider whose tags need to be managed. To learn how to create a policy using this
-example JSON policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -42,9 +36,7 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 }
 ```
 
-###### To allow an IAM entity (user or role) to add a tag to a specific IAM OIDC
-
-identity provider
+###### To allow an IAM entity (user or role) to add a tag to a specific IAM OIDC identity provider
 
 Add the following statement to the permissions policy for the IAM entity that
 needs to add, but not remove, tags for a specific identity provider.
@@ -56,8 +48,7 @@ include the `iam:ListOpenIDConnectProviderTags` action.
 
 To use this policy, replace `<OIDCProviderName>` with the
 name of the OIDC provider whose tags need to be managed. To learn how to create a policy
-using this example JSON policy document, see [Creating policies using the JSON
-editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 ```
 {
@@ -72,9 +63,7 @@ editor](access_policies_create-console.md#access_policies_create-json-editor "ac
 
 Alternatively, you can use an AWS managed policy such as [IAMFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess") to provide full access to IAM.
 
-## Managing tags on IAM OIDC identity
-
-providers (console)
+## Managing tags on IAM OIDC identity providers (console)
 
 You can manage tags for IAM OIDC identity providers from the AWS Management Console.
 
@@ -94,16 +83,12 @@ You can manage tags for IAM OIDC identity providers from the AWS Management Cons
 
 4. Then choose **Save changes**.
 
-## Managing tags on IAM OIDC identity
-
-providers (AWS CLI or AWS API)
+## Managing tags on IAM OIDC identity providers (AWS CLI or AWS API)
 
 You can list, attach, or remove tags for IAM OIDC identity providers. You can use
 the AWS CLI or the AWS API to manage tags for IAM OIDC identity providers.
 
-###### To list the tags currently attached to an IAM OIDC identity provider (AWS CLI or
-
-AWS API)
+###### To list the tags currently attached to an IAM OIDC identity provider (AWS CLI or AWS API)
 
 - AWS CLI: [aws iam list-open-id-connect-provider-tags](../../../cli/latest/reference/iam/list-open-id-connect-provider-tags.md "../../../cli/latest/reference/iam/list-open-id-connect-provider-tags.md")
 - AWS API: [ListOpenIDConnectProviderTags](../APIReference/API_ListOpenIDConnectProviderTags.md "../APIReference/API_ListOpenIDConnectProviderTags.md")

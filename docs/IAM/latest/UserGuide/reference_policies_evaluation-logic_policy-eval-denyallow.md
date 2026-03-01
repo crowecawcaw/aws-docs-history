@@ -1,6 +1,4 @@
-# How AWS
-
-enforcement code logic evaluates requests to allow or deny access
+# How AWS enforcement code logic evaluates requests to allow or deny access
 
 The AWS enforcement code decides whether a request sent to AWS should be allowed or
 denied. AWS evaluates all policies that are applicable to the request context. The
@@ -13,10 +11,8 @@ following is a summary of the AWS policy evaluation logic.
 - An explicit deny overrides an explicit allow.
   Policy evaluation can differ depending on whether the request is within a single account
   or a cross-account request. For details about how a policy evaluation decision is made for
-  an IAM role or user within a single account, see [Policy evaluation
-  for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md"). For details
-  about how a policy evaluation decision is made for cross-account requests, see [Cross-account policy
-  evaluation logic](reference_policies_evaluation-logic-cross-account.md "reference_policies_evaluation-logic-cross-account.md").
+  an IAM role or user within a single account, see [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md"). For details
+  about how a policy evaluation decision is made for cross-account requests, see [Cross-account policy evaluation logic](reference_policies_evaluation-logic-cross-account.md "reference_policies_evaluation-logic-cross-account.md").
 
 - **Deny evaluation** – By default, all requests
   are denied. This is called an [implicit deny](reference_policies_evaluation-logic_AccessPolicyLanguage_Interplay.md "reference_policies_evaluation-logic_AccessPolicyLanguage_Interplay.md"). The AWS enforcement code evaluates all policies within

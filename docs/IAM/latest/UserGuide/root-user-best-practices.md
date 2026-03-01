@@ -1,6 +1,4 @@
-# Root user best practices for your
-
-AWS account
+# Root user best practices for your AWS account
 
 When you first create an AWS account, you begin with a default set of credentials with
 complete access to all AWS resources in your account. This identity is called the [AWS account
@@ -13,8 +11,7 @@ For multiple AWS accounts managed through AWS Organizations, we recommend removi
 credentials from member accounts to help prevent unauthorized use. You can remove the root user
 password, access keys, signing certificates, and deactivate and delete multi-factor
 authentication (MFA). Member accounts can't sign in to their root user or perform password recovery
-for their root user. For more information, see [Centrally manage root access for member
-accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
+for their root user. For more information, see [Centrally manage root access for member accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
 
 Instead of accessing the root user, create an administrative user for everyday tasks.
 
@@ -41,22 +38,17 @@ Instead of accessing the root user, create an administrative user for everyday t
 
 ###### Topics
 
-- [Secure your root user credentials to prevent unauthorized
-  use](#ru-bp-secure "#ru-bp-secure")
+- [Secure your root user credentials to prevent unauthorized use](#ru-bp-secure "#ru-bp-secure")
 - [Use a strong root user password to help protect access](#ru-bp-password "#ru-bp-password")
-- [Secure your root user sign-in with multi-factor authentication
-  (MFA)](#ru-bp-mfa "#ru-bp-mfa")
+- [Secure your root user sign-in with multi-factor authentication (MFA)](#ru-bp-mfa "#ru-bp-mfa")
 - [Don't create access keys for the root user](#ru-bp-access "#ru-bp-access")
-- [Use multi-person approval for root user sign-in wherever
-  possible](#ru-bp-multi "#ru-bp-multi")
+- [Use multi-person approval for root user sign-in wherever possible](#ru-bp-multi "#ru-bp-multi")
 - [Use a group email address for root user credentials](#ru-bp-group "#ru-bp-group")
 - [Restrict access to account recovery mechanisms](#ru-bp-recovery "#ru-bp-recovery")
 - [Secure your AWS Organizations account root user credentials](#ru-bp-organizations "#ru-bp-organizations")
 - [Monitor access and usage](#ru-bp-monitor "#ru-bp-monitor")
 
-## Secure your root user credentials to prevent unauthorized
-
-use
+## Secure your root user credentials to prevent unauthorized use
 
 Secure your root user credentials and use them for only [the tasks that require them](root-user-tasks.md "root-user-tasks.md"). To help
 prevent unauthorized use, don’t share your root user password, MFA, access keys, CloudFront key
@@ -82,9 +74,7 @@ requires that your password meet the following conditions:
 
 For more information, see [Change the password for the AWS account root user](root-user-password.md "root-user-password.md").
 
-## Secure your root user sign-in with multi-factor authentication
-
-(MFA)
+## Secure your root user sign-in with multi-factor authentication (MFA)
 
 Because a root user can perform privileged actions, it's crucial to add MFA for the root user as
 a second authentication factor in addition to the email address and password as sign-in
@@ -118,12 +108,9 @@ Since only a few tasks require the root user and you typically perform those tas
 infrequently, we recommend signing in to the AWS Management Console to perform root user tasks. For programmatic access,
 instead of creating access keys for the root user, use the `aws login` command with your root credentials to authenticate to the AWS CLI and SDKs.
 This approach provides temporary, automatically rotated credentials that enhance your security posture while eliminating the need to manage long-term access keys. Before
-creating access keys, review the [Alternatives to
-long-term access keys](security-creds-programmatic-access.md#security-creds-alternatives-to-long-term-access-keys "security-creds-programmatic-access.md#security-creds-alternatives-to-long-term-access-keys").
+creating access keys, review the [Alternatives to long-term access keys](security-creds-programmatic-access.md#security-creds-alternatives-to-long-term-access-keys "security-creds-programmatic-access.md#security-creds-alternatives-to-long-term-access-keys").
 
-## Use multi-person approval for root user sign-in wherever
-
-possible
+## Use multi-person approval for root user sign-in wherever possible
 
 Consider using multi-person approval to ensure that no one person can access both MFA and
 password for the root user. Some companies add an additional layer of security by setting up one
@@ -167,9 +154,7 @@ own root user credentials that you need to secure. The account you use to create
 organization is the **management account** and the rest of the
 accounts in your organization are **member accounts**.
 
-### Secure root user credentials for the management
-
-account
+### Secure root user credentials for the management account
 
 AWS requires that you register MFA for the root user of your organization's management
 account. MFA registration must be completed during the first sign-in attempt or within the
@@ -185,8 +170,7 @@ take to secure root user access in your AWS Organizations.
   the root user credentials, access keys, signing certificates, and deactivate and delete
   multi-factor authentication (MFA). When this strategy is used, member accounts can't
   sign in to their root user or perform password recovery for their root user. For more
-  information, see [Centrally manage root access for member
-  accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
+  information, see [Centrally manage root access for member accounts](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management").
 - Secure root user credentials of your AWS Organizations accounts with MFA to enhance account
   security. For more information, see [Multi-factor authentication for AWS account root user](enable-mfa-for-root.md "enable-mfa-for-root.md").
 
@@ -194,9 +178,7 @@ For details, see [Accessing member
 accounts in your organization](../../../organizations/latest/userguide/orgs_manage_accounts_access.md "../../../organizations/latest/userguide/orgs_manage_accounts_access.md") in the _AWS Organizations User
 Guide_.
 
-### Set preventative security controls in AWS Organizations using a service
-
-control policy (SCP)
+### Set preventative security controls in AWS Organizations using a service control policy (SCP)
 
 If the member accounts in your organization have root user credentials enabled, you can
 apply an SCP to restrict access to member account root user. Denying all root user actions in your
@@ -241,9 +223,7 @@ and notify on AWS account root user activity](https://aws.amazon.com/blogs/mt/mo
 
 The following services can help evaluate MFA compliance for root user credentials.
 
-###### MFA-related rules return noncompliant if you follow the best practice of removing
-
-root user credentials.
+###### MFA-related rules return noncompliant if you follow the best practice of removing root user credentials.
 
 We recommend removing root user credentials from member accounts in your organization to
 help prevent unauthorized use. After you remove root user credentials, including MFA, these

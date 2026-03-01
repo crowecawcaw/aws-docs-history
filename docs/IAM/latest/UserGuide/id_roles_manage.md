@@ -18,14 +18,10 @@ a role with the **Switch Role** feature in the AWS Management Console, then the 
 ###### Topics
 
 - [View role access](#roles-modify_prerequisites "#roles-modify_prerequisites")
-- [Generate a policy based on access
-  information](#roles-modify_gen-policy "#roles-modify_gen-policy")
-- [Grant a user permissions to switch
-  roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md")
-- [Grant a user permissions to pass a role to an AWS
-  service](id_roles_use_passrole.md "id_roles_use_passrole.md")
-- [Revoke IAM role temporary security
-  credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md")
+- [Generate a policy based on access information](#roles-modify_gen-policy "#roles-modify_gen-policy")
+- [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md")
+- [Grant a user permissions to pass a role to an AWS service](id_roles_use_passrole.md "id_roles_use_passrole.md")
+- [Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md")
 - [Update a service-linked role](id_roles_update-service-linked-role.md "id_roles_update-service-linked-role.md")
 - [Update a role trust policy](id_roles_update-role-trust-policy.md "id_roles_update-role-trust-policy.md")
 - [Update permissions for a role](id_roles_update-role-permissions.md "id_roles_update-role-permissions.md")
@@ -37,12 +33,9 @@ a role with the **Switch Role** feature in the AWS Management Console, then the 
 Before you change the permissions for a role, you should review its recent service-level
 activity. This is important because you don't want to remove access from a principal (person
 or application) who is using it. For more information about viewing last accessed information,
-see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
-## Generate a policy based on access
-
-information
+## Generate a policy based on access information
 
 You might sometimes grant permissions to an IAM entity (user or role) beyond what they
 require. To help you refine the permissions that you grant, you can generate an IAM policy

@@ -1,6 +1,4 @@
-# Permissions for
-
-GetSessionToken
+# Permissions for GetSessionToken
 
 The primary occasion for calling the `GetSessionToken` API operation or the
 `get-session-token` CLI command is when a user must be authenticated with
@@ -13,9 +11,7 @@ device, the credentials returned by the `GetSessionToken` API operation include 
 MFA context. This context indicates that the user is authenticated with MFA and is authorized
 for API operations that require MFA authentication.
 
-## Permissions required for
-
-GetSessionToken
+## Permissions required for GetSessionToken
 
 No permissions are required for a user to get a session token. The purpose of the
 `GetSessionToken` operation is to authenticate the user using MFA. You cannot use
@@ -46,9 +42,7 @@ JSON
 You can include the `GetSessionToken` action in your policies, but it has no
 effect on a user's ability to perform the `GetSessionToken` operation.
 
-## Permissions granted by
-
-GetSessionToken
+## Permissions granted by GetSessionToken
 
 If `GetSessionToken` is called with the credentials of an IAM user, the
 temporary security credentials have the same permissions as the IAM user. Similarly, if
@@ -67,8 +61,7 @@ following capabilities and limitations:
 
 - You can use the credentials to access the AWS Management Console by passing the credentials to the
   federation single sign-on endpoint at
-  `https://signin.aws.amazon.com/federation`. For more information, see [Enable custom identity broker
-  access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
+  `https://signin.aws.amazon.com/federation`. For more information, see [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").
 - You **cannot** use the credentials to call IAM or AWS STS
   API operations. You **can** use them to call API operations
   for other AWS services.

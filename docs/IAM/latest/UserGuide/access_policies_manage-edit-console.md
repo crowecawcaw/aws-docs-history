@@ -12,12 +12,9 @@ For more information about policy structure and syntax, see [Policies and permis
 Before you change the permissions for a policy, you should review its recent service-level
 activity. This is important because you don't want to remove access from a principal (person
 or application) who is using it. For more information about viewing last accessed information,
-see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
-## Editing customer managed policies
-
-(console)
+## Editing customer managed policies (console)
 
 You can edit customer managed policies to change the permissions that are defined in the
 policy from the AWS Management Console. A customer managed policy can have up to five versions. This is
@@ -67,9 +64,7 @@ Console
 
 Choose **Save changes** to save your new policy version.
 
-## Setting the
-
-default version of a customer managed policy (console)
+## Setting the default version of a customer managed policy (console)
 
 You can set a default version of a customer managed policy from the AWS Management Console. You can use
 this policy to establish a consistent baseline configuration for permissions across your
@@ -88,9 +83,7 @@ Console
    to the version that you want to set as the default version, and then choose
    **Set as default**.
 
-## Deleting a
-
-version of a customer managed policy (console)
+## Deleting a version of a customer managed policy (console)
 
 You might need to delete a version of a customer managed policy to remove outdated or
 incorrect permissions that are no longer needed or pose potential security risks. By

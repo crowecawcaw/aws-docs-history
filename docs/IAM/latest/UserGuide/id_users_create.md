@@ -38,28 +38,23 @@ maximum permissions that the user can have. Permissions boundaries don't grant a
 permissions.
 
 For instructions on creating a custom permission policy to use to either grant
-permissions or set a permissions boundary, see [Define custom IAM permissions with customer managed
-policies](access_policies_create.md "access_policies_create.md"). 4. (Optional) Add metadata to the user by attaching tags. For more information about using
+permissions or set a permissions boundary, see [Define custom IAM permissions with customer managed policies](access_policies_create.md "access_policies_create.md"). 4. (Optional) Add metadata to the user by attaching tags. For more information about using
 tags in IAM, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md"). 5. Provide the user with the necessary sign-in information. This includes the password and
 the console URL for the account sign-in page where the user provides those credentials. For
 more information, see [How IAM users sign in to AWS](id_users_sign-in.md "id_users_sign-in.md"). 6. (Optional) Configure [multi-factor authentication
 (MFA)](id_credentials_mfa.md "id_credentials_mfa.md") for the user. MFA requires the user to provide a one-time-use code each time
 he or she signs into the AWS Management Console. 7. (Optional) Give IAM users permissions to manage their own security credentials. (By default,
 IAM users do not have permissions to manage their own credentials.) For more information, see
-[Permit IAM users to change
-their own passwords](id_credentials_passwords_enable-user-change.md "id_credentials_passwords_enable-user-change.md").
+[Permit IAM users to change their own passwords](id_credentials_passwords_enable-user-change.md "id_credentials_passwords_enable-user-change.md").
 
 ###### Note
 
 If you use the console to create the user and you select **User must create a
 new password at next sign-in (recommended)**, the user has the required
 permissions.
-For information about the permissions that you need in order to create a user, see [Permissions required to access IAM
-resources](access_permissions-required.md "access_permissions-required.md").
+For information about the permissions that you need in order to create a user, see [Permissions required to access IAM resources](access_permissions-required.md "access_permissions-required.md").
 
 For instructions on creating IAM users for specific use cases, see the following topics:
 
-- [Create an IAM user for emergency
-  access](getting-started-emergency-iam-user.md "getting-started-emergency-iam-user.md")
-- [Create an IAM user for workloads that can't use
-  IAM roles](getting-started-workloads.md "getting-started-workloads.md")
+- [Create an IAM user for emergency access](getting-started-emergency-iam-user.md "getting-started-emergency-iam-user.md")
+- [Create an IAM user for workloads that can't use IAM roles](getting-started-workloads.md "getting-started-workloads.md")

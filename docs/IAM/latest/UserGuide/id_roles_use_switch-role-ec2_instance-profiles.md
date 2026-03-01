@@ -4,9 +4,7 @@ Use an instance profile to pass an IAM role to an EC2 instance. For more informa
 [IAM roles for Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md") in the
 _Amazon EC2 User Guide_.
 
-## Managing instance profiles
-
-(console)
+## Managing instance profiles (console)
 
 If you use the AWS Management Console to create a role for Amazon EC2, the console automatically creates an
 instance profile and gives it the same name as the role. When you then use the Amazon EC2 console
@@ -25,9 +23,7 @@ To update permissions for an instance, replace its instance profile. We do not r
 removing a role from an instance profile, because there is a delay of up to one hour before
 this change takes effect.
 
-## Managing instance profiles (AWS CLI or AWS
-
-API)
+## Managing instance profiles (AWS CLI or AWS API)
 
 If you manage your roles from the AWS CLI or the AWS API, you create roles and instance
 profiles as separate actions. Because roles and instance profiles can have different names,
@@ -85,9 +81,7 @@ describe-iam-instance-profile-associations`](../../../cli/latest/reference/ec2/d
   running EC2 instance: [`aws ec2
 disassociate-iam-instance-profile`](../../../cli/latest/reference/ec2/disassociate-iam-instance-profile.md "../../../cli/latest/reference/ec2/disassociate-iam-instance-profile.md")
 
-### Managing instance profiles (AWS
-
-API)
+### Managing instance profiles (AWS API)
 
 You can call the following AWS API operations to work with instance profiles in an
 AWS account.

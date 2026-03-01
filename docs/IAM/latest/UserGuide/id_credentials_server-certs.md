@@ -34,8 +34,7 @@ topics.
 ###### Topics
 
 - [Upload a server certificate (AWS API)](#upload-server-certificate "#upload-server-certificate")
-- [AWS API operations for server
-  certificates](#id_credentials_server-certs-api "#id_credentials_server-certs-api")
+- [AWS API operations for server certificates](#id_credentials_server-certs-api "#id_credentials_server-certs-api")
 - [Troubleshoot server certificates](#server-certificate-troubleshooting "#server-certificate-troubleshooting")
 
 ## Upload a server certificate (AWS API)
@@ -95,9 +94,7 @@ must include a trailing slash (for example, `/cloudfront/test/`).
 
 To use the AWS Tools for Windows PowerShell to upload a certificate, use [Publish-IAMServerCertificate](../../../powershell/latest/reference/Index.md "../../../powershell/latest/reference/Index.md").
 
-## AWS API operations for server
-
-certificates
+## AWS API operations for server certificates
 
 Use the following commands to view, tag, rename, and delete server certificates.
 

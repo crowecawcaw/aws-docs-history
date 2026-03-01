@@ -1,6 +1,4 @@
-# Adding and removing IAM identity
-
-permissions
+# Adding and removing IAM identity permissions
 
 You use policies to define the permissions for an identity (user, user group, or role). You
 can add and remove permissions by attaching and detaching IAM policies for an identity using
@@ -13,8 +11,7 @@ that control the maximum permissions that an entity can have.
 - [Terminology](#attach-detach-etc-terminology "#attach-detach-etc-terminology")
 - [View identity activity](#attach-detach_prerequisites "#attach-detach_prerequisites")
 - [Adding IAM identity permissions (console)](#add-policies-console "#add-policies-console")
-- [Removing IAM identity permissions
-  (console)](#remove-policies-console "#remove-policies-console")
+- [Removing IAM identity permissions (console)](#remove-policies-console "#remove-policies-console")
 - [Adding IAM policies (AWS CLI)](#add-policy-cli "#add-policy-cli")
 - [Removing IAM policies (AWS CLI)](#remove-policy-cli "#remove-policy-cli")
 - [Adding IAM policies (AWS API)](#add-policy-api "#add-policy-api")
@@ -59,8 +56,7 @@ You can use the console, AWS CLI, or AWS API to perform any of these actions.
 
 - For more information about the difference between managed and inline policies, see
   [Managed policies and inline policies](access_policies_managed-vs-inline.md "access_policies_managed-vs-inline.md").
-- For more information about permissions boundaries, see [Permissions boundaries for IAM
-  entities](access_policies_boundaries.md "access_policies_boundaries.md").
+- For more information about permissions boundaries, see [Permissions boundaries for IAM entities](access_policies_boundaries.md "access_policies_boundaries.md").
 - For general information about IAM policies, see [Policies and permissions in AWS Identity and Access Management](access_policies.md "access_policies.md").
 - For information about validating IAM policies, see [IAM policy validation](access_policies_policy-validator.md "access_policies_policy-validator.md").
 - The number and size of IAM resources in an AWS account are limited. For more information, see [IAM and AWS STS quotas](reference_iam-quotas.md "reference_iam-quotas.md").
@@ -70,8 +66,7 @@ You can use the console, AWS CLI, or AWS API to perform any of these actions.
 Before you change the permissions for an identity (user, user group, or role), you should
 review their recent service-level activity. This is important because you don't want to remove
 access from a principal (person or application) who is using it. For more information about
-viewing last accessed information, see [Refine permissions in AWS using last
-accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+viewing last accessed information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 
 ## Adding IAM identity permissions (console)
 
@@ -105,9 +100,7 @@ embed an inline policy.
    boundary. You can use the search box to filter the list of principal entities. After
    selecting the principals, choose **Set permissions boundary**.
 
-###### To embed an inline policy for a user or role
-
-(console)
+###### To embed an inline policy for a user or role (console)
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Users** or
@@ -122,8 +115,7 @@ embed an inline policy.
 You cannot embed an inline policy in a _[service-linked role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role")_ in IAM. Because the linked service defines
 whether you can modify the permissions of the role, you might be able to add additional
 policies from the service console, API, or AWS CLI. To view the service-linked role
-documentation for a service, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and choose
+documentation for a service, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and choose
 **Yes** in the **Service-Linked Role** column for
 your service. 6. Choose from the following methods to view the steps required to create your
 policy:
@@ -132,12 +124,10 @@ policy:
      policy within your account and then edit the policy to customize it to your specific
      requirements. A managed policy can be an AWS managed policy or a customer managed
      policy that you created previously.
-    * [Creating policies with the visual
-     editor](access_policies_create-console.md#access_policies_create-visual-editor "access_policies_create-console.md#access_policies_create-visual-editor") – You can construct a
+    * [Creating policies with the visual editor](access_policies_create-console.md#access_policies_create-visual-editor "access_policies_create-console.md#access_policies_create-visual-editor") – You can construct a
      new policy from scratch in the visual editor. If you use the visual editor, you do not
      have to understand JSON syntax.
-    * [Creating policies using the JSON
-     editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor") – In the
+    * [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor") – In the
      **JSON** editor option, you can use JSON syntax to create a policy.
      You can type a new JSON policy document or paste an [example policy](access_policies_examples.md "access_policies_examples.md").
 
@@ -154,11 +144,9 @@ policy:
    policy**.
 5. Do one of the following:
    - Choose the **Visual** option to create the policy. For more
-     information, see [Creating policies with the visual
-     editor](access_policies_create-console.md#access_policies_create-visual-editor "access_policies_create-console.md#access_policies_create-visual-editor").
+     information, see [Creating policies with the visual editor](access_policies_create-console.md#access_policies_create-visual-editor "access_policies_create-console.md#access_policies_create-visual-editor").
    - Choose the **JSON** option to create the policy. For more
-     information, see [Creating policies using the JSON
-     editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
+     information, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
 
 6. When you are satisfied with the policy, choose **Create
    policy**.
@@ -177,9 +165,7 @@ policy:
    filter the list of policies. After selecting the policy, choose **Set permissions
    boundary**.
 
-## Removing IAM identity permissions
-
-(console)
+## Removing IAM identity permissions (console)
 
 You can use the AWS Management Console to remove permissions from an identity (user, user group, or
 role). To do this, detach managed policies that control permissions, or remove a policy that

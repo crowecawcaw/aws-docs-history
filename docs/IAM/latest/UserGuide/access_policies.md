@@ -86,8 +86,7 @@ what conditions. Identity-based policies can be further categorized:
   or role. Inline policies maintain a strict one-to-one relationship between a policy and
   an identity. They are deleted when you delete the identity.
 
-To learn how to choose between managed and inline policies, see [Choose between managed policies
-and inline policies](access_policies-choosing-managed-or-inline.md "access_policies-choosing-managed-or-inline.md").
+To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](access_policies-choosing-managed-or-inline.md "access_policies-choosing-managed-or-inline.md").
 
 ### Resource-based policies
 
@@ -103,8 +102,7 @@ When the principal and the resource are in separate AWS accounts, you must also 
 identity-based policy to grant the principal access to the resource. However, if a
 resource-based policy grants access to a principal in the same account, no additional
 identity-based policy is required. For step-by step instructions for granting cross-service
-access, see [IAM tutorial: Delegate access across
-AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
+access, see [IAM tutorial: Delegate access across AWS accounts using IAM roles](tutorial_cross-account-with-roles.md "tutorial_cross-account-with-roles.md").
 
 The IAM service supports only one type of resource-based policy called a role
 _trust policy_, which is attached to an IAM role. An
@@ -112,13 +110,10 @@ IAM role is both an identity and a resource that supports resource-based policie
 that reason, you must attach both a trust policy and an identity-based policy to an IAM
 role. Trust policies define which principal entities (accounts, users, roles, and federated
 users) can assume the role. To learn how IAM roles are different from other
-resource-based policies, see [Cross account resource
-access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
+resource-based policies, see [Cross account resource access in IAM](access_policies-cross-account-resource-access.md "access_policies-cross-account-resource-access.md").
 
-To see which other services support resource-based policies, see [AWS services that work with
-IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn more about
-resource-based policies, see [Identity-based policies and
-resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md").
+To see which other services support resource-based policies, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md"). To learn more about
+resource-based policies, see [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md").
 To learn whether principals in accounts outside of your zone of trust (trusted organization or account) have access to assume your roles, see
 [What is IAM Access Analyzer?](what-is-access-analyzer.md "what-is-access-analyzer.md").
 
@@ -133,8 +128,7 @@ permission boundary is not required. However, if you specify a role ARN in the p
 element of a resource-based policy, an explicit allow in the permission boundary is
 required. In both cases, an explicit deny in the permission boundary is effective. An
 explicit deny in any of these policies overrides the allow. For more information about
-permissions boundaries, see [Permissions boundaries for IAM
-entities](access_policies_boundaries.md "access_policies_boundaries.md").
+permissions boundaries, see [Permissions boundaries for IAM entities](access_policies_boundaries.md "access_policies_boundaries.md").
 
 ### AWS Organizations service control policies (SCPs)
 
@@ -189,15 +183,13 @@ You can create role session and pass session policies programmatically using the
 `AssumeRoleWithWebIdentity` API operations. You can pass a single JSON inline
 session policy document using the `Policy` parameter. You can use the
 `PolicyArns` parameter to specify up to 10 managed session policies. For more
-information about creating a role session, see [Permissions for temporary security
-credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").
+information about creating a role session, see [Permissions for temporary security credentials](id_credentials_temp_control-access.md "id_credentials_temp_control-access.md").
 
 When you create an AWS STS federated user principal session, you use the access keys of the IAM user to
 programmatically call the `GetFederationToken` API operation. You must also pass
 session policies. The resulting session's permissions are the intersection of the
 identity-based policy and the session policy. For more information about creating a
-federated user session, see [Requesting credentials through a custom identity
-broker](id_credentials_temp_request.md#api_getfederationtoken "id_credentials_temp_request.md#api_getfederationtoken").
+federated user session, see [Requesting credentials through a custom identity broker](id_credentials_temp_request.md#api_getfederationtoken "id_credentials_temp_request.md#api_getfederationtoken").
 
 A resource-based policy can specify the ARN of the user or role as a principal. In that
 case, the permissions from the resource-based policy are added to the role or user's
@@ -247,8 +239,7 @@ It is not necessary for you to understand the JSON syntax. You can use the visua
 in the AWS Management Console to create and edit customer managed policies without ever using JSON.
 However, if you use inline policies for groups or complex policies, you must still create and
 edit those policies in the JSON editor using the console. For more information about using the
-visual editor, see [Define custom IAM permissions with customer managed
-policies](access_policies_create.md "access_policies_create.md") and [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md").
+visual editor, see [Define custom IAM permissions with customer managed policies](access_policies_create.md "access_policies_create.md") and [Edit IAM policies](access_policies_manage-edit.md "access_policies_manage-edit.md").
 
 When you create or edit a JSON policy, IAM can perform policy validation to help you create an effective policy. IAM identifies JSON syntax errors, while IAM Access Analyzer provides
 additional policy checks with recommendations to help you further refine your policies. To learn more about policy validation, see [IAM policy validation](access_policies_policy-validator.md "access_policies_policy-validator.md"). To learn more about IAM Access Analyzer policy checks and actionable recommendations, see [IAM Access Analyzer policy validation](access-analyzer-policy-validation.md "access-analyzer-policy-validation.md").
@@ -272,8 +263,7 @@ The information in a statement is contained within a series of elements.
 
 - **Version** – Specify the version
   of the policy language that you want to use. We recommend that you use the latest
-  `2012-10-17` version. For more information, see [IAM JSON policy elements:
-  Version](reference_policies_elements_version.md "reference_policies_elements_version.md")
+  `2012-10-17` version. For more information, see [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md")
 - **Statement** – Use this main
   policy element as a container for the following elements. You can include more than one
   statement in a policy.
@@ -299,9 +289,7 @@ The information in a statement is contained within a series of elements.
 
 To learn about these and other more advanced policy elements, see [IAM JSON policy element reference](reference_policies_elements.md "reference_policies_elements.md").
 
-### Multiple statements and multiple
-
-policies
+### Multiple statements and multiple policies
 
 If you want to define more than one permission for an entity (user or role), you can
 use multiple statements in a single policy. You can also attach multiple policies. If you
@@ -453,8 +441,7 @@ IAM provides several options to help you refine the permissions that you grant.
   `Permissions management`, or `Tagging`. For example, you
   can choose actions from the `List` and `Read` access levels to
   grant read-only access to your users. To learn how to use policy summaries to
-  understand access level permissions, see [Access levels
-  in policy summaries](access_policies_understand-policy-summary-access-level-summaries.md "access_policies_understand-policy-summary-access-level-summaries.md").
+  understand access level permissions, see [Access levels in policy summaries](access_policies_understand-policy-summary-access-level-summaries.md "access_policies_understand-policy-summary-access-level-summaries.md").
 - **Validate your policies** – You can perform
   policy validation using IAM Access Analyzer when you create and edit JSON policies. We
   recommend that you review and validate all of your existing policies. IAM Access Analyzer
@@ -486,8 +473,7 @@ IAM provides several options to help you refine the permissions that you grant.
   last accessed information for entities or policies in IAM or AWS Organizations. You can use
   this information to identify unnecessary permissions so that you can refine your
   IAM or AWS Organizations policies to better adhere to the principle of least privilege. For
-  more information, see [Refine permissions in AWS using last
-  accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
+  more information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md "access_policies_last-accessed.md").
 - **Review account events in AWS CloudTrail** – To
   further reduce permissions, you can view your account's events in AWS CloudTrail
   **Event history**. CloudTrail event logs include detailed event

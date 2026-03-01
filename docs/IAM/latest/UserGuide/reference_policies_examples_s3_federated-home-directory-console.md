@@ -1,7 +1,4 @@
-# Amazon S3:
-
-Allows federated users access to their Amazon S3 home directory, programmatically and in the
-console
+# Amazon S3: Allows federated users access to their Amazon S3 home directory, programmatically and in the console
 
 This example shows how you might create an identity-based policy that allows federated principals to access their own home directory bucket
 object in S3. The home directory is a bucket that includes a `home` folder and

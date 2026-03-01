@@ -1,13 +1,9 @@
-# Multivalued
-
-context key examples
+# Multivalued context key examples
 
 The following set of policy examples demonstrate how to create policy conditions with
 multivalued context keys.
 
-## Example:
-
-Deny policy with condition set operator ForAllValues
+## Example: Deny policy with condition set operator ForAllValues
 
 The following examples show how to use an identity-based policy to deny the use of IAM
 tagging actions when specific tag key prefixes are included in the request. The values for
@@ -23,7 +19,7 @@ in the request.
 You can prevent missing context keys or context keys with empty values from evaluating to
 true by including a `Null` condition operator in your policy with a value of
 `false` to check if the context key in the request exists and its value is not
-null. For more information, see [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null") .
+null. For more information, see [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null "reference_policies_elements_condition_operators.md#Conditions_Null").
 
 ###### Important
 
@@ -127,9 +123,7 @@ it may be allowed by another statement.
 | `<br>"ForAllValues:StringNotLike": {<br>"aws:TagKeys": [<br>"key1*",<br>"key2*"<br>]<br>}<br>` | ``<br>aws:TagKeys:<br>– `key3`:legal<br>``              | **Match**                                            |
 | `<br>"ForAllValues:StringNotLike": {<br>"aws:TagKeys": [<br>"key1*",<br>"key2*"<br>]<br>}<br>` | No `aws:TagKeys` in the request context.                | **Match**                                            |
 
-## Example:
-
-Deny policy with condition set operator ForAnyValue
+## Example: Deny policy with condition set operator ForAnyValue
 
 The following identity-based policy example denies creating snapshots of EC2 instance
 volumes if any snapshots are tagged with one of the tag keys specified in the policy,
