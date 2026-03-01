@@ -1,6 +1,4 @@
-# Create an Image That Always Uses the
-
-Latest Version of the WorkSpaces Applications Agent
+# Create an Image That Always Uses the Latest Version of the WorkSpaces Applications Agent
 
 When your images are configured to always use the latest WorkSpaces Applications agent version, your streaming instances are automatically updated with the latest features, performance improvements, and security updates that are available from AWS when a new agent version is released.
 
@@ -31,8 +29,7 @@ In some cases, a new WorkSpaces Applications agent version might conflict with y
 
 3. On the image builder desktop, open Image Assistant and follow the steps to create
    your new image. For the **Configure Image** step, make sure that **Always use the latest agent
-   version** is selected. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   version** is selected. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 If you decide later to not always use the latest version of the WorkSpaces Applications agent, you must create a new image and clear that option. 4. Create a new fleet or modify an existing one. When you configure the fleet, select the new
 image that you created. For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md"). 5. Create a new stack or modify an existing one and associate it with your fleet.

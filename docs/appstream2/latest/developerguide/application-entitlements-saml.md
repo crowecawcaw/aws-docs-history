@@ -1,6 +1,4 @@
-# Attribute-Based Application Entitlements
-
-Using a Third-Party SAML 2.0 Identity Provider
+# Attribute-Based Application Entitlements Using a Third-Party SAML 2.0 Identity Provider
 
 Application entitlements control access to specific applications within your WorkSpaces Applications
 stacks. This works by using SAML 2.0 attribute assertions from a third-party SAML 2.0
@@ -19,17 +17,14 @@ ignored in cases such as the following:
   **Desktop Stream view**. For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
 - Stacks using the Dynamic Application Framework. Dynamic Application Framework
   provides separate application entitlement features. For more information, see
-  [Application Entitlements from a Dynamic App
-  Provider Using the Dynamic Application Framework](dynamic-app-framework.md "dynamic-app-framework.md").
+  [Application Entitlements from a Dynamic App Provider Using the Dynamic Application Framework](dynamic-app-framework.md "dynamic-app-framework.md").
 - When users federate to the WorkSpaces Applications application catalog, application
   entitlements will only display the applications the user is entitled to.
   Applications are not restricted from running within the WorkSpaces Applications session. For
   example, in a fleet configured for Desktop Stream view, a user can launch an
   application directly from the desktop.
 
-## Create Application
-
-Entitlements
+## Create Application Entitlements
 
 Before you create application entitlements, you must do the following:
 
@@ -38,8 +33,7 @@ Before you create application entitlements, you must do the following:
   (Elastic fleet) that will meet your needs. For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
 - Provide user access to the stack using a third-party SAML 2.0 identity
   provider. For more information, see [Amazon WorkSpaces Applications Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md"). If you are using an
-  existing SAML 2.0 identity provider that you setup previously, see [Step 2: Create a SAML 2.0 Federation IAM
-  Role](external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms "external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms") for the steps
+  existing SAML 2.0 identity provider that you setup previously, see [Step 2: Create a SAML 2.0 Federation IAM Role](external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms "external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms") for the steps
   to add the sts:TagSession permission to your IAM role trust policy. For more
   information, see [Passing session tags in
   AWS STS](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md"). This permission is required to use application
@@ -111,12 +105,10 @@ all of the stacks where application entitlements have matched one or more
 applications to the user for the account ID and relay state endpoint associated with
 the Region in which your stacks are located. When a user selects a catalog,
 application entitlements will only display the applications the user is entitled to.
-For more information, see [Step 6: Configure the
-Relay State of Your Federation](external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state "external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state").
+For more information, see [Step 6: Configure the Relay State of Your Federation](external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state "external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state").
 
 ###### Note
 
 To use SAML 2.0 Multi-Stack Application Catalogs, you need to configure the
 inline policy for your SAML 2.0 Federation IAM Role. For more information, see
-[Step
-3: Embed an Inline Policy for the IAM Role](external-identity-providers-setting-up-saml.md#external-identity-providers-embed-inline-policy-for-IAM-role "external-identity-providers-setting-up-saml.md#external-identity-providers-embed-inline-policy-for-IAM-role").
+[Step 3: Embed an Inline Policy for the IAM Role](external-identity-providers-setting-up-saml.md#external-identity-providers-embed-inline-policy-for-IAM-role "external-identity-providers-setting-up-saml.md#external-identity-providers-embed-inline-policy-for-IAM-role").

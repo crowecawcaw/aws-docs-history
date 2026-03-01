@@ -1,6 +1,4 @@
-# Using the AWS Command Line Interface or AWS
-
-SDKs
+# Using the AWS Command Line Interface or AWS SDKs
 
 You can enable and disable home folders for a stack by using the AWS CLI or
 AWS SDKs.

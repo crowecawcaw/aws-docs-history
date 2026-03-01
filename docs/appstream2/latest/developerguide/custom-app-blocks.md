@@ -10,5 +10,4 @@ it to an Amazon S3 bucket within your account.
 - [Create the VHD](create-vhd.md "create-vhd.md")
 - [Create the Setup Script for the VHD in Amazon WorkSpaces Applications](create-setup-script.md "create-setup-script.md")
 - [Create a Custom App Block](create-app-block.md "create-app-block.md")
-- [Update the App Block, VHD, and Setup
-  Script](update-app-block.md "update-app-block.md")
+- [Update the App Block, VHD, and Setup Script](update-app-block.md "update-app-block.md")

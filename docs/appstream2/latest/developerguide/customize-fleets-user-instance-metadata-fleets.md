@@ -1,6 +1,4 @@
-# User and Instance
-
-Metadata for Amazon WorkSpaces Applications Fleets
+# User and Instance Metadata for Amazon WorkSpaces Applications Fleets
 
 WorkSpaces Applications fleet instances have user and instance metadata available through Windows
 environment variables. You can use the following environment variables in your

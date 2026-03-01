@@ -1,6 +1,4 @@
-# Customize an Amazon WorkSpaces Applications Fleet to Optimize Your Users'
-
-Application Streaming Experience
+# Customize an Amazon WorkSpaces Applications Fleet to Optimize Your Users' Application Streaming Experience
 
 By customizing WorkSpaces Applications fleet instances, you can define specific aspects of your WorkSpaces Applications
 environment to optimize your users' application streaming experience. For example, you can
@@ -24,16 +22,11 @@ settings on a domain-joined computer.
 
 ###### Contents
 
-- [Persist Environment
-  Variables in Amazon WorkSpaces Applications](customize-fleets-persist-environment-variables.md "customize-fleets-persist-environment-variables.md")
-- [Set Default File
-  Associations for Your Users in Amazon WorkSpaces Applications](customize-fleets-set-default-file-associations.md "customize-fleets-set-default-file-associations.md")
-- [Disable Internet Explorer Enhanced
-  Security Configuration in Amazon WorkSpaces Applications](customize-fleets-disable-ie-esc.md "customize-fleets-disable-ie-esc.md")
-- [Change the Default Internet
-  Explorer Home Page for Users' Streaming Sessions in Amazon WorkSpaces Applications](customize-fleets-change-ie-homepage.md "customize-fleets-change-ie-homepage.md")
-- [User and Instance
-  Metadata for Amazon WorkSpaces Applications Fleets](customize-fleets-user-instance-metadata-fleets.md "customize-fleets-user-instance-metadata-fleets.md")
+- [Persist Environment Variables in Amazon WorkSpaces Applications](customize-fleets-persist-environment-variables.md "customize-fleets-persist-environment-variables.md")
+- [Set Default File Associations for Your Users in Amazon WorkSpaces Applications](customize-fleets-set-default-file-associations.md "customize-fleets-set-default-file-associations.md")
+- [Disable Internet Explorer Enhanced Security Configuration in Amazon WorkSpaces Applications](customize-fleets-disable-ie-esc.md "customize-fleets-disable-ie-esc.md")
+- [Change the Default Internet Explorer Home Page for Users' Streaming Sessions in Amazon WorkSpaces Applications](customize-fleets-change-ie-homepage.md "customize-fleets-change-ie-homepage.md")
+- [User and Instance Metadata for Amazon WorkSpaces Applications Fleets](customize-fleets-user-instance-metadata-fleets.md "customize-fleets-user-instance-metadata-fleets.md")
   On Linux fleet instances, these environment variables are exported through the following
   profile.d scripts:
 

@@ -1,6 +1,4 @@
-# Enable and Administer Persistent Storage for Your
-
-WorkSpaces Applications Users
+# Enable and Administer Persistent Storage for Your WorkSpaces Applications Users
 
 Amazon WorkSpaces Applications supports the following persistent storage options for users in your
 organization:
@@ -15,12 +13,8 @@ organization:
 
 ###### Contents
 
-- [Enable and Administer Home Folders for Your WorkSpaces Applications
-  Users](home-folders.md "home-folders.md")
-- [Enable and Administer Google Drive for Your WorkSpaces Applications
-  Users](google-drive.md "google-drive.md")
-- [Enable and Administer OneDrive for Business for Your WorkSpaces Applications
-  Users](onedrive.md "onedrive.md")
-- [Enable and Administer Custom Shared
-  Folders (Server Message Block (SMB) Network Drives) for Your WorkSpaces Applications Users](enable-smb-network-drives.md "enable-smb-network-drives.md")
+- [Enable and Administer Home Folders for Your WorkSpaces Applications Users](home-folders.md "home-folders.md")
+- [Enable and Administer Google Drive for Your WorkSpaces Applications Users](google-drive.md "google-drive.md")
+- [Enable and Administer OneDrive for Business for Your WorkSpaces Applications Users](onedrive.md "onedrive.md")
+- [Enable and Administer Custom Shared Folders (Server Message Block (SMB) Network Drives) for Your WorkSpaces Applications Users](enable-smb-network-drives.md "enable-smb-network-drives.md")
   For troubleshooting information, see [Troubleshooting Persistent Storage Issues](troubleshooting-persistent-storage.md "troubleshooting-persistent-storage.md").

@@ -1,6 +1,4 @@
-# Image Assistant
-
-CLI Operations for Creating and Managing Your Amazon WorkSpaces Applications Image
+# Image Assistant CLI Operations for Creating and Managing Your Amazon WorkSpaces Applications Image
 
 This section describes the Image Assistant CLI operations that you can use to create
 and manage your WorkSpaces Applications image.
@@ -16,9 +14,7 @@ On Linux image builders, the image assistant tool is located at
 /usr/local/appstream/image-assistant/AppStreamImageAssistant, with a symbolic link at
 /bin/AppStreamImageAssistant.
 
-## `help`
-
-operation
+## `help` operation
 
 Retrieves a list of all Image Assistant CLI operations. For each operation in the
 list, a description and usage syntax is provided. To display help for a specific
@@ -297,8 +293,7 @@ The dynamic application framework provides operations within an WorkSpaces Appli
 streaming instance that you can use to build a dynamic app provider.
 Dynamic app providers can use these operations to modify the catalog of
 applications that your users can access in real time. For more
-information, see [Use the WorkSpaces Applications Dynamic Application
-Framework to Build a Dynamic App Provider](build-dynamic-app-provider.md "build-dynamic-app-provider.md").
+information, see [Use the WorkSpaces Applications Dynamic Application Framework to Build a Dynamic App Provider](build-dynamic-app-provider.md "build-dynamic-app-provider.md").
 
 **`--use-latest-agent-version` |
 `--no-use-latest-agent-version`**

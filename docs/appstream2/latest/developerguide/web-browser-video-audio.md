@@ -5,9 +5,7 @@ microphone audio input to WorkSpaces Applications streaming sessions. That way, 
 local devices for video and audio conferencing within your WorkSpaces Applications streaming
 session.
 
-###### To use a local webcam and microphone within an WorkSpaces Applications streaming
-
-session
+###### To use a local webcam and microphone within an WorkSpaces Applications streaming session
 
 1. Connect to WorkSpaces Applications from a Chromium-based web browser, including Google
    Chrome and Microsoft Edge.

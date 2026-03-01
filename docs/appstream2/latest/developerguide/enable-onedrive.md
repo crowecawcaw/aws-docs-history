@@ -50,9 +50,7 @@ You must configure your Microsoft Azure Active Directory environment to allow
 end-user consent to applications. For more information, see [Configure how end-users consent to applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-user-consent "https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-user-consent") in the Azure Active
 Directory [Application management](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/ "https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/") documentation.
 
-###### Provide Your Users with Permissions to Link OneDrive
-
-with WorkSpaces Applications
+###### Provide Your Users with Permissions to Link OneDrive with WorkSpaces Applications
 
 You must enable Integrated Apps in your Office 365 or OneDrive for Business
 admin console before users can link their OneDrive for Business account to

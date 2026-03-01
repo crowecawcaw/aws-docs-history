@@ -1,6 +1,4 @@
-# Automatic and On-Demand Diagnostic Log
-
-Uploads
+# Automatic and On-Demand Diagnostic Log Uploads
 
 To help with troubleshooting issues that might occur when your users are using
 the WorkSpaces Applications client, you can enable automatic or on-demand diagnostic log uploads,

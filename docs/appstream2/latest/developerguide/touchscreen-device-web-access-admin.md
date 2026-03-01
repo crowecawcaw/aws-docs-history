@@ -7,5 +7,4 @@ WorkSpaces Applications supports gestures on touch-enabled iPads, Android tablet
 To enable support for gestures on touch-enabled devices, your WorkSpaces Applications image must use a version of the WorkSpaces Applications agent released on or after March 7, 2019. For more information, see [WorkSpaces Applications Agent Release Notes](agent-software-versions.md "agent-software-versions.md").
 
 For guidance that you can provide your users to help them get started with
-touch-enabled devices during their WorkSpaces Applications streaming sessions, see [Touchscreen
-Devices](web-browser-using-touchscreen-devices-user.md "web-browser-using-touchscreen-devices-user.md").
+touch-enabled devices during their WorkSpaces Applications streaming sessions, see [Touchscreen Devices](web-browser-using-touchscreen-devices-user.md "web-browser-using-touchscreen-devices-user.md").

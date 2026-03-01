@@ -1,6 +1,4 @@
-# Run Scripts Before
-
-Streaming Sessions Begin
+# Run Scripts Before Streaming Sessions Begin
 
 You can configure your scripts to run for a maximum of 60 seconds before your
 users' applications launch and their streaming sessions begin. Doing so enables you
@@ -44,15 +42,13 @@ application framework is not enabled, the following process occurs:
      users' customizations and Windows settings is downloaded and
      mounted. Windows user login is required in this case.
 
-   For information about application settings persistence, see [Enable Application Settings Persistence for Your
-   WorkSpaces Applications Users](app-settings-persistence.md "app-settings-persistence.md").
+   For information about application settings persistence, see [Enable Application Settings Persistence for Your WorkSpaces Applications Users](app-settings-persistence.md "app-settings-persistence.md").
    - If application settings persistence is not enabled, the Windows
      user is already logged in.
 
 4. Your session scripts start. If persistent storage is enabled for your
    users, storage connector mounting also starts. For information about
-   persistent storage, see [Enable and Administer Persistent Storage for Your
-   WorkSpaces Applications Users](persistent-storage.md "persistent-storage.md").
+   persistent storage, see [Enable and Administer Persistent Storage for Your WorkSpaces Applications Users](persistent-storage.md "persistent-storage.md").
 
 ###### Note
 
@@ -61,10 +57,8 @@ session to start. If the session scripts complete before the storage
 connector mount completes, the streaming session starts.
 
 For information about monitoring the mount status of storage
-connectors, see [Use Storage Connectors
-with Session Scripts](use-storage-connectors-with-session-scripts.md "use-storage-connectors-with-session-scripts.md"). 5. Your session scripts complete or time out. 6. The users' streaming session starts. 7. The application that your users chose launches.
-For information about the WorkSpaces Applications dynamic application framework, see [Use the WorkSpaces Applications Dynamic Application
-Framework to Build a Dynamic App Provider](build-dynamic-app-provider.md "build-dynamic-app-provider.md").
+connectors, see [Use Storage Connectors with Session Scripts](use-storage-connectors-with-session-scripts.md "use-storage-connectors-with-session-scripts.md"). 5. Your session scripts complete or time out. 6. The users' streaming session starts. 7. The application that your users chose launches.
+For information about the WorkSpaces Applications dynamic application framework, see [Use the WorkSpaces Applications Dynamic Application Framework to Build a Dynamic App Provider](build-dynamic-app-provider.md "build-dynamic-app-provider.md").
 
 When you run scripts before streaming sessions begin and the WorkSpaces Applications dynamic
 application framework is enabled, the following process occurs:
@@ -90,5 +84,4 @@ session to start. If the session scripts complete before the storage
 connector mount completes, the streaming session starts.
 
 For information about monitoring the mount status of storage
-connectors, see [Use Storage Connectors
-with Session Scripts](use-storage-connectors-with-session-scripts.md "use-storage-connectors-with-session-scripts.md"). 7. Your session scripts complete or time out. 8. The users' streaming session starts. 9. The application that your users chose launches.
+connectors, see [Use Storage Connectors with Session Scripts](use-storage-connectors-with-session-scripts.md "use-storage-connectors-with-session-scripts.md"). 7. Your session scripts complete or time out. 8. The users' streaming session starts. 9. The application that your users chose launches.

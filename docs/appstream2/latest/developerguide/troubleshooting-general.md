@@ -4,32 +4,19 @@ The following are general issues that might occur when you use Amazon WorkSpaces
 
 ###### Issues
 
-- [SAML federation is not working. The user is not
-  authorized to view WorkSpaces Applications applications.](#troubleshooting-13 "#troubleshooting-13")
-- [After federating from an ADFS portal, my
-  streaming session doesn't start. I am getting the error "Sorry connection went
-  down".](#troubleshooting-adfs-upn "#troubleshooting-adfs-upn")
+- [SAML federation is not working. The user is not authorized to view WorkSpaces Applications applications.](#troubleshooting-13 "#troubleshooting-13")
+- [After federating from an ADFS portal, my streaming session doesn't start. I am getting the error "Sorry connection went down".](#troubleshooting-adfs-upn "#troubleshooting-adfs-upn")
 - [I get an invalid redirect URI error.](#troubleshooting-14 "#troubleshooting-14")
 - [My image builders and fleets never reach the running state. My DNS servers are in a Simple AD directory.](#fleets-image-builders-dont-run-simple-ad "#fleets-image-builders-dont-run-simple-ad")
-- [I've enabled application settings persistence
-  for my users, but their persistent application settings aren't being saved or loaded.](#app-settings-save-load-failure "#app-settings-save-load-failure")
-- [I've enabled application settings persistence for my
-  users, but for certain streaming applications, my users’ passwords aren’t persisting
-  across sessions.](#app-settings-passwords-not-persisting "#app-settings-passwords-not-persisting")
+- [I've enabled application settings persistence for my users, but their persistent application settings aren't being saved or loaded.](#app-settings-save-load-failure "#app-settings-save-load-failure")
+- [I've enabled application settings persistence for my users, but for certain streaming applications, my users’ passwords aren’t persisting across sessions.](#app-settings-passwords-not-persisting "#app-settings-passwords-not-persisting")
 - [Google Chrome data is filling the VHD file that contains my users' persistent application settings. This is preventing their settings from persisting. How can I manage the Chrome profile?](#chrome-filling-up-app-settings-VHD "#chrome-filling-up-app-settings-VHD")
 - [I set up a custom domain for my embedded WorkSpaces Applications streaming sessions, but my WorkSpaces Applications streaming URLs aren't redirecting to my custom domain.](#embedded-streaming-sessions-streaming-urls-not-redirected-to-custom-domain "#embedded-streaming-sessions-streaming-urls-not-redirected-to-custom-domain")
-- [I
-  launched an app on a smartcard-enabled WorkSpaces Applications fleet, and there are a limited
-  number of certificates (or none) available to the app for authentication.](#no-or-limited-certificates-for-authentication-on-smartcard-fleet "#no-or-limited-certificates-for-authentication-on-smartcard-fleet")
-- [The
-  Certification Propagation service isn't starting on my smartcard-enabled WorkSpaces Applications
-  fleet.](#certification-propogation-not-starting-on-smartcard-fleet "#certification-propogation-not-starting-on-smartcard-fleet")
-- [I can't log in with my Active Directory
-  username or password after SAML authentication.](#troubleshooting-saml-auth "#troubleshooting-saml-auth")
+- [I launched an app on a smartcard-enabled WorkSpaces Applications fleet, and there are a limited number of certificates (or none) available to the app for authentication.](#no-or-limited-certificates-for-authentication-on-smartcard-fleet "#no-or-limited-certificates-for-authentication-on-smartcard-fleet")
+- [The Certification Propagation service isn't starting on my smartcard-enabled WorkSpaces Applications fleet.](#certification-propogation-not-starting-on-smartcard-fleet "#certification-propogation-not-starting-on-smartcard-fleet")
+- [I can't log in with my Active Directory username or password after SAML authentication.](#troubleshooting-saml-auth "#troubleshooting-saml-auth")
 
-## SAML federation is not working. The user is not
-
-authorized to view WorkSpaces Applications applications.
+## SAML federation is not working. The user is not authorized to view WorkSpaces Applications applications.
 
 This might happen because the inline policy that is embedded for the SAML 2.0
 federation IAM role does not include permissions to the stack ARN. The IAM role
@@ -37,10 +24,7 @@ is assumed by the federated user who is accessing an WorkSpaces Applications sta
 permissions to include the stack ARN. For more information, see [Amazon WorkSpaces Applications Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md") and [Troubleshooting SAML 2.0 Federation with AWS](../../../IAM/latest/UserGuide/troubleshoot_saml.md "../../../IAM/latest/UserGuide/troubleshoot_saml.md") in the
 _IAM User Guide_.
 
-## After federating from an ADFS portal, my
-
-streaming session doesn't start. I am getting the error "Sorry connection went
-down".
+## After federating from an ADFS portal, my streaming session doesn't start. I am getting the error "Sorry connection went down".
 
 Set the claim rule's **Incoming Claim Type** for the
 **NameID** SAML attribute to **UPN** and try the connection again.
@@ -62,14 +46,11 @@ WorkSpaces Applications-managed network interface to communicate with the manage
 When you create a directory with Simple AD, AWS Directory Service creates two domain controllers that also function as DNS servers on your behalf. Because the domain controllers don't provide the
 NXDOMAIN response, they can't be used with WorkSpaces Applications.
 
-## I've enabled application settings persistence
-
-for my users, but their persistent application settings aren't being saved or loaded.
+## I've enabled application settings persistence for my users, but their persistent application settings aren't being saved or loaded.
 
 WorkSpaces Applications automatically saves application settings that are created in certain
 locations on the Windows instance. The settings are saved only if your application
-saves them to one of these locations. For a list of supported locations, see [How Application Settings
-Persistence Works](how-it-works-app-settings-persistence.md "how-it-works-app-settings-persistence.md"). If your application is
+saves them to one of these locations. For a list of supported locations, see [How Application Settings Persistence Works](how-it-works-app-settings-persistence.md "how-it-works-app-settings-persistence.md"). If your application is
 configured to save to C:\Users\%username% and your users' settings for the
 application aren’t persisting between sessions, the mount point might not be
 created. This prevents the settings from being saved to the VHD file that contains
@@ -88,10 +69,7 @@ To resolve this issue, follow these steps:
    guidance to resolve this issue. For
    more information, see [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## I've enabled application settings persistence for my
-
-users, but for certain streaming applications, my users’ passwords aren’t persisting
-across sessions.
+## I've enabled application settings persistence for my users, but for certain streaming applications, my users’ passwords aren’t persisting across sessions.
 
 This issue occurs when:
 
@@ -130,10 +108,7 @@ To replace the default WorkSpaces Applications endpoint in your streaming URL, r
 
 For more information about configuring custom domains for embedded WorkSpaces Applications streaming sessions, see [Configuration Requirements for Using Custom Domains](create-streaming-url-user-authentication.md#configuration-requirements-custom-domains "create-streaming-url-user-authentication.md#configuration-requirements-custom-domains").
 
-## I
-
-launched an app on a smartcard-enabled WorkSpaces Applications fleet, and there are a limited
-number of certificates (or none) available to the app for authentication.
+## I launched an app on a smartcard-enabled WorkSpaces Applications fleet, and there are a limited number of certificates (or none) available to the app for authentication.
 
 This happens when the application is launched before the [Certificate Propagation](https://docs.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-propagation-service "https://docs.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-propagation-service") service is in a running state.
 
@@ -190,10 +165,7 @@ else {
 
 ```
 
-## The
-
-Certification Propagation service isn't starting on my smartcard-enabled WorkSpaces Applications
-fleet.
+## The Certification Propagation service isn't starting on my smartcard-enabled WorkSpaces Applications fleet.
 
 If the [Certificate Propagation](https://docs.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-propagation-service "https://docs.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-propagation-service") service isn't starting, the service’s startup
 type might be set to **Disabled**. To resolve this, on the
@@ -257,9 +229,7 @@ else {
 
 ```
 
-## I can't log in with my Active Directory
-
-username or password after SAML authentication.
+## I can't log in with my Active Directory username or password after SAML authentication.
 
 The nameID in the SAML claim needs to match the username in Active Directory. Some
 IdPs require an update, refresh, or redeploy after adjusting certain attributes. If

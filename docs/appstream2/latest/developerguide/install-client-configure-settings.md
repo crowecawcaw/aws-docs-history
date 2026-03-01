@@ -11,8 +11,7 @@ supported.
 ###### Contents
 
 - [Download the Enterprise Deployment Tool](#install-client-use-remote-deployment-tool "#install-client-use-remote-deployment-tool")
-- [Install the
-  WorkSpaces Applications Client and USB Driver](#run-powershell-script-install-client-usb-driver-silently "#run-powershell-script-install-client-usb-driver-silently")
+- [Install the WorkSpaces Applications Client and USB Driver](#run-powershell-script-install-client-usb-driver-silently "#run-powershell-script-install-client-usb-driver-silently")
 - [Accessing WorkSpaces Applications with the WorkSpaces Applications Client](#access-appstream-with-client "#access-appstream-with-client")
 - [Set the StartURL Registry Value for WorkSpaces Applications Client Users](#set-start-url-registry-value "#set-start-url-registry-value")
 - [Set the TrustedDomains Registry Value to Enable Other Domains for the WorkSpaces Applications Client](#set-trusted-domains-registry-value "#set-trusted-domains-registry-value")
@@ -45,9 +44,7 @@ installation files and a Group Policy administrative template.
    - WorkSpaces Applications USB driver installer (AmazonAppStreamUsbDriverSetup\_<version>.exe) — Installs the WorkSpaces Applications USB driver that is required to use USB devices with applications streamed through WorkSpaces Applications.
    - WorkSpaces Applications client Group Policy administrative template (as2_client_config.adm) — Lets you configure the WorkSpaces Applications client through Group Policy.
 
-## Install the
-
-WorkSpaces Applications Client and USB Driver
+## Install the WorkSpaces Applications Client and USB Driver
 
 After you download the WorkSpaces Applications client installation files, run the following
 PowerShell script on users' computers to install the WorkSpaces Applications client installation file, AppStreamClient.exe, and the USB
@@ -283,8 +280,7 @@ New-ItemProperty -Path $registryPath -Name "AutoUpdateDisabled" -Value "True" -P
 By default, the WorkSpaces Applications client allows users to upload diagnostic logs and minidumps on demand to WorkSpaces Applications (AWS). In addition, if an exception
 occurs or the WorkSpaces Applications client stops responding, users are prompted to choose
 whether they want to upload the minidump and associated logs. For more
-information about on-demand diagnostic logging, see [Automatic and On-Demand Diagnostic Log
-Uploads](feature-support-diagnostic-log-upload.md "feature-support-diagnostic-log-upload.md").
+information about on-demand diagnostic logging, see [Automatic and On-Demand Diagnostic Log Uploads](feature-support-diagnostic-log-upload.md "feature-support-diagnostic-log-upload.md").
 
 You can disable these behaviors by setting the value for the `UserUploadOfClientLogsAllowed`
 registry key to `false`. You can create this HKLM registry key when you
@@ -315,8 +311,7 @@ By default, the WorkSpaces Applications client can run in either classic mode or
 mode. You can disable native application mode by setting the value for the `NativeAppModeDisabled`
 registry key to `true`. You can create this HKLM registry key when you
 install the WorkSpaces Applications client. If the value is set to `true`, the client runs
-in classic mode only. For information about native application mode, see [Native Application
-Mode](feature-support-native-application-mode.md "feature-support-native-application-mode.md").
+in classic mode only. For information about native application mode, see [Native Application Mode](feature-support-native-application-mode.md "feature-support-native-application-mode.md").
 
 After the WorkSpaces Applications client is installed, you can run the following PowerShell
 script to create this registry key. Or, you can use the administrative template

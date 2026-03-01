@@ -1,6 +1,4 @@
-# Managing WorkSpaces Applications Computer Objects in
-
-Active Directory
+# Managing WorkSpaces Applications Computer Objects in Active Directory
 
 WorkSpaces Applications does not delete computer objects from Active Directory. These computer
 objects can be easily identified in your directory. Each computer object in the
@@ -29,8 +27,7 @@ to display only WorkSpaces Applications objects.
 
 - `OU-distinguished-name` is the
   distinguished name of the organizational unit. For more information, see
-  [Finding the Organizational Unit Distinguished
-  Name](active-directory-oudn.md "active-directory-oudn.md"). If you don't provide the
+  [Finding the Organizational Unit Distinguished Name](active-directory-oudn.md "active-directory-oudn.md"). If you don't provide the
   `OU-distinguished-name` parameter, the command
   searches the entire directory.
 - `number-of-weeks-since-last-log-in`

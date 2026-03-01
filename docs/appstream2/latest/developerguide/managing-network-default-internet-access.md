@@ -20,14 +20,10 @@ the steps in [Configure a VPC with Private Subnets and a NAT Gateway](managing-n
 
 ###### Contents
 
-- [Step 1: Configure a VPC with a Public
-  Subnet](#vpc-with-public-subnet "#vpc-with-public-subnet")
-- [Step 2: Enable Default Internet
-  Access Your Fleet, Image Builder, or App Block Builder](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access")
+- [Step 1: Configure a VPC with a Public Subnet](#vpc-with-public-subnet "#vpc-with-public-subnet")
+- [Step 2: Enable Default Internet Access Your Fleet, Image Builder, or App Block Builder](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access")
 
-## Step 1: Configure a VPC with a Public
-
-Subnet
+## Step 1: Configure a VPC with a Public Subnet
 
 You can configure your own non-default VPC with a public subnet by using either of the following methods:
 
@@ -44,8 +40,7 @@ When you use the VPC wizard to create a new VPC, the wizard creates an internet 
 
 1. Complete the steps in [Step 1: Create the VPC](../../../vpc/latest/userguide/getting-started-ipv4.md#getting-started-create-vpc "../../../vpc/latest/userguide/getting-started-ipv4.md#getting-started-create-vpc") in the _Amazon VPC User Guide_ to create your
    VPC.
-2. To enable your fleet instances and image builders to access the internet, complete the steps in [Step 2: Enable Default Internet
-   Access Your Fleet, Image Builder, or App Block Builder](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access").
+2. To enable your fleet instances and image builders to access the internet, complete the steps in [Step 2: Enable Default Internet Access Your Fleet, Image Builder, or App Block Builder](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access").
 
 ### Configure an Existing VPC
 
@@ -62,19 +57,14 @@ steps.
 If your VPC is configured to support IPv6 addressing, the **IPv6 CIDR block** list displays. Select **Don't assign Ipv6**. 2. To create and attach an internet gateway to your VPC,
 complete the steps in [Creating and Attaching an Internet Gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Attach_Gateway "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Attach_Gateway"). 3. To configure your subnet to route internet traffic
 through the internet gateway, complete the steps in
-[Creating a Custom Route Table](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing"). In step 5, for **Destination**, use IPv4 format (`0.0.0.0/0`). 4. To enable your fleet instances and image builders to access the internet, complete the steps in [Step 2: Enable Default Internet
-Access Your Fleet, Image Builder, or App Block Builder](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access").
+[Creating a Custom Route Table](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing"). In step 5, for **Destination**, use IPv4 format (`0.0.0.0/0`). 4. To enable your fleet instances and image builders to access the internet, complete the steps in [Step 2: Enable Default Internet Access Your Fleet, Image Builder, or App Block Builder](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access").
 
-## Step 2: Enable Default Internet
-
-Access Your Fleet, Image Builder, or App Block Builder
+## Step 2: Enable Default Internet Access Your Fleet, Image Builder, or App Block Builder
 
 After you configure a VPC that has a public subnet, you can enable the **Default Internet
 Access** option for your fleet and image builder.
 
-### Enable Default Internet Access for a
-
-Fleet
+### Enable Default Internet Access for a Fleet
 
 You can enable the **Default Internet Access** option
 when you create the fleet, or later.
@@ -108,9 +98,7 @@ You can test internet connectivity by starting your fleet, creating a stack,
 associating the fleet with a stack, and browsing the internet within a streaming session
 for stack. For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
 
-### Enable Default Internet Access for an
-
-Image Builder
+### Enable Default Internet Access for an Image Builder
 
 After you configure a VPC that has a public subnet, you can enable the
 **Default Internet Access** option for your image
@@ -124,9 +112,7 @@ builder. You can do so when you create the image builder.
 3. If **Subnet 1** is empty, select a subnet.
 4. Continue with the steps in [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md").
 
-### Enable Default Internet Access for an
-
-App Block Builder
+### Enable Default Internet Access for an App Block Builder
 
 After you configure a VPC that has a public subnet, you can enable the
 **Default Internet Access** option for your app block

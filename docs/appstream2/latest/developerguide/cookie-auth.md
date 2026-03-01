@@ -22,8 +22,7 @@ theft, we advise you to consider the following actions:
     requires users to re-authenticate themselves. SessionDuration specifies
     the maximum amount of time that a federated streaming session for a user
     can remain active before re-authentication is required. The default
-    value is 60 minutes. For more information, see [Step 5: Create
-    Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions").
+    value is 60 minutes. For more information, see [Step 5: Create Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions").
   - To help maximize security, users should end sessions properly with the
     toolbar (terminate session), instead of closing the streaming window.
     Ending the session through the toolbar terminates both the user session

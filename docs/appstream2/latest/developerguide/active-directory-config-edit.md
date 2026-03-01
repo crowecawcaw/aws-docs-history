@@ -1,6 +1,4 @@
-# Editing the Directory
-
-Configuration
+# Editing the Directory Configuration
 
 After a WorkSpaces Applications directory configuration has been created, you can edit it to add,
 remove, or modify organizational units, update the service account username, or
@@ -25,5 +23,4 @@ Config**. 6. The information in the **Details** tab should now update
 to reflect the changes.
 Changes to the service account sign-in credentials do not impact in-process
 streaming instance operations. New streaming instance operations use the updated
-credentials. For more information, see [Updating the Service Account Used for
-Joining the Domain](active-directory-service-acct.md "active-directory-service-acct.md").
+credentials. For more information, see [Updating the Service Account Used for Joining the Domain](active-directory-service-acct.md "active-directory-service-acct.md").

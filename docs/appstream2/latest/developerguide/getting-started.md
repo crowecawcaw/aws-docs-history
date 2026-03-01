@@ -116,8 +116,7 @@ Before you can stream your applications, you need to set up a stack, choose an i
 
    Make sure you are using latest WorkSpaces Applications images for multi-session
    fleets. To keep your images are up-to-date, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md "keep-image-updated.md"). For details on supported images
-   and WorkSpaces Applications agent versions for multi-session, see [WorkSpaces Applications Base Image and Managed Image Update
-   Release Notes](base-image-version-history.md "base-image-version-history.md").
+   and WorkSpaces Applications agent versions for multi-session, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md").
    - **Maximum sessions per instance** — Maximum
      number of user sessions on an instance. You must choose this value based
      on your end users' application performance needs. You can also adjust
@@ -195,14 +194,12 @@ Google Drive and OneDrive options are currently not available for
 multi-session fleets.
 
     * **Enable Home Folders** — By default, this setting is enabled. Keep the default setting. For information about requirements for enabling home
-     folders, see [Enable Home Folders for Your WorkSpaces Applications
-     Users](enable-home-folders.md "enable-home-folders.md").
+     folders, see [Enable Home Folders for Your WorkSpaces Applications Users](enable-home-folders.md "enable-home-folders.md").
     * **Enable Google Drive** — Optionally, you can enable users to link
      their Google Drive for G Suite account to WorkSpaces Applications. You can enable Google
      Drive for accounts in G Suite domains only, not for personal Gmail
      accounts. For information about requirements for enabling Google Drive,
-     see [Enable Google Drive for Your WorkSpaces Applications
-     Users](enable-google-drive.md "enable-google-drive.md").
+     see [Enable Google Drive for Your WorkSpaces Applications Users](enable-google-drive.md "enable-google-drive.md").
     * **Enable OneDrive** — Optionally, you can
      enable users to link their OneDrive for Business account to WorkSpaces Applications. You
      can enable OneDrive for accounts in OneDrive domains only, not for
@@ -241,8 +238,7 @@ multi-session fleets.
 
     ###### Important
 
-    If your users require WorkSpaces Applications file system redirection to access local drives and folders during their streaming sessions, you must enable both file upload and download. To use file system redirection, your users must have WorkSpaces Applications client version 1.0.480 or later installed. For more information, see [Enable File System Redirection for
-     Your WorkSpaces Applications Users](enable-file-system-redirection.md "enable-file-system-redirection.md").
+    If your users require WorkSpaces Applications file system redirection to access local drives and folders during their streaming sessions, you must enable both file upload and download. To use file system redirection, your users must have WorkSpaces Applications client version 1.0.480 or later installed. For more information, see [Enable File System Redirection for Your WorkSpaces Applications Users](enable-file-system-redirection.md "enable-file-system-redirection.md").
     * **Print to local device** — By default, users can print to their local device from within a streaming application. When they choose **Print** in the application, they can download a .pdf file that they can print to a local printer. You can disable this option to prevent users from printing to a local device.
     * **Password sign in for Active Directory** —
      Users can enter their Active Directory domain password to sign in to an WorkSpaces Applications streaming instance that is joined to an Active Directory domain.
@@ -280,8 +276,7 @@ control the authentication method that can be used for in-session authentication
 ###### Note
 
 For information about requirements for enabling and administering application settings
-persistence, see [Enable Application Settings Persistence for Your
-WorkSpaces Applications Users](app-settings-persistence.md "app-settings-persistence.md"). 11. For **Step 7: Review**, confirm the details for the stack. To change the
+persistence, see [Enable Application Settings Persistence for Your WorkSpaces Applications Users](app-settings-persistence.md "app-settings-persistence.md"). 11. For **Step 7: Review**, confirm the details for the stack. To change the
 configuration for any section, choose **Edit** and make the
 needed changes. After you finish reviewing the configuration details, choose
 **Create**. 12. In the pricing acknowledgement dialog box, select the acknowledgement check box, and choose **Create**. 13. After the service sets up resources, the **Stacks** page
@@ -326,11 +321,9 @@ during their WorkSpaces Applications streaming sessions. For more information, s
 For more information, see the following:
 
 - Learn how to use the WorkSpaces Applications image builder to add your own applications and create
-  images that you can stream to your users. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-  WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+  images that you can stream to your users. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 - Provide persistent storage for your session users by using WorkSpaces Applications home
-  folders, Google Drive, and OneDrive. For more information, see [Enable and Administer Persistent Storage for Your
-  WorkSpaces Applications Users](persistent-storage.md "persistent-storage.md").
+  folders, Google Drive, and OneDrive. For more information, see [Enable and Administer Persistent Storage for Your WorkSpaces Applications Users](persistent-storage.md "persistent-storage.md").
 - Integrate your WorkSpaces Applications streaming resources with your Microsoft Active
   Directory environment. For more information, see [Using Active Directory with WorkSpaces Applications](active-directory.md "active-directory.md").
 - Control who has access to your WorkSpaces Applications streaming instances. For more
@@ -338,6 +331,6 @@ For more information, see the following:
   [Amazon WorkSpaces Applications User Pools](user-pool.md "user-pool.md") and
   [Amazon WorkSpaces Applications Integration with SAML 2.0](external-identity-providers.md "external-identity-providers.md").
 - Monitor your WorkSpaces Applications resources by using Amazon CloudWatch. For more information, see
-  [WorkSpaces Applications Metrics and Dimensions](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md") .
+  [WorkSpaces Applications Metrics and Dimensions](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md").
 - Troubleshoot your WorkSpaces Applications streaming experience. For more information, see
   [Troubleshooting](troubleshooting.md "troubleshooting.md").

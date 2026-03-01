@@ -18,5 +18,4 @@ _Amazon VPC User Guide_.
 
 - [Create and Configure a New VPC](create-configure-new-vpc-with-private-public-subnets-nat.md "create-configure-new-vpc-with-private-public-subnets-nat.md")
 - [Add a NAT Gateway to an Existing VPC](add-nat-gateway-existing-vpc.md "add-nat-gateway-existing-vpc.md")
-- [Enable Internet Access for Your
-  Fleet, Image Builder, or App Block Builder in Amazon WorkSpaces Applications](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md")
+- [Enable Internet Access for Your Fleet, Image Builder, or App Block Builder in Amazon WorkSpaces Applications](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md")

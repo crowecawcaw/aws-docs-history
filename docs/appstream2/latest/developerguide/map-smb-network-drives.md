@@ -46,9 +46,7 @@ the same domain. Access the network share through the provided network path by n
 the network path folder. Choose **Properties**, **Sharing**,
 **Network Path**.
 
-## Step 4: Enable users to create symbolic links from
-
-local/domain Group Policy
+## Step 4: Enable users to create symbolic links from local/domain Group Policy
 
 Enable creating symbolic links from local/domain Group Policy for your users to ensure the
 session script or logon script defined in group policy. This allows you to create a script in Step 5

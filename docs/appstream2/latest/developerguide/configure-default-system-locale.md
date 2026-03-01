@@ -1,6 +1,4 @@
-# Specify a Default System
-
-Locale
+# Specify a Default System Locale
 
 To specify a default system locale for your users’ streaming sessions, perform the
 following steps.
@@ -43,8 +41,7 @@ error. After 10 minutes, you can log in as
 Otherwise, on the image builder desktop, open Image Assistant and install and
 configure applications for streaming. After you finish configuring your image
 builder, follow the necessary steps in Image Assistant to finish creating your
-image. For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). 11. Do one of the following:
+image. For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). 11. Do one of the following:
 
     * Create a new fleet and choose your new image for the fleet. For more
      information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").

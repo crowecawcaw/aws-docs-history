@@ -15,8 +15,7 @@ Following are requirements and considerations for enabling your users to use dra
   WorkSpaces Applications client to access WorkSpaces Applications and stream these applications. In
   addition, you must qualify your users' drawing tablets, and users
   must share their drawing tablets with WorkSpaces Applications every time they start a
-  new streaming session. For step-by-step guidance, see [Qualify USB Devices for Use with Streaming
-  Applications](qualify-usb-devices.md "qualify-usb-devices.md").
+  new streaming session. For step-by-step guidance, see [Qualify USB Devices for Use with Streaming Applications](qualify-usb-devices.md "qualify-usb-devices.md").
 - This feature is not supported on Chromebooks.
   To get started with using drawing tablets during application streaming
   sessions, users connect their drawing tablet to their local computer with

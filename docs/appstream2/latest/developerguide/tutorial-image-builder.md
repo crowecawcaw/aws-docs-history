@@ -1,6 +1,4 @@
-# Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-
-WorkSpaces Applications Console
+# Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console
 
 This tutorial describes how to create WorkSpaces Applications images that are based on Microsoft Windows
 Server operating systems. If you want to create custom images that are based on the Amazon
@@ -14,29 +12,20 @@ you must already have an image builder. If you don't have an image builder, see 
 ###### Important
 
 This tutorial includes information that applies to the latest base image release. For
-more information, see [WorkSpaces Applications Base Image and Managed Image Update
-Release Notes](base-image-version-history.md "base-image-version-history.md").
+more information, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md").
 
 ###### Contents
 
-- [Step 1: Install Applications on the
-  Image Builder](#tutorial-image-builder-install "#tutorial-image-builder-install")
-- [Step 2: Create an WorkSpaces Applications Application
-  Catalog](#tutorial-image-builder-add "#tutorial-image-builder-add")
-- [Step 3: Create Default
-  Application and Windows Settings](#tutorial-image-builder-create-default-app-settings "#tutorial-image-builder-create-default-app-settings")
-- [Step 4: Test
-  Applications](#tutorial-image-builder-test-applications "#tutorial-image-builder-test-applications")
+- [Step 1: Install Applications on the Image Builder](#tutorial-image-builder-install "#tutorial-image-builder-install")
+- [Step 2: Create an WorkSpaces Applications Application Catalog](#tutorial-image-builder-add "#tutorial-image-builder-add")
+- [Step 3: Create Default Application and Windows Settings](#tutorial-image-builder-create-default-app-settings "#tutorial-image-builder-create-default-app-settings")
+- [Step 4: Test Applications](#tutorial-image-builder-test-applications "#tutorial-image-builder-test-applications")
 - [Step 5: Optimize Applications](#tutorial-image-builder-optimize "#tutorial-image-builder-optimize")
-- [Step 6: Finish Creating
-  Your Image](#tutorial-image-builder-finish-create-image "#tutorial-image-builder-finish-create-image")
-- [Step 7 (Optional): Tag and Copy an
-  Image](#tutorial-image-builder-tag-copy "#tutorial-image-builder-tag-copy")
+- [Step 6: Finish Creating Your Image](#tutorial-image-builder-finish-create-image "#tutorial-image-builder-finish-create-image")
+- [Step 7 (Optional): Tag and Copy an Image](#tutorial-image-builder-tag-copy "#tutorial-image-builder-tag-copy")
 - [Step 8: Clean Up](#tutorial-image-builder-finish "#tutorial-image-builder-finish")
 
-## Step 1: Install Applications on the
-
-Image Builder
+## Step 1: Install Applications on the Image Builder
 
 In this step, you connect an image builder and install your applications on the image
 builder.
@@ -77,9 +66,7 @@ so. Before the operating system restarts, you are disconnected from your image
 builder. After the restart is complete, connect to the image builder again, then
 finish installing the application.
 
-## Step 2: Create an WorkSpaces Applications Application
-
-Catalog
+## Step 2: Create an WorkSpaces Applications Application Catalog
 
 In this step, create an WorkSpaces Applications application catalog by specifying applications
 (_.exe_), batch scripts (_.bat_), and application shortcuts (_.lnk_) for your image. For each application that you plan to stream, you
@@ -114,9 +101,7 @@ the applications appear on the **Add Apps** tab. When you're
 done, choose **Next** to continue using Image Assistant to
 create your image.
 
-## Step 3: Create Default
-
-Application and Windows Settings
+## Step 3: Create Default Application and Windows Settings
 
 In this step, you create default application and Windows settings for your WorkSpaces Applications
 users. Doing this enables your users to get started with applications quickly during
@@ -173,9 +158,7 @@ not have local administrator permissions.
 11. When you're done, choose **Next** to continue creating your
     image.
 
-## Step 4: Test
-
-Applications
+## Step 4: Test Applications
 
 In this step, verify that the applications you've added open correctly and perform as
 expected. To do so, start a new Windows session as a user who has the same permissions
@@ -259,9 +242,7 @@ list.
 4. When you're done, the next tab in Image Assistant, **5. Configure
    Image**, automatically displays.
 
-## Step 6: Finish Creating
-
-Your Image
+## Step 6: Finish Creating Your Image
 
 In this step, choose an image name and finish creating your image.
 
@@ -317,9 +298,7 @@ you must start and reconnect to the image builder that you used to create the im
 Or, if you deleted that image builder, launch a new image builder that is based on
 your image. Then, make your changes and create a new image.
 
-## Step 7 (Optional): Tag and Copy an
-
-Image
+## Step 7 (Optional): Tag and Copy an Image
 
 You can add one or more tags to an image during image creation or after you create an
 image. You can also copy the image within the same Region or to a new Region within the

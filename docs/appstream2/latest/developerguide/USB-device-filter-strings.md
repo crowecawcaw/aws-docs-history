@@ -1,6 +1,4 @@
-# Working with USB Device Filter
-
-Strings
+# Working with USB Device Filter Strings
 
 This section describes the filter strings that are available for qualifying
 USB devices for WorkSpaces Applications streaming sessions. It also provides guidance for working

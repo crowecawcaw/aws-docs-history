@@ -28,8 +28,6 @@ When you launch an image builder, you choose:
 - [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md")
 - [Connect to an Image Builder in Amazon WorkSpaces Applications](managing-image-builders-connect.md "managing-image-builders-connect.md")
 - [Image Builder Actions](managing-image-builders-actions.md "managing-image-builders-actions.md")
-- [Instance Metadata for WorkSpaces Applications
-  Image Builders](user-instance-metadata-image-builders.md "user-instance-metadata-image-builders.md")
+- [Instance Metadata for WorkSpaces Applications Image Builders](user-instance-metadata-image-builders.md "user-instance-metadata-image-builders.md")
 - [Install AMD Driver on Graphics Design Instances](AMD-driver.md "AMD-driver.md")
-- [WorkSpaces Applications Base Image and Managed Image Update
-  Release Notes](base-image-version-history.md "base-image-version-history.md")
+- [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md")

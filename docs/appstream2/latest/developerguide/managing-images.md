@@ -6,8 +6,7 @@ applications quickly. However, after you create an image, you can't change it. T
 applications, update existing applications, or change image settings, you must start and
 reconnect to the image builder that you used to create the image. If you deleted that image
 builder, launch a new image builder that is based on your image. Then make your changes and
-create a new image. For more information, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md") and [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+create a new image. For more information, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md") and [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 Images that are available to you are listed in the **Image Registry**
 in the WorkSpaces Applications console. They are categorized as public, private, or shared. You can use any of
@@ -20,10 +19,8 @@ with you may limit what you can do with those images. For more information, see 
 - [Default Application and Windows Settings and Application Launch Performance in Amazon WorkSpaces Applications](customizing-appstream-images.md "customizing-appstream-images.md")
 - [Manage WorkSpaces Applications Agent Versions](base-images-agent.md "base-images-agent.md")
 - [WorkSpaces Applications Agent Release Notes](agent-software-versions.md "agent-software-versions.md")
-- [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-  WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md")
+- [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md")
 - [Administer Your Amazon WorkSpaces Applications Images](administer-images.md "administer-images.md")
 - [Create Your Amazon WorkSpaces Applications Image Programmatically by Using the Image Assistant CLI Operations](programmatically-create-image.md "programmatically-create-image.md")
 - [Create Your Linux-Based Images](create-linux-based-images.md "create-linux-based-images.md")
-- [Use Session Scripts to Manage Your Amazon WorkSpaces Applications Users'
-  Streaming Experience](use-session-scripts.md "use-session-scripts.md")
+- [Use Session Scripts to Manage Your Amazon WorkSpaces Applications Users' Streaming Experience](use-session-scripts.md "use-session-scripts.md")

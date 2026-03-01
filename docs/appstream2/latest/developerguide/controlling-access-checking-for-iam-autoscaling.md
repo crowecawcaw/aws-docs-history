@@ -1,7 +1,4 @@
-# Checking for the
-
-ApplicationAutoScalingForAmazonAppStreamAccess Service Role
-and Policies
+# Checking for the ApplicationAutoScalingForAmazonAppStreamAccess Service Role and Policies
 
 Complete the steps in this section to check whether the
 **ApplicationAutoScalingForAmazonAppStreamAccess**
@@ -10,9 +7,7 @@ in your account and must be created, you or an administrator with the required
 permissions must perform the steps to get started with WorkSpaces Applications in your Amazon Web Services
 account.
 
-###### To check whether the ApplicationAutoScalingForAmazonAppStreamAccess
-
-IAM service role is present
+###### To check whether the ApplicationAutoScalingForAmazonAppStreamAccessIAM service role is present
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -33,9 +28,7 @@ IAM service role is present
    the trust relationship is correctly configured. Choose
    **Cancel** and close the IAM console.
 
-## ApplicationAutoScalingForAmazonAppStreamAccess trust
-
-relationship policy
+## ApplicationAutoScalingForAmazonAppStreamAccess trust relationship policy
 
 The
 **ApplicationAutoScalingForAmazonAppStreamAccess**

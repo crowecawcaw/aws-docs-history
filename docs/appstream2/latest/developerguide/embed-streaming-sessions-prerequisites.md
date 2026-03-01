@@ -5,8 +5,7 @@ To embed an WorkSpaces Applications streaming session in a website, you must hav
 - A configured WorkSpaces Applications environment that includes an WorkSpaces Applications image, fleet, and
   stack. For information about how to create these resources, see the following
   topics in the _WorkSpaces Applications Administration Guide_:
-  - [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-    WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md") or [Create Your Amazon WorkSpaces Applications Image Programmatically by Using the Image Assistant CLI Operations](programmatically-create-image.md "programmatically-create-image.md")
+  - [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md") or [Create Your Amazon WorkSpaces Applications Image Programmatically by Using the Image Assistant CLI Operations](programmatically-create-image.md "programmatically-create-image.md")
   - [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md")
   - [Create a Stack in Amazon WorkSpaces Applications](set-up-stacks-fleets-install.md "set-up-stacks-fleets-install.md")
 

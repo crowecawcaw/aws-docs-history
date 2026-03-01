@@ -1,6 +1,4 @@
-# Amazon WorkSpaces Applications Cross-Service Confused Deputy
-
-Prevention
+# Amazon WorkSpaces Applications Cross-Service Confused Deputy Prevention
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action coerces a more-privileged entity to perform the action. In
@@ -38,11 +36,7 @@ these keys to protect your resources:
 
 ###### Topics
 
-- [Example: WorkSpaces Applications service role cross-service
-  confused deputy prevention](example-confused-deputy.md "example-confused-deputy.md")
-- [Example: WorkSpaces Applications fleet machine role cross-service
-  confused deputy prevention](example-fleet-machine.md "example-fleet-machine.md")
-- [Example: WorkSpaces Applications Elastic fleets session script
-  Amazon S3 bucket policy cross-service confused deputy prevention](example-elastic-fleets.md "example-elastic-fleets.md")
-- [Example: WorkSpaces Applications Application Amazon S3 bucket policy
-  cross-service confused deputy prevention](example-s3-bucket.md "example-s3-bucket.md")
+- [Example: WorkSpaces Applications service role cross-service confused deputy prevention](example-confused-deputy.md "example-confused-deputy.md")
+- [Example: WorkSpaces Applications fleet machine role cross-service confused deputy prevention](example-fleet-machine.md "example-fleet-machine.md")
+- [Example: WorkSpaces Applications Elastic fleets session script Amazon S3 bucket policy cross-service confused deputy prevention](example-elastic-fleets.md "example-elastic-fleets.md")
+- [Example: WorkSpaces Applications Application Amazon S3 bucket policy cross-service confused deputy prevention](example-s3-bucket.md "example-s3-bucket.md")

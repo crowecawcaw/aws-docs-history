@@ -2,8 +2,7 @@
 
 Amazon WorkSpaces Applications supports the following options for persistent storage: Home folders, Google
 Drive for G Suite, and OneDrive for Business. Because content synchronization behaviors
-are consistent across these persistent storage solutions, we recommend that you review [Home Folder Content
-Synchronization](home-folders-content-synchronization.md "home-folders-content-synchronization.md") for information about expected behavior.
+are consistent across these persistent storage solutions, we recommend that you review [Home Folder Content Synchronization](home-folders-content-synchronization.md "home-folders-content-synchronization.md") for information about expected behavior.
 
 The following are issues that might occur when you or your users use WorkSpaces Applications persistent storage.
 
@@ -11,9 +10,7 @@ The following are issues that might occur when you or your users use WorkSpaces 
 
 - [My stack's home folders aren't working correctly.](#troubleshooting-s3-failures "#troubleshooting-s3-failures")
 - [My users can't access their home folder directory from one of our applications.](#alternate-path-accessing-home-folders "#alternate-path-accessing-home-folders")
-- [My users receive a “Device is not ready”
-  error message when they access their home folder from one of our
-  applications.](#alternate-path-accessing-home-folders "#alternate-path-accessing-home-folders")
+- [My users receive a “Device is not ready” error message when they access their home folder from one of our applications.](#alternate-path-accessing-home-folders "#alternate-path-accessing-home-folders")
 - [I removed or replaced a file in a user’s home folder in Amazon S3, but my users don’t see the changes in their home folder on the fleet instance during their streaming sessions.](#removed-replaced-folder-in-s3-users-dont-see-changes-on-fleet-instance "#removed-replaced-folder-in-s3-users-dont-see-changes-on-fleet-instance")
 - [Persistent storage isn't performing as expected. My users' files are taking longer than expected to save to persistent storage.](#troubleshooting-persistent-storage-applications-take-long-time-to-save-to-home-folder "#troubleshooting-persistent-storage-applications-take-long-time-to-save-to-home-folder")
 - [My users are getting errors that files are already in use when their files are not in use.](#troubleshooting-persistent-storage-application-errors-files-already-in-use "#troubleshooting-persistent-storage-application-errors-files-already-in-use")
@@ -48,10 +45,7 @@ either of the following directories:
   Folder
 - Linux instances: ~/MyFiles/HomeFolder
 
-## My users receive a “Device is not ready”
-
-error message when they access their home folder from one of our
-applications.
+## My users receive a “Device is not ready” error message when they access their home folder from one of our applications.
 
 Persistent storage mounting happens after a user logs in, and it can take several
 seconds. A “Device is not ready” error can happen if your application is trying to
@@ -60,8 +54,7 @@ complete. We recommend that you try again after waiting for a few minutes.
 
 To avoid this issue, you can use session scripts and monitor the storage mounting
 status. Then, start the streaming session after mounting is complete. This also
-improves your end-users’ experience. For more information, see [Use Session Scripts to Manage Your Amazon WorkSpaces Applications Users'
-Streaming Experience](use-session-scripts.md "use-session-scripts.md").
+improves your end-users’ experience. For more information, see [Use Session Scripts to Manage Your Amazon WorkSpaces Applications Users' Streaming Experience](use-session-scripts.md "use-session-scripts.md").
 
 ## I removed or replaced a file in a user’s home folder in Amazon S3, but my users don’t see the changes in their home folder on the fleet instance during their streaming sessions.
 
@@ -85,8 +78,7 @@ The availability of the file on the fleet instance during a user’s next stream
 session depends on whether the user changed the file on the fleet instance before or
 after you changed the file in the S3 bucket.
 
-For more information, see [Home Folder Content
-Synchronization](home-folders-content-synchronization.md "home-folders-content-synchronization.md").
+For more information, see [Home Folder Content Synchronization](home-folders-content-synchronization.md "home-folders-content-synchronization.md").
 
 ## Persistent storage isn't performing as expected. My users' files are taking longer than expected to save to persistent storage.
 

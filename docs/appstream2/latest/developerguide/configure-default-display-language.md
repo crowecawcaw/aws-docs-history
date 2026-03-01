@@ -1,6 +1,4 @@
-# Specify a Default Display
-
-Language
+# Specify a Default Display Language
 
 There are two ways to specify the default display language for your users’ streaming
 sessions. Use the WorkSpaces Applications default application and Windows settings feature, or configure
@@ -63,8 +61,7 @@ Commands**, **Switch User**.
 Otherwise, on the image builder desktop, open Image Assistant and install and
 configure applications for streaming. 13. In Step 2 of the Image Assistant process, choose **Save
 settings**. 14. Follow the necessary steps in Image Assistant to finish creating your image.
-For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). 15. Do one of the following:
+For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). 15. Do one of the following:
 
     * Create a new fleet and choose your new image for the fleet. For
      information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
@@ -89,8 +86,7 @@ process, the **Template User** settings take precedence.
 Your users can change their user locale and input method from the default settings
 that you configured. They can change to any one of 11 different supported locales
 and nine different supported input methods. To do so, they can configure their
-regional settings during application streaming sessions, as described in [Enable Your WorkSpaces Applications Users to Configure Their Regional
-Settings](regional-settings.md "regional-settings.md"). Also, if a user
+regional settings during application streaming sessions, as described in [Enable Your WorkSpaces Applications Users to Configure Their Regional Settings](regional-settings.md "regional-settings.md"). Also, if a user
 previously selected a user locale or input method when streaming from any fleet
 instance in the same Region, those user-specified settings automatically override
 any default user locale and input method that you specify through your image

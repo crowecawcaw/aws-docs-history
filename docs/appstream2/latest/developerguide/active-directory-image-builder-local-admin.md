@@ -1,6 +1,4 @@
-# Granting Local Administrator Rights on
-
-Image Builders
+# Granting Local Administrator Rights on Image Builders
 
 By default, Active Directory domain users do not have local administrator rights
 on image builder instances. You can grant these rights by using Group Policy

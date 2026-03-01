@@ -1,6 +1,4 @@
-# Change System
-
-Environment Variables
+# Change System Environment Variables
 
 Follow these steps to change system environment variables across your fleet
 instances.
@@ -37,8 +35,7 @@ your fleet instances, perform the steps in the next procedure.
    choose **OK**.
 5. On the image builder desktop, open Image Assistant.
 6. Follow the necessary steps in Image Assistant to finish creating your
-   image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 The changes to the system environment variables persist across your fleet
 instances and are available to streaming sessions launched from those

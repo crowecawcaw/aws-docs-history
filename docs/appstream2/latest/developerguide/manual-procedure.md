@@ -8,15 +8,12 @@ images with these rights maintain the same rights.
 The Active Directory users or groups to which to grant local administrator
 rights must already exist.
 
-###### To add Active Directory users or groups to the local Administrators group
-
-on the image builder
+###### To add Active Directory users or groups to the local Administrators group on the image builder
 
 1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
 2. Connect to the image builder in Administrator mode. The image builder
-   must be running and domain-joined. For more information, see [Tutorial: Setting Up Active
-   Directory](active-directory-directory-setup.md "active-directory-directory-setup.md").
+   must be running and domain-joined. For more information, see [Tutorial: Setting Up Active Directory](active-directory-directory-setup.md "active-directory-directory-setup.md").
 3. Choose **Start**, **Administrative
    Tools**, and then double-click **Computer
    Management**.

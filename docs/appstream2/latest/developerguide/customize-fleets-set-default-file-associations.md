@@ -1,6 +1,4 @@
-# Set Default File
-
-Associations for Your Users in Amazon WorkSpaces Applications
+# Set Default File Associations for Your Users in Amazon WorkSpaces Applications
 
 The associations for application file extensions are set on a per-user basis and so
 are not automatically applied to all users who launch WorkSpaces Applications streaming sessions. For
@@ -103,8 +101,7 @@ associations configuration file:
 9. Close Local Group Policy Editor or the GPMC.
 10. On the image builder desktop, open Image Assistant.
 11. Follow the necessary steps in Image Assistant to finish creating your image.
-    For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-    WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+    For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 The file associations that you configured are applied to the fleet instances
 and user streaming sessions that are launched from those instances.

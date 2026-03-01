@@ -1,6 +1,4 @@
-# Roles Required for WorkSpaces Applications, Application Auto Scaling,
-
-and AWS Certificate Manager Private CA
+# Roles Required for WorkSpaces Applications, Application Auto Scaling, and AWS Certificate Manager Private CA
 
 In AWS, IAM roles are used to grant permissions to an AWS service so it can
 access AWS resources. The policies that are attached to the role determine
@@ -30,8 +28,7 @@ create fleets, you must have this role in your account. If this role is
 not in your AWS account and the required IAM permissions and trust
 relationship policies are not attached, you cannot create WorkSpaces Applications fleets.
 
-For more information, see [Checking for the
-AmazonAppStreamServiceAccess Service Role and Policies](controlling-access-checking-for-iam-service-access.md "controlling-access-checking-for-iam-service-access.md") to
+For more information, see [Checking for the AmazonAppStreamServiceAccess Service Role and Policies](controlling-access-checking-for-iam-service-access.md "controlling-access-checking-for-iam-service-access.md") to
 check whether the **AmazonAppStreamServiceAccess** service role
 is present and has the correct policies attached.
 
@@ -55,9 +52,7 @@ If this service role is not in your AWS account and the required
 IAM permissions and trust relationship policies are not attached, you
 cannot scale WorkSpaces Applications fleets.
 
-For more information, see [Checking for the
-ApplicationAutoScalingForAmazonAppStreamAccess Service Role
-and Policies](controlling-access-checking-for-iam-autoscaling.md "controlling-access-checking-for-iam-autoscaling.md").
+For more information, see [Checking for the ApplicationAutoScalingForAmazonAppStreamAccess Service Role and Policies](controlling-access-checking-for-iam-autoscaling.md "controlling-access-checking-for-iam-autoscaling.md").
 
 ## AWSServiceRoleForApplicationAutoScaling_AppStreamFleet
 
@@ -69,9 +64,7 @@ behalf. A _service-linked role_ is an IAM role that is
 linked directly to an AWS service. This role includes all the permissions that
 the service requires to call other AWS services on your behalf.
 
-For more information, see [Checking for the
-AWSServiceRoleForApplicationAutoScaling_AppStreamFleet Service-Linked Role and
-Policies](controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md "controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md").
+For more information, see [Checking for the AWSServiceRoleForApplicationAutoScaling_AppStreamFleet Service-Linked Role and Policies](controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md "controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md").
 
 ## AmazonAppStreamPCAAccess
 
@@ -88,5 +81,4 @@ service role is not in your AWS account and the required IAM permissions and
 trust relationship policies are not attached, you cannot enable or use
 certificate-based authentication.
 
-For more information, see [Checking for the
-AmazonAppStreamPCAAccess Service Role and Policies](controlling-access-checking-for-AppStreamPCAAccess.md "controlling-access-checking-for-AppStreamPCAAccess.md").
+For more information, see [Checking for the AmazonAppStreamPCAAccess Service Role and Policies](controlling-access-checking-for-AppStreamPCAAccess.md "controlling-access-checking-for-AppStreamPCAAccess.md").

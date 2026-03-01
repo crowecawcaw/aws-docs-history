@@ -1,6 +1,4 @@
-# Connect to WorkSpaces Applications on
-
-Windows Client
+# Connect to WorkSpaces Applications on Windows Client
 
 After the WorkSpaces Applications client for Windows is installed on your PC, you can use it to
 connect to WorkSpaces Applications.

@@ -1,6 +1,4 @@
-# Enable and Administer Google Drive for Your WorkSpaces Applications
-
-Users
+# Enable and Administer Google Drive for Your WorkSpaces Applications Users
 
 ###### Note
 
@@ -35,7 +33,5 @@ associated with multi-session fleets.
 
 ###### Contents
 
-- [Enable Google Drive for Your WorkSpaces Applications
-  Users](enable-google-drive.md "enable-google-drive.md")
-- [Disable Google Drive for Your WorkSpaces Applications
-  Users](disable-google-drive.md "disable-google-drive.md")
+- [Enable Google Drive for Your WorkSpaces Applications Users](enable-google-drive.md "enable-google-drive.md")
+- [Disable Google Drive for Your WorkSpaces Applications Users](disable-google-drive.md "disable-google-drive.md")

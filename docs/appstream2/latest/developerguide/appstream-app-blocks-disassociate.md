@@ -1,6 +1,4 @@
-# Disassociate an App
-
-Block in Amazon WorkSpaces Applications
+# Disassociate an App Block in Amazon WorkSpaces Applications
 
 If all your app block builders are associated with other app blocks, and you
 want to test, create, or activate another app block, then you can either create

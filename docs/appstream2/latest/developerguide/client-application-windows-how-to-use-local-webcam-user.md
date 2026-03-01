@@ -1,14 +1,10 @@
-# Video
-
-and Audio Conferencing
+# Video and Audio Conferencing
 
 WorkSpaces Applications real-time audio-video (AV) redirects your local webcam video input to
 WorkSpaces Applications streaming sessions. That way, you can use your local devices for video
 and audio conferencing within your WorkSpaces Applications streaming session.
 
-###### To use a local webcam and microphone within an WorkSpaces Applications streaming
-
-session
+###### To use a local webcam and microphone within an WorkSpaces Applications streaming session
 
 1. Open the WorkSpaces Applications client and connect to a streaming session.
 2. In the WorkSpaces Applications toolbar in the top left of your session window, do
@@ -52,9 +48,7 @@ If you have more than one webcam and want to change the one that you use
 for streaming within an WorkSpaces Applications session, you must first detach your webcams
 from the session. For more information, see the next procedure.
 
-###### To change the local webcam to use within an WorkSpaces Applications streaming
-
-session
+###### To change the local webcam to use within an WorkSpaces Applications streaming session
 
 1. Within your WorkSpaces Applications streaming session, in the WorkSpaces Applications toolbar in the top
    left of your session window, do either of the following:

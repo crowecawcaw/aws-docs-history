@@ -8,8 +8,7 @@ enabled on the stack associated with the elastic fleet.
 
 WorkSpaces Applications uses your VPC details to download the VHD and setup script from the
 Amazon S3 bucket. Your VPC must provide access to the Amazon S3 bucket. For more
-information, see [Using Amazon S3 VPC Endpoints for
-WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
+information, see [Using Amazon S3 VPC Endpoints for WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
 
 Application Settings Persistence is enabled:
 

@@ -17,5 +17,4 @@ If you have already configured a VPC, complete the following steps to add a NAT 
    **Next Steps**
 
 To enable your fleet instances, app block builders, and image builders to
-access the internet, complete the steps in [Enable Internet Access for Your
-Fleet, Image Builder, or App Block Builder in Amazon WorkSpaces Applications](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md").
+access the internet, complete the steps in [Enable Internet Access for Your Fleet, Image Builder, or App Block Builder in Amazon WorkSpaces Applications](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md").

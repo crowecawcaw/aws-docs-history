@@ -3,9 +3,7 @@
 Use the following steps to enable diagnostic log uploads and determine your
 client version and client ID.
 
-## Enable Diagnostic Log
-
-Uploads
+## Enable Diagnostic Log Uploads
 
 To troubleshoot issues with the WorkSpaces Applications client, you can enable diagnostic
 logging. The log files that are sent to WorkSpaces Applications include detailed information

@@ -1,8 +1,7 @@
 # Creating Session Scripts
 
 WorkSpaces Applications provides on-instance session scripts on both Windows- and Linux-based streaming
-instances. For more information about session scripts, see [Use Session Scripts to Manage Your Amazon WorkSpaces Applications Users'
-Streaming Experience](use-session-scripts.md "use-session-scripts.md").
+instances. For more information about session scripts, see [Use Session Scripts to Manage Your Amazon WorkSpaces Applications Users' Streaming Experience](use-session-scripts.md "use-session-scripts.md").
 
 Session scripts are specified within an WorkSpaces Applications image. To locate the session scripts
 configuration file on a Linux instance, navigate to

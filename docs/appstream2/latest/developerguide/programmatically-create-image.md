@@ -28,5 +28,4 @@ see [Launch an Image Builder to Install and Configure Streaming Applications](tu
 - [Creating Default Application and Windows Settings with the Image Assistant CLI operations](create-default-app-windows-settings-image-assistant.md "create-default-app-windows-settings-image-assistant.md")
 - [Optimizing the Launch Performance of Your Applications with the Image Assistant CLI Operations](optimize-app-launch-performance-image-assistant-cli.md "optimize-app-launch-performance-image-assistant-cli.md")
 - [Process Overview for Programmatically Creating an Amazon WorkSpaces Applications Image](process-overview-creating-image-programmatically-image-assistant-cli.md "process-overview-creating-image-programmatically-image-assistant-cli.md")
-- [Image Assistant
-  CLI Operations for Creating and Managing Your Amazon WorkSpaces Applications Image](cli-operations-managing-creating-image-image-assistant.md "cli-operations-managing-creating-image-image-assistant.md")
+- [Image Assistant CLI Operations for Creating and Managing Your Amazon WorkSpaces Applications Image](cli-operations-managing-creating-image-image-assistant.md "cli-operations-managing-creating-image-image-assistant.md")

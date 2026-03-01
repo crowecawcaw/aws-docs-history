@@ -1,6 +1,4 @@
-# Native Application
-
-Mode
+# Native Application Mode
 
 ###### Note
 

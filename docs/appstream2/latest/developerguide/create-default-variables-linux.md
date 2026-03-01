@@ -1,6 +1,4 @@
-# Creating Default Environment Variables for
-
-Your Linux Users
+# Creating Default Environment Variables for Your Linux Users
 
 You can create environment variables on a Linux Image Builder instance. Creating
 environment variables makes them available on streaming instances created from that

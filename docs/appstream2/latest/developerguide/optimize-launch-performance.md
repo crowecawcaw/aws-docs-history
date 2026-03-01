@@ -1,6 +1,4 @@
-# Optimizing the Launch Performance of Your
-
-Linux Applications
+# Optimizing the Launch Performance of Your Linux Applications
 
 If you are using the Image Assistant GUI tool, the tool optimizes launch performance
 for your applications automatically.
@@ -45,5 +43,4 @@ parent process found in step 3, and save it to a temporary manifest file.
 /tmp/<y`our-app`>-manifest.txt** 8. Verify the content of the optimization manifest, which is a line-delimited
 text file for every application.
 You can specify the optimization manifest on a per-application basis by using the
-Image Assistant command line interface (CLI) tool. For more information, see [Using the Image Assistant CLI Tool for
-Linux](image-assistant-cli.md "image-assistant-cli.md").
+Image Assistant command line interface (CLI) tool. For more information, see [Using the Image Assistant CLI Tool for Linux](image-assistant-cli.md "image-assistant-cli.md").

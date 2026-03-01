@@ -31,8 +31,7 @@ alarms and WorkSpaces Applications fleets. For more information, see [Using AWS 
 When you use scaling, you work with the Application Auto Scaling API. For Fleet Auto Scaling to work
 correctly for WorkSpaces Applications, Application Auto Scaling requires permission to describe and update your WorkSpaces Applications
 fleets and describe your Amazon CloudWatch alarms, and permissions to modify your fleet capacity
-on your behalf. For more information, see [Roles Required for WorkSpaces Applications, Application Auto Scaling,
-and AWS Certificate Manager Private CA](roles-required-for-appstream.md "roles-required-for-appstream.md") and [Using IAM Policies to Manage Administrator Access to Application Auto Scaling](autoscaling-iam-policy.md "autoscaling-iam-policy.md").
+on your behalf. For more information, see [Roles Required for WorkSpaces Applications, Application Auto Scaling, and AWS Certificate Manager Private CA](roles-required-for-appstream.md "roles-required-for-appstream.md") and [Using IAM Policies to Manage Administrator Access to Application Auto Scaling](autoscaling-iam-policy.md "autoscaling-iam-policy.md").
 
 The following topics provide information to help you understand and use WorkSpaces Applications Fleet Auto
 Scaling.

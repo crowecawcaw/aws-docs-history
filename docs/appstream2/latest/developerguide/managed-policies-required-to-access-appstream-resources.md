@@ -9,8 +9,7 @@ can access AWS resources. The policies that are attached to the role determine
 which AWS resources the service can access and what it can do with those
 resources. For WorkSpaces Applications, in addition to having the permissions defined in the
 **AmazonAppStreamFullAccess** policy, you must also have
-the required roles in your AWS account. For more information, see [Roles Required for WorkSpaces Applications, Application Auto Scaling,
-and AWS Certificate Manager Private CA](roles-required-for-appstream.md "roles-required-for-appstream.md").
+the required roles in your AWS account. For more information, see [Roles Required for WorkSpaces Applications, Application Auto Scaling, and AWS Certificate Manager Private CA](roles-required-for-appstream.md "roles-required-for-appstream.md").
 
 **AmazonAppStreamFullAccess**
 
@@ -96,9 +95,7 @@ to access WorkSpaces Applications and CloudWatch .
 
 To view the permissions for this policy, see [AWSApplicationAutoscalingAppStreamFleetPolicy](../../../aws-managed-policy/latest/reference/AWSApplicationAutoscalingAppStreamFleetPolicy.md "../../../aws-managed-policy/latest/reference/AWSApplicationAutoscalingAppStreamFleetPolicy.md") .
 
-## WorkSpaces Applications updates to AWS managed
-
-policies
+## WorkSpaces Applications updates to AWS managed policies
 
 View details about updates to AWS managed policies for WorkSpaces Applications since this
 service began tracking these changes. For automatic alerts about changes to this

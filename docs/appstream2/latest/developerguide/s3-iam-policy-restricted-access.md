@@ -1,6 +1,4 @@
-# Restricting Administrator Access to
-
-the Amazon S3 Bucket for Home Folders and Application Settings Persistence
+# Restricting Administrator Access to the Amazon S3 Bucket for Home Folders and Application Settings Persistence
 
 By default, administrators who can access the Amazon S3 buckets created by WorkSpaces Applications can
 view and modify content that is part of users' home folders and persistent

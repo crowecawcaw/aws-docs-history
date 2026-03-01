@@ -1,26 +1,17 @@
-# Creating Default Application Settings for Your
-
-Users
+# Creating Default Application Settings for Your Users
 
 Follow these steps to create default application settings for your users.
 
 ###### Contents
 
-- [Step 1: Install Linux Applications on
-  the Image Builder](#app-settings-image-install "#app-settings-image-install")
-- [Step 2: Create a TemplateUser
-  Account](#app-settings-template-user "#app-settings-template-user")
-- [Step 3: Create Default
-  Application Settings](#app-settings-image-create-default-app-settings "#app-settings-image-create-default-app-settings")
-- [Step 4: Save Default
-  Application Settings](#app-settings-image-save-default-app-settings "#app-settings-image-save-default-app-settings")
-- [Step 5: Test Default
-  Application Settings (optional)](#app-settings-image-test-applications "#app-settings-image-test-applications")
+- [Step 1: Install Linux Applications on the Image Builder](#app-settings-image-install "#app-settings-image-install")
+- [Step 2: Create a TemplateUser Account](#app-settings-template-user "#app-settings-template-user")
+- [Step 3: Create Default Application Settings](#app-settings-image-create-default-app-settings "#app-settings-image-create-default-app-settings")
+- [Step 4: Save Default Application Settings](#app-settings-image-save-default-app-settings "#app-settings-image-save-default-app-settings")
+- [Step 5: Test Default Application Settings (optional)](#app-settings-image-test-applications "#app-settings-image-test-applications")
 - [Step 6: Clean Up](#app-settings-image-finish "#app-settings-image-finish")
 
-## Step 1: Install Linux Applications on
-
-the Image Builder
+## Step 1: Install Linux Applications on the Image Builder
 
 In this step, you connect a Linux image builder and install your applications on
 the image builder.
@@ -46,9 +37,7 @@ the image builder.
 **[ImageBuilderAdmin]$ sudo yum update && sudo yum install
 chromium.x86_64**
 
-## Step 2: Create a TemplateUser
-
-Account
+## Step 2: Create a TemplateUser Account
 
 In this step, you create a TemplateUser account, which creates default application
 settings for your streaming users.
@@ -67,9 +56,7 @@ settings for your streaming users.
 
 **[ImageBuilderAdmin]$ su - TemplateUser**
 
-## Step 3: Create Default
-
-Application Settings
+## Step 3: Create Default Application Settings
 
 In this step, you create default application settings for your WorkSpaces Applications users. Doing
 this enables your users to get started with applications quickly during their WorkSpaces Applications
@@ -88,9 +75,7 @@ of the Chromium browser as
 
 **[TemplateUser]$ logout**
 
-## Step 4: Save Default
-
-Application Settings
+## Step 4: Save Default Application Settings
 
 In this step, you copy the default application settings you added to the
 **/etc/skel/** directory, and make them available to your
@@ -104,9 +89,7 @@ streaming users.
 **[ImageBuilderAdmin]$ sudo cp -r -f /home/TemplateUser/.
 /etc/skel**
 
-## Step 5: Test Default
-
-Application Settings (optional)
+## Step 5: Test Default Application Settings (optional)
 
 In this step, verify that the applications you've added run correctly, and the
 default application settings work as expected.

@@ -1,6 +1,4 @@
-# Enable Application Settings Persistence for Your
-
-WorkSpaces Applications Users
+# Enable Application Settings Persistence for Your WorkSpaces Applications Users
 
 WorkSpaces Applications supports persistent application settings for Windows-based stacks. This means that
 your users' application customizations and Windows settings are automatically saved after
@@ -23,9 +21,6 @@ information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https:/
 
 ###### Contents
 
-- [How Application Settings
-  Persistence Works](how-it-works-app-settings-persistence.md "how-it-works-app-settings-persistence.md")
-- [Enabling Application Settings
-  Persistence](enabling-app-settings-persistence.md "enabling-app-settings-persistence.md")
-- [Administer the VHDs for Your Users'
-  Application Settings](administer-app-settings-vhds.md "administer-app-settings-vhds.md")
+- [How Application Settings Persistence Works](how-it-works-app-settings-persistence.md "how-it-works-app-settings-persistence.md")
+- [Enabling Application Settings Persistence](enabling-app-settings-persistence.md "enabling-app-settings-persistence.md")
+- [Administer the VHDs for Your Users' Application Settings](administer-app-settings-vhds.md "administer-app-settings-vhds.md")

@@ -1,6 +1,4 @@
-# Enable File System Redirection for
-
-Your WorkSpaces Applications Users
+# Enable File System Redirection for Your WorkSpaces Applications Users
 
 WorkSpaces Applications file system redirection lets users who have the WorkSpaces Applications client installed
 access files on their local computer from within their streaming session. When you
@@ -18,11 +16,7 @@ instances, or when using the macOS client.
 
 ###### Topics
 
-- [Prerequisites for File
-  System Redirection](file-system-redirection-prerequisites.md "file-system-redirection-prerequisites.md")
-- [How to Enable File
-  System Redirection](how-to-enable-file-system-redirection.md "how-to-enable-file-system-redirection.md")
-- [Make
-  Default Drives and Folders Available for Your Users to Share](prepopulate-drives-folders-system-redirection.md "prepopulate-drives-folders-system-redirection.md")
-- [Provide Your WorkSpaces Applications
-  Users with Guidance for Working with File System Redirection](end-user-guidance-file-system-redirection.md "end-user-guidance-file-system-redirection.md")
+- [Prerequisites for File System Redirection](file-system-redirection-prerequisites.md "file-system-redirection-prerequisites.md")
+- [How to Enable File System Redirection](how-to-enable-file-system-redirection.md "how-to-enable-file-system-redirection.md")
+- [Make Default Drives and Folders Available for Your Users to Share](prepopulate-drives-folders-system-redirection.md "prepopulate-drives-folders-system-redirection.md")
+- [Provide Your WorkSpaces Applications Users with Guidance for Working with File System Redirection](end-user-guidance-file-system-redirection.md "end-user-guidance-file-system-redirection.md")

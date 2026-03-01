@@ -6,8 +6,7 @@ authentication.
 1. Set up a domain-joined fleet and configure SAML 2.0. Ensure that you use
    the `username@domain.com`
    `userPrincipalName` format for the SAML_Subject
-   `NameID`. For more information, see [Step 5: Create
-   Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions").
+   `NameID`. For more information, see [Step 5: Create Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions").
 
 ###### Note
 
@@ -19,16 +18,14 @@ can use this attribute to perform strong mapping with the Active Directory
 user. Certificate-based authentication fails if the `ObjectSid`
 attribute doesn't match the Active Directory security identifier (SID) for
 the user specified in the SAML_Subject `NameID`. For more
-information, see [Step 5: Create
-Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions"). The
+information, see [Step 5: Create Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions"). The
 `ObjectSid` is mandatory for certificate-based authentication
 after September 10, 2025. For more information, see [KB5014754: Certificate-based authentication changes on Windows domain
 controllers](https://support.microsoft.com/en-us/topic/kb5014754-certificate-based-authentication-changes-on-windows-domain-controllers-ad2c23b0-15d8-4340-a468-4d4f3b188f16 "https://support.microsoft.com/en-us/topic/kb5014754-certificate-based-authentication-changes-on-windows-domain-controllers-ad2c23b0-15d8-4340-a468-4d4f3b188f16"). 4. Add the `sts:TagSession` permission to the IAM role trust
 policy that you use with your SAML 2.0 configuration. For more information,
 see [Passing session
 tags in AWS STS](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md"). This permission is required to use
-certificate-based authentication. For more information, see [Step 2: Create a SAML 2.0 Federation IAM
-Role](external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms "external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms"). 5. Create a private certificate authority (CA) using AWS Private CA, if you
+certificate-based authentication. For more information, see [Step 2: Create a SAML 2.0 Federation IAM Role](external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms "external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms"). 5. Create a private certificate authority (CA) using AWS Private CA, if you
 don't have one configured with your Active Directory. AWS Private CA is
 required to use certificate-based authentication. For more information, see
 [Planning your AWS Private CA

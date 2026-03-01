@@ -7,7 +7,6 @@ system, your applications, and their dependencies. For more information, see [Ke
 
 You can keep your WorkSpaces Applications image up-to-date by using managed WorkSpaces Applications image updates. This
 update method provides the latest Windows operating system updates and driver updates, and
-the latest WorkSpaces Applications agent software. For more information, see [Update an Image by Using
-Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md").
+the latest WorkSpaces Applications agent software. For more information, see [Update an Image by Using Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md "keep-image-updated-managed-image-updates.md").
 
 To manage updates for applications on your streaming instances, you can use any automatic update services provided. You can also follow the recommendations for installing updates provided by the application vendor.

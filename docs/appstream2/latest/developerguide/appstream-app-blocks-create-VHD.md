@@ -1,6 +1,4 @@
-# Create an App Block with an
-
-Existing App Package
+# Create an App Block with an Existing App Package
 
 You can use your existing application package (VHD) with WorkSpaces Applications packaging to
 create WorkSpaces Applications app blocks. To do this, copy your application package (VHD) file

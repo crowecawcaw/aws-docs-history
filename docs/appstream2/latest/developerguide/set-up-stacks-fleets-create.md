@@ -7,8 +7,7 @@ streamed.
 
 To create an Always-On or On-Demand fleet, you must have an image that has
 applications installed to create an Always-On or On-Demand fleet that your users can
-stream from. To create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). To
+stream from. To create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). To
 create an Elastic fleet, you must have applications associated to app blocks. To
 create applications and app blocks for an Elastic fleet, see [Applications Manager](app-blocks-applications.md "app-blocks-applications.md").
 
@@ -137,8 +136,7 @@ it. For more information, see [WorkSpaces Applications Fleet Types](fleet-type.m
 
     Only base images and managed image updates released on or after
      May 15, 2023 support multi-session fleets. For more details, see
-     [WorkSpaces Applications Base Image and Managed Image Update
-     Release Notes](base-image-version-history.md "base-image-version-history.md").
+     [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md").
     * **Maximum sessions per instance** — Maximum
      number of user sessions on an instance. You must choose this value based
      on your end users' application performance needs. You can also adjust
@@ -203,8 +201,7 @@ it. For more information, see [WorkSpaces Applications Fleet Types](fleet-type.m
      (advanced)**, you can specify up to 10 strings that specify
      what types of USB devices that are attached to the local device can be
      redirected into the streaming session when using the Windows native
-     client. For more information, see [Qualify USB Devices for Use with Streaming
-     Applications](qualify-usb-devices.md "qualify-usb-devices.md").
+     client. For more information, see [Qualify USB Devices for Use with Streaming Applications](qualify-usb-devices.md "qualify-usb-devices.md").
 
 7. Choose **Next**.
 8. If you chose to create an Always-On or On-Demand fleet, for **Step 3:
@@ -224,8 +221,7 @@ it. For more information, see [WorkSpaces Applications Fleet Types](fleet-type.m
 
     Your VPC must provide access to Amazon Simple Storage Service (S3)
     if you enable features that rely on saving to an S3 bucket. For more
-    information, see [Using Amazon S3 VPC Endpoints for
-    WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
+    information, see [Using Amazon S3 VPC Endpoints for WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
     - For **VPC** and **Subnet 1**, choose
       a VPC and at least one subnet that has access to the network resources
       that your application needs. For increased fault tolerance, we recommend

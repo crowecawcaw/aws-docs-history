@@ -14,9 +14,7 @@ you'll need to do the following first:
 - Log in as a domain user with permissions to create Group Policy
   objects (GPOs). Link GPOs to the appropriate OUs.
 
-###### To use Group Policy preferences to grant local administrator
-
-permissions
+###### To use Group Policy preferences to grant local administrator permissions
 
 1. In your directory or on a domain controller, open the command prompt
    as an administrator, type `gpmc.msc`, and then press

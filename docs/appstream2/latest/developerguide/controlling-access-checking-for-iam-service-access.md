@@ -1,6 +1,4 @@
-# Checking for the
-
-AmazonAppStreamServiceAccess Service Role and Policies
+# Checking for the AmazonAppStreamServiceAccess Service Role and Policies
 
 Complete the steps in this section to check whether the **AmazonAppStreamServiceAccess**
 service role is present and has the correct policies attached. If this role is

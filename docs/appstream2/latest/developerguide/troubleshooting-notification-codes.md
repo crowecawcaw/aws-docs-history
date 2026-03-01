@@ -1,6 +1,4 @@
-# Troubleshooting Notification
-
-Codes
+# Troubleshooting Notification Codes
 
 The following are notification codes and resolution steps for notifications that you
 might see when you set up and use Amazon WorkSpaces Applications. These notifications can be found in the
@@ -41,8 +39,7 @@ Amazon WorkSpaces Applications.
 specified in the directory configuration does not have permissions to
 create the computer object or reuse an existing one. Validate the
 permissions and start the image builder or fleet. For more information,
-see [Granting Permissions to Create and Manage
-Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
+see [Granting Permissions to Create and Manage Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
 
 **DOMAIN_JOIN_ERROR_LOGON_FAILURE**
 
@@ -76,8 +73,7 @@ administrator to have this limit reset or increased.
 specified on the directory configuration does not have permissions to
 create the computer object or reuse an existing one. Validate the
 permissions and start the image builder or fleet. For more information,
-see [Granting Permissions to Create and Manage
-Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
+see [Granting Permissions to Create and Manage Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
 
 **DOMAIN_JOIN_ERROR_INVALID_PARAMETER**
 
@@ -107,8 +103,7 @@ does not exist or could not be contacted.
 **Resolution**: The streaming instance
 was unable to contact your Active Directory domain. To ensure network
 connectivity, confirm your VPC, subnet, and security group settings. For
-more information, see [My WorkSpaces Applications streaming instances aren't joining
-the Active Directory domain.](troubleshooting-active-directory.md#troubleshooting-active-directory-5 "troubleshooting-active-directory.md#troubleshooting-active-directory-5")
+more information, see [My WorkSpaces Applications streaming instances aren't joining the Active Directory domain.](troubleshooting-active-directory.md#troubleshooting-active-directory-5 "troubleshooting-active-directory.md#troubleshooting-active-directory-5")
 
 **DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED**
 
@@ -139,8 +134,7 @@ file specified.
 invalid organizational unit (OU) distinguished name is provided.
 The distinguished name must start with `OU=`.
 Validate the OU distinguished name and try again. For more information, see
-[Finding the Organizational Unit Distinguished
-Name](active-directory-oudn.md "active-directory-oudn.md").
+[Finding the Organizational Unit Distinguished Name](active-directory-oudn.md "active-directory-oudn.md").
 
 **DOMAIN_JOIN_INTERNAL_SERVICE_ERROR**
 
@@ -155,8 +149,7 @@ Name](active-directory-oudn.md "active-directory-oudn.md").
   does not have permissions to create the computer object or reuse
   an existing one. If this is the case, validate the permissions
   and start the image builder or fleet. For more information, see
-  [Granting Permissions to Create and Manage
-  Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
+  [Granting Permissions to Create and Manage Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
 - After WorkSpaces Applications creates the computer object, it is moved from the
   OU in which it was created. In this case, the first image
   builder or fleet is created successfully, but any new image
@@ -177,12 +170,10 @@ Name](active-directory-oudn.md "active-directory-oudn.md").
       2. Edit the Active Directory domain settings for the
        fleet to remove the Directory Config and Directory OU to
        which the fleet is joined. For more information, see
-       [Step 3: Create a Domain-Joined
-       Fleet](active-directory-directory-setup.md#active-directory-setup-fleet "active-directory-directory-setup.md#active-directory-setup-fleet").
+       [Step 3: Create a Domain-Joined Fleet](active-directory-directory-setup.md#active-directory-setup-fleet "active-directory-directory-setup.md#active-directory-setup-fleet").
       3. Update the WorkSpaces Applications Directory Config to specify an OU
        that doesn't contain spaces. For more information, see
-       [Step 1: Create a Directory Config
-       Object](active-directory-directory-setup.md#active-directory-setup-config "active-directory-directory-setup.md#active-directory-setup-config").
+       [Step 1: Create a Directory Config Object](active-directory-directory-setup.md#active-directory-setup-config "active-directory-directory-setup.md#active-directory-setup-config").
       4. Edit the Active Directory domain settings for the
        fleet to specify the Directory Config with the updated
        Directory OU.
@@ -193,8 +184,7 @@ Name](active-directory-oudn.md "active-directory-oudn.md").
       1. Delete the image builder.
       2. Update the WorkSpaces Applications Directory Config to specify an OU
        that doesn't contain spaces. For more information, see
-       [Step 1: Create a Directory Config
-       Object](active-directory-directory-setup.md#active-directory-setup-config "active-directory-directory-setup.md#active-directory-setup-config").
+       [Step 1: Create a Directory Config Object](active-directory-directory-setup.md#active-directory-setup-config "active-directory-directory-setup.md#active-directory-setup-config").
       3. Create a new image builder and specify the Directory
        Config with the updated Directory OU. For more
        information, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md").
@@ -216,8 +206,7 @@ there is an issue with the source image. Try to update the image
 again.
 
 If updating again doesn't work, make sure that you're using the latest
-version of SSM Agent. For version information, see [WorkSpaces Applications Base Image and Managed Image Update
-Release Notes](base-image-version-history.md "base-image-version-history.md"). For installation
+version of SSM Agent. For version information, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md"). For installation
 information, see [Manually install SSM Agent on EC2 instances for Windows
 Server](../../../systems-manager/latest/userguide/sysman-install-win.md "../../../systems-manager/latest/userguide/sysman-install-win.md").
 

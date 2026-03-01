@@ -9,8 +9,7 @@ follow these steps.
    - Launch an image Builder and configure license included applications.
      For more information, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md").
    - Manage license included applications on your image builder. For
-     more information, see [Attribute-Based Application Entitlements
-     Using a Third-Party SAML 2.0 Identity Provider](application-entitlements-saml.md "application-entitlements-saml.md").
+     more information, see [Attribute-Based Application Entitlements Using a Third-Party SAML 2.0 Identity Provider](application-entitlements-saml.md "application-entitlements-saml.md").
 
 2. When you have an image created with one or more license included applications,
    you can use this image to create fleets. Users connecting to this fleet can

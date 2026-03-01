@@ -1,6 +1,4 @@
-# Prerequisites for Enabling
-
-Application Settings Persistence
+# Prerequisites for Enabling Application Settings Persistence
 
 To enable application settings persistence, you must first do the
 following:
@@ -10,8 +8,7 @@ following:
   S3 Bucket for Home Folders_ section in [Identity and Access Management for Amazon WorkSpaces Applications](controlling-access.md "controlling-access.md").
 - Use an image that was created from a base image published by AWS on or
   after December 7, 2017. For a current list of released AWS base images,
-  see [WorkSpaces Applications Base Image and Managed Image Update
-  Release Notes](base-image-version-history.md "base-image-version-history.md").
+  see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md").
 - Associate the stack on which you plan to enable this feature with a fleet
   based on an image that uses a version of the WorkSpaces Applications agent released on or
   after August 29, 2018. For more information, see [WorkSpaces Applications Agent Release Notes](agent-software-versions.md "agent-software-versions.md").

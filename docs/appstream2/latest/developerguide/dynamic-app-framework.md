@@ -1,6 +1,4 @@
-# Application Entitlements from a Dynamic App
-
-Provider Using the Dynamic Application Framework
+# Application Entitlements from a Dynamic App Provider Using the Dynamic Application Framework
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Finding the Organizational Unit Distinguished
-
-Name
+# Finding the Organizational Unit Distinguished Name
 
 When you register your Active Directory domain with WorkSpaces Applications, you must provide an
 organizational unit (OU) distinguished name. Create an OU for this purpose. The

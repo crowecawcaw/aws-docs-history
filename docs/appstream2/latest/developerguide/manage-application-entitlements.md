@@ -12,9 +12,7 @@ Attribute-based application entitlements using a third-party SAML 2.0 identity
 provider is recommended for most scenarios. If you would like to use an existing Dynamic
 App Provider that manages application package delivery in addition to entitlement, so
 that applications do not need to be installed in an WorkSpaces Applications image, Dynamic Application
-Framework is recommended. For more information, see [Additional Resources
-for Learning About Dynamic App Providers and the Dynamic Application
-Framework](additional-resources-dynamic-app-providers.md "additional-resources-dynamic-app-providers.md").
+Framework is recommended. For more information, see [Additional Resources for Learning About Dynamic App Providers and the Dynamic Application Framework](additional-resources-dynamic-app-providers.md "additional-resources-dynamic-app-providers.md").
 
 ###### Contents
 

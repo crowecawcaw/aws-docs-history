@@ -18,9 +18,7 @@ see [Configure a VPC with Private Subnets and a NAT Gateway](managing-network-in
 configure a non-default VPC with a public subnet. For more information, see
 [Configure a New or Existing VPC with a Public Subnet](managing-network-default-internet-access.md "managing-network-default-internet-access.md").
 
-###### To use the default VPC, subnet, and security group for a
-
-fleet
+###### To use the default VPC, subnet, and security group for a fleet
 
 1. Complete the steps in [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md") up to **Step 4: Configure Network**.
 2. In **Step 4: Configure Network**, do the following:
@@ -47,9 +45,7 @@ fleet
 3. Continue with the steps in [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
    Complete the following steps to use the default VPC, subnet, and security group for an image builder.
 
-###### To use the default VPC, subnet, and security group for an
-
-image builder
+###### To use the default VPC, subnet, and security group for an image builder
 
 1. Follow the steps in [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md") up to **Step 3: Configure Network**.
 2. In **Step 4: Configure Network**, do the following:
@@ -70,9 +66,7 @@ image builder
    Complete the following steps to use the default VPC, subnet, and security
    group for an app block builder.
 
-###### To use the default VPC, subnet, and security group for an app block
-
-builder
+###### To use the default VPC, subnet, and security group for an app block builder
 
 1. Follow the steps in [Create an App Block Builder](create-app-block-builder.md "create-app-block-builder.md"), up to **Step 2:
    Configure Network**.

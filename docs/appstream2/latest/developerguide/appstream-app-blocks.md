@@ -22,10 +22,7 @@ installation for your needs.
 - [Unsupported Applications](appstream-app-blocks-unsupported.md "appstream-app-blocks-unsupported.md")
 - [Create an WorkSpaces Applications App Block](appstream-app-blocks-create.md "appstream-app-blocks-create.md")
 - [Activate an App Block](appstream-app-blocks-activate.md "appstream-app-blocks-activate.md")
-- [Create an App Block with an
-  Existing App Package](appstream-app-blocks-create-VHD.md "appstream-app-blocks-create-VHD.md")
+- [Create an App Block with an Existing App Package](appstream-app-blocks-create-VHD.md "appstream-app-blocks-create-VHD.md")
 - [Test an App Block](appstream-app-blocks-test.md "appstream-app-blocks-test.md")
-- [Associate an App
-  Block in Amazon WorkSpaces Applications](appstream-app-blocks-associate.md "appstream-app-blocks-associate.md")
-- [Disassociate an App
-  Block in Amazon WorkSpaces Applications](appstream-app-blocks-disassociate.md "appstream-app-blocks-disassociate.md")
+- [Associate an App Block in Amazon WorkSpaces Applications](appstream-app-blocks-associate.md "appstream-app-blocks-associate.md")
+- [Disassociate an App Block in Amazon WorkSpaces Applications](appstream-app-blocks-disassociate.md "appstream-app-blocks-disassociate.md")

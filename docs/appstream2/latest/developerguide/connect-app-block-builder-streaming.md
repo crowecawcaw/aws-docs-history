@@ -1,6 +1,4 @@
-# Streaming URL (Amazon WorkSpaces Applications Client or
-
-Browser Connection)
+# Streaming URL (Amazon WorkSpaces Applications Client or Browser Connection)
 
 You can create a streaming URL to connect to an app block builder through a
 browser or the WorkSpaces Applications client. Unlike a streaming URL that you create to enable
@@ -22,9 +20,7 @@ You can create a streaming URL in any of the following ways:
   To create a streaming URL and connect to the app block builder by using the WorkSpaces Applications
   console, complete the steps in the following procedure.
 
-###### To create a streaming URL and connect to the app block builder by using the
-
-WorkSpaces Applications console
+###### To create a streaming URL and connect to the app block builder by using the WorkSpaces Applications console
 
 1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").

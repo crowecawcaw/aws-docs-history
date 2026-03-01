@@ -1,6 +1,4 @@
-# Update an Image by Using
-
-Managed WorkSpaces Applications Image Updates
+# Update an Image by Using Managed WorkSpaces Applications Image Updates
 
 WorkSpaces Applications provides an automated way to update your image with the latest Windows
 operating system updates, license included application updates, driver updates, and
@@ -47,11 +45,9 @@ image updates.
 - Supported images must be created from a base image released on
   2017-07-24T00:00:00Z or later.
 - English and Japanese are supported display languages. For more
-  information, see [Specify a Default Display
-  Language](configure-default-display-language.md "configure-default-display-language.md").
+  information, see [Specify a Default Display Language](configure-default-display-language.md "configure-default-display-language.md").
 - Use the latest version of SSM Agent. For version information, see
-  [WorkSpaces Applications Base Image and Managed Image Update
-  Release Notes](base-image-version-history.md "base-image-version-history.md"). For installation
+  [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md"). For installation
   information, see [Manually install SSM Agent on EC2 instances for Windows
   Server](../../../systems-manager/latest/userguide/sysman-install-win.md "../../../systems-manager/latest/userguide/sysman-install-win.md").
 

@@ -25,9 +25,7 @@ sessions.
 If your home folder doesn't appear, view your home folder files by browsing to the following
 directory in File Explorer: C:\Users\PhotonUser\My Files\Home Folder.
 
-###### To upload and download files between your local computer and your home
-
-folder
+###### To upload and download files between your local computer and your home folder
 
 1. In the top left of the WorkSpaces Applications toolbar, choose the **My
    Files** icon.

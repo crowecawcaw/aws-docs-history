@@ -8,8 +8,7 @@ that contains the files and binaries for that application.
 You can use the WorkSpaces Applications console to create the application resource once you have
 uploaded your application icon to an Amazon S3 bucket and created the app block that contains
 the files and folders necessary to launch the application. To learn more about uploading
-the application icon to an Amazon S3 bucket, see [Store Application Icon, Setup Script, Session Script,
-and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md").
+the application icon to an Amazon S3 bucket, see [Store Application Icon, Setup Script, Session Script, and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md").
 
 ###### Note
 

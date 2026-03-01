@@ -1,6 +1,4 @@
-# Private CA
-
-Certificate
+# Private CA Certificate
 
 In a typical configuration, the private CA certificate has a validity period
 of 10 years. For more information about replacing a private CA with an expired

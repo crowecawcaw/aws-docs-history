@@ -1,6 +1,4 @@
-# Associate an App
-
-Block in Amazon WorkSpaces Applications
+# Associate an App Block in Amazon WorkSpaces Applications
 
 In order to create, test, or activate your app block with WorkSpaces Applications packaging, you
 need to associate it with an app block builder. One app block builder can only

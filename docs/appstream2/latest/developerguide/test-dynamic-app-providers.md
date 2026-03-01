@@ -1,6 +1,4 @@
-# Test Dynamic App Providers
-
-(Optional)
+# Test Dynamic App Providers (Optional)
 
 After you enable your dynamic app provider on an image builder, you can test
 the provider to verify that it functions as expected. To do so, perform the
@@ -43,8 +41,7 @@ following steps before you finish creating the image.
 6. Choose **Administrator**, and log back into the image
    builder.
 7. Follow the necessary steps in Image Assistant to finish creating your
-   image. For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   image. For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 WorkSpaces Applications automatically optimizes the agents that are specified in the
 **Agents.json** configuration file.

@@ -2,8 +2,7 @@
 
 You can use the WorkSpaces Applications console to create the app block resource once you have your
 VHD and setup script created and uploaded to an S3 bucket in your AWS account. To
-learn more about storing the VHD and setup script in an Amazon S3 bucket, see [Store Application Icon, Setup Script, Session Script,
-and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md").
+learn more about storing the VHD and setup script in an Amazon S3 bucket, see [Store Application Icon, Setup Script, Session Script, and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md").
 
 ###### Note
 

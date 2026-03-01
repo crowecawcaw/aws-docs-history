@@ -1,6 +1,4 @@
-# Configure Default Regional Settings
-
-for Your WorkSpaces Applications Users
+# Configure Default Regional Settings for Your WorkSpaces Applications Users
 
 ###### Note
 
@@ -8,8 +6,7 @@ The instructions on this page only apply to Windows fleets. Default regional set
 are not supported for Elastic fleets.
 
 In WorkSpaces Applications, users in a Windows stack can configure their streaming sessions to use settings
-that are specific to their location or language. For more information, see [Enable Your WorkSpaces Applications Users to Configure Their Regional
-Settings](regional-settings.md "regional-settings.md"). You can also configure
+that are specific to their location or language. For more information, see [Enable Your WorkSpaces Applications Users to Configure Their Regional Settings](regional-settings.md "regional-settings.md"). You can also configure
 your fleets to use default settings that are specific to your users’ location or language.
 In particular, you can apply the following Windows settings to your fleets:
 
@@ -32,13 +29,9 @@ In particular, you can apply the following Windows settings to your fleets:
 ###### Contents
 
 - [Specify a Default Time Zone](configure-default-time-zone.md "configure-default-time-zone.md")
-- [Specify a Default Display
-  Language](configure-default-display-language.md "configure-default-display-language.md")
-- [Specify a Default System
-  Locale](configure-default-system-locale.md "configure-default-system-locale.md")
+- [Specify a Default Display Language](configure-default-display-language.md "configure-default-display-language.md")
+- [Specify a Default System Locale](configure-default-system-locale.md "configure-default-system-locale.md")
 - [Specify a Default User Locale](configure-default-user-locale.md "configure-default-user-locale.md")
 - [Specify a Default Input Method](configure-default-input-method.md "configure-default-input-method.md")
-- [Special Considerations
-  for Application Settings Persistence](special-considerations-app-settings-persistence.md "special-considerations-app-settings-persistence.md")
-- [Special
-  Considerations for Japanese Language Settings](special-considerations-japanese-language-settings.md "special-considerations-japanese-language-settings.md")
+- [Special Considerations for Application Settings Persistence](special-considerations-app-settings-persistence.md "special-considerations-app-settings-persistence.md")
+- [Special Considerations for Japanese Language Settings](special-considerations-japanese-language-settings.md "special-considerations-japanese-language-settings.md")

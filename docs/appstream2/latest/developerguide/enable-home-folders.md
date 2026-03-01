@@ -1,18 +1,14 @@
-# Enable Home Folders for Your WorkSpaces Applications
-
-Users
+# Enable Home Folders for Your WorkSpaces Applications Users
 
 Before enabling home folders, you must do the following:
 
 - Check that you have the correct AWS Identity and Access Management (IAM) permissions for Amazon S3
   actions. For more information, see [Using IAM Policies to Manage Administrator Access to the Amazon S3 Bucket for Home Folders and Application Settings Persistence](s3-iam-policy.md "s3-iam-policy.md").
 - Use an image that was created from an AWS base image released on or
-  after May 18, 2017. For a current list of released AWS images, see [WorkSpaces Applications Base Image and Managed Image Update
-  Release Notes](base-image-version-history.md "base-image-version-history.md").
+  after May 18, 2017. For a current list of released AWS images, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md").
 - Enable network connectivity to Amazon S3 from your virtual private cloud (VPC)
   by configuring internet access or a VPC endpoint for Amazon S3. For more
-  information, see [Networking and Access for Amazon WorkSpaces Applications](managing-network.md "managing-network.md") and [Using Amazon S3 VPC Endpoints for
-  WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
+  information, see [Networking and Access for Amazon WorkSpaces Applications](managing-network.md "managing-network.md") and [Using Amazon S3 VPC Endpoints for WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
   You can enable or disable home folders while creating a stack (see [Create a Stack in Amazon WorkSpaces Applications](set-up-stacks-fleets-install.md "set-up-stacks-fleets-install.md")), or after the stack is created by
   using the AWS Management Console for WorkSpaces Applications, AWS SDK, or AWS CLI. For each AWS Region, home
   folders are backed up by an Amazon S3 bucket.

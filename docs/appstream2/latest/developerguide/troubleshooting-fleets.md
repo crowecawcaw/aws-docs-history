@@ -116,8 +116,7 @@ either of the following:
 
 8. On the image builder desktop, open Image Assistant.
 9. Follow the required steps in Image Assistant to finish creating your image. For more
-   information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 ## I need to persist environment variables across my fleet instances.
 
@@ -125,15 +124,13 @@ Environment variables enable you to dynamically pass settings across application
 You can make user environment variables and system environment variables available
 across your fleet instances. You can also create environment variables with limited
 scope, which is useful when you need to use the same environment variable with
-different values across different applications. For more information, see [Persist Environment
-Variables in Amazon WorkSpaces Applications](customize-fleets-persist-environment-variables.md "customize-fleets-persist-environment-variables.md").
+different values across different applications. For more information, see [Persist Environment Variables in Amazon WorkSpaces Applications](customize-fleets-persist-environment-variables.md "customize-fleets-persist-environment-variables.md").
 
 ## I want to change the default Internet Explorer home page for my users.
 
 You can use Group Policy to set the default home page in Internet Explorer for
 your users. You can also enable users to change the default page that you set. For
-more information, see [Change the Default Internet
-Explorer Home Page for Users' Streaming Sessions in Amazon WorkSpaces Applications](customize-fleets-change-ie-homepage.md "customize-fleets-change-ie-homepage.md").
+more information, see [Change the Default Internet Explorer Home Page for Users' Streaming Sessions in Amazon WorkSpaces Applications](customize-fleets-change-ie-homepage.md "customize-fleets-change-ie-homepage.md").
 
 ## When my users end a streaming session and then start a new one, they see a message that says no streaming resources are available.
 

@@ -3,9 +3,7 @@
 The hierarchy of a user folder depends on how a user launches a streaming
 session, as described in the following sections.
 
-## AWS SDKs and
-
-AWS CLI
+## AWS SDKs and AWS CLI
 
 For sessions launched using `CreateStreamingURL` or
 `create-streaming-url` the user folder structure is as

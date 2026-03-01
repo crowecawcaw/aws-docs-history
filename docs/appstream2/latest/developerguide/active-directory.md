@@ -28,9 +28,7 @@ By joining WorkSpaces Applications to your Active Directory domain, you can:
 
 - [Overview of Active Directory Domains](active-directory-overview.md "active-directory-overview.md")
 - [Before You Begin Using Active Directory with Amazon WorkSpaces Applications](active-directory-prerequisites.md "active-directory-prerequisites.md")
-- [Tutorial: Setting Up Active
-  Directory](active-directory-directory-setup.md "active-directory-directory-setup.md")
-- [Certificate-Based
-  Authentication](certificate-based-authentication.md "certificate-based-authentication.md")
+- [Tutorial: Setting Up Active Directory](active-directory-directory-setup.md "active-directory-directory-setup.md")
+- [Certificate-Based Authentication](certificate-based-authentication.md "certificate-based-authentication.md")
 - [WorkSpaces Applications Active Directory Administration](active-directory-admin.md "active-directory-admin.md")
 - [More Info](active-directory-more-info.md "active-directory-more-info.md")

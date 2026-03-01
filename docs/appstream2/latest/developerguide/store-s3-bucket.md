@@ -1,6 +1,4 @@
-# Store Application Icon, Setup Script, Session Script,
-
-and VHD in an S3 Bucket
+# Store Application Icon, Setup Script, Session Script, and VHD in an S3 Bucket
 
 You must store the application icons, setup scripts, session scripts, and VHDs that
 you use for your applications and app blocks in an Amazon Simple Storage Service (Amazon S3) bucket in your AWS

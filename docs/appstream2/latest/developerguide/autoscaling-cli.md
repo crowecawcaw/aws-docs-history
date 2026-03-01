@@ -15,20 +15,13 @@ must register your fleet as a scalable target. To do so, use the following [regi
 
 ###### Examples
 
-- [Example 1: Applying a Scaling Policy
-  Based on Capacity Utilization](#autoscaling-cli-utilization "#autoscaling-cli-utilization")
-- [Example 2: Applying a Scaling Policy
-  Based on Insufficient Capacity Errors](#autoscaling-cli-capacity "#autoscaling-cli-capacity")
-- [Example 3: Applying a Scaling Policy
-  Based on Low Capacity Utilization](#autoscaling-cli-scale-in "#autoscaling-cli-scale-in")
-- [Example 4: Change the Fleet Capacity
-  Based on a Schedule](#autoscaling-cli-schedule "#autoscaling-cli-schedule")
-- [Example 5: Applying a Target Tracking
-  Scaling Policy](#autoscaling-target-tracking "#autoscaling-target-tracking")
+- [Example 1: Applying a Scaling Policy Based on Capacity Utilization](#autoscaling-cli-utilization "#autoscaling-cli-utilization")
+- [Example 2: Applying a Scaling Policy Based on Insufficient Capacity Errors](#autoscaling-cli-capacity "#autoscaling-cli-capacity")
+- [Example 3: Applying a Scaling Policy Based on Low Capacity Utilization](#autoscaling-cli-scale-in "#autoscaling-cli-scale-in")
+- [Example 4: Change the Fleet Capacity Based on a Schedule](#autoscaling-cli-schedule "#autoscaling-cli-schedule")
+- [Example 5: Applying a Target Tracking Scaling Policy](#autoscaling-target-tracking "#autoscaling-target-tracking")
 
-## Example 1: Applying a Scaling Policy
-
-Based on Capacity Utilization
+## Example 1: Applying a Scaling Policy Based on Capacity Utilization
 
 This AWS CLI example sets up a scaling policy that scales out a fleet by 25% if
 Utilization >= 75%.
@@ -90,9 +83,7 @@ previous command for the `--alarm-actions` parameter.
 --alarm-actions "arn:aws:autoscaling:`your-region-code`:`account-number-without-hyphens`:scalingPolicy:`policyid`:resource/appstream/fleet/`fleetname`:policyName/`policyname`"`
 ```
 
-## Example 2: Applying a Scaling Policy
-
-Based on Insufficient Capacity Errors
+## Example 2: Applying a Scaling Policy Based on Insufficient Capacity Errors
 
 This AWS CLI example sets up a scaling policy that scales out the fleet by 1 if
 the fleet returns an `InsufficientCapacityError` error.
@@ -153,9 +144,7 @@ previous command for the `--alarm-actions` parameter.
 --alarm-actions "arn:aws:autoscaling:`your-region-code`:`account-number-without-hyphens`:scalingPolicy:`policyid`:resource/appstream/fleet/`fleetname`:policyName/`policyname`"`
 ```
 
-## Example 3: Applying a Scaling Policy
-
-Based on Low Capacity Utilization
+## Example 3: Applying a Scaling Policy Based on Low Capacity Utilization
 
 This AWS CLI example sets up a scaling policy that scales in the fleet to reduce
 actual capacity when `CapacityUtilization` is low.
@@ -216,9 +205,7 @@ previous command for the `--alarm-actions` parameter.
 --alarm-actions "arn:aws:autoscaling:`your-region-code`:`account-number-without-hyphens`:scalingPolicy:`policyid`:resource/appstream/fleet/`fleetname`:policyName/`policyname`"`
 ```
 
-## Example 4: Change the Fleet Capacity
-
-Based on a Schedule
+## Example 4: Change the Fleet Capacity Based on a Schedule
 
 Changing your fleet capacity based on a schedule lets you scale your fleet
 capacity in response to predictable changes in demand. For example, at the start of
@@ -299,9 +286,7 @@ the following.
 For more information, see [Scheduled
 Scaling](../../../autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.md "../../../autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.md") in the _Application Auto Scaling User Guide_.
 
-## Example 5: Applying a Target Tracking
-
-Scaling Policy
+## Example 5: Applying a Target Tracking Scaling Policy
 
 With target tracking scaling, you can specify a capacity utilization level for
 your fleet.

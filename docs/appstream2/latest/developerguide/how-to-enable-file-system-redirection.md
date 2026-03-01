@@ -1,6 +1,4 @@
-# How to Enable File
-
-System Redirection
+# How to Enable File System Redirection
 
 Perform the following steps to enable both file upload and download on the
 stack that your users access for streaming sessions.

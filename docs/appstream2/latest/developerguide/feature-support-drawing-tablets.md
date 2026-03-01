@@ -19,8 +19,7 @@ Following are requirements and considerations for enabling your users to use dra
   pressure sensitivity. If this is the case, your users must use the
   WorkSpaces Applications client to access WorkSpaces Applications and stream these applications. In
   addition, you must qualify your users' drawing tablets, and users
-  must share their drawing tablets with WorkSpaces Applications every time they start a new streaming session. For more information, see [Qualify USB Devices for Use with Streaming
-  Applications](qualify-usb-devices.md "qualify-usb-devices.md").
+  must share their drawing tablets with WorkSpaces Applications every time they start a new streaming session. For more information, see [Qualify USB Devices for Use with Streaming Applications](qualify-usb-devices.md "qualify-usb-devices.md").
 - This feature is not supported on Chromebooks.
   To get started with using drawing tablets during application streaming
   sessions, users connect their drawing tablet to their local computer with

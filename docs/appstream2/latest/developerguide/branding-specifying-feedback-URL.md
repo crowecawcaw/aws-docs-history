@@ -1,6 +1,4 @@
-# Specifying a Custom Redirect URL and Feedback
-
-URL in Amazon WorkSpaces Applications
+# Specifying a Custom Redirect URL and Feedback URL in Amazon WorkSpaces Applications
 
 You can specify a URL to which your users are redirected when they end their streaming
 session, as well as a URL where your users can submit feedback. By default, WorkSpaces Applications

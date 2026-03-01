@@ -47,8 +47,7 @@ prompted, log in as Administrator. 9. If required, configure additional default 
 Otherwise, on the image builder desktop, open Image Assistant and install and
 configure applications for streaming. 10. In Step 2 of the Image Assistant process, choose **Save
 settings**. 11. Follow the necessary steps in Image Assistant to finish creating your image.
-For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). 12. Do one of the following:
+For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). 12. Do one of the following:
 
     * Create a new fleet and choose your new image for the fleet. For
      information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
@@ -65,8 +64,7 @@ and user streaming sessions that are launched from those instances.
 Your users can change their input method from the default setting that you
 configured to any one of nine different supported input methods. They can configure
 this setting by configuring their regional settings during application streaming
-sessions, as described in [Enable Your WorkSpaces Applications Users to Configure Their Regional
-Settings](regional-settings.md "regional-settings.md"). Also, if a user previously selected an input
+sessions, as described in [Enable Your WorkSpaces Applications Users to Configure Their Regional Settings](regional-settings.md "regional-settings.md"). Also, if a user previously selected an input
 method when streaming from any fleet instance in the same Region, that
 user-specified setting automatically overrides any default input method that you
 specify through your image builder.

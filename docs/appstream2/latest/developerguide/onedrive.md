@@ -1,6 +1,4 @@
-# Enable and Administer OneDrive for Business for Your WorkSpaces Applications
-
-Users
+# Enable and Administer OneDrive for Business for Your WorkSpaces Applications Users
 
 WorkSpaces Applications supports the following persistent storage options for users in your
 organization.

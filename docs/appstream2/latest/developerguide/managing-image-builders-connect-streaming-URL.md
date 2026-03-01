@@ -29,9 +29,7 @@ You can create a streaming URL in any of the following ways:
 - The [create-streaming-url](../../../cli/latest/reference/appstream/create-streaming-url.md "../../../cli/latest/reference/appstream/create-streaming-url.md") AWS CLI command
   To create a streaming URL and connect to the image builder by using the WorkSpaces Applications console, complete the steps in the following procedure.
 
-###### To create a streaming URL and connect to the image builder by using the
-
-WorkSpaces Applications console
+###### To create a streaming URL and connect to the image builder by using the WorkSpaces Applications console
 
 1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").

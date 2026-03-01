@@ -1,6 +1,4 @@
-# Session Scripts Configuration
-
-File
+# Session Scripts Configuration File
 
 To locate the session scripts configuration file in a Windows instance, navigate
 to C:\AppStream\SessionScripts\config.json. On a Linux instance, navigate to
@@ -121,8 +119,7 @@ the file name and full path is 1,000 characters.
 ###### Note
 
 You can also use Windows PowerShell files. For more information,
-see [Using Windows
-PowerShell Files](using-powershell-files-with-session-scripts.md "using-powershell-files-with-session-scripts.md").
+see [Using Windows PowerShell Files](using-powershell-files-with-session-scripts.md "using-powershell-files-with-session-scripts.md").
 
 **`Arguments`**
 

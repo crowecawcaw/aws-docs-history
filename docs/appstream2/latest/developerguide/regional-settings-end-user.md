@@ -44,6 +44,5 @@ your streaming session are applied to future streaming sessions.
     shortcut key combinations are “Super + Space” and “Shift + Super + Space”. “Super” is
     the “Windows” key on a Windows keyboard or the “Command” key on an Apple keyboard.
     Always check with your administrators for the shortcut keys they specified when creating
-    the image. For example, in [Tutorial: Enable Japanese Support for Your
-    Linux Images](enable-japanese-support-linux.md "enable-japanese-support-linux.md"), the shortcut key combinations have
+    the image. For example, in [Tutorial: Enable Japanese Support for Your Linux Images](enable-japanese-support-linux.md "enable-japanese-support-linux.md"), the shortcut key combinations have
     been changed to “Control + Space” and “Shift + Control + Space”.

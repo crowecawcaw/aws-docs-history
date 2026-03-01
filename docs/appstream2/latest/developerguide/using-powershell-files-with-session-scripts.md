@@ -1,6 +1,4 @@
-# Using Windows
-
-PowerShell Files
+# Using Windows PowerShell Files
 
 To use Windows PowerShell files, specify the full path to the PowerShell file in
 the `filename` parameter:

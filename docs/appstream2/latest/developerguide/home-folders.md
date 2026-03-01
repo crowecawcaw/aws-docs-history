@@ -1,6 +1,4 @@
-# Enable and Administer Home Folders for Your WorkSpaces Applications
-
-Users
+# Enable and Administer Home Folders for Your WorkSpaces Applications Users
 
 WorkSpaces Applications supports the following persistent storage options for users in your
 organization:
@@ -39,6 +37,5 @@ Home folders are stored on fleet instances in the following default locations:
 ###### Contents
 
 - [Files and Directories Associated with Compute-Intensive Applications](storage-solutions-files-directories-associated-with-compute-intensive-applications.md "storage-solutions-files-directories-associated-with-compute-intensive-applications.md")
-- [Enable Home Folders for Your WorkSpaces Applications
-  Users](enable-home-folders.md "enable-home-folders.md")
+- [Enable Home Folders for Your WorkSpaces Applications Users](enable-home-folders.md "enable-home-folders.md")
 - [Administer Your Home Folders](home-folders-admin.md "home-folders-admin.md")

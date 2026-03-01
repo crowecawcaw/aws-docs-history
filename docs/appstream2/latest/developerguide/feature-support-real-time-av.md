@@ -103,14 +103,12 @@ steps.
     image builder by using the WorkSpaces Applications client or web browser
     access.
 9.  Test the real-time AV experience on the image builder by following
-    the steps in [Video
-    and Audio Conferencing](client-application-windows-how-to-use-local-webcam-user.md "client-application-windows-how-to-use-local-webcam-user.md").
+    the steps in [Video and Audio Conferencing](client-application-windows-how-to-use-local-webcam-user.md "client-application-windows-how-to-use-local-webcam-user.md").
 10. After you verify that real-time AV is working as expected,
     disconnect from your streaming session, reconnect to the image
     builder and follow the necessary steps in Image Assistant to finish
     creating your image. For information about how to create an image,
-    see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-    WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+    see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
     After you finish configuring your image builder and creating an image that
     supports real-time AV, you can make this feature available to your users on
     WorkSpaces Applications fleets. Ensure that version 1.1.257 or later of the WorkSpaces Applications client is
@@ -121,8 +119,7 @@ steps.
 To use real-time AV with the WorkSpaces Applications client, your WorkSpaces Applications base image and
 agent version should be June 1, 2021 or later. We recommend using the
 latest WorkSpaces Applications client. For guidance that you can provide to your users to
-help them use real-time AV, see [Video
-and Audio Conferencing](client-application-windows-how-to-use-local-webcam-user.md "client-application-windows-how-to-use-local-webcam-user.md").
+help them use real-time AV, see [Video and Audio Conferencing](client-application-windows-how-to-use-local-webcam-user.md "client-application-windows-how-to-use-local-webcam-user.md").
 
 To use real-time AV with web browser access, your WorkSpaces Applications image must
 use a version of the WorkSpaces Applications agent released on or after June 24, 2021.

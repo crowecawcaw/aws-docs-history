@@ -1,6 +1,4 @@
-# End User
-
-Certificates
+# End User Certificates
 
 End user certificates issued by AWS Private CA for WorkSpaces Applications certificate-based
 authentication don't require renewal or revocation. These certificates are

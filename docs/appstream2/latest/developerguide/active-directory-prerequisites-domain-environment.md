@@ -14,14 +14,12 @@ Your active directory domain environment must meet the following requirements.
 
 When you associate this Active Directory domain with WorkSpaces Applications, provide
 the service account name and password. WorkSpaces Applications uses this account to create and
-manage computer objects in the directory. For more information, see [Granting Permissions to Create and Manage
-Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
+manage computer objects in the directory. For more information, see [Granting Permissions to Create and Manage Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
 
 - When you register your Active Directory domain with WorkSpaces Applications, you must provide
   an organizational unit (OU) distinguished name. Create an OU for this purpose.
   The default Computers container is not an OU and cannot be used by WorkSpaces Applications. For
-  more information, see [Finding the Organizational Unit Distinguished
-  Name](active-directory-oudn.md "active-directory-oudn.md").
+  more information, see [Finding the Organizational Unit Distinguished Name](active-directory-oudn.md "active-directory-oudn.md").
 - The directories that you plan to use with WorkSpaces Applications must be accessible through
   their fully qualified domain names (FQDNs) through the virtual private cloud
   (VPC) in which your streaming instances are launched. For more information, see

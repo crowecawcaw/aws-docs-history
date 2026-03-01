@@ -1,6 +1,4 @@
-# Prerequisites for
-
-Local Printer Redirection
+# Prerequisites for Local Printer Redirection
 
 To ensure that your users can use local printer redirection, you must:
 

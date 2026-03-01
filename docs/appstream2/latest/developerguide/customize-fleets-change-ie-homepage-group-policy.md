@@ -1,6 +1,4 @@
-# Use Group Policy
-
-to Change the Default Internet Explorer Home Page
+# Use Group Policy to Change the Default Internet Explorer Home Page
 
 In Active Directory environments, you use the Group Policy Management (GPMC)
 MMC-snap-in to set a default home page that users can't change. If Active Directory
@@ -16,9 +14,7 @@ To use the GPMC, do the following first:
 - Log in as a domain user with permissions to create GPOs. Link GPOs to the
   appropriate organizational units (OUs).
 
-###### To change the default Internet Explorer home page by using a Group Policy
-
-administrative template
+###### To change the default Internet Explorer home page by using a Group Policy administrative template
 
 You can use a Group Policy administrative template to set a default home page
 that users can't change. For more information about administrative templates,

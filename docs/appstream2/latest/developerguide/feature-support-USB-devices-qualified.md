@@ -5,13 +5,10 @@ devices.
 
 ###### Contents
 
-- [USB
-  Redirection](#feature-support-USB-devices-USB-redirection "#feature-support-USB-devices-USB-redirection")
+- [USB Redirection](#feature-support-USB-devices-USB-redirection "#feature-support-USB-devices-USB-redirection")
 - [Smart Cards](#feature-support-USB-devices-qualified-smart-cards "#feature-support-USB-devices-qualified-smart-cards")
 
-## USB
-
-Redirection
+## USB Redirection
 
 USB redirection is required for most local USB devices to be used
 during WorkSpaces Applications streaming sessions. When USB redirection is required, you
@@ -59,8 +56,7 @@ To ensure that your users can use their smart cards for Windows sign in to Activ
 in-session authentication for streaming applications, you must:
 
 - Use an image that meets the following requirements:
-  - The image must be created from a base image published by AWS on or after December 28, 2020. For more information, see [WorkSpaces Applications Base Image and Managed Image Update
-    Release Notes](base-image-version-history.md "base-image-version-history.md").
+  - The image must be created from a base image published by AWS on or after December 28, 2020. For more information, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md").
   - The image must use a version of the WorkSpaces Applications agent released on or after January 4, 2021. For
     more information, see [WorkSpaces Applications Agent Release Notes](agent-software-versions.md "agent-software-versions.md").
 

@@ -49,26 +49,17 @@ WorkSpaces Applications.
 
 ###### Issues
 
-- [My users' WorkSpaces Applications client
-  installations fail, and they're getting a message stating that .NET Framework
-  4.6 is required.](#troubleshooting-client-no-internet-net-framework-462-fails "#troubleshooting-client-no-internet-net-framework-462-fails")
+- [My users' WorkSpaces Applications client installations fail, and they're getting a message stating that .NET Framework 4.6 is required.](#troubleshooting-client-no-internet-net-framework-462-fails "#troubleshooting-client-no-internet-net-framework-462-fails")
 - [My users' USB driver installations fail when they install the WorkSpaces Applications client, and now they can't use their USB devices with WorkSpaces Applications.](#troubleshooting-client-no-internet-usb-driver-install-fails "#troubleshooting-client-no-internet-usb-driver-install-fails")
 - [My WorkSpaces Applications client users are getting disconnected from their WorkSpaces Applications session after every 60 minutes.](#troubleshooting-client-users-disconnected-every-60-minutes "#troubleshooting-client-users-disconnected-every-60-minutes")
-- [My users can’t copy and paste between their local device
-  and their streaming session.](#copy-paste-doesnt-work "#copy-paste-doesnt-work")
+- [My users can’t copy and paste between their local device and their streaming session.](#copy-paste-doesnt-work "#copy-paste-doesnt-work")
 - [Some keyboard shortcuts aren’t working for users during their streaming sessions.](#keyboard-shortcuts-dont-work "#keyboard-shortcuts-dont-work")
 - [My users' drawing tablets are not working with the streaming applications I deployed.](#troubleshooting-client-users-drawing-tablets-not-working "#troubleshooting-client-users-drawing-tablets-not-working")
 - [The Japanese language input method doesn't work for my users during their streaming sessions](#japanese-language-input-method-doesnt-work-for-users "#japanese-language-input-method-doesnt-work-for-users")
-- [My user sees an error about reaching the max number
-  of streaming sessions when they try to launch an application from the
-  application catalog.](#troubleshooting-max-sessions "#troubleshooting-max-sessions")
-- [My user sees a black screen or the desktop, and their
-  application doesn’t launch on an Elastic fleet. No error appears.](#troubleshooting-black-screen "#troubleshooting-black-screen")
+- [My user sees an error about reaching the max number of streaming sessions when they try to launch an application from the application catalog.](#troubleshooting-max-sessions "#troubleshooting-max-sessions")
+- [My user sees a black screen or the desktop, and their application doesn’t launch on an Elastic fleet. No error appears.](#troubleshooting-black-screen "#troubleshooting-black-screen")
 
-## My users' WorkSpaces Applications client
-
-installations fail, and they're getting a message stating that .NET Framework
-4.6 is required.
+## My users' WorkSpaces Applications client installations fail, and they're getting a message stating that .NET Framework 4.6 is required.
 
 When users install the WorkSpaces Applications client, WorkSpaces Applications also installs .NET Framework version
 4.6.2, if that version or a later version is not already installed. If the PC on
@@ -116,8 +107,7 @@ the `SessionDuration` attribute set to
 `SessionDuration` specifies the maximum amount of time that a federated streaming session for a user can remain active before reauthentication is required. Although `SessionDuration` is an optional attribute, we recommend that you include it in the SAML authentication response. If you do not specify this attribute, the session duration is set to a default value of 60
 minutes.
 
-To resolve this issue, configure your SAML-compatible IdP to include the `SessionDuration` value in the SAML authentication response, and set the value as required. For more information, see [Step 5: Create
-Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions").
+To resolve this issue, configure your SAML-compatible IdP to include the `SessionDuration` value in the SAML authentication response, and set the value as required. For more information, see [Step 5: Create Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions").
 
 ###### Note
 
@@ -144,12 +134,9 @@ scenarios:
 
 You can resolve this issue by using the new relay state endpoints to configure your
 SAML 2.0 federation, and by using the WorkSpaces Applications client version 1.1.1300 and later. For
-more information, see Table 1 on [Step 6: Configure the
-Relay State of Your Federation](external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state "external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state").
+more information, see Table 1 on [Step 6: Configure the Relay State of Your Federation](external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state "external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state").
 
-## My users can’t copy and paste between their local device
-
-and their streaming session.
+## My users can’t copy and paste between their local device and their streaming session.
 
 WorkSpaces Applications takes advantage of the [W3C
 specification](https://www.w3.org/TR/2017/WD-clipboard-apis-20170929/ "https://www.w3.org/TR/2017/WD-clipboard-apis-20170929/") for enabling asynchronous clipboard operations in web
@@ -257,8 +244,7 @@ Drawing tablets are supported for users who access WorkSpaces Applications by us
 
 To enable your users to use the Japanese language input method during their WorkSpaces Applications streaming sessions, do the following:
 
-- Configure your fleet to use the Japanese input method. To do so, enable the Japanese input method on your image builder when you create an image, and then configure your fleet to use the image. For more information, see [Specify a Default Input Method](configure-default-input-method.md "configure-default-input-method.md"). Doing so enables WorkSpaces Applications to automatically configure your image to use a Japanese keyboard. For more information, see [Japanese
-  Keyboards](special-considerations-japanese-language-settings.md#special-considerations-japanese-language-keyboards "special-considerations-japanese-language-settings.md#special-considerations-japanese-language-keyboards").
+- Configure your fleet to use the Japanese input method. To do so, enable the Japanese input method on your image builder when you create an image, and then configure your fleet to use the image. For more information, see [Specify a Default Input Method](configure-default-input-method.md "configure-default-input-method.md"). Doing so enables WorkSpaces Applications to automatically configure your image to use a Japanese keyboard. For more information, see [Japanese Keyboards](special-considerations-japanese-language-settings.md#special-considerations-japanese-language-keyboards "special-considerations-japanese-language-settings.md#special-considerations-japanese-language-keyboards").
 - Ensure that the Japanese input method is also enabled on the user's local computer.
 
 If the fleet instance and the user’s local computer don't use the same language input method, the mismatch might result in unexpected keyboard inputs on the fleet instance during the user’s streaming sessions. For example, if the fleet instance uses the Japanese input method and the user’s local computer uses the English input method, during a streaming session, the local computer will send keys to the fleet instance that have different key mappings than the fleet instance.
@@ -301,10 +287,7 @@ Because WorkSpaces Applications streaming sessions run on Windows instances, Mac
 - Keyboard shortcuts for switching Japanese input methods — [Set up and switch to a Japanese input source on Mac](https://support.apple.com/guide/japanese-input-method/set-up-and-switch-to-japanese-jpim10267/mac "https://support.apple.com/guide/japanese-input-method/set-up-and-switch-to-japanese-jpim10267/mac")
 - Keyboard short link cuts for Japanese conversions — [Keyboard shortcuts for Japanese conversions on Mac](https://support.apple.com/guide/japanese-input-method/keyboard-shortcuts-jpim10263/6.2.1/mac "https://support.apple.com/guide/japanese-input-method/keyboard-shortcuts-jpim10263/6.2.1/mac")
 
-## My user sees an error about reaching the max number
-
-of streaming sessions when they try to launch an application from the
-application catalog.
+## My user sees an error about reaching the max number of streaming sessions when they try to launch an application from the application catalog.
 
 With WorkSpaces Applications Elastic fleets, you specify a maximum number of users that can stream
 concurrently using the max concurrency parameter. Any user that tries to stream
@@ -317,9 +300,7 @@ to complete their streaming session.
 You might need to request a limit increase to increase the instance type and
 size limit.
 
-## My user sees a black screen or the desktop, and their
-
-application doesn’t launch on an Elastic fleet. No error appears.
+## My user sees a black screen or the desktop, and their application doesn’t launch on an Elastic fleet. No error appears.
 
 This can happen if the application launch path is incorrect, and AppStream 2.0 can't
 launch the application. You can validate the application launch path by using
@@ -329,5 +310,4 @@ executable exists at the path specified.
 If you're not able to find the app block's VHD or setup script on the streaming
 instance, AppStream 2.0 might not have been able to download them from the S3
 bucket. Validate that the VPC you specified has access to S3. For more information,
-see [Using Amazon S3 VPC Endpoints for
-WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
+see [Using Amazon S3 VPC Endpoints for WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").

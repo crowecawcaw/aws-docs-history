@@ -1,6 +1,4 @@
-# How to Enable Application
-
-Settings Persistence
+# How to Enable Application Settings Persistence
 
 You can enable or disable application settings persistence while creating a stack
 or after the stack is created by using the WorkSpaces Applications console, WorkSpaces Applications API, an AWS SDK,
@@ -11,8 +9,7 @@ The first time you enable application settings persistence for a stack in an AWS
 Region, WorkSpaces Applications creates an S3 bucket in your AWS account in the same Region. The
 same bucket stores the application settings VHD file for all users and all stacks in
 that AWS Region. For more information, see _Amazon S3 Bucket
-Storage_ in [Administer the VHDs for Your Users'
-Application Settings](administer-app-settings-vhds.md "administer-app-settings-vhds.md").
+Storage_ in [Administer the VHDs for Your Users' Application Settings](administer-app-settings-vhds.md "administer-app-settings-vhds.md").
 
 ###### To enable application settings persistence while creating a stack
 

@@ -12,6 +12,18 @@ web browsers:
 - Safari
 - Microsoft Edge
   For browser-based streaming sessions on dual monitors, a maximum display
-  resolution of 2560x1600 pixels is supported per monitor. If you require more than
-  two monitors, or a display resolution that is greater than 2560x1600 pixels per monitor,
-  you must use the WorkSpaces Applications client.
+  resolution of 4K (4096x2160) is supported per monitor.
+
+###### Important
+
+Higher resolution monitors require significantly more compute capacity
+and encoding resources to stream content effectively, with actual
+performance depending on your display configuration (resolution and number
+of monitors) and the compute instance being used. If you experience
+suboptimal performance on 4K monitors, we recommend reducing your display
+resolution to improve responsiveness.
+
+Ultrawide monitors with resolutions exceeding 4096 pixels in either
+dimension (e.g., 5120x2160) will display black bars on the sides, as the
+maximum supported resolution is limited to 4096 pixels per
+dimension.

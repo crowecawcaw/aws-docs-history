@@ -1,6 +1,4 @@
-# Enable Your WorkSpaces Applications Users to Configure Their Regional
-
-Settings
+# Enable Your WorkSpaces Applications Users to Configure Their Regional Settings
 
 ###### Note
 
@@ -42,5 +40,4 @@ their regional settings, see [Configure Regional Settings](regional-settings-end
 ###### Contents
 
 - [Supported Locales](supported-locales.md "supported-locales.md")
-- [Enable Regional Settings for Your WorkSpaces Applications
-  Users](regional-settings-enable.md "regional-settings-enable.md")
+- [Enable Regional Settings for Your WorkSpaces Applications Users](regional-settings-enable.md "regional-settings-enable.md")

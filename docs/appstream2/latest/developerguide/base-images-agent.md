@@ -10,9 +10,6 @@ The following procedures describe how to manage WorkSpaces Applications agent ve
 
 ###### Contents
 
-- [Create an Image That Always Uses the
-  Latest Version of the WorkSpaces Applications Agent](create-image-that-always-uses-latest-agent.md "create-image-that-always-uses-latest-agent.md")
-- [Create an Image That Uses a Specific
-  Version of the WorkSpaces Applications Agent](create-image-that-uses-specific-agent.md "create-image-that-uses-specific-agent.md")
-- [Create an Image That Uses a Newer Version
-  of the WorkSpaces Applications Agent](create-image-that-uses-newer-agent.md "create-image-that-uses-newer-agent.md")
+- [Create an Image That Always Uses the Latest Version of the WorkSpaces Applications Agent](create-image-that-always-uses-latest-agent.md "create-image-that-always-uses-latest-agent.md")
+- [Create an Image That Uses a Specific Version of the WorkSpaces Applications Agent](create-image-that-uses-specific-agent.md "create-image-that-uses-specific-agent.md")
+- [Create an Image That Uses a Newer Version of the WorkSpaces Applications Agent](create-image-that-uses-newer-agent.md "create-image-that-uses-newer-agent.md")

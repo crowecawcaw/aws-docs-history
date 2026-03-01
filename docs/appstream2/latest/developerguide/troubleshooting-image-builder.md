@@ -5,39 +5,23 @@ builders.
 
 ###### Issues
 
-- [I cannot connect to the internet from my image
-  builder.](#troubleshooting-01 "#troubleshooting-01")
-- [When I tried installing my application, I see an
-  error that the operating system version is not supported.](#troubleshooting-02 "#troubleshooting-02")
+- [I cannot connect to the internet from my image builder.](#troubleshooting-01 "#troubleshooting-01")
+- [When I tried installing my application, I see an error that the operating system version is not supported.](#troubleshooting-02 "#troubleshooting-02")
 - [I want to use a Windows PowerShell script to open my applications.](#use-powershell-launch-application "#use-powershell-launch-application")
 - [I want to make ClickOnce applications available to users.](#clickonce-applications "#clickonce-applications")
-- [When I connect to my image builder, I see a login screen asking
-  me to enter Ctrl+Alt+Delete to log in. However, my local machine intercepts the
-  key strokes.](#troubleshooting-03 "#troubleshooting-03")
-- [When I switched between admin and test modes, I saw
-  a request for a password. I don't know how to get a password.](#troubleshooting-04 "#troubleshooting-04")
-- [I get an error when I add my installed
-  application.](#troubleshooting-05 "#troubleshooting-05")
-- [I accidentally quit a background service on the
-  image builder and got disconnected. I am now unable to connect to that image
-  builder.](#troubleshooting-06 "#troubleshooting-06")
-- [The application fails to launch in test
-  mode.](#troubleshooting-07 "#troubleshooting-07")
-- [The application could not connect to a network
-  resource in my VPC.](#troubleshooting-08 "#troubleshooting-08")
-- [I customized my image builder desktop, but my
-  changes are not available when connecting to a session after launching a fleet from
-  the image I created.](#troubleshooting-09 "#troubleshooting-09")
-- [My application is missing a command line parameter
-  when launching.](#troubleshooting-10 "#troubleshooting-10")
-- [I am unable to use my image with a fleet after
-  installing an antivirus application.](#troubleshooting-11 "#troubleshooting-11")
+- [When I connect to my image builder, I see a login screen asking me to enter Ctrl+Alt+Delete to log in. However, my local machine intercepts the key strokes.](#troubleshooting-03 "#troubleshooting-03")
+- [When I switched between admin and test modes, I saw a request for a password. I don't know how to get a password.](#troubleshooting-04 "#troubleshooting-04")
+- [I get an error when I add my installed application.](#troubleshooting-05 "#troubleshooting-05")
+- [I accidentally quit a background service on the image builder and got disconnected. I am now unable to connect to that image builder.](#troubleshooting-06 "#troubleshooting-06")
+- [The application fails to launch in test mode.](#troubleshooting-07 "#troubleshooting-07")
+- [The application could not connect to a network resource in my VPC.](#troubleshooting-08 "#troubleshooting-08")
+- [I customized my image builder desktop, but my changes are not available when connecting to a session after launching a fleet from the image I created.](#troubleshooting-09 "#troubleshooting-09")
+- [My application is missing a command line parameter when launching.](#troubleshooting-10 "#troubleshooting-10")
+- [I am unable to use my image with a fleet after installing an antivirus application.](#troubleshooting-11 "#troubleshooting-11")
 - [My image creation failed.](#troubleshooting-12 "#troubleshooting-12")
 - [The Image Assistant create-image operation failed with an error message that access to the PrewarmManifest.txt is denied](#create-image-cli-operation-fails "#create-image-cli-operation-fails")
 
-## I cannot connect to the internet from my image
-
-builder.
+## I cannot connect to the internet from my image builder.
 
 Image builders cannot communicate to the internet by default. To resolve this
 issue, launch your image builder in a VPC subnet that has internet access. You can
@@ -45,9 +29,7 @@ enable internet access from your VPC subnet using a [NAT gateway](../../../vpc/l
 configure an internet gateway in your VPC, and attach an Elastic IP address to your
 image builder. For more information, see [Networking and Access for Amazon WorkSpaces Applications](managing-network.md "managing-network.md").
 
-## When I tried installing my application, I see an
-
-error that the operating system version is not supported.
+## When I tried installing my application, I see an error that the operating system version is not supported.
 
 Only applications that can be installed on Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025 can be added to an WorkSpaces Applications image. Check if your
 application is supported on one of these operating systems, as applicable for
@@ -105,10 +87,7 @@ explorer "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Company\ClickOnce.appr
 11. Log back in as an Administrator and perform the required steps in Image Assistant to finish
     creating your image.
 
-## When I connect to my image builder, I see a login screen asking
-
-me to enter Ctrl+Alt+Delete to log in. However, my local machine intercepts the
-key strokes.
+## When I connect to my image builder, I see a login screen asking me to enter Ctrl+Alt+Delete to log in. However, my local machine intercepts the key strokes.
 
 Your client might intercept certain key combinations locally instead of sending
 them to the image builder session. To reliably send the Ctrl+Alt+Delete key
@@ -117,9 +96,7 @@ combination to the image builder, choose **Admin Commands**,
 Commands** menu is available on the top right corner of the image
 builder session toolbar.
 
-## When I switched between admin and test modes, I saw
-
-a request for a password. I don't know how to get a password.
+## When I switched between admin and test modes, I saw a request for a password. I don't know how to get a password.
 
 WorkSpaces Applications usually logs you into the user mode that you choose automatically. On some
 occasions, the switch might not happen automatically. If a password is requested,
@@ -127,9 +104,7 @@ choose **Admin Commands**, **Log me in**. This
 sends a one-time password, securely, to your image builder and pastes it into the
 **Password** field.
 
-## I get an error when I add my installed
-
-application.
+## I get an error when I add my installed application.
 
 Check if your application type is supported. You can add applications of the types
 `.exe`, `.lnk`, and `.bat`.
@@ -138,19 +113,14 @@ Check if your application is installed under the `C:\Users` folder hierarchy. An
 application installed under `C:\Users` is not supported. Select a different
 installation folder under `C:\` when installing the application.
 
-## I accidentally quit a background service on the
-
-image builder and got disconnected. I am now unable to connect to that image
-builder.
+## I accidentally quit a background service on the image builder and got disconnected. I am now unable to connect to that image builder.
 
 Try stopping the image builder, restarting it and connecting to it again. If the
 problem persists, you must launch (create) a new image builder. Do not stop any
 background services running on the image builder instance. Doing so might interrupt
 your image builder session or interfere with the image creation.
 
-## The application fails to launch in test
-
-mode.
+## The application fails to launch in test mode.
 
 Check if your application requires elevated user privileges or any special
 permissions that are usually available only to an administrator. The Image Builder
@@ -158,26 +128,19 @@ Test mode has the same limited permissions on the image builder instance as your
 users have on an WorkSpaces Applications test fleet. If your applications require elevated
 permissions, they do not launch in the Image Builder Test mode.
 
-## The application could not connect to a network
-
-resource in my VPC.
+## The application could not connect to a network resource in my VPC.
 
 Check if the image builder was launched in the correct VPC subnet. You might also
 need to verify that the route tables in your VPC are configured to allow a
 connection.
 
-## I customized my image builder desktop, but my
-
-changes are not available when connecting to a session after launching a fleet from
-the image I created.
+## I customized my image builder desktop, but my changes are not available when connecting to a session after launching a fleet from the image I created.
 
 Changes that are saved as part of a local user session, such as time settings, are not
 persisted when creating an image. To persist any local user session changes, add
 them to the local group policy on the image builder instance.
 
-## My application is missing a command line parameter
-
-when launching.
+## My application is missing a command line parameter when launching.
 
 You can provide a command line parameter when using image builder to add an
 application to an image. If the launch parameters for the application do not change
@@ -195,9 +158,7 @@ application using a script. You can parse the `sessionContext` parameter
 within your script before launching your application with a computed
 parameter.
 
-## I am unable to use my image with a fleet after
-
-installing an antivirus application.
+## I am unable to use my image with a fleet after installing an antivirus application.
 
 You can install any tools, including antivirus programs, on your WorkSpaces Applications stack by
 using the image builder before creating an image. However, these programs should not

@@ -45,7 +45,5 @@ available in 32-bit and 64-bit architecture:
 - [View the list of license included applications on your image builder](view-list-apps.md "view-list-apps.md")
 - [Install or uninstall license included applications](install-uninstall-apps.md "install-uninstall-apps.md")
 - [Enable updates for license included applications on image builder](updates-image-builder.md "updates-image-builder.md")
-- [Enable updates for license included applications on image builder with
-  Powershell](enable-updates-managed-powershell.md "enable-updates-managed-powershell.md")
-- [Enable updates for license included applications on image builder with Managed
-  Image Update](enable-updates-managed.md "enable-updates-managed.md")
+- [Enable updates for license included applications on image builder with Powershell](enable-updates-managed-powershell.md "enable-updates-managed-powershell.md")
+- [Enable updates for license included applications on image builder with Managed Image Update](enable-updates-managed.md "enable-updates-managed.md")

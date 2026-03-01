@@ -11,24 +11,16 @@ you might experience streaming issues in Fleets.
 
 ###### Contents
 
-- [Step 1: Install Linux Applications on the Image
-  Builder](#tutorial-linux-image-install "#tutorial-linux-image-install")
-- [Step 2: Generate Application
-  Optimization Manifest File](#tutorial-linux-image-manifest "#tutorial-linux-image-manifest")
-- [Step 3: Create an WorkSpaces Applications Application
-  Catalog](#tutorial-linux-image-catalog "#tutorial-linux-image-catalog")
-- [Step 4: Create Default Application
-  Settings and Environment Variables](#tutorial-linux-image-create-default-app-settings "#tutorial-linux-image-create-default-app-settings")
-- [Step 5: Test Applications and
-  Settings](#tutorial-linux-image-test-applications "#tutorial-linux-image-test-applications")
-- [Step 6: Finish Creating Your
-  Image](#tutorial-linux-image-finish-create-image "#tutorial-linux-image-finish-create-image")
+- [Step 1: Install Linux Applications on the Image Builder](#tutorial-linux-image-install "#tutorial-linux-image-install")
+- [Step 2: Generate Application Optimization Manifest File](#tutorial-linux-image-manifest "#tutorial-linux-image-manifest")
+- [Step 3: Create an WorkSpaces Applications Application Catalog](#tutorial-linux-image-catalog "#tutorial-linux-image-catalog")
+- [Step 4: Create Default Application Settings and Environment Variables](#tutorial-linux-image-create-default-app-settings "#tutorial-linux-image-create-default-app-settings")
+- [Step 5: Test Applications and Settings](#tutorial-linux-image-test-applications "#tutorial-linux-image-test-applications")
+- [Step 6: Finish Creating Your Image](#tutorial-linux-image-finish-create-image "#tutorial-linux-image-finish-create-image")
 - [Step 7 (Optional): Tag and Copy an Image](#tutorial-linux-image-tag-copy "#tutorial-linux-image-tag-copy")
 - [Step 8: Clean Up](#tutorial-linux-image-finish "#tutorial-linux-image-finish")
 
-## Step 1: Install Linux Applications on the Image
-
-Builder
+## Step 1: Install Linux Applications on the Image Builder
 
 In this step, you connect a Linux image builder and install your applications on the
 image builder.
@@ -55,17 +47,13 @@ chromium.x86_64**
 
 Download and install applications only from sites that you trust.
 
-## Step 2: Generate Application
-
-Optimization Manifest File
+## Step 2: Generate Application Optimization Manifest File
 
 In this step, you generate a manifest file for each application you installed in step
 
 1.
 
-###### To generate a manifest file for optimizing the launch performance of an
-
-application
+###### To generate a manifest file for optimizing the launch performance of an application
 
 1. Make sure the application (e.g., Chromium) that you are trying to optimize is
    launched and running.
@@ -108,9 +96,7 @@ process found in step 3 above, and save it to a temporary manifest file:
 /tmp/chromium-manifest.txt** 8. Verify the content of the optimization manifest, which is a line-delimited
 text file for each application.
 
-## Step 3: Create an WorkSpaces Applications Application
-
-Catalog
+## Step 3: Create an WorkSpaces Applications Application Catalog
 
 In this step, you use the CLI tool `AppStreamImageAssistant` on the
 image builder to create an WorkSpaces Applications application catalog by specifying applications
@@ -158,9 +144,7 @@ AppStreamImageAssistant add-application \
 **AppStreamImageAssistant remove-application –-name
 `application_name`**
 
-## Step 4: Create Default Application
-
-Settings and Environment Variables
+## Step 4: Create Default Application Settings and Environment Variables
 
 In this step, you create default application settings and environment variables for your
 WorkSpaces Applications users. Doing this enables your users to get started with applications quickly
@@ -191,9 +175,7 @@ tee -a /etc/profile.d/myenvvars.sh**
 **[ImageBuilderAdmin]$ sudo chmod +x
 /etc/profile.d/myenvvars.sh**
 
-## Step 5: Test Applications and
-
-Settings
+## Step 5: Test Applications and Settings
 
 In this step, verify that the applications you've added run correctly, and the
 default application settings and environment variables work as expected.
@@ -233,9 +215,7 @@ from this image builder:
 
 **[ImageBuilderAdmin]$ sudo userdel -r test-user**
 
-## Step 6: Finish Creating Your
-
-Image
+## Step 6: Finish Creating Your Image
 
 In this step, choose an image name and finish creating your image.
 

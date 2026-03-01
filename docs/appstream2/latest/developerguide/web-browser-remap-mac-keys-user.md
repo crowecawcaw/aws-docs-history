@@ -24,9 +24,7 @@ Follow these steps to remap the Mac Option and Command keys during an WorkSpaces
 Follow these steps to remap the Mac Option and Command keys on WorkSpaces Applications web
 browser access v2.
 
-###### To remap the Mac Option and Command keys on WorkSpaces Applications web browser access
-
-v2
+###### To remap the Mac Option and Command keys on WorkSpaces Applications web browser access v2
 
 1. Use a web browser to connect to WorkSpaces Applications.
 2. From the top menu of the WorkSpaces Applications toolbar, choose the

@@ -1,6 +1,4 @@
-# Persist Environment
-
-Variables in Amazon WorkSpaces Applications
+# Persist Environment Variables in Amazon WorkSpaces Applications
 
 Environment variables enable you to dynamically pass settings across applications. For
 example, many engineering applications rely on environment variables to specify the IP
@@ -16,12 +14,9 @@ The following instructions apply to Windows fleets only.
 
 ###### Contents
 
-- [Change System
-  Environment Variables](customize-fleets-system-environment-variables.md "customize-fleets-system-environment-variables.md")
-- [Change User
-  Environment Variables](customize-fleets-user-environment-variables.md "customize-fleets-user-environment-variables.md")
-- [Create an
-  Environment Variable That is Limited in Scope](customize-fleets-environment-variable-limited-scope.md "customize-fleets-environment-variable-limited-scope.md")
+- [Change System Environment Variables](customize-fleets-system-environment-variables.md "customize-fleets-system-environment-variables.md")
+- [Change User Environment Variables](customize-fleets-user-environment-variables.md "customize-fleets-user-environment-variables.md")
+- [Create an Environment Variable That is Limited in Scope](customize-fleets-environment-variable-limited-scope.md "customize-fleets-environment-variable-limited-scope.md")
 
 ###### Note
 

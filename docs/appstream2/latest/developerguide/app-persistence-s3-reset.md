@@ -1,6 +1,4 @@
-# Reset a User's Application
-
-Settings
+# Reset a User's Application Settings
 
 To reset a user's application settings, you must find and delete the VHD and
 associated metadata file from the S3 bucket in your AWS account. Make sure that

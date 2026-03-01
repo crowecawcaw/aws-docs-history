@@ -44,8 +44,7 @@ client.
     Ranges. For more information, see [AWS IP address
     ranges](../../../general/latest/gr/aws-ip-ranges.md "../../../general/latest/gr/aws-ip-ranges.md").
   - You are using the latest base image when creating your fleet.
-    For more information, see [WorkSpaces Applications Base Image and Managed Image Update
-    Release Notes](base-image-version-history.md "base-image-version-history.md").
+    For more information, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md").
   - Your end users are using the latest client. For more information,
     see [Supported
     clients](https://clients.amazonappstream.com/ "https://clients.amazonappstream.com/").

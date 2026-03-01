@@ -62,8 +62,7 @@ with a Linux fleet, please make sure these settings are disabled.
    - **Home Folders** — Users can save their files
      to their home folder and access existing files in their home folder
      during application streaming sessions. For information about
-     requirements for enabling home folders, see [Enable Home Folders for Your WorkSpaces Applications
-     Users](enable-home-folders.md "enable-home-folders.md").
+     requirements for enabling home folders, see [Enable Home Folders for Your WorkSpaces Applications Users](enable-home-folders.md "enable-home-folders.md").
    - **Google Drive for Google Workspace** — Users
      can link their Google Drive for Google Workspace account to WorkSpaces Applications.
      During application streaming sessions, they can sign in to their Google
@@ -83,8 +82,7 @@ with a Linux fleet, please make sure these settings are disabled.
    with your Google Workspace account. Access to Google Drive during
    application streaming sessions is limited to users that are in the
    domains that you specify. You can specify up to 10 domains. For more
-   information about requirements for enabling Google Drive, see [Enable Google Drive for Your WorkSpaces Applications
-   Users](enable-google-drive.md "enable-google-drive.md").
+   information about requirements for enabling Google Drive, see [Enable Google Drive for Your WorkSpaces Applications Users](enable-google-drive.md "enable-google-drive.md").
    - **OneDrive for Business** — Users can link
      their OneDrive for Business account to WorkSpaces Applications. During application
      streaming sessions, they can sign in to their OneDrive account, save
@@ -143,8 +141,7 @@ not available for multi-session fleets.
      local drives and folders during their streaming sessions, you must
      enable both file upload and download. To use file system
      redirection, your users must have WorkSpaces Applications client version 1.0.480 or
-     later installed. For more information, see [Enable File System Redirection for
-     Your WorkSpaces Applications Users](enable-file-system-redirection.md "enable-file-system-redirection.md").
+     later installed. For more information, see [Enable File System Redirection for Your WorkSpaces Applications Users](enable-file-system-redirection.md "enable-file-system-redirection.md").
     * **Print to local device** — By default, users
      can print to their local device from within a streaming application.
      When they choose **Print** in the application, they can
@@ -210,8 +207,7 @@ These settings are not supported for Linux-based stacks.
 ###### Note
 
 For information about requirements for enabling and administering
-application settings persistence, see [Enable Application Settings Persistence for Your
-WorkSpaces Applications Users](app-settings-persistence.md "app-settings-persistence.md"). 7. For **Step 4: Review**, confirm the details for the stack. To
+application settings persistence, see [Enable Application Settings Persistence for Your WorkSpaces Applications Users](app-settings-persistence.md "app-settings-persistence.md"). 7. For **Step 4: Review**, confirm the details for the stack. To
 change the configuration for any section, choose **Edit** and
 make the needed changes. After you finish reviewing the configuration details,
 choose **Create**.

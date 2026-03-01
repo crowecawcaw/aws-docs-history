@@ -1,6 +1,4 @@
-# Enabling and Disabling Heavy File Sync Mode for Home
-
-Folders
+# Enabling and Disabling Heavy File Sync Mode for Home Folders
 
 You can enable Amazon Simple Storage Service Home Folders options for your organization. When you
 enable Amazon S3 Home Folders for an WorkSpaces Applications stack, users of the stack can access
@@ -8,8 +6,7 @@ a persistent storage folder during their application streaming sessions. No furt
 conﬁguration is required for your users to access their home folder. Data stored by
 users in their home folder is automatically backed up to an Amazon S3 bucket in
 your AWS account, and is made available to those users in subsequent sessions. For
-more information, see [Enable and Administer Home Folders for Your WorkSpaces Applications
-Users](home-folders.md "home-folders.md").
+more information, see [Enable and Administer Home Folders for Your WorkSpaces Applications Users](home-folders.md "home-folders.md").
 
 To ensure a smooth experience and address some existing limitations, where an
 inconsistent file sync might be observed when users save large text files from their

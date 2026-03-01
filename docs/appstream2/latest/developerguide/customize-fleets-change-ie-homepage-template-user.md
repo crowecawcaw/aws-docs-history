@@ -1,13 +1,9 @@
-# Use the WorkSpaces Applications
-
-Template User Account to Change the Default Internet Explorer Home Page
+# Use the WorkSpaces Applications Template User Account to Change the Default Internet Explorer Home Page
 
 Follow these steps to use the **Template User** account to change
 the default Internet Explorer home page.
 
-###### To change the default Internet Explorer Home page by using the Template User
-
-account
+###### To change the default Internet Explorer Home page by using the Template User account
 
 1.  Connect to the image builder on which to change the default Internet
     Explorer home page and sign in with the **Template User**
@@ -49,5 +45,4 @@ the image builder by doing either of the following:
 
 5. On the image builder desktop, open Image Assistant.
 6. Follow the necessary steps in Image Assistant to finish creating your
-   image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").

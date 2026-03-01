@@ -1,13 +1,9 @@
-# Create and Specify Session
-
-Scripts
+# Create and Specify Session Scripts
 
 You can configure and specify session scripts for Always-on, On-demand, and
 Elastic fleets.
 
-###### To configure and specify session scripts for Always-on and On-demand
-
-fleets
+###### To configure and specify session scripts for Always-on and On-demand fleets
 
 1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
@@ -19,8 +15,7 @@ fleets
 5. Navigate to `C:\AppStream\SessionScripts`, and open the
    `config.json` configuration file.
 
-For information about session script parameters, see [Session Scripts Configuration
-File](session-script-configuration-file.md "session-script-configuration-file.md"). 6. After you finish making your changes, save and close the
+For information about session script parameters, see [Session Scripts Configuration File](session-script-configuration-file.md "session-script-configuration-file.md"). 6. After you finish making your changes, save and close the
 `config.json` file. 7. On the image builder desktop, open **Image
 Assistant**. 8. (Optional) Specify any additional applications that you want to include in
 the image. 9. Follow the necessary steps in Image Assistant to finish creating your
@@ -50,14 +45,12 @@ builders, navigate to
 
 In order to run the session script files, make sure that the .zip file
 only contains the session scripts and `config.json`
-files, and not the containing folder. For more information, see [Session Scripts Configuration
-File](session-script-configuration-file.md "session-script-configuration-file.md"). 2. Upload the zip file to an Amazon S3 bucket in your account.
+files, and not the containing folder. For more information, see [Session Scripts Configuration File](session-script-configuration-file.md "session-script-configuration-file.md"). 2. Upload the zip file to an Amazon S3 bucket in your account.
 
 ###### Note
 
 Your VPC must provide access to the Amazon S3 bucket. For more information,
-see [Using Amazon S3 VPC Endpoints for
-WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
+see [Using Amazon S3 VPC Endpoints for WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
 
 You must have your S3 bucket and WorkSpaces Applications fleet in the same
 AWS Region.
@@ -65,8 +58,7 @@ AWS Region.
 You must have IAM permissions to perform the
 `S3:GetObject` action on the session scripts object in
 the Amazon S3 bucket. To learn more about storing the session scripts in an
-Amazon S3 bucket, see [Store Application Icon, Setup Script, Session Script,
-and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md"). 3. Open the WorkSpaces Applications console at
+Amazon S3 bucket, see [Store Application Icon, Setup Script, Session Script, and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md"). 3. Open the WorkSpaces Applications console at
 [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2"). 4. In the navigation pane, choose **Fleets**. 5. Choose an Elastic fleet that you want to update, and then choose
 **View Details**. 6. On the **Session scripts settings** tab, choose
 **Edit**. 7. For **Session scripts object in S3**, either enter the S3

@@ -1,7 +1,4 @@
-# Checking for the
-
-`AWSServiceRoleForApplicationAutoScaling_AppStreamFleet` Service-Linked Role and
-Policies
+# Checking for the `AWSServiceRoleForApplicationAutoScaling_AppStreamFleet` Service-Linked Role and Policies
 
 Complete the steps in this section to check whether the
 `AWSServiceRoleForApplicationAutoScaling_AppStreamFleet` service-linked
@@ -10,9 +7,7 @@ in your account and must be created, you or an administrator with the required
 permissions must perform the steps to get started with WorkSpaces Applications in your Amazon Web Services
 account.
 
-###### To check whether the `AWSServiceRoleForApplicationAutoScaling_AppStreamFleet` IAM service-linked
-
-role is present
+###### To check whether the `AWSServiceRoleForApplicationAutoScaling_AppStreamFleet` IAM service-linked role is present
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

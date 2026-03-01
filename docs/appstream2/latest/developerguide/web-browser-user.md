@@ -11,8 +11,7 @@ stream applications.
 - [WorkSpaces Applications Web Browser Access (Version 2)](web-browser-access-v2.md "web-browser-access-v2.md")
 - [Monitors and Display Resolution](web-browser-monitors-display-resolution-user.md "web-browser-monitors-display-resolution-user.md")
 - [USB Devices](web-browser-usb-devices-user.md "web-browser-usb-devices-user.md")
-- [Touchscreen
-  Devices](web-browser-using-touchscreen-devices-user.md "web-browser-using-touchscreen-devices-user.md")
+- [Touchscreen Devices](web-browser-using-touchscreen-devices-user.md "web-browser-using-touchscreen-devices-user.md")
 - [Function Keys](web-browser-using-function-keys-user.md "web-browser-using-function-keys-user.md")
 - [Remap the Mac Option and Command Keys](web-browser-remap-mac-keys-user.md "web-browser-remap-mac-keys-user.md")
 - [Video and Audio Conferencing](web-browser-video-audio.md "web-browser-video-audio.md")

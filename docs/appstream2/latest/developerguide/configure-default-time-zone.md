@@ -5,19 +5,15 @@ the steps in either of the following two procedures.
 
 ###### Procedures
 
-- [Specify a Default Time Zone (Windows
-  Server 2012 R2)](#configure-default-time-zone "#configure-default-time-zone")
-- [Specify a Default Time Zone
-  (Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025)](#configure-default-time-zone-2016-2019 "#configure-default-time-zone-2016-2019")
+- [Specify a Default Time Zone (Windows Server 2012 R2)](#configure-default-time-zone "#configure-default-time-zone")
+- [Specify a Default Time Zone (Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025)](#configure-default-time-zone-2016-2019 "#configure-default-time-zone-2016-2019")
 
 ###### Note
 
 Currently, WorkSpaces Applications supports only **UTC** and **(UTC+9:00)
 Osaka, Sapporo, Tokyo**.
 
-## Specify a Default Time Zone (Windows
-
-Server 2012 R2)
+## Specify a Default Time Zone (Windows Server 2012 R2)
 
 1. Connect to the image builder that you want to use and sign in with a user
    that has local administrator permissions. To do so, do either of the
@@ -56,8 +52,7 @@ Server 2012 R2)
    and configure applications for streaming.
 8. After you finish configuring your image builder, follow the necessary
    steps in Image Assistant to finish creating your image. For information
-   about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 9. Do one of the following:
    - Create a new fleet and choose your new image for the fleet. For
      more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
@@ -70,9 +65,7 @@ The default time zone setting that you configured is applied to the fleet
 instances and user streaming sessions that are launched from those
 instances.
 
-## Specify a Default Time Zone
-
-(Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025)
+## Specify a Default Time Zone (Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025)
 
 1. Connect to the image builder that you want to use and sign in with an
    account that has local administrator permissions. To do so, do either of the
@@ -128,8 +121,7 @@ instances.
    and configure applications for streaming.
 5. After you finish configuring your image builder, follow the necessary
    steps in Image Assistant to finish creating your image. For information
-   about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 6. Do one of the following:
    - Create a new fleet and choose your new image for the fleet. For
      more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
@@ -146,8 +138,7 @@ instances.
 
 Your users can change their time zone from the default setting that you
 configured. They can configure their regional settings during an application
-streaming session, as described in [Enable Your WorkSpaces Applications Users to Configure Their Regional
-Settings](regional-settings.md "regional-settings.md"). Also, if a user previously selected a time
+streaming session, as described in [Enable Your WorkSpaces Applications Users to Configure Their Regional Settings](regional-settings.md "regional-settings.md"). Also, if a user previously selected a time
 zone when streaming from any fleet instance in the same AWS Region, the
 user-specified time zone setting automatically overrides any default time zone
 setting you specify through your image builder.

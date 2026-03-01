@@ -1,6 +1,4 @@
-# Create an Image That Uses a Newer Version
-
-of the WorkSpaces Applications Agent
+# Create an Image That Uses a Newer Version of the WorkSpaces Applications Agent
 
 If you pin your image to a specific WorkSpaces Applications agent version, you must update to a newer
 version by creating a new image. This approach lets you test each agent update for
@@ -29,8 +27,7 @@ image.
 3. On the image builder desktop, open Image Assistant and follow the steps to create
    your new image. For the **Configure Image** step in Image
    Assistant, make sure that **Always use the latest agent
-   version** is not selected. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   version** is not selected. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 If you decide later to always use the latest version of the WorkSpaces Applications agent, you must create a new image and select that option. 4. Create a new fleet or modify an existing one. When you configure the fleet, select the new
 image that you created. For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md"). 5. Create a new stack or modify an existing one and associate it with your fleet. 6. Connect to your fleet and test your applications for compatibility.

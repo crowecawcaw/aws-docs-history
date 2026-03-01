@@ -1,6 +1,4 @@
-# Example API Operations
-
-Work Flow for the Dynamic Application Framework
+# Example API Operations Work Flow for the Dynamic Application Framework
 
 The following diagram is an example of the API operations flow between WorkSpaces Applications and
 a third-party application provider.

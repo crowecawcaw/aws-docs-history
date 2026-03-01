@@ -7,14 +7,11 @@ methods:
   more information, see [CreateStreamingURL](../APIReference/API_CreateStreamingURL.md "../APIReference/API_CreateStreamingURL.md").
 - Add the sts:TagSession permission to your IAM role's trust policy and specify
   the session context as a SAML assertion in your SAML 2.0 identity provider's
-  authentication response. For more information, see [Step 5: Create
-  Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions") and [Step 5: Create
-  Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions").
+  authentication response. For more information, see [Step 5: Create Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions") and [Step 5: Create Assertions for the SAML Authentication Response](external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions "external-identity-providers-setting-up-saml.md#external-identity-providers-create-assertions").
   If your image uses a version of the WorkSpaces Applications agent that was released on or after October
   30, 2018, the session context is stored within the image as a Windows or Linux
   environment variable. For information about specific environment variables, see "User
-  and Instance Metadata for WorkSpaces Applications Fleets" in [Customize an Amazon WorkSpaces Applications Fleet to Optimize Your Users'
-  Application Streaming Experience](customize-fleets.md "customize-fleets.md") .
+  and Instance Metadata for WorkSpaces Applications Fleets" in [Customize an Amazon WorkSpaces Applications Fleet to Optimize Your Users' Application Streaming Experience](customize-fleets.md "customize-fleets.md").
 
 ###### Note
 
@@ -28,9 +25,7 @@ WorkSpaces Applications fleets.
 
 WorkSpaces Applications does not perform validation on the session context parameter.
 
-## Using Session Context to Pass
-
-Parameters to a Streaming Application
+## Using Session Context to Pass Parameters to a Streaming Application
 
 In the following steps, you'll use session context to start a web browser and
 automatically open a specific website. For instances running Windows, you'll use

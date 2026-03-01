@@ -12,15 +12,8 @@ permission to perform the specified tasks on the specified resources.
 ###### Contents
 
 - [AWS Managed Policies Required to Access WorkSpaces Applications Resources](managed-policies-required-to-access-appstream-resources.md "managed-policies-required-to-access-appstream-resources.md")
-- [Roles Required for WorkSpaces Applications, Application Auto Scaling,
-  and AWS Certificate Manager Private CA](roles-required-for-appstream.md "roles-required-for-appstream.md")
-- [Checking for the
-  AmazonAppStreamServiceAccess Service Role and Policies](controlling-access-checking-for-iam-service-access.md "controlling-access-checking-for-iam-service-access.md")
-- [Checking for the
-  ApplicationAutoScalingForAmazonAppStreamAccess Service Role
-  and Policies](controlling-access-checking-for-iam-autoscaling.md "controlling-access-checking-for-iam-autoscaling.md")
-- [Checking for the
-  AWSServiceRoleForApplicationAutoScaling_AppStreamFleet Service-Linked Role and
-  Policies](controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md "controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md")
-- [Checking for the
-  AmazonAppStreamPCAAccess Service Role and Policies](controlling-access-checking-for-AppStreamPCAAccess.md "controlling-access-checking-for-AppStreamPCAAccess.md")
+- [Roles Required for WorkSpaces Applications, Application Auto Scaling, and AWS Certificate Manager Private CA](roles-required-for-appstream.md "roles-required-for-appstream.md")
+- [Checking for the AmazonAppStreamServiceAccess Service Role and Policies](controlling-access-checking-for-iam-service-access.md "controlling-access-checking-for-iam-service-access.md")
+- [Checking for the ApplicationAutoScalingForAmazonAppStreamAccess Service Role and Policies](controlling-access-checking-for-iam-autoscaling.md "controlling-access-checking-for-iam-autoscaling.md")
+- [Checking for the AWSServiceRoleForApplicationAutoScaling_AppStreamFleet Service-Linked Role and Policies](controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md "controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md")
+- [Checking for the AmazonAppStreamPCAAccess Service Role and Policies](controlling-access-checking-for-AppStreamPCAAccess.md "controlling-access-checking-for-AppStreamPCAAccess.md")

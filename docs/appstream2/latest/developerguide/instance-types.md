@@ -51,7 +51,6 @@ volume is immediately deleted after each user session.
 
 For more information, see the following:
 
-- [WorkSpaces Applications Base Image and Managed Image Update
-  Release Notes](base-image-version-history.md "base-image-version-history.md")
+- [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md")
 - [Amazon WorkSpaces Applications Service Quotas](limits.md "limits.md")
 - [WorkSpaces Applications Pricing](https://aws.amazon.com/appstream2/pricing/ "https://aws.amazon.com/appstream2/pricing/")

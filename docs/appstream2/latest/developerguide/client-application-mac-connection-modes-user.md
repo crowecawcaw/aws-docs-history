@@ -1,6 +1,4 @@
-# WorkSpaces Applications macOS Client Connection
-
-Mode
+# WorkSpaces Applications macOS Client Connection Mode
 
 The WorkSpaces Applications macOS client supports two connection modes: _Classic
 mode_ and _Desktop view_. Your

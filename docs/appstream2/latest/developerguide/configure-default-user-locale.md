@@ -40,8 +40,7 @@ box. 7. If required, configure additional default regional or language settings.
 Otherwise, on the image builder desktop, open Image Assistant and install and
 configure applications for streaming. 8. In Step 2 of the Image Assistant process, choose **Save
 settings**. 9. Follow the necessary steps in Image Assistant to finish creating your image.
-For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). 10. Do one of the following:
+For information about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md"). 10. Do one of the following:
 
     * Create a new fleet and choose your new image for the fleet. For more
      information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
@@ -59,8 +58,7 @@ instances.
 Your users can change their user locale from the default setting that you
 configured to any one of 11 different supported locales. To do so, they can
 configure their regional settings during application streaming sessions, as
-described in [Enable Your WorkSpaces Applications Users to Configure Their Regional
-Settings](regional-settings.md "regional-settings.md").
+described in [Enable Your WorkSpaces Applications Users to Configure Their Regional Settings](regional-settings.md "regional-settings.md").
 Also, if a user previously selected a user locale when streaming from any fleet
 instance in the same Region, that user-specified setting automatically overrides any
 default user locale setting that you specify through your image builder.

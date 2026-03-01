@@ -1,6 +1,4 @@
-# Change User
-
-Environment Variables
+# Change User Environment Variables
 
 Follow these steps to change user environment variables across your fleet
 instances.
@@ -49,5 +47,4 @@ instances.
 
 6.  On the image builder desktop, open Image Assistant.
 7.  Follow the necessary steps in Image Assistant to finish creating your
-    image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-    WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+    image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").

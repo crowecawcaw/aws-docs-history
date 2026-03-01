@@ -1,6 +1,4 @@
-# Best Practices for
-
-Enabling Application Settings Persistence
+# Best Practices for Enabling Application Settings Persistence
 
 To enable application settings persistence without providing internet access to
 your instances, use a VPC endpoint. This endpoint must be in the VPC to which your

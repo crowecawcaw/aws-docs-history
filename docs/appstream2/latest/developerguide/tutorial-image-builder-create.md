@@ -30,8 +30,7 @@ charges. For more information, see [WorkSpaces Applications Pricing](https://aws
 3. For **Step 1: Choose Image**, choose a base image. If you are
    launching the image builder for the first time, you can use one of the latest
    base images released by AWS (selected by default). For a list of the latest
-   versions of base images released by AWS, see [WorkSpaces Applications Base Image and Managed Image Update
-   Release Notes](base-image-version-history.md "base-image-version-history.md"). If you have already created images,
+   versions of base images released by AWS, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md"). If you have already created images,
    or you want to update applications in an existing image, you can select one of
    your existing images. Be sure to select an image that aligns with the instance
    family that you need. For more information, see [WorkSpaces Applications Instance Families](instance-types.md "instance-types.md").
@@ -151,5 +150,4 @@ builder by doing the following:
 If an error message notifies you that you don't have sufficient limits (quotas) to create the image builder, submit a limit increase request through the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/"). For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_. 10. During the image builder creation process, the status of the image builder displays as **Pending** while WorkSpaces Applications prepares the necessary resources. Click the **Refresh** icon periodically to update the image builder status. After the status changes to **Running**, the image builder is ready to use and you can create a custom image.
 **Next Steps**
 
-Next, install and configure your applications for streaming, and then create an image by creating a snapshot of the image builder instance. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+Next, install and configure your applications for streaming, and then create an image by creating a snapshot of the image builder instance. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").

@@ -1,6 +1,4 @@
-# Granting Permissions to Create and Manage
-
-Active Directory Computer Objects
+# Granting Permissions to Create and Manage Active Directory Computer Objects
 
 To allow WorkSpaces Applications to perform Active Directory computer object operations, you need
 an account with sufficient permissions. As a best practice, use an account that has

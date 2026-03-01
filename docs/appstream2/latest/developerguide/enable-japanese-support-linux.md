@@ -1,6 +1,4 @@
-# Tutorial: Enable Japanese Support for Your
-
-Linux Images
+# Tutorial: Enable Japanese Support for Your Linux Images
 
 This tutorial describes how to enable Japanese support for a Linux image. This enables
 applications on the image to display Japanese characters, and streaming users to use the
@@ -10,8 +8,7 @@ Japanese input method in the streaming sessions from the image.
 
 - [Step 1: Install Japanese Font and Input Method](#tutorial-japanese-font "#tutorial-japanese-font")
 - [Step 2: Set the System Time Zone](#tutorial-japanese-zone "#tutorial-japanese-zone")
-- [Step 3: Set the System Locale and Display
-  Language](#tutorial-japanese-locale "#tutorial-japanese-locale")
+- [Step 3: Set the System Locale and Display Language](#tutorial-japanese-locale "#tutorial-japanese-locale")
 - [Step 4: Configure the Input Methods](#tutorial-japanese-input "#tutorial-japanese-input")
 - [Step 5: Set the Keyboard Layout](#tutorial-japense-keyboard "#tutorial-japense-keyboard")
 - [Step 6: Verify on Image Builder](#tutorial-japense-verify "#tutorial-japense-verify")
@@ -49,9 +46,7 @@ To set the system time zone, run the following command:
 
 **sudo timedatectl set-timezone "Asia/Tokyo"**
 
-## Step 3: Set the System Locale and Display
-
-Language
+## Step 3: Set the System Locale and Display Language
 
 To set the system locale and display language, run the following commands.
 

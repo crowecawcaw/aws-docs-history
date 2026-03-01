@@ -1,6 +1,4 @@
-# Create an
-
-Environment Variable That is Limited in Scope
+# Create an Environment Variable That is Limited in Scope
 
 Follow these steps to create an environment variable that is limited in scope to
 the processes that are spawned off the script. This approach is useful when you need
@@ -58,8 +56,7 @@ one of the scripts that you created in step 5. Choose
 the settings as needed. When you're done, choose
 **Save**. 9. If you created multiple scripts, repeat steps 8 and 9 for each
 script. 10. Follow the necessary steps in Image Assistant to finish creating your
-image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 The environment variable and specific value are now available for
 processes that are run from the script. Other processes cannot access this

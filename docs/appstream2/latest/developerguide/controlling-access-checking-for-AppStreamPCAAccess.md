@@ -1,6 +1,4 @@
-# Checking for the
-
-AmazonAppStreamPCAAccess Service Role and Policies
+# Checking for the AmazonAppStreamPCAAccess Service Role and Policies
 
 Complete the steps in this section to check whether the
 **AmazonAppStreamPCAAccess** service role is present and has
@@ -8,9 +6,7 @@ the correct policies attached. If this role is not in your account and must be
 created, you or an administrator with the required permissions must perform the
 steps to get started with WorkSpaces Applications in your Amazon Web Services account.
 
-###### To check whether the AmazonAppStreamPCAAccess IAM service role is
-
-present
+###### To check whether the AmazonAppStreamPCAAccess IAM service role is present
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -37,9 +33,7 @@ must include prod.euc.ecm.amazonaws.com as the principal. This policy must also
 include the `sts:AssumeRole` action. The following policy
 configuration defines ECM as a trusted entity.
 
-###### To create the AmazonAppStreamPCAAccess trust relationship policy using
-
-the AWS CLI
+###### To create the AmazonAppStreamPCAAccess trust relationship policy using the AWS CLI
 
 1. Create a JSON file named `AmazonAppStreamPCAAccess.json` with the following
    text.

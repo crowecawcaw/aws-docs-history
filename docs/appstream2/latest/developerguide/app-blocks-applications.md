@@ -12,7 +12,6 @@ following sections describe how to create and manage these resources.
 - [App Blocks](app-blocks.md "app-blocks.md")
 - [App Block Builder](app-block-builder.md "app-block-builder.md")
 - [Applications](applications-elastic.md "applications-elastic.md")
-- [Store Application Icon, Setup Script, Session Script,
-  and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md")
+- [Store Application Icon, Setup Script, Session Script, and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md")
 - [Associate Applications to Elastic Fleets](associate-elastic.md "associate-elastic.md")
 - [Additional Resources](additional-resources-app-blocks.md "additional-resources-app-blocks.md")

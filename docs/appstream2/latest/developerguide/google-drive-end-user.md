@@ -58,9 +58,7 @@ folder you want. If you do not want to work with files in Google Drive
 during this streaming session, close the **My Files**
 dialog box.
 
-###### To upload and download files between your local computer and your Google
-
-Drive
+###### To upload and download files between your local computer and your Google Drive
 
 1. In the top left of the WorkSpaces Applications toolbar, choose the **My
    Files** icon.

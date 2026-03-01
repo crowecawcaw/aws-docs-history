@@ -1,6 +1,4 @@
-# Change the Default Internet
-
-Explorer Home Page for Users' Streaming Sessions in Amazon WorkSpaces Applications
+# Change the Default Internet Explorer Home Page for Users' Streaming Sessions in Amazon WorkSpaces Applications
 
 You can use Group Policy to change the default Internet Explorer home page for users'
 streaming sessions. Alternatively, if you do not have Group Policy in your environment
@@ -13,14 +11,10 @@ The following steps apply to Windows fleets only.
 
 ###### Contents
 
-- [Use Group Policy
-  to Change the Default Internet Explorer Home Page](customize-fleets-change-ie-homepage-group-policy.md "customize-fleets-change-ie-homepage-group-policy.md")
-- [Use the WorkSpaces Applications
-  Template User Account to Change the Default Internet Explorer Home Page](customize-fleets-change-ie-homepage-template-user.md "customize-fleets-change-ie-homepage-template-user.md")
+- [Use Group Policy to Change the Default Internet Explorer Home Page](customize-fleets-change-ie-homepage-group-policy.md "customize-fleets-change-ie-homepage-group-policy.md")
+- [Use the WorkSpaces Applications Template User Account to Change the Default Internet Explorer Home Page](customize-fleets-change-ie-homepage-template-user.md "customize-fleets-change-ie-homepage-template-user.md")
 
-###### To change the default Internet Explorer home page by using Group Policy
-
-preferences
+###### To change the default Internet Explorer home page by using Group Policy preferences
 
 You can use Group Policy preferences to set a default home page that users can
 change. For more information about working with Group Policy preferences, see [Configure a Registry Item](<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)> "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)") and [Group Policy Preferences Getting Started Guide](<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731892(v=ws.10)> "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731892(v=ws.10)") in the Microsoft

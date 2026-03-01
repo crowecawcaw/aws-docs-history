@@ -32,6 +32,5 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 - [Infrastructure Security in Amazon WorkSpaces Applications](infrastructure-security.md "infrastructure-security.md")
 - [Security Groups in Amazon WorkSpaces Applications](managing-network-security-groups.md "managing-network-security-groups.md")
 - [Update Management in Amazon WorkSpaces Applications](update-management.md "update-management.md")
-- [Amazon WorkSpaces Applications Cross-Service Confused Deputy
-  Prevention](confused-deputy.md "confused-deputy.md")
+- [Amazon WorkSpaces Applications Cross-Service Confused Deputy Prevention](confused-deputy.md "confused-deputy.md")
 - [Security Best Practices in Amazon WorkSpaces Applications](security-best-practices.md "security-best-practices.md")

@@ -1,6 +1,4 @@
-# Example: WorkSpaces Applications service role cross-service
-
-confused deputy prevention
+# Example: WorkSpaces Applications service role cross-service confused deputy prevention
 
 WorkSpaces Applications assumes a service role using a variety of resource ARNs, which leads to a
 complicated conditional statement. We recommend using a wildcard resource type to

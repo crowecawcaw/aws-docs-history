@@ -31,8 +31,7 @@ image.
 
 3. On the image builder desktop, open Image Assistant.
 4. Follow the necessary steps in Image Assistant to finish creating your image.
-   For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+   For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 After the image status changes to **Available**, you can
 update the fleet with your new image. 5. In the left navigation pane, choose **Fleets**. 6. Select the fleet that you want to update with the new image. 7. On the **Fleet Details** tab, choose

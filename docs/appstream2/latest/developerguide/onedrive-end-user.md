@@ -52,9 +52,7 @@ displayed in **My Files**.
 you want. If you do not want to work with files in OneDrive during this
 streaming session, close the **My Files** dialog box.
 
-###### To upload and download files between your local computer and your
-
-OneDrive
+###### To upload and download files between your local computer and your OneDrive
 
 1. In the top left of the WorkSpaces Applications toolbar, choose the **My
    Files** icon.

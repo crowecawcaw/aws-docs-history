@@ -24,12 +24,10 @@ When you create an app block builder, you choose the following:
   licensing servers, database servers, file servers, and application servers. App
   block builder uploads the application package on to an Amazon S3 bucket
   in your AWS account. The VPC you choose for your fleet must provide sufficient
-  network access to the Amazon S3 bucket. For more information, see [Store Application Icon, Setup Script, Session Script,
-  and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md").
+  network access to the Amazon S3 bucket. For more information, see [Store Application Icon, Setup Script, Session Script, and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md").
 
 ###### Contents
 
 - [Create an App Block Builder](create-app-block-builder.md "create-app-block-builder.md")
-- [Connect to an App Block Builder in
-  Amazon WorkSpaces Applications](connect-app-block-builder.md "connect-app-block-builder.md")
+- [Connect to an App Block Builder in Amazon WorkSpaces Applications](connect-app-block-builder.md "connect-app-block-builder.md")
 - [App Block Builder Actions](app-block-builder-actions.md "app-block-builder-actions.md")

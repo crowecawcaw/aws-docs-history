@@ -1,6 +1,4 @@
-# Disable Internet Explorer Enhanced
-
-Security Configuration in Amazon WorkSpaces Applications
+# Disable Internet Explorer Enhanced Security Configuration in Amazon WorkSpaces Applications
 
 Internet Explorer Enhanced Security Configuration (ESC) places servers and Internet
 Explorer in a configuration that limits exposure to the internet. However, this
@@ -86,5 +84,4 @@ image builder by doing either of the following:
 9. In **Step 2. Configure Apps**, choose **Save
    settings**.
 10. Follow the necessary steps in Image Assistant to finish creating your image.
-    For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-    WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+    For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").

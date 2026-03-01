@@ -1,6 +1,4 @@
-# Qualify USB Devices for Use with Streaming
-
-Applications
+# Qualify USB Devices for Use with Streaming Applications
 
 There are two methods for specifying which USB devices your users can redirect
 into their WorkSpaces Applications streaming instances:
@@ -94,8 +92,7 @@ devices to be used with your streaming applications.
     **Protocol**, **ID Vendor**,
     **ID Product**, **Support Autoshare**,
     and **Skip Reset**. For detailed information about these
-    strings, see [Working with USB Device Filter
-    Strings](USB-device-filter-strings.md "USB-device-filter-strings.md").
+    strings, see [Working with USB Device Filter Strings](USB-device-filter-strings.md "USB-device-filter-strings.md").
 12. Disconnect from your image builder, restart it, and reconnect to it by
     using the WorkSpaces Applications client. To do so, open the WorkSpaces Applications client and paste the
     streaming URL that you created in step 7 into the client sign-in web address
@@ -106,7 +103,6 @@ devices to be used with your streaming applications.
     first share the device with their session. For guidance that you can provide
     your users to help them perform this task, see [USB Devices](client-application-windows-how-to-share-usb-devices-user.md "client-application-windows-how-to-share-usb-devices-user.md").
 15. If the USB device works with the image builder as expected, create an
-    image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-    WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+    image. For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 16. After you finish creating the image, update your WorkSpaces Applications fleet to use the
     new image.

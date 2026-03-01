@@ -12,8 +12,6 @@ access to a particular WorkSpaces Applications stack.
 
 ###### Topics
 
-- [Example Authentication
-  Workflow](external-identity-providers-example.md "external-identity-providers-example.md")
+- [Example Authentication Workflow](external-identity-providers-example.md "external-identity-providers-example.md")
 - [Setting Up SAML](external-identity-providers-setting-up-saml.md "external-identity-providers-setting-up-saml.md")
-- [WorkSpaces Applications Integration with SAML
-  2.0](external-identity-providers-further-info.md "external-identity-providers-further-info.md")
+- [WorkSpaces Applications Integration with SAML 2.0](external-identity-providers-further-info.md "external-identity-providers-further-info.md")

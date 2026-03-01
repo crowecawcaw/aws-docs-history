@@ -6,16 +6,29 @@ WorkSpaces Applications supports the use of multiple monitors during streaming s
 
 The WorkSpaces Applications client supports multiple monitors with the following display resolutions:
 
-- Multiple monitors (up to 2K resolution) — Up to 4 monitors with a maximum display resolution of 2560x1600 pixels per monitor
-- Multiple monitors (4K resolution) — Up to 2 monitors with a maximum display resolution of 4096x2160 pixels per monitor
+- Multiple monitors (up to 4K resolution) — Up to 4 monitors with a maximum display resolution of 4096x2160 pixels per monitor
 
 ###### Note
 
 If you are connected to an WorkSpaces Applications streaming session using
-native application mode, you can use monitors with up to 2K
+native application mode, you can use monitors with up to 4K
 resolution. If you use higher-resolution monitors, the WorkSpaces Applications client falls back to classic mode. In
-this case, the WorkSpaces Applications classic mode streaming view occupies 2K of
+this case, the WorkSpaces Applications classic mode streaming view occupies 4K of
 the screen, and the remaining portion of the screen is black.
+
+###### Important
+
+Higher resolution monitors require significantly more compute
+capacity and encoding resources to stream content effectively, with
+actual performance depending on your display configuration (resolution
+and number of monitors) and the compute instance being used. If you
+experience suboptimal performance on 4K monitors, we recommend
+reducing your display resolution to improve responsiveness.
+
+Ultrawide monitors with resolutions exceeding 4096 pixels in either
+dimension (e.g., 5120x2160) will display black bars on the sides, as
+the maximum supported resolution is limited to 4096 pixels per
+dimension.
 
 ## Using Multiple Monitors
 

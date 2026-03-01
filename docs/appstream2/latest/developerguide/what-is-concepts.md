@@ -91,5 +91,4 @@ Elastic fleets or the Linux operating system.
 
 Make sure you are using latest WorkSpaces Applications images for multi-session fleets.
 To keep your images are up-to-date, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md "keep-image-updated.md"). For details on supported images and
-WorkSpaces Applications agent versions for multi-session, see [WorkSpaces Applications Base Image and Managed Image Update
-Release Notes](base-image-version-history.md "base-image-version-history.md").
+WorkSpaces Applications agent versions for multi-session, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md").

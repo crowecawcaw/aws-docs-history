@@ -1,6 +1,4 @@
-# How Application Settings
-
-Persistence Works
+# How Application Settings Persistence Works
 
 Persistent application settings are saved to a Virtual Hard Disk (VHD) file. This file
 is created the first time a user streams an application from a stack on which
@@ -8,8 +6,7 @@ application settings persistence is enabled. If the fleet associated with the st
 based on an image that contains default application and Windows settings, the default
 settings are used for the user's first streaming session. For more information about
 default settings, see _Step 3: Create Default Application and Windows
-Settings_ in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+Settings_ in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 When the streaming session ends, the VHD is unmounted and uploaded to an Amazon S3 bucket
 within your account. The bucket is created when you enable persistent application
@@ -70,8 +67,7 @@ following folders:
 
 The entire VHD must be downloaded to the streaming instance before a streaming
 session can begin. For this reason, a VHD that contains a large amount of data can
-delay the start of the streaming session. For more information, see [Best Practices for
-Enabling Application Settings Persistence](best-practices-app-settings-persistence.md "best-practices-app-settings-persistence.md").
+delay the start of the streaming session. For more information, see [Best Practices for Enabling Application Settings Persistence](best-practices-app-settings-persistence.md "best-practices-app-settings-persistence.md").
 
 When you enable application settings persistence, you must specify a settings group.
 The settings group determines which saved application settings are used for a streaming

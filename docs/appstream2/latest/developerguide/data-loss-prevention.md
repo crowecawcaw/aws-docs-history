@@ -2,9 +2,7 @@
 
 We'll look at two kinds of data loss prevention.
 
-## Client to AppStream
-
-2.0 Instance Data Transfer Controls
+## Client to AppStream 2.0 Instance Data Transfer Controls
 
 _Table 9 — Guidance for controlling data ingress and egress_
 

@@ -8,6 +8,5 @@ For more information, see the [Amazon CloudWatch User Guide](../../../AmazonClou
 ###### Contents
 
 - [Viewing Fleet Usage Using the Console](monitoring-console.md "monitoring-console.md")
-- [Viewing Instance and Session Performance
-  Metrics Using the Console](monitoring-instance-session-performance.md "monitoring-instance-session-performance.md")
+- [Viewing Instance and Session Performance Metrics Using the Console](monitoring-instance-session-performance.md "monitoring-instance-session-performance.md")
 - [WorkSpaces Applications Metrics and Dimensions](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md")

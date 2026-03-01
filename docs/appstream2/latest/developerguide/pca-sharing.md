@@ -11,8 +11,7 @@ To use a shared Private CA resource with WorkSpaces Applications CBA, complete t
 steps:
 
 1. Configure the Private CA for CBA in a centralized AWS account. For more
-   information, see [Certificate-Based
-   Authentication](certificate-based-authentication.md "certificate-based-authentication.md").
+   information, see [Certificate-Based Authentication](certificate-based-authentication.md "certificate-based-authentication.md").
 2. Share the Private CA with the resource AWS accounts where WorkSpaces Applications
    resources utilize CBA. To do this, follow the steps in [How to use AWS RAM to share your ACM Private CA cross-account](https://aws.amazon.com/blogs/security/how-to-use-aws-ram-to-share-your-acm-private-ca-cross-account/ "https://aws.amazon.com/blogs/security/how-to-use-aws-ram-to-share-your-acm-private-ca-cross-account/").
    You do not need to complete step 3 to create a certificate. You can either

@@ -10,5 +10,4 @@ If you encounter difficulties when working with Amazon WorkSpaces Applications, 
 - [Troubleshooting Active Directory](troubleshooting-active-directory.md "troubleshooting-active-directory.md")
 - [Troubleshooting WorkSpaces Applications User Issues](troubleshooting-user-issues.md "troubleshooting-user-issues.md")
 - [Troubleshooting Persistent Storage Issues](troubleshooting-persistent-storage.md "troubleshooting-persistent-storage.md")
-- [Troubleshooting Notification
-  Codes](troubleshooting-notification-codes.md "troubleshooting-notification-codes.md")
+- [Troubleshooting Notification Codes](troubleshooting-notification-codes.md "troubleshooting-notification-codes.md")

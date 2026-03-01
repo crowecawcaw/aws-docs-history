@@ -85,9 +85,7 @@ the software must not interfere with the following folders:
 
 ```
 
-## Endpoint security console
-
-hygiene
+## Endpoint security console hygiene
 
 WorkSpaces Applications will create new unique instances each time a user connects beyond
 the idle and disconnect timeouts. The instances will have a unique name and will build up in

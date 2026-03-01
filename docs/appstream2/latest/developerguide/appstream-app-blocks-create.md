@@ -2,9 +2,7 @@
 
 Follow these steps to create an app block with the WorkSpaces Applications packaging type.
 
-## Step 1: Configure the app
-
-block
+## Step 1: Configure the app block
 
 ###### To configure the app block
 
@@ -80,8 +78,7 @@ Amazon S3 buckets and select an appropriate bucket. The list
 of Amazon S3 buckets is global and lists all the buckets
 across all regions. Make sure you select the bucket in the region
 where you want to create your app block. For more information about
-setting bucket permissions, see [Store Application Icon, Setup Script, Session Script,
-and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md"). 7. Select an app block builder. Only app block builders that are not
+setting bucket permissions, see [Store Application Icon, Setup Script, Session Script, and VHD in an S3 Bucket](store-s3-bucket.md "store-s3-bucket.md"). 7. Select an app block builder. Only app block builders that are not
 associated with other app blocks are available. If the list is
 empty, either create a new app block builder, or disassociate the
 existing ones to use. App block builder is a reusable resource that

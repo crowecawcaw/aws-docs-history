@@ -1,6 +1,4 @@
-# Tutorial: Setting Up Active
-
-Directory
+# Tutorial: Setting Up Active Directory
 
 To use Active Directory with WorkSpaces Applications, you must first register your directory
 configuration by creating a Directory Config object in WorkSpaces Applications. This object includes the
@@ -16,17 +14,12 @@ Directory domain.
 
 ###### Tasks
 
-- [Step 1: Create a Directory Config
-  Object](#active-directory-setup-config "#active-directory-setup-config")
-- [Step 2: Create an Image by
-  Using a Domain-Joined Image Builder](#active-directory-setup-image-builder "#active-directory-setup-image-builder")
-- [Step 3: Create a Domain-Joined
-  Fleet](#active-directory-setup-fleet "#active-directory-setup-fleet")
+- [Step 1: Create a Directory Config Object](#active-directory-setup-config "#active-directory-setup-config")
+- [Step 2: Create an Image by Using a Domain-Joined Image Builder](#active-directory-setup-image-builder "#active-directory-setup-image-builder")
+- [Step 3: Create a Domain-Joined Fleet](#active-directory-setup-fleet "#active-directory-setup-fleet")
 - [Step 4: Configure SAML 2.0](#active-directory-setup-saml "#active-directory-setup-saml")
 
-## Step 1: Create a Directory Config
-
-Object
+## Step 1: Create a Directory Config Object
 
 The Directory Config object that you create in WorkSpaces Applications will be used in later
 steps.
@@ -48,8 +41,7 @@ can use the [create-directory-config](../../../cli/latest/reference/appstream/cr
    name.
 4. For **Service Account Name**, enter the name of an
    account that can create computer objects and that has permissions to join
-   the domain. For more information, see [Granting Permissions to Create and Manage
-   Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md"). The account name must be in
+   the domain. For more information, see [Granting Permissions to Create and Manage Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md"). The account name must be in
    the format `DOMAIN\username`.
 5. For **Password** and **Confirm
    Password**, type the directory password for the specified
@@ -68,15 +60,12 @@ _DOMAIN_JOIN_INTERNAL_SERVICE_ERROR_ topic for
 "The account already exists" message in [Active Directory Domain Join](troubleshooting-notification-codes.md#troubleshooting-notification-codes-ad "troubleshooting-notification-codes.md#troubleshooting-notification-codes-ad").
 
 In addition, the default Computers container is not an OU and cannot
-be used by WorkSpaces Applications. For more information, see [Finding the Organizational Unit Distinguished
-Name](active-directory-oudn.md "active-directory-oudn.md"). 7. To add more than one OU, select the plus sign (**+**)
+be used by WorkSpaces Applications. For more information, see [Finding the Organizational Unit Distinguished Name](active-directory-oudn.md "active-directory-oudn.md"). 7. To add more than one OU, select the plus sign (**+**)
 next to **Organizational Unit (OU)**. To remove OUs, choose
 the **x** icon. 8. Choose **Next**. 9. Review the configuration information and choose
 **Create**.
 
-## Step 2: Create an Image by
-
-Using a Domain-Joined Image Builder
+## Step 2: Create an Image by Using a Domain-Joined Image Builder
 
 Next, using the WorkSpaces Applications image builder, create a new image with Active Directory
 domain-join capabilities. Note that the fleet and image can be members of different
@@ -85,11 +74,9 @@ applications. Fleet domain join is discussed in the next section.
 
 ###### To create an image for launching domain-joined fleets
 
-1. Follow the procedures in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+1. Follow the procedures in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 2. For the base image selection step, use an AWS base image released on or
-   after July 24, 2017. For a current list of released AWS images, see [WorkSpaces Applications Base Image and Managed Image Update
-   Release Notes](base-image-version-history.md "base-image-version-history.md").
+   after July 24, 2017. For a current list of released AWS images, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md").
 3. For **Step 3: Configure Network**, select a VPC and
    subnets with network connectivity to your Active Directory environment.
    Select the security groups that are set up to allow access to your directory
@@ -104,15 +91,11 @@ applications. Fleet domain join is discussed in the next section.
 6. Wait for the new image builder to reach a **Running**
    state, and choose **Connect**.
 7. Log in to the image builder in Administrator mode or as a directory user
-   with local administrator permissions. For more information, see [Granting Local Administrator Rights on
-   Image Builders](active-directory-image-builder-local-admin.md "active-directory-image-builder-local-admin.md").
-8. Complete the steps in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the
-   WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md") to install applications and create a
+   with local administrator permissions. For more information, see [Granting Local Administrator Rights on Image Builders](active-directory-image-builder-local-admin.md "active-directory-image-builder-local-admin.md").
+8. Complete the steps in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md") to install applications and create a
    new image.
 
-## Step 3: Create a Domain-Joined
-
-Fleet
+## Step 3: Create a Domain-Joined Fleet
 
 Using the private image created in the previous step, create an Active Directory
 domain-joined Always-On or On-Demand fleet for streaming applications. The domain
@@ -123,8 +106,7 @@ image.
 
 1. Follow the procedures in [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
 2. For the image selection step, use the image that was created in the
-   previous step, [Step 2: Create an Image by
-   Using a Domain-Joined Image Builder](#active-directory-setup-image-builder "#active-directory-setup-image-builder").
+   previous step, [Step 2: Create an Image by Using a Domain-Joined Image Builder](#active-directory-setup-image-builder "#active-directory-setup-image-builder").
 3. For **Step 4: Configure Network**, select a VPC and
    subnets with network connectivity to your Active Directory environment.
    Select the security groups that are set up to allow communication to your

@@ -2,36 +2,21 @@
 
 The following are issues that might occur when you set up and use Active
 Directory with Amazon WorkSpaces Applications. For help troubleshooting notification codes, see
-[Troubleshooting Notification
-Codes](troubleshooting-notification-codes.md "troubleshooting-notification-codes.md").
+[Troubleshooting Notification Codes](troubleshooting-notification-codes.md "troubleshooting-notification-codes.md").
 
 ###### Issues
 
-- [My image builders and fleet instances are stuck
-  in the PENDING state.](#troubleshooting-active-directory-1 "#troubleshooting-active-directory-1")
-- [My users aren't able to log in with the SAML
-  application.](#troubleshooting-active-directory-2 "#troubleshooting-active-directory-2")
-- [My fleet instances work for one user but don't
-  cycle correctly.](#troubleshooting-active-directory-3 "#troubleshooting-active-directory-3")
-- [My user Group Policy objects aren't being
-  successfully applied.](#troubleshooting-active-directory-4 "#troubleshooting-active-directory-4")
-- [My WorkSpaces Applications streaming instances aren't joining
-  the Active Directory domain.](#troubleshooting-active-directory-5 "#troubleshooting-active-directory-5")
-- [User login is taking a long time to complete on
-  a domain-joined streaming session.](#troubleshooting-active-directory-6 "#troubleshooting-active-directory-6")
-- [My users can't access a domain resource in a
-  domain-joined streaming session, but they can access the resource from a
-  domain-joined image builder.](#troubleshooting-active-directory-8 "#troubleshooting-active-directory-8")
-- [My users receive the error
-  “Certificate-Based Authentication not available” and are prompted to enter their
-  domain password. Or users receive the error “Disconnected from session” when
-  they are starting a session enabled with certificate-based
-  authentication.](#troubleshooting-active-directory-9 "#troubleshooting-active-directory-9")
+- [My image builders and fleet instances are stuck in the PENDING state.](#troubleshooting-active-directory-1 "#troubleshooting-active-directory-1")
+- [My users aren't able to log in with the SAML application.](#troubleshooting-active-directory-2 "#troubleshooting-active-directory-2")
+- [My fleet instances work for one user but don't cycle correctly.](#troubleshooting-active-directory-3 "#troubleshooting-active-directory-3")
+- [My user Group Policy objects aren't being successfully applied.](#troubleshooting-active-directory-4 "#troubleshooting-active-directory-4")
+- [My WorkSpaces Applications streaming instances aren't joining the Active Directory domain.](#troubleshooting-active-directory-5 "#troubleshooting-active-directory-5")
+- [User login is taking a long time to complete on a domain-joined streaming session.](#troubleshooting-active-directory-6 "#troubleshooting-active-directory-6")
+- [My users can't access a domain resource in a domain-joined streaming session, but they can access the resource from a domain-joined image builder.](#troubleshooting-active-directory-8 "#troubleshooting-active-directory-8")
+- [My users receive the error “Certificate-Based Authentication not available” and are prompted to enter their domain password. Or users receive the error “Disconnected from session” when they are starting a session enabled with certificate-based authentication.](#troubleshooting-active-directory-9 "#troubleshooting-active-directory-9")
 - [I'm experiencing domain join failures after changing the Active Directory (AD) service account.](#troubleshooting-active-directory-10 "#troubleshooting-active-directory-10")
 
-## My image builders and fleet instances are stuck
-
-in the PENDING state.
+## My image builders and fleet instances are stuck in the PENDING state.
 
 Image builders and fleet instances can take up to 25 minutes to move into a ready
 state and become available. If your instances are taking longer than 25 minutes to
@@ -48,9 +33,7 @@ errors are also available using the WorkSpaces Applications API through the
 [DescribeFleets](../APIReference/API_DescribeFleets.md "../APIReference/API_DescribeFleets.md") operation or the CLI command
 [describe-fleets](../../../cli/latest/reference/appstream/describe-fleets.md "../../../cli/latest/reference/appstream/describe-fleets.md").
 
-## My users aren't able to log in with the SAML
-
-application.
+## My users aren't able to log in with the SAML application.
 
 WorkSpaces Applications relies on the SAML_Subject "NameID" attribute from your identity provider
 to populate the username field to log in your user. The username can either be
@@ -62,9 +45,7 @@ name or the fully qualified domain name. If using "`user@domain.com`"
 format, the UserPrincipalName attribute can be used. If you've verified your
 SAML_Subject attribute is configured correctly and the problem persists, contact AWS Support. For more information, see [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## My fleet instances work for one user but don't
-
-cycle correctly.
+## My fleet instances work for one user but don't cycle correctly.
 
 Fleet instances are cycled after a user completes a session, ensuring that each
 user has a new instance. When the cycled fleet instance is brought online, it joins
@@ -74,9 +55,7 @@ permissions on the organizational unit (OU) to which the computer object is join
 Check the service account permissions and try again. If the problem persists,
 contact AWS Support. For more information, see [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## My user Group Policy objects aren't being
-
-successfully applied.
+## My user Group Policy objects aren't being successfully applied.
 
 By default, computer objects apply computer-level policies based on the OU in
 which the computer object resides, while applying user-level policies based on the
@@ -90,9 +69,7 @@ can do one of the following:
 
 For more information, see [Loopback processing of Group Policy](https://support.microsoft.com/en-us/help/231287/loopback-processing-of-group-policy "https://support.microsoft.com/en-us/help/231287/loopback-processing-of-group-policy") at Microsoft Support.
 
-## My WorkSpaces Applications streaming instances aren't joining
-
-the Active Directory domain.
+## My WorkSpaces Applications streaming instances aren't joining the Active Directory domain.
 
 The Active Directory domain to use with WorkSpaces Applications must be accessible through its
 fully qualified domain name (FQDN) through the VPC in which your streaming instances
@@ -142,9 +119,7 @@ certain network port settings. For more information, see [Active Directory
 and Active Directory Domain Services Port Requirements](https://technet.microsoft.com/en-us/library/dd772723.aspx "https://technet.microsoft.com/en-us/library/dd772723.aspx") in the Microsoft
 documentation.
 
-## User login is taking a long time to complete on
-
-a domain-joined streaming session.
+## User login is taking a long time to complete on a domain-joined streaming session.
 
 WorkSpaces Applications performs a Windows login action after users provide their domain password.
 After successful authentication, WorkSpaces Applications launches the application. The login and launch times are impacted by many variables, such as
@@ -166,21 +141,13 @@ If your domain users' login to WorkSpaces Applications fails with the message "A
 occurred," you might need to update the Group Policy settings described in [Before You Begin Using Active Directory with Amazon WorkSpaces Applications](active-directory-prerequisites.md "active-directory-prerequisites.md"). Otherwise, these settings might
 prevent WorkSpaces Applications from authenticating and logging in your domain users.
 
-## My users can't access a domain resource in a
-
-domain-joined streaming session, but they can access the resource from a
-domain-joined image builder.
+## My users can't access a domain resource in a domain-joined streaming session, but they can access the resource from a domain-joined image builder.
 
 Confirm that your fleet is created in the same VPC, subnets, and security groups
 as your image builder, and that your user has the permissions required to access and
 use the domain resource.
 
-## My users receive the error
-
-“Certificate-Based Authentication not available” and are prompted to enter their
-domain password. Or users receive the error “Disconnected from session” when
-they are starting a session enabled with certificate-based
-authentication.
+## My users receive the error “Certificate-Based Authentication not available” and are prompted to enter their domain password. Or users receive the error “Disconnected from session” when they are starting a session enabled with certificate-based authentication.
 
 These errors occur if certificate-based authentication was unsuccessful for the
 session. The “Certificate-Based Authentication not available” error is displayed
@@ -195,8 +162,7 @@ one of the following issues:
 
 - WorkSpaces Applications could not communicate with AWS Private CA, or AWS Private CA
   did not issue the certificate. Check CloudTrail to determine if a certificate was
-  issued. For more information, see [What Is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") and [Manage Certificate-based
-  Authentication](certificate-based-authentication-manage.md "certificate-based-authentication-manage.md").
+  issued. For more information, see [What Is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") and [Manage Certificate-based Authentication](certificate-based-authentication-manage.md "certificate-based-authentication-manage.md").
 - The domain controller has no domain controller certificate for smart card
   logon, or it is expired. For more information, see step 7.a in [Prerequisites](certificate-based-authentication-prereq.md "certificate-based-authentication-prereq.md").
 - The certificate is not trusted. For more information, see step 7.c in
