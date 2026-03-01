@@ -1,6 +1,4 @@
-# Get started fine-tuning foundation
-
-models in Amazon SageMaker Unified Studio
+# Get started fine-tuning foundation models in Amazon SageMaker Unified Studio
 
 Amazon SageMaker Unified Studio provides a large collection of state-of-the-art foundation models. These models
 support use cases such as content writing, code generation, question answering, copywriting,

@@ -1,6 +1,4 @@
-# Get started with SageMaker Lakehouse
-
-integrated access controls for Athena federated queries in Amazon SageMaker Unified Studio
+# Get started with SageMaker Lakehouse integrated access controls for Athena federated queries in Amazon SageMaker Unified Studio
 
 Scaling data infrastructure creates challenges with data silos, fragmented access controls,
 and complex connectivity requirements. Data analysts need to access information across multiple
@@ -275,9 +273,7 @@ SageMaker Unified Studio User Guide_. For more information about creating
 catalogs, see [Creating a catalog](../../../sagemaker-unified-studio/latest/userguide/lakehouse-create-catalog.md "../../../sagemaker-unified-studio/latest/userguide/lakehouse-create-catalog.md") in the _Amazon SageMaker Unified Studio User
 Guide_.
 
-## Step 2: Set up fine-grained
-
-access permissions on federated catalogs
+## Step 2: Set up fine-grained access permissions on federated catalogs
 
 Security is a critical aspect of data access. SageMaker Lakehouse provides integrated
 access controls that work with federated queries in Athena to ensure proper governance. You
@@ -369,9 +365,7 @@ data they're authorized to see, maintaining compliance with your organization's 
 policies. This creates a consistent security model across your data sources. Now, you have
 successfully set up fine-grained access permissions on your DynamoDB federated catalog.
 
-## Step 3: Validate
-
-fine-grained access permissions on federated catalogs
+## Step 3: Validate fine-grained access permissions on federated catalogs
 
 After you set up federated catalogs with fine-grained access permissions in Step 2, run
 queries to confirm access permissions are working as expected.
@@ -402,9 +396,7 @@ select * from `your_federated_catalog_name`.`default`.`your_table_name` limit 10
 Note how permissions are working as expected because the query result doesn't include
 the mobile phone number column that was visible in the admin project view.
 
-###### To have other users under the data analyst persona get the fine-grained access
-
-permissions
+###### To have other users under the data analyst persona get the fine-grained access permissions
 
 1. Create data analyst SSO users or groups. For more information about how to
    add an SSO user to your domain, see [Managing users in Amazon SageMaker Unified Studio](../../../sagemaker-unified-studio/latest/adminguide/user-management.md "../../../sagemaker-unified-studio/latest/adminguide/user-management.md") in the _Amazon SageMaker Unified

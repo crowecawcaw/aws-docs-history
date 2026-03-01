@@ -1,6 +1,4 @@
-# Get started using
-
-Amazon Bedrock in SageMaker Unified Studio
+# Get started using Amazon Bedrock in SageMaker Unified Studio
 
 Amazon Bedrock in SageMaker Unified Studio offers multiple playgrounds that allow you to easily access and experiment with Amazon Bedrock models. With the
 [chat](../../../sagemaker-unified-studio/latest/userguide/bedrock-explore-chat-playground.md "../../../sagemaker-unified-studio/latest/userguide/bedrock-explore-chat-playground.md") playground, you can chat

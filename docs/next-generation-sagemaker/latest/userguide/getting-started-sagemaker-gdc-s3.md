@@ -1,6 +1,4 @@
-# Get started with importing and querying data
-
-sets for AWS Glue Data Catalog and Amazon S3 in Amazon SageMaker Unified Studio
+# Get started with importing and querying data sets for AWS Glue Data Catalog and Amazon S3 in Amazon SageMaker Unified Studio
 
 In this Getting Started tutorial for the next generation of Amazon SageMaker, you will use
 Amazon SageMaker Unified Studio, Amazon SageMaker Catalog, and Amazon SageMaker Lakehouse to
@@ -66,9 +64,7 @@ resources.
 2. After you add the IAM permission, follow the steps in [Create a data lake administrator](../../../lake-formation/latest/dg/initial-lf-config.md#create-data-lake-admin "../../../lake-formation/latest/dg/initial-lf-config.md#create-data-lake-admin") to add the
    inline policy granting permission to create the service-linked role.
 
-###### To add the Lake Formation Data Lake administrator in the Lake Formation
-
-console
+###### To add the Lake Formation Data Lake administrator in the Lake Formation console
 
 After updating the policies in the previous step for the user or role you want to
 make the Data lake administrator, use the Lake Formation console to add that user or
@@ -113,9 +109,7 @@ Guide_.
 Complete the steps in this section to set up your resources and permissions for
 accessing AWS Glue Data Catalog and preparing to import data.
 
-### Make a note of your IAM project
-
-role
+### Make a note of your IAM project role
 
 In the following sections of this topic, you will configure permissions using the
 project role in IAM that was created when you created your SageMaker Unified
@@ -142,9 +136,7 @@ The Project IAM role will have the following format:
 
 ![Image showing the project role ARN in the project details](images/gs-project-role.png)
 
-### Register the S3 location for
-
-AWS Glue Data Catalog tables in Amazon SageMaker Unified Studio
+### Register the S3 location for AWS Glue Data Catalog tables in Amazon SageMaker Unified Studio
 
 To access existing AWS Glue Data Catalog tables in Amazon SageMaker Unified Studio, complete
 the following steps to configure permissions.
@@ -165,9 +157,7 @@ the following steps to configure permissions.
 5. For Database permissions, choose **Describe**, and then
    choose **Grant**.
 
-### Grant permission on the
-
-databases to the project role
+### Grant permission on the databases to the project role
 
 You will grant database access to the IAM role that is associated with your
 Amazon SageMaker Unified Studio project. This role is called the project role, and it was created in
@@ -183,8 +173,7 @@ permissions.
    role.
 4. For **IAM users and roles**, choose the **project
    role**. This is the SageMaker Unified Studio project role that
-   you noted previously in [Make a note of your IAM project
-   role](#gdc-s3-gdc-bucket-projectrole "#gdc-s3-gdc-bucket-projectrole").
+   you noted previously in [Make a note of your IAM project role](#gdc-s3-gdc-bucket-projectrole "#gdc-s3-gdc-bucket-projectrole").
 5. Select **Named Data Catalog resources**, and for
    **Catalogs**, choose the default catalog or a catalog
    you want to use.
@@ -196,9 +185,7 @@ permissions.
 
 Granting these permissions provides the means to query the Lake Formation data in later steps.
 
-### Grant permission on the tables to
-
-the project role
+### Grant permission on the tables to the project role
 
 You will grant table access to the IAM role that is associated with your Amazon SageMaker Unified Studio project.
 This role is called the project role, and it was created in IAM upon
@@ -214,8 +201,7 @@ complete the following steps.
    permissions to the project role.
 4. For **IAM users and roles**, choose the project role.
    This is the SageMaker Unified Studio project role that you noted previously
-   in [Make a note of your IAM project
-   role](#gdc-s3-gdc-bucket-projectrole "#gdc-s3-gdc-bucket-projectrole").
+   in [Make a note of your IAM project role](#gdc-s3-gdc-bucket-projectrole "#gdc-s3-gdc-bucket-projectrole").
 5. Select **Named Data Catalog resources**, and for
    **Catalogs**, choose the default catalog.
 6. For **Databases**, choose your **Data Catalog** database.
@@ -255,9 +241,7 @@ catalog, you can skip these steps.
 After completing these steps, your database will appear under the catalog that
 you've created.
 
-### Add data and create an AWS Glue
-
-table
+### Add data and create an AWS Glue table
 
 In your project, create an AWS Glue table using sample data. To create a Glue table
 in Amazon SageMaker Unified Studio, complete the following steps.
@@ -293,9 +277,7 @@ table `myreviewtable` added.
 
 ![Image showing the new table titled myreviewtable added to the Lakehouse data](images/gs-lakehouse-review-table.png)
 
-### Verify access to your AWS Glue table from
-
-the Amazon SageMaker Unified Studio query editor
+### Verify access to your AWS Glue table from the Amazon SageMaker Unified Studio query editor
 
 To verify that you can access the existing AWS Glue table from the Amazon SageMaker Unified Studio query editor, complete the following steps:
 
@@ -320,9 +302,7 @@ In S3, create or have a bucket and note the bucket path, such as
 `s3://amzn-s3-demo-bucket`. You will upload your sample data to the
 existing bucket.
 
-### (Optional) Use sample data in your
-
-existing S3 bucket
+### (Optional) Use sample data in your existing S3 bucket
 
 Configure your S3 data using an existing bucket and sample data to upload and
 import.
@@ -342,9 +322,7 @@ your S3 source bucket.
    **Upload**. Upload the file to your S3 bucket.
 4. Choose **Save**.
 
-### Edit your IAM project role and attach the
-
-S3 bucket policy
+### Edit your IAM project role and attach the S3 bucket policy
 
 Configure your IAM role with a policy for S3 bucket permissions to allow the
 SageMaker project role to access your S3 source bucket. Use these steps to create
@@ -358,8 +336,7 @@ Lakehouse.
 2. Choose the project role that is associated with your Amazon SageMaker Unified Studio project.
    This role was created automatically when you created your project in
    Amazon SageMaker Unified Studio. This is the project role that you made a note of
-   previously in [Make a note of your IAM project
-   role](#gdc-s3-gdc-bucket-projectrole "#gdc-s3-gdc-bucket-projectrole"). Open the project role,
+   previously in [Make a note of your IAM project role](#gdc-s3-gdc-bucket-projectrole "#gdc-s3-gdc-bucket-projectrole"). Open the project role,
    such as
    `arn:aws:iam::ACCOUNT_ID:role/<datazone_usr_role_xxxxxxxxxxxxxx_yyyyyyyyyyyyyy>`.
 3. Choose **Add permissions**, and then choose
@@ -374,9 +351,7 @@ Lakehouse.
    the `amzn-s3-demo-bucket` value with the bucket name for the sample data
    (`s3://aws-bigdata-blog/generated_synthetic_reviews/*`).
 
-### Open a new notebook and start an Apache
-
-Spark session to import the data
+### Open a new notebook and start an Apache Spark session to import the data
 
 Configure your SageMaker spark session to import and query the S3 data using a
 Jupyter notebook in the console. To access the data through the unified JupyterLab
@@ -433,9 +408,7 @@ You can use the query editor to perform analysis using SQL. The query editor too
 provides a place to write and run queries, view results, and share your work with your
 team.
 
-### Prerequisites to access your
-
-project
+### Prerequisites to access your project
 
 Before you get started with the query editor, you must have access to Amazon
 SageMaker Unified Studio and create a project.
@@ -443,9 +416,7 @@ SageMaker Unified Studio and create a project.
 - Navigate to Amazon SageMaker Unified Studio using the URL from your admin
   and log in using your SSO or [configure credentials with IAM Identity Center](../../../sagemaker-unified-studio/latest/userguide/getting-started-access-the-portal.md#getting-started-sign-up "../../../sagemaker-unified-studio/latest/userguide/getting-started-access-the-portal.md#getting-started-sign-up").
 
-### Query AWS Glue sample data using Amazon Athena
-
-in Amazon SageMaker Unified Studio
+### Query AWS Glue sample data using Amazon Athena in Amazon SageMaker Unified Studio
 
 After you create a project, you can use the query editor to write and run queries.
 Use the following steps to create a table using a SQL query with Athena, query the
