@@ -1,6 +1,4 @@
-# Updating IAM Identity Center
-
-integration
+# Updating IAM Identity Center integration
 
 After creating the connection, you can add third-party applications for the IAM Identity Center
 integration to integrate with Lake Formation, and get access to Amazon S3 data on behalf of the users.

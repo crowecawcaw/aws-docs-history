@@ -1,6 +1,4 @@
-#
-
-Prerequisites for integrating Amazon S3 tables catalog with the Data Catalog and Lake Formation
+# Prerequisites for integrating Amazon S3 tables catalog with the Data Catalog and Lake Formation
 
 Following are the prerequisites to enable Amazon S3 table integration with AWS Glue Data Catalog and AWS Lake Formation.
 
@@ -77,8 +75,7 @@ JSON
 
 ```
 
-For more information, see [Requirements for roles used to register
-locations](registration-role.md "registration-role.md"). 4. Add the following trust policy to the IAM role to allow the Lake Formation service to assume the role and vend temporary credentials to the integrated analytical engines.
+For more information, see [Requirements for roles used to register locations](registration-role.md "registration-role.md"). 4. Add the following trust policy to the IAM role to allow the Lake Formation service to assume the role and vend temporary credentials to the integrated analytical engines.
 
 ```
 {

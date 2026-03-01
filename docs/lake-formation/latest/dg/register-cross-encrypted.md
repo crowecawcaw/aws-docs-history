@@ -1,6 +1,4 @@
-# Registering an encrypted Amazon S3 location across AWS
-
-accounts
+# Registering an encrypted Amazon S3 location across AWS accounts
 
 AWS Lake Formation integrates with [AWS Key Management Service](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") (AWS KMS) to enable you to more easily set up other integrated services
 to encrypt and decrypt data in Amazon Simple Storage Service (Amazon S3) locations.
@@ -40,10 +38,8 @@ circumstances:
 ###### Important
 
 You can't use the Lake Formation service-linked role to register a location in another account.
-You must use a user-defined role instead. The role must meet the requirements in [Requirements for roles used to register
-locations](registration-role.md "registration-role.md"). For more information about the service-linked role,
-see [Service-linked role permissions for
-Lake Formation](service-linked-roles.md#service-linked-role-permissions "service-linked-roles.md#service-linked-role-permissions").
+You must use a user-defined role instead. The role must meet the requirements in [Requirements for roles used to register locations](registration-role.md "registration-role.md"). For more information about the service-linked role,
+see [Service-linked role permissions for Lake Formation](service-linked-roles.md#service-linked-role-permissions "service-linked-roles.md#service-linked-role-permissions").
 
 ###### Before You Begin
 
@@ -54,8 +50,7 @@ register the location](registration-role.md "registration-role.md").
 
 1. In the same AWS account as the Data Catalog, sign into the AWS Management Console and open the
    IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. Create a new role or view an existing role that meets the requirements in [Requirements for roles used to register
-   locations](registration-role.md "registration-role.md"). Ensure that the role includes a policy that
+2. Create a new role or view an existing role that meets the requirements in [Requirements for roles used to register locations](registration-role.md "registration-role.md"). Ensure that the role includes a policy that
    grants Amazon S3 permissions on the location.
 3. If the KMS key is not in the same account as the Data Catalog, add to the role an inline policy
    that grants the required permissions on the KMS key. The following is an example policy.

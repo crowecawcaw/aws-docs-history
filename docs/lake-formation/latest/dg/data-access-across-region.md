@@ -40,9 +40,7 @@ For limitations, see [Cross-Region data access limitations](x-region-considerati
 
 The following diagrams show the workflows for accessing data across AWS Regions from the same AWS account and from an external account.
 
-### Workflow for accessing tables shared
-
-within the same AWS account
+### Workflow for accessing tables shared within the same AWS account
 
 In the diagram below, the data is shared with a user in the same AWS account in the
 US East (N. Virginia) Region, and the user queries the shared data from the
@@ -60,9 +58,7 @@ Grants `Select` permission on a Data Catalog resource
 (product table in the diagram) to a principal (user) in the same account. 2. Creates a resource link in the Europe (Ireland) Region pointing to the source table in the US East (N. Virginia) Region. Grants `DESCRIBE` permission
 on the resource link from the Europe (Ireland) Region to the principal. 3. The user queries the table from the Europe (Ireland)Region using Athena.
 
-### Workflow for accessing tables shared
-
-with an external AWS account
+### Workflow for accessing tables shared with an external AWS account
 
 In the diagram below, the producer account (Account A) hosts the Amazon S3 bucket, registers the
 data location, and shares a Data Catalog table with a consumer account (Account B) in the

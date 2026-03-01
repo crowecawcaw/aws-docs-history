@@ -25,8 +25,7 @@ A data lake administrator needs to complete the following actions:
 
     For more information see, [Granting permissions on Data Catalog resources](granting-catalog-permissions.md "granting-catalog-permissions.md").
 
-2. ######
-   Account setup in Region B (where you access the data)
+2. ###### Account setup in Region B (where you access the data)
 
 A data lake administrator needs to complete the following actions:
 
@@ -61,11 +60,9 @@ A data lake administrator needs to complete the following actions:
      `Grantable permissions`.
 
 
-    For more information, see [Sharing Data Catalog tables and databases across
-     AWS accounts or IAM principals from external accounts](cross-account-data-share-steps.md "cross-account-data-share-steps.md").
+    For more information, see [Sharing Data Catalog tables and databases across AWS accounts or IAM principals from external accounts](cross-account-data-share-steps.md "cross-account-data-share-steps.md").
 
-2. ######
-   Consumer/grantee account setup
+2. ###### Consumer/grantee account setup
 
 A data lake administrator needs to complete the following actions:
 

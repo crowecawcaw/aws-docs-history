@@ -1,6 +1,4 @@
-# Registering an Amazon S3 location in another AWS
-
-account
+# Registering an Amazon S3 location in another AWS account
 
 AWS Lake Formation enables you to register Amazon Simple Storage Service (Amazon S3) locations across AWS accounts. For
 example, if the AWS Glue Data Catalog is in account A, a user in account A can register an Amazon S3 bucket in
@@ -21,9 +19,7 @@ requester. If the bucket is accessed by another AWS account, the bucket owner is
 data access if the role belongs to the same account as the bucket owner.
 
 You can't use the Lake Formation service-linked role to register a location in another account. You
-must use a user-defined role instead. The role must meet the requirements in [Requirements for roles used to register
-locations](registration-role.md "registration-role.md"). For more information about the service-linked role, see [Service-linked role permissions for
-Lake Formation](service-linked-roles.md#service-linked-role-permissions "service-linked-roles.md#service-linked-role-permissions").
+must use a user-defined role instead. The role must meet the requirements in [Requirements for roles used to register locations](registration-role.md "registration-role.md"). For more information about the service-linked role, see [Service-linked role permissions for Lake Formation](service-linked-roles.md#service-linked-role-permissions "service-linked-roles.md#service-linked-role-permissions").
 
 ###### Before you begin
 
@@ -34,8 +30,7 @@ the location](registration-role.md "registration-role.md").
 
 ###### Note
 
-If the location is encrypted, follow the instructions in [Registering an encrypted Amazon S3 location across AWS
-accounts](register-cross-encrypted.md "register-cross-encrypted.md") instead.
+If the location is encrypted, follow the instructions in [Registering an encrypted Amazon S3 location across AWS accounts](register-cross-encrypted.md "register-cross-encrypted.md") instead.
 
 The following procedure assumes that a principal in account 1111-2222-3333, which
 contains the Data Catalog, wants to register the Amazon S3 bucket `awsexamplebucket1`, which
@@ -43,8 +38,7 @@ is in account 1234-5678-9012.
 
 1. In account 1111-2222-3333, sign in to the AWS Management Console and open the IAM console
    at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. Create a new role or view an existing role that meets the requirements in [Requirements for roles used to register
-   locations](registration-role.md "registration-role.md"). Ensure that the role grants Amazon S3 permissions on
+2. Create a new role or view an existing role that meets the requirements in [Requirements for roles used to register locations](registration-role.md "registration-role.md"). Ensure that the role grants Amazon S3 permissions on
    `awsexamplebucket1`.
 3. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). Sign in with
    account 1234-5678-9012.

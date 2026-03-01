@@ -14,7 +14,6 @@ principals in the external account.
 
 **Grantable permissions** option is not supported when granting permissions directly to IAM principals from external accounts.
 
-Follow instructions in [Granting database permissions using the
-named resource method](granting-database-permissions.md "granting-database-permissions.md") to grant cross-account permissions using the named resource method.
+Follow instructions in [Granting database permissions using the named resource method](granting-database-permissions.md "granting-database-permissions.md") to grant cross-account permissions using the named resource method.
 
 The following video demonstrates how to share data with an AWS organization using Lake Formation.

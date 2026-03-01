@@ -1,6 +1,4 @@
-# Granting LF-Tag permissions using the
-
-console
+# Granting LF-Tag permissions using the console
 
 The following steps explain how to grant permissions on LF-Tags by using the **Grant
 LF-Tag permissions** page on the Lake Formation console. The page is divided into these
@@ -15,9 +13,7 @@ sections:
 - LF-Tag expression permissions permissions – The LF-Tags to grant permissions on.
 - Permissions – The permissions to grant.
 
-## Open the **Grant LF-Tag permissions**
-
-page
+## Open the **Grant LF-Tag permissions** page
 
 1. Open the Lake Formation console at
    [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
@@ -69,15 +65,15 @@ roles** list.
 
 **SAML users and groups**
 
-For **SAML and Quick Suite users and groups**, enter one or more Amazon
-Resource Names (ARNs) for users or groups federated through SAML, or ARNs for Quick Suite
+For **SAML and Quick users and groups**, enter one or more Amazon
+Resource Names (ARNs) for users or groups federated through SAML, or ARNs for Quick
 users or groups. Press **Enter** after each ARN.
 
 For information about how to construct the ARNs, see [Lake Formation grant and revoke AWS CLI commands](lf-permissions-reference.md#perm-command-format "lf-permissions-reference.md#perm-command-format").
 
 ###### Note
 
-Lake Formation integration with Quick Suite is supported for Quick Suite Enterprise Edition
+Lake Formation integration with Quick is supported for Quick Enterprise Edition
 only.
 
 **External accounts**

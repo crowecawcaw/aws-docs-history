@@ -24,9 +24,7 @@ the `glue:CreateCatalog` permission.
 
 You must have **Cross account version settings** version 4 or higher for sharing databases or tables in the federated catalog across AWS accounts.
 
-## Creating a catalog link container to a
-
-cross-account federated catalog
+## Creating a catalog link container to a cross-account federated catalog
 
 You can create a catalog link container that points to a Redshift database-level
 federated catalog in any AWS Region by using the AWS Lake Formation console, AWS Glue
@@ -128,8 +126,7 @@ When you create database resource links or table resource links, you must specif
 You can create a resource link to a shared Amazon Redshift database or a table by using the AWS Lake Formation console, API, or
 AWS Command Line Interface (AWS CLI).
 
-- For detailed instructions, see [Creating a resource link to a shared Data Catalog
-  database](create-resource-link-database.md "create-resource-link-database.md").
+- For detailed instructions, see [Creating a resource link to a shared Data Catalog database](create-resource-link-database.md "create-resource-link-database.md").
 
 Following is a AWS CLI example to create a database resource link under a catalog link container.
 
@@ -151,8 +148,7 @@ aws glue create-database \
 
 - To create a table resource link under a catalog link container, you need to first create a AWS Glue database in the local AWS Glue Data Catalog to contain the table resource link.
 
-For more information on creating resource links to shared tables, see [Creating a resource link to a shared Data Catalog
-table](create-resource-link-table.md "create-resource-link-table.md").
+For more information on creating resource links to shared tables, see [Creating a resource link to a shared Data Catalog table](create-resource-link-table.md "create-resource-link-table.md").
 
     + Create a database to contain the table resource link example
 

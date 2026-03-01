@@ -1,6 +1,4 @@
-# Viewing LF-Tags assigned to a
-
-resource
+# Viewing LF-Tags assigned to a resource
 
 You can view the LF-Tags that are assigned to a Data Catalog resource. You must have the
 `DESCRIBE` or `ASSOCIATE` permission on a LF-Tag to view it.

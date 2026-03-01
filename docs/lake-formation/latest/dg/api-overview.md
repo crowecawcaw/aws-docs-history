@@ -1,6 +1,4 @@
-# Lake Formation workflow for application integration API
-
-operations
+# Lake Formation workflow for application integration API operations
 
 The following is the work flow for application integration API operations:
 

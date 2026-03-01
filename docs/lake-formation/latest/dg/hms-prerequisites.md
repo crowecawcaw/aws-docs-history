@@ -36,8 +36,7 @@ federated database.
 
 ![Register location form for AWS Lake Formation with Amazon S3 path and IAM role options.](images/hms-register-s3.png)
 
-For more information about registering a data location with Lake Formation, see [Configure an Amazon S3 location for your
-data lake](initial-lf-config.md#register-s3-location "initial-lf-config.md#register-s3-location"). 3. ###### Use the correct Amazon EMR version.
+For more information about registering a data location with Lake Formation, see [Configure an Amazon S3 location for your data lake](initial-lf-config.md#register-s3-location "initial-lf-config.md#register-s3-location"). 3. ###### Use the correct Amazon EMR version.
 
 To use Amazon EMR with the federated Hive metastore databases, you need to have Hive version
 3.x or higher and Amazon EMR version 6.x or higher.

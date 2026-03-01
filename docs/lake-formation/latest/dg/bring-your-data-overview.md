@@ -59,12 +59,9 @@ You can query your data using Amazon Redshift Spectrum.
 ###### Topics
 
 - [Catalog federation to remote Iceberg catalogs](catalog-federation.md "catalog-federation.md")
-- [Bringing Amazon Redshift data into the
-  AWS Glue Data Catalog](managing-namespaces-datacatalog.md "managing-namespaces-datacatalog.md")
-- [Federating into external data sources in the
-  AWS Glue Data Catalog](federated-catalog-data-connection.md "federated-catalog-data-connection.md")
+- [Bringing Amazon Redshift data into the AWS Glue Data Catalog](managing-namespaces-datacatalog.md "managing-namespaces-datacatalog.md")
+- [Federating into external data sources in the AWS Glue Data Catalog](federated-catalog-data-connection.md "federated-catalog-data-connection.md")
 - [Creating an Amazon S3 Tables catalog in the AWS Glue Data Catalog](create-s3-tables-catalog.md "create-s3-tables-catalog.md")
 - [Creating an Amazon Redshift managed catalog in the AWS Glue Data Catalog](create-rms-catalog.md "create-rms-catalog.md")
 - [Managing permissions for data in an Amazon Redshift datashare](data-sharing-redshift.md "data-sharing-redshift.md")
-- [Managing permissions on datasets that use external
-  metastores](data-sharing-hms.md "data-sharing-hms.md")
+- [Managing permissions on datasets that use external metastores](data-sharing-hms.md "data-sharing-hms.md")

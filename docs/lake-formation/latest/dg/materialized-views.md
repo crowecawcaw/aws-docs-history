@@ -2,24 +2,17 @@
 
 ###### Topics
 
-- [Differentiating materialized
-  views from other view types](#materialized-views-differentiating "#materialized-views-differentiating")
+- [Differentiating materialized views from other view types](#materialized-views-differentiating "#materialized-views-differentiating")
 - [Use cases](#materialized-views-use-cases "#materialized-views-use-cases")
 - [Key concepts](#materialized-views-key-concepts "#materialized-views-key-concepts")
 - [Permissions for materialized views](#materialized-views-permissions "#materialized-views-permissions")
-- [Creating and managing
-  materialized views](#materialized-views-creating-managing "#materialized-views-creating-managing")
+- [Creating and managing materialized views](#materialized-views-creating-managing "#materialized-views-creating-managing")
 - [Storage and data access](#materialized-views-storage-access "#materialized-views-storage-access")
-- [Integrating with AWS Lake Formation
-  permissions](#materialized-views-lake-formation "#materialized-views-lake-formation")
-- [Monitoring and
-  debugging](#materialized-views-monitoring-debugging "#materialized-views-monitoring-debugging")
-- [Managing refresh
-  jobs](#materialized-views-managing-refresh-jobs "#materialized-views-managing-refresh-jobs")
-- [Monitoring and
-  troubleshooting](#materialized-views-monitoring-troubleshooting "#materialized-views-monitoring-troubleshooting")
-- [Considerations and
-  limitations](#materialized-views-considerations-limitations "#materialized-views-considerations-limitations")
+- [Integrating with AWS Lake Formation permissions](#materialized-views-lake-formation "#materialized-views-lake-formation")
+- [Monitoring and debugging](#materialized-views-monitoring-debugging "#materialized-views-monitoring-debugging")
+- [Managing refresh jobs](#materialized-views-managing-refresh-jobs "#materialized-views-managing-refresh-jobs")
+- [Monitoring and troubleshooting](#materialized-views-monitoring-troubleshooting "#materialized-views-monitoring-troubleshooting")
+- [Considerations and limitations](#materialized-views-considerations-limitations "#materialized-views-considerations-limitations")
   In the AWS Glue Data Catalog, a materialized view is a managed table that
   stores the precomputed result of a SQL query in Apache Iceberg format. Unlike standard
   Data Catalog views that execute the query each time they are accessed, materialized
@@ -33,9 +26,7 @@ in Amazon S3 Tables buckets or Amazon S3 general purpose buckets, making them ac
 from multiple query engines including Amazon Athena, Amazon Redshift, and third-party
 Iceberg-compatible engines.
 
-## Differentiating materialized
-
-views from other view types
+## Differentiating materialized views from other view types
 
 Materialized views differ from AWS Glue Data Catalog views, Apache
 Spark views, and Amazon Athena views in fundamental ways. While Data Catalog views are
@@ -100,9 +91,7 @@ scenarios requiring immediate access to the most current data, you can execute a
 manual refresh using the `REFRESH MATERIALIZED VIEW` SQL
 command.
 
-### Incremental
-
-refresh
+### Incremental refresh
 
 Incremental refresh is an optimization technique that processes only the data
 that has changed in source tables since the last refresh, rather than
@@ -117,9 +106,7 @@ a small percentage of data changes between refresh cycles. The incremental
 refresh mechanism operates automatically; you don't need to write custom logic
 to detect or process changed data.
 
-### Automatic query
-
-rewrite
+### Automatic query rewrite
 
 Automatic query rewrite is a query optimization capability available in Spark
 engines across Amazon Athena, Amazon EMR, and AWS Glue. When you execute a
@@ -304,9 +291,7 @@ requiring direct access to the underlying source tables.
 For detailed information about configuring Lake Formation permissions, see Granting and
 revoking permissions on Data Catalog resources in the AWS Lake Formation Developer Guide.
 
-## Creating and managing
-
-materialized views
+## Creating and managing materialized views
 
 You create materialized views using the `CREATE MATERIALIZED VIEW` SQL
 statement in Spark engines. The view definition specifies the SQL query that defines
@@ -383,9 +368,7 @@ third-party analytics platforms. This multi-engine accessibility ensures your
 precomputed data remains accessible across your entire analytics ecosystem without
 data duplication or format conversion.
 
-## Integrating with AWS Lake Formation
-
-permissions
+## Integrating with AWS Lake Formation permissions
 
 You can use AWS Lake Formation to manage fine-grained permissions on materialized views. The
 view creator automatically becomes the owner of the materialized view and can grant
@@ -403,9 +386,7 @@ organizational units using AWS Lake Formation's cross-account sharing capabiliti
 also access materialized views across AWS Regions using resource links, enabling
 centralized data governance with distributed data access.
 
-## Monitoring and
-
-debugging
+## Monitoring and debugging
 
 The AWS Glue Data Catalog publishes all materialized view refresh
 operations and associated metrics to Amazon CloudWatch. You can monitor refresh start time,
@@ -423,13 +404,9 @@ To check the current status of a materialized view, use the `DESCRIBE
  MATERIALIZED VIEW` SQL command, which returns metadata including staleness
 status, last refresh timestamp, and refresh schedule configuration.
 
-## Managing refresh
+## Managing refresh jobs
 
-jobs
-
-### Starting a manual
-
-refresh
+### Starting a manual refresh
 
 Trigger an immediate refresh outside the scheduled interval.
 
@@ -454,9 +431,7 @@ aws glue start-materialized-view-refresh-task-run \
     --table-name <MV_TABLE_NAME>
 ```
 
-### Checking refresh
-
-status
+### Checking refresh status
 
 Get the status of a specific refresh job:
 
@@ -466,9 +441,7 @@ aws glue get-materialized-view-refresh-task-run \
     --materialized-view-refresh-task-run-id <TASK_RUN_ID>
 ```
 
-### Listing refresh
-
-history
+### Listing refresh history
 
 View all refresh jobs for a materialized view:
 
@@ -484,9 +457,7 @@ aws glue list-materialized-view-refresh-task-runs \
 Use `<ACCOUNT_ID>:s3tablescatalog/<CATALOG_NAME>`
 for S3 Tables or `<ACCOUNT_ID>` for root catalog.
 
-### Stopping a running
-
-refresh
+### Stopping a running refresh
 
 Cancel an in-progress refresh job:
 
@@ -497,9 +468,7 @@ aws glue stop-materialized-view-refresh-task-run \
     --table-name <MV_TABLE_NAME>
 ```
 
-## Monitoring and
-
-troubleshooting
+## Monitoring and troubleshooting
 
 There are three ways to monitor materialized view refresh jobs:
 
@@ -617,9 +586,7 @@ aws events put-targets \
     --region <REGION>
 ```
 
-### Viewing refresh
-
-status
+### Viewing refresh status
 
 Check the status of your materialized view refresh jobs using the
 AWS Glue API:
@@ -671,9 +638,7 @@ If a refresh fails, check:
 Use the GetMaterializedViewRefreshTaskRun API to retrieve detailed error
 messages.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - Materialized views can only reference Apache Iceberg tables registered in
   the AWS Glue Data Catalog as base tables.

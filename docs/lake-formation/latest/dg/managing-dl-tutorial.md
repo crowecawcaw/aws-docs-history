@@ -1,6 +1,4 @@
-# Managing a data lake using Lake Formation tag-based
-
-access control
+# Managing a data lake using Lake Formation tag-based access control
 
 Thousands of customers are building petabyte-scale data lakes on AWS. Many of these
 customers use AWS Lake Formation to easily build and share their data lakes across the organization. As

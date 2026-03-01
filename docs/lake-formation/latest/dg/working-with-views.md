@@ -93,9 +93,7 @@ Following are the important use cases for Data Catalog views:
   only up to column level) by applying LF-Tags on views and granting LF-Tags based
   permissions to users.
 
-## Supported AWS analytics services for
-
-views
+## Supported AWS analytics services for views
 
 The following AWS analytics services support creating Data Catalog views:
 

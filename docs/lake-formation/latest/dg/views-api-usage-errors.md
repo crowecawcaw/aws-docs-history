@@ -1,14 +1,10 @@
-# View creation failure scenarios during
-
-asynchronous operations
+# View creation failure scenarios during asynchronous operations
 
 The following examples are representative of the types of errors that may result
 from `CreateTable` or `UpdateTable` view API calls. They are
 not exhaustive as the error surface of SQL query failures is quite large.
 
-## Scenario 1: Amazon Redshift query
-
-failure
+## Scenario 1: Amazon Redshift query failure
 
 The query provided for Amazon Redshift includes a misspelled table name can't be found in
 the Data Catalog during the validation. The resulting error is shown in the
@@ -198,9 +194,7 @@ IncludeStatusDetails = TRUE
 }
 ```
 
-## Scenario 2: Invalid Amazon Redshift
-
-connection
+## Scenario 2: Invalid Amazon Redshift connection
 
 The Amazon Redshift connection in the following example is malformed because it refers to
 a Amazon Redshift database that doesn't exist in the provided cluster/serverless endpoint.
@@ -394,9 +388,7 @@ stamp: Thu Jul 11 18:43:38 UTC 2024]: Redshift returned error for the statement:
 
 ```
 
-## Scenario 3: Athena query
-
-failure
+## Scenario 3: Athena query failure
 
 The SQL for Athena here is invalid because the query misspells the database
 name. The Athena query validation catches this and the resulting error is
@@ -587,9 +579,7 @@ ul 11 18:10:41 UTC 2024]: Athena validation FAILED: {ErrorCategory: 2,ErrorType:
 }
 ```
 
-## Scenario 4: Mismatch storage
-
-descriptors
+## Scenario 4: Mismatch storage descriptors
 
 The SQL provided for the Athena dialect selects `col1` and
 `col2` while the SQL for Redshift selects only `col1`.

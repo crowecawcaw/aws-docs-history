@@ -42,8 +42,7 @@ Registering the selected location might result in your Lake Formation users gain
 data already at that location. Viewing this list helps you ensure that existing data
 remains secure. 5. For **IAM role**, choose either the
 `AWSServiceRoleForLakeFormationDataAccess` service-linked role (the default)
-or a custom IAM role that meets the requirements in [Requirements for roles used to register
-locations](registration-role.md "registration-role.md").
+or a custom IAM role that meets the requirements in [Requirements for roles used to register locations](registration-role.md "registration-role.md").
 
 You can update a registered location or other details only when you register it using
 a custom IAM role. To edit a location registered using a service-linked role, you should

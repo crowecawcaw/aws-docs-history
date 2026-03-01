@@ -45,7 +45,7 @@ For more information, see [Registering an Amazon S3 location](register-location.
 
 ###### Supported AWS services
 
-AWS analytic services such as Athena, Redshift Spectrum, Amazon EMR, AWS Glue, Amazon Quick Suite,
+AWS analytic services such as Athena, Redshift Spectrum, Amazon EMR, AWS Glue, Amazon Quick,
 and Amazon SageMaker AI integrate with AWS Lake Formation using the Lake Formation credential
 vending API operations. To see a full list of AWS services that integrate with
 Lake Formation, and the level of granularity and table formats that they support, see [Working with other AWS services](working-with-services.md "working-with-services.md").

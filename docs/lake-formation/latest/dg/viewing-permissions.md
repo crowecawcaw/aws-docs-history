@@ -39,9 +39,7 @@ permissions only for that database. You can adjust the filter by closing a tile 
 
 ![The Data permissions page displays a search box at the top, with two tiles underneath. The tiles are labeled Database:logs and Catalog ID:111122223333. Next to the tiles is a Clear filter button. Below is the list of databases and their permissions. This example has only one row in the list. It's for the logs database, and the permissions Alter, Create table, and Drop are granted to IAM user Administrator with the grant option. The list includes an Owner account ID column, and the one row has 11112222333 in that column.](images/permissions-page-database.png)
 
-###### To view permissions on a database (console, starting from the Data permissions
-
-page)
+###### To view permissions on a database (console, starting from the Data permissions page)
 
 1. Open the Lake Formation console at
    [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").

@@ -17,12 +17,9 @@ load your first data lake from a JDBC source using Lake Formation.
 - [Step 8: Use a blueprint to create a workflow](#tut-create-workflow "#tut-create-workflow")
 - [Step 9: Run the workflow](#tut-run-workflow "#tut-run-workflow")
 - [Step 10: Grant SELECT on the tables](#tut-grant-select "#tut-grant-select")
-- [Step 11: Query the data lake using
-  Amazon Athena](#tut-query-athena "#tut-query-athena")
-- [Step 12: Query the data in the data lake using
-  Amazon Redshift Spectrum](#tut-query-redshift "#tut-query-redshift")
-- [Step 13: Grant or revoke
-  Lake Formation permissions using Amazon Redshift Spectrum](#getting-started-tutorial-grant-revoke-redshift "#getting-started-tutorial-grant-revoke-redshift")
+- [Step 11: Query the data lake using Amazon Athena](#tut-query-athena "#tut-query-athena")
+- [Step 12: Query the data in the data lake using Amazon Redshift Spectrum](#tut-query-redshift "#tut-query-redshift")
+- [Step 13: Grant or revoke Lake Formation permissions using Amazon Redshift Spectrum](#getting-started-tutorial-grant-revoke-redshift "#getting-started-tutorial-grant-revoke-redshift")
 
 ## Intended audience
 
@@ -210,7 +207,7 @@ the role.
 
 3. Choose **Grant**.
 
-For more information about granting Lake Formation permissions, see [Overview of Lake Formation permissions](lf-permissions-overview.md "lf-permissions-overview.md") .
+For more information about granting Lake Formation permissions, see [Overview of Lake Formation permissions](lf-permissions-overview.md "lf-permissions-overview.md").
 
 ## Step 8: Use a blueprint to create a workflow
 
@@ -344,9 +341,7 @@ must grant `SELECT` to the data analyst.
 
 **The next step is performed as the data analyst.**
 
-## Step 11: Query the data lake using
-
-Amazon Athena
+## Step 11: Query the data lake using Amazon Athena
 
 Use the Amazon Athena console to query the data in your data lake.
 
@@ -363,9 +358,7 @@ table**.
 
 The query runs and displays 10 rows of data.
 
-## Step 12: Query the data in the data lake using
-
-Amazon Redshift Spectrum
+## Step 12: Query the data in the data lake using Amazon Redshift Spectrum
 
 You can set up Amazon Redshift Spectrum to query the data that you imported into your Amazon Simple Storage Service (Amazon S3)
 data lake. First, create an AWS Identity and Access Management (IAM) role that is used to launch the Amazon Redshift cluster and
@@ -442,9 +435,7 @@ If this is your first time choosing **Policies**, the
     role.
 17. Review the role, and then choose **Create role**.
 
-###### To grant `Select` permissions on the table to be queried in the Lake Formation
-
-database
+###### To grant `Select` permissions on the table to be queried in the Lake Formation database
 
 1. Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"). Sign in as the data lake
    administrator.
@@ -543,9 +534,7 @@ Amazon Redshift returns the first 10 rows.
 You can now run queries against the tables and columns for which you have
 permissions.
 
-## Step 13: Grant or revoke
-
-Lake Formation permissions using Amazon Redshift Spectrum
+## Step 13: Grant or revoke Lake Formation permissions using Amazon Redshift Spectrum
 
 Amazon Redshift supports the ability to grant and revoke Lake Formation permissions on databases and tables
 using modified SQL statements. These statements are similar to the existing Amazon Redshift statements.

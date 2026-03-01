@@ -23,8 +23,7 @@ Console
     ![Register location form for Amazon S3 data lake with path input, IAM role selection, and permission mode options.](images/hybrid-access-register-s3.png)
     4. On the **Register location** window, choose the **Amazon S3** path that you want to register with Lake Formation.
     5. For **IAM role**, choose either the `AWSServiceRoleForLakeFormationDataAccess` service-linked role (the default) or a custom IAM 
-     role that meets the requirements in [Requirements for roles used to register
-     locations](registration-role.md "registration-role.md").
+     role that meets the requirements in [Requirements for roles used to register locations](registration-role.md "registration-role.md").
     6. Choose **Hybrid access mode** to apply fine-grained Lake Formation access
      control policies to opt-in principals and Data Catalog databases and tables
      pointing to the registered location. 
@@ -49,8 +48,7 @@ json:
     }
 ```
 
-2. ###### Grant permissions and opt in principals to use Lake Formation permissions for
-   resources in hybrid access mode
+2. ###### Grant permissions and opt in principals to use Lake Formation permissions for resources in hybrid access mode
 
 Before you opt in principals and resources in hybrid access mode, verify that
 `Super` or `All` permissions to

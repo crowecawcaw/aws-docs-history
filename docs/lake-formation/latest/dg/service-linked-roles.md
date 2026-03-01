@@ -25,9 +25,7 @@ Service control policies (SCPs) don't affect service-linked roles.
 
 For more information, see [Service control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in the _AWS Organizations user guide_.
 
-## Service-linked role permissions for
-
-Lake Formation
+## Service-linked role permissions for Lake Formation
 
 Lake Formation uses the service-linked role named
 `AWSServiceRoleForLakeFormationDataAccess`. This role provides a set of Amazon Simple Storage Service
@@ -86,9 +84,7 @@ JSON
 
 ```
 
-## Creating a service-linked role for
-
-Lake Formation
+## Creating a service-linked role for Lake Formation
 
 You don't need to manually create a service-linked role. When you
 register an Amazon S3 location with Lake Formation in the AWS Management Console, the AWS CLI, or the AWS API, Lake Formation
@@ -111,9 +107,7 @@ information, see [Creating a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the _IAM User Guide_. If you delete this
 service-linked role, you can use this same process to create the role again.
 
-## Editing a service-linked role for
-
-Lake Formation
+## Editing a service-linked role for Lake Formation
 
 Lake Formation does not allow you to edit the `AWSServiceRoleForLakeFormationDataAccess` service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -121,9 +115,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Lake Formation
+## Deleting a service-linked role for Lake Formation
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not

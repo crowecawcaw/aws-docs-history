@@ -21,7 +21,7 @@ databases, and tables in your Data Catalog for a specific set of users without i
 access for other existing users or workloads.
 
 ![AWS account architecture showing data flow between S3, Glue, Lake Formation, Athena, and IAM roles.](images/hybrid-access-mode-concept.png)
-For considerations and limitations, see [Hybrid access mode considerations and limitations](notes-hybrid.md "notes-hybrid.md") .
+For considerations and limitations, see [Hybrid access mode considerations and limitations](notes-hybrid.md "notes-hybrid.md").
 
 ###### Terms and definitions
 

@@ -29,7 +29,7 @@ the following background information:
 - The catalogs, databases, and tables in the Data Catalog are referred to as _Data Catalog resources_. Tables in the Data Catalog are referred to as _metadata tables_ to distinguish them from tables in data sources
   or tabular data in Amazon S3. The data that the metadata tables point to in Amazon S3 or in data
   sources is referred to as _underlying data_.
-- A _principal_ is a user or role, an Amazon Quick Suite
+- A _principal_ is a user or role, an Amazon Quick
   user or group, a user or group that authenticates with Lake Formation through a SAML provider, or for
   cross-account access control, an AWS account ID, organization ID, or organizational unit
   ID.
@@ -46,8 +46,7 @@ the following background information:
 
 - [Overview of Lake Formation permissions](lf-permissions-overview.md "lf-permissions-overview.md")
 - [Lake Formation personas and IAM permissions reference](permissions-reference.md "permissions-reference.md")
-- [Changing the default settings for your data
-  lake](change-settings.md "change-settings.md")
+- [Changing the default settings for your data lake](change-settings.md "change-settings.md")
 - [Implicit Lake Formation permissions](implicit-permissions.md "implicit-permissions.md")
 - [Lake Formation permissions reference](lf-permissions-reference.md "lf-permissions-reference.md")
 - [Integrating IAM Identity Center](identity-center-integration.md "identity-center-integration.md")

@@ -1,6 +1,4 @@
-# Data lake settings
-
-APIs
+# Data lake settings APIs
 
 This section contains the Data lake settings API operations and data types for managing the
 data lake administrators.

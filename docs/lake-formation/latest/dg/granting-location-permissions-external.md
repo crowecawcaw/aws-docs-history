@@ -1,6 +1,4 @@
-# Granting data location permissions
-
-(external account)
+# Granting data location permissions (external account)
 
 Follow these steps to grant data location permissions to an external AWS account or
 organization.

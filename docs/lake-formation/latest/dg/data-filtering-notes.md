@@ -6,9 +6,7 @@ Lake Formation. Lake Formation uses data filtering to achieve column-level secur
 cell-level security. You can define and apply data filters on nested columns if your
 source data contains nested structures.
 
-## Notes and restrictions for column-level
-
-filtering
+## Notes and restrictions for column-level filtering
 
 There are three ways to specify column filtering:
 

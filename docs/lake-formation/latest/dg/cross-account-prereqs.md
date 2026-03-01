@@ -97,14 +97,12 @@ enable sharing with organizations.
 - If you are using version 1 or version 2 of the **Cross account version
   settings**, you must have a Data Catalog resource policy
   (`glue:PutResourcePolicy`) that enables LF-TBAC. For more
-  information, see [Managing cross-account permissions using both
-  AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md").
+  information, see [Managing cross-account permissions using both AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md").
 - If you're currently using an AWS Glue Data Catalog resource policy to share
   resources, and you want to grant cross-account permissions using version 3 of the
   **Cross account version settings**, you must add the
   `glue:ShareResource` permission in the Data Catalog Settings using the
-  `glue:PutResourcePolicy` API operation as shown in the [Managing cross-account permissions using both
-  AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md") section. This
+  `glue:PutResourcePolicy` API operation as shown in the [Managing cross-account permissions using both AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md") section. This
   policy is not required if your account has made no cross-account grants using the
   AWS Glue Data Catalog resource policy (version 1 and version 2 use
   `glue:PutResourcePolicy` permission) to grant cross-account access.
@@ -132,8 +130,7 @@ enable sharing with organizations.
   **Cross account settings** version 3 to share resources, which uses
   AWS RAM to share resources, you must set the `EnableHybrid` argument to
   `'true'` when you invoke the `glue:PutResourcePolicy` API
-  operation. For more information, see [Managing cross-account permissions using both
-  AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md").
+  operation. For more information, see [Managing cross-account permissions using both AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md").
 
 ###### Setup required in each account that accesses the shared resource
 

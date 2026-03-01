@@ -1,6 +1,4 @@
-# Granting data lake permissions using the
-
-LF-TBAC method
+# Granting data lake permissions using the LF-TBAC method
 
 You can grant the `DESCRIBE` and `ASSOCIATE` Lake Formation permissions on
 LF-Tags to principals so that they can view the LF-Tags and assign them to Data Catalog resources
@@ -10,8 +8,7 @@ the Lake Formation tag-based access control (LF-TBAC) method to secure those res
 
 At first, only the data lake administrator can grant these permissions. If the data lake
 administrator grants these permissions with the grant option, other principals can grant them.
-The `DESCRIBE` and `ASSOCIATE` permissions are explained in [Lake Formation tag-based access control best
-practices and considerations](lf-tag-considerations.md "lf-tag-considerations.md").
+The `DESCRIBE` and `ASSOCIATE` permissions are explained in [Lake Formation tag-based access control best practices and considerations](lf-tag-considerations.md "lf-tag-considerations.md").
 
 You can grant the `DESCRIBE` and `ASSOCIATE` permissions on a LF-Tag
 to an external AWS account. A data lake administrator in that account can then grant those
@@ -49,8 +46,7 @@ same catalog name, contact AWS support team for assistance.
 
 ###### See also
 
-- [Managing LF-Tag value
-  permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")
+- [Managing LF-Tag value permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")
 - [Managing LF-Tags for metadata access control](managing-tags.md "managing-tags.md")
 - [Lake Formation tag-based access control](tag-based-access-control.md "tag-based-access-control.md")
 
@@ -96,17 +92,17 @@ groups** list.
 
 **SAML users and groups**
 
-For **SAML and Quick Suite users and groups**,
+For **SAML and Quick users and groups**,
 enter one or more Amazon Resource Names (ARNs) for users or groups federated
-through SAML, or ARNs for Quick Suite users or groups. Press Enter
+through SAML, or ARNs for Quick users or groups. Press Enter
 after each ARN.
 
 For information about how to construct the ARNs, see [Lake Formation grant and revoke AWS CLI commands](lf-permissions-reference.md#perm-command-format "lf-permissions-reference.md#perm-command-format").
 
 ###### Note
 
-Lake Formation integration with Quick Suite is supported for
-Quick Suite Enterprise Edition only.
+Lake Formation integration with Quick is supported for
+Quick Enterprise Edition only.
 
 **External accounts**
 
@@ -149,8 +145,7 @@ is chosen. Choose **LF-Tag key-value pairs** or **Saved LF-Tag expressions**.
     You need `Create LF-Tag expression` to save expressions.
 
 
-    For more information about LF-Tag expressions, see [Managing LF-Tag expressions for metadata access
-     control](managing-tag-expressions.md "managing-tag-expressions.md").
+    For more information about LF-Tag expressions, see [Managing LF-Tag expressions for metadata access control](managing-tag-expressions.md "managing-tag-expressions.md").
 
 4. ###### Specify the permissions.
 
@@ -175,9 +170,7 @@ AWS CLI
 You can use the AWS Command Line Interface (AWS CLI) and the Lake Formation tag-based access control (LF-TBAC) method to
 grant Lake Formation permissions on Data Catalog databases, tables, and columns.
 
-###### Granting data lake permissions using the
-
-AWS CLI and the LF-TBAC method
+###### Granting data lake permissions using the AWS CLI and the LF-TBAC method
 
 - Use the `grant-permissions` command.
 

@@ -1,6 +1,4 @@
-# Upgrading AWS Glue data permissions to
-
-the AWS Lake Formation model
+# Upgrading AWS Glue data permissions to the AWS Lake Formation model
 
 AWS Lake Formation permissions enable fine-grained access control for data in your data lake. You can
 use the Lake Formation permissions model to manage your existing AWS Glue Data Catalog objects and data locations in
@@ -13,7 +11,7 @@ applications. By comparison, the AWS Glue model grants data access via [Identity
 
 To make the switch, follow the steps in this guide.
 
-For more information, see [Overview of Lake Formation permissions](lf-permissions-overview.md "lf-permissions-overview.md") .
+For more information, see [Overview of Lake Formation permissions](lf-permissions-overview.md "lf-permissions-overview.md").
 
 ## About default permissions
 
@@ -67,24 +65,15 @@ Follow the steps in this section to upgrade to the Lake Formation permissions mo
 
 ###### Topics
 
-- [Step 1: List users' and roles' existing
-  permissions](#upgrade-glue-lake-formation-step1 "#upgrade-glue-lake-formation-step1")
-- [Step 2: Set up equivalent Lake Formation
-  permissions](#upgrade-glue-lake-formation-step2 "#upgrade-glue-lake-formation-step2")
-- [Step 3: Give users IAM permissions to
-  use Lake Formation](#upgrade-glue-lake-formation-step3 "#upgrade-glue-lake-formation-step3")
-- [Step 4: Switch your data stores to the
-  Lake Formation permissions model](#upgrade-glue-lake-formation-step4 "#upgrade-glue-lake-formation-step4")
-- [Step 5: Secure new Data Catalog
-  resources](#upgrade-glue-lake-formation-step5 "#upgrade-glue-lake-formation-step5")
-- [Step 6: Give users a new IAM policy for
-  future data lake access](#upgrade-glue-lake-formation-step6 "#upgrade-glue-lake-formation-step6")
-- [Step 7: Clean up existing IAM
-  policies](#upgrade-glue-lake-formation-step7 "#upgrade-glue-lake-formation-step7")
+- [Step 1: List users' and roles' existing permissions](#upgrade-glue-lake-formation-step1 "#upgrade-glue-lake-formation-step1")
+- [Step 2: Set up equivalent Lake Formation permissions](#upgrade-glue-lake-formation-step2 "#upgrade-glue-lake-formation-step2")
+- [Step 3: Give users IAM permissions to use Lake Formation](#upgrade-glue-lake-formation-step3 "#upgrade-glue-lake-formation-step3")
+- [Step 4: Switch your data stores to the Lake Formation permissions model](#upgrade-glue-lake-formation-step4 "#upgrade-glue-lake-formation-step4")
+- [Step 5: Secure new Data Catalog resources](#upgrade-glue-lake-formation-step5 "#upgrade-glue-lake-formation-step5")
+- [Step 6: Give users a new IAM policy for future data lake access](#upgrade-glue-lake-formation-step6 "#upgrade-glue-lake-formation-step6")
+- [Step 7: Clean up existing IAM policies](#upgrade-glue-lake-formation-step7 "#upgrade-glue-lake-formation-step7")
 
-## Step 1: List users' and roles' existing
-
-permissions
+## Step 1: List users' and roles' existing permissions
 
 To start using AWS Lake Formation permissions with your existing AWS Glue databases and tables, you
 must first determine your users’ existing permissions.
@@ -175,15 +164,11 @@ For more information, see [Viewing
 Events with CloudTrail Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the
 _AWS CloudTrail User Guide_.
 
-Next, you can set up Lake Formation permissions to match the AWS Glue permissions. See [Step 2: Set up equivalent Lake Formation
-permissions](#upgrade-glue-lake-formation-step2 "#upgrade-glue-lake-formation-step2").
+Next, you can set up Lake Formation permissions to match the AWS Glue permissions. See [Step 2: Set up equivalent Lake Formation permissions](#upgrade-glue-lake-formation-step2 "#upgrade-glue-lake-formation-step2").
 
-## Step 2: Set up equivalent Lake Formation
+## Step 2: Set up equivalent Lake Formation permissions
 
-permissions
-
-Using the information collected in [Step 1: List users' and roles' existing
-permissions](#upgrade-glue-lake-formation-step1 "#upgrade-glue-lake-formation-step1"), grant AWS Lake Formation permissions to match the
+Using the information collected in [Step 1: List users' and roles' existing permissions](#upgrade-glue-lake-formation-step1 "#upgrade-glue-lake-formation-step1"), grant AWS Lake Formation permissions to match the
 AWS Glue permissions. Use any of the following methods to performs the grants:
 
 - Use the Lake Formation console or the AWS CLI.
@@ -195,14 +180,11 @@ See [Granting permissions on Data Catalog resources](granting-catalog-permission
 
 See [Permissions APIs](aws-lake-formation-api-aws-lake-formation-api-permissions.md "aws-lake-formation-api-aws-lake-formation-api-permissions.md").
 
-For more information, see [Overview of Lake Formation permissions](lf-permissions-overview.md "lf-permissions-overview.md") .
+For more information, see [Overview of Lake Formation permissions](lf-permissions-overview.md "lf-permissions-overview.md").
 
-After setting up Lake Formation permissions, proceed to [Step 3: Give users IAM permissions to
-use Lake Formation](#upgrade-glue-lake-formation-step3 "#upgrade-glue-lake-formation-step3").
+After setting up Lake Formation permissions, proceed to [Step 3: Give users IAM permissions to use Lake Formation](#upgrade-glue-lake-formation-step3 "#upgrade-glue-lake-formation-step3").
 
-## Step 3: Give users IAM permissions to
-
-use Lake Formation
+## Step 3: Give users IAM permissions to use Lake Formation
 
 To use the AWS Lake Formation permissions model, principals must have AWS Identity and Access Management (IAM) permissions on
 the Lake Formation APIs.
@@ -230,12 +212,9 @@ JSON
 
 ```
 
-Next, upgrade to Lake Formation permissions one data location at a time. See [Step 4: Switch your data stores to the
-Lake Formation permissions model](#upgrade-glue-lake-formation-step4 "#upgrade-glue-lake-formation-step4").
+Next, upgrade to Lake Formation permissions one data location at a time. See [Step 4: Switch your data stores to the Lake Formation permissions model](#upgrade-glue-lake-formation-step4 "#upgrade-glue-lake-formation-step4").
 
-## Step 4: Switch your data stores to the
-
-Lake Formation permissions model
+## Step 4: Switch your data stores to the Lake Formation permissions model
 
 Upgrade to Lake Formation permissions one data location at a time. To do that, repeat this entire
 section until you have registered all Amazon Simple Storage Service (Amazon S3) paths that are referenced by your
@@ -245,8 +224,7 @@ Data Catalog.
 
 - [Verify Lake Formation permissions](#identify-catalog-resources "#identify-catalog-resources")
 - [Secure existing Data Catalog resources](#upgrade-secure-resources "#upgrade-secure-resources")
-- [Turn on Lake Formation permissions
-  for your Amazon S3 location](#upgrade-glue-lake-formation-turn-on-permissions "#upgrade-glue-lake-formation-turn-on-permissions")
+- [Turn on Lake Formation permissions for your Amazon S3 location](#upgrade-glue-lake-formation-turn-on-permissions "#upgrade-glue-lake-formation-turn-on-permissions")
 
 ### Verify Lake Formation permissions
 
@@ -311,9 +289,7 @@ following steps might cause the automation and downstream extract, transform, an
 granted explicit Lake Formation permissions to the required principals. For information about Lake Formation
 permissions, see [Lake Formation permissions reference](lf-permissions-reference.md "lf-permissions-reference.md").
 
-###### To revoke `Super` from `IAMAllowedPrincipals` on a
-
-table
+###### To revoke `Super` from `IAMAllowedPrincipals` on a table
 
 1. Open the AWS Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"). Sign in as a data lake
    administrator.
@@ -327,9 +303,7 @@ table
 6. Under **Table permissions**, ensure that **Super**
    is selected, and then choose **Revoke**.
 
-###### To revoke `Super` from `IAMAllowedPrincipals` on a
-
-database
+###### To revoke `Super` from `IAMAllowedPrincipals` on a database
 
 1. Open the AWS Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"). Sign in as a data lake
    administrator.
@@ -350,9 +324,7 @@ database
    **Super** is selected, and then choose
    **Revoke**.
 
-### Turn on Lake Formation permissions
-
-for your Amazon S3 location
+### Turn on Lake Formation permissions for your Amazon S3 location
 
 Next, register the Amazon S3 location with Lake Formation. To do this, you can use the process
 described in [Adding an Amazon S3 location to your data lake](register-data-lake.md "register-data-lake.md"). Or,
@@ -363,12 +335,9 @@ use the `RegisterResource` API operation as described in [Credential vending API
 If a parent location is registered, you don't need to register child locations.
 
 After you finish these steps and test that your users can access their data, you have
-successfully upgraded to Lake Formation permissions. Continue with the next step, [Step 5: Secure new Data Catalog
-resources](#upgrade-glue-lake-formation-step5 "#upgrade-glue-lake-formation-step5").
+successfully upgraded to Lake Formation permissions. Continue with the next step, [Step 5: Secure new Data Catalog resources](#upgrade-glue-lake-formation-step5 "#upgrade-glue-lake-formation-step5").
 
-## Step 5: Secure new Data Catalog
-
-resources
+## Step 5: Secure new Data Catalog resources
 
 Next, secure all new Data Catalog resources by changing the default Data Catalog settings. Turn off
 the options to use only AWS Identity and Access Management (IAM) access control for new databases and tables.
@@ -391,12 +360,9 @@ about Lake Formation permissions, see [Lake Formation permissions reference](lf-
    then choose **Save**.
 
 The next step is to grant users access to additional databases or tables in the future.
-See [Step 6: Give users a new IAM policy for
-future data lake access](#upgrade-glue-lake-formation-step6 "#upgrade-glue-lake-formation-step6").
+See [Step 6: Give users a new IAM policy for future data lake access](#upgrade-glue-lake-formation-step6 "#upgrade-glue-lake-formation-step6").
 
-## Step 6: Give users a new IAM policy for
-
-future data lake access
+## Step 6: Give users a new IAM policy for future data lake access
 
 To grant your users access to additional Data Catalog databases or tables in the future, you
 must give them the coarse-grained AWS Identity and Access Management (IAM) inline policy that follows. Name the
@@ -440,12 +406,9 @@ The inline policies designated in this step and previous steps contain minimal I
 permissions. For suggested policies for data lake administrators, data analysts, and other
 personas, see [Lake Formation personas and IAM permissions reference](permissions-reference.md "permissions-reference.md").
 
-Next, proceed to [Step 7: Clean up existing IAM
-policies](#upgrade-glue-lake-formation-step7 "#upgrade-glue-lake-formation-step7").
+Next, proceed to [Step 7: Clean up existing IAM policies](#upgrade-glue-lake-formation-step7 "#upgrade-glue-lake-formation-step7").
 
-## Step 7: Clean up existing IAM
-
-policies
+## Step 7: Clean up existing IAM policies
 
 After you set up the AWS Lake Formation permissions and you create and attach the coarse-grained
 access control AWS Identity and Access Management (IAM) policies, complete the following final step:

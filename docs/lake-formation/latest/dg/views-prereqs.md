@@ -98,8 +98,7 @@
 - You can't create views in a database that has `Super` or
   `ALL` permission granted to the `IAMAllowedPrincipals`
   group. You can either revoke the `Super` permission for the
-  `IAMAllowedPrincipals` group on a database, see [Step 4: Switch your data stores to the
-  Lake Formation permissions model](upgrade-glue-lake-formation.md#upgrade-glue-lake-formation-step4 "upgrade-glue-lake-formation.md#upgrade-glue-lake-formation-step4"), or create a new
+  `IAMAllowedPrincipals` group on a database, see [Step 4: Switch your data stores to the Lake Formation permissions model](upgrade-glue-lake-formation.md#upgrade-glue-lake-formation-step4 "upgrade-glue-lake-formation.md#upgrade-glue-lake-formation-step4"), or create a new
   database with the **Use only IAM access control for new tables in this
   database** box unchecked under **Default permissions for
   newly created tables**.

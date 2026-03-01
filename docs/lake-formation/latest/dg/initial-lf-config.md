@@ -4,15 +4,12 @@ The following sections provide information on setting up Lake Formation for the 
 You can use the instructions to set up the Lake Formation permissions model to manage your existing AWS Glue Data Catalog objects and data locations in Amazon Simple Storage Service (Amazon S3).
 
 1. [Create a data lake administrator](#create-data-lake-admin "#create-data-lake-admin")
-2. [Change the default permission model or use
-   hybrid access mode](#setup-change-cat-settings "#setup-change-cat-settings")
-3. [Configure an Amazon S3 location for your
-   data lake](#register-s3-location "#register-s3-location")
+2. [Change the default permission model or use hybrid access mode](#setup-change-cat-settings "#setup-change-cat-settings")
+3. [Configure an Amazon S3 location for your data lake](#register-s3-location "#register-s3-location")
 4. [Assign permissions to Lake Formation users](#permissions-lf-principal "#permissions-lf-principal")
 5. [Integrating IAM Identity Center](identity-center-integration.md "identity-center-integration.md")
 6. [(Optional) External data filtering settings](#external-data-filter "#external-data-filter")
-7. [(Optional) Grant access to the Data Catalog
-   encryption key](#setup-encrypted-catalog "#setup-encrypted-catalog")
+7. [(Optional) Grant access to the Data Catalog encryption key](#setup-encrypted-catalog "#setup-encrypted-catalog")
 8. [(Optional) Create an IAM role for workflows](#iam-create-blueprint-role "#iam-create-blueprint-role")
    This section shows you how to set up Lake Formation resources in two different ways:
 
@@ -25,8 +22,7 @@ You can use the instructions to set up the Lake Formation permissions model to m
 ###### Note
 
 The CloudFormation stack performs steps 1 to 6 of the above, except step 2 and 5. Perform
-[Change the default permission model or use
-hybrid access mode](#setup-change-cat-settings "#setup-change-cat-settings") and [Integrating IAM Identity Center](identity-center-integration.md "identity-center-integration.md") manually from the Lake Formation
+[Change the default permission model or use hybrid access mode](#setup-change-cat-settings "#setup-change-cat-settings") and [Integrating IAM Identity Center](identity-center-integration.md "identity-center-integration.md") manually from the Lake Formation
 console.
 
 1. Sign into the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/") as an IAM administrator in the
@@ -213,9 +209,7 @@ JSON
       created or selected in Step 1, and then choose
       **Save**.
 
-## Change the default permission model or use
-
-hybrid access mode
+## Change the default permission model or use hybrid access mode
 
 Lake Formation starts with the "Use only IAM access control" settings enabled for
 compatibility with existing AWS Glue Data Catalog behavior. This settings allows you to manage access to your data in the data lake and its metadata through IAM policies and Amazon S3 bucket policies.
@@ -230,8 +224,7 @@ Disable the default settings to move all existing users of a table to Lake Forma
 ###### Important
 
 If you have existing AWS Glue Data Catalog databases and tables, do not follow the instructions in this section.
-Instead, follow the instructions in [Upgrading AWS Glue data permissions to
-the AWS Lake Formation model](upgrade-glue-lake-formation.md "upgrade-glue-lake-formation.md").
+Instead, follow the instructions in [Upgrading AWS Glue data permissions to the AWS Lake Formation model](upgrade-glue-lake-formation.md "upgrade-glue-lake-formation.md").
 
 ###### Warning
 
@@ -318,9 +311,7 @@ JSON
    example, `DatalakeUserBasic`. Choose **Create
    policy**, then close the **Policies** tab or browser window.
 
-## Configure an Amazon S3 location for your
-
-data lake
+## Configure an Amazon S3 location for your data lake
 
 To use Lake Formation to manage and secure the data in your data lake, you must first register an
 Amazon S3 location. When you register a location, that Amazon S3 path
@@ -339,20 +330,16 @@ Use a custom role in the following situations:
 - You plan to publish metrics in Amazon CloudWatch Logs. The
   user-defined role must include a policy for adding logs in CloudWatch Logs and publishing
   metrics in addition to the SLR permissions. For an example inline policy that
-  grants the necessary CloudWatch permissions, see [Requirements for roles used to register
-  locations](registration-role.md "registration-role.md").
+  grants the necessary CloudWatch permissions, see [Requirements for roles used to register locations](registration-role.md "registration-role.md").
 - The Amazon S3 location exists in a different account. For details, see
-  [Registering an Amazon S3 location in another AWS
-  account](register-cross-account.md "register-cross-account.md").
+  [Registering an Amazon S3 location in another AWS account](register-cross-account.md "register-cross-account.md").
 - The Amazon S3 location contains data encrypted with an AWS managed key. For
-  details, see [Registering an encrypted Amazon S3 location](register-encrypted.md "register-encrypted.md") and [Registering an encrypted Amazon S3 location across AWS
-  accounts](register-cross-encrypted.md "register-cross-encrypted.md").
+  details, see [Registering an encrypted Amazon S3 location](register-encrypted.md "register-encrypted.md") and [Registering an encrypted Amazon S3 location across AWS accounts](register-cross-encrypted.md "register-cross-encrypted.md").
 - You plan to access the Amazon S3 location using Amazon EMR. For more
   information about the role requirements, see [IAM roles for Lake Formation](../../../emr/latest/ManagementGuide/emr-lf-iam-role.md "../../../emr/latest/ManagementGuide/emr-lf-iam-role.md") in the
   _Amazon EMR Management Guide_.
 
-The role that you choose must have the necessary permissions, as described in [Requirements for roles used to register
-locations](registration-role.md "registration-role.md"). For instructions
+The role that you choose must have the necessary permissions, as described in [Requirements for roles used to register locations](registration-role.md "registration-role.md"). For instructions
 on how to register an Amazon S3 location, see [Adding an Amazon S3 location to your data lake](register-data-lake.md "register-data-lake.md").
 
 ## (Optional) External data filtering settings
@@ -384,12 +371,9 @@ It's the responsibility of third-party administrators to properly handle permiss
       **Enter** after each account ID.
    4. Choose **Save**.
 
-To allow external engines to access data without session tag validation, see [Application integration for full table
-access](full-table-credential-vending.md "full-table-credential-vending.md")
+To allow external engines to access data without session tag validation, see [Application integration for full table access](full-table-credential-vending.md "full-table-credential-vending.md")
 
-## (Optional) Grant access to the Data Catalog
-
-encryption key
+## (Optional) Grant access to the Data Catalog encryption key
 
 If the AWS Glue Data Catalog is encrypted, grant AWS Identity and Access Management (IAM) permissions on the AWS KMS key to any
 principals who need to grant Lake Formation permissions on Data Catalog databases and tables.

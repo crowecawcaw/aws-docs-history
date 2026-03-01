@@ -1,6 +1,4 @@
-# Sharing a data lake using Lake Formation tag-based
-
-access control and named resources
+# Sharing a data lake using Lake Formation tag-based access control and named resources
 
 This tutorial demonstrates how you can configure AWS Lake Formation to securely share data stored within a data lake with multiple companies, organizations, or business units,
 without having to copy the entire database. There are two options to share your databases and tables with another AWS account by using Lake Formation cross-account access control:
@@ -8,8 +6,7 @@ without having to copy the entire database. There are two options to share your 
 - **Lake Formation tag-based access control (recommended)**
 
 Lake Formation tag-based access control is an authorization strategy that defines permissions
-based on attributes. In Lake Formation, these attributes are called _LF-Tags_. For more details, refer to [Managing a data lake using Lake Formation tag-based
-access control](managing-dl-tutorial.md "managing-dl-tutorial.md").
+based on attributes. In Lake Formation, these attributes are called _LF-Tags_. For more details, refer to [Managing a data lake using Lake Formation tag-based access control](managing-dl-tutorial.md "managing-dl-tutorial.md").
 
 - **Lake Formation named resources**
 
@@ -152,9 +149,7 @@ After completing the tutorial, delete the stack in CloudFormation to avoid incur
 
 Before sharing resources with Lake Formation, there are prerequisites for both the tag-based access control method and named resource method.
 
-###### Complete tag-based access control cross-account data sharing
-
-prerequisites
+###### Complete tag-based access control cross-account data sharing prerequisites
 
 - For more information on cross-account data sharing requirements, see the [Prerequisites](cross-account-prereqs.md "cross-account-prereqs.md") section in the
   Cross-account data sharing chapter.
@@ -338,8 +333,7 @@ We will now provide data access to the consumer account by specifying an LF-Tag 
 At the very beginning of this tutorial, you changed the Lake Formation Data Catalog settings. If you skipped that part, this step is required. If you changed your Lake Formation Data Catalog settings, you can skip this step.
 
 In this step, we need to revoke the default **Super** permission
-from `IAMAllowedPrincipals` on the database or table. See [Step 4: Switch your data stores to the
-Lake Formation permissions model](upgrade-glue-lake-formation.md#upgrade-glue-lake-formation-step4 "upgrade-glue-lake-formation.md#upgrade-glue-lake-formation-step4") for details.
+from `IAMAllowedPrincipals` on the database or table. See [Step 4: Switch your data stores to the Lake Formation permissions model](upgrade-glue-lake-formation.md#upgrade-glue-lake-formation-step4 "upgrade-glue-lake-formation.md#upgrade-glue-lake-formation-step4") for details.
 
 Before revoking permission for `IAMAllowedPrincipals`, make sure that you
 granted existing IAM principals with necessary permission through Lake Formation. This includes three

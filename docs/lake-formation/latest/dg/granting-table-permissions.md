@@ -69,17 +69,17 @@ groups** list.
 
 **SAML users and groups**
 
-For **SAML and Quick Suite users and groups**,
+For **SAML and Quick users and groups**,
 enter one or more Amazon Resource Names (ARNs) for users or groups federated
-through SAML, or ARNs for Quick Suite users or groups. Press Enter
+through SAML, or ARNs for Quick users or groups. Press Enter
 after each ARN.
 
 For information about how to construct the ARNs, see [Lake Formation grant and revoke AWS CLI commands](lf-permissions-reference.md#perm-command-format "lf-permissions-reference.md#perm-command-format").
 
 ###### Note
 
-Lake Formation integration with Quick Suite is supported for
-Quick Suite Enterprise Edition only.
+Lake Formation integration with Quick is supported for
+Quick Enterprise Edition only.
 
 **External accounts**
 
@@ -103,8 +103,7 @@ This means that if any of the attribute tag values assigned to an IAM role or us
 Choose the permission scope by specifying if you're granting permissions to principals with matching attributes in the same account or in another account. 3. In the **LF-Tags or catalog resources** section, choose a
 database. Then choose one or more tables, or **All tables**.
 
-![The LF-Tags or catalog resources section contains two tiles arranged horizontally, where each tile contains an option button and descriptive text. The options are Resources matched by LF-Tags, and Named data catalog resources. Named data catalog resources is selected. Below the tiles are two dropdown lists: Database and Table. The Database dropdown list has a tile beneath it containing the selected database name. The Table dropdown list has a tile beneath it containing the selected table name.](images/grant-target-resources-tables-section-2.png) 4. ###### Specify the permissions with no data
-filtering.
+![The LF-Tags or catalog resources section contains two tiles arranged horizontally, where each tile contains an option button and descriptive text. The options are Resources matched by LF-Tags, and Named data catalog resources. Named data catalog resources is selected. Below the tiles are two dropdown lists: Database and Table. The Database dropdown list has a tile beneath it containing the selected database name. The Table dropdown list has a tile beneath it containing the selected table name.](images/grant-target-resources-tables-section-2.png) 4. ###### Specify the permissions with no data filtering.
 
 In the **Permissions** section, select the table permissions to grant, and optionally select grantable
 permissions.
@@ -116,8 +115,7 @@ permissions** section appears beneath the **Table and
 column permissions** section, with the **All data
 access** option selected by default. Accept the default.
 
-![The section contains three tiles, arranged horizontally, each with an option button and a description. The option buttons are: All data access (selected), Simple column-based access, and Advanced cell-level filters.](images/grant-select-all-data-access.png) 5. Choose **Grant**. 6. ###### Specify the **Select** permission with
-data filtering
+![The section contains three tiles, arranged horizontally, each with an option button and a description. The option buttons are: All data access (selected), Simple column-based access, and Advanced cell-level filters.](images/grant-select-all-data-access.png) 5. Choose **Grant**. 6. ###### Specify the **Select** permission with data filtering
 
 Select the **Select** permission. Don't select any other
 permissions.
@@ -272,5 +270,4 @@ The following are the contents of file
 - [Data filtering and cell-level security in Lake Formation](data-filtering.md "data-filtering.md")
 - [Lake Formation personas and IAM permissions reference](permissions-reference.md "permissions-reference.md")
 - [Granting resource link permissions](granting-link-permissions.md "granting-link-permissions.md")
-- [Accessing and viewing shared Data Catalog tables and
-  databases](viewing-shared-resources.md "viewing-shared-resources.md")
+- [Accessing and viewing shared Data Catalog tables and databases](viewing-shared-resources.md "viewing-shared-resources.md")

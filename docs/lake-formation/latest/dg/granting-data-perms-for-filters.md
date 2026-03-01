@@ -1,6 +1,4 @@
-# Granting data permissions provided by data
-
-filters
+# Granting data permissions provided by data filters
 
 Data filters represent a subset of data within a table. To provide data access to
 principals, `SELECT` permissions need to be granted to those principals. With this

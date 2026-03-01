@@ -35,11 +35,9 @@ Select **Assign**.
 
 ![Grant data lake permissions screen with IAM Identity Center users and groups selected.](images/identity-center-assign-users-groups.png) 7. Next, choose the method to grant permissions.
 
-For instructions on granting permissions using named resources method, see [Granting data permissions using the named
-resource method](granting-cat-perms-named-resource.md "granting-cat-perms-named-resource.md").
+For instructions on granting permissions using named resources method, see [Granting data permissions using the named resource method](granting-cat-perms-named-resource.md "granting-cat-perms-named-resource.md").
 
-For instructions on granting permission using LF-Tags, see [Granting data lake permissions using the
-LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md"). 8. Choose the Data Catalog resources on which you want to grant permissions. 9. Choose the Data Catalog permissions to grant. 10. Select **Grant**.
+For instructions on granting permission using LF-Tags, see [Granting data lake permissions using the LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md"). 8. Choose the Data Catalog resources on which you want to grant permissions. 9. Choose the Data Catalog permissions to grant. 10. Select **Grant**.
 
 AWS CLI
 The following example shows how to grant IAM Identity Center user `SELECT` permission on a table.

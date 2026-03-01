@@ -59,8 +59,7 @@ For limitations, see [Data filtering limitations](data-filtering-notes.md "data-
 
 - [Data filters in Lake Formation](#data-filters-about "#data-filters-about")
 - [PartiQL support in row filter expressions](partiql-support.md "partiql-support.md")
-- [Permissions required for querying tables with
-  cell-level filtering](row-filtering-prereqs.md "row-filtering-prereqs.md")
+- [Permissions required for querying tables with cell-level filtering](row-filtering-prereqs.md "row-filtering-prereqs.md")
 - [Managing data filters](managing-filters.md "managing-filters.md")
 
 ## Data filters in Lake Formation

@@ -95,8 +95,7 @@ Cross-account grants made using LF-TBAC method require users to have an
 AWS Glue Data Catalog resource policy in the account. When you update to version 3, LF-TBAC
 grants uses AWS RAM. To allow AWS RAM based cross-account grants to succeed, you must
 add the `glue:ShareResource` statement to your existing Data Catalog resource
-policies as shown in the [Managing cross-account permissions using both
-AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md") section.
+policies as shown in the [Managing cross-account permissions using both AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md") section.
 
 **Version 4**
 

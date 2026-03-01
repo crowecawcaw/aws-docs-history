@@ -1,6 +1,4 @@
-# AWS Lake Formation and interface VPC endpoints
-
-(AWS PrivateLink)
+# AWS Lake Formation and interface VPC endpoints (AWS PrivateLink)
 
 Amazon VPC is an AWS service that you can use to launch AWS resources in a virtual network
 that you define. With a VPC, you have control over your network settings, such the IP address
@@ -30,9 +28,7 @@ Before you set up an interface VPC endpoint for Lake Formation, ensure that you 
 Lake Formation supports making calls to all of its API actions from your VPC. You can use Lake Formation with
 VPC endpoints in all AWS Regions that support both Lake Formation and Amazon VPC endpoints.
 
-## Creating an interface VPC endpoint for
-
-Lake Formation
+## Creating an interface VPC endpoint for Lake Formation
 
 You can create a VPC endpoint for the Lake Formation service using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an

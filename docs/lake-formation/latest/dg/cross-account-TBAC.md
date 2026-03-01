@@ -62,8 +62,7 @@ tagged with the same key(s) and value(s).
      always grant cross-account permissions with the grant option.
 
 
-    For more information, see [Granting LF-Tag permissions using the
-     console](TBAC-granting-tags-console.md "TBAC-granting-tags-console.md").
+    For more information, see [Granting LF-Tag permissions using the console](TBAC-granting-tags-console.md "TBAC-granting-tags-console.md").
 
 
     ###### Note
@@ -82,9 +81,7 @@ tagged with the same key(s) and value(s).
     producer account and is not visible within the Athena console. To make the
     resource visible in the Athena console, you need to create a resource link
     pointing to the shared resource. For instructions on creating a resource link, see
-    [Creating a resource link to a shared Data Catalog
-    table](create-resource-link-table.md "create-resource-link-table.md") and [Creating a resource link to a shared Data Catalog
-    database](create-resource-link-database.md "create-resource-link-database.md")
+    [Creating a resource link to a shared Data Catalog table](create-resource-link-table.md "create-resource-link-table.md") and [Creating a resource link to a shared Data Catalog database](create-resource-link-database.md "create-resource-link-database.md")
 
         1. Choose **Databases** or **Tables** under the Data Catalog.
         2. On the Databases/Tables page, choose **Create**, **Resource link** .

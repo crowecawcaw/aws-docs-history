@@ -20,8 +20,7 @@ customize it to suit your needs.
 - [Step 1: Provision your resources](#set-up-otf-resources "#set-up-otf-resources")
 - [Step 2: Set up permissions for an Iceberg table](#set-up-iceberg-table "#set-up-iceberg-table")
 - [Step 3: Set up permissions for a Hudi table](#set-up-hudi-table "#set-up-hudi-table")
-- [Step 4: Set up permissions for a Delta Lake
-  table](#set-up-delta-table "#set-up-delta-table")
+- [Step 4: Set up permissions for a Delta Lake table](#set-up-delta-table "#set-up-delta-table")
 - [Step 5: Clean up AWS resources](#otf-tut-clean-up "#otf-tut-clean-up")
 
 ## Intended audience
@@ -273,9 +272,7 @@ select * from lfhudidb.product limit 10;
 
 For more information on querying Hudi tables, see the [Querying Hudi tables](../../../athena/latest/ug/querying-hudi.md "../../../athena/latest/ug/querying-hudi.md") section in the _Amazon Athena User Guide_.
 
-## Step 4: Set up permissions for a Delta Lake
-
-table
+## Step 4: Set up permissions for a Delta Lake table
 
 In this section, you'll learn how to create a Delta Lake table with symlink manifest file in the AWS Glue Data Catalog, set up
 data permissions in AWS Lake Formation and query data using Amazon Athena.

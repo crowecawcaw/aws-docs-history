@@ -1,6 +1,4 @@
-# Integrating third-party services with
-
-Lake Formation
+# Integrating third-party services with Lake Formation
 
 Integrating with AWS Lake Formation enables third-party services to securely access
 data in their Amazon S3 based data lakes. You can use Lake Formation as your authorization engine to manage or

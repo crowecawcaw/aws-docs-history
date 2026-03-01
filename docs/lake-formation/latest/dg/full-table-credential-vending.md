@@ -1,6 +1,4 @@
-# Application integration for full table
-
-access
+# Application integration for full table access
 
 Follow these steps to enable third-party query engines to access data without the
 IAM session tag validation:

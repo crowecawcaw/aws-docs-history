@@ -81,23 +81,17 @@ For considerations and limitation, see [Cross-account data sharing best practice
 
 - [Prerequisites](cross-account-prereqs.md "cross-account-prereqs.md")
 - [Updating cross-account data sharing version settings](optimize-ram.md "optimize-ram.md")
-- [Sharing Data Catalog tables and databases across
-  AWS accounts or IAM principals from external accounts](cross-account-data-share-steps.md "cross-account-data-share-steps.md")
-- [Granting permissions on a database or table shared
-  with your account](regranting-shared-resources.md "regranting-shared-resources.md")
+- [Sharing Data Catalog tables and databases across AWS accounts or IAM principals from external accounts](cross-account-data-share-steps.md "cross-account-data-share-steps.md")
+- [Granting permissions on a database or table shared with your account](regranting-shared-resources.md "regranting-shared-resources.md")
 - [Granting resource link permissions](granting-link-permissions.md "granting-link-permissions.md")
-- [Accessing the underlying data of a shared
-  table](cross-account-read-data.md "cross-account-read-data.md")
+- [Accessing the underlying data of a shared table](cross-account-read-data.md "cross-account-read-data.md")
 - [Cross-account CloudTrail logging](cross-account-logging.md "cross-account-logging.md")
-- [Managing cross-account permissions using both
-  AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md")
-- [Viewing all cross-account grants using
-  the GetResourceShares API operation](cross-account-getresourcepolicies.md "cross-account-getresourcepolicies.md")
+- [Managing cross-account permissions using both AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md")
+- [Viewing all cross-account grants using the GetResourceShares API operation](cross-account-getresourcepolicies.md "cross-account-getresourcepolicies.md")
 
 ###### Related topics
 
 - [Overview of Lake Formation permissions](lf-permissions-overview.md "lf-permissions-overview.md")
-- [Accessing and viewing shared Data Catalog tables and
-  databases](viewing-shared-resources.md "viewing-shared-resources.md")
+- [Accessing and viewing shared Data Catalog tables and databases](viewing-shared-resources.md "viewing-shared-resources.md")
 - [Creating resource links](creating-resource-links.md "creating-resource-links.md")
 - [Troubleshooting cross-account access](troubleshooting.md#trouble-cross-account "troubleshooting.md#trouble-cross-account")

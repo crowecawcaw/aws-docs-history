@@ -13,7 +13,7 @@ Before beginning the cross-account bucket registration:
 - Create an IAM role in account B with appropriate permissions for bucket
   registration.
 
-For more information about the permissions required to register a table bucket with Lake Formation, see [Prerequisites for integrating Amazon S3 tables catalog with the Data Catalog and Lake Formation](s3tables-catalog-prerequisites.md "s3tables-catalog-prerequisites.md") .
+For more information about the permissions required to register a table bucket with Lake Formation, see [Prerequisites for integrating Amazon S3 tables catalog with the Data Catalog and Lake Formation](s3tables-catalog-prerequisites.md "s3tables-catalog-prerequisites.md").
 
 - Register the table bucket in the account where you are going to create the S3 table catalog.
 - For cross-account access, the role specified when registering the table bucket must

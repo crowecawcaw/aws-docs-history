@@ -21,8 +21,7 @@ Before you begin, make sure that you have completed the steps in [Getting starte
    - [Setting up permissions for open table storage formats in Lake Formation](otf-tutorial.md "otf-tutorial.md")
 
    This tutorial demonstrates how to set up permissions for open source transactional table formats (Apache Iceberg, Apache Hudi, and Linux Foundation Delta Lake tables) in Lake Formation.
-   - [Managing a data lake using Lake Formation tag-based
-     access control](managing-dl-tutorial.md "managing-dl-tutorial.md")
+   - [Managing a data lake using Lake Formation tag-based access control](managing-dl-tutorial.md "managing-dl-tutorial.md")
 
    Learn to manage access to the data within a data lake using tag-based access control in Lake Formation.
    - [Securing data lakes with row-level access control](cbac-tutorial.md "cbac-tutorial.md")
@@ -31,8 +30,7 @@ Before you begin, make sure that you have completed the steps in [Getting starte
 
 3. **Sharing data:** Learn to securely share your data across
    AWS accounts using tag-based access control (TBAC) and manage granular permissions on datasets shared between AWS accounts.
-   - [Sharing a data lake using Lake Formation tag-based
-     access control and named resources](share-dl-tbac-tutorial.md "share-dl-tbac-tutorial.md")
+   - [Sharing a data lake using Lake Formation tag-based access control and named resources](share-dl-tbac-tutorial.md "share-dl-tbac-tutorial.md")
 
    In this tutorial, you learn how to securely share your data across AWS accounts
    using Lake Formation.
@@ -45,9 +43,7 @@ Before you begin, make sure that you have completed the steps in [Getting starte
 - [Creating a data lake from an AWS CloudTrail source](getting-started-cloudtrail-tutorial.md "getting-started-cloudtrail-tutorial.md")
 - [Creating a data lake from a JDBC source in Lake Formation](getting-started-tutorial-jdbc.md "getting-started-tutorial-jdbc.md")
 - [Setting up permissions for open table storage formats in Lake Formation](otf-tutorial.md "otf-tutorial.md")
-- [Managing a data lake using Lake Formation tag-based
-  access control](managing-dl-tutorial.md "managing-dl-tutorial.md")
+- [Managing a data lake using Lake Formation tag-based access control](managing-dl-tutorial.md "managing-dl-tutorial.md")
 - [Securing data lakes with row-level access control](cbac-tutorial.md "cbac-tutorial.md")
-- [Sharing a data lake using Lake Formation tag-based
-  access control and named resources](share-dl-tbac-tutorial.md "share-dl-tbac-tutorial.md")
+- [Sharing a data lake using Lake Formation tag-based access control and named resources](share-dl-tbac-tutorial.md "share-dl-tbac-tutorial.md")
 - [Sharing a data lake using Lake Formation fine-grained access control](share-dl-fgac-tutorial.md "share-dl-fgac-tutorial.md")

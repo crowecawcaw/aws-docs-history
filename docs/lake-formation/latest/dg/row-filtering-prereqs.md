@@ -1,6 +1,4 @@
-# Permissions required for querying tables with
-
-cell-level filtering
+# Permissions required for querying tables with cell-level filtering
 
 The following AWS Identity and Access Management (IAM) permissions are required to run queries against tables
 with cell-level filtering.

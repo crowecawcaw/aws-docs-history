@@ -1,6 +1,4 @@
-# Accessing and viewing shared Data Catalog tables and
-
-databases
+# Accessing and viewing shared Data Catalog tables and databases
 
 For the data lake administrator and for principals who have been granted permissions,
 resources that are shared with your AWS account appear in the Data Catalog as if they were resources
@@ -28,11 +26,9 @@ be accepted. Only users authorized to view AWS RAM invitations receive the alert
 
 ###### See Also:
 
-- [Sharing Data Catalog tables and databases across AWS
-  Accounts](sharing-catalog-resources.md "sharing-catalog-resources.md")
+- [Sharing Data Catalog tables and databases across AWS Accounts](sharing-catalog-resources.md "sharing-catalog-resources.md")
 - [Cross-account data sharing in Lake Formation](cross-account-permissions.md "cross-account-permissions.md")
-- [Accessing the underlying data of a shared
-  table](cross-account-read-data.md "cross-account-read-data.md")
+- [Accessing the underlying data of a shared table](cross-account-read-data.md "cross-account-read-data.md")
 - [Metadata access control](access-control-metadata.md "access-control-metadata.md") (for
   information about the named resource method versus the LF-TBAC method for sharing
   resources.)
@@ -40,5 +36,4 @@ be accepted. Only users authorized to view AWS RAM invitations receive the alert
 ###### Topics
 
 - [Accepting a resource share invitation from AWS RAM](accepting-ram-invite.md "accepting-ram-invite.md")
-- [Viewing shared Data Catalog tables and
-  databases](viewing-available-shared-resources.md "viewing-available-shared-resources.md")
+- [Viewing shared Data Catalog tables and databases](viewing-available-shared-resources.md "viewing-available-shared-resources.md")

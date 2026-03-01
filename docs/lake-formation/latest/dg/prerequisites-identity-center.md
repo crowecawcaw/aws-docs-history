@@ -124,8 +124,7 @@ JSON
 ```
 
 - For IAM permissions required to grant or revoke data lake permissions for
-  IAM Identity Center users and groups, see [IAM permissions required to grant or
-  revoke Lake Formation permissions](required-permissions-for-grant.md "required-permissions-for-grant.md").
+  IAM Identity Center users and groups, see [IAM permissions required to grant or revoke Lake Formation permissions](required-permissions-for-grant.md "required-permissions-for-grant.md").
   _Permissions description_
 
 - `lakeformation:CreateLakeFormationIdentityCenterConfiguration`

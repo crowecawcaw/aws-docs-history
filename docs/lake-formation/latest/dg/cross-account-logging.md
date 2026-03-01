@@ -15,14 +15,10 @@ accessed your S3 buckets.
 
 ###### Topics
 
-- [Including principal identities in
-  cross-account CloudTrail logs](#cross-account-logging-optin "#cross-account-logging-optin")
-- [Querying CloudTrail logs for Amazon S3 cross-account
-  access](#cross-account-logging-s3 "#cross-account-logging-s3")
+- [Including principal identities in cross-account CloudTrail logs](#cross-account-logging-optin "#cross-account-logging-optin")
+- [Querying CloudTrail logs for Amazon S3 cross-account access](#cross-account-logging-s3 "#cross-account-logging-s3")
 
-## Including principal identities in
-
-cross-account CloudTrail logs
+## Including principal identities in cross-account CloudTrail logs
 
 By default, cross-account CloudTrail events added to the shared resource recipient's logs
 and copied to resource owner's logs contain only the AWS principal ID of the external
@@ -109,9 +105,7 @@ Press **Enter** after each account ID. 4. Choose **Save**.
 Now cross-account CloudTrail events stored in the logs for both the shared resource
 recipient and the resource owner contain the principal ARN.
 
-## Querying CloudTrail logs for Amazon S3 cross-account
-
-access
+## Querying CloudTrail logs for Amazon S3 cross-account access
 
 As a shared resource owner, you can query S3 CloudTrail logs to determine the accounts
 that have accessed your Amazon S3 buckets (provided that you enabled object-level logging in

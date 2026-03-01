@@ -12,9 +12,7 @@ catalog. The list contains the databases in your account and resource links, whi
 
 ![View catalogs/databases.](images/catalog-database-view.png) 4. Choose **Tables** option under **View** to view and manage the tables in the database.
 
-###### \*\*AWS CLI examples for viewing catalogs and
-
-databases\*\*
+###### **AWS CLI examples for viewing catalogs and databases**
 
 The following example shows how to view a catalog using AWS CLI
 

@@ -1,6 +1,4 @@
-#
-
-Granting permissions on views using the named resource method
+# Granting permissions on views using the named resource method
 
 The following steps explain how to grant permissions on views by using the named
 resource method and the **Grant permissions** page. The page is divided
@@ -14,9 +12,7 @@ into the following sections:
   tables, views, or resource links to grant permissions on.
 - Permissions – The data lake permissions to grant.
 
-## Open the **Grant permissions**
-
-page
+## Open the **Grant permissions** page
 
 1. Open the AWS Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"), and sign in as a
    data lake administrator, the database creator, or an IAM user who has **Grantable permissions**
@@ -56,16 +52,16 @@ groups** list.
 
 **SAML users and groups**
 
-For **SAML and Quick Suite users and groups**,
+For **SAML and Quick users and groups**,
 enter one or more Amazon Resource Names (ARNs) for users or groups federated
-through SAML, or ARNs for Amazon Quick Suite users or groups. Press Enter
+through SAML, or ARNs for Amazon Quick users or groups. Press Enter
 after each ARN.
 
 For information about how to construct the ARNs, see [Lake Formation grant and revoke AWS CLI commands](lf-permissions-reference.md#perm-command-format "lf-permissions-reference.md#perm-command-format").
 
 ###### Note
 
-Lake Formation integration with Quick Suite is supported only for Quick Suite Enterprise Edition.
+Lake Formation integration with Quick is supported only for Quick Enterprise Edition.
 
 **External accounts**
 
@@ -84,8 +80,7 @@ digits.
 
 ###### See Also
 
-- [Accessing and viewing shared Data Catalog tables and
-  databases](viewing-shared-resources.md "viewing-shared-resources.md")
+- [Accessing and viewing shared Data Catalog tables and databases](viewing-shared-resources.md "viewing-shared-resources.md")
 
 **Principals by attributes**
 Specify the attribute key and value(s).
@@ -126,5 +121,4 @@ permissions.
 ###### See Also
 
 - [Lake Formation permissions reference](lf-permissions-reference.md "lf-permissions-reference.md")
-- [Granting permissions on a database or table shared
-  with your account](regranting-shared-resources.md "regranting-shared-resources.md")
+- [Granting permissions on a database or table shared with your account](regranting-shared-resources.md "regranting-shared-resources.md")

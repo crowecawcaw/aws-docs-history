@@ -1,6 +1,4 @@
-# Changing the default settings for your data
-
-lake
+# Changing the default settings for your data lake
 
 To maintain backward compatibility with AWS Glue, AWS Lake Formation has the following initial security
 settings:
@@ -20,14 +18,10 @@ table on which it is granted.
 To change security settings so that access to Data Catalog resources (databases and tables) is
 managed by Lake Formation permissions, do the following:
 
-1. Change the default security settings for new resources. For instructions, see [Change the default permission model or use
-   hybrid access mode](initial-lf-config.md#setup-change-cat-settings "initial-lf-config.md#setup-change-cat-settings").
-2. Change the settings for existing Data Catalog resources. For instructions, see [Upgrading AWS Glue data permissions to
-   the AWS Lake Formation model](upgrade-glue-lake-formation.md "upgrade-glue-lake-formation.md").
+1. Change the default security settings for new resources. For instructions, see [Change the default permission model or use hybrid access mode](initial-lf-config.md#setup-change-cat-settings "initial-lf-config.md#setup-change-cat-settings").
+2. Change the settings for existing Data Catalog resources. For instructions, see [Upgrading AWS Glue data permissions to the AWS Lake Formation model](upgrade-glue-lake-formation.md "upgrade-glue-lake-formation.md").
 
-###### Changing the default security settings using the Lake Formation `PutDataLakeSettings`
-
-API operation
+###### Changing the default security settings using the Lake Formation `PutDataLakeSettings` API operation
 
 You can also change default security settings by using the Lake Formation [PutDataLakeSettings](../APIReference/API_PutDataLakeSettings.md "../APIReference/API_PutDataLakeSettings.md") API operation.
 This action takes as arguments an optional catalog ID and a [DataLakeSettings](../APIReference/API_DataLakeSettings.md "../APIReference/API_DataLakeSettings.md") structure.

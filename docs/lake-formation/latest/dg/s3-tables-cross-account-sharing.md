@@ -3,8 +3,7 @@
 After you grant cross-account permissions on a database or table in the S3 tables catalog, to access the resources, you need to create resource links to the shared databases and tables.
 
 1. In the destination account (the account that receives the shared resources),
-   create a database resource link. For detailed instructions, see [Creating a resource link to a shared Data Catalog
-   database](create-resource-link-database.md "create-resource-link-database.md").
+   create a database resource link. For detailed instructions, see [Creating a resource link to a shared Data Catalog database](create-resource-link-database.md "create-resource-link-database.md").
 
 CLI example for creating a database resource link
 

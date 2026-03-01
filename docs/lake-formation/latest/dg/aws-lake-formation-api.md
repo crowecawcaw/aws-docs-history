@@ -10,13 +10,11 @@ Updated [API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md")
   - [Operations](aws-lake-formation-api-aws-lake-formation-api-permissions.md#aws-lake-formation-api-aws-lake-formation-api-permissions-actions "aws-lake-formation-api-aws-lake-formation-api-permissions.md#aws-lake-formation-api-aws-lake-formation-api-permissions-actions")
   - [Data Types](aws-lake-formation-api-aws-lake-formation-api-permissions.md#aws-lake-formation-api-aws-lake-formation-api-permissions-objects "aws-lake-formation-api-aws-lake-formation-api-permissions.md#aws-lake-formation-api-aws-lake-formation-api-permissions-objects")
 
-- [Data lake settings
-  APIs](aws-lake-formation-api-aws-lake-formation-api-settings.md "aws-lake-formation-api-aws-lake-formation-api-settings.md")
+- [Data lake settings APIs](aws-lake-formation-api-aws-lake-formation-api-settings.md "aws-lake-formation-api-aws-lake-formation-api-settings.md")
   - [Operations](aws-lake-formation-api-aws-lake-formation-api-settings.md#aws-lake-formation-api-aws-lake-formation-api-settings-actions "aws-lake-formation-api-aws-lake-formation-api-settings.md#aws-lake-formation-api-aws-lake-formation-api-settings-actions")
   - [Data Types](aws-lake-formation-api-aws-lake-formation-api-settings.md#aws-lake-formation-api-aws-lake-formation-api-settings-objects "aws-lake-formation-api-aws-lake-formation-api-settings.md#aws-lake-formation-api-aws-lake-formation-api-settings-objects")
 
-- [IAM Identity Center integration
-  APIs](aws-lake-formation-api-Identity-center-integ.md "aws-lake-formation-api-Identity-center-integ.md")
+- [IAM Identity Center integration APIs](aws-lake-formation-api-Identity-center-integ.md "aws-lake-formation-api-Identity-center-integ.md")
   - [Operations](aws-lake-formation-api-Identity-center-integ.md#aws-lake-formation-api-Identity-center-integ-actions "aws-lake-formation-api-Identity-center-integ.md#aws-lake-formation-api-Identity-center-integ-actions")
   - [Data Types](aws-lake-formation-api-Identity-center-integ.md#aws-lake-formation-api-aws-lake-formation-api-settings-objects "aws-lake-formation-api-Identity-center-integ.md#aws-lake-formation-api-aws-lake-formation-api-settings-objects")
 

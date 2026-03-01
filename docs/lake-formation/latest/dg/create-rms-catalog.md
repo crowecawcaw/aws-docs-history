@@ -51,9 +51,9 @@ To use a custom key, you must add additional custom managed key policy to your K
     	 Choose one or more users or roles from the IAM users and roles
     	 list.
     	+ **SAML users and groups** –
-    	 For SAML and Amazon Quick Suite users and groups, enter one or
+    	 For SAML and Amazon Quick users and groups, enter one or
     	 more Amazon Resource Names (ARNs) for users or groups federated through
-    	 SAML, or ARNs for Amazon Quick Suite users or groups. Press
+    	 SAML, or ARNs for Amazon Quick users or groups. Press
     	 **Enter** after each ARN.
 
 

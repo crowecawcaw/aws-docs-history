@@ -14,18 +14,17 @@ The following tables lists the types of Lake Formation permissions supported by 
 Amazon EMR, and Amazon Redshift Spectrum to access data from AWS Glue standard tables and transactional tables ([Apache Iceberg](https://iceberg.apache.org/ "https://iceberg.apache.org/"), [Apache Hudi](https://hudi.incubator.apache.org/ "https://hudi.incubator.apache.org/"), and [Linux foundation Delta Lake](https://delta.io/ "https://delta.io/")) with data stored in Amazon S3 and
 table metadata in the Data Catalog .
 
-AWS services and supported permission types for AWS Glue standard tables and
-views| AWS service | Table-level permissions | Column-level permissions | Row and cell-level permissions |
-| --- | --- | --- | --- |
-| [Athena SQL](athena-lf.md "athena-lf.md") | Read/write access | Read access | Read access |
-| Athena Spark | Not supported | Not supported | Not supported |
-| [Redshift Spectrum](RSPC-lf.md "RSPC-lf.md") on a provisioned cluster or Amazon Redshift serverless | Read/write access | Read access | Read access |
-| [Apache Spark on Amazon EMR (EC2)](emr-integ-lf.md "emr-integ-lf.md") | Read/write access | Read access | Read access |
-| [Apache Hive on Amazon EMR (EC2)](emr-integ-lf.md "emr-integ-lf.md") | Read/write access | Read access | Not supported |
-| [Apache Spark on EMR Serverless](emr-integ-lf.md "emr-integ-lf.md") | Read/write access | Read access | Read access |
-| Apache Hive on EMR Serverless | Not supported | Not supported | Not supported |
-| Amazon EMR on EKS | Not supported | Not supported | Not supported |
-| [AWS Glue ETL](glue-features-lf.md "glue-features-lf.md") | Read/write access | AWS Glue 5.0 or higher supports read access. | AWS Glue 5.0 or higher supports read access. |
+| AWS services and supported permission types for AWS Glue standard tables and views                  | AWS service       | Table-level permissions                      | Column-level permissions                     | Row and cell-level permissions |
+| --------------------------------------------------------------------------------------------------- | ----------------- | -------------------------------------------- | -------------------------------------------- | ------------------------------ |
+| [Athena SQL](athena-lf.md "athena-lf.md")                                                           | Read/write access | Read access                                  | Read access                                  |
+| Athena Spark                                                                                        | Not supported     | Not supported                                | Not supported                                |
+| [Redshift Spectrum](RSPC-lf.md "RSPC-lf.md") on a provisioned cluster or Amazon Redshift serverless | Read/write access | Read access                                  | Read access                                  |
+| [Apache Spark on Amazon EMR (EC2)](emr-integ-lf.md "emr-integ-lf.md")                               | Read/write access | Read access                                  | Read access                                  |
+| [Apache Hive on Amazon EMR (EC2)](emr-integ-lf.md "emr-integ-lf.md")                                | Read/write access | Read access                                  | Not supported                                |
+| [Apache Spark on EMR Serverless](emr-integ-lf.md "emr-integ-lf.md")                                 | Read/write access | Read access                                  | Read access                                  |
+| Apache Hive on EMR Serverless                                                                       | Not supported     | Not supported                                | Not supported                                |
+| Amazon EMR on EKS                                                                                   | Not supported     | Not supported                                | Not supported                                |
+| [AWS Glue ETL](glue-features-lf.md "glue-features-lf.md")                                           | Read/write access | AWS Glue 5.0 or higher supports read access. | AWS Glue 5.0 or higher supports read access. |
 
 ###### Considerations and limitations
 
@@ -54,5 +53,5 @@ For more information, see [AWS Glue versions](../../../glue/latest/dg/release-no
 - [Using AWS Lake Formation with Amazon Redshift Spectrum](RSPC-lf.md "RSPC-lf.md")
 - [Using AWS Lake Formation with AWS Glue](glue-features-lf.md "glue-features-lf.md")
 - [Using AWS Lake Formation with Amazon EMR](emr-integ-lf.md "emr-integ-lf.md")
-- [Using AWS Lake Formation with Quick Suite](qs-integ-lf.md "qs-integ-lf.md")
+- [Using AWS Lake Formation with Quick](qs-integ-lf.md "qs-integ-lf.md")
 - [Using AWS Lake Formation with AWS CloudTrail Lake](cloudtrail-lake-integ-lf.md "cloudtrail-lake-integ-lf.md")

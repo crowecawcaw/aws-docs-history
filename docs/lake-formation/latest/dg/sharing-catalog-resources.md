@@ -1,6 +1,4 @@
-# Sharing Data Catalog tables and databases across AWS
-
-Accounts
+# Sharing Data Catalog tables and databases across AWS Accounts
 
 You can share Data Catalog resources (databases and tables) with external AWS accounts by
 granting Lake Formation permissions on the resources to the external accounts. Users can then run queries
@@ -18,6 +16,5 @@ For more information, see [Cross-account data sharing in Lake Formation](cross-a
 
 ###### See Also:
 
-- [Accessing and viewing shared Data Catalog tables and
-  databases](viewing-shared-resources.md "viewing-shared-resources.md")
+- [Accessing and viewing shared Data Catalog tables and databases](viewing-shared-resources.md "viewing-shared-resources.md")
 - [Prerequisites](cross-account-prereqs.md "cross-account-prereqs.md")

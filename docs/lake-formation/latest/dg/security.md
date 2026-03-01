@@ -25,6 +25,5 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 
 - [Data Protection in Lake Formation](security-data-protection.md "security-data-protection.md")
 - [Infrastructure Security in AWS Lake Formation](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Security event logging in AWS Lake Formation](security-event-logging.md "security-event-logging.md")

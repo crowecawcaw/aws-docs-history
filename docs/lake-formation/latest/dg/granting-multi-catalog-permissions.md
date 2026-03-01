@@ -1,6 +1,4 @@
-# Granting catalog permissions using the
-
-named resource method
+# Granting catalog permissions using the named resource method
 
 The following steps explain how to grant catalog permissions by using the named
 resource method.
@@ -67,16 +65,16 @@ groups** list. Select **Add** to add more users or groups.
 
 **SAML users and groups**
 
-For **SAML and Quick Suite users and groups**,
+For **SAML and Quick users and groups**,
 enter one or more Amazon Resource Names (ARNs) for users or groups federated
-through SAML, or ARNs for Amazon Quick Suite users or groups. Press Enter
+through SAML, or ARNs for Amazon Quick users or groups. Press Enter
 after each ARN.
 
 For information about how to construct the ARNs, see [Lake Formation grant and revoke AWS CLI commands](lf-permissions-reference.md#perm-command-format "lf-permissions-reference.md#perm-command-format").
 
 ###### Note
 
-Lake Formation integration with Quick Suite is supported only for Quick Suite Enterprise Edition.
+Lake Formation integration with Quick is supported only for Quick Enterprise Edition.
 
 **External accounts**
 

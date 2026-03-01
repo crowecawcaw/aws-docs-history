@@ -1,6 +1,4 @@
-# Asynchronous states and
-
-operations
+# Asynchronous states and operations
 
 When you run a `glue:CreateTable` request, the asynchronous creation of
 the Data Catalog view begins. In the following sections, this document describes the

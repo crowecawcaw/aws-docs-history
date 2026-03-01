@@ -8,12 +8,10 @@ Review these known issues for AWS Lake Formation.
 - [Issue with renaming an excluded column](#issue-rename-column "#issue-rename-column")
 - [Issue with deleting columns in CSV tables](#issue-csv-schema "#issue-csv-schema")
 - [Table partitions must be added under a common path](#issue-table-partitions "#issue-table-partitions")
-- [Issue with creating a database during workflow
-  creation](#issue-create-table-permission "#issue-create-table-permission")
+- [Issue with creating a database during workflow creation](#issue-create-table-permission "#issue-create-table-permission")
 - [Issue with deleting and then re-creating a user](#issue-recreate-user "#issue-recreate-user")
 - [Data Catalog API operations do not update the value for the IsRegisteredWithLakeFormation parameter](#issue-get-tables-parameter "#issue-get-tables-parameter")
-- [Lake Formation operations do not support AWS Glue Schema
-  Registry](#not-support-GlueSchemaRegistry.title "#not-support-GlueSchemaRegistry.title")
+- [Lake Formation operations do not support AWS Glue Schema Registry](#not-support-GlueSchemaRegistry.title "#not-support-GlueSchemaRegistry.title")
 
 ## Limitation on filtering of table metadata
 
@@ -77,9 +75,7 @@ location field. When you use the crawler to add partitions to a catalog, this wo
 seamlessly. But if you add partitions manually, and these partitions are not under the
 location set in the parent table, data access does not work.
 
-## Issue with creating a database during workflow
-
-creation
+## Issue with creating a database during workflow creation
 
 When creating a workflow from a blueprint using the Lake Formation console, you can create
 the target database if it doesn't exist. When you do so, the user who is signed
@@ -109,9 +105,7 @@ revoked from the new user.
 
 There is a known limitation that Data Catalog API operations such as `GetTables` and `SearchTables` do not update the value for the `IsRegisteredWithLakeFormation` parameter, and return the default, which is false. It is recommended to use the `GetTable` API to view the correct value for the `IsRegisteredWithLakeFormation` parameter.
 
-## Lake Formation operations do not support AWS Glue Schema
-
-Registry
+## Lake Formation operations do not support AWS Glue Schema Registry
 
 Lake Formation operations do not support AWS Glue tables that contain a `SchemaReference` in
 the `StorageDescriptor` to be utilized in the [Schema

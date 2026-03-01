@@ -1,6 +1,4 @@
-# IAM Identity Center integration
-
-APIs
+# IAM Identity Center integration APIs
 
 This section contains the operations for creating and managing Lake Formation integration with IAM Identity Center.
 

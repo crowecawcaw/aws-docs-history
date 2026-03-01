@@ -20,8 +20,7 @@ console
 ###### To grant resource link permissions using the Lake Formation console
 
 1. Do one of the following:
-   - For database resource links, follow the steps in [Granting database permissions using the
-     named resource method](granting-database-permissions.md "granting-database-permissions.md"). to do the following:
+   - For database resource links, follow the steps in [Granting database permissions using the named resource method](granting-database-permissions.md "granting-database-permissions.md"). to do the following:
      1. Select the resource link from the databases list under Data Catalog,
         **Databases**.
      2. Choose **Grant** to open the

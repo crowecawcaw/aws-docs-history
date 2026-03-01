@@ -14,9 +14,7 @@ If you encounter issues when working with AWS Lake Formation, consult the topics
 
 Use the information here to help you diagnose and fix various Lake Formation issues.
 
-### Error: Insufficient Lake Formation permissions on <Amazon S3
-
-location>
+### Error: Insufficient Lake Formation permissions on <Amazon S3 location>
 
 An attempt was made to create or alter a Data Catalog resource without data location permissions
 on the Amazon S3 location pointed to by the resource.
@@ -34,22 +32,16 @@ account is the account that registered the location.
 
 For more information, see [Underlying data access control](access-control-underlying-data.md "access-control-underlying-data.md") and [Granting data location permissions](granting-location-permissions.md "granting-location-permissions.md").
 
-### Error: "Insufficient encryption key permissions for
-
-Glue API"
+### Error: "Insufficient encryption key permissions for Glue API"
 
 An attempt was made to grant Lake Formation permissions without AWS Identity and Access Management (IAM) permissions on the
 AWS KMS encryption key for an encrypted Data Catalog.
 
-### My Amazon Athena or Amazon Redshift query that uses
-
-manifests is failing
+### My Amazon Athena or Amazon Redshift query that uses manifests is failing
 
 Lake Formation does not support queries that use manifests.
 
-### Error: "Insufficient Lake Formation permission(s): Required create
-
-tag on catalog"
+### Error: "Insufficient Lake Formation permission(s): Required create tag on catalog"
 
 The user/role must be a data lake administrator.
 
@@ -65,27 +57,17 @@ Use the information here to help you diagnose and fix cross-account access issue
 
 ###### Topics
 
-- [I granted a cross-account Lake Formation permission
-  but the recipient can't see the resource](#troubleshooting-problem1 "#troubleshooting-problem1")
-- [Principals in the recipient account can see the
-  Data Catalog resource but can't access the underlying data](#troubleshooting-problem11 "#troubleshooting-problem11")
-- [Error: "Association failed because the
-  caller was not authorized" when accepting a AWS RAM resource share invitation](#troubleshooting-cross-acct-accepting "#troubleshooting-cross-acct-accepting")
-- [Error: "Not authorized to grant permissions for the
-  resource"](#troubleshooting-problem2 "#troubleshooting-problem2")
-- [Error: "Access denied to retrieve AWS Organization
-  information"](#troubleshooting-problem3 "#troubleshooting-problem3")
-- [Error: "Organization <organization-ID> not
-  found"](#troubleshooting-problem4 "#troubleshooting-problem4")
-- [Error: "Insufficient Lake Formation permissions:
-  Illegal combination"](#troubleshooting-problem5 "#troubleshooting-problem5")
-- [ConcurrentModificationException on grant/revoke
-  requests to external accounts](#troubleshooting-problem6 "#troubleshooting-problem6")
+- [I granted a cross-account Lake Formation permission but the recipient can't see the resource](#troubleshooting-problem1 "#troubleshooting-problem1")
+- [Principals in the recipient account can see the Data Catalog resource but can't access the underlying data](#troubleshooting-problem11 "#troubleshooting-problem11")
+- [Error: "Association failed because the caller was not authorized" when accepting a AWS RAM resource share invitation](#troubleshooting-cross-acct-accepting "#troubleshooting-cross-acct-accepting")
+- [Error: "Not authorized to grant permissions for the resource"](#troubleshooting-problem2 "#troubleshooting-problem2")
+- [Error: "Access denied to retrieve AWS Organization information"](#troubleshooting-problem3 "#troubleshooting-problem3")
+- [Error: "Organization <organization-ID> not found"](#troubleshooting-problem4 "#troubleshooting-problem4")
+- [Error: "Insufficient Lake Formation permissions: Illegal combination"](#troubleshooting-problem5 "#troubleshooting-problem5")
+- [ConcurrentModificationException on grant/revoke requests to external accounts](#troubleshooting-problem6 "#troubleshooting-problem6")
 - [Error when using Amazon EMR to access data shared via cross-account](#toubleshooting-problem7 "#toubleshooting-problem7")
 
-### I granted a cross-account Lake Formation permission
-
-but the recipient can't see the resource
+### I granted a cross-account Lake Formation permission but the recipient can't see the resource
 
 - Is the user in the recipient account a data lake administrator? Only data lake
   administrators can see the resource at the time of sharing.
@@ -99,8 +81,7 @@ For more information, see [Accepting a resource share invitation from AWS RAM](a
   the named resources method, you must include a special statement in the policy that authorizes
   AWS RAM to share policies on your behalf.
 
-For more information, see [Managing cross-account permissions using both
-AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md").
+For more information, see [Managing cross-account permissions using both AWS Glue and Lake Formation](hybrid-cross-account.md "hybrid-cross-account.md").
 
 - Do you have the AWS Identity and Access Management (IAM) permissions required to grant cross-account
   access?
@@ -111,17 +92,12 @@ For more information, see [Prerequisites](cross-account-prereqs.md "cross-accoun
   granted to the `IAMAllowedPrincipals` group.
 - Is there a `deny` statement on the resource in the account-level policy?
 
-### Principals in the recipient account can see the
-
-Data Catalog resource but can't access the underlying data
+### Principals in the recipient account can see the Data Catalog resource but can't access the underlying data
 
 Principals in the recipient account must have the required AWS Identity and Access Management (IAM) permissions.
-For details, see [Accessing the underlying data of a shared
-table](cross-account-read-data.md "cross-account-read-data.md").
+For details, see [Accessing the underlying data of a shared table](cross-account-read-data.md "cross-account-read-data.md").
 
-### Error: "Association failed because the
-
-caller was not authorized" when accepting a AWS RAM resource share invitation
+### Error: "Association failed because the caller was not authorized" when accepting a AWS RAM resource share invitation
 
 After granting access to a resource to a different account, when the receiving account
 attempts to accept the resource share invitation, the action fails.
@@ -151,17 +127,13 @@ AWS Glue when the receiving account accepts the resource share invitation. To
 resolve the issue, allow the `glue:PutResourcePolicy` action by the assumed role used
 by the producer/grantor account.
 
-### Error: "Not authorized to grant permissions for the
-
-resource"
+### Error: "Not authorized to grant permissions for the resource"
 
 An attempt was made to grant cross-account permissions on a database or table that is owned
 by another account. When a database or table is shared with your account, as a data lake
 administrator, you can grant permissions on it only to users in your account.
 
-### Error: "Access denied to retrieve AWS Organization
-
-information"
+### Error: "Access denied to retrieve AWS Organization information"
 
 Your account is an AWS Organizations management account and you do not have the required
 permissions to retrieve organization information, such as organizational units in the
@@ -169,26 +141,20 @@ account.
 
 For more information, see [Required permissions for cross-account grants](cross-account-prereqs.md#cross-account-permissions-needed "cross-account-prereqs.md#cross-account-permissions-needed").
 
-### Error: "Organization <organization-ID> not
-
-found"
+### Error: "Organization <organization-ID> not found"
 
 An attempt was made to share a resource with an organization, but sharing with
 organizations is not enabled. Enable resource sharing with organizations.
 
 For more information, see [Enable Sharing with AWS Organizations](../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs "../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs") in the _AWS RAM User Guide_.
 
-### Error: "Insufficient Lake Formation permissions:
-
-Illegal combination"
+### Error: "Insufficient Lake Formation permissions: Illegal combination"
 
 A user shared a Data Catalog resource while Lake Formation permissions were granted to the
 `IAMAllowedPrincipals` group for the resource. The user must revoke all Lake Formation
 permissions from `IAMAllowedPrincipals` before sharing the resource.
 
-### ConcurrentModificationException on grant/revoke
-
-requests to external accounts
+### ConcurrentModificationException on grant/revoke requests to external accounts
 
 When users make multiple concurrent grant and/or revoke permission requests for a principal
 on LF-Tag policies, then Lake Formation throws ConcurrentModificationException. Users need to catch
@@ -246,18 +212,12 @@ Use the information here to help you diagnose and fix blueprint and workflow iss
 
 ###### Topics
 
-- [My blueprint failed with "User: <user-ARN> is not authorized
-  to perform: iam:PassRole on resource: <role-ARN>"](#problem-bp-1 "#problem-bp-1")
-- [My workflow failed with "User: <user-ARN> is not authorized to
-  perform: iam:PassRole on resource: <role-ARN>"](#problem-bp-2 "#problem-bp-2")
-- [A crawler in my workflow failed with "Resource does not exist or
-  requester is not authorized to access requested permissions"](#problem-bp-3 "#problem-bp-3")
-- [A crawler in my workflow failed with "An error occurred
-  (AccessDeniedException) when calling the CreateTable operation..."](#problem-bp-4 "#problem-bp-4")
+- [My blueprint failed with "User: <user-ARN> is not authorized to perform: iam:PassRole on resource: <role-ARN>"](#problem-bp-1 "#problem-bp-1")
+- [My workflow failed with "User: <user-ARN> is not authorized to perform: iam:PassRole on resource: <role-ARN>"](#problem-bp-2 "#problem-bp-2")
+- [A crawler in my workflow failed with "Resource does not exist or requester is not authorized to access requested permissions"](#problem-bp-3 "#problem-bp-3")
+- [A crawler in my workflow failed with "An error occurred (AccessDeniedException) when calling the CreateTable operation..."](#problem-bp-4 "#problem-bp-4")
 
-### My blueprint failed with "User: <user-ARN> is not authorized
-
-to perform: iam:PassRole on resource: <role-ARN>"
+### My blueprint failed with "User: <user-ARN> is not authorized to perform: iam:PassRole on resource: <role-ARN>"
 
 An attempt was made to create a blueprint by a user who does not have sufficient
 permissions to pass the chosen role.
@@ -267,26 +227,20 @@ different role with the required passrole permissions.
 
 For more information, see [Lake Formation personas and IAM permissions reference](permissions-reference.md "permissions-reference.md").
 
-### My workflow failed with "User: <user-ARN> is not authorized to
-
-perform: iam:PassRole on resource: <role-ARN>"
+### My workflow failed with "User: <user-ARN> is not authorized to perform: iam:PassRole on resource: <role-ARN>"
 
 The role that you specified for the workflow did not have an inline policy allowing the
 role to pass itself.
 
 For more information, see [(Optional) Create an IAM role for workflows](initial-lf-config.md#iam-create-blueprint-role "initial-lf-config.md#iam-create-blueprint-role").
 
-### A crawler in my workflow failed with "Resource does not exist or
-
-requester is not authorized to access requested permissions"
+### A crawler in my workflow failed with "Resource does not exist or requester is not authorized to access requested permissions"
 
 One possible cause is that the passed role did not have sufficient permissions to create a
 table in the target database. Grant the role the `CREATE_TABLE` permission on the
 database.
 
-### A crawler in my workflow failed with "An error occurred
-
-(AccessDeniedException) when calling the CreateTable operation..."
+### A crawler in my workflow failed with "An error occurred (AccessDeniedException) when calling the CreateTable operation..."
 
 One possible cause is that the workflow role did not have data location permissions on the
 target storage location. Grant data location permissions to the role.

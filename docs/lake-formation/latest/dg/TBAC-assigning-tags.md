@@ -12,16 +12,13 @@ The maximum number of LF-Tags that you can assign to a resource is 50.
 
 ###### Topics
 
-- [Requirements for managing tags assigned to
-  resources](#manage-tags-reqs "#manage-tags-reqs")
+- [Requirements for managing tags assigned to resources](#manage-tags-reqs "#manage-tags-reqs")
 - [Assign LF-Tags to a table column](#assign-tag-column "#assign-tag-column")
 - [Assign LF-Tags to a Data Catalog resource](#assign-tag-catalog-resource "#assign-tag-catalog-resource")
 - [Updating LF-Tags for a resource](#update-tags "#update-tags")
 - [Removing LF-Tag from a resource](#remove-tag "#remove-tag")
 
-## Requirements for managing tags assigned to
-
-resources
+## Requirements for managing tags assigned to resources
 
 To assign a LF-Tag to a Data Catalog resource, you must:
 

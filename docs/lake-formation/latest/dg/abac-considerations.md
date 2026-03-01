@@ -1,6 +1,4 @@
-# Attribute-based access control considerations,
-
-limitations, and supported regions
+# Attribute-based access control considerations, limitations, and supported regions
 
 The following considerations and limitations apply to Attribute based access control
 (ABAC).

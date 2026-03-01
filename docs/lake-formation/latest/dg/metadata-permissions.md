@@ -28,8 +28,7 @@ Additionally, by default, the `IAMAllowedPrincipal` group has permissions
 on all new databases and tables when they are created. There are two configurations that
 control this behaviour. The first is at the account and Region-level that enables this
 for newly created databases, and the second is at the database level. To modify the default
-setting, see [Change the default permission model or use
-hybrid access mode](initial-lf-config.md#setup-change-cat-settings "initial-lf-config.md#setup-change-cat-settings").
+setting, see [Change the default permission model or use hybrid access mode](initial-lf-config.md#setup-change-cat-settings "initial-lf-config.md#setup-change-cat-settings").
 
 ## Granting permissions
 

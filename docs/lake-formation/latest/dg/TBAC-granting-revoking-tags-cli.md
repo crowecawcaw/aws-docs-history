@@ -1,6 +1,4 @@
-# Managing LF-Tag
-
-permissions using the AWS CLI
+# Managing LF-Tag permissions using the AWS CLI
 
 You can grant, revoke, and list permissions on LF-Tags by using the AWS Command Line Interface
 (AWS CLI).

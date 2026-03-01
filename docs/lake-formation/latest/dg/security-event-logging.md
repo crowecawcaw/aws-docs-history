@@ -5,8 +5,7 @@ by a user, role, or an AWS service in Lake Formation. CloudTrail captures all AP
 events. The calls captured include calls from the Lake Formation console, the AWS Command Line Interface, and code
 calls to the Lake Formation API operations.
 
-For more information about event logging in Lake Formation, see [Logging AWS Lake Formation API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+For more information about event logging in Lake Formation, see [Logging AWS Lake Formation API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 ###### Note
 

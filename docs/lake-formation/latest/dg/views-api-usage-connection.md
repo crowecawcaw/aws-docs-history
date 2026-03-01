@@ -1,6 +1,4 @@
-# Creating AWS Glue connections to validate
-
-status
+# Creating AWS Glue connections to validate status
 
 To create or update a AWS Glue Data Catalog view using the `CreateTable` or
 `UpdateTable` operations, you must create a new type of AWS Glue

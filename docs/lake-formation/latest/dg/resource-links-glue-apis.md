@@ -1,6 +1,4 @@
-# Resource link handling in AWS Glue
-
-APIs
+# Resource link handling in AWS Glue APIs
 
 The following tables explain how the AWS Glue Data Catalog APIs handle database and table resource
 links. For all `Get*` API operations, only databases and tables that the caller has

@@ -37,8 +37,7 @@ doesn't allow `IAMAllowedPrincipal` permissions on tables under federated
 databases. When you create federated databases, make sure that you pass the
 `CreateTableDefaultPermissions` parameter as an empty list.
 
-For more information, see [Changing the default settings for your data
-lake](change-settings.md "change-settings.md").
+For more information, see [Changing the default settings for your data lake](change-settings.md "change-settings.md").
 
 - Data filtering – In Lake Formation, you can grant permissions on a
   table under a federated database with column-level and row-level filtering. However, you

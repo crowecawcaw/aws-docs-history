@@ -19,8 +19,7 @@ Consider the following best practices when using Lake Formation cross-account da
 
   Granting to organizations or organizational units also eliminates the need to
   accept an AWS Resource Access Manager (AWS RAM) resource share invitation for the grant. For more
-  information, see [Accessing and viewing shared Data Catalog tables and
-  databases](viewing-shared-resources.md "viewing-shared-resources.md").
+  information, see [Accessing and viewing shared Data Catalog tables and databases](viewing-shared-resources.md "viewing-shared-resources.md").
   - Instead of granting permissions on many individual tables in a database, use
     the special **All tables** wildcard to grant permissions on all
     tables in the database. Granting on **All tables** counts as a
@@ -50,8 +49,7 @@ tables in that database for your query. For more information, see [Creating reso
   Then, all IAM principals in the recipient account can create
   resource links in the placeholder database and start querying the shared tables.
 
-See the example CLI command for granting permissions to `ALLIAMPrincipals` in [Granting database permissions using the
-named resource method](granting-database-permissions.md "granting-database-permissions.md").
+See the example CLI command for granting permissions to `ALLIAMPrincipals` in [Granting database permissions using the named resource method](granting-database-permissions.md "granting-database-permissions.md").
 
 - When cross-account permissions are granted directly to a principal, only the recipient
   of the grant can view these permissions. The data lake administrator in the recipient's
@@ -69,8 +67,7 @@ named resource method](granting-database-permissions.md "granting-database-permi
 
 ###### See also
 
-- [Lake Formation tag-based access control best
-  practices and considerations](lf-tag-considerations.md "lf-tag-considerations.md")
+- [Lake Formation tag-based access control best practices and considerations](lf-tag-considerations.md "lf-tag-considerations.md")
 - [CREATE_TABLE](lf-permissions-reference.md#perm-create-table "lf-permissions-reference.md#perm-create-table") in the
   [Lake Formation permissions reference](lf-permissions-reference.md "lf-permissions-reference.md") for more cross-account access rules
   and limitations.

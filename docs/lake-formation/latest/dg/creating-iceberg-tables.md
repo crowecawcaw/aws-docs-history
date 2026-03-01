@@ -35,8 +35,7 @@ Data Catalog doesn’t support creating partitions and adding Iceberg table prop
 
 To create Iceberg tables in the Data Catalog, and set up Lake Formation data access permissions, you need to complete the following requirements:
 
-1. ###### Permissions required to create Iceberg tables without the data registered with
-   Lake Formation.
+1. ###### Permissions required to create Iceberg tables without the data registered with Lake Formation.
 
 In addition to the permissions required to create a table in the Data Catalog, the table creator requires the following permissions:
 
@@ -44,8 +43,7 @@ In addition to the permissions required to create a table in the Data Catalog, t
     * `s3:GetObject` on resource arn:aws:s3:::{bucketName}
     * `s3:DeleteObject`on resource arn:aws:s3:::{bucketName}
 
-2. ###### Permissions required to create Iceberg tables with data registered with
-   Lake Formation:
+2. ###### Permissions required to create Iceberg tables with data registered with Lake Formation:
 
 To use Lake Formation to manage and secure the data in your data lake, register your Amazon S3
 location that has the data for tables with Lake Formation. This is so that Lake Formation can vend

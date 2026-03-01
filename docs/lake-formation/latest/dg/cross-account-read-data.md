@@ -1,6 +1,4 @@
-# Accessing the underlying data of a shared
-
-table
+# Accessing the underlying data of a shared table
 
 Assume that AWS account A shares a Data Catalog table with account B—for example,
 by granting `SELECT` with the grant option on the table to account B. For a

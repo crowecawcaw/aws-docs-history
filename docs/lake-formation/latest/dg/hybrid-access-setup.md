@@ -21,8 +21,7 @@ This section provides instructions for setting up hybrid access mode in the foll
 
 ###### Manage permissions in hybrid access mode across AWS accounts
 
-- [Sharing an AWS Glue resource using hybrid
-  access mode](hybrid-access-mode-cross-account.md "hybrid-access-mode-cross-account.md") – You're currently not using
+- [Sharing an AWS Glue resource using hybrid access mode](hybrid-access-mode-cross-account.md "hybrid-access-mode-cross-account.md") – You're currently not using
   Lake Formation to manage permissions for a table but want to apply Lake Formation permissions to provide
   access for principals in another account.
 - [Sharing a Lake Formation resource using hybrid access mode](hybrid-access-mode-cross-account-IAM.md "hybrid-access-mode-cross-account-IAM.md") – You're using Lake Formation to

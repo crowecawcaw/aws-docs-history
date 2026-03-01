@@ -1,6 +1,4 @@
-# Granting permissions on a data location shared with your
-
-account
+# Granting permissions on a data location shared with your account
 
 After a Data Catalog resource is shared with your AWS account, as a data lake
 administrator, you can grant permissions on the resource to other principals in your
@@ -22,8 +20,7 @@ location permissions.
 
 ###### To grant permissions on a data location shared with your account (console)
 
-- Follow the steps in [Granting data location permissions (same
-  account)](granting-location-permissions-local.md "granting-location-permissions-local.md").
+- Follow the steps in [Granting data location permissions (same account)](granting-location-permissions-local.md "granting-location-permissions-local.md").
 
 For **Storage locations**, you must type the locations. For
 **Registered account location**, enter the AWS account ID of the

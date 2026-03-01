@@ -3,8 +3,7 @@
 ###### Update default Data Catalog settings
 
 To enable Lake Formation permissions for the Data Catalog resources, we recommend that you disable the default **Data Catalog settings** in Lake Formation.
-For more information, see [Change the default permission model or use
-hybrid access mode](initial-lf-config.md#setup-change-cat-settings "initial-lf-config.md#setup-change-cat-settings").
+For more information, see [Change the default permission model or use hybrid access mode](initial-lf-config.md#setup-change-cat-settings "initial-lf-config.md#setup-change-cat-settings").
 
 ###### Update permissions
 

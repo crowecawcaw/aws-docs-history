@@ -15,7 +15,6 @@ Amazon Athena.
 - [Viewing database and table permissions in Lake Formation](viewing-permissions.md "viewing-permissions.md")
 - [Revoking permission using the Lake Formation console](revoking-permssions-console-all.md "revoking-permssions-console-all.md")
 - [Cross-account data sharing in Lake Formation](cross-account-permissions.md "cross-account-permissions.md")
-- [Accessing and viewing shared Data Catalog tables and
-  databases](viewing-shared-resources.md "viewing-shared-resources.md")
+- [Accessing and viewing shared Data Catalog tables and databases](viewing-shared-resources.md "viewing-shared-resources.md")
 - [Creating resource links](creating-resource-links.md "creating-resource-links.md")
 - [Accessing tables across Regions](data-access-across-region.md "data-access-across-region.md")

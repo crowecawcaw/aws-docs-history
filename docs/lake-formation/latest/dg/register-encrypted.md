@@ -21,8 +21,7 @@ charged for data access if the role belongs to the same account as the bucket ow
 Lake Formation uses a service-linked role to register your data locations. However, this role has several [limitations](service-linked-role-limitations.md "service-linked-role-limitations.md").
 Due to these constraints, we recommend creating and using a custom IAM role instead for more flexibility
 and control. The custom
-role you create to register the location must meets the requirements specified in [Requirements for roles used to register
-locations](registration-role.md "registration-role.md").
+role you create to register the location must meets the requirements specified in [Requirements for roles used to register locations](registration-role.md "registration-role.md").
 
 ###### Important
 
@@ -47,8 +46,7 @@ the location](registration-role.md "registration-role.md").
 ###### Note
 
 If the KMS key or Amazon S3 location are not in the same AWS account as the Data Catalog, follow
-the instructions in [Registering an encrypted Amazon S3 location across AWS
-accounts](register-cross-encrypted.md "register-cross-encrypted.md") instead.
+the instructions in [Registering an encrypted Amazon S3 location across AWS accounts](register-cross-encrypted.md "register-cross-encrypted.md") instead.
 
 1. Open the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms") and log in as an AWS Identity and Access Management (IAM) administrative user or as
    a user who can modify the key policy of the KMS key used to encrypt the location.
@@ -113,22 +111,18 @@ Registering the selected location might result in your Lake Formation users gain
 data already at that location. Viewing this list helps you ensure that existing data
 remains secure. 8. For **IAM role**, choose either the
 `AWSServiceRoleForLakeFormationDataAccess` service-linked role (the default)
-or your custom role that meets the [Requirements for roles used to register
-locations](registration-role.md "registration-role.md"). 9. Choose **Register location**.
-For more information about the service-linked role, see [Service-linked role permissions for
-Lake Formation](service-linked-roles.md#service-linked-role-permissions "service-linked-roles.md#service-linked-role-permissions").
+or your custom role that meets the [Requirements for roles used to register locations](registration-role.md "registration-role.md"). 9. Choose **Register location**.
+For more information about the service-linked role, see [Service-linked role permissions for Lake Formation](service-linked-roles.md#service-linked-role-permissions "service-linked-roles.md#service-linked-role-permissions").
 
 ###### To register an Amazon S3 location encrypted with an AWS managed key
 
 ###### Important
 
 If the Amazon S3 location is not in the same AWS account as the Data Catalog, follow the
-instructions in [Registering an encrypted Amazon S3 location across AWS
-accounts](register-cross-encrypted.md "register-cross-encrypted.md") instead.
+instructions in [Registering an encrypted Amazon S3 location across AWS accounts](register-cross-encrypted.md "register-cross-encrypted.md") instead.
 
 1. Create an IAM role to use to register the location. Ensure that it meets the
-   requirements listed in [Requirements for roles used to register
-   locations](registration-role.md "registration-role.md").
+   requirements listed in [Requirements for roles used to register locations](registration-role.md "registration-role.md").
 2. Add the following inline policy to the role. It grants permissions on the key to the
    role. The `Resource` specification must designate the Amazon Resource Name
    (ARN) of the AWS managed key. You can obtain the ARN from the AWS KMS console. To get the

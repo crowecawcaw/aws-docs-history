@@ -24,8 +24,7 @@ ultimately enhancing data governance and compliance.
 For more information about defining attributes,
 see [Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md").
 
-For information on limitations, considerations, and supported AWS Regions, see [Attribute-based access control considerations,
-limitations, and supported regions](abac-considerations.md "abac-considerations.md").
+For information on limitations, considerations, and supported AWS Regions, see [Attribute-based access control considerations, limitations, and supported regions](abac-considerations.md "abac-considerations.md").
 
 ###### Topics
 

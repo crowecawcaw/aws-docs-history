@@ -45,8 +45,7 @@ in the data lake.
 
 Data lake administrators have implicit Lake Formation permissions to create, update, and delete LF-Tags, to assign LF-Tags to resources, and to grant LF-Tag permissions to principals.
 
-For best practices and considerations, see [Lake Formation tag-based access control best
-practices and considerations](lf-tag-considerations.md "lf-tag-considerations.md")
+For best practices and considerations, see [Lake Formation tag-based access control best practices and considerations](lf-tag-considerations.md "lf-tag-considerations.md")
 
 ###### Topics
 
@@ -56,20 +55,15 @@ practices and considerations](lf-tag-considerations.md "lf-tag-considerations.md
 - [Deleting LF-Tags](TBAC-deleting-tags.md "TBAC-deleting-tags.md")
 - [Listing LF-Tags](TBAC-listing-tags.md "TBAC-listing-tags.md")
 - [Assigning LF-Tags to Data Catalog resources](TBAC-assigning-tags.md "TBAC-assigning-tags.md")
-- [Viewing LF-Tags assigned to a
-  resource](TBAC-view-resource-tags.md "TBAC-view-resource-tags.md")
-- [Viewing the resources that a LF-Tag is
-  assigned to](TBAC-view-tag-resources.md "TBAC-view-tag-resources.md")
+- [Viewing LF-Tags assigned to a resource](TBAC-view-resource-tags.md "TBAC-view-resource-tags.md")
+- [Viewing the resources that a LF-Tag is assigned to](TBAC-view-tag-resources.md "TBAC-view-tag-resources.md")
 - [Life cycle of a LF-Tag](#lf-tag-life-cycle "#lf-tag-life-cycle")
-- [Comparison of Lake Formation tag-based access control to IAM attribute-based access
-  control](#TBAC-comparison-ABAC "#TBAC-comparison-ABAC")
+- [Comparison of Lake Formation tag-based access control to IAM attribute-based access control](#TBAC-comparison-ABAC "#TBAC-comparison-ABAC")
 
 ###### See also
 
-- [Managing LF-Tag value
-  permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")
-- [Granting data lake permissions using the
-  LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md")
+- [Managing LF-Tag value permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")
+- [Granting data lake permissions using the LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md")
 - [Lake Formation tag-based access control](tag-based-access-control.md "tag-based-access-control.md")
 
 ## Life cycle of a LF-Tag
@@ -101,9 +95,7 @@ Maria can now run queries on the `Custs` table.
 
 - [Metadata access control](access-control-metadata.md "access-control-metadata.md")
 
-## Comparison of Lake Formation tag-based access control to IAM attribute-based access
-
-control
+## Comparison of Lake Formation tag-based access control to IAM attribute-based access control
 
 Attribute-based access control (ABAC) is an authorization strategy that defines
 permissions based on attributes. In AWS, these attributes are called _tags_. You can attach tags to IAM resources, including IAM entities (users or

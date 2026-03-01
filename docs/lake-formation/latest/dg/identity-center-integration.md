@@ -24,8 +24,7 @@ For limitations, see [IAM Identity Center integration limitations](identity-cent
 
 - [Prerequisites for IAM Identity Center integration with Lake Formation](prerequisites-identity-center.md "prerequisites-identity-center.md")
 - [Connecting Lake Formation with IAM Identity Center](connect-lf-identity-center.md "connect-lf-identity-center.md")
-- [Updating IAM Identity Center
-  integration](update-lf-identity-center-connection.md "update-lf-identity-center-connection.md")
+- [Updating IAM Identity Center integration](update-lf-identity-center-connection.md "update-lf-identity-center-connection.md")
 - [Deleting a Lake Formation connection with IAM Identity Center](delete-lf-identity-center-connection.md "delete-lf-identity-center-connection.md")
 - [Granting permissions to users and groups](grant-permissions-sso.md "grant-permissions-sso.md")
 - [Including IAM Identity Center user context in CloudTrail logs](identity-center-ct-logs.md "identity-center-ct-logs.md")

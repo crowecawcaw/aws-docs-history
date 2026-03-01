@@ -1,6 +1,4 @@
-# Granting database permissions using the
-
-named resource method
+# Granting database permissions using the named resource method
 
 The following steps explain how to grant database permissions by using the named
 resource method.
@@ -58,16 +56,16 @@ groups** list. Select **Add** to add more users or groups.
 
 **SAML users and groups**
 
-For **SAML and Quick Suite users and groups**,
+For **SAML and Quick users and groups**,
 enter one or more Amazon Resource Names (ARNs) for users or groups federated
-through SAML, or ARNs for Amazon Quick Suite users or groups. Press Enter
+through SAML, or ARNs for Amazon Quick users or groups. Press Enter
 after each ARN.
 
 For information about how to construct the ARNs, see [Lake Formation grant and revoke AWS CLI commands](lf-permissions-reference.md#perm-command-format "lf-permissions-reference.md#perm-command-format").
 
 ###### Note
 
-Lake Formation integration with Quick Suite is supported only for Quick Suite Enterprise Edition.
+Lake Formation integration with Quick is supported only for Quick Enterprise Edition.
 
 **External accounts**
 
@@ -196,7 +194,5 @@ see [Granting data location permissions](granting-location-permissions.md "grant
 ###### See also
 
 - [Lake Formation permissions reference](lf-permissions-reference.md "lf-permissions-reference.md")
-- [Granting permissions on a database or table shared
-  with your account](regranting-shared-resources.md "regranting-shared-resources.md")
-- [Accessing and viewing shared Data Catalog tables and
-  databases](viewing-shared-resources.md "viewing-shared-resources.md")
+- [Granting permissions on a database or table shared with your account](regranting-shared-resources.md "regranting-shared-resources.md")
+- [Accessing and viewing shared Data Catalog tables and databases](viewing-shared-resources.md "viewing-shared-resources.md")

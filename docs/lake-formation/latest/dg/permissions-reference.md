@@ -237,9 +237,7 @@ In addition, AWS Glue and Lake Formation assume the service role `AWSGlueService
 allow access to related services, including Amazon Elastic Compute Cloud (Amazon EC2), Amazon Simple Storage Service (Amazon S3), and
 Amazon CloudWatch.
 
-### AWS managed
-
-policy:LakeFormationDataAccessServiceRolePolicy
+### AWS managed policy:LakeFormationDataAccessServiceRolePolicy
 
 This policy is attached to a service-linked role named
 `ServiceRoleForLakeFormationDataAccess` that allows the service

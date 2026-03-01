@@ -12,9 +12,6 @@ You can access the Data Catalog databases and tables from any AWS Region by crea
 ###### Topics
 
 - [How resource links work in Lake Formation](resource-links-about.md "resource-links-about.md")
-- [Creating a resource link to a shared Data Catalog
-  table](create-resource-link-table.md "create-resource-link-table.md")
-- [Creating a resource link to a shared Data Catalog
-  database](create-resource-link-database.md "create-resource-link-database.md")
-- [Resource link handling in AWS Glue
-  APIs](resource-links-glue-apis.md "resource-links-glue-apis.md")
+- [Creating a resource link to a shared Data Catalog table](create-resource-link-table.md "create-resource-link-table.md")
+- [Creating a resource link to a shared Data Catalog database](create-resource-link-database.md "create-resource-link-database.md")
+- [Resource link handling in AWS Glue APIs](resource-links-glue-apis.md "resource-links-glue-apis.md")

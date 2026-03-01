@@ -1,6 +1,4 @@
-# Requirements for roles used to register
-
-locations
+# Requirements for roles used to register locations
 
 You must specify an AWS Identity and Access Management (IAM) role when you register an Amazon Simple Storage Service (Amazon S3) location.
 AWS Lake Formation assumes that role when accessing the data in that location.
@@ -18,10 +16,8 @@ You must use a user-defined role in the following circumstances:
     + When registering a location in another account.
 
 
-    For more information, see [Registering an Amazon S3 location in another AWS
-     account](register-cross-account.md "register-cross-account.md") and
-     [Registering an encrypted Amazon S3 location across AWS
-     accounts](register-cross-encrypted.md "register-cross-encrypted.md").
+    For more information, see [Registering an Amazon S3 location in another AWS account](register-cross-account.md "register-cross-account.md") and
+     [Registering an encrypted Amazon S3 location across AWS accounts](register-cross-encrypted.md "register-cross-encrypted.md").
     + If you used an AWS managed CMK (`aws/s3`) to encrypt the Amazon S3
      location.
 

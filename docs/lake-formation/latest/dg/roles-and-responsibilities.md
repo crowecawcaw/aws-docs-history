@@ -1,6 +1,4 @@
-# Roles and responsibilities in Lake Formation application
-
-integration
+# Roles and responsibilities in Lake Formation application integration
 
 The following are the roles and their associated responsibilities for enabling third-party application integration with AWS Lake Formation.
 

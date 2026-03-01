@@ -1,6 +1,4 @@
-# Hive metadata store data sharing considerations and
-
-limitations
+# Hive metadata store data sharing considerations and limitations
 
 With AWS Glue Data Catalog metadata federation (Data Catalog federation), you can connect the Data Catalog to
 external metastores that store metadata for your Amazon S3 data, and securely manage data access
@@ -43,8 +41,7 @@ However, Lake Formation doesn't allow `IAMAllowedPrincipal` permissions on table
 under federated databases. When you create federated databases, make sure that you pass
 the `CreateTableDefaultPermissions` parameter as an empty list.
 
-For more information, see [Changing the default settings for your data
-lake](change-settings.md "change-settings.md").
+For more information, see [Changing the default settings for your data lake](change-settings.md "change-settings.md").
 
 - Joining tables in queries – You can join Hive metastore tables with Data Catalog native tables to run queries.
 

@@ -1,6 +1,4 @@
-# Managing LF-Tag expressions for metadata access
-
-control
+# Managing LF-Tag expressions for metadata access control
 
 LF-Tag expressions are logical expressions composed of one or more LF-Tags (key-value pairs) used to grant permissions on AWS Glue Data Catalog resources.
 LF-Tag expressions allow you to define rules that govern access to your data resources based on their metadata tags.
@@ -55,10 +53,8 @@ permission to create LF-Tag expressions to other principals.
 
 ###### See also
 
-- [Managing LF-Tag value
-  permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")
-- [Granting data lake permissions using the
-  LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md")
+- [Managing LF-Tag value permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")
+- [Granting data lake permissions using the LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md")
 - [Lake Formation tag-based access control](tag-based-access-control.md "tag-based-access-control.md")
 
 ## IAM permissions required to create LF-Tag expressions

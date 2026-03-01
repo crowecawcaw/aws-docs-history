@@ -6,10 +6,8 @@ If you haven't signed up for AWS or need assistance getting started, be sure to 
 
 - [Complete initial AWS configuration tasks](#initial-aws-signup "#initial-aws-signup")
 - [Set up AWS Lake Formation](initial-lf-config.md "initial-lf-config.md")
-- [Upgrading AWS Glue data permissions to
-  the AWS Lake Formation model](upgrade-glue-lake-formation.md "upgrade-glue-lake-formation.md")
-- [AWS Lake Formation and interface VPC endpoints
-  (AWS PrivateLink)](privatelink.md "privatelink.md")
+- [Upgrading AWS Glue data permissions to the AWS Lake Formation model](upgrade-glue-lake-formation.md "upgrade-glue-lake-formation.md")
+- [AWS Lake Formation and interface VPC endpoints (AWS PrivateLink)](privatelink.md "privatelink.md")
 
 ## Complete initial AWS configuration tasks
 

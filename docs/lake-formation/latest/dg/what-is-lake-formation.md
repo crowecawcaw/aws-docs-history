@@ -9,7 +9,7 @@ and its metadata in AWS Glue Data Catalog.
 
 Lake Formation provides its own permissions model that augments the IAM permissions model.
 Lake Formation permissions model enables fine-grained access to data stored in data lakes as well as external data sources such as Amazon Redshift data warehouses, Amazon DynamoDB databases, and third-party data sources through a simple grant or revoke mechanism, much like a relational database management system (RDBMS).
-Lake Formation permissions are enforced using granular controls at the column, row, and cell-levels across AWS analytics and machine learning services, including Amazon Athena, Amazon Quick Suite, Amazon Redshift Spectrum, Amazon EMR, and AWS Glue.
+Lake Formation permissions are enforced using granular controls at the column, row, and cell-levels across AWS analytics and machine learning services, including Amazon Athena, Amazon Quick, Amazon Redshift Spectrum, Amazon EMR, and AWS Glue.
 
 With Lake Formation hybrid access mode for AWS Glue Data Catalog (Data Catalog), you can secure and access the
 cataloged data using both Lake Formation permissions and IAM permissions policies for Amazon S3 and AWS Glue
@@ -102,8 +102,7 @@ with centrally defined policies. You can audit data access history across analyt
 machine learning services that read the data in your data lake via Lake Formation. This lets you see
 which users or roles have attempted to access what data, with which services, and when.
 You can access audit logs in the same way you access any other CloudTrail logs using the CloudTrail
-APIs and console. For more information about CloudTrail logs see [Logging AWS Lake Formation API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+APIs and console. For more information about CloudTrail logs see [Logging AWS Lake Formation API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 ###### Row and cell-level security
 
@@ -148,15 +147,13 @@ For more information, see [Bringing your data into the AWS Glue Data Catalog](br
 You can access your data using any query engine compatible with Apache Iceberg REST
 catalog OpenAPI specification, such as Amazon EMR Serverless, and Amazon Athena.
 
-For more information, see [Bringing Amazon Redshift data into the
-AWS Glue Data Catalog](managing-namespaces-datacatalog.md "managing-namespaces-datacatalog.md").
+For more information, see [Bringing Amazon Redshift data into the AWS Glue Data Catalog](managing-namespaces-datacatalog.md "managing-namespaces-datacatalog.md").
 
 - **Federating into the Data Catalog from external data sources** –
   Connect the Data Catalog to external data sources using AWS Glue connections, and create federated catalogs to centrally manage access permissions on datasets
   using Lake Formation. No migration of metadata into the Data Catalog is necessary.
 
-For more information, see [Federating into external data sources in the
-AWS Glue Data Catalog](federated-catalog-data-connection.md "federated-catalog-data-connection.md").
+For more information, see [Federating into external data sources in the AWS Glue Data Catalog](federated-catalog-data-connection.md "federated-catalog-data-connection.md").
 
 - **Integrating Amazon S3 Table Buckets with Data Catalog** –
   You can publish and catalog Amazon S3 Tables as Data Catalog objects and register the catalog as a Lake Formation data location from Lake Formation console or using AWS Glue APIs.
@@ -176,8 +173,7 @@ For more information, see [Creating an Amazon Redshift managed catalog in the AW
   Connect AWS Glue Data Catalog to external metastores to manage access permissions on data sets in Amazon S3 using Lake Formation.
   No migration of metadata into the Data Catalog is necessary.
 
-For more information, see [Managing permissions on datasets that use external
-metastores](data-sharing-hms.md "data-sharing-hms.md").
+For more information, see [Managing permissions on datasets that use external metastores](data-sharing-hms.md "data-sharing-hms.md").
 
 - **Integrating Lake Formation with AWS Data Exchange** – Lake Formation
   supports licensing access to your data through AWS Data Exchange. If you're interested in

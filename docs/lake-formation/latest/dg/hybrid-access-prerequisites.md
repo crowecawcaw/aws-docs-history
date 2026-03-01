@@ -59,9 +59,7 @@ location of the table or database.
 | Registered with Lake Formation (in hybrid access mode or in Lake Formation mode) | Have read/write access to the Amazon S3 data location by inheriting permissions<br>from the IAMAllowedPrincipals group (super access) permissions. | Inherit permissions to create tables from their granted CREATE TABLE<br>permission.                |
 | No associated Amazon S3 location                                                 | Require explicit DATA LOCATION permission for running CREATE TABLE and<br>INSERT TABLE statements.                                                 | Require explicit DATA LOCATION permission for running CREATE TABLE and<br>INSERT TABLE statements. |
 
-###### **IsRegisteredWithLakeFormation** table
-
-property
+###### **IsRegisteredWithLakeFormation** table property
 
 The `IsRegisteredWithLakeFormation` property of a table indicates whether
 the data location of the table is registered with Lake Formation for the requester. If the

@@ -1,6 +1,4 @@
-# Viewing shared Data Catalog tables and
-
-databases
+# Viewing shared Data Catalog tables and databases
 
 You can view resources that are shared with your account by using the Lake Formation console or AWS
 CLI. You can also use the AWS Resource Access Manager (AWS RAM) console or CLI to view both resources that are shared

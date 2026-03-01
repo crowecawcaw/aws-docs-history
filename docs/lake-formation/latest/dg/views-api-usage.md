@@ -25,10 +25,7 @@ created or altered without any downtime.
 
 ###### Topics
 
-- [Creating AWS Glue connections to validate
-  status](views-api-usage-connection.md "views-api-usage-connection.md")
+- [Creating AWS Glue connections to validate status](views-api-usage-connection.md "views-api-usage-connection.md")
 - [Validating the view generation status](views-api-usage-get-table.md "views-api-usage-get-table.md")
-- [Asynchronous states and
-  operations](views-api-usage-async-states.md "views-api-usage-async-states.md")
-- [View creation failure scenarios during
-  asynchronous operations](views-api-usage-errors.md "views-api-usage-errors.md")
+- [Asynchronous states and operations](views-api-usage-async-states.md "views-api-usage-async-states.md")
+- [View creation failure scenarios during asynchronous operations](views-api-usage-errors.md "views-api-usage-errors.md")

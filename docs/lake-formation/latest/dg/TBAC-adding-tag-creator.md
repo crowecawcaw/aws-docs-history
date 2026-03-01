@@ -24,10 +24,8 @@ permissions to principals in a different account.
 
 ###### See also
 
-- [Managing LF-Tag value
-  permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")
-- [Granting data lake permissions using the
-  LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md")
+- [Managing LF-Tag value permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")
+- [Granting data lake permissions using the LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md")
 - [Lake Formation tag-based access control](tag-based-access-control.md "tag-based-access-control.md")
 
 ## IAM permissions required to create LF-Tags

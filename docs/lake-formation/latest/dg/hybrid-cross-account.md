@@ -1,6 +1,4 @@
-# Managing cross-account permissions using both
-
-AWS Glue and Lake Formation
+# Managing cross-account permissions using both AWS Glue and Lake Formation
 
 It's possible to grant cross-account access to Data Catalog resources and underlying data by
 using either AWS Glue or AWS Lake Formation.
@@ -26,9 +24,7 @@ permissions, Lake Formation and AWS Glue require you to perform the following ac
 indicate that you are aware of and are permitting cross-account grants by both Lake Formation and
 AWS Glue.
 
-###### When granting cross-account permissions using the AWS Glue Data Catalog resource
-
-policy
+###### When granting cross-account permissions using the AWS Glue Data Catalog resource policy
 
 If your account (grantor account or producer account) has made no cross-account grants that uses
 AWS RAM to share the resources, you can save a Data Catalog resource policy as usual in
@@ -95,8 +91,7 @@ grants, you must have a Data Catalog resource policy with at least the permissio
 - [Metadata access control](access-control-metadata.md "access-control-metadata.md")
   (for a discussion of the named resource method versus the Lake Formation tag-based access control
   (LF-TBAC) method).
-- [Viewing shared Data Catalog tables and
-  databases](viewing-available-shared-resources.md "viewing-available-shared-resources.md")
+- [Viewing shared Data Catalog tables and databases](viewing-available-shared-resources.md "viewing-available-shared-resources.md")
 - [Working with Data Catalog Settings on the AWS Glue Console](../../../glue/latest/dg/console-data-catalog-settings.md "../../../glue/latest/dg/console-data-catalog-settings.md") in the
   _AWS Glue Developer Guide_
 - [Granting

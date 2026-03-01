@@ -1,6 +1,4 @@
-# Federating into external data sources in the
-
-AWS Glue Data Catalog
+# Federating into external data sources in the AWS Glue Data Catalog
 
 You can connect the AWS Glue Data Catalog (Data Catalog) to data warehouses such as Amazon Redshift, Snowflake, cloud databases
 such as Amazon RDS, Amazon DynamoDB, Oracle, and streaming services such as Amazon MSK, and

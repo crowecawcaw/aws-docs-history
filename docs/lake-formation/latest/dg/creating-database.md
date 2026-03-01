@@ -28,5 +28,4 @@ grant option on the `CREATE_DATABASE` permission.
 5. Optionally select **Use only IAM access control for new tables in this
    database**.
 
-For information about this option, see [Changing the default settings for your data
-lake](change-settings.md "change-settings.md"). 6. Choose **Create database**.
+For information about this option, see [Changing the default settings for your data lake](change-settings.md "change-settings.md"). 6. Choose **Create database**.

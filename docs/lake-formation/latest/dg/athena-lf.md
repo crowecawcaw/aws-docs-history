@@ -13,8 +13,7 @@ Here are some common use cases where you can use Lake Formation with Athena.
 - Use Lake Formation permissions for accessing the Data Catalog resources (database and tables) from Athena. You
   can use either the named resource method or LF-tags to define permissions on database and
   tables. For more information, see:
-  - [Granting database permissions using the
-    named resource method](granting-database-permissions.md "granting-database-permissions.md")
+  - [Granting database permissions using the named resource method](granting-database-permissions.md "granting-database-permissions.md")
   - [Lake Formation tag-based access control](tag-based-access-control.md "tag-based-access-control.md")
 
 ###### Note
@@ -36,7 +35,7 @@ resources.
   running federated queries.
 
 Athena JDBC and ODBC drivers support configuring federated access to your data source using SAML-based Identity Provider (IdP).
-Use Quick Suite integrated with Lake Formation with your existing IAM role or SAML users or groups to visualize Athena query results.
+Use Quick integrated with Lake Formation with your existing IAM role or SAML users or groups to visualize Athena query results.
 
 ###### Note
 

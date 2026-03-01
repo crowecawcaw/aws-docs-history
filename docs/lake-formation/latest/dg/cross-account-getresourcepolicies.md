@@ -1,6 +1,4 @@
-# Viewing all cross-account grants using
-
-the GetResourceShares API operation
+# Viewing all cross-account grants using the GetResourceShares API operation
 
 If your enterprise grants cross-account permissions using both an AWS Glue Data Catalog resource
 policy and Lake Formation grants, the only way to view all cross-account grants in one place is to

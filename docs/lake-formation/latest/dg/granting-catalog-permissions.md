@@ -53,7 +53,6 @@ permissions. Users will have to setup new permissions again.
 
 ###### See also:
 
-- [Sharing Data Catalog tables and databases across AWS
-  Accounts](sharing-catalog-resources.md "sharing-catalog-resources.md")
+- [Sharing Data Catalog tables and databases across AWS Accounts](sharing-catalog-resources.md "sharing-catalog-resources.md")
 - [Metadata access control](access-control-metadata.md "access-control-metadata.md")
 - [Lake Formation permissions reference](lf-permissions-reference.md "lf-permissions-reference.md")

@@ -1,6 +1,4 @@
-# Listing LF-Tag permissions using the
-
-console
+# Listing LF-Tag permissions using the console
 
 You can use the Lake Formation console to view the permissions granted on LF-Tags. You must be a
 LF-Tag creator, a data lake administrator, or have the `Describe` or `Associate` permission

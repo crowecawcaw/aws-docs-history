@@ -1,6 +1,4 @@
-# Bringing Amazon Redshift data into the
-
-AWS Glue Data Catalog
+# Bringing Amazon Redshift data into the AWS Glue Data Catalog
 
 You can manage analytic data in Amazon Redshift data warehouses in the AWS Glue Data Catalog (Data Catalog), and unify Amazon S3 data
 lakes and Amazon Redshift data warehouses. Amazon Redshift is a fully managed, petabyte-scale data warehouse service

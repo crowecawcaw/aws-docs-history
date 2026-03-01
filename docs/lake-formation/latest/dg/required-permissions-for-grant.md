@@ -1,6 +1,4 @@
-# IAM permissions required to grant or
-
-revoke Lake Formation permissions
+# IAM permissions required to grant or revoke Lake Formation permissions
 
 All principals, including the data lake administrator, need the following AWS Identity and Access Management
 (IAM) permissions to grant or revoke AWS Lake Formation Data Catalog permissions or data location
@@ -64,8 +62,7 @@ All of the `glue:` and `iam:` permissions in this policy are
 available in the AWS managed policy `AWSGlueConsoleFullAccess`.
 
 To grant permissions by using Lake Formation tag-based access control (LF-TBAC), principals need
-additional IAM permissions. For more information, see [Lake Formation tag-based access control best
-practices and considerations](lf-tag-considerations.md "lf-tag-considerations.md") and [Lake Formation personas and IAM permissions reference](permissions-reference.md "permissions-reference.md").
+additional IAM permissions. For more information, see [Lake Formation tag-based access control best practices and considerations](lf-tag-considerations.md "lf-tag-considerations.md") and [Lake Formation personas and IAM permissions reference](permissions-reference.md "permissions-reference.md").
 
 ###### Cross-account permissions
 

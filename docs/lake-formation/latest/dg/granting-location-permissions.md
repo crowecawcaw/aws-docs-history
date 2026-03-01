@@ -20,9 +20,6 @@ For a grant to succeed, you must first register the data location with Lake Form
 
 ###### Topics
 
-- [Granting data location permissions (same
-  account)](granting-location-permissions-local.md "granting-location-permissions-local.md")
-- [Granting data location permissions
-  (external account)](granting-location-permissions-external.md "granting-location-permissions-external.md")
-- [Granting permissions on a data location shared with your
-  account](regranting-locations.md "regranting-locations.md")
+- [Granting data location permissions (same account)](granting-location-permissions-local.md "granting-location-permissions-local.md")
+- [Granting data location permissions (external account)](granting-location-permissions-external.md "granting-location-permissions-external.md")
+- [Granting permissions on a data location shared with your account](regranting-locations.md "regranting-locations.md")

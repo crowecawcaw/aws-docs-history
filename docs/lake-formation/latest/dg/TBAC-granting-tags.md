@@ -1,6 +1,4 @@
-# Managing LF-Tag value
-
-permissions
+# Managing LF-Tag value permissions
 
 You can grant the `Drop`, `Alter` permissions on LF-Tags to
 principals to manage LF-Tag value expressions. You can also grant `Describe`,
@@ -27,11 +25,8 @@ AWS Command Line Interface (AWS CLI).
 
 ###### Topics
 
-- [Listing LF-Tag permissions using the
-  console](TBAC-listing-tag-perms-console.md "TBAC-listing-tag-perms-console.md")
-- [Granting LF-Tag permissions using the
-  console](TBAC-granting-tags-console.md "TBAC-granting-tags-console.md")
-- [Managing LF-Tag
-  permissions using the AWS CLI](TBAC-granting-revoking-tags-cli.md "TBAC-granting-revoking-tags-cli.md")
+- [Listing LF-Tag permissions using the console](TBAC-listing-tag-perms-console.md "TBAC-listing-tag-perms-console.md")
+- [Granting LF-Tag permissions using the console](TBAC-granting-tags-console.md "TBAC-granting-tags-console.md")
+- [Managing LF-Tag permissions using the AWS CLI](TBAC-granting-revoking-tags-cli.md "TBAC-granting-revoking-tags-cli.md")
   For more information see [Managing LF-Tags for metadata access control](managing-tags.md "managing-tags.md") and
   [Lake Formation tag-based access control](tag-based-access-control.md "tag-based-access-control.md").

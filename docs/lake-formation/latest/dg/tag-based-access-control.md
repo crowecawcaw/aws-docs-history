@@ -27,15 +27,15 @@ Each LF-Tag is a key-value pair, such as `department=sales` or
 To use the LF-TBAC method, data lake administrators and data engineers perform the
 following tasks.
 
-| Task                                                                                                                                                                                             | Task details                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| 1. Define the properties and relationships of LF-Tags.                                                                                                                                           | -                                                                                                                             |
-| 2. Create the LF-Tag creators in Lake Formation.                                                                                                                                                 | [Adding LF-Tag creators](TBAC-adding-tag-creator.md "TBAC-adding-tag-creator.md")                                             |
-| 3. Create the LF-Tag in Lake Formation.                                                                                                                                                          | [Creating LF-Tags](TBAC-creating-tags.md "TBAC-creating-tags.md")                                                             |
-| 4. Assign LF-Tags to Data Catalog resources.                                                                                                                                                     | [Assigning LF-Tags to Data Catalog resources](TBAC-assigning-tags.md "TBAC-assigning-tags.md")                                |
-| 5. Grant permissions to other principals to assign LF-Tags to resources,<br>optionally with the grant option.                                                                                    | [Managing LF-Tag value<br>permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")                                         |
-| 6. Grant LF-Tag expressions to principals, optionally with the grant<br>option.                                                                                                                  | [Granting data lake permissions using the<br>LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md") |
-| 7. (Recommended) After verifying that principals have access to the correct<br>resources through the LF-TBAC method, revoke permissions that were granted by using<br>the named resource method. | -                                                                                                                             |
+| Task                                                                                                                                                                                             | Task details                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| 1. Define the properties and relationships of LF-Tags.                                                                                                                                           | -                                                                                                                          |
+| 2. Create the LF-Tag creators in Lake Formation.                                                                                                                                                 | [Adding LF-Tag creators](TBAC-adding-tag-creator.md "TBAC-adding-tag-creator.md")                                          |
+| 3. Create the LF-Tag in Lake Formation.                                                                                                                                                          | [Creating LF-Tags](TBAC-creating-tags.md "TBAC-creating-tags.md")                                                          |
+| 4. Assign LF-Tags to Data Catalog resources.                                                                                                                                                     | [Assigning LF-Tags to Data Catalog resources](TBAC-assigning-tags.md "TBAC-assigning-tags.md")                             |
+| 5. Grant permissions to other principals to assign LF-Tags to resources,<br>optionally with the grant option.                                                                                    | [Managing LF-Tag value permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")                                         |
+| 6. Grant LF-Tag expressions to principals, optionally with the grant<br>option.                                                                                                                  | [Granting data lake permissions using the LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md") |
+| 7. (Recommended) After verifying that principals have access to the correct<br>resources through the LF-TBAC method, revoke permissions that were granted by using<br>the named resource method. | -                                                                                                                          |
 
 Consider the case where you must grant permissions to three principals on three databases
 and seven tables.
@@ -157,13 +157,10 @@ the number of resources:
 ###### See also
 
 - [Managing LF-Tags for metadata access control](managing-tags.md "managing-tags.md")
-- [Granting data lake permissions using the
-  LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md")
+- [Granting data lake permissions using the LF-TBAC method](granting-catalog-perms-TBAC.md "granting-catalog-perms-TBAC.md")
 
 ###### Topics
 
 - [Managing LF-Tags for metadata access control](managing-tags.md "managing-tags.md")
-- [Managing LF-Tag expressions for metadata access
-  control](managing-tag-expressions.md "managing-tag-expressions.md")
-- [Managing LF-Tag value
-  permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")
+- [Managing LF-Tag expressions for metadata access control](managing-tag-expressions.md "managing-tag-expressions.md")
+- [Managing LF-Tag value permissions](TBAC-granting-tags.md "TBAC-granting-tags.md")

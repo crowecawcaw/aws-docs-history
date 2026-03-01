@@ -24,20 +24,16 @@ your first data lake from an AWS CloudTrail source.
 - [Intended audience](#cloudtrail-tut-personas "#cloudtrail-tut-personas")
 - [Prerequisites](#cloudtrail-tut-prereqs "#cloudtrail-tut-prereqs")
 - [Step 1: Create a data analyst user](#cloudtrail-tut-create-lf-user "#cloudtrail-tut-create-lf-user")
-- [Step 2: Add permissions to read AWS CloudTrail logs
-  to the workflow role](#cloudtrail-tut-grant-cloudtrail "#cloudtrail-tut-grant-cloudtrail")
-- [Step 3: Create an Amazon S3 bucket for the data
-  lake](#cloudtrail-tut-create-bucket "#cloudtrail-tut-create-bucket")
+- [Step 2: Add permissions to read AWS CloudTrail logs to the workflow role](#cloudtrail-tut-grant-cloudtrail "#cloudtrail-tut-grant-cloudtrail")
+- [Step 3: Create an Amazon S3 bucket for the data lake](#cloudtrail-tut-create-bucket "#cloudtrail-tut-create-bucket")
 - [Step 4: Register an Amazon S3 path](#cloudtrail-tut-register "#cloudtrail-tut-register")
 - [Step 5: Grant data location permissions](#cloudtrail-tut-data-location "#cloudtrail-tut-data-location")
 - [Step 6: Create a database in the Data Catalog](#cloudtrail-tut-create-db "#cloudtrail-tut-create-db")
 - [Step 7: Grant data permissions](#cloudtrail-tut-data-permissions "#cloudtrail-tut-data-permissions")
-- [Step 8: Use a blueprint to create a
-  workflow](#cloudtrail-tut-create-workflow "#cloudtrail-tut-create-workflow")
+- [Step 8: Use a blueprint to create a workflow](#cloudtrail-tut-create-workflow "#cloudtrail-tut-create-workflow")
 - [Step 9: Run the workflow](#cloudtrail-tut-run-workflow "#cloudtrail-tut-run-workflow")
 - [Step 10: Grant SELECT on the tables](#cloudtrail-tut-grant-table "#cloudtrail-tut-grant-table")
-- [Step 11: Query the data lake Using
-  Amazon Athena](#cloudtrail-tut-query "#cloudtrail-tut-query")
+- [Step 11: Query the data lake Using Amazon Athena](#cloudtrail-tut-query "#cloudtrail-tut-query")
 
 ## Intended audience
 
@@ -101,9 +97,7 @@ This user has the minimum set of permissions to query the data lake.
    }
    ```
 
-## Step 2: Add permissions to read AWS CloudTrail logs
-
-to the workflow role
+## Step 2: Add permissions to read AWS CloudTrail logs to the workflow role
 
 1. Attach the following inline policy to the role `LakeFormationWorkflowRole`. The policy grants permission to read your AWS CloudTrail logs. Name the policy
    `DatalakeGetCloudTrail`.
@@ -133,9 +127,7 @@ JSON
 
 2. Verify that there are three policies attached to the role.
 
-## Step 3: Create an Amazon S3 bucket for the data
-
-lake
+## Step 3: Create an Amazon S3 bucket for the data lake
 
 Create the Amazon S3 bucket that is to be the root location of your data lake.
 
@@ -217,9 +209,7 @@ to the role.
 
 For more information about granting Lake Formation permissions, see [Managing Lake Formation permissions](managing-permissions.md "managing-permissions.md").
 
-## Step 8: Use a blueprint to create a
-
-workflow
+## Step 8: Use a blueprint to create a workflow
 
 In order to read the CloudTrail logs, understand their structure, create the appropriate
 tables in the Data Catalog, we need to set up a workflow that consists of a
@@ -331,9 +321,7 @@ grant `SELECT` to the data analyst.
 
 **The next step is performed as the data analyst.**
 
-## Step 11: Query the data lake Using
-
-Amazon Athena
+## Step 11: Query the data lake Using Amazon Athena
 
 Use the Amazon Athena console to query the CloudTrail data in your data lake.
 

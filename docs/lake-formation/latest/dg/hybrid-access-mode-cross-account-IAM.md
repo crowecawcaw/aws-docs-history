@@ -10,9 +10,7 @@ The data location of the database is registered with Lake Formation. The
 `IAMAllowedPrincipals` group does not have `Super` permissions on
 the database and its tables.
 
-###### Granting cross-account access to new Data Catalog users via IAM based policies
-
-without interrupting existing Lake Formation permissions
+###### Granting cross-account access to new Data Catalog users via IAM based policies without interrupting existing Lake Formation permissions
 
 1.  ###### Producer account set up
     1. Sign in to the Lake Formation console using a role that `lakeformation:PutDataLakeSettings`.
@@ -59,9 +57,7 @@ without interrupting existing Lake Formation permissions
     tables. 13. Edit the Amazon S3 location Lake Formation registration to hybrid access mode. 14. Grant permissions for the AWS Glue users in the external (consumer) account
     using IAM permission policies for Amazon S3 AWS Glue actions.
 
-2.  ######
-
-    Consumer account set up
+2.  ###### Consumer account set up
     1. Sign in to the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") as a data lake administrator.
     2. Go to [https://console.aws.amazon.com/ram/home](https://console.aws.amazon.com/ram/home "https://console.aws.amazon.com/ram/home") and accept the resource share invitation. The **Resources
        shared with me** tab in the AWS RAM page displays the database and table names that

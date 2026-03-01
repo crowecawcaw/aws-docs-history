@@ -1,6 +1,4 @@
-# Granting permissions on a database or table shared
-
-with your account
+# Granting permissions on a database or table shared with your account
 
 After a Data Catalog resource belonging to another AWS account is shared with your AWS
 account, as a data lake administrator, you can grant permissions on the shared resource to other
@@ -12,8 +10,7 @@ permissions.
 
 ###### To grant permissions on a shared database (named resource method, console)
 
-- Follow the instructions in [Granting database permissions using the
-  named resource method](granting-database-permissions.md "granting-database-permissions.md"). In the **Database** list
+- Follow the instructions in [Granting database permissions using the named resource method](granting-database-permissions.md "granting-database-permissions.md"). In the **Database** list
   under **LF-Tags or catalog resources**, ensure that you select the database
   in the external account, not a resource link for the database.
 
@@ -21,8 +18,7 @@ If you don't see the database in the list of databases, ensure that you have acc
 AWS Resource Access Manager (AWS RAM) resource share invitation for the database. For more information, see [Accepting a resource share invitation from AWS RAM](accepting-ram-invite.md "accepting-ram-invite.md").
 
 Also, for the `CREATE_TABLE` and `ALTER` permissions, follow the
-instructions in [Granting data location permissions (same
-account)](granting-location-permissions-local.md "granting-location-permissions-local.md"), and be sure to enter the owning
+instructions in [Granting data location permissions (same account)](granting-location-permissions-local.md "granting-location-permissions-local.md"), and be sure to enter the owning
 account ID in the **Registered account location** field.
 
 ###### To grant permissions on a shared table (named resource method, console)
@@ -34,13 +30,12 @@ account ID in the **Registered account location** field.
 If you don't see the table in the list of tables, ensure that you have accepted the AWS RAM
 resource share invitation for the table. For more information, see [Accepting a resource share invitation from AWS RAM](accepting-ram-invite.md "accepting-ram-invite.md").
 
-Also, for the `ALTER` permission, follow the instructions in [Granting data location permissions (same
-account)](granting-location-permissions-local.md "granting-location-permissions-local.md"), and be sure to enter the owning
+Also, for the `ALTER` permission, follow the instructions in [Granting data location permissions (same account)](granting-location-permissions-local.md "granting-location-permissions-local.md"), and be sure to enter the owning
 account ID in the **Registered account location** field.
 
 ###### To grant permissions on shared resources (LF-TBAC method, console)
 
-- Follow the instructions in [Granting Data Catalog permissions](granting-catalog-perms-TBAC.md#granting-cat-perms-TBAC-console "granting-catalog-perms-TBAC.md#granting-cat-perms-TBAC-console") . In the **LF-Tags or catalog
+- Follow the instructions in [Granting Data Catalog permissions](granting-catalog-perms-TBAC.md#granting-cat-perms-TBAC-console "granting-catalog-perms-TBAC.md#granting-cat-perms-TBAC-console"). In the **LF-Tags or catalog
   resources** section, grant the exact LF-Tag expression that the external account
   granted to your account, or a subset of that expression.
 
