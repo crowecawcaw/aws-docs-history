@@ -1,6 +1,4 @@
-# Considerations for using Macie with
-
-AWS Organizations
+# Considerations for using Macie with AWS Organizations
 
 Before you integrate Amazon Macie with AWS Organizations and configure your organization in Macie,
 consider the following requirements and recommendations. Also ensure that you understand the
@@ -17,9 +15,7 @@ accounts](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
   member accounts](#accounts-mgmt-ao-notes-members-manage "#accounts-mgmt-ao-notes-members-manage")
 - [Transitioning from an invitation-based organization](#accounts-mgmt-ao-notes-transition-invitations "#accounts-mgmt-ao-notes-transition-invitations")
 
-## Designating a
-
-Macie administrator account
+## Designating a Macie administrator account
 
 While you determine which account should be the delegated Macie administrator account for your
 organization, keep the following in mind:
@@ -83,9 +79,7 @@ days:
 After 30 days, Macie permanently deletes data that it previously produced and directly
 provided while performing automated discovery for the applicable accounts.
 
-## Changing or removing the
-
-designation of a Macie administrator account
+## Changing or removing the designation of a Macie administrator account
 
 Only the AWS Organizations management account for an organization can change or remove the
 designation of a delegated Macie administrator account for the organization.
@@ -105,9 +99,7 @@ If the management account changes or removes the designation:
   within 30 days. After 30 days, the data expires and Macie permanently deletes
   it.
 
-## Adding and removing Macie member
-
-accounts
+## Adding and removing Macie member accounts
 
 As you add, remove, and otherwise manage member accounts for your organization, keep
 the following in mind:
@@ -150,9 +142,7 @@ administrator account.
 - A member account can’t disassociate from its Macie administrator account. Only the
   Macie administrator can remove an account as a Macie member account.
 
-## Transitioning from an
-
-invitation-based organization
+## Transitioning from an invitation-based organization
 
 If you already associated a Macie administrator account with member accounts by using Macie
 membership invitations, we recommend that you designate that account as the delegated

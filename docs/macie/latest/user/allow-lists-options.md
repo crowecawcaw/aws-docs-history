@@ -1,6 +1,4 @@
-# Configuration options and requirements for allow
-
-lists
+# Configuration options and requirements for allow lists
 
 In Amazon Macie, you can use allow lists to specify text or text patterns that you want Macie to
 ignore when it inspects Amazon Simple Storage Service (Amazon S3) objects for sensitive data. Macie provides options for two
@@ -28,23 +26,17 @@ mailing addresses aren't supported.
 
 ###### Topics
 
-- [Options and requirements for lists of predefined
-  text](allow-lists-options.md#allow-lists-options-s3list "allow-lists-options.md#allow-lists-options-s3list")
+- [Options and requirements for lists of predefined text](allow-lists-options.md#allow-lists-options-s3list "allow-lists-options.md#allow-lists-options-s3list")
   - [Syntax requirements](allow-lists-options.md#allow-lists-options-s3list-syntax "allow-lists-options.md#allow-lists-options-s3list-syntax")
   - [Storage requirements](allow-lists-options.md#allow-lists-options-s3list-storage "allow-lists-options.md#allow-lists-options-s3list-storage")
-  - [Encryption/Decryption
-    requirements](allow-lists-options.md#allow-lists-options-s3list-encryption "allow-lists-options.md#allow-lists-options-s3list-encryption")
-  - [Design considerations and
-    recommendations](allow-lists-options.md#allow-lists-options-s3list-notes "allow-lists-options.md#allow-lists-options-s3list-notes")
+  - [Encryption/Decryption requirements](allow-lists-options.md#allow-lists-options-s3list-encryption "allow-lists-options.md#allow-lists-options-s3list-encryption")
+  - [Design considerations and recommendations](allow-lists-options.md#allow-lists-options-s3list-notes "allow-lists-options.md#allow-lists-options-s3list-notes")
 
-- [Options and requirements for regular
-  expressions](allow-lists-options.md#allow-lists-options-regex "allow-lists-options.md#allow-lists-options-regex")
+- [Options and requirements for regular expressions](allow-lists-options.md#allow-lists-options-regex "allow-lists-options.md#allow-lists-options-regex")
   - [Syntax support and recommendations](allow-lists-options.md#allow-lists-options-regex-syntax "allow-lists-options.md#allow-lists-options-regex-syntax")
   - [Examples](allow-lists-options.md#allow-lists-options-regex-examples "allow-lists-options.md#allow-lists-options-regex-examples")
 
-## Options and requirements for lists of predefined
-
-text
+## Options and requirements for lists of predefined text
 
 For this type of allow list, you provide a line-delimited plaintext file that lists specific
 character sequences to ignore. The list entries are typically words, phrases, and other kinds of
@@ -85,10 +77,8 @@ that you specified in the list.
 
 - [Syntax requirements](#allow-lists-options-s3list-syntax "#allow-lists-options-s3list-syntax")
 - [Storage requirements](#allow-lists-options-s3list-storage "#allow-lists-options-s3list-storage")
-- [Encryption/Decryption
-  requirements](#allow-lists-options-s3list-encryption "#allow-lists-options-s3list-encryption")
-- [Design considerations and
-  recommendations](#allow-lists-options-s3list-notes "#allow-lists-options-s3list-notes")
+- [Encryption/Decryption requirements](#allow-lists-options-s3list-encryption "#allow-lists-options-s3list-encryption")
+- [Design considerations and recommendations](#allow-lists-options-s3list-notes "#allow-lists-options-s3list-notes")
 
 ### Syntax requirements
 
@@ -163,9 +153,7 @@ status by using Macie.
   accessing the list. For information about this setting, see [Locking objects with Object Lock](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/latest/userguide/object-lock.md") in the
   _Amazon Simple Storage Service User Guide_.
 
-### Encryption/Decryption
-
-requirements
+### Encryption/Decryption requirements
 
 If you encrypt an allow list in Amazon S3, the permissions policy for the [Macie service-linked role](service-linked-roles.md "service-linked-roles.md") typically grants Macie the
 permissions that it needs to decrypt the list. However, this depends on the type of encryption
@@ -210,9 +198,7 @@ _AWS Key Management Service Developer Guide_.
 For detailed information about encryption options for Amazon S3 data, see [Protecting data with
 encryption](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md") in the _Amazon Simple Storage Service User Guide_.
 
-### Design considerations and
-
-recommendations
+### Design considerations and recommendations
 
 In general, Macie treats each entry in an allow list as a string literal value. That is to
 say, Macie ignores each occurrence of text that exactly matches a complete entry in an allow
@@ -316,9 +302,7 @@ If you want to ignore variations of a specific name that contains many parts, cr
 allow list that uses a regular expression instead. For example, for the name _Dr. Martha Lyda Rivera, PhD_, you might use the following regular
 expression: `^(Dr. )?Martha\s(Lyda|L\.)?\s?Rivera,?( PhD)?$`.
 
-## Options and requirements for regular
-
-expressions
+## Options and requirements for regular expressions
 
 For this type of allow list, you specify a regular expression (_regex_) that defines a text pattern to ignore. For example, you might specify the
 pattern for your organization's public phone numbers, email addresses for your organization’s

@@ -1,6 +1,4 @@
-# Changing the Macie administrator account for an
-
-organization
+# Changing the Macie administrator account for an organization
 
 After an AWS Organizations organization is [integrated and
 configured](accounts-mgmt-ao-integrate.md "accounts-mgmt-ao-integrate.md") in Amazon Macie, the AWS Organizations management account can designate a
@@ -25,8 +23,7 @@ your organization:
   designation in each Region in which your organization uses Macie. The delegated
   Macie administrator account must be the same in all of those Regions. If you manage multiple
   organizations in AWS Organizations, also note that an account can be the delegated Macie administrator account
-  for only one organization at a time. To learn about additional requirements, see [Considerations for using Macie with
-  AWS Organizations](accounts-mgmt-ao-notes.md "accounts-mgmt-ao-notes.md").
+  for only one organization at a time. To learn about additional requirements, see [Considerations for using Macie with AWS Organizations](accounts-mgmt-ao-notes.md "accounts-mgmt-ao-notes.md").
 
 ###### Note
 

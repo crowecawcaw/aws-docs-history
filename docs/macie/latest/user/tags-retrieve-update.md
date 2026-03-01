@@ -1,6 +1,4 @@
-# Reviewing and editing tags for Macie
-
-resources
+# Reviewing and editing tags for Macie resources
 
 As your environment or requirements change over time, you can evaluate existing tags
 for your Amazon Macie resources and change the tags as necessary. A *tag* is a label that you define and assign to one or more AWS

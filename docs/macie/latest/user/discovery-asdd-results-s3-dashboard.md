@@ -1,6 +1,4 @@
-# Reviewing data sensitivity statistics on
-
-the Summary dashboard
+# Reviewing data sensitivity statistics on the Summary dashboard
 
 On the Amazon Macie console, the **Summary** dashboard provides a snapshot of
 aggregated statistics and findings data for your Amazon Simple Storage Service (Amazon S3) data in the current
@@ -34,9 +32,7 @@ increase coverage by jobs that you subsequently run.
 - [Understanding
   statistics on the dashboard](#discovery-asdd-results-s3-dashboard-statistics "#discovery-asdd-results-s3-dashboard-statistics")
 
-## Displaying the Summary
-
-dashboard
+## Displaying the Summary dashboard
 
 Follow these steps to display the **Summary** dashboard on the Amazon Macie
 console. To query the statistics programmatically, use the [GetBucketStatistics](../APIReference/datasources-s3-statistics.md "../APIReference/datasources-s3-statistics.md")
@@ -55,9 +51,7 @@ and data for your account and member accounts in your organization. To display d
 particular account, enter the account's ID in the **Account** box above the
 dashboard.
 
-## Understanding sensitive data
-
-discovery statistics on the Summary dashboard
+## Understanding sensitive data discovery statistics on the Summary dashboard
 
 The **Summary** dashboard includes aggregated statistics that can help you
 monitor automated sensitive data discovery for your Amazon S3 data. It provides a snapshot of the current status and results
@@ -77,18 +71,15 @@ sections:
   issues](#discovery-asdd-results-s3-dashboard-coverage-statistics "#discovery-asdd-results-s3-dashboard-coverage-statistics")
 
 Individual statistics in each section are as follows. For information about statistics in
-other sections of the dashboard, see [Understanding components of
-the Summary dashboard](monitoring-s3-dashboard.md#monitoring-s3-dashboard-components-main "monitoring-s3-dashboard.md#monitoring-s3-dashboard-components-main").
+other sections of the dashboard, see [Understanding components of the Summary dashboard](monitoring-s3-dashboard.md#monitoring-s3-dashboard-components-main "monitoring-s3-dashboard.md#monitoring-s3-dashboard-components-main").
 
-### Storage and sensitive
-
-data discovery
+### Storage and sensitive data discovery
 
 At the top of the dashboard, statistics indicate how much data you store in Amazon S3, and how
 much of that data Amazon Macie can analyze to detect sensitive data. The following image shows an
 example of these statistics for an organization with seven accounts.
 
-![The Storage and sensitive data discovery section of the dashboard. Each field contains example data.](/images/macie/latest/user/images/scrn-summary-dashboard-storage.png)
+![The Storage and sensitive data discovery section of the dashboard. Each field contains example data.](images/scrn-summary-dashboard-storage.png)
 
 Individual statistics in this section are:
 
@@ -199,9 +190,7 @@ security](monitoring-s3-how-it-works.md "monitoring-s3-how-it-works.md").
 Note that statistics in the **Automated discovery** section don't include the
 results of sensitive data discovery jobs that you create and run.
 
-### Coverage
-
-issues
+### Coverage issues
 
 In this section, statistics indicate whether certain types of issues prevented Amazon Macie
 from analyzing objects in individual S3 buckets. The following image shows an example of the

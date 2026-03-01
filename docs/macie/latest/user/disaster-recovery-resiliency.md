@@ -16,8 +16,7 @@ Macie performs automated sensitive data discovery, Macie automatically creates a
 _sensitive data discovery results_, log details about the analysis that
 Macie performs on individual S3 objects. This includes objects that Macie doesn't detect
 sensitive data in, and objects that Macie can't analyze due to errors or issues. Macie
-stores these results in an S3 bucket that you specify. For more information, see [Storing and retaining sensitive data
-discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md").
+stores these results in an S3 bucket that you specify. For more information, see [Storing and retaining sensitive data discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md").
 
 Macie also publishes policy and sensitive data findings to Amazon EventBridge as events. This
 includes new findings and updates to existing policy findings. (It doesn't include findings

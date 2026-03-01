@@ -1,6 +1,4 @@
-# Changing the status of a sensitive data
-
-discovery job
+# Changing the status of a sensitive data discovery job
 
 After you create a sensitive data discovery job, you can pause it temporarily or
 cancel it permanently. When you pause a job that's actively running, Amazon Macie

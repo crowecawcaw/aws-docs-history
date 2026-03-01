@@ -1,6 +1,4 @@
-# Checking the status of a sensitive data
-
-discovery job
+# Checking the status of a sensitive data discovery job
 
 When you create a sensitive data discovery job, its initial status is **Active
 (Running)** or **Active (Idle)**, depending on the job's

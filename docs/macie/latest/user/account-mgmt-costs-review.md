@@ -1,6 +1,4 @@
-# Reviewing estimated usage costs for
-
-Macie
+# Reviewing estimated usage costs for Macie
 
 To review your current estimated usage costs for Amazon Macie, you can use the Amazon Macie
 console or the Amazon Macie API. Both the console and the API provide estimated costs for
@@ -25,9 +23,7 @@ month to date.
 - [Querying estimated usage
   costs with the API](#account-mgmt-costs-review-api "#account-mgmt-costs-review-api")
 
-## Reviewing estimated usage costs on
-
-the Amazon Macie console
+## Reviewing estimated usage costs on the Amazon Macie console
 
 On the Amazon Macie console, cost estimates are organized as follows:
 
@@ -79,9 +75,7 @@ The **Estimated costs** section then shows this breakdown. To show
 this data for another account, choose the account in the table. To clear your
 account selection, choose **X** next to the account ID.
 
-## Querying estimated usage costs with the
-
-Amazon Macie API
+## Querying estimated usage costs with the Amazon Macie API
 
 To query your estimated usage costs programmatically, you can use the following
 operations of the Amazon Macie API:
@@ -121,9 +115,7 @@ see [Tools to Build on AWS](https://aws.amazon.com/developer/tools/ "https://aws
 - [Querying
   usage statistics](#account-mgmt-costs-review-api-statistics "#account-mgmt-costs-review-api-statistics")
 
-### Example 1: Querying total
-
-estimated usage costs
+### Example 1: Querying total estimated usage costs
 
 To query total estimated usage costs by using the AWS CLI, run the [get-usage-totals](../../../cli/latest/reference/macie2/get-usage-totals.md "../../../cli/latest/reference/macie2/get-usage-totals.md") command and optionally specify a time range for the
 data. For example:
@@ -179,9 +171,7 @@ usage metric (`type`):
   inventory to identify S3 objects that are eligible for analysis by
   automated sensitive data discovery.
 
-### Example 2: Querying
-
-usage statistics
+### Example 2: Querying usage statistics
 
 To query usage statistics by using the AWS CLI, run the [get-usage-statistics](../../../cli/latest/reference/macie2/get-usage-statistics.md "../../../cli/latest/reference/macie2/get-usage-statistics.md") command. You can optionally sort, filter, and
 specify a time range for the query results. The following example retrieves

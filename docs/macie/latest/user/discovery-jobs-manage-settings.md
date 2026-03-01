@@ -1,6 +1,4 @@
-# Reviewing the settings for a sensitive data
-
-discovery job
+# Reviewing the settings for a sensitive data discovery job
 
 On the Amazon Macie console, you can use the details panel on the **Jobs**
 page to review configuration settings and other information about individual sensitive
@@ -82,7 +80,7 @@ To review a list of buckets that currently match the criteria, choose
 **Details**. Then choose the **Matching
 buckets** tab in the window that appears. Optionally choose
 refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
 ) to retrieve the latest data. The tab lists up to 25
 buckets that currently match the criteria.
 

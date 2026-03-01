@@ -1,6 +1,4 @@
-# Adjusting sensitivity scores for S3
-
-buckets
+# Adjusting sensitivity scores for S3 buckets
 
 As you review and evaluate statistics, data, and other results of automated sensitive data discovery, there might be
 cases where you want to fine tune sensitivity assessments of your Amazon Simple Storage Service (Amazon S3) buckets. You
@@ -76,7 +74,7 @@ using the table view (
 
     * To override the calculated sensitivity score and manually assign a score, turn on
      **Assign maximum score** (
-    ![A toggle switch with a gray background and the toggle positioned to the left.](/images/macie/latest/user/images/tgl-gray-off.png)
+    ![A toggle switch with a gray background and the toggle positioned to the left.](images/tgl-gray-off.png)
     ). This changes the bucket's score to *100* and applies the *Sensitive*
      label to the bucket.
     * To assign a sensitivity score that Macie calculates automatically, turn off
@@ -168,8 +166,7 @@ response.
 
 To exclude or subsequently include an S3 bucket in analyses, use the [UpdateClassificationScope](../APIReference/classification-scopes-id.md "../APIReference/classification-scopes-id.md") operation. Or, if you're using the AWS CLI, run
 the [update-classification-scope](../../../cli/latest/reference/macie2/update-classification-scope.md "../../../cli/latest/reference/macie2/update-classification-scope.md") command. For additional details and examples,
-see [Excluding or including S3 buckets
-in automated sensitive data discovery](discovery-asdd-account-configure.md#discovery-asdd-account-configure-s3buckets "discovery-asdd-account-configure.md#discovery-asdd-account-configure-s3buckets").
+see [Excluding or including S3 buckets in automated sensitive data discovery](discovery-asdd-account-configure.md#discovery-asdd-account-configure-s3buckets "discovery-asdd-account-configure.md#discovery-asdd-account-configure-s3buckets").
 
 The following examples show how to use the AWS CLI to adjust individual settings for an
 S3 bucket. This first example manually assigns the maximum sensitivity score (`100`)

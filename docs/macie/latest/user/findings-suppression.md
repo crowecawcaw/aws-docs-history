@@ -50,8 +50,7 @@ Only the account that creates a sensitive data discovery job can suppress or oth
 access sensitive data findings that the job produces. Only the Macie administrator
 account for an organization can suppress or otherwise access findings that
 automated sensitive data discovery produces for accounts in the organization.
-For more information about the tasks that administrators and members can perform, see [Macie administrator and member account
-relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
+For more information about the tasks that administrators and members can perform, see [Macie administrator and member account relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
 
 ###### Topics
 

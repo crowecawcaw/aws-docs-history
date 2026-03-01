@@ -1,6 +1,4 @@
-# Managing Macie member accounts for an
-
-organization
+# Managing Macie member accounts for an organization
 
 After an AWS Organizations organization is [integrated and
 configured](accounts-mgmt-ao-integrate.md "accounts-mgmt-ao-integrate.md") in Amazon Macie, the organization’s delegated Macie administrator can access
@@ -15,8 +13,7 @@ administration tasks for the accounts. For example, you can:
   overall.
   You can also review Amazon Simple Storage Service (Amazon S3) inventory data and policy findings for Macie member
   accounts. And you can discover sensitive data in S3 buckets that the accounts own. For a
-  detailed list of tasks that you can perform, see [Macie administrator and member account
-  relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
+  detailed list of tasks that you can perform, see [Macie administrator and member account relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
 
 By default, Macie gives you visibility into relevant data and resources for all the Macie
 member accounts in your organization. You can also drill down to review data and resources for
@@ -43,9 +40,7 @@ various administrative tasks for your organization.
   allows you to retrieve and display information about accounts that are part of your
   organization in AWS Organizations.
 
-## Adding Macie member accounts to an
-
-organization
+## Adding Macie member accounts to an organization
 
 In some cases, you might need to manually add an account as an Amazon Macie member account.
 This is the case for accounts that you previously removed (disassociated) as member
@@ -69,8 +64,7 @@ Note that you can’t add an account that’s already associated with another
 Macie administrator account. The account must first disassociate from its current
 administrator account. In addition, you can’t add the AWS Organizations management account as
 a member account unless Macie is already enabled for the account. To learn about
-additional requirements, see [Considerations for using Macie with
-AWS Organizations](accounts-mgmt-ao-notes.md "accounts-mgmt-ao-notes.md").
+additional requirements, see [Considerations for using Macie with AWS Organizations](accounts-mgmt-ao-notes.md "accounts-mgmt-ao-notes.md").
 
 ###### To add a Macie member account to an organization
 
@@ -162,9 +156,7 @@ If your request succeeds, the status (`relationshipStatus`) of
 the specified account changes to `Enabled` in your account
 inventory.
 
-## Suspending Macie for member accounts in an
-
-organization
+## Suspending Macie for member accounts in an organization
 
 As the Amazon Macie administrator for an organization in AWS Organizations, you can suspend Macie for a member
 account in your organization. If you do this, you can also re-enable Macie for the
@@ -262,9 +254,7 @@ re-enable Macie for the account, run the
 **update-member-session** command again and specify
 `ENABLED` for the `status` parameter.
 
-## Removing Macie member accounts from an
-
-organization
+## Removing Macie member accounts from an organization
 
 If you want to stop accessing Amazon Macie settings, data, and resources for a member
 account, you can remove the account as a Macie member account. You do this by

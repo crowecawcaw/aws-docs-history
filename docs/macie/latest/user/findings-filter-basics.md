@@ -15,9 +15,7 @@ Amazon Macie stores your findings for only 90 days in each AWS Region.
 - [Using operators in
   conditions](#findings-filter-basics-operators "#findings-filter-basics-operators")
 
-## Using multiple conditions in a
-
-filter
+## Using multiple conditions in a filter
 
 A filter can include one or more conditions. Each condition, also referred to as a
 _criterion_, consists of three parts:
@@ -84,8 +82,7 @@ For a list of valid values for each field, see [Fields for filtering Macie findi
 
 You can specify as many as 50 values in an array. How you specify the values
 depends on whether you use the Amazon Macie console or the Amazon Macie API, as
-discussed in [Specifying multiple values for a
-field](#findings-filter-basics-multiple-values "#findings-filter-basics-multiple-values").
+discussed in [Specifying multiple values for a field](#findings-filter-basics-multiple-values "#findings-filter-basics-multiple-values").
 
 Boolean
 
@@ -168,9 +165,7 @@ bucket.
 
 For a list of valid values for each field, see [Fields for filtering Macie findings](findings-filter-fields.md "findings-filter-fields.md").
 
-## Specifying multiple values for a
-
-field
+## Specifying multiple values for a field
 
 With certain fields and operators, you can specify multiple values for a field. If you do
 this, Amazon Macie uses OR logic to join the values and evaluate the filter criteria. This

@@ -109,9 +109,7 @@ JSON Web Signature (JWS) structures. The tokens can be signed or unsigned.
 
 **Comments:** None
 
-## Public-Key Cryptography Standard (PKCS) private
-
-key
+## Public-Key Cryptography Standard (PKCS) private key
 
 **Managed data identifier ID:** PKCS
 

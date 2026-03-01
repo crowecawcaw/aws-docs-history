@@ -51,9 +51,7 @@ and data for your account and member accounts in your organization. To filter th
 dashboard and display data only for a particular account, enter the account's ID in the
 **Account** box above the dashboard.
 
-## Understanding components of
-
-the Summary dashboard
+## Understanding components of the Summary dashboard
 
 On the **Summary** dashboard, statistics and data are organized into
 several sections. At the top of the dashboard, you'll find aggregated statistics that
@@ -152,8 +150,7 @@ these sections provide.
 
 ![Automated sensitive data discovery statistics on the dashboard. Each statistic has example data.](images/scrn-summary-dashboard-sensitivity.png)
 
-For details about these statistics, see [Reviewing data sensitivity statistics on
-the Summary dashboard](discovery-asdd-results-s3-dashboard.md "discovery-asdd-results-s3-dashboard.md").
+For details about these statistics, see [Reviewing data sensitivity statistics on the Summary dashboard](discovery-asdd-results-s3-dashboard.md "discovery-asdd-results-s3-dashboard.md").
 
 **Data
 security**
@@ -164,8 +161,7 @@ this section.
 
 ![The Data security section of the dashboard. It contains example data for each statistic.](images/scrn-summary-dashboard-security.png)
 
-For details about these statistics, see [Understanding data security
-statistics on the Summary dashboard](#monitoring-s3-dashboard-statistics-s3 "#monitoring-s3-dashboard-statistics-s3").
+For details about these statistics, see [Understanding data security statistics on the Summary dashboard](#monitoring-s3-dashboard-statistics-s3 "#monitoring-s3-dashboard-statistics-s3").
 
 **Top S3
 buckets**
@@ -223,9 +219,7 @@ during the preceding seven days. Or all the policy findings that were
 created or updated during the preceding seven days were suppressed by a
 [suppression rule](findings-suppression.md "findings-suppression.md").
 
-## Understanding data security
-
-statistics on the Summary dashboard
+## Understanding data security statistics on the Summary dashboard
 
 The **Data security** section of the **Summary** dashboard
 provides statistics that can help you identify and investigate potential security and

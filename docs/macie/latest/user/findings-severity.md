@@ -49,8 +49,7 @@ and sensitive data findings.
 ###### Topics
 
 - [Severity scoring for policy findings](#findings-severity-policy "#findings-severity-policy")
-- [Severity scoring for sensitive data
-  findings](#findings-severity-mdis "#findings-severity-mdis")
+- [Severity scoring for sensitive data findings](#findings-severity-mdis "#findings-severity-mdis")
 
 ## Severity scoring for policy findings
 
@@ -71,9 +70,7 @@ of each type, see [Types of findings](findings-types.md "findings-types.md").
 The severity of a policy finding doesn't change based on the number of occurrences of
 the finding.
 
-## Severity scoring for sensitive data
-
-findings
+## Severity scoring for sensitive data findings
 
 The severity of a sensitive data finding is based on the nature and number of occurrences of
 sensitive data that Amazon Macie detected in an S3 object. The following topics indicate

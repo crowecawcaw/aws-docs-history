@@ -43,7 +43,6 @@ standalone Macie account.
 - [Configuring automated sensitive data discovery](discovery-asdd-account-manage.md "discovery-asdd-account-manage.md")
 - [Reviewing automated sensitive data discovery results](discovery-asdd-results-s3.md "discovery-asdd-results-s3.md")
 - [Assessing automated sensitive data discovery coverage](discovery-coverage.md "discovery-coverage.md")
-- [Adjusting sensitivity scores for S3
-  buckets](discovery-asdd-s3bucket-manage.md "discovery-asdd-s3bucket-manage.md")
+- [Adjusting sensitivity scores for S3 buckets](discovery-asdd-s3bucket-manage.md "discovery-asdd-s3bucket-manage.md")
 - [Sensitivity scoring for S3 buckets](discovery-scoring-s3.md "discovery-scoring-s3.md")
 - [Default settings for automated sensitive data discovery](discovery-asdd-settings-defaults.md "discovery-asdd-settings-defaults.md")

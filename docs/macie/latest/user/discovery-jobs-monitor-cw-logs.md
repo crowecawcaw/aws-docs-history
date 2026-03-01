@@ -1,6 +1,4 @@
-# Monitoring sensitive data discovery jobs with
-
-CloudWatch Logs
+# Monitoring sensitive data discovery jobs with CloudWatch Logs
 
 In addition to [monitoring the overall
 status](discovery-jobs-status-check.md "discovery-jobs-status-check.md") of a sensitive data discovery job, you can monitor and analyze specific

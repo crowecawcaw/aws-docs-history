@@ -1,6 +1,4 @@
-# Visualizing data sensitivity with the
-
-S3 buckets map
+# Visualizing data sensitivity with the S3 buckets map
 
 On the Amazon Macie console, the **S3 buckets** heat map provides an
 interactive, visual representation of data sensitivity across your Amazon Simple Storage Service (Amazon S3) data estate.
@@ -25,14 +23,10 @@ that you create and run.
 
 ###### Topics
 
-- [Interpreting data in the S3
-  buckets map](#discovery-asdd-results-s3-inventory-map-legend "#discovery-asdd-results-s3-inventory-map-legend")
-- [Interacting with the S3 buckets
-  map](#discovery-asdd-results-s3-inventory-map-use "#discovery-asdd-results-s3-inventory-map-use")
+- [Interpreting data in the S3 buckets map](#discovery-asdd-results-s3-inventory-map-legend "#discovery-asdd-results-s3-inventory-map-legend")
+- [Interacting with the S3 buckets map](#discovery-asdd-results-s3-inventory-map-use "#discovery-asdd-results-s3-inventory-map-use")
 
-## Interpreting data in the S3
-
-buckets map
+## Interpreting data in the S3 buckets map
 
 In the **S3 buckets** map, each square represents an S3 general purpose
 bucket in your bucket inventory. The color of a square represents a bucket's current
@@ -80,9 +74,7 @@ symbols that Macie uses to notify you of these cases.
 | The Unclassifiable symbol, which is a gray question mark.                    | **Unclassifiable**      | Macie can't analyze any objects in the bucket. All the bucket's objects use Amazon S3<br>storage classes that Macie doesn't support, or they have file name extensions for file or<br>storage formats that Macie doesn't support.<br>For Macie to analyze an object, the object must use a supported storage class and have<br>a file name extension for a supported file or storage format. For more information, see<br>[Supported storage classes and<br>formats](discovery-supported-storage.md "discovery-supported-storage.md"). |
 | The Zero bytes symbol, which is the number zero.                             | **Zero bytes**          | The bucket doesn't store any objects for Macie to analyze. The bucket is empty or all<br>the objects in the bucket contain zero (0) bytes of data.                                                                                                                                                                                                                                                                                                                                                                                     |
 
-## Interacting with the S3 buckets
-
-map
+## Interacting with the S3 buckets map
 
 As you review the **S3 buckets** map, you can interact with it in
 different ways to reveal and evaluate additional data and details for individual accounts and
@@ -139,8 +131,7 @@ bucket metadata from Amazon S3. 4. In the **S3 buckets** map, do any of the foll
 
 5. To review data sensitivity statistics and other information for a particular bucket,
    choose the bucket's square. Then refer to the details panel. For information about these
-   details, see [Reviewing data sensitivity details
-   for S3 buckets](discovery-asdd-results-s3-inventory-details.md "discovery-asdd-results-s3-inventory-details.md").
+   details, see [Reviewing data sensitivity details for S3 buckets](discovery-asdd-results-s3-inventory-details.md "discovery-asdd-results-s3-inventory-details.md").
 
 ###### Tip
 

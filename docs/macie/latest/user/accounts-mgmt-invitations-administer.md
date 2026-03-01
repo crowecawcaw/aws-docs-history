@@ -1,6 +1,4 @@
-# Creating and managing an
-
-invitation-based organization in Macie
+# Creating and managing an invitation-based organization in Macie
 
 ###### Note
 
@@ -21,8 +19,7 @@ certain Macie settings, data, and resources for the member account in that Regio
 As the Macie administrator for an invitation-based organization, you can review Amazon Simple Storage Service (Amazon S3)
 inventory data and policy findings for member accounts. You can also enable automated sensitive data discovery and
 run sensitive data discovery jobs to detect sensitive data in S3 buckets that member
-accounts own. For a detailed list of the tasks that you can perform, see [Macie administrator and member account
-relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
+accounts own. For a detailed list of the tasks that you can perform, see [Macie administrator and member account relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
 
 By default, Macie gives you visibility into relevant data and resources for your organization
 overall. You can also drill down to review data and resources for individual accounts in your
@@ -48,9 +45,7 @@ and recommendations](accounts-mgmt-invitations-notes.md "accounts-mgmt-invitatio
 - [Deleting
   associations with other accounts](#accounts-mgmt-invitations-members-disassociate "#accounts-mgmt-invitations-members-disassociate")
 
-## Adding Macie member accounts to an
-
-invitation-based organization
+## Adding Macie member accounts to an invitation-based organization
 
 As the Amazon Macie administrator for an invitation-based organization, you add member accounts to your
 organization by performing two primary steps:
@@ -62,9 +57,7 @@ organization by performing two primary steps:
 When an account accepts your invitation, it becomes a member account in your
 organization.
 
-### Step 1: Add the
-
-accounts
+### Step 1: Add the accounts
 
 To add one or more accounts to your account inventory, you can use the Amazon Macie
 console or the Amazon Macie API.
@@ -181,9 +174,7 @@ added. In this example, `123456789012` is the account ID for the
 account that created the association and `111111111111` is the account
 ID for the account that was added.
 
-### Step 2: Send membership
-
-invitations to the accounts
+### Step 2: Send membership invitations to the accounts
 
 After you add an account to your account inventory, you can invite the account to join your
 organization as a Macie member account. To do this, send a membership invitation to the
@@ -298,9 +289,7 @@ When a recipient accepts an invitation, the status of the recipient’s account 
 invitation, the recipient’s account is disassociated from your account and
 removed from your account inventory.
 
-## Suspending Macie for member accounts
-
-in an invitation-based organization
+## Suspending Macie for member accounts in an invitation-based organization
 
 As the Amazon Macie administrator for an organization, you can suspend Macie in a specific AWS Region
 for individual member accounts in your organization. Note, however, that you can’t
@@ -390,9 +379,7 @@ for the account.
 If your request succeeds, Macie returns an empty response and the status of the specified
 account changes to `Paused` in your account inventory.
 
-## Removing Macie member
-
-accounts from an invitation-based organization
+## Removing Macie member accounts from an invitation-based organization
 
 As an Amazon Macie administrator, you can remove a member account from your organization. You do
 this by disassociating the account from your Macie administrator account.
@@ -486,9 +473,7 @@ If your request succeeds, Macie returns an empty response and the status
 of the specified account changes to `Removed` in your account
 inventory.
 
-## Deleting associations with
-
-other accounts
+## Deleting associations with other accounts
 
 After you add an account to your account inventory in Amazon Macie, you can delete the
 association between your account and the other account. You can do this for any account

@@ -1,6 +1,4 @@
-# Reviewing suppressed findings in
-
-Macie
+# Reviewing suppressed findings in Macie
 
 If you suppress findings with a suppression rule, Amazon Macie continues to generate
 findings for subsequent occurrences of sensitive data and potential policy violations
@@ -77,5 +75,4 @@ or otherwise access sensitive data findings that the job produces. Only the
 Macie administrator account for an organization can suppress or otherwise access
 findings that automated sensitive data discovery produces for accounts in the organization.
 For more information about the tasks that administrators and members can perform,
-see [Macie administrator and member account
-relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
+see [Macie administrator and member account relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").

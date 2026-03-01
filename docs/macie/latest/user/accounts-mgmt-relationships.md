@@ -1,6 +1,4 @@
-# Macie administrator and member account
-
-relationships
+# Macie administrator and member account relationships
 
 If you centrally manage multiple Amazon Macie accounts as an organization, the Macie administrator has
 access to Amazon Simple Storage Service (Amazon S3) inventory data, policy findings, and certain Macie settings and

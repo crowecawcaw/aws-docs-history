@@ -1,6 +1,4 @@
-# Creating a suppression rule for Macie
-
-findings
+# Creating a suppression rule for Macie findings
 
 A _suppression rule_ is a set of attribute-based
 filter criteria that defines cases where you want Amazon Macie to archive findings
@@ -44,8 +42,7 @@ otherwise access sensitive data findings that the job produces. Only the
 Macie administrator account for an organization can suppress or otherwise access
 findings that automated sensitive data discovery produces for accounts in the organization.
 For more information about the tasks that administrators and members can perform, see
-[Macie administrator and member account
-relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
+[Macie administrator and member account relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
 
 Also note that suppression rules are different from filter rules. A _filter rule_ is a set of filter criteria that you create and save to use
 again when you review findings on the Amazon Macie console. Although both types of rules
@@ -94,8 +91,7 @@ rule to suppress.
 
 ![The Filter criteria box on the Findings page.](images/scrn-findings-filter-bar-empty-conditions.png)
 
-To learn how to add filter conditions, see [Creating and applying filters to Macie
-findings](findings-filter-procedure.md "findings-filter-procedure.md"). 4. When you finish adding filter conditions for the rule, choose
+To learn how to add filter conditions, see [Creating and applying filters to Macie findings](findings-filter-procedure.md "findings-filter-procedure.md"). 4. When you finish adding filter conditions for the rule, choose
 **Suppress findings**. 5. Under **Suppression rule**, enter a name and,
 optionally, a description of the rule. 6. Choose **Save**.
 
@@ -170,5 +166,4 @@ Where `arn` is the Amazon Resource Name (ARN) of the
 suppression rule that was created, and `id` is the unique
 identifier for the rule.
 
-For additional examples of filter criteria, see [Filtering findings programmatically with the
-Amazon Macie API](findings-filter-procedure.md#findings-filter-procedure-api "findings-filter-procedure.md#findings-filter-procedure-api").
+For additional examples of filter criteria, see [Filtering findings programmatically with the Amazon Macie API](findings-filter-procedure.md#findings-filter-procedure-api "findings-filter-procedure.md#findings-filter-procedure-api").

@@ -131,9 +131,7 @@ retrieve a subset of information about current policy findings for their account
 }
 ```
 
-### Example: Retrieving sensitive data
-
-samples for a finding
+### Example: Retrieving sensitive data samples for a finding
 
 This example shows CloudTrail events for retrieving and revealing samples of sensitive data
 that Amazon Macie reported in a finding. In this example, an IAM user (`JohnDoe`)

@@ -11,8 +11,7 @@ rule's criteria to query findings data programmatically with the Amazon Macie AP
 retrieve the filter criteria for the rule, and then add the criteria to your query. To
 retrieve the criteria, use the [GetFindingsFilter](../APIReference/findingsfilters-id.md "../APIReference/findingsfilters-id.md") operation.
 To then identify findings that match the criteria, use the [ListFindings](../APIReference/findings.md "../APIReference/findings.md") operation and specify the
-criteria in your query. For information about specifying filter criteria in a query, see [Creating and applying filters to Macie
-findings](findings-filter-procedure.md "findings-filter-procedure.md").
+criteria in your query. For information about specifying filter criteria in a query, see [Creating and applying filters to Macie findings](findings-filter-procedure.md "findings-filter-procedure.md").
 
 ###### To apply a filter rule to findings
 

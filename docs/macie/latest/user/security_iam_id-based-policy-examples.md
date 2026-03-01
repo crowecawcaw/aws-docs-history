@@ -22,24 +22,15 @@ policy check reference](../../../IAM/latest/UserGuide/access-analyzer-reference-
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Amazon Macie
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Example: Allow
-  users to review their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Example: Allow users to create
-  sensitive data discovery jobs](#security_iam_id-based-policy-examples-create-job "#security_iam_id-based-policy-examples-create-job")
-- [Example: Allow users to manage
-  a sensitive data discovery job](#security_iam_id-based-policy-examples-access-job "#security_iam_id-based-policy-examples-access-job")
-- [Example: Allow users to
-  review findings](#security_iam_id-based-policy-examples-review-findings "#security_iam_id-based-policy-examples-review-findings")
-- [Example: Allow users to
-  review custom data identifiers based on tags](#security_iam_id-based-policy-examples-review-cdis-tags "#security_iam_id-based-policy-examples-review-cdis-tags")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Macie console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Example: Allow users to review their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Example: Allow users to create sensitive data discovery jobs](#security_iam_id-based-policy-examples-create-job "#security_iam_id-based-policy-examples-create-job")
+- [Example: Allow users to manage a sensitive data discovery job](#security_iam_id-based-policy-examples-access-job "#security_iam_id-based-policy-examples-access-job")
+- [Example: Allow users to review findings](#security_iam_id-based-policy-examples-review-findings "#security_iam_id-based-policy-examples-review-findings")
+- [Example: Allow users to review custom data identifiers based on tags](#security_iam_id-based-policy-examples-review-cdis-tags "#security_iam_id-based-policy-examples-review-cdis-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Macie resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -72,9 +63,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Amazon Macie
-
-console
+## Using the Amazon Macie console
 
 To access the Amazon Macie console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Macie resources
@@ -109,9 +98,7 @@ include information about a custom data identifier that the job uses, the user m
 be allowed to perform the `macie2:BatchGetCustomDataIdentifiers`
 action for the custom data identifier.
 
-## Example: Allow
-
-users to review their own permissions
+## Example: Allow users to review their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -151,9 +138,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Example: Allow users to create
-
-sensitive data discovery jobs
+## Example: Allow users to create sensitive data discovery jobs
 
 This example shows how you might create a policy that allows a user to create sensitive data
 discovery jobs.
@@ -204,9 +189,7 @@ JSON
 
 ```
 
-## Example: Allow users to manage
-
-a sensitive data discovery job
+## Example: Allow users to manage a sensitive data discovery job
 
 This example shows how you might create a policy that allows a user to access the details of
 a particular sensitive data discovery job, the job whose ID is
@@ -277,9 +260,7 @@ log group and stream for the job. For example:
 For information about managing access to CloudWatch Logs, see [Overview of
 managing access permissions to your CloudWatch Logs resources](../../../AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.md "../../../AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.md") in the _Amazon CloudWatch Logs User Guide_.
 
-## Example: Allow users to
-
-review findings
+## Example: Allow users to review findings
 
 This example shows how you might create a policy that allows a user to access findings
 data.
@@ -360,9 +341,7 @@ JSON
 
 ```
 
-## Example: Allow users to
-
-review custom data identifiers based on tags
+## Example: Allow users to review custom data identifiers based on tags
 
 In identity-based policies, you can use conditions to control access to Amazon Macie resources
 based on tags. This example shows how you might create a policy that allows a user to

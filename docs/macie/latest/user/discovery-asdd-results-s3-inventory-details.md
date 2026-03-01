@@ -1,6 +1,4 @@
-# Reviewing data sensitivity details
-
-for S3 buckets
+# Reviewing data sensitivity details for S3 buckets
 
 As automated sensitive data discovery progresses, you can review detailed results in statistics and other
 information that Amazon Macie provides about each of your Amazon Simple Storage Service (Amazon S3) buckets. If you're the
@@ -142,8 +140,7 @@ data for only 10,000 buckets for an account—the 10,000 buckets that were most
 recently created or changed. Macie can, however, analyze objects in buckets that exceed
 this quota. To review additional details for the buckets, use Amazon S3.
 
-For additional details about the information on this tab, see [Reviewing the details of S3
-buckets](monitoring-s3-inventory-review.md#monitoring-s3-inventory-view-details "monitoring-s3-inventory-review.md#monitoring-s3-inventory-view-details").
+For additional details about the information on this tab, see [Reviewing the details of S3 buckets](monitoring-s3-inventory-review.md#monitoring-s3-inventory-view-details "monitoring-s3-inventory-review.md#monitoring-s3-inventory-view-details").
 
 **Object
 samples**

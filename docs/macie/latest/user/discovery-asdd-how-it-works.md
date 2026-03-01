@@ -131,8 +131,7 @@ starts. If you're the Macie administrator for an organization, Macie uses the se
 account when it analyzes S3 objects for other accounts in your organization.
 
 You can also configure bucket-level settings that determine whether specific types of
-sensitive data are included in assessments of a bucket's sensitivity. To learn how, see [Adjusting sensitivity scores for S3
-buckets](discovery-asdd-s3bucket-manage.md "discovery-asdd-s3bucket-manage.md").
+sensitive data are included in assessments of a bucket's sensitivity. To learn how, see [Adjusting sensitivity scores for S3 buckets](discovery-asdd-s3bucket-manage.md "discovery-asdd-s3bucket-manage.md").
 
 Calculating sensitivity scores
 

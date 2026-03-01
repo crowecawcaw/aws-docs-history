@@ -25,9 +25,7 @@ allowed to use the appropriate encryption key.
 - [Allowing Macie to
   use a customer managed AWS KMS key](#discovery-supported-encryption-cmk-configuration "#discovery-supported-encryption-cmk-configuration")
 
-## Encryption options for Amazon S3
-
-objects
+## Encryption options for Amazon S3 objects
 
 Amazon S3 supports multiple encryption options for S3 objects. For most of these options,
 Amazon Macie can decrypt an object by using the Macie service-linked role for your account.
@@ -115,9 +113,7 @@ bucket on the **S3 buckets** page. In the bucket details panel, under
 **AWS KMS key** field. This field shows the Amazon Resource Name
 (ARN) or unique identifier (key ID) for the key.
 
-## Allowing Macie to use a
-
-customer managed AWS KMS key
+## Allowing Macie to use a customer managed AWS KMS key
 
 If an Amazon S3 object is encrypted using dual-layer server-side encryption or server-side
 encryption with a customer managed AWS KMS key (DSSE-KMS or SSE-KMS), Amazon Macie can
@@ -135,9 +131,7 @@ This topic describes how to perform these tasks and provides examples for both s
 learn more about allowing access to customer managed AWS KMS keys, see [KMS key
 access and permissions](../../../kms/latest/developerguide/control-access.md "../../../kms/latest/developerguide/control-access.md") in the _AWS Key Management Service Developer Guide_.
 
-### Allowing
-
-same-account access to a customer managed key
+### Allowing same-account access to a customer managed key
 
 If the same account owns both the AWS KMS key and the S3 bucket, a user of the account
 has to add a statement to the policy for the key. The additional statement must
@@ -197,9 +191,7 @@ that the policy currently contains. When you add the statement, ensure that the 
 is valid. Key policies use JSON format. This means that you have to also add a comma
 before or after the statement, depending on where you add the statement to the policy.
 
-### Allowing
-
-cross-account access to a customer managed key
+### Allowing cross-account access to a customer managed key
 
 If one account owns the AWS KMS key (_key
 owner_) and a different account owns the S3 bucket (_bucket owner_), the key owner has to provide the bucket

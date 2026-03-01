@@ -1,6 +1,4 @@
-# Schema for reporting the location of sensitive
-
-data
+# Schema for reporting the location of sensitive data
 
 Amazon Macie uses standardized JSON structures to store information about where it finds
 sensitive data in Amazon Simple Storage Service (Amazon S3) objects. The structures are used by sensitive data
@@ -132,8 +130,7 @@ explain and provide examples of these structures.
 ###### Topics
 
 - [Cells array](#findings-locate-sd-schema-examples-cell "#findings-locate-sd-schema-examples-cell")
-- [LineRanges
-  array](#findings-locate-sd-schema-examples-linerange "#findings-locate-sd-schema-examples-linerange")
+- [LineRanges array](#findings-locate-sd-schema-examples-linerange "#findings-locate-sd-schema-examples-linerange")
 - [Pages array](#findings-locate-sd-schema-examples-page "#findings-locate-sd-schema-examples-page")
 - [Records array](#findings-locate-sd-schema-examples-record "#findings-locate-sd-schema-examples-record")
 
@@ -195,9 +192,7 @@ worksheet named _Sheet2_ in the workbook. In that
 worksheet, Macie detected sensitive data in the cell in the fifth row of the third
 column (column C, named _SSN_).
 
-### LineRanges
-
-array
+### LineRanges array
 
 **Applies to:** Email message (EML) files, and non-binary text
 files other than CSV, JSON, JSON Lines, and TSV files—for example, HTML, TXT,

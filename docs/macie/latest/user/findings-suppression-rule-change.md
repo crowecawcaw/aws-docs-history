@@ -1,6 +1,4 @@
-# Changing a suppression rule for Macie
-
-findings
+# Changing a suppression rule for Macie findings
 
 After you create a suppression rule, you can change the settings for the rule. A
 _suppression rule_ is a set of attribute-based
@@ -42,8 +40,7 @@ the Amazon Macie console.
    - To change the criteria of the rule, use the
      **Filter criteria** box. In the box,
      enter conditions that specify attributes of the findings
-     that you want the rule to suppress. To learn how, see [Creating and applying filters to Macie
-     findings](findings-filter-procedure.md "findings-filter-procedure.md").
+     that you want the rule to suppress. To learn how, see [Creating and applying filters to Macie findings](findings-filter-procedure.md "findings-filter-procedure.md").
    - To change the name of the rule, enter a new name in the
      **Name** box under
      **Suppression rule**.

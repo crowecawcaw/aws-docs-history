@@ -1,6 +1,4 @@
-# Defining filter rules for Macie
-
-findings
+# Defining filter rules for Macie findings
 
 To perform consistent analysis of findings, you can create and apply filter rules. A
 _filter rule_ is a set of filter criteria that you create and

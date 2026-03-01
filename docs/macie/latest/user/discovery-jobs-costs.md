@@ -1,6 +1,4 @@
-# Forecasting and monitoring costs for sensitive data
-
-discovery jobs
+# Forecasting and monitoring costs for sensitive data discovery jobs
 
 Amazon Macie pricing is based partly on the amount of data that you analyze by running
 sensitive data discovery jobs. To forecast and monitor your estimated costs for running
@@ -21,9 +19,7 @@ For information about Macie pricing, see [Amazon Macie pricing](https://aws.amaz
 - [Monitoring estimated costs for
   jobs](#discovery-jobs-costs-track "#discovery-jobs-costs-track")
 
-## Forecasting the cost of a sensitive data
-
-discovery job
+## Forecasting the cost of a sensitive data discovery job
 
 When you create a sensitive data discovery job, Amazon Macie can calculate and display estimated
 costs during two key steps in the job creation process: when you review the table of S3
@@ -134,9 +130,7 @@ selection.
 For more information about how Macie calculates estimated costs, see [Understanding estimated
 usage costs](account-mgmt-costs-calculations.md "account-mgmt-costs-calculations.md").
 
-## Monitoring estimated costs for sensitive
-
-data discovery jobs
+## Monitoring estimated costs for sensitive data discovery jobs
 
 If you’re already running sensitive data discovery jobs, the **Usage** page
 on the Amazon Macie console can help you monitor the estimated cost of those jobs. The page

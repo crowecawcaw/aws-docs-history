@@ -30,8 +30,7 @@ A sensitive data finding can provide details such as:
   You can access these details by using the Amazon Macie console or the Amazon Macie API. You can
   also access these details in findings that Macie publishes to other AWS services, both
   Amazon EventBridge and AWS Security Hub CSPM. To learn about the JSON structures that Macie uses to report these
-  details, see [Schema for reporting the location of sensitive
-  data](findings-locate-sd-schema.md "findings-locate-sd-schema.md"). To learn how to access the details in
+  details, see [Schema for reporting the location of sensitive data](findings-locate-sd-schema.md "findings-locate-sd-schema.md"). To learn how to access the details in
   findings that Macie publishes to other AWS services, see [Monitoring and processing
   findings](findings-monitor.md "findings-monitor.md").
 
@@ -50,8 +49,7 @@ location data in sensitive data findings and sensitive data discovery results.
 To locate occurrences of sensitive data reported by a finding, you can use the Amazon Macie
 console or the Amazon Macie API. To do this programmatically, use the [GetFindings](../APIReference/findings-describe.md "../APIReference/findings-describe.md") operation. If a finding includes details about the location of
 one or more occurrences of a specific type of sensitive data, `occurrences`
-objects in the finding provide these details. For more information, see [Schema for reporting the location of sensitive
-data](findings-locate-sd-schema.md "findings-locate-sd-schema.md").
+objects in the finding provide these details. For more information, see [Schema for reporting the location of sensitive data](findings-locate-sd-schema.md "findings-locate-sd-schema.md").
 
 To locate occurrences of sensitive data by using the console, follow these steps.
 

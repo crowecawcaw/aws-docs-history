@@ -1,6 +1,4 @@
-# Considerations for invitation-based
-
-organizations in Macie
+# Considerations for invitation-based organizations in Macie
 
 ###### Note
 
@@ -13,18 +11,12 @@ accounts](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
 
 ###### Topics
 
-- [Choosing a
-  Macie administrator account](#accounts-mgmt-invitations-notes-admin-designate "#accounts-mgmt-invitations-notes-admin-designate")
-- [Sending invitations and managing
-  Macie member accounts](#accounts-mgmt-invitations-notes-members-manage "#accounts-mgmt-invitations-notes-members-manage")
-- [Responding to and
-  managing membership invitations](#accounts-mgmt-invitations-notes-invitations-manage "#accounts-mgmt-invitations-notes-invitations-manage")
-- [Transitioning to
-  AWS Organizations](#accounts-mgmt-invitations-notes-transition-ao "#accounts-mgmt-invitations-notes-transition-ao")
+- [Choosing a Macie administrator account](#accounts-mgmt-invitations-notes-admin-designate "#accounts-mgmt-invitations-notes-admin-designate")
+- [Sending invitations and managing Macie member accounts](#accounts-mgmt-invitations-notes-members-manage "#accounts-mgmt-invitations-notes-members-manage")
+- [Responding to and managing membership invitations](#accounts-mgmt-invitations-notes-invitations-manage "#accounts-mgmt-invitations-notes-invitations-manage")
+- [Transitioning to AWS Organizations](#accounts-mgmt-invitations-notes-transition-ao "#accounts-mgmt-invitations-notes-transition-ao")
 
-## Choosing a
-
-Macie administrator account
+## Choosing a Macie administrator account
 
 While you determine which account should be the Macie administrator account for the organization,
 keep the following in mind:
@@ -57,9 +49,7 @@ restore access to the data before it expires, restore the Macie administrator’
 AWS account, and then use that account to create and configure the
 organization again.
 
-## Sending invitations and managing
-
-Macie member accounts
+## Sending invitations and managing Macie member accounts
 
 As the Macie administrator for an invitation-based organization, keep the following in mind when
 you send invitations and manage accounts in the organization:
@@ -77,8 +67,7 @@ you send invitations and manage accounts in the organization:
   additional accounts. To determine how many accounts are currently associated
   with your account, you can use the **Accounts** page on the
   Amazon Macie console or the [ListMembers](../APIReference/members.md "../APIReference/members.md") operation
-  of the Amazon Macie API. For more information, see [Reviewing Macie accounts for an
-  invitation-based organization](accounts-mgmt-invitations-review.md "accounts-mgmt-invitations-review.md").
+  of the Amazon Macie API. For more information, see [Reviewing Macie accounts for an invitation-based organization](accounts-mgmt-invitations-review.md "accounts-mgmt-invitations-review.md").
 
 To reduce the number of associated accounts, you can: delete associations with
 accounts that aren’t currently member accounts, remove the necessary number of
@@ -99,9 +88,7 @@ of accounts that are associated with your account.
 - If you remove a member account from your organization, Macie continues to be enabled for
   the account. The account becomes a standalone Macie account.
 
-## Responding to and
-
-managing membership invitations
+## Responding to and managing membership invitations
 
 As a recipient of an invitation or a member of an invitation-based organization, keep
 the following in mind when you respond to and manage invitations that you receive:
@@ -144,9 +131,7 @@ the following in mind when you respond to and manage invitations that you receiv
     data. Instead, Macie generates and maintains new data while it performs
     automated discovery for your account.
 
-## Transitioning to
-
-AWS Organizations
+## Transitioning to AWS Organizations
 
 After you create an invitation-based organization in Macie, you can transition to
 using AWS Organizations instead. To simplify the transition, we recommend that you designate the

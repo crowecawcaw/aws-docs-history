@@ -1,6 +1,4 @@
-# Accessing discovery results from
-
-automated sensitive data discovery
+# Accessing discovery results from automated sensitive data discovery
 
 When Amazon Macie performs automated sensitive data discovery, it creates an analysis record for each Amazon Simple Storage Service (Amazon S3)
 object that it selects for analysis. These records, referred to as _sensitive data discovery results_, log details about the analysis that Macie performs on individual S3
@@ -55,7 +53,7 @@ administrator's account.
 Sensitive data discovery results adhere to a standardized schema. This can help you query,
 monitor, and process them by using other applications, services, and systems. For a detailed,
 instructional example of how you might query and use these results, see the following blog post
-on the _AWS Security Blog_: [How to query and visualize Macie sensitive data discovery results with Amazon Athena and Amazon Quick Suite](https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/ "https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/"). For samples
+on the _AWS Security Blog_: [How to query and visualize Macie sensitive data discovery results with Amazon Athena and Amazon Quick](https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/ "https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/"). For samples
 of Athena queries that you can use to analyze the results, visit the [Amazon Macie Results Analytics
 repository](https://github.com/aws-samples/amazon-macie-results-analytics "https://github.com/aws-samples/amazon-macie-results-analytics") on GitHub. This repository also provides instructions for configuring Athena
 to retrieve and decrypt your results, and scripts for creating tables for the results.

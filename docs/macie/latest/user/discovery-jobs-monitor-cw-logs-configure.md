@@ -1,6 +1,4 @@
-# How logging works for sensitive data
-
-discovery jobs
+# How logging works for sensitive data discovery jobs
 
 When you start running sensitive data discovery jobs, Amazon Macie automatically creates and
 configures the appropriate resources in Amazon CloudWatch Logs to log events for all of your jobs.

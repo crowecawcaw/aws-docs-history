@@ -21,8 +21,7 @@ about the settings for your account and organization.
 
 ###### Topics
 
-- [Prerequisites for configuring
-  automated sensitive data discovery](discovery-asdd-account-configure-prereqs.md "discovery-asdd-account-configure-prereqs.md")
+- [Prerequisites for configuring automated sensitive data discovery](discovery-asdd-account-configure-prereqs.md "discovery-asdd-account-configure-prereqs.md")
 - [Enabling automated sensitive data discovery](discovery-asdd-account-enable.md "discovery-asdd-account-enable.md")
 - [Configuring settings for automated sensitive data discovery](discovery-asdd-account-configure.md "discovery-asdd-account-configure.md")
 - [Disabling automated sensitive data discovery](discovery-asdd-account-disable.md "discovery-asdd-account-disable.md")

@@ -1,6 +1,4 @@
-# Reviewing Macie accounts for an
-
-invitation-based organization
+# Reviewing Macie accounts for an invitation-based organization
 
 ###### Note
 

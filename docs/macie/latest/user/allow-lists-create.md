@@ -42,8 +42,7 @@ version of the list's regex to analyze data. If Macie finds text that completely
 the pattern defined by the list, Macie doesn't report that occurrence of text as sensitive
 data.
 
-For detailed requirements, recommendations, and examples of each type, see [Configuration options and requirements for allow
-lists](allow-lists-options.md "allow-lists-options.md").
+For detailed requirements, recommendations, and examples of each type, see [Configuration options and requirements for allow lists](allow-lists-options.md "allow-lists-options.md").
 
 You can create as many as 10 allow lists in each supported AWS Region: up to five allow
 lists that specify predefined text, and up to five allow lists that specify regular expressions.
@@ -68,8 +67,7 @@ Before you create this type of allow list in Macie, do the following:
 3. Ensure that the settings for the S3 bucket and object allow you and Macie to
    retrieve the list from the bucket. For more information, see [Storage requirements](allow-lists-options.md#allow-lists-options-s3list-storage "allow-lists-options.md#allow-lists-options-s3list-storage").
 4. If you encrypted the S3 object, ensure that it's encrypted with a key that you and
-   Macie are allowed to use. For more information, see [Encryption/Decryption
-   requirements](allow-lists-options.md#allow-lists-options-s3list-encryption "allow-lists-options.md#allow-lists-options-s3list-encryption").
+   Macie are allowed to use. For more information, see [Encryption/Decryption requirements](allow-lists-options.md#allow-lists-options-s3list-encryption "allow-lists-options.md#allow-lists-options-s3list-encryption").
    After you complete these tasks, you're ready to configure the list's settings in Macie.
    You can configure the settings by using the Amazon Macie console or the Amazon Macie API.
 
@@ -231,8 +229,7 @@ A *tag* is a label that you define and assign to certain types of AWS resource
 Macie tests the list's settings. Macie also tests the regex to verify that it can
 compile the expression. If an error occurs, Macie displays a message that describes
 the error. For detailed information that can help you troubleshoot the error, see
-[Options and requirements for regular
-expressions](allow-lists-options.md#allow-lists-options-regex "allow-lists-options.md#allow-lists-options-regex"). After you address any errors, you can save the allow list.
+[Options and requirements for regular expressions](allow-lists-options.md#allow-lists-options-regex "allow-lists-options.md#allow-lists-options-regex"). After you address any errors, you can save the allow list.
 
 API
 Before you create this type of allow list in Macie, we recommend that you test and
@@ -280,8 +277,7 @@ This example is formatted for Microsoft Windows and it uses the caret (^) line-c
 When you submit your request, Macie tests the list's settings. Macie also tests
 the regex to verify that it can compile the expression. If an error occurs, the
 request fails and Macie returns a message that describes the error. For detailed
-information that can help you troubleshoot the error, see [Options and requirements for regular
-expressions](allow-lists-options.md#allow-lists-options-regex "allow-lists-options.md#allow-lists-options-regex").
+information that can help you troubleshoot the error, see [Options and requirements for regular expressions](allow-lists-options.md#allow-lists-options-regex "allow-lists-options.md#allow-lists-options-regex").
 
 If Macie can compile the expression, the request succeeds and you receive output
 similar to the following:

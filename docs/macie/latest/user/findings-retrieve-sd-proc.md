@@ -1,6 +1,4 @@
-# Retrieving sensitive data samples for a Macie
-
-finding
+# Retrieving sensitive data samples for a Macie finding
 
 By using Amazon Macie, you can retrieve and reveal samples of sensitive data that Macie reports
 in individual sensitive data findings. This includes sensitive data that Macie detects using
@@ -86,9 +84,7 @@ Macie to verify that you're currently the Macie administrator for the affected a
 If you're not allowed to perform the requisite actions or access the requisite data and
 resources, ask your AWS administrator for assistance.
 
-## Determining whether sensitive data
-
-samples are available for a finding
+## Determining whether sensitive data samples are available for a finding
 
 To retrieve and reveal sensitive data samples for a finding, the finding needs to meet
 certain criteria. It has to include location data for specific occurrences of sensitive data.
@@ -208,8 +204,7 @@ the information in the **Detailed result location** field of the
 finding can help you investigate the issue. This field specifies the original path
 to the result in Amazon S3. To investigate an issue with an IAM role, ensure that the
 role's policies meet all requirements for Macie to assume the role. For these
-details, see [Configuring
-an IAM role to access affected S3 objects](findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration "findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration").
+details, see [Configuring an IAM role to access affected S3 objects](findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration "findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration").
 
 API
 To programmatically determine whether sensitive data samples are available for a
@@ -250,12 +245,9 @@ information in the `classificationDetails.detailedResultsLocation` field of
 the finding can help you investigate the issue. This field specifies the original path
 to the result in Amazon S3. To investigate an issue with an IAM role, ensure that the
 role's policies meet all requirements for Macie to assume the role. For these details,
-see [Configuring
-an IAM role to access affected S3 objects](findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration "findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration").
+see [Configuring an IAM role to access affected S3 objects](findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration "findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration").
 
-## Retrieving sensitive data samples for a
-
-finding
+## Retrieving sensitive data samples for a finding
 
 To retrieve and reveal sensitive data samples for a finding, you can use the Amazon Macie
 console or the Amazon Macie API.

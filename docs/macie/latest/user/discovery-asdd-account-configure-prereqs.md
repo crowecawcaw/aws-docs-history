@@ -1,6 +1,4 @@
-# Prerequisites for configuring
-
-automated sensitive data discovery
+# Prerequisites for configuring automated sensitive data discovery
 
 Before you enable or configure settings for automated sensitive data discovery, complete the following tasks. This
 helps ensure that you have the resources and permissions that you need.
@@ -18,9 +16,7 @@ only the Macie administrator can configure automated discovery settings for the 
   permissions](#discovery-asdd-account-configure-prereqs-perms "#discovery-asdd-account-configure-prereqs-perms")
 - [Next steps](#discovery-asdd-account-configure-prereqs-next "#discovery-asdd-account-configure-prereqs-next")
 
-## Step 1: Configure a repository for
-
-sensitive data discovery results
+## Step 1: Configure a repository for sensitive data discovery results
 
 When Amazon Macie performs automated sensitive data discovery, it creates an analysis record for each Amazon Simple Storage Service (Amazon S3)
 object that it selects for analysis. These records, referred to as _sensitive data discovery results_, log details about the analysis of individual S3 objects. This
@@ -50,9 +46,7 @@ for your account or organization.
 If you use Macie in multiple AWS Regions, verify that you configured the repository for
 each of those Regions.
 
-## Step 2: Verify your
-
-permissions
+## Step 2: Verify your permissions
 
 To verify your permissions, use AWS Identity and Access Management (IAM) to review the IAM policies that are
 attached to your IAM identity. Then compare the information in those policies to the following

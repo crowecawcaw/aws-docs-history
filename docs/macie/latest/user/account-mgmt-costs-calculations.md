@@ -1,6 +1,4 @@
-# Understanding estimated usage costs
-
-for Macie
+# Understanding estimated usage costs for Macie
 
 Amazon Macie pricing is based on the following dimensions.
 

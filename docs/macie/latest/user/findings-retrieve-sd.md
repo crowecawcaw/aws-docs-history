@@ -1,6 +1,4 @@
-# Retrieving sensitive data samples with Macie
-
-findings
+# Retrieving sensitive data samples with Macie findings
 
 To verify the nature of sensitive data that Amazon Macie reports in findings, you can
 optionally configure and use Macie to retrieve and reveal samples of sensitive data reported

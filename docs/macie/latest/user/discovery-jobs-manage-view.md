@@ -1,6 +1,4 @@
-# Reviewing your inventory of sensitive data
-
-discovery jobs
+# Reviewing your inventory of sensitive data discovery jobs
 
 On the Amazon Macie console, you can review a complete inventory of your sensitive data discovery jobs
 in the current AWS Region. The inventory provides both summary information for all of

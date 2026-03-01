@@ -1,6 +1,4 @@
-# Scope options for sensitive data discovery
-
-jobs
+# Scope options for sensitive data discovery jobs
 
 With sensitive data discovery jobs, you define the scope of the analysis that Amazon Macie performs to detect
 and report sensitive data in your Amazon Simple Storage Service (Amazon S3) general purpose buckets. To help you do
@@ -58,9 +56,7 @@ The topics in this section provide additional details about each option.
 - [Specifying S3 bucket
   criteria](#discovery-jobs-scope-buckets-criteria "#discovery-jobs-scope-buckets-criteria")
 
-### Selecting specific S3
-
-buckets
+### Selecting specific S3 buckets
 
 If you choose to explicitly select each S3 bucket that you want a job to analyze, Macie
 provides you with an inventory of your general purpose buckets in the current
@@ -120,7 +116,7 @@ information, see [Data
 refreshes](monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh "monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh").
 
 If the warning icon (
-![The warning icon, which is a red triangle that has an exclamation point in it.](images/icon-warning-red.png)
+![The warning icon, which is a red triangle that has an exclamation point in it.](/images/macie/latest/user/images/icon-warning-red.png)
 ) appears next to a bucket's name, Macie
 isn't allowed to access the bucket or the bucket's objects. This means that the job
 won't be able to analyze objects in the bucket. To investigate the issue, review the
@@ -172,9 +168,7 @@ recently created or changed. You can, however, configure a job to analyze object
 buckets that exceed this quota. To review additional details for these buckets, use
 Amazon S3.
 
-### Specifying S3 bucket
-
-criteria
+### Specifying S3 bucket criteria
 
 If you choose to specify bucket criteria for a job, Macie provides options for defining and
 testing the criteria. These are runtime criteria that determine which S3 buckets
@@ -183,9 +177,7 @@ buckets that match your criteria, and then analyzes objects in the appropriate
 buckets. If you're the Macie administrator for an organization, this includes buckets that
 your member accounts own.
 
-#### Defining bucket
-
-criteria
+#### Defining bucket criteria
 
 Bucket criteria consist of one or more conditions that derive from properties of S3
 buckets. Each condition, also referred to as a _criterion_, consists of the following parts:
@@ -329,9 +321,7 @@ specify a _not equals_ (`neq`)
 operator for a tag-based condition, this means that the buckets will
 match the condition.
 
-#### Testing bucket
-
-criteria
+#### Testing bucket criteria
 
 While you define your bucket criteria, you can test and refine the criteria by previewing
 the results. To do this, expand the **Preview the criteria
@@ -371,7 +361,7 @@ at least one of those jobs is not _Cancelled_. Macie updates this data on a dail
 basis.
 
 If the warning icon (
-![The warning icon, which is a red triangle that has an exclamation point in it.](images/icon-warning-red.png)
+![The warning icon, which is a red triangle that has an exclamation point in it.](/images/macie/latest/user/images/icon-warning-red.png)
 ) appears next to a bucket's name, Macie isn't
 allowed to access the bucket or the bucket's objects. This means that the job
 won't be able to analyze objects in the bucket. To investigate the issue, review

@@ -1,6 +1,4 @@
-# Understanding log events for sensitive data
-
-discovery jobs
+# Understanding log events for sensitive data discovery jobs
 
 To help you monitor your sensitive data discovery jobs, Amazon Macie automatically
 publishes logging data for jobs to Amazon CloudWatch Logs. The data in these logs provides a record
@@ -35,9 +33,7 @@ Guide](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../A
   - [Account-level error events](discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index-account-errors "discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index-account-errors")
   - [Bucket-level error events](discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index-bucket-errors "discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index-bucket-errors")
 
-## Log event schema for
-
-sensitive data discovery jobs
+## Log event schema for sensitive data discovery jobs
 
 Each log event for a sensitive data discovery job is a JSON object that contains a
 standard set of fields and conforms to the Amazon CloudWatch Logs event schema. Some types of
@@ -101,9 +97,7 @@ following fields:
   Time (UTC) and extended ISO 8601 format, when the applicable job or job run
   started.
 
-## Types of log events for
-
-sensitive data discovery jobs
+## Types of log events for sensitive data discovery jobs
 
 Amazon Macie publishes log events for three categories of events that can occur for a
 sensitive data discovery job:
@@ -118,9 +112,7 @@ sensitive data discovery job:
 The topics in this section list and describe the types of events that Macie
 publishes for each category.
 
-### Job status
-
-events
+### Job status events
 
 A job status event records a change to the status or progress of a job or a
 job run. For periodic jobs, Macie logs and publishes these events for both the

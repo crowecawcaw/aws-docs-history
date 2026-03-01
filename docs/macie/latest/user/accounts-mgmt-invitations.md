@@ -1,6 +1,4 @@
-# Managing multiple Macie accounts by
-
-invitation
+# Managing multiple Macie accounts by invitation
 
 ###### Note
 
@@ -11,8 +9,7 @@ You can centrally manage multiple Amazon Macie accounts in two ways, by integrat
 with AWS Organizations or by using membership invitations. If you use membership invitations, a
 designated Macie administrator can manage Macie for as many as 1,000 accounts. The administrator can
 also access Amazon Simple Storage Service (Amazon S3) inventory data and discover sensitive data in S3 buckets that
-the accounts own. For details about tasks that the administrator can perform, see [Macie administrator and member account
-relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
+the accounts own. For details about tasks that the administrator can perform, see [Macie administrator and member account relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
 
 In an invitation-based organization, you associate Macie accounts with each other by
 sending and accepting membership invitations in Macie. If you send an invitation and it’s

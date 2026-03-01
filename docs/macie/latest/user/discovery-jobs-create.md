@@ -46,24 +46,17 @@ job, such as the job's name and description. You can then review and save the jo
 
 ###### Tasks
 
-- [Before you begin: Set up key
-  resources](#discovery-jobs-create-prerequisites "#discovery-jobs-create-prerequisites")
+- [Before you begin: Set up key resources](#discovery-jobs-create-prerequisites "#discovery-jobs-create-prerequisites")
 - [Step 1: Choose S3 buckets](#discovery-jobs-create-step1 "#discovery-jobs-create-step1")
-- [Step 2: Review your S3 bucket selections
-  or criteria](#discovery-jobs-create-step2 "#discovery-jobs-create-step2")
-- [Step 3: Define the schedule and refine the
-  scope](#discovery-jobs-create-step3 "#discovery-jobs-create-step3")
-- [Step 4: Select managed data
-  identifiers](#discovery-jobs-create-step4 "#discovery-jobs-create-step4")
-- [Step 5: Select custom data
-  identifiers](#discovery-jobs-create-step5 "#discovery-jobs-create-step5")
+- [Step 2: Review your S3 bucket selections or criteria](#discovery-jobs-create-step2 "#discovery-jobs-create-step2")
+- [Step 3: Define the schedule and refine the scope](#discovery-jobs-create-step3 "#discovery-jobs-create-step3")
+- [Step 4: Select managed data identifiers](#discovery-jobs-create-step4 "#discovery-jobs-create-step4")
+- [Step 5: Select custom data identifiers](#discovery-jobs-create-step5 "#discovery-jobs-create-step5")
 - [Step 6: Select allow lists](#discovery-jobs-create-step6 "#discovery-jobs-create-step6")
 - [Step 7: Enter general settings](#discovery-jobs-create-step7 "#discovery-jobs-create-step7")
 - [Step 8: Review and create](#discovery-jobs-create-step8 "#discovery-jobs-create-step8")
 
-## Before you begin: Set up key
-
-resources
+## Before you begin: Set up key resources
 
 Before you create a job, it's a good idea to take the following steps:
 
@@ -108,8 +101,7 @@ Choose the section for the option that you want.
 If you choose to explicitly select each S3 bucket to analyze, Macie provides you with an
 inventory of your general purpose buckets in the current AWS Region. You can
 then use this inventory to select one or more buckets for the job. To learn
-about this inventory, see [Selecting specific S3
-buckets](discovery-jobs-scope.md#discovery-jobs-scope-buckets-select "discovery-jobs-scope.md#discovery-jobs-scope-buckets-select").
+about this inventory, see [Selecting specific S3 buckets](discovery-jobs-scope.md#discovery-jobs-scope-buckets-select "discovery-jobs-scope.md#discovery-jobs-scope-buckets-select").
 
 If you're the Macie administrator for an organization, the inventory includes buckets that are
 owned by member accounts in your organization. You can select as many as 1,000
@@ -170,8 +162,7 @@ cycle](monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh "mo
 If you choose to specify runtime criteria that determine which S3 buckets to analyze,
 Macie provides options to help you choose fields, operators, and values for
 individual conditions in the criteria. To learn more about these options, see
-[Specifying S3 bucket
-criteria](discovery-jobs-scope.md#discovery-jobs-scope-buckets-criteria "discovery-jobs-scope.md#discovery-jobs-scope-buckets-criteria").
+[Specifying S3 bucket criteria](discovery-jobs-scope.md#discovery-jobs-scope-buckets-criteria "discovery-jobs-scope.md#discovery-jobs-scope-buckets-criteria").
 
 ###### To specify S3 bucket criteria for the job
 
@@ -227,9 +218,7 @@ criteria](discovery-jobs-scope.md#discovery-jobs-scope-buckets-criteria "discove
     **Next**.
     In the next step, you'll review and verify your criteria.
 
-## Step 2: Review your S3 bucket selections
-
-or criteria
+## Step 2: Review your S3 bucket selections or criteria
 
 For this step, verify that you chose the correct settings in the preceding
 step:
@@ -257,9 +246,7 @@ costs](discovery-jobs-costs.md "discovery-jobs-costs.md").
 When you finish reviewing and verifying the settings, choose
 **Next**.
 
-## Step 3: Define the schedule and refine the
-
-scope
+## Step 3: Define the schedule and refine the scope
 
 For this step, specify how often you want the job to run—once, or periodically
 on a daily, weekly, or monthly basis. Also choose various options to refine the scope of
@@ -320,9 +307,7 @@ extension and exclude objects that are larger than 5 MB, the job analyzes any
 object that has the .pdf file name extension, unless the object is larger than 5
 MB. 4. When you finish, choose **Next**.
 
-## Step 4: Select managed data
-
-identifiers
+## Step 4: Select managed data identifiers
 
 For this step, specify which managed data identifiers you want the job to use when it
 analyzes S3 objects. You have two options:
@@ -393,9 +378,7 @@ or type.
 
 2. When you finish, choose **Next**.
 
-## Step 5: Select custom data
-
-identifiers
+## Step 5: Select custom data identifiers
 
 For this step, select any custom data identifiers that you want the job to use when it
 analyzes S3 objects. The job will use the selected identifiers in addition to any

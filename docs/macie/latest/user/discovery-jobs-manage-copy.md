@@ -1,6 +1,4 @@
-# Copying a sensitive data discovery
-
-job
+# Copying a sensitive data discovery job
 
 To quickly create a sensitive data discovery job that's similar to an existing job,
 you can create a copy of the existing job. You can then edit the copy's settings, and

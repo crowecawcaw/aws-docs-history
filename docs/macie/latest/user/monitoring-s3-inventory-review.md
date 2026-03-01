@@ -1,6 +1,4 @@
-# Reviewing your S3 bucket inventory in
-
-Macie
+# Reviewing your S3 bucket inventory in Macie
 
 On the Amazon Macie console, the **S3 buckets** page provides detailed insight
 into the security and privacy of your Amazon Simple Storage Service (Amazon S3) data in the current AWS Region. With
@@ -46,14 +44,10 @@ If you prefer to access and query your inventory data programmatically, you can 
 
 ###### Topics
 
-- [Reviewing your S3 bucket
-  inventory](#monitoring-s3-inventory-view "#monitoring-s3-inventory-view")
-- [Reviewing the details of S3
-  buckets](#monitoring-s3-inventory-view-details "#monitoring-s3-inventory-view-details")
+- [Reviewing your S3 bucket inventory](#monitoring-s3-inventory-view "#monitoring-s3-inventory-view")
+- [Reviewing the details of S3 buckets](#monitoring-s3-inventory-view-details "#monitoring-s3-inventory-view-details")
 
-## Reviewing your S3 bucket
-
-inventory
+## Reviewing your S3 bucket inventory
 
 The **S3 buckets** page on the Amazon Macie console provides information
 about your S3 general purpose buckets in the current AWS Region. On this page, a table
@@ -67,8 +61,7 @@ values (CSV) file.
 If automated sensitive data discovery is enabled, you also have the option of reviewing your inventory by
 using an interactive heat map. The map provides a visual representation of data
 sensitivity across your Amazon S3 data estate. It captures the results of automated sensitive data discovery
-activities that Macie has performed thus far. To learn about this map, see [Visualizing data sensitivity with the
-S3 buckets map](discovery-asdd-results-s3-inventory-map.md "discovery-asdd-results-s3-inventory-map.md").
+activities that Macie has performed thus far. To learn about this map, see [Visualizing data sensitivity with the S3 buckets map](discovery-asdd-results-s3-inventory-map.md "discovery-asdd-results-s3-inventory-map.md").
 
 ###### To review your S3 bucket inventory
 
@@ -166,9 +159,7 @@ want to export, or select the checkbox in the selection column heading to select
 all rows. Then choose **Export to CSV** at the top of the page.
 You can export up to 50,000 rows from the table.
 
-## Reviewing the details of S3
-
-buckets
+## Reviewing the details of S3 buckets
 
 To review details and statistics for an S3 general purpose bucket, you can use the details
 panel on the **S3 buckets** page of the Amazon Macie console. The panel
@@ -185,8 +176,7 @@ the job produced.
 If automated sensitive data discovery is enabled, you can also use the details panel to review sensitive data discovery statistics
 and other information about individual S3 buckets. The panel captures the results of
 automated sensitive data discovery activities that Macie has performed thus far for a bucket. To learn about
-these details, see [Reviewing data sensitivity details
-for S3 buckets](discovery-asdd-results-s3-inventory-details.md "discovery-asdd-results-s3-inventory-details.md").
+these details, see [Reviewing data sensitivity details for S3 buckets](discovery-asdd-results-s3-inventory-details.md "discovery-asdd-results-s3-inventory-details.md").
 
 ###### To review the details of an S3 bucket
 
@@ -285,9 +275,7 @@ automated discovery run** field. This field indicates when Macie most
 recently analyzed objects in the bucket while performing automated sensitive data discovery. If this
 analysis hasn't occurred, a dash (–) appears in this field.
 
-### Object
-
-statistics
+### Object statistics
 
 This section provides information about the objects in the bucket, starting with
 the total number of objects in the bucket (**Total count**), the
@@ -399,9 +387,7 @@ For information about each supported encryption type, see [Protecting data
 with encryption](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md") in the _Amazon Simple Storage Service User
 Guide_.
 
-### Server-side
-
-encryption
+### Server-side encryption
 
 This section provides insight into the server-side encryption settings for the
 bucket.
@@ -462,9 +448,7 @@ encryption with an AWS KMS key (DSSE-KMS). For information about default encrypt
 see [Setting default
 server-side encryption behavior for S3 buckets](../../../AmazonS3/latest/userguide/bucket-encryption.md "../../../AmazonS3/latest/userguide/bucket-encryption.md") in the _Amazon Simple Storage Service User Guide_.
 
-### Sensitive data
-
-discovery
+### Sensitive data discovery
 
 This section indicates whether you configured any sensitive data discovery jobs to
 periodically analyze objects in the bucket on a daily, weekly, or monthly basis. If
@@ -485,9 +469,7 @@ link in the **Latest job** field. In the job details panel that
 appears, choose **Show results** at the top of the panel, and
 then choose **Show findings**.
 
-### Public
-
-access
+### Public access
 
 This section indicates whether the bucket is publicly accessible. It also provides
 a breakdown of the various account- and bucket-level settings that determine whether

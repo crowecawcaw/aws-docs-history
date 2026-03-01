@@ -1,6 +1,4 @@
-# Amazon EventBridge event schema for Macie
-
-findings
+# Amazon EventBridge event schema for Macie findings
 
 To support integration with other applications, services, and systems, such as monitoring
 or event management systems, Amazon Macie automatically publishes findings to Amazon EventBridge as
@@ -27,10 +25,8 @@ for findings](findings-publish-frequency.md "findings-publish-frequency.md").
 ###### Topics
 
 - [Event schema for Macie findings](#findings-publish-event-schema "#findings-publish-event-schema")
-- [Example of an event for a policy
-  finding](#findings-publish-event-example-policy "#findings-publish-event-example-policy")
-- [Example of an event for a
-  sensitive data finding](#findings-publish-event-example-classification "#findings-publish-event-example-classification")
+- [Example of an event for a policy finding](#findings-publish-event-example-policy "#findings-publish-event-example-policy")
+- [Example of an event for a sensitive data finding](#findings-publish-event-example-classification "#findings-publish-event-example-classification")
 
 ## Event schema for Macie findings
 
@@ -62,9 +58,7 @@ API.
 }
 ```
 
-## Example of an event for a policy
-
-finding
+## Example of an event for a policy finding
 
 The following example uses sample data to demonstrate the structure and nature of
 objects and fields in an Amazon EventBridge event for a [policy finding](findings-types.md#findings-policy-types "findings-types.md#findings-policy-types"). In this example, the event reports a subsequent occurrence
@@ -241,9 +235,7 @@ value emphasizes that this is an example event for use in the documentation.
 }
 ```
 
-## Example of an event for a
-
-sensitive data finding
+## Example of an event for a sensitive data finding
 
 The following example uses sample data to demonstrate the structure and nature of
 objects and fields in an Amazon EventBridge event for a [sensitive data finding](findings-types.md#findings-sensitive-data-types "findings-types.md#findings-sensitive-data-types"). In this

@@ -1,6 +1,4 @@
-# Accessing Macie with an interface endpoint
-
-(AWS PrivateLink)
+# Accessing Macie with an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your virtual private
 cloud (VPC) and Amazon Macie. You can access Macie as if it were in your VPC, without the use
@@ -22,9 +20,7 @@ _AWS PrivateLink Guide_.
 - [Creating an interface endpoint for Macie](#vpc-endpoint-create "#vpc-endpoint-create")
 - [Creating an endpoint policy for Macie](#vpc-endpoint-policy "#vpc-endpoint-policy")
 
-## Considerations for Macie interface
-
-endpoints
+## Considerations for Macie interface endpoints
 
 Amazon Macie supports interface endpoints in all the AWS Regions where it's currently
 available. For a list of these Regions, see [Amazon Macie endpoints and quotas](../../../general/latest/gr/macie.md "../../../general/latest/gr/macie.md") in the _AWS General Reference_. Macie supports making calls to all of its API operations

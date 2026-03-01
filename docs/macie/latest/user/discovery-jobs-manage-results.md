@@ -1,6 +1,4 @@
-# Reviewing the results of a sensitive data
-
-discovery job
+# Reviewing the results of a sensitive data discovery job
 
 When you run a sensitive data discovery job, Amazon Macie automatically calculates and reports
 certain statistical data for the job. For example, Macie reports the number of times that
@@ -17,9 +15,7 @@ results_.
 - [Reviewing job statistics and
   results](#discovery-jobs-manage-results-review "#discovery-jobs-manage-results-review")
 
-## Types of results for sensitive
-
-data discovery jobs
+## Types of results for sensitive data discovery jobs
 
 As a sensitive data discovery job progresses, Amazon Macie produces the following types
 of results for the job.
@@ -130,16 +126,14 @@ and systems.
 For a detailed, instructional example of how you might query and use sensitive data discovery results to
 analyze and report potential data security risks, see the following blog post on the
 _AWS Security Blog_: [How to query and visualize Macie sensitive data discovery results with Amazon Athena and
-Amazon Quick Suite](https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/ "https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/").
+Amazon Quick](https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/ "https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/").
 
 For samples of Amazon Athena queries that you can use to analyze sensitive data discovery results, visit
 the [Amazon Macie Results Analytics repository](https://github.com/aws-samples/amazon-macie-results-analytics "https://github.com/aws-samples/amazon-macie-results-analytics") on GitHub. This repository also
 provides instructions for configuring Athena to retrieve and decrypt your results,
 and scripts for creating tables for the results.
 
-## Reviewing statistics and results for a
-
-sensitive data discovery job
+## Reviewing statistics and results for a sensitive data discovery job
 
 To review processing statistics and the results of a sensitive data discovery job, you can
 use the Amazon Macie console or the Amazon Macie API. Follow these steps to review the
@@ -148,8 +142,7 @@ statistics and results by using the console.
 To access a job's processing statistics programmatically, use the [DescribeClassificationJob](../APIReference/jobs-jobid.md "../APIReference/jobs-jobid.md") operation of the Amazon Macie API. For programmatic
 access to the findings that a job produced, use the [ListFindings](../APIReference/findings.md "../APIReference/findings.md") operation and
 specify the job's unique identifier in a filter condition for the
-`classificationDetails.jobId` field. To learn how, see [Creating and applying filters to Macie
-findings](findings-filter-procedure.md "findings-filter-procedure.md"). You
+`classificationDetails.jobId` field. To learn how, see [Creating and applying filters to Macie findings](findings-filter-procedure.md "findings-filter-procedure.md"). You
 can then use the [GetFindings](../APIReference/findings-describe.md "../APIReference/findings-describe.md") operation
 to retrieve the details of the findings.
 

@@ -1,6 +1,4 @@
-# Configuring Macie to retrieve sensitive data
-
-samples
+# Configuring Macie to retrieve sensitive data samples
 
 You can optionally configure and use Amazon Macie to retrieve and reveal samples of sensitive
 data that Macie reports in individual findings. The samples can help you verify the nature of the
@@ -59,9 +57,7 @@ need.
 These tasks are optional if you've already configured Macie to retrieve and reveal sensitive
 data samples and only want to change your configuration settings.
 
-### Step 1: Configure a repository for
-
-sensitive data discovery results
+### Step 1: Configure a repository for sensitive data discovery results
 
 When you retrieve and reveal sensitive data samples for a finding, Macie uses data in the
 corresponding sensitive data discovery result to locate occurrences of sensitive data in the affected S3 object.
@@ -76,9 +72,7 @@ Amazon Macie console: choose **Discovery results** (under
 about sensitive data discovery results and how to configure this repository, see [Storing and retaining
 sensitive data discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md").
 
-### Step 2: Determine how to access
-
-affected S3 objects
+### Step 2: Determine how to access affected S3 objects
 
 To access affected S3 objects and retrieve sensitive data samples from them, you have two
 options. You can configure Macie to use your AWS Identity and Access Management (IAM) user credentials. Or you can
@@ -131,9 +125,7 @@ For information about creating and configuring KMS keys, see [Create a KMS key](
 access to KMS keys, see [Key policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the
 _AWS Key Management Service Developer Guide_.
 
-### Step 4: Verify your
-
-permissions
+### Step 4: Verify your permissions
 
 Before you configure the settings in Macie, also verify that you have the permissions that
 you need. To verify your permissions, use AWS Identity and Access Management (IAM) to review the IAM policies that
@@ -179,9 +171,7 @@ correctly.
 If you're not allowed to perform the requisite actions, ask your AWS administrator for
 assistance.
 
-## Configuring and enabling Macie
-
-settings
+## Configuring and enabling Macie settings
 
 After you verify that you have the resources and permissions that you need, you can
 configure the settings in Amazon Macie and enable the configuration for your account.
@@ -252,8 +242,7 @@ message that describes the issue.
 To address an issue with the AWS KMS key, refer to the requirements in the [preceding topic](#findings-retrieve-sd-configure-key "#findings-retrieve-sd-configure-key") and specify a KMS key
 that meets the requirements. To address an issue with the IAM role, start by verifying that
 you entered the correct role name. If the name is correct, ensure that the role’s policies
-meet all requirements for Macie to assume the role. For these details, see [Configuring
-an IAM role to access affected S3 objects](findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration "findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration"). After you address
+meet all requirements for Macie to assume the role. For these details, see [Configuring an IAM role to access affected S3 objects](findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration "findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration"). After you address
 any issues, you can save and enable the settings.
 
 ###### Note
@@ -341,8 +330,7 @@ refer to the requirements in the [preceding
 topic](#findings-retrieve-sd-configure-key "#findings-retrieve-sd-configure-key") and specify a KMS key that meets the requirements. To address an issue with
 the IAM role, start by verifying that you specified the correct role name. If the name is
 correct, ensure that the role’s policies meet all requirements for Macie to assume the role.
-For these details, see [Configuring
-an IAM role to access affected S3 objects](findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration "findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration"). After you address
+For these details, see [Configuring an IAM role to access affected S3 objects](findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration "findings-retrieve-sd-options.md#findings-retrieve-sd-options-s3access-role-configuration"). After you address
 the issue, submit your request again.
 
 If your request succeeds, Macie enables the configuration for your account in the

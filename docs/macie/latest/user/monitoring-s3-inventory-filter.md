@@ -1,6 +1,4 @@
-# Filtering your S3 bucket inventory in
-
-Macie
+# Filtering your S3 bucket inventory in Macie
 
 To identify and focus on buckets that have specific characteristics, you can filter your
 S3 bucket inventory on the Amazon Macie console and in queries that you submit programmatically
@@ -27,9 +25,7 @@ a _criterion_, consists of three parts:
 - [Filtering your
   inventory programmatically](#monitoring-s3-inventory-filter-api "#monitoring-s3-inventory-filter-api")
 
-## Filtering your inventory on the
-
-Amazon Macie console
+## Filtering your inventory on the Amazon Macie console
 
 If you use the Amazon Macie console to filter your S3 bucket inventory, Macie provides
 options to help you choose fields, operators, and values for individual conditions. You
@@ -86,7 +82,7 @@ organization, it also doesn't display data for accounts that automated discovery
 disabled for. To display this data, choose **X** in the
 **Is monitored by automated discovery** filter token below
 the filter box. 3. At the top of the page, optionally choose refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
 ) to retrieve
 the latest bucket metadata from Amazon S3. 4. Place your cursor in the filter box, and then choose the field to use for the
 condition. 5. Choose or enter the appropriate type of value for the field, keeping the
@@ -163,9 +159,7 @@ for the condition. 9. To change a condition, remove the condition by choosing th
 **X** in the filter token for the condition. Then repeat
 steps 4 through 6 to add a condition with the correct settings.
 
-## Filtering your inventory
-
-programmatically with the Amazon Macie API
+## Filtering your inventory programmatically with the Amazon Macie API
 
 To filter your S3 bucket inventory programmatically, specify filter criteria in
 queries that you submit using the [DescribeBuckets](../APIReference/datasources-s3.md "../APIReference/datasources-s3.md")
@@ -408,9 +402,7 @@ array.
 }`
 ```
 
-### Example: Find buckets
-
-by bucket name
+### Example: Find buckets by bucket name
 
 This example queries metadata for buckets that are in the current AWS Region and
 have names beginning with _my-S3_.
@@ -435,9 +427,7 @@ Where:
 - `my-S3` is the value for the **Bucket
   name** field.
 
-### Example: Find buckets
-
-that are publicly accessible
+### Example: Find buckets that are publicly accessible
 
 This example queries metadata for buckets that are in the current AWS Region
 and, based on a combination of permissions settings, are publicly accessible.
@@ -462,9 +452,7 @@ Where:
 - `PUBLIC` is an enumerated value for the
   **Effective permission** field.
 
-### Example: Find buckets
-
-that store unencrypted objects
+### Example: Find buckets that store unencrypted objects
 
 This example queries metadata for buckets that are in the current AWS Region and
 store unencrypted objects.
@@ -490,9 +478,7 @@ Where:
 - `1` is the lowest value in an inclusive, relative
   numeric range for the **No encryption** field.
 
-### Example: Find buckets
-
-that replicate data to external accounts
+### Example: Find buckets that replicate data to external accounts
 
 This example queries metadata for buckets that are in the current AWS Region and
 are configured to replicate objects to buckets for an AWS account that isn’t part
@@ -519,9 +505,7 @@ Where:
 - `true` specifies a Boolean value for the
   **Replicated externally** field.
 
-### Example: Find buckets
-
-that aren’t monitored by a sensitive data discovery job
+### Example: Find buckets that aren’t monitored by a sensitive data discovery job
 
 This example queries metadata for buckets that are in the current AWS Region and
 aren’t associated with any periodic sensitive data discovery jobs.
@@ -546,9 +530,7 @@ Where:
 - `FALSE` is an enumerated value for the
   **Actively monitored by job** field.
 
-### Example: Find
-
-buckets that aren’t monitored by automated sensitive data discovery
+### Example: Find buckets that aren’t monitored by automated sensitive data discovery
 
 This example queries metadata for buckets that are in the current AWS Region and
 are excluded from automated sensitive data discovery.
@@ -574,9 +556,7 @@ Where:
 - `NOT_MONITORED` is an enumerated value for the
   **Is monitored by automated discovery** field.
 
-### Example: Find buckets
-
-based on multiple criteria
+### Example: Find buckets based on multiple criteria
 
 This example queries metadata for buckets that are in the current AWS Region and
 match the following criteria: are publicly accessible based on a combination of

@@ -1,6 +1,4 @@
-# Managed data identifiers for financial
-
-information
+# Managed data identifiers for financial information
 
 Amazon Macie can detect multiple types of sensitive financial information by using managed data
 identifiers. The topics on this page list each type and provide information about the managed

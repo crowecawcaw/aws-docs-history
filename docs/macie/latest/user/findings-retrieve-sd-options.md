@@ -1,6 +1,4 @@
-# Configuration options for retrieving
-
-sensitive data samples with Macie
+# Configuration options for retrieving sensitive data samples with Macie
 
 You can optionally configure and use Amazon Macie to retrieve and reveal samples of sensitive
 data that Macie reports in individual findings. If you retrieve and reveal sensitive data
@@ -48,20 +46,13 @@ use Amazon Macie to preview sensitive data in S3 buckets](https://aws.amazon.com
 
 ###### Topics
 
-- [Determining which access method
-  to use](#findings-retrieve-sd-options-s3access "#findings-retrieve-sd-options-s3access")
-- [Using IAM user
-  credentials to access affected S3 objects](#findings-retrieve-sd-options-s3access-user "#findings-retrieve-sd-options-s3access-user")
-- [Assuming an IAM role to
-  access affected S3 objects](#findings-retrieve-sd-options-s3access-role "#findings-retrieve-sd-options-s3access-role")
-- [Configuring
-  an IAM role to access affected S3 objects](#findings-retrieve-sd-options-s3access-role-configuration "#findings-retrieve-sd-options-s3access-role-configuration")
-- [Decrypting affected S3
-  objects](#findings-retrieve-sd-options-decrypt "#findings-retrieve-sd-options-decrypt")
+- [Determining which access method to use](#findings-retrieve-sd-options-s3access "#findings-retrieve-sd-options-s3access")
+- [Using IAM user credentials to access affected S3 objects](#findings-retrieve-sd-options-s3access-user "#findings-retrieve-sd-options-s3access-user")
+- [Assuming an IAM role to access affected S3 objects](#findings-retrieve-sd-options-s3access-role "#findings-retrieve-sd-options-s3access-role")
+- [Configuring an IAM role to access affected S3 objects](#findings-retrieve-sd-options-s3access-role-configuration "#findings-retrieve-sd-options-s3access-role-configuration")
+- [Decrypting affected S3 objects](#findings-retrieve-sd-options-decrypt "#findings-retrieve-sd-options-decrypt")
 
-## Determining which access method
-
-to use
+## Determining which access method to use
 
 When determining which configuration is best for your AWS environment, a key
 consideration is whether your environment includes multiple Amazon Macie accounts that are
@@ -106,8 +97,7 @@ following:
   with the key. More specifically, the key's policy must allow the role to perform
   the `kms:Decrypt` action. For other types of server-side encryption,
   no additional permissions or resources are required to decrypt an affected
-  object. For more information, see [Decrypting affected S3
-  objects](#findings-retrieve-sd-options-decrypt "#findings-retrieve-sd-options-decrypt").
+  object. For more information, see [Decrypting affected S3 objects](#findings-retrieve-sd-options-decrypt "#findings-retrieve-sd-options-decrypt").
 - To retrieve sensitive data samples from an object for another account, you
   must currently be the delegated Macie administrator for the account in the applicable
   AWS Region. In addition:
@@ -149,9 +139,7 @@ each type of configuration. For IAM roles, this includes the trust and permissio
 policies to attach to a role. If you’re not sure which type of configuration is best for
 your environment, ask your AWS administrator for assistance.
 
-## Using IAM user
-
-credentials to access affected S3 objects
+## Using IAM user credentials to access affected S3 objects
 
 If you configure Amazon Macie to retrieve sensitive data samples by using IAM user
 credentials, each user of your Macie account uses their IAM identity to locate,
@@ -179,12 +167,9 @@ To set up this type of configuration, complete the following general tasks:
 3. Verify your permissions for configuring the settings in Macie.
 4. Configure and enable the settings in Macie.
 
-For information about performing these tasks, see [Configuring Macie to retrieve sensitive data
-samples](findings-retrieve-sd-configure.md "findings-retrieve-sd-configure.md").
+For information about performing these tasks, see [Configuring Macie to retrieve sensitive data samples](findings-retrieve-sd-configure.md "findings-retrieve-sd-configure.md").
 
-## Assuming an IAM role to
-
-access affected S3 objects
+## Assuming an IAM role to access affected S3 objects
 
 To configure Amazon Macie to retrieve sensitive data samples by assuming an IAM role,
 start by creating an IAM role that delegates access to Amazon Macie. Ensure that the
@@ -255,12 +240,9 @@ whether and how to configure the settings and resources for your account.
       role. For details about the policy requirements for the role, see the
       [next topic](#findings-retrieve-sd-options-s3access-role-configuration "#findings-retrieve-sd-options-s3access-role-configuration").
 
-For information about performing these tasks, see [Configuring Macie to retrieve sensitive data
-samples](findings-retrieve-sd-configure.md "findings-retrieve-sd-configure.md").
+For information about performing these tasks, see [Configuring Macie to retrieve sensitive data samples](findings-retrieve-sd-configure.md "findings-retrieve-sd-configure.md").
 
-## Configuring
-
-an IAM role to access affected S3 objects
+## Configuring an IAM role to access affected S3 objects
 
 To access affected S3 objects by using an IAM role, start by creating and
 configuring a role that delegates access to Amazon Macie. Ensure that the trust and
@@ -605,9 +587,7 @@ In the preceding trust policy:
   to finish creating and configuring the role. When you finish, [configure and enable the settings
   in Macie](findings-retrieve-sd-configure.md "findings-retrieve-sd-configure.md").
 
-## Decrypting affected S3
-
-objects
+## Decrypting affected S3 objects
 
 Amazon S3 supports multiple encryption options for S3 objects. For most of these options,
 no additional resources or permissions are required for an IAM user or role to decrypt
@@ -638,9 +618,7 @@ scenarios. For information about allowing access to customer managed AWS KMS key
 other scenarios, see [KMS key access and
 permissions](../../../kms/latest/developerguide/control-access.md "../../../kms/latest/developerguide/control-access.md") in the _AWS Key Management Service Developer Guide_.
 
-### Allowing same-account
-
-access to a customer managed key
+### Allowing same-account access to a customer managed key
 
 If the same account owns both the AWS KMS key and the IAM role, a user of the
 account has to add a statement to the key's policy. The additional statement must
@@ -692,9 +670,7 @@ syntax is valid. Key policies use JSON format. This means that you have to also 
 a comma before or after the statement, depending on where you add the statement to
 the policy.
 
-### Allowing
-
-cross-account access to a customer managed key
+### Allowing cross-account access to a customer managed key
 
 If one account owns the AWS KMS key (_key
 owner_) and a different account owns the IAM role (_role owner_), the key owner has to provide the role

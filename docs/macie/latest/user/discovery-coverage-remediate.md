@@ -15,12 +15,9 @@ The following information can help you investigate and remediate the issues.
 
 - [Access denied](#discovery-issues-access-denied "#discovery-issues-access-denied")
 - [Classification error: Invalid content](#discovery-issues-invalid-content "#discovery-issues-invalid-content")
-- [Classification error:
-  Invalid encryption](#discovery-issues-classification-error-invalid-encryption "#discovery-issues-classification-error-invalid-encryption")
-- [Classification error:
-  Invalid KMS key](#discovery-issues-classification-error-invalid-key "#discovery-issues-classification-error-invalid-key")
-- [Classification error:
-  Permission denied](#discovery-issues-classification-error-permission-denied "#discovery-issues-classification-error-permission-denied")
+- [Classification error: Invalid encryption](#discovery-issues-classification-error-invalid-encryption "#discovery-issues-classification-error-invalid-encryption")
+- [Classification error: Invalid KMS key](#discovery-issues-classification-error-invalid-key "#discovery-issues-classification-error-invalid-key")
+- [Classification error: Permission denied](#discovery-issues-classification-error-permission-denied "#discovery-issues-classification-error-permission-denied")
 - [Unclassifiable](#discovery-issues-unclassifiable "#discovery-issues-unclassifiable")
 
 ###### Tip
@@ -75,8 +72,7 @@ a higher priority for analysis during a subsequent analysis cycle.
 Additional reference
 
 For more information about updating an S3 bucket policy to allow Macie to access a
-bucket, see [Allowing Macie to access S3 buckets and
-objects](monitoring-restrictive-s3-buckets.md "monitoring-restrictive-s3-buckets.md"). For information about using bucket
+bucket, see [Allowing Macie to access S3 buckets and objects](monitoring-restrictive-s3-buckets.md "monitoring-restrictive-s3-buckets.md"). For information about using bucket
 policies to control access to buckets, see [Bucket policies](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3/latest/userguide/bucket-policies.md") and [How Amazon S3 authorizes a request](../../../AmazonS3/latest/userguide/how-s3-evaluates-access-control.md "../../../AmazonS3/latest/userguide/how-s3-evaluates-access-control.md") in the _Amazon Simple Storage Service User
 Guide_.
 
@@ -115,9 +111,7 @@ files, see [Quotas for Macie](macie-quotas.md "macie-quotas.md"). For informatio
 how Macie updates sensitivity scores and other information that it provides about S3 buckets,
 see [How automated sensitive data discovery works](discovery-asdd-how-it-works.md "discovery-asdd-how-it-works.md").
 
-## Classification error:
-
-Invalid encryption
+## Classification error: Invalid encryption
 
 This type of classification error occurs if Macie attempts to analyze an object in an S3
 bucket and the object is encrypted with a customer-provided key. The object uses SSE-C
@@ -158,9 +152,7 @@ objects, see [Analyzing encrypted Amazon S3 objects](discovery-supported-encrypt
 options and settings for S3 buckets, see [Protecting data with encryption](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md")
 and [Setting default server-side encryption behavior for S3 buckets](../../../AmazonS3/latest/userguide/bucket-encryption.md "../../../AmazonS3/latest/userguide/bucket-encryption.md") in the _Amazon Simple Storage Service User Guide_.
 
-## Classification error:
-
-Invalid KMS key
+## Classification error: Invalid KMS key
 
 This type of classification error occurs if Macie attempts to analyze an object in an S3
 bucket and the object is encrypted with an AWS Key Management Service (AWS KMS) key that's no longer available.
@@ -195,15 +187,12 @@ other information that it provides about the bucket.
 Additional reference
 
 For information about using Macie to review the server-side encryption settings for an
-S3 bucket, see [Reviewing the details of S3
-buckets](monitoring-s3-inventory-review.md#monitoring-s3-inventory-view-details "monitoring-s3-inventory-review.md#monitoring-s3-inventory-view-details"). For information about re-enabling an
+S3 bucket, see [Reviewing the details of S3 buckets](monitoring-s3-inventory-review.md#monitoring-s3-inventory-view-details "monitoring-s3-inventory-review.md#monitoring-s3-inventory-view-details"). For information about re-enabling an
 AWS KMS key or canceling the scheduled deletion of a key, see [Enabling and disabling keys](../../../kms/latest/developerguide/enabling-keys.md "../../../kms/latest/developerguide/enabling-keys.md") and
 [Deleting
 keys](../../../kms/latest/developerguide/deleting-keys.md "../../../kms/latest/developerguide/deleting-keys.md") in the _AWS Key Management Service Developer Guide_.
 
-## Classification error:
-
-Permission denied
+## Classification error: Permission denied
 
 This type of classification error occurs if Macie attempts to analyze an object in an S3
 bucket and Macie can't retrieve or decrypt the object due to the permissions settings for the
@@ -272,10 +261,8 @@ other information that it provides about the bucket.
 Additional reference
 
 For more information about allowing Macie to decrypt data with a customer managed
-AWS KMS key, see [Allowing Macie to use a
-customer managed AWS KMS key](discovery-supported-encryption-types.md#discovery-supported-encryption-cmk-configuration "discovery-supported-encryption-types.md#discovery-supported-encryption-cmk-configuration"). For information about
-updating an S3 bucket policy to allow Macie to access a bucket, see [Allowing Macie to access S3 buckets and
-objects](monitoring-restrictive-s3-buckets.md "monitoring-restrictive-s3-buckets.md").
+AWS KMS key, see [Allowing Macie to use a customer managed AWS KMS key](discovery-supported-encryption-types.md#discovery-supported-encryption-cmk-configuration "discovery-supported-encryption-types.md#discovery-supported-encryption-cmk-configuration"). For information about
+updating an S3 bucket policy to allow Macie to access a bucket, see [Allowing Macie to access S3 buckets and objects](monitoring-restrictive-s3-buckets.md "monitoring-restrictive-s3-buckets.md").
 
 For information about updating a key policy, see [Changing a key policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") in
 the _AWS Key Management Service Developer Guide_. For information about using customer

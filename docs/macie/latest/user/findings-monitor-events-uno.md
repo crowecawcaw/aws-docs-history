@@ -64,9 +64,7 @@ do for low-severity finding events. If you combine event data, you can drill dow
 the details of each aggregated event by using the AWS User Notifications console. From there, you can also
 navigate to each associated finding on the Amazon Macie console.
 
-## Enabling and configuring AWS User Notifications for
-
-Macie findings
+## Enabling and configuring AWS User Notifications for Macie findings
 
 To enable AWS User Notifications to generate notifications for Amazon Macie findings, create a
 notification configuration for Macie in User Notifications. A _notification
@@ -102,8 +100,7 @@ The underlying JSON pattern for the event rule is:
 
 To refine the rule and generate notifications only for a subset of findings, you can
 customize the JSON pattern for the rule. To do this, specify additional criteria that derive
-from the [Amazon EventBridge event schema for Macie
-findings](findings-publish-event-schemas.md "findings-publish-event-schemas.md").
+from the [Amazon EventBridge event schema for Macie findings](findings-publish-event-schemas.md "findings-publish-event-schemas.md").
 
 If you create a rule that uses a custom JSON pattern, you can create multiple notification
 configurations for Macie findings. You can then tailor the delivery channels and other
@@ -148,9 +145,7 @@ notifications for individual findings.
 To learn more about customizing event patterns for rules, see [Using customized JSON event
 patterns](../../../notifications/latest/userguide/common-usecases.md "../../../notifications/latest/userguide/common-usecases.md") in the _AWS User Notifications User Guide_.
 
-## Mapping AWS User Notifications fields to Macie finding
-
-fields
+## Mapping AWS User Notifications fields to Macie finding fields
 
 When AWS User Notifications generates a notification for an Amazon Macie finding, it populates the
 notification with data from a subset of fields in the corresponding Amazon EventBridge event. These
@@ -184,9 +179,7 @@ field.
 | Affected S3 object          | `detail.resourcesAffected.s3Object.path`                                                                                                                 | The name (_key_) of the affected S3 object,<br>including the name of the bucket that stores the object and, if applicable, the<br>object's prefix.<br>This field isn't included in notifications for policy findings.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | _Sensitive data detections_ | `detail.classificationDetails.result.sensitiveData.detections...`<br>And/Or<br>`detail.classificationDetails.result.customDataIdentifiers.detections...` | This is a concatenation of multiple fields in an event for a sensitive data<br>finding. This field isn't included in notifications for policy findings.<br>If a managed data identifier detected the sensitive data, this field specifies<br>the category, type, and number (`count`) of occurrences of the sensitive<br>data that was detected. For example: `PERSONAL_INFORMATION:<br>USA_SOCIAL_SECURITY_NUMBER 100 occurrences`.<br>If a custom data identifier detected the sensitive data, this field specifies<br>the name of the custom data identifier and the number (`count`) of<br>occurrences of the sensitive data that was detected. For example: `Employee ID<br>20 occurrences`.<br>If a finding reports multiple types of sensitive data, the notification includes<br>data for up to four types. The data is populated first by any applicable custom data<br>identifiers and then by any applicable managed data identifiers. |
 
-## Changing AWS User Notifications settings for Macie
-
-findings
+## Changing AWS User Notifications settings for Macie findings
 
 You can change your AWS User Notifications settings for Amazon Macie findings at any time. To do this,
 edit the notification configuration in User Notifications. To learn how, see [Managing notification configurations](../../../notifications/latest/userguide/managing-notifications.md "../../../notifications/latest/userguide/managing-notifications.md") in the _AWS User Notifications User
@@ -196,9 +189,7 @@ If you have multiple notification configurations for Macie findings, changing th
 for one configuration doesn't affect the settings for your other configurations. You can edit
 all or only some of your configurations.
 
-## Disabling AWS User Notifications for Macie
-
-findings
+## Disabling AWS User Notifications for Macie findings
 
 To stop generating and receiving notifications from AWS User Notifications for Amazon Macie findings,
 delete the notification configuration in User Notifications. To learn how, see [Managing notification

@@ -1,6 +1,4 @@
-# Creating Macie resources with
-
-AWS CloudFormation
+# Creating Macie resources with AWS CloudFormation
 
 Amazon Macie integrates with [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md"), which is a service that helps you model and set up your AWS resources so
 that you can spend less time creating and managing your resources and infrastructure. You create a

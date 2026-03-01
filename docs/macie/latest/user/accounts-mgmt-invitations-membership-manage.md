@@ -1,6 +1,4 @@
-# Managing your membership in an
-
-organization in Macie
+# Managing your membership in an organization in Macie
 
 ###### Note
 
@@ -17,8 +15,7 @@ you accept, the account that sent the invitation becomes the Macie administrator
 account—you associate your account with the other account and you enable an
 administrator-member relationship between the accounts. The Macie administrator account can then access
 certain Macie settings, data, and resources for your account in the applicable AWS Region.
-For details about tasks that the administrator account can perform, see [Macie administrator and member account
-relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
+For details about tasks that the administrator account can perform, see [Macie administrator and member account relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
 
 If you decline an invitation, the current status and settings for your Macie account aren’t
 changed.
@@ -29,9 +26,7 @@ changed.
   invitations](#accounts-mgmt-invitations-respond "#accounts-mgmt-invitations-respond")
 - [Disassociating from an administrator account](#accounts-mgmt-invitations-disassociate-admin "#accounts-mgmt-invitations-disassociate-admin")
 
-## Responding to membership invitations
-
-for organizations
+## Responding to membership invitations for organizations
 
 When you receive an invitation to join an organization, Amazon Macie notifies you in
 several ways. By default, Macie sends the invitation to you as an email message. Macie
@@ -63,8 +58,7 @@ Before you respond, note the following:
   Macie generates and maintains new data while it performs automated discovery for your
   account.
 
-For additional considerations, see [Responding to and
-managing membership invitations](accounts-mgmt-invitations-notes.md#accounts-mgmt-invitations-notes-invitations-manage "accounts-mgmt-invitations-notes.md#accounts-mgmt-invitations-notes-invitations-manage").
+For additional considerations, see [Responding to and managing membership invitations](accounts-mgmt-invitations-notes.md#accounts-mgmt-invitations-notes-invitations-manage "accounts-mgmt-invitations-notes.md#accounts-mgmt-invitations-notes-invitations-manage").
 
 ###### To respond to a membership invitation for an organization
 
@@ -149,9 +143,7 @@ empty `unprocessedAccounts` array.
 After you decline an invitation, the invitation persists as a resource for
 your Macie account. You can optionally delete it by using the [DeleteInvitations](../APIReference/invitations-delete.md "../APIReference/invitations-delete.md") operation or, for the AWS CLI, the [delete-invitations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/macie2/delete-invitations.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/macie2/delete-invitations.html") command.
 
-## Disassociating from a
-
-Macie administrator account
+## Disassociating from a Macie administrator account
 
 If you accept an invitation to join an organization in Amazon Macie, you can subsequently
 resign from the organization by disassociating your account from its current
@@ -187,7 +179,7 @@ by using the Amazon Macie console.
 3. In the navigation pane, choose **Accounts**.
 4. Under **Administrator account**, turn off
    **Accept** (
-   ![A toggle switch with a blue background and the toggle positioned to the right.](/images/macie/latest/user/images/tgl-blue-on.png)
+   ![A toggle switch with a blue background and the toggle positioned to the right.](images/tgl-blue-on.png)
    ) next to the invitation, and then choose
    **Update**.
 

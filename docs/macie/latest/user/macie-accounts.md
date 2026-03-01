@@ -29,8 +29,6 @@ access and manage certain settings, data, and resources for your Macie account.
 
 ###### Topics
 
-- [Macie administrator and member account
-  relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md")
+- [Macie administrator and member account relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md")
 - [Managing multiple Macie accounts with AWS Organizations](accounts-mgmt-ao.md "accounts-mgmt-ao.md")
-- [Managing multiple Macie accounts by
-  invitation](accounts-mgmt-invitations.md "accounts-mgmt-invitations.md")
+- [Managing multiple Macie accounts by invitation](accounts-mgmt-invitations.md "accounts-mgmt-invitations.md")

@@ -1,6 +1,4 @@
-# Deleting a filter rule for Macie
-
-findings
+# Deleting a filter rule for Macie findings
 
 If you create a filter rule, you can delete it at any time. A _filter rule_ is a set of filter criteria that you create and save to use again
 when you review findings on the Amazon Macie console. If you delete a filter rule, your change

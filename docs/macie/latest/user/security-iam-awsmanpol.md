@@ -26,9 +26,7 @@ policy, the `AmazonMacieReadOnlyAccess` policy, and the
 - [AmazonMacieServiceRolePolicy policy](#security-iam-awsmanpol-AmazonMacieServiceRolePolicy "#security-iam-awsmanpol-AmazonMacieServiceRolePolicy")
 - [Updates to AWS managed policies for Macie](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed policy:
-
-AmazonMacieFullAccess
+## AWS managed policy: AmazonMacieFullAccess
 
 You can attach the `AmazonMacieFullAccess` policy to your IAM
 entities.
@@ -64,9 +62,7 @@ This policy includes the following permissions:
 To review the permissions for this policy, see [AmazonMacieFullAccess](../../../aws-managed-policy/latest/reference/AmazonMacieFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonMacieFullAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-AmazonMacieReadOnlyAccess
+## AWS managed policy: AmazonMacieReadOnlyAccess
 
 You can attach the `AmazonMacieReadOnlyAccess` policy to your IAM
 entities.
@@ -86,9 +82,7 @@ Amazon Macie.
 To review the permissions for this policy, see [AmazonMacieReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonMacieReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonMacieReadOnlyAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-AmazonMacieServiceRolePolicy
+## AWS managed policy: AmazonMacieServiceRolePolicy
 
 You can't attach the `AmazonMacieServiceRolePolicy` policy to your IAM
 entities.
@@ -99,9 +93,7 @@ actions on your behalf. For more information, see [Using service-linked roles fo
 To review the permissions for this policy, see [AmazonMacieServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonMacieServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonMacieServiceRolePolicy.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## Updates to AWS managed policies for
-
-Macie
+## Updates to AWS managed policies for Macie
 
 The following table provides details about updates to AWS managed policies for
 Amazon Macie since this service began tracking these changes. For automatic alerts about

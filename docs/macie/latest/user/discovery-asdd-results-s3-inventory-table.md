@@ -1,6 +1,4 @@
-# Assessing data sensitivity with the
-
-S3 buckets table
+# Assessing data sensitivity with the S3 buckets table
 
 To review summary information for your Amazon Simple Storage Service (Amazon S3) buckets, you can use the **S3
 buckets** table on the Amazon Macie console. By using the table, you can review and

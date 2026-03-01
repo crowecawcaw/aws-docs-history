@@ -1,6 +1,4 @@
-# Allowing Macie to access S3 buckets and
-
-objects
+# Allowing Macie to access S3 buckets and objects
 
 When you enable Amazon Macie for your AWS account, Macie creates a [service-linked role](service-linked-roles.md "service-linked-roles.md") that grants Macie the
 permissions that it requires to call Amazon Simple Storage Service (Amazon S3) and other AWS services on your

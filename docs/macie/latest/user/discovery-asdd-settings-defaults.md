@@ -25,9 +25,7 @@ For information about changing your settings, see [Configuring settings for auto
 - [Updates to the default
   settings](#discovery-asdd-mdis-default-updates "#discovery-asdd-mdis-default-updates")
 
-## Default managed data identifiers for
-
-automated sensitive data discovery
+## Default managed data identifiers for automated sensitive data discovery
 
 By default, Amazon Macie analyzes S3 objects by using only the set of managed data identifiers
 that we recommend for automated sensitive data discovery. This default set of managed data identifiers is designed to
@@ -103,9 +101,7 @@ uses the following managed data identifiers by default.
 | Social Security number (SSN)                | `SPAIN_SOCIAL_SECURITY_NUMBER, USA_SOCIAL_SECURITY_NUMBER`                                                                                                                                                                               |
 | Taxpayer identification or reference number | `AUSTRALIA_TAX_FILE_NUMBER, BRAZIL_CPF_NUMBER, FRANCE_TAX_IDENTIFICATION_NUMBER,<br>GERMANY_TAX_IDENTIFICATION_NUMBER, SPAIN_NIE_NUMBER, SPAIN_NIF_NUMBER,<br>SPAIN_TAX_IDENTIFICATION_NUMBER, USA_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER` |
 
-## Updates to the default settings for
-
-automated sensitive data discovery
+## Updates to the default settings for automated sensitive data discovery
 
 The following table describes changes to the settings that Amazon Macie uses by default for
 automated sensitive data discovery. For automatic alerts about these changes, subscribe to the RSS feed on the [Macie document history](doc-history.md "doc-history.md") page.

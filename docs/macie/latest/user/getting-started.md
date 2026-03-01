@@ -9,8 +9,7 @@ your S3 buckets.
 
 - [Before you begin](#prerequisites "#prerequisites")
 - [Step 1: Enable Macie](#enable-macie "#enable-macie")
-- [Step 2: Configure a repository for sensitive
-  data discovery results](#gs-configure-repository "#gs-configure-repository")
+- [Step 2: Configure a repository for sensitive data discovery results](#gs-configure-repository "#gs-configure-repository")
 - [Step 3: Explore sample findings](#gs-create-sample-findings "#gs-create-sample-findings")
 - [Step 4: Create a job to discover sensitive data](#gs-create-job "#gs-create-job")
 - [Step 5: Review findings](#review-findings "#review-findings")
@@ -60,9 +59,7 @@ other information that provide insight into the security, privacy, and sensitivi
 the bucket’s data. To learn about these details, see [Reviewing your S3 bucket
 inventory](monitoring-s3-inventory-review.md "monitoring-s3-inventory-review.md").
 
-## Step 2: Configure a repository for sensitive
-
-data discovery results
+## Step 2: Configure a repository for sensitive data discovery results
 
 With Amazon Macie, you can discover sensitive data in S3 buckets in two ways: by configuring
 Macie to perform automated sensitive data discovery and by running sensitive data discovery jobs. A _sensitive data discovery job_ is a job that you create to
@@ -177,8 +174,7 @@ settings and verify that they're correct.
 
 You can also review the total estimated cost (in US dollars) of running the job. The
 estimate can help you determine whether to adjust the job's settings before you
-save the job. To learn more, see [Forecasting the cost of a sensitive data
-discovery job](discovery-jobs-costs.md#discovery-jobs-costs-forecast "discovery-jobs-costs.md#discovery-jobs-costs-forecast"). 13. When you finish reviewing and verifying the job's settings, choose
+save the job. To learn more, see [Forecasting the cost of a sensitive data discovery job](discovery-jobs-costs.md#discovery-jobs-costs-forecast "discovery-jobs-costs.md#discovery-jobs-costs-forecast"). 13. When you finish reviewing and verifying the job's settings, choose
 **Submit**.
 
 Macie immediately starts running the job. To learn how to monitor the job, see [checking the status of

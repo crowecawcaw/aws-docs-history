@@ -21,9 +21,7 @@ For a high-level view of how Macie and other AWS services work with most IAM fea
 see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based policies for
-
-Macie
+## Identity-based policies for Macie
 
 **Supports identity-based policies:**
 
@@ -42,9 +40,7 @@ _IAM User Guide_.
 
 Amazon Macie supports identity-based policies. For examples, see [Identity-based policy examples for Macie](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based policies
-
-within Macie
+## Resource-based policies within Macie
 
 **Supports resource-based policies:**
 
@@ -63,9 +59,7 @@ _IAM User Guide_.
 Amazon Macie doesn't support resource-based policies. That is to say, you can't attach a policy
 directly to a Macie resource.
 
-## Policy actions for
-
-Macie
+## Policy actions for Macie
 
 **Supports policy actions:**
 
@@ -117,9 +111,7 @@ For a list of Macie actions, see [Actions defined by Amazon Macie](../../../serv
 _Service Authorization Reference_. For examples of policies that specify Macie
 actions, see [Identity-based policy examples for Macie](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy resources for
-
-Macie
+## Policy resources for Macie
 
 **Supports policy resources:**
 
@@ -185,9 +177,7 @@ actions you can specify with each resource type, see [Actions defined by Amazon 
 _Service Authorization Reference_. For examples of policies that specify resources,
 see [Identity-based policy examples for Macie](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy condition
-
-keys for Macie
+## Policy condition keys for Macie
 
 **Supports service-specific policy condition keys:**
 
@@ -224,9 +214,7 @@ Guide_.
 Amazon Macie doesn't support ACLs. That is to say, you can't attach an ACL to a Macie
 resource.
 
-## Attribute-based access control (ABAC) with
-
-Macie
+## Attribute-based access control (ABAC) with Macie
 
 **Supports ABAC (tags in policies):**
 
@@ -251,9 +239,7 @@ resources, see [Tagging Macie resources](tagging-resources.md "tagging-resources
 For an example of an identity-based policy that controls access to a resource based on
 tags, see [Identity-based policy examples for Macie](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Using temporary credentials with
-
-Macie
+## Using temporary credentials with Macie
 
 **Supports temporary credentials:**
 
@@ -267,9 +253,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 Amazon Macie supports the use of temporary credentials.
 
-## Forward access sessions for
-
-Macie
+## Forward access sessions for Macie
 
 **Supports forward access sessions (FAS):**
 
@@ -308,9 +292,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Amazon Macie doesn't assume or use service roles. To perform actions on your behalf, Macie
 primarily uses a service-linked role. For details about this role, see [Using service-linked roles for Macie](service-linked-roles.md "service-linked-roles.md").
 
-## Service-linked roles for
-
-Macie
+## Service-linked roles for Macie
 
 **Supports service-linked roles:**
 

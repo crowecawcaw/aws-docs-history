@@ -44,8 +44,7 @@ following on the specified resources:
 To review the permissions for this policy, see [AmazonMacieServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonMacieServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonMacieServiceRolePolicy.md") in the _AWS Managed
 Policy Reference Guide_.
 
-For details about updates to this policy, see [Updates to AWS managed policies for
-Macie](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates"). For automatic alerts about changes
+For details about updates to this policy, see [Updates to AWS managed policies for Macie](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates"). For automatic alerts about changes
 to this policy, subscribe to the RSS feed on the [Macie
 document history](doc-history.md "doc-history.md") page.
 
@@ -98,9 +97,7 @@ If you delete the `AWSServiceRoleForAmazonMacie` service-linked role and need to
 create it again, you can create it again by enabling Macie for your account. When you
 enable Macie again, Macie creates the service-linked role again for you.
 
-## Supported AWS Regions for the Macie service-linked
-
-role
+## Supported AWS Regions for the Macie service-linked role
 
 Amazon Macie supports using the `AWSServiceRoleForAmazonMacie` service-linked role
 in all the AWS Regions where Macie is available. For a list of Regions where Macie is

@@ -74,8 +74,7 @@ Macie tests the list's settings. For a list of predefined text, Macie also verif
 that it can retrieve the list from Amazon S3 and parse the list's content. For a regex, Macie
 also verifies that it can compile the expression. If an error occurs, Macie displays a
 message that describes the error. For detailed information that can help you
-troubleshoot the error, see [Configuration options and requirements for allow
-lists](allow-lists-options.md "allow-lists-options.md"). After you address any errors, you can
+troubleshoot the error, see [Configuration options and requirements for allow lists](allow-lists-options.md "allow-lists-options.md"). After you address any errors, you can
 save your changes.
 
 API
@@ -116,8 +115,7 @@ the list from Amazon S3 and parse the list's content. If the list specifies a re
 
 If an error occurs when Macie tests the settings, your request fails and Macie
 returns a message that describes the error. For detailed information that can help you
-troubleshoot the error, see [Configuration options and requirements for allow
-lists](allow-lists-options.md "allow-lists-options.md"). If the request fails for another reason,
+troubleshoot the error, see [Configuration options and requirements for allow lists](allow-lists-options.md "allow-lists-options.md"). If the request fails for another reason,
 Macie returns an HTTP 4*xx* or 500 response that
 indicates why the operation failed.
 

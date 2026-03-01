@@ -56,18 +56,14 @@ that the field stores, and indicates any requirements for filter values. The tab
 \* To specify multiple values for this field on the console, add a condition that uses the field and specifies a distinct value for the filter, and then repeat that step
 for each additional value. To do this with the API, use an array that lists the values to use for the filter.
 
-## Affected resource
-
-fields
+## Affected resource fields
 
 The following tables list and describe the fields that you can use to filter findings based
 on the type of resource that a finding applies to: an [S3 bucket](#findings-filter-fields-affected-resource-S3bucket "#findings-filter-fields-affected-resource-S3bucket") or an
 [S3
 object](#findings-filter-fields-affected-resource-S3object "#findings-filter-fields-affected-resource-S3object").
 
-### S3
-
-bucket
+### S3 bucket
 
 This table lists and describes fields that you can use to filter findings based on
 characteristics of the S3 bucket that a finding applies to.
@@ -103,9 +99,7 @@ readability.) The **Description** column provides a brief description of the dat
 \* To specify multiple values for this field on the console, add a condition that uses the field and specifies a distinct value for the filter, and then repeat that step
 for each additional value. To do this with the API, use an array that lists the values to use for the filter.
 
-### S3
-
-object
+### S3 object
 
 This table lists and describes fields that you can use to filter findings based on
 characteristics of the S3 object that a finding applies to.

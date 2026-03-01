@@ -1,6 +1,4 @@
-# Changing the Macie administrator account for an
-
-invitation-based organization
+# Changing the Macie administrator account for an invitation-based organization
 
 ###### Note
 

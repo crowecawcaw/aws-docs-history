@@ -83,9 +83,7 @@ account—the managed data identifiers, custom data identifiers, and allows list
 want Macie to use when it analyzes S3 objects. Macie uses the settings for your administrator
 account when it analyzes S3 objects for other accounts in your organization.
 
-## Excluding or including S3 buckets
-
-in automated sensitive data discovery
+## Excluding or including S3 buckets in automated sensitive data discovery
 
 By default, Amazon Macie performs automated sensitive data discovery for all the S3 general purpose buckets for your
 account. If you're the Macie administrator for an organization, this includes buckets that your member
@@ -237,9 +235,7 @@ For Microsoft Windows:
 --s3={\"excludes\":{\"bucketNames\":[\"`amzn-s3-demo-bucket`\",\"`amzn-s3-demo-bucket2`\",\"`amzn-s3-demo-bucket3`\"],\"operation\":\"REPLACE\"}}`
 ```
 
-## Adding or removing managed data
-
-identifiers from automated sensitive data discovery
+## Adding or removing managed data identifiers from automated sensitive data discovery
 
 A _managed data identifier_ is a set of built-in criteria
 and techniques that are designed to detect a specific type of sensitive data—for example,
@@ -263,8 +259,7 @@ and details for S3 buckets. For example, if you remove the managed data identifi
 secret access keys and Macie previously detected that data in a bucket, Macie continues to
 report those detections. However, instead of removing the identifier, which affects subsequent
 analyses of all buckets, consider excluding its detections from sensitivity scores for only
-particular buckets. For more information, see [Adjusting sensitivity scores for S3
-buckets](discovery-asdd-s3bucket-manage.md "discovery-asdd-s3bucket-manage.md").
+particular buckets. For more information, see [Adjusting sensitivity scores for S3 buckets](discovery-asdd-s3bucket-manage.md "discovery-asdd-s3bucket-manage.md").
 
 ###### To add or remove managed data identifiers from automated sensitive data discovery
 
@@ -390,9 +385,7 @@ Where:
   `6fad0fb5-3e82-4270-bede-469f2example` are the unique identifiers
   for the custom data identifiers to use.
 
-## Adding or removing custom data
-
-identifiers from automated sensitive data discovery
+## Adding or removing custom data identifiers from automated sensitive data discovery
 
 A _custom data identifier_ is a set of criteria that you define to
 detect sensitive data. The criteria consist of a regular expression (_regex_) that defines a text pattern to match and, optionally, character sequences
@@ -409,8 +402,7 @@ existing sensitive data discovery statistics and details for S3 buckets. That is
 identifier that previously produced detections for a bucket, Macie continues to report those
 detections. However, instead of removing the identifier, which affects subsequent analyses of
 all buckets, consider excluding its detections from sensitivity scores for only particular
-buckets. For more information, see [Adjusting sensitivity scores for S3
-buckets](discovery-asdd-s3bucket-manage.md "discovery-asdd-s3bucket-manage.md").
+buckets. For more information, see [Adjusting sensitivity scores for S3 buckets](discovery-asdd-s3bucket-manage.md "discovery-asdd-s3bucket-manage.md").
 
 ###### To add or remove custom data identifiers from automated sensitive data discovery
 
@@ -446,7 +438,7 @@ haven't added any custom data identifiers. 4. In the **Custom data identifiers**
 
 To review or test the settings for a custom data identifier before you add or remove
 it, choose the link icon (
-![The link icon, which is a blue box that has an arrow in it.](images/icon-external-link.png)
+![The link icon, which is a blue box that has an arrow in it.](/images/macie/latest/user/images/icon-external-link.png)
 ) next to the identifier's name. Macie opens
 a page that displays the identifier's settings. To also test the identifier with sample
 data, enter up to 1,000 characters of text in the **Sample data** box on
@@ -515,9 +507,7 @@ Where:
   `6fad0fb5-3e82-4270-bede-469f2example` are the unique identifiers
   for the custom data identifiers to use.
 
-## Adding or removing allow lists from
-
-automated sensitive data discovery
+## Adding or removing allow lists from automated sensitive data discovery
 
 In Amazon Macie, an allow list defines specific text or a text pattern that you want Macie to
 ignore when it inspects S3 objects for sensitive data. If text matches an entry or pattern in an
@@ -558,7 +548,7 @@ lists. 4. In the **Allow lists** section, choose **Edit**. 5. Do any of the foll
 
 To review the settings for an allow list before you add or remove it, choose the link
 icon (
-![The link icon, which is a blue box that has an arrow in it.](images/icon-external-link.png)
+![The link icon, which is a blue box that has an arrow in it.](/images/macie/latest/user/images/icon-external-link.png)
 ) next to the list's name. Macie opens a page that displays the
 list's settings. If the list specifies a regular expression (_regex_), you can also use this page to test the regex with sample data. To do
 this, enter up to 1,000 characters of text in the **Sample data** box, and

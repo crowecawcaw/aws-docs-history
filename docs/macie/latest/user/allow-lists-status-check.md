@@ -36,8 +36,7 @@ of all of your allow lists periodically. We recommend that you also do this if y
 permissions or encryption settings for an S3 bucket that stores an allow list, or you change the
 policy for an AWS Key Management Service (AWS KMS) key that's used to encrypt a list.
 
-For detailed information that can help you troubleshoot errors that occur, see [Options and requirements for lists of predefined
-text](allow-lists-options.md#allow-lists-options-s3list "allow-lists-options.md#allow-lists-options-s3list").
+For detailed information that can help you troubleshoot errors that occur, see [Options and requirements for lists of predefined text](allow-lists-options.md#allow-lists-options-s3list "allow-lists-options.md#allow-lists-options-s3list").
 
 ###### To check the status of an allow list
 

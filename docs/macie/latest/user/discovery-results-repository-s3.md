@@ -1,6 +1,4 @@
-# Storing and retaining sensitive data
-
-discovery results
+# Storing and retaining sensitive data discovery results
 
 When you run a sensitive data discovery job or Amazon Macie performs automated sensitive data discovery, Macie creates an analysis
 record for each Amazon Simple Storage Service (Amazon S3) object that's included in the scope of the analysis. These
@@ -50,18 +48,12 @@ the same S3 bucket. However, note the following requirements:
 
 ###### Tasks
 
-- [Before you begin: Learn key
-  concepts](#discovery-results-repository-s3-overview "#discovery-results-repository-s3-overview")
-- [Step 1: Verify your
-  permissions](#discovery-results-repository-s3-permissions "#discovery-results-repository-s3-permissions")
-- [Step 2: Configure an
-  AWS KMS key](#discovery-results-repository-s3-key-policy "#discovery-results-repository-s3-key-policy")
-- [Step 3: Choose an S3
-  bucket](#discovery-results-repository-s3-choose-bucket "#discovery-results-repository-s3-choose-bucket")
+- [Before you begin: Learn key concepts](#discovery-results-repository-s3-overview "#discovery-results-repository-s3-overview")
+- [Step 1: Verify your permissions](#discovery-results-repository-s3-permissions "#discovery-results-repository-s3-permissions")
+- [Step 2: Configure an AWS KMS key](#discovery-results-repository-s3-key-policy "#discovery-results-repository-s3-key-policy")
+- [Step 3: Choose an S3 bucket](#discovery-results-repository-s3-choose-bucket "#discovery-results-repository-s3-choose-bucket")
 
-## Before you begin: Learn key
-
-concepts
+## Before you begin: Learn key concepts
 
 Amazon Macie automatically creates a sensitive data discovery result for each Amazon S3 object that it analyzes or
 attempts to analyze when you run a sensitive data discovery job or it performs automated sensitive data discovery. This
@@ -116,16 +108,14 @@ access and query the results in that repository.
 For a detailed, instructional example of how you might query and use sensitive data discovery results
 to analyze and report potential data security risks, see the following blog post on
 the _AWS Security Blog_: [How to query and visualize Macie sensitive data discovery results with Amazon Athena and
-Amazon Quick Suite](https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/ "https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/").
+Amazon Quick](https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/ "https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/").
 
 For samples of Amazon Athena queries that you can use to analyze sensitive data discovery results, visit
 the [Amazon Macie Results Analytics repository](https://github.com/aws-samples/amazon-macie-results-analytics "https://github.com/aws-samples/amazon-macie-results-analytics") on GitHub. This repository also
 provides instructions for configuring Athena to retrieve and decrypt your results,
 and scripts for creating tables for the results.
 
-## Step 1: Verify your
-
-permissions
+## Step 1: Verify your permissions
 
 Before you configure a repository for your sensitive data discovery results, verify that you have the
 permissions that you need to encrypt and store the results. To verify your permissions,
@@ -180,9 +170,7 @@ need to be allowed to perform the following actions:
 If you're not allowed to perform the requisite actions, ask your AWS administrator
 for assistance before you proceed to the next step.
 
-## Step 2: Configure an
-
-AWS KMS key
+## Step 2: Configure an AWS KMS key
 
 After you verify your permissions, determine which AWS KMS key you want Macie to
 use to encrypt your sensitive data discovery results. The key must be a customer managed, symmetric
@@ -363,9 +351,7 @@ These conditions help prevent Macie from being used as a [confused deputy](../..
 recommend it, you can remove these conditions from the statement. 7. When you finish adding and updating the statement, choose **Save
 changes**.
 
-## Step 3: Choose an S3
-
-bucket
+## Step 3: Choose an S3 bucket
 
 After you verify your permissions and configure the AWS KMS key, you're ready to
 specify which S3 bucket you want to use as the repository for your sensitive data discovery results. You

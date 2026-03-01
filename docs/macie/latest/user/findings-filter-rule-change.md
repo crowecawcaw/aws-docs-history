@@ -1,6 +1,4 @@
-# Changing a filter rule for Macie
-
-findings
+# Changing a filter rule for Macie findings
 
 After you create a filter rule, you can refine its criteria and change other settings for
 the rule. A _filter rule_ is a set of filter criteria that
@@ -33,8 +31,7 @@ the Amazon Macie console.
 4. Do any of the following:
    - To change the filter criteria of the rule, use the **Filter
      criteria** box. In the box, enter conditions for the criteria that
-     you want. To learn how, see [Creating and applying filters to Macie
-     findings](findings-filter-procedure.md "findings-filter-procedure.md").
+     you want. To learn how, see [Creating and applying filters to Macie findings](findings-filter-procedure.md "findings-filter-procedure.md").
    - To change the name of the rule, enter a new name in the
      **Name** box under **Filter rule**.
    - To change the description of the rule, enter a new description in the

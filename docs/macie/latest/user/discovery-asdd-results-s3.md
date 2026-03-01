@@ -61,14 +61,9 @@ subsequent analysis cycles. For more information, see [Assessing automated sensi
 
 ###### Topics
 
-- [Reviewing data sensitivity statistics on
-  the Summary dashboard](discovery-asdd-results-s3-dashboard.md "discovery-asdd-results-s3-dashboard.md")
-- [Visualizing data sensitivity with the
-  S3 buckets map](discovery-asdd-results-s3-inventory-map.md "discovery-asdd-results-s3-inventory-map.md")
-- [Assessing data sensitivity with the
-  S3 buckets table](discovery-asdd-results-s3-inventory-table.md "discovery-asdd-results-s3-inventory-table.md")
-- [Reviewing data sensitivity details
-  for S3 buckets](discovery-asdd-results-s3-inventory-details.md "discovery-asdd-results-s3-inventory-details.md")
+- [Reviewing data sensitivity statistics on the Summary dashboard](discovery-asdd-results-s3-dashboard.md "discovery-asdd-results-s3-dashboard.md")
+- [Visualizing data sensitivity with the S3 buckets map](discovery-asdd-results-s3-inventory-map.md "discovery-asdd-results-s3-inventory-map.md")
+- [Assessing data sensitivity with the S3 buckets table](discovery-asdd-results-s3-inventory-table.md "discovery-asdd-results-s3-inventory-table.md")
+- [Reviewing data sensitivity details for S3 buckets](discovery-asdd-results-s3-inventory-details.md "discovery-asdd-results-s3-inventory-details.md")
 - [Analyzing findings from automated sensitive data discovery](discovery-asdd-results-s3-findings.md "discovery-asdd-results-s3-findings.md")
-- [Accessing discovery results from
-  automated sensitive data discovery](discovery-asdd-results-s3-sddrs.md "discovery-asdd-results-s3-sddrs.md")
+- [Accessing discovery results from automated sensitive data discovery](discovery-asdd-results-s3-sddrs.md "discovery-asdd-results-s3-sddrs.md")

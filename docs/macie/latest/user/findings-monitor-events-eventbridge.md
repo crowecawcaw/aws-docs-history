@@ -1,6 +1,4 @@
-# Processing Macie findings with
-
-Amazon EventBridge
+# Processing Macie findings with Amazon EventBridge
 
 Amazon EventBridge, formerly Amazon CloudWatch Events, is a serverless event bus service. EventBridge delivers a stream of
 real-time data from applications and services, and routes that data to targets such as
@@ -51,8 +49,7 @@ To automate monitoring and processing tasks for findings, you can create an Even
 automatically detects Amazon Macie finding events and sends those events to another
 application or service for processing or other action. You can tailor the rule to send
 only those events that meet certain criteria. To do this, specify criteria that derive
-from the [Amazon EventBridge event schema for Macie
-findings](findings-publish-event-schemas.md "findings-publish-event-schemas.md").
+from the [Amazon EventBridge event schema for Macie findings](findings-publish-event-schemas.md "findings-publish-event-schemas.md").
 
 For example, you can create a rule that sends specific types of new findings to an AWS Lambda
 function. The Lambda function can then perform tasks such as: process and send the data
@@ -68,9 +65,7 @@ AWS Step Functions state machines, and invoking the AWS Systems Manager run comm
 supported targets, see [Event bus targets](../../../eventbridge/latest/userguide/eb-targets.md "../../../eventbridge/latest/userguide/eb-targets.md")
 in the _Amazon EventBridge User Guide_.
 
-## Creating Amazon EventBridge rules for
-
-Macie findings
+## Creating Amazon EventBridge rules for Macie findings
 
 The following procedures explain how to use the Amazon EventBridge console and the [AWS Command Line Interface
 (AWS CLI)](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to create an EventBridge rule for Amazon Macie findings. The rule detects EventBridge
@@ -97,8 +92,7 @@ User Guide_.
 You can also create a rule that uses a custom pattern to detect and act upon only a
 subset of Macie finding events. This subset can be based on specific
 fields that Macie includes in a finding event. To learn about the
-available fields, see [Amazon EventBridge event schema for Macie
-findings](findings-publish-event-schemas.md "findings-publish-event-schemas.md"). To learn about
+available fields, see [Amazon EventBridge event schema for Macie findings](findings-publish-event-schemas.md "findings-publish-event-schemas.md"). To learn about
 using custom patterns in rules, see [Creating
 event patterns](../../../eventbridge/latest/userguide/eb-create-pattern.md "../../../eventbridge/latest/userguide/eb-create-pattern.md") in the _Amazon EventBridge User
 Guide_.
@@ -214,8 +208,7 @@ you want for the rule.
 You can also create a rule that uses a custom pattern (`event-pattern`) to
 detect and act upon only a subset of Macie finding events. This
 subset can be based on specific fields that Macie includes in a
-finding event. To learn about the available fields, see [Amazon EventBridge event schema for Macie
-findings](findings-publish-event-schemas.md "findings-publish-event-schemas.md"). To learn
+finding event. To learn about the available fields, see [Amazon EventBridge event schema for Macie findings](findings-publish-event-schemas.md "findings-publish-event-schemas.md"). To learn
 about using custom patterns in rules, see [Creating event patterns](../../../eventbridge/latest/userguide/eb-create-pattern.md "../../../eventbridge/latest/userguide/eb-create-pattern.md") in the _Amazon EventBridge User Guide_.
 
 If the command runs successfully, EventBridge responds with the ARN of the rule. Note this

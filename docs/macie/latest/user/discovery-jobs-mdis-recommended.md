@@ -65,9 +65,7 @@ following managed data identifiers.
 | Credit card magnetic stripe data | `CREDIT_CARD_MAGNETIC_STRIPE`                                               |
 | Credit card number               | `CREDIT_CARD_NUMBER` (for credit card numbers in proximity of a<br>keyword) |
 
-## Personally
-
-identifiable information (PII)
+## Personally identifiable information (PII)
 
 To detect occurrences of personally identifiable information (PII) in S3 objects, the
 recommended set uses the following managed data identifiers.

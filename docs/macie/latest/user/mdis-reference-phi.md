@@ -38,9 +38,7 @@ information:
 - [Unique device
   identifier (UDI)](#mdis-reference-UDI "#mdis-reference-UDI")
 
-## Drug Enforcement Agency (DEA)
-
-Registration Number
+## Drug Enforcement Agency (DEA) Registration Number
 
 **Managed data identifier ID:** US_DRUG_ENFORCEMENT_AGENCY_NUMBER
 
@@ -90,9 +88,7 @@ for specific countries and regions.
 
 **Comments:** None
 
-## Healthcare Common Procedure Coding System (HCPCS)
-
-code
+## Healthcare Common Procedure Coding System (HCPCS) code
 
 **Managed data identifier ID:** USA_HEALTHCARE_PROCEDURE_CODE
 

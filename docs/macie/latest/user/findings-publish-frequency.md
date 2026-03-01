@@ -1,6 +1,4 @@
-# Configuring publication settings for Macie
-
-findings
+# Configuring publication settings for Macie findings
 
 To support integration with other applications, services, and systems, Amazon Macie
 automatically publishes both policy findings and sensitive data findings to Amazon EventBridge as
@@ -34,9 +32,7 @@ words, Macie doesn't publish suppressed findings to other AWS services.
 - [Changing the publication
   frequency](#findings-publish-frequency-change "#findings-publish-frequency-change")
 
-## Choosing publication destinations
-
-for findings
+## Choosing publication destinations for findings
 
 You can configure Amazon Macie to automatically publish policy and sensitive data
 findings to AWS Security Hub CSPM in addition to Amazon EventBridge. By default, Macie publishes only new and
@@ -89,9 +85,7 @@ you won't be able to access the findings in Security Hub CSPM. To learn how to a
 Security Hub CSPM, see [Understanding integrations in Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-findings-providers.md "../../../securityhub/latest/userguide/securityhub-findings-providers.md")
 in the _AWS Security Hub User Guide_.
 
-## Changing the publication frequency
-
-for findings
+## Changing the publication frequency for findings
 
 In Amazon Macie, each finding has a unique identifier. Macie uses this identifier to
 determine when to publish a finding to another AWS service:

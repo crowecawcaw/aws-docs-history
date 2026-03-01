@@ -1,6 +1,4 @@
-# Integrating and configuring an organization in
-
-Macie
+# Integrating and configuring an organization in Macie
 
 To start using Amazon Macie with AWS Organizations, the AWS Organizations management account for the organization
 designates an account as the delegated Macie administrator account for the organization. This enables
@@ -35,9 +33,7 @@ using Macie with AWS Organizations.
   To integrate and configure the organization in multiple Regions, the AWS Organizations management
   account and the delegated Macie administrator repeat these steps in each additional Region.
 
-## Step 1: Verify your
-
-permissions
+## Step 1: Verify your permissions
 
 Before you designate the delegated Macie administrator account for your organization, verify that
 you (as a user of the AWS Organizations management account) are allowed to perform the following
@@ -131,9 +127,7 @@ an opt-in Region, see [Enable or disable
 AWS Regions in your account](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the _AWS Account Management User
 Guide_.
 
-## Step 2: Designate the delegated
-
-Macie administrator account for the organization
+## Step 2: Designate the delegated Macie administrator account for the organization
 
 After you verify your permissions, you (as a user of the AWS Organizations management account) can
 designate the delegated Macie administrator account for your organization.
@@ -199,9 +193,7 @@ account to designate.
 After you designate the Macie administrator account for your organization, the Macie administrator can begin
 configuring the organization in Macie.
 
-## Step 3: Automatically enable and
-
-add new organization accounts as Macie member accounts
+## Step 3: Automatically enable and add new organization accounts as Macie member accounts
 
 By default, Macie isn’t automatically enabled for new accounts when the accounts are
 added to your organization in AWS Organizations. In addition, the accounts aren’t automatically
@@ -228,9 +220,7 @@ organization in Macie. You can then manually add the account. To identify accoun
 where this is the case, you can [review the
 account inventory](accounts-mgmt-ao-review.md "accounts-mgmt-ao-review.md") for your organization.
 
-###### To automatically enable and add new organization accounts as Macie member
-
-accounts
+###### To automatically enable and add new organization accounts as Macie member accounts
 
 To automatically enable and add new accounts as Macie member accounts, you can use
 the Amazon Macie console or the Amazon Macie API. Only the delegated Macie administrator for the
@@ -304,9 +294,7 @@ discovery](discovery-asdd.md "discovery-asdd.md"). To
 enable this feature automatically for member accounts, use the [UpdateAutomatedDiscoveryConfiguration](../APIReference/automated-discovery-configuration.md "../APIReference/automated-discovery-configuration.md") operation or, if you're
 using the AWS CLI, run the [update-automated-discovery-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/macie2/update-automated-discovery-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/macie2/update-automated-discovery-configuration.html") command.
 
-## Step 4: Enable and add existing
-
-organization accounts as Macie member accounts
+## Step 4: Enable and add existing organization accounts as Macie member accounts
 
 When you integrate Macie with AWS Organizations, Macie isn’t automatically enabled for all the
 existing accounts in your organization. In addition, the accounts aren’t automatically

@@ -32,9 +32,7 @@ need for you to perform time-consuming data conversion efforts.
 - [Stopping publication of Macie
   findings to Security Hub CSPM](#securityhub-integration-disable "#securityhub-integration-disable")
 
-## How Macie publishes findings to
-
-AWS Security Hub CSPM
+## How Macie publishes findings to AWS Security Hub CSPM
 
 In AWS Security Hub CSPM, security issues are tracked as findings. Some findings come from issues that
 are detected by AWS services, such as Amazon Macie, or by supported AWS Partner Network security
@@ -57,9 +55,7 @@ more information, see [AWS Security
 Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub User
 Guide_.
 
-### Types of findings that Macie publishes
-
-to Security Hub CSPM
+### Types of findings that Macie publishes to Security Hub CSPM
 
 Depending on the publication settings that you choose for your Macie account, Macie can
 publish all the findings that it creates to Security Hub CSPM, both sensitive data findings and
@@ -69,9 +65,7 @@ for findings](findings-publish-frequency.md "findings-publish-frequency.md"). By
 only new and updated policy findings to Security Hub CSPM. Macie doesn't publish sensitive data
 findings to Security Hub CSPM.
 
-#### Sensitive data
-
-findings
+#### Sensitive data findings
 
 If you configure Macie to publish [sensitive
 data findings](findings-types.md#findings-sensitive-data-types "findings-types.md#findings-sensitive-data-types") to Security Hub CSPM, Macie automatically publishes each sensitive
@@ -103,9 +97,7 @@ data finding that Macie can create.
 | SensitiveData:S3Object/Multiple         | Sensitive Data<br>Identifications/PII/SensitiveData:S3Object-Multiple          |
 | SensitiveData:S3Object/Personal         | Sensitive Data<br>Identifications/PII/SensitiveData:S3Object-Personal          |
 
-#### Policy
-
-findings
+#### Policy findings
 
 If you configure Macie to publish [policy
 findings](findings-types.md#findings-policy-types "findings-types.md#findings-policy-types") to Security Hub CSPM, Macie automatically publishes each new policy
@@ -170,9 +162,7 @@ exceptions:
   `BatchUpdateFindings` operation of the AWS Security Hub CSPM
   API.
 
-### Latency for publishing findings to
-
-Security Hub CSPM
+### Latency for publishing findings to Security Hub CSPM
 
 When Amazon Macie creates a new policy or sensitive data finding, it publishes the finding to
 AWS Security Hub CSPM immediately after it finishes processing the finding.
@@ -184,17 +174,13 @@ publishes updates every 15 minutes. For more information, including how to chang
 the setting for your account, see [Configuring publication settings
 for findings](findings-publish-frequency.md "findings-publish-frequency.md").
 
-### Retrying publication when Security Hub CSPM isn't
-
-available
+### Retrying publication when Security Hub CSPM isn't available
 
 If AWS Security Hub CSPM isn't available, Amazon Macie creates a queue of findings that haven't been
 received by Security Hub CSPM. When the system is restored, Macie retries publication until the
 findings are received by Security Hub CSPM.
 
-### Updating existing findings in
-
-Security Hub CSPM
+### Updating existing findings in Security Hub CSPM
 
 After Amazon Macie publishes a policy finding to AWS Security Hub CSPM, Macie updates the finding to
 reflect any additional occurrences of the finding or finding activity. Macie does
@@ -216,9 +202,7 @@ type. If you've acted upon the finding, using either the AWS Security Hub CSPM c
 `BatchUpdateFindings` operation of the AWS Security Hub CSPM API, Macie doesn't
 change the field's value.
 
-## Examples of Macie findings in
-
-AWS Security Hub CSPM
+## Examples of Macie findings in AWS Security Hub CSPM
 
 When Amazon Macie publishes findings to AWS Security Hub CSPM, it uses the [AWS Security
 Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md"). This is the standard format for all findings in Security Hub CSPM.
@@ -230,9 +214,7 @@ findings data that Macie publishes to Security Hub CSPM in this format:
 - [Example of a policy
   finding](#securityhub-integration-finding-example-policy "#securityhub-integration-finding-example-policy")
 
-### Example of a sensitive data finding in
-
-Security Hub CSPM
+### Example of a sensitive data finding in Security Hub CSPM
 
 Here's an example of a sensitive data finding that Macie published to Security Hub CSPM using the
 ASFF.
@@ -376,9 +358,7 @@ ASFF.
 }
 ```
 
-### Example of a policy finding in
-
-Security Hub CSPM
+### Example of a policy finding in Security Hub CSPM
 
 Here's an example of a new policy finding that Macie published to Security Hub CSPM in the ASFF.
 
@@ -482,12 +462,9 @@ Macie publishes updates to policy findings in Security Hub CSPM. You can also ch
 sensitive data findings to Security Hub CSPM. To learn how, see [Configuring publication settings
 for findings](findings-publish-frequency.md "findings-publish-frequency.md").
 
-## Stopping publication of Macie findings to
-
-AWS Security Hub CSPM
+## Stopping publication of Macie findings to AWS Security Hub CSPM
 
 To stop publishing Amazon Macie findings to AWS Security Hub CSPM, you can change the publication settings
-for your Macie account. To learn how, see [Choosing publication destinations
-for findings](findings-publish-frequency.md#findings-publish-destinations-change "findings-publish-frequency.md#findings-publish-destinations-change"). You can also do this by
+for your Macie account. To learn how, see [Choosing publication destinations for findings](findings-publish-frequency.md#findings-publish-destinations-change "findings-publish-frequency.md#findings-publish-destinations-change"). You can also do this by
 using Security Hub CSPM. To learn how, see [Disabling the flow of findings from an integration](../../../securityhub/latest/userguide/securityhub-integration-disable.md "../../../securityhub/latest/userguide/securityhub-integration-disable.md") in
 the _AWS Security Hub User Guide_.

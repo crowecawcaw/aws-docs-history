@@ -5,8 +5,7 @@ Amazon Macie with AWS Organizations, and then centrally manage Macie for account
 With this configuration, a designated Macie administrator can enable and manage Macie for as many as
 10,000 accounts. The administrator can also access Amazon Simple Storage Service (Amazon S3) inventory data and
 discover sensitive data in S3 buckets that the accounts own. For details about tasks that
-the administrator can perform, see [Macie administrator and member account
-relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
+the administrator can perform, see [Macie administrator and member account relationships](accounts-mgmt-relationships.md "accounts-mgmt-relationships.md").
 
 AWS Organizations is a global account management service that enables AWS administrators to
 consolidate and centrally manage multiple AWS accounts. It provides account management and
@@ -25,8 +24,7 @@ If you already associated a Macie administrator account with member accounts by 
 invitations, you can designate that account as the delegated Macie administrator account for your
 organization in AWS Organizations. If you do this, all currently associated member accounts
 remain members and you can take full advantage of the benefits of managing accounts by
-using AWS Organizations. For more information, see [Transitioning from an
-invitation-based organization](accounts-mgmt-ao-notes.md#accounts-mgmt-ao-notes-transition-invitations "accounts-mgmt-ao-notes.md#accounts-mgmt-ao-notes-transition-invitations").
+using AWS Organizations. For more information, see [Transitioning from an invitation-based organization](accounts-mgmt-ao-notes.md#accounts-mgmt-ao-notes-transition-invitations "accounts-mgmt-ao-notes.md#accounts-mgmt-ao-notes-transition-invitations").
 
 The topics in this section explain how to integrate Macie with AWS Organizations and how to
 administer and manage Macie for accounts in an organization.

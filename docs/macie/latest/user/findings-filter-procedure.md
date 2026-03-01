@@ -1,6 +1,4 @@
-# Creating and applying filters to Macie
-
-findings
+# Creating and applying filters to Macie findings
 
 To identify and focus on findings that have specific characteristics, you can filter
 findings on the Amazon Macie console and in queries that you submit programmatically using the
@@ -26,9 +24,7 @@ _criterion_, consists of three parts:
 - [Filtering findings
   programmatically](#findings-filter-procedure-api "#findings-filter-procedure-api")
 
-## Filtering findings by using the Amazon Macie
-
-console
+## Filtering findings by using the Amazon Macie console
 
 If you use the Amazon Macie console to filter findings, Macie provides options to help you
 choose fields, operators, and values for individual conditions. You access these options by
@@ -192,9 +188,7 @@ filter rule. To do this, choose **Save rule** in the **Filter
 criteria** box. Then enter a name and, optionally, a description for the rule.
 When you finish, choose **Save**.
 
-## Filtering findings programmatically with the
-
-Amazon Macie API
+## Filtering findings programmatically with the Amazon Macie API
 
 To filter findings programmatically, specify filter criteria in queries that you submit
 using the [ListFindings](../APIReference/findings.md "../APIReference/findings.md") or [GetFindingStatistics](../APIReference/findings-statistics.md "../APIReference/findings-statistics.md") operation of the Amazon Macie API. The
@@ -259,9 +253,7 @@ array.
 }`
 ```
 
-### Example 1: Filter findings based on
-
-severity
+### Example 1: Filter findings based on severity
 
 This example retrieves finding IDs for all high-severity and medium-severity findings in
 the current AWS Region.
@@ -286,9 +278,7 @@ Where:
 - `High` and `Medium` are an array
   of enumerated values for the **Severity** field.
 
-### Example 2: Filter findings based on
-
-sensitive data category
+### Example 2: Filter findings based on sensitive data category
 
 This example retrieves finding IDs for all sensitive data findings that are in the
 current Region and report occurrences of financial information (and no other categories of
@@ -318,9 +308,7 @@ Where:
 - `FINANCIAL_INFORMATION` is an enumerated value for the
   **Sensitive data category** field.
 
-### Example 3: Filter findings based on a
-
-fixed time range
+### Example 3: Filter findings based on a fixed time range
 
 This example retrieves finding IDs for all findings that are in the current Region and
 were created between 07:00 UTC October 5, 2020, and 07:00 UTC November 5, 2020
@@ -351,9 +339,7 @@ Where:
 - `1604559600000` is the last date and time (as a Unix
   timestamp in milliseconds) in the time range.
 
-### Example 4: Filter findings based on
-
-suppression status
+### Example 4: Filter findings based on suppression status
 
 This example retrieves finding IDs for all findings that are in the current Region and
 were suppressed (automatically archived) by a suppression rule.
@@ -378,9 +364,7 @@ Where:
 - `true` is a Boolean value for the
   **Archived** field.
 
-### Example 5: Filter findings based on
-
-multiple fields and types of values
+### Example 5: Filter findings based on multiple fields and types of values
 
 This example retrieves finding IDs for all sensitive data findings that are in the
 current Region and match the following criteria: were created between 07:00 UTC October 5,

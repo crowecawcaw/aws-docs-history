@@ -303,9 +303,7 @@ to include a country code.
 **Comments:**
 Macie can detect 16‐digit Sistema Único de Boleto Electrónico (SUBE) card numbers that begin with `6061` and adhere to the Luhn check formula. Card number components can be separated by spaces or hyphens (‐), or not use a separator—for example, `6061 1234 1234 1234`, `6061‐1234‐1234‐1234`, and `6061123412341234`.
 
-## Social Insurance
-
-Number (SIN)
+## Social Insurance Number (SIN)
 
 **Managed data identifier ID:** CANADA_SOCIAL_INSURANCE_NUMBER
 

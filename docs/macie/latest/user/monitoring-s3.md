@@ -46,5 +46,4 @@ Amazon S3 data estate. For more information, see [Managing multiple accounts](ma
 - [How Macie monitors Amazon S3 data security](monitoring-s3-how-it-works.md "monitoring-s3-how-it-works.md")
 - [Assessing your Amazon S3 security posture with Macie](monitoring-s3-dashboard.md "monitoring-s3-dashboard.md")
 - [Analyzing your Amazon S3 security posture with Macie](monitoring-s3-inventory.md "monitoring-s3-inventory.md")
-- [Allowing Macie to access S3 buckets and
-  objects](monitoring-restrictive-s3-buckets.md "monitoring-restrictive-s3-buckets.md")
+- [Allowing Macie to access S3 buckets and objects](monitoring-restrictive-s3-buckets.md "monitoring-restrictive-s3-buckets.md")
