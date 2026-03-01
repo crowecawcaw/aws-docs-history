@@ -5,9 +5,7 @@ Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subj
 Before you use Amazon Managed Blockchain (AMB) Access Polygon for the first time, follow the steps in this section to create
 an AWS account. The following chapter discusses how to start using AMB Access Polygon.
 
-## Prerequisites for using AMB Access
-
-Polygon
+## Prerequisites for using AMB Access Polygon
 
 Before you use AWS for the first time, you must have an AWS account.
 
@@ -51,12 +49,9 @@ For information about how to create an IAM user, see [Creating an IAM user in yo
 account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md"). For more information about how to attach a permissions policy to a user, see
 [Changing
 permissions for an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md"). For an example of a permissions policy
-that you can use to give a user permission to work with AMB Access Polygon, see [Identity-based policy
-examples for Amazon Managed Blockchain (AMB) Access Polygon](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+that you can use to give a user permission to work with AMB Access Polygon, see [Identity-based policy examples for Amazon Managed Blockchain (AMB) Access Polygon](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Install and configure the
-
-AWS Command Line Interface
+## Install and configure the AWS Command Line Interface
 
 If you have not already done so, install the latest AWS Command Line Interface (AWS CLI) to work
 with AWS resources from a terminal. For more information, see [Installing or updating the latest

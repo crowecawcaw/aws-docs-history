@@ -23,9 +23,7 @@ To get a high-level view of how AMB Access Polygon and other AWS services work w
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AMB Access Polygon
+## Identity-based policies for AMB Access Polygon
 
 **Supports identity-based policies:**
 
@@ -42,16 +40,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AMB Access Polygon
 
-Identity-based policy examples for AMB Access Polygon
+To view examples of AMB Access Polygon identity-based policies, see [Identity-based policy examples for Amazon Managed Blockchain (AMB) Access Polygon](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AMB Access Polygon identity-based policies, see [Identity-based policy
-examples for Amazon Managed Blockchain (AMB) Access Polygon](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AMB Access Polygon
+## Resource-based policies within AMB Access Polygon
 
 **Supports resource-based policies:**
 
@@ -67,9 +60,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for AMB Access Polygon
+## Policy actions for AMB Access Polygon
 
 **Supports policy actions:**
 
@@ -108,12 +99,9 @@ action:
 "Action": "managedblockchain::InvokeRpcPolygon*"
 ```
 
-To view examples of AMB Access Polygon identity-based policies, see [Identity-based policy
-examples for Amazon Managed Blockchain (AMB) Access Polygon](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AMB Access Polygon identity-based policies, see [Identity-based policy examples for Amazon Managed Blockchain (AMB) Access Polygon](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AMB Access Polygon
+## Policy resources for AMB Access Polygon
 
 **Supports policy resources:**
 
@@ -133,12 +121,9 @@ To see a list of AMB Access Polygon resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions Defined by Amazon Managed Blockchain (AMB) Access Polygon](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
 
-To view examples of AMB Access Polygon identity-based policies, see [Identity-based policy
-examples for Amazon Managed Blockchain (AMB) Access Polygon](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AMB Access Polygon identity-based policies, see [Identity-based policy examples for Amazon Managed Blockchain (AMB) Access Polygon](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AMB Access Polygon
+## Policy condition keys for AMB Access Polygon
 
 **Supports service-specific policy condition keys:**
 
@@ -157,8 +142,7 @@ To see a list of AMB Access Polygon condition keys, see [Condition Keys for Amaz
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions Defined by Amazon Managed Blockchain (AMB) Access Polygon](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
 
-To view examples of AMB Access Polygon identity-based policies, see [Identity-based policy
-examples for Amazon Managed Blockchain (AMB) Access Polygon](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AMB Access Polygon identity-based policies, see [Identity-based policy examples for Amazon Managed Blockchain (AMB) Access Polygon](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in AMB Access Polygon
 
@@ -186,9 +170,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with AMB Access Polygon
+## Using temporary credentials with AMB Access Polygon
 
 **Supports temporary credentials:**
 
@@ -200,9 +182,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AMB Access Polygon
+## Cross-service principal permissions for AMB Access Polygon
 
 **Supports forward access sessions (FAS):**
 
@@ -211,9 +191,7 @@ No
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AMB Access Polygon
+## Service roles for AMB Access Polygon
 
 **Supports service roles:**
 
@@ -228,9 +206,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AMB Access Polygon functionality.
 Edit service roles only when AMB Access Polygon provides guidance to do so.
 
-## Service-linked
-
-roles for AMB Access Polygon
+## Service-linked roles for AMB Access Polygon
 
 **Supports service-linked roles:**
 

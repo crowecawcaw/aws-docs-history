@@ -32,9 +32,7 @@ You are responsible for creating, maintaining, using, and managing your Polygon 
 are also responsible for the contents of your Polygon addresses. AWS is not responsible for any
 transactions deployed or called using Polygon nodes on Amazon Managed Blockchain.
 
-## Considerations and limitations for
-
-using Amazon Managed Blockchain (AMB) Access Polygon
+## Considerations and limitations for using Amazon Managed Blockchain (AMB) Access Polygon
 
 When you use Amazon Managed Blockchain (AMB) Access Polygon, consider the following:
 

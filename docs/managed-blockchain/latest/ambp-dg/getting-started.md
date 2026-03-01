@@ -7,16 +7,12 @@ section.
 
 ###### Topics
 
-- [Create an IAM policy to access the Polygon
-  blockchain network](#getting-started-next-steps "#getting-started-next-steps")
+- [Create an IAM policy to access the Polygon blockchain network](#getting-started-next-steps "#getting-started-next-steps")
 - [Make Polygon remote procedure call (RPC) requests on the AMB Access RPC editor using the AWS Management Console](#gs-console-polygon "#gs-console-polygon")
-- [Make AMB Access Polygon JSON-RPC requests in
-  awscurl by using the AWS CLI](#awscurl-polygon-rpc-requests "#awscurl-polygon-rpc-requests")
+- [Make AMB Access Polygon JSON-RPC requests in awscurl by using the AWS CLI](#awscurl-polygon-rpc-requests "#awscurl-polygon-rpc-requests")
 - [Make Polygon JSON-RPC requests in Node.js](#nodejs-polygon-rpc-requests "#nodejs-polygon-rpc-requests")
 
-## Create an IAM policy to access the Polygon
-
-blockchain network
+## Create an IAM policy to access the Polygon blockchain network
 
 To access the public endpoint for the Polygon Mainnet to make JSON-RPC calls, you must have
 user credentials (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`) that
@@ -86,9 +82,7 @@ number`** and choose
 
 For more information, see the [RPCs supported by AMB Access Polygon](polygon-api.md "polygon-api.md")
 
-## Make AMB Access Polygon JSON-RPC requests in
-
-`awscurl` by using the AWS CLI
+## Make AMB Access Polygon JSON-RPC requests in `awscurl` by using the AWS CLI
 
 ###### Example
 
@@ -120,8 +114,7 @@ awscurl -X POST -d '{ "jsonrpc": "2.0", "id": "`eth_getBlockByNumber-curltest"`,
 ###### Tip
 
 You can also make this same request using `curl` and the AMB Access token based access feature using `Accessor`
-tokens. For more information, see [Creating and managing Accessor tokens for token-based access to
-make AMB Access Polygon requests](polygon-tokens.md "polygon-tokens.md").
+tokens. For more information, see [Creating and managing Accessor tokens for token-based access to make AMB Access Polygon requests](polygon-tokens.md "polygon-tokens.md").
 
 ```
 curl -X POST -d '{"jsonrpc":"2.0", "id": "`eth_getBlockByNumber-curltest"`, "method":"`eth_getBlockByNumber`", "params":["`latest`", `false`] }' 'https://`mainnet`.polygon.managedblockchain.`us-east-1`.amazonaws.com?billingtoken=`your-billing-token`'

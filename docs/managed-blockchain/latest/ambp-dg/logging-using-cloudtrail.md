@@ -1,8 +1,6 @@
 Amazon Managed Blockchain (AMB) Access Polygon is in preview release and is subject to change.
 
-# Logging Amazon Managed Blockchain (AMB) Access Polygon events by using
-
-AWS CloudTrail
+# Logging Amazon Managed Blockchain (AMB) Access Polygon events by using AWS CloudTrail
 
 ###### Note
 
@@ -54,9 +52,7 @@ the request. The identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding
-
-AMB Access Polygon log file entries
+## Understanding AMB Access Polygon log file entries
 
 For data plane events, a trail is a configuration that enables delivery of events as log
 files to a specified S3 bucket. Each CloudTrail log file contains one or more log entries that
