@@ -22,9 +22,7 @@ Operation dimension is reported.
 - Workflow, run, and run group APIs — CreateWorkflow, DeleteWorkflow, StartRun,
   CancelRun, DeleteRun, CreateRunGroup, DeleteRunGroup
 
-## Viewing `AWS HealthOmics`
-
-metrics
+## Viewing `AWS HealthOmics` metrics
 
 CloudWatch metrics for AWS HealthOmics are viewable in the CloudWatch console.
 

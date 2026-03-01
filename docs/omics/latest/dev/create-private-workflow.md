@@ -23,7 +23,7 @@ container image. You have the following options for hosting the container image:
   Prerequisites for this option:
 
       + In the ECR private registry, configure a pull through cache rule for each upstream registry. For more
-       information, see [Image mappings](workflows-ecr.md#ecr-pull-through-mapping-format "workflows-ecr.md#ecr-pull-through-mapping-format") .
+       information, see [Image mappings](workflows-ecr.md#ecr-pull-through-mapping-format "workflows-ecr.md#ecr-pull-through-mapping-format").
       + Configure the ECR resource policy as described in [Amazon ECR permissions](permissions-ecr.md "permissions-ecr.md").
       + Create repository creation templates. The template defines settings for when Amazon ECR creates the private
        repository for an upstream registry.

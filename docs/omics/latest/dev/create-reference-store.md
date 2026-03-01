@@ -6,14 +6,10 @@ You can create a reference store using the console or CLI.
 
 ###### Topics
 
-- [Creating a reference
-  store using the console](#console-create-reference-store "#console-create-reference-store")
-- [Creating a reference
-  store using the CLI](#api-create-reference-store "#api-create-reference-store")
+- [Creating a reference store using the console](#console-create-reference-store "#console-create-reference-store")
+- [Creating a reference store using the CLI](#api-create-reference-store "#api-create-reference-store")
 
-## Creating a reference
-
-store using the console
+## Creating a reference store using the console
 
 ###### To create a reference store
 
@@ -40,9 +36,7 @@ store using the console
    - **Tags** (optional) - Provide up to 50 tags
      for this reference store.
 
-## Creating a reference
-
-store using the CLI
+## Creating a reference store using the CLI
 
 The following example shows you how to create a reference store by using the AWS CLI. You can have one
 reference store per AWS Region.

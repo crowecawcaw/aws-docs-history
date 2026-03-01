@@ -26,5 +26,4 @@ _of_ the cloud and security _in_ the cloud:
 - [Identity and access management in HealthOmics](security-iam.md "security-iam.md")
 - [Compliance validation for AWS HealthOmics](compliance-validation.md "compliance-validation.md")
 - [Resilience in HealthOmics](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [AWS HealthOmics and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [AWS HealthOmics and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

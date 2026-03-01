@@ -138,7 +138,7 @@ For runs that use call caching, HealthOmics generates CloudWatch Logs entries fo
 - matching a cache entry (CACHE_HIT)
 - failing to match a cache entry (CACHE_MISS)
 
-For more information about these logs, see [Logs in CloudWatch](monitoring-cloudwatch-logs.md#cloudwatch-logs "monitoring-cloudwatch-logs.md#cloudwatch-logs") .
+For more information about these logs, see [Logs in CloudWatch](monitoring-cloudwatch-logs.md#cloudwatch-logs "monitoring-cloudwatch-logs.md#cloudwatch-logs").
 
 Use the following CloudWatch Insights query on the `/aws/omics/WorkflowLog` log group to return
 the number of cache hits per run for this cache:

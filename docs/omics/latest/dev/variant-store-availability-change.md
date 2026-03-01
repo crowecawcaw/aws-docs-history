@@ -59,7 +59,7 @@ more information, see [Deleting HealthOmics analytics stores.](deleting-a-store-
 
 ## Analytics
 
-For data analytics, continue to use AWS analytics services, such as [Amazon Athena](../../../athena.md "../../../athena.md"), [Amazon EMR](../../../emr.md "../../../emr.md"), [Amazon Redshift](../../../redshift.md "../../../redshift.md"), or [Amazon Quick Suite](../../../quicksight.md "../../../quicksight.md").
+For data analytics, continue to use AWS analytics services, such as [Amazon Athena](../../../athena.md "../../../athena.md"), [Amazon EMR](../../../emr.md "../../../emr.md"), [Amazon Redshift](../../../redshift.md "../../../redshift.md"), or [Amazon Quick](../../../quicksight.md "../../../quicksight.md").
 
 ## AWS Partners
 

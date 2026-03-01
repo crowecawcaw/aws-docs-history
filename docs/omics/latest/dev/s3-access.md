@@ -48,17 +48,13 @@ You can access archived read sets through Amazon S3 URIs after they have been ac
 
 ###### Topics
 
-- [Amazon S3 URI structure in HealthOmics
-  storage](#s3-uri-structure "#s3-uri-structure")
-- [Using Hosted or Local IGV to access read
-  sets](#s3-access-igv "#s3-access-igv")
+- [Amazon S3 URI structure in HealthOmics storage](#s3-uri-structure "#s3-uri-structure")
+- [Using Hosted or Local IGV to access read sets](#s3-access-igv "#s3-access-igv")
 - [Using Samtools or HTSlib in HealthOmics](#s3-access-Samtools "#s3-access-Samtools")
 - [Using Mountpoint HealthOmics](#s3-access-Mountpoint "#s3-access-Mountpoint")
 - [Using CloudFront with HealthOmics](#s3-access-CloudFront "#s3-access-CloudFront")
 
-## Amazon S3 URI structure in HealthOmics
-
-storage
+## Amazon S3 URI structure in HealthOmics storage
 
 All files with Amazon S3 URIs have `omics:subjectId` and `omics:sampleId`
 resource tags. You can use these tags to share access by using IAM policies through a pattern such as
@@ -86,9 +82,7 @@ process. For the index files generated, the proper index extension at the end of
 has the pattern `<name of the Source the index is on>.<file index extension>.`
 The index extensions are `.bai` or `.crai`.
 
-## Using Hosted or Local IGV to access read
-
-sets
+## Using Hosted or Local IGV to access read sets
 
 IGV is a genome browser used to analyze BAM and CRAM files. It requires both the file and the
 index because it only displays a portion of the genome at a time. IGV can be downloaded and used locally, and

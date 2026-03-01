@@ -1,6 +1,4 @@
-# Deleting HealthOmics reference and
-
-sequence stores
+# Deleting HealthOmics reference and sequence stores
 
 Both reference and sequence stores can be deleted. Sequence stores can only be deleted if they don't
 contain read sets, and reference stores can only be deleted if they don't contain references. Deleting a

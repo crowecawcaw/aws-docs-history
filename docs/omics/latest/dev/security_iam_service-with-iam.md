@@ -21,9 +21,7 @@ To get a high-level view of how HealthOmics and other AWS services work with mos
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for HealthOmics
+## Identity-based policies for HealthOmics
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for HealthOmics
 
-Identity-based policy examples for HealthOmics
+To view examples of AWS HealthOmics identity-based policies, see [Identity-based policy examples for AWS HealthOmics](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AWS HealthOmics identity-based policies, see [Identity-based policy
-examples for AWS HealthOmics](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within HealthOmics
+## Resource-based policies within HealthOmics
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for HealthOmics
+## Policy actions for HealthOmics
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of AWS HealthOmics identity-based policies, see [Identity-based policy
-examples for AWS HealthOmics](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS HealthOmics identity-based policies, see [Identity-based policy examples for AWS HealthOmics](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for HealthOmics
+## Policy resources for HealthOmics
 
 **Supports policy resources:**
 
@@ -122,18 +110,13 @@ To see a list of HealthOmics resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions Defined by AWS HealthOmics](../../../IAM/latest/UserGuide/list_awshealthomics.md#awshealthomics-actions-as-permissions "../../../IAM/latest/UserGuide/list_awshealthomics.md#awshealthomics-actions-as-permissions") .
 
-To view examples of AWS HealthOmics identity-based policies, see [Identity-based policy
-examples for AWS HealthOmics](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS HealthOmics identity-based policies, see [Identity-based policy examples for AWS HealthOmics](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for HealthOmics
+## Policy condition keys for HealthOmics
 
 Policy condition keys aren't supported in HealthOmics.
 
-## Access control lists (ACLs) in
-
-HealthOmics
+## Access control lists (ACLs) in HealthOmics
 
 **Supports ACLs:**
 
@@ -142,9 +125,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with HealthOmics
+## Attribute-based access control (ABAC) with HealthOmics
 
 **Supports ABAC (tags in policies):**
 
@@ -191,9 +172,7 @@ JSON
 
 ```
 
-## Using Temporary
-
-credentials with HealthOmics
+## Using Temporary credentials with HealthOmics
 
 **Supports temporary credentials:**
 
@@ -205,9 +184,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for HealthOmics
+## Cross-service principal permissions for HealthOmics
 
 **Supports forward access sessions (FAS):**
 
@@ -216,9 +193,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-HealthOmics
+## Service roles for HealthOmics
 
 **Supports service roles:**
 
@@ -233,9 +208,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break HealthOmics functionality.
 Edit service roles only when HealthOmics provides guidance to do so.
 
-## Service-linked
-
-roles for HealthOmics
+## Service-linked roles for HealthOmics
 
 **Supports service-linked roles:**
 

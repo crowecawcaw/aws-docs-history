@@ -17,8 +17,7 @@ stores.
 - [How do I troubleshoot a failed run?](#troubleshooting-run-fail "#troubleshooting-run-fail")
 - [How do I troubleshoot a failed task?](#troubleshooting-task-fail "#troubleshooting-task-fail")
 - [Where do I find the engine logs for successfully completed runs?](#troubleshooting-engine-logs "#troubleshooting-engine-logs")
-- [How can I reduce the input parameter size for a
-  workflow?](#troubleshooting-input-file-size "#troubleshooting-input-file-size")
+- [How can I reduce the input parameter size for a workflow?](#troubleshooting-input-file-size "#troubleshooting-input-file-size")
 - [Why is my run not completing?](#troubleshooting-unresponsive-runs "#troubleshooting-unresponsive-runs")
 
 ### How do I troubleshoot a failed run?
@@ -38,9 +37,7 @@ HealthOmics publishes logs to CloudWatch for failed runs only. If a run complete
 delivers the engine logs to your Amazon S3 bucket. For more information, see
 [Logs in Amazon S3](monitoring-cloudwatch-logs.md#s3-logs "monitoring-cloudwatch-logs.md#s3-logs").
 
-### How can I reduce the input parameter size for a
-
-workflow?
+### How can I reduce the input parameter size for a workflow?
 
 You can specify up to 50 KB of input parameters for a workflow. You can use directory imports or sample
 sheets to remain within this size constraint. For more information, see [Managing run parameters size](workflows-run-inputs.md#run-input-file-options "workflows-run-inputs.md#run-input-file-options").
@@ -97,10 +94,8 @@ Check if the task is configured to opt out of caching using workflow engine feat
 ###### Topics
 
 - [Why is S3 GetObject failing on my read set?](#sequence-store-s3-getobject-failing "#sequence-store-s3-getobject-failing")
-- [Why can't I see my annotation store or variant
-  store in Athena?](#athena-troubleshooting "#athena-troubleshooting")
-- [Why can't I access my data store in
-  Athena?](#athena-engine-troubleshooting "#athena-engine-troubleshooting")
+- [Why can't I see my annotation store or variant store in Athena?](#athena-troubleshooting "#athena-troubleshooting")
+- [Why can't I access my data store in Athena?](#athena-engine-troubleshooting "#athena-engine-troubleshooting")
 
 ### Why is S3 GetObject failing on my read set?
 
@@ -123,17 +118,13 @@ If you have a policy that's using tag based access controls, ensure the followin
   needs to be **active** and not **updating**.
 - Ensure that there are no typos in the tag key or key value on the read set and the policy.
 
-### Why can't I see my annotation store or variant
-
-store in Athena?
+### Why can't I see my annotation store or variant store in Athena?
 
 In Lake Formation, be sure to create a resource link based on the store that was shared with you. Once you
 create a resource link that you have permission to access, the store should be visible in Athena. For more
 information, see [Configuring Lake Formation to use HealthOmics](setting-up-lf.md "setting-up-lf.md").
 
-### Why can't I access my data store in
-
-Athena?
+### Why can't I access my data store in Athena?
 
 If your annotation or variant store is visible but you are receiving an error message
 saying that access is denied, check which query engine version you're using. Only

@@ -14,13 +14,10 @@ topics show how to use the HealthOmics console and AWS CLI to create and manage 
 
 ###### Topics
 
-- [Creating an annotation
-  store using the console](#gs-console-create-annotation-store "#gs-console-create-annotation-store")
+- [Creating an annotation store using the console](#gs-console-create-annotation-store "#gs-console-create-annotation-store")
 - [Creating an annotation store using the API](#create-manage-annotation-store-api "#create-manage-annotation-store-api")
 
-## Creating an annotation
-
-store using the console
+## Creating an annotation store using the console
 
 Use the following procedure to create annotation stores with the HealthOmics console.
 

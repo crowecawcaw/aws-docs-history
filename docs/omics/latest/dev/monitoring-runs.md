@@ -57,7 +57,7 @@ process.
 - During file export, HealthOmics exports the output files from the run storage file system to the S3
   location.
 - HealthOmics delivers the run logs and task logs to CloudWatch in real time while the run status is Running.
-  For more information, see [Logs in CloudWatch](monitoring-cloudwatch-logs.md#cloudwatch-logs "monitoring-cloudwatch-logs.md#cloudwatch-logs") .
+  For more information, see [Logs in CloudWatch](monitoring-cloudwatch-logs.md#cloudwatch-logs "monitoring-cloudwatch-logs.md#cloudwatch-logs").
 
 **Stopping**
 

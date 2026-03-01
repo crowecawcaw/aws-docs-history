@@ -150,9 +150,7 @@ JSON
 The following sample CloudFormation template creates a service role that gives HealthOmics permission to access Amazon S3 buckets that
 have names prefixed with `omics-`, and to upload workflow logs.
 
-###### Example Reference
-
-store, Amazon S3 and CloudWatch Logs permissions
+###### Example Reference store, Amazon S3 and CloudWatch Logs permissions
 
 ```
 Parameters:

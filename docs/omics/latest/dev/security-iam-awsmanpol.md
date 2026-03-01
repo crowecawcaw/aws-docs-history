@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AmazonOmicsFullAccess
+## AWS managed policy: AmazonOmicsFullAccess
 
 You can attach the `AmazonOmicsFullAccess` policy to your IAM identities
 to give them full access to HealthOmics.
@@ -75,9 +73,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonOmicsReadOnlyAccess
+## AWS managed policy: AmazonOmicsReadOnlyAccess
 
 You can attach the `AWSOmicsReadOnlyAccess` policy to your IAM identities when you wish to limit the permissions for that identity to read-only access.
 
@@ -100,9 +96,7 @@ JSON
 
 ```
 
-## HealthOmics updates to AWS managed
-
-policies
+## HealthOmics updates to AWS managed policies
 
 View details about updates to AWS managed policies for HealthOmics since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

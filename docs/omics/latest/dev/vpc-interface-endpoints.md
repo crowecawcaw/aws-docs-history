@@ -1,6 +1,4 @@
-# AWS HealthOmics and interface VPC endpoints
-
-(AWS PrivateLink)
+# AWS HealthOmics and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and AWS HealthOmics by creating an _interface VPC
 endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that you can use to privately access HealthOmics API operations without an
@@ -18,9 +16,7 @@ Guide_.
 VPC endpoint policies are supported for HealthOmics for all Regions except Israel (Tel Aviv). By default, full
 access to HealthOmics is allowed through the endpoint.
 
-## Considerations for HealthOmics VPC
-
-endpoints
+## Considerations for HealthOmics VPC endpoints
 
 Before you set up an interface VPC endpoint for HealthOmics, make sure that you review [Interface
 endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the _Amazon VPC User Guide_.
@@ -31,9 +27,7 @@ VPC endpoint policies aren't supported for HealthOmics by default, but you can c
 full HealthOmics access for the HealthOmics Storage operations. For more information, see [Controlling access to services with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the
 _Amazon VPC User Guide_.
 
-## Creating an interface VPC endpoint for
-
-HealthOmics
+## Creating an interface VPC endpoint for HealthOmics
 
 You can create a VPC endpoint for the HealthOmics service by using the Amazon VPC console or the AWS Command Line Interface (AWS CLI). For
 more information, see [Creating an
@@ -62,9 +56,7 @@ name for the Region, for example, `omics.us-east-1.amazonaws.com`.
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-HealthOmics
+## Creating a VPC endpoint policy for HealthOmics
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 HealthOmics. The policy specifies the following information:

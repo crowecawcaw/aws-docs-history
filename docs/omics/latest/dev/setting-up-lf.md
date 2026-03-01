@@ -36,9 +36,7 @@ about disabling default access controls, see [Changing the default security
 settings for your data lake](../../../lake-formation/latest/dg/change-settings.md "../../../lake-formation/latest/dg/change-settings.md") in the Lake Formation documentation. You can create resource links individually or as
 a group, so that you can access data in Amazon Athena or other AWS services (such as Amazon EMR).
 
-###### Creating resource links in the AWS Lake Formation console and sharing them with HealthOmics Analytics
-
-users
+###### Creating resource links in the AWS Lake Formation console and sharing them with HealthOmics Analytics users
 
 1. Open the AWS Lake Formation console: [Lake Formation console](https://console.aws.amazon.com//lakeformation "https://console.aws.amazon.com//lakeformation")
 2. In the primary navigation bar, choose **Databases**.

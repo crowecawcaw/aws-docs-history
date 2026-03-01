@@ -23,8 +23,7 @@ same file results in the same ETag value being calculated.
 - [HealthOmics ETags and data provenance](etags-and-provenance.md "etags-and-provenance.md")
 - [Creating a HealthOmics reference store](create-reference-store.md "create-reference-store.md")
 - [Creating a HealthOmics sequence store](create-sequence-store.md "create-sequence-store.md")
-- [Deleting HealthOmics reference and
-  sequence stores](deleting-reference-and-sequence-stores.md "deleting-reference-and-sequence-stores.md")
+- [Deleting HealthOmics reference and sequence stores](deleting-reference-and-sequence-stores.md "deleting-reference-and-sequence-stores.md")
 - [Importing read sets into a HealthOmics sequence store](import-sequence-store.md "import-sequence-store.md")
 - [Direct upload to a HealthOmics sequence store](synchronous-uploads.md "synchronous-uploads.md")
 - [Exporting HealthOmics read sets to an Amazon S3 bucket](read-set-exports.md "read-set-exports.md")

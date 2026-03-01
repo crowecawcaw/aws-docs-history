@@ -11,8 +11,7 @@ For more information, see
 
 - [Creating an annotation import job using the API](#create-annotation-import-api "#create-annotation-import-api")
 - [Additional parameters for TSV and VCF formats](#annotation-import-tsv-vcf "#annotation-import-tsv-vcf")
-- [Creating TSV formatted annotation
-  stores](#annotation-import-tsv-vcftsv-annotation-store-examples-tsv "#annotation-import-tsv-vcftsv-annotation-store-examples-tsv")
+- [Creating TSV formatted annotation stores](#annotation-import-tsv-vcftsv-annotation-store-examples-tsv "#annotation-import-tsv-vcftsv-annotation-store-examples-tsv")
 - [Starting VCF formatted import jobs](#vcf-annotation-store-examples "#vcf-annotation-store-examples")
 
 ## Creating an annotation import job using the API
@@ -132,9 +131,7 @@ aws omics start-annotation-import-job \
 }'
 ```
 
-## Creating TSV formatted annotation
-
-stores
+## Creating TSV formatted annotation stores
 
 The following example creates an annotation store using a tab limited file that contains
 a header, rows, and comments. The coordinates are `CHR_START_END_ONE_BASED`, and
