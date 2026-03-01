@@ -13,8 +13,7 @@ in use by a listener for any other load balancer.
 
 You can add or remove targets from your target group at any time. For more
 information, see [Register targets for your Network Load Balancer](target-group-register-targets.md "target-group-register-targets.md"). You can also modify the health
-check settings for your target group. For more information, see [Update the health check settings of a Network Load Balancer
-target group](modify-health-check-settings.md "modify-health-check-settings.md").
+check settings for your target group. For more information, see [Update the health check settings of a Network Load Balancer target group](modify-health-check-settings.md "modify-health-check-settings.md").
 
 ###### Requirements
 

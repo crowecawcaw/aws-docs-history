@@ -1,6 +1,4 @@
-# Update a TLS listener for your
-
-Network Load Balancer
+# Update a TLS listener for your Network Load Balancer
 
 After you create a TLS listener, you can replace the default certificate, add or
 remove certificates from the certificate list, update the security policy, or update the

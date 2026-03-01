@@ -25,8 +25,7 @@ For more information, see the [Amazon CloudWatch User Guide](../../../AmazonClou
 ###### Contents
 
 - [Network Load Balancer metrics](#load-balancer-metrics-nlb "#load-balancer-metrics-nlb")
-- [Metric dimensions for
-  Network Load Balancers](#load-balancer-metric-dimensions-nlb "#load-balancer-metric-dimensions-nlb")
+- [Metric dimensions for Network Load Balancers](#load-balancer-metric-dimensions-nlb "#load-balancer-metric-dimensions-nlb")
 - [Statistics for Network Load Balancer metrics](#metric-statistics "#metric-statistics")
 - [View CloudWatch metrics for your load balancer](#view-metric-data "#view-metric-data")
 
@@ -79,9 +78,7 @@ The `AWS/NetworkELB` namespace includes the following metrics.
 | `ZonalHealthStatus`                           | The number of Availability Zones that the load balancer considers<br>healthy. The load balancer emits a 1 for each healthy Availability<br>Zone and a 0 for each unhealthy Availability Zone.<br>**Reporting criteria**: Reported<br>if health checks are enabled.<br>**Statistics**: The most useful<br>statistics are `Maximum` and `Minimum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                                                                                                                                                                                          |
 | `QUIC_Unknown_Server_ID_Packet_Drop_Count`    | The number of UDP datagrams dropped which contain a server ID not associated with a target in the Network Load Balancer.<br>**Reporting criteria**: Reported<br>only for QUIC listeners.<br>**Statistics**: The most useful<br>statistic is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                                                                                                                                                                                                                                                                                        |
 
-## Metric dimensions for
-
-Network Load Balancers
+## Metric dimensions for Network Load Balancers
 
 To filter the metrics for your load balancer, use the following dimensions.
 

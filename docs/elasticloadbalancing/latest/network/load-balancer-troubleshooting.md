@@ -61,17 +61,13 @@ instance ID.
 If you are using QUIC listeners, ensure that the ID configured on the target matches
 the ID configured with the Network Load Balancer target group.
 
-## Targets receive more health check requests than
-
-expected
+## Targets receive more health check requests than expected
 
 Health checks for a Network Load Balancer are distributed and use a consensus mechanism to determine
 target health. Therefore, targets receive more than the number of health checks
 configured through the `HealthCheckIntervalSeconds` setting.
 
-## Targets receive fewer health check requests than
-
-expected
+## Targets receive fewer health check requests than expected
 
 Check whether `net.ipv4.tcp_tw_recycle` is enabled. This setting is known
 to cause issues with load balancers. The `net.ipv4.tcp_tw_reuse` setting is
@@ -87,9 +83,7 @@ registered targets, known as fail-open mode. The Network Load Balancer does this
 the IP addresses from DNS when all the targets are unhealthy and respective Availability
 Zones do not have healthy target to send request to.
 
-## Target fails HTTP or HTTPS health checks due to
-
-host header mismatch
+## Target fails HTTP or HTTPS health checks due to host header mismatch
 
 The HTTP host header in the health check request contains the IP address of the load
 balancer node and the listener port, not the IP address of the target and the health
@@ -98,18 +92,14 @@ health checks match any HTTP host header. Another option is to add a separate HT
 service on a different port and configure the target group to use that port for health
 checks instead. Alternatively, consider using TCP health checks.
 
-## Unable to associate a security group
-
-with a load balancer
+## Unable to associate a security group with a load balancer
 
 If the Network Load Balancer was created without security groups, it can't support security groups
 after creation. You can only associate a security group to a load balancer during
 creation, or to an existing load balancer that was originally created with security
 groups.
 
-## Unable to remove all security
-
-groups
+## Unable to remove all security groups
 
 If the Network Load Balancer was created with security groups, there must be at least one security
 group associated with it at all times. You cannot remove all security groups from the
@@ -133,9 +123,7 @@ unhealthy. If you see persistent increases in `TCP_ELB_Reset_Count` without
 targets being marked unhealthy, you can check the VPC flow logs for clients sending data
 on expired flows.
 
-## Connections time out for requests from a target to
-
-its load balancer
+## Connections time out for requests from a target to its load balancer
 
 Check whether client IP preservation is enabled on your target group. NAT loopback,
 also known as hairpinning, is not supported when client IP preservation is enabled.
@@ -155,9 +143,7 @@ of the following:
 - Ensure that containers that must communicate are on different container
   instances.
 
-## Performance decreases when moving targets to a
-
-Network Load Balancer
+## Performance decreases when moving targets to a Network Load Balancer
 
 Both Classic Load Balancers and Application Load Balancers use connection multiplexing, but Network Load Balancers do not. Therefore, your
 targets can receive more TCP connections behind a Network Load Balancer. Be sure that your targets are
@@ -182,9 +168,7 @@ CIDR blocks of the corresponding subnets. Each secondary IP address consumes 6 n
 addressing units. Note that after you add a secondary IP address you can't remove it.
 The only way to release the secondary IP addresses is to delete the load balancer.
 
-## Intermittent TCP connection establishment
-
-failure or TCP connection establishment delays
+## Intermittent TCP connection establishment failure or TCP connection establishment delays
 
 When client IP address preservation is enabled, a client may connect to different
 destination IP address using the same source ephemeral port. These destination IP
@@ -208,9 +192,7 @@ consider disabling client IP preservation. If you need the client IP you can use
 retrieve it using Proxy Protocol v2. To learn more about Proxy Protocol v2, see
 [Proxy protocol](edit-target-group-attributes.md#proxy-protocol "edit-target-group-attributes.md#proxy-protocol").
 
-## Potential failure when the load
-
-balancer is being provisioned
+## Potential failure when the load balancer is being provisioned
 
 One of the reasons a Network Load Balancer could fail when it is being provisioned is if you use an IP
 address that is already assigned or allocated elsewhere (for example, assigned as a
@@ -243,9 +225,7 @@ The following are possible scenarios where connections can be distributed uneven
   IP address from one of the load balancer zones, connections would be distributed
   unevenly between the load balancer zones.
 
-## DNS name resolution contains fewer IP addresses
-
-than enabled Availability Zones
+## DNS name resolution contains fewer IP addresses than enabled Availability Zones
 
 Ideally your Network Load Balancer provides one IP address per enabled Availability Zone, when
 they have at least one healthy host in the Availability Zone. When there are no

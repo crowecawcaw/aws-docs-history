@@ -41,9 +41,7 @@ Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.
 Before adding targets to your target group, configure the security groups
 associated with the targets to accept traffic from your Network Load Balancer.
 
-###### Recommendations for target security groups if the load balancer has an
-
-associated security group
+###### Recommendations for target security groups if the load balancer has an associated security group
 
 - To allow client traffic: Add a rule that
   references the security group associated with the load balancer.
@@ -57,9 +55,7 @@ associated security group
   a rule that accepts health check traffic from the load balancer security
   groups on the health check port.
 
-###### Recommendations for target security groups if the load balancer is not
-
-associated with a security group
+###### Recommendations for target security groups if the load balancer is not associated with a security group
 
 - To allow client traffic: If your load
   balancer preserves client IP addresses, add a rule that accepts traffic from

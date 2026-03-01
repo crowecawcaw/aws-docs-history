@@ -128,12 +128,9 @@ in the _User Guide for Application Load Balancers_.
 If you have microservices on instances that are registered with a Network Load Balancer, you can't
 use the load balancer to provide communication between them unless the load balancer is
 internet-facing or the instances are registered by IP address. For more information, see
-[Connections time out for requests from a target to
-its load balancer](load-balancer-troubleshooting.md#loopback-timeout "load-balancer-troubleshooting.md#loopback-timeout").
+[Connections time out for requests from a target to its load balancer](load-balancer-troubleshooting.md#loopback-timeout "load-balancer-troubleshooting.md#loopback-timeout").
 
-### Request routing and IP
-
-addresses
+### Request routing and IP addresses
 
 If you specify targets using an instance ID, traffic is routed to instances using
 the primary private IP address that is specified in the primary network interface
@@ -360,8 +357,7 @@ application.
 - [Unhealthy state actions](#unhealthy-state-actions "#unhealthy-state-actions")
 - [Requirements and considerations](#target-group-health-considerations "#target-group-health-considerations")
 - [Example](#target-group-health-examples "#target-group-health-examples")
-- [Using Route 53 DNS failover for your load
-  balancer](#r53-dns-failover "#r53-dns-failover")
+- [Using Route 53 DNS failover for your load balancer](#r53-dns-failover "#r53-dns-failover")
 
 ### Unhealthy state actions
 
@@ -462,9 +458,7 @@ The following example demonstrates how target group health settings are applied.
 - The load balancer distributes traffic between the 14 healthy targets in
   both Availability Zones.
 
-### Using Route 53 DNS failover for your load
-
-balancer
+### Using Route 53 DNS failover for your load balancer
 
 If you use Route 53 to route DNS queries to your load balancer, you can also
 configure DNS failover for your load balancer using Route 53. In a failover

@@ -96,9 +96,7 @@ targets.
 For more information, see [How Elastic Load Balancing works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in
 the _Elastic Load Balancing User Guide_.
 
-## Benefits of migrating from a
-
-Classic Load Balancer
+## Benefits of migrating from a Classic Load Balancer
 
 Using a Network Load Balancer instead of a Classic Load Balancer has the following benefits:
 
