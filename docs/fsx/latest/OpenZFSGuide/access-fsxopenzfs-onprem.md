@@ -31,5 +31,4 @@ see [Failover process for FSx for OpenZFS](availability-durability.md#multi-az-f
 If you have a Multi-AZ file system with an endpoint IP address range
 that's outside your VPC's CIDR range, you need to set up additional routing
 in your AWS Transit Gateway to access your file system from peered or on-premises networks.
-For information, see [Configuring routing using
-AWS Transit Gateway](access-within-aws.md#configuring-routing-using-AWSTG "access-within-aws.md#configuring-routing-using-AWSTG").
+For information, see [Configuring routing using AWS Transit Gateway](access-within-aws.md#configuring-routing-using-AWSTG "access-within-aws.md#configuring-routing-using-AWSTG").

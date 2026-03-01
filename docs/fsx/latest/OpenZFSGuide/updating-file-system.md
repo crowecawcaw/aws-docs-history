@@ -5,19 +5,15 @@ the AWS CLI, and the Amazon FSx API.
 
 ###### Topics
 
-- [Updating a file system (Amazon FSx
-  console, AWS CLI, and Amazon FSx API)](#update-file-system-console-cli-api "#update-file-system-console-cli-api")
+- [Updating a file system (Amazon FSx console, AWS CLI, and Amazon FSx API)](#update-file-system-console-cli-api "#update-file-system-console-cli-api")
 - [Modifiable file system properties](#updatable-properties "#updatable-properties")
-- [Modifying provisioned SSD storage capacity
-  and IOPS](managing-storage-capacity.md "managing-storage-capacity.md")
+- [Modifying provisioned SSD storage capacity and IOPS](managing-storage-capacity.md "managing-storage-capacity.md")
 - [Modifying provisioned SSD read cache](managing-ssd-read-cache.md "managing-ssd-read-cache.md")
 - [Modifying throughput capacity](managing-throughput-capacity.md "managing-throughput-capacity.md")
 - [Modifying network type](manage-network-type.md "manage-network-type.md")
 - [Modifying file system maintenance windows](maintenance-windows.md "maintenance-windows.md")
 
-## Updating a file system (Amazon FSx
-
-console, AWS CLI, and Amazon FSx API)
+## Updating a file system (Amazon FSx console, AWS CLI, and Amazon FSx API)
 
 Amazon FSx Console
 

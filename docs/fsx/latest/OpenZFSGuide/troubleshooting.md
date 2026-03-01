@@ -34,18 +34,14 @@ Amazon FSx doesn't support accessing file systems from the public Internet. Amaz
 detaches any public Elastic IP addresses (an IP address that is reachable from the public Internet),
 that gets attached to a file system's elastic network interface.
 
-### The file system's elastic network interface was modified or
-
-deleted
+### The file system's elastic network interface was modified or deleted
 
 You must not modify or delete any of the file system's elastic network interfaces.
 Modifying or deleting a network interface can cause a permanent loss of connection between your
 virtual private cloud (VPC) and your file system. To resolve this issue, you must create a new
 file system, and do not modify or delete the Amazon FSx network interface. For more information, see [Managing file system access with with Amazon VPC](limit-access-security-groups.md "limit-access-security-groups.md").
 
-### The compute instance's subnet doesn't use any of the route tables
-
-associated with your file system
+### The compute instance's subnet doesn't use any of the route tables associated with your file system
 
 FSx for OpenZFS creates an endpoint for accessing your file system in a VPC route table. We recommend
 that you configure your file system to use all of the VPC route tables that are associated with the subnets

@@ -5,13 +5,10 @@ the AWS CLI, and the Amazon FSx API, as well as information on the different fil
 
 ###### Topics
 
-- [Viewing file system details (Amazon FSx console,
-  AWS CLI, and Amazon FSx API)](#how-to-view-file-system "#how-to-view-file-system")
+- [Viewing file system details (Amazon FSx console, AWS CLI, and Amazon FSx API)](#how-to-view-file-system "#how-to-view-file-system")
 - [File system status](#file-system-lifecycle-states "#file-system-lifecycle-states")
 
-## Viewing file system details (Amazon FSx console,
-
-AWS CLI, and Amazon FSx API)
+## Viewing file system details (Amazon FSx console, AWS CLI, and Amazon FSx API)
 
 ###### To view a file system's details (Amazon FSx console, CLI, and API):
 

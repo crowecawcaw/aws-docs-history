@@ -26,8 +26,7 @@ S3 access points attached to FSx for OpenZFS volumes have the following restrict
 - S3 access points can only be attached to volumes that are hosted on high-availability (HA) Multi-AZ and Single-AZ FSx for OpenZFS file systems.
   For more information about the types of FSx for OpenZFS file systems, see [Availability and durability for Amazon FSx for OpenZFS](availability-durability.md "availability-durability.md").
 - The maximum number of S3 access points that can be attached to an FSx for OpenZFS (HA) file system is dependent on the file system's throughput. For more information,
-  see [Resource quotas for each file
-  system](limits.md#limits-openzfs-resources-file-system "limits.md#limits-openzfs-resources-file-system").
+  see [Resource quotas for each file system](limits.md#limits-openzfs-resources-file-system "limits.md#limits-openzfs-resources-file-system").
 - S3 access control lists (ACLs) are not supported.
 - The same AWS account must own the FSx for OpenZFS file system and the S3 access point.
 

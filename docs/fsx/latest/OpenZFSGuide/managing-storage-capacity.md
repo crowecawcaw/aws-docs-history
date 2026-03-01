@@ -1,6 +1,4 @@
-# Modifying provisioned SSD storage capacity
-
-and IOPS
+# Modifying provisioned SSD storage capacity and IOPS
 
 When you need additional storage for your dataset, you can increase the solid state drive
 (SSD) storage capacity of your Amazon FSx for OpenZFS file system without any disruption to your
@@ -15,8 +13,7 @@ for your file system, use one of two IOPS modes:
   your SSD IOPS.
 - Use **User-provisioned** mode if you want to provision a specific
   amount of SSD IOPS.
-  For more information about these modes, see [Considerations when updating
-  storage and IOPS](#scaling-considerations "#scaling-considerations").
+  For more information about these modes, see [Considerations when updating storage and IOPS](#scaling-considerations "#scaling-considerations").
 
 When you increase the SSD storage capacity of your Amazon FSx file system, the new capacity is
 available for use within minutes. You can update the SSD storage capacity or SSD IOPS at
@@ -37,15 +34,12 @@ root volume, and any other volumes in your file system. For more information, se
 
 ###### Topics
 
-- [Considerations when updating
-  storage and IOPS](#scaling-considerations "#scaling-considerations")
+- [Considerations when updating storage and IOPS](#scaling-considerations "#scaling-considerations")
 - [When to increase storage capacity](#when-to-modify-storage-capacity "#when-to-modify-storage-capacity")
 - [Updating SSD storage capacity and provisioned IOPS](#increase-storage-capacity "#increase-storage-capacity")
 - [Monitoring storage capacity and IOPS updates](#monitoring-storage-capacity-increase "#monitoring-storage-capacity-increase")
 
-## Considerations when updating
-
-storage and IOPS
+## Considerations when updating storage and IOPS
 
 Here are a few important considerations when modifying your SSD storage capacity
 and provisioned IOPS:
@@ -61,8 +55,7 @@ and provisioned IOPS:
 ###### Note
 
 \*The maximum storage capacity of your file system depends on the AWS Region in which it is located. For more information, see
-[Resource quotas for each file
-system](limits.md#limits-openzfs-resources-file-system "limits.md#limits-openzfs-resources-file-system").
+[Resource quotas for each file system](limits.md#limits-openzfs-resources-file-system "limits.md#limits-openzfs-resources-file-system").
 
 - **Time between increases** – You can't make further
   SSD storage capacity increases on a file system until 6 hours after the last
@@ -135,8 +128,7 @@ The **Update SSD storage capacity and IOPS** dialog box appears. 4. To increase 
     ###### Note
 
     \*The maximum storage capacity of your file system depends on the AWS Region in which it is located. For more information, see
-     [Resource quotas for each file
-     system](limits.md#limits-openzfs-resources-file-system "limits.md#limits-openzfs-resources-file-system").
+     [Resource quotas for each file system](limits.md#limits-openzfs-resources-file-system "limits.md#limits-openzfs-resources-file-system").
 
 6. For **Provisioned SSD IOPS**, you have two options to modify
    the number of provisioned SSD IOPS for your file system:

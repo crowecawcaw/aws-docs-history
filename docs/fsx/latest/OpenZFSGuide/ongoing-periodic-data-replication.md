@@ -81,9 +81,7 @@ sam deploy --guided \
 
 You will be asked if you would like to update any parameters. 4. Choose **Enter** to deploy the template.
 
-##
-
-Step 2: Monitoring periodic replication
+## Step 2: Monitoring periodic replication
 
 You can monitor the status of the periodic replication workflow using the Amazon FSx Console, AWS CLI, and API.
 For more information on how to monitor periodic replication using the Amazon FSx Console, see [Monitoring progress of on-demand data replication](on-demand-replication.md#how-to-monitor-data-replication "on-demand-replication.md#how-to-monitor-data-replication").

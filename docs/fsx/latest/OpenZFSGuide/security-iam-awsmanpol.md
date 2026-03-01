@@ -136,9 +136,7 @@ To view the permissions for this policy, see
 [AmazonFSxReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonFSxReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonFSxReadOnlyAccess.md")
 in the AWS Managed Policy Reference Guide.
 
-## Amazon FSx updates to AWS managed
-
-policies
+## Amazon FSx updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon FSx since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

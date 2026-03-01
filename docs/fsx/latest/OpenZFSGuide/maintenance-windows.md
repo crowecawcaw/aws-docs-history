@@ -44,5 +44,4 @@ maintenance window for your file systems.
    in the file system administration **Settings** panel.
 
 To change the weekly maintenance window using the [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md") CLI command,
-see [Updating a file system (Amazon FSx
-console, AWS CLI, and Amazon FSx API)](updating-file-system.md#update-file-system-console-cli-api "updating-file-system.md#update-file-system-console-cli-api").
+see [Updating a file system (Amazon FSx console, AWS CLI, and Amazon FSx API)](updating-file-system.md#update-file-system-console-cli-api "updating-file-system.md#update-file-system-console-cli-api").

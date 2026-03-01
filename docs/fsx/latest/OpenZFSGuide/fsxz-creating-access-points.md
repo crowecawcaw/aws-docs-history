@@ -4,8 +4,7 @@ You can create and manage S3 access point that attach to Amazon FSx volumes
 using the Amazon FSx console, CLI, API, and supported SDKs.
 
 The maximum number of S3 access points that can be attached to an FSx for OpenZFS (HA) file system is dependent on the file system's throughput. For more information,
-see [Resource quotas for each file
-system](limits.md#limits-openzfs-resources-file-system "limits.md#limits-openzfs-resources-file-system").
+see [Resource quotas for each file system](limits.md#limits-openzfs-resources-file-system "limits.md#limits-openzfs-resources-file-system").
 
 ###### Note
 

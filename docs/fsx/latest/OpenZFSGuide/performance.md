@@ -200,8 +200,7 @@ The following example uses sample values.
 As the amount of used storage space gets closer to the total available storage capacity, Amazon FSx (like other file systems) spends more time finding suitable places
 to store new files and their metadata. This leads to higher latency for operations that modify files,
 which can negatively impact overall performance. To avoid this performance impact, we recommended keeping storage utilization of SSD (provisioned) file systems below 80% of the total capacity.
-If needed, you can increase your maximum storage capacity at anytime, without disruption to your end users or applications. For more information, see [Modifying provisioned SSD storage capacity
-and IOPS](managing-storage-capacity.md "managing-storage-capacity.md").
+If needed, you can increase your maximum storage capacity at anytime, without disruption to your end users or applications. For more information, see [Modifying provisioned SSD storage capacity and IOPS](managing-storage-capacity.md "managing-storage-capacity.md").
 
 You do not need to modify storage capacity if your file system uses the Intelligent-Tiering storage class. For more information, see
 [How FSx for OpenZFS file systems work with Intelligent-Tiering](performance-intelligent-tiering.md "performance-intelligent-tiering.md").

@@ -79,8 +79,7 @@ When you access your Multi-AZ file system from outside of the file system's VPC,
 as long as the file system's endpoint IP address range is within the CIDR range of the file system's VPC and does not overlap with the CIDR range of any subnets in the VPC. However, if you access
 your Multi-AZ file system from outside of the file system's VPC, and the file system's endpoint IP address range is outside of
 the CIDR range of the file system's VPC, you will need to set up additional routing in Transit Gateway. For information on how to configure Transit Gateway to access your FSx for OpenZFS file system, see
-[Configuring routing using
-AWS Transit Gateway](#configuring-routing-using-AWSTG "#configuring-routing-using-AWSTG").
+[Configuring routing using AWS Transit Gateway](#configuring-routing-using-AWSTG "#configuring-routing-using-AWSTG").
 
 The following diagram illustrates using Transit Gateway for NFS access to a Multi-AZ
 file system that is in a different VPC than the clients that are accessing it.
@@ -94,9 +93,7 @@ your Multi-AZ file system. Doing so helps prevent loss of availability during a 
 For information about associating your Amazon VPC route tables with your file system, see
 [Updating an Amazon FSx for OpenZFS file system](updating-file-system.md "updating-file-system.md").
 
-### Configuring routing using
-
-AWS Transit Gateway
+### Configuring routing using AWS Transit Gateway
 
 If you have a Multi-AZ file system with an endpoint IP address range
 that's outside your VPC's CIDR range, you need to set up additional routing

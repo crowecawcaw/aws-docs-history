@@ -4,14 +4,11 @@ FSx for OpenZFS has default AWS account and file system resource quotas. The fol
 
 ###### Topics
 
-- [Resource quotas for each file
-  system](#limits-openzfs-resources-file-system "#limits-openzfs-resources-file-system")
+- [Resource quotas for each file system](#limits-openzfs-resources-file-system "#limits-openzfs-resources-file-system")
 - [Resource quotas for each AWS account](#soft-limits "#soft-limits")
 - [Requesting a quota increase](#request-quota-increase "#request-quota-increase")
 
-## Resource quotas for each file
-
-system
+## Resource quotas for each file system
 
 Following are the default quotas on FSx for OpenZFS resources for each file system in an AWS Region. For information on how to request an increase on a quota, see [Requesting a quota increase](#request-quota-increase "#request-quota-increase").
 

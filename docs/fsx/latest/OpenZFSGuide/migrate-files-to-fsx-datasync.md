@@ -23,9 +23,7 @@ To migrate data into your FSx for OpenZFS setup, you need a server and network t
 the DataSync requirements. To learn more, see [Requirements for DataSync](../../../datasync/latest/userguide/requirements.md "../../../datasync/latest/userguide/requirements.md")
 in the _AWS DataSync User Guide_.
 
-## Basic steps for migrating files using
-
-DataSync
+## Basic steps for migrating files using DataSync
 
 Transferring files from a source to a destination using DataSync involves the
 following basic steps:
