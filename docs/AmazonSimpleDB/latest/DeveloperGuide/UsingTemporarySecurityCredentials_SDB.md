@@ -1,6 +1,4 @@
-# Using Temporary Security
-
-Credentials
+# Using Temporary Security Credentials
 
 In addition to creating users with their own security credentials, IAM also
 enables you to grant temporary security credentials to any user to allow the user to

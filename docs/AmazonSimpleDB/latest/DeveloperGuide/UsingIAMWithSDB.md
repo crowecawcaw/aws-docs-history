@@ -5,8 +5,7 @@
 - [Amazon Resource Names (ARNs) for Amazon SimpleDB](#SDB_ARN_Format "#SDB_ARN_Format")
 - [Amazon SimpleDB Actions](#UsingWithSDB_Actions "#UsingWithSDB_Actions")
 - [Amazon SimpleDB Keys](#UsingWithSDB_Keys "#UsingWithSDB_Keys")
-- [Example Policies for Amazon
-  SimpleDB](#ExamplePolicies_SDB "#ExamplePolicies_SDB")
+- [Example Policies for Amazon SimpleDB](#ExamplePolicies_SDB "#ExamplePolicies_SDB")
   Amazon SimpleDB does not offer its own resource-based permissions system. However, the
   service now integrates with IAM (AWS Identity and Access Management) so that you can give other
   Users in your AWS Account access to Amazon SimpleDB domains within the AWS Account. For
@@ -22,8 +21,7 @@ of IAM, and includes no new actions related to
 Users and access control.
 
 For examples of policies that cover Amazon SimpleDB actions and
-resources, see [Example Policies for Amazon
-SimpleDB](#ExamplePolicies_SDB "#ExamplePolicies_SDB").
+resources, see [Example Policies for Amazon SimpleDB](#ExamplePolicies_SDB "#ExamplePolicies_SDB").
 
 ## Amazon Resource Names (ARNs) for Amazon SimpleDB
 
@@ -89,9 +87,7 @@ in the _IAM User Guide_. For a list of condition keys that can be used in multip
 [global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")
 in the _IAM User Guide_.
 
-## Example Policies for Amazon
-
-SimpleDB
+## Example Policies for Amazon SimpleDB
 
 This section shows several simple policies for controlling User
 access to Amazon SimpleDB domains.
@@ -101,9 +97,7 @@ access to Amazon SimpleDB domains.
 In the future, Amazon SimpleDB might add new actions that should logically be included
 in one of the following policies, based on the policy’s stated goals.
 
-###### Example 1: Allow a group to use any Amazon SimpleDB actions on
-
-specific domains
+###### Example 1: Allow a group to use any Amazon SimpleDB actions on specific domains
 
 In this example, we create a policy that lets the group use
 any of the AWS Account's domains that start with the literal string
@@ -124,9 +118,7 @@ JSON
 
 ```
 
-###### Example 2: Allow a group to read data from the AWS Account's
-
-domains
+###### Example 2: Allow a group to read data from the AWS Account's domains
 
 In this example, we create a policy that lets the group use
 the `GetAttributes` and
@@ -148,18 +140,14 @@ JSON
 
 ```
 
-###### Example 3: Allow a group to list domains and get their
-
-metadata
+###### Example 3: Allow a group to list domains and get their metadata
 
 In this example, we create a policy that lets the group use
 the `ListDomains` and
 `DomainMetadata` actions with any of the
 AWS Account's domains.
 
-###### Example 4: Allow a partner to only read data from a particular
-
-domain
+###### Example 4: Allow a partner to only read data from a particular domain
 
 There's no way to share a domain with a different AWS Account,
 so the partner must work with your domain as a User within your
