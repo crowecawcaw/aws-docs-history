@@ -14,9 +14,7 @@ AWS lens that focuses on indigenous data. This document is intended for those in
 and data roles, such as chief technology officers (CTOs), chief information security officers
 (CSOs/CISOs), architects, developers, and operations managers.
 
-## Pillars of the Well-Architected
-
-Framework
+## Pillars of the Well-Architected Framework
 
 The Well-Architected Framework consists of six pillars: operational excellence, security,
 reliability, performance efficiency, cost optimisation and sustainability. The Framework
@@ -57,9 +55,7 @@ these may be considered in relation to important Māori data considerations. You
 lens to a workload in isolation. However, we recommend applying this lens in addition to a
 Well-Architected Framework Review to fully evaluate your workload.
 
-## AWS bringing
-
-infrastructure to Aotearoa New Zealand
+## AWS bringing infrastructure to Aotearoa New Zealand
 
 On 22 September 2021, AWS announced that the new AWS Asia Pacific (Auckland) Region.
 The Region adds to the continuing AWS investment in and commitment to Aotearoa New Zealand,

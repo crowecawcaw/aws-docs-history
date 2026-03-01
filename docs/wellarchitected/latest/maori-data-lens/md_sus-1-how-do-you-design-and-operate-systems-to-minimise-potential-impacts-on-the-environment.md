@@ -1,6 +1,4 @@
-# MD_SUS 1 How do you design and operate systems to minimise potential impacts on the
-
-environment?
+# MD_SUS 1 How do you design and operate systems to minimise potential impacts on the environment?
 
 - **MD_SUS01-BP01: Develop an understanding of the unique relationship
   between Māori and the land**. As tangata whenua (people of the land), Māori

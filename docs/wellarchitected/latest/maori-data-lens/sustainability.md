@@ -63,6 +63,5 @@ sustainability and minimise impact.
 
 ###### Topics
 
-- [MD_SUS 1 How do you design and operate systems to minimise potential impacts on the
-  environment?](md_sus-1-how-do-you-design-and-operate-systems-to-minimise-potential-impacts-on-the-environment.md "md_sus-1-how-do-you-design-and-operate-systems-to-minimise-potential-impacts-on-the-environment.md")
+- [MD_SUS 1 How do you design and operate systems to minimise potential impacts on the environment?](md_sus-1-how-do-you-design-and-operate-systems-to-minimise-potential-impacts-on-the-environment.md "md_sus-1-how-do-you-design-and-operate-systems-to-minimise-potential-impacts-on-the-environment.md")
 - [Resources](md_sus-resources.md "md_sus-resources.md")

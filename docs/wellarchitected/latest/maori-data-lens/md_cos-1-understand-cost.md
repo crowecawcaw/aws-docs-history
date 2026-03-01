@@ -1,6 +1,4 @@
-# MD_CO 1 Understand costs associated with
-
-infrastructure options
+# MD_CO 1 Understand costs associated with infrastructure options
 
 - **MD_CO01-BP01: How are you presenting the costs/benefit tradeoffs
   for infrastructure options?** Clearly present the cost to benefit trade-offs

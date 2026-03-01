@@ -1,6 +1,4 @@
-# MD_REL 1 How
-
-do you safely retain data for future generations?
+# MD_REL 1 How do you safely retain data for future generations?
 
 Māori data is often considered taonga, and it is critical that this data is available for
 future generations. Whakapapa (genealogy) or mātauranga Māori (Māori knowledge) are examples

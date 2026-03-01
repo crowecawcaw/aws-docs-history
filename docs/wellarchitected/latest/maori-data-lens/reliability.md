@@ -44,6 +44,5 @@ function correctly and consistently when it's expected to.
 
 ###### Topics
 
-- [MD_REL 1 How
-  do you safely retain data for future generations?](md_rel-1-how-do-you-safely-retain-data-for-future-generations.md "md_rel-1-how-do-you-safely-retain-data-for-future-generations.md")
+- [MD_REL 1 How do you safely retain data for future generations?](md_rel-1-how-do-you-safely-retain-data-for-future-generations.md "md_rel-1-how-do-you-safely-retain-data-for-future-generations.md")
 - [Resources](md_rel-resources.md "md_rel-resources.md")

@@ -1,6 +1,4 @@
-# MD_SEC 2:
-
-How do you design workload security for long-term safety?
+# MD_SEC 2: How do you design workload security for long-term safety?
 
 Certain Māori data may need to be available for generations to come. Consult with Māori
 customers and advisers about what data retention policies they recommend according to the
