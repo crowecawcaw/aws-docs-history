@@ -14,7 +14,5 @@ columns and paginated range read results, see [Pagination](functional-difference
 
 ###### Topics
 
-- [Calculate the static column size per logical
-  partition in Amazon Keyspaces](static-columns-estimate.md "static-columns-estimate.md")
-- [Estimate capacity throughput requirements for read/write operations on static
-  data in Amazon Keyspaces](static-columns-metering.md "static-columns-metering.md")
+- [Calculate the static column size per logical partition in Amazon Keyspaces](static-columns-estimate.md "static-columns-estimate.md")
+- [Estimate capacity throughput requirements for read/write operations on static data in Amazon Keyspaces](static-columns-metering.md "static-columns-metering.md")

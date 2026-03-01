@@ -1,6 +1,4 @@
-# Calculate the static column size per logical
-
-partition in Amazon Keyspaces
+# Calculate the static column size per logical partition in Amazon Keyspaces
 
 This section provides details about how to estimate the encoded size of static
 columns in Amazon Keyspaces. The encoded size is used when you're calculating your bill and

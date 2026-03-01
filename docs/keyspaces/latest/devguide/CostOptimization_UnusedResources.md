@@ -14,18 +14,12 @@ retention](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#me
 
 ###### Topics
 
-- [How to identify unused
-  resources](#CostOptimization_UnusedResources_Identifying "#CostOptimization_UnusedResources_Identifying")
-- [Identifying unused table
-  resources](#CostOptimization_UnusedResources_Tables "#CostOptimization_UnusedResources_Tables")
-- [Cleaning up unused table
-  resources](#CostOptimization_UnusedResources_Tables_Cleanup "#CostOptimization_UnusedResources_Tables_Cleanup")
-- [Cleaning up unused
-  point-in-time recovery (PITR) backups](#CostOptimization_UnusedResources_Backups "#CostOptimization_UnusedResources_Backups")
+- [How to identify unused resources](#CostOptimization_UnusedResources_Identifying "#CostOptimization_UnusedResources_Identifying")
+- [Identifying unused table resources](#CostOptimization_UnusedResources_Tables "#CostOptimization_UnusedResources_Tables")
+- [Cleaning up unused table resources](#CostOptimization_UnusedResources_Tables_Cleanup "#CostOptimization_UnusedResources_Tables_Cleanup")
+- [Cleaning up unused point-in-time recovery (PITR) backups](#CostOptimization_UnusedResources_Backups "#CostOptimization_UnusedResources_Backups")
 
-## How to identify unused
-
-resources
+## How to identify unused resources
 
 To identify unused tables you can take a look at the following CloudWatch metrics over a
 period of 30 days to understand if there are any active reads or writes on a specific table:
@@ -42,9 +36,7 @@ The number of write capacity units consumed over the specified time period, so y
 track how much consumed capacity you have used. You can retrieve the total consumed write
 capacity for a table.
 
-## Identifying unused table
-
-resources
+## Identifying unused table resources
 
 Amazon CloudWatch is a monitoring and observability service which provides the Amazon Keyspaces table metrics
 you can use to identify unused resources. CloudWatch metrics can be viewed through the AWS Management Console
@@ -188,9 +180,7 @@ the AWS Management Console.
    table has been used during the evaluated time period. A flat graph at **0** for both read and write indicates that a table is
    unused.
 
-## Cleaning up unused table
-
-resources
+## Cleaning up unused table resources
 
 If you have identified unused table resources, you can reduce their ongoing costs in the
 following ways.
@@ -229,9 +219,7 @@ storage.
 After your table has been backed up, you may choose to delete it either through the
 AWS Management Console or through the AWS Command Line Interface.
 
-## Cleaning up unused
-
-point-in-time recovery (PITR) backups
+## Cleaning up unused point-in-time recovery (PITR) backups
 
 Amazon Keyspaces offers Point-in-time recovery, which provides continuous backups for
 35 days to help you protect against accidental writes or deletes. PITR backups have costs

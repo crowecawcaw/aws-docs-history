@@ -140,8 +140,7 @@ Connections required in the US West (N. California) Region:
 
 When using private VPC endpoints, additional permissions are required for Amazon Keyspaces to discover
 the available VPC endpoints dynamically and populate the
-`system.peers` table. For more information, see [Populating system.peers table entries with
-interface VPC endpoint information](vpc-endpoints.md#system_peers "vpc-endpoints.md#system_peers").
+`system.peers` table. For more information, see [Populating system.peers table entries with interface VPC endpoint information](vpc-endpoints.md#system_peers "vpc-endpoints.md#system_peers").
 
 When accessing Amazon Keyspaces through a private VPC endpoint using a different AWS account, it’s likely that you only see a
 single Amazon Keyspaces endpoint. Again this doesn't impact the scale of possible throughput to Amazon Keyspaces, but it may require

@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed
-
-policy: AmazonKeyspacesReadOnlyAccess_v2
+## AWS managed policy: AmazonKeyspacesReadOnlyAccess_v2
 
 You can attach the `AmazonKeyspacesReadOnlyAccess_v2` policy to your IAM identities.
 
@@ -49,9 +47,7 @@ This policy includes the following permissions.
 To review the policy in `JSON` format, see
 [AmazonKeyspacesReadOnlyAccess_v2](../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess_v2.md").
 
-## AWS managed
-
-policy: AmazonKeyspacesReadOnlyAccess
+## AWS managed policy: AmazonKeyspacesReadOnlyAccess
 
 You can attach the `AmazonKeyspacesReadOnlyAccess` policy to your IAM identities.
 
@@ -77,9 +73,7 @@ This policy includes the following permissions.
 To review the policy in `JSON` format, see
 [AmazonKeyspacesReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess.md").
 
-## AWS managed policy:
-
-AmazonKeyspacesFullAccess
+## AWS managed policy: AmazonKeyspacesFullAccess
 
 You can attach the `AmazonKeyspacesFullAccess` policy to your IAM identities.
 
@@ -123,9 +117,7 @@ This policy includes the following permissions.
 To review the policy in `JSON` format, see
 [AmazonKeyspacesFullAccess](../../../aws-managed-policy/latest/reference/AmazonKeyspacesFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonKeyspacesFullAccess.md").
 
-## AWS managed
-
-policy: KeyspacesCDCServiceRolePolicy
+## AWS managed policy: KeyspacesCDCServiceRolePolicy
 
 You can't attach `KeyspacesCDCServiceRolePolicy` to your IAM entities.
 This policy is attached to a service-linked role that allows Amazon Keyspaces to perform actions on
@@ -145,9 +137,7 @@ This policy includes the following permissions.
 To review the policy in `JSON` format, see
 [KeyspacesCDCServiceRolePolicy](../../../aws-managed-policy/latest/reference/KeyspacesCDCServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/KeyspacesCDCServiceRolePolicy.md").
 
-## Amazon Keyspaces updates to AWS managed
-
-policies
+## Amazon Keyspaces updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Keyspaces since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

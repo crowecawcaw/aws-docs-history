@@ -21,17 +21,10 @@ Spark-based analytics pipelines.
 
 ###### Topics
 
-- [Prerequisites for establishing
-  connections to Amazon Keyspaces with the Spark Cassandra Connector](spark-tutorial-prerequisites.md "spark-tutorial-prerequisites.md")
-- [Step 1: Configure Amazon Keyspaces for integration with the
-  Apache Cassandra Spark Connector](spark-tutorial-step1.md "spark-tutorial-step1.md")
-- [Step 2: Configure the Apache Cassandra Spark
-  Connector](spark-tutorial-step2.md "spark-tutorial-step2.md")
-- [Step 3: Create the application configuration
-  file](spark-tutorial-step3.md "spark-tutorial-step3.md")
-- [Step 4: Prepare the source data and the target
-  table in Amazon Keyspaces](spark-tutorial-step4.md "spark-tutorial-step4.md")
-- [Step 5: Write and read Amazon Keyspaces data using the
-  Apache Cassandra Spark Connector](spark-tutorial-step5.md "spark-tutorial-step5.md")
-- [Troubleshooting common errors when using the
-  Spark Cassandra Connector with Amazon Keyspaces](spark-tutorial-step6.md "spark-tutorial-step6.md")
+- [Prerequisites for establishing connections to Amazon Keyspaces with the Spark Cassandra Connector](spark-tutorial-prerequisites.md "spark-tutorial-prerequisites.md")
+- [Step 1: Configure Amazon Keyspaces for integration with the Apache Cassandra Spark Connector](spark-tutorial-step1.md "spark-tutorial-step1.md")
+- [Step 2: Configure the Apache Cassandra Spark Connector](spark-tutorial-step2.md "spark-tutorial-step2.md")
+- [Step 3: Create the application configuration file](spark-tutorial-step3.md "spark-tutorial-step3.md")
+- [Step 4: Prepare the source data and the target table in Amazon Keyspaces](spark-tutorial-step4.md "spark-tutorial-step4.md")
+- [Step 5: Write and read Amazon Keyspaces data using the Apache Cassandra Spark Connector](spark-tutorial-step5.md "spark-tutorial-step5.md")
+- [Troubleshooting common errors when using the Spark Cassandra Connector with Amazon Keyspaces](spark-tutorial-step6.md "spark-tutorial-step6.md")

@@ -7,18 +7,12 @@ balance these factors when making your decision.
 
 ###### Topics
 
-- [What table capacity modes are
-  available](#CostOptimization_TableCapacityMode_Overview "#CostOptimization_TableCapacityMode_Overview")
-- [When to select on-demand
-  capacity mode](#CostOptimization_TableCapacityMode_OnDemand "#CostOptimization_TableCapacityMode_OnDemand")
-- [When to select provisioned
-  capacity mode](#CostOptimization_TableCapacityMode_Provisioned "#CostOptimization_TableCapacityMode_Provisioned")
-- [Additional factors to
-  consider when choosing a table capacity mode](#CostOptimization_TableCapacityMode_AdditionalFactors "#CostOptimization_TableCapacityMode_AdditionalFactors")
+- [What table capacity modes are available](#CostOptimization_TableCapacityMode_Overview "#CostOptimization_TableCapacityMode_Overview")
+- [When to select on-demand capacity mode](#CostOptimization_TableCapacityMode_OnDemand "#CostOptimization_TableCapacityMode_OnDemand")
+- [When to select provisioned capacity mode](#CostOptimization_TableCapacityMode_Provisioned "#CostOptimization_TableCapacityMode_Provisioned")
+- [Additional factors to consider when choosing a table capacity mode](#CostOptimization_TableCapacityMode_AdditionalFactors "#CostOptimization_TableCapacityMode_AdditionalFactors")
 
-## What table capacity modes are
-
-available
+## What table capacity modes are available
 
 When you create an Amazon Keyspaces table, you must select either on-demand or provisioned
 capacity mode. For more information, see [Configure read/write capacity modes in Amazon Keyspaces](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md").
@@ -46,9 +40,7 @@ Provisioned capacity mode requires a balance between not over-provisioning or un
 provisioning the table to achieve both, low occurrence of insufficient throughput capacity
 errors, and optimized costs.
 
-## When to select on-demand
-
-capacity mode
+## When to select on-demand capacity mode
 
 When optimizing for cost, on-demand mode is your best choice when you have an unpredictable workload
 similar to the one shown in the following graph.
@@ -73,9 +65,7 @@ the table level to optimize for cost. You should regularly evaluate your on-dema
 verify the workload still has the above characteristics. If the workload has stabilized,
 consider changing to provisioned mode to maintain cost optimization.
 
-## When to select provisioned
-
-capacity mode
+## When to select provisioned capacity mode
 
 An ideal workload for provisioned capacity mode is one with a more predictable usage
 pattern like shown in the graph below.
@@ -124,9 +114,7 @@ risk of insufficient throughput capacity errors. Setting a higher percentage val
 decreases by how much the table is over-provisioned, but increases the risk of
 insufficient throughput capacity errors.
 
-## Additional factors to
-
-consider when choosing a table capacity mode
+## Additional factors to consider when choosing a table capacity mode
 
 When deciding between the two capacity modes, there are some additional factors worth
 considering.

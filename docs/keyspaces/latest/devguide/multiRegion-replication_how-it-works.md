@@ -6,19 +6,14 @@ pricing](https://aws.amazon.com/keyspaces/pricing "https://aws.amazon.com/keyspa
 
 ###### Topics
 
-- [How multi-Region replication works in
-  Amazon Keyspaces](#multiRegion-replication_how-it-works-overview "#multiRegion-replication_how-it-works-overview")
+- [How multi-Region replication works in Amazon Keyspaces](#multiRegion-replication_how-it-works-overview "#multiRegion-replication_how-it-works-overview")
 - [Multi-Region replication conflict resolution](#multiRegion-replication_how-it-works-conflict-resolution "#multiRegion-replication_how-it-works-conflict-resolution")
 - [Multi-Region replication disaster recovery](#howitworks_disaster_recovery "#howitworks_disaster_recovery")
 - [Multi-Region replication in AWS Regions disabled by default](#howitworks_mrr_opt_in "#howitworks_mrr_opt_in")
-- [Multi-Region replication and integration with point-in-time recovery
-  (PITR)](#howitworks_mrr_pitr "#howitworks_mrr_pitr")
-- [Multi-Region replication and integration with AWS
-  services](#howitworks_integration "#howitworks_integration")
+- [Multi-Region replication and integration with point-in-time recovery (PITR)](#howitworks_mrr_pitr "#howitworks_mrr_pitr")
+- [Multi-Region replication and integration with AWS services](#howitworks_integration "#howitworks_integration")
 
-## How multi-Region replication works in
-
-Amazon Keyspaces
+## How multi-Region replication works in Amazon Keyspaces
 
 Amazon Keyspaces multi-Region replication implements a data resiliency architecture that distributes your data
 across independent and geographically distributed AWS Regions. It uses _active-active replication_, which provides local low latency
@@ -133,9 +128,7 @@ following actions to permanently remove the Region from multi-Region replication
 After Amazon Keyspaces has permanently removed the disabled Region from the multi-Region keyspace, you can't add the
 disabled Region back.
 
-## Multi-Region replication and integration with point-in-time recovery
-
-(PITR)
+## Multi-Region replication and integration with point-in-time recovery (PITR)
 
 Point-in-time recovery is supported for multi-Region tables. To successfully restore a
 multi-Region table with PITR, the following conditions have to be met.
@@ -148,17 +141,14 @@ multi-Region table with PITR, the following conditions have to be met.
 
 You can run the restore statement from any of the Regions that the source table is
 available in. Amazon Keyspaces automatically restores the target table in each Region. For more
-information about PITR, see [How point-in-time recovery works in
-Amazon Keyspaces](PointInTimeRecovery_HowItWorks.md "PointInTimeRecovery_HowItWorks.md").
+information about PITR, see [How point-in-time recovery works in Amazon Keyspaces](PointInTimeRecovery_HowItWorks.md "PointInTimeRecovery_HowItWorks.md").
 
 When you create a multi-Region table, the PITR settings that you define during the creation process
 are automatically applied to all tables in all Regions. When you change PITR settings using `ALTER TABLE`,
 Amazon Keyspaces applies the update only to the local table and not to the replicas in other Regions. To enable PITR for an existing
 multi-Region table, you have to repeat the `ALTER TABLE` statement for all replicas.
 
-## Multi-Region replication and integration with AWS
-
-services
+## Multi-Region replication and integration with AWS services
 
 You can monitor replication performance between tables in different AWS Regions by
 using Amazon CloudWatch metrics. The following metric provides continuous monitoring of

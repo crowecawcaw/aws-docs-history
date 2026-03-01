@@ -1,6 +1,4 @@
-# Configure the IAM permissions required to
-
-add an AWS Region to a keyspace
+# Configure the IAM permissions required to add an AWS Region to a keyspace
 
 To add a Region to a keyspace, the IAM principal needs the following permissions:
 

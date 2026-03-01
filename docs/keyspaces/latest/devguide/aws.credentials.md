@@ -18,8 +18,7 @@ configure`. The `credentials` file is located at
   `~/.aws/config` on Linux, macOS, or Unix, or at `C:\Users\`USERNAME`\.aws\config` on
   Windows. This file contains the configuration settings for the default profile and
   any named profiles.
-  Storing access keys as environment variables is a prerequisite for the [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra
-  and the SigV4 authentication plugin](using_java_driver.md#java_tutorial.SigV4 "using_java_driver.md#java_tutorial.SigV4"). Note that this includes the default AWS Region. The client searches for credentials using the default
+  Storing access keys as environment variables is a prerequisite for the [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra and the SigV4 authentication plugin](using_java_driver.md#java_tutorial.SigV4 "using_java_driver.md#java_tutorial.SigV4"). Note that this includes the default AWS Region. The client searches for credentials using the default
   credentials provider chain, and access keys stored as environment variables take precedent
   over all other locations, for example configuration files. For more information, see
   [Configuration settings and precedence](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-precedence "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-precedence").

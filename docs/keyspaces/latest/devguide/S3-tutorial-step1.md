@@ -87,5 +87,4 @@ aws iam get-role --role-name "iam-export-role"
 If the CloudFormation stack process fails, you can review the detailed error information about the failed stack in the CloudFormation console.
 
 After the Amazon S3 bucket containing all scripts and tools has been created and the IAM
-role is configured, proceed to [Step 2: Configure the AWS Glue job that exports the
-Amazon Keyspaces table](S3-tutorial-step2.md "S3-tutorial-step2.md").
+role is configured, proceed to [Step 2: Configure the AWS Glue job that exports the Amazon Keyspaces table](S3-tutorial-step2.md "S3-tutorial-step2.md").

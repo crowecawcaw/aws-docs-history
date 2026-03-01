@@ -10,9 +10,7 @@ capacity mode. For more information, see [Estimate and provision capacity for a 
 
 Cassandra Query Language (CQL)
 
-###### Setting the provisioned capacity of a
-
-multi-Region table manually using CQL
+###### Setting the provisioned capacity of a multi-Region table manually using CQL
 
 - You can use `ALTER
 TABLE` to provision the table's read capacity for a replica table
@@ -36,9 +34,7 @@ WITH CUSTOM_PROPERTIES = {
 
 CLI
 
-###### Set the provisioned capacity of a
-
-multi-Region table manually using the AWS CLI
+###### Set the provisioned capacity of a multi-Region table manually using the AWS CLI
 
 - If you have to turn off auto scaling for a multi-Region table, you can use
   `update-table` to provision the table's read capacity for a replica table

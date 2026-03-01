@@ -1,6 +1,4 @@
-# Step 4: Prepare the source data and the target
-
-table in Amazon Keyspaces
+# Step 4: Prepare the source data and the target table in Amazon Keyspaces
 
 In this step, you create a source file with sample data and an Amazon Keyspaces table.
 
@@ -38,8 +36,7 @@ In this step, you create a source file with sample data and an Amazon Keyspaces 
 
 2. Create the target keyspace and table in Amazon Keyspaces.
    1. Connect to Amazon Keyspaces using the `cqlsh-expansion`. For `cqlsh-expansion` installation
-      instructions, see [Using the cqlsh-expansion to connect
-      to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
+      instructions, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
 
    Replace the service
    endpoint in the following example with your own

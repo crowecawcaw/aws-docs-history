@@ -1,6 +1,4 @@
-# Using a Cassandra Node.js client driver to
-
-access Amazon Keyspaces programmatically
+# Using a Cassandra Node.js client driver to access Amazon Keyspaces programmatically
 
 This section shows you how to connect to Amazon Keyspaces by using a Node.js client
 driver. To provide users and applications with credentials for programmatic access to
@@ -17,10 +15,8 @@ Amazon Keyspaces resources, you can do either of the following:
 ###### Topics
 
 - [Before you begin](#using_nodejs_driver.BeforeYouBegin "#using_nodejs_driver.BeforeYouBegin")
-- [Connect to Amazon Keyspaces using the Node.js DataStax driver for
-  Apache Cassandra and service-specific credentials](#nodejs_ssc "#nodejs_ssc")
-- [Connect to Amazon Keyspaces using the DataStax Node.js driver
-  for Apache Cassandra and the SigV4 authentication plugin](#nodejs_SigV4 "#nodejs_SigV4")
+- [Connect to Amazon Keyspaces using the Node.js DataStax driver for Apache Cassandra and service-specific credentials](#nodejs_ssc "#nodejs_ssc")
+- [Connect to Amazon Keyspaces using the DataStax Node.js driver for Apache Cassandra and the SigV4 authentication plugin](#nodejs_SigV4 "#nodejs_SigV4")
 
 ## Before you begin
 
@@ -68,9 +64,7 @@ cat AmazonRootCA1.pem \
  > `keyspaces-bundle.pem`
 ```
 
-## Connect to Amazon Keyspaces using the Node.js DataStax driver for
-
-Apache Cassandra and service-specific credentials
+## Connect to Amazon Keyspaces using the Node.js DataStax driver for Apache Cassandra and service-specific credentials
 
 Configure your driver to use the combined certificate file `keyspaces-bundle.pem` for TLS and
 authenticate using service-specific credentials. For example:
@@ -107,13 +101,10 @@ Usage notes:
 2. Ensure that the `ServiceUserName` and
    `ServicePassword` match the user
    name and password you obtained when you generated the
-   service-specific credentials by following the steps to [Create service-specific
-   credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
+   service-specific credentials by following the steps to [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
 3. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
 
-## Connect to Amazon Keyspaces using the DataStax Node.js driver
-
-for Apache Cassandra and the SigV4 authentication plugin
+## Connect to Amazon Keyspaces using the DataStax Node.js driver for Apache Cassandra and the SigV4 authentication plugin
 
 The following section shows how to use the SigV4 authentication plugin for the
 open-source DataStax Node.js driver for Apache Cassandra to access Amazon Keyspaces (for Apache Cassandra).

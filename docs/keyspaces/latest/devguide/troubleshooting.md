@@ -69,5 +69,4 @@ retries because the default retry always occurs on a different node. To learn mo
 establishing connections over VPC endpoints, see [How to configure connections over VPC endpoints in Amazon Keyspaces](connections.md#connections.VPCendpoints "connections.md#connections.VPCendpoints").
 
 For a step-by-step tutorial that shows how to establish a connection to Amazon Keyspaces using
-the Datastax 4.x Cassandra driver, see [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra
-and the SigV4 authentication plugin](using_java_driver.md#java_tutorial.SigV4 "using_java_driver.md#java_tutorial.SigV4").
+the Datastax 4.x Cassandra driver, see [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra and the SigV4 authentication plugin](using_java_driver.md#java_tutorial.SigV4 "using_java_driver.md#java_tutorial.SigV4").

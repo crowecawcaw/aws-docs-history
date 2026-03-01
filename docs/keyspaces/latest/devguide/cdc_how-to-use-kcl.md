@@ -73,8 +73,7 @@ Checkpointing enables your application to resume processing from where it left o
 
 With the Amazon Keyspaces Kinesis adapter in place, you can begin developing against the KCL interface,
 with the API calls seamlessly directed at the Amazon Keyspaces stream endpoint. For a list of available
-endpoints, see [How to access CDC stream endpoints in
-Amazon Keyspaces](CDC_access-endpoints.md "CDC_access-endpoints.md").
+endpoints, see [How to access CDC stream endpoints in Amazon Keyspaces](CDC_access-endpoints.md "CDC_access-endpoints.md").
 
 When your application starts, it calls the KCL to instantiate a worker. You must provide
 the worker with configuration information for the application, such as the stream descriptor

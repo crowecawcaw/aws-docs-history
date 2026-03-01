@@ -1,6 +1,4 @@
-# Using a Cassandra Java client driver to
-
-access Amazon Keyspaces programmatically
+# Using a Cassandra Java client driver to access Amazon Keyspaces programmatically
 
 This section shows you how to connect to Amazon Keyspaces by using a Java client driver.
 
@@ -26,18 +24,12 @@ For an example how to use Amazon Keyspaces with Spring Boot, see [https://github
 
 ###### Topics
 
-- [Before you
-  begin](#using_java_driver.BeforeYouBegin "#using_java_driver.BeforeYouBegin")
-- [Step-by-step tutorial to connect to Amazon Keyspaces using the
-  DataStax Java driver for Apache Cassandra using service-specific credentials](#java_tutorial "#java_tutorial")
-- [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra
-  and the SigV4 authentication plugin](#java_tutorial.SigV4 "#java_tutorial.SigV4")
-- [Connect to Amazon Keyspaces using the 3.x DataStax
-  Java driver for Apache Cassandra and the SigV4 authentication plugin](#java3x_tutorial.SigV4 "#java3x_tutorial.SigV4")
+- [Before you begin](#using_java_driver.BeforeYouBegin "#using_java_driver.BeforeYouBegin")
+- [Step-by-step tutorial to connect to Amazon Keyspaces using the DataStax Java driver for Apache Cassandra using service-specific credentials](#java_tutorial "#java_tutorial")
+- [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra and the SigV4 authentication plugin](#java_tutorial.SigV4 "#java_tutorial.SigV4")
+- [Connect to Amazon Keyspaces using the 3.x DataStax Java driver for Apache Cassandra and the SigV4 authentication plugin](#java3x_tutorial.SigV4 "#java3x_tutorial.SigV4")
 
-## Before you
-
-begin
+## Before you begin
 
 To connect to Amazon Keyspaces, you need to complete the following tasks before you can start.
 
@@ -291,9 +283,7 @@ To connect to Amazon Keyspaces, you need to complete the following tasks before 
 -Djavax.net.ssl.trustStorePassword=`my_password`
 ```
 
-## Step-by-step tutorial to connect to Amazon Keyspaces using the
-
-DataStax Java driver for Apache Cassandra using service-specific credentials
+## Step-by-step tutorial to connect to Amazon Keyspaces using the DataStax Java driver for Apache Cassandra using service-specific credentials
 
 The following step-by-step tutorial walks you through connecting to Amazon Keyspaces using a
 Java driver for Cassandra using service-specific credentials. Specifically, you'll
@@ -302,10 +292,8 @@ use the 4.0 version of the DataStax Java driver for Apache Cassandra.
 ###### Topics
 
 - [Step 1: Prerequisites](#java_tutorial.prereq "#java_tutorial.prereq")
-- [Step 2: Configure the
-  driver](#java_tutorial.driverconfiguration "#java_tutorial.driverconfiguration")
-- [Step 3: Run the sample
-  application](#java_tutorial.application "#java_tutorial.application")
+- [Step 2: Configure the driver](#java_tutorial.driverconfiguration "#java_tutorial.driverconfiguration")
+- [Step 3: Run the sample application](#java_tutorial.application "#java_tutorial.application")
 
 ### Step 1: Prerequisites
 
@@ -314,18 +302,14 @@ credentials and add the DataStax Java driver for Apache Cassandra to your
 Java project.
 
 - Generate service-specific credentials for your Amazon Keyspaces IAM user by completing the steps in
-  [Create service-specific
-  credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md"). If you prefer to use
-  IAM access keys for authentication, see [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra
-  and the SigV4 authentication plugin](#java_tutorial.SigV4 "#java_tutorial.SigV4").
+  [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md"). If you prefer to use
+  IAM access keys for authentication, see [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra and the SigV4 authentication plugin](#java_tutorial.SigV4 "#java_tutorial.SigV4").
 - Add the DataStax Java driver for Apache Cassandra to your Java project. Ensure that you're
   using a version of the driver that supports Apache Cassandra
   3.11.2. For more information, see the [DataStax Java driver
   for Apache Cassandra documentation](https://github.com/datastax/java-driver "https://github.com/datastax/java-driver").
 
-### Step 2: Configure the
-
-driver
+### Step 2: Configure the driver
 
 You can specify settings for the DataStax Java Cassandra
 driver by creating a configuration file for your application. This configuration file overrides the default settings and tells the driver
@@ -342,16 +326,14 @@ configuration settings.
    `ServiceUserName` and
    `ServicePassword` should match the
    user name and password you obtained when you generated the
-   service-specific credentials by following the steps in [Create service-specific
-   credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
+   service-specific credentials by following the steps in [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
 
 ###### Note
 
 You can use short-term credentials by using the authentication plugin for the DataStax Java
 driver for Apache Cassandra instead of hardcoding credentials in
 your driver configuration file. To learn more, follow the
-instructions for the [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra
-and the SigV4 authentication plugin](#java_tutorial.SigV4 "#java_tutorial.SigV4"). 2. Local data center – Set the value for
+instructions for the [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra and the SigV4 authentication plugin](#java_tutorial.SigV4 "#java_tutorial.SigV4"). 2. Local data center – Set the value for
 `local-datacenter` to the Region you're
 connecting to. For example, if the application is connecting to
 `cassandra.us-east-2.amazonaws.com`, then set the
@@ -391,9 +373,7 @@ Instead of adding the path to the trustStore in the configuration file, you can 
 the trustStore path directly in the application code or you can add the path
 to the trustStore to your JVM arguments.
 
-### Step 3: Run the sample
-
-application
+### Step 3: Run the sample application
 
 This code example shows a simple command line application that creates a
 connection pool to Amazon Keyspaces by using the configuration file we created
@@ -433,9 +413,7 @@ Use a `try` block to establish the connection to ensure that it's
 always closed. If you don't use a `try` block, remember
 to close your connection to avoid leaking resources.
 
-## Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra
-
-and the SigV4 authentication plugin
+## Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra and the SigV4 authentication plugin
 
 The following section describes how to use the SigV4 authentication
 plugin for the open-source 4.x DataStax Java driver for Apache Cassandra to access
@@ -476,9 +454,7 @@ Replace the version of the plugin with the latest version as shown at
 </dependency>
 ```
 
-### Step 2: Configure the
-
-driver
+### Step 2: Configure the driver
 
 You can specify settings for the DataStax Java Cassandra
 driver by creating a configuration file for your application. This configuration file overrides the default settings and tells the driver
@@ -623,9 +599,7 @@ Use a `try` block to establish the connection to ensure that it's
 always closed. If you don't use a `try` block, remember
 to close your connection to avoid leaking resources.
 
-## Connect to Amazon Keyspaces using the 3.x DataStax
-
-Java driver for Apache Cassandra and the SigV4 authentication plugin
+## Connect to Amazon Keyspaces using the 3.x DataStax Java driver for Apache Cassandra and the SigV4 authentication plugin
 
 The following section describes how to use the SigV4 authentication plugin for
 the 3.x open-source DataStax Java driver for Apache Cassandra to access Amazon Keyspaces. The
@@ -644,8 +618,7 @@ tasks.
 - Create credentials for your IAM user or role following the steps at [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md"). This tutorial assumes that the
   access keys are stored as environment variables. For more information,
   see [Store access keys for programmatic access](aws.credentials.md "aws.credentials.md").
-- Follow the steps at [Before you
-  begin](#using_java_driver.BeforeYouBegin "#using_java_driver.BeforeYouBegin") to download the
+- Follow the steps at [Before you begin](#using_java_driver.BeforeYouBegin "#using_java_driver.BeforeYouBegin") to download the
   digital certificates, convert them to trustStore files, and attach the keystore in the JVM arguments to your application.
 - Add the DataStax Java driver for Apache Cassandra to your Java project. Ensure that you're
   using a version of the driver that supports Apache Cassandra

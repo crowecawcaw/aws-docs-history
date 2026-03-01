@@ -22,8 +22,7 @@ Security is a shared responsibility between AWS and you. The [shared responsibil
 - [Data protection in Amazon Keyspaces](data-protection.md "data-protection.md")
 - [AWS Identity and Access Management for Amazon Keyspaces](security-iam.md "security-iam.md")
 - [Compliance validation for Amazon Keyspaces (for Apache Cassandra)](Keyspaces-compliance.md "Keyspaces-compliance.md")
-- [Resilience and disaster recovery in
-  Amazon Keyspaces](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Resilience and disaster recovery in Amazon Keyspaces](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Keyspaces](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and vulnerability analysis for Amazon Keyspaces](configuration-vulnerability.md "configuration-vulnerability.md")
 - [Security best practices for Amazon Keyspaces](best-practices-security.md "best-practices-security.md")

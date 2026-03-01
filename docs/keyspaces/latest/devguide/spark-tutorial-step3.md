@@ -1,6 +1,4 @@
-# Step 3: Create the application configuration
-
-file
+# Step 3: Create the application configuration file
 
 To use the open-source Spark Cassandra Connector with Amazon Keyspaces, you need to provide an
 application configuration file that contains the settings required to connect with the
@@ -8,8 +6,7 @@ DataStax Java driver. You can use either service-specific credentials or the Sig
 plugin to connect.
 
 If you haven't already done so, you need to convert the digital certificate used to create the TLS connection
-into a trustStore file. You can follow the detailed steps at [Before you
-begin](using_java_driver.md#using_java_driver.BeforeYouBegin "using_java_driver.md#using_java_driver.BeforeYouBegin") from the Java driver connection
+into a trustStore file. You can follow the detailed steps at [Before you begin](using_java_driver.md#using_java_driver.BeforeYouBegin "using_java_driver.md#using_java_driver.BeforeYouBegin") from the Java driver connection
 tutorial. Take note of the trustStore file path and password because you need this
 information when you create the application config file.
 
@@ -60,8 +57,7 @@ this path.
 This section shows you an example `application.conf` file that
 you can use when connecting with service-specific credentials. If you haven't
 already done so, you need to generate service-specific credentials for Amazon Keyspaces. For
-detailed instructions, see [Create service-specific
-credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
+detailed instructions, see [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
 
 In the following example, replace `username` and `password`
 with your own credentials. Also, replace the file path to your trustStore file, and

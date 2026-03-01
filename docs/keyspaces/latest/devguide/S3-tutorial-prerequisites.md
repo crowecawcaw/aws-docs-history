@@ -27,8 +27,7 @@ The following example shows how to store the required values as environment vari
 4.  You need an Amazon Keyspaces table with sample data to export later in this tutorial. You can use your
     own Amazon Keyspaces table or create a sample table following the steps in the [Getting started with Amazon Keyspaces (for Apache Cassandra)](getting-started.md "getting-started.md") tutorial.
 
-        1. To install the `cqlsh-expansion`, follow the steps at [Using the cqlsh-expansion to connect
-         to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
+        1. To install the `cqlsh-expansion`, follow the steps at [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
         2. Confirm that the `Murmur3Partitioner` partitioner is the default partitioner for your account. This partitioner
          is compatible with the Apache Spark Cassandra Connector and with AWS Glue. For more information on partitioners,
          see [Working with partitioners in Amazon Keyspaces](working-with-partitioners.md "working-with-partitioners.md").
@@ -46,7 +45,6 @@ The following example shows how to store the required values as environment vari
         3. To create an Amazon Keyspaces keyspace, follow the steps at
          [Create a keyspace in Amazon Keyspaces](getting-started.md "getting-started.md").
         4. To create the Amazon Keyspaces table, follow the steps at [Create a table in Amazon Keyspaces](getting-started.md "getting-started.md").
-        5. To load sample data into the table to export to Amazon S3, follow the steps at [Inserting and loading data into
-         an Amazon Keyspaces table](getting-started.dml.md "getting-started.dml.md").
+        5. To load sample data into the table to export to Amazon S3, follow the steps at [Inserting and loading data into an Amazon Keyspaces table](getting-started.dml.md "getting-started.dml.md").
 
     After completing the prerequisite steps, proceed to [Step 1: Create the Amazon S3 bucket, download the required tools, and configure the environment](S3-tutorial-step1.md "S3-tutorial-step1.md").

@@ -4,20 +4,16 @@ The following are the functional differences between Amazon Keyspaces and Apache
 
 ###### Topics
 
-- [Apache Cassandra APIs, operations,
-  and data types](#functional-differences.cassandra-apis "#functional-differences.cassandra-apis")
-- [Asynchronous creation
-  and deletion of keyspaces and tables](#functional-differences.table-keyspace-management "#functional-differences.table-keyspace-management")
+- [Apache Cassandra APIs, operations, and data types](#functional-differences.cassandra-apis "#functional-differences.cassandra-apis")
+- [Asynchronous creation and deletion of keyspaces and tables](#functional-differences.table-keyspace-management "#functional-differences.table-keyspace-management")
 - [Authentication and authorization](#functional-differences.auth "#functional-differences.auth")
 - [Batch](#functional-differences.batch "#functional-differences.batch")
 - [Change data capture (CDC)](#functional-differences.cdc "#functional-differences.cdc")
 - [Cluster configuration](#functional-differences.cluster-config "#functional-differences.cluster-config")
 - [Connections](#functional-differences.connections "#functional-differences.connections")
 - [IN keyword](#functional-differences.IN-keyword "#functional-differences.IN-keyword")
-- [FROZEN
-  collections](#functional-differences.frozen-collections "#functional-differences.frozen-collections")
-- [Lightweight
-  transactions](#functional-differences.light-transactions "#functional-differences.light-transactions")
+- [FROZEN collections](#functional-differences.frozen-collections "#functional-differences.frozen-collections")
+- [Lightweight transactions](#functional-differences.light-transactions "#functional-differences.light-transactions")
 - [Load balancing](#functional-differences.load-balancing "#functional-differences.load-balancing")
 - [Pagination](#functional-differences.paging "#functional-differences.paging")
 - [Partitioners](#functional-differences.partitioners "#functional-differences.partitioners")
@@ -27,18 +23,13 @@ The following are the functional differences between Amazon Keyspaces and Apache
 - [Timestamps](#functional-differences.timestamps "#functional-differences.timestamps")
 - [User-defined types (UDTs)](#functional-differences.UDTs "#functional-differences.UDTs")
 
-## Apache Cassandra APIs, operations,
-
-and data types
+## Apache Cassandra APIs, operations, and data types
 
 Amazon Keyspaces supports all commonly used Cassandra data-plane operations, such as creating
 keyspaces and tables, reading data, and writing data. To see what is currently supported,
-see [Supported Cassandra APIs, operations, functions, and data
-types](cassandra-apis.md "cassandra-apis.md").
+see [Supported Cassandra APIs, operations, functions, and data types](cassandra-apis.md "cassandra-apis.md").
 
-## Asynchronous creation
-
-and deletion of keyspaces and tables
+## Asynchronous creation and deletion of keyspaces and tables
 
 Amazon Keyspaces performs data definition language (DDL) operations, such as creating and deleting
 keyspaces , tables, and types asynchronously. To learn how to monitor the creation status
@@ -132,9 +123,7 @@ keyword. Amazon Keyspaces processes queries with the `IN` keyword by creating su
 Each subquery counts as a connection towards the 3,000 CQL queries per TCP connection per
 second limit. For more information, see [Use the IN operator with the SELECT statement in a query in Amazon Keyspaces](in.md "in.md").
 
-## `FROZEN`
-
-collections
+## `FROZEN` collections
 
 The `FROZEN` keyword in Cassandra serializes multiple components of a collection data type into a single
 immutable value that is treated like a `BLOB`. `INSERT` and `UPDATE` statements overwrite the entire collection.
@@ -152,9 +141,7 @@ latest writer, and the latest writer wins.
 
 For more information about frozen collections, see [Collection types](cql.md#cql.data-types.collection "cql.md#cql.data-types.collection").
 
-## Lightweight
-
-transactions
+## Lightweight transactions
 
 Amazon Keyspaces (for Apache Cassandra) fully supports compare and set functionality on **INSERT**, **UPDATE**,
 and **DELETE** commands, which are known as _lightweight

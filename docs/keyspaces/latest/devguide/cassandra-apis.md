@@ -1,6 +1,4 @@
-# Supported Cassandra APIs, operations, functions, and data
-
-types
+# Supported Cassandra APIs, operations, functions, and data types
 
 Amazon Keyspaces (for Apache Cassandra) is compatible with Cassandra Query Language (CQL) 3.11 API
 (backward-compatible with version 2.x).

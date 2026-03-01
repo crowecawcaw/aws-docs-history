@@ -1,6 +1,4 @@
-# Increase your existing Amazon Keyspaces table's warm
-
-throughput
+# Increase your existing Amazon Keyspaces table's warm throughput
 
 You can increase your Amazon Keyspaces table's current warm throughput values using the console, CQL, or the AWS CLI.
 

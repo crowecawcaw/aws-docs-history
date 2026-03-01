@@ -1,44 +1,37 @@
-# Using a Cassandra client driver to access
+# Create credentials for programmatic access to Amazon Keyspaces
 
-Amazon Keyspaces programmatically
+To provide users and applications with credentials for programmatic access to
+Amazon Keyspaces resources, you can do either of the following:
 
-You can use many third-party, open-source Cassandra drivers to connect to Amazon Keyspaces.
-Amazon Keyspaces is compatible with Cassandra drivers that support Apache Cassandra version
-3.11.2. These are the drivers and latest versions that we’ve tested and recommend to use with Amazon Keyspaces:
+- Create service-specific credentials that are similar to the traditional
+  username and password that Cassandra uses for authentication and access
+  management. AWS service-specific credentials are associated with a
+  specific AWS Identity and Access Management (IAM) user and can only be used for the service they
+  were created for. For more information, see
+  [Using IAM with Amazon Keyspaces (for Apache Cassandra)](../../../IAM/latest/UserGuide/id_credentials_keyspaces.md "../../../IAM/latest/UserGuide/id_credentials_keyspaces.md") in the IAM User Guide.
 
-- `Java v3.3`
-- `Java v4.17`
-- `Python Cassandra-driver 3.29.1`
-- `Node.js cassandra driver -v 4.7.2`
-- `GO using GOCQL v1.6`
-- `.NET CassandraCSharpDriver -v 3.20.1`
-  For more information about
-  Cassandra drivers, see [Apache
-  Cassandra Client drivers](http://cassandra.apache.org/doc/latest/getting_started/drivers.html "http://cassandra.apache.org/doc/latest/getting_started/drivers.html").
+###### Warning
 
-###### Note
+IAM users have long-term credentials, which presents a security risk. To help mitigate this risk, we recommend that you provide these users with only the permissions they require to perform the task and that you remove these users when they are no longer needed.
 
-To help you get started, you can view and download end-to-end code examples that establish
-connections to Amazon Keyspaces with popular drivers. See [Amazon Keyspaces
-examples](https://github.com/aws-samples/amazon-keyspaces-examples "https://github.com/aws-samples/amazon-keyspaces-examples") on GitHub.
+- For enhanced security, we recommend to create IAM
+  identities that are used across all AWS services and use temporary credentials. The Amazon Keyspaces SigV4
+  authentication plugin for Cassandra client drivers enables you to
+  authenticate calls to Amazon Keyspaces using IAM access keys instead of user name and
+  password. To learn more about how the Amazon Keyspaces SigV4 plugin enables [IAM users, roles, and federated
+  identities](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") to authenticate in Amazon Keyspaces API requests, see [AWS Signature Version 4 process (SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md").
 
-The tutorials in this chapter include a simple CQL query to confirm that the connection
-to Amazon Keyspaces has been successfully established. To learn how to work with keyspaces and tables
-after you connect to an Amazon Keyspaces endpoint, see [CQL language reference for Amazon Keyspaces (for Apache Cassandra)](cql.md "cql.md"). For a step-by-step tutorial that shows how to
-connect to Amazon Keyspaces from an Amazon VPC endpoint, see [Tutorial: Connect to Amazon Keyspaces using an interface VPC
-endpoint](vpc-endpoints-tutorial.md "vpc-endpoints-tutorial.md").
+You can download the SigV4 plugins from the following locations.
+
+    + Java: [https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin").
+    + Node.js: [https://github.com/aws/aws-sigv4-auth-cassandra-nodejs-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-nodejs-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-nodejs-driver-plugin").
+    + Python: [https://github.com/aws/aws-sigv4-auth-cassandra-python-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-python-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-python-driver-plugin").
+    + Go: [https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin").
+
+For code samples that show how to establish connections using the SigV4 authentication
+plugin, see [Using a Cassandra client driver to access Amazon Keyspaces programmatically](programmatic.md "programmatic.md").
 
 ###### Topics
 
-- [Using a Cassandra Java client driver to
-  access Amazon Keyspaces programmatically](using_java_driver.md "using_java_driver.md")
-- [Using a Cassandra Python client driver to
-  access Amazon Keyspaces programmatically](using_python_driver.md "using_python_driver.md")
-- [Using a Cassandra Node.js client driver to
-  access Amazon Keyspaces programmatically](using_nodejs_driver.md "using_nodejs_driver.md")
-- [Using a Cassandra .NET Core client driver to
-  access Amazon Keyspaces programmatically](using_dotnetcore_driver.md "using_dotnetcore_driver.md")
-- [Using a Cassandra Go client driver to
-  access Amazon Keyspaces programmatically](using_go_driver.md "using_go_driver.md")
-- [Using a Cassandra Perl client driver to
-  access Amazon Keyspaces programmatically](using_perl_driver.md "using_perl_driver.md")
+- [Create service-specific credentials](programmatic.credentials.md "programmatic.credentials.md")
+- [Create IAM credentials for AWS authentication](access.md "access.md")

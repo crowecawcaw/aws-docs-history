@@ -50,34 +50,26 @@ Amazon Keyspaces CDC is based on the following principles that you can rely on w
 - [Multi-Region replication](#CDC_how-it-works-mrr "#CDC_how-it-works-mrr")
 - [Integration with AWS services](#howitworks_integration "#howitworks_integration")
 
-## How data retention works for CDC streams in
-
-Amazon Keyspaces
+## How data retention works for CDC streams in Amazon Keyspaces
 
 Amazon Keyspaces retains the records in the CDC stream for a period of 24 hours. You can't change the retention period.
 If you disable CDC on a table, the data in the stream continues to be readable for 24 hours. After this time,
 the data expires and the records are automatically deleted.
 
-## How Time to Live (TTL) data expiration works with CDC streams in
-
-Amazon Keyspaces
+## How Time to Live (TTL) data expiration works with CDC streams in Amazon Keyspaces
 
 Amazon Keyspaces shows the expiration time at the column/cell level as well as the row level in a
 metadata field called `expirationTime` in the CDC change records. When Amazon Keyspaces
 TTL detects expiration of a cell, CDC creates a new change record that shows TTL
 as the origin of the change. For more information about TTL, see [Expire data with Time to Live (TTL) for Amazon Keyspaces (for Apache Cassandra)](TTL.md "TTL.md").
 
-## How batch operations work for CDC streams in
-
-Amazon Keyspaces
+## How batch operations work for CDC streams in Amazon Keyspaces
 
 Batch operations are internally divided into individual row-level modifications. Amazon Keyspaces retains all records within CDC streams
 at the row-level, even if the modification occurred in a batch operation. Amazon Keyspaces maintains the order of records within the CDC stream
 in the same sequence as the mutation order that occurred at the row-level or on the primary key.
 
-## How static columns work in CDC streams in
-
-Amazon Keyspaces
+## How static columns work in CDC streams in Amazon Keyspaces
 
 Static column values are shared among all rows in a partition in Cassandra. Due to this behavior, Amazon Keyspaces captures any updates to a static column
 as a separate record in the CDC stream. The following examples summarize the behavior of static column mutations:
@@ -88,17 +80,13 @@ as a separate record in the CDC stream. The following examples summarize the beh
 - When a row is updated along with the static column, the CDC stream contains two separate row-modifications,
   one for the static column and the other for the rest of the row.
 
-## How encryption at rest works for CDC streams in
-
-Amazon Keyspaces
+## How encryption at rest works for CDC streams in Amazon Keyspaces
 
 To encrypt the data at rest in the CDC ordered log, Amazon Keyspaces uses the same encryption key
 that is already used for the table. For more information about encryption at rest, see
 [Encryption at rest in Amazon Keyspaces](EncryptionAtRest.md "EncryptionAtRest.md").
 
-## How multi-Region replication works for CDC streams in
-
-Amazon Keyspaces
+## How multi-Region replication works for CDC streams in Amazon Keyspaces
 
 You can enable and disable CDC streams for individual replicas of a multi-Region table by using either the `update-table` API or
 the `ALTER TABLE` CQL command. Due to asynchronous replication and conflict resolution, CDC streams for multi-Region
@@ -107,27 +95,19 @@ appear in a different order in different Regions.
 
 For more information about multi-Region replication, see [Multi-Region replication for Amazon Keyspaces (for Apache Cassandra)](multiRegion-replication.md "multiRegion-replication.md").
 
-## CDC streams and integration with AWS
+## CDC streams and integration with AWS services
 
-services
-
-### How to work with VPC endpoints for CDC streams in
-
-Amazon Keyspaces
+### How to work with VPC endpoints for CDC streams in Amazon Keyspaces
 
 You can use VPC endpoints to access Amazon Keyspaces CDC streams. For information about how to create and
 access VPC endpoints for streams, see [Using Amazon Keyspaces CDC streams with interface VPC endpoints](vpc-endpoints-streams.md "vpc-endpoints-streams.md").
 
-### How monitoring with CloudWatch works for CDC streams in
-
-Amazon Keyspaces
+### How monitoring with CloudWatch works for CDC streams in Amazon Keyspaces
 
 You can use Amazon CloudWatch to monitor API calls made to the Amazon Keyspaces CDC endpoint. For more
 information about the available metrics, see [Metrics for Amazon Keyspaces change data capture (CDC)](metrics-dimensions.md#keyspaces-cdc-metrics "metrics-dimensions.md#keyspaces-cdc-metrics").
 
-### How logging with CloudTrail works for CDC streams in
-
-Amazon Keyspaces
+### How logging with CloudTrail works for CDC streams in Amazon Keyspaces
 
 Amazon Keyspaces CDC is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Keyspaces.
 CloudTrail captures Data Definition Language (DDL) API calls and Data Manipulation Language (DML) API calls for Amazon Keyspaces as events.
@@ -135,9 +115,7 @@ The calls that are captured include calls from the Amazon Keyspaces console and 
 
 For more information about the CDC events captured by CloudTrail, see [Logging Amazon Keyspaces API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
-### How tagging works for CDC streams in
-
-Amazon Keyspaces
+### How tagging works for CDC streams in Amazon Keyspaces
 
 Amazon Keyspaces CDC streams are a taggable resource. You can tag a stream when you create a
 table programmatically using CQL, the AWS SDK, or the AWS CLI. You can also tag

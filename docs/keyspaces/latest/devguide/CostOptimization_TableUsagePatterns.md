@@ -6,13 +6,10 @@ room for optimization from both a performance and a cost perspective.
 
 ###### Topics
 
-- [Perform fewer
-  strongly-consistent read operations](#CostOptimization_TableUsagePatterns_StronglyConsistentReads "#CostOptimization_TableUsagePatterns_StronglyConsistentReads")
+- [Perform fewer strongly-consistent read operations](#CostOptimization_TableUsagePatterns_StronglyConsistentReads "#CostOptimization_TableUsagePatterns_StronglyConsistentReads")
 - [Enable Time to Live (TTL)](#CostOptimization_TableUsagePatterns_TTL "#CostOptimization_TableUsagePatterns_TTL")
 
-## Perform fewer
-
-strongly-consistent read operations
+## Perform fewer strongly-consistent read operations
 
 Amazon Keyspaces allows you to configure [read consistency](consistency.md#ReadConsistency "consistency.md#ReadConsistency") on a
 per-request basis. Read requests are eventually consistent by default. Eventually

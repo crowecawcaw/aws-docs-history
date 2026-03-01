@@ -15,9 +15,7 @@ You can delete a service-linked role only after first deleting its related resou
 protects your Amazon Keyspaces resources because you can't inadvertently remove permission to
 access the resources.
 
-## Service-linked role
-
-permissions for Amazon Keyspaces
+## Service-linked role permissions for Amazon Keyspaces
 
 Amazon Keyspaces uses the service-linked role named **AWSServiceRoleForAmazonKeyspacesReplication**
 to allow Amazon Keyspaces to add new AWS Regions to a keyspace on your behalf, and replicate tables and all their data and
@@ -53,16 +51,13 @@ Although the Amazon Keyspaces service-linked role AWSServiceRoleForAmazonKeyspac
 the ARN of your account.
 
 Permissions to create the service-linked role AWSServiceRoleForAmazonKeyspacesReplication are included in the
-`AmazonKeyspacesFullAccess` managed policy. For more information, see [AWS managed policy:
-AmazonKeyspacesFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonKeyspacesFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonKeyspacesFullAccess").
+`AmazonKeyspacesFullAccess` managed policy. For more information, see [AWS managed policy: AmazonKeyspacesFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonKeyspacesFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonKeyspacesFullAccess").
 
 You must configure permissions to allow your users, groups, or roles to create, edit, or
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Amazon Keyspaces
+## Creating a service-linked role for Amazon Keyspaces
 
 You can't manually create a service-linked role. When you
 create a multi-Region keyspace in the AWS Management Console, the AWS CLI, or the AWS API, Amazon Keyspaces
@@ -72,9 +67,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 the same process to recreate the role in your account. When you
 create a multi-Region keyspace, Amazon Keyspaces creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-Amazon Keyspaces
+## Editing a service-linked role for Amazon Keyspaces
 
 Amazon Keyspaces does not allow you to edit the AWSServiceRoleForAmazonKeyspacesReplication service-linked role. After
 you create a service-linked role, you cannot change the name of the role because various
@@ -82,9 +75,7 @@ entities might reference the role. However, you can edit the description of the 
 IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Amazon Keyspaces
+## Deleting a service-linked role for Amazon Keyspaces
 
 If you no longer need to use a feature or service that requires a service-linked role,
 we recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -92,9 +83,7 @@ actively monitored or maintained. However, you must first delete all multi-Regio
 in the account across all AWS Regions before you can delete the service-linked role
 manually.
 
-### Cleaning up a
-
-service-linked role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first delete any
 multi-Region keyspaces and tables used by the role.
@@ -119,17 +108,13 @@ methods.
 - The [delete-keyspace](../../../cli/latest/reference/keyspaces/delete-keyspace.md "../../../cli/latest/reference/keyspaces/delete-keyspace.md") operation of the AWS CLI.
 - The [DeleteKeyspace](../APIReference/API_DeleteKeyspace.md "../APIReference/API_DeleteKeyspace.md") operation of the Amazon Keyspaces API.
 
-### Manually delete the service-linked
-
-role
+### Manually delete the service-linked role
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForAmazonKeyspacesReplication
 service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for Amazon Keyspaces
-
-service-linked roles
+## Supported Regions for Amazon Keyspaces service-linked roles
 
 Amazon Keyspaces does not support using service-linked roles in every Region where the
 service is available. You can use the AWSServiceRoleForAmazonKeyspacesReplication role in the following Regions.

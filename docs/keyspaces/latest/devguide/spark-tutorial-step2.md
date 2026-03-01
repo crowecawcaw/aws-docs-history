@@ -1,6 +1,4 @@
-# Step 2: Configure the Apache Cassandra Spark
-
-Connector
+# Step 2: Configure the Apache Cassandra Spark Connector
 
 Apache Spark is a general-purpose compute platform that you can configure in different
 ways. To configure Spark and the Spark Cassandra Connector for integration with Amazon Keyspaces,

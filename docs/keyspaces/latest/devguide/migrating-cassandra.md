@@ -22,8 +22,7 @@ before the migration. Amazon Keyspaces supports all commonly used Cassandra data
 such as creating keyspaces and tables, reading data, and writing data.
 
 However there are
-some Cassandra APIs that Amazon Keyspaces doesn't support. For more information about supported APIs, see [Supported Cassandra APIs, operations, functions, and data
-types](cassandra-apis.md "cassandra-apis.md").
+some Cassandra APIs that Amazon Keyspaces doesn't support. For more information about supported APIs, see [Supported Cassandra APIs, operations, functions, and data types](cassandra-apis.md "cassandra-apis.md").
 For an overview of all functional differences between Amazon Keyspaces and Apache Cassandra, see [Functional differences: Amazon Keyspaces vs. Apache Cassandra](functional-differences.md "functional-differences.md").
 
 To compare the Cassandra APIs and schema that you're using with supported
@@ -194,8 +193,7 @@ There are two capacity modes in Amazon Keyspaces:
     Provisioned
      mode offers [auto scaling](autoscaling.md "autoscaling.md") to automatically
      adjust your provisioned rate to scale up or scale down to improve operational
-     efficiency. For more information about serverless resource management, see [Managing serverless resources in
-     Amazon Keyspaces (for Apache Cassandra)](serverless_resource_management.md "serverless_resource_management.md").
+     efficiency. For more information about serverless resource management, see [Managing serverless resources in Amazon Keyspaces (for Apache Cassandra)](serverless_resource_management.md "serverless_resource_management.md").
 
 Because you provision read
 and write throughput capacity in Amazon Keyspaces separately, you need to measure the request

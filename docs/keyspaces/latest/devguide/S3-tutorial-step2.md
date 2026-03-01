@@ -1,6 +1,4 @@
-# Step 2: Configure the AWS Glue job that exports the
-
-Amazon Keyspaces table
+# Step 2: Configure the AWS Glue job that exports the Amazon Keyspaces table
 
 In the second step of the tutorial you use the script
 `setup-export.sh` available on
@@ -111,6 +109,5 @@ default arguments that you can override when running the job.
 If the CloudFormation stack process fails, you can review the errors for the failed stack in the CloudFormation console. You can review the details of the
 export job in the AWS Glue console by choosing **ETL jobs** on the left-side menu.
 
-After you have confirmed the details of the AWS Glue export job, proceed to [Step 3: Run the AWS Glue job to export the Amazon Keyspaces table to the Amazon S3 bucket from the
-AWS CLI](S3-tutorial-step3.md "S3-tutorial-step3.md") to run the job to
+After you have confirmed the details of the AWS Glue export job, proceed to [Step 3: Run the AWS Glue job to export the Amazon Keyspaces table to the Amazon S3 bucket from the AWS CLI](S3-tutorial-step3.md "S3-tutorial-step3.md") to run the job to
 export the data from your Amazon Keyspaces table.

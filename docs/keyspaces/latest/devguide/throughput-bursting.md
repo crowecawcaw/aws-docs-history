@@ -1,6 +1,4 @@
-# Use burst
-
-capacity effectively in Amazon Keyspaces
+# Use burst capacity effectively in Amazon Keyspaces
 
 Amazon Keyspaces provides some flexibility in your per-partition throughput provisioning by providing
 _burst capacity_. Whenever you're not fully using a partition's

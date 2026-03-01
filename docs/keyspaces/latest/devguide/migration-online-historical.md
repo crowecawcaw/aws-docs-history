@@ -26,8 +26,7 @@ historical data upload. To ensure that you preserve the latest updates to your
 data even during the bulk import, you must add conflict resolution either into
 the bulk upload scripts or into the application logic for dual writes.
 
-For example, you can use [Lightweight
-transactions](functional-differences.md#functional-differences.light-transactions "functional-differences.md#functional-differences.light-transactions")
+For example, you can use [Lightweight transactions](functional-differences.md#functional-differences.light-transactions "functional-differences.md#functional-differences.light-transactions")
 (LWT) to compare and set operations. To do this, you can add an additional field
 to your data-model that represents time of modification or state.
 

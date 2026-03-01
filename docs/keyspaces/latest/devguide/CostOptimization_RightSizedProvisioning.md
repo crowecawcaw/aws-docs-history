@@ -1,6 +1,4 @@
-# Evaluate your provisioned capacity for
-
-right-sized provisioning
+# Evaluate your provisioned capacity for right-sized provisioning
 
 This section provides an overview of how to evaluate if you have right-sized provisioning on
 your Amazon Keyspaces tables. As your workload evolves, you should modify your operational procedures
@@ -23,16 +21,11 @@ independently.
 
 ###### Topics
 
-- [How to retrieve
-  consumption metrics from your Amazon Keyspaces tables](#CostOptimization_RightSizedProvisioning_ConsumptionMetrics "#CostOptimization_RightSizedProvisioning_ConsumptionMetrics")
-- [How to
-  identify under-provisioned Amazon Keyspaces tables](#CostOptimization_RightSizedProvisioning_UnderProvisionedTables "#CostOptimization_RightSizedProvisioning_UnderProvisionedTables")
-- [How to
-  identify over-provisioned Amazon Keyspaces tables](#CostOptimization_RightSizedProvisioning_OverProvisionedTables "#CostOptimization_RightSizedProvisioning_OverProvisionedTables")
+- [How to retrieve consumption metrics from your Amazon Keyspaces tables](#CostOptimization_RightSizedProvisioning_ConsumptionMetrics "#CostOptimization_RightSizedProvisioning_ConsumptionMetrics")
+- [How to identify under-provisioned Amazon Keyspaces tables](#CostOptimization_RightSizedProvisioning_UnderProvisionedTables "#CostOptimization_RightSizedProvisioning_UnderProvisionedTables")
+- [How to identify over-provisioned Amazon Keyspaces tables](#CostOptimization_RightSizedProvisioning_OverProvisionedTables "#CostOptimization_RightSizedProvisioning_OverProvisionedTables")
 
-## How to retrieve
-
-consumption metrics from your Amazon Keyspaces tables
+## How to retrieve consumption metrics from your Amazon Keyspaces tables
 
 To evaluate the table capacity, monitor the following CloudWatch metrics and select the
 appropriate dimension to retrieve table information:
@@ -307,9 +300,7 @@ offers [burst capacity](throughput-bursting.md "throughput-bursting.md"), but as
 burst capacity is exhausted, anything above 100% experiences low throughput capacity
 error events.
 
-## How to
-
-identify under-provisioned Amazon Keyspaces tables
+## How to identify under-provisioned Amazon Keyspaces tables
 
 For most workloads, a table is considered under-provisioned when it constantly consumes
 more than 80% of its provisioned capacity.
@@ -318,8 +309,7 @@ more than 80% of its provisioned capacity.
 customers to temporarily consume more RCUs/WCUs than originally provisioned (more than the
 per-second provisioned throughput that was defined for the table). The burst capacity was
 created to absorb sudden increases in traffic due to special events or usage spikes. This
-burst capacity limited, for more information, see [Use burst
-capacity effectively in Amazon Keyspaces](throughput-bursting.md "throughput-bursting.md"). As
+burst capacity limited, for more information, see [Use burst capacity effectively in Amazon Keyspaces](throughput-bursting.md "throughput-bursting.md"). As
 soon as the unused RCUs and WCUs are depleted, you can experience low capacity throughput
 error events if you try to consume more capacity than provisioned. When your application
 traffic is getting close to the 80% utilization rate, your risk of experiencing low capacity
@@ -347,9 +337,7 @@ the week) to increase the provisioned capacity, as well as when to reduce it. In
 aiming for higher capacity so you can cover the busy hours, you can also benefit from [Amazon Keyspaces table auto-scaling](autoscaling.md "autoscaling.md") configurations if your seasonality is
 less pronounced.
 
-## How to
-
-identify over-provisioned Amazon Keyspaces tables
+## How to identify over-provisioned Amazon Keyspaces tables
 
 The query results obtained from the scripts above provide the data points required to
 perform some initial analysis. If your data set presents values lower than 20% utilization for

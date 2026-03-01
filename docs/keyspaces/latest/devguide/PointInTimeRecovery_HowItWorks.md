@@ -1,6 +1,4 @@
-# How point-in-time recovery works in
-
-Amazon Keyspaces
+# How point-in-time recovery works in Amazon Keyspaces
 
 This section provides an overview of how Amazon Keyspaces point-in-time recovery (PITR) works. For more information about pricing,
 see [Amazon Keyspaces (for Apache Cassandra)
@@ -11,12 +9,10 @@ pricing](https://aws.amazon.com/keyspaces/pricing "https://aws.amazon.com/keyspa
 - [Time window for PITR continuous backups](#howitworks_backup_window "#howitworks_backup_window")
 - [PITR restore settings](#howitworks_backup_settings "#howitworks_backup_settings")
 - [PITR restore of encrypted tables](#howitworks_backup_encryption "#howitworks_backup_encryption")
-- [PITR restore of multi-Region
-  tables](#howitworks_backup_multiRegion "#howitworks_backup_multiRegion")
+- [PITR restore of multi-Region tables](#howitworks_backup_multiRegion "#howitworks_backup_multiRegion")
 - [PITR restore of tables with user-defined types (UDTs)](#howitworks_backup_udt "#howitworks_backup_udt")
 - [Table restore time with PITR](#howitworks_restore_time "#howitworks_restore_time")
-- [Amazon Keyspaces PITR and integration with AWS
-  services](#howitworks_integration "#howitworks_integration")
+- [Amazon Keyspaces PITR and integration with AWS services](#howitworks_integration "#howitworks_integration")
 
 ## Time window for PITR continuous backups
 
@@ -128,9 +124,7 @@ table that was encrypted with a customer managed key can't be restored if Amazon
 access to that key. For more information, see [Troubleshooting key
 access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the AWS Key Management Service Developer Guide.
 
-## PITR restore of multi-Region
-
-tables
+## PITR restore of multi-Region tables
 
 You can restore a multi-Region table using PITR. For the restore operation to be
 successful, PITR has to be enabled on all replicas of the source table and both the source and the destination table
@@ -180,9 +174,7 @@ The following are some considerations for restore times.
 A best practice when planning for disaster recovery is to regularly document average restore completion times
 and establish how these times affect your overall Recovery Time Objective.
 
-## Amazon Keyspaces PITR and integration with AWS
-
-services
+## Amazon Keyspaces PITR and integration with AWS services
 
 The following PITR operations are logged using AWS CloudTrail to enable continuous
 monitoring and auditing.

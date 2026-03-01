@@ -48,15 +48,12 @@ To learn more about how to use client-side timestamps in queries, see [Use clien
 
 ###### Topics
 
-- [How Amazon Keyspaces client-side timestamps integrate with AWS
-  services](#client-side-timestamps_integration "#client-side-timestamps_integration")
+- [How Amazon Keyspaces client-side timestamps integrate with AWS services](#client-side-timestamps_integration "#client-side-timestamps_integration")
 - [Create a new table with client-side timestamps in Amazon Keyspaces](client-side-timestamps-create-new-table.md "client-side-timestamps-create-new-table.md")
 - [Configure client-side timestamps for a table in Amazon Keyspaces](client-side-timestamps-existing-table.md "client-side-timestamps-existing-table.md")
 - [Use client-side timestamps in queries in Amazon Keyspaces](client-side-timestamps-how-to-queries.md "client-side-timestamps-how-to-queries.md")
 
-## How Amazon Keyspaces client-side timestamps integrate with AWS
-
-services
+## How Amazon Keyspaces client-side timestamps integrate with AWS services
 
 The following client-side timestamps metric is available in Amazon CloudWatch to enable continuous
 monitoring.

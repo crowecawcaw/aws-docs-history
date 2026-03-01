@@ -6,15 +6,11 @@ Amazon Keyspaces.
 
 ###### Topics
 
-- [High-level architecture: Apache Cassandra
-  vs. Amazon Keyspaces](#how-it-works.cassandra-arch "#how-it-works.cassandra-arch")
+- [High-level architecture: Apache Cassandra vs. Amazon Keyspaces](#how-it-works.cassandra-arch "#how-it-works.cassandra-arch")
 - [Cassandra data model](#how-it-works.data-model "#how-it-works.data-model")
-- [Accessing Amazon Keyspaces from an
-  application](#how-it-works.keyspaces-arch.accessing "#how-it-works.keyspaces-arch.accessing")
+- [Accessing Amazon Keyspaces from an application](#how-it-works.keyspaces-arch.accessing "#how-it-works.keyspaces-arch.accessing")
 
-## High-level architecture: Apache Cassandra
-
-vs. Amazon Keyspaces
+## High-level architecture: Apache Cassandra vs. Amazon Keyspaces
 
 Traditional Apache Cassandra is deployed in a cluster made up of one or more nodes.
 You are responsible for managing each node and adding and removing nodes as your cluster
@@ -127,9 +123,7 @@ across all records in a table.
 
 For more information about NoSQL design and Amazon Keyspaces, see [Key differences and design principles of NoSQL design](bp-general-nosql-design.md "bp-general-nosql-design.md"). For more information about Amazon Keyspaces and data modeling, see [Data modeling best practices: recommendations for designing data models](data-modeling.md "data-modeling.md").
 
-## Accessing Amazon Keyspaces from an
-
-application
+## Accessing Amazon Keyspaces from an application
 
 Amazon Keyspaces (for Apache Cassandra) implements the Apache Cassandra Query Language (CQL) API, so you can use
 CQL and Cassandra drivers that you already use. Updating your application is as easy as
@@ -169,5 +163,4 @@ To run the same program against Amazon Keyspaces, you need to:
   `9142`.
 - **Add the TLS/SSL configuration**: For more
   information on adding the TLS/SSL configuration to connect to Amazon Keyspaces by using a
-  Cassandra client Python driver, see [Using a Cassandra Python client driver to
-  access Amazon Keyspaces programmatically](using_python_driver.md "using_python_driver.md").
+  Cassandra client Python driver, see [Using a Cassandra Python client driver to access Amazon Keyspaces programmatically](using_python_driver.md "using_python_driver.md").

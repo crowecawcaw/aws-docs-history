@@ -13,20 +13,14 @@ connection. For more information, see [Amazon Virtual Private Cloud](../../../vp
 
 ###### Topics
 
-- [Using interface VPC endpoints for
-  Amazon Keyspaces](#using-interface-vpc-endpoints "#using-interface-vpc-endpoints")
-- [Populating system.peers table entries with
-  interface VPC endpoint information](#system_peers "#system_peers")
-- [Controlling access to interface VPC
-  endpoints for Amazon Keyspaces](#interface-vpc-endpoints-policies "#interface-vpc-endpoints-policies")
+- [Using interface VPC endpoints for Amazon Keyspaces](#using-interface-vpc-endpoints "#using-interface-vpc-endpoints")
+- [Populating system.peers table entries with interface VPC endpoint information](#system_peers "#system_peers")
+- [Controlling access to interface VPC endpoints for Amazon Keyspaces](#interface-vpc-endpoints-policies "#interface-vpc-endpoints-policies")
 - [Availability](#availability "#availability")
-- [VPC endpoint policies and Amazon Keyspaces point-in-time
-  recovery (PITR)](#VPC_PITR_restore "#VPC_PITR_restore")
+- [VPC endpoint policies and Amazon Keyspaces point-in-time recovery (PITR)](#VPC_PITR_restore "#VPC_PITR_restore")
 - [Common errors and warnings](#vpc_troubleshooting "#vpc_troubleshooting")
 
-## Using interface VPC endpoints for
-
-Amazon Keyspaces
+## Using interface VPC endpoints for Amazon Keyspaces
 
 You can create an interface VPC endpoint so that traffic between Amazon Keyspaces and your Amazon VPC
 resources starts flowing through the interface VPC endpoint. To get started, follow
@@ -36,13 +30,10 @@ endpoint that you created in the previous step, and configure an inbound rule fo
 updating rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRules").
 
 For a step-by-step tutorial to configure a connection to Amazon Keyspaces through a VPC endpoint,
-see [Tutorial: Connect to Amazon Keyspaces using an interface VPC
-endpoint](vpc-endpoints-tutorial.md "vpc-endpoints-tutorial.md"). To learn how to configure cross-account
+see [Tutorial: Connect to Amazon Keyspaces using an interface VPC endpoint](vpc-endpoints-tutorial.md "vpc-endpoints-tutorial.md"). To learn how to configure cross-account
 access for Amazon Keyspaces resources separated from applications in different AWS accounts in a VPC, see [Configure cross-account access to Amazon Keyspaces with VPC endpoints](access.md "access.md").
 
-## Populating `system.peers` table entries with
-
-interface VPC endpoint information
+## Populating `system.peers` table entries with interface VPC endpoint information
 
 Apache Cassandra drivers use the `system.peers` table to query for node
 information about the cluster. Cassandra drivers use the node information to load
@@ -107,9 +98,7 @@ quota issues. To verify that you have configured the VPC endpoints correctly, se
 [My VPC endpoint connection doesn't work properly](troubleshooting.md#troubleshooting.connection.vpce "troubleshooting.md#troubleshooting.connection.vpce"). If your query returns
 results from the table, your policy has been configured correctly.
 
-## Controlling access to interface VPC
-
-endpoints for Amazon Keyspaces
+## Controlling access to interface VPC endpoints for Amazon Keyspaces
 
 With VPC endpoint policies, you can control access to resources in two ways:
 
@@ -211,9 +200,7 @@ the system tables. System tables are read-only.
 Amazon Keyspaces supports using interface VPC endpoints in all of the AWS Regions where
 the service is available. For more information, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
 
-## VPC endpoint policies and Amazon Keyspaces point-in-time
-
-recovery (PITR)
+## VPC endpoint policies and Amazon Keyspaces point-in-time recovery (PITR)
 
 If you are using IAM policies with [condition keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") to
 restrict incoming traffic, the table restore operation may fail. For example,

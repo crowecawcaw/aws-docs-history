@@ -1,6 +1,4 @@
-# Create a new Amazon Keyspaces table with higher
-
-warm throughput
+# Create a new Amazon Keyspaces table with higher warm throughput
 
 You can adjust the warm throughput values when you create your Amazon Keyspaces table by
 using the console, CQL, or the AWS CLI.

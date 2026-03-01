@@ -26,7 +26,5 @@ certificate, configure `cqlsh`, download and install DSBulk, and configure an `a
 - [Step 1: Create the source CSV file and a target table for the data upload using DSBulk](dsbulk-upload-source.md "dsbulk-upload-source.md")
 - [Step 2: Prepare the data to upload using DSBulk](dsbulk-upload-prepare-data.md "dsbulk-upload-prepare-data.md")
 - [Step 3: Set the throughput capacity for the target table](dsbulk-upload-capacity.md "dsbulk-upload-capacity.md")
-- [Step 4: Configure DSBulk
-  settings to upload data from the CSV file to the target table](dsbulk-upload-config.md "dsbulk-upload-config.md")
-- [Step 5: Run the DSBulk load
-  command to upload data from the CSV file to the target table](dsbulk-upload-run.md "dsbulk-upload-run.md")
+- [Step 4: Configure DSBulk settings to upload data from the CSV file to the target table](dsbulk-upload-config.md "dsbulk-upload-config.md")
+- [Step 5: Run the DSBulk load command to upload data from the CSV file to the target table](dsbulk-upload-run.md "dsbulk-upload-run.md")

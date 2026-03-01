@@ -25,16 +25,13 @@ Console
 4. To disable Amazon Keyspaces automatic scaling, clear the **Scale automatically** check
    box. Disabling automatic scaling deregisters the table as a scalable target with
    Application Auto Scaling. To delete the service-linked role that Application Auto Scaling uses to access your
-   Amazon Keyspaces table, follow the steps in [Deleting a service-linked role for
-   Amazon Keyspaces](using-service-linked-roles-app-auto-scaling.md#delete-service-linked-role-app-auto-scaling "using-service-linked-roles-app-auto-scaling.md#delete-service-linked-role-app-auto-scaling").
+   Amazon Keyspaces table, follow the steps in [Deleting a service-linked role for Amazon Keyspaces](using-service-linked-roles-app-auto-scaling.md#delete-service-linked-role-app-auto-scaling "using-service-linked-roles-app-auto-scaling.md#delete-service-linked-role-app-auto-scaling").
 5. When the automatic scaling settings are defined, choose
    **Save**.
 
 Cassandra Query Language (CQL)
 
-###### Turn off auto scaling for a
-
-multi-Region table using CQL
+###### Turn off auto scaling for a multi-Region table using CQL
 
 - You can use `ALTER TABLE` to turn off auto scaling for an existing table.
   Note that you can't turn off auto scaling for an individual table replica.
@@ -52,9 +49,7 @@ WITH AUTOSCALING_SETTINGS = {
 
 CLI
 
-###### Turn off auto scaling for a
-
-multi-Region table using the AWS CLI
+###### Turn off auto scaling for a multi-Region table using the AWS CLI
 
 - You can use the AWS CLI `update-table` command to turn off auto scaling for
   an existing table. Note that you can't turn off auto scaling for an individual table

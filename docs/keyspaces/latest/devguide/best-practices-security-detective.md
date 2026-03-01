@@ -1,6 +1,4 @@
-# Detective security best
-
-practices for Amazon Keyspaces
+# Detective security best practices for Amazon Keyspaces
 
 The following security best practices are considered detective because they can help you detect potential security
 weaknesses and incidents.
@@ -73,8 +71,7 @@ purpose, owner, environment, or other criteria. The following are some
 examples:
 
 - Access – Used to control access to Amazon Keyspaces resources based on tags. For more information,
-  see [Authorization based on
-  Amazon Keyspaces tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
+  see [Authorization based on Amazon Keyspaces tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
 - Security – Used to determine requirements such as data
   protection settings.
 - Confidentiality – An identifier for the specific

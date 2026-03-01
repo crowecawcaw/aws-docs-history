@@ -21,6 +21,5 @@ For information about pricing, see [Amazon Keyspaces (for Apache Cassandra) pric
 
 ###### Topics
 
-- [How point-in-time recovery works in
-  Amazon Keyspaces](PointInTimeRecovery_HowItWorks.md "PointInTimeRecovery_HowItWorks.md")
+- [How point-in-time recovery works in Amazon Keyspaces](PointInTimeRecovery_HowItWorks.md "PointInTimeRecovery_HowItWorks.md")
 - [Use point-in-time recovery in Amazon Keyspaces](PointInTimeRecovery_Tutorial.md "PointInTimeRecovery_Tutorial.md")

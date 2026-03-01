@@ -13,16 +13,11 @@ perform individual table cost analysis in Cost Explorer.
 
 ###### Topics
 
-- [How to view the costs of a
-  single Amazon Keyspaces table](#CostOptimization_TableLevelCostAnalysis_ViewInfo "#CostOptimization_TableLevelCostAnalysis_ViewInfo")
-- [Cost Explorer's default
-  view](#CostOptimization_TableLevelCostAnalysis_CostExplorer "#CostOptimization_TableLevelCostAnalysis_CostExplorer")
-- [How to use and apply table
-  tags in Cost Explorer](#CostOptimization_TableLevelCostAnalysis_Tagging "#CostOptimization_TableLevelCostAnalysis_Tagging")
+- [How to view the costs of a single Amazon Keyspaces table](#CostOptimization_TableLevelCostAnalysis_ViewInfo "#CostOptimization_TableLevelCostAnalysis_ViewInfo")
+- [Cost Explorer's default view](#CostOptimization_TableLevelCostAnalysis_CostExplorer "#CostOptimization_TableLevelCostAnalysis_CostExplorer")
+- [How to use and apply table tags in Cost Explorer](#CostOptimization_TableLevelCostAnalysis_Tagging "#CostOptimization_TableLevelCostAnalysis_Tagging")
 
-## How to view the costs of a
-
-single Amazon Keyspaces table
+## How to view the costs of a single Amazon Keyspaces table
 
 You can see basic information about an Amazon Keyspaces table in the console, including the primary key schema, the billable table size,
 and capacity related metrics. You can use the size of the table to calculate the monthly storage
@@ -33,9 +28,7 @@ and write capacity unit (WCU) settings are
 returned as well. You can use this information to calculate the current read and write costs for the
 table. Note that these costs could change, especially if you have configured the table with Amazon Keyspaces automatic scaling.
 
-## Cost Explorer's default
-
-view
+## Cost Explorer's default view
 
 The default view in Cost Explorer provides charts showing the cost of consumed resources, for
 example throughput and storage. You can choose to group these costs by period, such as
@@ -44,9 +37,7 @@ be broken out and compared as well.
 
 ![Image showing the cost of consumed resources in the Cost Explorer view.](images/CostOptimization/CostExplorerView.png)
 
-## How to use and apply table
-
-tags in Cost Explorer
+## How to use and apply table tags in Cost Explorer
 
 By default, Cost Explorer does not provide a summary of the costs for any one specific table,
 because it combines the costs of multiple tables into a total. However, you can use

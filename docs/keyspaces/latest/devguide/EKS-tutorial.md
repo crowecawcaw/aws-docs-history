@@ -17,6 +17,5 @@ data to an Amazon Keyspaces table.
 - [Step 1: Configure the Amazon EKS cluster and setup IAM permissions](EKS-tutorial-step1.md "EKS-tutorial-step1.md")
 - [Step 2: Configure the application](EKS-tutorial-step2.md "EKS-tutorial-step2.md")
 - [Step 3: Create the application image and upload the Docker file to your Amazon ECR repository](EKS-tutorial-step3.md "EKS-tutorial-step3.md")
-- [Step 4: Deploy the application to Amazon EKS and write
-  data to your table](EKS-tutorial-step4.md "EKS-tutorial-step4.md")
+- [Step 4: Deploy the application to Amazon EKS and write data to your table](EKS-tutorial-step4.md "EKS-tutorial-step4.md")
 - [Step 5: (Optional) Cleanup](EKS-tutorial-step5.md "EKS-tutorial-step5.md")

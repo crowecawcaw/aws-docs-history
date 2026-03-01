@@ -38,9 +38,7 @@ pricing](https://aws.amazon.com/keyspaces/pricing/ "https://aws.amazon.com/keysp
 
 Here are some different scenarios and best practices you might consider when pre-warming Amazon Keyspaces tables.
 
-## Warm throughput and uneven
-
-access patterns
+## Warm throughput and uneven access patterns
 
 A table might have a warm throughput of 30,000 read units per second and
 10,000 write units per second, but you could still experience capacity exceeded events on
@@ -52,9 +50,7 @@ a small portion of the table’s partitions, capacity exceeded events can occur 
 reach the table's warm throughput values. We recommend following [Amazon Keyspaces best practices](bp-partition-key-design.md "bp-partition-key-design.md") to ensure
 seamless scalability and avoid hot partitions.
 
-## Warm throughput for a
-
-provisioned table
+## Warm throughput for a provisioned table
 
 Consider a provisioned table that has a warm throughput of 30,000 read units
 per second and 10,000 write units per second but currently has a provisioned
@@ -80,9 +76,7 @@ increases to 50,000 read units per second.
 
 ```
 
-## Warm throughput for an
-
-on-demand table
+## Warm throughput for an on-demand table
 
 A new on-demand table starts with a warm throughput of 12,000 read units per
 second and 4,000 write units per second. Your table can instantly accommodate
@@ -136,9 +130,7 @@ adequately supports your workload requirements.
 
 ###### Topics
 
-- [Create a new Amazon Keyspaces table with higher
-  warm throughput](create-table-warm-throughput.md "create-table-warm-throughput.md")
-- [Increase your existing Amazon Keyspaces table's warm
-  throughput](update-warm-throughput.md "update-warm-throughput.md")
+- [Create a new Amazon Keyspaces table with higher warm throughput](create-table-warm-throughput.md "create-table-warm-throughput.md")
+- [Increase your existing Amazon Keyspaces table's warm throughput](update-warm-throughput.md "update-warm-throughput.md")
 - [View warm throughput of an Amazon Keyspaces table](view-warm-throughput.md "view-warm-throughput.md")
 - [Monitor the performance of a pre-warmed table using Amazon CloudWatch](monitor-prewarming-cloudwatch.md "monitor-prewarming-cloudwatch.md")

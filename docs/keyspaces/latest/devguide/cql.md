@@ -1,28 +1,23 @@
-# DDL statements (data definition language) in Amazon Keyspaces
+# CQL language reference for Amazon Keyspaces (for Apache Cassandra)
 
-_Data definition language_ (DDL) is the set of Cassandra Query
-Language (CQL) statements that you use to manage data structures in Amazon Keyspaces (for Apache Cassandra), such as
-keyspaces and tables. You use DDL to create these data structures, modify them after
-they are created, and remove them when they're no longer in use. Amazon Keyspaces performs DDL
-operations asynchronously. For more information about how to confirm that an
-asynchronous operation has completed, see [Asynchronous creation
-and deletion of keyspaces and tables](functional-differences.md#functional-differences.table-keyspace-management "functional-differences.md#functional-differences.table-keyspace-management").
+After you connect to an Amazon Keyspaces endpoint, you use Cassandra Query Language (CQL) to work
+with your database. CQL is similar in many ways to Structured Query Language (SQL).
 
-The following DDL statements are supported:
-
-- [CREATE KEYSPACE](cql.ddl.md#cql.ddl.keyspace.create "cql.ddl.md#cql.ddl.keyspace.create")
-- [ALTER KEYSPACE](cql.ddl.md#cql.ddl.keyspace.alter "cql.ddl.md#cql.ddl.keyspace.alter")
-- [DROP KEYSPACE](cql.ddl.md#cql.ddl.keyspace.drop "cql.ddl.md#cql.ddl.keyspace.drop")
-- [USE](cql.ddl.md#cql.ddl.keyspace.use "cql.ddl.md#cql.ddl.keyspace.use")
-- [CREATE TABLE](cql.ddl.md#cql.ddl.table.create "cql.ddl.md#cql.ddl.table.create")
-- [ALTER TABLE](cql.ddl.md#cql.ddl.table.alter "cql.ddl.md#cql.ddl.table.alter")
-- [RESTORE TABLE](cql.ddl.md#cql.ddl.table.restore "cql.ddl.md#cql.ddl.table.restore")
-- [DROP TABLE](cql.ddl.md#cql.ddl.table.drop "cql.ddl.md#cql.ddl.table.drop")
-- [CREATE TYPE](cql.ddl.md#cql.ddl.type.create "cql.ddl.md#cql.ddl.type.create")
-- [DROP TYPE](cql.ddl.md#cql.ddl.type.drop "cql.ddl.md#cql.ddl.type.drop")
+- **CQL elements** – This section covers the fundamental elements of CQL supported in Amazon Keyspaces,
+  including identifiers, constants, terms, and data types. It explains concepts like string types, numeric types, collection types, and more.
+- **Data Definition Language (DDL)** – DDL statements are used to manage data structures like
+  keyspaces and tables in Amazon Keyspaces. This section covers statements for creating, altering, and dropping keyspaces and tables, as well as restoring
+  tables from a point-in-time backup.
+- **Data Manipulation Language (DML)** – DML statements are used to manage data within tables.
+  This section covers statements for selecting, inserting, updating, and deleting data. It also explains advanced querying capabilities like
+  using the `IN` operator, ordering results, and pagination.
+- **Built-in functions** – Amazon Keyspaces supports a variety of built-in scalar functions that you can use
+  in CQL statements. This section provides an overview of these functions, including examples of their usage.
+  Throughout this topic, you'll find detailed syntax, examples, and best practices for using CQL effectively in Amazon Keyspaces.
 
 ###### Topics
 
-- [Keyspaces](cql.ddl.md "cql.ddl.md")
-- [Tables](cql.ddl.md "cql.ddl.md")
-- [User-defined types (UDTs)](cql.ddl.md "cql.ddl.md")
+- [Cassandra Query Language (CQL) elements in Amazon Keyspaces](cql.md "cql.md")
+- [DDL statements (data definition language) in Amazon Keyspaces](cql.md "cql.md")
+- [DML statements (data manipulation language) in Amazon Keyspaces](cql.md "cql.md")
+- [Built-in functions in Amazon Keyspaces](cql.md "cql.md")

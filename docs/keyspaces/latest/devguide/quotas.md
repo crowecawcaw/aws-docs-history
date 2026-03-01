@@ -5,8 +5,7 @@ This section describes current quotas and default values for Amazon Keyspaces (f
 ###### Topics
 
 - [Amazon Keyspaces service quotas](#table "#table")
-- [Increasing or decreasing throughput (for
-  provisioned tables)](#decreasing-increasing-throughput "#decreasing-increasing-throughput")
+- [Increasing or decreasing throughput (for provisioned tables)](#decreasing-increasing-throughput "#decreasing-increasing-throughput")
 - [Amazon Keyspaces encryption at rest](#quotas-encryption "#quotas-encryption")
 - [Quotas and default values for user-defined types (UDTs) in Amazon Keyspaces](#quotas-udts "#quotas-udts")
 
@@ -25,7 +24,7 @@ For more information on quotas, contact AWS Support.
 | Max queries per connection                                        | The maximum number of CQL queries that can be processed by a single<br>client TCP connection per second.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 3000                     |
 | Max row size                                                      | The maximum size of a row, excluding static column data. For details,<br>see [Estimate row size in Amazon Keyspaces](calculating-row-size.md "calculating-row-size.md").                                                                                                                                                                                                                                                                                                                                                                                                                                         | 1 MB                     |
 | Max number of columns in `INSERT` and `UPDATE` statements         | The maximum number of columns allowed in CQL `INSERT` or `UPDATE` statements.<br>An `INSERT` or `UPDATE`<br>statement supports up to 225 regular columns when Time to Live (TTL)<br>is turned off. If TTL is turned on, up to 166 regular columns can be<br>modified in a single operation.                                                                                                                                                                                                                                                                                                                      | 225/166                  |
-| Max static data per logical partition                             | The maximum aggregate size of static data in a logical partition. For<br>details, see [Calculate the static column size per logical<br>partition in Amazon Keyspaces](static-columns-estimate.md "static-columns-estimate.md").                                                                                                                                                                                                                                                                                                                                                                                  | 1 MB                     |
+| Max static data per logical partition                             | The maximum aggregate size of static data in a logical partition. For<br>details, see [Calculate the static column size per logical partition in Amazon Keyspaces](static-columns-estimate.md "static-columns-estimate.md").                                                                                                                                                                                                                                                                                                                                                                                     | 1 MB                     |
 | Max subqueries per `IN` `SELECT` statement                        | The maximum number of subqueries you can use for the `IN` keyword<br>in a `SELECT` statement. You can adjust<br>this default value in the<br>[Service Quotas](https://console.aws.amazon.com/servicequotas/home#!/services/cassandra/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/cassandra/quotas") console.                                                                                                                                                                                                                                                                            | 100                      |
 | Max number of nested frozen collections per AWS Region            | The maximum number of nested collections supported when you're using<br>the `FROZEN` keyword for a column with a collection data<br>type. For more information about frozen collections, see [Collection types](cql.md#cql.data-types.collection "cql.md#cql.data-types.collection"). To increase the<br>nesting level, contact Support.                                                                                                                                                                                                                                                                         | 8                        |
 | Max number of statements in a logged batch                        | The maximum number of CQL statements supported when you're using a<br>logged batch statment. For more information about batch statements,<br>see [Use batch statements in Amazon Keyspaces](batchStatements.md "batchStatements.md").                                                                                                                                                                                                                                                                                                                                                                            | 100                      |
@@ -43,9 +42,7 @@ For more information on quotas, contact AWS Support.
 | Max concurrent table restores using Point-in-time Recovery (PITR) | The maximum number of concurrent table restores using PITR per<br>subscriber is 4. You can adjust<br>this default value in the<br>[Service Quotas](https://console.aws.amazon.com/servicequotas/home#!/services/cassandra/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/cassandra/quotas") console.                                                                                                                                                                                                                                                                                       | 4                        |
 | Max amount of data restored using point-in-time recovery (PITR)   | The maximum size of data that can be restored using PITR within 24<br>hours. You can adjust<br>this default value in the<br>[Service Quotas](https://console.aws.amazon.com/servicequotas/home#!/services/cassandra/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/cassandra/quotas") console.                                                                                                                                                                                                                                                                                             | 5 TB                     |
 
-## Increasing or decreasing throughput (for
-
-provisioned tables)
+## Increasing or decreasing throughput (for provisioned tables)
 
 ### Increasing provisioned throughput
 
@@ -58,9 +55,7 @@ You can't exceed your per-account quotas when you add provisioned capacity. And
 you can increase the provisioned capacity for your tables as much as you need. For
 more information about per-account quotas, see the preceding section, [Amazon Keyspaces service quotas](#table "#table").
 
-### Decreasing provisioned
-
-throughput
+### Decreasing provisioned throughput
 
 For every table in an `ALTER TABLE` statement, you can decrease
 `ReadCapacityUnits` or `WriteCapacityUnits` (or both). The
@@ -92,8 +87,7 @@ increase, see [Support](https://console.aws.amazon.com/support/home#/ "https://c
 
 ### Amazon Keyspaces UDT quotas and default values
 
-The following table contains quotas and default values related to UDTs in Amazon Keyspaces.
-For more information about these quotas, contact AWS Support.
+The following table contains quotas and default values related to UDTs in Amazon Keyspaces. Information about which quotas can be adjusted is available in the [Service Quotas](https://console.aws.amazon.com/servicequotas/home#!/services/cassandra/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/cassandra/quotas") console, where you can also request quota increases. For more information about these quotas, contact AWS Support.
 
 | Quota                                    | Description                                                                        | Amazon Keyspaces default |
 | ---------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------ |

@@ -8,9 +8,7 @@ this tutorial, many manual steps are automated using shell scripts available in 
 
 - [Prerequisites for exporting data from Amazon Keyspaces to Amazon S3](S3-tutorial-prerequisites.md "S3-tutorial-prerequisites.md")
 - [Step 1: Create the Amazon S3 bucket, download the required tools, and configure the environment](S3-tutorial-step1.md "S3-tutorial-step1.md")
-- [Step 2: Configure the AWS Glue job that exports the
-  Amazon Keyspaces table](S3-tutorial-step2.md "S3-tutorial-step2.md")
-- [Step 3: Run the AWS Glue job to export the Amazon Keyspaces table to the Amazon S3 bucket from the
-  AWS CLI](S3-tutorial-step3.md "S3-tutorial-step3.md")
+- [Step 2: Configure the AWS Glue job that exports the Amazon Keyspaces table](S3-tutorial-step2.md "S3-tutorial-step2.md")
+- [Step 3: Run the AWS Glue job to export the Amazon Keyspaces table to the Amazon S3 bucket from the AWS CLI](S3-tutorial-step3.md "S3-tutorial-step3.md")
 - [Step 4: (Optional) Create a trigger to schedule the export job](S3-tutorial-step4.md "S3-tutorial-step4.md")
 - [Step 5: (Optional) Cleanup](S3-tutorial-step5.md "S3-tutorial-step5.md")

@@ -13,17 +13,14 @@ connection. For more information, see [Amazon Virtual Private Cloud](../../../vp
 
 ###### Topics
 
-- [Using interface VPC endpoints for
-  Amazon Keyspaces CDC streams](#using-interface-vpc-endpoints-streams "#using-interface-vpc-endpoints-streams")
+- [Using interface VPC endpoints for Amazon Keyspaces CDC streams](#using-interface-vpc-endpoints-streams "#using-interface-vpc-endpoints-streams")
 - [Amazon Keyspaces CDC streams interface VPC endpoints](#interface-vpc-endpoints-streams-types "#interface-vpc-endpoints-streams-types")
 - [Create Amazon Keyspaces CDC streams interface VPC endpoint](#create-interface-vpc-endpoints-streams "#create-interface-vpc-endpoints-streams")
 - [Update an Amazon Keyspaces CDC streams interface VPC endpoint](#update-interface-vpc-endpoints-streams "#update-interface-vpc-endpoints-streams")
 - [List streams using an Amazon Keyspaces CDC streams interface VPC endpoint](#list-interface-vpc-endpoints-streams "#list-interface-vpc-endpoints-streams")
 - [Create a policy for an Amazon Keyspaces CDC streams interface VPC endpoint](#interface-vpc-endpoints-streams-policy "#interface-vpc-endpoints-streams-policy")
 
-## Using interface VPC endpoints for
-
-Amazon Keyspaces CDC streams
+## Using interface VPC endpoints for Amazon Keyspaces CDC streams
 
 You can use an interface VPC endpoint so that traffic between Amazon Keyspaces CDC streams and your Amazon VPC
 resources starts flowing through the interface VPC endpoint. You can use VPC endpoint policies

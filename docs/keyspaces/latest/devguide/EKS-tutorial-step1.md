@@ -1,8 +1,6 @@
 # Step 1: Configure the Amazon EKS cluster and setup IAM permissions
 
-###### Configure the Amazon EKS cluster and create the IAM resources that are required to allow an Amazon EKS service account to connect to your Amazon Keyspaces
-
-table
+###### Configure the Amazon EKS cluster and create the IAM resources that are required to allow an Amazon EKS service account to connect to your Amazon Keyspaces table
 
 1.  Create an Open ID Connect (OIDC) provider for the Amazon EKS cluster. This is needed to use IAM roles for service accounts.
     For more information about OIDC providers and how to create them, see [Creating an IAM OIDC provider for your cluster](../../../eks/latest/userguide/enable-iam-roles-for-service-accounts.md "../../../eks/latest/userguide/enable-iam-roles-for-service-accounts.md") in the _Amazon EKS User Guide_.
@@ -122,8 +120,7 @@ aws iam create-role --role-name `my-iam-role` --assume-role-policy-document file
        `AmazonKeyspacesFullAccess`, because our application is
        going to write data to your Amazon Keyspaces table. As a best practise however, it's recommended
        to create custom access policies that implement the least privileges
-       principle. For more information, see [How Amazon Keyspaces works with
-       IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+       principle. For more information, see [How Amazon Keyspaces works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
     ```
     aws iam attach-role-policy --role-name `my-iam-role` --policy-arn=arn:aws:iam::aws:policy/AmazonKeyspacesFullAccess

@@ -14,8 +14,7 @@ equivalent of 20 years.
 
 After table creation, you can overwrite the table's default TTL setting for specific rows
 or columns with CQL DML statements. For more information, see
-[Use the INSERT statement to set custom Time to Live (TTL) values for new rows](TTL-how-to-insert-cql.md "TTL-how-to-insert-cql.md") and [Use the UPDATE statement to edit custom Time to Live (TTL)
-settings for rows and columns](TTL-how-to-update-cql.md "TTL-how-to-update-cql.md").
+[Use the INSERT statement to set custom Time to Live (TTL) values for new rows](TTL-how-to-insert-cql.md "TTL-how-to-insert-cql.md") and [Use the UPDATE statement to edit custom Time to Live (TTL) settings for rows and columns](TTL-how-to-update-cql.md "TTL-how-to-update-cql.md").
 
 When you enable TTL on a table, Amazon Keyspaces begins to store additional TTL-related metadata
 for each row. In addition, TTL uses expiration timestamps to track when rows or columns

@@ -5,9 +5,7 @@ on the Amazon Keyspaces console, using CQL, or the AWS CLI. This section provide
 
 Cassandra Query Language (CQL)
 
-###### View the provisioned capacity and auto
-
-scaling settings of a multi-Region table using CQL
+###### View the provisioned capacity and auto scaling settings of a multi-Region table using CQL
 
 - To view the auto scaling configuration of a multi-Region table, use the following command.
 
@@ -27,9 +25,7 @@ The output for this command looks like the following:
 
 CLI
 
-###### View the provisioned capacity and auto
-
-scaling settings of a multi-Region table using the AWS CLI
+###### View the provisioned capacity and auto scaling settings of a multi-Region table using the AWS CLI
 
 - To view the auto scaling configuration of a multi-Region table, you can use the
   `get-table-auto-scaling-settings` operation. The following CLI command is

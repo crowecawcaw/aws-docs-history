@@ -40,8 +40,7 @@ cassandraRequest = CreateAmazoncassandraClient(tempCredentials);
 ```
 
 For an example that implements temporary credentials using the Python driver to access
-Amazon Keyspaces, see [Connect to Amazon Keyspaces using the DataStax
-Python driver for Apache Cassandra and the SigV4 authentication plugin](using_python_driver.md#python_SigV4 "using_python_driver.md#python_SigV4").
+Amazon Keyspaces, see [Connect to Amazon Keyspaces using the DataStax Python driver for Apache Cassandra and the SigV4 authentication plugin](using_python_driver.md#python_SigV4 "using_python_driver.md#python_SigV4").
 
 For details about how to call `AssumeRole`, `GetFederationToken`,
 and other API operations, see

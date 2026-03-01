@@ -1,6 +1,4 @@
-# Using a Cassandra Go client driver to
-
-access Amazon Keyspaces programmatically
+# Using a Cassandra Go client driver to access Amazon Keyspaces programmatically
 
 This section shows you how to connect to Amazon Keyspaces by using a Go Cassandra client
 driver. To provide users and applications with credentials for programmatic access to
@@ -17,10 +15,8 @@ Amazon Keyspaces resources, you can do either of the following:
 ###### Topics
 
 - [Before you begin](#using_go_driver.BeforeYouBegin "#using_go_driver.BeforeYouBegin")
-- [Connect to Amazon Keyspaces using the
-  Gocql driver for Apache Cassandra and service-specific credentials](#go_ssc "#go_ssc")
-- [Connect to Amazon Keyspaces using the
-  Go driver for Apache Cassandra and the SigV4 authentication plugin](#go_SigV4 "#go_SigV4")
+- [Connect to Amazon Keyspaces using the Gocql driver for Apache Cassandra and service-specific credentials](#go_ssc "#go_ssc")
+- [Connect to Amazon Keyspaces using the Go driver for Apache Cassandra and the SigV4 authentication plugin](#go_SigV4 "#go_SigV4")
 
 ## Before you begin
 
@@ -68,9 +64,7 @@ cat AmazonRootCA1.pem \
  > `keyspaces-bundle.pem`
 ```
 
-## Connect to Amazon Keyspaces using the
-
-Gocql driver for Apache Cassandra and service-specific credentials
+## Connect to Amazon Keyspaces using the Gocql driver for Apache Cassandra and service-specific credentials
 
 1. Create a directory for your application.
 
@@ -154,8 +148,7 @@ Usage notes:
     2. Ensure that the `ServiceUserName` and
      `ServicePassword` match the user
      name and password you obtained when you generated the
-     service-specific credentials by following the steps to [Create service-specific
-     credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
+     service-specific credentials by following the steps to [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
     3. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
 
 6. Build the program.
@@ -170,9 +163,7 @@ go build cqlapp.go
 ./cqlapp
 ```
 
-## Connect to Amazon Keyspaces using the
-
-Go driver for Apache Cassandra and the SigV4 authentication plugin
+## Connect to Amazon Keyspaces using the Go driver for Apache Cassandra and the SigV4 authentication plugin
 
 The following code sample shows how to use the SigV4 authentication plugin for the open-source Go driver to
 access Amazon Keyspaces (for Apache Cassandra).

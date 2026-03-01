@@ -35,8 +35,7 @@ the console, Cassandra Query Language (CQL), or the AWS CLI.
 
 On tables with default TTL configured, you
 can use CQL statements to override the default TTL settings of the table and apply custom
-TTL values to rows and columns. For more information, see [Use the INSERT statement to set custom Time to Live (TTL) values for new rows](TTL-how-to-insert-cql.md "TTL-how-to-insert-cql.md") and [Use the UPDATE statement to edit custom Time to Live (TTL)
-settings for rows and columns](TTL-how-to-update-cql.md "TTL-how-to-update-cql.md").
+TTL values to rows and columns. For more information, see [Use the INSERT statement to set custom Time to Live (TTL) values for new rows](TTL-how-to-insert-cql.md "TTL-how-to-insert-cql.md") and [Use the UPDATE statement to edit custom Time to Live (TTL) settings for rows and columns](TTL-how-to-update-cql.md "TTL-how-to-update-cql.md").
 
 TTL pricing is based on the size of the rows being deleted or updated by using Time to Live. TTL
 operations are metered in units of `TTL deletes`. One TTL delete is consumed per
@@ -53,19 +52,15 @@ pricing](https://aws.amazon.com/keyspaces/pricing "https://aws.amazon.com/keyspa
 
 ###### Topics
 
-- [Amazon Keyspaces Time to Live and integration with AWS
-  services](#ttl-howitworks_integration "#ttl-howitworks_integration")
+- [Amazon Keyspaces Time to Live and integration with AWS services](#ttl-howitworks_integration "#ttl-howitworks_integration")
 - [Create a new table with default Time to Live (TTL) settings](TTL-how-to-create-table.md "TTL-how-to-create-table.md")
 - [Update the default Time to Live (TTL) value of a table](TTL-how-to-update-default.md "TTL-how-to-update-default.md")
 - [Create table with custom Time to Live (TTL) settings enabled](TTL-how-to-enable-custom-new.md "TTL-how-to-enable-custom-new.md")
 - [Update table with custom Time to Live (TTL)](TTL-how-to-enable-custom-alter.md "TTL-how-to-enable-custom-alter.md")
 - [Use the INSERT statement to set custom Time to Live (TTL) values for new rows](TTL-how-to-insert-cql.md "TTL-how-to-insert-cql.md")
-- [Use the UPDATE statement to edit custom Time to Live (TTL)
-  settings for rows and columns](TTL-how-to-update-cql.md "TTL-how-to-update-cql.md")
+- [Use the UPDATE statement to edit custom Time to Live (TTL) settings for rows and columns](TTL-how-to-update-cql.md "TTL-how-to-update-cql.md")
 
-## Amazon Keyspaces Time to Live and integration with AWS
-
-services
+## Amazon Keyspaces Time to Live and integration with AWS services
 
 The following TTL metric is available in Amazon CloudWatch to enable continuous
 monitoring.

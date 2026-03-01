@@ -11,13 +11,10 @@ For a complete listing of all the commands available for Amazon Keyspaces in the
 
 ###### Topics
 
-- [Downloading and Configuring the
-  AWS CLI](#access.cli.installcli "#access.cli.installcli")
+- [Downloading and Configuring the AWS CLI](#access.cli.installcli "#access.cli.installcli")
 - [Using the AWS CLI with Amazon Keyspaces](#access.cli.usingcli "#access.cli.usingcli")
 
-## Downloading and Configuring the
-
-AWS CLI
+## Downloading and Configuring the AWS CLI
 
 The AWS CLI is available at [https://aws.amazon.com/cli](https://aws.amazon.com/cli "https://aws.amazon.com/cli"). It runs on Windows, macOS, or Linux. After downloading the AWS CLI,
 follow these steps to install and configure it:

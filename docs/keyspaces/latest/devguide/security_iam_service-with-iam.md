@@ -1,6 +1,4 @@
-# How Amazon Keyspaces works with
-
-IAM
+# How Amazon Keyspaces works with IAM
 
 Before you use IAM to manage access to Amazon Keyspaces, you should understand what
 IAM features are available to use with Amazon Keyspaces. To get a high-level view of how
@@ -9,18 +7,12 @@ work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Amazon Keyspaces
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon Keyspaces
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  Amazon Keyspaces tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Amazon Keyspaces IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Amazon Keyspaces identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon Keyspaces resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on Amazon Keyspaces tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon Keyspaces IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon Keyspaces
-
-identity-based policies
+## Amazon Keyspaces identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -171,20 +163,15 @@ resources you can use a condition key, see [Actions Defined by Amazon Keyspaces 
 
 ### Examples
 
-To view examples of Amazon Keyspaces identity-based policies, see [Amazon Keyspaces identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Keyspaces identity-based policies, see [Amazon Keyspaces identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Amazon Keyspaces
-
-resource-based policies
+## Amazon Keyspaces resource-based policies
 
 Amazon Keyspaces
 does not support resource-based policies. To view an example of a detailed
 resource-based policy page, see [https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md").
 
-## Authorization based on
-
-Amazon Keyspaces tags
+## Authorization based on Amazon Keyspaces tags
 
 You can manage access to your Amazon Keyspaces resources by using tags. To manage resource access based on tags,
 you provide tag information in
@@ -198,16 +185,12 @@ Amazon Keyspaces resources, see [Working with tags and labels for Amazon Keyspac
 To view example identity-based policies for limiting access to a resource based on
 the tags on that resource, see [Amazon Keyspaces resource access based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags").
 
-## Amazon Keyspaces IAM
-
-roles
+## Amazon Keyspaces IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Amazon Keyspaces
+### Using temporary credentials with Amazon Keyspaces
 
 You can use temporary credentials to sign in with federation, to assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -222,12 +205,9 @@ Amazon Keyspaces supports using temporary credentials with the AWS Signature Ver
 - Go: [https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin").
 
 For examples and tutorials that implement the authentication plugin to access
-Amazon Keyspaces programmatically, see [Using a Cassandra client driver to access
-Amazon Keyspaces programmatically](programmatic.md "programmatic.md").
+Amazon Keyspaces programmatically, see [Using a Cassandra client driver to access Amazon Keyspaces programmatically](programmatic.md "programmatic.md").
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -235,8 +215,7 @@ IAM account and are owned by the service. An IAM administrator can view but not
 edit the permissions for service-linked roles.
 
 For details about creating or
-managing Amazon Keyspaces service-linked roles, see **[Using service-linked roles for
-Amazon Keyspaces](using-service-linked-roles.md "using-service-linked-roles.md")**.
+managing Amazon Keyspaces service-linked roles, see **[Using service-linked roles for Amazon Keyspaces](using-service-linked-roles.md "using-service-linked-roles.md")**.
 
 ### Service roles
 

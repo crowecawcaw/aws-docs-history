@@ -1,6 +1,4 @@
-# Create an IAM user for programmatic access
-
-to Amazon Keyspaces in your AWS account
+# Create an IAM user for programmatic access to Amazon Keyspaces in your AWS account
 
 To obtain credentials for programmatic access to Amazon Keyspaces with the AWS CLI, the AWS SDK, or the SigV4 plugin,
 you need to first create an IAM user or role.
@@ -54,8 +52,7 @@ For testing purposes and to follow the connection tutorials, select the
 that you follow the principle of least privilege and create custom policies
 that limit access to specific resources and only allow the required actions.
 For more information about IAM policies and to view example policies for
-Amazon Keyspaces, see [Amazon Keyspaces
-identity-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies"). After you have created custom permission policies, attach your policies to roles
+Amazon Keyspaces, see [Amazon Keyspaces identity-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies"). After you have created custom permission policies, attach your policies to roles
 and then let users assume the appropriate roles temporarily.
 
 Choose **Next: Tags**. 6. On the **Add tags (optional)** page you can add tags for the user, or choose **Next: Review**. 7. On the **Review** page you can see all of the choices you made up to this

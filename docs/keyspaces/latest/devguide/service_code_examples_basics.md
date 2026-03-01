@@ -1,6 +1,4 @@
-# Basic examples for
-
-Amazon Keyspaces using AWS SDKs
+# Basic examples for Amazon Keyspaces using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Keyspaces (for Apache Cassandra) with AWS
 SDKs.

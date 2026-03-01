@@ -66,8 +66,7 @@ and worst-case replication lag. There is no SLA on this latency.
   application traffic it receives, Amazon Keyspaces automatically adapts the capacity of a multi-Region on-demand table
   replica to the traffic that it receives. The increase in replication latency is transient because Amazon Keyspaces automatically
   allocates more capacity as your traffic volume increases. Once all replicas have adapted to your traffic volume,
-  replication latency should return back to normal. For more information, see [Peak traffic and scaling
-  properties](ReadWriteCapacityMode.md#ReadWriteCapacityMode.PeakTraffic "ReadWriteCapacityMode.md#ReadWriteCapacityMode.PeakTraffic").
+  replication latency should return back to normal. For more information, see [Peak traffic and scaling properties](ReadWriteCapacityMode.md#ReadWriteCapacityMode.PeakTraffic "ReadWriteCapacityMode.md#ReadWriteCapacityMode.PeakTraffic").
 - When using a multi-Region table in provisioned mode, if your application exceeds your
   provisioned throughput capacity, you may observe insufficient capacity errors and an
   increase in replication latency. To ensure that there's always enough read and write
@@ -75,5 +74,4 @@ and worst-case replication lag. There is no SLA on this latency.
   recommend that you configure Amazon Keyspaces auto scaling. Amazon Keyspaces
   auto scaling helps you provision throughput capacity efficiently for variable
   workloads by adjusting throughput capacity automatically in response to actual
-  application traffic. For more information, see [How auto scaling works for multi-Region
-  tables](autoscaling.md#autoscaling.multi-region "autoscaling.md#autoscaling.multi-region").
+  application traffic. For more information, see [How auto scaling works for multi-Region tables](autoscaling.md#autoscaling.multi-region "autoscaling.md#autoscaling.multi-region").

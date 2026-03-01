@@ -248,8 +248,7 @@ You must complete the following tasks before you can start this tutorial.
     ```
 
 4.  Set up the Cassandra Query Language shell (cqlsh) connection and confirm that
-    you can connect to Amazon Keyspaces by following the steps at [Using cqlsh to connect to
-    Amazon Keyspaces](programmatic.md "programmatic.md").
+    you can connect to Amazon Keyspaces by following the steps at [Using cqlsh to connect to Amazon Keyspaces](programmatic.md "programmatic.md").
 5.  Download and install DSBulk.
     1. To download DSBulk, you can use the following code.
 

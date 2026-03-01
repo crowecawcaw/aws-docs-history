@@ -19,8 +19,7 @@ To create a UDT with a nested UDT, the nested UDT has to be frozen.
 To review how many UDTs are supported per keyspace, supported levels of nesting,
 and other default values and quotas related to UDTs, see [Quotas and default values for user-defined types (UDTs) in Amazon Keyspaces](quotas.md#quotas-udts "quotas.md#quotas-udts").
 
-For information about how to calculate the encoded size of UDTs, see [Estimate the encoded size of
-data values based on data type](calculating-row-size.md#calculating-row-size-data-types "calculating-row-size.md#calculating-row-size-data-types").
+For information about how to calculate the encoded size of UDTs, see [Estimate the encoded size of data values based on data type](calculating-row-size.md#calculating-row-size-data-types "calculating-row-size.md#calculating-row-size-data-types").
 
 For more information about CQL syntax, see [User-defined types (UDTs)](cql.ddl.md "cql.ddl.md").
 

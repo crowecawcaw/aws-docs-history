@@ -1,6 +1,4 @@
-# Using a Cassandra Perl client driver to
-
-access Amazon Keyspaces programmatically
+# Using a Cassandra Perl client driver to access Amazon Keyspaces programmatically
 
 This section shows you how to connect to Amazon Keyspaces by using a Perl client driver. For
 this code sample, we used Perl 5. Amazon Keyspaces requires the use of Transport Layer Security
@@ -52,8 +50,7 @@ $db->disconnect;
 Ensure that the `ServiceUserName` and
 `ServicePassword` match the user
 name and password you obtained when you generated the
-service-specific credentials by following the steps to [Create service-specific
-credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
+service-specific credentials by following the steps to [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
 
 ###### Note
 

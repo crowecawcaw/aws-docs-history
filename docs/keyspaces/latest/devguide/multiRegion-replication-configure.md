@@ -11,10 +11,8 @@ For more information about supported configurations and features, see [Amazon Ke
 
 ###### Topics
 
-- [Configure the IAM permissions required to
-  create multi-Region keyspaces and tables](howitworks_replication_permissions.md "howitworks_replication_permissions.md")
-- [Configure the IAM permissions required to
-  add an AWS Region to a keyspace](howitworks_replication_permissions_addReplica.md "howitworks_replication_permissions_addReplica.md")
+- [Configure the IAM permissions required to create multi-Region keyspaces and tables](howitworks_replication_permissions.md "howitworks_replication_permissions.md")
+- [Configure the IAM permissions required to add an AWS Region to a keyspace](howitworks_replication_permissions_addReplica.md "howitworks_replication_permissions_addReplica.md")
 - [Create a multi-Region keyspace in Amazon Keyspaces](keyspaces-mrr-create.md "keyspaces-mrr-create.md")
 - [Add an AWS Region to a keyspace in Amazon Keyspaces](keyspaces-multi-region-add-replica.md "keyspaces-multi-region-add-replica.md")
 - [Check the replication progress when adding a new Region to a keyspace](keyspaces-multi-region-replica-status.md "keyspaces-multi-region-replica-status.md")

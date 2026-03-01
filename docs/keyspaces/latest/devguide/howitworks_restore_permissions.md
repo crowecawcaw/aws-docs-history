@@ -86,5 +86,4 @@ The following is an example of a policy that restricts source traffic to a speci
 ```
 
 For
-an example policy using the `aws:ViaAWSService` global condition key, see [VPC endpoint policies and Amazon Keyspaces point-in-time
-recovery (PITR)](vpc-endpoints.md#VPC_PITR_restore "vpc-endpoints.md#VPC_PITR_restore").
+an example policy using the `aws:ViaAWSService` global condition key, see [VPC endpoint policies and Amazon Keyspaces point-in-time recovery (PITR)](vpc-endpoints.md#VPC_PITR_restore "vpc-endpoints.md#VPC_PITR_restore").

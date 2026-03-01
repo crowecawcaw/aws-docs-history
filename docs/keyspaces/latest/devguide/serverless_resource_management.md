@@ -1,6 +1,4 @@
-# Managing serverless resources in
-
-Amazon Keyspaces (for Apache Cassandra)
+# Managing serverless resources in Amazon Keyspaces (for Apache Cassandra)
 
 Amazon Keyspaces (for Apache Cassandra) is serverless. Instead of deploying, managing, and maintaining storage and
 compute resources for your workload through nodes in a cluster, Amazon Keyspaces allocates storage and
@@ -42,5 +40,4 @@ This chapter covers key aspects of resource management in Amazon Keyspaces.
 - [Estimate capacity consumption of read and write throughput in Amazon Keyspaces](capacity-examples.md "capacity-examples.md")
 - [Configure read/write capacity modes in Amazon Keyspaces](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md")
 - [Manage throughput capacity automatically with Amazon Keyspaces auto scaling](autoscaling.md "autoscaling.md")
-- [Use burst
-  capacity effectively in Amazon Keyspaces](throughput-bursting.md "throughput-bursting.md")
+- [Use burst capacity effectively in Amazon Keyspaces](throughput-bursting.md "throughput-bursting.md")

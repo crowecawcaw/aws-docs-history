@@ -11,8 +11,7 @@ the row.
 
 After TTL has been enabled for a table, you can overwrite the table's default TTL setting for specific rows
 or columns with CQL DML statements. For more information, see
-[Use the INSERT statement to set custom Time to Live (TTL) values for new rows](TTL-how-to-insert-cql.md "TTL-how-to-insert-cql.md") and [Use the UPDATE statement to edit custom Time to Live (TTL)
-settings for rows and columns](TTL-how-to-update-cql.md "TTL-how-to-update-cql.md").
+[Use the INSERT statement to set custom Time to Live (TTL) values for new rows](TTL-how-to-insert-cql.md "TTL-how-to-insert-cql.md") and [Use the UPDATE statement to edit custom Time to Live (TTL) settings for rows and columns](TTL-how-to-update-cql.md "TTL-how-to-update-cql.md").
 
 After the TTL feature is enabled, you can't disable it for a
 table. Setting the table’s `default_time_to_live` to 0 disables default

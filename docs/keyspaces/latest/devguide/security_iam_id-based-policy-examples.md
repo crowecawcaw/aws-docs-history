@@ -1,6 +1,4 @@
-# Amazon Keyspaces identity-based
-
-policy examples
+# Amazon Keyspaces identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 Amazon Keyspaces resources. They also can't perform tasks using the console, CQLSH, AWS CLI, or
@@ -15,19 +13,13 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  Amazon Keyspaces console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Accessing
-  Amazon Keyspaces tables](#security_iam_id-based-policy-examples-access-one-table "#security_iam_id-based-policy-examples-access-one-table")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Keyspaces console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Accessing Amazon Keyspaces tables](#security_iam_id-based-policy-examples-access-one-table "#security_iam_id-based-policy-examples-access-one-table")
 - [Amazon Keyspaces resource access based on tags](#security_iam_id-based-policy-examples-tags "#security_iam_id-based-policy-examples-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Keyspaces resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -60,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-Amazon Keyspaces console
+## Using the Amazon Keyspaces console
 
 Amazon Keyspaces doesn't require specific permissions to access the Amazon Keyspaces console. You need at
 least read-only permissions to list and view details about the Amazon Keyspaces
@@ -78,9 +68,7 @@ Two AWS managed policies are available to the entities for Amazon Keyspaces cons
 
 For more information about Amazon Keyspaces managed policies, see [AWS managed policies for Amazon Keyspaces](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -120,9 +108,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Accessing
-
-Amazon Keyspaces tables
+## Accessing Amazon Keyspaces tables
 
 ###### Note
 
@@ -255,9 +241,7 @@ to the user table `mytable`.
 }
 ```
 
-##
-
-Amazon Keyspaces resource access based on tags
+## Amazon Keyspaces resource access based on tags
 
 You can use conditions in your identity-based policy to control access to
 Amazon Keyspaces resources based on tags. These policies control visibility of the

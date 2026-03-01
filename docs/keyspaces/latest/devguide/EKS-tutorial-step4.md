@@ -1,6 +1,4 @@
-# Step 4: Deploy the application to Amazon EKS and write
-
-data to your table
+# Step 4: Deploy the application to Amazon EKS and write data to your table
 
 In this step of the tutorial, you configure the Amazon EKS deployment for your application, and confirm that the application is
 running and can connect to Amazon Keyspaces.

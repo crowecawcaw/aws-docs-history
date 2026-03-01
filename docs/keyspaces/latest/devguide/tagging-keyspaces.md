@@ -7,8 +7,7 @@ criteria. Tags can help you do the following:
 - Quickly identify a resource based on the tags that you assigned to it.
 - See AWS bills broken down by tags.
 - Control access to Amazon Keyspaces resources based on tags. For IAM policy examples using tags,
-  see [Authorization based on
-  Amazon Keyspaces tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
+  see [Authorization based on Amazon Keyspaces tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
   Tagging is supported by AWS services like Amazon Elastic Compute Cloud (Amazon EC2), Amazon Simple Storage Service (Amazon S3), Amazon Keyspaces, and
   more. Efficient tagging can provide cost insights by enabling you to create reports across
   services that carry a specific tag.

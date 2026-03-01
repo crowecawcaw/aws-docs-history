@@ -6,7 +6,5 @@ practices might not be appropriate or sufficient for your environment, treat the
 
 ###### Topics
 
-- [Preventative security best
-  practices for Amazon Keyspaces](best-practices-security-preventative.md "best-practices-security-preventative.md")
-- [Detective security best
-  practices for Amazon Keyspaces](best-practices-security-detective.md "best-practices-security-detective.md")
+- [Preventative security best practices for Amazon Keyspaces](best-practices-security-preventative.md "best-practices-security-preventative.md")
+- [Detective security best practices for Amazon Keyspaces](best-practices-security-detective.md "best-practices-security-detective.md")

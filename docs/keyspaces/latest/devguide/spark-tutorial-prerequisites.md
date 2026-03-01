@@ -1,6 +1,4 @@
-# Prerequisites for establishing
-
-connections to Amazon Keyspaces with the Spark Cassandra Connector
+# Prerequisites for establishing connections to Amazon Keyspaces with the Spark Cassandra Connector
 
 Before you connect to Amazon Keyspaces with the Spark Cassandra Connector, you need to make sure
 that you've installed the following. The compatibility of Amazon Keyspaces with the Spark Cassandra

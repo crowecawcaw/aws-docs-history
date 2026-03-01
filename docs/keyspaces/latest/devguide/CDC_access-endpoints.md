@@ -1,6 +1,4 @@
-# How to access CDC stream endpoints in
-
-Amazon Keyspaces
+# How to access CDC stream endpoints in Amazon Keyspaces
 
 Amazon Keyspaces maintains separate [endpoints](programmatic.md#global_endpoints "programmatic.md#global_endpoints") for
 keyspaces/tables and for CDC streams in each AWS Region where Amazon Keyspaces is available. To

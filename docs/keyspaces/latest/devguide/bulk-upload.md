@@ -25,9 +25,7 @@ certificate, and configure `cqlsh` to connect to Amazon Keyspaces.
 - [Prerequisites: Steps to complete before you can upload data using cqlsh COPY FROM](bulk-upload-prequs.md "bulk-upload-prequs.md")
 - [Step 1: Create the source CSV file and a target table for the data upload](bulk-upload-source.md "bulk-upload-source.md")
 - [Step 2: Prepare the source data for a successful data upload](bulk-upload-prepare-data.md "bulk-upload-prepare-data.md")
-- [Step 3: Set throughput capacity for the
-  table](bulk-upload-capacity.md "bulk-upload-capacity.md")
-- [Step 4: Configure cqlsh COPY FROM
-  settings](bulk-upload-config.md "bulk-upload-config.md")
+- [Step 3: Set throughput capacity for the table](bulk-upload-capacity.md "bulk-upload-capacity.md")
+- [Step 4: Configure cqlsh COPY FROM settings](bulk-upload-config.md "bulk-upload-config.md")
 - [Step 5: Run the cqlsh COPY FROM command to upload data from the CSV file to the target table](bulk-upload-run.md "bulk-upload-run.md")
 - [Troubleshooting](bulk-upload-troubleshooting.md "bulk-upload-troubleshooting.md")

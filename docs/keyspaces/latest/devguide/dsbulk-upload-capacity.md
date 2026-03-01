@@ -4,8 +4,7 @@ This tutorial shows you how to tune DSBulk to load data within a set time range.
 Because you know how many reads and writes you perform in advance, use provisioned
 capacity mode. After you finish the data transfer, you should set the capacity mode of
 the table to match your application’s traffic patterns. To learn more about capacity
-management, see [Managing serverless resources in
-Amazon Keyspaces (for Apache Cassandra)](serverless_resource_management.md "serverless_resource_management.md").
+management, see [Managing serverless resources in Amazon Keyspaces (for Apache Cassandra)](serverless_resource_management.md "serverless_resource_management.md").
 
 With provisioned capacity mode, you specify how much read and write capacity you want
 to provision to your table in advance. Write capacity is billed hourly and metered in

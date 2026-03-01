@@ -1,6 +1,4 @@
-# How does Amazon Keyspaces (for Apache Cassandra) compare to Apache
-
-Cassandra?
+# How does Amazon Keyspaces (for Apache Cassandra) compare to Apache Cassandra?
 
 To establish a connection to Amazon Keyspaces, you can either use a public [AWS service endpoint](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md")
 or a private endpoint using
@@ -41,6 +39,5 @@ For even more resiliency and low-latency local reads, Amazon Keyspaces offers [m
 ###### Topics
 
 - [Functional differences: Amazon Keyspaces vs. Apache Cassandra](functional-differences.md "functional-differences.md")
-- [Supported Cassandra APIs, operations, functions, and data
-  types](cassandra-apis.md "cassandra-apis.md")
+- [Supported Cassandra APIs, operations, functions, and data types](cassandra-apis.md "cassandra-apis.md")
 - [Supported Apache Cassandra read and write consistency levels and associated costs](consistency.md "consistency.md")

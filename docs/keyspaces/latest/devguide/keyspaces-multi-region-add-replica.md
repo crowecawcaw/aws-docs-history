@@ -21,8 +21,7 @@ In order to run the statement successfully, the account you're using has to be l
 available. While the replica is being added, you can't perform any other data definition language (DDL) operations on the resources that are
 being updated and replicated.
 
-For more information about the permissions required to add a Region, see [Configure the IAM permissions required to
-add an AWS Region to a keyspace](howitworks_replication_permissions_addReplica.md "howitworks_replication_permissions_addReplica.md").
+For more information about the permissions required to add a Region, see [Configure the IAM permissions required to add an AWS Region to a keyspace](howitworks_replication_permissions_addReplica.md "howitworks_replication_permissions_addReplica.md").
 
 ###### Note
 

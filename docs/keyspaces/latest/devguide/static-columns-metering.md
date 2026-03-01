@@ -1,6 +1,4 @@
-# Estimate capacity throughput requirements for read/write operations on static
-
-data in Amazon Keyspaces
+# Estimate capacity throughput requirements for read/write operations on static data in Amazon Keyspaces
 
 Static data is associated with logical partitions in Cassandra, not individual
 rows. Logical partitions in Amazon Keyspaces can be virtually unbound in size by spanning

@@ -1,6 +1,4 @@
-# Step 3: Run the AWS Glue job to export the Amazon Keyspaces table to the Amazon S3 bucket from the
-
-AWS CLI
+# Step 3: Run the AWS Glue job to export the Amazon Keyspaces table to the Amazon S3 bucket from the AWS CLI
 
 In this step, you use the AWS CLI to run the AWS Glue job created in the previous step to export an Amazon Keyspaces table to your bucket in Amazon S3.
 

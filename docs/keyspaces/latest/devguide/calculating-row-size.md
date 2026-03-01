@@ -14,8 +14,7 @@ To calculate the encoded size of rows in Amazon Keyspaces, you can use the follo
 ###### Topics
 
 - [Estimate the encoded size of columns](#calculating-row-size-columns "#calculating-row-size-columns")
-- [Estimate the encoded size of
-  data values based on data type](#calculating-row-size-data-types "#calculating-row-size-data-types")
+- [Estimate the encoded size of data values based on data type](#calculating-row-size-data-types "#calculating-row-size-data-types")
 - [Consider the impact of Amazon Keyspaces features on row size](#calculating-row-size-features "#calculating-row-size-features")
 - [Choose the right formula to calculate the encoded size of a row](#calculating-row-size-formula "#calculating-row-size-formula")
 - [Row size calculation example](#calculating-row-size-example "#calculating-row-size-example")
@@ -54,9 +53,7 @@ and clustering key column twice.
   be modified with a single `INSERT` or `UPDATE`
   statement. For more information, see [Amazon Keyspaces service quotas](quotas.md#table "quotas.md#table").
 
-## Estimate the encoded size of
-
-data values based on data type
+## Estimate the encoded size of data values based on data type
 
 This section shows how to estimate the encoded size of different data types in Amazon Keyspaces.
 
@@ -124,8 +121,7 @@ and the `field value` for the fields of a UDT:
 
 - **FROZEN keyword** – For frozen collections nested within frozen collections, Amazon Keyspaces doesn't require any additional bytes for meta data.
 - **STATIC keyword** – `STATIC` column data doesn't count towards the maximum row size of 1 MB. To calculate the data size of static
-  columns, see [Calculate the static column size per logical
-  partition in Amazon Keyspaces](static-columns-estimate.md "static-columns-estimate.md").
+  columns, see [Calculate the static column size per logical partition in Amazon Keyspaces](static-columns-estimate.md "static-columns-estimate.md").
 
 ## Consider the impact of Amazon Keyspaces features on row size
 

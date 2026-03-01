@@ -1,6 +1,4 @@
-# Create service-specific
-
-credentials for programmatic access to Amazon Keyspaces
+# Create service-specific credentials for programmatic access to Amazon Keyspaces
 
 Service-specific credentials are similar to the traditional username and password that Cassandra uses for authentication
 and access management.
@@ -21,9 +19,7 @@ credentials.
 
 Console
 
-###### Create service-specific credentials using the
-
-console
+###### Create service-specific credentials using the console
 
 1. Sign in to the AWS Management Console and open the AWS Identity and Access Management console at
    [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home "https://console.aws.amazon.com/iam/home").

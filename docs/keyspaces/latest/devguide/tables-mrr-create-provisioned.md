@@ -19,8 +19,7 @@ replicate writes across all Regions.
 Amazon Keyspaces automatic scaling requires the presence of a service-linked role
 (`AWSServiceRoleForApplicationAutoScaling_CassandraTable`) that
 performs automatic scaling actions on your behalf. This role is created automatically for
-you. For more information, see [Using service-linked roles for
-Amazon Keyspaces](using-service-linked-roles.md "using-service-linked-roles.md").
+you. For more information, see [Using service-linked roles for Amazon Keyspaces](using-service-linked-roles.md "using-service-linked-roles.md").
 
 Console
 
@@ -99,9 +98,7 @@ across the Regions.
 
 Cassandra Query Language (CQL)
 
-###### Create a multi-Region table with
-
-provisioned capacity mode and auto scaling using CQL
+###### Create a multi-Region table with provisioned capacity mode and auto scaling using CQL
 
 - To create a multi-Region table in provisioned mode with auto scaling, you must first
   specify the capacity mode by defining `CUSTOM_PROPERTIES` for the table.
@@ -173,9 +170,7 @@ WITH CUSTOM_PROPERTIES = {
 
 CLI
 
-###### Create a new multi-Region table in
-
-provisioned mode with auto scaling using the AWS CLI
+###### Create a new multi-Region table in provisioned mode with auto scaling using the AWS CLI
 
 - To create a multi-Region table in provisioned mode with auto scaling configuration,
   you can use the AWS CLI. Note that you must use the Amazon Keyspaces CLI `create-table`

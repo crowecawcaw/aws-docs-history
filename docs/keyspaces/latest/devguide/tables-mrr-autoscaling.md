@@ -23,9 +23,7 @@ there's enough capacity to replicate writes across all Regions.
 
 Cassandra Query Language (CQL)
 
-###### Update the provisioned capacity and
-
-auto scaling settings of a multi-Region table using CQL
+###### Update the provisioned capacity and auto scaling settings of a multi-Region table using CQL
 
 - You can use `ALTER TABLE` to update the capacity mode and auto scaling
   settings of an existing table. If you're updating a table that is currently in on-demand
@@ -87,9 +85,7 @@ WITH CUSTOM_PROPERTIES = {
 
 CLI
 
-###### Update the provisioned capacity and
-
-auto scaling settings of a multi-Region table using the AWS CLI
+###### Update the provisioned capacity and auto scaling settings of a multi-Region table using the AWS CLI
 
 - To update the provisioned mode and auto scaling configuration of an existing table,
   you can use the AWS CLI `update-table` command.

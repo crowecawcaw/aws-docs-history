@@ -1,6 +1,4 @@
-# Step 4: Configure `DSBulk`
-
-settings to upload data from the CSV file to the target table
+# Step 4: Configure `DSBulk` settings to upload data from the CSV file to the target table
 
 This section outlines the steps required to configure DSBulk for data upload to Amazon Keyspaces. You configure DSBulk by using a configuration file. You specify the
 configuration file directly from the command line.
@@ -9,7 +7,7 @@ configuration file directly from the command line.
    Specify the following settings in the DSBulk configuration file.
    1. _`PlainTextAuthProvider`_ – Create the authentication provider with the `PlainTextAuthProvider` class. `ServiceUserName` and
       `ServicePassword` should match the user name and password you obtained when you generated the service-specific credentials by
-      following the steps at [Create credentials for programmatic access to Amazon Keyspaces](programmatic.md "programmatic.md") .
+      following the steps at [Create credentials for programmatic access to Amazon Keyspaces](programmatic.md "programmatic.md").
    2. _`local-datacenter`_ – Set the
       value for `local-datacenter` to the AWS Region that you're
       connecting to. For example, if the application is connecting to

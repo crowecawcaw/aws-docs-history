@@ -1,6 +1,4 @@
-# Step 1: Configure Amazon Keyspaces for integration with the
-
-Apache Cassandra Spark Connector
+# Step 1: Configure Amazon Keyspaces for integration with the Apache Cassandra Spark Connector
 
 In this step, you confirm that the partitioner for your account is compatible with the Apache Spark Connector and setup the required IAM permissions. The following best practices help you to provision sufficient read/write capacity for the table.
 

@@ -3,9 +3,7 @@
 This topic describes how Amazon Keyspaces (for Apache Cassandra) secures connections from on-premises applications to
 Amazon Keyspaces and between Amazon Keyspaces and other AWS resources within the same AWS Region.
 
-## Traffic between service and on-premises
-
-clients and applications
+## Traffic between service and on-premises clients and applications
 
 You have two connectivity options between your private network and AWS:
 
@@ -40,9 +38,7 @@ Driver for Cassandra. This plugin enables [IAM users, roles, and federated ident
 information to Amazon Keyspaces (for Apache Cassandra) API requests using the [AWS Signature Version 4 process
 (SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md"). For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
 
-## Traffic between AWS resources in the
-
-same Region
+## Traffic between AWS resources in the same Region
 
 Interface VPC endpoints enable private communication between your virtual private
 cloud (VPC) running in Amazon VPC and Amazon Keyspaces. Interface VPC endpoints are powered by
@@ -51,5 +47,4 @@ and AWS services. AWS PrivateLink enables this by using an elastic network inter
 with private IPs in your VPC so that network traffic does not leave the Amazon network.
 Interface VPC endpoints don't require an internet gateway, NAT device, VPN connection,
 or Direct Connect connection. For more information, see [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") and [Interface VPC endpoints
-(AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md"). For example policies, see [Using interface VPC endpoints for
-Amazon Keyspaces](vpc-endpoints.md#using-interface-vpc-endpoints "vpc-endpoints.md#using-interface-vpc-endpoints").
+(AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md"). For example policies, see [Using interface VPC endpoints for Amazon Keyspaces](vpc-endpoints.md#using-interface-vpc-endpoints "vpc-endpoints.md#using-interface-vpc-endpoints").

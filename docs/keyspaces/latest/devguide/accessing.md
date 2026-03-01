@@ -85,8 +85,7 @@ resources that the identity can access, you can create a custom policy that uses
 `AmazonKeyspacesFullAccess` managed policy as a template and remove all
 permissions that you don't need. You can also limit access to specific keyspaces or
 tables. For more information about how to restrict actions or limit access to specific
-resources in Amazon Keyspaces, see [How Amazon Keyspaces works with
-IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+resources in Amazon Keyspaces, see [How Amazon Keyspaces works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 To access Amazon Keyspaces after you have created the AWS account and created a policy that
 grants an IAM identity access to Amazon Keyspaces, continue to one of the following

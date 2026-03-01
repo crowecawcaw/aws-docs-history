@@ -1,6 +1,4 @@
-# Step 4: Configure `cqlsh COPY FROM`
-
-settings
+# Step 4: Configure `cqlsh COPY FROM` settings
 
 This section outlines how to determine the parameter values for `cqlsh COPY
  FROM`. The `cqlsh COPY FROM` command reads the CSV file that you

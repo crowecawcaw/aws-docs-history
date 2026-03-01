@@ -7,8 +7,7 @@ in a production environment. This topic walks
 you through the configuration steps required to set up cross-account access for Amazon Keyspaces using interface VPC endpoints
 in a shared VPC.
 
-For detailed steps how to configure a VPC endpoint for Amazon Keyspaces, see [Step 3: Create a VPC endpoint
-for Amazon Keyspaces](vpc-endpoints-tutorial.md "vpc-endpoints-tutorial.md").
+For detailed steps how to configure a VPC endpoint for Amazon Keyspaces, see [Step 3: Create a VPC endpoint for Amazon Keyspaces](vpc-endpoints-tutorial.md "vpc-endpoints-tutorial.md").
 
 In this example we use the following three accounts in a shared VPC:
 
@@ -113,7 +112,7 @@ in the IAM User Guide. 2. In `Account B:222222222222` and `Account C:33333333333
 applications that utilize the SIGV4 authentication plugin, which allows an
 application to assume the shared role to connect to the Amazon Keyspaces table located in
 `Account A:111111111111` through the VPC endpoint in the shared VPC.
-For more information about the SIGV4 authentication plugin, see [Create credentials for programmatic access to Amazon Keyspaces](programmatic.md "programmatic.md") . For more
+For more information about the SIGV4 authentication plugin, see [Create credentials for programmatic access to Amazon Keyspaces](programmatic.md "programmatic.md"). For more
 information on how to configure an application to assume a role in another AWS account,
 see [Authentication and
 access](../../../sdkref/latest/guide/access.md "../../../sdkref/latest/guide/access.md") in the _AWS SDKs and Tools Reference Guide_.

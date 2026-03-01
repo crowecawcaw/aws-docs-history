@@ -1,6 +1,4 @@
-# Configure the IAM permissions required to
-
-create multi-Region keyspaces and tables
+# Configure the IAM permissions required to create multi-Region keyspaces and tables
 
 To successfully create multi-Region keyspaces and tables, the IAM principal needs to
 be able to create a service-linked role. This service-linked role is a unique type of

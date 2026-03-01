@@ -29,8 +29,7 @@ When creating a new table, you can choose one of the following _AWS KMS keys
 
 You can switch between the AWS owned key and the customer managed key at any given time. You can
 specify a customer managed key when you create a new table or change the KMS key of an existing table by
-using the console or programmatically using CQL statements. To learn how, see [Encryption at rest: How to use customer managed
-keys to encrypt tables in Amazon Keyspaces](encryption.md "encryption.md").
+using the console or programmatically using CQL statements. To learn how, see [Encryption at rest: How to use customer managed keys to encrypt tables in Amazon Keyspaces](encryption.md "encryption.md").
 
 Encryption at rest using the default option of AWS owned keys is offered at no additional charge. However,
 AWS KMS charges apply for customer managed keys. For more information
@@ -43,5 +42,4 @@ information, see [Encryption at rest: How it works in Amazon Keyspaces](encrypti
 ###### Topics
 
 - [Encryption at rest: How it works in Amazon Keyspaces](encryption.md "encryption.md")
-- [Encryption at rest: How to use customer managed
-  keys to encrypt tables in Amazon Keyspaces](encryption.md "encryption.md")
+- [Encryption at rest: How to use customer managed keys to encrypt tables in Amazon Keyspaces](encryption.md "encryption.md")

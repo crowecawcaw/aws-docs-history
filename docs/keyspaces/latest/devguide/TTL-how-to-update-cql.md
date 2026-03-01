@@ -1,6 +1,4 @@
-# Use the `UPDATE` statement to edit custom Time to Live (TTL)
-
-settings for rows and columns
+# Use the `UPDATE` statement to edit custom Time to Live (TTL) settings for rows and columns
 
 ###### Note
 

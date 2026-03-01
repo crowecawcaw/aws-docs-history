@@ -23,8 +23,7 @@ may automatically split the partition into two new partitions. Each new partitio
 original partition's rows, distributing the throughput evenly across both partitions.
 
 Amazon Keyspaces offers additional flexibility in your per-partition throughput provisioning by providing
-burst capacity, for more information see [Use burst
-capacity effectively in Amazon Keyspaces](throughput-bursting.md "throughput-bursting.md").
+burst capacity, for more information see [Use burst capacity effectively in Amazon Keyspaces](throughput-bursting.md "throughput-bursting.md").
 
 ###### Topics
 

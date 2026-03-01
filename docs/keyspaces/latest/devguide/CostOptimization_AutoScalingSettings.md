@@ -1,6 +1,4 @@
-# Evaluate your table's Application Auto Scaling
-
-settings
+# Evaluate your table's Application Auto Scaling settings
 
 This section provides an overview of how to evaluate the Application Auto Scaling settings of your Amazon Keyspaces
 tables. [Amazon Keyspaces Application Auto Scaling](autoscaling.md "autoscaling.md") is a feature that manages
@@ -14,20 +12,13 @@ increase or decrease the allocated capacity.
 
 ###### Topics
 
-- [Understanding
-  your Application Auto Scaling settings](#CostOptimization_AutoScalingSettings_UnderProvisionedTables "#CostOptimization_AutoScalingSettings_UnderProvisionedTables")
-- [How to identify
-  tables with low target utilization (<=50%)](#CostOptimization_AutoScalingSettings_IdentifyLowUtilization "#CostOptimization_AutoScalingSettings_IdentifyLowUtilization")
-- [How to address
-  workloads with seasonal variance](#CostOptimization_AutoScalingSettings_SeasonalVariance "#CostOptimization_AutoScalingSettings_SeasonalVariance")
-- [How to address spiky
-  workloads with unknown patterns](#CostOptimization_AutoScalingSettings_UnknownPatterns "#CostOptimization_AutoScalingSettings_UnknownPatterns")
-- [How to address workloads
-  with linked applications](#CostOptimization_AutoScalingSettings_BetweenRanges "#CostOptimization_AutoScalingSettings_BetweenRanges")
+- [Understanding your Application Auto Scaling settings](#CostOptimization_AutoScalingSettings_UnderProvisionedTables "#CostOptimization_AutoScalingSettings_UnderProvisionedTables")
+- [How to identify tables with low target utilization (<=50%)](#CostOptimization_AutoScalingSettings_IdentifyLowUtilization "#CostOptimization_AutoScalingSettings_IdentifyLowUtilization")
+- [How to address workloads with seasonal variance](#CostOptimization_AutoScalingSettings_SeasonalVariance "#CostOptimization_AutoScalingSettings_SeasonalVariance")
+- [How to address spiky workloads with unknown patterns](#CostOptimization_AutoScalingSettings_UnknownPatterns "#CostOptimization_AutoScalingSettings_UnknownPatterns")
+- [How to address workloads with linked applications](#CostOptimization_AutoScalingSettings_BetweenRanges "#CostOptimization_AutoScalingSettings_BetweenRanges")
 
-## Understanding
-
-your Application Auto Scaling settings
+## Understanding your Application Auto Scaling settings
 
 Defining the correct value for the target utilization, initial step, and final values is
 an activity that requires involvement from your operations team. This allows you to properly
@@ -45,9 +36,7 @@ When you set a very **low utilization (a target less than
 capacity before it triggers an Application Auto Scaling policy. Unless your application traffic grows at
 a very aggressive rate, this usually translates into unused capacity and wasted resources.
 
-## How to identify
-
-tables with low target utilization (<=50%)
+## How to identify tables with low target utilization (<=50%)
 
 You can use either the AWS CLI or AWS Management Console to monitor and identify the
 `TargetValues` for your Application Auto Scaling policies in your Amazon Keyspaces resources.
@@ -144,9 +133,7 @@ If your target utilization values are less than or equal to 50%, you should expl
 table utilization metrics to see if they are [under-provisioned or
 over-provisioned](CostOptimization_RightSizedProvisioning.md "CostOptimization_RightSizedProvisioning.md").
 
-## How to address
-
-workloads with seasonal variance
+## How to address workloads with seasonal variance
 
 Consider the following scenario: your application is operating under a minimum average
 value most of the time, but the utilization target is low so your application can react
@@ -274,9 +261,7 @@ it's your responsibility to set them up.
 
 ![Showing the detailed view of the graph that shows write usage in units per second comparing provisioned to consumed capacity over the period of one day.](images/CostOptimization/AutoScalingSettings5.png)
 
-## How to address spiky
-
-workloads with unknown patterns
+## How to address spiky workloads with unknown patterns
 
 In this scenario, the application uses a very low utilization target, because you don’t
 know the application patterns yet, and you want to ensure your workload is not
@@ -289,9 +274,7 @@ request for the data reads and writes your application performs on your tables. 
 need to specify how much read and write throughput you expect your application to perform, as
 Amazon Keyspaces instantly accommodates your workloads as they ramp up or down.
 
-## How to address workloads
-
-with linked applications
+## How to address workloads with linked applications
 
 In this scenario, the application depends on other systems, like batch processing
 scenarios where you can have big spikes in traffic according to events in the application

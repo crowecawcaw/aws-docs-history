@@ -13,5 +13,4 @@ The following are just some of the ways in which you can use Amazon Keyspaces:
 - **Move your Cassandra workloads to the cloud** –
   Managing Cassandra tables yourself is time-consuming and expensive. With Amazon Keyspaces, you
   can set up, secure, and scale Cassandra tables in the AWS Cloud without managing
-  infrastructure. For more information, see [Managing serverless resources in
-  Amazon Keyspaces (for Apache Cassandra)](serverless_resource_management.md "serverless_resource_management.md").
+  infrastructure. For more information, see [Managing serverless resources in Amazon Keyspaces (for Apache Cassandra)](serverless_resource_management.md "serverless_resource_management.md").
