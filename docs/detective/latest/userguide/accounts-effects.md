@@ -10,9 +10,7 @@ When an administrator account disables Detective, the following occurs:
 - Detective stops ingesting data from the administrator account and the member accounts for that
   behavior graph.
 
-## Member account removed from the behavior
-
-graph
+## Member account removed from the behavior graph
 
 When a member account is removed from a behavior graph, Detective stops ingesting data from that
 account.
@@ -25,9 +23,7 @@ accounts** list.
 For organization accounts in the organization behavior graph, the account status changes to
 **Not a member**.
 
-## Member account leaves the
-
-organization
+## Member account leaves the organization
 
 When a member account leaves an organization, the following occurs:
 

@@ -1,13 +1,9 @@
-# Viewing your list of behavior graph
-
-invitations
+# Viewing your list of behavior graph invitations
 
 From the Amazon Detective console, Detective API, or AWS Command Line Interface, a member account can see their
 behavior graph invitations.
 
-## Viewing behavior graph invitations
-
-(console)
+## Viewing behavior graph invitations (console)
 
 You can view behavior graph invitations from the AWS Management Console.
 
@@ -54,15 +50,11 @@ Detective automatically updates it to **Enabled**. For example,
 the administrator account might remove other member accounts so that your account can be
 enabled. The administrator account can also enable your account manually.
 
-## Viewing behavior graph invitations (Detective API,
-
-AWS CLI)
+## Viewing behavior graph invitations (Detective API, AWS CLI)
 
 You can list behavior graph invitations from the Detective API or the AWS Command Line Interface.
 
-###### To retrieve a list of open and accepted invitations to behavior graphs (Detective API,
-
-AWS CLI)
+###### To retrieve a list of open and accepted invitations to behavior graphs (Detective API, AWS CLI)
 
 - **Detective API:** Use the [`ListInvitations`](../APIReference/API_ListInvitations.md "../APIReference/API_ListInvitations.md")
   operation.

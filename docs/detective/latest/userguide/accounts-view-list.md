@@ -132,9 +132,7 @@ Example:
 aws detective list-members --graph-arn arn:aws:detective:us-east-1:111122223333:graph:123412341234
 ```
 
-###### To retrieve details about specific member accounts in your behavior graph (Detective API,
-
-AWS CLI)
+###### To retrieve details about specific member accounts in your behavior graph (Detective API, AWS CLI)
 
 - **Detective API:** Use the [`GetMembers`](../APIReference/API_GetMembers.md "../APIReference/API_GetMembers.md") operation. Specify the behavior graph ARN and the list of
   account identifiers for the member accounts.

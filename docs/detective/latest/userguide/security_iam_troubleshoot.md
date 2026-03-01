@@ -1,15 +1,11 @@
-# Troubleshooting Amazon Detective identity
-
-and access
+# Troubleshooting Amazon Detective identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Detective and IAM. If you encounter access denied
 issues or similar difficulties when working with AWS Identity and Access Management(IAM), consult the [Troubleshooting IAM](../../../IAM/latest/UserGuide/troubleshoot.md "../../../IAM/latest/UserGuide/troubleshoot.md") topics in the
 _IAM User Guide_.
 
-## I am not authorized to
-
-perform an action in Detective
+## I am not authorized to perform an action in Detective
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you
 must contact your administrator for assistance. Your administrator is the person that
@@ -28,9 +24,7 @@ In this case, Mateo asks his administrator to update his policies to allow him t
 access the `arn:aws:detective:us-east-1:444455556666:graph:567856785678`
 resource using the `detective:AcceptInvitation` action.
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Detective.
 
@@ -49,9 +43,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people
-
-outside of my AWS account to access my Detective resources
+## I want to allow people outside of my AWS account to access my Detective resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

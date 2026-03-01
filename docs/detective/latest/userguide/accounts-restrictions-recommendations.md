@@ -1,6 +1,4 @@
-# Account restrictions and recommendations
-
-in Detective
+# Account restrictions and recommendations in Detective
 
 When managing accounts in Amazon Detective, be aware of the following restrictions and
 recommendations.
@@ -33,26 +31,19 @@ An account can be a member account of multiple behavior graphs in the same Regio
 account can only be the administrator account of one behavior graph per Region. An account can be
 an administrator account in different Regions.
 
-## Alignment of administrator accounts with Security Hub CSPM and
-
-GuardDuty
+## Alignment of administrator accounts with Security Hub CSPM and GuardDuty
 
 To ensure that the integrations with AWS Security Hub CSPM and Amazon GuardDuty work smoothly, we recommend
 that the same account is the administrator account in all of these services.
 
-See [Recommended alignment with GuardDuty and
-AWS Security Hub CSPM](detective-recommendations.md#recommended-service-alignment "detective-recommendations.md#recommended-service-alignment").
+See [Recommended alignment with GuardDuty and AWS Security Hub CSPM](detective-recommendations.md#recommended-service-alignment "detective-recommendations.md#recommended-service-alignment").
 
-## Granting the required permissions for administrator
-
-accounts
+## Granting the required permissions for administrator accounts
 
 To ensure that an administrator account has the required permissions to manage its behavior
 graph, attach the [AmazonDetectiveFullAccess managed policy](security-iam-awsmanpol.md#security-iam-awsmanpol-amazondetectivefullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-amazondetectivefullaccess") to the IAM principal.
 
-## Reflecting organization updates in
-
-Detective
+## Reflecting organization updates in Detective
 
 Changes to an organization are not immediately reflected in Detective.
 

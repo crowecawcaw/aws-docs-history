@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Detective
+# Using service-linked roles for Detective
 
 Amazon Detective uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Detective. Service-linked roles are predefined by Detective and
@@ -75,8 +73,7 @@ operation again.
 
 ###### To delete Detective resources used by the AWSServiceRoleForDetective
 
-1. Remove the Detective administrator account. See [Designating the Detective administrator for an
-   organization](accounts-designate-admin.md "accounts-designate-admin.md").
+1. Remove the Detective administrator account. See [Designating the Detective administrator for an organization](accounts-designate-admin.md "accounts-designate-admin.md").
 2. Repeat the process in each Region where you designated the Detective administrator
    account.
 

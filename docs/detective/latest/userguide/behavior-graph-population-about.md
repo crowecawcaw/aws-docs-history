@@ -1,6 +1,4 @@
-# How Detective populates a
-
-behavior graph
+# How Detective populates a behavior graph
 
 To provide the raw data for investigations, Detective brings together data from across your
 AWS environment and beyond, including the following:

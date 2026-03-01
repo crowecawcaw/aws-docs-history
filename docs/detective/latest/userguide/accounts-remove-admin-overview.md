@@ -1,6 +1,4 @@
-# Removing the Detective administrator
-
-account
+# Removing the Detective administrator account
 
 The organization management account can remove the current Detective administrator account in a
 Region. When you remove the Detective administrator account, Detective only removes it from the current
@@ -28,9 +26,7 @@ current Region.
 Removing a Detective administrator account does not affect the delegated administrator account
 in Organizations.
 
-###### To remove the Detective administrator account (**Enable Detective**
-
-page)
+###### To remove the Detective administrator account (**Enable Detective** page)
 
 1. Open the Amazon Detective console at [https://console.aws.amazon.com/detective/](https://console.aws.amazon.com/detective/ "https://console.aws.amazon.com/detective/").
 2. Choose **Get started**.

@@ -10,8 +10,7 @@ Once a behavior graph is deleted, it cannot be restored.
 
 - [Disabling Detective (Console)](#disable-from-console "#disable-from-console")
 - [Disabling Detective (Detective API, AWS CLI)](#disable-from-api "#disable-from-api")
-- [Disabling Detective across Regions (Python script on
-  GitHub)](#disable-from-github-script "#disable-from-github-script")
+- [Disabling Detective across Regions (Python script on GitHub)](#disable-from-github-script "#disable-from-github-script")
 
 ## Disabling Detective (Console)
 
@@ -49,9 +48,7 @@ Example:
 aws detective delete-graph --graph-arn arn:aws:detective:us-east-1:111122223333:graph:123412341234
 ```
 
-## Disabling Detective across Regions (Python script on
-
-GitHub)
+## Disabling Detective across Regions (Python script on GitHub)
 
 Detective provides an open-source script in GitHub that allows you to disable Detective for an administrator
 account across a specified list of Regions.

@@ -2,9 +2,7 @@
 
 Consider following these recommendations before enabling Detective
 
-## Recommended alignment with GuardDuty and
-
-AWS Security Hub CSPM
+## Recommended alignment with GuardDuty and AWS Security Hub CSPM
 
 If you are enrolled in GuardDuty and AWS Security Hub CSPM, we recommend that your account be an
 administrator account for those services. If the administrator accounts are the same for all
@@ -38,9 +36,7 @@ For information about how IAM supports this type of role, see [Providing access 
 IAM user in another AWS account that you own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the
 _IAM User Guide_.
 
-## Recommended update to the GuardDuty CloudWatch
-
-notification frequency
+## Recommended update to the GuardDuty CloudWatch notification frequency
 
 In GuardDuty, detectors are configured with an Amazon CloudWatch notification frequency for reporting
 subsequent occurrences of a finding. This includes sending notifications to Detective.

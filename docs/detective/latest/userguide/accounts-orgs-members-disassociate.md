@@ -1,6 +1,4 @@
-# Disassociating organization accounts as
-
-Detective member accounts
+# Disassociating organization accounts as Detective member accounts
 
 To stop ingesting data from an organization account in the organization behavior graph, you
 can disassociate the account. Existing data for that account remains in the behavior

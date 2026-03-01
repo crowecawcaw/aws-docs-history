@@ -29,9 +29,7 @@ permissions to use the behavior graph for investigation.
   [Creating policies on the JSON tab](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor") in the
   _IAM User Guide_.
 
-## Detective identity-based
-
-policies
+## Detective identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources, as well as the conditions under which actions are allowed or denied. Detective
@@ -196,18 +194,13 @@ To learn which actions and resources allow you to use a condition key, see [Acti
 
 ### Examples
 
-To view examples of Detective identity-based policies, see [Amazon Detective identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Detective identity-based policies, see [Amazon Detective identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Detective
-
-resource-based policies (Not supported)
+## Detective resource-based policies (Not supported)
 
 Detective does not support resource-based policies.
 
-## Authorization based on
-
-Detective behavior graph tags
+## Authorization based on Detective behavior graph tags
 
 Each behavior graph can be assigned tag values. You can use those tag values in
 condition statements to manage access to the behavior graph.
@@ -225,17 +218,14 @@ For example, use the following code to allow or deny an action when the value of
 {"StringEquals"{"aws:ResourceTag/Department": "Finance"}}
 ```
 
-For examples of policies that use resource tag values, see [Administrator
-account: Restricting access based on tag values](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-graph-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-graph-tags").
+For examples of policies that use resource tag values, see [Administrator account: Restricting access based on tag values](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-graph-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-graph-tags").
 
 ## Detective IAM Roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Detective
+### Using temporary credentials with Detective
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -243,9 +233,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 Detective supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -253,12 +241,9 @@ IAM account and are owned by the service. An IAM administrator can view but not
 edit the permissions for service-linked roles.
 
 For details about creating or managing Detective service-linked roles, see
-[Using service-linked roles for
-Detective](using-service-linked-roles.md "using-service-linked-roles.md").
+[Using service-linked roles for Detective](using-service-linked-roles.md "using-service-linked-roles.md").
 
-### Service roles (Not
-
-supported)
+### Service roles (Not supported)
 
 This feature allows a service to assume a [service
 role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to access resources in

@@ -30,7 +30,6 @@ If you want to change any of the parameters that you used to integrate Detective
 6. Edit the values in the CloudFormation template.
    1. Delete the existing stack first, before creating a new stack. If you do not delete the existing stack and you try to create a new stack in the same Region, your request fails. For more details, see [Deleting a CloudFormation stack](disable-integration.md#delete-stack "disable-integration.md#delete-stack").
 
-   1. Create a new CloudFormation stack. For more details, see [Creating a stack using the CloudFormation
-      template](resource-share-arn.md#cloud-formation-template "resource-share-arn.md#cloud-formation-template").
+   1. Create a new CloudFormation stack. For more details, see [Creating a stack using the CloudFormation template](resource-share-arn.md#cloud-formation-template "resource-share-arn.md#cloud-formation-template").
 
 7. Choose **Enable integration**.

@@ -1,6 +1,4 @@
-# \*\*AWS security
-
-findings\*\*
+# **AWS security findings**
 
 **AWS security findings** is an optional data
 source package that can be added to your Detective behavior graph.
@@ -14,9 +12,7 @@ Enabling **AWS security findings** allows Detective to
 use the findings from Security Hub CSPM aggregated by Security Hub from upstream services in a standard findings format called the AWS Security Format (ASFF), which eliminates the need for time-consuming data conversion efforts. Then it correlates
 ingested findings across products to prioritize the most important ones.
 
-###### \*\*Adding or removing AWS security findings as an optional data
-
-source:\*\*
+###### **Adding or removing AWS security findings as an optional data source:**
 
 ###### Note
 

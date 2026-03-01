@@ -1,6 +1,4 @@
-# Amazon Detective and interface VPC endpoints
-
-(AWS PrivateLink)
+# Amazon Detective and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon Detective by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
@@ -14,9 +12,7 @@ subnets.
 
 For more information, see [Interface VPC endpoints (AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md") in the _AWS PrivateLink Guide_.
 
-## Considerations for Detective VPC
-
-endpoints
+## Considerations for Detective VPC endpoints
 
 Before you set up an interface VPC endpoint for Detective, ensure that you review [Interface endpoint properties and limitations](../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations") in the _AWS PrivateLink Guide_.
 
@@ -30,9 +26,7 @@ Detective supports FIPS in the following Regions:
 - US West (Oregon)
 - Canada (Central)
 
-## Creating an interface VPC endpoint for
-
-Detective
+## Creating an interface VPC endpoint for Detective
 
 You can create a VPC endpoint for the Detective service using either the Amazon VPC console or
 the AWS Command Line Interface (AWS CLI). For more information, see [Create an interface endpoint](../../../vpc/latest/privatelink/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/privatelink/vpce-interface.md#create-interface-endpoint") in the _AWS PrivateLink Guide_.

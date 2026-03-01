@@ -16,9 +16,7 @@ When you enable Detective, you can assign tag values to the behavior graph.
 - Disable Detective for an administrator account across Regions. When an administrator account
   disables Detective, the administrator account's behavior graph in each Region is disabled.
 
-## Overview of the
-
-`enableDetective.py` script
+## Overview of the `enableDetective.py` script
 
 The `enableDetective.py` script does the following:
 
@@ -40,9 +38,7 @@ messages.
 We recommend reaching out directly to the member accounts to notify them that the
 invitations are accepted automatically.
 
-## Overview of the
-
-`disableDetective.py` script
+## Overview of the `disableDetective.py` script
 
 The `disableDetective.py` script deletes the specified member accounts
 from the administrator account's behavior graphs across the specified Regions.
@@ -105,9 +101,7 @@ When you create the role, make sure that you do the following:
 To automate this process, you can use the `EnableDetective.yaml` CloudFormation
 template. Because the template creates only global resources, it can be run in any Region.
 
-## Setting up the run environment for the Python
-
-scripts
+## Setting up the run environment for the Python scripts
 
 You can run the scripts from either an EC2 instance or from a local machine.
 
@@ -141,9 +135,7 @@ Console](https://aws.amazon.com/blogs//security/easily-replace-or-attach-an-iam-
 git clone https://github.com/aws-samples/amazon-detective-multiaccount-scripts.git
 ```
 
-### Configuring a local machine to run the
-
-scripts
+### Configuring a local machine to run the scripts
 
 You can also run the scripts from your local machine.
 
@@ -162,9 +154,7 @@ You can also run the scripts from your local machine.
 | Mac      | 1. Install Python 3 ([https://www.python.org/downloads/mac-osx/](https://www.python.org/downloads/macos/ "https://www.python.org/downloads/macos/")).<br>2. Open a command prompt.<br>3. To install Boto, run: `pip install boto3`<br>4. Download the script source code from GitHub ([https://github.com/aws-samples/amazon-detective-multiaccount-scripts](https://github.com/aws-samples/amazon-detective-multiaccount-scripts "https://github.com/aws-samples/amazon-detective-multiaccount-scripts")).     |
 | Linux    | 1. To install Python 3, run one of the following:<br>• `sudo apt-get -y install install python3-pip python3 git`<br>• `sudo yum install git python`<br>2. To install Boto, run: `sudo pip install boto3`<br>3. Clone the script source code from [https://github.com/aws-samples/amazon-detective-multiaccount-scripts](https://github.com/aws-samples/amazon-detective-multiaccount-scripts "https://github.com/aws-samples/amazon-detective-multiaccount-scripts").                                           |
 
-## Creating a `.csv` list of member
-
-accounts to add or remove
+## Creating a `.csv` list of member accounts to add or remove
 
 To identify the member accounts to add to or remove from the behavior graphs, you provide a
 `.csv` file that contains the list of accounts.
@@ -179,9 +169,7 @@ See the following example:
 444455556666,rroe@example.com
 ```
 
-## Running
-
-`enableDetective.py`
+## Running `enableDetective.py`
 
 You can run the `enableDetective.py` script from an EC2 instance or your
 local machine.
@@ -247,9 +235,7 @@ Detective supports.
 (Optional) If included, Detective does not send invitation emails to the member
 accounts.
 
-## Running
-
-`disableDetective.py`
+## Running `disableDetective.py`
 
 You can run the `disableDetective.py` script from an EC2 instance or your
 local machine.

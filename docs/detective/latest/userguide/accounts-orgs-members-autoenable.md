@@ -1,6 +1,4 @@
-# Enabling new organization accounts as Detective member
-
-accounts
+# Enabling new organization accounts as Detective member accounts
 
 The Detective administrator account can configure Detective to automatically enable new organization
 accounts as member accounts in the organization behavior graph.
@@ -38,9 +36,7 @@ To view and manage the configuration, you must provide the behavior graph ARN. T
 the ARN, use the [`ListGraphs`](../APIReference/API_ListGraphs.md "../APIReference/API_ListGraphs.md")
 operation.
 
-###### To view the current configuration for automatically enabling organization
-
-accounts
+###### To view the current configuration for automatically enabling organization accounts
 
 - **Detective API:** Use the [`DescribeOrganizationConfiguration`](../APIReference/API_DescribeOrganizationConfiguration.md "../APIReference/API_DescribeOrganizationConfiguration.md") operation.
 

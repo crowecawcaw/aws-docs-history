@@ -12,8 +12,7 @@ The administrator account invites member accounts to contribute their data to th
 graph. For more information, see [Managing invited member accounts in Detective](accounts-invited-members.md "accounts-invited-members.md").
 
 For the organization behavior graph, the administrator account is the Detective administrator
-account that the organization management account designates. For more information, see [Designating the Detective administrator for an
-organization](accounts-designate-admin.md "accounts-designate-admin.md"). The Detective administrator account can enable any
+account that the organization management account designates. For more information, see [Designating the Detective administrator for an organization](accounts-designate-admin.md "accounts-designate-admin.md"). The Detective administrator account can enable any
 organization account as a member account in the organization behavior graph. For more
 information, see [Managing organization accounts as Detective member accounts](accounts-orgs-members.md "accounts-orgs-members.md").
 
@@ -48,8 +47,7 @@ remembered only in the scope of Detective and not organizations.
 \***\*Detective administrator account\*\***
 
 The account designated by the organization management account to be the administrator
-account for the organization behavior graph in a Region. For more information, see [Designating the Detective administrator for an
-organization](accounts-designate-admin.md "accounts-designate-admin.md").
+account for the organization behavior graph in a Region. For more information, see [Designating the Detective administrator for an organization](accounts-designate-admin.md "accounts-designate-admin.md").
 
 Detective recommends that the organization management account chooses an account other than
 their account.
@@ -135,8 +133,7 @@ graph. In the organization behavior graph, a member account can be an organizati
 the Detective administrator account enabled as a member account.
 
 Member accounts that are invited can respond to the behavior graph invitation and remove
-their account from the behavior graph. For more information, see [For member accounts: Managing behavior graph
-invitations and memberships](member-account-graph-management.md "member-account-graph-management.md").
+their account from the behavior graph. For more information, see [For member accounts: Managing behavior graph invitations and memberships](member-account-graph-management.md "member-account-graph-management.md").
 
 Organization accounts cannot change their membership in the organization behavior
 graph.
@@ -149,8 +146,7 @@ They have no other access to the behavior graph.
 \***\*Organization behavior graph\*\***
 
 The behavior graph that is owned by the Detective administrator account. The organization
-management account designates the Detective administrator account. For more information, see [Designating the Detective administrator for an
-organization](accounts-designate-admin.md "accounts-designate-admin.md").
+management account designates the Detective administrator account. For more information, see [Designating the Detective administrator for an organization](accounts-designate-admin.md "accounts-designate-admin.md").
 
 In the organization behavior graph, the Detective administrator account controls whether an
 organization account is a member account. An organization account cannot remove itself from the

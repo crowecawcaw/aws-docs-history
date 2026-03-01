@@ -1,6 +1,4 @@
-# Enabling a member account that is Not
-
-enabled
+# Enabling a member account that is Not enabled
 
 After a member account accepts an invitation, Amazon Detective checks the number of member
 accounts. The maximum number of member accounts for a behavior graph is 1,200. If your

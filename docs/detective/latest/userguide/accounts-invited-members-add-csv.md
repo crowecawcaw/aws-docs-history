@@ -1,6 +1,4 @@
-# Inviting a list of member accounts to a
-
-behavior graph
+# Inviting a list of member accounts to a behavior graph
 
 From the Detective console, you can provide a `.csv` file containing a
 list of member accounts to invite to your behavior graph.
@@ -48,9 +46,7 @@ the required IAM policy. 9. **Member account IAM policy** contains the text of t
 IAM policy for member accounts. The email invitation includes this policy text. To
 copy the policy text, choose **Copy**. 10. Choose **Invite**.
 
-## Adding a list of member accounts across
-
-Regions
+## Adding a list of member accounts across Regions
 
 Detective provides an open-source Python script in GitHub that allows you to do the
 following:

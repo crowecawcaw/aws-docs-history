@@ -5,13 +5,11 @@ An entity profile appears when you perform one of the following actions:
 - From the Amazon GuardDuty console, choose the option to investigate an entity that is related to
   a selected finding.
 
-See [Pivoting to an entity profile or finding overview
-from Amazon GuardDuty or AWS Security Hub CSPM](navigate-to-profile.md#profile-pivot-from-service "navigate-to-profile.md#profile-pivot-from-service").
+See [Pivoting to an entity profile or finding overview from Amazon GuardDuty or AWS Security Hub CSPM](navigate-to-profile.md#profile-pivot-from-service "navigate-to-profile.md#profile-pivot-from-service").
 
 - Go to the Detective URL for the entity profile.
 
-See [Navigating to an entity profile or finding overview using
-a URL](navigate-to-profile.md#profile-navigate-url "navigate-to-profile.md#profile-navigate-url").
+See [Navigating to an entity profile or finding overview using a URL](navigate-to-profile.md#profile-navigate-url "navigate-to-profile.md#profile-navigate-url").
 
 - Use the Detective search in the Detective console to look up an entity.
 - Choose a link to the entity profile from another entity profile or from a finding
@@ -53,9 +51,7 @@ A finding group is made up of findings, entities, and evidence that Detective co
 
 For more information on finding groups, see [Analyzing finding groups](groups-about.md "groups-about.md").
 
-## Profile panels containing entity details and analytics
-
-results
+## Profile panels containing entity details and analytics results
 
 Each entity profile contains a set of one or more tabs. Each tab contains one or more
 profile panels. Each profile panel contains text and visualizations that are generated from the
@@ -67,8 +63,7 @@ information about the entity.
 Other profile panels highlight different types of activity. For an entity that is involved
 with a finding, the information on the entity profile panels can provide additional supporting
 evidence to help complete an investigation. Each profile panel provides access to guidance on how
-to use the information. For more information, see [Using profile panel guidance during an
-investigation](profile-panel-drilldown-kubernetes-api-volume.md#profile-panel-guidance "profile-panel-drilldown-kubernetes-api-volume.md#profile-panel-guidance").
+to use the information. For more information, see [Using profile panel guidance during an investigation](profile-panel-drilldown-kubernetes-api-volume.md#profile-panel-guidance "profile-panel-drilldown-kubernetes-api-volume.md#profile-panel-guidance").
 
 For more details about profile panels, the types of data they contain, and available options
 for interacting with them, see [Viewing and interacting with Detective profile panels](profile-panels.md "profile-panels.md").

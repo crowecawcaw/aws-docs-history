@@ -24,9 +24,7 @@ accounts in Detective](accounts.md "accounts.md").
 
 ###### Contents
 
-- [How Detective populates a
-  behavior graph](behavior-graph-population-about.md "behavior-graph-population-about.md")
+- [How Detective populates a behavior graph](behavior-graph-population-about.md "behavior-graph-population-about.md")
 - [Training period for new Detective behavior graphs](detective-data-training-period.md "detective-data-training-period.md")
-- [Overview of the behavior graph data
-  structure](graph-data-structure-overview.md "graph-data-structure-overview.md")
+- [Overview of the behavior graph data structure](graph-data-structure-overview.md "graph-data-structure-overview.md")
 - [Source data used in a Detective behavior graph](detective-source-data-about.md "detective-source-data-about.md")

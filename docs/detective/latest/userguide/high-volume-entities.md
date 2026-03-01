@@ -27,9 +27,7 @@ the relationship. To continue the example, while an EC2 instance might be connec
 millions of IP addresses, a single IP address connects to far fewer EC2 instances. Each IP
 address profile provides details about the EC2 instances that the IP address connected to.
 
-## Viewing the high-volume entity
-
-notification on a profile
+## Viewing the high-volume entity notification on a profile
 
 Detective displays a notice at the top of a finding or entity profile if the scope time includes
 a time interval where the entity is high-volume. For finding profiles, the notice is for the
@@ -49,9 +47,7 @@ interval.
 1. In the high-volume entity notice, choose the time interval.
 2. On the pop-up menu, choose **Apply scope time**.
 
-## Viewing the list of high-volume entities for the
-
-current scope time
+## Viewing the list of high-volume entities for the current scope time
 
 The **High-volume entities** page contains a list of high-volume time
 intervals and entities during the current scope time.

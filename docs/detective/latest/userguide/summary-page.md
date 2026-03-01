@@ -91,9 +91,7 @@ Findings groups are generated on a daily basis. If you identify a finding group 
 you can select the title to move to a detailed view of a group profile to continue your
 investigation.
 
-## Roles and users with the most API call
-
-volume
+## Roles and users with the most API call volume
 
 **Roles and users with the most API call volume** identifies the users and
 roles that have made the largest number of API calls during the previous 24 hours.
@@ -138,9 +136,7 @@ from the panel to the EC2 instance profile to continue your investigation. You c
 profile of the account that owns the EC2 instance. To view a profile, choose the EC2 instance or
 account identifier.
 
-## Container clusters with the most Kubernetes
-
-pods
+## Container clusters with the most Kubernetes pods
 
 **Container clusters with the most Kubernetes pods created** identifies the
 clusters that have had the most containers running during the previous 24 hours.

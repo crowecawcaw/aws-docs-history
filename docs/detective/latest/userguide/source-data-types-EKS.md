@@ -20,9 +20,7 @@ Amazon GuardDuty](../../../guardduty/latest/ug/kubernetes-protection.md "../../.
 This data source is enabled by default for new behavior graphs created after July 26, 2022.
 For behavior graphs created before July 26, 2022 it must be enabled manually.
 
-###### \*\*Adding or removing Amazon EKS audit logs as an optional data
-
-source:\*\*
+###### **Adding or removing Amazon EKS audit logs as an optional data source:**
 
 1. Open the Detective console at [https://console.aws.amazon.com/detective/](https://console.aws.amazon.com/detective/ "https://console.aws.amazon.com/detective/").
 2. From the navigation panel under **Settings**, choose

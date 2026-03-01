@@ -28,10 +28,7 @@ On the following profile panels, you can display a summary of the activity detai
 
 ###### Topics
 
-- [Activity details for Overall API
-  call volume](profile-panel-drilldown-overall-api-volume.md "profile-panel-drilldown-overall-api-volume.md")
-- [Activity details for a
-  geolocation](profile-panel-drilldown-new-geolocations.md "profile-panel-drilldown-new-geolocations.md")
-- [Activity details for overall VPC
-  flow volume](profile-panel-drilldown-overall-vpc-volume.md "profile-panel-drilldown-overall-vpc-volume.md")
+- [Activity details for Overall API call volume](profile-panel-drilldown-overall-api-volume.md "profile-panel-drilldown-overall-api-volume.md")
+- [Activity details for a geolocation](profile-panel-drilldown-new-geolocations.md "profile-panel-drilldown-new-geolocations.md")
+- [Activity details for overall VPC flow volume](profile-panel-drilldown-overall-vpc-volume.md "profile-panel-drilldown-overall-vpc-volume.md")
 - [Overall Kubernetes API activity involving EKS cluster](profile-panel-drilldown-kubernetes-api-volume.md "profile-panel-drilldown-kubernetes-api-volume.md")

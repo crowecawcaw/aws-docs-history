@@ -1,6 +1,4 @@
-# Removing member accounts from a behavior
-
-graph
+# Removing member accounts from a behavior graph
 
 The administrator account can remove invited member accounts from a behavior graph at any
 time.

@@ -18,13 +18,10 @@ the configuration in Organizations, and the behavior graph account structure aft
 
 ![This diagram shows the process of making the transition to use AWS Organizations to manage member accounts in the organization behavior graph.](images/diagram_account_transition.png)
 
-## Designate a Detective administrator account
-
-for your organization
+## Designate a Detective administrator account for your organization
 
 Your organization management account designates the Detective administrator account from your
-organization. See [Designating the Detective administrator for an
-organization](accounts-designate-admin.md "accounts-designate-admin.md").
+organization. See [Designating the Detective administrator for an organization](accounts-designate-admin.md "accounts-designate-admin.md").
 
 To make the transition simpler, Detective recommends that you choose a current administrator
 account as the Detective administrator account for the organization.
@@ -36,9 +33,7 @@ Otherwise, the first time you designate a Detective administrator account that i
 organization management account, Detective calls Organizations to make that account the delegated
 administrator account for Detective.
 
-## Enable organization accounts as member
-
-accounts
+## Enable organization accounts as member accounts
 
 The Detective administrator account is the administrator account for the organization behavior
 graph. The Detective administrator account chooses the organization accounts to enable as member
@@ -61,8 +56,7 @@ invitation**.
 
 The **Account management** page also provides an option,
 **Automatically enable new organization accounts**, to automatically enable
-new accounts as they are added to an organization. See [Enabling new organization accounts as Detective member
-accounts](accounts-orgs-members-autoenable.md "accounts-orgs-members-autoenable.md"). The option is initially turned off.
+new accounts as they are added to an organization. See [Enabling new organization accounts as Detective member accounts](accounts-orgs-members-autoenable.md "accounts-orgs-members-autoenable.md"). The option is initially turned off.
 
 When the Detective administrator account first displays the **Account
 management** page, it displays a message that contains an **Enable all

@@ -33,6 +33,5 @@ Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazo
 - [Compliance validation for Amazon Detective](detective-compliance.md "detective-compliance.md")
 - [Resilience in Amazon Detective](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Detective](infrastructure-security.md "infrastructure-security.md")
-- [Amazon Detective and interface VPC endpoints
-  (AWS PrivateLink)](detective-security-vpc-endpoints-privatelink.md "detective-security-vpc-endpoints-privatelink.md")
+- [Amazon Detective and interface VPC endpoints (AWS PrivateLink)](detective-security-vpc-endpoints-privatelink.md "detective-security-vpc-endpoints-privatelink.md")
 - [Security best practices for Detective](security-best-practices.md "security-best-practices.md")

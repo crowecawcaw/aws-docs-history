@@ -1,6 +1,4 @@
-# Activity details for overall VPC
-
-flow volume
+# Activity details for overall VPC flow volume
 
 For an EC2 instance, the activity details for **Overall VPC flow
 volume** show the interactions between the EC2 instance and IP addresses during a
@@ -73,9 +71,7 @@ connected.
 ![List of available connectors between individual filters for the activity details filter.](images/screen_profile_panel_drilldown_vpc_filterconnectors.png) 5. To remove a filter, choose the **x** icon in the top-right
 corner. 6. To clear all of the filters, choose **Clear filter**.
 
-## Selecting the time range for the activity
-
-details
+## Selecting the time range for the activity details
 
 When you first display the activity details, the time range is either the scope time or a
 selected time interval. You can change the time range for the activity details.
@@ -92,9 +88,7 @@ The time range for the activity details is highlighted on the profile panel char
 
 ![Highlighted time window for the activity details on the Overall VPC flow volume profile panel.](images/screen_profile_panel_drilldown_vpc_timehighlight.png)
 
-## Displaying the volume of traffic for
-
-selected rows
+## Displaying the volume of traffic for selected rows
 
 When you identify rows that are of interest, you can display on the main charts the volume
 of traffic over time for those rows.
@@ -109,9 +103,7 @@ To show or hide the overall traffic volume, toggle **Overall traffic**.
 
 ![Traffic for selected activity details rows displayed on the main charts on the Overall VPC flow volume profile panel. Overall traffic is hidden.](images/screen_profile_panel_drilldown_vpc_overall_off.png)
 
-## Displaying the VPC flow traffic for EKS
-
-clusters
+## Displaying the VPC flow traffic for EKS clusters
 
 Detective has visibility into your Amazon Virtual Private Cloud (Amazon VPC) flow logs, which represent the traffic
 that traverses your Amazon Elastic Kubernetes Service (Amazon EKS) clusters. For Kubernetes resources, the content of the
@@ -156,9 +148,7 @@ Detective does not display traffic in the **VPC flow** panel for:
   configuration `hostNetwork:false`.
 - Any pod sending traffic to another pod that is hosted in the same node.
 
-## Displaying the VPC flow traffic for shared
-
-Amazon VPCs
+## Displaying the VPC flow traffic for shared Amazon VPCs
 
 Detective has visibility into your Amazon Virtual Private Cloud (Amazon VPC) flow logs for shared VPCs:
 

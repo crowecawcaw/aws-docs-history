@@ -41,8 +41,7 @@ hour.
 
 The administrator account also can enable accounts manually, instead of waiting for
 the automatic process. For example, the administrator account might want to select the
-accounts to enable. For information on how to enable a member account, see [Enabling a member account that is Not
-enabled](graph-admin-unblock-account.md "graph-admin-unblock-account.md").
+accounts to enable. For information on how to enable a member account, see [Enabling a member account that is Not enabled](graph-admin-unblock-account.md "graph-admin-unblock-account.md").
 
 Note that Detective began to automatically enable accounts that are **Not enabled** on May 12, 2021. Accounts that were **Not
 enabled** before then are not enabled automatically. The administrator account
@@ -51,11 +50,7 @@ The administrator account can remove invited member accounts from the behavior g
 
 ###### Contents
 
-- [Inviting individual accounts to a
-  behavior graph](accounts-invited-members-add-individual.md "accounts-invited-members-add-individual.md")
-- [Inviting a list of member accounts to a
-  behavior graph](accounts-invited-members-add-csv.md "accounts-invited-members-add-csv.md")
-- [Enabling a member account that is Not
-  enabled](graph-admin-unblock-account.md "graph-admin-unblock-account.md")
-- [Removing member accounts from a behavior
-  graph](accounts-invited-remove.md "accounts-invited-remove.md")
+- [Inviting individual accounts to a behavior graph](accounts-invited-members-add-individual.md "accounts-invited-members-add-individual.md")
+- [Inviting a list of member accounts to a behavior graph](accounts-invited-members-add-csv.md "accounts-invited-members-add-csv.md")
+- [Enabling a member account that is Not enabled](graph-admin-unblock-account.md "graph-admin-unblock-account.md")
+- [Removing member accounts from a behavior graph](accounts-invited-remove.md "accounts-invited-remove.md")

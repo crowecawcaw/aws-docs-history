@@ -24,6 +24,5 @@ select findings or entities for further analysis. See [Finding group visualizati
 
 - [Analyzing a finding overview in Detective](finding-overview.md "finding-overview.md")
 - [Analyzing finding groups](groups-about.md "groups-about.md")
-- [Finding group summary powered by generative
-  AI](finding-group-summary.md "finding-group-summary.md")
+- [Finding group summary powered by generative AI](finding-group-summary.md "finding-group-summary.md")
 - [Archiving an Amazon GuardDuty finding](finding-update-status.md "finding-update-status.md")

@@ -22,16 +22,13 @@ information on tracking the volume of data for each account in a behavior graph,
 
 ###### Contents
 
-- [Account restrictions and recommendations
-  in Detective](accounts-restrictions-recommendations.md "accounts-restrictions-recommendations.md")
+- [Account restrictions and recommendations in Detective](accounts-restrictions-recommendations.md "accounts-restrictions-recommendations.md")
 - [Using Organizations to manage behavior graph accounts](accounts-orgs-transition.md "accounts-orgs-transition.md")
-- [Designating the Detective administrator for an
-  organization](accounts-designate-admin.md "accounts-designate-admin.md")
+- [Designating the Detective administrator for an organization](accounts-designate-admin.md "accounts-designate-admin.md")
 - [Available actions for accounts](accounts-allowed-actions.md "accounts-allowed-actions.md")
 - [Viewing the list of accounts](accounts-view-list.md "accounts-view-list.md")
 - [Managing organization accounts as Detective member accounts](accounts-orgs-members.md "accounts-orgs-members.md")
 - [Managing invited member accounts in Detective](accounts-invited-members.md "accounts-invited-members.md")
-- [For member accounts: Managing behavior graph
-  invitations and memberships](member-account-graph-management.md "member-account-graph-management.md")
+- [For member accounts: Managing behavior graph invitations and memberships](member-account-graph-management.md "member-account-graph-management.md")
 - [Effect of account actions on behavior graphs](accounts-effects.md "accounts-effects.md")
 - [Using Detective Python scripts to manage accounts](detective-github-scripts.md "detective-github-scripts.md")

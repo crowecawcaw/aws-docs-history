@@ -55,8 +55,7 @@ Flow Logs without the need for you to enable or store these logs manually. See [
 - **AWS security findings**
 
 This optional data source package allows Detective to ingest data from Security Hub CSPM and adds that
-data to your behavior graph. See [AWS security
-findings](source-data-types-asff.md "source-data-types-asff.md") for details.
+data to your behavior graph. See [AWS security findings](source-data-types-asff.md "source-data-types-asff.md") for details.
 
 ###### **Starting or stopping an optional data source:**
 
@@ -89,9 +88,7 @@ store. As new source data arrives, other Detective components pick up the data a
 extraction and analytics processes. For more information, see [How Detective uses source data
 to populate a behavior graph](behavior-graph-population-about.md "behavior-graph-population-about.md") in _Detective User Guide_.
 
-## How Detective enforces the data volume quota for behavior
-
-graphs
+## How Detective enforces the data volume quota for behavior graphs
 
 Detective has strict quotas on the volume of data it allows in each behavior graph. The data
 volume is the amount of data per day that flows into the Detective behavior graph.

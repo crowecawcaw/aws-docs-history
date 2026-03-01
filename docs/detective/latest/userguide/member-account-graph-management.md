@@ -1,6 +1,4 @@
-# For member accounts: Managing behavior graph
-
-invitations and memberships
+# For member accounts: Managing behavior graph invitations and memberships
 
 Amazon Detective charges each member account for the ingested data for each behavior graph that it
 contributes to.
@@ -18,8 +16,6 @@ to enable or disable as member accounts.
 ###### Contents
 
 - [Required IAM policy for a member account](member-account-iam-policy.md "member-account-iam-policy.md")
-- [Viewing your list of behavior graph
-  invitations](member-view-graph-invitations.md "member-view-graph-invitations.md")
+- [Viewing your list of behavior graph invitations](member-view-graph-invitations.md "member-view-graph-invitations.md")
 - [Responding to a behavior graph invitation](member-invitation-response.md "member-invitation-response.md")
-- [Removing your account from a behavior
-  graph](member-remove-self-from-graph.md "member-remove-self-from-graph.md")
+- [Removing your account from a behavior graph](member-remove-self-from-graph.md "member-remove-self-from-graph.md")

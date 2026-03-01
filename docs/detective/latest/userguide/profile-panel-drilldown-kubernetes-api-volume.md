@@ -77,9 +77,7 @@ represented in the activity details.
 On all of the tabs, you can filter the list by any of the values in the first
 column.
 
-## Selecting the time range for the activity
-
-details
+## Selecting the time range for the activity details
 
 When you first display the activity details, the time range is either the scope time or a
 selected time interval. You can change the time range for the activity details.
@@ -96,9 +94,7 @@ The time range for the activity details is highlighted on the profile panel char
 
 ![Highlighted time window for the Overall API call volume profile panel](images/screen_profile_panel_drilldown_api_timehighlight.png)
 
-## Using profile panel guidance during an
-
-investigation
+## Using profile panel guidance during an investigation
 
 Each profile panel is designed to provide answers to specific questions that arise as you
 conduct an investigation and analyze the activity for the related entities.

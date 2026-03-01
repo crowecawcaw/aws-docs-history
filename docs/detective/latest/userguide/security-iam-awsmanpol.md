@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AmazonDetectiveFullAccess
+## AWS managed policy: AmazonDetectiveFullAccess
 
 You can attach the `AmazonDetectiveFullAccess` policy to your IAM
 identities.
@@ -90,9 +88,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AmazonDetectiveMemberAccess
+## AWS managed policy: AmazonDetectiveMemberAccess
 
 You can attach the `AmazonDetectiveMemberAccess` policy to your IAM
 entities.
@@ -141,9 +137,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonDetectiveInvestigatorAccess
+## AWS managed policy: AmazonDetectiveInvestigatorAccess
 
 You can attach the `AmazonDetectiveInvestigatorAccess` policy to your IAM
 entities.
@@ -238,9 +232,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonDetectiveOrganizationsAccess
+## AWS managed policy: AmazonDetectiveOrganizationsAccess
 
 You can attach the `AmazonDetectiveOrganizationsAccess` policy to your IAM
 entities.
@@ -338,14 +330,11 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonDetectiveServiceLinkedRole
+## AWS managed policy: AmazonDetectiveServiceLinkedRole
 
 You can't attach the `AmazonDetectiveServiceLinkedRole` policy to your IAM
 entities. This policy is attached to a service-linked role that allows Detective to perform
-actions on your behalf. For more information, see [Using service-linked roles for
-Detective](using-service-linked-roles.md "using-service-linked-roles.md").
+actions on your behalf. For more information, see [Using service-linked roles for Detective](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants administrative permissions that allow the service-linked role to
 retrieve account information for an organization.
@@ -376,9 +365,7 @@ JSON
 
 ```
 
-## Detective updates to AWS managed
-
-policies
+## Detective updates to AWS managed policies
 
 View details about updates to AWS managed policies for Detective since this service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to the

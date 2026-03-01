@@ -64,9 +64,7 @@ Specifying a time range updates the **Start** and
 **End** settings. 4. When you're finished editing, to save the changes and update the displayed data, choose
 **Update scope time**.
 
-## Setting the scope time to a finding time
-
-window
+## Setting the scope time to a finding time window
 
 Each finding has an associated time window, which reflects the first and last times the
 finding was observed. When you view a finding overview, the scope time changes to the finding

@@ -10,9 +10,7 @@ enabled**.
 If you decline the invitation, then it is removed from your list of invitations, and Detective
 does not use your account data in the behavior graph.
 
-## Responding to a behavior graph
-
-invitation (console)
+## Responding to a behavior graph invitation (console)
 
 You can use the AWS Management Console to respond to the email invitation, which includes a link to
 the Detective console. You can only respond to an invitation that has a status of
@@ -29,9 +27,7 @@ the Detective console. You can only respond to an invitation that has a status o
 To decline the invitation and remove it from the list, choose
 **Decline**.
 
-## Responding to a behavior graph invitation
-
-(Detective API, AWS CLI)
+## Responding to a behavior graph invitation (Detective API, AWS CLI)
 
 You can respond to behavior graph invitations from the Detective API or the
 AWS Command Line Interface.

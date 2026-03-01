@@ -1,6 +1,4 @@
-# Activity details for Overall API
-
-call volume
+# Activity details for Overall API call volume
 
 The activity details for **Overall API call volume** show the API calls
 that were issued during a selected time range.
@@ -14,9 +12,7 @@ details for scope time**.
 Note that Detective began to store and display the service name for API calls as of July 14, 2021. That date is highlighted on the profile panel timeline. For activity that occurs before
 that date, the service name is **Unknown service**.
 
-## Content of the activity details (users, roles,
-
-accounts, role sessions, EC2 instances, S3 buckets)
+## Content of the activity details (users, roles, accounts, role sessions, EC2 instances, S3 buckets)
 
 For IAM users, IAM roles, accounts, role sessions, EC2 instances, and S3 buckets, the
 activity details contain the following information:
@@ -89,9 +85,7 @@ service**.
 
 ![View of the Resource tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of AKIDs, IP addresses, and API calls grouped by service.](images/screen_profile_panel_drilldown_api_resource.png)
 
-## Content of the activity details (IP
-
-addresses)
+## Content of the activity details (IP addresses)
 
 For IP addresses, the activity details contain the following information:
 
@@ -173,9 +167,7 @@ corner.
 
 To clear all of the filters, choose **Clear filter**.
 
-## Selecting the time range for the activity
-
-details
+## Selecting the time range for the activity details
 
 When you first display the activity details, the time range is either the scope time or a
 selected time interval. You can change the time range for the activity details.

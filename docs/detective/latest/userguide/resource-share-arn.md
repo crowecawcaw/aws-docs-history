@@ -12,13 +12,10 @@ In this next step, you’ll use an AWS CloudFormation template to create a stack
 ###### To accept the Resource Share ARN invitation and enable the integration
 
 1. Create a new CloudFormation stack using the CloudFormation template. For more details,
-   see [Creating a stack using the CloudFormation
-   template](#cloud-formation-template "#cloud-formation-template").
+   see [Creating a stack using the CloudFormation template](#cloud-formation-template "#cloud-formation-template").
 2. After you finish creating the stack, choose **Enable integration** to enable Detective integration with Security Lake.
 
-## Creating a stack using the CloudFormation
-
-template
+## Creating a stack using the CloudFormation template
 
 Detective provides an CloudFormation template, which you can use to set up the parameters required to create and manage query access for Security Lake subscribers.
 

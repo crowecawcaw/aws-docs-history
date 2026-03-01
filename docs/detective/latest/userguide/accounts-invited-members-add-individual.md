@@ -1,6 +1,4 @@
-# Inviting individual accounts to a
-
-behavior graph
+# Inviting individual accounts to a behavior graph
 
 You can manually specify the member accounts to invite to contribute their data to a
 behavior graph.

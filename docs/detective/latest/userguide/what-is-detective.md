@@ -186,8 +186,7 @@ organization accounts as member accounts in the organization behavior graph.
 For information about how Detective uses source data from behavior graph accounts, see [Source data used in a Detective behavior graph](detective-source-data-about.md "detective-source-data-about.md").
 
 For information on how administrator accounts manage behavior graphs, see [Managing accounts in Detective](accounts.md "accounts.md"). For information on how member accounts manage their behavior graph
-invitations and memberships, see [For member accounts: Managing behavior graph
-invitations and memberships](member-account-graph-management.md "member-account-graph-management.md").
+invitations and memberships, see [For member accounts: Managing behavior graph invitations and memberships](member-account-graph-management.md "member-account-graph-management.md").
 
 The administrator account uses the analytics and visualizations generated from the behavior
 graph to investigate AWS resources and GuardDuty findings. Using the Detective integrations with GuardDuty

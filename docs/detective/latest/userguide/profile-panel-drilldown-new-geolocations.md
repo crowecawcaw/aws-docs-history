@@ -1,6 +1,4 @@
-# Activity details for a
-
-geolocation
+# Activity details for a geolocation
 
 The activity details for **Newly observed geolocations** show the API
 calls that were issued from a geolocation during the scope time. The API calls include all calls
@@ -26,9 +24,7 @@ To display the activity details, do one of the following:
 
 Note that Detective began to store and display the service name for API calls as of July 14, 2021. For activity that occurs before that date, the service name is **Unknown service**.
 
-## Content of the activity
-
-details
+## Content of the activity details
 
 Each tab provides information about all of the API calls that were issued from the
 geolocation during the scope time.

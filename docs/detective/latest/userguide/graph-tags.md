@@ -3,8 +3,7 @@
 A tag is an optional label that you can define and assign to AWS resources, including certain types of Detective resources. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. For example, you can use tags to apply policies, allocate costs, distinguish between versions of resources, or identify resources that support certain compliance requirements or workflows.
 
 You can assign tags to your behavior graph. You can then use the tag values in IAM policies
-to manage access to behavior graph functions in Detective. See [Authorization based on
-Detective behavior graph tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
+to manage access to behavior graph functions in Detective. See [Authorization based on Detective behavior graph tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
 
 You also can use tags as a tool for cost reporting. For example, to track costs associated
 with security, you could assign the same tag to your Detective behavior graph, AWS Security Hub CSPM hub resource,

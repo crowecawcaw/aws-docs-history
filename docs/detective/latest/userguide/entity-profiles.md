@@ -11,10 +11,8 @@ investigation into a finding or as part of a general hunt for suspicious activit
 
 - [Using entity profiles](using-entity-profiles.md "using-entity-profiles.md")
 - [Viewing and interacting with Detective profile panels](profile-panels.md "profile-panels.md")
-- [Navigating directly to an entity profile or finding
-  overview](navigate-to-profile.md "navigate-to-profile.md")
-- [Pivoting from a profile panel to another
-  console](profile-panel-console-links.md "profile-panel-console-links.md")
+- [Navigating directly to an entity profile or finding overview](navigate-to-profile.md "navigate-to-profile.md")
+- [Pivoting from a profile panel to another console](profile-panel-console-links.md "profile-panel-console-links.md")
 - [Exploring activity details on a profile panel](profile-panel-drilldown.md "profile-panel-drilldown.md")
 - [Managing the scope time](scope-time-managing.md "scope-time-managing.md")
 - [Viewing details for associated findings in Detective](entity-finding-list.md "entity-finding-list.md")

@@ -1,6 +1,4 @@
-# Amazon Detective identity-based policy
-
-examples
+# Amazon Detective identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify Detective
 resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API.
@@ -16,24 +14,15 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Detective
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allowing
-  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Administrator
-  account: Managing the member accounts in a behavior graph](#security_iam_id-based-policy-examples-admin-account-mgmt "#security_iam_id-based-policy-examples-admin-account-mgmt")
-- [Administrator
-  account: Using a behavior graph for investigation](#security_iam_id-based-policy-examples-admin-investigate "#security_iam_id-based-policy-examples-admin-investigate")
-- [Member account:
-  Managing behavior graph invitations and memberships](#security_iam_id-based-policy-examples-member-account "#security_iam_id-based-policy-examples-member-account")
-- [Administrator
-  account: Restricting access based on tag values](#security_iam_id-based-policy-examples-graph-tags "#security_iam_id-based-policy-examples-graph-tags")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Detective console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allowing users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Administrator account: Managing the member accounts in a behavior graph](#security_iam_id-based-policy-examples-admin-account-mgmt "#security_iam_id-based-policy-examples-admin-account-mgmt")
+- [Administrator account: Using a behavior graph for investigation](#security_iam_id-based-policy-examples-admin-investigate "#security_iam_id-based-policy-examples-admin-investigate")
+- [Member account: Managing behavior graph invitations and memberships](#security_iam_id-based-policy-examples-member-account "#security_iam_id-based-policy-examples-member-account")
+- [Administrator account: Restricting access based on tag values](#security_iam_id-based-policy-examples-graph-tags "#security_iam_id-based-policy-examples-graph-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Detective resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -66,9 +55,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Detective
-
-console
+## Using the Detective console
 
 To use the Amazon Detective console, the user or role must have access to the relevant
 actions, which match corresponding actions in the API.
@@ -94,9 +81,7 @@ be granted permission for the `ListInvitations` action. This grants
 permission to view behavior graph invitations. They can then be granted permission for
 specific member account actions.
 
-## Allowing
-
-users to view their own permissions
+## Allowing users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -136,9 +121,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Administrator
-
-account: Managing the member accounts in a behavior graph
+## Administrator account: Managing the member accounts in a behavior graph
 
 This example policy is intended for administrator account users who are only responsible for
 managing the member accounts used in the behavior graph. The policy also allows the user
@@ -165,9 +148,7 @@ JSON
 
 ```
 
-## Administrator
-
-account: Using a behavior graph for investigation
+## Administrator account: Using a behavior graph for investigation
 
 This example policy is intended for administrator account users who use the behavior graph
 for investigation only. They cannot view or edit the list of member accounts in the
@@ -193,9 +174,7 @@ JSON
 
 ```
 
-## Member account:
-
-Managing behavior graph invitations and memberships
+## Member account: Managing behavior graph invitations and memberships
 
 This example policy is intended for users belonging to a member account. In the
 example, the member account belongs to two behavior graphs. The policy grants permission
@@ -224,9 +203,7 @@ JSON
 
 ```
 
-## Administrator
-
-account: Restricting access based on tag values
+## Administrator account: Restricting access based on tag values
 
 The following policy allows the user to use a behavior graph for investigation if the
 `SecurityDomain` tag of the behavior graph matches the

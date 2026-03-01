@@ -1,13 +1,9 @@
-# Overview of the behavior graph data
-
-structure
+# Overview of the behavior graph data structure
 
 The behavior graph data structure defines the structure of the extracted and analyzed data.
 It also defines how the source data is mapped to the behavior graph.
 
-## Types of elements in the behavior graph data
-
-structure
+## Types of elements in the behavior graph data structure
 
 The behavior graph data structure is made up of the following information elements.
 
@@ -186,8 +182,7 @@ To view all of the creation and deletion events, set the scope time to start wit
 creation time and end with the deletion time. On
 the **Overall API call volume** profile panel, display the activity details
 for the scope time. Filter the API methods to show `Create` and
-`Delete` methods. See [Activity details for Overall API
-call volume](profile-panel-drilldown-overall-api-volume.md "profile-panel-drilldown-overall-api-volume.md").
+`Delete` methods. See [Activity details for Overall API call volume](profile-panel-drilldown-overall-api-volume.md "profile-panel-drilldown-overall-api-volume.md").
 
 **User agent**
 

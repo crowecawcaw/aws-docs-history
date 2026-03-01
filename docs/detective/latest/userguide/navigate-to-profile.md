@@ -1,6 +1,4 @@
-# Navigating directly to an entity profile or finding
-
-overview
+# Navigating directly to an entity profile or finding overview
 
 To navigate directly to an entity profile or finding overview in Amazon Detective, you can use one
 of these options.
@@ -10,9 +8,7 @@ of these options.
 - You can assemble a Detective URL that identifies a finding or entity and sets the scope time to
   use.
 
-## Pivoting to an entity profile or finding overview
-
-from Amazon GuardDuty or AWS Security Hub CSPM
+## Pivoting to an entity profile or finding overview from Amazon GuardDuty or AWS Security Hub CSPM
 
 From the Amazon GuardDuty console, you can navigate to the entity profile for an entity that is
 related to a finding.
@@ -95,9 +91,7 @@ not contain data for that account.
   graph is specific to a Region. A behavior graph does not contain data from other
   Regions.
 
-## Navigating to an entity profile or finding overview using
-
-a URL
+## Navigating to an entity profile or finding overview using a URL
 
 To navigate to an entity profile or finding overview in Amazon Detective, you can use a URL that
 provides a direct link to it. The URL identifies the finding or entity. It can also specify the

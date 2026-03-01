@@ -42,9 +42,7 @@ affected.
 The final step is to respond to the attack in order to stop the attack, minimize the
 damage, and prevent a similar attack from happening again.
 
-## Starting points for a Detective
-
-Investigation
+## Starting points for a Detective Investigation
 
 Every investigation in Detective has an essential starting point. For example, you might be
 assigned an Amazon GuardDuty or AWS Security Hub CSPM finding to investigate. Or you might have a concern about unusual activity
@@ -78,9 +76,7 @@ For each finding, Detective provides the associated finding details. Detective a
 
 For more information, see [Analyzing a finding overview in Detective](finding-overview.md "finding-overview.md").
 
-### Entities extracted from Detective source
-
-data
+### Entities extracted from Detective source data
 
 From the ingested Detective source data, Detective extracts entities such as IP addresses and
 AWS users. You can use one of these as an investigation starting point.
@@ -103,8 +99,7 @@ At a high level, the following image shows the process for a Detective Investiga
 **Step 1: Select the entity to investigate**
 
 When looking at a finding in GuardDuty, analysts can choose to investigate an associated
-entity in Detective. See [Pivoting to an entity profile or finding overview
-from Amazon GuardDuty or AWS Security Hub CSPM](navigate-to-profile.md#profile-pivot-from-service "navigate-to-profile.md#profile-pivot-from-service").
+entity in Detective. See [Pivoting to an entity profile or finding overview from Amazon GuardDuty or AWS Security Hub CSPM](navigate-to-profile.md#profile-pivot-from-service "navigate-to-profile.md#profile-pivot-from-service").
 
 Selecting the entity takes you to the entity profile in Detective.
 
@@ -120,8 +115,7 @@ visualizations to answer questions to determine whether the entity activity is u
 
 To help guide the investigation, you can use the Detective guidance provided for each
 visualization. The guidance outlines the displayed information, suggests questions for you to
-ask, and proposes next steps based on the answers. See [Using profile panel guidance during an
-investigation](profile-panel-drilldown-kubernetes-api-volume.md#profile-panel-guidance "profile-panel-drilldown-kubernetes-api-volume.md#profile-panel-guidance").
+ask, and proposes next steps based on the answers. See [Using profile panel guidance during an investigation](profile-panel-drilldown-kubernetes-api-volume.md#profile-panel-guidance "profile-panel-drilldown-kubernetes-api-volume.md#profile-panel-guidance").
 
 Each profile contains a list of associated findings. You can view the details for a
 finding, and view the finding overview. See [Viewing details for associated findings in Detective](entity-finding-list.md "entity-finding-list.md").

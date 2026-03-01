@@ -19,9 +19,6 @@ graph.
 
 ###### Contents
 
-- [Enabling new organization accounts as Detective member
-  accounts](accounts-orgs-members-autoenable.md "accounts-orgs-members-autoenable.md")
-- [Enabling organization accounts as Detective member
-  accounts](accounts-orgs-members-enable.md "accounts-orgs-members-enable.md")
-- [Disassociating organization accounts as
-  Detective member accounts](accounts-orgs-members-disassociate.md "accounts-orgs-members-disassociate.md")
+- [Enabling new organization accounts as Detective member accounts](accounts-orgs-members-autoenable.md "accounts-orgs-members-autoenable.md")
+- [Enabling organization accounts as Detective member accounts](accounts-orgs-members-enable.md "accounts-orgs-members-enable.md")
+- [Disassociating organization accounts as Detective member accounts](accounts-orgs-members-disassociate.md "accounts-orgs-members-disassociate.md")

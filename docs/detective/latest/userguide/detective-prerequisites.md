@@ -2,9 +2,7 @@
 
 Make sure that the following requirements are met before enabling Detective.
 
-## Granting the required Detective
-
-permissions
+## Granting the required Detective permissions
 
 Before you can enable Detective, you must make sure that your IAM principal has the
 required Detective permissions. The principal can be an existing user or role that you are

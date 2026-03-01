@@ -1,13 +1,9 @@
-# Enabling organization accounts as Detective member
-
-accounts
+# Enabling organization accounts as Detective member accounts
 
 If you do not automatically enable new organization accounts, then you can enable those
 accounts manually. You must also manually enable accounts that you disassociated.
 
-## Determining whether an account can be
-
-enabled
+## Determining whether an account can be enabled
 
 You cannot enable an organization account as a member account if the organization behavior
 graph already has the maximum 1,200 enabled accounts. In this case, the organization account
