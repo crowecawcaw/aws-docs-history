@@ -1,6 +1,4 @@
-# Flight Information Management System
-
-(FIMS)
+# Flight Information Management System (FIMS)
 
 Publication date: **February 2, 2022 ([Diagram history](#diagram-history "#diagram-history"))**
 
@@ -22,7 +20,7 @@ systems on AWS.
    retrieval.
 6. Processed data is encrypted and stored in data lake, and managed by **AWS Lake Formation**, in accordance with regulatory compliance.
 7. Virtualization tools to view real-time positioning, flight paths, potential conflicts,
-   etc. can be deployed using **Quick Suite** and **Amazon Managed Grafana**.
+   etc. can be deployed using **Quick** and **Amazon Managed Grafana**.
 8. Flight plan approvals automatically provided to UAS operators by FIMS.
 9. UAS operators request/receive manual approval from FIMS Admins for flight plans when
    conflicts arise.
