@@ -1,6 +1,4 @@
-# Automate customizations outside the AWS Control Tower
-
-console
+# Automate customizations outside the AWS Control Tower console
 
 Some customizations are not available through the AWS Control Tower console, but they can be
 implemented in other ways. For example:

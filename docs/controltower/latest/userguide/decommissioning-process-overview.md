@@ -1,6 +1,4 @@
-# Overview of the decommissioning
-
-process
+# Overview of the decommissioning process
 
 When you request decommissioning of your landing zone, AWS Control Tower does the following
 actions.

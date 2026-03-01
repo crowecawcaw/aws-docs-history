@@ -1,6 +1,4 @@
-# Walkthrough: Set Up Security Groups in AWS Control Tower
-
-With AWS Firewall Manager
+# Walkthrough: Set Up Security Groups in AWS Control Tower With AWS Firewall Manager
 
 The video shows you how to use the AWS Firewall Manager service to provide improvements
 to your network security for AWS Control Tower. You can designate a security administrator account
@@ -13,9 +11,7 @@ in your organization.
 You can create your own firewall policies, or you can subscribe to rules from trusted
 vendors.
 
-## Set Up Security Groups With AWS Firewall
-
-Manager
+## Set Up Security Groups With AWS Firewall Manager
 
 This video (8:02) describes how to set up better network infrastructure security for
 your resources and workloads in AWS Control Tower. For better viewing, select the icon at the

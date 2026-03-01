@@ -22,8 +22,7 @@ call the [`ResetEnabledBaseline`](../APIReference/API_ResetEnabledBaseline.md ".
   OU** on the **Organization** page or the
   **OU details** page.
 - You may be able to resolve account drift, such as [Moved member account](governance-drift.md#drift-account-moved "governance-drift.md#drift-account-moved"), by
-  updating an individual account. For more information, see [Update the account in the
-  console](updating-account-factory-accounts.md#update-account-in-console "updating-account-factory-accounts.md#update-account-in-console").
+  updating an individual account. For more information, see [Update the account in the console](updating-account-factory-accounts.md#update-account-in-console "updating-account-factory-accounts.md#update-account-in-console").
 - For controls, many types of drift can be resolved by calling the
   [`ResetEnabledControl` API.](../APIReference/API_ResetEnabledControl.md "../APIReference/API_ResetEnabledControl.md")
 - Baseline drift on OUs and accounts can be resolved by calling the
@@ -40,9 +39,7 @@ call the [`ResetEnabledBaseline`](../APIReference/API_ResetEnabledBaseline.md ".
   `RemediationType` parameter set to **Inheritance
   Drift**. For more information, see [Move and enroll accounts with auto-enrollment](account-auto-enrollment.md "account-auto-enrollment.md").
 
-###### When you take action to resolve drift on a landing zone version, two behaviors
-
-are possible.
+###### When you take action to resolve drift on a landing zone version, two behaviors are possible.
 
 - If you are on the latest landing zone version, when you choose
   **Reset** and then choose **Confirm**,

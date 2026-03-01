@@ -16,11 +16,9 @@ that are associated with your account.
 - [Authentication](#authentication "#authentication")
 - [Access control](#access-control "#access-control")
 - [Working with AWS IAM Identity Center and AWS Control Tower](sso.md "sso.md")
-- [Overview of managing access permissions to
-  your AWS Control Tower resources](access-control-overview.md "access-control-overview.md")
+- [Overview of managing access permissions to your AWS Control Tower resources](access-control-overview.md "access-control-overview.md")
 - [Prevent cross-service impersonation](prevent-confused-deputy.md "prevent-confused-deputy.md")
-- [Using identity-based policies (IAM
-  policies) for AWS Control Tower](access-control-managing-permissions.md "access-control-managing-permissions.md")
+- [Using identity-based policies (IAM policies) for AWS Control Tower](access-control-managing-permissions.md "access-control-managing-permissions.md")
 
 ## Authentication
 
@@ -125,7 +123,5 @@ The following sections describe how to manage permissions for AWS Control Tower:
 
 ###### Topics
 
-- [Overview of managing access permissions to
-  your AWS Control Tower resources](access-control-overview.md "access-control-overview.md")
-- [Using identity-based policies (IAM
-  policies) for AWS Control Tower](access-control-managing-permissions.md "access-control-managing-permissions.md")
+- [Overview of managing access permissions to your AWS Control Tower resources](access-control-overview.md "access-control-overview.md")
+- [Using identity-based policies (IAM policies) for AWS Control Tower](access-control-managing-permissions.md "access-control-managing-permissions.md")

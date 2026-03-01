@@ -1,6 +1,4 @@
-# Provision and update accounts using
-
-automation
+# Provision and update accounts using automation
 
 ###### Note
 
@@ -11,10 +9,9 @@ or use ResetEnabledBaseline and ResetEnabledControl APIs on EnabledBaselines and
 You can provision or update individual accounts in AWS Control Tower by several methods:
 
 - You can provision and customize accounts with _AWS Control Tower Account
-  Factory for Terraform_ (AFT). For more information, see [Overview of AWS Control Tower Account Factory for Terraform
-  (AFT)](aft-overview.md "aft-overview.md").
+  Factory for Terraform_ (AFT). For more information, see [Overview of AWS Control Tower Account Factory for Terraform (AFT)](aft-overview.md "aft-overview.md").
 - You can update accounts with _Customizations for
-  AWS Control Tower_ (CfCT). For more information, see [Customizations for AWS Control Tower (CfCT) overview](cfct-overview.md "cfct-overview.md") .
+  AWS Control Tower_ (CfCT). For more information, see [Customizations for AWS Control Tower (CfCT) overview](cfct-overview.md "cfct-overview.md").
 - **Script automation**: If you prefer to use an API
   approach, you can update accounts using the [API framework](../../../servicecatalog/latest/dg/API_Reference.md "../../../servicecatalog/latest/dg/API_Reference.md") of Service Catalog and the
   AWS CLI to update the accounts in a batch process. You'd call the [`UpdateProvisionedProduct`](../../../servicecatalog/latest/dg/API_UpdateProvisionedProduct.md "../../../servicecatalog/latest/dg/API_UpdateProvisionedProduct.md") API of Service Catalog for each account. You can
@@ -24,8 +21,7 @@ You can provision or update individual accounts in AWS Control Tower by several 
 You can update as many as five (5) accounts at a time. You must wait for at least one
 account update to succeed before beginning the next account update. Therefore, the process
 may take a long time if you have a lot of accounts, but it is not complicated. For more
-information about this approach, see the [Automate Account Provisioning
-in AWS Control Tower by Service Catalog APIs](automated-provisioning-walkthrough.md "automated-provisioning-walkthrough.md").
+information about this approach, see the [Automate Account Provisioning in AWS Control Tower by Service Catalog APIs](automated-provisioning-walkthrough.md "automated-provisioning-walkthrough.md").
 
 ###### Video walkthrough
 
@@ -44,4 +40,4 @@ information about working with lifecycle events, see [Lifecycle Events](lifecycl
 ###### Also see:
 
 - [Use AWS CloudShell to work with AWS Control Tower](using-aws-with-cloudshell.md "using-aws-with-cloudshell.md").
-- [Automate tasks in AWS Control Tower](automating-tasks.md "automating-tasks.md") .
+- [Automate tasks in AWS Control Tower](automating-tasks.md "automating-tasks.md").

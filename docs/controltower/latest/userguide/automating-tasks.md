@@ -30,8 +30,7 @@ Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
 **Automated account closure**
 
-You can automate the closure of AWS Control Tower member accounts with an AWS Organizations API. For more information, see [Close an AWS Control Tower member account through
-AWS Organizations](delete-account.md#close-account-with-orgs-api "delete-account.md#close-account-with-orgs-api").
+You can automate the closure of AWS Control Tower member accounts with an AWS Organizations API. For more information, see [Close an AWS Control Tower member account through AWS Organizations](delete-account.md#close-account-with-orgs-api "delete-account.md#close-account-with-orgs-api").
 
 **Automated account provisioning and updating**
 
@@ -39,13 +38,12 @@ _AWS Control Tower Account Factory Customization (AFC)_ helps you create account
 
 _AWS Control Tower Account Factory for Terraform_ (AFT) follows a GitOps model to automate
 the processes of account provisioning and account updating in AWS Control Tower. For more
-information, see [Provision accounts with AWS Control Tower Account Factory
-for Terraform (AFT)](taf-account-provisioning.md "taf-account-provisioning.md") .
+information, see [Provision accounts with AWS Control Tower Account Factory for Terraform (AFT)](taf-account-provisioning.md "taf-account-provisioning.md").
 
 _Customizations for AWS Control Tower_ (CfCT) helps you customize
 your AWS Control Tower landing zone and stay aligned with AWS best practices. Customizations are
 implemented with AWS CloudFormation templates, service control policies (SCPs), and resource control policies (RCPs). For more
-information, see [Customizations for AWS Control Tower (CfCT) overview](cfct-overview.md "cfct-overview.md") .
+information, see [Customizations for AWS Control Tower (CfCT) overview](cfct-overview.md "cfct-overview.md").
 
 For more information and a video about automated account provisioning, see [Walkthrough: Automated account provisioning in AWS Control Tower](automated-provisioning-walkthrough.md "automated-provisioning-walkthrough.md") and [Automated
 provisioning with IAM roles](roles-how.md#automated-provisioning "roles-how.md#automated-provisioning").

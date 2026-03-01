@@ -9,8 +9,7 @@ or use ResetEnabledBaseline and ResetEnabledControl APIs on EnabledBaselines and
 You can update individual AWS Control Tower accounts in the AWS Control Tower console, or in the Service Catalog
 console.
 
-To update a single account in the AWS Control Tower console, see [Update the account in the
-console](updating-account-factory-accounts.md#update-account-in-console "updating-account-factory-accounts.md#update-account-in-console").
+To update a single account in the AWS Control Tower console, see [Update the account in the console](updating-account-factory-accounts.md#update-account-in-console "updating-account-factory-accounts.md#update-account-in-console").
 
 ###### To update a single account in AWS Service Catalog
 

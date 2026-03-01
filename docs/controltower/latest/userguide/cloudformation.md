@@ -8,5 +8,4 @@ file to create and delete a collection of resources together as a single unit (a
 For more information, see _[AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md")_.
 
 AWS Control Tower uses CloudFormation stacksets to apply controls on accounts. For more information
-about how CloudFormation and AWS Control Tower work together, see [Create AWS Control Tower resources with
-AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
+about how CloudFormation and AWS Control Tower work together, see [Create AWS Control Tower resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").

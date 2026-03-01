@@ -5,8 +5,7 @@ IAM Identity Center through the AWS Control Tower console. This procedure also i
 provisioning_. Optionally, you may be able to provision AWS Control Tower accounts
 programmatically, with the AWS CLI, with Service Catalog APIs, or with AWS Control Tower Account Factory for Terraform
 (AFT), or automatically enroll an existing account into a registered OU. You may be able to provision customized accounts in the console if you've
-previously set up custom blueprints. For more information about customization, see [Customize accounts with Account Factory
-Customization (AFC)](af-customization-page.md "af-customization-page.md").
+previously set up custom blueprints. For more information about customization, see [Customize accounts with Account Factory Customization (AFC)](af-customization-page.md "af-customization-page.md").
 
 ###### To provision accounts individually in the AWS Control Tower console, as a user
 

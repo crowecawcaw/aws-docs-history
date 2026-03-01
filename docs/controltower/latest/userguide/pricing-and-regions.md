@@ -1,6 +1,4 @@
-# Step 2a. Review and select your AWS
-
-Regions
+# Step 2a. Review and select your AWS Regions
 
 Be sure you've correctly designated the AWS Region that you select for your home
 Region. After you've deployed AWS Control Tower, you can't change the home Region.

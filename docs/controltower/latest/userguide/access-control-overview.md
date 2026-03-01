@@ -1,6 +1,4 @@
-# Overview of managing access permissions to
-
-your AWS Control Tower resources
+# Overview of managing access permissions to your AWS Control Tower resources
 
 Every AWS resource is owned by an AWS account, and permissions to create or gain
 access to a resource are governed by permissions policies. An account administrator can
@@ -24,10 +22,8 @@ allowed for operating those resources.
 
 - [AWS Control Tower resources and operations](#access-control-resources "#access-control-resources")
 - [About resource ownership](#access-control-owner "#access-control-owner")
-- [Manage access to
-  resources](access-control-manage-access-intro.md "access-control-manage-access-intro.md")
-- [Specify policy
-  elements: Actions, Effects, and Principals](#access-control-specify-controltower-actions "#access-control-specify-controltower-actions")
+- [Manage access to resources](access-control-manage-access-intro.md "access-control-manage-access-intro.md")
+- [Specify policy elements: Actions, Effects, and Principals](#access-control-specify-controltower-actions "#access-control-specify-controltower-actions")
 - [Specifying conditions in a policy](#specifying-conditions "#specifying-conditions")
 
 ## AWS Control Tower resources and operations
@@ -71,9 +67,7 @@ examples illustrate how this works:
   up a landing zone, anyone who can assume the role can set up a landing zone. Your
   AWS account, to which the role belongs, owns the landing zone resource.
 
-## Specify policy
-
-elements: Actions, Effects, and Principals
+## Specify policy elements: Actions, Effects, and Principals
 
 You can set up and manage your landing zone through the AWS Control Tower console, or [the landing zone APIs](../APIReference/API_Operations.md "../APIReference/API_Operations.md"). To set up your landing zone, you must be an
 IAM user with administrative permissions as defined in a IAM policy.

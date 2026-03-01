@@ -38,9 +38,7 @@ version control of source code in AFT](aft-alternative-vcs.md "aft-alternative-v
 - AFT feature options. For more information, see [Enable feature
   options](aft-feature-options.md "aft-feature-options.md").
 
-## Configure and launch your AWS Control Tower Account Factory
-
-for Terraform
+## Configure and launch your AWS Control Tower Account Factory for Terraform
 
 The following steps assume that you're familiar with the Terraform workflow. You can
 also learn more about deploying AFT by following the [Introduction to AFT](https://catalog.workshops.aws/control-tower/en-US/customization/aft "https://catalog.workshops.aws/control-tower/en-US/customization/aft") lab on the AWS Workshop Studio website.

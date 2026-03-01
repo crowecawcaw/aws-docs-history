@@ -228,7 +228,6 @@ impersonation. For general information about policy conditions, also see
 [Specifying conditions in a policy](access-control-overview.md#specifying-conditions "access-control-overview.md#specifying-conditions").
 
 For more information about using identity-based policies with AWS Control Tower, see
-[Using identity-based policies (IAM
-policies) for AWS Control Tower](access-control-managing-permissions.md "access-control-managing-permissions.md"). For more information
+[Using identity-based policies (IAM policies) for AWS Control Tower](access-control-managing-permissions.md "access-control-managing-permissions.md"). For more information
 about users, groups, roles, and permissions, see [Identities (Users, Groups, and Roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in
 the _IAM User Guide_.

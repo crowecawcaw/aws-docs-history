@@ -1,13 +1,9 @@
-# Create a customized account from a
-
-blueprint
+# Create a customized account from a blueprint
 
 After you have created custom blueprints, you can start creating custom accounts in
 AWS Control Tower account factory.
 
-###### Follow these steps to deploy a custom blueprint when you're creating a new AWS
-
-account:
+###### Follow these steps to deploy a custom blueprint when you're creating a new AWS account:
 
 1. Go to AWS Control Tower in the AWS Management Console.
 2. Select **Account factory** and **Create
@@ -18,8 +14,7 @@ account:
 6. Expand the **Account factory customization** section.
 7. Enter the account ID of the blueprint hub account that contains your Service Catalog
    products and choose **Validate**. For more information about a
-   blueprint hub account, see [Customize accounts with Account Factory
-   Customization (AFC)](af-customization-page.md "af-customization-page.md").
+   blueprint hub account, see [Customize accounts with Account Factory Customization (AFC)](af-customization-page.md "af-customization-page.md").
 8. Select the dropdown menu that contains all blueprints from your Service Catalog Product
    List (all custom and partner blueprints). Choose a blueprint and corresponding
    version to deploy.

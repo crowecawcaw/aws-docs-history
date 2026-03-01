@@ -1,6 +1,4 @@
-# Automate Account Provisioning
-
-in AWS Control Tower by Service Catalog APIs
+# Automate Account Provisioning in AWS Control Tower by Service Catalog APIs
 
 AWS Control Tower is integrated with several other AWS services, such as AWS Service Catalog. You can use the
 APIs to create and provision your member accounts in AWS Control Tower.
@@ -111,9 +109,7 @@ Resources:
 After configuring these roles, you call the AWS Service Catalog APIs to perform the automated tasks.
 The CLI commands are given in the video.
 
-## Sample provisioning input for Service Catalog
-
-API
+## Sample provisioning input for Service Catalog API
 
 Here is a sample of the input you can give to the Service Catalog
 `ProvisionProduct` API if you're using the API to provision AWS Control Tower

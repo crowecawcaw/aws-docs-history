@@ -91,9 +91,7 @@ the target OU must be registered in AWS Control Tower.
     + The `BackupBaseline` is not applied to the management
      account.
 
-## Baseline types that may be applied on shared account
-
-during landing zone set up
+## Baseline types that may be applied on shared account during landing zone set up
 
 AWS Control Tower enables certain baselines on shared account, as
 part of the landing zone setup and update process. Baselines for your landing zone may

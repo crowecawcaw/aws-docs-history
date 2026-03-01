@@ -46,9 +46,7 @@ manually upload the configuration package, either to the Amazon S3 bucket or to 
 AWS CodeCommit repository. The pipeline begins automatically when you upload the
 configuration file.
 
-### Choose your pipeline
-
-configuration approval parameters
+### Choose your pipeline configuration approval parameters
 
 The AWS CloudFormation template provides the option to approve the deployment of
 configuration changes manually. By default, manual approval is not enabled. For more

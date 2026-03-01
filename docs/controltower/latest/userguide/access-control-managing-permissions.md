@@ -1,6 +1,4 @@
-# Using identity-based policies (IAM
-
-policies) for AWS Control Tower
+# Using identity-based policies (IAM policies) for AWS Control Tower
 
 This topic provides examples of identity-based policies that demonstrate how an account
 administrator can attach permissions policies to IAM identities (that is, users, groups,
@@ -10,8 +8,7 @@ and roles) and thereby grant permissions to perform operations on AWS Control To
 
 We recommend that you first review the introductory topics that explain the basic
 concepts and options available for you to manage access to your AWS Control Tower resources. For
-more information, see [Overview of managing access permissions to
-your AWS Control Tower resources](access-control-overview.md "access-control-overview.md").
+more information, see [Overview of managing access permissions to your AWS Control Tower resources](access-control-overview.md "access-control-overview.md").
 
 ## AWSControlTowerAdmin role
 
@@ -239,9 +236,7 @@ JSON
 
 ```
 
-## AWSControlTowerBlueprintAccess role
-
-requirements
+## AWSControlTowerBlueprintAccess role requirements
 
 AWS Control Tower requires you to create the `AWSControlTowerBlueprintAccess` role
 in the designated blueprint hub account, within the same organization.

@@ -9,19 +9,16 @@ home for your organizations and their accounts.
 You can have one landing zone per organization.
 
 For information about some best practices to follow when you plan and set up your landing
-zone, see [AWS multi-account strategy for your
-AWS Control Tower landing zone](aws-multi-account-landing-zone.md "aws-multi-account-landing-zone.md").
+zone, see [AWS multi-account strategy for your AWS Control Tower landing zone](aws-multi-account-landing-zone.md "aws-multi-account-landing-zone.md").
 
 ###### Ways to Set Up AWS Control Tower
 
 You can set up an AWS Control Tower landing zone in an existing organization, or you can start
 by creating a new organization that contains your AWS Control Tower landing zone.
 
-- [Launch AWS Control Tower in an Existing
-  Organization](#deploy-with-existing-orgs "#deploy-with-existing-orgs"): This section is for customers who
+- [Launch AWS Control Tower in an Existing Organization](#deploy-with-existing-orgs "#deploy-with-existing-orgs"): This section is for customers who
   have existing AWS Organizations ready to bring into governance by AWS Control Tower.
-- [Launch AWS Control Tower in a New
-  Organization](#fresh-deployment-no-existing-orgs "#fresh-deployment-no-existing-orgs"): This section is for
+- [Launch AWS Control Tower in a New Organization](#fresh-deployment-no-existing-orgs "#fresh-deployment-no-existing-orgs"): This section is for
   customers without existing AWS Organizations, OUs, and accounts.
 
 ###### Note
@@ -62,12 +59,9 @@ Special consideration: If you currently are using the [AWS Landing Zone solution
 AWS Organizations, check with your AWS solutions architect before you try to enable AWS Control Tower in
 your organization. AWS Control Tower cannot perform pre-checks that determine whether AWS Control Tower
 may interfere with your current landing zone deployment. For more information, see [Walkthrough: Move from ALZ to AWS Control Tower](alz-to-control-tower.md "alz-to-control-tower.md"). Also, for
-information about moving accounts from one landing zone to another, see [If the account does not meet the
-prerequisites](fulfill-prerequisites.md "fulfill-prerequisites.md")
+information about moving accounts from one landing zone to another, see [If the account does not meet the prerequisites](fulfill-prerequisites.md "fulfill-prerequisites.md")
 
-## Launch AWS Control Tower in an Existing
-
-Organization
+## Launch AWS Control Tower in an Existing Organization
 
 By setting up an AWS Control Tower landing zone in an existing organization, you can start
 working immediately, in parallel with your existing AWS Organizations environment. Your other OUs
@@ -96,9 +90,7 @@ When you set up your landing zone, the accounts added by AWS Control Tower becom
 existing AWS Organizations, and as such they become part of the billing for your existing
 organization.
 
-### Summary of
-
-capabilities
+### Summary of capabilities
 
 Enabling AWS Control Tower on an existing AWS Organizations organization provides several major
 enhancements to the organization.
@@ -123,9 +115,7 @@ To launch AWS Control Tower in your existing organization, follow the process ou
 For more information about how AWS Control Tower interacts with existing AWS Organizations organizations,
 see [Govern organizations and accounts with AWS Control Tower](existing-orgs.md "existing-orgs.md").
 
-## Launch AWS Control Tower in a New
-
-Organization
+## Launch AWS Control Tower in a New Organization
 
 If you're new to AWS Control Tower and you haven't worked with AWS Organizations, the best
 place to begin is with our [Setting up](setting-up.md "setting-up.md")

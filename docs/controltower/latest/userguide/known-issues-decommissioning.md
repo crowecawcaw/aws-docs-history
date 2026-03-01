@@ -1,6 +1,4 @@
-# Setup after decommissioning a landing
-
-zone
+# Setup after decommissioning a landing zone
 
 After you decommission your landing zone, you cannot successfully execute setup again
 until manual cleanup is complete. Also, without manual cleanup of these remaining
@@ -33,8 +31,7 @@ issues:
   are associated with an existing AWS account. You may close the AWS accounts,
   or use different email addresses to set up a landing zone again. Alternatively,
   you may re-use these existing shared accounts, with the feature that allows you
-  to bring your own logging and audit accounts. For more information, see [Considerations for
-  bringing existing security or logging accounts](accounts.md#considerations-for-existing-shared-accounts "accounts.md#considerations-for-existing-shared-accounts").
+  to bring your own logging and audit accounts. For more information, see [Considerations for bringing existing security or logging accounts](accounts.md#considerations-for-existing-shared-accounts "accounts.md#considerations-for-existing-shared-accounts").
 - Setup fails if Amazon S3 buckets with the following reserved names already exist in
   the logging account:
   - `aws-controltower-logs-`{accountId}`-`{region}``

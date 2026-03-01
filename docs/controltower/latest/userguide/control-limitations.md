@@ -37,12 +37,10 @@ controls](../controlreference/security-hub-controls.md "../controlreference/secu
 controls reference documentation](../../../securityhub/latest/userguide/securityhub-controls-reference.md "../../../securityhub/latest/userguide/securityhub-controls-reference.md").
 
 Control behavior also is limited in case of _mixed
-governance_. For more information, see [Avoid mixed governance when configuring
-Regions](mixed-governance.md "mixed-governance.md").
+governance_. For more information, see [Avoid mixed governance when configuring Regions](mixed-governance.md "mixed-governance.md").
 
 For more information about how AWS Control Tower manages the limitations of Regions and
-controls, see [Considerations for activating AWS
-opt-in Regions](opt-in-region-considerations.md "opt-in-region-considerations.md").
+controls, see [Considerations for activating AWS opt-in Regions](opt-in-region-considerations.md "opt-in-region-considerations.md").
 
 ###### Note
 

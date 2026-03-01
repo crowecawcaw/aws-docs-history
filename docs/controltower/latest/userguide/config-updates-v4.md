@@ -22,8 +22,7 @@
     in Regions governed by AWS Control Tower, update the Delivery Channels' S3 bucket name to the new S3 bucket
     with prefix `aws-controltower-config-logs-` in the AWS Config integration account to be consistent
     with AWS Control Tower configurations on landing zone 4.0. See more details in
-    [Enroll accounts that have existing AWS Config
-    resources](existing-config-resources.md "existing-config-resources.md").
+    [Enroll accounts that have existing AWS Config resources](existing-config-resources.md "existing-config-resources.md").
 
 - **AWS Config integration on landing zone version 4.0:** When migrating to landing zone 4.0 with AWS Config integration enabled, customers would see the following changes -
   1.  The existing Audit account is registered as a delegated admin for AWS Config.

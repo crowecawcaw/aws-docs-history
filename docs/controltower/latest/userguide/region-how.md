@@ -120,14 +120,12 @@ If you opt not to govern a Region, you can still deploy resources in that
 Region, but those resources will remain outside of AWS Control Tower
 governance. 6. Complete the rest of the workflow, then choose **Update landing
 zone**. 7. When the landing zone setup completes, **Re-register** the
-OUs to update the accounts in your new Regions. For more information, see [When to update AWS Control Tower OUs and
-accounts](update-existing-accounts.md "update-existing-accounts.md").
+OUs to update the accounts in your new Regions. For more information, see [When to update AWS Control Tower OUs and accounts](update-existing-accounts.md "update-existing-accounts.md").
 
 An alternative method of provisioning or updating individual accounts after
 configuring new Regions is by using [the API framework of Service Catalog](../../../servicecatalog/latest/dg/API_Reference.md "../../../servicecatalog/latest/dg/API_Reference.md")
 and [the AWS CLI](../../../cli/latest/reference/servicecatalog/index.md "../../../cli/latest/reference/servicecatalog/index.md") to update the accounts in a batch process. For more information,
-see [Provision and update accounts using
-automation](update-accounts-by-script.md "update-accounts-by-script.md").
+see [Provision and update accounts using automation](update-accounts-by-script.md "update-accounts-by-script.md").
 
 ## Considerations for the OU-level Region deny control
 

@@ -8,8 +8,7 @@ aspects of your AWS Control Tower landing zone are configurable. Other choices c
 - You can select your top-level OU names during setup, and you also can change
   OU names after you've set up your landing zone. By default, the top-level OUs
   are named **Security** and **Sandbox**. For
-  more information, see [Guidelines to set up a
-  well-architected environment](aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup "aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup").
+  more information, see [Guidelines to set up a well-architected environment](aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup "aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup").
 - During setup, you can select customized names for the shared accounts that
   AWS Control Tower creates, called **log archive** and
   **audit** by default, but you cannot change these names
@@ -29,8 +28,7 @@ aspects of your AWS Control Tower landing zone are configurable. Other choices c
   and log access bucket, when you set up or update your landing zone.
 - You can optionally specify a previously-defined _blueprint_ to use for provisioning customized member accounts
   from the AWS Control Tower console. You can customize accounts later if you do not have a
-  blueprint available. See [Customize accounts with Account Factory
-  Customization (AFC)](af-customization-page.md "af-customization-page.md").
+  blueprint available. See [Customize accounts with Account Factory Customization (AFC)](af-customization-page.md "af-customization-page.md").
 
 ###### Configuration choices that cannot be undone
 

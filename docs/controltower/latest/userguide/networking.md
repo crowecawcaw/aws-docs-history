@@ -12,12 +12,10 @@ information, see [AWS Control Catalog endpoints and quotas](../../../general/lat
 ###### Related topics
 
 - For information about how AWS Control Tower works when you enroll accounts that have
-  existing VPCs, see [Enroll existing accounts with
-  VPCs](enroll-account.md#enroll-existing-accounts-with-vpcs "enroll-account.md#enroll-existing-accounts-with-vpcs").
+  existing VPCs, see [Enroll existing accounts with VPCs](enroll-account.md#enroll-existing-accounts-with-vpcs "enroll-account.md#enroll-existing-accounts-with-vpcs").
 - With Account Factory, you can provision accounts that include an AWS Control Tower VPC, or you
   can provision accounts without a VPC. For information about how to delete the
-  AWS Control Tower VPC or configure AWS Control Tower accounts without a VPC, see [Walkthrough: Configure AWS Control Tower Without a
-  VPC](configure-without-vpc.md "configure-without-vpc.md").
+  AWS Control Tower VPC or configure AWS Control Tower accounts without a VPC, see [Walkthrough: Configure AWS Control Tower Without a VPC](configure-without-vpc.md "configure-without-vpc.md").
 - For information about how to change account settings for VPCs, see the [Account Factory documentation](account-factory.md#configuring-account-factory-with-VPC-settings "account-factory.md#configuring-account-factory-with-VPC-settings") on updating an account.
 - For more information about working with networking and VPCs in AWS Control Tower, see the
   section about [Networking](related-information.md#networking "related-information.md#networking") on the _Related

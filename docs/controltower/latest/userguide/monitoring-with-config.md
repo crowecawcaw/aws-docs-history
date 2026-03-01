@@ -34,9 +34,7 @@ supports Amazon CloudWatch metrics](https://aws.amazon.com/about-aws/whats-new/2
 Programmatically, to view AWS Config data, you can work with the AWS CLI, or you can utilize
 other AWS tools.
 
-### Query the AWS Config recorder data on a
-
-specific resource
+### Query the AWS Config recorder data on a specific resource
 
 You can use the AWS CLI to retrieve a list of the most recent changes for a
 resource.
@@ -49,12 +47,10 @@ resource.
 To learn more, see [the API
 documentation for `get-config-history`](../../../cli/latest/reference/configservice/get-resource-config-history.md "../../../cli/latest/reference/configservice/get-resource-config-history.md").
 
-### Visualize AWS Config data with
-
-Quick Suite
+### Visualize AWS Config data with Quick
 
 You can visualize and query resources recorded by AWS Config across your entire organization.
-For more information, see the [Config Resource Compliance Dashboard](https://catalog.workshops.aws/awscid/en-US/dashboards/additional/config-resource-compliance-dashboard "https://catalog.workshops.aws/awscid/en-US/dashboards/additional/config-resource-compliance-dashboard") and [Visualizing AWS Config data using Amazon Athena and Quick Suite](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/").
+For more information, see the [Config Resource Compliance Dashboard](https://catalog.workshops.aws/awscid/en-US/dashboards/additional/config-resource-compliance-dashboard "https://catalog.workshops.aws/awscid/en-US/dashboards/additional/config-resource-compliance-dashboard") and [Visualizing AWS Config data using Amazon Athena and Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/").
 
 ## Troubleshooting AWS Config in AWS Control Tower
 
@@ -77,27 +73,21 @@ For more information, see [Unmanage an enrolled
 account](unmanage-account.md "unmanage-account.md"). To learn how to deactivate the AWS Config recorder, see [Managing
 the configuration recorder](../../../config/latest/developerguide/stop-start-recorder.md "../../../config/latest/developerguide/stop-start-recorder.md").
 
-### The same resource is recorded multiple
-
-times
+### The same resource is recorded multiple times
 
 Check whether the resource is a [global resource](../../../config/latest/developerguide/select-resources.md "../../../config/latest/developerguide/select-resources.md"). For
 AWS Control Tower landing zones prior to version 3.0, AWS Config may record certain global resources once
 for each Region in which AWS Config is operating. For example, if AWS Config is enabled on eight
 Regions, each role is recorded eight times.
 
-###### The following resources are recorded once for each Region in which AWS Config is
-
-operating:
+###### The following resources are recorded once for each Region in which AWS Config is operating:
 
 - `AWS::IAM::Group`
 - `AWS::IAM::Policy`
 - `AWS::IAM::Role`
 - `AWS::IAM::User`
 
-###### Other global resources are recorded only once. Here are some examples of resources
-
-that are recorded once:
+###### Other global resources are recorded only once. Here are some examples of resources that are recorded once:
 
 - `AWS::Route53::HostedZone`
 - `AWS::Route53::HealthCheck`

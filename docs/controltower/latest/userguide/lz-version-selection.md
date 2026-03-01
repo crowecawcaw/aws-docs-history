@@ -43,14 +43,11 @@ procedure**
    easiest way to do the account updates is by a **Re-register OU**
    process for each of your registered OUs.
 
-## Account updates, landing zone versions,
-
-and baselines
+## Account updates, landing zone versions, and baselines
 
 AWS Control Tower landing zones are AWS resources that correspond to a set of baseline
 configurations. There is not a one-to-one mapping of baselines and landing zone
-versions. You can view a table that shows [Compatibility of OU baselines and landing zone
-versions](table-of-baselines.md "table-of-baselines.md").
+versions. You can view a table that shows [Compatibility of OU baselines and landing zone versions](table-of-baselines.md "table-of-baselines.md").
 
 When you jump a baseline version, you must update accounts after your landing zone
 update. For example, when upgrading from 3.1 to 3.2, you would not need to update your
@@ -60,5 +57,4 @@ In contrast, if you upgrade from 3.1 to 3.3, you would have to update accounts,
 because the baseline version is 4.0, which encompasses 3.2 to 3.3.
 
 For more information about the relationship between landing zone versions and
-baselines, see [Compatibility of OU baselines and landing zone
-versions](table-of-baselines.md "table-of-baselines.md").
+baselines, see [Compatibility of OU baselines and landing zone versions](table-of-baselines.md "table-of-baselines.md").

@@ -83,9 +83,7 @@ The supported formats for specifying `ManagedOrganizationalUnit` in
 the **aft-account-request** repository include
 `OUName` and `OUName (OU-ID)`.
 
-## Update an account that AFT
-
-doesn't provision
+## Update an account that AFT doesn't provision
 
 You can update AWS Control Tower accounts created outside of AFT by specifying the
 account in the **aft-account-request** repository.

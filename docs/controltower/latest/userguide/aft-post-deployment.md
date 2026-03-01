@@ -7,8 +7,7 @@ complete the setup process and get ready to provision accounts.
 provider**
 
 If you choose a third-party VCS provider, AFT establishes CodeConnections, and you confirm them.
-Refer to [Alternatives for version control of source code in
-AFT](aft-alternative-vcs.md "aft-alternative-vcs.md") to
+Refer to [Alternatives for version control of source code in AFT](aft-alternative-vcs.md "aft-alternative-vcs.md") to
 learn how to set up AFT with your preferred VCS.
 
 The initial step of establishing the AWS CodeStar connection is accomplished by AFT. You
@@ -26,8 +25,7 @@ AFT requires that you manage [four repositories:](https://github.com/aws-ia/terr
    customizations that are applied to all accounts created by and managed with AFT,
    before beginning the global customizations stage. [Examples available](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-account-provisioning-customizations "https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-account-provisioning-customizations")
    . To create AFT
-   account provisioning customizations, see [Create your AFT account provisioning
-   customizations state machine](aft-provisioning-framework.md#aft-create-customizations "aft-provisioning-framework.md#aft-create-customizations").
+   account provisioning customizations, see [Create your AFT account provisioning customizations state machine](aft-provisioning-framework.md#aft-create-customizations "aft-provisioning-framework.md#aft-create-customizations").
 3. Global customizations – This repository manages customizations that are
    applied to all accounts created by and managed with AFT. [Examples available](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-global-customizations "https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-global-customizations")
    . To create AFT global

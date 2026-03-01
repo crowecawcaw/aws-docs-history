@@ -31,8 +31,7 @@ If you specify existing AWS accounts as your **audit** and
 pre-launch checks to ensure that no resources are in conflict with AWS Control Tower
 requirements. If these checks are not successful, your landing zone setup may not
 succeed. In particular, the accounts must not have existing AWS Config resources. For more
-information, see [Considerations for
-bringing existing security or logging accounts](accounts.md#considerations-for-existing-shared-accounts "accounts.md#considerations-for-existing-shared-accounts").
+information, see [Considerations for bringing existing security or logging accounts](accounts.md#considerations-for-existing-shared-accounts "accounts.md#considerations-for-existing-shared-accounts").
 
 For the sake of clarity, this _User Guide_ always
 refers to the shared accounts by their default names: **log archive**

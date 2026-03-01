@@ -2,8 +2,7 @@
 
 This section shows the resources that AWS Control Tower creates in the shared accounts, when you set up your landing zone.
 
-For information about member account resources, see [Resource Considerations for
-Account Factory](account-factory-considerations.md "account-factory-considerations.md").
+For information about member account resources, see [Resource Considerations for Account Factory](account-factory-considerations.md "account-factory-considerations.md").
 
 ## Management account resources
 

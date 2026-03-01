@@ -1,6 +1,4 @@
-# Enroll accounts that have existing AWS Config
-
-resources
+# Enroll accounts that have existing AWS Config resources
 
 This topic provides a step-by-step approach for how to enroll accounts that have existing
 AWS Config resources. For examples of how to check your existing resources, see [Enroll accounts with AWS Config resources](enroll-account.md#example-config-cli-commands "enroll-account.md#example-config-cli-commands").
@@ -58,9 +56,7 @@ resources, see [Automate enrollment of accounts with existing AWS Config resourc
 4. Create AWS Config resources in AWS Regions where they don't exist.
 5. Enroll the account with AWS Control Tower.
 
-###### Before you proceed, consider the following expectations regarding this
-
-process.
+###### Before you proceed, consider the following expectations regarding this process.
 
 - AWS Control Tower does not create any AWS Config resources in this account.
 - After enrollment, AWS Control Tower controls automatically protect the AWS Config resources you
@@ -88,9 +84,7 @@ AWS Control Tower_
 The required time for adding your account to the allow list is 2 business
 days.
 
-## Step 2: Create a new IAM role in the member
-
-account
+## Step 2: Create a new IAM role in the member account
 
 1. Open the CloudFormation console for the member account.
 2. Create a new stack using the following template
@@ -134,25 +128,19 @@ Follow these guidelines so that you don't receive an
 `AccessDeniedException` when you have SCPs that block
 `aws-controltower-ConfigRecorderRole*` from calling Config.
 
-## Step 3: Identify the AWS Regions with
-
-pre-existing resources
+## Step 3: Identify the AWS Regions with pre-existing resources
 
 For each governed Region (AWS Control Tower governed) in the account, identify and note the
 Regions that have at least one of the existing AWS Config resource example types shown
 previously.
 
-## Step 4: Identify the AWS Regions without any
-
-AWS Config resources
+## Step 4: Identify the AWS Regions without any AWS Config resources
 
 For each governed Region (AWS Control Tower governed) in the account, identify and note the
 Regions in which there are no AWS Config resources of the example types shown
 previously.
 
-## Step 5: Modify the existing resources in each
-
-AWS Region
+## Step 5: Modify the existing resources in each AWS Region
 
 For this step, the following information is needed about your AWS Control Tower setup.
 
@@ -177,9 +165,7 @@ For this step, the following information is needed about your AWS Control Tower 
 Modify each existing resource by following the instructions given in sections 5a
 through 5c, which follow.
 
-## Step 5a. AWS Config recorder
-
-resources
+## Step 5a. AWS Config recorder resources
 
 Only one AWS Config recorder can exist per AWS Region. If one exists, modify the settings
 as shown. Replace the item `GLOBAL_RESOURCE_RECORDING` with
@@ -204,9 +190,7 @@ aws configservice put-configuration-recorder --configuration-recorder  name=`REC
 
 ```
 
-## Step 5b. Modify AWS Config delivery
-
-channel resources
+## Step 5b. Modify AWS Config delivery channel resources
 
 Only one AWS Config delivery channel can exist per Region. If another exists, modify the
 settings as shown.
@@ -230,9 +214,7 @@ aws configservice put-delivery-channel --delivery-channel name=`DELIVERY_CHANNEL
 
 ```
 
-## Step 5c. Modify AWS Config aggregation
-
-authorization resources
+## Step 5c. Modify AWS Config aggregation authorization resources
 
 ###### Note
 
@@ -255,9 +237,7 @@ command:
 `HOME_REGION`--region
 `CURRENT_REGION``
 
-## Step 6: Create resources where they don’t
-
-exist, in Regions governed by AWS Control Tower
+## Step 6: Create resources where they don’t exist, in Regions governed by AWS Control Tower
 
 Revise the CloudFormation template, so that in your home Region the
 **IncludeGlobalResourcesTypes** parameter has the value

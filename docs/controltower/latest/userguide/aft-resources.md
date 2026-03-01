@@ -1,6 +1,4 @@
-# Resource considerations for AWS Control Tower Account Factory for
-
-Terraform
+# Resource considerations for AWS Control Tower Account Factory for Terraform
 
 When you set up your landing zone using AWS Control Tower Account Factory for Terraform, several
 types of AWS resources are created within your AWS accounts.

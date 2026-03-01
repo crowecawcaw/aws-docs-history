@@ -18,8 +18,7 @@ specialized use cases.
 AWS Control Tower console, and it automates the customization and deployment of your accounts. It
 allows console-based, automated provisioning, after some one-time setup steps, which
 eliminates the need to write scripts or set up pipelines. For more information, see
-[Customize accounts with Account Factory
-Customization (AFC)](af-customization-page.md "af-customization-page.md").
+[Customize accounts with Account Factory Customization (AFC)](af-customization-page.md "af-customization-page.md").
 
 ###### Automatic enrollment
 
@@ -46,8 +45,7 @@ more information, see [Move and enroll accounts with auto-enrollment](account-au
   [Automated Account Provisioning with IAM Roles](roles-how.md#stacksets-and-roles "roles-how.md#stacksets-and-roles").
 - **Terraform:** From the AWS Control Tower Account Factory
   for Terraform (AFT), which relies on Account Factory and a GitOps model to allow
-  automation of account provisioning and updating. See [Provision accounts with AWS Control Tower Account Factory
-  for Terraform (AFT)](taf-account-provisioning.md "taf-account-provisioning.md") .
+  automation of account provisioning and updating. See [Provision accounts with AWS Control Tower Account Factory for Terraform (AFT)](taf-account-provisioning.md "taf-account-provisioning.md").
 - Through automated enrollment, by moving an existing account into an OU using APIs. See [Move and enroll accounts with auto-enrollment](account-auto-enrollment.md "account-auto-enrollment.md")
 - **Account Factory customization in the AWS Control Tower
   console:** After the setup steps, future provisioning of customized

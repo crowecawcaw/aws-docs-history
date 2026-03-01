@@ -1,6 +1,4 @@
-# Manage access to
-
-resources
+# Manage access to resources
 
 A _permissions policy_ describes who has access to what. The
 following section explains the available options for creating permissions
@@ -26,14 +24,11 @@ AWS Control Tower supports only identity-based policies (IAM policies).
 
 ###### Topics
 
-- [About
-  identity-based policies (IAM policies)](#access-control-manage-access-intro-iam-policies "#access-control-manage-access-intro-iam-policies")
+- [About identity-based policies (IAM policies)](#access-control-manage-access-intro-iam-policies "#access-control-manage-access-intro-iam-policies")
 - [Create roles and assign permissions](assign-permissions.md "assign-permissions.md")
 - [Resource-based policies](#access-control-manage-access-intro-resource-policies "#access-control-manage-access-intro-resource-policies")
 
-## About
-
-identity-based policies (IAM policies)
+## About identity-based policies (IAM policies)
 
 You can attach policies to IAM identities. For example, you can do the
 following:

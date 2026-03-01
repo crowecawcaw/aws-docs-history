@@ -1,6 +1,4 @@
-# Optionally configure
-
-AWS KMS keys
+# Optionally configure AWS KMS keys
 
 If you wish to encrypt and decrypt your resources with an AWS KMS encryption
 key, select the checkbox. If you have existing keys, you'll be able to select

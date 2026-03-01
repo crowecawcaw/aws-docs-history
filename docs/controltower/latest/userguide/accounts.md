@@ -18,12 +18,9 @@ to become a member account.
 AWS Control Tower orchestrates the deployment of these resources on your behalf. It may require
 several minutes per resource to complete the deployment, so consider the total time before
 you create or enroll an account. For more information about managing resources in your
-accounts, see [Guidance for creating and modifying AWS Control Tower
-resources](getting-started-guidance.md "getting-started-guidance.md").
+accounts, see [Guidance for creating and modifying AWS Control Tower resources](getting-started-guidance.md "getting-started-guidance.md").
 
-## What happens when AWS Control Tower creates an
-
-account
+## What happens when AWS Control Tower creates an account
 
 New accounts in AWS Control Tower are created and then provisioned by an interaction among
 AWS Control Tower, AWS Organizations, and AWS Service Catalog. You can create accounts and enroll existing accounts from the AWS Control Tower console. For detailed steps to enroll an existing AWS account using
@@ -44,9 +41,7 @@ the AWS Control Tower console, see [Enroll an existing account from the AWS Cont
 6. When the workflow in AWS Control Tower is complete, Service Catalog finalizes the account's state
    and informs you (the requester) of the result.
 
-## Considerations for
-
-bringing existing security or logging accounts
+## Considerations for bringing existing security or logging accounts
 
 Before accepting an AWS account as a security (default name: **Audit**) or logging (default name: **Log archive**) account, AWS Control Tower
 checks the account for resources that conflict with AWS Control Tower requirements. For

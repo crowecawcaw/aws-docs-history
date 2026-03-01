@@ -25,8 +25,7 @@ policies.
 In short, AWS Control Tower offers the easiest way to set up and govern a secure, compliant,
 multi-account AWS environment based on best practices established by working with thousands of
 enterprises. For more information about working with AWS Control Tower and the best practices outlined
-in the AWS multi-account strategy, see [AWS multi-account strategy: Best practices
-guidance](aws-multi-account-landing-zone.md#multi-account-guidance "aws-multi-account-landing-zone.md#multi-account-guidance").
+in the AWS multi-account strategy, see [AWS multi-account strategy: Best practices guidance](aws-multi-account-landing-zone.md#multi-account-guidance "aws-multi-account-landing-zone.md#multi-account-guidance").
 
 ## Features
 
@@ -85,8 +84,7 @@ AWS](https://aws.amazon.com//blogs/mt/how-to-take-advantage-of-aws-control-tower
 If you’re a first-time user of this service, we recommend that you read the
 following:
 
-1. If you need more information about how to plan and organize your landing zone, see [Plan your AWS Control Tower landing zone](planning-your-deployment.md "planning-your-deployment.md") and [AWS multi-account strategy for your
-   AWS Control Tower landing zone](aws-multi-account-landing-zone.md "aws-multi-account-landing-zone.md").
+1. If you need more information about how to plan and organize your landing zone, see [Plan your AWS Control Tower landing zone](planning-your-deployment.md "planning-your-deployment.md") and [AWS multi-account strategy for your AWS Control Tower landing zone](aws-multi-account-landing-zone.md "aws-multi-account-landing-zone.md").
 2. If you’re ready to create your first landing zone, see [Getting started with AWS Control Tower](getting-started-with-control-tower.md "getting-started-with-control-tower.md").
 3. For information on drift detection and prevention, see [Detect and resolve drift in AWS Control Tower](drift.md "drift.md").
 4. For security details, see [Security in AWS Control Tower](security.md "security.md").

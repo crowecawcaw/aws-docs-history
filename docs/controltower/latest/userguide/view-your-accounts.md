@@ -30,8 +30,7 @@ meets the prerequisites for enrollment.
 - **Enrolled** – The account is governed by the controls
   configured for its parent OU. It is fully managed by AWS Control Tower.
 - **Enrollment failed** – The account could not be
-  enrolled in AWS Control Tower. For more information, see [Common causes for failure of
-  enrollment](quick-account-provisioning.md#common-causes-for-enrollment-failure "quick-account-provisioning.md#common-causes-for-enrollment-failure").
+  enrolled in AWS Control Tower. For more information, see [Common causes for failure of enrollment](quick-account-provisioning.md#common-causes-for-enrollment-failure "quick-account-provisioning.md#common-causes-for-enrollment-failure").
 - **Update available** – The account has an update
   available. Accounts in this state are still **Enrolled**, but
   the account must be updated to reflect recent changes made to your environment.

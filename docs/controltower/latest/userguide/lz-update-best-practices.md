@@ -21,9 +21,7 @@ It is a best practice to update to the latest version of the landing zone.
 - **Best practice:** When operating your AWS Control Tower
   environment, set up a testing environment.
 
-###### Benefits for moving from 2.x landing zone versions to 3.x landing zone
-
-versions
+###### Benefits for moving from 2.x landing zone versions to 3.x landing zone versions
 
 - Record AWS Config resources only in the home Region, which creates cost savings when you
   manage global resources

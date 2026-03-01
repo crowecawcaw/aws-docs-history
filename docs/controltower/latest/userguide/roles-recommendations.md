@@ -1,6 +1,4 @@
-# Recommendations for setting up groups, roles, and
-
-policies
+# Recommendations for setting up groups, roles, and policies
 
 As you set up your landing zone, it's a good idea to decide ahead of time which users will
 require access to certain accounts and why. For example, a security account should be accessible

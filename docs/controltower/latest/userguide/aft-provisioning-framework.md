@@ -30,9 +30,7 @@ accounts have details in place, before the [Account customizations](aft-account-
 10. Sends a success or failure notification to the SNS topic, from which you can
     retrieve the messages.
 
-## Set up the account provisioning framework
-
-customizations with a state machine
+## Set up the account provisioning framework customizations with a state machine
 
 If you set up custom, non-Terraform integrations before you provision your accounts,
 these customizations are included in your AFT account provisioning workflow. For
@@ -64,8 +62,7 @@ Here are some common integrations.
 
 If no AWS Step Functions state machine is defined, the stage passes with a no-op. To
 create an AFT account provisioning customizations state machine, follow the instructions
-in [Create your AFT account provisioning
-customizations state machine](#aft-create-customizations "#aft-create-customizations"). Before you add customizations, be sure you have the prerequisites in place.
+in [Create your AFT account provisioning customizations state machine](#aft-create-customizations "#aft-create-customizations"). Before you add customizations, be sure you have the prerequisites in place.
 
 These types of integrations are not part of AWS Control Tower, and they cannot be added during
 the global pre-API stage of AFT account customization. Instead, the AFT pipeline allows
@@ -81,9 +78,7 @@ stage, as described in the following sections.
 - Set up a `git` repository in your environment for AFT account
   provisioning customizations. See [Post-deployment steps](aft-post-deployment.md "aft-post-deployment.md") for more information.
 
-## Create your AFT account provisioning
-
-customizations state machine
+## Create your AFT account provisioning customizations state machine
 
 **Step 1: Modify the state machine definition**
 

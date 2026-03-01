@@ -58,5 +58,4 @@ creating, deleting, or re-registering an OU.
 
 - You can create AWS Control Tower member accounts that are customized, and you can
   update existing member accounts to add customizations, from the AWS Control Tower
-  console. For more information, see [Customize accounts with Account Factory
-  Customization (AFC)](af-customization-page.md "af-customization-page.md").
+  console. For more information, see [Customize accounts with Account Factory Customization (AFC)](af-customization-page.md "af-customization-page.md").

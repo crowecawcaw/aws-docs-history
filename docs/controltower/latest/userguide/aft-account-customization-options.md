@@ -27,15 +27,12 @@ provisioned accounts, you can leverage the account customizations portion of the
 pipeline to implement account-specific configurations. For example, only a certain
 account may require access to an internet gateway.
 
-## Customization
-
-prerequisites
+## Customization prerequisites
 
 Before you begin to customize accounts, be sure these prerequisites are in
 place.
 
-- A fully deployed AFT. For information about how to deploy, see [Configure and launch your AWS Control Tower Account Factory
-  for Terraform](aft-getting-started.md#aft-configure-and-launch "aft-getting-started.md#aft-configure-and-launch").
+- A fully deployed AFT. For information about how to deploy, see [Configure and launch your AWS Control Tower Account Factory for Terraform](aft-getting-started.md#aft-configure-and-launch "aft-getting-started.md#aft-configure-and-launch").
 - Pre-populated `git` repositories for global customizations and
   account customizations in your environment. See _Step 3:
   Populate each repository_ in [Post-deployment steps](aft-post-deployment.md "aft-post-deployment.md") for more information.

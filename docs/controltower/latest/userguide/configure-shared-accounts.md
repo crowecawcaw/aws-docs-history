@@ -1,6 +1,4 @@
-# Step 2c. Configure your shared
-
-accounts, logging, and encryption
+# Step 2c. Configure your shared accounts, logging, and encryption
 
 In this section of the setup process, the panel shows the default selections for
 the names of your shared AWS Control Tower accounts. These accounts are an essential part of

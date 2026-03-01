@@ -3,9 +3,7 @@
 You can enable backups for resources in your accounts that are enrolled in AWS Control Tower,
 either during landing zone setup, or when you update your landing zone.
 
-###### As [Prerequisites](backup-prerequisites.md "backup-prerequisites.md"),
-
-you must provide the following items
+###### As [Prerequisites](backup-prerequisites.md "backup-prerequisites.md"), you must provide the following items
 
 - An AWS account to serve as the AWS Backup Administrator account
 - An AWS account to serve as the AWS Backup Central Backup account
@@ -16,9 +14,7 @@ The enablement process has two main parts: _first_, enable backups
 for your landing zone; _then_, enable backups for each registered OU
 that requires backups.
 
-## First part: Set up backups for your landing
-
-zone
+## First part: Set up backups for your landing zone
 
 **Console:** You can set up backups for your landing zone in the
 AWS Control Tower console, on the **Landing zone settings** page. You'll see
@@ -37,9 +33,7 @@ Part of enabling backups for your landing zone includes a step outside of the
 AWS Control Tower console. You must navigate to the AWS Backup console to review your
 resources.
 
-###### To review your opted-in resource types or opt-in to additional resource
-
-types
+###### To review your opted-in resource types or opt-in to additional resource types
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. In the navigation pane, choose **Settings**.
@@ -103,9 +97,7 @@ To enable the `BackupBaseline` on an OU, that OU must have the
 `AWSControlTowerBaseline` enabled already. Enrolled accounts in each
 OU have the `AWSControlTowerBaseline` enabled.
 
-###### In your selected accounts and OUs, AWS Control Tower sets up additional
-
-resources
+###### In your selected accounts and OUs, AWS Control Tower sets up additional resources
 
 - **A local Backup vault**
 

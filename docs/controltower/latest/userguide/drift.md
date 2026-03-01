@@ -140,8 +140,7 @@ avoid:
   `AWSControlTowerCloudTrailRole`
   `AWSControlTowerStackSetRole`.
 
-For more information about these roles, see [Permissions Required to use
-the AWS Control Tower console](additional-console-required-permissions.md "additional-console-required-permissions.md").
+For more information about these roles, see [Permissions Required to use the AWS Control Tower console](additional-console-required-permissions.md "additional-console-required-permissions.md").
 
 - _Don't delete all Additional OUs:_ At least one Additional OU is required
   for AWS Control Tower to operate, but it doesn’t have to be the
@@ -154,9 +153,7 @@ the AWS Control Tower console](additional-console-required-permissions.md "addit
 
 As a best practice, do not move these shared accounts out of the Foundational OU.
 
-## Repairable changes to
-
-resources
+## Repairable changes to resources
 
 Here's a list of changes to AWS Control Tower resources that are permitted, although they
 create _resolvable drift_. Results of these permitted operations are
@@ -183,7 +180,7 @@ Moving accounts between OUs is considered drift, and it must be resolved.
 
 If your landing zone is in a state of drift, the **Enroll account**
 feature in AWS Control Tower will not work. In that case, you must provision new accounts through
-AWS Service Catalog. For instructions, see [Provision accounts in the Service Catalog console, with Account Factory](provision-as-end-user.md "provision-as-end-user.md") .
+AWS Service Catalog. For instructions, see [Provision accounts in the Service Catalog console, with Account Factory](provision-as-end-user.md "provision-as-end-user.md").
 
 In particular, if you've made certain changes to your accounts by means of Service Catalog, such
 as changing the name of your portfolio, the **Enroll account** feature

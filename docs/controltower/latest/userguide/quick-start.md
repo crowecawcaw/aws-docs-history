@@ -1,7 +1,7 @@
 # AWS Control Tower quick start guide
 
 If you are new to AWS, you can follow the steps in this section to get started quickly
-with AWS Control Tower. If you prefer to customize your AWS Control Tower environment right away, see [Step 2. Configure and launch your landing zone](step-two.md "step-two.md") .
+with AWS Control Tower. If you prefer to customize your AWS Control Tower environment right away, see [Step 2. Configure and launch your landing zone](step-two.md "step-two.md").
 
 ###### Note
 
@@ -15,7 +15,7 @@ costs are created by AWS Control Tower itself.
 The most important decision to make before you begin the setup process is to _choose your home Region_. Your home Region is the AWS Region
 in which you'll run most of your workloads or store most of your data. It cannot be changed
 after you've set up your AWS Control Tower landing zone. For more information about how to choose a home
-Region, see [Administrative tips for landing zone setup](tips-for-admin-setup.md "tips-for-admin-setup.md") .
+Region, see [Administrative tips for landing zone setup](tips-for-admin-setup.md "tips-for-admin-setup.md").
 
 ###### Note
 
@@ -25,7 +25,7 @@ management console screen.
 
 The quick start procedure assumes that you'll accept the default values for the resources
 in your AWS Control Tower environment. Many of these choices can be changed later. A few one-time
-choices are listed in the section called [Expectations for landing zone configuration](getting-started-configure.md "getting-started-configure.md") .
+choices are listed in the section called [Expectations for landing zone configuration](getting-started-configure.md "getting-started-configure.md").
 
 If you've created a new AWS account, it automatically meets the required prerequisites
 for setting up AWS Control Tower. You can proceed through the steps that follow.

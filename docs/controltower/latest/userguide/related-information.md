@@ -79,9 +79,7 @@ Deploy and manage resources and workloads.
   describes Getting Started portfolios you can use.
 - [Continuous deployment of Cloud Custodian to AWS Control Tower](https://aws.amazon.com/blogs/opensource/continuous-deployment-of-cloud-custodian-to-aws-control-tower/ "https://aws.amazon.com/blogs/opensource/continuous-deployment-of-cloud-custodian-to-aws-control-tower/")
 
-## Working with existing organizations and
-
-accounts
+## Working with existing organizations and accounts
 
 Work with existing AWS organizations and accounts.
 

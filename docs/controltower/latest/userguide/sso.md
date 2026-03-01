@@ -31,9 +31,7 @@ Identity Center. If you choose to use this feature, be aware that Administrators
 access to manage group membership _also_ can manage groups assigned
 to the management account. For more information, see this blog post, entitled, [Getting started with AWS SSO delegated administration](https://aws.amazon.com/blogs//security/getting-started-with-aws-sso-delegated-administration/ "https://aws.amazon.com/blogs//security/getting-started-with-aws-sso-delegated-administration/")
 
-## Things to know about IAM Identity Center accounts and
-
-AWS Control Tower
+## Things to know about IAM Identity Center accounts and AWS Control Tower
 
 Here are some good things to know when working with IAM Identity Center user accounts in
 AWS Control Tower.

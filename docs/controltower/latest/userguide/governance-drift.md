@@ -109,16 +109,14 @@ with up to 1000 accounts, you can resolve it by:
 - Navigating to the **Organization** page in the
   AWS Control Tower console, then choosing **Re-register** for the
   OU that contains the account (fastest option for multiple accounts). For
-  more information, see [Register an existing organizational unit with
-  AWS Control Tower](importing-existing.md "importing-existing.md").
+  more information, see [Register an existing organizational unit with AWS Control Tower](importing-existing.md "importing-existing.md").
 - Updating the provisioned product in Account Factory. For more information,
   see [Update and move accounts with AWS Control Tower](updating-account-factory-accounts.md "updating-account-factory-accounts.md").
 
 ###### Note
 
 If you have several individual accounts to update, also see this
-method for making updates with a script: [Provision and update accounts using
-automation](update-accounts-by-script.md "update-accounts-by-script.md").
+method for making updates with a script: [Provision and update accounts using automation](update-accounts-by-script.md "update-accounts-by-script.md").
 
 - When this type of drift occurs in an OU with more than 1000 accounts,
   the drift resolution may depend on which type of account has been moved,
@@ -212,8 +210,7 @@ resolve it by:
 
 - Navigating to the **Organization** page in the
   AWS Control Tower console to re-register the OU (fastest option). For more
-  information, see [Register an existing organizational unit with
-  AWS Control Tower](importing-existing.md "importing-existing.md").
+  information, see [Register an existing organizational unit with AWS Control Tower](importing-existing.md "importing-existing.md").
 - Updating your landing zone (slower option). For more information, see [Update your landing zone](update-controltower.md "update-controltower.md").
 
 When this type of drift occurs in an OU with more than 1000 accounts, resolve
@@ -246,8 +243,7 @@ When this type of drift occurs in an OU with up to 1000 accounts, you can
 resolve it by:
 
 - Navigating to the OU in the AWS Control Tower console to re-register the OU
-  (fastest option). For more information, see [Register an existing organizational unit with
-  AWS Control Tower](importing-existing.md "importing-existing.md").
+  (fastest option). For more information, see [Register an existing organizational unit with AWS Control Tower](importing-existing.md "importing-existing.md").
 - Updating your landing zone (slower option). If the drift is affecting a
   mandatory control, the update process creates a new service control
   policy (SCP) and attaches it to the OU to resolve the drift. For more

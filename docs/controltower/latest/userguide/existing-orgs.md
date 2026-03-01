@@ -44,6 +44,5 @@ video to enlarge it to full screen. Captioning is available.
 
 ## Topics
 
-- [Register an existing organizational unit with
-  AWS Control Tower](importing-existing.md "importing-existing.md")
+- [Register an existing organizational unit with AWS Control Tower](importing-existing.md "importing-existing.md")
 - [About enrolling existing accounts](enroll-account.md "enroll-account.md")

@@ -1,6 +1,4 @@
-# Extend governance to an existing
-
-organization
+# Extend governance to an existing organization
 
 You can add AWS Control Tower governance to an existing organization by setting up a landing zone
 (LZ) as outlined in the AWS Control Tower User Guide at [Getting Started, Step 2](getting-started-with-control-tower.md#step-two "getting-started-with-control-tower.md#step-two").
@@ -39,8 +37,7 @@ up:
   accounts that you create outside of AWS Control Tower, are not bound by AWS Control Tower
   controls, unless you separately register the OU or enroll the account.
   For more information about how to apply AWS Control Tower to existing OUs and accounts, see
-  [Register an existing organizational unit with
-  AWS Control Tower](importing-existing.md "importing-existing.md").
+  [Register an existing organizational unit with AWS Control Tower](importing-existing.md "importing-existing.md").
 
 For an overview of the process of setting up an AWS Control Tower landing zone in your existing
 organization, see the video in the next section.
@@ -51,21 +48,16 @@ During set up, AWS Control Tower performs pre-checks to avoid common issues. How
 you are currently using the AWS Landing Zone solution for AWS Organizations, check with
 your AWS solutions architect before you try to enable AWS Control Tower in your
 organization to determine if AWS Control Tower may interfere with your current landing zone
-deployment. Also, see [If the account does not meet the
-prerequisites](fulfill-prerequisites.md "fulfill-prerequisites.md") for information about moving accounts
+deployment. Also, see [If the account does not meet the prerequisites](fulfill-prerequisites.md "fulfill-prerequisites.md") for information about moving accounts
 from one landing zone to another.
 
-## Video: Enable a Landing Zone in existing
-
-AWS Organizations
+## Video: Enable a Landing Zone in existing AWS Organizations
 
 This video (7:48), describes how to set up and enable an AWS Control Tower landing zone in
 existing AWS Organizations structures. For better viewing, select the icon at the lower right
 corner of the video to enlarge it to full screen. Captioning is available.
 
-## Considerations for IAM Identity Center and existing
-
-organizations
+## Considerations for IAM Identity Center and existing organizations
 
 - If AWS IAM Identity Center (IAM Identity Center) is already set up, the AWS Control Tower home Region must be
   the same as the IAM Identity Center Region.
@@ -74,8 +66,7 @@ organizations
   AWS Control Tower adds resources such as permission sets, groups, and so forth, and
   proceeds as usual.
 - If another directory (external, AD, Managed AD) is set up, AWS Control Tower does
-  not change the existing configuration. For more details, see [Considerations for AWS IAM Identity Center (IAM Identity Center)
-  customers](getting-started-prereqs.md#sso-considerations "getting-started-prereqs.md#sso-considerations").
+  not change the existing configuration. For more details, see [Considerations for AWS IAM Identity Center (IAM Identity Center) customers](getting-started-prereqs.md#sso-considerations "getting-started-prereqs.md#sso-considerations").
 
 ## Access to other AWS services
 

@@ -1,6 +1,4 @@
-# The AWSControlTowerExecution role,
-
-explained
+# The AWSControlTowerExecution role, explained
 
 The `AWSControlTowerExecution` role must be present in all enrolled
 accounts. It allows AWS Control Tower to manage your individual accounts and report
@@ -30,8 +28,7 @@ Purpose of the `AWSControlTowerExecution` role:
   the logging account.
 - `AWSControlTowerExecution` allows you to enroll an individual account in AWS Control Tower. First, you must add the
   `AWSControlTowerExecution` role to that account. For steps on
-  how to add the role, see [Manually add the required IAM role to an existing
-  AWS account and enroll it](enroll-manually.md "enroll-manually.md").
+  how to add the role, see [Manually add the required IAM role to an existing AWS account and enroll it](enroll-manually.md "enroll-manually.md").
   How the `AWSControlTowerExecution` role works with OUs:
 
 The `AWSControlTowerExecution` role

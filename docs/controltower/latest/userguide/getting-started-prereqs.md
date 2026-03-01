@@ -1,6 +1,4 @@
-# Prerequisite: Automated pre-launch checks for
-
-your management account
+# Prerequisite: Automated pre-launch checks for your management account
 
 Before AWS Control Tower sets up the landing zone, it automatically runs a series of pre-launch
 checks in your account. There's no action required on your part for these checks, which
@@ -25,9 +23,7 @@ Here are the checks that AWS Control Tower runs before setting up a landing zone
 
 By default, all accounts are subscribed to these services.
 
-## Considerations for AWS IAM Identity Center (IAM Identity Center)
-
-customers
+## Considerations for AWS IAM Identity Center (IAM Identity Center) customers
 
 - If AWS IAM Identity Center (IAM Identity Center) is already set up, the AWS Control Tower home Region must be
   the same as the IAM Identity Center Region.
@@ -54,12 +50,9 @@ customers
     groups in your external IdP to match the names of the default groups
     in AWS Control Tower. When you assign users to these groups, these users will
     have access to your enrolled accounts.
-    For more information about working with IAM Identity Center and AWS Control Tower see [Things to know about IAM Identity Center accounts and
-    AWS Control Tower](sso.md#sso-good-to-know "sso.md#sso-good-to-know")
+    For more information about working with IAM Identity Center and AWS Control Tower see [Things to know about IAM Identity Center accounts and AWS Control Tower](sso.md#sso-good-to-know "sso.md#sso-good-to-know")
 
-### Considerations for AWS Config
-
-and AWS CloudTrail customers
+### Considerations for AWS Config and AWS CloudTrail customers
 
 - The AWS account cannot have trusted access enabled in the
   organization
@@ -73,8 +66,7 @@ access](../../../organizations/latest/userguide/orgs_integrate_services.md#orgs_
   AWS Control Tower, you must modify or remove these configurations before you
   start enrolling the accounts, after your landing zone is set up. This
   pre-check doesn't apply to the AWS Control Tower management account during
-  landing zone launch. For more information, see [Enroll accounts that have existing AWS Config
-  resources](existing-config-resources.md "existing-config-resources.md").
+  landing zone launch. For more information, see [Enroll accounts that have existing AWS Config resources](existing-config-resources.md "existing-config-resources.md").
 - If you are running ephemeral workloads from accounts in AWS Control Tower, you
   may see an increase in costs associated with AWS Config. Contact your
   AWS account representative for more specific information about

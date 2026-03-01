@@ -18,8 +18,7 @@ follow.
 ## Standard update procedure
 
 The following procedure walks you through the steps of a full update for AWS Control Tower from
-the console. To update an individual account, see [Update the account in the
-console](updating-account-factory-accounts.md#update-account-in-console "updating-account-factory-accounts.md#update-account-in-console").
+the console. To update an individual account, see [Update the account in the console](updating-account-factory-accounts.md#update-account-in-console "updating-account-factory-accounts.md#update-account-in-console").
 
 ###### To update your landing zone, with any number of accounts per OU
 
@@ -30,8 +29,7 @@ console](updating-account-factory-accounts.md#update-account-in-console "updatin
 3. Update your member accounts (this procedure must be followed for an OU that contains
    over 1000 accounts).
 4. From the left navigation pane, choose **Organization**.
-5. To update each account, follow the steps given in [Update the account in the
-   console](updating-account-factory-accounts.md#update-account-in-console "updating-account-factory-accounts.md#update-account-in-console").
+5. To update each account, follow the steps given in [Update the account in the console](updating-account-factory-accounts.md#update-account-in-console "updating-account-factory-accounts.md#update-account-in-console").
 
 ###### Optionally Re-register OU to update accounts
 

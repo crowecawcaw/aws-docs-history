@@ -61,8 +61,7 @@ Create the following IAM service roles in the `/service-role/` IAM path that ena
 - [`AWSControlTowerConfigAggregatorRoleForOrganizations`](roles-how.md#config-role-for-organizations "roles-how.md#config-role-for-organizations")
 
 For more information about these roles and their policies, see
-[Using identity-based policies (IAM
-policies) for AWS Control Tower](access-control-managing-permissions.md "access-control-managing-permissions.md").
+[Using identity-based policies (IAM policies) for AWS Control Tower](access-control-managing-permissions.md "access-control-managing-permissions.md").
 
 ### To create an IAM role:
 

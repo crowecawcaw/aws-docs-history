@@ -1,6 +1,4 @@
-# Remove an Account Factory
-
-Portfolio and Product
+# Remove an Account Factory Portfolio and Product
 
 The following procedure guides you through how to sign in as an IAM Identity Center user in the
 **AWSServiceCatalogAdmins** group and then clean up your Account Factory portfolio

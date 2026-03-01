@@ -13,5 +13,4 @@ Additionally, requests must be signed by using an access key ID and a secret acc
 is associated with an IAM principal. Or you can use the [AWS Security Token Service](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md") (AWS STS) to generate temporary security credentials to sign requests.
 
 You can set up security groups to provide additional network infrastructure security for your
-AWS Control Tower landing zone workloads. For more information, see [Walkthrough: Set Up Security Groups in AWS Control Tower
-With AWS Firewall Manager](firewall-setup-walkthrough.md "firewall-setup-walkthrough.md").
+AWS Control Tower landing zone workloads. For more information, see [Walkthrough: Set Up Security Groups in AWS Control Tower With AWS Firewall Manager](firewall-setup-walkthrough.md "firewall-setup-walkthrough.md").

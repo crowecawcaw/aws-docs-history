@@ -12,9 +12,7 @@ Several methods exist for enrolling accounts into AWS Control Tower. **The infor
 You cannot enroll an existing AWS account to serve as your audit or log archive
 account except during initial landing zone setup.
 
-## What happens during account
-
-enrollment
+## What happens during account enrollment
 
 During the enrollment process, AWS Control Tower performs these actions:
 
@@ -60,9 +58,7 @@ integration in landing zone settings:
   trails, or if your landing zone is older than version 3.0, organization-level CloudTrail
   trails do not apply to your accounts.
 
-## Enroll existing accounts with
-
-VPCs
+## Enroll existing accounts with VPCs
 
 AWS Control Tower handles VPCs differently when you provision a new account in Account Factory
 than when you enroll an existing account.

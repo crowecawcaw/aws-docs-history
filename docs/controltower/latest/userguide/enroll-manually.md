@@ -1,6 +1,4 @@
-# Manually add the required IAM role to an existing
-
-AWS account and enroll it
+# Manually add the required IAM role to an existing AWS account and enroll it
 
 If you’ve already set up your AWS Control Tower landing zone, you can begin enrolling your
 organization’s accounts into an OU that is registered with AWS Control Tower. If you haven't set

@@ -1,6 +1,4 @@
-# Change email address of an enrolled
-
-account
+# Change email address of an enrolled account
 
 To change the email address of an enrolled member account in AWS Control Tower, follow the
 procedure in this section.

@@ -1,6 +1,4 @@
-# Resource Considerations for
-
-Account Factory
+# Resource Considerations for Account Factory
 
 When an account is provisioned with Account Factory, the following AWS resources are
 created within the account.

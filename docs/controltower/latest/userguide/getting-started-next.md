@@ -7,14 +7,12 @@ To learn more about how you can use AWS Control Tower, see the following topics:
 - For recommended administrative practices, see [Best
   Practices](best-practices.md "best-practices.md").
 - You can set up IAM Identity Center users and groups with specific roles and permissions. For
-  recommendations, see [Recommendations for setting up groups, roles, and
-  policies](roles-recommendations.md "roles-recommendations.md") .
+  recommendations, see [Recommendations for setting up groups, roles, and policies](roles-recommendations.md "roles-recommendations.md").
 - To begin enrolling organizations and accounts from your AWS Organizations deployments,
   see [Govern existing
   organizations and accounts](importing-existing.md "importing-existing.md").
 - Your end users can provision their own AWS accounts in your landing zone using
-  Account Factory. For more information, see [Permissions for configuring and
-  provisioning accounts](account-factory.md#configure-provision-new-account "account-factory.md#configure-provision-new-account").
+  Account Factory. For more information, see [Permissions for configuring and provisioning accounts](account-factory.md#configure-provision-new-account "account-factory.md#configure-provision-new-account").
 - To assure [Compliance Validation for AWS Control Tower](compliance-validation.md "compliance-validation.md"), your central cloud administrators
   can review log archives in the Log Archive account, and designated third-party
   auditors can review audit information in the Audit (shared) account, which is a

@@ -13,8 +13,7 @@ console.
 
 In general, changes that you make outside the AWS Control Tower console to AWS Control Tower resources
 create a state of _resolvable drift_ in your landing zone. For
-more information about these changes, see [Repairable changes to
-resources](drift.md#repairable-changes-to-resources "drift.md#repairable-changes-to-resources").
+more information about these changes, see [Repairable changes to resources](drift.md#repairable-changes-to-resources "drift.md#repairable-changes-to-resources").
 
 ###### **Tasks that require landing zone reset**
 
@@ -24,9 +23,7 @@ resources](drift.md#repairable-changes-to-resources "drift.md#repairable-changes
   recommended.)_
 - Updating, attaching, or detaching an SCP associated with the Security OU.
 
-###### \*\*Changes that are updated automatically by
-
-AWS Control Tower\*\*
+###### **Changes that are updated automatically by AWS Control Tower**
 
 - Changing the email address of an enrolled account
 - Renaming an enrolled account
@@ -44,9 +41,7 @@ governance posture when it reconciles your changes. For more information about u
 a provisioned product, see [Updating Provisioned
 Products](../../../servicecatalog/latest/userguide/enduser-update.md "../../../servicecatalog/latest/userguide/enduser-update.md") in the AWS Service Catalog documentation.
 
-## Referring to resources outside of
-
-AWS Control Tower
+## Referring to resources outside of AWS Control Tower
 
 When you create new OUs and accounts outside of AWS Control Tower, they are not governed by
 AWS Control Tower, even though they may be displayed.
@@ -128,9 +123,7 @@ temporarily, and because some controls might not be enforced.
 
 For general information about drift, see "Resolving Drift" in [Detect and resolve drift in AWS Control Tower](drift.md "drift.md").
 
-## Removing an account from the Security
-
-OU
+## Removing an account from the Security OU
 
 We do not recommend that you remove any of the shared accounts from your organization
 or move them out of the **Security** OU. If you have removed a shared
@@ -168,9 +161,7 @@ the account.
 - The account is no longer in the organization. **Result:**
   _AWS Control Tower updates and reset will fail._
 
-###### To restore a shared account using the AWS Control Tower console (semi-manual
-
-procedure)
+###### To restore a shared account using the AWS Control Tower console (semi-manual procedure)
 
 1. Sign in to the AWS Control Tower console at [https://console.aws.amazon.com/controltower](https://console.aws.amazon.com/controltower "https://console.aws.amazon.com/controltower"). You must sign in as an
    IAM user, user in IAM Identity Center, or role with permissions to run
@@ -201,9 +192,7 @@ compliance.
 
 If the remediation steps don't restore the account, contact AWS Support.
 
-###### To restore a shared account using the AWS Control Tower and AWS Organizations consoles (Manual
-
-remediation)
+###### To restore a shared account using the AWS Control Tower and AWS Organizations consoles (Manual remediation)
 
 1. Sign in to the AWS Organizations console at [https://console.aws.amazon.com/organizations/](https://console.aws.amazon.com/organizations/ "https://console.aws.amazon.com/organizations/"). You must sign in as
    an IAM user, user in IAM Identity Center, or role with the
@@ -228,9 +217,7 @@ compliance.
 
 If the remediation steps don't restore the account, contact AWS Support.
 
-## External changes that are updated
-
-automatically
+## External changes that are updated automatically
 
 Changes that you make to your account email addresses are updated by AWS Control Tower
 automatically, but Account Factory does not update them automatically.
@@ -257,9 +244,7 @@ AWS Control Tower displays the compliance status of all AWS Config rules deploye
 units registered with AWS Control Tower, including rules that were activated outside of the
 AWS Control Tower console.
 
-### Deleting AWS Control Tower resources outside
-
-AWS Control Tower
+### Deleting AWS Control Tower resources outside AWS Control Tower
 
 You can delete OUs and accounts in AWS Control Tower and you don't need to take any further
 action to see the updates. Account Factory is updated automatically when you delete an

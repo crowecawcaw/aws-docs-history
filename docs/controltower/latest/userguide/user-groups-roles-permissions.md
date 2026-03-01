@@ -1,6 +1,4 @@
-# User groups, roles, and permission
-
-sets
+# User groups, roles, and permission sets
 
 User groups manage specialized _roles_ that are
 defined within your shared accounts. Roles establish sets of permissions that belong
@@ -15,8 +13,7 @@ These permission sets enable your end users to provision their own AWS accounts 
 your landing zone quickly, and in compliance with your enterprise's guidelines.
 
 For tips on planning your allocations of users, groups, and permissions, refer to
-[Recommendations for setting up groups, roles, and
-policies](roles-recommendations.md "roles-recommendations.md")
+[Recommendations for setting up groups, roles, and policies](roles-recommendations.md "roles-recommendations.md")
 
 For more information on how to use this service in the context of AWS Control Tower, see the
 following topics in the _AWS IAM Identity Center User Guide_.

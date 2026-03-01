@@ -8,8 +8,7 @@ We strongly recommend that you perform this decommissioning process only if you 
 landing zone. It is not possible to re-create your existing landing zone after you've decommissioned it.
 
 For more details about decommissioning a landing zone, including important information about how AWS Control Tower handles your data
-and existing AWS Organizations, review [Decommission an AWS Control Tower landing
-zone](decommission-landing-zone.md "decommission-landing-zone.md").
+and existing AWS Organizations, review [Decommission an AWS Control Tower landing zone](decommission-landing-zone.md "decommission-landing-zone.md").
 
 To decommission a landing zone, call `DeleteLandingZone` API. This API returns an `OperationIdentifier`, which you can
 then use when calling the `GetLandingZoneOperation` API to check the delete operation's status.

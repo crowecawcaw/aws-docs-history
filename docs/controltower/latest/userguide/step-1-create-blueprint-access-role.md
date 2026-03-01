@@ -1,6 +1,4 @@
-# Step 1. Create the required
-
-role
+# Step 1. Create the required role
 
 Before you begin to customize accounts, you must set up a role that contains a
 trust relationship between AWS Control Tower and your hub account. When assumed, the role

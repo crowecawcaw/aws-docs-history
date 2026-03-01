@@ -61,8 +61,7 @@ in your existing AWS account account, follow these steps to enroll the account:
 - When you choose **Enroll account**, you’ll see an
   **Enroll account** page, where you are prompted to add
   the `AWSControlTowerExecution` role to the account. For some
-  instructions, see [Manually add the required IAM role to an existing
-  AWS account and enroll it](enroll-manually.md "enroll-manually.md").
+  instructions, see [Manually add the required IAM role to an existing AWS account and enroll it](enroll-manually.md "enroll-manually.md").
 - Next, select a registered OU from the drop down list. If the account is
   already in a registered OU, this list will show the OU.
 - Choose **Enroll account**.
@@ -73,9 +72,7 @@ in your existing AWS account account, follow these steps to enroll the account:
 - AWS Control Tower begins the process of enrollment, and you are directed back to
   the **Account details** page.
 
-## Common causes for failure of
-
-enrollment
+## Common causes for failure of enrollment
 
 - To enroll an existing account, the `AWSControlTowerExecution`
   role must be present in the account you're enrolling.
@@ -93,8 +90,7 @@ enrollment
 - The account you're trying to enroll may have AWS Config settings that are
   residual. In particular, the account may have a configuration recorder or
   delivery channel. These must be deleted or modified through the AWS CLI before
-  you can enroll an account. For more information, see [Enroll accounts that have existing AWS Config
-  resources](existing-config-resources.md "existing-config-resources.md") and [Interact with AWS Control Tower through AWS CloudShell](cshell-examples.md "cshell-examples.md").
+  you can enroll an account. For more information, see [Enroll accounts that have existing AWS Config resources](existing-config-resources.md "existing-config-resources.md") and [Interact with AWS Control Tower through AWS CloudShell](cshell-examples.md "cshell-examples.md").
 - If the account belongs to another OU with a management account, including
   another AWS Control Tower OU, you must terminate the account in its current OU before
   it can join another OU. Existing resources must be removed in the original

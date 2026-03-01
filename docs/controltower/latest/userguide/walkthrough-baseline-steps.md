@@ -1,6 +1,4 @@
-# Examples: Register an AWS Control Tower OU with APIs
-
-only
+# Examples: Register an AWS Control Tower OU with APIs only
 
 This walkthrough of examples is a companion document. For explanations, caveats, and more
 information, see [Types of baselines](types-of-baselines.md "types-of-baselines.md").

@@ -1,6 +1,4 @@
-# Common causes of failure during
-
-registration or re-registration
+# Common causes of failure during registration or re-registration
 
 In general, when you register or re-register an OU, all accounts within that OU are
 enrolled in AWS Control Tower. However, it is possible that some accounts may fail to enroll,
@@ -112,8 +110,7 @@ OU. This error pertains to the management account only.
 
 The account doesn’t meet prerequisites for account enrollment. For example,
 the account may be missing roles and permissions required to enroll it in
-AWS Control Tower. Instructions for adding a role are available in [Manually add the required IAM role to an existing
-AWS account and enroll it](enroll-manually.md "enroll-manually.md").
+AWS Control Tower. Instructions for adding a role are available in [Manually add the required IAM role to an existing AWS account and enroll it](enroll-manually.md "enroll-manually.md").
 As a reminder, AWS CloudTrail is auto-enabled on all of your AWS accounts when you enroll
 them in AWS Control Tower. If CloudTrail is enabled on an account previous to enrollment, you could
 experience double-billing unless you deactivate CloudTrail before you begin the enrollment

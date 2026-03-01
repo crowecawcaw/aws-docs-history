@@ -1,6 +1,4 @@
-# Step 4. Call your blueprint to create a
-
-customized account
+# Step 4. Call your blueprint to create a customized account
 
 When you follow the **Create account** workflow in the AWS Control Tower
 console, you'll see an optional section where you can enter information about the
@@ -35,5 +33,4 @@ The `AdministratorAccess` policy is applied here by default.
 7. You can customize accounts at a later time by following the
    **Account update** process, if your hub account or
    blueprints are not yet ready.
-   For more details, see [Create a customized account from a
-   blueprint](create-afc-customized-account.md "create-afc-customized-account.md").
+   For more details, see [Create a customized account from a blueprint](create-afc-customized-account.md "create-afc-customized-account.md").

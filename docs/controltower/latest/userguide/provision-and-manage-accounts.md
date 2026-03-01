@@ -1,6 +1,4 @@
-# Provision and manage accounts in
-
-AWS Control Tower
+# Provision and manage accounts in AWS Control Tower
 
 This chapter includes:
 
@@ -10,8 +8,7 @@ This chapter includes:
   AWS Control Tower.
   For general information about accounts in AWS Control Tower, see
   [About AWS accounts in AWS Control Tower](accounts.md "accounts.md"). For information about enrolling
-  multiple acounts into AWS Control Tower, see [Register an existing organizational unit with
-  AWS Control Tower](importing-existing.md "importing-existing.md").
+  multiple acounts into AWS Control Tower, see [Register an existing organizational unit with AWS Control Tower](importing-existing.md "importing-existing.md").
 
 ###### Note
 
@@ -45,6 +42,5 @@ automatically when a requester assumes the **Admin** role. If you delegate permi
 provision accounts, you may need to add these permissions directly for the account
 requestors.
 
-For general information about permissions required in AWS Control Tower, see [Using identity-based policies (IAM
-policies) for AWS Control Tower](access-control-managing-permissions.md "access-control-managing-permissions.md"). For information about roles
+For general information about permissions required in AWS Control Tower, see [Using identity-based policies (IAM policies) for AWS Control Tower](access-control-managing-permissions.md "access-control-managing-permissions.md"). For information about roles
 and accounts in AWS Control Tower, see [Roles and accounts](roles.md "roles.md").

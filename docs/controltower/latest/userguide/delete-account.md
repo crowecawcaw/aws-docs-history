@@ -10,9 +10,7 @@ Closing an AWS account is not the same as unenrolling an account from
 AWS Control Tower—these are separate actions. You must unenroll the account before you
 close it.
 
-## Close an AWS Control Tower member account through
-
-AWS Organizations
+## Close an AWS Control Tower member account through AWS Organizations
 
 You can close your AWS Control Tower member accounts from your organization’s management
 account without a requirement to sign in to each member account individually with

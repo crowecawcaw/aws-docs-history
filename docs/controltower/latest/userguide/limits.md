@@ -35,8 +35,7 @@ This section describes known limitations and unsupported use cases in AWS Contro
   divided among all of your OUs.
 - Existing OUs with over 1000 directly nested accounts cannot be registered or
   re-registered in AWS Control Tower. For more information about limitations with
-  registering OUs, see [Limitations based on underlying AWS
-  services](region-stackset-limitations.md "region-stackset-limitations.md").
+  registering OUs, see [Limitations based on underlying AWS services](region-stackset-limitations.md "region-stackset-limitations.md").
 - **Customizations for AWS Control Tower (CfCT)** is unavailable in
   these AWS Regions, because some dependencies are not available:
 
@@ -84,8 +83,7 @@ This section describes known limitations and unsupported use cases in AWS Contro
 Regions that do not support Service Catalog do not support Account Factory Customizations for AWS Control Tower (AFC).
 
 For more information about AWS Control Tower functionality in Regions that do not
-support AWS Service Catalog, see [AWS Control Tower available in AWS
-Canada West (Calgary)](2024-all.md#yyc-available "2024-all.md#yyc-available").
+support AWS Service Catalog, see [AWS Control Tower available in AWS Canada West (Calgary)](2024-all.md#yyc-available "2024-all.md#yyc-available").
 
 - When calling a control API to activate or deactivate a control, the limit for
   `EnableControl` and `DisableControl` updates in

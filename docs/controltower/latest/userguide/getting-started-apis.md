@@ -10,9 +10,8 @@ These APIs allow you to create a AWS Control Tower environment programatically, 
 Before you launch your AWS Control Tower landing zone, perform these prerequisite tasks:
 
 - Determine the most appropriate home Region.
-  For more information, see [Administrative tips for landing zone setup](tips-for-admin-setup.md "tips-for-admin-setup.md") .
-- Review [Prerequisite: Automated pre-launch checks for
-  your management account](getting-started-prereqs.md "getting-started-prereqs.md") to
+  For more information, see [Administrative tips for landing zone setup](tips-for-admin-setup.md "tips-for-admin-setup.md").
+- Review [Prerequisite: Automated pre-launch checks for your management account](getting-started-prereqs.md "getting-started-prereqs.md") to
   learn about the automated pre-launch checks that make sure your management
   account is ready for changes that establish your landing zone.
 

@@ -18,9 +18,7 @@ drift is resolved. This drift reset is not the same as a full landing zone reset
 information, see _Don't delete required roles_ in the section
 called [Types of drift to resolve right away](drift.md#types-of-drift "drift.md#types-of-drift").
 
-###### When you take action to resolve drift on a landing zone version, two behaviors are
-
-possible.
+###### When you take action to resolve drift on a landing zone version, two behaviors are possible.
 
 - If you are on the latest landing zone version, when you choose
   **Reset** and then choose **Confirm**, your drifted

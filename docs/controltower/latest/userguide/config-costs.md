@@ -23,8 +23,7 @@ enrolled account that is operating in five Regions, AWS Config generates five CI
 Region. Other global resources, such as Route 53 hosted zones, are recorded only once across all
 Regions. For example, if you create a new Route 53 hosted zone in an enrolled account, AWS Config
 generates one CI, regardless of how many Regions are selected for that account. For a list
-that helps you distinguish these types of resources, see [The same resource is recorded multiple
-times](monitoring-with-config.md#duplicate-configuration-items "monitoring-with-config.md#duplicate-configuration-items").
+that helps you distinguish these types of resources, see [The same resource is recorded multiple times](monitoring-with-config.md#duplicate-configuration-items "monitoring-with-config.md#duplicate-configuration-items").
 
 ###### Note
 

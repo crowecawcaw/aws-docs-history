@@ -1,6 +1,4 @@
-# Step 2. Create the AWS Service Catalog
-
-product
+# Step 2. Create the AWS Service Catalog product
 
 To create an AWS Service Catalog product, follow the steps at [Creating
 products](../../../servicecatalog/latest/adminguide/productmgmt-cloudresource.md "../../../servicecatalog/latest/adminguide/productmgmt-cloudresource.md") in the _AWS Service Catalog Administrator

@@ -33,5 +33,5 @@ aws controltower reset-landing-zone --landing-zone-identifier "arn:aws:controlto
 
 ###### Note
 
-Resetting the landing zone does not update the landing zone version. Review [Update your landing zone](lz-api-update.md "lz-api-update.md")  
- for details about updating the landing zone version.
+Resetting the landing zone does not update the landing zone version. Review [Update your landing zone](lz-api-update.md "lz-api-update.md")
+for details about updating the landing zone version.

@@ -1,6 +1,4 @@
-# Compatibility of OU baselines and landing zone
-
-versions
+# Compatibility of OU baselines and landing zone versions
 
 AWS Control Tower baselines allow you to set a governance standard at the OU level, rather than at
 the landing zone level, if your business requires it. The baseline called

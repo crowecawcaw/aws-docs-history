@@ -15,8 +15,7 @@ Newly created accounts and organizations might experience a quota below the defa
 - _Number of accounts in a single OU_ : The maximum number of
   AWS Control Tower managed accounts that can be present in one OU. If you add accounts
   beyond this limit, the OU registration process in AWS Control Tower cannot be performed.
-  To learn more about the number of accounts per OU, review [Limitations based on underlying AWS
-  services](region-stackset-limitations.md "region-stackset-limitations.md") in the AWS Control Tower documentation.
+  To learn more about the number of accounts per OU, review [Limitations based on underlying AWS services](region-stackset-limitations.md "region-stackset-limitations.md") in the AWS Control Tower documentation.
   Default: 1000, not adjustable.
 - _Concurrent operations for organizational units (OUs)_ :
   The maximum number of concurrent OU-related operations that can be performed at

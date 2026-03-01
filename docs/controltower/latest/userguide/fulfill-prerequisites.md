@@ -1,15 +1,11 @@
-# If the account does not meet the
-
-prerequisites
+# If the account does not meet the prerequisites
 
 Remember that, as a prerequisite, accounts eligible to be enrolled into AWS Control Tower
 governance must be part of the same overall organization. To fulfill this prerequisite
 for account enrollment, you can follow these preparatory steps to move an account into
 the same organization as AWS Control Tower.
 
-###### Preparatory steps to bring an account into the same organization as
-
-AWS Control Tower
+###### Preparatory steps to bring an account into the same organization as AWS Control Tower
 
 1. Drop the account from its existing organization. You must provide a separate
    payment method if you use this approach.
@@ -32,15 +28,12 @@ drops out of its existing organization.
 2. Clear out the default VPC. (This part is optional. AWS Control Tower doesn't change
    your existing default VPC.)
 3. Delete or modify any existing AWS Config configuration recorder or delivery channel
-   through the AWS CLI or AWS CloudShell. For more information, see [Enroll accounts with AWS Config resources](enroll-account.md#example-config-cli-commands "enroll-account.md#example-config-cli-commands") and [Enroll accounts that have existing AWS Config
-   resources](existing-config-resources.md "existing-config-resources.md")
+   through the AWS CLI or AWS CloudShell. For more information, see [Enroll accounts with AWS Config resources](enroll-account.md#example-config-cli-commands "enroll-account.md#example-config-cli-commands") and [Enroll accounts that have existing AWS Config resources](existing-config-resources.md "existing-config-resources.md")
    After you've completed these preparatory steps, you can enroll the account into
    AWS Control Tower. For more information, see [Steps to enroll an account manually](quick-account-provisioning.md#enrollment-steps "quick-account-provisioning.md#enrollment-steps"). This step brings the account into full AWS Control Tower
    governance.
 
-###### Optional steps to deprovision an account, so it can be enrolled and keep its
-
-stack
+###### Optional steps to deprovision an account, so it can be enrolled and keep its stack
 
 1. To keep the applied CloudFormation stack, delete the stack instance from the stack
    sets, and choose **Retain stacks** for the instance.

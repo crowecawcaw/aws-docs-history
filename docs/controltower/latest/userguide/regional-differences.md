@@ -1,6 +1,4 @@
-# Regional differences for AWS Control Tower
-
-functionality
+# Regional differences for AWS Control Tower functionality
 
 Certain differences exist in the behavior of AWS Control Tower across AWS Regions, because
 AWS Control Tower orchestrates the behavior of other AWS services. For example:

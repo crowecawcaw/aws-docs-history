@@ -1,6 +1,4 @@
-# Optional conditions for your role trust
-
-relationships
+# Optional conditions for your role trust relationships
 
 To add additional layers of security to your AWS Control Tower environment, you can impose conditions in your role trust policies, to restrict the accounts and
 resources that interact with certain roles in AWS Control Tower. For example, you can further
@@ -100,8 +98,7 @@ The example illustrates the `aws:SourceArn` condition statement, with an
 added `aws:SourceAccount` condition statement. For more information, see
 [Prevent cross-service impersonation](prevent-confused-deputy.md "prevent-confused-deputy.md").
 
-For general information about permission policies in AWS Control Tower see [Manage access to
-resources](access-control-manage-access-intro.md "access-control-manage-access-intro.md").
+For general information about permission policies in AWS Control Tower see [Manage access to resources](access-control-manage-access-intro.md "access-control-manage-access-intro.md").
 
 **Recommendations:**
 

@@ -1,6 +1,4 @@
-# Delete Amazon S3 Buckets in the Log
-
-Archive Account
+# Delete Amazon S3 Buckets in the Log Archive Account
 
 The following procedures guide you through how to sign in to the log archive account as an
 IAM Identity Center user in the **AWSControlTowerExecution** group and then delete the Amazon S3

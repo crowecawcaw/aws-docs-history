@@ -50,8 +50,7 @@ management account on your behalf:
 - When you create your landing zone, a number of AWS resources are created. To use
   AWS Control Tower, you must not modify or delete these AWS Control Tower managed resources outside of
   the supported methods described in this guide. Deleting or modifying these resources
-  will cause your landing zone to enter an unknown state. For details, see [Guidance for creating and modifying AWS Control Tower
-  resources](getting-started-guidance.md "getting-started-guidance.md")
+  will cause your landing zone to enter an unknown state. For details, see [Guidance for creating and modifying AWS Control Tower resources](getting-started-guidance.md "getting-started-guidance.md")
 - When you enable optional controls (those with _strongly
   recommended or elective_ guidance), AWS Control Tower creates AWS resources
   that it manages in your accounts. Do not modify or delete resources created by

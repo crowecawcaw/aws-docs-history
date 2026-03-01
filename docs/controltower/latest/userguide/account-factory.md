@@ -9,9 +9,7 @@ or use ResetEnabledBaseline and ResetEnabledControl APIs on EnabledBaselines and
 This chapter includes an overview and procedures for provisioning new member accounts in
 an AWS Control Tower landing zone with Account Factory.
 
-## Permissions for configuring and
-
-provisioning accounts
+## Permissions for configuring and provisioning accounts
 
 The AWS Control Tower Account Factory enables cloud administrators and users in AWS IAM Identity Center to
 provision accounts in your landing zone. By default, IAM Identity Center users that provision accounts must
@@ -35,9 +33,7 @@ how to enroll an existing account, see [About enrolling existing accounts](enrol
 
 For more information about permissions, see [Permissions required for provisioning accounts](provision-and-manage-accounts.md#permissions "provision-and-manage-accounts.md#permissions").
 
-## Considerations for managing accounts in
-
-Account Factory
+## Considerations for managing accounts in Account Factory
 
 You can update, unenroll, and close accounts that you create and provision through
 Account Factory. You can recycle accounts by updating the user parameters in the accounts

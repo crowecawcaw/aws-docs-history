@@ -16,9 +16,7 @@ For guidance regarding best practices for nested OUs and your landing zone, see 
 blog post [Organizing
 your AWS Control Tower landing zone with nested OUs](https://aws.amazon.com/blogs//mt/organizing-your-aws-control-tower-landing-zone-with-nested-ous/ "https://aws.amazon.com/blogs//mt/organizing-your-aws-control-tower-landing-zone-with-nested-ous/").
 
-## Expand from flat OU structure to nested OU
-
-structure
+## Expand from flat OU structure to nested OU structure
 
 If you created your AWS Control Tower landing zone with a flat OU structure, you can expand it
 to a nested OU structure.
@@ -79,9 +77,7 @@ are allowed to delete roles managed by AWS Control Tower.
 For information about how to restrict role access, see [Optional
 conditions for your role trust relationships](conditions-for-role-trust.md "conditions-for-role-trust.md").
 
-## What happens during registration and
-
-re-registration of nested OUs and accounts
+## What happens during registration and re-registration of nested OUs and accounts
 
 When you register or re-register a nested OU, AWS Control Tower enrolls all unenrolled accounts
 of the target OU, and it updates all enrolled accounts. Here's what to expect.
@@ -98,9 +94,7 @@ of the target OU, and it updates all enrolled accounts. Here's what to expect.
 - Updates controls that are configured for this OU and its member
   accounts.
 
-## Considerations for nested OU
-
-registration
+## Considerations for nested OU registration
 
 - You cannot register an OU under the core OU (Security OU).
 - Nested OUs must be registered separately.

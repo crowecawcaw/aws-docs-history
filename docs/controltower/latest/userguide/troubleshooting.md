@@ -13,17 +13,13 @@ contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon
 - [Landing zone not up to date error](#landing-zone-not-up-to-date "#landing-zone-not-up-to-date")
 - [New Account Provisioning Failed](#account-provisioning-failed "#account-provisioning-failed")
 - [Failed to Enroll an Existing Account](#enrollment-failed "#enrollment-failed")
-- [Unable to Update an Account Factory
-  Account](#unable-to-update-account "#unable-to-update-account")
+- [Unable to Update an Account Factory Account](#unable-to-update-account "#unable-to-update-account")
 - [Failure Error that Mentions AWS Config](#aws-config-error "#aws-config-error")
 - [No Launch Paths Found Error](#no-launch-paths-found "#no-launch-paths-found")
-- [Received an Insufficient Permissions
-  Error](#insufficient-permissions "#insufficient-permissions")
-- [Detective controls are not taking effect on
-  accounts](#control-errors "#control-errors")
+- [Received an Insufficient Permissions Error](#insufficient-permissions "#insufficient-permissions")
+- [Detective controls are not taking effect on accounts](#control-errors "#control-errors")
 - [Rate exceeded error returned by the AWS Organizations API](#rate-exceeded-error "#rate-exceeded-error")
-- [Failure to move an Account Factory account directly
-  from one AWS Control Tower landing zone to another AWS Control Tower landing zone](#failure-to-move "#failure-to-move")
+- [Failure to move an Account Factory account directly from one AWS Control Tower landing zone to another AWS Control Tower landing zone](#failure-to-move "#failure-to-move")
 - [AWS Support](#getting-support "#getting-support")
 
 ## Landing Zone Launch Failed
@@ -130,9 +126,7 @@ options:
    account closure. (This option is available only if the StackSets have instances
    in **Current** state that you are not removing.)
 
-###### To remove the resources from the StackSets, do this for each closed
-
-account:
+###### To remove the resources from the StackSets, do this for each closed account:
 
 - Go into each of the AWS Control Tower StackSets and remove the StackInstances from
   every region, for the account that has been closed.
@@ -172,7 +166,7 @@ If you encounter this issue, check for these common causes.
 - enabled provisioned product notifications.
 
 Try again to provision your account, without specifying any of those options. For more
-information, see [Provision accounts in the Service Catalog console, with Account Factory](provision-as-end-user.md "provision-as-end-user.md") .
+information, see [Provision accounts in the Service Catalog console, with Account Factory](provision-as-end-user.md "provision-as-end-user.md").
 
 ###### Other common causes for failure:
 
@@ -218,9 +212,7 @@ Config resources. In that case, see [Enroll accounts
 that have existing AWS Config resources](existing-config-resources.md "existing-config-resources.md") for instructions on how you can
 modify your existing resources.
 
-## Unable to Update an Account Factory
-
-Account
+## Unable to Update an Account Factory Account
 
 When an account is in an inconsistent state, it cannot be updated successfully from
 Account Factory or AWS Service Catalog.
@@ -378,9 +370,7 @@ service that helps provision accounts in AWS Control Tower.
 - If you are authenticated as an IAM user, you must [add it to the AWS Service Catalog portfolio](../../../servicecatalog/latest/adminguide/catalogs_portfolios_users.md "../../../servicecatalog/latest/adminguide/catalogs_portfolios_users.md") so that it has the correct permissions.
 - This issue also occurs if you have the correct permissions, but AWS Control Tower drift is detected, and a drift repair is necessary. To repair most types of drift, choose **Reset** on the **Landing zone settings** page.
 
-## Received an Insufficient Permissions
-
-Error
+## Received an Insufficient Permissions Error
 
 It's possible that your account may not have the necessary permissions to perform
 certain work in certain AWS Organizations. If you encounter the following type of error,
@@ -392,9 +382,7 @@ permission is not being denied from those places:
 If you believe your work requires the action you're attempting, and you can't locate
 any relevant restriction, contact your system administrator or [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Detective controls are not taking effect on
-
-accounts
+## Detective controls are not taking effect on accounts
 
 If you've recently expanded your AWS Control Tower deployment into a new AWS Region,
 newly-applied detective controls do not take effect on new accounts you create
@@ -411,8 +399,7 @@ an error message similar to this one:
 
 **Action to take: Update accounts.**
 
-To update your accounts from the AWS Control Tower console, see [When to update AWS Control Tower OUs and
-accounts](update-existing-accounts.md "update-existing-accounts.md").
+To update your accounts from the AWS Control Tower console, see [When to update AWS Control Tower OUs and accounts](update-existing-accounts.md "update-existing-accounts.md").
 
 To update multiple individual accounts programmatically, you can use the APIs from AWS Service Catalog and the AWS CLI to automate the updates. For more information about how
 to approach the update process, see this [Video Walkthrough](automated-provisioning-walkthrough.md#automated-provisioning-video "automated-provisioning-walkthrough.md#automated-provisioning-video").  You can substitute the
@@ -445,9 +432,7 @@ An example of troubleshooting instructions for API throttling in Elastic Beansta
 be found here:
 `https://aws.amazon.com/premiumsupport/knowledge-center/elastic-beanstalk-api-throttling-errors/`
 
-## Failure to move an Account Factory account directly
-
-from one AWS Control Tower landing zone to another AWS Control Tower landing zone
+## Failure to move an Account Factory account directly from one AWS Control Tower landing zone to another AWS Control Tower landing zone
 
 ###### Warning
 

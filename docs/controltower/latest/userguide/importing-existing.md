@@ -1,6 +1,4 @@
-# Register an existing organizational unit with
-
-AWS Control Tower
+# Register an existing organizational unit with AWS Control Tower
 
 An efficient way to bring multiple, existing AWS accounts into AWS Control Tower is to _extend governance_ by AWS Control Tower to an entire organizational unit
 (OU).
@@ -18,8 +16,7 @@ Detective controls require AWS Config recording which can be activated by regist
 enabling AWS Config recording on the OU. Register OU will enable `AWSControlTowerBaseline`.
 Enable AWS Config recording will enable `ConfigBaseline`. For more information, see
 [Types of baselines](types-of-baselines.md "types-of-baselines.md") and
-[The AWS Control Tower Controls Reference
-Guide](link-to-new-guide.md "link-to-new-guide.md")
+[The AWS Control Tower Controls Reference Guide](link-to-new-guide.md "link-to-new-guide.md")
 
 ###### Note
 

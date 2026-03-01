@@ -14,8 +14,7 @@ In AWS Control Tower, your central cloud administrators and your end users can p
 accounts in your landing zone using AWS Service Catalog products, called _custom blueprints_. For more
 information, see [Step2. Create the AWS Service Catalog product](afc-setup-steps.md#step-2-create-blueprint-product "afc-setup-steps.md#step-2-create-blueprint-product").
 
-You can interact with AWS Control Tower accounts through the AWS Service Catalog console and APIs. For more information, see [Interact with AWS Control Tower
-accounts from AWS Service Catalog](handle-accounts-with-service-catalog.md "handle-accounts-with-service-catalog.md")
+You can interact with AWS Control Tower accounts through the AWS Service Catalog console and APIs. For more information, see [Interact with AWS Control Tower accounts from AWS Service Catalog](handle-accounts-with-service-catalog.md "handle-accounts-with-service-catalog.md")
 
 AWS Control Tower also can make use of the Service Catalog APIs to further automate account provisioning
 and updating. For details, see [the AWS Service Catalog Developer

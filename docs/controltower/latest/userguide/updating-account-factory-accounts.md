@@ -4,9 +4,7 @@ The easiest way to update an enrolled account is through the AWS Control Tower c
 Individual account updates are useful for resolving drift, such as [Moved member account](governance-drift.md#drift-account-moved "governance-drift.md#drift-account-moved"). Account updates
 also are required as part of a full landing zone update.
 
-## Update the account in the
-
-console
+## Update the account in the console
 
 ###### To update an account in the AWS Control Tower console
 
@@ -26,8 +24,7 @@ account.
 
 AWS Control Tower accounts are modified differently, depending on whether you have opted-in for
 auto-enrollment of accounts, or not. For more information about auto-enrollment, see
-[Optionally configure auto-enrollment for
-accounts](configure-auto-enroll.md "configure-auto-enroll.md").
+[Optionally configure auto-enrollment for accounts](configure-auto-enroll.md "configure-auto-enroll.md").
 
 **Control behavior when accounts are moved between  OUs, with
 auto-enroll enabled**

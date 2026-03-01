@@ -1,6 +1,4 @@
-# Add a blueprint to an AWS Control Tower
-
-account
+# Add a blueprint to an AWS Control Tower account
 
 To add a blueprint to an existing AWS Control Tower member account, follow the
 **Update account** workflow in the AWS Control Tower console, and choose a

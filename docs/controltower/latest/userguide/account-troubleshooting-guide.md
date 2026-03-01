@@ -1,6 +1,4 @@
-# Account Factory for Terraform (AFT)
-
-troubleshooting guide
+# Account Factory for Terraform (AFT) troubleshooting guide
 
 This section can help you troubleshoot common issues that you might encounter when
 using Account Factory for Terraform (AFT).
@@ -8,12 +6,9 @@ using Account Factory for Terraform (AFT).
 ###### Topics
 
 - [General issues](#w2aac44c33c45b7 "#w2aac44c33c45b7")
-- [Issues related to account
-  provisioning/registration](#w2aac44c33c45b9 "#w2aac44c33c45b9")
-- [Issues related to
-  customizations invocation](#w2aac44c33c45c11 "#w2aac44c33c45c11")
-- [Issues related to the
-  account customizations workflow](#w2aac44c33c45c13 "#w2aac44c33c45c13")
+- [Issues related to account provisioning/registration](#w2aac44c33c45b9 "#w2aac44c33c45b9")
+- [Issues related to customizations invocation](#w2aac44c33c45c11 "#w2aac44c33c45c11")
+- [Issues related to the account customizations workflow](#w2aac44c33c45c13 "#w2aac44c33c45c13")
 
 ## General issues
 
@@ -74,9 +69,7 @@ is put in a queue, where AWS Control Tower processes them through Service Catalo
 that manages account details). If you change the OU manually, drift isn't
 detected because the account request hasn't changed.
 
-## Issues related to account
-
-provisioning/registration
+## Issues related to account provisioning/registration
 
 - **Account request (email address/name) already
   exists**
@@ -103,9 +96,7 @@ Make sure that your account request doesn't exceed AWS Organizations resource
 quotas. For more information, see [Quotas
 for AWS Organizations](../../../organizations/latest/userguide/orgs_reference_limits.md "../../../organizations/latest/userguide/orgs_reference_limits.md").
 
-## Issues related to
-
-customizations invocation
+## Issues related to customizations invocation
 
 - **Target account not onboarded to Account Factory**
 
@@ -140,9 +131,7 @@ repository. When you make a change, such as changing a tag value for an
 account, Account Factory follows the path that tries to create the pipeline, even
 if the pipeline doesn't exist.
 
-## Issues related to the
-
-account customizations workflow
+## Issues related to the account customizations workflow
 
 If you're experiencing issues related to the account customizations workflow,
 make sure that your version of AFT is 1.8.0 or higher, and that you delete all

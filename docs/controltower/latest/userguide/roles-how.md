@@ -1,6 +1,4 @@
-# How AWS Control Tower works with roles to create and manage
-
-accounts
+# How AWS Control Tower works with roles to create and manage accounts
 
 In general, roles are a part of identity and access management (IAM) in AWS.
 
@@ -30,9 +28,7 @@ enrolled account.
 
 For more information about accounts and resources, see [About AWS accounts in AWS Control Tower](accounts.md "accounts.md").
 
-## How AWS Control Tower aggregates AWS Config rules in
-
-unmanaged OUs and accounts
+## How AWS Control Tower aggregates AWS Config rules in unmanaged OUs and accounts
 
 - The AWS Control Tower management account creates an organization-level aggregator, which assists in
   detecting external AWS Config rules, so that AWS Control Tower does not need to gain access to unmanaged
@@ -140,9 +136,7 @@ view the details of each external rule for your account. Use the information in 
 console and the AWS Control Tower console to determine whether you have the appropriate controls
 enabled for the account.
 
-## Programmatic roles and trust relationships for the
-
-AWS Control Tower audit account
+## Programmatic roles and trust relationships for the AWS Control Tower audit account
 
 You can sign into the audit account and assume a role to review other accounts
 programmatically. The audit account does not allow you to log in to other accounts
@@ -325,9 +319,7 @@ The following artifact shows the trust relationship for
 }
 ```
 
-## Automated Account Provisioning With IAM
-
-Roles
+## Automated Account Provisioning With IAM Roles
 
 To configure Account Factory accounts in a more automated way, you can create Lambda
 functions in the AWS Control Tower management account, which [assumes the **AWSControlTowerExecution** role](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-assume-iam-role/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-assume-iam-role/") in the

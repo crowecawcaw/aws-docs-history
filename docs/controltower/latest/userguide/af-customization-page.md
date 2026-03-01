@@ -1,6 +1,4 @@
-# Customize accounts with Account Factory
-
-Customization (AFC)
+# Customize accounts with Account Factory Customization (AFC)
 
 ###### Note
 
@@ -27,8 +25,7 @@ Started Library](../../../servicecatalog/latest/adminguide/getting-started-libra
 
 You can apply customized blueprints to existing accounts, also, by following the
 **Update account** steps in the AWS Control Tower console. For details, see
-[Update the account in the
-console](updating-account-factory-accounts.md#update-account-in-console "updating-account-factory-accounts.md#update-account-in-console").
+[Update the account in the console](updating-account-factory-accounts.md#update-account-in-console "updating-account-factory-accounts.md#update-account-in-console").
 
 **Definition: Your hub account**
 
@@ -72,21 +69,17 @@ an AWS Control Tower landing zone environment deployed, and you must have an org
 ###### Topics
 
 - [Set up for customization](afc-setup-steps.md "afc-setup-steps.md")
-- [Create a customized account from a
-  blueprint](create-afc-customized-account.md "create-afc-customized-account.md")
+- [Create a customized account from a blueprint](create-afc-customized-account.md "create-afc-customized-account.md")
 - [Customize accounts with AFC as you enroll them](enroll-and-customize.md "enroll-and-customize.md")
-- [Add a blueprint to an AWS Control Tower
-  account](add-blueprint-to-account.md "add-blueprint-to-account.md")
+- [Add a blueprint to an AWS Control Tower account](add-blueprint-to-account.md "add-blueprint-to-account.md")
 - [Update a blueprint](update-a-blueprint.md "update-a-blueprint.md")
 - [Remove a blueprint from an account](remove-a-blueprint.md "remove-a-blueprint.md")
 - [Partner blueprints](partner-blueprints.md "partner-blueprints.md")
 - [Considerations for Account Factory Customizations (AFC)](#af-limitations "#af-limitations")
 - [In case of a blueprint error](#af-error "#af-error")
-- [Customizing your policy document for AFC
-  blueprints based on CloudFormation](#custom-policy-document "#custom-policy-document")
+- [Customizing your policy document for AFC blueprints based on CloudFormation](#custom-policy-document "#custom-policy-document")
 - [Additional permissions required for creating a Terraform-based Service Catalog product](#custom-policy-document-tf "#custom-policy-document-tf")
-- [Transition to the AWS Service Catalog
-  External product type](#service-catalog-external-product-type "#service-catalog-external-product-type")
+- [Transition to the AWS Service Catalog External product type](#service-catalog-external-product-type "#service-catalog-external-product-type")
 
 ###### Note
 
@@ -180,9 +173,7 @@ The following workarounds are available:
 - (Strongly not recommended) Use your AWS Control Tower management account as your hub
   account, so it is not subject to the SCP.
 
-## Customizing your policy document for AFC
-
-blueprints based on CloudFormation
+## Customizing your policy document for AFC blueprints based on CloudFormation
 
 When you enable a blueprint through account factory, AWS Control Tower directs CloudFormation to create
 a StackSet on your behalf. CloudFormation requires access to your managed account to create CloudFormation
@@ -297,9 +288,7 @@ JSON
 For more information about creating Terraform products using the External product type in AWS Service Catalog, see [Step 5:
 Create launch roles](../../../servicecatalog/latest/adminguide/getstarted-launchrole-Terraform.md "../../../servicecatalog/latest/adminguide/getstarted-launchrole-Terraform.md") in the Service Catalog Administrator Guide.
 
-## Transition to the AWS Service Catalog
-
-External product type
+## Transition to the AWS Service Catalog External product type
 
 AWS Service Catalog changed support for _Terraform Open Source_ products
 and provisioned products to a new product type, called

@@ -14,8 +14,7 @@ as decommissioning your landing zone.
 
 Manually removing resources will not allow you to set up a new landing zone. It is not the
 same as decommissioning. If you intend to decommission your AWS Control Tower landing zone, follow the
-instructions on [Decommission an AWS Control Tower landing
-zone](decommission-landing-zone.md "decommission-landing-zone.md") before you take any actions described in this chapter. The
+instructions on [Decommission an AWS Control Tower landing zone](decommission-landing-zone.md "decommission-landing-zone.md") before you take any actions described in this chapter. The
 instructions in this chapter can help you clean up resources that remain after automated
 decommissioning is complete. Even if you delete all of your landing zone resources manually, it
 is not the same as decommissioning the landing zone, and you may incur unexpected charges.
@@ -38,8 +37,7 @@ when you initially set up your landing zone.
   Amazon S3 buckets and Amazon CloudWatch Logs log groups.
 - You must clean up the remaining resources in your accounts manually before you set up
   another landing zone, and to avoid the possibility of unexpected charges. For more information, see
-  [Resources not removed during
-  decommissioning](resources-not-removed.md "resources-not-removed.md").
+  [Resources not removed during decommissioning](resources-not-removed.md "resources-not-removed.md").
 
 ###### Warning
 
@@ -66,12 +64,9 @@ They cannot be undone.
 
 - [Delete SCPs](controltower-walkthrough-delete-scps.md "controltower-walkthrough-delete-scps.md")
 - [Delete StackSets and Stacks](controltower-walkthrough-delete-stacksets.md "controltower-walkthrough-delete-stacksets.md")
-- [Delete Amazon S3 Buckets in the Log
-  Archive Account](controltower-walkthrough-delete-s3-buckets.md "controltower-walkthrough-delete-s3-buckets.md")
-- [Remove an Account Factory
-  Portfolio and Product](controltower-walkthrough-cleanup-account-factory.md "controltower-walkthrough-cleanup-account-factory.md")
-- [Remove AWS Control Tower Roles and
-  Policies](controltower-walkthrough-cleanup-identity.md "controltower-walkthrough-cleanup-identity.md")
+- [Delete Amazon S3 Buckets in the Log Archive Account](controltower-walkthrough-delete-s3-buckets.md "controltower-walkthrough-delete-s3-buckets.md")
+- [Remove an Account Factory Portfolio and Product](controltower-walkthrough-cleanup-account-factory.md "controltower-walkthrough-cleanup-account-factory.md")
+- [Remove AWS Control Tower Roles and Policies](controltower-walkthrough-cleanup-identity.md "controltower-walkthrough-cleanup-identity.md")
 - [AWS Control Tower resource help](#control-tower-cleanup-help "#control-tower-cleanup-help")
 
 ## AWS Control Tower resource help

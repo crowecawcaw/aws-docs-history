@@ -1,7 +1,7 @@
 # Step 2. Configure and launch your landing zone
 
 Before you launch your AWS Control Tower landing zone, determine the most appropriate home Region.
-For more information, see [Administrative tips for landing zone setup](tips-for-admin-setup.md "tips-for-admin-setup.md") .
+For more information, see [Administrative tips for landing zone setup](tips-for-admin-setup.md "tips-for-admin-setup.md").
 
 ###### Important
 

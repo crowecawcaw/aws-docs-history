@@ -1,6 +1,4 @@
-# Alternatives for version control of source code in
-
-AFT
+# Alternatives for version control of source code in AFT
 
 AFT uses AWS CodeCommit for a source code version control system (VCS), and it allows other
 [CodeConnections](../../../dtconsole/latest/userguide/supported-versions-connections.md "../../../dtconsole/latest/userguide/supported-versions-connections.md") that
@@ -25,9 +23,7 @@ the necessary `git` repositories in your environment, with default names.
 However, you can override the default repository names for CodeCommit, as needed, to comply
 with your organizational standards.
 
-## Set up an alternative source code version
-
-control system (custom VCS) with AFT
+## Set up an alternative source code version control system (custom VCS) with AFT
 
 To set up an alternative source code version control system for your AFT deployment,
 follow these steps.
@@ -45,8 +41,7 @@ AFT-supported, third-party VCS provider environment for the following items.
 - **AFT account provisioning customizations.**
   [Sample code available](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-account-provisioning-customizations "https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-account-provisioning-customizations")
   . For more information
-  on AFT account provisioning customizations, see [Create your AFT account provisioning
-  customizations state machine](aft-provisioning-framework.md#aft-create-customizations "aft-provisioning-framework.md#aft-create-customizations").
+  on AFT account provisioning customizations, see [Create your AFT account provisioning customizations state machine](aft-provisioning-framework.md#aft-create-customizations "aft-provisioning-framework.md#aft-create-customizations").
 - **AFT global customizations.**
   [Sample code available](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-global-customizations "https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-global-customizations")
   . For more information

@@ -9,9 +9,7 @@ the _Customizations for AWS Control Tower_ capability, a
 GitOps-style customization framework that works with AWS CloudFormation templates and AWS Control Tower
 lifecycle events.
 
-## Benefits of Customizations for AWS Control Tower
-
-(CfCT)
+## Benefits of Customizations for AWS Control Tower (CfCT)
 
 The package of functionality that we refer to as _Customizations for AWS Control Tower_ (CfCT) helps you create more extensive
 customizations for your landing zone than you can create in the AWS Control Tower console. It

@@ -1,6 +1,4 @@
-# Step 2b. Configure your organizational
-
-units (OUs)
+# Step 2b. Configure your organizational units (OUs)
 
 If you accept the default names of these OUs, there's no action you need to take
 for setup to continue. To change the names of the OUs, enter the new names directly
@@ -18,7 +16,6 @@ in the form field.
   provision at least one **Additional OU** in your landing
   zone, besides the **Security OU**. If this Additional OU is
   intended for development projects, we recommend that you name it the
-  **Sandbox OU**, as given in the [Guidelines to set up a
-  well-architected environment](aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup "aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup"). If you already
+  **Sandbox OU**, as given in the [Guidelines to set up a well-architected environment](aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup "aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup"). If you already
   have an existing OU in AWS Organizations, you may see the option to skip
   setting up an Additional OU in AWS Control Tower.

@@ -8,8 +8,7 @@ aspects of your AWS Control Tower landing zone are configurable. Other choices c
 - You can select your Foundational OU names during setup, and you also can change
   OU names after you've set up your landing zone. By default, the Foundational OUs
   are named **Security** and **Sandbox**. For
-  more information, see [Guidelines to set up a
-  well-architected environment](aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup "aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup").
+  more information, see [Guidelines to set up a well-architected environment](aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup "aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup").
 - During setup, you can select customized names for the shared accounts that
   AWS Control Tower creates, called **log archive** and
   **audit** by default, but you cannot change these names
