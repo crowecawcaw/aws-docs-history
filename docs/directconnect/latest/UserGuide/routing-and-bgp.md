@@ -139,9 +139,7 @@ To receive all AWS public prefixes do not apply any filter.
 Communities that are not supported for an Direct Connect public connection are
 removed.
 
-### `NO_EXPORT` BGP
-
-community
+### `NO_EXPORT` BGP community
 
 For outbound routing policies, the `NO_EXPORT` BGP community tag is
 supported for public virtual interfaces.
@@ -181,9 +179,7 @@ The following outbound routing rules apply based on the prefixes advertised:
   private virtual interfaces when prefixes have the same AS_PATH length and BGP
   attributes. The ASNs in the AS_PATH of the prefixes do not need to match.
 
-### Private virtual interface and transit
-
-virtual interface BGP communities
+### Private virtual interface and transit virtual interface BGP communities
 
 When an AWS Region routes traffic to on-premises locations via Direct Connect
 private or transit virtual interfaces, the associated AWS Region of the Direct
@@ -211,9 +207,7 @@ This has no effect on ECMP to an AWS Region from on-premises locations.
 To control route preferences, Direct Connect supports local preference BGP
 community tags for private virtual interfaces and transit virtual interfaces.
 
-#### Local preference BGP
-
-communities
+#### Local preference BGP communities
 
 You can use local preference BGP community tags to achieve load balancing and
 route preference for incoming traffic to your network. For each prefix that you

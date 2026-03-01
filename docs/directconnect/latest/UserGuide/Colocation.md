@@ -25,8 +25,7 @@ information, see [Access to remote Direct Connect Regions](remote_regions.md "re
 
 If the cross connect is not completed within 90 days, the authority granted by the LOA-CFA
 expires. To renew a LOA-CFA that has expired, you can download it again from the
-Direct Connect console. For more information, see [Letter of Authorization and Connecting Facility
-Assignment (LOA-CFA)](dedicated_connection.md#create-connection-loa-cfa "dedicated_connection.md#create-connection-loa-cfa").
+Direct Connect console. For more information, see [Letter of Authorization and Connecting Facility Assignment (LOA-CFA)](dedicated_connection.md#create-connection-loa-cfa "dedicated_connection.md#create-connection-loa-cfa").
 
 ## Connectivity options
 

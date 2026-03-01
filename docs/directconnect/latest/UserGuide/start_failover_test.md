@@ -1,13 +1,9 @@
-# Start an AWS Direct Connect Resiliency Toolkit virtual interface failover
-
-test
+# Start an AWS Direct Connect Resiliency Toolkit virtual interface failover test
 
 You can start the virtual interface failover test using the Direct Connect console, or the
 AWS CLI.
 
-###### To start the virtual interface failover test from the Direct Connect
-
-console
+###### To start the virtual interface failover test from the Direct Connect console
 
 1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. Choose **Virtual interfaces**.

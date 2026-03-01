@@ -66,8 +66,7 @@ create a Classic connection, see the steps at [Step 2: Request an Direct Connect
     usage and additional data transfer charges.
 9.  Choose **Create**.
 10. Download your Letter of Authorization and Connecting Facility
-    Assignment (LOA-CFA), For more information, see [Letter of Authorization and Connecting Facility
-    Assignment (LOA-CFA)](dedicated_connection.md#create-connection-loa-cfa "dedicated_connection.md#create-connection-loa-cfa").
+    Assignment (LOA-CFA), For more information, see [Letter of Authorization and Connecting Facility Assignment (LOA-CFA)](dedicated_connection.md#create-connection-loa-cfa "dedicated_connection.md#create-connection-loa-cfa").
     Use one of the following commands.
 
 - [create-connection](../../../cli/latest/reference/directconnect/create-connection.md "../../../cli/latest/reference/directconnect/create-connection.md") (AWS CLI)

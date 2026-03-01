@@ -136,9 +136,7 @@ Direct Connect Failover test, see [Direct Connect failover test](resiliency_fail
 You can also leverage Amazon CloudWatch Network Monitor to provide active monitoring of
 your Direct Connect connections. For more information, see [Monitor hybrid connectivity with Amazon CloudWatch Network Synthetic Monitor](https://aws.amazon.com/blogs/networking-and-content-delivery/monitor-hybrid-connectivity-with-amazon-cloudwatch-network-monitor/ "https://aws.amazon.com/blogs/networking-and-content-delivery/monitor-hybrid-connectivity-with-amazon-cloudwatch-network-monitor/").
 
-## Requests for maintenance event postponement or
-
-cancellation
+## Requests for maintenance event postponement or cancellation
 
 Direct Connect devices are shared across multiple customers. Therefore, we do not accommodate
 specific requests for maintenance rescheduling or cancellation. Rescheduling or

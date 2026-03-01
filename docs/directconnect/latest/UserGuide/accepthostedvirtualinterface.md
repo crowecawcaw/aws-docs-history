@@ -30,9 +30,7 @@ connection can download the router configuration file. The **Download
 router configuration** option is not available for the account that
 accepts the hosted virtual interface.
 
-###### To accept a hosted private virtual interface using the command line or
-
-API
+###### To accept a hosted private virtual interface using the command line or API
 
 - [confirm-private-virtual-interface](../../../cli/latest/reference/directconnect/confirm-private-virtual-interface.md "../../../cli/latest/reference/directconnect/confirm-private-virtual-interface.md") (AWS CLI)
 - [ConfirmPrivateVirtualInterface](../APIReference/API_ConfirmPrivateVirtualInterface.md "../APIReference/API_ConfirmPrivateVirtualInterface.md") (Direct Connect API)
@@ -42,9 +40,7 @@ API
 - [confirm-public-virtual-interface](../../../cli/latest/reference/directconnect/confirm-public-virtual-interface.md "../../../cli/latest/reference/directconnect/confirm-public-virtual-interface.md") (AWS CLI)
 - [ConfirmPublicVirtualInterface](../APIReference/API_ConfirmPublicVirtualInterface.md "../APIReference/API_ConfirmPublicVirtualInterface.md") (Direct Connect API)
 
-###### To accept a hosted transit virtual interface using the command line or
-
-API
+###### To accept a hosted transit virtual interface using the command line or API
 
 - [confirm-transit-virtual-interface](../../../cli/latest/reference/directconnect/confirm-transit-virtual-interface.md "../../../cli/latest/reference/directconnect/confirm-transit-virtual-interface.md") (AWS CLI)
 - [ConfirmTransitVirtualInterface](../APIReference/API_ConfirTransitVirtualInterface.md "../APIReference/API_ConfirTransitVirtualInterface.md") (Direct Connect API)

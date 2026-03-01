@@ -1,6 +1,4 @@
-# Associate or disassociate
-
-Direct Connect with a transit gateway
+# Associate or disassociate Direct Connect with a transit gateway
 
 Associate or disassociate a transit gateway using either the Direct Connect console or using the command line or API.
 
@@ -61,9 +59,7 @@ This might take several minutes or longer to complete.
 - [CreateDirectConnectGatewayAssociation](../APIReference/API_CreateDirectConnectGatewayAssociation.md "../APIReference/API_CreateDirectConnectGatewayAssociation.md")
   (Direct Connect API)
 
-###### To view the transit gateways associated with a Direct Connect gateway using the command
-
-line or API
+###### To view the transit gateways associated with a Direct Connect gateway using the command line or API
 
 - [describe-direct-connect-gateway-associations](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-associations.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-associations.md")
   (AWS CLI)

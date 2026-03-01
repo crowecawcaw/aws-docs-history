@@ -63,9 +63,7 @@ Before you begin, ensure that you have read the information in [Prerequisites fo
 7.  After the hosted virtual interface is accepted by the owner of the other AWS
     account, you can download the configuration file. For more information, see [Download the router configuration file](vif-router-config.md "vif-router-config.md").
 
-###### To create a hosted private virtual interface using the command line or
-
-API
+###### To create a hosted private virtual interface using the command line or API
 
 - [allocate-private-virtual-interface](../../../cli/latest/reference/directconnect/allocate-private-virtual-interface.md "../../../cli/latest/reference/directconnect/allocate-private-virtual-interface.md") (AWS CLI)
 - [AllocatePrivateVirtualInterface](../APIReference/API_AllocatePrivateVirtualInterface.md "../APIReference/API_AllocatePrivateVirtualInterface.md") (Direct Connect API)

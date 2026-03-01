@@ -1,6 +1,4 @@
-# Direct Connect private virtual interface routing
-
-example
+# Direct Connect private virtual interface routing example
 
 Consider the configuration where the Direct Connect location 1 home Region is the same as
 the VPC home Region. There is a redundant Direct Connect location in a different Region There

@@ -42,8 +42,7 @@ Create a _virtual interface_ to enable access to AWS services. A
 public virtual interface enables access to public services, such as Amazon S3. A
 private virtual interface enables access to your VPC. The types of supported
 interfaces are described below in [Supported Direct Connect virtual interface types](#dx-vif-types "#dx-vif-types"). For more details about the supported
-interfaces, see [Direct Connect virtual interfaces and hosted virtual
-interfaces](WorkingWithVirtualInterfaces.md "WorkingWithVirtualInterfaces.md") and [Prerequisites for virtual interfaces](WorkingWithVirtualInterfaces.md#vif-prerequisites "WorkingWithVirtualInterfaces.md#vif-prerequisites").
+interfaces, see [Direct Connect virtual interfaces and hosted virtual interfaces](WorkingWithVirtualInterfaces.md "WorkingWithVirtualInterfaces.md") and [Prerequisites for virtual interfaces](WorkingWithVirtualInterfaces.md#vif-prerequisites "WorkingWithVirtualInterfaces.md#vif-prerequisites").
 
 ## Network requirements
 
@@ -76,8 +75,7 @@ interfaces.
 
 Direct Connect supports an Ethernet frame size of 1522 or 9023 bytes (14 bytes Ethernet header +
 4 bytes VLAN tag + bytes for the IP datagram + 4 bytes FCS) at the link layer. You can
-set the MTU of your private virtual interfaces. For more information, see [MTUs for private virtual interfaces or transit virtual
-interfaces](WorkingWithVirtualInterfaces.md#set-jumbo-frames-vif "WorkingWithVirtualInterfaces.md#set-jumbo-frames-vif").
+set the MTU of your private virtual interfaces. For more information, see [MTUs for private virtual interfaces or transit virtual interfaces](WorkingWithVirtualInterfaces.md#set-jumbo-frames-vif "WorkingWithVirtualInterfaces.md#set-jumbo-frames-vif").
 
 ## Supported Direct Connect virtual interface types
 
@@ -113,8 +111,7 @@ There are limits to the number of different types of associations between a Dire
 gateway and a virtual interface. For more information about specific limits,
 see the [Direct Connect quotas](limits.md "limits.md") page.
 
-For more information about virtual interfaces, see [Direct Connect virtual interfaces and hosted virtual
-interfaces](WorkingWithVirtualInterfaces.md "WorkingWithVirtualInterfaces.md").
+For more information about virtual interfaces, see [Direct Connect virtual interfaces and hosted virtual interfaces](WorkingWithVirtualInterfaces.md "WorkingWithVirtualInterfaces.md").
 
 ## Pricing for Direct Connect
 

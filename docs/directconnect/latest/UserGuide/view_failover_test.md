@@ -3,9 +3,7 @@
 You can view the virtual interface failover test history using the Direct Connect console,
 or the AWS CLI.
 
-###### To view the virtual interface failover test history from the Direct Connect
-
-console
+###### To view the virtual interface failover test history from the Direct Connect console
 
 1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. Choose **Virtual interfaces**.

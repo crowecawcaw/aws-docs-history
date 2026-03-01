@@ -21,9 +21,7 @@ services that publish CloudWatch metrics](../../../AmazonCloudWatch/latest/monit
 Metrics are available for Direct Connect physical connections, and virtual
 interfaces.
 
-### Direct Connect Connection
-
-metrics
+### Direct Connect Connection metrics
 
 The following metrics are available from Direct Connect dedicated connections.
 
@@ -41,9 +39,7 @@ The following metrics are available from Direct Connect dedicated connections.
 | `ConnectionEncryptionState`   | Indicates the connection encryption status. 1 indicates the connection encryption is<br>`up`, and 0 indicates the connection encryption<br>is `down`. When this metric is applied to a LAG, 1<br>indicates that all connections in the LAG have encryption<br>`up`. 0 indicates at least one LAG connection<br>encryption is `down`.                                                                                                                                                                                                                                                                                                 |
 | `ConnectionDiscardsPpsEgress` | The packet discard rate for outbound data from the AWS side of the<br>connection. This metric tracks packets that are dropped due to buffer<br>overflows, interface congestion, or other network conditions.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default, 1 minute minimum).<br>You can change the default aggregate.<br>Units: Packets per second                                                                                                                                                                                                                     |
 
-### Direct Connect virtual
-
-interface metrics
+### Direct Connect virtual interface metrics
 
 The following metrics are available from Direct Connect virtual interfaces.
 
@@ -54,9 +50,7 @@ The following metrics are available from Direct Connect virtual interfaces.
 | `VirtualInterfacePpsEgress`  | The packet rate for outbound data from the AWS side of the<br>virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Packets per second |
 | `VirtualInterfacePpsIngress` | The packet rate for inbound data to the AWS side of the<br>virtual interface.<br>The number reported is the aggregate (average) over the<br>specified time period (5 minutes by default).<br>Units: Packets per second    |
 
-### Direct Connect available
-
-dimensions
+### Direct Connect available dimensions
 
 You can filter the Direct Connect data using the following dimensions.
 

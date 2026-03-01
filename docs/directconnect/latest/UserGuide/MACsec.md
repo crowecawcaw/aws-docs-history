@@ -199,8 +199,7 @@ have to manually add the necessary permissions. Direct Connect defines the permi
 service-linked roles, and unless defined otherwise, only Direct Connect can assume its roles.
 The defined permissions include the trust policy and the permissions policy, and that
 permissions policy cannot be attached to any other IAM entity. For more information,
-see [Service-linked
-roles for Direct Connect](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked").
+see [Service-linked roles for Direct Connect](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked").
 
 ## MACsec pre-shared CKN/CAK key considerations
 

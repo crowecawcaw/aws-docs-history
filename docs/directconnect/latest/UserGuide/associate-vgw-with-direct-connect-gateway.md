@@ -1,6 +1,4 @@
-# Associate or
-
-disassociate Direct Connect virtual private gateways
+# Associate or disassociate Direct Connect virtual private gateways
 
 You can associate or disassociate a virtual private gateway and Direct Connect
 gateway using either the Direct Connect console or using the command line or API. The account owner of the virtual private gateway performs these
@@ -36,18 +34,14 @@ operations.
 - [CreateDirectConnectGatewayAssociation](../APIReference/API_CreateDirectConnectGatewayAssociation.md "../APIReference/API_CreateDirectConnectGatewayAssociation.md")
   (Direct Connect API)
 
-###### To view the virtual private gateways associated with a Direct Connect gateway
-
-using the command line or API
+###### To view the virtual private gateways associated with a Direct Connect gateway using the command line or API
 
 - [describe-direct-connect-gateway-associations](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-associations.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-associations.md")
   (AWS CLI)
 - [DescribeDirectConnectGatewayAssociations](../APIReference/API_DescribeDirectConnectGatewayAssociations.md "../APIReference/API_DescribeDirectConnectGatewayAssociations.md")
   (Direct Connect API)
 
-###### To disassociate a virtual private gateway using the command line or
-
-API
+###### To disassociate a virtual private gateway using the command line or API
 
 - [delete-direct-connect-gateway-association](../../../cli/latest/reference/directconnect/delete-direct-connect-gateway-association.md "../../../cli/latest/reference/directconnect/delete-direct-connect-gateway-association.md")
   (AWS CLI)

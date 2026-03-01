@@ -1,6 +1,4 @@
-# Create a transit virtual
-
-interface to the Direct Connect gateway
+# Create a transit virtual interface to the Direct Connect gateway
 
 To connect your Direct Connect connection to the transit gateway, you must create a
 transit interface for your connection. Specify the Direct Connect gateway to which
@@ -76,9 +74,7 @@ If you associate your transit gateway with one or more Direct Connect gateways, 
 - [CreateTransitVirtualInterface](../APIReference/API_CreateTransitVirtualInterface.md "../APIReference/API_CreateTransitVirtualInterface.md") (Direct Connect
   API)
 
-###### To view the virtual interfaces that are attached to a Direct Connect gateway
-
-using the command line or API
+###### To view the virtual interfaces that are attached to a Direct Connect gateway using the command line or API
 
 - [describe-direct-connect-gateway-attachments](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-attachments.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-attachments.md")
   (AWS CLI)

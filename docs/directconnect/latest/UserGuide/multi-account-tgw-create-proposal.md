@@ -1,6 +1,4 @@
-# Create a transit gateway and Direct Connect association
-
-proposal
+# Create a transit gateway and Direct Connect association proposal
 
 If you own the transit gateway, you must create the association proposal. The transit gateway must
 be attached to a VPC or VPN in your AWS account. The owner of the Direct Connect

@@ -1,6 +1,4 @@
-# Create a transit virtual interface to the Direct Connect
-
-gateway
+# Create a transit virtual interface to the Direct Connect gateway
 
 Before connecting a transit virtual interface to the Direct Connect gateway, familiarize yourself with the [text](create-vif.md#dx-vifs-prereqs "create-vif.md#dx-vifs-prereqs").
 
@@ -68,9 +66,7 @@ Before connecting a transit virtual interface to the Direct Connect gateway, fam
 - [create-transit-virtual-interface](../../../cli/latest/reference/directconnect/create-transit-virtual-interface.md "../../../cli/latest/reference/directconnect/create-transit-virtual-interface.md") (AWS CLI)
 - [CreateTransitVirtualInterface](../APIReference/API_CreateTransitVirtualInterface.md "../APIReference/API_CreateTransitVirtualInterface.md") (Direct Connect API)
 
-###### To view the virtual interfaces that are attached to a Direct Connect gateway using the
-
-command line or API
+###### To view the virtual interfaces that are attached to a Direct Connect gateway using the command line or API
 
 - [describe-direct-connect-gateway-attachments](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-attachments.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-attachments.md") (AWS CLI)
 - [DescribeDirectConnectGatewayAttachments](../APIReference/API_DescribeDirectConnectGatewayAttachments.md "../APIReference/API_DescribeDirectConnectGatewayAttachments.md") (Direct Connect API)

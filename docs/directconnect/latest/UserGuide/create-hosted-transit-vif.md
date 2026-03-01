@@ -75,9 +75,7 @@ If you associate your transit gateway with one or more Direct Connect gateways, 
 8.  After the hosted virtual interface is accepted by the owner of the other
     AWS account, you can download the router configuration file for your device. For more information, see [Download the router configuration file](vif-router-config.md "vif-router-config.md").
 
-###### To create a hosted transit virtual interface using the command line or
-
-API
+###### To create a hosted transit virtual interface using the command line or API
 
 - [allocate-transit-virtual-interface](../../../cli/latest/reference/directconnect/allocate-public-transit-interface.md "../../../cli/latest/reference/directconnect/allocate-public-transit-interface.md") (AWS CLI)
 - [AllocateTransitVirtualInterface](../APIReference/API_AllocateTransitVirtualInterface.md "../APIReference/API_AllocateTransitVirtualInterface.md") (Direct Connect API)

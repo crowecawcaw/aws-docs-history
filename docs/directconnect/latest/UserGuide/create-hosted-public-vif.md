@@ -50,9 +50,7 @@ If you do not enter a value, then we generate a BGP key. 9. (Optional) Add or re
 11. After the hosted virtual interface is accepted by the owner of the other AWS
     account, you can download the configuration file. For more information, see [Download the router configuration file](vif-router-config.md "vif-router-config.md").
 
-###### To create a hosted public virtual interface using the command line or
-
-API
+###### To create a hosted public virtual interface using the command line or API
 
 - [allocate-public-virtual-interface](../../../cli/latest/reference/directconnect/allocate-public-virtual-interface.md "../../../cli/latest/reference/directconnect/allocate-public-virtual-interface.md") (AWS CLI)
 - [AllocatePublicVirtualInterface](../APIReference/API_AllocatePublicVirtualInterface.md "../APIReference/API_AllocatePublicVirtualInterface.md") (Direct Connect API)

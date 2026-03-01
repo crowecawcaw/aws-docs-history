@@ -1,6 +1,4 @@
-# Associate a MACsec CKN/CAK with an Direct Connect
-
-connection
+# Associate a MACsec CKN/CAK with an Direct Connect connection
 
 After you create the connection that supports MACsec, you can associate a CKN/CAK with the
 connection. You can create the association using either the Direct Connect console or through the
@@ -35,9 +33,7 @@ following:
 for **Secret**, select the MACsec secret
 key. 6. Choose **Associate key**.
 
-###### To associate a MACsec key with a connection using the command line or
-
-API
+###### To associate a MACsec key with a connection using the command line or API
 
 - [associate-mac-sec-key](../../../cli/latest/reference/directconnect/associate-mac-sec-key.md "../../../cli/latest/reference/directconnect/associate-mac-sec-key.md") (AWS CLI)
 - [AssociateMacSecKey](../APIReference/API_AssociateMacSecKey.md "../APIReference/API_AssociateMacSecKey.md") (Direct Connect API)

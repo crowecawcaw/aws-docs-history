@@ -21,9 +21,7 @@ To get a high-level view of how Direct Connect and other AWS services work with 
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Direct Connect
+## Identity-based policies for Direct Connect
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Direct Connect
 
-Identity-based policy examples for Direct Connect
+To view examples of Direct Connect identity-based policies, see [Identity-based policy examples for Direct Connect](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Direct Connect identity-based policies, see [Identity-based policy examples for
-Direct Connect](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Direct Connect
+## Resource-based policies within Direct Connect
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Direct Connect
+## Policy actions for Direct Connect
 
 **Supports policy actions:**
 
@@ -97,9 +88,7 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-## Policy
-
-resources for Direct Connect
+## Policy resources for Direct Connect
 
 **Supports policy resources:**
 
@@ -119,15 +108,11 @@ To see a list of Direct Connect resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions Defined by Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions").
 
-To view examples of Direct Connect identity-based policies, see [Identity-based policy examples for
-Direct Connect](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Direct Connect identity-based policies, see [Identity-based policy examples for Direct Connect](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Direct Connect resource-based policies, see [Direct Connect
-identity-based policy examples using tag-based conditions](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+To view examples of Direct Connect resource-based policies, see [Direct Connect identity-based policy examples using tag-based conditions](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
-## Policy
-
-condition keys for Direct Connect
+## Policy condition keys for Direct Connect
 
 **Supports service-specific policy condition keys:**
 
@@ -146,8 +131,7 @@ To see a list of Direct Connect condition keys, see [Condition Keys for Direct C
 _AWS Direct Connect API Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions, Resources, and Condition Keys for Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md "../../../IAM/latest/UserGuide/list_awsdirectconnect.md") in the _Service Authorization Reference_.
 
-To view examples of Direct Connect identity-based policies, see [Identity-based policy examples for
-Direct Connect](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Direct Connect identity-based policies, see [Identity-based policy examples for Direct Connect](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Direct Connect
 
@@ -175,9 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Direct Connect
+## Using temporary credentials with Direct Connect
 
 **Supports temporary credentials:**
 
@@ -189,9 +171,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Direct Connect
+## Cross-service principal permissions for Direct Connect
 
 **Supports forward access sessions (FAS):**
 
@@ -200,9 +180,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Direct Connect
+## Service roles for Direct Connect
 
 **Supports service roles:**
 
@@ -217,9 +195,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Direct Connect functionality.
 Edit service roles only when Direct Connect provides guidance to do so.
 
-## Service-linked
-
-roles for Direct Connect
+## Service-linked roles for Direct Connect
 
 **Supports service-linked roles:**
 

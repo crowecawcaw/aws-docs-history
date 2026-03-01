@@ -11,9 +11,7 @@ After you create a LAG, you can view its details using either the Direct Connect
 4. You can view information about the LAG, including its ID, and the Direct Connect endpoint on
    which the connections terminate.
 
-###### To view information about your LAG using the command line or
-
-API
+###### To view information about your LAG using the command line or API
 
 - [describe-lags](../../../cli/latest/reference/directconnect/describe-lags.md "../../../cli/latest/reference/directconnect/describe-lags.md") (AWS CLI)
 - [DescribeLags](../APIReference/API_DescribeLags.md "../APIReference/API_DescribeLags.md") (Direct Connect API)

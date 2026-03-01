@@ -1,6 +1,4 @@
-# Delete a transit gateway and Direct Connect association
-
-proposal
+# Delete a transit gateway and Direct Connect association proposal
 
 The owner of the transit gateway can delete the Direct Connect gateway
 association proposal if it is still pending acceptance. After an association

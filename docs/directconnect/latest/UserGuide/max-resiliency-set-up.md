@@ -1,20 +1,14 @@
-# Configure Direct Connect for maximum resiliency with the
-
-AWS Direct Connect Resiliency Toolkit
+# Configure Direct Connect for maximum resiliency with the AWS Direct Connect Resiliency Toolkit
 
 In this example, the Direct Connect Resiliency Toolkit is used to configure a maximum resiliency model
 
 ###### Tasks
 
 - [Step 1: Sign up for AWS](#max-resiliency-signup "#max-resiliency-signup")
-- [Step 2: Configure the resiliency
-  model](#max-resiliency-select-model "#max-resiliency-select-model")
-- [Step 3: Create your virtual
-  interfaces](#max-resiliency-createvirtualinterface "#max-resiliency-createvirtualinterface")
-- [Step 4: Verify your virtual interface
-  resiliency configuration](#max-resiliency-failover "#max-resiliency-failover")
-- [Step 5: Verify your virtual interfaces
-  connectivity](#max-resiliency-connected "#max-resiliency-connected")
+- [Step 2: Configure the resiliency model](#max-resiliency-select-model "#max-resiliency-select-model")
+- [Step 3: Create your virtual interfaces](#max-resiliency-createvirtualinterface "#max-resiliency-createvirtualinterface")
+- [Step 4: Verify your virtual interface resiliency configuration](#max-resiliency-failover "#max-resiliency-failover")
+- [Step 5: Verify your virtual interfaces connectivity](#max-resiliency-connected "#max-resiliency-connected")
 
 ## Step 1: Sign up for AWS
 
@@ -78,9 +72,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Step 2: Configure the resiliency
-
-model
+## Step 2: Configure the resiliency model
 
 ###### To configure a maximum resiliency model
 
@@ -134,9 +126,7 @@ location. The email is sent to the email address that you used when you
 signed up for AWS. You must respond within 7 days or the connection is
 deleted.
 
-## Step 3: Create your virtual
-
-interfaces
+## Step 3: Create your virtual interfaces
 
 You can create a private virtual interface to connect to your VPC. Or, you can
 create a public virtual interface to connect to public AWS services that aren't in a
@@ -273,17 +263,13 @@ review and approve your request.
 
 7.  Choose **Create virtual interface**.
 
-## Step 4: Verify your virtual interface
-
-resiliency configuration
+## Step 4: Verify your virtual interface resiliency configuration
 
 After you have established virtual interfaces to the AWS Cloud or to Amazon VPC,
 perform a virtual interface failover test to verify that your configuration meets
 your resiliency requirements. For more information, see [Direct Connect Failover Test](resiliency_failover.md "resiliency_failover.md").
 
-## Step 5: Verify your virtual interfaces
-
-connectivity
+## Step 5: Verify your virtual interfaces connectivity
 
 After you have established virtual interfaces to the AWS Cloud or to Amazon VPC, you
 can verify your AWS Direct Connect connection using the following procedures.

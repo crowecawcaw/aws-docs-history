@@ -42,8 +42,7 @@ The following operations are available for dedicated connections:
 - [Update an Direct Connect connection](updateconnection.md "updateconnection.md")
 - [Associate a MACsec CKN/CAK with a
   connection](associate-key-connection.md "associate-key-connection.md")
-- [Remove the association between a MACsec secret key
-  and an Direct Connect connection](disassociate-key-connection.md "disassociate-key-connection.md")
+- [Remove the association between a MACsec secret key and an Direct Connect connection](disassociate-key-connection.md "disassociate-key-connection.md")
 - [Delete an Direct Connect connection](deleteconnection.md "deleteconnection.md")
   You can add a dedicated connection to a link aggregation group (LAG) allowing you to treat
   multiple connections as a single one. For information, see [Associate a connection with a LAG](associate-connection-with-lag.md "associate-connection-with-lag.md").
@@ -58,9 +57,7 @@ Direct Connect](https://aws.amazon.com/directconnect/partners "https://aws.amazo
 If you want to create a connection that uses MAC Security (MACsec), review the
 prerequisites before you create the connection. For more information, see [MACsec prerequisites for dedicated connections](MACsec.md#mac-sec-prerequisites "MACsec.md#mac-sec-prerequisites").
 
-## Letter of Authorization and Connecting Facility
-
-Assignment (LOA-CFA)
+## Letter of Authorization and Connecting Facility Assignment (LOA-CFA)
 
 After we have processed your connection request, you can download the LOA-CFA. If the link
 is not enabled, the LOA-CFA is not yet available for you to download. Check your

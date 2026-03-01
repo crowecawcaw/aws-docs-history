@@ -5,12 +5,9 @@ In this example, the Direct Connect Resiliency Toolkit is used to configure a de
 ###### Tasks
 
 - [Step 1: Sign up for AWS](#dev-test-signup "#dev-test-signup")
-- [Step 2: Configure the resiliency
-  model](#dev-test-select-model "#dev-test-select-model")
-- [Step 3: Create a virtual
-  interface](#dev-test-createvirtualinterface "#dev-test-createvirtualinterface")
-- [Step 4: Verify your virtual interface
-  resiliency configuration](#dev-test-resiliency-failover "#dev-test-resiliency-failover")
+- [Step 2: Configure the resiliency model](#dev-test-select-model "#dev-test-select-model")
+- [Step 3: Create a virtual interface](#dev-test-createvirtualinterface "#dev-test-createvirtualinterface")
+- [Step 4: Verify your virtual interface resiliency configuration](#dev-test-resiliency-failover "#dev-test-resiliency-failover")
 - [Step 5: Verify your virtual interface](#dev-test-connected "#dev-test-connected")
 
 ## Step 1: Sign up for AWS
@@ -75,9 +72,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Step 2: Configure the resiliency
-
-model
+## Step 2: Configure the resiliency model
 
 ###### To configure the resiliency model
 
@@ -126,9 +121,7 @@ location. The email is sent to the email address that you used when you
 signed up for AWS. You must respond within 7 days or the connection is
 deleted.
 
-## Step 3: Create a virtual
-
-interface
+## Step 3: Create a virtual interface
 
 To begin using your Direct Connect connection, you must create a virtual interface. You
 can create a private virtual interface to connect to your VPC. Or, you can create a
@@ -273,9 +266,7 @@ to review and approve your request.
 
 7.  Choose **Create virtual interface**.
 
-## Step 4: Verify your virtual interface
-
-resiliency configuration
+## Step 4: Verify your virtual interface resiliency configuration
 
 After you have established virtual interfaces to the AWS Cloud or to Amazon VPC,
 perform a virtual interface failover test to verify that your configuration meets

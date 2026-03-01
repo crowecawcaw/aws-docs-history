@@ -17,8 +17,7 @@ resource-based access policies, which can include restrictions based on the sour
 address. You can also use Direct Connect policies to control access from specific Amazon Virtual Private Cloud
 (Amazon VPC) endpoints or specific VPCs. Effectively, this isolates network access to a given
 Direct Connect resource from only the specific VPC within the AWS network. For example, see
-[Identity-based policy examples for
-Direct Connect](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+[Identity-based policy examples for Direct Connect](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Border Gateway Protocol (BGP) security
 

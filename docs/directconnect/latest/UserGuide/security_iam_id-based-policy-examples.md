@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-Direct Connect
+# Identity-based policy examples for Direct Connect
 
 By default, users and roles don't have permission to create or modify Direct Connect
 resources. To grant users permission to perform actions on the
@@ -14,21 +12,15 @@ For details about actions and resource types defined by Direct Connect, includin
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Actions, resources, and conditions](#security_iam_service-dx-id-based-policies "#security_iam_service-dx-id-based-policies")
 - [Using the console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Read-only access to
-  Direct Connect](#security_iam_id-based-policy-examples-read-access "#security_iam_id-based-policy-examples-read-access")
-- [Full access to
-  Direct Connect](#security_iam_id-based-policy-examples-full-access "#security_iam_id-based-policy-examples-full-access")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Read-only access to Direct Connect](#security_iam_id-based-policy-examples-read-access "#security_iam_id-based-policy-examples-read-access")
+- [Full access to Direct Connect](#security_iam_id-based-policy-examples-full-access "#security_iam_id-based-policy-examples-full-access")
 - [Tag-based condition keys](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Direct Connect resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -61,9 +53,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Direct Connect actions,
-
-resources, and conditions
+## Direct Connect actions, resources, and conditions
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied. Direct Connect
@@ -255,9 +245,7 @@ To see a list of Direct Connect condition keys, see [Condition Keys for Direct C
 _IAM User Guide_. To learn with which actions and resources
 you can use a condition key, see [Actions Defined by Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions").
 
-## Using the Direct Connect
-
-console
+## Using the Direct Connect console
 
 To access the Direct Connect console, you must have a minimum set of permissions. These
 permissions must allow you to list and view details about the Direct Connect resources in
@@ -277,9 +265,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that you're trying to perform.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -319,9 +305,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Read-only access to
-
-Direct Connect
+## Read-only access to Direct Connect
 
 The following example policy grants read access to Direct Connect.
 
@@ -344,9 +328,7 @@ JSON
 
 ```
 
-## Full access to
-
-Direct Connect
+## Full access to Direct Connect
 
 The following example policy grants full access to Direct Connect.
 

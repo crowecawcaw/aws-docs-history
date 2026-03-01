@@ -1,6 +1,4 @@
-# Delete an Direct Connect
-
-gateway
+# Delete an Direct Connect gateway
 
 If you no longer require a Direct Connect gateway, you can delete it. You must first
 disassociate all associated virtual private gateways and delete the attached private virtual

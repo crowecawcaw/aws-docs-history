@@ -1,6 +1,4 @@
-# Direct Connect virtual interfaces and hosted virtual
-
-interfaces
+# Direct Connect virtual interfaces and hosted virtual interfaces
 
 You must create one of the following virtual interfaces (VIFs) to begin using your Direct Connect
 connection.
@@ -124,9 +122,7 @@ rules apply:
 
 31-Bit prefixes are supported on all Direct Connect virtual interface types. See [RFC 3021: Using 31-Bit Prefixes on IPv4 Point-to-Point Links](https://datatracker.ietf.org/doc/html/rfc3021 "https://datatracker.ietf.org/doc/html/rfc3021") for more information.
 
-## MTUs for private virtual interfaces or transit virtual
-
-interfaces
+## MTUs for private virtual interfaces or transit virtual interfaces
 
 Direct Connect supports an Ethernet frame size of 1522 or 9023 bytes (14 bytes Ethernet
 header + 4 bytes VLAN tag + bytes for the IP datagram + 4 bytes FCS) at the link

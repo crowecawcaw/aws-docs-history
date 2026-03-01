@@ -1,6 +1,4 @@
-# Direct Connect gateway and AWS Cloud WAN core
-
-network associations
+# Direct Connect gateway and AWS Cloud WAN core network associations
 
 Associate an Direct Connect gateway to an AWS Cloud WAN core network using a Direct Connect attachment
 type in Cloud WAN. This direct association routes traffic between your core network’s
@@ -88,9 +86,7 @@ WAN core network:
   Amazon CloudWatch Network Monitor](../../../AmazonCloudWatch/latest/monitoring/what-is-network-monitor.md "../../../AmazonCloudWatch/latest/monitoring/what-is-network-monitor.md") in the
   _Amazon CloudWatch User Guide_.
 
-## Direct Connect gateway
-
-associations to a Cloud WAN core network
+## Direct Connect gateway associations to a Cloud WAN core network
 
 Associating a Direct Connect gateway to an AWS Cloud WAN core network is performed using either
 the AWS Cloud WAN console or the Cloud WAN APIs or command line.

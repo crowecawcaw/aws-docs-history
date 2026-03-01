@@ -20,9 +20,7 @@ You can set the MTU of a private virtual interface using either the Direct Conne
    of the virtual interface is `pending` until the update is
    complete.
 
-###### To set the MTU of a private virtual interface using the command line or
-
-API
+###### To set the MTU of a private virtual interface using the command line or API
 
 - [update-virtual-interface-attributes](../../../cli/latest/reference/directconnect/update-virtual-interface-attributes.md "../../../cli/latest/reference/directconnect/update-virtual-interface-attributes.md") (AWS CLI)
 - [UpdateVirtualInterfaceAttributes](../APIReference/API_UpdateVirtualInterfaceAttributes.md "../APIReference/API_UpdateVirtualInterfaceAttributes.md") (Direct Connect API)

@@ -1,6 +1,4 @@
-# Internetwork traffic privacy in
-
-AWS Direct Connect
+# Internetwork traffic privacy in AWS Direct Connect
 
 ## Traffic between service and on-premises clients and applications
 

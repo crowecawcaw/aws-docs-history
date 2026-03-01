@@ -1,6 +1,4 @@
-# Create a private virtual
-
-interface to the Direct Connect gateway
+# Create a private virtual interface to the Direct Connect gateway
 
 To connect your Direct Connect connection to the remote VPC, you must create a private
 virtual interface for your connection. Specify the Direct Connect gateway to which
@@ -77,9 +75,7 @@ with a Direct Connect gateway in your account. For more information, see [Accept
 - [CreatePrivateVirtualInterface](../APIReference/API_CreatePrivateVirtualInterface.md "../APIReference/API_CreatePrivateVirtualInterface.md") (Direct Connect
   API)
 
-###### To view the virtual interfaces that are attached to a Direct Connect gateway
-
-using the command line or API
+###### To view the virtual interfaces that are attached to a Direct Connect gateway using the command line or API
 
 - [describe-direct-connect-gateway-attachments](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-attachments.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-attachments.md")
   (AWS CLI)

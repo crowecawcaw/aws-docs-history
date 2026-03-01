@@ -1,12 +1,8 @@
-# Remove the association between a MACsec secret key
-
-and an Direct Connect connection
+# Remove the association between a MACsec secret key and an Direct Connect connection
 
 You can remove the association between the connection and the MACsec key using either the Direct Connect console or through the command-line or API.
 
-###### To remove an association between a connection and a MACsec
-
-key
+###### To remove an association between a connection and a MACsec key
 
 1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2.
@@ -18,9 +14,7 @@ key
 6. In the confirmation dialog box, enter **disassociate**, and then
    choose **Disassociate**.
 
-###### To remove an association between a connection and a MACsec key using the
-
-command line or API
+###### To remove an association between a connection and a MACsec key using the command line or API
 
 - [disassociate-mac-sec-key](../../../cli/latest/reference/directconnect/disassociate-mac-sec-key.md "../../../cli/latest/reference/directconnect/disassociate-mac-sec-key.md") (AWS CLI)
 - [DisassociateMacSecKey](../APIReference/API__DisassociateMacSecKey.md "../APIReference/API__DisassociateMacSecKey.md") (Direct Connect API)
