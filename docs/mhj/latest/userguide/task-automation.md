@@ -21,8 +21,6 @@ execute an automated task.
 
 ###### Topics
 
-- [IAM roles for Migration Hub Journeys task
-  automation](task-automation-role.md "task-automation-role.md")
+- [IAM roles for Migration Hub Journeys task automation](task-automation-role.md "task-automation-role.md")
 - [Automating a manual Migration Hub Journeys task](automate-task.md "automate-task.md")
-- [Executing an automated Migration Hub Journeys
-  task](execute-autmated-task.md "execute-autmated-task.md")
+- [Executing an automated Migration Hub Journeys task](execute-autmated-task.md "execute-autmated-task.md")

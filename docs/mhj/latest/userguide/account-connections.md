@@ -17,11 +17,7 @@ account connections inside migration journeys.
 
 ###### Topics
 
-- [Creating an AWS account connection in
-  AWS Migration Hub Journeys](create-connection.md "create-connection.md")
-- [Associating IAM roles with an AWS account
-  connection in AWS Migration Hub Journeys](associate-roles.md "associate-roles.md")
-- [Deleting an AWS account connection in
-  AWS Migration Hub Journeys](delete-connection.md "delete-connection.md")
-- [Controlling member access to account
-  connections in AWS Migration Hub Journeys](control-access-to-connection.md "control-access-to-connection.md")
+- [Creating an AWS account connection in AWS Migration Hub Journeys](create-connection.md "create-connection.md")
+- [Associating IAM roles with an AWS account connection in AWS Migration Hub Journeys](associate-roles.md "associate-roles.md")
+- [Deleting an AWS account connection in AWS Migration Hub Journeys](delete-connection.md "delete-connection.md")
+- [Controlling member access to account connections in AWS Migration Hub Journeys](control-access-to-connection.md "control-access-to-connection.md")

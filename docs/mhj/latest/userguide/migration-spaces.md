@@ -68,9 +68,7 @@ about the types of actions that members can perform, see [Roles and permissions]
    roles and all of the permissions that they provide, see [Roles and permissions](permissions.md "permissions.md").
 5. Choose **Invite**.
 
-###### To accept or reject an invitation that you've received to become a member of a
-
-migration space
+###### To accept or reject an invitation that you've received to become a member of a migration space
 
 1. Look for an email with the title _You've been invited to join the
    `name-of-the-migration-space` migration

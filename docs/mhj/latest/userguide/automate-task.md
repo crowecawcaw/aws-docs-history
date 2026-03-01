@@ -18,8 +18,7 @@ prerequisites.
 - Ensure that you have an AWS account connection. For information
   about account connections and how to create them, see [AWS account connections in AWS Migration Hub Journeys](account-connections.md "account-connections.md").
 - Associate with the account connection an IAM role with the
-  permissions described in [IAM roles for Migration Hub Journeys task
-  automation](task-automation-role.md "task-automation-role.md").
+  permissions described in [IAM roles for Migration Hub Journeys task automation](task-automation-role.md "task-automation-role.md").
 
 ## To automate a task
 

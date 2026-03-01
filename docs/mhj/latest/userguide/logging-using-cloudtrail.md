@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Logging AWS Migration Hub Journeys API calls with
-
-AWS CloudTrail
+# Logging AWS Migration Hub Journeys API calls with AWS CloudTrail
 
 AWS Migration Hub Journeys is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in Migration Hub Journeys. CloudTrail captures API calls for
@@ -60,9 +58,7 @@ identity information helps you determine the following:
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Migration Hub Journeys log file
-
-entries
+## Understanding Migration Hub Journeys log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# IAM roles for Migration Hub Journeys task
-
-automation
+# IAM roles for Migration Hub Journeys task automation
 
 ###### Note
 
@@ -20,8 +18,7 @@ For information about how to create an IAM role with these two policies, see
 custom trust policies](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md").
 
 For information about how to associate an IAM role with an account connection,
-see [Associating IAM roles with an AWS account
-connection in AWS Migration Hub Journeys](associate-roles.md "associate-roles.md").
+see [Associating IAM roles with an AWS account connection in AWS Migration Hub Journeys](associate-roles.md "associate-roles.md").
 
 ## Trust policy
 

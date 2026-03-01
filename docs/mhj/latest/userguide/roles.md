@@ -19,9 +19,7 @@ When you create a migration space, you automatically get the
 `MigrationSpaceAdmin` for that space. When you're a
 `MigrationSpaceAdmin`, you can also grant this role to others.
 
-###### To grant the `MigrationSpaceAdmin` role to an individual that is already a
-
-member of the migration space
+###### To grant the `MigrationSpaceAdmin` role to an individual that is already a member of the migration space
 
 1. In the navigation pane, choose **Migration spaces**.
 2. Choose the name of the migration space to which you want to give the individual the
@@ -34,9 +32,7 @@ member of the migration space
    option.
 7. Choose **Save**.
 
-###### To grant the `MigrationSpaceAdmin` role to an individual that isn't
-
-already a member of the migration space
+###### To grant the `MigrationSpaceAdmin` role to an individual that isn't already a member of the migration space
 
 1. In the navigation pane, choose **Migration spaces**.
 2. Choose the name of the migration space to which you want to give the individual the
@@ -47,9 +43,7 @@ already a member of the migration space
    **MigrationSpaceAdmin** option.
 6. Choose **Invite**.
 
-###### To grant the `MigrationSpaceAdmin` role to a team that is already a member
-
-of the migration space
+###### To grant the `MigrationSpaceAdmin` role to a team that is already a member of the migration space
 
 1. In the navigation pane, choose **Migration spaces**.
 2. Choose the name of the migration space to which you want to give the individual the
@@ -62,9 +56,7 @@ of the migration space
    option.
 7. Choose **Update**.
 
-###### To grant the `MigrationSpaceAdmin` role to a team that isn't already a
-
-member of the migration space
+###### To grant the `MigrationSpaceAdmin` role to a team that isn't already a member of the migration space
 
 1. In the navigation pane, choose **Migration spaces**.
 2. Choose the name of the migration space in which you want to create a team and to
@@ -124,9 +116,7 @@ see [Pending actions](pending-actions.md "pending-actions.md").
    **MigrationSpaceContributor** option.
 6. Choose **Create**.
 
-###### To change the role of an individual from `MigrationSpaceAdmin` to
-
-`MigrationSpaceContributor`
+###### To change the role of an individual from `MigrationSpaceAdmin` to `MigrationSpaceContributor`
 
 1. In the navigation pane, choose **Migration spaces**.
 2. Choose the name of the migration space in which you want to make the change.
@@ -136,9 +126,7 @@ see [Pending actions](pending-actions.md "pending-actions.md").
 6. Choose the **MigrationSpaceContributor** option.
 7. Choose **Update**.
 
-###### To change the role of a team from `MigrationSpaceAdmin` to
-
-`MigrationSpaceContributor`
+###### To change the role of a team from `MigrationSpaceAdmin` to `MigrationSpaceContributor`
 
 1. In the navigation pane, choose **Migration spaces**.
 2. Choose the name of the migration space in which you want to make the change.
@@ -153,9 +141,7 @@ see [Pending actions](pending-actions.md "pending-actions.md").
 A `MigrationSpaceAdmin` or a `JourneyAdmin` can make an individual
 or a team a `JourneyAdmin`.
 
-###### To grant the `JourneyAdmin` role to an individual or a team that is
-
-already a member of the migration journey
+###### To grant the `JourneyAdmin` role to an individual or a team that is already a member of the migration journey
 
 1. In the navigation pane, choose **Migration journeys**.
 2. Choose the name of the migration journey to which you want to give the individual or
@@ -167,9 +153,7 @@ already a member of the migration journey
 6. In the dialog box, choose the **JourneyAdmin** option.
 7. Choose **Save**.
 
-###### To grant the `JourneyAdmin` role to an individual or a team that isn't
-
-already a member of the migration journey
+###### To grant the `JourneyAdmin` role to an individual or a team that isn't already a member of the migration journey
 
 1. In the navigation pane, choose **Migration journeys**.
 2. Choose the name of the migration journey to which you want to give the individual or
@@ -212,9 +196,7 @@ that individual or team is effectively a `JourneyAdmin` of that journey. Their
 role will appear as `JourneyContributor`, but they will be able to perform all
 the actions that a `JourneyAdmin` has the permissions to perform.
 
-###### To grant the `JourneyContributor` role to an individual or a team that is
-
-already a member of the migration journey
+###### To grant the `JourneyContributor` role to an individual or a team that is already a member of the migration journey
 
 1. In the navigation pane, choose **Migration journeys**.
 2. Choose the name of the migration journey to which you want to give the individual or
@@ -226,9 +208,7 @@ already a member of the migration journey
 6. In the dialog box, choose the **JourneyContributor** option.
 7. Choose **Save**.
 
-###### To grant the `JourneyContributor` role to an individual or a team that
-
-isn't already a member of the migration journey
+###### To grant the `JourneyContributor` role to an individual or a team that isn't already a member of the migration journey
 
 1. In the navigation pane, choose **Migration journeys**.
 2. Choose the name of the migration journey to which you want to give the individual or
