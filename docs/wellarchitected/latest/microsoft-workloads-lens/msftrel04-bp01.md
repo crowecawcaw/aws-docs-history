@@ -1,6 +1,4 @@
-# MSFTREL04-BP01 Use Amazon EC2 Auto Scaling in combination with
-
-Application Auto Scaling
+# MSFTREL04-BP01 Use Amazon EC2 Auto Scaling in combination with Application Auto Scaling
 
 Microsoft workloads often experience variable demand patterns that
 require dynamic resource scaling to maintain performance and cost

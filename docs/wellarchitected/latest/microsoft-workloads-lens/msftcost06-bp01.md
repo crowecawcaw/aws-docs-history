@@ -1,6 +1,4 @@
-# MSFTCOST06-BP01 Use AWS Managed Microsoft Active
-
-Directory
+# MSFTCOST06-BP01 Use AWS Managed Microsoft Active Directory
 
 AWS Managed Microsoft AD provides redundant Windows Server domain
 controllers across two Availability Zones in your VPC. It handles

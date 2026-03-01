@@ -1,6 +1,4 @@
-# MSFTOPS02-BP01 Implement Management and Governance
-
-solutions
+# MSFTOPS02-BP01 Implement Management and Governance solutions
 
 Set up Management and Governance solutions to ensure your Microsoft
 workload is patched and compliant with your security requirements.

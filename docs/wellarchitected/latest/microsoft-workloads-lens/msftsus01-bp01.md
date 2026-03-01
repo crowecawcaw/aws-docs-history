@@ -1,6 +1,4 @@
-# MSFTSUS01-BP01 Align business requirements with sustainable
-
-Microsoft architecture designs
+# MSFTSUS01-BP01 Align business requirements with sustainable Microsoft architecture designs
 
 When designing Microsoft environments in the cloud, business leaders
 and architecture teams must actively prioritize sustainability. This

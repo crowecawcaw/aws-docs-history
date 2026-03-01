@@ -1,6 +1,4 @@
-# MSFTSUS01-BP02 Monitor Microsoft workload sustainability
-
-performance
+# MSFTSUS01-BP02 Monitor Microsoft workload sustainability performance
 
 Monitoring and reporting on Microsoft workload sustainability in AWS
 provides essential feedback on the effectiveness of implemented

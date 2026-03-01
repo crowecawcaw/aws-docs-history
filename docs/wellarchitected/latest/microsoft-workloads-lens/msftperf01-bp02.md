@@ -1,6 +1,4 @@
-# MSFTPERF01-BP02 Consider Amazon managed container orchestrator
-
-services to run containers on AWS
+# MSFTPERF01-BP02 Consider Amazon managed container orchestrator services to run containers on AWS
 
 Amazon Elastic Kubernetes Service (EKS), Amazon Elastic Container Service (ECS), and AWS Fargate support both Linux and Windows
 containers. Either running cross-platform .NET on Linux or .NET

@@ -17,6 +17,5 @@ resilience.
 ###### Best practices
 
 - [MSFTREL03-BP01 Use Microsoft logs for incident analysis](msftrel03-bp01.md "msftrel03-bp01.md")
-- [MSFTREL03-BP02 Establish a structured review process that
-  combines insights from both AWS and Microsoft monitoring tools](msftrel03-bp02.md "msftrel03-bp02.md")
+- [MSFTREL03-BP02 Establish a structured review process that combines insights from both AWS and Microsoft monitoring tools](msftrel03-bp02.md "msftrel03-bp02.md")
 - [MSFTREL03-BP03 Implement automated feedback loops](msftrel03-bp03.md "msftrel03-bp03.md")

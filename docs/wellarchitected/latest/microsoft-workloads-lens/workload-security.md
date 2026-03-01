@@ -18,7 +18,5 @@ appropriate to your organization's needs.
 ###### Best practices
 
 - [MSFTSEC01-BP01 Protect the operating system](msftsec01-bp01.md "msftsec01-bp01.md")
-- [MSFTSEC01-BP02 Secure the Microsoft application and
-  database](msftsec01-bp02.md "msftsec01-bp02.md")
-- [MSFTSEC01-BP03 Develop a comprehensive software update
-  strategy](msftsec01-bp03.md "msftsec01-bp03.md")
+- [MSFTSEC01-BP02 Secure the Microsoft application and database](msftsec01-bp02.md "msftsec01-bp02.md")
+- [MSFTSEC01-BP03 Develop a comprehensive software update strategy](msftsec01-bp03.md "msftsec01-bp03.md")

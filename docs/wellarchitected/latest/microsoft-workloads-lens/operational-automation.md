@@ -20,10 +20,7 @@ apply consistent engineering patterns.
 
 ###### Best practices
 
-- [MSFTOPS02-BP01 Implement Management and Governance
-  solutions](msftops02-bp01.md "msftops02-bp01.md")
-- [MSFTOPS02-BP02 Implement infrastructure deployment and update
-  automation for your Microsoft workload](msftops02-bp02.md "msftops02-bp02.md")
+- [MSFTOPS02-BP01 Implement Management and Governance solutions](msftops02-bp01.md "msftops02-bp01.md")
+- [MSFTOPS02-BP02 Implement infrastructure deployment and update automation for your Microsoft workload](msftops02-bp02.md "msftops02-bp02.md")
 - [MSFTOPS02-BP03 Implement operating system image control](msftops02-bp03.md "msftops02-bp03.md")
-- [MSFTOPS02-BP04 Leverage managed services for your Microsoft
-  workload](msftops02-bp04.md "msftops02-bp04.md")
+- [MSFTOPS02-BP04 Leverage managed services for your Microsoft workload](msftops02-bp04.md "msftops02-bp04.md")

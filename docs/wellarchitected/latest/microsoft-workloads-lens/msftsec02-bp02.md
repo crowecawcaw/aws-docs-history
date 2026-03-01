@@ -1,6 +1,4 @@
-# MSFTSEC02-BP02 Implement logging to track access and
-
-authorization changes
+# MSFTSEC02-BP02 Implement logging to track access and authorization changes
 
 Regularly log, analyze, and audit user access and authorization
 events in your Microsoft systems. Consolidate security events from

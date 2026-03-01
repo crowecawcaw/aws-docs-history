@@ -11,8 +11,6 @@ efficient operation of Microsoft workloads in the AWS environment.
 ###### Focus areas
 
 - [Design principles](design-principles-rel.md "design-principles-rel.md")
-- [Workload architecture and
-  availability](workload-architecture-and-availability.md "workload-architecture-and-availability.md")
+- [Workload architecture and availability](workload-architecture-and-availability.md "workload-architecture-and-availability.md")
 - [Monitoring and incident response](monitoring-and-incident-response.md "monitoring-and-incident-response.md")
-- [Automation and recovery
-  management](automation-and-recovery-management.md "automation-and-recovery-management.md")
+- [Automation and recovery management](automation-and-recovery-management.md "automation-and-recovery-management.md")

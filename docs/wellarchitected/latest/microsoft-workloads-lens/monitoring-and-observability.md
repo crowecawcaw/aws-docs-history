@@ -21,9 +21,6 @@ remediation.
 
 ###### Best practices
 
-- [MSFTOPS01-BP01 Implement infrastructure monitoring for your
-  Microsoft workload](msftops01-bp01.md "msftops01-bp01.md")
-- [MSFTOPS01-BP02 Implement and collect logging for your Microsoft
-  workload](msftops01-bp02.md "msftops01-bp02.md")
-- [MSFTOPS01-BP03 Implement Application Performance Monitoring
-  (APM) for your Microsoft workload](msftops01-bp03.md "msftops01-bp03.md")
+- [MSFTOPS01-BP01 Implement infrastructure monitoring for your Microsoft workload](msftops01-bp01.md "msftops01-bp01.md")
+- [MSFTOPS01-BP02 Implement and collect logging for your Microsoft workload](msftops01-bp02.md "msftops01-bp02.md")
+- [MSFTOPS01-BP03 Implement Application Performance Monitoring (APM) for your Microsoft workload](msftops01-bp03.md "msftops01-bp03.md")

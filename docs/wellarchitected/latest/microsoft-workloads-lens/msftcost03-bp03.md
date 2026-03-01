@@ -1,6 +1,4 @@
-# MSFTCOST03-BP03 Check if your workload is running with the
-
-right SQL Server edition
+# MSFTCOST03-BP03 Check if your workload is running with the right SQL Server edition
 
 Microsoft offers types of SQL Server editions, with a different set
 of features and license cost. The Enterprise edition provides data

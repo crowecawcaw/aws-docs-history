@@ -1,6 +1,4 @@
-# MSFTPERF02-BP01 Choose the Amazon EC2 instance families that
-
-best fit the Microsoft workload
+# MSFTPERF02-BP01 Choose the Amazon EC2 instance families that best fit the Microsoft workload
 
 Amazon EC2 provides different instance family types, addressing
 different purposes. For example, General purpose instances, such as

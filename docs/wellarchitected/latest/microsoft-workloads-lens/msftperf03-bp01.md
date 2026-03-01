@@ -1,6 +1,4 @@
-# MSFTPERF03-BP01 Consider Amazon EBS gp3 volumes for general
-
-workloads
+# MSFTPERF03-BP01 Consider Amazon EBS gp3 volumes for general workloads
 
 Amazon EBS's newest and most cost-effective SSD option, General
 Purpose SSD (gp3) volumes, strikes an optimal balance between price

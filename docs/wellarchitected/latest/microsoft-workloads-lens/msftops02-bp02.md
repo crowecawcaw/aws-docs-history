@@ -1,6 +1,4 @@
-# MSFTOPS02-BP02 Implement infrastructure deployment and update
-
-automation for your Microsoft workload
+# MSFTOPS02-BP02 Implement infrastructure deployment and update automation for your Microsoft workload
 
 Set up Infrastructure as Code (IaC) to apply patterns to the
 infrastructure of your Microsoft workload. You can use AWS CloudFormation to help model and deploy the required AWS resources

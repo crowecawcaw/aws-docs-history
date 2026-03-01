@@ -24,7 +24,5 @@ workload efficiency and contributes to overall system stability.
 
 ###### Best practices
 
-- [MSFTPERF04-BP01 Use historical data to evaluate
-  performance](msftperf04-bp01.md "msftperf04-bp01.md")
-- [MSFTPERF04-BP02 Define baseline performance
-  requirements](msftperf04-bp02.md "msftperf04-bp02.md")
+- [MSFTPERF04-BP01 Use historical data to evaluate performance](msftperf04-bp01.md "msftperf04-bp01.md")
+- [MSFTPERF04-BP02 Define baseline performance requirements](msftperf04-bp02.md "msftperf04-bp02.md")

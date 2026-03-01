@@ -1,6 +1,4 @@
-# MSFTPERF02-BP03 Consider using Amazon EBS fast snapshot
-
-restore
+# MSFTPERF02-BP03 Consider using Amazon EBS fast snapshot restore
 
 Amazon EBS Fast Snapshot Restore (FSR) offers significant advantages
 for Microsoft workloads by eliminating the initialization latency

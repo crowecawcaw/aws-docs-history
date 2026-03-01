@@ -1,6 +1,4 @@
-# MSFTCOST04-BP02 Consider Babelfish for Amazon Aurora
-
-PostgreSQL
+# MSFTCOST04-BP02 Consider Babelfish for Amazon Aurora PostgreSQL
 
 Babelfish is an Amazon Aurora PostgreSQL feature that allows SQL
 Server client applications to connect directly to PostgreSQL

@@ -1,6 +1,4 @@
-# Workload architecture and
-
-availability
+# Workload architecture and availability
 
 Building resilient Microsoft workloads starts with clearly defined availability goals and
 appropriate architectural choices. This focus area verifies that your workload is designed to
@@ -28,14 +26,8 @@ adaptability to challenges.
 
 ###### Best practices
 
-- [MSFTREL01-BP01 Define availability goals for Microsoft
-  workloads](msftrel01-bp01.md "msftrel01-bp01.md")
-- [MSFTREL01-BP02 Align your architectural design with your
-  availability needs and capacity demands](msftrel01-bp02.md "msftrel01-bp02.md")
-- [MSFTREL01-BP03 Safeguard the continuous accessibility of
-  essential data from your Microsoft workload](msftrel01-bp03.md "msftrel01-bp03.md")
-- [MSFTREL02-BP01 Implement comprehensive monitoring for potential
-  failures across the application, AWS infrastructure, and network
-  connectivity](msftrel02-bp01.md "msftrel02-bp01.md")
-- [MSFTREL02-BP02 Develop a strategic plan for quickly reinstating
-  service availability during outages](msftrel02-bp02.md "msftrel02-bp02.md")
+- [MSFTREL01-BP01 Define availability goals for Microsoft workloads](msftrel01-bp01.md "msftrel01-bp01.md")
+- [MSFTREL01-BP02 Align your architectural design with your availability needs and capacity demands](msftrel01-bp02.md "msftrel01-bp02.md")
+- [MSFTREL01-BP03 Safeguard the continuous accessibility of essential data from your Microsoft workload](msftrel01-bp03.md "msftrel01-bp03.md")
+- [MSFTREL02-BP01 Implement comprehensive monitoring for potential failures across the application, AWS infrastructure, and network connectivity](msftrel02-bp01.md "msftrel02-bp01.md")
+- [MSFTREL02-BP02 Develop a strategic plan for quickly reinstating service availability during outages](msftrel02-bp02.md "msftrel02-bp02.md")

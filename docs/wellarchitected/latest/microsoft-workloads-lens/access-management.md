@@ -17,7 +17,5 @@ for their roles.
 
 ###### Best practices
 
-- [MSFTSEC02-BP01 Align your Microsoft workload access with
-  organizational identity strategy](msftsec02-bp01.md "msftsec02-bp01.md")
-- [MSFTSEC02-BP02 Implement logging to track access and
-  authorization changes](msftsec02-bp02.md "msftsec02-bp02.md")
+- [MSFTSEC02-BP01 Align your Microsoft workload access with organizational identity strategy](msftsec02-bp01.md "msftsec02-bp01.md")
+- [MSFTSEC02-BP02 Implement logging to track access and authorization changes](msftsec02-bp02.md "msftsec02-bp02.md")

@@ -1,6 +1,4 @@
-# MSFTCOST05-BP01 Migrate Amazon EBS volumes from gp2 to
-
-gp3
+# MSFTCOST05-BP01 Migrate Amazon EBS volumes from gp2 to gp3
 
 General Purpose SSD (gp3) volumes are the latest generation of
 General Purpose SSD volumes, and the lowest cost SSD volume offered

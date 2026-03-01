@@ -1,6 +1,4 @@
-# MSFTCOST07-BP03 Change your scale strategy for Windows
-
-Containers on Kubernetes using Karpenter
+# MSFTCOST07-BP03 Change your scale strategy for Windows Containers on Kubernetes using Karpenter
 
 Karpenter is a Kubernetes cluster autoscaler that dynamically
 provisions EC2 instances based on your workload demands,

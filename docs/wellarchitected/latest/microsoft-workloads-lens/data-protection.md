@@ -15,9 +15,6 @@ external security requirements.
 
 ###### Best practices
 
-- [MSFTSEC03-BP01 Encrypt data stored in Microsoft
-  workloads](msftsec03-bp01.md "msftsec03-bp01.md")
-- [MSFTSEC03-BP02 Enable Always Encrypted feature for SQL
-  Server](msftsec03-bp02.md "msftsec03-bp02.md")
-- [MSFTSEC03-BP03 Use Trusted Platform Module (TPM) technology for
-  hardware-based security on your instances](msftsec03-bp03.md "msftsec03-bp03.md")
+- [MSFTSEC03-BP01 Encrypt data stored in Microsoft workloads](msftsec03-bp01.md "msftsec03-bp01.md")
+- [MSFTSEC03-BP02 Enable Always Encrypted feature for SQL Server](msftsec03-bp02.md "msftsec03-bp02.md")
+- [MSFTSEC03-BP03 Use Trusted Platform Module (TPM) technology for hardware-based security on your instances](msftsec03-bp03.md "msftsec03-bp03.md")

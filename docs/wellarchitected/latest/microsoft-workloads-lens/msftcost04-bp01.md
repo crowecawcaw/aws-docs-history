@@ -1,6 +1,4 @@
-# MSFTCOST04-BP01 Use caching to enhance SQL Server
-
-workloads
+# MSFTCOST04-BP01 Use caching to enhance SQL Server workloads
 
 Caching in .NET applications reduces costs and improves performance
 by storing frequently accessed data, lowering the load on backend

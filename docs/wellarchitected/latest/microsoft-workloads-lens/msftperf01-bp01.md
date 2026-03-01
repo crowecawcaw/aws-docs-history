@@ -1,6 +1,4 @@
-# MSFTPERF01-BP01 Consider AWS Elastic Beanstalk for running
-
-traditional Windows servers hosting your Microsoft application
+# MSFTPERF01-BP01 Consider AWS Elastic Beanstalk for running traditional Windows servers hosting your Microsoft application
 
 In scenarios where the traditional virtual machine approach is a
 requirement, evaluate the EC2 instance families that better address

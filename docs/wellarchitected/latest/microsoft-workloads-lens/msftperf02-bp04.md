@@ -1,6 +1,4 @@
-# MSFTPERF02-BP04 Consider using Amazon EBS Provisioned Rate for
-
-Volume Initialization
+# MSFTPERF02-BP04 Consider using Amazon EBS Provisioned Rate for Volume Initialization
 
 Amazon EBS provisioned rate for volume initialization (PRVI) offers
 significant advantages for Microsoft workloads by providing

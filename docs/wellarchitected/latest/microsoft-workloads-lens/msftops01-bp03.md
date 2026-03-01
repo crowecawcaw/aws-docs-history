@@ -1,6 +1,4 @@
-# MSFTOPS01-BP03 Implement Application Performance Monitoring
-
-(APM) for your Microsoft workload
+# MSFTOPS01-BP03 Implement Application Performance Monitoring (APM) for your Microsoft workload
 
 Microsoft workloads developed with .NET and SQL technologies should
 also have Application Performance Monitoring (APM) implemented.

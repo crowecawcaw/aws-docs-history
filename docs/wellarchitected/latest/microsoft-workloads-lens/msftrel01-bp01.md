@@ -1,6 +1,4 @@
-# MSFTREL01-BP01 Define availability goals for Microsoft
-
-workloads
+# MSFTREL01-BP01 Define availability goals for Microsoft workloads
 
 Identifying your organization's specific availability objectives is
 crucial as it guides your focus towards critical factors. This

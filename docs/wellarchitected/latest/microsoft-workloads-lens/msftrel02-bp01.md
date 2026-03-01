@@ -1,7 +1,4 @@
-# MSFTREL02-BP01 Implement comprehensive monitoring for potential
-
-failures across the application, AWS infrastructure, and network
-connectivity
+# MSFTREL02-BP01 Implement comprehensive monitoring for potential failures across the application, AWS infrastructure, and network connectivity
 
 Monitoring your Microsoft application, AWS resources, and network
 connectivity enables prompt responses to both actual and potential

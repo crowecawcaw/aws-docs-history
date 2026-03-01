@@ -1,6 +1,4 @@
-# MSFTSEC02-BP01 Align your Microsoft workload access with
-
-organizational identity strategy
+# MSFTSEC02-BP01 Align your Microsoft workload access with organizational identity strategy
 
 Microsoft workloads, including .NET applications and SQL Server
 environments, typically integrate with Active Directory (AD) or

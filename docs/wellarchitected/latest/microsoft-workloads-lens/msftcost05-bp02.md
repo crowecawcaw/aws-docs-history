@@ -1,6 +1,4 @@
-# MSFTCOST05-BP02 Control Amazon EBS volumes or snapshots
-
-lifecycle
+# MSFTCOST05-BP02 Control Amazon EBS volumes or snapshots lifecycle
 
 EBS snapshots are incremental backups stored in S3, saving only
 changed blocks since the last snapshot. They can backup unattached

@@ -1,6 +1,4 @@
-# Automation and recovery
-
-management
+# Automation and recovery management
 
 Implementing automated solutions for recovery, scaling, and maintenance reduces human
 error and improves response times. This encompasses automated disaster recovery, systematic
@@ -27,8 +25,7 @@ for Windows Server, SQL Server, and .NET applications.
 
 ###### Best practices
 
-- [MSFTREL04-BP01 Use Amazon EC2 Auto Scaling in combination with
-  Application Auto Scaling](msftrel04-bp01.md "msftrel04-bp01.md")
+- [MSFTREL04-BP01 Use Amazon EC2 Auto Scaling in combination with Application Auto Scaling](msftrel04-bp01.md "msftrel04-bp01.md")
 - [MSFTREL05-BP01 Implement disaster recovery automation](msftrel05-bp01.md "msftrel05-bp01.md")
 - [MSFTREL05-BP02 Implement backup automation](msftrel05-bp02.md "msftrel05-bp02.md")
 - [MSFTREL05-BP03 Implement self-healing procedures](msftrel05-bp03.md "msftrel05-bp03.md")

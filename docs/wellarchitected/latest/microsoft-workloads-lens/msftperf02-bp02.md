@@ -1,6 +1,4 @@
-# MSFTPERF02-BP02 Consider the use for EC2 Fast Launch to
-
-accelerate launching your Microsoft workload instances
+# MSFTPERF02-BP02 Consider the use for EC2 Fast Launch to accelerate launching your Microsoft workload instances
 
 EC2 Fast Launch will speed up the Windows EC2 instance launch
 process. When you configure a Windows Server AMI for EC2 Fast

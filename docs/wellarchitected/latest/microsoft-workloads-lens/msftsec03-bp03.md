@@ -1,6 +1,4 @@
-# MSFTSEC03-BP03 Use Trusted Platform Module (TPM) technology for
-
-hardware-based security on your instances
+# MSFTSEC03-BP03 Use Trusted Platform Module (TPM) technology for hardware-based security on your instances
 
 The AWS Nitro Trusted Platform Module (NitroTPM) is a virtual TPM
 2.0 device that's fully integrated with the AWS Nitro System,

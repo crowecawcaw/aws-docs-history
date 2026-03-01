@@ -1,6 +1,4 @@
-# MSFTREL01-BP02 Align your architectural design with your
-
-availability needs and capacity demands
+# MSFTREL01-BP02 Align your architectural design with your availability needs and capacity demands
 
 There are architecture recommendations regarding Microsoft
 workloads, whether addressing Windows infrastructure, Active

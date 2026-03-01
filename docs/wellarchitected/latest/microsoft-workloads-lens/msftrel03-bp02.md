@@ -1,6 +1,4 @@
-# MSFTREL03-BP02 Establish a structured review process that
-
-combines insights from both AWS and Microsoft monitoring tools
+# MSFTREL03-BP02 Establish a structured review process that combines insights from both AWS and Microsoft monitoring tools
 
 Document lessons learned in a centralized knowledge base, update
 incident response playbooks, and conduct regular tabletop exercises

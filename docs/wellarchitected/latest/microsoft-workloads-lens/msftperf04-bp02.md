@@ -1,6 +1,4 @@
-# MSFTPERF04-BP02 Define baseline performance
-
-requirements
+# MSFTPERF04-BP02 Define baseline performance requirements
 
 Microsoft workloads vary in their performance needs, making
 historical data analysis crucial for establishing baseline

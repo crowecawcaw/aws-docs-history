@@ -1,6 +1,4 @@
-# MSFTOPS01-BP01 Implement infrastructure monitoring for your
-
-Microsoft workload
+# MSFTOPS01-BP01 Implement infrastructure monitoring for your Microsoft workload
 
 The implementation of infrastructure monitoring for Microsoft
 workloads on AWS will provide comprehensive visibility into system

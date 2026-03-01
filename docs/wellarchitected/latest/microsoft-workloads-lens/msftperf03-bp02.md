@@ -1,6 +1,4 @@
-# MSFTPERF03-BP02 Consider Amazon EBS io2 Block Express volumes
-
-for high-intense I/O workloads
+# MSFTPERF03-BP02 Consider Amazon EBS io2 Block Express volumes for high-intense I/O workloads
 
 Amazon EBS io2 Block Express volumes are based on an updated storage
 server architecture. They are designed to handle high I/O

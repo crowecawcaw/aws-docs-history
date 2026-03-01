@@ -23,11 +23,7 @@ workload.
 
 ###### Best practices
 
-- [MSFTPERF02-BP01 Choose the Amazon EC2 instance families that
-  best fit the Microsoft workload](msftperf02-bp01.md "msftperf02-bp01.md")
-- [MSFTPERF02-BP02 Consider the use for EC2 Fast Launch to
-  accelerate launching your Microsoft workload instances](msftperf02-bp02.md "msftperf02-bp02.md")
-- [MSFTPERF02-BP03 Consider using Amazon EBS fast snapshot
-  restore](msftperf02-bp03.md "msftperf02-bp03.md")
-- [MSFTPERF02-BP04 Consider using Amazon EBS Provisioned Rate for
-  Volume Initialization](msftperf02-bp04.md "msftperf02-bp04.md")
+- [MSFTPERF02-BP01 Choose the Amazon EC2 instance families that best fit the Microsoft workload](msftperf02-bp01.md "msftperf02-bp01.md")
+- [MSFTPERF02-BP02 Consider the use for EC2 Fast Launch to accelerate launching your Microsoft workload instances](msftperf02-bp02.md "msftperf02-bp02.md")
+- [MSFTPERF02-BP03 Consider using Amazon EBS fast snapshot restore](msftperf02-bp03.md "msftperf02-bp03.md")
+- [MSFTPERF02-BP04 Consider using Amazon EBS Provisioned Rate for Volume Initialization](msftperf02-bp04.md "msftperf02-bp04.md")

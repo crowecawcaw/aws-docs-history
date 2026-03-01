@@ -1,6 +1,4 @@
-# MSFTOPS02-BP04 Leverage managed services for your Microsoft
-
-workload
+# MSFTOPS02-BP04 Leverage managed services for your Microsoft workload
 
 To reduce operational overhead, implement the use of AWS managed
 services to address your Microsoft workload requirements. Consider

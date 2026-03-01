@@ -1,6 +1,4 @@
-# MSFTCOST08-BP01 Refactor to cross-platform .NET and move to
-
-Linux
+# MSFTCOST08-BP01 Refactor to cross-platform .NET and move to Linux
 
 Migrating .NET Framework applications to .NET 8 or later enables
 cross-platform deployment, improved security, and better

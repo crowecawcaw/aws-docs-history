@@ -1,6 +1,4 @@
-# MSFTREL02-BP02 Develop a strategic plan for quickly reinstating
-
-service availability during outages
+# MSFTREL02-BP02 Develop a strategic plan for quickly reinstating service availability during outages
 
 Microsoft workloads require specialized disaster recovery strategies
 due to their unique architectural dependencies and state management

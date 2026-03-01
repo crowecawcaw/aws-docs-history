@@ -23,10 +23,7 @@ keeps the workloads performant.
 
 ###### Best practices
 
-- [MSFTCOST05-BP01 Migrate Amazon EBS volumes from gp2 to
-  gp3](msftcost05-bp01.md "msftcost05-bp01.md")
-- [MSFTCOST05-BP02 Control Amazon EBS volumes or snapshots
-  lifecycle](msftcost05-bp02.md "msftcost05-bp02.md")
+- [MSFTCOST05-BP01 Migrate Amazon EBS volumes from gp2 to gp3](msftcost05-bp01.md "msftcost05-bp01.md")
+- [MSFTCOST05-BP02 Control Amazon EBS volumes or snapshots lifecycle](msftcost05-bp02.md "msftcost05-bp02.md")
 - [MSFTCOST05-BP03 Use Amazon FSx for NetApp ONTAP](msftcost05-bp03.md "msftcost05-bp03.md")
-- [MSFTCOST05-BP04 Use
-  Amazon FSx for Windows File Server](msftcost05-bp04.md "msftcost05-bp04.md")
+- [MSFTCOST05-BP04 Use Amazon FSx for Windows File Server](msftcost05-bp04.md "msftcost05-bp04.md")

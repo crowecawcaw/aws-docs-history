@@ -22,7 +22,5 @@ modernization of running on Windows containers.
 ###### Best practices
 
 - [MSFTCOST07-BP01 Optimize AWS Fargate tasks with AWS Compute Optimizer](msftcost07-bp01.md "msftcost07-bp01.md")
-- [MSFTCOST07-BP02 Improve Amazon Elastic Kubernetes Service cost
-  tracking with Kubecost](msftcost07-bp02.md "msftcost07-bp02.md")
-- [MSFTCOST07-BP03 Change your scale strategy for Windows
-  Containers on Kubernetes using Karpenter](msftcost07-bp03.md "msftcost07-bp03.md")
+- [MSFTCOST07-BP02 Improve Amazon Elastic Kubernetes Service cost tracking with Kubecost](msftcost07-bp02.md "msftcost07-bp02.md")
+- [MSFTCOST07-BP03 Change your scale strategy for Windows Containers on Kubernetes using Karpenter](msftcost07-bp03.md "msftcost07-bp03.md")

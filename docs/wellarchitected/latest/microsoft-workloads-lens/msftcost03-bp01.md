@@ -1,6 +1,4 @@
-# MSFTCOST03-BP01 Understand Microsoft SQL Server licensing and
-
-BYOL availability
+# MSFTCOST03-BP01 Understand Microsoft SQL Server licensing and BYOL availability
 
 AWS offers a range of flexible cost optimization choices for
 licensing. These licensing options are designed to help you reduce

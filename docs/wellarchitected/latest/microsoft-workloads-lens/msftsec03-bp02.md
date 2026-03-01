@@ -1,6 +1,4 @@
-# MSFTSEC03-BP02 Enable Always Encrypted feature for SQL
-
-Server
+# MSFTSEC03-BP02 Enable Always Encrypted feature for SQL Server
 
 Microsoft SQL Server's _Always Encrypted_ feature
 provides robust data protection using client-side encryption with

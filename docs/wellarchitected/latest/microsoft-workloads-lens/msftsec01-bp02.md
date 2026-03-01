@@ -1,6 +1,4 @@
-# MSFTSEC01-BP02 Secure the Microsoft application and
-
-database
+# MSFTSEC01-BP02 Secure the Microsoft application and database
 
 Maintaining strong security at both the database and application
 layers is crucial, as even read-only access by malicious actors

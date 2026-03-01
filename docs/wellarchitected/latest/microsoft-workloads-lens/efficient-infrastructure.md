@@ -30,7 +30,5 @@ performance.
 
 ###### Best practices
 
-- [MSFTSUS01-BP01 Align business requirements with sustainable
-  Microsoft architecture designs](msftsus01-bp01.md "msftsus01-bp01.md")
-- [MSFTSUS01-BP02 Monitor Microsoft workload sustainability
-  performance](msftsus01-bp02.md "msftsus01-bp02.md")
+- [MSFTSUS01-BP01 Align business requirements with sustainable Microsoft architecture designs](msftsus01-bp01.md "msftsus01-bp01.md")
+- [MSFTSUS01-BP02 Monitor Microsoft workload sustainability performance](msftsus01-bp02.md "msftsus01-bp02.md")

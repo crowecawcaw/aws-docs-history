@@ -1,6 +1,4 @@
-# MSFTSEC03-BP01 Encrypt data stored in Microsoft
-
-workloads
+# MSFTSEC03-BP01 Encrypt data stored in Microsoft workloads
 
 Data at rest encompasses the entirety of your digitally stored
 information. Encryption is crucial to verify that this data remains

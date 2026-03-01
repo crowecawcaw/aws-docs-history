@@ -1,6 +1,4 @@
-# MSFTREL01-BP03 Safeguard the continuous accessibility of
-
-essential data from your Microsoft workload
+# MSFTREL01-BP03 Safeguard the continuous accessibility of essential data from your Microsoft workload
 
 Microsoft workloads encompass diverse technologies including SQL
 Server databases, Active Directory domain controllers, Exchange

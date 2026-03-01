@@ -1,6 +1,4 @@
-# MSFTPERF04-BP01 Use historical data to evaluate
-
-performance
+# MSFTPERF04-BP01 Use historical data to evaluate performance
 
 Effective assessment of Microsoft workload performance requires
 comprehensive data collection across key system components: compute,

@@ -23,7 +23,6 @@ workload
 
 ###### Best practices
 
-- [MSFTCOST06-BP01 Use AWS Managed Microsoft Active
-  Directory](msftcost06-bp01.md "msftcost06-bp01.md")
+- [MSFTCOST06-BP01 Use AWS Managed Microsoft Active Directory](msftcost06-bp01.md "msftcost06-bp01.md")
 - [MSFTCOST06-BP02 Use AD Connector](msftcost06-bp02.md "msftcost06-bp02.md")
 - [MSFTCOST06-BP03 Use self-managed Active Directory on Amazon EC2](msftcost06-bp03.md "msftcost06-bp03.md")

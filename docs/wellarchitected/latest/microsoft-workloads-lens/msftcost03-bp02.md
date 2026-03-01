@@ -1,6 +1,4 @@
-# MSFTCOST03-BP02 Consolidate Microsoft SQL Server
-
-instances
+# MSFTCOST03-BP02 Consolidate Microsoft SQL Server instances
 
 A SQL instance is part of the SQL Server Database Engine, that
 provides the SQL service to clients or applications. It is common to

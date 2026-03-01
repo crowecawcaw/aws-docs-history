@@ -1,6 +1,4 @@
-# MSFTPERF03-BP05 Leverage instance store temporary block storage
-
-for EC2 instances
+# MSFTPERF03-BP05 Leverage instance store temporary block storage for EC2 instances
 
 An instance store is a form of temporary block-level storage for EC2
 instances, provided by disks physically attached to the host

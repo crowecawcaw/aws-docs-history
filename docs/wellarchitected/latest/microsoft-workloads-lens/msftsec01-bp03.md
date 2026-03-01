@@ -1,6 +1,4 @@
-# MSFTSEC01-BP03 Develop a comprehensive software update
-
-strategy
+# MSFTSEC01-BP03 Develop a comprehensive software update strategy
 
 Microsoft regularly releases scheduled security updates and
 emergency patches to address vulnerabilities. Stay informed about

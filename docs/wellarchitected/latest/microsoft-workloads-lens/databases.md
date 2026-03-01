@@ -38,17 +38,12 @@ performance without sacrificing robustness or reliability.
 
 ###### Best practices
 
-- [MSFTCOST03-BP01 Understand Microsoft SQL Server licensing and
-  BYOL availability](msftcost03-bp01.md "msftcost03-bp01.md")
-- [MSFTCOST03-BP02 Consolidate Microsoft SQL Server
-  instances](msftcost03-bp02.md "msftcost03-bp02.md")
-- [MSFTCOST03-BP03 Check if your workload is running with the
-  right SQL Server edition](msftcost03-bp03.md "msftcost03-bp03.md")
+- [MSFTCOST03-BP01 Understand Microsoft SQL Server licensing and BYOL availability](msftcost03-bp01.md "msftcost03-bp01.md")
+- [MSFTCOST03-BP02 Consolidate Microsoft SQL Server instances](msftcost03-bp02.md "msftcost03-bp02.md")
+- [MSFTCOST03-BP03 Check if your workload is running with the right SQL Server edition](msftcost03-bp03.md "msftcost03-bp03.md")
 - [MSFTCOST03-BP04 Evaluate SQL Server Developer edition](msftcost03-bp04.md "msftcost03-bp04.md")
 - [MSFTCOST03-BP05 Evaluate SQL Server on Linux](msftcost03-bp05.md "msftcost03-bp05.md")
 - [MSFTCOST03-BP06 Evaluate Optimize CPU feature](msftcost03-bp06.md "msftcost03-bp06.md")
-- [MSFTCOST04-BP01 Use caching to enhance SQL Server
-  workloads](msftcost04-bp01.md "msftcost04-bp01.md")
-- [MSFTCOST04-BP02 Consider Babelfish for Amazon Aurora
-  PostgreSQL](msftcost04-bp02.md "msftcost04-bp02.md")
+- [MSFTCOST04-BP01 Use caching to enhance SQL Server workloads](msftcost04-bp01.md "msftcost04-bp01.md")
+- [MSFTCOST04-BP02 Consider Babelfish for Amazon Aurora PostgreSQL](msftcost04-bp02.md "msftcost04-bp02.md")
 - [MSFTCOST04-BP03 Consider purpose-built databases](msftcost04-bp03.md "msftcost04-bp03.md")
