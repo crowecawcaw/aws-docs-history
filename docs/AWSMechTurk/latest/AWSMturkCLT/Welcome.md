@@ -4,9 +4,7 @@
 
  
 
-# _Amazon Mechanical Turk_ Command Line
-
-Reference
+# _Amazon Mechanical Turk_ Command Line Reference
 
 This is the \*_Amazon Mechanical Turk_ Command Line
 Reference\*. This guide provides descriptions and samples and other resources
