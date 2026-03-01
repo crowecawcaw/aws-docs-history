@@ -14,15 +14,12 @@ is created that has the following AWS command line tools already installed:
   AWS Management Console are forwarded to AWS CloudShell.
 
 If you want to change the default AWS Region used for AWS CLI, you can change the value
-assigned to the `AWS_REGION` environment variable. (For more information, see [Specifying your default AWS Region
-for AWS CLI](working-with-aws-cloudshell.md#environment-variaiables-regions "working-with-aws-cloudshell.md#environment-variaiables-regions").)
+assigned to the `AWS_REGION` environment variable. (For more information, see [Specifying your default AWS Region for AWS CLI](working-with-aws-cloudshell.md#environment-variaiables-regions "working-with-aws-cloudshell.md#environment-variaiables-regions").)
 
 The rest of this topic demonstrates how you can start using AWS CloudShell to interact with
 selected AWS services from the command line.
 
-## AWS CLI command line examples for selected AWS
-
-services
+## AWS CLI command line examples for selected AWS services
 
 The following examples represent only some of the numerous AWS services that you can
 work with using commands available from AWS CLI Version 2. For a full listing, see the [AWS CLI

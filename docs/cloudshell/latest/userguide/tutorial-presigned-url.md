@@ -1,7 +1,4 @@
-# Creating
-
-a presigned URL for Amazon S3 objects using
-CloudShell
+# Creating a presigned URL for Amazon S3 objects using CloudShell
 
 This tutorial shows you how to create a presigned URL to share an Amazon S3 object with others.
 Because object owners specify their own security credentials when sharing, anyone who receives
@@ -13,9 +10,7 @@ the presigned URL can access the object for a limited time.
 - For the IAM permissions that are required to create a presigned URL, see [Share an object with others](../../../AmazonS3/latest/userguide/ShareObjectPreSignedURL.md "../../../AmazonS3/latest/userguide/ShareObjectPreSignedURL.md") in
   the _Amazon Simple Storage Service User Guide_.
 
-## Step 1: Create an IAM role to grant
-
-access to Amazon S3 bucket
+## Step 1: Create an IAM role to grant access to Amazon S3 bucket
 
 This step describes how to create an IAM role to grant
 access to Amazon S3 bucket.

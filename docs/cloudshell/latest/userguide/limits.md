@@ -130,16 +130,13 @@ AWS CloudShell environment:
 With access to the public internet, there's a risk that certain users might export
 data from the AWS CloudShell environment. We recommend that IAM administrators manage the
 allow list of trusted AWS CloudShell users through IAM tools. For information about how
-specific users can be explicitly denied access, see [Managing allowable actions in AWS CloudShell using custom
-policies](sec-auth-with-identities.md#restricting-actions "sec-auth-with-identities.md#restricting-actions").
+specific users can be explicitly denied access, see [Managing allowable actions in AWS CloudShell using custom policies](sec-auth-with-identities.md#restricting-actions "sec-auth-with-identities.md#restricting-actions").
 
 **Data transfer**: Uploading and downloading files to and
 from AWS CloudShell might be slow for large files. Alternatively, you can transfer files to your
 environment from an Amazon S3 bucket using the command line interface of the shell.
 
-## Restrictions on system files and page
-
-reloads
+## Restrictions on system files and page reloads
 
 - **System files**: If you incorrectly modify files
   that are required by the compute environment, you might experience problems when

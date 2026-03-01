@@ -1,6 +1,4 @@
-# Running a command in CloudShell from AWS Service
-
-consoles
+# Running a command in CloudShell from AWS Service consoles
 
 You can run a command in the CloudShell terminal through
 [Amazon ElastiCache](../../../AmazonElastiCache/latest/red-ug/WhatIs.md "../../../AmazonElastiCache/latest/red-ug/WhatIs.md")

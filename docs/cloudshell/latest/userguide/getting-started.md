@@ -92,9 +92,7 @@ Main sign-in page
 
 You can also sign in as a [root user](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md"). This identity has complete access to all AWS services and resources in the account. We strongly recommend that you don't use the root user for everyday tasks, even administrative ones. Instead, adhere to the best practice of using the root user only to create your first IAM user.
 
-## Step 2: Select a Region, launch AWS CloudShell, and choose
-
-a shell
+## Step 2: Select a Region, launch AWS CloudShell, and choose a shell
 
 In this step, you launch
 CloudShell
@@ -412,9 +410,7 @@ command line in a new session.
 In some cases, it may take a few minutes for your environment to
 restart.
 
-## Step 8: Delete a shell session home
-
-directory
+## Step 8: Delete a shell session home directory
 
 This step describes how to delete a shell
 session.
@@ -464,9 +460,7 @@ With the command line, you can leave a shell session and log out using the
 `exit` command. You can then press any key to reconnect and continue to
 use AWS CloudShell.
 
-## Step 9: Edit your file's code and run it using the command
-
-line
+## Step 9: Edit your file's code and run it using the command line
 
 This step demonstrates how to use the pre-installed Vim editor to work
 with a file. You then run that file as a program from the command line.
@@ -511,9 +505,7 @@ numbers for input. The syntax is as follows.
 
 The command line displays the program output: `The sum is 15`.
 
-## Step 10: Use AWS CLI to add the file as an object in an Amazon S3
-
-bucket
+## Step 10: Use AWS CLI to add the file as an object in an Amazon S3 bucket
 
 In this step, you create an Amazon S3 bucket and then use the **PutObject** method to add your
 code file as an object in that bucket.
@@ -576,8 +568,6 @@ hash to [check the integrity of the object uploaded to Amazon S3](https://repost
 ## Related topics
 
 - [Manage AWS services from CLI in CloudShell](working-with-aws-cli.md "working-with-aws-cli.md")
-- [Copying
-  multiple files between your local machine and
-  CloudShell](multiple-files-upload-download.md "multiple-files-upload-download.md")
+- [Copying multiple files between your local machine and CloudShell](multiple-files-upload-download.md "multiple-files-upload-download.md")
 - [AWS CloudShell Concepts](working-with-aws-cloudshell.md "working-with-aws-cloudshell.md")
 - [Customizing your AWS CloudShell experience](customizing-cshell.md "customizing-cshell.md")

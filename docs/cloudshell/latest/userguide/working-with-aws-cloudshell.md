@@ -7,10 +7,7 @@ This section describes how to interact with AWS CloudShell and perform specific 
 - [Navigating the AWS CloudShell interface](#navigating-the-interface "#navigating-the-interface")
 - [Working in AWS Regions](#region-selection "#region-selection")
 - [Working with files and storage](#files-storage "#files-storage")
-- [Access
-  CloudShell in
-  the
-  Console Mobile Application](#working-with-cloudshell-in-console-mobile-application "#working-with-cloudshell-in-console-mobile-application")
+- [Access CloudShell in the Console Mobile Application](#working-with-cloudshell-in-console-mobile-application "#working-with-cloudshell-in-console-mobile-application")
 - [Working with Docker](#working-with-docker "#working-with-docker")
 
 ## Navigating the AWS CloudShell interface
@@ -88,9 +85,7 @@ per-Region basis. For more information, see [Persistent storage](limits.md#persi
 
 - Persistent storage is not available for AWS CloudShell VPC environments.
 
-### Specifying your default AWS Region
-
-for AWS CLI
+### Specifying your default AWS Region for AWS CLI
 
 You can use [environment
 variables](../../../cli/latest/userguide/cli-configure-envvars.md "../../../cli/latest/userguide/cli-configure-envvars.md") to specify configuration options and credentials required to access
@@ -159,11 +154,7 @@ your home directory. For example, suppose that you move a file out of your home
 directory by running the `mv` command. Then, that file is recycled when the
 current shell session ends.
 
-## Access
-
-CloudShell in
-the
-Console Mobile Application
+## Access CloudShell in the Console Mobile Application
 
 You can access
 CloudShell in the AWS Console Mobile Application from the home screen. From the home screen, you can view

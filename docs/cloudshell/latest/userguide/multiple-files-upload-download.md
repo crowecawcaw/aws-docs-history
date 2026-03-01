@@ -1,7 +1,4 @@
-# Copying
-
-multiple files between your local machine and
-CloudShell
+# Copying multiple files between your local machine and CloudShell
 
 This tutorial shows how to copy multiple files between your local machine and CloudShell.
 
@@ -22,9 +19,7 @@ Because CloudShell doesn't allow incoming internet traffic, it's currently not p
 to use commands such as `scp` or `rsync` to copy multiple files between
 local machines and the CloudShell compute environment.
 
-## Uploading and downloading multiple files using
-
-Amazon S3
+## Uploading and downloading multiple files using Amazon S3
 
 This step describes
 how to upload and download multiple files using Amazon S3.
@@ -180,9 +175,7 @@ For this option, you need to have the AWS CLI tool installed on your local machi
 have your credentials configured for calls to AWS services. For more information, see
 the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
 
-## Uploading and downloading multiple files using zipped
-
-folders
+## Uploading and downloading multiple files using zipped folders
 
 This step describes how to upload and download multiple files using
 zipped

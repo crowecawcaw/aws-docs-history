@@ -1,6 +1,4 @@
-# Managing AWS CloudShell access and usage with IAM
-
-policies
+# Managing AWS CloudShell access and usage with IAM policies
 
 With the access management resources that can be provided by AWS Identity and Access Management, administrators can
 grant permissions to IAM users. That way, these users can access AWS CloudShell and use the
@@ -33,9 +31,7 @@ you only grant these policies if they're essential for an IAM user's job role.
   IAM identity permissions (console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in the
   _IAM User Guide_.
 
-## Managing allowable actions in AWS CloudShell using custom
-
-policies
+## Managing allowable actions in AWS CloudShell using custom policies
 
 To manage the actions that an IAM user can perform with CloudShell, create a custom
 policy that uses the CloudShellPolicy managed policy as a template. Alternatively, edit an
@@ -215,9 +211,7 @@ the ENI resource (ENIs created for CloudShell VPC environments are tagged with
 enabled, you must manually clean up the ENI resource after every CloudShell VPC
 environment use.
 
-### IAM policy granting full CloudShell
-
-access including access to VPC
+### IAM policy granting full CloudShell access including access to VPC
 
 The following example displays how to enable full permissions, including access to
 VPC, to CloudShell:
@@ -319,9 +313,7 @@ JSON
 
 ```
 
-### Using IAM condition keys for VPC
-
-environments
+### Using IAM condition keys for VPC environments
 
 You can use CloudShell-specific condition keys for VPC settings to provide
 additional permission controls for your VPC environments. You can also specify the subnets
@@ -349,9 +341,7 @@ environment**).
 
 The following examples demonstrate how to use condition keys for VPC settings. After you create a policy statement with the desired restrictions, append the policy statement for the target user or role.
 
-#### Ensure that users create only
-
-VPC environments and deny creation of public environments
+#### Ensure that users create only VPC environments and deny creation of public environments
 
 To ensure that users can create only VPC environments, use the deny permission as
 shown in the following example:
@@ -376,9 +366,7 @@ shown in the following example:
 }
 ```
 
-#### Deny users access to specific
-
-VPCs, subnets, or security groups
+#### Deny users access to specific VPCs, subnets, or security groups
 
 To deny users access to specific VPCs, use `StringEquals` to check the
 value of the `cloudshell:VpcIds` condition. The following example denies
@@ -510,9 +498,7 @@ For more information about attaching managed policies, see [Adding
 IAM identity permissions (console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in the
 _IAM User Guide_.
 
-## Permissions for accessing Amazon Q CLI
-
-features in CloudShell
+## Permissions for accessing Amazon Q CLI features in CloudShell
 
 To use Amazon Q CLI features in CloudShell, such as inline suggestions, chat, and
 translate, make sure you have the required IAM permissions. If you're unable to access

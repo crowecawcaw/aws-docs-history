@@ -1,6 +1,4 @@
-# Required IAM permissions for creating and
-
-using CloudShell VPC environments
+# Required IAM permissions for creating and using CloudShell VPC environments
 
 To create and use CloudShell VPC environments, the IAM administrator must enable
 access to VPC specific Amazon EC2 permissions. This section lists the Amazon EC2
@@ -29,9 +27,7 @@ resource (ENIs created for CloudShell VPC environments are tagged with
 enabled, you must manually clean up the ENI resource after every CloudShell VPC
 environment use.
 
-## IAM policy granting full
-
-CloudShell access including access to VPC
+## IAM policy granting full CloudShell access including access to VPC
 
 The following example displays how to enable full permissions, including access to
 VPC, to CloudShell:
@@ -158,9 +154,7 @@ JSON
 
 ```
 
-## Using IAM condition keys for VPC
-
-environments
+## Using IAM condition keys for VPC environments
 
 You can use CloudShell-specific condition keys for VPC settings to provide
 additional permission controls for your VPC environments. You can also specify the subnets
@@ -187,9 +181,7 @@ environment using the CloudShell web user interface (**Actions** →
 
 The following examples demonstrate how to use condition keys for VPC settings. After you create a policy statement with the desired restrictions, append the policy statement for the target user or role.
 
-### Ensure that users create only
-
-VPC environments and deny creation of public environments
+### Ensure that users create only VPC environments and deny creation of public environments
 
 To ensure that users can create only VPC environments, use the deny permission as
 shown in the following example:
@@ -214,9 +206,7 @@ shown in the following example:
 }
 ```
 
-### Deny users access to specific
-
-VPCs, subnets, or security groups
+### Deny users access to specific VPCs, subnets, or security groups
 
 To deny users access to specific VPCs, use `StringEquals` to check the
 value of the `cloudshell:VpcIds` condition. The following example denies

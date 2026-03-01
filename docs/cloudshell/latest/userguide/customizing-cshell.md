@@ -80,17 +80,13 @@ You can switch this feature on or off by choosing **Preferences**,
 **Enable Safe Paste** and **Disable Safe
 Paste**.
 
-## Using tmux to session
-
-restore
+## Using tmux to session restore
 
 AWS CloudShell uses tmux to restore the sessions across single or multiple browser tabs. If
 you refresh the browser tabs, it resumes your session until the session becomes inactive.
 For more information, see [Session restore](welcome.md#session-restore "welcome.md#session-restore").
 
-## Using Amazon Q
-
-CLI
+## Using Amazon Q CLI
 
 You can enable or disable Amazon Q CLI by choosing **Preferences**,
 **Enable Amazon Q CLI** and **Disable Amazon Q CLI**. For

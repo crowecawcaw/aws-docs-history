@@ -7,8 +7,7 @@ CloudShell.
 
 Your administrator must provide the necessary IAM permissions for you to be able to
 create VPC environments. For more information about enabling permissions to create
-CloudShell VPC environments, see [Required IAM permissions for creating and
-using CloudShell VPC environments](aws-cloudshell-vpc-permissions-1.md "aws-cloudshell-vpc-permissions-1.md").
+CloudShell VPC environments, see [Required IAM permissions for creating and using CloudShell VPC environments](aws-cloudshell-vpc-permissions-1.md "aws-cloudshell-vpc-permissions-1.md").
 
 ###### To create a CloudShell VPC environment
 

@@ -5,27 +5,14 @@ answers
 to frequently asked questions about security for
 CloudShell.
 
-- [What
-  AWS
-  processes and
-  technologies
-  are used when you launch CloudShell and start a shell session?](#access-path-login-faq "#access-path-login-faq")
-- [Is it possible to restrict network access to
-  CloudShell?](#restrict-access-iam-faq "#restrict-access-iam-faq")
+- [What AWS processes and technologies are used when you launch CloudShell and start a shell session?](#access-path-login-faq "#access-path-login-faq")
+- [Is it possible to restrict network access to CloudShell?](#restrict-access-iam-faq "#restrict-access-iam-faq")
 - [Can I customize my CloudShell environment?](#customize-faq "#customize-faq")
-- [Where is my $HOME directory actually
-  stored in the AWS Cloud?](#home-storage-faq "#home-storage-faq")
-- [Is it possible to encrypt my $HOME
-  directory?](#encrypt-home-faq "#encrypt-home-faq")
-- [Can I run a virus scan on my $HOME
-  directory?](#virus-scan-faq "#virus-scan-faq")
+- [Where is my $HOME directory actually stored in the AWS Cloud?](#home-storage-faq "#home-storage-faq")
+- [Is it possible to encrypt my $HOME directory?](#encrypt-home-faq "#encrypt-home-faq")
+- [Can I run a virus scan on my $HOME directory?](#virus-scan-faq "#virus-scan-faq")
 
-## What
-
-AWS
-processes and
-technologies
-are used when you launch CloudShell and start a shell session?
+## What AWS processes and technologies are used when you launch CloudShell and start a shell session?
 
 When signing into AWS Management Console, you enter your IAM user credentials. And, when you launch
 CloudShell from the console interface, these credentials are used in calls to the
@@ -34,9 +21,7 @@ the compute environment, and CloudShell sends commands to that session.
 
 [Back to list of security FAQs](cloudshell-security-faqs.md "cloudshell-security-faqs.md")
 
-## Is it possible to restrict network access to
-
-CloudShell?
+## Is it possible to restrict network access to CloudShell?
 
 For public environments, it is not possible to restrict network access. If you want to
 restrict network access, you must enable permission to create only VPC environments and deny
@@ -62,9 +47,7 @@ configuration and management of applications that you install.
 
 [Back to list of security FAQs](cloudshell-security-faqs.md "cloudshell-security-faqs.md")
 
-## Where is my `$HOME` directory actually
-
-stored in the AWS Cloud?
+## Where is my `$HOME` directory actually stored in the AWS Cloud?
 
 For Public environments, the infrastructure for storing data in your
 `$HOME` is provided by Amazon S3.
@@ -75,9 +58,7 @@ environment.
 
 [Back to list of security FAQs](cloudshell-security-faqs.md "cloudshell-security-faqs.md")
 
-## Is it possible to encrypt my `$HOME`
-
-directory?
+## Is it possible to encrypt my `$HOME` directory?
 
 No, it is not possible to encrypt your `$HOME` directory with your own
 key. But CloudShell encrypts your `$HOME` directory content while
@@ -85,18 +66,14 @@ storing it in Amazon S3.
 
 [Back to list of security FAQs](cloudshell-security-faqs.md "cloudshell-security-faqs.md")
 
-## Can I run a virus scan on my `$HOME`
-
-directory?
+## Can I run a virus scan on my `$HOME` directory?
 
 At present, it's not possible to run a virus scan of your `$HOME`
 directory. Support for this feature is under review.
 
 [Back to list of security FAQs](cloudshell-security-faqs.md "cloudshell-security-faqs.md")
 
-## Can I restrict data ingress or egress for
-
-my CloudShell?
+## Can I restrict data ingress or egress for my CloudShell?
 
 To restrict ingress or egress, we recommend that you use a CloudShell VPC environment.
 The `$HOME` directory of a VPC environment is deleted when your VPC

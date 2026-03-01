@@ -1,7 +1,4 @@
-# AWS CloudShell migrating
-
-from AL2 to
-AL2023
+# AWS CloudShell migrating from AL2 to AL2023
 
 AWS CloudShell, which was based on Amazon Linux 2 (AL2), has migrated to Amazon Linux 2023 (AL2023). For more
 information about AL2023, see [What is Amazon Linux 2023 (AL2023)](../../../linux/al2023/ug/what-is-amazon-linux.md "../../../linux/al2023/ug/what-is-amazon-linux.md") in the
@@ -39,13 +36,7 @@ The following are answers to some common questions about the migration from AL2 
 - [Can I create a backup of my AWS CloudShell
   environment?](#migration-backup "#migration-backup")
 
-### Will
-
-the
-migration to AL2023
-affect any of my other AWS resources,
-such
-as Amazon EC2 instances running on AL2?
+### Will the migration to AL2023 affect any of my other AWS resources, such as Amazon EC2 instances running on AL2?
 
 No service or resource other than your AWS CloudShell environment is affected by this migration.
 This includes resources that you
@@ -53,9 +44,7 @@ might
 have created or accessed from within AWS CloudShell. For example, if you have created an Amazon EC2
 instance running on AL2 this will not be migrated to AL2023.
 
-### What are the packages that have been changed with the
-
-migration to AL2023?
+### What are the packages that have been changed with the migration to AL2023?
 
 AWS CloudShell environments currently include pre-installed software. To learn about the
 complete list of pre-installed software, see [Pre-installed software](vm-specs.md#pre-installed-software "vm-specs.md#pre-installed-software"). AWS CloudShell will continue delivering these packages, with the
@@ -64,9 +53,7 @@ AL2023, see [Comparing AL2 and AL2023](../../../linux/al2023/ug/compare-with-al2
 requirements that will no longer be met after the migration to AL2023, we recommend reaching
 out to AWS Support to submit a request.
 
-### Can I opt-out from
-
-migration?
+### Can I opt-out from migration?
 
 No, you can't opt-out
 from migration. AWS CloudShell environments are managed by AWS, therefore, all

@@ -19,9 +19,7 @@ Edge, and Apple Safari browsers.
 
 (Try it now: [Getting started with AWS CloudShell](getting-started.md "getting-started.md"))
 
-## Features of
-
-AWS CloudShell
+## Features of AWS CloudShell
 
 AWS CloudShell
 provides the following features:
@@ -85,8 +83,7 @@ Paste for text input.
 
 As administrator, you can grant and deny permissions to AWS CloudShell users using IAM
 policies. You can also create policies that specify the particular actions that users can
-perform with the shell environment. For more information, see [Managing AWS CloudShell access and usage with IAM
-policies](sec-auth-with-identities.md "sec-auth-with-identities.md").
+perform with the shell environment. For more information, see [Managing AWS CloudShell access and usage with IAM policies](sec-auth-with-identities.md "sec-auth-with-identities.md").
 
 **Shell session management**
 

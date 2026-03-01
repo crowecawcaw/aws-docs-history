@@ -174,9 +174,7 @@ export PATH=/home/cloudshell-user/usr/local/bin:$PATH
 If you undo this change to `PATH`, `aws` commands that
 don't feature a specified path use the pre-installed version of AWS CLI by default.
 
-## Installing third-party software on your shell
-
-environment
+## Installing third-party software on your shell environment
 
 ###### Note
 

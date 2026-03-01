@@ -17,33 +17,22 @@ solutions to resolve these errors.
 
 ###### Topics
 
-- [Denied
-  access](#unable-to-launch-cloudshell "#unable-to-launch-cloudshell")
-- [Insufficient
-  permissions](#no-access-cloudshell "#no-access-cloudshell")
+- [Denied access](#unable-to-launch-cloudshell "#unable-to-launch-cloudshell")
+- [Insufficient permissions](#no-access-cloudshell "#no-access-cloudshell")
 - [Unable to access AWS CloudShell command line](#locked-out-cloudshell "#locked-out-cloudshell")
 - [Unable to ping external IP addresses](#ping-cloudshell "#ping-cloudshell")
-- [There were some issues preparing your
-  terminal](#old-browser-issue-cloudshell "#old-browser-issue-cloudshell")
+- [There were some issues preparing your terminal](#old-browser-issue-cloudshell "#old-browser-issue-cloudshell")
 - [Arrow keys not working correctly in PowerShell](#pwsh-arrow-keys "#pwsh-arrow-keys")
-- [Unsupported Web Sockets cause a failure to
-  start CloudShell sessions](#web-sockets-cloudshell "#web-sockets-cloudshell")
-- [Unable to import the
-  AWSPowerShell.NetCore module](#import-PowerShell-module "#import-PowerShell-module")
+- [Unsupported Web Sockets cause a failure to start CloudShell sessions](#web-sockets-cloudshell "#web-sockets-cloudshell")
+- [Unable to import the AWSPowerShell.NetCore module](#import-PowerShell-module "#import-PowerShell-module")
 - [Docker is not running when using AWS CloudShell](#docker-not-running "#docker-not-running")
 - [Docker has ran out of disk space](#docker-space-full "#docker-space-full")
 - [docker push is timing out and keeps retrying](#docker-push-timeout "#docker-push-timeout")
-- [Unable to access resources within VPC from
-  my AWS CloudShell VPC environment](#unable-access-VPC-resources "#unable-access-VPC-resources")
-- [The ENI used by AWS CloudShell for my VPC environment
-  is not cleaned up](#unable-cleanup-VPC-ENI "#unable-cleanup-VPC-ENI")
-- [User with
-  CreateEnvironment permission for only VPC environments also has
-  access to public AWS CloudShell environments](#user-has-access-to-publicCloudShellenv "#user-has-access-to-publicCloudShellenv")
+- [Unable to access resources within VPC from my AWS CloudShell VPC environment](#unable-access-VPC-resources "#unable-access-VPC-resources")
+- [The ENI used by AWS CloudShell for my VPC environment is not cleaned up](#unable-cleanup-VPC-ENI "#unable-cleanup-VPC-ENI")
+- [User with CreateEnvironment permission for only VPC environments also has access to public AWS CloudShell environments](#user-has-access-to-publicCloudShellenv "#user-has-access-to-publicCloudShellenv")
 
-### Denied
-
-access
+### Denied access
 
 **Issue:** When you
 try
@@ -62,9 +51,7 @@ you have refreshed your browser or restarted CloudShell.
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
-### Insufficient
-
-permissions
+### Insufficient permissions
 
 **Issue:** When you
 try
@@ -83,8 +70,7 @@ access AWS CloudShell lacks the necessary IAM permissions.
 **Solution:** Request your IAM administrator to
 provide you with the necessary permissions. They can do this either through adding an
 attached AWS managed policy (AWSCloudShellFullAccess) or an embedded inline policy. For
-more information, see [Managing AWS CloudShell access and usage with IAM
-policies](sec-auth-with-identities.md#sec-auth-with-identities.title "sec-auth-with-identities.md#sec-auth-with-identities.title").
+more information, see [Managing AWS CloudShell access and usage with IAM policies](sec-auth-with-identities.md#sec-auth-with-identities.title "sec-auth-with-identities.md#sec-auth-with-identities.title").
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
@@ -125,9 +111,7 @@ nc -zv www.amazon.com 443
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
-### There were some issues preparing your
-
-terminal
+### There were some issues preparing your terminal
 
 **Issue:** When trying to access AWS CloudShell using the
 Microsoft Edge browser, you can't start a shell session, and the browser displays an
@@ -194,9 +178,7 @@ Your changes take effect the next time you start PowerShell.
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
-### Unsupported Web Sockets cause a failure to
-
-start CloudShell sessions
+### Unsupported Web Sockets cause a failure to start CloudShell sessions
 
 **Issue:** When
 you
@@ -240,9 +222,7 @@ _AWS Systems Manager API Reference_.
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 
-### Unable to import the
-
-`AWSPowerShell.NetCore` module
+### Unable to import the `AWSPowerShell.NetCore` module
 
 **Issue:** When you import the AWSPowerShell.NetCore
 module in PowerShell by `Import-Module -Name AWSPowerShell.NetCore`, you
@@ -332,9 +312,7 @@ Make
 sure that you have all the required permissions for pushing to an
 Amazon ECR repository.
 
-### Unable to access resources within VPC from
-
-my AWS CloudShell VPC environment
+### Unable to access resources within VPC from my AWS CloudShell VPC environment
 
 **Issue:** Unable to access resources within the VPC
 while using my AWS CloudShell VPC environment.
@@ -350,9 +328,7 @@ networks](../../../vpc/latest/userguide/extend-intro.md "../../../vpc/latest/use
 environment is using, by running the command **`ip -a`** inside your
 environment in the command line prompt, or on the VPC Console page.
 
-### The ENI used by AWS CloudShell for my VPC environment
-
-is not cleaned up
+### The ENI used by AWS CloudShell for my VPC environment is not cleaned up
 
 **Issue:** Unable to clean up the ENI used by AWS CloudShell
 for my VPC environment.
@@ -380,10 +356,7 @@ enabled for your role as shown in the following sample script:
 }
 ```
 
-### User with
-
-`CreateEnvironment` permission for only VPC environments also has
-access to public AWS CloudShell environments
+### User with `CreateEnvironment` permission for only VPC environments also has access to public AWS CloudShell environments
 
 **Issue:** User restricted with
 `CreateEnvironment` permission for only VPC environments is also able to
