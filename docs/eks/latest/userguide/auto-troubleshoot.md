@@ -32,7 +32,7 @@ You might have the following problems that have solutions specific to EKS Auto M
 
 ## Node monitoring agent
 
-EKS Auto Mode includes the Amazon EKS node monitoring agent. You can use this agent to view troubleshooting and debugging information about nodes. The node monitoring agent publishes Kubernetes `events` and node `conditions`. For more information, see [Enable node auto repair and investigate node health issues](node-health.md "node-health.md").
+EKS Auto Mode includes the Amazon EKS node monitoring agent. You can use this agent to view troubleshooting and debugging information about nodes. The node monitoring agent publishes Kubernetes `events` and node `conditions`. For more information, see [Detect node health issues and enable automatic node repair](node-health.md "node-health.md").
 
 ## Get console output from an EC2 managed instance by using the AWS EC2 CLI
 

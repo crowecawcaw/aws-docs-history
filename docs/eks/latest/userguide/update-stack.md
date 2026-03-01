@@ -67,13 +67,13 @@ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-e
    ###### Important
 
    Some instance types might not be available in all AWS Regions.
-   - **NodeImageIdSSMParam** – The Amazon EC2 Systems Manager parameter of the AMI ID that you want to update to. The following value uses the latest Amazon EKS optimized AMI for Kubernetes version `1.33`.
+   - **NodeImageIdSSMParam** – The Amazon EC2 Systems Manager parameter of the AMI ID that you want to update to. The following value uses the latest Amazon EKS optimized AMI for Kubernetes version `1.35`.
 
    ```
-   /aws/service/eks/optimized-ami/1.33/amazon-linux-2/recommended/image_id
+   /aws/service/eks/optimized-ami/1.35/amazon-linux-2/recommended/image_id
    ```
 
-   You can replace `1.33` with a [platform-version](platform-versions.md "platform-versions.md") that’s the same. Or, it should be up to one version earlier than the Kubernetes version running on your control plane. We recommend that you keep your nodes at the same version as your control plane. You can also replace `amazon-linux-2` with a different AMI type. For more information, see [Retrieve recommended Amazon Linux AMI IDs](retrieve-ami-id.md "retrieve-ami-id.md").
+   You can replace `1.35` with a [platform-version](platform-versions.md "platform-versions.md") that’s the same. Or, it should be up to one version earlier than the Kubernetes version running on your control plane. We recommend that you keep your nodes at the same version as your control plane. You can also replace `amazon-linux-2` with a different AMI type. For more information, see [Retrieve recommended Amazon Linux AMI IDs](retrieve-ami-id.md "retrieve-ami-id.md").
 
    ###### Note
 

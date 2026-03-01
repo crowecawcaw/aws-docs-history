@@ -10,7 +10,7 @@ With Amazon EKS managed node groups, you don’t need to separately provision or
 
 Every managed node is provisioned as part of an Amazon EC2 Auto Scaling group that’s managed for you by Amazon EKS. Every resource including the instances and Auto Scaling groups runs within your AWS account. Each node group runs across multiple Availability Zones that you define.
 
-Managed node groups can also optionally leverage node auto repair, which continuously monitors the health of nodes. It automatically reacts to detected problems and replaces nodes when possible. This helps overall availability of the cluster with minimal manual intervention. For more information, see [Enable node auto repair and investigate node health issues](node-health.md "node-health.md").
+Managed node groups can also optionally leverage node auto repair, which continuously monitors the health of nodes. It automatically reacts to detected problems and replaces nodes when possible. This helps overall availability of the cluster with minimal manual intervention. For more information, see [Detect node health issues and enable automatic node repair](node-health.md "node-health.md").
 
 You can add a managed node group to new or existing clusters using the Amazon EKS console, `eksctl`, AWS CLI, AWS API, or infrastructure as code tools including AWS CloudFormation. Nodes launched as part of a managed node group are automatically tagged for auto-discovery by the Kubernetes [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md "https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md"). You can use the node group to apply Kubernetes labels to nodes and update them at any time.
 

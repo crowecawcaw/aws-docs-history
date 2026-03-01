@@ -89,7 +89,7 @@ This example shows how you might create a policy that allows IAM users to view t
                 "iam:ListUserPolicies",
                 "iam:GetUser"
             ],
-            "Resource": ["arn:aws:iam::*:user/${aws:username}"]
+            "Resource": ["&region-arn;iam::*:user/${aws:username}"]
         },
         {
             "Sid": "NavigateInConsole",
@@ -122,12 +122,12 @@ AWS Region. You can replace the AWS Region with the AWS Region that you want to 
         {
             "Effect": "Allow",
             "Action": "eks:CreateCluster",
-            "Resource": "arn:aws:eks:us-west-2:111122223333:cluster/my-cluster"
+            "Resource": "&region-arn;eks:us-west-2:111122223333:cluster/my-cluster"
         },
         {
             "Effect": "Allow",
             "Action": "iam:CreateServiceLinkedRole",
-            "Resource": "arn:aws:iam::111122223333:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS",
+            "Resource": "&region-arn;iam::111122223333:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS",
             "Condition": {
                 "ForAnyValue:StringEquals": {
                     "iam:AWSServiceName": "eks"
@@ -137,7 +137,7 @@ AWS Region. You can replace the AWS Region with the AWS Region that you want to 
         {
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::111122223333:role/cluster-role-name"
+            "Resource": "&region-arn;iam::111122223333:role/cluster-role-name"
         }
     ]
 }
@@ -155,7 +155,7 @@ AWS Region. You can replace the AWS Region with the AWS Region that you want to 
         {
             "Effect": "Allow",
             "Action": "eks:CreateCluster",
-            "Resource": "arn:aws:eks:us-west-2:111122223333:cluster/my-cluster"
+            "Resource": "&region-arn;eks:us-west-2:111122223333:cluster/my-cluster"
         },
         {
             "Action": [
@@ -169,7 +169,7 @@ AWS Region. You can replace the AWS Region with the AWS Region that you want to 
         {
             "Effect": "Allow",
             "Action": "iam:CreateServiceLinkedRole",
-            "Resource": "arn:aws:iam::111122223333:role/aws-service-role/outposts.eks-local.amazonaws.com/AWSServiceRoleForAmazonEKSLocalOutpost"
+            "Resource": "&region-arn;iam::111122223333:role/aws-service-role/outposts.eks-local.amazonaws.com/AWSServiceRoleForAmazonEKSLocalOutpost"
         },
         {
             "Effect": "Allow",
@@ -177,7 +177,7 @@ AWS Region. You can replace the AWS Region with the AWS Region that you want to 
                 "iam:PassRole",
                 "iam:ListAttachedRolePolicies"
             ],
-            "Resource": "arn:aws:iam::111122223333:role/cluster-role-name"
+            "Resource": "&region-arn;iam::111122223333:role/cluster-role-name"
         },
         {
             "Action": [
@@ -188,7 +188,7 @@ AWS Region. You can replace the AWS Region with the AWS Region that you want to 
                 "iam:DeleteInstanceProfile",
                 "iam:RemoveRoleFromInstanceProfile"
             ],
-            "Resource": "arn:aws:iam::*:instance-profile/eks-local-*",
+            "Resource": "&region-arn;iam::*:instance-profile/eks-local-*",
             "Effect": "Allow"
         }
     ]
@@ -206,7 +206,7 @@ This example policy includes the minimum permission required to update a cluster
         {
             "Effect": "Allow",
             "Action": "eks:UpdateClusterVersion",
-            "Resource": "arn:aws:eks:us-west-2:111122223333:cluster/my-cluster"
+            "Resource": "&region-arn;eks:us-west-2:111122223333:cluster/my-cluster"
         }
     ]
 }

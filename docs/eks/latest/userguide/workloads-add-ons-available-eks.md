@@ -391,7 +391,7 @@ This add-on doesn’t require additional permissions.
 
 ### Additional information
 
-For more information, see [Enable node auto repair and investigate node health issues](node-health.md "node-health.md").
+For more information, see [Detect node health issues and enable automatic node repair](node-health.md "node-health.md").
 
 ## AWS Distro for OpenTelemetry
 

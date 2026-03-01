@@ -105,8 +105,8 @@ By default, the managed policies related to EKS Auto Mode do not permit applying
                 "ec2:CreateSnapshot"
             ],
             "Resource": [
-                "arn:aws:ec2:*:*:volume/*",
-                "arn:aws:ec2:*:*:snapshot/*"
+                "&region-arn;ec2:*:*:volume/*",
+                "&region-arn;ec2:*:*:snapshot/*"
             ],
             "Condition": {
                 "StringEquals": {
@@ -164,7 +164,7 @@ By default, the managed policies related to EKS Auto Mode do not permit applying
             "Action": [
                 "shield:TagResource"
             ],
-            "Resource": "arn:aws:shield::*:protection/*",
+            "Resource": "&region-arn;shield::*:protection/*",
             "Condition": {
                 "StringEquals": {
                     "aws:RequestTag/eks:eks-cluster-name": "${aws:PrincipalTag/eks:eks-cluster-name}"

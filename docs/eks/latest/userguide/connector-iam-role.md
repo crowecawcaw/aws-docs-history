@@ -72,7 +72,7 @@ AWS CLI
             "Action": [
                 "ssmmessages:CreateControlChannel"
             ],
-            "Resource": "arn:aws:eks:*:*:cluster/*"
+            "Resource": "&region-arn;eks:*:*:cluster/*"
         },
         {
             "Sid": "ssmDataplaneOperations",

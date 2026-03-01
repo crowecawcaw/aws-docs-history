@@ -61,7 +61,7 @@ We recommend blocking Pod access to IMDS if the following conditions are true:
 ```
 eksctl create nodegroup \
   --cluster my-cluster \
-  --version 1.33 \
+  --version 1.35 \
   --name standard-nodes-new \
   --node-type t3.medium \
   --nodes 3 \
@@ -168,10 +168,10 @@ kubectl scale deployments/cluster-autoscaler --replicas=0 -n kube-system
 kubectl taint nodes node_name key=value:NoSchedule
 ```
 
-If you’re upgrading your nodes to a new Kubernetes version, you can identify and taint all of the nodes of a particular Kubernetes version (in this case, `1.31`) with the following code snippet. The version number can’t be later than the Kubernetes version of your control plane. It also can’t be more than two minor versions earlier than the Kubernetes version of your control plane. We recommend that you use the same version as your control plane.
+If you’re upgrading your nodes to a new Kubernetes version, you can identify and taint all of the nodes of a particular Kubernetes version (in this case, `1.33`) with the following code snippet. The version number can’t be later than the Kubernetes version of your control plane. It also can’t be more than two minor versions earlier than the Kubernetes version of your control plane. We recommend that you use the same version as your control plane.
 
 ```
-K8S_VERSION=1.31
+K8S_VERSION=1.33
 nodes=$(kubectl get nodes -o jsonpath="{.items[?(@.status.nodeInfo.kubeletVersion==\"v$K8S_VERSION\")].metadata.name}")
 for node in ${nodes[@]}
 do
@@ -205,10 +205,10 @@ kubectl scale deployments/coredns --replicas=2 -n kube-system
 kubectl drain node_name --ignore-daemonsets --delete-local-data
 ```
 
-If you’re upgrading your nodes to a new Kubernetes version, identify and drain all of the nodes of a particular Kubernetes version (in this case, `1.31`) with the following code snippet.
+If you’re upgrading your nodes to a new Kubernetes version, identify and drain all of the nodes of a particular Kubernetes version (in this case, `1.33`) with the following code snippet.
 
 ```
-K8S_VERSION=1.31
+K8S_VERSION=1.33
 nodes=$(kubectl get nodes -o jsonpath="{.items[?(@.status.nodeInfo.kubeletVersion==\"v$K8S_VERSION\")].metadata.name}")
 for node in ${nodes[@]}
 do

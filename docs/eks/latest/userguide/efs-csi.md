@@ -222,13 +222,13 @@ If the output from the command is `None`, review the **Prerequisites**. 2. Creat
         {
           "Effect": "Allow",
           "Principal": {
-            "Federated": "arn:aws:iam::123456789012:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
+            "Federated": "&region-arn;iam::123456789012:oidc-provider/oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
           },
           "Action": "sts:AssumeRoleWithWebIdentity",
           "Condition": {
             "StringLike": {
-              "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:efs-csi-*",
-              "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
+              "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:efs-csi-*",
+              "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
             }
           }
         }

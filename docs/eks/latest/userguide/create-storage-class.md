@@ -78,7 +78,7 @@ Update the following values in the policy below:
           "Sid": "Enable IAM User Permissions",
           "Effect": "Allow",
           "Principal": {
-              "AWS": "arn:aws:iam::123456789012:root"
+              "AWS": "&region-arn;iam::123456789012:root"
           },
           "Action": "kms:*",
           "Resource": "*"
@@ -101,7 +101,7 @@ Update the following values in the policy below:
         "Condition": {
             "StringEquals": {
                 "kms:CallerAccount": "123456789012",
-                "kms:ViaService": "ec2.us-east-1.amazonaws.com"
+                "kms:ViaService": "ec2.&region_api_default;.amazonaws.com"
             }
         }
     }

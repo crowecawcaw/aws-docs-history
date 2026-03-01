@@ -199,7 +199,7 @@ aws iam create-policy \
            {
                "Effect": "Allow",
                "Action": "ssm:DeregisterManagedInstance",
-               "Resource": "arn:aws:ssm:us-east-1:123456789012:managed-instance/*",
+               "Resource": "&region-arn;ssm:&region_api_default;:123456789012:managed-instance/*",
                "Condition": {
                    "StringEquals": {
                        "ssm:resourceTag/TAG_KEY": "TAG_VALUE"
@@ -236,7 +236,7 @@ aws iam create-policy \
                "aws:SourceAccount":"123456789012"
             },
             "ArnEquals":{
-               "aws:SourceArn":"arn:aws:ssm:us-east-1:123456789012:*"
+               "aws:SourceArn":"&region-arn;ssm:&region_api_default;:123456789012:*"
             }
          }
       }
@@ -305,7 +305,7 @@ To use AWS IAM Roles Anywhere, you must set up your AWS IAM Roles Anywhere trust
                     "aws:PrincipalTag/x509Subject/CN": "${aws:PrincipalTag/x509Subject/CN}"
                 },
                 "ArnEquals": {
-                    "aws:SourceArn": "arn:aws:rolesanywhere:us-east-1:123456789012:trust-anchor/TA_ID"
+                    "aws:SourceArn": "&region-arn;rolesanywhere:&region_api_default;:123456789012:trust-anchor/TA_ID"
                 }
             }
         },
@@ -321,7 +321,7 @@ To use AWS IAM Roles Anywhere, you must set up your AWS IAM Roles Anywhere trust
                     "aws:PrincipalTag/x509Subject/CN": "${aws:PrincipalTag/x509Subject/CN}"
                 },
                 "ArnEquals": {
-                    "aws:SourceArn": "arn:aws:rolesanywhere:us-east-1:123456789012:trust-anchor/TA_ID"
+                    "aws:SourceArn": "&region-arn;rolesanywhere:&region_api_default;:123456789012:trust-anchor/TA_ID"
                 }
             }
         }
@@ -388,7 +388,7 @@ aws iam attach-role-policy \
         {
             "Effect": "Allow",
             "Action": "ssm:DeregisterManagedInstance",
-            "Resource": "arn:aws:ssm:us-east-1:123456789012:managed-instance/*",
+            "Resource": "&region-arn;ssm:&region_api_default;:123456789012:managed-instance/*",
             "Condition": {
                 "StringEquals": {
                     "ssm:resourceTag/TAG_KEY": "TAG_VALUE"
@@ -426,7 +426,7 @@ aws iam attach-role-policy \
                   "aws:SourceAccount":"123456789012"
                },
                "ArnEquals":{
-                  "aws:SourceArn":"arn:aws:ssm:us-east-1:123456789012:*"
+                  "aws:SourceArn":"&region-arn;ssm:&region_api_default;:123456789012:*"
                }
             }
          }
@@ -476,7 +476,7 @@ To use AWS IAM Roles Anywhere, you must set up your AWS IAM Roles Anywhere trust
                        "aws:PrincipalTag/x509Subject/CN": "${aws:PrincipalTag/x509Subject/CN}"
                    },
                    "ArnEquals": {
-                       "aws:SourceArn": "arn:aws:rolesanywhere:us-east-1:123456789012:trust-anchor/TA_ID"
+                       "aws:SourceArn": "&region-arn;rolesanywhere:&region_api_default;:123456789012:trust-anchor/TA_ID"
                    }
                }
            },
@@ -492,7 +492,7 @@ To use AWS IAM Roles Anywhere, you must set up your AWS IAM Roles Anywhere trust
                        "aws:PrincipalTag/x509Subject/CN": "${aws:PrincipalTag/x509Subject/CN}"
                    },
                    "ArnEquals": {
-                       "aws:SourceArn": "arn:aws:rolesanywhere:us-east-1:123456789012:trust-anchor/TA_ID"
+                       "aws:SourceArn": "&region-arn;rolesanywhere:&region_api_default;:123456789012:trust-anchor/TA_ID"
                    }
                }
            }

@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 Amazon EKS platform versions represent the capabilities of the Amazon EKS cluster control plane, such as which Kubernetes API server flags are enabled, as well as the current Kubernetes patch version. Each Kubernetes minor version has one or more associated Amazon EKS platform versions. The platform versions for different Kubernetes minor versions are independent. You can [retrieve your cluster’s current platform version](#get-platform-version "#get-platform-version") using the AWS CLI or AWS Management Console. If you have a local cluster on AWS Outposts, see [Learn Kubernetes and Amazon EKS platform versions for AWS Outposts](eks-outposts-platform-versions.md "eks-outposts-platform-versions.md") instead of this topic.
 
-When a new Kubernetes minor version is available in Amazon EKS, such as 1.33, the initial Amazon EKS platform version for that Kubernetes minor version starts at `eks.1`. However, Amazon EKS releases new platform versions periodically to enable new Kubernetes control plane settings and to provide security fixes.
+When a new Kubernetes minor version is available in Amazon EKS, such as 1.35, the initial Amazon EKS platform version for that Kubernetes minor version starts at `eks.1`. However, Amazon EKS releases new platform versions periodically to enable new Kubernetes control plane settings and to provide security fixes.
 
 When new Amazon EKS platform versions become available for a minor version:
 

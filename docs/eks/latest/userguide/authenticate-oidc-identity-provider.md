@@ -98,7 +98,7 @@ If you want to prevent an OIDC identity provider from being associated with a cl
             "Action": [
                 "eks:AssociateIdentityProviderConfig"
             ],
-            "Resource": "arn:aws:eks:us-west-2:111122223333:cluster/*"
+            "Resource": "&region-arn;eks:us-west-2:111122223333:cluster/*"
 
         },
         {
@@ -123,7 +123,7 @@ The following example policy allows OIDC identity provider association if the `c
             "Sid": "AllowCognitoOnly",
             "Effect": "Deny",
             "Action": "eks:AssociateIdentityProviderConfig",
-            "Resource": "arn:aws:eks:us-west-2:111122223333:cluster/my-instance",
+            "Resource": "&region-arn;eks:us-west-2:111122223333:cluster/my-instance",
             "Condition": {
                 "StringNotLikeIfExists": {
                     "eks:issuerUrl": "https://cognito-idp.us-west-2.amazonaws.com/*"
@@ -134,7 +134,7 @@ The following example policy allows OIDC identity provider association if the `c
             "Sid": "DenyOtherClients",
             "Effect": "Deny",
             "Action": "eks:AssociateIdentityProviderConfig",
-            "Resource": "arn:aws:eks:us-west-2:111122223333:cluster/my-instance",
+            "Resource": "&region-arn;eks:us-west-2:111122223333:cluster/my-instance",
             "Condition": {
                 "StringNotEquals": {
                     "eks:clientId": "kubernetes"

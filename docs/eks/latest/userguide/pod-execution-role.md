@@ -43,7 +43,7 @@ You can use the following procedure to check and see if your account already has
       "Effect": "Allow",
       "Condition": {
          "ArnLike": {
-            "aws:SourceArn": "arn:aws:eks:us-east-1:111122223333:fargateprofile/my-cluster/*"
+            "aws:SourceArn": "&region-arn;eks:&region_api_default;:111122223333:fargateprofile/my-cluster/*"
          }
       },
       "Principal": {
@@ -100,7 +100,7 @@ AWS Management Console
          "Effect": "Allow",
          "Condition": {
             "ArnLike": {
-               "aws:SourceArn": "arn:aws:eks:us-east-1:111122223333:fargateprofile/my-cluster/*"
+               "aws:SourceArn": "&region-arn;eks:&region_api_default;:111122223333:fargateprofile/my-cluster/*"
             }
          },
          "Principal": {
@@ -126,7 +126,7 @@ AWS CLI
       "Effect": "Allow",
       "Condition": {
          "ArnLike": {
-            "aws:SourceArn": "arn:aws:eks:us-east-1:111122223333:fargateprofile/my-cluster/*"
+            "aws:SourceArn": "&region-arn;eks:&region_api_default;:111122223333:fargateprofile/my-cluster/*"
          }
       },
       "Principal": {

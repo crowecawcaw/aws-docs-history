@@ -20,7 +20,7 @@ Before you can create Amazon EKS clusters, you must create an IAM role with eith
       "Action": [
         "ec2:CreateTags"
       ],
-      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Resource": "&region-arn;ec2:*:*:instance/*",
       "Condition": {
         "ForAnyValue:StringLike": {
           "aws:TagKeys": "kubernetes.io/cluster/*"

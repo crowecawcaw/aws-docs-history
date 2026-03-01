@@ -86,7 +86,7 @@ eksctl create iamserviceaccount \
                "kms:ListGrants",
                "kms:RevokeGrant"
              ],
-             "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
+             "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
              "Condition": {
                "Bool": {
                  "kms:GrantIsForAWSResource": "true"
@@ -102,7 +102,7 @@ eksctl create iamserviceaccount \
                "kms:GenerateDataKey*",
                "kms:DescribeKey"
              ],
-             "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
+             "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
            }
          ]
        }
@@ -177,7 +177,7 @@ Add a comma to the end of the previous line, and then add the following line aft
                 "kms:ListGrants",
                 "kms:RevokeGrant"
               ],
-              "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
+              "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
               "Condition": {
                 "Bool": {
                   "kms:GrantIsForAWSResource": "true"
@@ -193,7 +193,7 @@ Add a comma to the end of the previous line, and then add the following line aft
                 "kms:GenerateDataKey*",
                 "kms:DescribeKey"
               ],
-              "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
+              "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
             }
           ]
         }
@@ -234,13 +234,13 @@ https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
            {
              "Effect": "Allow",
              "Principal": {
-               "Federated": "arn:aws:iam::111122223333:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
+               "Federated": "&region-arn;iam::111122223333:oidc-provider/oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
              },
              "Action": "sts:AssumeRoleWithWebIdentity",
              "Condition": {
                "StringEquals": {
-                 "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com",
-                 "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
+                 "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com",
+                 "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
                }
              }
            }
@@ -278,7 +278,7 @@ aws iam attach-role-policy \
                "kms:ListGrants",
                "kms:RevokeGrant"
              ],
-             "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
+             "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
              "Condition": {
                "Bool": {
                  "kms:GrantIsForAWSResource": "true"
@@ -294,7 +294,7 @@ aws iam attach-role-policy \
                "kms:GenerateDataKey*",
                "kms:DescribeKey"
              ],
-             "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
+             "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
            }
          ]
        }

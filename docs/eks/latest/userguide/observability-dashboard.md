@@ -75,7 +75,7 @@ The Amazon EKS node monitoring agent automatically reads node logs to detect hea
 
 When you refresh the page, any resolved issues will disappear from the list. If auto repair is enabled, you could temporarily see some health issues that will be resolved without action from you. Issues that are not supported by auto repair may require manual action from you depending on the type.
 
-For node health issues to be reported, your cluster must use Amazon EKS Auto Mode or have the node monitoring agent add-on. For more information, see [Enable node auto repair and investigate node health issues](node-health.md "node-health.md").
+For node health issues to be reported, your cluster must use Amazon EKS Auto Mode or have the node monitoring agent add-on. For more information, see [Detect node health issues and enable automatic node repair](node-health.md "node-health.md").
 
 ## EKS Capabilities
 

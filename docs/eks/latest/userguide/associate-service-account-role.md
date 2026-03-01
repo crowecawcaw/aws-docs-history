@@ -32,7 +32,7 @@ You can run the following command to create an example policy file that allows r
         {
             "Effect": "Allow",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::my-pod-secrets-bucket"
+            "Resource": "&region-arn;s3:::my-pod-secrets-bucket"
         }
     ]
 }
@@ -106,7 +106,7 @@ export service_account=my-service-account
     {
       "Effect": "Allow",
       "Principal": {
-        "Federated": "arn:aws:iam::123456789012:oidc-provider/$oidc_provider"
+        "Federated": "&region-arn;iam::123456789012:oidc-provider/$oidc_provider"
       },
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
@@ -157,13 +157,13 @@ An example output is as follows.
         {
             "Effect": "Allow",
             "Principal": {
-                "Federated": "arn:aws:iam::111122223333:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
+                "Federated": "&region-arn;iam::111122223333:oidc-provider/oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
             },
             "Action": "sts:AssumeRoleWithWebIdentity",
             "Condition": {
                 "StringEquals": {
-                    "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:default:my-service-account",
-                    "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
+                    "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:default:my-service-account",
+                    "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
                 }
             }
         }
@@ -226,7 +226,7 @@ An example output is as follows.
         {
             "Effect": "Allow",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::my-pod-secrets-bucket"
+            "Resource": "&region-arn;s3:::my-pod-secrets-bucket"
         }
     ]
 }

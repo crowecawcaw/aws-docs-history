@@ -57,7 +57,7 @@ If the multi-NIC feature is enabled, the VPC CNI doesn’t assign IP addresses i
             "Sid": "AmazonEKSCNIPolicyENITagIPv6MultiNIC",
             "Effect": "Allow",
             "Action": "ec2:CreateTags",
-            "Resource": "arn:aws:ec2:*:*:network-interface/*"
+            "Resource": "&region-arn;ec2:*:*:network-interface/*"
         }
     ]
 }

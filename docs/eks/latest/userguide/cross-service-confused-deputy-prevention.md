@@ -46,7 +46,7 @@ The following example shows how you can use the `aws:SourceArn` and `aws:SourceA
       "Action": "sts:AssumeRole",
       "Condition": {
         "ArnLike": {
-          "aws:SourceArn": "arn:aws:eks:us-west-2:123456789012:cluster/my-cluster"
+          "aws:SourceArn": "&region-arn;eks:us-west-2:123456789012:cluster/my-cluster"
           },
         "StringEquals": {
             "aws:SourceAccount": "123456789012"

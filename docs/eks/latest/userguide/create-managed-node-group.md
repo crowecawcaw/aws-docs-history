@@ -179,7 +179,7 @@ eksctl create nodegroup --config-file eks-nodegroup.yaml
       - **Number** – Select and specify the number of nodes in your node group that can be updated in parallel.
       - **Percentage** – Select and specify the percentage of nodes in your node group that can be updated in parallel. This is useful if you have a large number of nodes in your node group.
 
-    - **Node auto repair configuration** – (Optional) If you activate the **Enable node auto repair** checkbox, Amazon EKS will automatically replace nodes when detected issues occur. For more information, see [Enable node auto repair and investigate node health issues](node-health.md "node-health.md").
+    - **Node auto repair configuration** – (Optional) If you activate the **Enable node auto repair** checkbox, Amazon EKS will automatically replace nodes when detected issues occur. For more information, see [Detect node health issues and enable automatic node repair](node-health.md "node-health.md").
 
 8.  On the **Specify networking** page, fill out the parameters accordingly, and then choose **Next**.
     - **Subnets** – Choose the subnets to launch your managed nodes into.

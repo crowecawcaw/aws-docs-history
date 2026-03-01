@@ -36,7 +36,7 @@ To learn more about what goes into a cluster update, see [Best Practices for Clu
 The high-level summary of the Amazon EKS cluster upgrade process is as follows:
 
 1. Ensure your cluster is in a state that will support an upgrade. This includes checking the Kubernetes APIs used by resources deployed into the cluster, ensuring the cluster is free of any health issues. You should use Amazon EKS upgrade insights when evaluating your cluster’s upgrade readiness.
-2. Upgrade the control plane to the next minor version (for example, from 1.32 to 1.33).
+2. Upgrade the control plane to the next minor version (for example, from 1.34 to 1.35).
 3. Upgrade the nodes in the data plane to match that of the control plane.
 4. Upgrade any additional applications that run on the cluster (for example, `cluster-autoscaler`).
 5. Upgrade the add-ons provided by Amazon EKS, such as those included by default:

@@ -10,7 +10,7 @@ Learn how to retrieve node logs for an Amazon EKS managed node that has the node
 
 Make sure you have the following:
 
-- An existing Amazon EKS cluster with the node monitoring agent. For more information, see [Enable node auto repair and investigate node health issues](node-health.md "node-health.md").
+- An existing Amazon EKS cluster with the node monitoring agent. For more information, see [Detect node health issues and enable automatic node repair](node-health.md "node-health.md").
 - The `kubectl` command-line tool installed and configured to
   communicate with your cluster.
 - The AWS CLI installed and logged in with sufficent permissions to
