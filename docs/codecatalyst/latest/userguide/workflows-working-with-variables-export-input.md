@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Exporting a variable
-
-so that other actions can use it
+# Exporting a variable so that other actions can use it
 
 Use the following instructions to export a variable from an action so that you can
 reference it in other actions.
@@ -22,8 +20,7 @@ Before you export a variable, note the following:
 ###### Prerequisite
 
 Make sure you have defined the variable you want to export. For more
-information, see [Defining a
-variable](workflows-working-with-variables-define-input.md "workflows-working-with-variables-define-input.md").
+information, see [Defining a variable](workflows-working-with-variables-define-input.md "workflows-working-with-variables-define-input.md").
 
 Visual
 
@@ -71,7 +68,6 @@ YAML
       - Name: `variable-name`
 ```
 
-For more examples, see [Examples of
-variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md"). 8. (Optional) Choose **Validate** to validate
+For more examples, see [Examples of variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md"). 8. (Optional) Choose **Validate** to validate
 the workflow's YAML code before committing. 9. Choose **Commit**, enter a commit message,
 and choose **Commit** again.

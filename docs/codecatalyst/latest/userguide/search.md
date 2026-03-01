@@ -158,16 +158,14 @@ commits, consider [cloning the repository locally](source-repositories-clone.md 
 [opening the branch in a Dev Environment](devenvironment-create.md "devenvironment-create.md"), or
 [viewing the branches and details in the CodeCatalyst UI](source-branches-view.md "source-branches-view.md").
 Changing the default branch results in updates to the files discoverable by search. For more information,
-see [Managing the default branch for a
-repository](source-branches-default-branch.md "source-branches-default-branch.md").
+see [Managing the default branch for a repository](source-branches-default-branch.md "source-branches-default-branch.md").
 
 ###### Important
 
 CodeCatalyst doesn't support detecting changes in the default branch for linked
 repositories. To change the default branch for a linked repository, you must first unlink it
 from CodeCatalyst, change the default branch, and then link it again. For more information,
-see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
+see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
 
 As a best practice, always make sure you have the latest version of the extension
 before you link a repository.

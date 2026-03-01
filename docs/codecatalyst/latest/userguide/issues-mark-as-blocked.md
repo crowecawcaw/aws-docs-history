@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Marking an issue as blocked or
-
-unblocked
+# Marking an issue as blocked or unblocked
 
 If something is preventing you from working on an issue, you might want to mark it
 as _blocked_. For example, your issue might be blocked if it

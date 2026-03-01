@@ -30,8 +30,7 @@ repository available to package managers that are connected to the downstream re
 5. When you've selected all of the repositories you want to add as upstream repositories, choose **Select**, and then choose **Save**.
 
 For more information about changing the search order of upstream repositories, see
-[Editing the search order of
-upstream repositories](packages-upstream-repositories-search-order.md "packages-upstream-repositories-search-order.md").
+[Editing the search order of upstream repositories](packages-upstream-repositories-search-order.md "packages-upstream-repositories-search-order.md").
 When you've added an upstream repository, you can use a package manager that is connected
 to your local repository to fetch packages from the upstream repository. You do not need to
 update your package manager configuration. For more information about requesting package versions

@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Creating a new space and
-
-development role (starting without an invitation)
+# Creating a new space and development role (starting without an invitation)
 
 You can sign up for Amazon CodeCatalyst without an invitation to an existing space or project.
 When you do, you will create a space and project after creating your AWS Builder ID. As
@@ -149,8 +147,7 @@ step is creating a project.**. You can do one of the following:
 
     * Choose **Skip for now**.
     * Choose **Create your first project** for your space. For
-     a tutorial that shows you how to create a project with a blueprint, see [Tutorial: Creating a project with the
-     Modern three-tier web application blueprint](getting-started-template-project.md "getting-started-template-project.md")
+     a tutorial that shows you how to create a project with a blueprint, see [Tutorial: Creating a project with the Modern three-tier web application blueprint](getting-started-template-project.md "getting-started-template-project.md")
 
 ###### Note
 
@@ -198,12 +195,10 @@ to access the page. 5. Under **CodeCatalyst space details**, choose **Add CodeCa
 role**. This option creates a service role that contains the permissions policy and
 trust policy for the preview development role. The role will have a name **AWSRoleForCodeCatalystSupport**
 with a unique identifier appended. For more information about the role and role policy, see
-[Understanding the AWSRoleForCodeCatalystSupport service
-role](ipa-iam-roles.md#ipa-iam-roles-support-role "ipa-iam-roles.md#ipa-iam-roles-support-role"). 6. On the **Add role for CodeCatalyst Support** page, leave the default selected,
+[Understanding the AWSRoleForCodeCatalystSupport service role](ipa-iam-roles.md#ipa-iam-roles-support-role "ipa-iam-roles.md#ipa-iam-roles-support-role"). 6. On the **Add role for CodeCatalyst Support** page, leave the default selected,
 and then choose **Create role**. 7. Under **IAM roles available to CodeCatalyst**, view the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role
 in the list of IAM roles added to your account. 8. To return to your space, choose **Go to Amazon CodeCatalyst**.
 
 After you create your AWS Builder ID, create your first space, and add an account,
 you can then create a project. For more information, see [Creating a project](projects-create.md "projects-create.md"). If this is your first
-time using CodeCatalyst, we suggest starting with [Tutorial: Creating a project with the
-Modern three-tier web application blueprint](getting-started-template-project.md "getting-started-template-project.md").
+time using CodeCatalyst, we suggest starting with [Tutorial: Creating a project with the Modern three-tier web application blueprint](getting-started-template-project.md "getting-started-template-project.md").

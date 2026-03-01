@@ -69,15 +69,12 @@ In the **Status** column, the following are valid values:
 
 ###### Topics
 
-- [Inviting
-  a user to a project](#projects-members-add "#projects-members-add")
+- [Inviting a user to a project](#projects-members-add "#projects-members-add")
 - [Canceling an invitation](#projects-members-cancel-invite "#projects-members-cancel-invite")
 - [Removing a user from your project](#projects-members-remove "#projects-members-remove")
 - [Accepting or declining an invitation for a project](#w2aac27c19c15c25 "#w2aac27c19c15c25")
 
-## Inviting
-
-a user to a project
+## Inviting a user to a project
 
 You can use the console to invite users to your project. You can invite members of your
 space or add names from outside your space.

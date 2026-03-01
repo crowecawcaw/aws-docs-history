@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Java API with AWS Fargate blueprint
-
-missing dependencies for **`apache-maven-3.8.6`**
+# Java API with AWS Fargate blueprint missing dependencies for **`apache-maven-3.8.6`**
 
 **Issue:** For a project created from the
 Java API with AWS Fargate blueprint, the workflow fails with an error for missing

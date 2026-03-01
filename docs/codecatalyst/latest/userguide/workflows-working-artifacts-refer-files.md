@@ -1,16 +1,13 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Referencing files in an
-
-artifact
+# Referencing files in an artifact
 
 If you have a file that resides within an artifact, and you need to refer to this file
 in one of your Amazon CodeCatalyst workflow actions, complete the following procedure.
 
 ###### Note
 
-See also [Referencing source repository
-files](workflows-sources-reference-files.md "workflows-sources-reference-files.md").
+See also [Referencing source repository files](workflows-sources-reference-files.md "workflows-sources-reference-files.md").
 
 Visual
 _Not available. Choose YAML to view the YAML

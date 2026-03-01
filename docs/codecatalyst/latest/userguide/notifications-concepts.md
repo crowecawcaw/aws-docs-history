@@ -5,9 +5,7 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 You can set up your project to provide notifications to your team messaging application,
 such as Slack.
 
-## What permissions are necessary for
-
-notifications?
+## What permissions are necessary for notifications?
 
 Any project member can configure, view, update, or delete notification settings
 for a channel
@@ -17,9 +15,7 @@ users with the **Space administrator** role can add or delete Slack workspaces. 
 users can configure what project events they want to receive emails about for the projects
 they belong to in CodeCatalyst.
 
-## What CodeCatalyst events can I configure
-
-notifications about?
+## What CodeCatalyst events can I configure notifications about?
 
 You can configure CodeCatalyst to deliver notifications to one or more Slack channels about
 workflow events. Once notifications have been configured between a CodeCatalyst project and Slack,

@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Referencing a
-
-predefined variable
+# Referencing a predefined variable
 
 You can reference predefined variables in any action within an Amazon CodeCatalyst
 workflow.
@@ -15,8 +13,7 @@ For more information about predefined variables, see [Using predefined variables
 ###### Prerequisite
 
 Determine the name of the predefined variable you want to reference, such as
-`CommitId`. For more information, see [Determining
-which predefined variables your workflow emits](workflows-working-with-variables-determine-output-vars.md "workflows-working-with-variables-determine-output-vars.md").
+`CommitId`. For more information, see [Determining which predefined variables your workflow emits](workflows-working-with-variables-determine-output-vars.md "workflows-working-with-variables-determine-output-vars.md").
 
 Visual
 _Not available. Choose YAML to view the YAML
@@ -87,8 +84,7 @@ MySecondAction:
         - Run: echo ${WorkflowSource.CommitId}
 ```
 
-For more examples, see [Examples of referencing predefined
-variables](workflows-predefined-examples.md "workflows-predefined-examples.md"). For more
+For more examples, see [Examples of referencing predefined variables](workflows-predefined-examples.md "workflows-predefined-examples.md"). For more
 information, see the [Workflow YAML definition](workflow-reference.md "workflow-reference.md") for your action. 8. (Optional) Choose **Validate** to validate the
 workflow's YAML code before committing. 9. Choose **Commit**, enter a commit message, and
 choose **Commit** again.

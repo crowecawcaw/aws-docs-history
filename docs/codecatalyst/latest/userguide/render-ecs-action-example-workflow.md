@@ -9,8 +9,7 @@ of the following building blocks that run sequentially:
 
 - A **trigger** – This trigger starts the workflow run
   automatically when you push a change to your source repository. For more information about
-  triggers, see [Starting a workflow run automatically using
-  triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+  triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 - A **build** action (`BuildDocker`) – On trigger,
   the action builds the Docker image using the Dockerfile, tags it with a commit ID, and
   pushes the image to Amazon ECR. For more information about the build action, see [Building with workflows](build-workflow-actions.md "build-workflow-actions.md").

@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Example: Invoke a Lambda
-
-function
+# Example: Invoke a Lambda function
 
 The following example workflow includes the **AWS Lambda invoke** action, along
 with a deploy action. The workflow sends out a Slack notification indicating that a deployment
@@ -11,8 +9,7 @@ consists of the following building blocks that run sequentially:
 
 - A **trigger** – This trigger starts the workflow run
   automatically when you push a change to your source repository. For more information about
-  triggers, see [Starting a workflow run automatically using
-  triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+  triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 - An **AWS Lambda invoke** action (`LambdaNotify`) – On
   trigger, this action invokes the `Notify-Start` Lambda function in the specified
   AWS account and Region (`my-aws-account`, and `us-west-2`). On

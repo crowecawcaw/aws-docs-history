@@ -8,18 +8,13 @@ instructions for connecting `pip` to your package repository in the CodeCatalyst
 
 ###### Contents
 
-- [Installing Python packages from CodeCatalyst with
-  pip](packages-python-pip.md#pip-install "packages-python-pip.md#pip-install")
-- [Consuming Python packages from PyPI through
-  CodeCatalyst](packages-python-pip.md#pip-install-pypi "packages-python-pip.md#pip-install-pypi")
+- [Installing Python packages from CodeCatalyst with pip](packages-python-pip.md#pip-install "packages-python-pip.md#pip-install")
+- [Consuming Python packages from PyPI through CodeCatalyst](packages-python-pip.md#pip-install-pypi "packages-python-pip.md#pip-install-pypi")
 - [pip command support](packages-python-pip.md#pip-command-support "packages-python-pip.md#pip-command-support")
-  - [Supported commands
-    that interact with a repository](packages-python-pip.md#supported-pip-commands-that-interact-with-a-repository "packages-python-pip.md#supported-pip-commands-that-interact-with-a-repository")
+  - [Supported commands that interact with a repository](packages-python-pip.md#supported-pip-commands-that-interact-with-a-repository "packages-python-pip.md#supported-pip-commands-that-interact-with-a-repository")
   - [Supported client-side commands](packages-python-pip.md#supported-pip-client-side-commands "packages-python-pip.md#supported-pip-client-side-commands")
 
-## Installing Python packages from CodeCatalyst with
-
-pip
+## Installing Python packages from CodeCatalyst with pip
 
 The following instructions explain how to configure `pip` to install Python packages
 from your CodeCatalyst package repository or one of its upstream repositories.
@@ -73,9 +68,7 @@ CodeCatalyst package repository.
 pip install -i https://pypi.org/simple requests
 ```
 
-## Consuming Python packages from PyPI through
-
-CodeCatalyst
+## Consuming Python packages from PyPI through CodeCatalyst
 
 You can consume Python packages from the [Python Package Index (PyPI)](https://www.pypi.org/ "https://www.pypi.org/") through a CodeCatalyst repository by
 configuring the repository with an upstream connection to **PyPI**.
@@ -85,8 +78,7 @@ in your CodeCatalyst repository.
 ###### To consume packages from PyPI
 
 1. If you haven't already, configure pip with your CodeCatalyst package repository by following the steps
-   in [Installing Python packages from CodeCatalyst with
-   pip](#pip-install "#pip-install").
+   in [Installing Python packages from CodeCatalyst with pip](#pip-install "#pip-install").
 2. Ensure that your repository has added **PyPI** as an upstream source. You can check which upstream
    sources are added or add **PyPI** as an
    upstream source by following the instructions in [Adding an upstream repository](packages-upstream-repositories-add.md "packages-upstream-repositories-add.md") and choosing the
@@ -102,13 +94,10 @@ by CodeCatalyst repositories, in addition to specific commands that are not supp
 
 ###### Topics
 
-- [Supported commands
-  that interact with a repository](#supported-pip-commands-that-interact-with-a-repository "#supported-pip-commands-that-interact-with-a-repository")
+- [Supported commands that interact with a repository](#supported-pip-commands-that-interact-with-a-repository "#supported-pip-commands-that-interact-with-a-repository")
 - [Supported client-side commands](#supported-pip-client-side-commands "#supported-pip-client-side-commands")
 
-### Supported commands
-
-that interact with a repository
+### Supported commands that interact with a repository
 
 This section lists `pip` commands where the `pip` client makes one
 or more requests to the registry it's been configured with. These commands have been verified

@@ -390,9 +390,7 @@ IAM roles to the account.
 A success banner displays, and the account connection is removed from the
 list of connections.
 
-### Remove an account from a CodeCatalyst space in the AWS Management
-
-Console
+### Remove an account from a CodeCatalyst space in the AWS Management Console
 
 You can use the page for CodeCatalyst in AWS to remove an account that has been
 added to a space. For this procedure, using administrative permissions for the

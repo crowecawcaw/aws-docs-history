@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Canceling an invitation for a
-
-space
+# Canceling an invitation for a space
 
 If you want to cancel an invitation to join a space that you sent recently, and it has not
 yet been accepted, you can cancel it.

@@ -16,10 +16,8 @@ _AWS Cloud Development Kit (AWS CDK) Developer Guide_.
 
 - [When to use the 'AWS CDK bootstrap' action](#cdk-boot-action-when-to-use "#cdk-boot-action-when-to-use")
 - [How the 'AWS CDK bootstrap' action works](#cdk-boot-action-how-it-works "#cdk-boot-action-how-it-works")
-- [CDK CLI versions used by the "AWS CDK
-  bootstrap" action](#cdk-boot-action-cdk-version "#cdk-boot-action-cdk-version")
-- [Runtime image used by the 'AWS CDK bootstrap'
-  action](#cdk-boot-action-runtime "#cdk-boot-action-runtime")
+- [CDK CLI versions used by the "AWS CDK bootstrap" action](#cdk-boot-action-cdk-version "#cdk-boot-action-cdk-version")
+- [Runtime image used by the 'AWS CDK bootstrap' action](#cdk-boot-action-runtime "#cdk-boot-action-runtime")
 - [Example: Bootstrapping an AWS CDK app](cdk-boot-action-example-workflow.md "cdk-boot-action-example-workflow.md")
 - [Adding the 'AWS CDK bootstrap' action](cdk-boot-action-add.md "cdk-boot-action-add.md")
 - ['AWS CDK bootstrap' variables](cdk-boot-action-variables.md "cdk-boot-action-variables.md")
@@ -53,9 +51,7 @@ no download occurs. 2. The action uses the CDK CLI to run the `cdk bootstrap` co
 command performs the bootstrapping tasks described in the [Bootstrapping](../../../cdk/v2/guide/bootstrapping.md "../../../cdk/v2/guide/bootstrapping.md") topic in the
 _AWS Cloud Development Kit (AWS CDK) Developer Guide_.
 
-## CDK CLI versions used by the "AWS CDK
-
-bootstrap" action
+## CDK CLI versions used by the "AWS CDK bootstrap" action
 
 The following table shows which version of the CDK CLI is used by default by
 different versions of the **AWS CDK bootstrap** action.
@@ -69,9 +65,7 @@ You might be able to override the default. For more information, see [CdkCliVers
 | 1.0.0 – 1.0.7                      | latest              |
 | 1.0.8 or later                     | 2.99.1              |
 
-## Runtime image used by the 'AWS CDK bootstrap'
-
-action
+## Runtime image used by the 'AWS CDK bootstrap' action
 
 The following table shows the runtime environment images that CodeCatalyst uses to run
 different versions of the **AWS CDK bootstrap** action. The images include

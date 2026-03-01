@@ -17,5 +17,4 @@ We have tested and confirmed compatibility with CodeCatalyst for the following v
 - [Configuring and using Gradle Groovy](packages-maven-gradle.md "packages-maven-gradle.md")
 - [Configuring and using mvn](packages-maven-mvn.md "packages-maven-mvn.md")
 - [Publishing packages with curl](packages-maven-curl.md "packages-maven-curl.md")
-- [Using Maven checksums and
-  snapshots](packages-maven-checksums-snapshots.md "packages-maven-checksums-snapshots.md")
+- [Using Maven checksums and snapshots](packages-maven-checksums-snapshots.md "packages-maven-checksums-snapshots.md")

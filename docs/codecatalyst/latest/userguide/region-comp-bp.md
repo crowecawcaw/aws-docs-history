@@ -52,9 +52,7 @@ export interface Options extends ParentOptions {
 }
 ```
 
-### Choosing one or more regions from a specified
-
-list
+### Choosing one or more regions from a specified list
 
 ```
 export interface Options extends ParentOptions {
@@ -78,9 +76,7 @@ export interface Options extends ParentOptions {
 }
 ```
 
-### Choosing one or more regions from a specified
-
-list
+### Choosing one or more regions from a specified list
 
 ```
 export interface Options extends ParentOptions {

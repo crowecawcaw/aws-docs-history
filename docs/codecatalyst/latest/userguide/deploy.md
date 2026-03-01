@@ -19,8 +19,7 @@ The high-level steps to deploy an application or resource are as follows.
 ###### To deploy an application (high-level tasks)
 
 1. In your CodeCatalyst project, you **add source code** for an
-   application you want to deploy. For more information, see [Storing source code in repositories for a project in
-   CodeCatalyst](source-repositories.md "source-repositories.md").
+   application you want to deploy. For more information, see [Storing source code in repositories for a project in CodeCatalyst](source-repositories.md "source-repositories.md").
 2. In your CodeCatalyst project, you **add an environment** that
    defines the target AWS account and optional Amazon Virtual Private Cloud (VPC) that you want to deploy to.
    For more information, see [Deploying into AWS accounts and VPCs](deploy-environments.md "deploy-environments.md").
@@ -28,8 +27,7 @@ The high-level steps to deploy an application or resource are as follows.
    workflow is where you define how to build, test, and deploy your application. For more
    information, see [Getting started with workflows](workflows-getting-started.md "workflows-getting-started.md").
 4. In the workflow, you **add a trigger**, a **build action**, and optionally, a **test
-   action**. For more information, see [Starting a workflow run automatically using
-   triggers](workflows-add-trigger.md "workflows-add-trigger.md"), [Adding the build action](build-add-action.md "build-add-action.md"), and [Adding the test action](test-add-action.md "test-add-action.md").
+   action**. For more information, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md"), [Adding the build action](build-add-action.md "build-add-action.md"), and [Adding the test action](test-add-action.md "test-add-action.md").
 5. In the workflow, you **add a deploy action**. You can
    choose from several CodeCatalyst-provided deploy actions to your application to different
    targets, such as Amazon ECS. (You can also use a build action or a GitHub Action to deploy your
@@ -50,8 +48,7 @@ The following deploy actions are available:
 - Deploy to Amazon ECS – This action registers a [task
   definition](../../../AmazonECS/latest/developerguide/Welcome.md#welcome-task-definitions "../../../AmazonECS/latest/developerguide/Welcome.md#welcome-task-definitions") file that you provide. For more information, see [Deploying to Amazon ECS with a workflow](deploy-action-ecs.md "deploy-action-ecs.md").
 - Deploy to Kubernetes cluster – This action deploys an application to an Amazon Elastic Kubernetes Service
-  cluster. For more information, see [Deploying to Amazon EKS with a
-  workflow](deploy-action-eks.md "deploy-action-eks.md").
+  cluster. For more information, see [Deploying to Amazon EKS with a workflow](deploy-action-eks.md "deploy-action-eks.md").
 - AWS CDK deploy – This action deploys an [AWS CDK app](../../../cdk/v2/guide/getting_started.md#getting_started_concepts "../../../cdk/v2/guide/getting_started.md#getting_started_concepts") into
   AWS. For more information, see [Deploying an AWS CDK app with a workflow](cdk-dep-action.md "cdk-dep-action.md").
 
@@ -112,8 +109,7 @@ deployments.
 ###### Topics
 
 - [Deploying to Amazon ECS with a workflow](deploy-action-ecs.md "deploy-action-ecs.md")
-- [Deploying to Amazon EKS with a
-  workflow](deploy-action-eks.md "deploy-action-eks.md")
+- [Deploying to Amazon EKS with a workflow](deploy-action-eks.md "deploy-action-eks.md")
 - [Deploying an CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md")
 - [Deploying an AWS CDK app with a workflow](cdk-dep-action.md "cdk-dep-action.md")
 - [Bootstrapping an AWS CDK app with a workflow](cdk-boot-action.md "cdk-boot-action.md")

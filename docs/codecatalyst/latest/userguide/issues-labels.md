@@ -16,5 +16,4 @@ or for different groups or teams.
 
 In CodeCatalyst, you create labels by either adding them when you create a new issue or when you edit an existing issue. For
 more information, see [Creating an issue in CodeCatalyst](issues-create-issue.md "issues-create-issue.md") and
-[Editing and collaborating on issues in
-CodeCatalyst](issues-edit-collaborate-issue.md "issues-edit-collaborate-issue.md").
+[Editing and collaborating on issues in CodeCatalyst](issues-edit-collaborate-issue.md "issues-edit-collaborate-issue.md").

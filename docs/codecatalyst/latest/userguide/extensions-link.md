@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-
-and Jira projects in CodeCatalyst
+# Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst
 
 Before you can use a GitHub repository, Bitbucket repository, or GitLab project repository, or manage a Jira project,
 you must connect the third-party source that the repository or project belongs to with your CodeCatalyst space. For more
@@ -20,8 +18,7 @@ repositories** view in **Code** in the project itself.
 
 While you can link a GitHub or Bitbucket repository as a **Contributor**, you can only
 unlink a third-party repository as the **Space administrator** or the **Project administrator**.
-For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
 ###### Important
 
@@ -71,9 +68,7 @@ To link your Jira project to your CodeCatalyst project, you must be the CodeCata
 
 ## Linking resources from connected third-party providers
 
-###### To link a GitHub repository, Bitbucket repository, GitLab project repository, or Jira project to a CodeCatalyst project from
-
-the extension details page
+###### To link a GitHub repository, Bitbucket repository, GitLab project repository, or Jira project to a CodeCatalyst project from the extension details page
 
 1.  Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2.  Navigate to your CodeCatalyst space.
@@ -117,8 +112,7 @@ the extension details page
       If you no longer want to use a GitHub repository in CodeCatalyst, you can unlink it from a CodeCatalyst
       project. When a repository is unlinked, events in that repository will not start workflow
       runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
-      [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-      and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+      [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
     - **Bitbucket repositories**: Link a Bitbucket repository.
 
@@ -136,8 +130,7 @@ the extension details page
       If you no longer want to use a Bitbucket repository in CodeCatalyst, you can unlink it from a CodeCatalyst
       project. When a repository is unlinked, events in that repository will not start workflow
       runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
-      [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-      and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+      [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
     - **GitLab repositories**: Link a GitLab project repository.
 
@@ -155,8 +148,7 @@ the extension details page
       If you no longer want to use a GitLab project repository in CodeCatalyst, you can unlink it from a CodeCatalyst
       project. When a project repository is unlinked, events in that project repository will not start workflow
       runs, and you will not be able to use that project repository with CodeCatalyst Dev Environments. For more information, see
-      [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-      and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+      [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
     - **Jira Software**: Link a Jira project.
 
@@ -175,8 +167,7 @@ the extension details page
     If you no longer want to use a Jira project in CodeCatalyst, you can unlink it from your CodeCatalyst
     project. When a Jira project is unlinked, Jira issues will not be available in the CodeCatalyst
     project, and CodeCatalyst **Issues** will be the issue provider again. For more information,
-    see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-    and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+    see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
 ###### To link a GitHub repository, Bitbucket repository, or GitLab project repository to a CodeCatalyst project from the source repositories page in a project
 
@@ -229,8 +220,7 @@ the extension details page
 If you no longer want to use a GitHub repository, Bitbucket repository, or GitLab project repository in CodeCatalyst, you can unlink it from a CodeCatalyst
 project. When a repository is unlinked, events in that repository will not start workflow
 runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
-[Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+[Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
 After linking your GitHub repository, Bitbucket repository, or GitLab project repository to your CodeCatalyst project, you can use it in CodeCatalyst
 workflows and Dev Environments. You can also use the linked repositories with Amazon Q Developer, blueprints, and more. For more information,
@@ -244,5 +234,4 @@ see [Viewing CodeCatalyst events in Jira issues](view-codecatalyst-events-jira.m
 ## Linking a third-party repository to during CodeCatalyst project creation
 
 You can link a GitHub repository, Bitbucket repository, or GitLab project respository to a new CodeCatalyst project when creating
-the new CodeCatalyst project. For more information, see [Creating a project with a linked third-party
-repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
+the new CodeCatalyst project. For more information, see [Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").

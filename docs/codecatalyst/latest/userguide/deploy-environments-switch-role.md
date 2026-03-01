@@ -41,8 +41,7 @@ Visual
     role** drop-down list, choose the IAM role that you want the action to
     use. This role will override the default IAM role in the environment. If the role
     you want to use is not in the list, make sure you've added it to your space. For
-    more information, see [Adding IAM roles to account
-    connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+    more information, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 
 The chosen role now appears in the **What's in
 `my-environment`?** box along with a
@@ -80,8 +79,7 @@ In the preceding code, replace
 role, and replace `iam-role-name` with the name of the
 IAM role that you want the action to use. This role will override the default
 IAM role in the environment. Make sure you've added the role to your space. For
-more information, see [Adding IAM roles to account
-connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+more information, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 
 For more information, see the [Action types](workflows-actions.md#workflows-actions-types "workflows-actions.md#workflows-actions-types") topic. This topic has links into the
 documentation for each action, including its YAML reference.

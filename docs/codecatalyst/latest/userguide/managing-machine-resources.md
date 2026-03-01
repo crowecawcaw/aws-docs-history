@@ -22,7 +22,7 @@ used.
 You must have the **Space administrator** role to view this page and to manage
 machine resources at the space level.
 
-Machine resources are also managed at the project level in CodeCatalyst. To learn more about teams in projects, see Allowing space access for machine resources .
+Machine resources are also managed at the project level in CodeCatalyst. To learn more about teams in projects, see Allowing space access for machine resources.
 
 ###### Topics
 

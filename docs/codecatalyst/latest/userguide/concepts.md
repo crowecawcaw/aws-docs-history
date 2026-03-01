@@ -16,8 +16,7 @@ additional conceptual information, see the following topics:
 ###### Topics
 
 - [AWS Builder ID spaces in CodeCatalyst](#concepts-spaces "#concepts-spaces")
-- [Spaces that support identity federation in
-  CodeCatalyst](#space-federated "#space-federated")
+- [Spaces that support identity federation in CodeCatalyst](#space-federated "#space-federated")
 - [Projects](#project-concept "#project-concept")
 - [Blueprints](#templates-concept "#templates-concept")
 - [Account connections](#account-connections-concept "#account-connections-concept")
@@ -41,9 +40,7 @@ the members page. Users who are invited or sign up to CodeCatalyst create their 
 profile is managed in AWS Builder ID and displays as the user name and profile information in the
 user settings in CodeCatalyst.
 
-## Spaces that support identity federation in
-
-CodeCatalyst
+## Spaces that support identity federation in CodeCatalyst
 
 Users who have been added to the SSO users and groups for the IAM Identity Center instance and are managed
 in the identity store and are invited to your space through IAM Identity Center. The
@@ -91,8 +88,7 @@ for integrated AWS resources by project. For example, the account used for deplo
 and VPC connections in specific projects will only be available with a project-restricted account
 connection. For more information, see [Configuring project-restricted account connections](../adminguide/managing-accounts.md#managing-accounts-restriction "../adminguide/managing-accounts.md#managing-accounts-restriction").
 
-For more information about account connections, see [Allowing access to AWS resources with connected
-AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
+For more information about account connections, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
 
 ## VPC connections
 
@@ -141,8 +137,7 @@ shared with the other users in your CodeCatalyst project. You can have more than
 repository for a project. You can create source repositories for projects in CodeCatalyst, or you can
 choose to link an existing source repository hosted by another service if that service is supported by
 an installed extension. For example, you can link a GitHub repository to a project after you install the
-**GitHub Repositories** extension. For more information, see [Storing source code in repositories for a project in
-CodeCatalyst](source-repositories.md "source-repositories.md") and [Quickstart: Installing extensions, connecting providers, and linking resources in CodeCatalyst](extensions-quickstart.md "extensions-quickstart.md").
+**GitHub Repositories** extension. For more information, see [Storing source code in repositories for a project in CodeCatalyst](source-repositories.md "source-repositories.md") and [Quickstart: Installing extensions, connecting providers, and linking resources in CodeCatalyst](extensions-quickstart.md "extensions-quickstart.md").
 
 Source repositories are also where configuration information is stored for your CodeCatalyst
 project, such as the configuration file that defines the attributes and actions of your CI/CD
@@ -160,8 +155,7 @@ A _commit_ is a change to a file or set of files. In the Amazon CodeCatalyst
 console, a commit saves your changes and pushes them to a source repository. The
 commit includes information about the change, including the identity of the user who made the
 change, the time and date of the change, the commit title, and any message included about the
-change. For more information, see [Understanding
-changes in source code with commits in Amazon CodeCatalyst](source-commits.md "source-commits.md").
+change. For more information, see [Understanding changes in source code with commits in Amazon CodeCatalyst](source-commits.md "source-commits.md").
 
 In the context of a source repository in CodeCatalyst, commits are snapshots of the changes to the
 contents of your repository. Every time a user commits and pushes a change, CodeCatalyst saves
@@ -169,8 +163,7 @@ information that includes who committed the change, the date and time of the com
 changes made as part of the commit. You can also add Git tags to commits to help identify
 specific commits.
 
-For more information about commits, see [Understanding
-changes in source code with commits in Amazon CodeCatalyst](source-commits.md "source-commits.md").
+For more information about commits, see [Understanding changes in source code with commits in Amazon CodeCatalyst](source-commits.md "source-commits.md").
 
 ## Dev Environments
 
@@ -238,8 +231,7 @@ use with repositories designated by the account owner. You can create one person
 one user identity (CodeCatalyst alias) across all spaces for a specific provider type, such as
 GitHub. Personal connections are either associated with your AWS Builder ID or your SSO user.
 
-For more information, see [Accessing GitHub resources with personal
-connections](ipa-settings-connections.md "ipa-settings-connections.md").
+For more information, see [Accessing GitHub resources with personal connections](ipa-settings-connections.md "ipa-settings-connections.md").
 
 ## Roles
 

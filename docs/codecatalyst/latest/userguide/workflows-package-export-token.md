@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Using authorization tokens in workflow
-
-actions
+# Using authorization tokens in workflow actions
 
 You can use a token provided by the workflow action to manually configure a package
 manager to authenticate with CodeCatalyst package repositories. CodeCatalyst makes this token
@@ -23,9 +21,7 @@ action.
 
 Visual
 
-###### To use an exported authorization token with an action (visual
-
-editor)
+###### To use an exported authorization token with an action (visual editor)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -43,9 +39,7 @@ editor)
 
 YAML
 
-###### To use an exported authorization token with an action (YAML
-
-editor)
+###### To use an exported authorization token with an action (YAML editor)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -68,7 +62,6 @@ Actions:
 You can reference the `$CATALYST_MACHINE_RESOURCE_NAME`
 and `$CATALYST_PACKAGES_AUTHORIZATION_TOKEN` environment
 variables in the `Steps` section of your YAML. For more
-information, refer to [Example: Manually
-configuring pip to authenticate with CodeCatalyst](workflows-working-packages-ex.md#workflows-working-packages-pypi-token "workflows-working-packages-ex.md#workflows-working-packages-pypi-token"). 8. (Optional) Choose **Validate** to validate the
+information, refer to [Example: Manually configuring pip to authenticate with CodeCatalyst](workflows-working-packages-ex.md#workflows-working-packages-pypi-token "workflows-working-packages-ex.md#workflows-working-packages-pypi-token"). 8. (Optional) Choose **Validate** to validate the
 workflow's YAML code before committing. 9. Choose **Commit**, enter a commit message, and
 choose **Commit** again.

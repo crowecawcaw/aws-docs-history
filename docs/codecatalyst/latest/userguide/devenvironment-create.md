@@ -15,15 +15,13 @@ You can create a Dev Environment in multiple ways:
 ###### Important
 
 Dev Environments aren't available for users in spaces where Active Directory is used as
-the identity provider. For more information, see [I can't create a Dev Environment
-when I'm signed into CodeCatalyst using a single sign-on account](devenvironments-troubleshooting.md#troubleshoot-create-dev-env-idprovider "devenvironments-troubleshooting.md#troubleshoot-create-dev-env-idprovider").
+the identity provider. For more information, see [I can't create a Dev Environment when I'm signed into CodeCatalyst using a single sign-on account](devenvironments-troubleshooting.md#troubleshoot-create-dev-env-idprovider "devenvironments-troubleshooting.md#troubleshoot-create-dev-env-idprovider").
 
 You can create one Dev Environment per branch of a repository. A project can have multiple
 repositories. The Dev Environments you create can only be managed with your CodeCatalyst account, but
 you can open the Dev Environment and work in it with any of the supported IDEs. You must have the
 AWS Toolkit installed to use Dev Environments in your IDE. For more information, see
-[Supported integrated development environments
-for Dev Environments](#devenvironment-supported-ide "#devenvironment-supported-ide").
+[Supported integrated development environments for Dev Environments](#devenvironment-supported-ide "#devenvironment-supported-ide").
 By default, Dev Environments are created with a 2-core processor, 4 GB of RAM, and 16 GB of
 persistent storage.
 
@@ -35,9 +33,7 @@ this Dev Environment. This applies even if you create another branch, switch to
 another branch within the Dev Environment, or clone an additional repository. If you created an
 empty Dev Environment, the **Resource** column will be blank.
 
-## Supported integrated development environments
-
-for Dev Environments
+## Supported integrated development environments for Dev Environments
 
 You can use Dev Environments with the following supported integrated development environments (IDEs):
 
@@ -66,8 +62,7 @@ either your [AWS Builder ID](id-how-to-sign-in.md "id-how-to-sign-in.md") or [SS
    - Choose **Code**, choose **Source repositories**, and choose the repository for which you want to create a Dev Environment.
 
 4. Choose **Create Dev Environment**.
-5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments
-   for Dev Environments](#devenvironment-supported-ide "#devenvironment-supported-ide") for more information.
+5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](#devenvironment-supported-ide "#devenvironment-supported-ide") for more information.
 6. Choose **Clone a repository**.
 7. Do one of the following:
    1. Choose the repository to clone, choose **Work in existing branch**, and then choose a branch from the
@@ -108,8 +103,7 @@ When you create a Dev Environment with a VPC connection, a new network interface
    - Choose **Code**, and then choose **Dev Environments**.
 
 4. Choose **Create Dev Environment**.
-5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments
-   for Dev Environments](#devenvironment-supported-ide "#devenvironment-supported-ide") for more information.
+5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](#devenvironment-supported-ide "#devenvironment-supported-ide") for more information.
 6. Choose **Create an empty Dev Environment**.
 7. (Optional) In **Alias - optional**, enter an alias for the Dev Environment.
 8. (Optional) Choose the **Dev Environment configuration** edit button to edit the Dev Environment's compute, storage, or timeout configuration.

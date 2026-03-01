@@ -71,8 +71,7 @@ and [Granting access with user roles](ipa-roles.md "ipa-roles.md").
 
 If you have a role that allows committing and pushing changes, the branch where you are trying to commit changes might have a branch rule
 configured for it that prevents you from pushing code changes to that branch. Try creating a branch and pushing your code to that branch instead.
-For more information, see [Manage allowed actions for a branch with
-branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md").
+For more information, see [Manage allowed actions for a branch with branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md").
 
 ## I need a source repository for my project
 
@@ -108,8 +107,7 @@ repositories and use them as repositories for your project.
 **Problem:** I didn't sign up or configure email notifications about pull request activity, but I'm receiving them anyway.
 
 **Possible fixes:** Email notifications are sent automatically about pull request activity. For more information, see
-[Reviewing code with pull requests in
-Amazon CodeCatalyst](source-pull-requests.md "source-pull-requests.md").
+[Reviewing code with pull requests in Amazon CodeCatalyst](source-pull-requests.md "source-pull-requests.md").
 
 ## I forgot my personal access token (PAT)
 

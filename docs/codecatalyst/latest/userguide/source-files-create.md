@@ -15,8 +15,7 @@ repository. When working on more than one file, consider [creating a Dev Environ
    **Source repositories**.
 3. Choose the source repository where you want to work on code.
 4. Choose **Create Dev Environment**.
-5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments
-   for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
+5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
 6. Do one of the following:
    - Choose **Work in existing branch**, and then choose a branch from the
      **Existing branch** drop-down menu.
@@ -62,9 +61,7 @@ submodules in the CodeCatalyst console or view the differences in Git submodules
 requests. For more information about Git submodules, see the [Git
 documentation](https://git-scm.com/book/en/v2/Git-Tools-Submodules "https://git-scm.com/book/en/v2/Git-Tools-Submodules").
 
-###### To add a file using a Git client or connected
-
-integrated development environment (IDE)
+###### To add a file using a Git client or connected integrated development environment (IDE)
 
 1. Clone your source repository to your local computer. For more information, see
    [Cloning a source repository](source-repositories-clone.md "source-repositories-clone.md").

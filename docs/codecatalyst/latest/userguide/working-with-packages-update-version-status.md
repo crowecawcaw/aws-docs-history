@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Updating a package version's
-
-status
+# Updating a package version's status
 
 Every package version in CodeCatalyst has a status that describes the current state and
 availability of the package version. You can change the package version status in the CodeCatalyst
@@ -27,8 +25,7 @@ meanings, see [Package version status](#package-version-status "#package-version
 ## Package version status
 
 The following are possible values for package version status. You can change the package version status in the console.
-For more information, see [Updating a package version's
-status](working-with-packages-update-version-status.md "working-with-packages-update-version-status.md").
+For more information, see [Updating a package version's status](working-with-packages-update-version-status.md "working-with-packages-update-version-status.md").
 
 - **Published**: The package version is successfully published and
   can be requested by a package manager. The package version will be included in package version

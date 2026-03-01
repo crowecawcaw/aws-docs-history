@@ -97,9 +97,7 @@ pull request or to individual lines in files as well as to the overall pull requ
 add links to resources, such as files, by using the @ sign followed by the name of the
 file.
 
-###### To create a pull request from a
-
-branch
+###### To create a pull request from a branch
 
 1. Navigate to the project where you want to create a pull request.
 2. In the navigation pane, choose **Source repositories**, and

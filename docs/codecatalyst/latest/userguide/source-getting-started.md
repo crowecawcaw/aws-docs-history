@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Getting started with CodeCatalyst source repositories and
-
-the Single-page application blueprint
+# Getting started with CodeCatalyst source repositories and the Single-page application blueprint
 
 Follow the steps in this tutorial to learn how to work with source repositories in Amazon CodeCatalyst.
 
@@ -27,9 +25,7 @@ repository and code example to learn how to:
   getting alerts when the associated workflow runs. For a full exploration of CodeCatalyst, see
   [Getting started tutorials](getting-started-topnode.md "getting-started-topnode.md").
 
-## Creating a project with a
-
-blueprint
+## Creating a project with a blueprint
 
 Creating a project is the first step in being able to work together. You can use a
 blueprint to create your project, which will also create a source repository with
@@ -40,8 +36,7 @@ for any project with a source repository. Make sure to choose an IAM role or add
 IAM role if you don't have one as part of creating the project. We recommend that you
 use the **CodeCatalystWorkflowDevelopmentRole-`spaceName`** service role for this project.
 
-If you already have a project, you can skip ahead to [Viewing the repositories for a
-project](#source-getting-started-source-view "#source-getting-started-source-view").
+If you already have a project, you can skip ahead to [Viewing the repositories for a project](#source-getting-started-source-view "#source-getting-started-source-view").
 
 ###### Note
 
@@ -62,9 +57,7 @@ a project for you and add you to the created project. For more information, see
 
 You can choose to add a blueprint by giving **Amazon Q** your
 project requirements to have Amazon Q suggest a blueprint to you. For more information,
-see [Using Amazon Q to choose
-a blueprint when creating a project or adding functionality](getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp "getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp") and [Best practices when using Amazon Q to create projects
-or add functionality with blueprints](projects-create.md#projects-create-amazon-q "projects-create.md#projects-create-amazon-q"). This feature is only available in
+see [Using Amazon Q to choose a blueprint when creating a project or adding functionality](getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp "getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp") and [Best practices when using Amazon Q to create projects or add functionality with blueprints](projects-create.md#projects-create-amazon-q "projects-create.md#projects-create-amazon-q"). This feature is only available in
 the US West (Oregon) Region.
 
 This functionality requires that generative AI features are enabled for the space.
@@ -81,8 +74,7 @@ repository. For more information, see [Add functionality to projects with extens
 CodeCatalyst doesn't support detecting changes in the default branch for linked
 repositories. To change the default branch for a linked repository, you must first unlink it
 from CodeCatalyst, change the default branch, and then link it again. For more information,
-see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
+see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
 
 As a best practice, always make sure you have the latest version of the extension
 before you link a repository.
@@ -101,8 +93,7 @@ Do one of the following depending on the third-party repository provider you wan
 
     If you're connecting a GitHub account, you must create a personal
      connection to establish identity mapping between your CodeCatalyst identity and your GitHub identity.
-     For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal
-     connections](ipa-settings-connections.md "ipa-settings-connections.md").
+     For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal connections](ipa-settings-connections.md "ipa-settings-connections.md").
     * **Bitbucket repositories**: Connect a Bitbucket workspace.
 
 
@@ -131,12 +122,9 @@ The project overview page opens as soon as you create a project or accept an
 invitation to a project and complete the sign-in process. The project overview page for
 a new project contains no open issues or pull requests. You can optionally choose to
 create an issue and assign it to yourself. You can also choose to invite someone else to
-your project. For more information, see [Creating an issue in CodeCatalyst](issues-create-issue.md "issues-create-issue.md") and [Inviting
-a user to a project](projects-members.md#projects-members-add "projects-members.md#projects-members-add").
+your project. For more information, see [Creating an issue in CodeCatalyst](issues-create-issue.md "issues-create-issue.md") and [Inviting a user to a project](projects-members.md#projects-members-add "projects-members.md#projects-members-add").
 
-## Viewing the repositories for a
-
-project
+## Viewing the repositories for a project
 
 As a member of a project, you can view the source repositories for the project. You
 can also choose to create additional repositories. If someone with the
@@ -209,8 +197,7 @@ includes Git. For more information, see [Setting up for working with source repo
    **Source repositories**, and choose the repository for which you
    want to create a Dev Environment.
 4. On the repository home page, choose **Create Dev Environment**.
-5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments
-   for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
+5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
 6. Choose the repository to clone, choose **Work in new branch**, enter a branch name into the **Branch
    name** field, and choose a branch off of which to create the new
    branch from the **Create branch from** drop-down menu.
@@ -224,9 +211,7 @@ content between the `<p>` tags in `App.tsx` file in the
 `src` folder to change the text that's displayed on the webpage. Commit
 and push your change, and then return to the CodeCatalyst tab.
 
-## To make and push a change
-
-from an AWS Cloud9 Dev Environment
+## To make and push a change from an AWS Cloud9 Dev Environment
 
 1. In AWS Cloud9, expand the side navigation menu to browse the files. Expand
    `src`, and open `App.tsx`.
@@ -327,12 +312,9 @@ see [Creating a workflow](workflows-create-workflow.md "workflows-create-workflo
 You can comment on this pull request and ask other project members to comment on it.
 You can also choose to add or change optional or required reviewers. You can choose to
 make more changes to the source branch for the repository, and see how those committed
-changes create revisions for the pull request. For more information, see [Reviewing a pull request](pull-requests-review.md "pull-requests-review.md"), [Updating a pull request](pull-requests-update.md "pull-requests-update.md"), [Reviewing code with pull requests in
-Amazon CodeCatalyst](source-pull-requests.md "source-pull-requests.md"), and [Viewing workflow run status and details](workflows-view-run.md "workflows-view-run.md") .
+changes create revisions for the pull request. For more information, see [Reviewing a pull request](pull-requests-review.md "pull-requests-review.md"), [Updating a pull request](pull-requests-update.md "pull-requests-update.md"), [Reviewing code with pull requests in Amazon CodeCatalyst](source-pull-requests.md "source-pull-requests.md"), and [Viewing workflow run status and details](workflows-view-run.md "workflows-view-run.md") .
 
-## Merging a pull
-
-request
+## Merging a pull request
 
 Once a pull request has been reviewed and has received approvals from required
 reviewers, you can merge its source branch to the destination branch in the CodeCatalyst
@@ -370,9 +352,7 @@ merge the pull request, or you can resolve conflicts and merge locally, and
 then push the commit that contains the merge to CodeCatalyst. For more
 information, see [Merging a pull request (Git)](pull-requests-merge.md#pull-requests-merge-git "pull-requests-merge.md#pull-requests-merge-git") and your Git documentation.
 
-## Viewing the deployed
-
-code
+## Viewing the deployed code
 
 Now it's time to view the originally deployed code that was in the default branch, and
 your merged changes once they are automatically built, tested, and deployed. To do so,

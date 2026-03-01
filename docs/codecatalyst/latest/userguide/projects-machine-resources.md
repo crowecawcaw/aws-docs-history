@@ -25,7 +25,7 @@ You must have the **Space administrator** role or the
 **Project administrator** role to view this page and to manage machine
 resources at the project level.
 
-Machine resources are also managed at the space level in CodeCatalyst. To learn more about teams in spaces/projects, see [Allowing space access for machine resources](managing-machine-resources.md "managing-machine-resources.md") .
+Machine resources are also managed at the space level in CodeCatalyst. To learn more about teams in spaces/projects, see [Allowing space access for machine resources](managing-machine-resources.md "managing-machine-resources.md").
 
 ###### Topics
 

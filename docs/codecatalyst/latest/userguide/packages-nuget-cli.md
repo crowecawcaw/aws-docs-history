@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Configuring and using the nuget or dotnet
-
-CLI
+# Configuring and using the nuget or dotnet CLI
 
 You can use CLI tools such as `NuGet` and `dotnet` to publish and consume packages from CodeCatalyst.
 This document provides information about configuring the CLI tools and using them to publish or consume packages.
@@ -10,10 +8,8 @@ This document provides information about configuring the CLI tools and using the
 ###### Contents
 
 - [Configuring NuGet with CodeCatalyst](packages-nuget-cli.md#nuget-configure-cli "packages-nuget-cli.md#nuget-configure-cli")
-- [Consuming NuGet packages from a CodeCatalyst
-  repository](packages-nuget-cli.md#nuget-consume-cli "packages-nuget-cli.md#nuget-consume-cli")
-- [Consuming NuGet packages from NuGet.org
-  through CodeCatalyst](packages-nuget-cli.md#nuget-consume-nuget-gallery "packages-nuget-cli.md#nuget-consume-nuget-gallery")
+- [Consuming NuGet packages from a CodeCatalyst repository](packages-nuget-cli.md#nuget-consume-cli "packages-nuget-cli.md#nuget-consume-cli")
+- [Consuming NuGet packages from NuGet.org through CodeCatalyst](packages-nuget-cli.md#nuget-consume-nuget-gallery "packages-nuget-cli.md#nuget-consume-nuget-gallery")
 - [Publishing NuGet packages to CodeCatalyst](packages-nuget-cli.md#nuget-publish-cli "packages-nuget-cli.md#nuget-publish-cli")
 
 ## Configuring NuGet with CodeCatalyst
@@ -77,9 +73,7 @@ Once you have configured NuGet with CodeCatalyst, you can
 [consume NuGet packages](#nuget-consume-cli "#nuget-consume-cli") that are stored in your CodeCatalyst repository or
 one of its upstream repositories and [publish NuGet packages](#nuget-publish-cli "#nuget-publish-cli") to your CodeCatalyst repository.
 
-## Consuming NuGet packages from a CodeCatalyst
-
-repository
+## Consuming NuGet packages from a CodeCatalyst repository
 
 Once you have [configured NuGet with CodeCatalyst](#nuget-configure-cli "#nuget-configure-cli"), you can
 consume NuGet packages that are stored in your CodeCatalyst repository or one of its upstream repositories.
@@ -107,9 +101,7 @@ For more information, see [Manage packages using the nuget CLI](https://docs.mic
 or [Install and manage packages using the dotnet CLI](https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-dotnet-cli "https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-dotnet-cli")
 in the _Microsoft Documentation_.
 
-## Consuming NuGet packages from NuGet.org
-
-through CodeCatalyst
+## Consuming NuGet packages from NuGet.org through CodeCatalyst
 
 You can consume NuGet packages from [NuGet.org](https://www.nuget.org/ "https://www.nuget.org/") through a CodeCatalyst repository by
 configuring the repository with an upstream connection to **NuGet.org**.

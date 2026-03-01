@@ -30,8 +30,7 @@ variable name.
 For detailed steps, see one of the following procedures:
 
 - [To display the app URL in the "AWS CDK deploy" action](#deploy-app-url-cdk "#deploy-app-url-cdk")
-- [To display the app URL in the "Deploy CloudFormation stack"
-  action](#deploy-app-url-cfn "#deploy-app-url-cfn")
+- [To display the app URL in the "Deploy CloudFormation stack" action](#deploy-app-url-cfn "#deploy-app-url-cfn")
 - [To display the app URL in all other actions](#deploy-app-url-other "#deploy-app-url-other")
   When you've finished configuring the URL, verify that it appears as expected by following
   these instructions:
@@ -77,9 +76,7 @@ export class HelloCdkStack extends Stack {
 For more information about the `CfnOutput` construct, see [interface
 CfnOutputProps](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md") in the _AWS Cloud Development Kit (AWS CDK) API Reference_. 2. Save and commit your code. 3. Proceed to [To verify that the application URL was added](#deploy-app-url-verify "#deploy-app-url-verify").
 
-###### To display the app URL in the "Deploy CloudFormation stack"
-
-action
+###### To display the app URL in the "Deploy CloudFormation stack" action
 
 1.  If you're using the **Deploy CloudFormation stack** action, add an output to the
     `Outputs` section in your CloudFormation template or AWS SAM template with these
@@ -145,8 +142,7 @@ Actions:
         - Run: **`APP-URL=https://mycompany.myapp.com`**
 ```
 
-For more information about defining environment variables, see [Defining a
-variable](workflows-working-with-variables-define-input.md "workflows-working-with-variables-define-input.md"). 2. Export the variable.
+For more information about defining environment variables, see [Defining a variable](workflows-working-with-variables-define-input.md "workflows-working-with-variables-define-input.md"). 2. Export the variable.
 
 For example, your build action might look like this:
 
@@ -158,8 +154,7 @@ Build-action:
       - **`APP-URL`**
 ```
 
-For information about exporting variables, see [Exporting a variable
-so that other actions can use it](workflows-working-with-variables-export-input.md "workflows-working-with-variables-export-input.md"). 3. (Optional) Choose **Validate** to validate the workflow's YAML code
+For information about exporting variables, see [Exporting a variable so that other actions can use it](workflows-working-with-variables-export-input.md "workflows-working-with-variables-export-input.md"). 3. (Optional) Choose **Validate** to validate the workflow's YAML code
 before committing. 4. Choose **Commit**, enter a commit message, and choose
 **Commit** again. 5. Proceed to [To verify that the application URL was added](#deploy-app-url-verify "#deploy-app-url-verify").
 

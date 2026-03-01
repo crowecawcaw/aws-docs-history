@@ -26,5 +26,4 @@ to occur.
    overflow behavior. For more information about these fields, see [Provisioned fleet properties](workflows-working-compute.md#compute.provisioned-fleets "workflows-working-compute.md#compute.provisioned-fleets").
 8. Choose **Create**.
    After creating the provisioned fleet, you are ready to assign it to an action. For
-   more information, see [Assigning a fleet or compute to an
-   action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md").
+   more information, see [Assigning a fleet or compute to an action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md").

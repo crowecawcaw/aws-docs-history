@@ -10,11 +10,9 @@ a workflow action.
 You need the following:
 
 - A CodeCatalyst space. For more information, see [Set up and sign in to CodeCatalyst](setting-up-topnode.md "setting-up-topnode.md").
-- A CodeCatalyst project. For more information, see [Creating a project with a
-  blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template").
+- A CodeCatalyst project. For more information, see [Creating a project with a blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template").
 - An AWS account connection that includes the IAM roles your workflow action will
-  need to access AWS. For information about creating an account connection, see [Allowing access to AWS resources with connected
-  AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). You can use a
+  need to access AWS. For information about creating an account connection, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). You can use a
   maximum of one account connection per environment.
 
 ###### Note
@@ -61,8 +59,7 @@ to come back and add the connection later.
 7. In **AWS account connection - optional**, choose the AWS account
    connection you want to associate with this environment. Workflow actions that are assigned
    this environment will be able to connect to the associated AWS account. For more
-   information about creating AWS account connections in CodeCatalyst, see [Allowing access to AWS resources with connected
-   AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
+   information about creating AWS account connections in CodeCatalyst, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
 
 If the AWS account connection that you want to use is not listed, it might be
 because it's not allowed in your project. For more information, see [Configuring
@@ -79,8 +76,7 @@ the different roles on each action's **Configuration** tab, using the
 
 If the IAM role that you want to use as the default is not listed, it might be
 because you have not added it to your AWS account connection yet. To add an IAM role
-to an account connection, see [Adding IAM roles to account
-connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md"). 9. (Optional) In **VPC connection**, choose a VPC connection that you
+to an account connection, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md"). 9. (Optional) In **VPC connection**, choose a VPC connection that you
 want to associate with this environment. For more information about creating VPC
 connections, see [Managing Amazon Virtual Private Clouds](../adminguide/managing-vpcs.md "../adminguide/managing-vpcs.md") in
 the _Amazon CodeCatalyst Administrator Guide_.
@@ -95,5 +91,4 @@ environment.
 ###### Next steps
 
 - Now that you have created an environment, you are ready to associate it with a
-  workflow action. For more information, see [Associating an environment with
-  an action](deploy-environments-add-app-to-environment.md "deploy-environments-add-app-to-environment.md").
+  workflow action. For more information, see [Associating an environment with an action](deploy-environments-add-app-to-environment.md "deploy-environments-add-app-to-environment.md").

@@ -9,8 +9,7 @@ blocks that run sequentially:
 
 - A **trigger** – This trigger starts the workflow run
   automatically when you push a change to your source repository. For more information about
-  triggers, see [Starting a workflow run automatically using
-  triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+  triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 - A **build** action (`BuildDocs`) – On trigger, the
   action builds a static documentation website (`mkdocs build`) and adds the
   associated HTML files and supporting metadata to an artifact called

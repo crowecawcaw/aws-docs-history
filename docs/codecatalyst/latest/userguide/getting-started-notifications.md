@@ -18,12 +18,9 @@ of events that users can choose to be notified about in email. For more informat
 ###### Topics
 
 - [Prerequisites](#getting-started-notifications-prerequisites "#getting-started-notifications-prerequisites")
-- [Step 1: Connect CodeCatalyst to your
-  Slack workspace](#getting-started-notifications-connect-slack "#getting-started-notifications-connect-slack")
-- [Step 2: Add your Slack
-  channel to CodeCatalyst](#getting-started-notifications-add-slack-channel "#getting-started-notifications-add-slack-channel")
-- [Step
-  3: Test notifications from CodeCatalyst to Slack](#getting-started-notifications-next-steps "#getting-started-notifications-next-steps")
+- [Step 1: Connect CodeCatalyst to your Slack workspace](#getting-started-notifications-connect-slack "#getting-started-notifications-connect-slack")
+- [Step 2: Add your Slack channel to CodeCatalyst](#getting-started-notifications-add-slack-channel "#getting-started-notifications-add-slack-channel")
+- [Step 3: Test notifications from CodeCatalyst to Slack](#getting-started-notifications-next-steps "#getting-started-notifications-next-steps")
 - [Step 4: Next steps](#getting-started-notifications-test "#getting-started-notifications-test")
 
 ## Prerequisites
@@ -39,9 +36,7 @@ Before you begin, you need the following:
 - A Slack channel where CodeCatalyst will send notifications. The channel can be public or
   private.
 
-## Step 1: Connect CodeCatalyst to your
-
-Slack workspace
+## Step 1: Connect CodeCatalyst to your Slack workspace
 
 Only users with the
 **Space administrator** role can add or delete Slack workspaces. Adding or deleting
@@ -70,18 +65,13 @@ by Slack channel.
    1. In the upper right, choose the Slack workspace that contains your channel.
    2. Choose **Allow**.You are returned to the CodeCatalyst console.
 
-9. Continue to [Step 2: Add your Slack
-   channel to CodeCatalyst](#getting-started-notifications-add-slack-channel "#getting-started-notifications-add-slack-channel").
+9. Continue to [Step 2: Add your Slack channel to CodeCatalyst](#getting-started-notifications-add-slack-channel "#getting-started-notifications-add-slack-channel").
 
-## Step 2: Add your Slack
-
-channel to CodeCatalyst
+## Step 2: Add your Slack channel to CodeCatalyst
 
 You need the Slack channel ID to add your channel to CodeCatalyst.
 
-###### To get your Slack
-
-channel ID
+###### To get your Slack channel ID
 
 1. Sign in to Slack. For more information, see [Sign in to
    Slack](https://slack.com/help/articles/212681477-Sign-in-to-Slack "https://slack.com/help/articles/212681477-Sign-in-to-Slack").
@@ -121,9 +111,7 @@ CodeCatalyst.
    to receive notifications for.
 7. Choose **Finish**.
 
-## Step
-
-3: Test notifications from CodeCatalyst to Slack
+## Step 3: Test notifications from CodeCatalyst to Slack
 
 After your project is configured to send notifications for workflow status, you can view
 your notifications in Slack.

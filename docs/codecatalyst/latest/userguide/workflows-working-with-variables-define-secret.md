@@ -11,5 +11,4 @@ For example, you might define a secret that looks like this:
 - Value: `^*H3#!b9`
   After the secret is defined, you can specify the secret's key
   (`my-password`) in the workflow definition file. For an
-  example of how to do this, see [Example:
-  Referencing a secret](workflows-working-with-variables-ex.md#workflows-working-with-variables-ex-refer-secret "workflows-working-with-variables-ex.md#workflows-working-with-variables-ex-refer-secret").
+  example of how to do this, see [Example: Referencing a secret](workflows-working-with-variables-ex.md#workflows-working-with-variables-ex-refer-secret "workflows-working-with-variables-ex.md#workflows-working-with-variables-ex-refer-secret").

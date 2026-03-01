@@ -285,8 +285,7 @@ If you do not specify an account connection:
 - The default IAM role must include the policies and permissions required by the action.
   To determine what those policies and permissions are, see the description of the **Role** property in the action's YAML definition documentation.
 
-For more information about account connections, see [Allowing access to AWS resources with connected
-AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). For information about adding an account connection to
+For more information about account connections, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). For information about adding an account connection to
 an environment, see [Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md").
 
 Corresponding UI: Configuration tab/Environment/What's in
@@ -311,8 +310,7 @@ Corresponding UI: Configuration tab/Environment/What's in
 
 Specify the name of the IAM role that this action uses in order to access and operate in
 AWS services such as Amazon S3 and Amazon ECR. Make sure this role is added to your AWS account
-connection in your space. To add an IAM role to an account connection, see [Adding IAM roles to account
-connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+connection in your space. To add an IAM role to an account connection, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 
 If you do not specify an IAM role, then the action uses the default IAM role listed in
 the [environment](deploy-environments.md "deploy-environments.md") in the CodeCatalyst console. If you use the
@@ -321,8 +319,7 @@ default role in the environment, make sure it has the following policies.
 ###### Note
 
 You can use the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role with this action.
- For more information about this role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account
- and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create"). Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has
+ For more information about this role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create"). Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has
 full access permissions which may pose a security risk. We recommend that you only use this
 role in tutorials and scenarios where security is less of a concern.
 
@@ -414,8 +411,7 @@ action or test action. Variables do not count towards this total.
 If you need to refer to files residing in different inputs (say a source and an
 artifact), the source input is the primary input, and the artifact is the secondary
 input. References to files in secondary inputs take a special prefix to distiguish them
-from the primary. For details, see [Example: Referencing files
-in multiple artifacts](workflows-working-artifacts-ex.md#workflows-working-artifacts-ex-ref-file "workflows-working-artifacts-ex.md#workflows-working-artifacts-ex-ref-file").
+from the primary. For details, see [Example: Referencing files in multiple artifacts](workflows-working-artifacts-ex.md#workflows-working-artifacts-ex-ref-file "workflows-working-artifacts-ex.md#workflows-working-artifacts-ex-ref-file").
 
 Corresponding UI: **Inputs** tab
 
@@ -448,8 +444,7 @@ These artifacts must already be defined as output artifacts in previous actions.
 If you do not specify any input artifacts, then you must specify at least one source
 repository under ``action-name`/Inputs/Sources`.
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
 
 ###### Note
 
@@ -495,8 +490,7 @@ within a workflow, and are limited to alphanumeric characters (a-z, A-Z, 0-9) an
 Spaces, hyphens (-), and other special characters are not allowed. You cannot use quotation
 marks to enable spaces, hyphens, and other special characters in output artifact names.
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
 
 Corresponding UI: Outputs tab/**Artifacts**
 
@@ -511,8 +505,7 @@ within a workflow, and are limited to alphanumeric characters (a-z, A-Z, 0-9) an
 Spaces, hyphens (-), and other special characters are not allowed. You cannot use quotation
 marks to enable spaces, hyphens, and other special characters in output artifact names.
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
 
 Corresponding UI: Outputs tab/Artifacts/New output/**Build artifact
 name**
@@ -548,15 +541,12 @@ If your file path includes one or more asterisks (`*`) or other special
 character, enclose the path with double quotation marks (`""`). For more
 information about special characters, see [Syntax guidelines and conventions](workflow-reference.md#workflow.terms.syntax.conv "workflow-reference.md#workflow.terms.syntax.conv").
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
 
 ###### Note
 
 You may need to add a prefix to the file path to indicate which artifact or source to find
-it in. For more information, see [Referencing source repository
-files](workflows-sources-reference-files.md "workflows-sources-reference-files.md") and [Referencing files in an
-artifact](workflows-working-artifacts-refer-files.md "workflows-working-artifacts-refer-files.md").
+it in. For more information, see [Referencing source repository files](workflows-sources-reference-files.md "workflows-sources-reference-files.md") and [Referencing files in an artifact](workflows-working-artifacts-refer-files.md "workflows-working-artifacts-refer-files.md").
 
 Corresponding UI: Outputs tab/Artifacts/New output/**Files produced by
 build**
@@ -1017,8 +1007,7 @@ own image, it can reside in Amazon ECR, Docker Hub, or another registry. If you 
 Docker image, the action uses one of the active images for its processing. For information about
 which active image is used by default, see [Active images](build-images.md#build-curated-images "build-images.md#build-curated-images").
 
-For more information about specifying your own Docker image, see [Assigning a custom runtime environment Docker
-image to an action](build-images.md#build-images-specify "build-images.md#build-images-specify").
+For more information about specifying your own Docker image, see [Assigning a custom runtime environment Docker image to an action](build-images.md#build-images-specify "build-images.md#build-images-specify").
 
 Corresponding UI: **Runtime environment Docker image -
 optional**
@@ -1068,8 +1057,7 @@ For more information about creating IAM roles, see [Creating a role using custom
 trust policies (console)](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") in the _IAM User Guide_.
 
 Once you have created the role, you must assign it to the action through an environment.
-For more information, see [Associating an environment with
-an action](deploy-environments-add-app-to-environment.md "deploy-environments-add-app-to-environment.md").
+For more information, see [Associating an environment with an action](deploy-environments-add-app-to-environment.md "deploy-environments-add-app-to-environment.md").
 
 Corresponding UI: **Amazon Elastic Container Registry**, **Docker Hub**, and
 **Other registry** options
@@ -1139,9 +1127,7 @@ Steps:
 
 ```
 
-For more information about specifying file paths, see [Referencing source repository
-files](workflows-sources-reference-files.md "workflows-sources-reference-files.md") and [Referencing files in an
-artifact](workflows-working-artifacts-refer-files.md "workflows-working-artifacts-refer-files.md").
+For more information about specifying file paths, see [Referencing source repository files](workflows-sources-reference-files.md "workflows-sources-reference-files.md") and [Referencing files in an artifact](workflows-working-artifacts-refer-files.md "workflows-working-artifacts-refer-files.md").
 
 Corresponding UI: Configuration tab/**Shell commands**
 
@@ -1233,7 +1219,6 @@ Valid values are `true` or `false`.
 
 If `ExportAuthorizationToken` is omitted, the default is `false`.
 
-For more information about the export authorization token, see [Using authorization tokens in workflow
-actions](workflows-package-export-token.md "workflows-package-export-token.md").
+For more information about the export authorization token, see [Using authorization tokens in workflow actions](workflows-package-export-token.md "workflows-package-export-token.md").
 
 Corresponding UI: Configuration tab/Packages/**Export authorization token**

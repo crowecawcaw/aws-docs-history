@@ -205,8 +205,7 @@ If you do not specify an account connection:
 - The default IAM role must include the policies and permissions required by the action.
   To determine what those policies and permissions are, see the description of the **Role** property in the action's YAML definition documentation.
 
-For more information about account connections, see [Allowing access to AWS resources with connected
-AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). For information about adding an account connection to
+For more information about account connections, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). For information about adding an account connection to
 an environment, see [Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md").
 
 Corresponding UI: One of the following depending on the action version:
@@ -336,8 +335,7 @@ available.
 ###### Note
 
 You can use the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role with this action, if you'd like.
- For more information about this role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account
- and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create"). Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has
+ For more information about this role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create"). Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has
 full access permissions which may pose a security risk. We recommend that you only use this
 role in tutorials and scenarios where security is less of a concern.
 
@@ -382,9 +380,7 @@ For more information about sources, see [Connecting source repositories to workf
 
 Corresponding UI: Inputs tab/**Sources - optional**
 
-## Artifacts -
-
-input
+## Artifacts - input
 
 (`ECSDeployAction`/Inputs/**Artifacts**)
 
@@ -395,8 +391,7 @@ If the task definition file that you want to deploy is contained in an artifact 
 a previous action, specify that artifact here. If your task definition file is not contained
 within an artifact, it must reside in your source repository.
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
 
 Corresponding UI: Configuration tab/**Artifacts - optional**
 
@@ -501,8 +496,7 @@ in the _Amazon Elastic Container Service Developer Guide_.
 ###### Note
 
 The **CodeDeploy** fields may be hidden in the visual editor. To get them
-to appear, see [Why are CodeDeploy fields missing from
-the visual editor?](troubleshooting-workflows.md#troubleshooting-workflows-codedeploy "troubleshooting-workflows.md#troubleshooting-workflows-codedeploy").
+to appear, see [Why are CodeDeploy fields missing from the visual editor?](troubleshooting-workflows.md#troubleshooting-workflows-codedeploy "troubleshooting-workflows.md#troubleshooting-workflows-codedeploy").
 
 Corresponding UI: Configuration tab/**CodeDeploy AppSpec**
 

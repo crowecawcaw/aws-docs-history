@@ -14,14 +14,11 @@ using package manager tools. The steps to publish a package version are as follo
 
 ###### Contents
 
-- [Publishing and upstream
-  repositories](package-publishing.md#package-publishing-upstreams "package-publishing.md#package-publishing-upstreams")
+- [Publishing and upstream repositories](package-publishing.md#package-publishing-upstreams "package-publishing.md#package-publishing-upstreams")
 - [Private packages and public repositories](package-publishing.md#package-publishing-upstreams-direct "package-publishing.md#package-publishing-upstreams-direct")
 - [Overwriting package assets](package-publishing.md#package-publishing-overwrite-assets "package-publishing.md#package-publishing-overwrite-assets")
 
-## Publishing and upstream
-
-repositories
+## Publishing and upstream repositories
 
 In CodeCatalyst, you cannot publish package versions that are present in reachable upstream
 repositories or public repositories. For example, suppose that you want to publish an npm

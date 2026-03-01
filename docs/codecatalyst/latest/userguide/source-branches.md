@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Organizing your source code work with branches in
-
-Amazon CodeCatalyst
+# Organizing your source code work with branches in Amazon CodeCatalyst
 
 In Git, branches are pointers or references to a commit. In development, they're a
 convenient way to organize your work. You can use branches to separate work on a new or
@@ -35,10 +33,8 @@ the examples in this guide.
 ###### Topics
 
 - [Creating a branch](source-create-delete-branch.md "source-create-delete-branch.md")
-- [Managing the default branch for a
-  repository](source-branches-default-branch.md "source-branches-default-branch.md")
-- [Manage allowed actions for a branch with
-  branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md")
+- [Managing the default branch for a repository](source-branches-default-branch.md "source-branches-default-branch.md")
+- [Manage allowed actions for a branch with branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md")
 - [Git commands for branches](source-branches-git.md "source-branches-git.md")
 - [Viewing branches and details](source-branches-view.md "source-branches-view.md")
 - [Deleting a branch](source-branches-delete.md "source-branches-delete.md")

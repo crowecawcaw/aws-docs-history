@@ -24,8 +24,7 @@ repository, choose the link in the list of repositories to open that repository 
 the service that hosts it, and then delete it. For more information, see the
 documentation for the service that hosts the linked repository.
 
-To remove a linked repository from a project, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+To remove a linked repository from a project, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
 ###### To delete a source repository
 

@@ -12,13 +12,10 @@ action.
 
 You can set up dependencies between actions and action groups. You can also configure
 one-to-many dependencies so that one action depends on several others in order to start.
-Consult the guidelines in [Setting up dependencies between
-actions](workflows-depends-on-set-up.md "workflows-depends-on-set-up.md") to ensure your dependency setup
+Consult the guidelines in [Setting up dependencies between actions](workflows-depends-on-set-up.md "workflows-depends-on-set-up.md") to ensure your dependency setup
 conforms with the workflow's YAML syntax.
 
 ###### Topics
 
-- [Examples of how to configure
-  dependencies between actions](workflows-depends-on-examples.md "workflows-depends-on-examples.md")
-- [Setting up dependencies between
-  actions](workflows-depends-on-set-up.md "workflows-depends-on-set-up.md")
+- [Examples of how to configure dependencies between actions](workflows-depends-on-examples.md "workflows-depends-on-examples.md")
+- [Setting up dependencies between actions](workflows-depends-on-set-up.md "workflows-depends-on-set-up.md")

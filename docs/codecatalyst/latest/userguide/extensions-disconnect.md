@@ -14,8 +14,7 @@ will be the issue provider again.
 - To disconnect a Bitbucket workspace, you must first unlink all linked Bitbucket repositories from that workspace.
 - To disconnect a GitLab user, you must first unlink all linked GitLab project repositories from that workspace.
 - To disconnect a Jira site, you must first unlink all linked Jira projects from that account.
-  For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-  and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+  For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
 ###### To disconnect a GitHub project, Bitbucket workspace, GitLab user, or Jira site
 

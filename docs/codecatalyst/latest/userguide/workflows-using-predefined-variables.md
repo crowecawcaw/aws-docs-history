@@ -9,10 +9,7 @@ For more information about variables, see [Using variables in workflows](workflo
 
 ###### Topics
 
-- [Examples of referencing predefined
-  variables](workflows-predefined-examples.md "workflows-predefined-examples.md")
-- [Referencing a
-  predefined variable](workflows-working-with-variables-reference-output-vars.md "workflows-working-with-variables-reference-output-vars.md")
-- [Determining
-  which predefined variables your workflow emits](workflows-working-with-variables-determine-output-vars.md "workflows-working-with-variables-determine-output-vars.md")
+- [Examples of referencing predefined variables](workflows-predefined-examples.md "workflows-predefined-examples.md")
+- [Referencing a predefined variable](workflows-working-with-variables-reference-output-vars.md "workflows-working-with-variables-reference-output-vars.md")
+- [Determining which predefined variables your workflow emits](workflows-working-with-variables-determine-output-vars.md "workflows-working-with-variables-determine-output-vars.md")
 - [List of predefined variables](workflow-ref-action-variables.md "workflow-ref-action-variables.md")

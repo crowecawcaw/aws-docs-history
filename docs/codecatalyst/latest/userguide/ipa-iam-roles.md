@@ -35,8 +35,7 @@ space and to choose the **CodeCatalystWorkflowDevelopmentRole-`spaceName`** opti
 role with the `AdministratorAccess` attached, but it also creates the trust policy
 that allows CodeCatalyst to assume the role on behalf of users in projects in the space. The
 service role is scoped to the space, not to individual projects. To create this role, see
-[Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account
-and space](#ipa-iam-roles-service-create "#ipa-iam-roles-service-create").
+[Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](#ipa-iam-roles-service-create "#ipa-iam-roles-service-create").
 You can only create one role for each space in each account.
 
 ###### Note
@@ -80,9 +79,7 @@ information about the CodeCatalyst trust model, see [Understanding the CodeCatal
 
 ```
 
-## Creating the **CodeCatalystWorkflowDevelopmentRole-`spaceName`** role for your account
-
-and space
+## Creating the **CodeCatalystWorkflowDevelopmentRole-`spaceName`** role for your account and space
 
 Follow these steps to create the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role that will be used for workflows in
 your space. For each account that you want to have IAM roles for use in projects, to
@@ -90,8 +87,7 @@ your space, you must add a role such as the developer role.
 
 Before you begin, you must have administrative privileges for your AWS account or be
 able to work with your administrator. For more information about how AWS accounts and IAM
-roles are used in CodeCatalyst, see [Allowing access to AWS resources with connected
-AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
+roles are used in CodeCatalyst, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
 
 ###### To create and add the CodeCatalyst **CodeCatalystWorkflowDevelopmentRole-`spaceName`**
 
@@ -118,9 +114,7 @@ This role is only recommended for use with developer accounts and uses the
 policies and resources in this AWS account. 7. Choose **Create development role**. 8. On the connections page, under **IAM roles available to CodeCatalyst**, view
 the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role in the list of IAM roles added to your account. 9. To return to your space, choose **Go to Amazon CodeCatalyst**.
 
-## Understanding the **AWSRoleForCodeCatalystSupport** service
-
-role
+## Understanding the **AWSRoleForCodeCatalystSupport** service role
 
 You can add an IAM role for your space that CodeCatalyst users in a space can use to
 create and access support cases. This is called a [service
@@ -128,8 +122,7 @@ role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-serv
 when you create the space and to choose the `AWSRoleForCodeCatalystSupport` option for that
 role. This not only creates the policy and the role, but it also creates the trust policy that
 allows CodeCatalyst to assume the role on behalf of users in projects in the space. The service
-role is scoped to the space, not to individual projects. To create this role, see [Creating the AWSRoleForCodeCatalystSupport role for your
-account and space](#ipa-iam-roles-support-create "#ipa-iam-roles-support-create").
+role is scoped to the space, not to individual projects. To create this role, see [Creating the AWSRoleForCodeCatalystSupport role for your account and space](#ipa-iam-roles-support-create "#ipa-iam-roles-support-create").
 
 The policy attached to the `AWSRoleForCodeCatalystSupport` role is managed policy that provides
 access to support permissions. For more information, see [AWS managed policy: AmazonCodeCatalystSupportAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonCodeCatalystSupportAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonCodeCatalystSupportAccess").
@@ -157,9 +150,7 @@ JSON
 
 ```
 
-## Creating the **AWSRoleForCodeCatalystSupport** role for your
-
-account and space
+## Creating the **AWSRoleForCodeCatalystSupport** role for your account and space
 
 Follow these steps to create the `AWSRoleForCodeCatalystSupport` role that will be used for
 support cases in your space. The role must be added to the designated billing account for
@@ -167,8 +158,7 @@ the space.
 
 Before you begin, you must have administrative privileges for your AWS account or be
 able to work with your administrator. For more information about how AWS accounts and IAM
-roles are used in CodeCatalyst, see [Allowing access to AWS resources with connected
-AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
+roles are used in CodeCatalyst, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
 
 ###### To create and add the CodeCatalyst **AWSRoleForCodeCatalystSupport**
 
@@ -186,20 +176,16 @@ to access the page. 5. Under **CodeCatalyst space details**, choose **Add CodeCa
 role**. This option creates a service role that contains the permissions policy and
 trust policy for the preview development role. The role will have a name **AWSRoleForCodeCatalystSupport**
 with a unique identifier appended. For more information about the role and role policy, see
-[Understanding the AWSRoleForCodeCatalystSupport service
-role](#ipa-iam-roles-support-role "#ipa-iam-roles-support-role"). 6. On the **Add role for CodeCatalyst Support** page, leave the default selected,
+[Understanding the AWSRoleForCodeCatalystSupport service role](#ipa-iam-roles-support-role "#ipa-iam-roles-support-role"). 6. On the **Add role for CodeCatalyst Support** page, leave the default selected,
 and then choose **Create role**. 7. Under **IAM roles available to CodeCatalyst**, view the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role
 in the list of IAM roles added to your account. 8. To return to your space, choose **Go to Amazon CodeCatalyst**.
 
-## Configuring IAM roles for workflow actions in
-
-CodeCatalyst
+## Configuring IAM roles for workflow actions in CodeCatalyst
 
 This section details IAM roles and policies that you can create to use with your CodeCatalyst
 account. For instructions to create example roles, see [Creating roles manually for workflow actions](#ipa-iam-roles-actions "#ipa-iam-roles-actions"). After you create your IAM role, copy the role ARN
 to add the IAM role to your account connection and associate it with your project
-environment. To learn more, see [Adding IAM roles to account
-connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+environment. To learn more, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 
 ### CodeCatalyst build role for Amazon S3 access
 
@@ -224,9 +210,7 @@ is available.
 "Resource": "*"
 ```
 
-### CodeCatalyst build role for
-
-CloudFormation
+### CodeCatalyst build role for CloudFormation
 
 For CodeCatalyst workflow build actions, you can use the default **CodeCatalystWorkflowDevelopmentRole-`spaceName`** service role, or
 you can create an IAM role with the necessary permissions. This role uses a policy with
@@ -271,9 +255,7 @@ is available.
 "Resource": "*"
 ```
 
-### CodeCatalyst deploy role for
-
-CloudFormation
+### CodeCatalyst deploy role for CloudFormation
 
 For CodeCatalyst workflow deploy actions that use CloudFormation, you can use the default **CodeCatalystWorkflowDevelopmentRole-`spaceName`**
 service role, or you can use a policy with scoped permissions that CodeCatalyst needs to run tasks
@@ -767,9 +749,7 @@ show which permissions you need to add. 8. Choose **Next: Tags**. 9. Choose **Ne
     4.  On the **Summary** page, copy the **Role
         ARN** value.
 
-## Using AWS CloudFormation to create policies and roles in
-
-IAM
+## Using AWS CloudFormation to create policies and roles in IAM
 
 You can choose to create and use AWS CloudFormation templates to create the policies and roles you
 need to access resources in an AWS account for your CodeCatalyst projects and
@@ -826,9 +806,7 @@ Resources:
                 Resource: '*'
 ```
 
-## Creating the role manually for the web
-
-application blueprint
+## Creating the role manually for the web application blueprint
 
 The CodeCatalyst web application blueprint uses IAM roles that you create called the **build role for CDK**, the **deploy role**,
 and the **stack role**.
@@ -919,9 +897,7 @@ Follow these steps to create the role in IAM.
    The role's **Summary** page appears. 4. At the top, copy the **ARN** value.You have now created the build role with the appropriate permissions, and obtained its
    ARN.
 
-## Creating roles manually for the SAM
-
-blueprint
+## Creating roles manually for the SAM blueprint
 
 The CodeCatalyst SAM blueprint uses IAM roles that you create called the **build role for CloudFormation** and the **deploy role for
 SAM**.

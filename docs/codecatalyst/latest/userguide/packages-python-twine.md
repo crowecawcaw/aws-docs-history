@@ -6,9 +6,7 @@ To use `twine` with CodeCatalyst, you must connect `twine` to your package repos
 instructions for connecting `twine` to your package repository in the CodeCatalyst console. After you authenticate and connect `twine` to CodeCatalyst, you can run
 `twine` commands.
 
-## Publishing packages to CodeCatalyst with
-
-Twine
+## Publishing packages to CodeCatalyst with Twine
 
 The following instructions explain how to authenticate and connect `twine` to your CodeCatalyst package repository.
 

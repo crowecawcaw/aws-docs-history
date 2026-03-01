@@ -18,8 +18,7 @@ You can add roles to your account connections by using one of the following meth
 - To create a service role that contains the permissions policy and trust policy for the
   **CodeCatalystWorkflowDevelopmentRole-`spaceName`** role, see [CodeCatalystWorkflowDevelopmentRole-spaceName role](#spaces-manage-roles-createrole "#spaces-manage-roles-createrole").
 - For an example of creating a role and adding a policy to create a project from a
-  blueprint, see [Creating an IAM role and using the CodeCatalyst
-  trust policy](#ipa-connect-account-createrole "#ipa-connect-account-createrole").
+  blueprint, see [Creating an IAM role and using the CodeCatalyst trust policy](#ipa-connect-account-createrole "#ipa-connect-account-createrole").
 - For a list of sample role policies to use when creating your IAM roles, see [Grant access to project AWS resources with IAM roles](ipa-iam-roles.md "ipa-iam-roles.md").
 - For
   detailed steps to create roles for workflow actions, see the workflow tutorial for that
@@ -28,15 +27,13 @@ You can add roles to your account connections by using one of the following meth
   - [Tutorial: Upload artifacts to Amazon S3](build-deploy.md "build-deploy.md")
   - [Tutorial: Deploy a serverless application](deploy-tut-lambda.md "deploy-tut-lambda.md")
   - [Tutorial: Deploy an application to Amazon ECS](deploy-tut-ecs.md "deploy-tut-ecs.md")
-  - [Tutorial: Lint code using a GitHub
-    Action](integrations-github-action-tutorial.md "integrations-github-action-tutorial.md")
+  - [Tutorial: Lint code using a GitHub Action](integrations-github-action-tutorial.md "integrations-github-action-tutorial.md")
 
 ###### Topics
 
 - [CodeCatalystWorkflowDevelopmentRole-spaceName role](#spaces-manage-roles-createrole "#spaces-manage-roles-createrole")
 - [AWSRoleForCodeCatalystSupport role](#w2aac25c29c18c17 "#w2aac25c29c18c17")
-- [Creating an IAM role and using the CodeCatalyst
-  trust policy](#ipa-connect-account-createrole "#ipa-connect-account-createrole")
+- [Creating an IAM role and using the CodeCatalyst trust policy](#ipa-connect-account-createrole "#ipa-connect-account-createrole")
 
 ## **CodeCatalystWorkflowDevelopmentRole-`spaceName`** role
 
@@ -101,22 +98,18 @@ to access the page. 5. Under **CodeCatalyst space details**, choose **Add CodeCa
 role**. This option creates a service role that contains the permissions policy and
 trust policy for the preview development role. The role will have a name **AWSRoleForCodeCatalystSupport**
 with a unique identifier appended. For more information about the role and role policy, see
-[Understanding the AWSRoleForCodeCatalystSupport service
-role](ipa-iam-roles.md#ipa-iam-roles-support-role "ipa-iam-roles.md#ipa-iam-roles-support-role"). 6. On the **Add role for CodeCatalyst Support** page, leave the default selected,
+[Understanding the AWSRoleForCodeCatalystSupport service role](ipa-iam-roles.md#ipa-iam-roles-support-role "ipa-iam-roles.md#ipa-iam-roles-support-role"). 6. On the **Add role for CodeCatalyst Support** page, leave the default selected,
 and then choose **Create role**. 7. Under **IAM roles available to CodeCatalyst**, view the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role
 in the list of IAM roles added to your account. 8. To return to your space, choose **Go to Amazon CodeCatalyst**.
 
-## Creating an IAM role and using the CodeCatalyst
-
-trust policy
+## Creating an IAM role and using the CodeCatalyst trust policy
 
 IAM roles to be used in CodeCatalyst with AWS account connections must be
 configured to use the trust policy provided here. Use these steps to create an IAM role
 and attach a policy that allows you to create projects from blueprints in CodeCatalyst.
 
 As an alternative, you can create a service role that contains the permissions policy
-and trust policy for the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role. For more information, see [Adding IAM roles to account
-connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+and trust policy for the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role. For more information, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Choose **Roles**, and then choose **Create

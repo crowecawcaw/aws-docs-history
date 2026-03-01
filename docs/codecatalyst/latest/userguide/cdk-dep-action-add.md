@@ -72,8 +72,7 @@ Visual
 ###### Note
 
 If your **AWS CDK deploy** action fails with an `npm
- install` error, see [How do I fix "npm install"
-errors?](troubleshooting-workflows.md#troubleshooting-workflows-npm "troubleshooting-workflows.md#troubleshooting-workflows-npm") for information about how to fix
+ install` error, see [How do I fix "npm install" errors?](troubleshooting-workflows.md#troubleshooting-workflows-npm "troubleshooting-workflows.md#troubleshooting-workflows-npm") for information about how to fix
 the error.
 
 YAML
@@ -114,6 +113,5 @@ YAML
 ###### Note
 
 If your **AWS CDK deploy** action fails with an `npm
- install` error, see [How do I fix "npm install"
-errors?](troubleshooting-workflows.md#troubleshooting-workflows-npm "troubleshooting-workflows.md#troubleshooting-workflows-npm") for information about how to fix
+ install` error, see [How do I fix "npm install" errors?](troubleshooting-workflows.md#troubleshooting-workflows-npm "troubleshooting-workflows.md#troubleshooting-workflows-npm") for information about how to fix
 the error.

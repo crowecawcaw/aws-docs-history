@@ -24,9 +24,7 @@ CodeCatalyst.
 You can update your AWS Builder ID full name (CodeCatalyst display name) and first name.
 However, you cannot change your CodeCatalyst alias.
 
-## Updating an AWS Builder ID or email
-
-address
+## Updating an AWS Builder ID or email address
 
 ###### To update your AWS Builder ID or email address
 

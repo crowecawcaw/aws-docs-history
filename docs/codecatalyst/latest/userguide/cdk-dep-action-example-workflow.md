@@ -8,8 +8,7 @@ following building blocks that run sequentially:
 
 - A **trigger** – This trigger starts the workflow run
   automatically when you push a change to your source repository. This repository contains
-  your AWS CDK app. For more information about triggers, see [Starting a workflow run automatically using
-  triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+  your AWS CDK app. For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 - An **AWS CDK bootstrap** action (`CDKBootstrap`)
   – On trigger, the action deploys the `CDKToolkit` bootstrap stack
   into AWS. If the `CDKToolkit` stack already exists in the environment,

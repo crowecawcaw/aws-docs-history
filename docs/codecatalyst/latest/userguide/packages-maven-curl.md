@@ -89,10 +89,8 @@ curl --request PUT https://packages.`region`.codecatalyst.aws/maven/`space-name`
         ```
         2. Option 2: Update the package status to `Published` in the
          CodeCatalyst console. For information about how to update a package version's
-         status, see [Updating a package version's
-         status](working-with-packages-update-version-status.md "working-with-packages-update-version-status.md").
+         status, see [Updating a package version's status](working-with-packages-update-version-status.md "working-with-packages-update-version-status.md").
 
     If you only have a package's JAR file, you can publish a consumable package version to
     a CodeCatalyst repository using `mvn`. This can be useful if you do not have access
-    to the package's source code or POM. See [Publishing third-party
-    packages](packages-maven-mvn.md#publishing-third-party-packages "packages-maven-mvn.md#publishing-third-party-packages") for details.
+    to the package's source code or POM. See [Publishing third-party packages](packages-maven-mvn.md#publishing-third-party-packages "packages-maven-mvn.md#publishing-third-party-packages") for details.

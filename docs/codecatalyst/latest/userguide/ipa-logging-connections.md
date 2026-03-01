@@ -21,8 +21,7 @@ Data events for CodeCatalyst spaces are accessible by using the CLI as detailed 
 
 - Events for resources that are used in CodeCatalyst workflow actions that occur in a
   connected AWS account will be logged as events in that AWS account. For more
-  information, see [CodeCatalyst account connections and billing
-  events](#cloudtrail-logs-connections "#cloudtrail-logs-connections").
+  information, see [CodeCatalyst account connections and billing events](#cloudtrail-logs-connections "#cloudtrail-logs-connections").
 
 ###### Important
 
@@ -113,9 +112,7 @@ as the billing account for the CodeCatalyst space.
 - `StopDevEnvironmentSession`
 - `UpdateDevEnvironment`
 
-## CodeCatalyst account connections and billing
-
-events
+## CodeCatalyst account connections and billing events
 
 The following are examples of events in AWS that are related to actions in CodeCatalyst
 for account connections or billing:
@@ -181,9 +178,7 @@ action, the date and time of the action, request parameters, and so on. CloudTra
 aren't an ordered stack trace of the public API calls, so they don't appear in any
 specific order.
 
-## Example CodeCatalyst account connections
-
-event in AWS
+## Example CodeCatalyst account connections event in AWS
 
 The following example shows a CloudTrail log entry that demonstrates the
 `ListConnections`
@@ -237,9 +232,7 @@ Resource Name (ARN) of the role used for the action.
 
 ```
 
-## Example CodeCatalyst project
-
-resource event in AWS
+## Example CodeCatalyst project resource event in AWS
 
 The following example shows a CloudTrail log entry that demonstrates the
 `CreateDevEnvironment`
@@ -321,9 +314,7 @@ In certain events, the user agent may not be known. In this case, CodeCatalyst w
 provide a value of `Unknown` in the `userAgent` field in the
 CloudTrail event.
 
-## Querying your CodeCatalyst event
-
-trails
+## Querying your CodeCatalyst event trails
 
 You can create and manage queries for your CloudTrail logs using a query table in Amazon Athena.
 For more information about creating a query, see [Querying

@@ -15,8 +15,7 @@ both the third-party source's administrator and the CodeCatalyst **Space adminis
 
 If you're using a connection to a GitHub account, you must create a personal
 connection to establish identity mapping between your CodeCatalyst identity and your GitHub identity.
-For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal
-connections](ipa-settings-connections.md "ipa-settings-connections.md").
+For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal connections](ipa-settings-connections.md "ipa-settings-connections.md").
 
 ###### To connect your GitHub account, Bitbucket workspace, GitLab user, or Jira site to CodeCatalyst
 

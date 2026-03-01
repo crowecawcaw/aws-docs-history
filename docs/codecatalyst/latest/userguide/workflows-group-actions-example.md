@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Example: Defining two action
-
-groups
+# Example: Defining two action groups
 
 The following example shows how to define two Amazon CodeCatalyst action groups:
 `BuildAndTest` and `Deploy`. The `BuildAndTest`

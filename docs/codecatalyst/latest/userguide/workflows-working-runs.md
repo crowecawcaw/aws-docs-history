@@ -27,8 +27,7 @@ was started by, and whether it's still running.
 ###### Topics
 
 - [Starting a workflow run manually](workflows-manually-start.md "workflows-manually-start.md")
-- [Starting a workflow run automatically using
-  triggers](workflows-add-trigger.md "workflows-add-trigger.md")
+- [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md")
 - [Configuring manual-only triggers](workflows-manual-only.md "workflows-manual-only.md")
 - [Stopping a workflow run](workflows-stop.md "workflows-stop.md")
 - [Gating a workflow run](workflows-gates.md "workflows-gates.md")

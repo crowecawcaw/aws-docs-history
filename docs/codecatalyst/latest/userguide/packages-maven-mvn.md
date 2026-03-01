@@ -9,11 +9,9 @@ You use the `mvn` command to run Maven builds. You must configure
 ###### Contents
 
 - [Fetching dependencies from CodeCatalyst](packages-maven-mvn.md#mvn-fetch-dependencies "packages-maven-mvn.md#mvn-fetch-dependencies")
-- [Fetching packages from external package repositories
-  through CodeCatalyst](packages-maven-mvn.md#mvn-install-public "packages-maven-mvn.md#mvn-install-public")
+- [Fetching packages from external package repositories through CodeCatalyst](packages-maven-mvn.md#mvn-install-public "packages-maven-mvn.md#mvn-install-public")
 - [Publishing packages to CodeCatalyst](packages-maven-mvn.md#mvn-publish-packages "packages-maven-mvn.md#mvn-publish-packages")
-- [Publishing third-party
-  packages](packages-maven-mvn.md#publishing-third-party-packages "packages-maven-mvn.md#publishing-third-party-packages")
+- [Publishing third-party packages](packages-maven-mvn.md#publishing-third-party-packages "packages-maven-mvn.md#publishing-third-party-packages")
 
 ## Fetching dependencies from CodeCatalyst
 
@@ -24,9 +22,7 @@ information about the project and configuration information for Maven to build t
 project such as dependencies, build directory, source directory, test source
 directory, plugin, and goals.
 
-###### To use `mvn` to fetch dependencies from your CodeCatalyst package
-
-repository
+###### To use `mvn` to fetch dependencies from your CodeCatalyst package repository
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. On the overview page for your project, choose
@@ -147,9 +143,7 @@ After you make these configuration changes, you can build the project.
 mvn compile
 ```
 
-## Fetching packages from external package repositories
-
-through CodeCatalyst
+## Fetching packages from external package repositories through CodeCatalyst
 
 You can install Maven packages from public repositories through a CodeCatalyst
 repository by configuring it with an upstream connection to the gateway that represents the gateway repository.
@@ -180,9 +174,7 @@ For more information about requesting packages from upstream repositories, see
 To publish a Maven package with `mvn` to a CodeCatalyst repository, you must
 also edit `~/.m2/settings.xml` and the project POM.
 
-###### To use `mvn` to publish packages to your CodeCatalyst package
-
-repository
+###### To use `mvn` to publish packages to your CodeCatalyst package repository
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. On the overview page for your project, choose
@@ -258,9 +250,7 @@ mvn deploy
 You can navigate to your package repository in the CodeCatalyst console to check that
 the package was successfully published.
 
-## Publishing third-party
-
-packages
+## Publishing third-party packages
 
 You can publish third-party Maven packages to a CodeCatalyst repository with `mvn
  deploy:deploy-file`. This can be helpful to users that want to publish

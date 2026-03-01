@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Associating an environment with
-
-an action
+# Associating an environment with an action
 
 When you associate an environment with a [supported workflow action](deploy-environments.md#deploy-environments-supported "deploy-environments.md#deploy-environments-supported"), the environment's AWS account, default IAM role, and
 optional Amazon VPC become assigned to the action. The action can then connect and deploy to the
@@ -10,17 +8,13 @@ AWS account using the IAM role, and also connect to the optional Amazon VPC.
 
 Use the following instructions to associate an environment with an action.
 
-## Step 1: Associate the
-
-environment with a workflow action
+## Step 1: Associate the environment with a workflow action
 
 Use the following procedure to associate an environment with a workflow action.
 
 Visual
 
-###### To associate an
-
-environment with a workflow action using the visual editor
+###### To associate an environment with a workflow action using the visual editor
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -31,8 +25,7 @@ environment with a workflow action using the visual editor
 5. Choose **Edit**.
 6. Choose **Visual**.
 7. In the workflow diagram, choose an action that is supported with environments.
-   For more information, see [Which actions support having their
-   deployment information displayed in CodeCatalyst?](deploy-environments.md#deploy-environments-supported-targets "deploy-environments.md#deploy-environments-supported-targets").
+   For more information, see [Which actions support having their deployment information displayed in CodeCatalyst?](deploy-environments.md#deploy-environments-supported-targets "deploy-environments.md#deploy-environments-supported-targets").
 8. Choose the **Configuration** tab, and specify information in
    the **Environment** field, as follows.
 
@@ -86,9 +79,7 @@ To change the role:
 
 YAML
 
-###### To associate an environment with a workflow action using the YAML
-
-editor
+###### To associate an environment with a workflow action using the YAML editor
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -114,9 +105,7 @@ section that includes the role you want to use. For more information, see [Chang
 YAML code before committing. 10. Choose **Commit**, enter a commit message, and choose
 **Commit** again.
 
-## Step 2:
-
-Populate the deployment activity page
+## Step 2: Populate the deployment activity page
 
 After associating an environment with a workflow action, you can populate the
 **Deployment activity** and **Deployment target** pages
@@ -126,14 +115,12 @@ information. Use the following instructions to populate these pages.
 ###### Note
 
 Only a few actions support having their deployment information displayed in the CodeCatalyst
-console. For more information, see [Which actions support having their
-deployment information displayed in CodeCatalyst?](deploy-environments.md#deploy-environments-supported-targets "deploy-environments.md#deploy-environments-supported-targets").
+console. For more information, see [Which actions support having their deployment information displayed in CodeCatalyst?](deploy-environments.md#deploy-environments-supported-targets "deploy-environments.md#deploy-environments-supported-targets").
 
 ###### To add deployment information to CodeCatalyst
 
 1. If a workflow run did not start automatically when you committed your changes in
-   [Step 1: Associate the
-   environment with a workflow action](#deploy-environments-add-app-to-environment-assoc "#deploy-environments-add-app-to-environment-assoc"), manually start a
+   [Step 1: Associate the environment with a workflow action](#deploy-environments-add-app-to-environment-assoc "#deploy-environments-add-app-to-environment-assoc"), manually start a
    run as follows:
    1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
    2. Choose the name of your workflow. You can filter by the source repository or

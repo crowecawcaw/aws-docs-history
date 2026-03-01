@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Examples of referencing predefined
-
-variables
+# Examples of referencing predefined variables
 
 The following examples show how to reference predefined variables in the workflow
 definition file.
@@ -11,14 +9,10 @@ For more information about predefined variables, see [Using predefined variables
 
 ###### Examples
 
-- [Example:
-  Referencing the "CommitId" predefined variable](#workflows-working-with-variables-ex-refer-action "#workflows-working-with-variables-ex-refer-action")
-- [Example: Referencing
-  the "BranchName" predefined variable](#workflows-working-with-variables-ex-branch "#workflows-working-with-variables-ex-branch")
+- [Example: Referencing the "CommitId" predefined variable](#workflows-working-with-variables-ex-refer-action "#workflows-working-with-variables-ex-refer-action")
+- [Example: Referencing the "BranchName" predefined variable](#workflows-working-with-variables-ex-branch "#workflows-working-with-variables-ex-branch")
 
-## Example:
-
-Referencing the "CommitId" predefined variable
+## Example: Referencing the "CommitId" predefined variable
 
 The following example shows you how to refer to the `CommitId`
 predefined variable in the `MyBuildAction` action. The
@@ -42,9 +36,7 @@ MyBuildAction:
         - Run: docker tag image-repo/my-docker-image:**${WorkflowSource.CommitId}**
 ```
 
-## Example: Referencing
-
-the "BranchName" predefined variable
+## Example: Referencing the "BranchName" predefined variable
 
 The following example shows you how to refer to the `BranchName`
 predefined variable in the `CDKDeploy` action. The

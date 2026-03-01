@@ -37,8 +37,7 @@ shared with the other users in your CodeCatalyst project. You can have more than
 repository for a project. You can create source repositories for projects in CodeCatalyst, or you can
 choose to link an existing source repository hosted by another service if that service is supported by
 an installed extension. For example, you can link a GitHub repository to a project after you install the
-**GitHub Repositories** extension. For more information, see [Storing source code in repositories for a project in
-CodeCatalyst](source-repositories.md "source-repositories.md") and [Quickstart: Installing extensions, connecting providers, and linking resources in CodeCatalyst](extensions-quickstart.md "extensions-quickstart.md").
+**GitHub Repositories** extension. For more information, see [Storing source code in repositories for a project in CodeCatalyst](source-repositories.md "source-repositories.md") and [Quickstart: Installing extensions, connecting providers, and linking resources in CodeCatalyst](extensions-quickstart.md "extensions-quickstart.md").
 
 ## Dev Environments
 
@@ -88,8 +87,7 @@ If you create a source repository without using a template, a README.md file is 
 a first commit and a default branch is created for you as part of creating the repository. This
 default branch is named _main_. This default branch is the one used as the
 base or default branch in local repositories (repos) when users clone the repository. You can
-change which branch is used as the default branch. For more information, see [Managing the default branch for a
-repository](source-branches-default-branch.md "source-branches-default-branch.md").
+change which branch is used as the default branch. For more information, see [Managing the default branch for a repository](source-branches-default-branch.md "source-branches-default-branch.md").
 
 You can't delete the default branch for a source repository. Search results only
 include results from the default branch.
@@ -100,8 +98,7 @@ A _commit_ is a change to a file or set of files. In the Amazon CodeCatalyst
 console, a commit saves your changes and pushes them to a source repository. The
 commit includes information about the change, including the identity of the user who made the
 change, the time and date of the change, the commit title, and any message included about the
-change. For more information, see [Understanding
-changes in source code with commits in Amazon CodeCatalyst](source-commits.md "source-commits.md").
+change. For more information, see [Understanding changes in source code with commits in Amazon CodeCatalyst](source-commits.md "source-commits.md").
 
 In the context of a source repository in CodeCatalyst, commits are snapshots of the contents and
 changes to the contents of your repository. You can also add Git tags to commits, to identify
@@ -132,8 +129,7 @@ A _revision_ is an updated version of a pull request. Each push to the
 source branch of a pull request creates a revision that contains the changes made in the commits
 included in that push. You can view the differences between revisions of a pull request in
 addition to the differences between the source and destination branches. For more information, see
-[Reviewing code with pull requests in
-Amazon CodeCatalyst](source-pull-requests.md "source-pull-requests.md").
+[Reviewing code with pull requests in Amazon CodeCatalyst](source-pull-requests.md "source-pull-requests.md").
 
 ## Workflows
 

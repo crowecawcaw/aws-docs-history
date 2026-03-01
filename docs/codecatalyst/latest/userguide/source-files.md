@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Managing
-
-source code files in Amazon CodeCatalyst
+# Managing source code files in Amazon CodeCatalyst
 
 In Amazon CodeCatalyst, a file is a version-controlled, self-contained piece of information
 available to you and other users of the source repository and branch where the file is

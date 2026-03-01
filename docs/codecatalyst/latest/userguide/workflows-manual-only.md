@@ -11,8 +11,7 @@ create a workflow, but the section is optional and can be removed.
 Use the following instructions to remove the `Triggers` section in the
 workflow definition file so that the workflow can only be started manually.
 
-For more information about triggers, see [Starting a workflow run automatically using
-triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 
 For more information about running workflows, see [Running a workflow](workflows-working-runs.md "workflows-working-runs.md").
 

@@ -52,8 +52,7 @@ An _artifact_ is the output of a workflow action, and typically consists
 of a folder or archive of files. Artifacts are important because they allow you to share files
 and information between actions.
 
-For more information about artifacts, see [Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
 
 ## Compute
 
@@ -152,5 +151,4 @@ workflow.
 Triggers are optional—if you don't configure any, you can only start a workflow
 manually.
 
-For more information about triggers, see [Starting a workflow run automatically using
-triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").

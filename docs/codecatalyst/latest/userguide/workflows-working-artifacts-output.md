@@ -39,8 +39,7 @@ within a workflow, and are limited to alphanumeric characters (a-z, A-Z, 0-9) an
 Spaces, hyphens (-), and other special characters are not allowed. You cannot use quotation
 marks to enable spaces, hyphens, and other special characters in output artifact names.
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
 
 **Files produced by build**
 
@@ -69,15 +68,12 @@ If your file path includes one or more asterisks (`*`) or other special
 character, enclose the path with double quotation marks (`""`). For more
 information about special characters, see [Syntax guidelines and conventions](workflow-reference.md#workflow.terms.syntax.conv "workflow-reference.md#workflow.terms.syntax.conv").
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
 
 ###### Note
 
 You may need to add a prefix to the file path to indicate which artifact or source to find
-it in. For more information, see [Referencing source repository
-files](workflows-sources-reference-files.md "workflows-sources-reference-files.md") and [Referencing files in an
-artifact](workflows-working-artifacts-refer-files.md "workflows-working-artifacts-refer-files.md"). 11. (Optional) Choose **Validate** to validate the
+it in. For more information, see [Referencing source repository files](workflows-sources-reference-files.md "workflows-sources-reference-files.md") and [Referencing files in an artifact](workflows-working-artifacts-refer-files.md "workflows-working-artifacts-refer-files.md"). 11. (Optional) Choose **Validate** to validate the
 workflow's YAML code before committing. 12. Choose **Commit**, enter a commit message, and
 choose **Commit** again.
 

@@ -52,8 +52,7 @@ required default shape:
 ## Referencing a secret in a workflow
 
 The following example blueprint creates a secret and a workflow that references the secret value. For
-more information, see [Referencing a secret in a
-workflow](workflows-secrets.md#workflows-using-secrets.using-identifier "workflows-secrets.md#workflows-using-secrets.using-identifier").
+more information, see [Referencing a secret in a workflow](workflows-secrets.md#workflows-using-secrets.using-identifier "workflows-secrets.md#workflows-using-secrets.using-identifier").
 
 ```
 export interface Options extends ParentOptions {

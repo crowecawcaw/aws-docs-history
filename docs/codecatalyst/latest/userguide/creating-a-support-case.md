@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Creating a CodeCatalyst support case in
-
-CodeCatalyst
+# Creating a CodeCatalyst support case in CodeCatalyst
 
 You can create a support case in the Support for Amazon CodeCatalyst page.
 
@@ -46,8 +44,7 @@ icon, and then choose **Support**. 4. Choose **Create case**. 5. Choose one of t
     In Support for Amazon CodeCatalyst, if a Business Support or Enterprise Support
      plan is added to the space billing account, CodeCatalyst technical
      case support will be available to all space administrators and space
-     members. For troubleshooting information, see [I cannot create technical
-     support cases for my space](troubleshooting.md#troubleshoot-support-technical-cases "troubleshooting.md#troubleshoot-support-technical-cases").
+     members. For troubleshooting information, see [I cannot create technical support cases for my space](troubleshooting.md#troubleshoot-support-technical-cases "troubleshooting.md#troubleshoot-support-technical-cases").
 
     Support plans do not span across spaces. If you are a member of
      multiple spaces, your space administrator will need to purchase

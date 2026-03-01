@@ -18,14 +18,12 @@ then deployed into Amazon EKS.
 
 Instead of working your way through this tutorial, you can use a blueprint that does a
 complete Amazon EKS setup for you. You'll need to use the **EKS App Deployment**
-blueprint. For more information, see [Creating a project with a
-blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template").
+blueprint. For more information, see [Creating a project with a blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template").
 
 ###### Topics
 
 - [Prerequisites](#deploy-tut-eks-prereqs "#deploy-tut-eks-prereqs")
-- [Step 1: Set up your development
-  machine](#deploy-tut-eks-dev-env-create "#deploy-tut-eks-dev-env-create")
+- [Step 1: Set up your development machine](#deploy-tut-eks-dev-env-create "#deploy-tut-eks-dev-env-create")
 - [Step 2: Create an Amazon EKS cluster](#deploy-tut-eks-cluster "#deploy-tut-eks-cluster")
 - [Step 3: Create an Amazon ECR image repository](#deploy-tut-eks-ecr "#deploy-tut-eks-ecr")
 - [Step 4: Add source files](#deploy-tut-eks-source-files "#deploy-tut-eks-source-files")
@@ -77,9 +75,7 @@ Configure this environment as follows:
 
 For more information, see [Deploying into AWS accounts and VPCs](deploy-environments.md "deploy-environments.md").
 
-## Step 1: Set up your development
-
-machine
+## Step 1: Set up your development machine
 
 The first step in this tutorial is to configure a development machine with a few tools
 that you'll use throughout this tutorial. These tools are:
@@ -392,8 +388,7 @@ Make sure you have completed the following tasks on your development machine:
 - Installed the `kubectl` utility.
 - Installed the AWS CLI and configured it with access keys and a session token.
 
-For information on how to complete these tasks, see [Step 1: Set up your development
-machine](#deploy-tut-eks-dev-env-create "#deploy-tut-eks-dev-env-create").
+For information on how to complete these tasks, see [Step 1: Set up your development machine](#deploy-tut-eks-dev-env-create "#deploy-tut-eks-dev-env-create").
 
 ###### To create a cluster
 
@@ -696,8 +691,7 @@ Guide_.
 ###### Note
 
 To save time, you can create a single role, called the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role, instead of
- the two roles listed previously. For more information, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account
- and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create").
+ the two roles listed previously. For more information, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create").
  Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has very broad permissions which may pose a security
 risk. We recommend that you only use this role in tutorials and scenarios where security is
 less of a concern. This tutorial assumes you are creating the two roles listed
@@ -1053,8 +1047,7 @@ Docker image, and then deploys the image into tree pods in your Amazon EKS clust
 The workflow consists of the following building blocks that run sequentially:
 
 - A trigger – This trigger starts the workflow run automatically when you push a
-  change to your source repository. For more information about triggers, see [Starting a workflow run automatically using
-  triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+  change to your source repository. For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 - A build action (`BuildBackend`) – On trigger, the action builds the
   Docker image using the Dockerfile and pushes the image to Amazon ECR. The build action also
   updates the `$REPOSITORY_URI` and `$IMAGE_TAG` variables in the
@@ -1333,10 +1326,8 @@ storage and compute resources used by this tutorial.
 If the `eksctl delete cluster` command doesn't work, you may need to
 refresh your AWS credentials or your `kubectl` credentials. If you're not
 sure which credentials to refresh, refresh the AWS credentials first. To refresh your
-AWS credentials, see [How do I fix "Unable to
-locate credentials" and "ExpiredToken" errors?](troubleshooting-workflows.md#troubleshooting-workflows-auth-errors-eks "troubleshooting-workflows.md#troubleshooting-workflows-auth-errors-eks"). To refresh your
-`kubectl` credentials, see [How do I fix "Unable to
-connect to the server" errors?](troubleshooting-workflows.md#troubleshooting-workflows-unable-connect-eks "troubleshooting-workflows.md#troubleshooting-workflows-unable-connect-eks"). 2. In the AWS console, clean up as follows:
+AWS credentials, see [How do I fix "Unable to locate credentials" and "ExpiredToken" errors?](troubleshooting-workflows.md#troubleshooting-workflows-auth-errors-eks "troubleshooting-workflows.md#troubleshooting-workflows-auth-errors-eks"). To refresh your
+`kubectl` credentials, see [How do I fix "Unable to connect to the server" errors?](troubleshooting-workflows.md#troubleshooting-workflows-unable-connect-eks "troubleshooting-workflows.md#troubleshooting-workflows-unable-connect-eks"). 2. In the AWS console, clean up as follows:
 
     1. In Amazon ECR, delete `codecatalyst-eks-image-repo`.
     2. In IAM Identity Center, delete:

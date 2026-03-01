@@ -6,8 +6,7 @@ The default _universal image_ includes the most commonly used
 programming languages and related tools that can be used for your IDE. If no image is
 specified, CodeCatalyst provides this image and contains tools that are maintained by CodeCatalyst.
 To remain notified of
-new image releases, see [Subscribing to universal image notifications
-with SNS](#devenvironment-universal-notifications "#devenvironment-universal-notifications").
+new image releases, see [Subscribing to universal image notifications with SNS](#devenvironment-universal-notifications "#devenvironment-universal-notifications").
 
 Amazon CodeCatalyst actively supports the following devfile images:
 
@@ -38,14 +37,11 @@ If you're using AWS Cloud9, auto-complete will not work for PHP, Ruby and CSS af
 
 ###### Topics
 
-- [Subscribing to universal image notifications
-  with SNS](#devenvironment-universal-notifications "#devenvironment-universal-notifications")
+- [Subscribing to universal image notifications with SNS](#devenvironment-universal-notifications "#devenvironment-universal-notifications")
 - [Universal image 4.0 runtime versions](#devenvironment-universal-runtimes-4.0 "#devenvironment-universal-runtimes-4.0")
 - [Universal image 5.0 runtime versions](#devenvironment-universal-runtimes-5.0 "#devenvironment-universal-runtimes-5.0")
 
-## Subscribing to universal image notifications
-
-with SNS
+## Subscribing to universal image notifications with SNS
 
 CodeCatalyst provides a universal image notification service. You can use it to subscribe to
 an Amazon Simple Notification Service (SNS) topic that notifies you when CodeCatalyst universal image updates have been

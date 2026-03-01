@@ -36,13 +36,10 @@ billed in that connected AWS account. For more information, see [Managing billin
 - [Policy actions in IAM](#id-based-policies-actions "#id-based-policies-actions")
 - [Policy resources in IAM](#id-based-policies-resources "#id-based-policies-resources")
 - [Policy condition keys in IAM](#id-based-policies-conditionkeys "#id-based-policies-conditionkeys")
-- [Identity-based policy examples for CodeCatalyst
-  connections](#id-based-policy-examples "#id-based-policy-examples")
-- [Using tags to control access to account
-  connection resources](id-based-policy-examples-tags.md "id-based-policy-examples-tags.md")
+- [Identity-based policy examples for CodeCatalyst connections](#id-based-policy-examples "#id-based-policy-examples")
+- [Using tags to control access to account connection resources](id-based-policy-examples-tags.md "id-based-policy-examples-tags.md")
 - [CodeCatalyst permissions reference](#permissions-reference "#permissions-reference")
-- [Using service-linked roles for
-  CodeCatalyst](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for CodeCatalyst](using-service-linked-roles.md "using-service-linked-roles.md")
 - [AWS managed policies for Amazon CodeCatalyst](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Grant access to project AWS resources with IAM roles](ipa-iam-roles.md "ipa-iam-roles.md")
 
@@ -61,12 +58,9 @@ or role to which it is attached. To learn about all of the elements that you can
 JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the _IAM User Guide_.
 
-### Identity-based policy examples for
+### Identity-based policy examples for CodeCatalyst
 
-CodeCatalyst
-
-To view examples of CodeCatalyst identity-based policies, see [Identity-based policy examples for CodeCatalyst
-connections](#id-based-policy-examples "#id-based-policy-examples").
+To view examples of CodeCatalyst identity-based policies, see [Identity-based policy examples for CodeCatalyst connections](#id-based-policy-examples "#id-based-policy-examples").
 
 ## Policy actions in IAM
 
@@ -138,9 +132,7 @@ AWS supports global condition keys and service-specific condition keys. To see a
 global condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-## Identity-based policy examples for CodeCatalyst
-
-connections
+## Identity-based policy examples for CodeCatalyst connections
 
 In CodeCatalyst, AWS accounts are required to manage billing for a space and to access
 resources in project workflows. An account connection is used to authorize adding
@@ -156,9 +148,7 @@ attach those policies for users that require them.
 The following example IAM policies grant permissions for actions related to account
 connections. Use them to limit access for connecting accounts to CodeCatalyst.
 
-### Example 1: Allow a user to accept
-
-connection requests in a single AWS Region
+### Example 1: Allow a user to accept connection requests in a single AWS Region
 
 The following permissions policy only allows users to view and accept requests for
 connections between CodeCatalyst and AWS accounts. In addition, the policy uses a condition
@@ -190,9 +180,7 @@ JSON
 
 ```
 
-### Example 2: Allow managing connections
-
-in the console for a single AWS Region
+### Example 2: Allow managing connections in the console for a single AWS Region
 
 The following permissions policy allows users to manage connections between CodeCatalyst
 and AWS accounts in a single Region. The policy uses a condition to only allow the
@@ -251,9 +239,7 @@ JSON
 
 ```
 
-### Example 3: Deny managing
-
-connections
+### Example 3: Deny managing connections
 
 The following permissions policy denies users any ability to manage connections
 between CodeCatalyst and AWS accounts.
@@ -282,9 +268,7 @@ This section provides a permissions reference for actions used with the account
 connection resource for AWS accounts that are connected to CodeCatalyst. The following section
 describes permissions-only actions that are related to connecting accounts.
 
-### Required permissions for account
-
-connections
+### Required permissions for account connections
 
 The following permissions are required for working with account connections.
 

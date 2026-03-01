@@ -11,9 +11,7 @@ commits to the source branch of an open pull request. Each push to the source br
 a pull request in the CodeCatalyst source repository creates a revision. Project members can
 view the differences between revisions in a pull request.
 
-###### To update the reviewers for a pull
-
-request
+###### To update the reviewers for a pull request
 
 1. Navigate to the project where you want to update the reviewers of a pull
    request.
@@ -31,24 +29,19 @@ request
    enter its ID. To unlink an issue, choose the unlink icon next to the issue you
    want to unlink.
 
-###### To update files and code in the source
-
-branch of a pull request
+###### To update files and code in the source branch of a pull request
 
 1. To update multiple files, either [create
    a Dev Environment](devenvironment-create.md "devenvironment-create.md"), or clone the repository and its source branch and use
    a Git client or an integrated development environment (IDE) to make changes to
    the files in the source branch. Commit and push the changes to the source branch
    in the CodeCatalyst source repository to automatically update the pull request with
-   the changes. For more information, see [Cloning a source repository](source-repositories-clone.md "source-repositories-clone.md") and [Understanding
-   changes in source code with commits in Amazon CodeCatalyst](source-commits.md "source-commits.md").
+   the changes. For more information, see [Cloning a source repository](source-repositories-clone.md "source-repositories-clone.md") and [Understanding changes in source code with commits in Amazon CodeCatalyst](source-commits.md "source-commits.md").
 2. To update an individual file in a source branch, you can use a Git client or
    IDE as you would for multiple files. You can also edit it directly in the CodeCatalyst
    console. For more information, see [Editing a file](source-files-edit.md "source-files-edit.md").
 
-###### To update the title and description
-
-of a pull request
+###### To update the title and description of a pull request
 
 1. Navigate to the project where you want to update the title or description of a
    pull request.

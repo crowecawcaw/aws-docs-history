@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Adding IAM roles to account
-
-connections
+# Adding IAM roles to account connections
 
 Part of creating your account connection includes adding the IAM role or roles you
 want to use with projects in your CodeCatalyst space.

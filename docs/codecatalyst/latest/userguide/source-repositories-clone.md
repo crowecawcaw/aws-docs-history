@@ -25,8 +25,7 @@ linked repository.
    **Source repositories**.
 3. Choose the source repository where you want to work on code.
 4. Choose **Create Dev Environment**.
-5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments
-   for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
+5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
 6. Do one of the following:
    - Choose **Work in existing branch**, and then choose a branch from the
      **Existing branch** drop-down menu.

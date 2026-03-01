@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Troubleshooting problems with search in
-
-CodeCatalyst
+# Troubleshooting problems with search in CodeCatalyst
 
 Consult the following sections to troubleshoot problems related to searching in CodeCatalyst.
 For more information about workflows, see [Search for code, issues, projects, and users in CodeCatalyst](search.md "search.md").
@@ -10,10 +8,8 @@ For more information about workflows, see [Search for code, issues, projects, an
 ###### Topics
 
 - [I can't find a user in my project](#troubleshooting-search-users "#troubleshooting-search-users")
-- [I don't see what I'm looking for in my
-  project or space](#troubleshooting-missing-results "#troubleshooting-missing-results")
-- [Number of search results keep changing when I navigate
-  through the pages](#troubleshooting-search-results "#troubleshooting-search-results")
+- [I don't see what I'm looking for in my project or space](#troubleshooting-missing-results "#troubleshooting-missing-results")
+- [Number of search results keep changing when I navigate through the pages](#troubleshooting-search-results "#troubleshooting-search-results")
 - [My search query isn't being completed](#troubleshooting-requests-limits "#troubleshooting-requests-limits")
 
 ## I can't find a user in my project
@@ -26,9 +22,7 @@ users within a project. To search for users with access to your space, switch to
 space** in QuickSearch, or remove any project filters you might have specified using
 the advanced query language.
 
-## I don't see what I'm looking for in my
-
-project or space
+## I don't see what I'm looking for in my project or space
 
 **Problem:** Results don't appear when I try to search for
 particular information.
@@ -40,9 +34,7 @@ For resources that haven't been recently updated, you might need to refine your
 search. You can refine by adding more keywords or using the advanced query language. For
 more information about refining your queries, see [Refining your search query](search.md#search-query-language-examples "search.md#search-query-language-examples").
 
-## Number of search results keep changing when I navigate
-
-through the pages
+## Number of search results keep changing when I navigate through the pages
 
 **Problem:** The number of search results appear to change when I
 go to the next page, so it's not clear how many total results there are.

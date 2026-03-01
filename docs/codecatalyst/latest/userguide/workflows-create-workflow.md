@@ -27,9 +27,7 @@ For more information about workflows, see [Build, test, and deploy with workflow
 
 Visual
 
-###### To create a workflow using the visual
-
-editor
+###### To create a workflow using the visual editor
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.

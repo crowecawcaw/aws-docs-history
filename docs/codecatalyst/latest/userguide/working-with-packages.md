@@ -12,6 +12,5 @@ a package version's status.
 - [Publishing packages to a CodeCatalyst package repository](package-publishing.md "package-publishing.md")
 - [Viewing package version details](working-with-packages-view.md "working-with-packages-view.md")
 - [Deleting a package version](working-with-packages-delete.md "working-with-packages-delete.md")
-- [Updating a package version's
-  status](working-with-packages-update-version-status.md "working-with-packages-update-version-status.md")
+- [Updating a package version's status](working-with-packages-update-version-status.md "working-with-packages-update-version-status.md")
 - [Editing package origin controls](package-origin-controls.md "package-origin-controls.md")

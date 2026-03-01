@@ -17,10 +17,8 @@ information, see [ResponseFilters](lam-invoke-action-ref.md#lam.invoke.response.
 ###### Topics
 
 - [When to use this action](#lam-invoke-action-when-to-use "#lam-invoke-action-when-to-use")
-- [Runtime image used by the 'AWS Lambda invoke'
-  action](#lam-invoke-action-runtime "#lam-invoke-action-runtime")
-- [Example: Invoke a Lambda
-  function](lam-invoke-action-example-workflow.md "lam-invoke-action-example-workflow.md")
+- [Runtime image used by the 'AWS Lambda invoke' action](#lam-invoke-action-runtime "#lam-invoke-action-runtime")
+- [Example: Invoke a Lambda function](lam-invoke-action-example-workflow.md "lam-invoke-action-example-workflow.md")
 - [Adding the 'AWS Lambda invoke' action](lam-invoke-action-add.md "lam-invoke-action-add.md")
 - ['AWS Lambda invoke' variables](lam-invoke-action-variables.md "lam-invoke-action-variables.md")
 - ['AWS Lambda invoke' action YAML](lam-invoke-action-ref.md "lam-invoke-action-ref.md")
@@ -41,8 +39,6 @@ application before it is deployed. In this case, you would use a build action to
 application, an **AWS Lambda invoke** action to invoke a Lambda to scan for
 vulnerabilities, and a deploy action to deploy the scanned application.
 
-## Runtime image used by the 'AWS Lambda invoke'
-
-action
+## Runtime image used by the 'AWS Lambda invoke' action
 
 The **AWS Lambda invoke** action runs on a [November 2022 image](build-images.md#build.previous-image "build-images.md#build.previous-image"). For more information, see [Active images](build-images.md#build-curated-images "build-images.md#build-curated-images").

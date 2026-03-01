@@ -35,9 +35,7 @@ see [Getting started with workflows](workflows-getting-started.md "workflows-get
 You can configure a CodeCatalyst workflow to automatically start a run when code is pushed to the specified branch of your GitHub or Bitbucket repository.
 To start a workflow run automatically, add a trigger to the `Triggers` section of the workflow configuration file.
 
-### Example: A simple code
-
-push trigger
+### Example: A simple code push trigger
 
 The following example shows a trigger that starts a workflow run whenever code is
 pushed to any branch in your source repository.
@@ -48,9 +46,7 @@ Triggers:
 
 ```
 
-### Example: A simple pull
-
-request trigger
+### Example: A simple pull request trigger
 
 The following example shows a trigger that starts a workflow run whenever a pull
 request is created against any branch in your source repository.
@@ -63,5 +59,4 @@ Triggers:
 
 ```
 
-For more information, see [Starting a workflow run automatically using
-triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+For more information, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").

@@ -5,37 +5,23 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 The following examples show how to add different types of triggers in an Amazon CodeCatalyst
 workflow definition file.
 
-For more information about triggers, see [Starting a workflow run automatically using
-triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 
 ###### Topics
 
-- [Example: A simple code
-  push trigger](#workflows-add-trigger-examples-push-simple "#workflows-add-trigger-examples-push-simple")
-- [Example: A simple 'push
-  to main' trigger](#workflows-add-trigger-examples-push-main "#workflows-add-trigger-examples-push-main")
-- [Example: A simple pull
-  request trigger](#workflows-add-trigger-examples-pull-simple "#workflows-add-trigger-examples-pull-simple")
-- [Example: A simple
-  schedule trigger](#workflows-add-trigger-examples-schedule-simple "#workflows-add-trigger-examples-schedule-simple")
-- [Example: A
-  trigger with a schedule and branches](#workflows-add-trigger-examples-schedule-branches "#workflows-add-trigger-examples-schedule-branches")
-- [Example: A
-  trigger with a schedule, a push, and branches](#workflows-add-trigger-examples-schedule-push-branches "#workflows-add-trigger-examples-schedule-push-branches")
-- [Example: A trigger
-  with a pull and branches](#workflows-add-trigger-examples-pull-branches "#workflows-add-trigger-examples-pull-branches")
-- [Example: A trigger
-  with a pull, branches, and a 'CLOSED' event](#workflows-add-trigger-examples-push-pull-close "#workflows-add-trigger-examples-push-pull-close")
-- [Example: A trigger with
-  a push, branches, and files](#workflows-add-trigger-examples-push-multi "#workflows-add-trigger-examples-push-multi")
-- [Example: A manual
-  trigger](#workflows-add-trigger-examples-manual "#workflows-add-trigger-examples-manual")
-- [Example: Triggers in a CI/CD
-  multi-workflow setup](#workflows-add-trigger-usecases "#workflows-add-trigger-usecases")
+- [Example: A simple code push trigger](#workflows-add-trigger-examples-push-simple "#workflows-add-trigger-examples-push-simple")
+- [Example: A simple 'push to main' trigger](#workflows-add-trigger-examples-push-main "#workflows-add-trigger-examples-push-main")
+- [Example: A simple pull request trigger](#workflows-add-trigger-examples-pull-simple "#workflows-add-trigger-examples-pull-simple")
+- [Example: A simple schedule trigger](#workflows-add-trigger-examples-schedule-simple "#workflows-add-trigger-examples-schedule-simple")
+- [Example: A trigger with a schedule and branches](#workflows-add-trigger-examples-schedule-branches "#workflows-add-trigger-examples-schedule-branches")
+- [Example: A trigger with a schedule, a push, and branches](#workflows-add-trigger-examples-schedule-push-branches "#workflows-add-trigger-examples-schedule-push-branches")
+- [Example: A trigger with a pull and branches](#workflows-add-trigger-examples-pull-branches "#workflows-add-trigger-examples-pull-branches")
+- [Example: A trigger with a pull, branches, and a 'CLOSED' event](#workflows-add-trigger-examples-push-pull-close "#workflows-add-trigger-examples-push-pull-close")
+- [Example: A trigger with a push, branches, and files](#workflows-add-trigger-examples-push-multi "#workflows-add-trigger-examples-push-multi")
+- [Example: A manual trigger](#workflows-add-trigger-examples-manual "#workflows-add-trigger-examples-manual")
+- [Example: Triggers in a CI/CD multi-workflow setup](#workflows-add-trigger-usecases "#workflows-add-trigger-usecases")
 
-## Example: A simple code
-
-push trigger
+## Example: A simple code push trigger
 
 The following example shows a trigger that starts a workflow run whenever code is
 pushed to _any_ branch in your source repository.
@@ -60,12 +46,9 @@ Triggers:
 ###### Note
 
 If you want a workflow run to start only when you push to `main`,
-see [Example: A simple 'push
-to main' trigger](#workflows-add-trigger-examples-push-main "#workflows-add-trigger-examples-push-main").
+see [Example: A simple 'push to main' trigger](#workflows-add-trigger-examples-push-main "#workflows-add-trigger-examples-push-main").
 
-## Example: A simple 'push
-
-to main' trigger
+## Example: A simple 'push to main' trigger
 
 The following example shows a trigger that starts a workflow run whenever code is
 pushed to the `main` branch—and _only_ the
@@ -78,9 +61,7 @@ Triggers:
       - main
 ```
 
-## Example: A simple pull
-
-request trigger
+## Example: A simple pull request trigger
 
 The following example shows a trigger that starts a workflow run whenever a pull
 request is created or revised in your source repository.
@@ -102,9 +83,7 @@ Triggers:
       - REVISION
 ```
 
-## Example: A simple
-
-schedule trigger
+## Example: A simple schedule trigger
 
 The following example shows a trigger that starts a workflow run at midnight
 (UTC+0) every Monday through Friday.
@@ -129,9 +108,7 @@ Triggers:
 For more examples of cron expressions you can use in the `Expression`
 property, see [Expression](workflow-reference.md#workflow.triggers.expression "workflow-reference.md#workflow.triggers.expression").
 
-## Example: A
-
-trigger with a schedule and branches
+## Example: A trigger with a schedule and branches
 
 The following example shows a trigger that starts a workflow run at 6:15 pm
 (UTC+0) every day.
@@ -159,9 +136,7 @@ Triggers:
 For more examples of cron expressions you can use in the `Expression`
 property, see [Expression](workflow-reference.md#workflow.triggers.expression "workflow-reference.md#workflow.triggers.expression").
 
-## Example: A
-
-trigger with a schedule, a push, and branches
+## Example: A trigger with a schedule, a push, and branches
 
 The following example shows a trigger that starts a workflow run at midnight
 (UTC+0) every day, and whenever code is pushed to the `main`
@@ -191,9 +166,7 @@ Triggers:
 For more examples of cron expressions you can use in the `Expression`
 property, see [Expression](workflow-reference.md#workflow.triggers.expression "workflow-reference.md#workflow.triggers.expression").
 
-## Example: A trigger
-
-with a pull and branches
+## Example: A trigger with a pull and branches
 
 The following example shows a trigger that starts a workflow run whenever someone
 opens or modifies a pull request with a destination branch called `main`.
@@ -212,9 +185,7 @@ Triggers:
       - REVISION
 ```
 
-## Example: A trigger
-
-with a pull, branches, and a 'CLOSED' event
+## Example: A trigger with a pull, branches, and a 'CLOSED' event
 
 The following example shows a trigger that starts a workflow run whenever a pull
 request is closed on a branch that starts with `main`.
@@ -241,9 +212,7 @@ Triggers:
       - CLOSED
 ```
 
-## Example: A trigger with
-
-a push, branches, and files
+## Example: A trigger with a push, branches, and files
 
 The following example shows a trigger that starts a workflow run whenever a change
 is made to the `filename.txt` file, or any file in the `src`
@@ -262,18 +231,14 @@ Triggers:
       - src\/.*
 ```
 
-## Example: A manual
-
-trigger
+## Example: A manual trigger
 
 To configure a manual trigger, omit the `Triggers` section from the
 workflow definition file. Without this section, users are forced to start the
 workflow manually by choosing the **Run** button in the CodeCatalyst
 console. For more information, see [Starting a workflow run manually](workflows-manually-start.md "workflows-manually-start.md").
 
-## Example: Triggers in a CI/CD
-
-multi-workflow setup
+## Example: Triggers in a CI/CD multi-workflow setup
 
 This example describes how to set up triggers when you want to use separate
 Amazon CodeCatalyst workflows for continuous integration (CI) and continuous deployment

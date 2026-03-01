@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Assigning a fleet or compute to an
-
-action
+# Assigning a fleet or compute to an action
 
 By default, workflow actions use the `Linux.x86-64.Large` on-demand fleet
 with an Amazon EC2 compute type. To use a provisioned fleet instead, or to use a different
@@ -16,9 +14,7 @@ Visual
 - If you want to assign a provisioned fleet, you must first create
   the provisioned fleet. For more information, see [Creating a provisioned fleet](projects-create-compute-resource.md "projects-create-compute-resource.md").
 
-###### To assign a provisioned fleet or different fleet type to an
-
-action
+###### To assign a provisioned fleet or different fleet type to an action
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -48,9 +44,7 @@ YAML
 - If you want to assign a provisioned fleet, you must first create
   the provisioned fleet. For more information, see [Creating a provisioned fleet](projects-create-compute-resource.md "projects-create-compute-resource.md").
 
-###### To assign a provisioned fleet or different fleet type to an
-
-action
+###### To assign a provisioned fleet or different fleet type to an action
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.

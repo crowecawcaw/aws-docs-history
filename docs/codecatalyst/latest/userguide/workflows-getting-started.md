@@ -6,21 +6,17 @@ In this tutorial, you'll learn how to create and configure your first workflow.
 
 ###### Tip
 
-Prefer to start with a preconfigured workflow? See [Creating a project with a
-blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template"), which includes instructions for
+Prefer to start with a preconfigured workflow? See [Creating a project with a blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template"), which includes instructions for
 setting up a project with a functioning workflow, sample application, and other
 resources.
 
 ###### Topics
 
 - [Prerequisites](#get-started-create-workflow-prerequisites "#get-started-create-workflow-prerequisites")
-- [Step 1: Create and configure
-  your workflow](#get-started-create-workflow-create "#get-started-create-workflow-create")
-- [Step 2: Save your workflow with a
-  commit](#get-started-create-workflow-commit "#get-started-create-workflow-commit")
+- [Step 1: Create and configure your workflow](#get-started-create-workflow-create "#get-started-create-workflow-create")
+- [Step 2: Save your workflow with a commit](#get-started-create-workflow-commit "#get-started-create-workflow-commit")
 - [Step 3: View run results](#get-started-create-workflow-results "#get-started-create-workflow-results")
-- [(Optional) Step 4: Clean
-  up](#get-started-create-workflow-cleanup "#get-started-create-workflow-cleanup")
+- [(Optional) Step 4: Clean up](#get-started-create-workflow-cleanup "#get-started-create-workflow-cleanup")
 
 ## Prerequisites
 
@@ -49,9 +45,7 @@ For more information, see [Creating a source repository](source-repositories-cre
 If you have an existing project and source repository, you can use them; however,
 creating new ones makes cleanup easier at the end of this tutorial.
 
-## Step 1: Create and configure
-
-your workflow
+## Step 1: Create and configure your workflow
 
 In this step, you create and configure a workflow that automatically builds and tests
 your source code when changes are made.
@@ -118,9 +112,7 @@ compute machine, and outputs them to the CodeCatalyst console's
 visual editor. The fields in the visual editor let you configure the YAML
 properties shown in the YAML editor.
 
-## Step 2: Save your workflow with a
-
-commit
+## Step 2: Save your workflow with a commit
 
 In this step, you save your changes. Because workflows are stored as
 `.yaml` files in your repository, you save your changes with
@@ -167,9 +159,7 @@ build action.
 
 For more information, see [Viewing the results of a build action](build-view-results.md "build-view-results.md").
 
-## (Optional) Step 4: Clean
-
-up
+## (Optional) Step 4: Clean up
 
 In this step, you clean up the resources that you created in this tutorial.
 

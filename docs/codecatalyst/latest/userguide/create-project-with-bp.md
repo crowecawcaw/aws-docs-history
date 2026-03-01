@@ -10,10 +10,8 @@ with requirements for your project by interacting with it in a chat-like interfa
 your requirements, Amazon Q suggests a blueprint and also outlines requirements that can’t be
 met. You can then proceed with Amazon Q’s suggestion if you’re satisfied, and it will create
 the necessary resources such as a source repository with code for your requirement. For more information,
-see [Creating a project with a
-blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template"),
-[Best practices when using Amazon Q to create projects
-or add functionality with blueprints](projects-create.md#projects-create-amazon-q "projects-create.md#projects-create-amazon-q"), and
+see [Creating a project with a blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template"),
+[Best practices when using Amazon Q to create projects or add functionality with blueprints](projects-create.md#projects-create-amazon-q "projects-create.md#projects-create-amazon-q"), and
 [Creating a comprehensive project with CodeCatalyst blueprints](project-blueprints.md "project-blueprints.md").
 
 After creating a project, you can add additional blueprints to your CodeCatalyst project

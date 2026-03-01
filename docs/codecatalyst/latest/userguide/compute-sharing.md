@@ -47,8 +47,7 @@ When compute sharing is turned on, the folder containing the workflow source is 
 don't need to configure output artifacts and reference them as input artifacts throughout a workflow definition (YAML file). As a workflow author,
 you need to wire up environment variables using inputs and outputs, just as you would without using compute sharing.
 If you want to share folders between actions outside the workflow source, consider file caching. For more information, see
-[Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md") and
+[Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md") and
 [Caching files between workflow runs](workflows-caching.md "workflows-caching.md").
 
 The source repository where your workflow definition file resides is identified by the label
@@ -57,8 +56,7 @@ references it and automatically made available for subsequent actions in the wor
 Any changes made to the folder containing the workflow source by an action, such as adding, modifying, or removing
 files, are also visible in the subsequent actions in the workflow. You can reference files that reside in the workflow source folder in any of
 your workflow actions, just as you can without using compute sharing. For more information,
-see [Referencing source repository
-files](workflows-sources-reference-files.md "workflows-sources-reference-files.md").
+see [Referencing source repository files](workflows-sources-reference-files.md "workflows-sources-reference-files.md").
 
 ###### Note
 
@@ -102,8 +100,7 @@ Visual
    menu, choose a fleet you want to use to run workflow actions. You can choose an
    on-demand fleet or create and choose a provisioned fleet. For more information, see
    [Creating a provisioned fleet](projects-create-compute-resource.md "projects-create-compute-resource.md") and
-   [Assigning a fleet or compute to an
-   action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md")
+   [Assigning a fleet or compute to an action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md")
 10. Switch the toggle to turn on compute sharing and have actions in the
     workflow run on the same fleet.
 11. (Optional) Choose the run mode for the workflow. For more information,
@@ -127,8 +124,7 @@ YAML
    You can choose an on-demand fleet or create and choose a provisioned fleet.
    For more information, see
    [Creating a provisioned fleet](projects-create-compute-resource.md "projects-create-compute-resource.md") and
-   [Assigning a fleet or compute to an
-   action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md")
+   [Assigning a fleet or compute to an action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md")
 
 In a workflow YAML, add code similar to the following:
 

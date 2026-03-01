@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-
-and Jira projects in CodeCatalyst
+# Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst
 
 If you no longer want to use a GitHub repository, Bitbucket repository, or GitLab project repository, or manage a
 Jira project in CodeCatalyst, you can unlink the repository or project from your CodeCatalyst project.
@@ -23,9 +21,7 @@ and CodeCatalyst **Issues** will be the issue provider again.
 To unlink your GitHub repository, Bitbucket repository, or Gitlab project repository from your CodeCatalyst project, you
 must be the **Space administrator** or the **Project administrator**.
 
-###### To unlink a GitHub repository, Bitbucket repository, GitLab project repository, or Jira project in a CodeCatalyst project from the
-
-extension details page
+###### To unlink a GitHub repository, Bitbucket repository, GitLab project repository, or Jira project in a CodeCatalyst project from the extension details page
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to your CodeCatalyst space.

@@ -1,14 +1,10 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Editing a repository devfile for a
-
-Dev Environment
+# Editing a repository devfile for a Dev Environment
 
 Use the following procedure to edit a repository devfile for a Dev Environment.
 
-## Editing a repository devfile for a
-
-Dev Environment in CodeCatalyst
+## Editing a repository devfile for a Dev Environment in CodeCatalyst
 
 ###### To edit the repository devfile
 
@@ -45,9 +41,7 @@ You can also move the default devfile in `/projects/devfile.yaml` to your source
 location of the devfile, use following command:
 `/aws/mde/mde start --location `repository-name`/devfile.yaml`.
 
-## Editing a repository devfile for a
-
-Dev Environment in an IDE
+## Editing a repository devfile for a Dev Environment in an IDE
 
 To change the configuration of a Dev Environment, you must edit the devfile. We recommend that
 you edit the devfile in a supported IDE and then update your Dev Environment, but you can also

@@ -13,16 +13,13 @@ workflow to build and deploy the application.
 Instead of working your way through this tutorial, you can use a blueprint that does a
 complete Amazon ECS setup for you. You'll need to use either the
 **Node.js API with AWS Fargate** or **Java API with AWS Fargate**
-blueprint. For more information, see [Creating a project with a
-blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template").
+blueprint. For more information, see [Creating a project with a blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template").
 
 ###### Topics
 
 - [Prerequisites](#deploy-tut-ecs-prereqs "#deploy-tut-ecs-prereqs")
-- [Step 1: Set up an AWS user and
-  AWS CloudShell](#deploy-tut-ecs-user-cloudshell "#deploy-tut-ecs-user-cloudshell")
-- [Step 2: Deploy a placeholder application into
-  Amazon ECS](#deploy-tut-ecs-placeholder "#deploy-tut-ecs-placeholder")
+- [Step 1: Set up an AWS user and AWS CloudShell](#deploy-tut-ecs-user-cloudshell "#deploy-tut-ecs-user-cloudshell")
+- [Step 2: Deploy a placeholder application into Amazon ECS](#deploy-tut-ecs-placeholder "#deploy-tut-ecs-placeholder")
 - [Step 3: Create an Amazon ECR image repository](#deploy-tut-ecs-ecr "#deploy-tut-ecs-ecr")
 - [Step 4: Create AWS roles](#deploy-tut-ecs-build-deploy-roles "#deploy-tut-ecs-build-deploy-roles")
 - [Step 5: Add AWS roles to CodeCatalyst](#deploy-tut-ecs-import-roles "#deploy-tut-ecs-import-roles")
@@ -63,9 +60,7 @@ Configure this environment as follows:
 
 For more information, see [Deploying into AWS accounts and VPCs](deploy-environments.md "deploy-environments.md").
 
-## Step 1: Set up an AWS user and
-
-AWS CloudShell
+## Step 1: Set up an AWS user and AWS CloudShell
 
 The first step in this tutorial is to create a user in AWS IAM Identity Center, and launch an AWS CloudShell
 instance as this user. For the duration of this tutorial, CloudShell is your development
@@ -207,9 +202,7 @@ aws --version
 The AWS CLI is already configured for the current user, `CodeCatalystECSUser`, so
 there is no need to configure AWS CLI keys and credentials, as is normally the case.
 
-## Step 2: Deploy a placeholder application into
-
-Amazon ECS
+## Step 2: Deploy a placeholder application into Amazon ECS
 
 In this section, you manually deploy a placeholder application into Amazon ECS. This
 placeholder application will be replaced by the Hello World application deployed by your
@@ -219,9 +212,7 @@ For more information about Amazon ECS, see the _Amazon Elastic Container Service
 
 Complete the following series of procedures to deploy the placeholder application.
 
-###### To create the task execution
-
-role
+###### To create the task execution role
 
 This role grants Amazon ECS and AWS Fargate permission to make API calls on your behalf.
 
@@ -348,8 +339,7 @@ cat > taskdef.json
 In the preceding code, replace
 `arn:aws:iam::111122223333:role/codecatalyst-ecs-task-execution-role`
 
-with the ARN of the task execution role that you noted in [To create the task execution
-role](#deploy-tut-ecs-create-task-execution-role "#deploy-tut-ecs-create-task-execution-role"). 3. Place your cursor after the last curly bracket (`}`). 4. Press `Enter` and then `Ctrl+d` to save the
+with the ARN of the task execution role that you noted in [To create the task execution role](#deploy-tut-ecs-create-task-execution-role "#deploy-tut-ecs-create-task-execution-role"). 3. Place your cursor after the last curly bracket (`}`). 4. Press `Enter` and then `Ctrl+d` to save the
 file and exit cat.
 
 ###### To register the task definition file with Amazon ECS
@@ -497,8 +487,7 @@ Guide_.
 ###### Note
 
 To save time, you can create a single role, called the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role, instead of
- the two roles listed previously. For more information, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account
- and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create").
+ the two roles listed previously. For more information, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create").
  Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has very broad permissions which may pose a security
 risk. We recommend that you only use this role in tutorials and scenarios where security is
 less of a concern. This tutorial assumes you are creating the two roles listed
@@ -1139,8 +1128,7 @@ The Dockerfile is added to your repository.
 ### taskdef.json
 
 The `taskdef.json` file that you add in this step is the same as the
-one you already specified in [Step 2: Deploy a placeholder application into
-Amazon ECS](#deploy-tut-ecs-placeholder "#deploy-tut-ecs-placeholder") with the following difference:
+one you already specified in [Step 2: Deploy a placeholder application into Amazon ECS](#deploy-tut-ecs-placeholder "#deploy-tut-ecs-placeholder") with the following difference:
 
 Instead of specifying a hardcoded Docker image name in the `image:` field
 (`httpd:2.4`), the task definition here uses a couple of variables to denote
@@ -1196,8 +1184,7 @@ In the preceding code, replace
 
 `arn:aws:iam::account_ID:role/codecatalyst-ecs-task-execution-role`
 
-with the ARN of the task execution role that you noted in [To create the task execution
-role](#deploy-tut-ecs-create-task-execution-role "#deploy-tut-ecs-create-task-execution-role"). 4. Choose **Commit**, and then choose **Commit**
+with the ARN of the task execution role that you noted in [To create the task execution role](#deploy-tut-ecs-create-task-execution-role "#deploy-tut-ecs-create-task-execution-role"). 4. Choose **Commit**, and then choose **Commit**
 again.
 
 The `taskdef.json` file is added to your repository.
@@ -1211,8 +1198,7 @@ existing Apache placeholder application.
 The workflow consists of the following building blocks that run sequentially:
 
 - A trigger – This trigger starts the workflow run automatically when you push a
-  change to your source repository. For more information about triggers, see [Starting a workflow run automatically using
-  triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+  change to your source repository. For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 - A build action (`BuildBackend`) – On trigger, the action builds the
   Docker image using the Dockerfile and pushes the image to Amazon ECR. The build action also
   updates the `taskdef.json` with the correct `image` field value, and

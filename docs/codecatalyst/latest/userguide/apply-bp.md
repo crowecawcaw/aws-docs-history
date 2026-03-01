@@ -39,9 +39,7 @@ to provide updates for the latest changes to the blueprint. For more information
 
 You can choose to add a blueprint by giving **Amazon Q** your
 project requirements to have Amazon Q suggest a blueprint to you. For more information,
-see [Using Amazon Q to choose
-a blueprint when creating a project or adding functionality](getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp "getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp") and [Best practices when using Amazon Q to create projects
-or add functionality with blueprints](projects-create.md#projects-create-amazon-q "projects-create.md#projects-create-amazon-q"). This feature is only available in
+see [Using Amazon Q to choose a blueprint when creating a project or adding functionality](getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp "getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp") and [Best practices when using Amazon Q to create projects or add functionality with blueprints](projects-create.md#projects-create-amazon-q "projects-create.md#projects-create-amazon-q"). This feature is only available in
 the US West (Oregon) Region.
 
 This functionality requires that generative AI features are enabled for the space.
@@ -68,8 +66,7 @@ Do one of the following depending on the third-party repository provider you wan
 
     If you're using a connection to a GitHub account, you must create a personal
      connection to establish identity mapping between your CodeCatalyst identity and your GitHub identity.
-     For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal
-     connections](ipa-settings-connections.md "ipa-settings-connections.md").
+     For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal connections](ipa-settings-connections.md "ipa-settings-connections.md").
     * **Bitbucket repositories**: Connect a Bitbucket workspace.
 
 

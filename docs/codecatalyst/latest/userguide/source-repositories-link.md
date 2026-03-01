@@ -7,8 +7,7 @@ a CodeCatalyst extension for the service that hosts the repository, if that exte
 installed for your space. Only users with the Space administrator role can install
 extensions. Once the extension is installed, you can link to repositories configured for
 access by that extension. For more information, see [Installing an extension in a space](install-extension.md "install-extension.md") or
-follow [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
+follow [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
 
 ###### Important
 
@@ -37,16 +36,14 @@ branch. Additionally:
   These features are only available in pull requests in CodeCatalyst.
   While you can link a GitHub repository, Bitbucket repository, or GitLab project repository as a **Contributor**, you can only
   unlink a third-party repository as the **Space administrator** or the **Project administrator**.
-  For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-  and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+  For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
 ###### Important
 
 CodeCatalyst doesn't support detecting changes in the default branch for linked
 repositories. To change the default branch for a linked repository, you must first unlink it
 from CodeCatalyst, change the default branch, and then link it again. For more information,
-see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
+see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
 
 As a best practice, always make sure you have the latest version of the extension
 before you link a repository.
@@ -94,5 +91,4 @@ If the name of the repository is greyed out, you can't link that repository beca
 If you no longer want to use a GitHub repository, Bitbucket repository, or GitLab project repository in CodeCatalyst,
 you can unlink it from a CodeCatalyst project. When a repository is unlinked, events in that repository will not start
 workflow runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
-[Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+[Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").

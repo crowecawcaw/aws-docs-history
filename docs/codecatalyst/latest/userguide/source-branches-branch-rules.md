@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Manage allowed actions for a branch with
-
-branch rules
+# Manage allowed actions for a branch with branch rules
 
 When you create a branch, certain actions are allowed for that branch based on the
 permissions for that role. You can change what actions are allowed for a specific branch
@@ -23,8 +21,7 @@ workflows in that branch, because the workflow YAML is stored in that branch, an
 users cannot commit and push changes to the YAML. As a best practice, test any branch
 rules after you create them in order to make sure that they do not have any impacts that
 you did not intend. You can also use branch rules in conjunction with approval rules for pull
-requests. For more information, see [Managing requirements for merging
-a pull request with approval rules](source-pull-requests-approval-rules.md "source-pull-requests-approval-rules.md").
+requests. For more information, see [Managing requirements for merging a pull request with approval rules](source-pull-requests-approval-rules.md "source-pull-requests-approval-rules.md").
 
 ###### Note
 
@@ -80,9 +77,7 @@ You must have the Project administrator role to configure branch rules for sourc
 repositories in CodeCatalyst projects. This does not apply to linked repositories. Linked
 repositories do not support the branch rules in CodeCatalyst.
 
-###### To view and edit branch rules for a
-
-repository
+###### To view and edit branch rules for a repository
 
 1. Navigate to the project where your repository resides.
 2. Choose the name of the repository from the list of source repositories for the

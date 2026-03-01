@@ -33,9 +33,7 @@ retained package version is not affected by any of the following:
 - Editing the package version in the upstream repository (for example, by adding a
   new asset to it).
 
-## Fetching packages through
-
-an upstream relationship
+## Fetching packages through an upstream relationship
 
 CodeCatalyst can fetch packages through multiple linked repositories called upstream repositories. If
 a CodeCatalyst package repository has an upstream connection to another CodeCatalyst package repository
@@ -74,9 +72,7 @@ downstream repository with an upstream connection that leads to `npm-public-regi
 The contents of `npm-public-registry-gateway` provide a way for you to see all the packages
 and package versions imported from [https://npmjs.com](https://npmjs.com "https://npmjs.com") over time.
 
-## Package retention in intermediate
-
-repositories
+## Package retention in intermediate repositories
 
 CodeCatalyst allows you to chain upstream repositories. For example, `repo-A` can
 have `repo-B` as an upstream repository and `repo-B` can have

@@ -12,8 +12,7 @@ status overrides the previous status for that commit and workflow.
 
 You can set branch protection rules in GitHub or Bitbucket to block a pull request merge, or in GitLab to block a merge request, when the latest commit has a failed workflow run status.
 With branch protection rules, the status of the latest commit affects the ability to merge a pull request in GitHub, Bitbucket, or GitLab. To learn more about workflows, see
-[Running a workflow](workflows-working-runs.md "workflows-working-runs.md") and [Starting a workflow run automatically using
-triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+[Running a workflow](workflows-working-runs.md "workflows-working-runs.md") and [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 
 Depending on which third-party repository provider you're using, see the following:
 

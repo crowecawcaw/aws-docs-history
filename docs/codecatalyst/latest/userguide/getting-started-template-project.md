@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Tutorial: Creating a project with the
-
-Modern three-tier web application blueprint
+# Tutorial: Creating a project with the Modern three-tier web application blueprint
 
 You can get started more quickly with developing software by creating a project with a
 blueprint. A project created with a blueprint includes the resources that you need,
@@ -54,20 +52,13 @@ language or framework. To learn more about blueprints, see [Creating a comprehen
 ###### Topics
 
 - [Prerequisites](#getting-started-template-project-prerequisites "#getting-started-template-project-prerequisites")
-- [Step 1: Create the
-  Modern three-tier web application project](#getting-started-template-project-proj-create "#getting-started-template-project-proj-create")
-- [Step 2: Invite someone to your
-  project](#getting-started-template-project-ipa-user "#getting-started-template-project-ipa-user")
-- [Step 3: Create issues to collaborate
-  on and track work](#getting-started-template-project-issue "#getting-started-template-project-issue")
-- [Step 4: View your source
-  repository](#getting-started-template-project-source "#getting-started-template-project-source")
-- [Step 5: Create a
-  Dev Environment with a test branch and make a quick code change](#getting-started-template-project-create-devenvironment "#getting-started-template-project-create-devenvironment")
-- [Step 6: View the workflow
-  that builds the modern application](#getting-started-template-project-view-workflow "#getting-started-template-project-view-workflow")
-- [Step 7: Ask others to review
-  your changes](#getting-started-template-project-pull-request "#getting-started-template-project-pull-request")
+- [Step 1: Create the Modern three-tier web application project](#getting-started-template-project-proj-create "#getting-started-template-project-proj-create")
+- [Step 2: Invite someone to your project](#getting-started-template-project-ipa-user "#getting-started-template-project-ipa-user")
+- [Step 3: Create issues to collaborate on and track work](#getting-started-template-project-issue "#getting-started-template-project-issue")
+- [Step 4: View your source repository](#getting-started-template-project-source "#getting-started-template-project-source")
+- [Step 5: Create a Dev Environment with a test branch and make a quick code change](#getting-started-template-project-create-devenvironment "#getting-started-template-project-create-devenvironment")
+- [Step 6: View the workflow that builds the modern application](#getting-started-template-project-view-workflow "#getting-started-template-project-view-workflow")
+- [Step 7: Ask others to review your changes](#getting-started-template-project-pull-request "#getting-started-template-project-pull-request")
 - [Step 8: Close the issue](#getting-started-template-project-close-issue "#getting-started-template-project-close-issue")
 - [Clean up resources](#getting-started-template-project-clean-up "#getting-started-template-project-clean-up")
 - [Reference](#getting-started-template-project-reference "#getting-started-template-project-reference")
@@ -85,12 +76,9 @@ in [Set up and sign in to CodeCatalyst](setting-up-topnode.md "setting-up-topnod
   created during sign-up. For example, during sign-up, you have the option to choose to
   create a service role with a role policy called the **CodeCatalystWorkflowDevelopmentRole-`spaceName`** role policy. The role will
   have a name `CodeCatalystWorkflowDevelopmentRole-`spaceName`` with a unique identifier appended. For more information about
-  the role and role policy, see [Understanding the CodeCatalystWorkflowDevelopmentRole-spaceName service role](ipa-iam-roles.md#ipa-iam-roles-service-role "ipa-iam-roles.md#ipa-iam-roles-service-role"). For the steps to create the role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account
-  and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create").
+  the role and role policy, see [Understanding the CodeCatalystWorkflowDevelopmentRole-spaceName service role](ipa-iam-roles.md#ipa-iam-roles-service-role "ipa-iam-roles.md#ipa-iam-roles-service-role"). For the steps to create the role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create").
 
-## Step 1: Create the
-
-Modern three-tier web application project
+## Step 1: Create the Modern three-tier web application project
 
 After you've created it, your project is where you will develop and test code, coordinate
 development tasks, and view project metrics. Your project also contains your development tools
@@ -123,8 +111,7 @@ The blueprint will install resources into this account. 9. In **Deployment Role*
 sign-up. For example, choose `CodeCatalystWorkflowDevelopmentRole-`spaceName``.
 
 If there are no roles listed, add one. To add a role, choose **Add IAM
-role** and add the role to your AWS account. For more information, see [Allowing access to AWS resources with connected
-AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). 10. In **Compute platform**, choose **Lambda**. 11. In **Frontend Hosting Option**, choose **Amplify
+role** and add the role to your AWS account. For more information, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). 10. In **Compute platform**, choose **Lambda**. 11. In **Frontend Hosting Option**, choose **Amplify
 Hosting**. For information about AWS Amplify, see [What is AWS Amplify Hosting?](../../../amplify/latest/userguide/welcome.md "../../../amplify/latest/userguide/welcome.md") in
 the _AWS Amplify User Guide_. 12. In **Deployment Region**, enter the Region code of the AWS Region
 where you want the blueprint to deploy the Mysfits application and supporting resources.
@@ -140,9 +127,7 @@ The project workflow starts as soon as you create the project. It will take a li
 to finish building and deploying the code. In the meantime, go ahead and invite someone else
 to your project.
 
-## Step 2: Invite someone to your
-
-project
+## Step 2: Invite someone to your project
 
 Now that you've set up your project, invite others to work with you.
 
@@ -158,9 +143,7 @@ Now that you've set up your project, invite others to work with you.
 
 When you have finished adding users, choose **Invite**.
 
-## Step 3: Create issues to collaborate
-
-on and track work
+## Step 3: Create issues to collaborate on and track work
 
 CodeCatalyst helps you track features, tasks, bugs, and any other work involved in your project
 with issues. You can create issues to track needed work and ideas. By default, when you create
@@ -182,9 +165,7 @@ progress. You can also assign an issue to a specific project member.
 
 For more information, see [Track and organize work with issues in CodeCatalyst](issues.md "issues.md").
 
-## Step 4: View your source
-
-repository
+## Step 4: View your source repository
 
 Your blueprint installs a source repository that contains files to define and support
 your application or service. A few noteworthy directories and files in the source repository
@@ -228,9 +209,7 @@ are:
    pull requests and workflows. By default, the contents for the default branch are shown. You can change the view
    by choosing a different branch from the drop-down list.
 
-## Step 5: Create a
-
-Dev Environment with a test branch and make a quick code change
+## Step 5: Create a Dev Environment with a test branch and make a quick code change
 
 You can quickly work on the code in your source repository by creating a Dev Environment. For
 this tutorial, we assume you will:
@@ -252,8 +231,7 @@ request.
    **Source repositories**, and choose the repository for which you
    want to create a Dev Environment.
 4. On the repository home page, choose **Create Dev Environment**.
-5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments
-   for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
+5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
 6. Choose the repository to clone, choose **Work in new branch**, enter a branch name into the **Branch
    name** field, and choose a branch off of which to create the new
    branch from the **Create branch from** drop-down menu.
@@ -299,9 +277,7 @@ git commit -m "make an example change"
 git push
 ```
 
-## Step 6: View the workflow
-
-that builds the modern application
+## Step 6: View the workflow that builds the modern application
 
 After creating the modern application project, CodeCatalyst generates several resources on your
 behalf, including a workflow. A _workflow_ is an automated procedure
@@ -322,8 +298,7 @@ A list of workflows appears. These are the workflows that the CodeCatalyst bluep
 generated and started when you created your project. 2. Observe the list of workflows. You should see four:
 
     * The two workflows at the top correspond to the `test` branch that you
-     created earlier in [Step 5: Create a
-     Dev Environment with a test branch and make a quick code change](#getting-started-template-project-create-devenvironment "#getting-started-template-project-create-devenvironment"). These
+     created earlier in [Step 5: Create a Dev Environment with a test branch and make a quick code change](#getting-started-template-project-create-devenvironment "#getting-started-template-project-create-devenvironment"). These
      workflows are clones the workflows on the `main` branch. The
      **ApplicationDeploymentPipeline** is not active because it is
      configured for use with the `main` branch. The
@@ -426,9 +401,7 @@ link. 3. Search for the pegasus Mysfit named **Twilight Glitter**. Note the
 value for the age. It is `6`. You will make a code change to update the
 age.
 
-## Step 7: Ask others to review
-
-your changes
+## Step 7: Ask others to review your changes
 
 Now that you have changes in a branch named `test`, you can ask others to
 review them by creating a pull request. Perform the following steps to create a pull request

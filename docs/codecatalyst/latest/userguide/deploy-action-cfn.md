@@ -35,16 +35,13 @@ For a tutorial that shows you how to deploy a serverless application using the
 
 ###### Topics
 
-- [Runtime image used by the 'Deploy CloudFormation stack'
-  action](#deploy-action-cfn-runtime "#deploy-action-cfn-runtime")
+- [Runtime image used by the 'Deploy CloudFormation stack' action](#deploy-action-cfn-runtime "#deploy-action-cfn-runtime")
 - [Tutorial: Deploy a serverless application](deploy-tut-lambda.md "deploy-tut-lambda.md")
 - [Adding the 'Deploy CloudFormation stack' action](deploy-action-cfn-adding.md "deploy-action-cfn-adding.md")
 - [Configuring rollbacks](deploy-consumption-enable-alarms.md "deploy-consumption-enable-alarms.md")
 - ['Deploy CloudFormation stack' variables](deploy-action-cfn-variables.md "deploy-action-cfn-variables.md")
 - ['Deploy CloudFormation stack' action YAML](deploy-action-ref-cfn.md "deploy-action-ref-cfn.md")
 
-## Runtime image used by the 'Deploy CloudFormation stack'
-
-action
+## Runtime image used by the 'Deploy CloudFormation stack' action
 
 The **Deploy CloudFormation stack** action runs on a [November 2022 image](build-images.md#build.previous-image "build-images.md#build.previous-image"). For more information, see [Active images](build-images.md#build-curated-images "build-images.md#build-curated-images").

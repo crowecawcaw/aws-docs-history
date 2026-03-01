@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Starting a workflow run automatically using
-
-triggers
+# Starting a workflow run automatically using triggers
 
 You can start an Amazon CodeCatalyst workflow run automatically with a workflow trigger.
 
@@ -31,12 +29,10 @@ manually.
 
 To see a trigger in action, launch a project with a blueprint. Most blueprints contain
 a workflow with a trigger. Look for the `Trigger` property in the blueprint's
-workflow definition file. For more information about blueprints, see [Creating a project with a
-blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template").
+workflow definition file. For more information about blueprints, see [Creating a project with a blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template").
 
 ###### Topics
 
 - [Examples: Triggers in workflows](workflows-add-trigger-examples.md "workflows-add-trigger-examples.md")
-- [Usage guidelines for triggers and
-  branches](workflows-add-trigger-considerations.md "workflows-add-trigger-considerations.md")
+- [Usage guidelines for triggers and branches](workflows-add-trigger-considerations.md "workflows-add-trigger-considerations.md")
 - [Adding triggers to workflows](workflows-add-trigger-add.md "workflows-add-trigger-add.md")

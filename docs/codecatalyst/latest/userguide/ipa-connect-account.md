@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Allowing access to AWS resources with connected
-
-AWS accounts
+# Allowing access to AWS resources with connected AWS accounts
 
 You
 can use resources from your AWS accounts in Amazon CodeCatalyst
@@ -17,17 +15,12 @@ it.
 
 ###### Topics
 
-- [Adding an AWS account to a
-  space](ipa-connect-account-create.md "ipa-connect-account-create.md")
-- [Adding IAM roles to account
-  connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md")
-- [Adding the account connection and
-  IAM roles to your deploy environment](ipa-connect-account-addroles-env.md "ipa-connect-account-addroles-env.md")
+- [Adding an AWS account to a space](ipa-connect-account-create.md "ipa-connect-account-create.md")
+- [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md")
+- [Adding the account connection and IAM roles to your deploy environment](ipa-connect-account-addroles-env.md "ipa-connect-account-addroles-env.md")
 - [Viewing account connections](ipa-connect-account-list.md "ipa-connect-account-list.md")
-- [Deleting account connections (in
-  CodeCatalyst)](ipa-connect-account-delete.md "ipa-connect-account-delete.md")
-- [Configuring a billing account for a
-  space](connect-account-billing-ref.md "connect-account-billing-ref.md")
+- [Deleting account connections (in CodeCatalyst)](ipa-connect-account-delete.md "ipa-connect-account-delete.md")
+- [Configuring a billing account for a space](connect-account-billing-ref.md "connect-account-billing-ref.md")
   You can set up CodeCatalyst to use authorized AWS accounts by adding the accounts to your
   space. By adding AWS accounts to your CodeCatalyst space, you can give your project
   workflows access to AWS account resources and your billing configuration.

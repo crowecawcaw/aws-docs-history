@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Defining a
-
-variable
+# Defining a variable
 
 You can define variables in two ways:
 
@@ -16,16 +14,13 @@ You can define variables in two ways:
 The `Steps` method only works with the CodeCatalyst build, test,
 and **GitHub Actions** actions, because these are the
 only actions that include a `Steps` section.
-For examples, see [Examples of
-variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md").
+For examples, see [Examples of variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md").
 
 For more information about variables, see [Using variables in workflows](workflows-working-with-variables.md "workflows-working-with-variables.md").
 
 Visual
 
-###### To define a variable in the 'Inputs' section (visual
-
-editor)
+###### To define a variable in the 'Inputs' section (visual editor)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -53,9 +48,7 @@ and choose **Commit** again.
 
 YAML
 
-###### To define a variable in the 'Inputs' section (YAML
-
-editor)
+###### To define a variable in the 'Inputs' section (YAML editor)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -76,17 +69,14 @@ editor)
         Value: `variable-value`
 ```
 
-For more examples, see [Examples of
-variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md"). For
+For more examples, see [Examples of variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md"). For
 more information, see the [Workflow YAML definition](workflow-reference.md "workflow-reference.md") for your action. 8. (Optional) Choose **Validate** to validate
 the workflow's YAML code before committing. 9. Choose **Commit**, enter a commit message,
 and choose **Commit** again.
 
 Visual
 
-###### To define a variable in the 'Steps' section (visual
-
-editor)
+###### To define a variable in the 'Steps' section (visual editor)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -110,8 +100,7 @@ editor)
      that's referenced in the action's `Steps`
      section.
 
-   For examples, see [Examples of
-   variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md"). For more information, see the [Workflow YAML definition](workflow-reference.md "workflow-reference.md") for the
+   For examples, see [Examples of variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md"). For more information, see the [Workflow YAML definition](workflow-reference.md "workflow-reference.md") for the
    action.
 
 10. (Optional) Choose **Validate** to validate
@@ -141,8 +130,7 @@ YAML
      that's referenced in the action's `Steps`
      section.
 
-   For examples, see [Examples of
-   variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md"). For more information, see the [Workflow YAML definition](workflow-reference.md "workflow-reference.md") for the
+   For examples, see [Examples of variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md"). For more information, see the [Workflow YAML definition](workflow-reference.md "workflow-reference.md") for the
    action.
 
 8. (Optional) Choose **Validate** to validate

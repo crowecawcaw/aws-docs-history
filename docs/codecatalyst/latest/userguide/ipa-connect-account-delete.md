@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Deleting account connections (in
-
-CodeCatalyst)
+# Deleting account connections (in CodeCatalyst)
 
 You can delete an account connection that you no longer need. For this procedure, you
 will use CodeCatalyst to delete an account connection that you have previously added to your

@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Using tags to control access to account
-
-connection resources
+# Using tags to control access to account connection resources
 
 Tags
 can be attached to
@@ -24,9 +22,7 @@ condition keys to control the following:
   The following examples demonstrate how to specify tag conditions in policies for CodeCatalyst
   account connections users. For more information about condition keys, see [Policy condition keys in IAM](security-iam.md#id-based-policies-conditionkeys "security-iam.md#id-based-policies-conditionkeys").
 
-## Example 1: Allow actions based
-
-on tags in the request
+## Example 1: Allow actions based on tags in the request
 
 The following policy grants users permission to approve account connections.
 
@@ -63,9 +59,7 @@ JSON
 
 ```
 
-## Example 2: Allow actions based
-
-on resource tags
+## Example 2: Allow actions based on resource tags
 
 The following policy grants users permission to perform actions on, and get
 information about, account connection resources.

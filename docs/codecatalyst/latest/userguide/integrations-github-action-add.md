@@ -13,8 +13,7 @@ steps.
 ###### Tip
 
 For a tutorial that shows you how to use the **GitHub Actions** action,
-see [Tutorial: Lint code using a GitHub
-Action](integrations-github-action-tutorial.md "integrations-github-action-tutorial.md").
+see [Tutorial: Lint code using a GitHub Action](integrations-github-action-tutorial.md "integrations-github-action-tutorial.md").
 
 Visual
 

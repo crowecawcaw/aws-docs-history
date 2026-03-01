@@ -44,8 +44,7 @@ These artifacts must already be defined as output artifacts in previous actions.
 If you do not specify any input artifacts, then you must specify at least one source
 repository under ``action-name`/Inputs/Sources`.
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
 
 ###### Note
 

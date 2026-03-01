@@ -1,26 +1,18 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Examples: Package repositories in
-
-workflows
+# Examples: Package repositories in workflows
 
 The following examples show how to reference packages in the workflow definition
 file.
 
 ###### Topics
 
-- [Example: Defining packages
-  with NpmConfiguration](#workflows-working-packages-ex-basic "#workflows-working-packages-ex-basic")
-- [Example:
-  Overriding the default registry](#workflows-working-packages-ex-overriding-registry "#workflows-working-packages-ex-overriding-registry")
-- [Example:
-  Overriding scopes in your package registry](#workflows-working-packages-ex-overriding-scopes "#workflows-working-packages-ex-overriding-scopes")
-- [Example: Manually
-  configuring pip to authenticate with CodeCatalyst](#workflows-working-packages-pypi-token "#workflows-working-packages-pypi-token")
+- [Example: Defining packages with NpmConfiguration](#workflows-working-packages-ex-basic "#workflows-working-packages-ex-basic")
+- [Example: Overriding the default registry](#workflows-working-packages-ex-overriding-registry "#workflows-working-packages-ex-overriding-registry")
+- [Example: Overriding scopes in your package registry](#workflows-working-packages-ex-overriding-scopes "#workflows-working-packages-ex-overriding-scopes")
+- [Example: Manually configuring pip to authenticate with CodeCatalyst](#workflows-working-packages-pypi-token "#workflows-working-packages-pypi-token")
 
-## Example: Defining packages
-
-with `NpmConfiguration`
+## Example: Defining packages with `NpmConfiguration`
 
 The following example shows how to define a package with
 `NpmConfiguration` in your workflow definition file.
@@ -52,9 +44,7 @@ as `main-repo` as it is defined without a scope. Scope
 `@scope1` is configured in `PackageRegistries` for
 `scoped-repo`.
 
-## Example:
-
-Overriding the default registry
+## Example: Overriding the default registry
 
 The following example shows you how to override the default registry.
 
@@ -77,9 +67,7 @@ priority. In this example, the last repository listed is `my-repo-3`,
 meaning that npm will connect to `my-repo-3`. This overrides the
 repositories `my-repo-1` and `my-repo-2`.
 
-## Example:
-
-Overriding scopes in your package registry
+## Example: Overriding scopes in your package registry
 
 The following example shows you how to override a scope in your package
 registry.
@@ -110,9 +98,7 @@ example, the last time that scope `@scope2` is configured in
 `PackageRegistries` is for `my-repo-2`. This overrides the
 scope `@scope2` configured for `my-repo-1`.
 
-## Example: Manually
-
-configuring `pip` to authenticate with CodeCatalyst
+## Example: Manually configuring `pip` to authenticate with CodeCatalyst
 
 The following example shows you how to reference CodeCatalyst authorization environment
 variables in a build action.

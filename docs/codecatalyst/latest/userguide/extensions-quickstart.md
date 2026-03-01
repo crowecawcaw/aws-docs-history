@@ -30,15 +30,13 @@ in the _Amazon CodeCatalyst User Guide_.
 ###### Note
 
 If you're using a connection to a GitHub account, you must create a personal connection to establish identity mapping
-between your CodeCatalyst identity and your GitHub identity. For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal
-connections](ipa-settings-connections.md "ipa-settings-connections.md"). 3. Link your GitHub repository, Bitbucket repository, GitLab project repository, or Jira project to your CodeCatalyst project.
+between your CodeCatalyst identity and your GitHub identity. For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal connections](ipa-settings-connections.md "ipa-settings-connections.md"). 3. Link your GitHub repository, Bitbucket repository, GitLab project repository, or Jira project to your CodeCatalyst project.
 
 ###### Important
 
     * While you can link a GitHub repository, Bitbucket repository, or GitLab project repository as a
      **Contributor**, you can only unlink a third-party repository as the **Space administrator**
-     or the **Project administrator**. For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-     and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+     or the **Project administrator**. For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
     * To link your Jira project to your CodeCatalyst project, you must be the CodeCatalyst
      **Space administrator** or CodeCatalyst **Project administrator**.
 
@@ -47,8 +45,7 @@ connections](ipa-settings-connections.md "ipa-settings-connections.md"). 3. Link
 CodeCatalyst doesn't support detecting changes in the default branch for linked
 repositories. To change the default branch for a linked repository, you must first unlink it
 from CodeCatalyst, change the default branch, and then link it again. For more information,
-see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
+see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
 
 As a best practice, always make sure you have the latest version of the extension
 before you link a repository.
@@ -72,14 +69,12 @@ before you link a repository.
 
 You can also install the **GitHub repositories**, **Bitbucket repositories**, **GitLab repositories** extension, connect to your GitHub account, Bitbucket workspace, or GitLab
 user, and link third-party repositories when creating a new CodeCatalyst project. For more information,
-see [Creating a project with a linked third-party
-repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
+see [Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
 
 ###### Topics
 
 - [Step 1: Install a third-party extension from the CodeCatalyst catalog](#extensions-quickstart-install "#extensions-quickstart-install")
-- [Step 2: Connect your third-party provider to your CodeCatalyst
-  space](#extensions-github-extension-get-started-connect "#extensions-github-extension-get-started-connect")
+- [Step 2: Connect your third-party provider to your CodeCatalyst space](#extensions-github-extension-get-started-connect "#extensions-github-extension-get-started-connect")
 - [Step 3: Link your third-party resources to your CodeCatalyst project](#extensions-quickstart-link "#extensions-quickstart-link")
 - [Next steps](#extensions-quickstart-next-steps "#extensions-quickstart-next-steps")
 
@@ -105,9 +100,7 @@ continue, choose **Install** again.
 After installing the extension, you are taken to the extension details page. Depending on the extension
 you installed, you can view and manage connected providers and linked resources.
 
-## Step 2: Connect your third-party provider to your CodeCatalyst
-
-space
+## Step 2: Connect your third-party provider to your CodeCatalyst space
 
 After you install the **GitHub repositories**, **Bitbucket repositories**, **GitLab repositories**, or **Jira Software** extension, the next step is to connect your GitHub account,
 Bitbucket workspace, GitLab project repository, or Jira site to your CodeCatalyst space.
@@ -223,9 +216,7 @@ Bitbucket workspace, GitLab project repository, or Jira site to your CodeCatalys
 The third and final step to using your GitHub repositories, Bitbucket repositories, or GitLab project repositories or manage
 Jira issues in CodeCatalyst is to link them to the CodeCatalyst project in which you want to use it.
 
-###### To link a GitHub repository, Bitbucket repository, GitLab project repository, or Jira project to a CodeCatalyst project from
-
-the extension details page
+###### To link a GitHub repository, Bitbucket repository, GitLab project repository, or Jira project to a CodeCatalyst project from the extension details page
 
 - Do one of the following depending on the third-party extension you installed and provider you connected:
   - **GitHub repositories**: Link a GitHub repository.
@@ -258,8 +249,7 @@ the extension details page
     If you no longer want to use a GitHub repository in CodeCatalyst, you can unlink it from a CodeCatalyst
     project. When a repository is unlinked, events in that repository will not start workflow
     runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
-    [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-    and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+    [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
   - **Bitbucket repositories**: Link a Bitbucket repository.
 
@@ -277,8 +267,7 @@ the extension details page
     If you no longer want to use a Bitbucket repository in CodeCatalyst, you can unlink it from a CodeCatalyst
     project. When a repository is unlinked, events in that repository will not start workflow
     runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
-    [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-    and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+    [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
   - **GitLab repositories**: Link a GitLab project repository.
 
@@ -296,8 +285,7 @@ the extension details page
     If you no longer want to use a GitLab project repository in CodeCatalyst, you can unlink it from a CodeCatalyst
     project. When a project repository is unlinked, events in that project repository will not start workflow
     runs, and you will not be able to use that project repository with CodeCatalyst Dev Environments. For more information, see
-    [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-    and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+    [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
   - **Jira Software**: Link a Jira project.
 
@@ -316,8 +304,7 @@ the extension details page
   If you no longer want to use a Jira project in CodeCatalyst, you can unlink it from your CodeCatalyst
   project. When a Jira project is unlinked, Jira issues will not be available in the CodeCatalyst
   project, and CodeCatalyst **Issues** will be the issue provider again. For more information,
-  see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-  and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+  see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
 You can also link your GitHub repository, Bitbucket repository, or GitLab project repository to a project from **Source repositories**
 in **Code**. For more information, see [Linking resources from connected third-party providers](extensions-link.md#extensions-link-resources "extensions-link.md#extensions-link-resources").

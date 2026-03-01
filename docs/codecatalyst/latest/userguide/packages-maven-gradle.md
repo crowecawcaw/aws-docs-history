@@ -8,28 +8,20 @@ connecting Gradle Groovy to your package repository in the CodeCatalyst console.
 
 ###### Contents
 
-- [Fetching dependencies from
-  CodeCatalyst](packages-maven-gradle.md#gradle-fetch-dependencies "packages-maven-gradle.md#gradle-fetch-dependencies")
+- [Fetching dependencies from CodeCatalyst](packages-maven-gradle.md#gradle-fetch-dependencies "packages-maven-gradle.md#gradle-fetch-dependencies")
 - [Fetching plugins from CodeCatalyst](packages-maven-gradle.md#gradle-fetch-plugins "packages-maven-gradle.md#gradle-fetch-plugins")
-- [Fetching packages from external package
-  repositories through CodeCatalyst](packages-maven-gradle.md#gradle-install-public "packages-maven-gradle.md#gradle-install-public")
+- [Fetching packages from external package repositories through CodeCatalyst](packages-maven-gradle.md#gradle-install-public "packages-maven-gradle.md#gradle-install-public")
 - [Publishing packages to CodeCatalyst](packages-maven-gradle.md#gradle-publish-packages "packages-maven-gradle.md#gradle-publish-packages")
 - [Running a Gradle build in IntelliJ IDEA](packages-maven-gradle.md#gradle-intellij "packages-maven-gradle.md#gradle-intellij")
-  - [Method 1: Put the PAT in
-    gradle.properties](packages-maven-gradle.md#gradle-intellij-gradle-properties "packages-maven-gradle.md#gradle-intellij-gradle-properties")
-  - [Method 2: Put the PAT in a separate
-    file](packages-maven-gradle.md#gradle-intellij-file "packages-maven-gradle.md#gradle-intellij-file")
+  - [Method 1: Put the PAT in gradle.properties](packages-maven-gradle.md#gradle-intellij-gradle-properties "packages-maven-gradle.md#gradle-intellij-gradle-properties")
+  - [Method 2: Put the PAT in a separate file](packages-maven-gradle.md#gradle-intellij-file "packages-maven-gradle.md#gradle-intellij-file")
 
-## Fetching dependencies from
-
-CodeCatalyst
+## Fetching dependencies from CodeCatalyst
 
 The following instructions explain how to configure Gradle Groovy to fetch dependencies
 your CodeCatalyst package repository.
 
-###### To use Gradle Groovy to fetch dependencies from your CodeCatalyst package
-
-repository
+###### To use Gradle Groovy to fetch dependencies from your CodeCatalyst package repository
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to your project.
@@ -173,9 +165,7 @@ the Gradle Plugin Portal (`gradle-plugins-store`) so that
 commonly required Gradle plugins are available to the build. For more
 information, see the [Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html#sec:custom_plugin_repositories "https://docs.gradle.org/current/userguide/plugins.html#sec:custom_plugin_repositories").
 
-## Fetching packages from external package
-
-repositories through CodeCatalyst
+## Fetching packages from external package repositories through CodeCatalyst
 
 You can install Maven packages from public repositories through a CodeCatalyst
 repository by configuring it with an upstream connection to the gateway that represents the gateway repository.
@@ -192,8 +182,7 @@ CodeCatalyst supports the following public Maven package repositories.
 ###### To install packages from public Maven package repositories
 
 1. If you haven't already, configure Gradle with your CodeCatalyst package
-   repository by following the steps in [Fetching dependencies from
-   CodeCatalyst](#gradle-fetch-dependencies "#gradle-fetch-dependencies") or [Fetching plugins from CodeCatalyst](#gradle-fetch-plugins "#gradle-fetch-plugins").
+   repository by following the steps in [Fetching dependencies from CodeCatalyst](#gradle-fetch-dependencies "#gradle-fetch-dependencies") or [Fetching plugins from CodeCatalyst](#gradle-fetch-plugins "#gradle-fetch-plugins").
 2. Ensure that your repository has added the gateway repository you want to
    install from as an upstream connection. You can do this by following the
    instructions in [Adding an upstream repository](packages-upstream-repositories-add.md "packages-upstream-repositories-add.md") and choosing the
@@ -314,9 +303,7 @@ To authenticate Gradle with CodeCatalyst, you must use a personal access token (
 can store your CodeCatalyst PAT in `gradle.properties` or a separate file of
 your choice.
 
-### Method 1: Put the PAT in
-
-`gradle.properties`
+### Method 1: Put the PAT in `gradle.properties`
 
 Use this method if you are not using the `gradle.properties` file
 and can overwrite its contents with your PAT. If you are using
@@ -362,9 +349,7 @@ repositories {
 }
 ```
 
-### Method 2: Put the PAT in a separate
-
-file
+### Method 2: Put the PAT in a separate file
 
 Use this method if you do not want to modify your
 `gradle.properties` file.

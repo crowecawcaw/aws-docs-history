@@ -14,10 +14,8 @@ CodeCatalyst. With extensions from the CodeCatalyst catalog, teams can customize
 - [Uninstalling an extension in a space](uninstall-extension.md "uninstall-extension.md")
 - [Connecting GitHub accounts, Bitbucket workspaces, GitLab users, and Jira sites CodeCatalyst](extensions-connect.md "extensions-connect.md")
 - [Disconnecting GitHub accounts, Bitbucket workspaces, GitLab users, and Jira sites CodeCatalyst](extensions-disconnect.md "extensions-disconnect.md")
-- [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-  and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md")
-- [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-  and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md")
+- [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md")
+- [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md")
 - [Viewing third-party repositories and searching Jira issues in CodeCatalyst](extensions-view-search.md "extensions-view-search.md")
 - [Automatically starting a workflow run after third-party repository events](extensions-workflow-repositories.md "extensions-workflow-repositories.md")
 - [Restricting IP access with third-party repository providers](extensions-restrict-ip-access.md "extensions-restrict-ip-access.md")
@@ -35,8 +33,7 @@ you choose to integrate resources with.
 GitHub is a cloud-based service that helps developers store and manage their code. The
 **GitHub repositories** extension lets you use linked GitHub repositories in Amazon CodeCatalyst projects. You can also
 link GitHub repositories when creating a new CodeCatalyst project. For more information, see
-[Creating a project with a linked third-party
-repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
+[Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
 
 ###### Note
 
@@ -64,8 +61,7 @@ Once you install and configure the **GitHub repositories** extension, you will b
 Bitbucket is a cloud-based service that helps developers store and manage their code. The
 **Bitbucket repositories** extension lets you use linked Bitbucket repositories in Amazon CodeCatalyst projects. You can also
 link Bitbucket repositories when creating a new CodeCatalyst project. For more information, see
-[Creating a project with a linked third-party
-repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
+[Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
 
 ###### Note
 
@@ -92,8 +88,7 @@ Once you install and configure the **Bitbucket repositories** extension, you wil
 GitLab is a cloud-based service that helps developers store and manage their code. The
 **GitLab repositories** extension lets you use linked GitLab project repositories in Amazon CodeCatalyst projects. You can also
 link GitLab project repositories when creating a new CodeCatalyst project. For more information, see
-[Creating a project with a linked third-party
-repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
+[Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
 
 ###### Note
 

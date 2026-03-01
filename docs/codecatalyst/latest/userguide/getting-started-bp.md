@@ -64,8 +64,7 @@ Do one of the following depending on the third-party repository provider you wan
 
     If you're using a connection to a GitHub account, you must create a personal
      connection to establish identity mapping between your CodeCatalyst identity and your GitHub identity.
-     For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal
-     connections](ipa-settings-connections.md "ipa-settings-connections.md").
+     For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal connections](ipa-settings-connections.md "ipa-settings-connections.md").
     * **Bitbucket repositories**: Connect a Bitbucket workspace.
 
 

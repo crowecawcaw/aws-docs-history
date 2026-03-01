@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Adding the account connection and
-
-IAM roles to your deploy environment
+# Adding the account connection and IAM roles to your deploy environment
 
 To access AWS resources, such as Amazon ECS or AWS Lambda resources for deployments,
 CodeCatalyst build and deploy actions require IAM roles with permissions to access those
@@ -17,8 +15,7 @@ You must add the IAM roles that you want to use with deployment environments in 
 projects. Adding the roles to the account connection does not add the roles and the
 connection to the project deploy environments. To add your account connection and IAM
 roles to your deploy environment, make sure that the account connection and roles are
-created as detailed in [Step 4: Add IAM roles to your
-connection](ipa-connect-account-create.md#ipa-connect-account-linkedroles "ipa-connect-account-create.md#ipa-connect-account-linkedroles").
+created as detailed in [Step 4: Add IAM roles to your connection](ipa-connect-account-create.md#ipa-connect-account-linkedroles "ipa-connect-account-create.md#ipa-connect-account-linkedroles").
 
 Then, use the **Environments** page in the CodeCatalyst console
 to add your account connection and IAM role to a deploy environment in a

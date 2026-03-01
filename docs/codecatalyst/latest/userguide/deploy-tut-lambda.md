@@ -96,8 +96,7 @@ Guide_.
 ###### Note
 
 To save time, you can create a single role, called the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role, instead of
- the three roles listed previously. For more information, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account
- and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create").
+ the three roles listed previously. For more information, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create").
  Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has very broad permissions that may pose a security
 risk. We recommend that you only use this role in tutorials and scenarios where security is
 less of a concern. This tutorial assumes you are creating the three roles listed
@@ -710,8 +709,7 @@ In this step, you create a workflow that packages your Lambda source code and de
 The workflow consists of the following building blocks that run sequentially:
 
 - A trigger – This trigger starts the workflow run automatically when you push a
-  change to your source repository. For more information about triggers, see [Starting a workflow run automatically using
-  triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+  change to your source repository. For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 - A test action (`Test`) – On trigger, this action installs [Node package manager (npm)](https://www.npmjs.com/ "https://www.npmjs.com/"), and then runs the
   `npm run test` command. This command tells npm to run the `test`
   script defined in the `package.json` file. The `test`

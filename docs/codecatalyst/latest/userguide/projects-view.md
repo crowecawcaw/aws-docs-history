@@ -26,9 +26,7 @@ console.
 To view a project, you must be a member of the project or have the
 **Space administrator** role for the space.
 
-###### To view your source repositories, workflow runs, issues, pull requests, Dev Environments,
-
-and issues
+###### To view your source repositories, workflow runs, issues, pull requests, Dev Environments, and issues
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to the space with the project you want to view. Under
@@ -58,9 +56,7 @@ To view a summary of project tasks, such as open issues and pull requests that a
 assigned to you or created by you, and the project's associated Dev Environments, use the
 console.
 
-###### To view your source repositories, workflow runs, issues, pull requests, Dev Environments,
-
-and issues
+###### To view your source repositories, workflow runs, issues, pull requests, Dev Environments, and issues
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to the space with the project you want to view. Under

@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# 'Deploy to Kubernetes
-
-cluster' variables
+# 'Deploy to Kubernetes cluster' variables
 
 The **Deploy to Kubernetes cluster** action produces and sets the following
 variables at run time. These are known as _predefined variables_.

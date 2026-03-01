@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Cloning an existing Git repository
-
-into a source repository
+# Cloning an existing Git repository into a source repository
 
 You can clone an existing Git repository to an empty source repository in Amazon CodeCatalyst.
 This is a quick way to get started in CodeCatalyst with code that was previously hosted in
@@ -25,8 +23,7 @@ For more information, see the [Git documentation.](https://git-scm.com/docs/git-
 ###### Important
 
 You must create an empty repository in CodeCatalyst before you can clone content to it.
-You must also have a personal access token. For more information, see [To create an empty source
-repository](source-repositories-create.md#source-repositories-create-empty "source-repositories-create.md#source-repositories-create-empty") and [Create a personal access token](source-setting-up.md#source-setting-up-pat "source-setting-up.md#source-setting-up-pat").
+You must also have a personal access token. For more information, see [To create an empty source repository](source-repositories-create.md#source-repositories-create-empty "source-repositories-create.md#source-repositories-create-empty") and [Create a personal access token](source-setting-up.md#source-setting-up-pat "source-setting-up.md#source-setting-up-pat").
 
 ###### To use `git clone --mirror` to clone an existing Git repository into CodeCatalyst
 

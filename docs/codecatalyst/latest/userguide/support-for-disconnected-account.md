@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Accessing support for CodeCatalyst in the
-
-AWS Management Console
+# Accessing support for CodeCatalyst in the AWS Management Console
 
 If the support enabled billing account for a space is disconnected, Support cases
 associated with the previous space billing account and associated support plan will

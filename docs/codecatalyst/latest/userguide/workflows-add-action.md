@@ -54,8 +54,7 @@ actions](workflows-actions.md#workflows-actions-types-cc "workflows-actions.md#w
     * [Adding the 'AWS CDK bootstrap' action](cdk-boot-action-add.md "cdk-boot-action-add.md")
     * [Adding the 'Amazon S3 publish' action](s3-pub-action-add.md "s3-pub-action-add.md")
     * [Adding the 'AWS Lambda invoke' action](lam-invoke-action-add.md "lam-invoke-action-add.md")
-    * [Adding the 'Render Amazon ECS task definition'
-     action](render-ecs-action-add.md "render-ecs-action-add.md")
+    * [Adding the 'Render Amazon ECS task definition' action](render-ecs-action-add.md "render-ecs-action-add.md")
 
 For instructions on adding [CodeCatalyst Labs actions](workflows-actions.md#workflows-actions-types-cc-labs "workflows-actions.md#workflows-actions-types-cc-labs"), see:
 

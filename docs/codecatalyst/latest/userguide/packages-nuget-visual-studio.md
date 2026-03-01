@@ -4,8 +4,7 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 
 You can consume packages from CodeCatalyst directly in Visual Studio.
 
-To configure and use NuGet with CLI tools such as `dotnet` or `nuget`, see [Configuring and using the nuget or dotnet
-CLI](packages-nuget-cli.md "packages-nuget-cli.md").
+To configure and use NuGet with CLI tools such as `dotnet` or `nuget`, see [Configuring and using the nuget or dotnet CLI](packages-nuget-cli.md "packages-nuget-cli.md").
 
 ###### Contents
 

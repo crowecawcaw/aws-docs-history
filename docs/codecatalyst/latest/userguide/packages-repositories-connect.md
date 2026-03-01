@@ -10,8 +10,7 @@ For instructions on how to connect a package manager to a CodeCatalyst package r
 
 - [Configuring and using Gradle Groovy](packages-maven-gradle.md "packages-maven-gradle.md")
 - [Configuring and using mvn](packages-maven-mvn.md "packages-maven-mvn.md")
-- [Configuring and using the nuget or dotnet
-  CLI](packages-nuget-cli.md "packages-nuget-cli.md")
+- [Configuring and using the nuget or dotnet CLI](packages-nuget-cli.md "packages-nuget-cli.md")
 - [Configuring and using npm](packages-npm-use.md "packages-npm-use.md")
 - [Configuring pip and installing Python packages](packages-python-pip.md "packages-python-pip.md")
 - [Configuring Twine and publishing Python packages](packages-python-twine.md "packages-python-twine.md")

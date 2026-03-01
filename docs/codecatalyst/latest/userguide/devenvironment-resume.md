@@ -20,9 +20,7 @@ The Dev Environment is still available and running even if you delete the branch
 you created the Dev Environment. If you want to resume working in a Dev Environment for which you
 deleted the branch, create a new branch and push your changes to it.
 
-###### To resume a Dev Environment from the overview
-
-page
+###### To resume a Dev Environment from the overview page
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to the project where you want to resume a Dev Environment, and navigate to the
@@ -35,9 +33,7 @@ page
      application to open the VS Code link**. Choose **Open
      Link** to confirm.
 
-###### To resume a Dev Environment from the source
-
-repository
+###### To resume a Dev Environment from the source repository
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to the project where you want to resume a Dev Environment.
@@ -54,9 +50,7 @@ repository
      prompted to **Allow this site to open the VS Code link with Visual Studio
      Code?**.
 
-###### To resume a Dev Environment from the
-
-Dev Environments page
+###### To resume a Dev Environment from the Dev Environments page
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to the project where you want to resume a Dev Environment.

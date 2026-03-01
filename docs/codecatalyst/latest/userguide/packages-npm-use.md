@@ -9,14 +9,11 @@ instructions for connecting `npm` to your package repository in the CodeCatalyst
 ###### Contents
 
 - [Configuring npm with CodeCatalyst](packages-npm-use.md#npm-configure "packages-npm-use.md#npm-configure")
-- [Installing npm packages from a CodeCatalyst package
-  repository](packages-npm-use.md#npm-install "packages-npm-use.md#npm-install")
-- [Installing npm packages from npmjs through
-  CodeCatalyst](packages-npm-use.md#npm-install-npmjs "packages-npm-use.md#npm-install-npmjs")
+- [Installing npm packages from a CodeCatalyst package repository](packages-npm-use.md#npm-install "packages-npm-use.md#npm-install")
+- [Installing npm packages from npmjs through CodeCatalyst](packages-npm-use.md#npm-install-npmjs "packages-npm-use.md#npm-install-npmjs")
 - [Publishing npm packages to your CodeCatalyst package repository](packages-npm-use.md#npm-publish "packages-npm-use.md#npm-publish")
 - [npm command support](packages-npm-use.md#npm-commands "packages-npm-use.md#npm-commands")
-  - [Supported commands
-    that interact with a package repository](packages-npm-use.md#supported-commands-that-interact-with-a-repository "packages-npm-use.md#supported-commands-that-interact-with-a-repository")
+  - [Supported commands that interact with a package repository](packages-npm-use.md#supported-commands-that-interact-with-a-repository "packages-npm-use.md#supported-commands-that-interact-with-a-repository")
   - [Supported client-side commands](packages-npm-use.md#supported-client-side-commands "packages-npm-use.md#supported-client-side-commands")
   - [Unsupported commands](packages-npm-use.md#unsupported-commands "packages-npm-use.md#unsupported-commands")
 
@@ -79,9 +76,7 @@ npm set //packages.`region`.codecatalyst.aws/npm/`space-name`/`proj-name`/`repo-
 npm set //packages.`region`.codecatalyst.aws/npm/`space-name`/`proj-name`/`repo-name`/:always-auth=true --location project
 ```
 
-## Installing npm packages from a CodeCatalyst package
-
-repository
+## Installing npm packages from a CodeCatalyst package repository
 
 After you connect npm to your repository by following the steps in [Configuring npm with CodeCatalyst](#npm-configure "#npm-configure"), you can run `npm` commands on your repository.
 
@@ -92,9 +87,7 @@ its upstream repositories with the `npm install` command.
 npm install `lodash`
 ```
 
-## Installing npm packages from npmjs through
-
-CodeCatalyst
+## Installing npm packages from npmjs through CodeCatalyst
 
 You can install npm packages from [npmjs.com](https://www.npmjs.com/ "https://www.npmjs.com/") through a CodeCatalyst repository by
 configuring the repository with an upstream connection to the gateway repository connected to npmjs.com, **npm-public-registry-gateway**.
@@ -140,14 +133,11 @@ supported.
 
 ###### Topics
 
-- [Supported commands
-  that interact with a package repository](#supported-commands-that-interact-with-a-repository "#supported-commands-that-interact-with-a-repository")
+- [Supported commands that interact with a package repository](#supported-commands-that-interact-with-a-repository "#supported-commands-that-interact-with-a-repository")
 - [Supported client-side commands](#supported-client-side-commands "#supported-client-side-commands")
 - [Unsupported commands](#unsupported-commands "#unsupported-commands")
 
-### Supported commands
-
-that interact with a package repository
+### Supported commands that interact with a package repository
 
 This section lists `npm` commands where the `npm` client makes one
 or more requests to the registry to which it is configured (for example, `npm

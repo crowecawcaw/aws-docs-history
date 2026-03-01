@@ -7,9 +7,7 @@ you are a member. These emails will be sent to the email address configured in y
 AWS Builder ID. By default, you will receive emails about all project events for which emails can
 be sent.
 
-###### To configure email notifications for project
-
-events
+###### To configure email notifications for project events
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. In the top menu bar, choose your profile badge, and then choose **My

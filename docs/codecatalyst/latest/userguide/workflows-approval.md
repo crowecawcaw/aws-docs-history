@@ -17,25 +17,19 @@ For more information about workflow runs, see [Running a workflow](workflows-wor
 
 ###### Topics
 
-- [How do I unlock an approval
-  gate?](#workflows-approval-conditions "#workflows-approval-conditions")
+- [How do I unlock an approval gate?](#workflows-approval-conditions "#workflows-approval-conditions")
 - [When to use the 'Approval' gate](#workflows-approval-when "#workflows-approval-when")
 - [Who can provide an approval?](#workflows-approval-who "#workflows-approval-who")
-- [How do I notify users that an
-  approval is required?](#workflows-approval-notify-methods "#workflows-approval-notify-methods")
-- [Can I use an 'Approval' gate to prevent a
-  workflow run from starting?](#workflows-approval-prevent "#workflows-approval-prevent")
-- [How do workflow approvals work with
-  queued, superseded, and parallel run modes?](#workflows-approval-run-mode "#workflows-approval-run-mode")
+- [How do I notify users that an approval is required?](#workflows-approval-notify-methods "#workflows-approval-notify-methods")
+- [Can I use an 'Approval' gate to prevent a workflow run from starting?](#workflows-approval-prevent "#workflows-approval-prevent")
+- [How do workflow approvals work with queued, superseded, and parallel run modes?](#workflows-approval-run-mode "#workflows-approval-run-mode")
 - [Example: An 'Approval' gate](workflows-approval-example.md "workflows-approval-example.md")
 - [Adding an 'Approval' gate](workflows-approval-add.md "workflows-approval-add.md")
 - [Configuring approval notifications](workflows-approval-notify.md "workflows-approval-notify.md")
 - [Approving or rejecting a workflow run](workflows-approval-approve.md "workflows-approval-approve.md")
 - ['Approval' gate YAML](approval-ref.md "approval-ref.md")
 
-## How do I unlock an approval
-
-gate?
+## How do I unlock an approval gate?
 
 To unlock an **Approval** gate, _all_ of the
 following conditions must be met:
@@ -50,8 +44,7 @@ following conditions must be met:
   run. A single rejection will cause the workflow run to fail.
 - **Condition 4**: (Only applies if you are using
   the superseded run mode.) The run must not be superseded by a later run. For
-  more information, see [How do workflow approvals work with
-  queued, superseded, and parallel run modes?](#workflows-approval-run-mode "#workflows-approval-run-mode").
+  more information, see [How do workflow approvals work with queued, superseded, and parallel run modes?](#workflows-approval-run-mode "#workflows-approval-run-mode").
 
 If any of the conditions are not met, CodeCatalyst stops the workflow and sets the run
 status to **Failed** (in the case of **Conditions
@@ -79,9 +72,7 @@ who belong to your project's space can also provide an approval.
 Users with the **Reviewer** role cannot provide
 approvals.
 
-## How do I notify users that an
-
-approval is required?
+## How do I notify users that an approval is required?
 
 To notify users that an approval is required, you must:
 
@@ -91,16 +82,11 @@ To notify users that an approval is required, you must:
   email or messaging application addressed to the approvers. For more information
   about how to navigate to this page, see [Approving or rejecting a workflow run](workflows-approval-approve.md "workflows-approval-approve.md").
 
-## Can I use an 'Approval' gate to prevent a
+## Can I use an 'Approval' gate to prevent a workflow run from starting?
 
-workflow run from starting?
+Yes, with qualifications. For more information, see [Can I use a gate to prevent a workflow run from starting?](workflows-gates.md#workflows-gates-prevent "workflows-gates.md#workflows-gates-prevent").
 
-Yes, with qualifications. For more information, see [Can I use a gate to prevent a workflow run
-from starting?](workflows-gates.md#workflows-gates-prevent "workflows-gates.md#workflows-gates-prevent").
-
-## How do workflow approvals work with
-
-queued, superseded, and parallel run modes?
+## How do workflow approvals work with queued, superseded, and parallel run modes?
 
 When using the queued, superseded, or parallel run mode, the
 **Approval** gate works in a similar way to [actions](workflows-actions.md "workflows-actions.md"). We suggest reading the [About queued run mode](workflows-configure-runs.md#workflows-configure-runs-queued "workflows-configure-runs.md#workflows-configure-runs-queued"), [About superseded run mode](workflows-configure-runs.md#workflows-configure-runs-superseded "workflows-configure-runs.md#workflows-configure-runs-superseded"), [About parallel run mode](workflows-configure-runs.md#workflows-configure-runs-parallel "workflows-configure-runs.md#workflows-configure-runs-parallel") sections to familiarize yourself

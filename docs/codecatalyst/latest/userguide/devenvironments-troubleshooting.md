@@ -9,18 +9,14 @@ information about Dev Environments, see [Write and modify code with Dev Environm
 
 - [My Dev Environment creation didn't succeed due to a problem with quotas](#troubleshooting-devenvironments-create "#troubleshooting-devenvironments-create")
 - [I can't push changes from my Dev Environment to a specific branch in a repository](#troubleshooting-devenvironments-branchrules "#troubleshooting-devenvironments-branchrules")
-- [My Dev Environment didn't
-  resume](#troubleshooting-devenvironments-resume "#troubleshooting-devenvironments-resume")
-- [My Dev Environment
-  disconnected](#troubleshooting-devenvironments-connection "#troubleshooting-devenvironments-connection")
+- [My Dev Environment didn't resume](#troubleshooting-devenvironments-resume "#troubleshooting-devenvironments-resume")
+- [My Dev Environment disconnected](#troubleshooting-devenvironments-connection "#troubleshooting-devenvironments-connection")
 - [My VPC-connected Dev Environment failed](#troubleshooting-devenvironments-vpc "#troubleshooting-devenvironments-vpc")
 - [I can't find which directory my project is in](#troubleshooting-devenvironments-projects "#troubleshooting-devenvironments-projects")
 - [I'm unable to connect to my Dev Environment via SSH](#troubleshooting-devenvironments-connect-ssh "#troubleshooting-devenvironments-connect-ssh")
 - [I'm unable to connect to my Dev Environment via SSH because my local SSH config is missing](#troubleshooting-devenvironments-projects-ssh-config "#troubleshooting-devenvironments-projects-ssh-config")
-- [I'm unable to connect to my Dev Environment via SSH because I'm having problems with my AWS Config for
-  the codecatalyst profile](#troubleshooting-devenvironments-config-profile "#troubleshooting-devenvironments-config-profile")
-- [I can't create a Dev Environment
-  when I'm signed into CodeCatalyst using a single sign-on account](#troubleshoot-create-dev-env-idprovider "#troubleshoot-create-dev-env-idprovider")
+- [I'm unable to connect to my Dev Environment via SSH because I'm having problems with my AWS Config for the codecatalyst profile](#troubleshooting-devenvironments-config-profile "#troubleshooting-devenvironments-config-profile")
+- [I can't create a Dev Environment when I'm signed into CodeCatalyst using a single sign-on account](#troubleshoot-create-dev-env-idprovider "#troubleshoot-create-dev-env-idprovider")
 - [Troubleshooting problems with IDEs](devenvironments-troubleshooting-ides.md "devenvironments-troubleshooting-ides.md")
 - [Troubleshooting problems with devfiles](devenvironments-devenvironments-devfile.md "devenvironments-devenvironments-devfile.md")
 
@@ -57,21 +53,16 @@ to repositories in the project.
 If you have the **Contributor** role but cannot push code to a specific branch, there might be a branch rule
 configured for the specific branch that prevents users with that role from pushing code to that particular branch. Try pushing your changes to a different
 branch, or create a branch and then push your code to that branch. For more information, see
-[Manage allowed actions for a branch with
-branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md").
+[Manage allowed actions for a branch with branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md").
 
-## My Dev Environment didn't
-
-resume
+## My Dev Environment didn't resume
 
 **Problem:** My Dev Environment didn't
 resume after I stopped it.
 
 **Possible fixes:** To fix the problem, view the **Billing** tab of the Amazon CodeCatalyst space to see if the **Usage** quotas have reached the maximum limits. If the quotas have reached the maximum limit, contact your Space administrator to raise the billing tier.
 
-## My Dev Environment
-
-disconnected
+## My Dev Environment disconnected
 
 **Problem:** My Dev Environment disconnected while I was using it.
 
@@ -115,17 +106,13 @@ If your local SSH config (`~/.ssh/config`) is missing or the contents of `Host c
 To troubleshoot this, delete the `Host codecatalyst-dev-env*` section and execute the first command from the **SSH Access** modal again.
 For more information, see [Connecting to a Dev Environment using SSH](devenvironment-connect-ssh.md "devenvironment-connect-ssh.md").
 
-## I'm unable to connect to my Dev Environment via SSH because I'm having problems with my AWS Config for
-
-the `codecatalyst` profile
+## I'm unable to connect to my Dev Environment via SSH because I'm having problems with my AWS Config for the `codecatalyst` profile
 
 Make sure your AWS Config (`~/.aws/config`) for the `codecatalyst` profile matches the one described in [Setting up to use the AWS CLI with CodeCatalyst](set-up-cli.md "set-up-cli.md").
 If not, delete the profile for `codecatalyst` and execute the first command from the **SSH Access** modal again.
 For more information, see [Connecting to a Dev Environment using SSH](devenvironment-connect-ssh.md "devenvironment-connect-ssh.md").
 
-## I can't create a Dev Environment
-
-when I'm signed into CodeCatalyst using a single sign-on account
+## I can't create a Dev Environment when I'm signed into CodeCatalyst using a single sign-on account
 
 **Problem:** When I am signed into the CodeCatalyst console as
 an SSO user, I receive an unknown exception error when I choose to create a Dev Environment

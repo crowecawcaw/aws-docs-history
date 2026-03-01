@@ -13,8 +13,7 @@ SSO portal for the company associated with the space.
 CodeCatalyst user names have a minimum length of 3 and a maximum length of 100 characters.
 Provided user names longer than 100 characters will be truncated. This can result in a user
 name that appears to be a duplicate of another 100-character user name. For more information,
-see [I can’t access my BID space as a
-new user or can’t be added as a new SSO user due to truncated user name](troubleshooting.md#troubleshoot-username-truncated "troubleshooting.md#troubleshoot-username-truncated").
+see [I can’t access my BID space as a new user or can’t be added as a new SSO user due to truncated user name](troubleshooting.md#troubleshoot-username-truncated "troubleshooting.md#troubleshoot-username-truncated").
 
 The steps to set up and administer a AWS Builder ID space are provided in this guide. To work
 with a CodeCatalyst AWS Builder ID space, you will set up CodeCatalyst using the user settings and
@@ -62,8 +61,7 @@ steps provided on that page. If you need additional help, see [Problems signing 
 
 ###### Topics
 
-- [Creating a new space and
-  development role (starting without an invitation)](sign-up-create-resources.md "sign-up-create-resources.md")
+- [Creating a new space and development role (starting without an invitation)](sign-up-create-resources.md "sign-up-create-resources.md")
 - [Accepting an invitation and creating an AWS Builder ID](sign-up-sign-in.md "sign-up-sign-in.md")
 - [Signing in with an AWS Builder ID](id-how-to-sign-in.md "id-how-to-sign-in.md")
 - [Signing in with SSO](sign-in-sso.md "sign-in-sso.md")

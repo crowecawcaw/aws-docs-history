@@ -13,8 +13,7 @@ true:
     + The workflow definition file must be valid.
     + The workflow must have no triggers, no push triggers, or a push trigger
      that runs using the files on the current branch. For more information, see
-     [Usage guidelines for triggers and
-     branches](workflows-add-trigger-considerations.md "workflows-add-trigger-considerations.md").
+     [Usage guidelines for triggers and branches](workflows-add-trigger-considerations.md "workflows-add-trigger-considerations.md").
 
 - **Not valid** – The workflow's definition file
   is not valid. The workflow cannot be run manually, or automatically through
@@ -28,8 +27,7 @@ true:
     + The workflow definition file must be misconfigured.
 
 
-    To fix a misconfigured workflow definition file, see [How do I fix "Workflow definition
-     has n errors" errors?](troubleshooting-workflows.md#troubleshooting-workflows-asterisks "troubleshooting-workflows.md#troubleshooting-workflows-asterisks").
+    To fix a misconfigured workflow definition file, see [How do I fix "Workflow definition has n errors" errors?](troubleshooting-workflows.md#troubleshooting-workflows-asterisks "troubleshooting-workflows.md#troubleshooting-workflows-asterisks").
 
 - **Inactive** – The workflow definition is valid but cannot
   be run manually, or automatically through triggers.
@@ -40,13 +38,11 @@ true:
     + The workflow definition file must be valid.
     + The workflow definition file must include a push trigger that specifies a
      branch that is different from the one that the workflow definition file is
-     currently on. For more information, see [Usage guidelines for triggers and
-     branches](workflows-add-trigger-considerations.md "workflows-add-trigger-considerations.md").
+     currently on. For more information, see [Usage guidelines for triggers and branches](workflows-add-trigger-considerations.md "workflows-add-trigger-considerations.md").
 
 
     To switch a workflow from **Inactive** to
-     **Active**, see [How do I fix "Workflow is inactive"
-     messages?](troubleshooting-workflows.md#troubleshooting-workflows-inactive "troubleshooting-workflows.md#troubleshooting-workflows-inactive").
+     **Active**, see [How do I fix "Workflow is inactive" messages?](troubleshooting-workflows.md#troubleshooting-workflows-inactive "troubleshooting-workflows.md#troubleshooting-workflows-inactive").
 
 
     ###### Note

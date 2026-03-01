@@ -5,14 +5,11 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 Use the following instructions to add a push, pull, or schedule trigger to your
 Amazon CodeCatalyst workflow.
 
-For more information about triggers, see [Starting a workflow run automatically using
-triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 
 Visual
 
-###### To add a trigger (visual
-
-editor)
+###### To add a trigger (visual editor)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -89,8 +86,7 @@ the valid values:
 
 
     The workflow run is started when a pull request is closed. The `CLOSED`
-     event's behavior is tricky, and is best understood through an example. See [Example: A trigger
-     with a pull, branches, and a 'CLOSED' event](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-pull-close "workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-pull-close") for more
+     event's behavior is tricky, and is best understood through an example. See [Example: A trigger with a pull, branches, and a 'CLOSED' event](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-pull-close "workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-pull-close") for more
      information.
     * **New revision is made to pull request** (visual editor) or
      `REVISION` (YAML editor)
@@ -196,17 +192,13 @@ in your source repository, and will start a workflow run using the workflow defi
 file and source files in:
 
     * The branch you're pushing *to* (for push triggers). For
-     more information, see [Example: A simple code
-     push trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-simple "workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-simple").
+     more information, see [Example: A simple code push trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-simple "workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-simple").
     * The branch you're pulling *from* (for pull request
-     triggers). For more information, see [Example: A simple pull
-     request trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-pull-simple "workflows-add-trigger-examples.md#workflows-add-trigger-examples-pull-simple").
+     triggers). For more information, see [Example: A simple pull request trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-pull-simple "workflows-add-trigger-examples.md#workflows-add-trigger-examples-pull-simple").
     * All branches (for schedule triggers). One workflow run will start per branch
-     in your source repository. For more information, see [Example: A simple
-     schedule trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-schedule-simple "workflows-add-trigger-examples.md#workflows-add-trigger-examples-schedule-simple").
+     in your source repository. For more information, see [Example: A simple schedule trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-schedule-simple "workflows-add-trigger-examples.md#workflows-add-trigger-examples-schedule-simple").
 
-For more information about branches and triggers, see [Usage guidelines for triggers and
-branches](workflows-add-trigger-considerations.md "workflows-add-trigger-considerations.md").
+For more information about branches and triggers, see [Usage guidelines for triggers and branches](workflows-add-trigger-considerations.md "workflows-add-trigger-considerations.md").
 
 For more examples, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md "workflows-add-trigger-examples.md").
 

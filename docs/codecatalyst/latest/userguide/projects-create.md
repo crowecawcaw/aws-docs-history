@@ -12,14 +12,10 @@ Before you create a project, you must have the **Space administrator** or
 ###### Topics
 
 - [Creating an empty project in Amazon CodeCatalyst](#projects-create-empty "#projects-create-empty")
-- [Creating a project with a linked third-party
-  repository](#projects-create-3p-repo "#projects-create-3p-repo")
-- [Creating a project with a
-  blueprint](#projects-create-console-template "#projects-create-console-template")
-- [Best practices when using Amazon Q to create projects
-  or add functionality with blueprints](#projects-create-amazon-q "#projects-create-amazon-q")
-- [Best practices for using blueprints with
-  projects](#projects-create-use-blueprints "#projects-create-use-blueprints")
+- [Creating a project with a linked third-party repository](#projects-create-3p-repo "#projects-create-3p-repo")
+- [Creating a project with a blueprint](#projects-create-console-template "#projects-create-console-template")
+- [Best practices when using Amazon Q to create projects or add functionality with blueprints](#projects-create-amazon-q "#projects-create-amazon-q")
+- [Best practices for using blueprints with projects](#projects-create-use-blueprints "#projects-create-use-blueprints")
 - [Adding resources and tasks to created projects](#projects-create-after-steps "#projects-create-after-steps")
 
 ## Creating an empty project in Amazon CodeCatalyst
@@ -38,9 +34,7 @@ Before you create a project, you must have the **Space administrator** or
 4. Under **Give a name to your project**, enter the name that you want to assign to your project. The name must be unique within your space.
 5. Choose **Create project**.
 
-## Creating a project with a linked third-party
-
-repository
+## Creating a project with a linked third-party repository
 
 You can keep your project's source code in a preferred third-party provider and still
 use all the CodeCatalyst features such as blueprints, lifecycle management, workflows, and more. To do
@@ -50,7 +44,7 @@ project.
 
 Before you create a CodeCatalyst project, you must have the
 **Space administrator** or **Power user** role. For
-more information, see [Creating a space](spaces-create.md "spaces-create.md") and [Inviting a user directly to a space](spaces-members-add-admin.md "spaces-members-add-admin.md") .
+more information, see [Creating a space](spaces-create.md "spaces-create.md") and [Inviting a user directly to a space](spaces-members-add-admin.md "spaces-members-add-admin.md").
 
 To create a project in CodeCatalyst that links to a source repository in your GitHub account,
 you'll need to complete the following three tasks:
@@ -82,16 +76,14 @@ in the _Amazon CodeCatalyst User Guide_. 3. Create a CodeCatalyst project linked
 
 While you can link a GitHub repository, Bitbucket repository, or GitLab project repository as a
 **Contributor**, you can only unlink a third-party repository as the **Space administrator**
-or the **Project administrator**. For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+or the **Project administrator**. For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
 ###### Important
 
 CodeCatalyst doesn't support detecting changes in the default branch for linked
 repositories. To change the default branch for a linked repository, you must first unlink it
 from CodeCatalyst, change the default branch, and then link it again. For more information,
-see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
+see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
 
 As a best practice, always make sure you have the latest version of the extension
 before you link a repository.
@@ -216,9 +208,7 @@ from a blueprint. You can also use the linked repositories with Amazon Q Develop
 information, see [Automatically starting a workflow run after third-party repository events](extensions-workflow-repositories.md "extensions-workflow-repositories.md")
 and [Creating a Dev Environment](devenvironment-create.md "devenvironment-create.md").
 
-## Creating a project with a
-
-blueprint
+## Creating a project with a blueprint
 
 You can provision all of your project resources and sample code with a project
 blueprint. For information about blueprints, see the [Creating a comprehensive project with CodeCatalyst blueprints](project-blueprints.md "project-blueprints.md").
@@ -234,9 +224,7 @@ blueprint. For information about blueprints, see the [Creating a comprehensive p
 
 You can choose to add a blueprint by giving **Amazon Q** your
 project requirements to have Amazon Q suggest a blueprint to you. For more information,
-see [Using Amazon Q to choose
-a blueprint when creating a project or adding functionality](getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp "getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp") and [Best practices when using Amazon Q to create projects
-or add functionality with blueprints](#projects-create-amazon-q "#projects-create-amazon-q"). This feature is only available in
+see [Using Amazon Q to choose a blueprint when creating a project or adding functionality](getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp "getting-started-project-assistance.md#getting-started-project-assistance-create-apply-bp") and [Best practices when using Amazon Q to create projects or add functionality with blueprints](#projects-create-amazon-q "#projects-create-amazon-q"). This feature is only available in
 the US West (Oregon) Region.
 
 This functionality requires that generative AI features are enabled for the space.
@@ -253,8 +241,7 @@ repository. For more information, see [Add functionality to projects with extens
 CodeCatalyst doesn't support detecting changes in the default branch for linked
 repositories. To change the default branch for a linked repository, you must first unlink it
 from CodeCatalyst, change the default branch, and then link it again. For more information,
-see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
+see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
 
 As a best practice, always make sure you have the latest version of the extension
 before you link a repository.
@@ -273,8 +260,7 @@ Do one of the following depending on the third-party repository provider you wan
 
     If you're connecting a GitHub account, you must create a personal
      connection to establish identity mapping between your CodeCatalyst identity and your GitHub identity.
-     For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal
-     connections](ipa-settings-connections.md "ipa-settings-connections.md").
+     For more information, see [Personal connections](concepts.md#personal-connection-concept "concepts.md#personal-connection-concept") and [Accessing GitHub resources with personal connections](ipa-settings-connections.md "ipa-settings-connections.md").
     * **Bitbucket repositories**: Connect a Bitbucket workspace.
 
 
@@ -299,9 +285,7 @@ Do one of the following depending on the third-party repository provider you wan
    creates.
 10. Choose **Create project**.
 
-## Best practices when using Amazon Q to create projects
-
-or add functionality with blueprints
+## Best practices when using Amazon Q to create projects or add functionality with blueprints
 
 When you create a project or want to add new components to an existing project, you might
 be unsure about which blueprint to use or how to integrate capabilities. CodeCatalyst includes
@@ -349,8 +333,7 @@ Generative AI features are only available in the US West (Oregon) Region.
   blueprint. For more information about available blueprints in CodeCatalyst, see [Creating a comprehensive project with CodeCatalyst blueprints](project-blueprints.md "project-blueprints.md").
 - **Allow Amazon Q to work with issues**. Allow
   Amazon Q to create issues for you, assign those issues, and track them. For more
-  information, see [Tutorial: Using CodeCatalyst generative AI
-  features to speed up your development work](getting-started-project-assistance.md "getting-started-project-assistance.md").
+  information, see [Tutorial: Using CodeCatalyst generative AI features to speed up your development work](getting-started-project-assistance.md "getting-started-project-assistance.md").
 - **Unassign Amazon Q from issues that are no longer worked
   on**. After you complete the example, unassign Amazon Q from any issues no
   longer being worked on. If Amazon Q has finished its work on an issue or could not find
@@ -368,9 +351,7 @@ The generative AI features in CodeCatalyst are subject to quotas. For more infor
 [Amazon Q Developer
 Pricing](https://aws.amazon.com/q/developer/pricing/ "https://aws.amazon.com/q/developer/pricing/"), [Enabling or disabling generative AI features for a space](../adminguide/managing-generative-ai-features.md#managing-generative-ai-features-enable-disable "../adminguide/managing-generative-ai-features.md#managing-generative-ai-features-enable-disable"), and [Billing](../adminguide/managing-billing.md "../adminguide/managing-billing.md").
 
-## Best practices for using blueprints with
-
-projects
+## Best practices for using blueprints with projects
 
 The following are some best practices to help you create a project with blueprints or
 add blueprints.

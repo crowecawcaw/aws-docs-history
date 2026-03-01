@@ -16,9 +16,7 @@ package. `npm install `pkg`` (without
 Typically, projects only use the latest tag for stable release versions. Other tags are
 used for unstable or prerelease versions.
 
-## Editing tags with the npm
-
-client
+## Editing tags with the npm client
 
 The three `npm dist-tag` commands (`add`, `rm`,
 and `ls`) function the same way in CodeCatalyst package repositories as they

@@ -15,9 +15,7 @@ You can view the following information about a deployment in Amazon CodeCatalyst
 
 - Go to the workflow run that deployed your application. For instructions, see [Viewing workflow run status and details](workflows-view-run.md "workflows-view-run.md").
 
-###### To view deployment
-
-information starting from an environment
+###### To view deployment information starting from an environment
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.

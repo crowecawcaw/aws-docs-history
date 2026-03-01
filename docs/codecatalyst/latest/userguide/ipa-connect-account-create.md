@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Adding an AWS account to a
-
-space
+# Adding an AWS account to a space
 
 You use the CodeCatalyst console and the AWS Management Console to connect your space to an AWS account.
 
@@ -18,22 +16,13 @@ prerequisites:
 
 ###### Topics
 
-- [Step 1: Creating a connection
-  request](#ipa-connect-account-create-request "#ipa-connect-account-create-request")
-- [Step 2:
-  Accepting
-  an account connection
-  request](#ipa-connect-account-create-accept "#ipa-connect-account-create-accept")
-- [Step 3: Review an approved
-  connection](#ipa-connect-account-create-review "#ipa-connect-account-create-review")
-- [Step 4: Add IAM roles to your
-  connection](#ipa-connect-account-linkedroles "#ipa-connect-account-linkedroles")
-- [Next steps: Create additional IAM roles
-  for your account connection](#ipa-connect-account-next "#ipa-connect-account-next")
+- [Step 1: Creating a connection request](#ipa-connect-account-create-request "#ipa-connect-account-create-request")
+- [Step 2: Accepting an account connection request](#ipa-connect-account-create-accept "#ipa-connect-account-create-accept")
+- [Step 3: Review an approved connection](#ipa-connect-account-create-review "#ipa-connect-account-create-review")
+- [Step 4: Add IAM roles to your connection](#ipa-connect-account-linkedroles "#ipa-connect-account-linkedroles")
+- [Next steps: Create additional IAM roles for your account connection](#ipa-connect-account-next "#ipa-connect-account-next")
 
-## Step 1: Creating a connection
-
-request
+## Step 1: Creating a connection request
 
 Creating a connection request in the CodeCatalyst console generates a connection token
 that you can use to complete authorization.
@@ -64,11 +53,7 @@ AWS account you want to add.
 9. The page returns to the **AWS account details** page where a success
    banner displays.
 
-## Step 2:
-
-Accepting
-an account connection
-request
+## Step 2: Accepting an account connection request
 
 After you submit a request in the CodeCatalyst console to connect to your AWS account, you work with your AWS administrator to accept the
 connection request by submitting it with the provided connection token.
@@ -110,9 +95,7 @@ space is only able to use the Free tier. 7. Choose **Verify space**.
 An **Account verified** success message displays to show
 that the account has been added to the space.
 
-## Step 3: Review an approved
-
-connection
+## Step 3: Review an approved connection
 
 After getting a connection approved, you can view the connection in the console,
 along with the IAM roles you added to it.
@@ -125,17 +108,12 @@ along with the IAM roles you added to it.
 3. Choose the account display name. The **AWS account details** page
    displays.
 
-## Step 4: Add IAM roles to your
-
-connection
+## Step 4: Add IAM roles to your connection
 
 If you're using an IAM role configured for a CodeCatalyst deploy action, add the role
-to your deployment environment. For more information, see [Adding IAM roles to account
-connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+to your deployment environment. For more information, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 
-## Next steps: Create additional IAM roles
-
-for your account connection
+## Next steps: Create additional IAM roles for your account connection
 
 After you create a connection, you can create additional IAM roles to add to it.
 The IAM roles that you add are dependent on your workflows. For example, a CodeCatalyst

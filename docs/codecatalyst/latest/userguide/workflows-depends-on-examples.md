@@ -1,26 +1,18 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Examples of how to configure
-
-dependencies between actions
+# Examples of how to configure dependencies between actions
 
 The following examples show how to configure dependencies between actions and
 groups in the workflow definition file.
 
 ###### Topics
 
-- [Example: Configuring a
-  simple dependency](#workflows-depends-on-example-simple "#workflows-depends-on-example-simple")
-- [Example:
-  Configuring an action group to depend on an action](#workflows-depends-on-example-action-groups-actions "#workflows-depends-on-example-action-groups-actions")
-- [Example:
-  Configuring an action group to depend on another action group](#workflows-depends-on-example-two-action-groups "#workflows-depends-on-example-two-action-groups")
-- [Example: Configuring an
-  action group to depend on multiple actions](#workflows-depends-on-example-advanced "#workflows-depends-on-example-advanced")
+- [Example: Configuring a simple dependency](#workflows-depends-on-example-simple "#workflows-depends-on-example-simple")
+- [Example: Configuring an action group to depend on an action](#workflows-depends-on-example-action-groups-actions "#workflows-depends-on-example-action-groups-actions")
+- [Example: Configuring an action group to depend on another action group](#workflows-depends-on-example-two-action-groups "#workflows-depends-on-example-two-action-groups")
+- [Example: Configuring an action group to depend on multiple actions](#workflows-depends-on-example-advanced "#workflows-depends-on-example-advanced")
 
-## Example: Configuring a
-
-simple dependency
+## Example: Configuring a simple dependency
 
 The following example shows how to configure a `Test` action to
 depend on the `Build` action using the `DependsOn`
@@ -40,9 +32,7 @@ Actions:
        ...
 ```
 
-## Example:
-
-Configuring an action group to depend on an action
+## Example: Configuring an action group to depend on an action
 
 The following example shows how to configure a `DeployGroup` action
 group to depend on the `FirstAction` action. Notice that action and
@@ -64,9 +54,7 @@ Actions:
       ...
 ```
 
-## Example:
-
-Configuring an action group to depend on another action group
+## Example: Configuring an action group to depend on another action group
 
 The following example shows how to configure a `DeployGroup` action
 group to depend on the `BuildAndTestGroup` action group. Notice that
@@ -90,9 +78,7 @@ Actions:
       ...
 ```
 
-## Example: Configuring an
-
-action group to depend on multiple actions
+## Example: Configuring an action group to depend on multiple actions
 
 The following example shows how to configure a `DeployGroup` action
 group to depend on the `FirstAction` action, the

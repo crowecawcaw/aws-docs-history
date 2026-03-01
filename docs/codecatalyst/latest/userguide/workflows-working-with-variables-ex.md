@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Examples of
-
-variables
+# Examples of variables
 
 The following examples show how to define and reference variables in
 the workflow definition file.
@@ -11,22 +9,14 @@ For more information about variables, see [Using variables in workflows](workflo
 
 ###### Examples
 
-- [Example:
-  Defining a variable using the Inputs property](#workflows-working-with-variables-ex-define-inputs "#workflows-working-with-variables-ex-define-inputs")
-- [Example:
-  Defining a variable using the Steps property](#workflows-working-with-variables-ex-define-steps "#workflows-working-with-variables-ex-define-steps")
-- [Example:
-  Exporting a variable using the Outputs property](#workflows-working-with-variables-ex-export-outputs "#workflows-working-with-variables-ex-export-outputs")
-- [Example:
-  Referencing a variable defined in the same action](#workflows-working-with-variables-ex-refer-current "#workflows-working-with-variables-ex-refer-current")
-- [Example:
-  Referencing a variable defined in another action](#workflows-working-with-variables-ex-refer-other "#workflows-working-with-variables-ex-refer-other")
-- [Example:
-  Referencing a secret](#workflows-working-with-variables-ex-refer-secret "#workflows-working-with-variables-ex-refer-secret")
+- [Example: Defining a variable using the Inputs property](#workflows-working-with-variables-ex-define-inputs "#workflows-working-with-variables-ex-define-inputs")
+- [Example: Defining a variable using the Steps property](#workflows-working-with-variables-ex-define-steps "#workflows-working-with-variables-ex-define-steps")
+- [Example: Exporting a variable using the Outputs property](#workflows-working-with-variables-ex-export-outputs "#workflows-working-with-variables-ex-export-outputs")
+- [Example: Referencing a variable defined in the same action](#workflows-working-with-variables-ex-refer-current "#workflows-working-with-variables-ex-refer-current")
+- [Example: Referencing a variable defined in another action](#workflows-working-with-variables-ex-refer-other "#workflows-working-with-variables-ex-refer-other")
+- [Example: Referencing a secret](#workflows-working-with-variables-ex-refer-secret "#workflows-working-with-variables-ex-refer-secret")
 
-## Example:
-
-Defining a variable using the Inputs property
+## Example: Defining a variable using the Inputs property
 
 The following example shows you how to define two variables, `VAR1`
 and `VAR2`, in an `Inputs` section.
@@ -43,9 +33,7 @@ Actions:
         Value: "My variable 2"
 ```
 
-## Example:
-
-Defining a variable using the Steps property
+## Example: Defining a variable using the Steps property
 
 The following example shows you how to define a `DATE` variable in
 the `Steps` section explicitly.
@@ -59,9 +47,7 @@ Actions:
         - Run: DATE=$(date +%m-%d-%y)
 ```
 
-## Example:
-
-Exporting a variable using the Outputs property
+## Example: Exporting a variable using the Outputs property
 
 The following example shows you how to define two variables,
 `REPOSITORY-URI` and `TIMESTAMP`, and export them
@@ -84,9 +70,7 @@ Actions:
         - TIMESTAMP
 ```
 
-## Example:
-
-Referencing a variable defined in the same action
+## Example: Referencing a variable defined in the same action
 
 The following example shows you how to specify a `VAR1` variable in
 `MyBuildAction`, and then reference it in the same action using
@@ -106,9 +90,7 @@ Actions:
 
 ```
 
-## Example:
-
-Referencing a variable defined in another action
+## Example: Referencing a variable defined in another action
 
 The following example shows you how to specify a `TIMESTAMP`
 variable in `BuildActionA`, export it using the `Outputs`
@@ -138,9 +120,7 @@ Actions:
 
 ```
 
-## Example:
-
-Referencing a secret
+## Example: Referencing a secret
 
 The following example shows you how to reference a `my-password`
 secret. The `my-password` is the secret's key. This secret's key and

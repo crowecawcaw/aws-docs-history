@@ -7,44 +7,25 @@ Amazon CodeCatalyst. For more information about workflows, see [Build, test, and
 
 ###### Topics
 
-- [How do I fix "Workflow is inactive"
-  messages?](#troubleshooting-workflows-inactive "#troubleshooting-workflows-inactive")
-- [How do I fix "Workflow definition
-  has n errors" errors?](#troubleshooting-workflows-asterisks "#troubleshooting-workflows-asterisks")
-- [How do I fix "Unable to
-  locate credentials" and "ExpiredToken" errors?](#troubleshooting-workflows-auth-errors-eks "#troubleshooting-workflows-auth-errors-eks")
-- [How do I fix "Unable to
-  connect to the server" errors?](#troubleshooting-workflows-unable-connect-eks "#troubleshooting-workflows-unable-connect-eks")
-- [Why are CodeDeploy fields missing from
-  the visual editor?](#troubleshooting-workflows-codedeploy "#troubleshooting-workflows-codedeploy")
-- [How do I fix IAM capabilities
-  errors?](#troubleshooting-workflows-capabilities "#troubleshooting-workflows-capabilities")
-- [How do I fix "npm install"
-  errors?](#troubleshooting-workflows-npm "#troubleshooting-workflows-npm")
-- [Why do multiple workflows have the same
-  name?](#troubleshooting-workflows-name "#troubleshooting-workflows-name")
-- [Can I store my workflow definition
-  files in another folder?](#troubleshooting-workflows-folder "#troubleshooting-workflows-folder")
-- [How do I add actions in sequence to
-  my workflow?](#troubleshooting-workflows-visual "#troubleshooting-workflows-visual")
-- [Why does my workflow successfully
-  validate but fail at runtime?](#troubleshooting-workflows-validation "#troubleshooting-workflows-validation")
-- [Auto-discovery doesn't discover
-  any reports for my action](#troubleshooting-reports-auto-discovery "#troubleshooting-reports-auto-discovery")
-- [My action fails on
-  auto-discovered reports after I configure success criteria](#troubleshooting-success-auto-discovery "#troubleshooting-success-auto-discovery")
-- [Auto-discovery generates
-  reports that I don't want](#troubleshooting-unwanted-auto-discovery "#troubleshooting-unwanted-auto-discovery")
-- [Auto-discovery generates many small
-  reports for a single test framework](#troubleshooting-reports-combined "#troubleshooting-reports-combined")
-- [Workflows listed under CI/CD don't
-  match those in the source repository](#troubleshooting-workflow-source "#troubleshooting-workflow-source")
-- [I can't create or update
-  workflows](#troubleshooting-workflows-branchrules "#troubleshooting-workflows-branchrules")
+- [How do I fix "Workflow is inactive" messages?](#troubleshooting-workflows-inactive "#troubleshooting-workflows-inactive")
+- [How do I fix "Workflow definition has n errors" errors?](#troubleshooting-workflows-asterisks "#troubleshooting-workflows-asterisks")
+- [How do I fix "Unable to locate credentials" and "ExpiredToken" errors?](#troubleshooting-workflows-auth-errors-eks "#troubleshooting-workflows-auth-errors-eks")
+- [How do I fix "Unable to connect to the server" errors?](#troubleshooting-workflows-unable-connect-eks "#troubleshooting-workflows-unable-connect-eks")
+- [Why are CodeDeploy fields missing from the visual editor?](#troubleshooting-workflows-codedeploy "#troubleshooting-workflows-codedeploy")
+- [How do I fix IAM capabilities errors?](#troubleshooting-workflows-capabilities "#troubleshooting-workflows-capabilities")
+- [How do I fix "npm install" errors?](#troubleshooting-workflows-npm "#troubleshooting-workflows-npm")
+- [Why do multiple workflows have the same name?](#troubleshooting-workflows-name "#troubleshooting-workflows-name")
+- [Can I store my workflow definition files in another folder?](#troubleshooting-workflows-folder "#troubleshooting-workflows-folder")
+- [How do I add actions in sequence to my workflow?](#troubleshooting-workflows-visual "#troubleshooting-workflows-visual")
+- [Why does my workflow successfully validate but fail at runtime?](#troubleshooting-workflows-validation "#troubleshooting-workflows-validation")
+- [Auto-discovery doesn't discover any reports for my action](#troubleshooting-reports-auto-discovery "#troubleshooting-reports-auto-discovery")
+- [My action fails on auto-discovered reports after I configure success criteria](#troubleshooting-success-auto-discovery "#troubleshooting-success-auto-discovery")
+- [Auto-discovery generates reports that I don't want](#troubleshooting-unwanted-auto-discovery "#troubleshooting-unwanted-auto-discovery")
+- [Auto-discovery generates many small reports for a single test framework](#troubleshooting-reports-combined "#troubleshooting-reports-combined")
+- [Workflows listed under CI/CD don't match those in the source repository](#troubleshooting-workflow-source "#troubleshooting-workflow-source")
+- [I can't create or update workflows](#troubleshooting-workflows-branchrules "#troubleshooting-workflows-branchrules")
 
-## How do I fix "Workflow is inactive"
-
-messages?
+## How do I fix "Workflow is inactive" messages?
 
 **Problem**: In the CodeCatalyst console, under
 **CI/CD**, **Workflows**, your workflow appears
@@ -92,12 +73,9 @@ to your `main` branch.
 
 For more information about editing the workflow definition file, see [Creating a workflow](workflows-create-workflow.md "workflows-create-workflow.md").
 
-For more information about triggers, see [Starting a workflow run automatically using
-triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 
-## How do I fix "Workflow definition
-
-has `n` errors" errors?
+## How do I fix "Workflow definition has `n` errors" errors?
 
 **Problem**: You see any of the following error
 messages:
@@ -174,12 +152,9 @@ see [Syntax guidelines and conventions](workflow-reference.md#workflow.terms.syn
 - Make sure that all input artifacts have corresponding output artifacts. For
   more information, see [Defining an output artifact](workflows-working-artifacts-output.md "workflows-working-artifacts-output.md").
 - Make sure that variables defined in one action are exported so that they can
-  be used in other actions. For more information, see [Exporting a variable
-  so that other actions can use it](workflows-working-with-variables-export-input.md "workflows-working-with-variables-export-input.md").
+  be used in other actions. For more information, see [Exporting a variable so that other actions can use it](workflows-working-with-variables-export-input.md "workflows-working-with-variables-export-input.md").
 
-## How do I fix "Unable to
-
-locate credentials" and "ExpiredToken" errors?
+## How do I fix "Unable to locate credentials" and "ExpiredToken" errors?
 
 **Problem**: While working through [Tutorial: Deploy an application to Amazon EKS](deploy-tut-eks.md "deploy-tut-eks.md"), you see one or both of
 the following error messages in your development machine's terminal window:
@@ -201,8 +176,7 @@ token.
 1. Make sure you have the AWS access portal URL, username, and password for the
    user that you're using the complete the Amazon EKS tutorial
    (`codecatalyst-eks-user`). You should have configured these
-   items when you completed [Step 1: Set up your development
-   machine](deploy-tut-eks.md#deploy-tut-eks-dev-env-create "deploy-tut-eks.md#deploy-tut-eks-dev-env-create") of the tutorial.
+   items when you completed [Step 1: Set up your development machine](deploy-tut-eks.md#deploy-tut-eks-dev-env-create "deploy-tut-eks.md#deploy-tut-eks-dev-env-create") of the tutorial.
 
 ###### Note
 
@@ -245,9 +219,7 @@ The new keys and session token are loaded.
 You have now refreshed your credentials. The AWS CLI, `eksctl`, and
 `kubectl` commands should now work.
 
-## How do I fix "Unable to
-
-connect to the server" errors?
+## How do I fix "Unable to connect to the server" errors?
 
 **Problem**: While working through the tutorial described
 in [Tutorial: Deploy an application to Amazon EKS](deploy-tut-eks.md "deploy-tut-eks.md"), you see an error
@@ -274,9 +246,7 @@ Where:
 - `us-west-2` is replaced with the AWS Region where
   your cluster is deployed.
 
-## Why are CodeDeploy fields missing from
-
-the visual editor?
+## Why are CodeDeploy fields missing from the visual editor?
 
 **Problem**: You are using a [Deploy to Amazon ECS](deploy-action-ecs.md "deploy-action-ecs.md") action, and you are not seeing
 the CodeDeploy fields such as **CodeDeploy AppSpec** in the workflow's visual
@@ -292,9 +262,7 @@ deployments.
   more information about configuring blue/green deployments, see [Blue/Green deployment with CodeDeploy](../../../AmazonECS/latest/developerguide/deployment-type-bluegreen.md "../../../AmazonECS/latest/developerguide/deployment-type-bluegreen.md") in the
   _Amazon Elastic Container Service Developer Guide_.
 
-## How do I fix IAM capabilities
-
-errors?
+## How do I fix IAM capabilities errors?
 
 **Problem**: You are using a [Deploy CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md") action, and you see
 `##[error] requires capabilities:
@@ -366,9 +334,7 @@ choose **Commit** again. 10. If a new workflow run doesn't start automatically, 
 workflow manually to see if the changes fix the error. For more
 information about running a workflow manually, see [Starting a workflow run manually](workflows-manually-start.md "workflows-manually-start.md").
 
-## How do I fix "npm install"
-
-errors?
+## How do I fix "npm install" errors?
 
 **Problem**: Your [AWS CDK
 deploy action](cdk-dep-action.md "cdk-dep-action.md") or [AWS CDK bootstrap
@@ -499,21 +465,16 @@ JavaScript project, the code will look similar though not identical.
 5. Re-run the action manually to see if the changes fix the error. For more
    information about running actions manually, see [Starting a workflow run manually](workflows-manually-start.md "workflows-manually-start.md").
 
-## Why do multiple workflows have the same
-
-name?
+## Why do multiple workflows have the same name?
 
 Workflows are stored per branch per repository. Two different workflows can have the
 same name if they exist in different branches. In the Workflows page, you can
 differentiate workflows of the same name by looking at the branch name. For more
-information, see [Organizing your source code work with branches in
-Amazon CodeCatalyst](source-branches.md "source-branches.md").
+information, see [Organizing your source code work with branches in Amazon CodeCatalyst](source-branches.md "source-branches.md").
 
 ![Workflow branch](images/flows/workflow-branch.png)
 
-## Can I store my workflow definition
-
-files in another folder?
+## Can I store my workflow definition files in another folder?
 
 No, you must store all workflow definition files in the
 `.codecatalyst/workflows` folder, or in subfolders of that folder. If
@@ -522,12 +483,9 @@ definition files in the `.codecatalyst/workflows` folder or one of its
 subfolders, and then use the **Files changed** field (visual editor) or
 `FilesChanged` property (YAML editor) inside a trigger to trigger the
 workflow automatically at a specified project path. For more information,
-see [Adding triggers to workflows](workflows-add-trigger-add.md "workflows-add-trigger-add.md") and [Example: A trigger with
-a push, branches, and files](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-multi "workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-multi").
+see [Adding triggers to workflows](workflows-add-trigger-add.md "workflows-add-trigger-add.md") and [Example: A trigger with a push, branches, and files](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-multi "workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-multi").
 
-## How do I add actions in sequence to
-
-my workflow?
+## How do I add actions in sequence to my workflow?
 
 By default, when you add an action to your workflow, it will have no dependencies and
 will run in parallel with other actions.
@@ -537,9 +495,7 @@ by setting the `DependsOn` field. You can also configure an action to consume
 artifacts or variables which are outputs of other actions. For more information, see
 [Sequencing actions](workflows-depends-on.md "workflows-depends-on.md").
 
-## Why does my workflow successfully
-
-validate but fail at runtime?
+## Why does my workflow successfully validate but fail at runtime?
 
 If you validated your workflow using the `Validate` button, but your
 workflow failed anyway, it might because a limitation in the validator.
@@ -551,9 +507,7 @@ Similarly, if there are any errors in your action configuration like missing a r
 field or typos in action attributes, they will be identified only when the workflow is
 run. For more information, see [Creating a workflow](workflows-create-workflow.md "workflows-create-workflow.md").
 
-## Auto-discovery doesn't discover
-
-any reports for my action
+## Auto-discovery doesn't discover any reports for my action
 
 **Problem:** I configured auto-discovery for an action
 that runs tests, but no reports are discovered by CodeCatalyst.
@@ -586,9 +540,7 @@ For more information, see [Quality report types](test-workflow-actions.md#test-r
   outputs were generated. For example, the build may have failed before any unit
   tests have been run.
 
-## My action fails on
-
-auto-discovered reports after I configure success criteria
+## My action fails on auto-discovered reports after I configure success criteria
 
 **Problem:** When I enable auto-discovery and configure
 success criteria, some of the reports don't meet the success criteria and the action
@@ -606,9 +558,7 @@ the following solutions:
   configure different success criteria for that specific report. For more
   information, see [Configuring success criteria for reports](test-config-action.md#test.success-criteria "test-config-action.md#test.success-criteria").
 
-## Auto-discovery generates
-
-reports that I don't want
+## Auto-discovery generates reports that I don't want
 
 **Problem:** When I enable auto-discovery, it generates
 reports that I don't want. For example, CodeCatalyst generates code coverage reports for files
@@ -619,9 +569,7 @@ included in my application’s dependencies stored in `node_modules`.
 exclude `node_modules`, add `node_modules/**/*`. For more
 information, see [Include/exclude paths](test-best-practices.md#test.best-include-exclude "test-best-practices.md#test.best-include-exclude").
 
-## Auto-discovery generates many small
-
-reports for a single test framework
+## Auto-discovery generates many small reports for a single test framework
 
 **Problem:** When I use certain test and code coverage
 reporting frameworks, I noticed that auto-discovery generates a large number of reports.
@@ -637,9 +585,7 @@ full expression may look like this:
 mvn test; cd `test-package-path`/surefire-reports && npx junit-merge -d ./ && rm *Test.xml
 ```
 
-## Workflows listed under CI/CD don't
-
-match those in the source repository
+## Workflows listed under CI/CD don't match those in the source repository
 
 **Problem:** The workflows displayed on the
 **CI/CD**, **Workflows** page do not match those
@@ -684,9 +630,7 @@ investigate on your own.
      perform several test commits. Modify fewer than the maximum number of
      workflows in each commit.
 
-## I can't create or update
-
-workflows
+## I can't create or update workflows
 
 **Problem:** I want create or update a workflow, but I
 see an error when I try to commit the change.
@@ -704,5 +648,4 @@ If you have the **Contributor** role but cannot create or
 commit changes to workflow YAML in a specific branch, there might be a branch rule
 configured for that branch that prevents users with that role from pushing code to that
 particular branch. Try creating a workflow in a different branch, or commiting your
-changes to a different branch. For more information, see [Manage allowed actions for a branch with
-branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md").
+changes to a different branch. For more information, see [Manage allowed actions for a branch with branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md").

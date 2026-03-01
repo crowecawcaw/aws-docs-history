@@ -17,13 +17,10 @@ field with environment variables.
 ###### Topics
 
 - [When to use this action](#render-ecs-action-when-to-use "#render-ecs-action-when-to-use")
-- [How the 'Render Amazon ECS task definition' action
-  works](#render-ecs-action-how-it-works "#render-ecs-action-how-it-works")
-- [Runtime image used by the 'Render Amazon ECS task definition'
-  action](#render-ecs-action-runtime "#render-ecs-action-runtime")
+- [How the 'Render Amazon ECS task definition' action works](#render-ecs-action-how-it-works "#render-ecs-action-how-it-works")
+- [Runtime image used by the 'Render Amazon ECS task definition' action](#render-ecs-action-runtime "#render-ecs-action-runtime")
 - [Example: Modify an Amazon ECS taskdef](render-ecs-action-example-workflow.md "render-ecs-action-example-workflow.md")
-- [Adding the 'Render Amazon ECS task definition'
-  action](render-ecs-action-add.md "render-ecs-action-add.md")
+- [Adding the 'Render Amazon ECS task definition' action](render-ecs-action-add.md "render-ecs-action-add.md")
 - [Viewing the updated task definition file](render-ecs-action-view.md "render-ecs-action-view.md")
 - ['Render Amazon ECS task definition' variables](render-ecs-action-variables.md "render-ecs-action-variables.md")
 - ['Render Amazon ECS task definition' action YAML](render-ecs-action-ref.md "render-ecs-action-ref.md")
@@ -37,9 +34,7 @@ Do not use this action if your task definition file contains an image value that
 stays the same. In this case, you can manually enter the name of your image into the task
 definition file.
 
-## How the 'Render Amazon ECS task definition' action
-
-works
+## How the 'Render Amazon ECS task definition' action works
 
 You must use the **Render Amazon ECS task definition** action with the
 **build** and **Deploy to Amazon ECS** actions in your
@@ -120,8 +115,6 @@ variables](../../../AmazonECS/latest/developerguide/taskdef-envfiles.md "../../.
 file with Amazon ECS. Registering the updated task definition file deploys the new image,
 `MyDockerImage:a37bd7e` into Amazon ECS.
 
-## Runtime image used by the 'Render Amazon ECS task definition'
-
-action
+## Runtime image used by the 'Render Amazon ECS task definition' action
 
 The **Render Amazon ECS task definition** action runs on a [November 2022 image](build-images.md#build.previous-image "build-images.md#build.previous-image"). For more information, see [Active images](build-images.md#build-curated-images "build-images.md#build-curated-images").

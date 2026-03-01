@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Specifying a workflow action's source
-
-repository
+# Specifying a workflow action's source repository
 
 Use the following instructions to specify a source repository to use with a workflow
 action. On startup, the action bundles the files at the configured source repository
@@ -20,9 +18,7 @@ subdirectories). This source repository is represented by the label
 
 Visual
 
-###### To specify the source repository that an action will use (visual
-
-editor)
+###### To specify the source repository that an action will use (visual editor)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -51,9 +47,7 @@ choose **Commit** again.
 
 YAML
 
-###### To specify the source repository that an action will use (YAML
-
-editor)
+###### To specify the source repository that an action will use (YAML editor)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.

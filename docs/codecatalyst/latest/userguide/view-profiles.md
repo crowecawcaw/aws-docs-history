@@ -27,9 +27,7 @@ selected your CodeCatalyst alias at signup.
 3. To update your AWS Builder ID email address or password, or to set up MFA, choose
    **Manage AWS Builder ID**. The AWS Builder ID page opens.
 
-## Viewing another user's CodeCatalyst
-
-profile
+## Viewing another user's CodeCatalyst profile
 
 ###### To view another user's CodeCatalyst profile
 

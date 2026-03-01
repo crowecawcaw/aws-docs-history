@@ -14,12 +14,9 @@ _AWS Cloud Development Kit (AWS CDK) Developer Guide_.
 
 - [When to use the 'AWS CDK deploy' action](#cdk-dep-action-when-to-use "#cdk-dep-action-when-to-use")
 - [How the 'AWS CDK deploy' action works](#cdk-dep-action-how-it-works "#cdk-dep-action-how-it-works")
-- [CDK CLI versions used by the 'AWS CDK
-  deploy' action](#cdk-dep-action-cdk-version "#cdk-dep-action-cdk-version")
-- [Runtime image used by the 'AWS CDK deploy'
-  action](#cdk-dep-action-runtime "#cdk-dep-action-runtime")
-- [How many stacks can the action
-  deploy?](#cdk-dep-action-how-many-stacks "#cdk-dep-action-how-many-stacks")
+- [CDK CLI versions used by the 'AWS CDK deploy' action](#cdk-dep-action-cdk-version "#cdk-dep-action-cdk-version")
+- [Runtime image used by the 'AWS CDK deploy' action](#cdk-dep-action-runtime "#cdk-dep-action-runtime")
+- [How many stacks can the action deploy?](#cdk-dep-action-how-many-stacks "#cdk-dep-action-how-many-stacks")
 - [Example: Deploying an AWS CDK app](cdk-dep-action-example-workflow.md "cdk-dep-action-example-workflow.md")
 - [Adding the 'AWS CDK deploy' action](cdk-dep-action-add.md "cdk-dep-action-add.md")
 - ['AWS CDK deploy' variables](cdk-dep-action-variables.md "cdk-dep-action-variables.md")
@@ -45,9 +42,7 @@ command synthesizes and deploys your AWS CDK app into AWS. For more information 
 command, see the [AWS CDK
 Toolkit (cdk command)](../../../cli/latest/reference/s3/sync.md "../../../cli/latest/reference/s3/sync.md") topic in the _AWS Cloud Development Kit (AWS CDK) Developer Guide_.
 
-## CDK CLI versions used by the 'AWS CDK
-
-deploy' action
+## CDK CLI versions used by the 'AWS CDK deploy' action
 
 The following table shows which version of the CDK CLI is used by default by
 different versions of the **AWS CDK deploy** action.
@@ -61,9 +56,7 @@ You might be able to override the default. For more information, see [CdkCliVers
 | 1.0.0 – 1.0.12                  | latest              |
 | 1.0.13 or later                 | 2.99.1              |
 
-## Runtime image used by the 'AWS CDK deploy'
-
-action
+## Runtime image used by the 'AWS CDK deploy' action
 
 The following table shows the runtime environment images that CodeCatalyst uses to run
 different versions of the **AWS CDK deploy** action. The images include
@@ -81,9 +74,7 @@ in your workflow definition file. For more information, see ['AWS CDK deploy' ac
 | 1.x                             | November 2022 images       |
 | 2.x                             | March 2024 images          |
 
-## How many stacks can the action
-
-deploy?
+## How many stacks can the action deploy?
 
 The **AWS CDK deploy** can deploy a single stack only. If your AWS CDK app
 consists of multiple stacks, you must create a parent stack with nested stacks, and deploy the

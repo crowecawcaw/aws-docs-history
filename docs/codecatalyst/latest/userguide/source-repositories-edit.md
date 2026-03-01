@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Editing the settings for a source
-
-repository
+# Editing the settings for a source repository
 
 You can manage the settings for your repository, including editing the description of
 a repository, choosing the default branch, creating and managing branch rules, and
@@ -19,9 +17,7 @@ in CodeCatalyst. To modify information about a linked repository, you must edit 
 provider that hosts the linked repository. For more information, see the
 documentation for the service that hosts the linked repository.
 
-###### To edit the settings of a
-
-repository
+###### To edit the settings of a repository
 
 1. In the CodeCatalyst console, navigate to the project that contains the source
    repository whose settings you want to edit.
@@ -35,12 +31,9 @@ repository
 4. Do one or more of the following:
    - Edit the description of the repository and then choose **Save**.
    - To change the default branch for the repository, in **Default branch**, choose **Edit**.
-     For more information, see [Managing the default branch for a
-     repository](source-branches-default-branch.md "source-branches-default-branch.md").
+     For more information, see [Managing the default branch for a repository](source-branches-default-branch.md "source-branches-default-branch.md").
    - To add, remove, or change a rule for what project roles have permission to perform certain actions in a branch,
      in **Branch rules**, choose **Edit**.
-     For more information, see [Manage allowed actions for a branch with
-     branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md").
+     For more information, see [Manage allowed actions for a branch with branch rules](source-branches-branch-rules.md "source-branches-branch-rules.md").
    - To add, remove, or change an approval rule for merging pull reuqests to a branch, in **Approval rules**,
-     choose **Edit**. For more information, see [Managing requirements for merging
-     a pull request with approval rules](source-pull-requests-approval-rules.md "source-pull-requests-approval-rules.md").
+     choose **Edit**. For more information, see [Managing requirements for merging a pull request with approval rules](source-pull-requests-approval-rules.md "source-pull-requests-approval-rules.md").

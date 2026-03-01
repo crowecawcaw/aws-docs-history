@@ -45,9 +45,7 @@ instructions._
 
 YAML
 
-###### To configure a workflow to use the latest version of an action, or a
-
-specific patch version
+###### To configure a workflow to use the latest version of an action, or a specific patch version
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -74,8 +72,7 @@ specific patch version
 
 ###### Note
 
-If you're not sure which versions are available, see [Listing the available action
-versions](workflows-action-versions-determine.md "workflows-action-versions-determine.md").
+If you're not sure which versions are available, see [Listing the available action versions](workflows-action-versions-determine.md "workflows-action-versions-determine.md").
 
 ###### Note
 

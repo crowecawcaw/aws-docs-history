@@ -24,16 +24,10 @@ For more information about variables, see [Using variables in workflows](workflo
 
 ###### Topics
 
-- [Examples of
-  variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md")
-- [Defining a
-  variable](workflows-working-with-variables-define-input.md "workflows-working-with-variables-define-input.md")
+- [Examples of variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md")
+- [Defining a variable](workflows-working-with-variables-define-input.md "workflows-working-with-variables-define-input.md")
 - [Defining a secret](workflows-working-with-variables-define-secret.md "workflows-working-with-variables-define-secret.md")
-- [Exporting a variable
-  so that other actions can use it](workflows-working-with-variables-export-input.md "workflows-working-with-variables-export-input.md")
-- [Referencing a
-  variable in the action that defines it](workflows-working-with-variables-reference-input.md "workflows-working-with-variables-reference-input.md")
-- [Referencing a
-  variable output by another action](workflows-working-with-variables-reference-action.md "workflows-working-with-variables-reference-action.md")
-- [Referencing a
-  secret](workflows-working-with-variables-reference-secret.md "workflows-working-with-variables-reference-secret.md")
+- [Exporting a variable so that other actions can use it](workflows-working-with-variables-export-input.md "workflows-working-with-variables-export-input.md")
+- [Referencing a variable in the action that defines it](workflows-working-with-variables-reference-input.md "workflows-working-with-variables-reference-input.md")
+- [Referencing a variable output by another action](workflows-working-with-variables-reference-action.md "workflows-working-with-variables-reference-action.md")
+- [Referencing a secret](workflows-working-with-variables-reference-secret.md "workflows-working-with-variables-reference-secret.md")

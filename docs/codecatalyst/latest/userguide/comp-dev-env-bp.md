@@ -5,8 +5,7 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 Managed development environments (MDE) are used to create and stand up MDE Workspaces in
 CodeCatalyst. The component generates a `devfile.yaml` file. For more information,
 see [Introduction to Devfile](https://redhat-developer.github.io/devfile/ "https://redhat-developer.github.io/devfile/")
-and [Editing a repository devfile for a
-Dev Environment](devenvironment-devfile-moving.md "devenvironment-devfile-moving.md").
+and [Editing a repository devfile for a Dev Environment](devenvironment-devfile-moving.md "devenvironment-devfile-moving.md").
 
 ```
 new Workspace(this, repository, SampleWorkspaces.default);

@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Using Maven checksums and
-
-snapshots
+# Using Maven checksums and snapshots
 
 The following sections describe how to use Maven checksums and Maven snapshots in
 CodeCatalyst.

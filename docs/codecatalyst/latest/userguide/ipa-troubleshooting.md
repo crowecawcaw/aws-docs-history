@@ -32,9 +32,7 @@ items folder again. 3. If you still don't see your verification email, choose **
 code**. If you exited that page already, then restart your
 workflow for signing up with [Amazon CodeCatalyst](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 
-### My password doesn't meet minimum
-
-requirements
+### My password doesn't meet minimum requirements
 
 For your security, your password must include 8-20 characters, both uppercase and
 lowercase letters, and numbers.
@@ -80,16 +78,12 @@ adding another MFA device, see [How to register a device for use with multi-fact
 
 In the top right corner of the page, choose **Sign out**.
 
-### Sign out doesn't sign me out
-
-completely
+### Sign out doesn't sign me out completely
 
 The system is designed to sign out immediately, but full sign out may take up to
 an hour.
 
-## I get a role does not exist
-
-error for a failed workflow
+## I get a role does not exist error for a failed workflow
 
 **Issue:** After creating a project from the web
 application or serverless blueprint, the workflow fails with the following error:
@@ -100,12 +94,9 @@ application or serverless blueprint, the workflow fails with the following error
 with the permissions to run your workflow, and you have added the IAM role to your
 workflow YAML, the workflow still fails because the IAM role might need to be added to
 your account connection. Add the IAM role to the account connection for your
-space as detailed in [Adding IAM roles to account
-connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+space as detailed in [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 
-## I get a role error for a
-
-failed workflow
+## I get a role error for a failed workflow
 
 **Issue:** After creating a project from the web
 application or serverless blueprint, the workflow fails with the following error:
@@ -117,18 +108,14 @@ was created might need to set up an AWS account connection or might need
 to complete an account connection request. If your space already has an active
 AWS account connection, create and add an IAM role with permissions
 to run workflow actions. Add the IAM role to your account connection as detailed in
-[Adding IAM roles to account
-connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+[Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 
 **Possible solution:** If the project was created without
 specifying a connection, then the account connection needs to be associated with the
 deployment environment. If your space already has an active AWS account connection and IAM role added, you must add the account
-connection with the IAM role to your deployment environment as detailed in [Adding the account connection and
-IAM roles to your deploy environment](ipa-connect-account-addroles-env.md "ipa-connect-account-addroles-env.md").
+connection with the IAM role to your deployment environment as detailed in [Adding the account connection and IAM roles to your deploy environment](ipa-connect-account-addroles-env.md "ipa-connect-account-addroles-env.md").
 
-## I need to update the IAM role in
-
-a project workflow
+## I need to update the IAM role in a project workflow
 
 If the AWS account connection is set up completely, and the IAM role
 is created and added to the account connection, you can update the IAM role in your
@@ -144,9 +131,7 @@ project workflow.
 The workflow starts automatically if on the mainline branch. Otherwise, to
 rerun the workflow, choose **Run**.
 
-## I have a review request for
-
-my GitHub account after creating a personal connection
+## I have a review request for my GitHub account after creating a personal connection
 
 After you create a personal connection to GitHub, the CodeCatalyst app is installed for your
 GitHub account as a GitHub app. If there are certain resources in CodeCatalyst that require

@@ -54,8 +54,7 @@ The following are additional considerations for added accounts:
 - [Editing a space](spaces-edit.md "spaces-edit.md")
 - [Deleting a space](spaces-delete.md "spaces-delete.md")
 - [Monitoring activity for users and resources in a space](spaces-activity.md "spaces-activity.md")
-- [Allowing access to AWS resources with connected
-  AWS accounts](ipa-connect-account.md "ipa-connect-account.md")
+- [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md")
 - [Configuring IAM roles for connected accounts](spaces-manage-roles.md "spaces-manage-roles.md")
 - [Granting users space permissions](spaces-members.md "spaces-members.md")
 - [Allowing space access using teams](managing-teams.md "managing-teams.md")

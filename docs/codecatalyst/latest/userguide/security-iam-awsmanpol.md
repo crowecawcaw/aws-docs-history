@@ -116,9 +116,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AmazonCodeCatalystReadOnlyAccess
+## AWS managed policy: AmazonCodeCatalystReadOnlyAccess
 
 This is a policy that grants permissions to view and list information for spaces
 and connected accounts in the Amazon CodeCatalyst Spaces page in the AWS Management Console. This application is
@@ -150,14 +148,11 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonCodeCatalystServiceRoleForIdentityCenterApplicationSynchronizationPolicy
+## AWS managed policy: AmazonCodeCatalystServiceRoleForIdentityCenterApplicationSynchronizationPolicy
 
 You can't attach AmazonCodeCatalystServiceRoleForIdentityCenterApplicationSynchronizationPolicy; to your IAM
 entities. This policy is attached to a service-linked role that allows CodeCatalyst to perform
-actions on your behalf. For more information, see [Using service-linked roles for
-CodeCatalyst](using-service-linked-roles.md "using-service-linked-roles.md").
+actions on your behalf. For more information, see [Using service-linked roles for CodeCatalyst](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy allows customers to view application instance profiles and associated
 directory users and groups when managing spaces in CodeCatalyst. Customers will view these
@@ -195,9 +190,7 @@ JSON
 
 ```
 
-## CodeCatalyst updates to AWS managed
-
-policies
+## CodeCatalyst updates to AWS managed policies
 
 View details about updates to AWS managed policies for CodeCatalyst since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

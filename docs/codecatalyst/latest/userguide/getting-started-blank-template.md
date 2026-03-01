@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Tutorial: Starting with an empty project and
-
-manually adding resources
+# Tutorial: Starting with an empty project and manually adding resources
 
 You can create an empty project without any predefined resources inside it by choosing the
 **Empty
@@ -17,8 +15,7 @@ of creating and configuring CodeCatalyst resources to get started.
 - [Prerequisites](#getting-started-bt-prerequisites "#getting-started-bt-prerequisites")
 - [Create an empty project](#getting-started-bt-proj-create "#getting-started-bt-proj-create")
 - [Create a source repository](#getting-started-bt-source-create "#getting-started-bt-source-create")
-- [Create a workflow to build, test, and deploy
-  a code change](#getting-started-bt-workflow-create "#getting-started-bt-workflow-create")
+- [Create a workflow to build, test, and deploy a code change](#getting-started-bt-workflow-create "#getting-started-bt-workflow-create")
 - [Invite someone to your project](#getting-started-bt-ipa-user "#getting-started-bt-ipa-user")
 - [Create issues to collaborate on and track work](#getting-started-bt-issue "#getting-started-bt-issue")
 
@@ -96,8 +93,7 @@ Dev Environment. We use the name `test` for this branch, but you can enter a dif
    **Source repositories**, and choose the repository for which you
    want to create a Dev Environment.
 4. On the repository home page, choose **Create Dev Environment**.
-5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments
-   for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
+5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
 6. Choose the repository to clone, choose **Work in new branch**, enter a branch name into the **Branch
    name** field, and choose a branch off of which to create the new
    branch from the **Create branch from** drop-down menu.
@@ -105,9 +101,7 @@ Dev Environment. We use the name `test` for this branch, but you can enter a dif
 8. Optionally, choose the **Dev Environment configuration** edit button to edit the Dev Environment's compute, storage, or timeout configuration.
 9. Choose **Create**. While your Dev Environment is being created, the Dev Environment status column will display **Starting**, and the status column will display **Running** once the Dev Environment has been created. A new tab will open with your Dev Environment in the IDE of your choice. You can edit code and commit and push your changes.
 
-## Create a workflow to build, test, and deploy
-
-a code change
+## Create a workflow to build, test, and deploy a code change
 
 In CodeCatalyst, you organize the building, testing, and deployment of your applications or
 services in workflows. Workflows consist of actions and can be configured to run automatically
@@ -155,8 +149,7 @@ for the issue if desired. You can also assign the issue to a project member from
 You can choose to assign an issue to **Amazon Q** to have Amazon Q
 try to solve the issue. If the attempt is successful, a pull request will be created and the
 status of the issue will change to **In review** so that you can review and
-test the code. For more information, see [Tutorial: Using CodeCatalyst generative AI
-features to speed up your development work](getting-started-project-assistance.md "getting-started-project-assistance.md").
+test the code. For more information, see [Tutorial: Using CodeCatalyst generative AI features to speed up your development work](getting-started-project-assistance.md "getting-started-project-assistance.md").
 
 This functionality requires that generative AI features are enabled for the space.
 For more information, see [Managing generative AI features](../adminguide/managing-generative-ai-features.md "../adminguide/managing-generative-ai-features.md"). 5. Choose **Save**.

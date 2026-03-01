@@ -7,8 +7,7 @@ the issue is displayed as a property of the pull request. As a result, pull requ
 events are sent to Jira and added to the Jira issue. Pull requests can be linked to one or more Jira issues. You can
 only link pull requests that are in a CodeCatalyst source repository, not those in a third-party repository like GitHub. Before
 you can link Jira issues to a pull request, your Jira project must be linked to the CodeCatalyst project. For more information
-about linking a Jira project to a CodeCatalyst project, see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
+about linking a Jira project to a CodeCatalyst project, see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
 
 ###### Note
 

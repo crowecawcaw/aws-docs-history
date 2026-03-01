@@ -41,8 +41,7 @@ Note that VPC-connected Dev Environments only support the following devfile imag
 
 ###### Topics
 
-- [Editing a repository devfile for a
-  Dev Environment](devenvironment-devfile-moving.md "devenvironment-devfile-moving.md")
+- [Editing a repository devfile for a Dev Environment](devenvironment-devfile-moving.md "devenvironment-devfile-moving.md")
 - [Devfile features supported by CodeCatalyst](#devenvironment-devfile-support "#devenvironment-devfile-support")
 - [Example of a devfile for a Dev Environment](#devenvironment-devfile-example "#devenvironment-devfile-example")
 - [Troubleshooting a repository devfile using recovery mode](#devenvironment-devfile-recovery "#devenvironment-devfile-recovery")

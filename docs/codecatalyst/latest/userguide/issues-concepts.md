@@ -31,8 +31,7 @@ can be unarchived if needed.
 
 The _assignee_ is the person the issue is assigned to. If the
 person doesn't appear in the list when you search for them, they have not been added to
-your project. To add them, see [Inviting
-a user to a project](projects-members.md#projects-members-add "projects-members.md#projects-members-add"). To enable multiple assignees to an issue,
+your project. To add them, see [Inviting a user to a project](projects-members.md#projects-members-add "projects-members.md#projects-members-add"). To enable multiple assignees to an issue,
 see [Enabling or disabling multiple assignees](issues-settings-multiple-assignees.md "issues-settings-multiple-assignees.md"). Issues with
 multiple assignees will appear on your board with different colored avatars, each
 representing one of the assignees.

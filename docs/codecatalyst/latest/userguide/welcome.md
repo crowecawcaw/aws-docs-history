@@ -23,9 +23,7 @@ language- or tool-based project blueprints. When you create a project from a pro
 blueprint, the project comes with resources such as a source repository with sample code,
 build scripts, deployment actions, virtual servers or serverless resources, and more.
 
-## What
-
-can I do with CodeCatalyst?
+## What can I do with CodeCatalyst?
 
 You and your development team can use CodeCatalyst to carry out each aspect of software
 development, from planning your work to deploying your applications. You can use CodeCatalyst
@@ -59,8 +57,7 @@ by:
 
 - Reviewing the [CodeCatalyst concepts](concepts.md "concepts.md")
 - [Creating a space](spaces-create.md "spaces-create.md")
-- Creating your first project by following the steps in [Tutorial: Creating a project with the
-  Modern three-tier web application blueprint](getting-started-template-project.md "getting-started-template-project.md")
+- Creating your first project by following the steps in [Tutorial: Creating a project with the Modern three-tier web application blueprint](getting-started-template-project.md "getting-started-template-project.md")
 
 ## Learn more about CodeCatalyst
 

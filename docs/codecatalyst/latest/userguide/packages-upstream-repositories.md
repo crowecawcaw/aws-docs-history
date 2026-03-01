@@ -28,8 +28,6 @@ In this case, you only have to configure your package manager to use `project-re
 ###### Topics
 
 - [Adding an upstream repository](packages-upstream-repositories-add.md "packages-upstream-repositories-add.md")
-- [Editing the search order of
-  upstream repositories](packages-upstream-repositories-search-order.md "packages-upstream-repositories-search-order.md")
+- [Editing the search order of upstream repositories](packages-upstream-repositories-search-order.md "packages-upstream-repositories-search-order.md")
 - [Requesting a package version with upstream repositories](packages-upstream-repositories-request.md "packages-upstream-repositories-request.md")
-- [Removing an upstream
-  repository](packages-upstream-repositories-remove.md "packages-upstream-repositories-remove.md")
+- [Removing an upstream repository](packages-upstream-repositories-remove.md "packages-upstream-repositories-remove.md")

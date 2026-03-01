@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Troubleshooting problems with accounts
-
-associated with your space
+# Troubleshooting problems with accounts associated with your space
 
 In CodeCatalyst, you can add an AWS account to your space to grant permissions to
 resources and for billing purposes. The following information can help you troubleshoot
@@ -10,21 +8,14 @@ common issues with associated accounts in CodeCatalyst.
 
 ###### Topics
 
-- [My AWS account connection request
-  receives an invalid token error](#troubleshooting-connection-token "#troubleshooting-connection-token")
-- [My Amazon CodeCatalyst project workflow fails
-  with an error for the configured account, environment, or IAM role](#connections-troubleshoot-workflow "#connections-troubleshoot-workflow")
-- [I need an associated account,
-  role, and environment to create a project](#connections-troubleshoot-environment "#connections-troubleshoot-environment")
-- [I cannot access the
-  Amazon CodeCatalyst Spaces page in the AWS Management Console](#connections-troubleshoot-console "#connections-troubleshoot-console")
-- [I want a different account as my
-  billing account](#connections-troubleshoot-billing "#connections-troubleshoot-billing")
+- [My AWS account connection request receives an invalid token error](#troubleshooting-connection-token "#troubleshooting-connection-token")
+- [My Amazon CodeCatalyst project workflow fails with an error for the configured account, environment, or IAM role](#connections-troubleshoot-workflow "#connections-troubleshoot-workflow")
+- [I need an associated account, role, and environment to create a project](#connections-troubleshoot-environment "#connections-troubleshoot-environment")
+- [I cannot access the Amazon CodeCatalyst Spaces page in the AWS Management Console](#connections-troubleshoot-console "#connections-troubleshoot-console")
+- [I want a different account as my billing account](#connections-troubleshoot-billing "#connections-troubleshoot-billing")
 - [My project workflow fails with a connection name error](#connections-troubleshoot-restriction "#connections-troubleshoot-restriction")
 
-## My AWS account connection request
-
-receives an invalid token error
+## My AWS account connection request receives an invalid token error
 
 **Problem:** When creating a connection request with a
 connection token, the page does not accept the token and shows an error stating that the
@@ -47,9 +38,7 @@ after verifying the following:
   account has not reached the quota as a billing account for another space or
   spaces.
 
-## My Amazon CodeCatalyst project workflow fails
-
-with an error for the configured account, environment, or IAM role
+## My Amazon CodeCatalyst project workflow fails with an error for the configured account, environment, or IAM role
 
 **Problem:** When the workflow runs and does not find a
 configured account or IAM roles associated with your space, you must fill in the
@@ -106,12 +95,9 @@ parameters for [Environment](build-action-ref.md#build.environment "build-action
 - Make sure your space has an account added to it, and make sure that the
   account has the appropriate IAM role or roles added to the account. You can
   adjust or add accounts if you have the **Space administrator**
-  role. For more information, see [Allowing access to AWS resources with connected
-  AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
+  role. For more information, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
 
-## I need an associated account,
-
-role, and environment to create a project
+## I need an associated account, role, and environment to create a project
 
 **Problem:** In the project creation options, my project
 either doesn’t have an added account available in my space, or I need another
@@ -124,19 +110,15 @@ where you have administrative permissions or can work with your AWS
 administrator.
 
 To make sure an account and role will be available in the project creation screen, you
-must first add the account and roles. For more information, see [Allowing access to AWS resources with connected
-AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
+must first add the account and roles. For more information, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
 
 You have the option to choose to create a service role with a role policy called the
 **CodeCatalystWorkflowDevelopmentRole-`spaceName`** role policy. The role will have a name `CodeCatalystWorkflowDevelopmentRole-`spaceName`` with a unique identifier
 appended. For more information about the role and role policy, see [Understanding the CodeCatalystWorkflowDevelopmentRole-spaceName service role](ipa-iam-roles.md#ipa-iam-roles-service-role "ipa-iam-roles.md#ipa-iam-roles-service-role").
-For the steps to create the role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account
-and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create"). The role is added to your account and
+For the steps to create the role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create"). The role is added to your account and
 available in project creation pages in CodeCatalyst.
 
-## I cannot access the
-
-Amazon CodeCatalyst Spaces page in the AWS Management Console
+## I cannot access the Amazon CodeCatalyst Spaces page in the AWS Management Console
 
 **Problem:** When I try to access the Amazon CodeCatalyst page in the AWS Management Console
 to add an account to my CodeCatalyst space or add roles to an account in AWS, I receive
@@ -153,9 +135,7 @@ the console and try again.
 
 Open the Amazon CodeCatalyst page in the AWS Management Console at [https://us-west-2.console.aws.amazon.com/codecatalyst/home?region=us-west-2#/](https://us-west-2.console.aws.amazon.com/codecatalyst/home?region=us-west-2#/ "https://us-west-2.console.aws.amazon.com/codecatalyst/home?region=us-west-2#/").
 
-## I want a different account as my
-
-billing account
+## I want a different account as my billing account
 
 **Problem:** When I set up my CodeCatalyst login, I completed
 several steps to set up my space and associate an authorized AWS account. Now, I

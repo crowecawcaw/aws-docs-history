@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Tutorial: Using CodeCatalyst generative AI
-
-features to speed up your development work
+# Tutorial: Using CodeCatalyst generative AI features to speed up your development work
 
 If you have a project and a source repository in Amazon CodeCatalyst in a space where
 generative AI features are enabled, you can use these features to help speed up software
@@ -35,16 +33,11 @@ issue.
 ###### Topics
 
 - [Prerequisites](#getting-started-project-assistance-prerequisites "#getting-started-project-assistance-prerequisites")
-- [Using Amazon Q to choose
-  a blueprint when creating a project or adding functionality](#getting-started-project-assistance-create-apply-bp "#getting-started-project-assistance-create-apply-bp")
-- [Create a
-  summary of the code changes between branches when creating a pull request](#getting-started-project-assistance-pull-request-summary "#getting-started-project-assistance-pull-request-summary")
-- [Create a summary of
-  comments left on code changes in a pull request](#getting-started-project-assistance-comment-summary "#getting-started-project-assistance-comment-summary")
-- [Create an issue and
-  assign it to Amazon Q](#getting-started-project-assistance-issue-to-code "#getting-started-project-assistance-issue-to-code")
-- [Create an issue and
-  have tasks recommended for it by Amazon Q](#getting-started-project-assistance-issue-to-tasks "#getting-started-project-assistance-issue-to-tasks")
+- [Using Amazon Q to choose a blueprint when creating a project or adding functionality](#getting-started-project-assistance-create-apply-bp "#getting-started-project-assistance-create-apply-bp")
+- [Create a summary of the code changes between branches when creating a pull request](#getting-started-project-assistance-pull-request-summary "#getting-started-project-assistance-pull-request-summary")
+- [Create a summary of comments left on code changes in a pull request](#getting-started-project-assistance-comment-summary "#getting-started-project-assistance-comment-summary")
+- [Create an issue and assign it to Amazon Q](#getting-started-project-assistance-issue-to-code "#getting-started-project-assistance-issue-to-code")
+- [Create an issue and have tasks recommended for it by Amazon Q](#getting-started-project-assistance-issue-to-tasks "#getting-started-project-assistance-issue-to-tasks")
 - [Clean up resources](#getting-started-project-assistance-clean-up "#getting-started-project-assistance-clean-up")
 
 ## Prerequisites
@@ -71,9 +64,7 @@ This tutorial is based on a project created using the
 project created with a different blueprint, you can still follow the steps, but some
 specifics will vary, such as sample code and language.
 
-## Using Amazon Q to choose
-
-a blueprint when creating a project or adding functionality
+## Using Amazon Q to choose a blueprint when creating a project or adding functionality
 
 As a project developer, you can collaborate with Amazon Q, a generative AI assistant,
 when creating new projects or adding components to existing projects. You can provide Amazon Q
@@ -84,8 +75,7 @@ the recommendations as well. You can then proceed with Amazon Q’s suggestion i
 and it will create the necessary resources such as a source repository with code for your
 requirement. Amazon Q also creates issues for requirements that can’t be satisfied with a blueprint.
 To learn more about available CodeCatalyst blueprints, see [Creating a comprehensive project with CodeCatalyst blueprints](project-blueprints.md "project-blueprints.md"). To learn more about using Amazon Q with blueprints,
-see [Best practices when using Amazon Q to create projects
-or add functionality with blueprints](projects-create.md#projects-create-amazon-q "projects-create.md#projects-create-amazon-q").
+see [Best practices when using Amazon Q to create projects or add functionality with blueprints](projects-create.md#projects-create-amazon-q "projects-create.md#projects-create-amazon-q").
 
 ###### To create a project with Amazon Q
 
@@ -152,10 +142,8 @@ View details
     you don't want to create issues for. After you choose to let Amazon Q create issues, you can then assign an issue
     to Amazon Q as well. It’ll analyze the issue in the context of the given source repositories, providing a summary of the
     relevant source files and code. For more information, see [Finding and viewing issues](issues-view.md "issues-view.md"),
-    [Create an issue and
-    assign it to Amazon Q](#getting-started-project-assistance-issue-to-code "#getting-started-project-assistance-issue-to-code"),
-    and [Best practices
-    when creating and working with issues assigned to Amazon Q](issues-create-issue.md#issues-create-issue-assign-genai-best-practices "issues-create-issue.md#issues-create-issue-assign-genai-best-practices").
+    [Create an issue and assign it to Amazon Q](#getting-started-project-assistance-issue-to-code "#getting-started-project-assistance-issue-to-code"),
+    and [Best practices when creating and working with issues assigned to Amazon Q](issues-create-issue.md#issues-create-issue-assign-genai-best-practices "issues-create-issue.md#issues-create-issue-assign-genai-best-practices").
 
 After creating a project with Amazon Q, you can also use Amazon Q to add new components as it suggests CodeCatalyst blueprints
 based on your requirements.
@@ -220,14 +208,10 @@ View details
 11. (Optional) By default, Amazon Q also creates issues for the requirements that aren’t satisfied by a blueprint. You can choose which items
     you don't want to create issues for. After you choose to let Amazon Q create issues, you can then assign an issue
     to Amazon Q as well. It’ll analyze the issue in the context of the given source repositories, providing a summary of the
-    relevant source files and code. For more information, see [Create an issue and
-    assign it to Amazon Q](#getting-started-project-assistance-issue-to-code "#getting-started-project-assistance-issue-to-code")
-    and [Best practices
-    when creating and working with issues assigned to Amazon Q](issues-create-issue.md#issues-create-issue-assign-genai-best-practices "issues-create-issue.md#issues-create-issue-assign-genai-best-practices").
+    relevant source files and code. For more information, see [Create an issue and assign it to Amazon Q](#getting-started-project-assistance-issue-to-code "#getting-started-project-assistance-issue-to-code")
+    and [Best practices when creating and working with issues assigned to Amazon Q](issues-create-issue.md#issues-create-issue-assign-genai-best-practices "issues-create-issue.md#issues-create-issue-assign-genai-best-practices").
 
-## Create a
-
-summary of the code changes between branches when creating a pull request
+## Create a summary of the code changes between branches when creating a pull request
 
 A pull request is the primary way you and other project members can review, comment
 on, and merge code changes from one branch to another. You can use pull requests to
@@ -333,9 +317,7 @@ changes contained in the pull request. 6. A summary of the changes appears. Revi
 choose **Accept and add to description**. 7. Optionally, modify the summary to better reflect the changes you made to the code. You can also choose to add reviewers or link issues to this pull request.
 When you have finished making any additional changes you want, choose **Create**.
 
-## Create a summary of
-
-comments left on code changes in a pull request
+## Create a summary of comments left on code changes in a pull request
 
 When users review a pull request, they often leave multiple comments on the changes in
 that pull request. If there are a lot of comments from a lot of reviewers, it can be
@@ -368,9 +350,7 @@ does not already have comments. 3. In **Overview**, choose **Create comment summ
 complete, the **Comment summary** section expands. 4. Review the summary of comments left on changes in the code in revisions of the pull request,
 and compare it to the comments in the pull request.
 
-## Create an issue and
-
-assign it to Amazon Q
+## Create an issue and assign it to Amazon Q
 
 Development teams create issues to track and manage their work, but sometimes an issue
 lingers because either it's not clear who should work on it, or the issue requires
@@ -636,9 +616,7 @@ that you see a successful workflow run before you merge the pull request. You
 can also choose to create additional workflows and environments to test the code
 before you merge it. For more information, see [Getting started with workflows](workflows-getting-started.md "workflows-getting-started.md"). 6. When you are satisfied with the latest revision of the pull request, choose **Merge**.
 
-## Create an issue and
-
-have tasks recommended for it by Amazon Q
+## Create an issue and have tasks recommended for it by Amazon Q
 
 An issue can sometimes contain complex or lengthy amounts of work. CodeCatalyst includes integration with Amazon Q Developer Agent for software development.
 You can ask **Amazon Q** to analyze an issue

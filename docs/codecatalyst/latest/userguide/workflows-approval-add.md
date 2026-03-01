@@ -10,9 +10,7 @@ For more information about this gate, see [Requiring approvals on workflow runs]
 
 Visual
 
-###### To add an 'Approval'
-
-gate to a workflow (visual editor)
+###### To add an 'Approval' gate to a workflow (visual editor)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.

@@ -16,16 +16,13 @@ and production. When you deploy into these environments, information about the d
 appears on the CodeCatalyst **Deployment activity** and **Deployment
 targets** tabs in the environment.
 
-## How do I get started with
-
-environments?
+## How do I get started with environments?
 
 The high-level steps to add and use a CodeCatalyst environment are as follows:
 
 1. In your CodeCatalyst space, **connect one or more AWS
    accounts**. During this process, add the IAM roles that your workflow
-   requires to access resources in your AWS account. For more information, see [Allowing access to AWS resources with connected
-   AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
+   requires to access resources in your AWS account. For more information, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
 2. In your CodeCatalyst project, **create an environment** that
    includes one of the AWS accounts and IAM roles from step 1. For more information, see
    [Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md").
@@ -39,29 +36,22 @@ AWS account specified in the environment.
 
 You can also add an Amazon VPC to the environment. For more information, see [Adding
 VPC connections for a space](../adminguide/managing-vpcs.md "../adminguide/managing-vpcs.md") in the _CodeCatalyst Administration
-Guide_ and [Associating a VPC with an
-environment](deploy-environments-associate-vpc.md "deploy-environments-associate-vpc.md").
+Guide_ and [Associating a VPC with an environment](deploy-environments-associate-vpc.md "deploy-environments-associate-vpc.md").
 
-## Can multiple environments exist within a single
-
-workflow?
+## Can multiple environments exist within a single workflow?
 
 Yes. If a workflow includes multiple actions, each of those actions can be assigned an
 environment. For example, you could have a workflow that includes two deploy actions, where
 one is assigned a `my-staging-enviroment` environment and another is assigned a
 `my-production-environment` environment.
 
-## Which workflow actions support
-
-environments?
+## Which workflow actions support environments?
 
 Any workflow action that deploys resources into the AWS cloud, or communicates with
 AWS services for other reasons (such as monitoring and reporting), supports
 environments.
 
-## Which actions support having their
-
-deployment information displayed in CodeCatalyst?
+## Which actions support having their deployment information displayed in CodeCatalyst?
 
 Of the workflow actions that support environments, only a few support having their
 deployment information displayed on the **Deployment activity** and
@@ -72,8 +62,7 @@ displayed:
 
 - **Deploy CloudFormation stack** – For more information, see [Deploying an CloudFormation stack](deploy-action-cfn.md "deploy-action-cfn.md")
 - **Deploy to Amazon ECS** – For more information, see [Deploying to Amazon ECS with a workflow](deploy-action-ecs.md "deploy-action-ecs.md")
-- **Deploy to Kubernetes cluster** – For more information, see [Deploying to Amazon EKS with a
-  workflow](deploy-action-eks.md "deploy-action-eks.md")
+- **Deploy to Kubernetes cluster** – For more information, see [Deploying to Amazon EKS with a workflow](deploy-action-eks.md "deploy-action-eks.md")
 - **AWS CDK deploy** – For more information, see [Deploying an AWS CDK app with a workflow](cdk-dep-action.md "cdk-dep-action.md")
 
 ## Supported Regions
@@ -81,9 +70,7 @@ displayed:
 The **Environments** page can display resources in any AWS
 Region.
 
-## Is an environment
-
-mandatory?
+## Is an environment mandatory?
 
 An environment is mandatory if the workflow action to which it is assigned deploys
 resources into the AWS cloud, or communicates with AWS services for other reasons (such as
@@ -97,10 +84,7 @@ AWS account, then the action must have an environment assigned.
 ###### Topics
 
 - [Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md")
-- [Associating an environment with
-  an action](deploy-environments-add-app-to-environment.md "deploy-environments-add-app-to-environment.md")
-- [Associating a VPC with an
-  environment](deploy-environments-associate-vpc.md "deploy-environments-associate-vpc.md")
-- [Associating an AWS account with an
-  environment](deploy-environments-associate-account.md "deploy-environments-associate-account.md")
+- [Associating an environment with an action](deploy-environments-add-app-to-environment.md "deploy-environments-add-app-to-environment.md")
+- [Associating a VPC with an environment](deploy-environments-associate-vpc.md "deploy-environments-associate-vpc.md")
+- [Associating an AWS account with an environment](deploy-environments-associate-account.md "deploy-environments-associate-account.md")
 - [Changing the IAM role of an action](deploy-environments-switch-role.md "deploy-environments-switch-role.md")

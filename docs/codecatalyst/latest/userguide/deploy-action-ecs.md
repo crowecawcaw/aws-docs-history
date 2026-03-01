@@ -24,20 +24,16 @@ see [Tutorial: Deploy an application to Amazon ECS](deploy-tut-ecs.md "deploy-tu
 
 For a working example of the **Deploy to Amazon ECS** action, create a project
 with either the **Node.js API with AWS Fargate** or
-**Java API with AWS Fargate** blueprint. For more information, see [Creating a project with a
-blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template").
+**Java API with AWS Fargate** blueprint. For more information, see [Creating a project with a blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template").
 
 ###### Topics
 
-- [Runtime image used by the 'Deploy to Amazon ECS'
-  action](#deploy-action-ecs-runtime "#deploy-action-ecs-runtime")
+- [Runtime image used by the 'Deploy to Amazon ECS' action](#deploy-action-ecs-runtime "#deploy-action-ecs-runtime")
 - [Tutorial: Deploy an application to Amazon ECS](deploy-tut-ecs.md "deploy-tut-ecs.md")
 - [Adding the 'Deploy to Amazon ECS' action](deploy-action-ecs-adding.md "deploy-action-ecs-adding.md")
 - ['Deploy to Amazon ECS' variables](deploy-action-ecs-variables.md "deploy-action-ecs-variables.md")
 - ['Deploy to Amazon ECS' action YAML](deploy-action-ref-ecs.md "deploy-action-ref-ecs.md")
 
-## Runtime image used by the 'Deploy to Amazon ECS'
-
-action
+## Runtime image used by the 'Deploy to Amazon ECS' action
 
 The **Deploy to Amazon ECS** action runs on a [November 2022 image](build-images.md#build.previous-image "build-images.md#build.previous-image"). For more information, see [Active images](build-images.md#build-curated-images "build-images.md#build-curated-images").

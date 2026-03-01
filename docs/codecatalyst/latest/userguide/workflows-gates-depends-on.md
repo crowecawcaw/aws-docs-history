@@ -8,8 +8,7 @@ before a `Deploy` action. In this case, the `Deploy` action is
 said to _depend on_ the `Approval` gate.
 
 To set up dependencies between gates and actions, configure the gate or action's
-**Depends on** property. For instructions, see [Setting up dependencies between
-actions](workflows-depends-on-set-up.md "workflows-depends-on-set-up.md").
+**Depends on** property. For instructions, see [Setting up dependencies between actions](workflows-depends-on-set-up.md "workflows-depends-on-set-up.md").
 The referenced instructions refer to workflow _actions_ but apply
 equally to gates.
 

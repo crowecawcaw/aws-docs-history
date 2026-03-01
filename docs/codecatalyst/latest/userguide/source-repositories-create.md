@@ -49,9 +49,7 @@ also creates an initial commit for the repository in a default branch named
 delete
 the default branch.
 
-###### To create an empty source
-
-repository
+###### To create an empty source repository
 
 1. In the CodeCatalyst console, navigate to the project where you want to create an empty repository.
 2. On the summary page for your project, in **Source repositories**, choose **Add repository**,

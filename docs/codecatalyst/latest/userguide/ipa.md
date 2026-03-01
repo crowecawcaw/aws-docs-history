@@ -38,8 +38,7 @@ are included with the project templates to run.
 
 - [Granting access with user roles](ipa-roles.md "ipa-roles.md")
 - [Grant users repository access with personal access tokens](ipa-tokens-keys.md "ipa-tokens-keys.md")
-- [Accessing GitHub resources with personal
-  connections](ipa-settings-connections.md "ipa-settings-connections.md")
+- [Accessing GitHub resources with personal connections](ipa-settings-connections.md "ipa-settings-connections.md")
 - [Configure your AWS Builder ID to sign in with multi-factor authentication (MFA)](mfa.md "mfa.md")
 - [Security in Amazon CodeCatalyst](security.md "security.md")
 - [Monitoring events and API calls using logging](ipa-monitoring.md "ipa-monitoring.md")

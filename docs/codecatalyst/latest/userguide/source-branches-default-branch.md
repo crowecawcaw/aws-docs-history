@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Managing the default branch for a
-
-repository
+# Managing the default branch for a repository
 
 You can specify which branch to use as the _default branch_ in a
 source repository in Amazon CodeCatalyst. All source repositories in CodeCatalyst have contents and a
@@ -16,8 +14,7 @@ automatically on the overview page for that repository.
 CodeCatalyst doesn't support detecting changes in the default branch for linked
 repositories. To change the default branch for a linked repository, you must first unlink it
 from CodeCatalyst, change the default branch, and then link it again. For more information,
-see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories,
-and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
+see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md").
 
 As a best practice, always make sure you have the latest version of the extension
 before you link a repository.
@@ -41,9 +38,7 @@ You must have the Project administrator role to change the default branch for
 source repositories in CodeCatalyst projects. This does not apply to linked
 repositories.
 
-###### To view and change the default branch for a
-
-repository
+###### To view and change the default branch for a repository
 
 1. Navigate to the project where your repository resides.
 2. Choose the name of the repository from the list of source repositories for the

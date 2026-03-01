@@ -1,24 +1,20 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Referencing a
-
-variable output by another action
+# Referencing a variable output by another action
 
 Use the following instructions to reference variables output by other
 actions.
 
 ###### Note
 
-To reference a variable output from a GitHub Action, see [Referencing GitHub output
-parameters](integrations-github-action-referencing.md "integrations-github-action-referencing.md").
+To reference a variable output from a GitHub Action, see [Referencing GitHub output parameters](integrations-github-action-referencing.md "integrations-github-action-referencing.md").
 
 For more information about variables, see [Using variables in workflows](workflows-working-with-variables.md "workflows-working-with-variables.md").
 
 ###### Prerequisite
 
 Make sure you have exported the variable you want to reference. For more
-information, see [Exporting a variable
-so that other actions can use it](workflows-working-with-variables-export-input.md "workflows-working-with-variables-export-input.md").
+information, see [Exporting a variable so that other actions can use it](workflows-working-with-variables-export-input.md "workflows-working-with-variables-export-input.md").
 
 Visual
 _Not available. Choose YAML to view the YAML
@@ -26,9 +22,7 @@ instructions._
 
 YAML
 
-###### To reference a variable output by another action (YAML
-
-editor)
+###### To reference a variable output by another action (YAML editor)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
@@ -73,8 +67,7 @@ MySecondAction:
         - Run: ${MyFirstAction.TIMESTAMP}
 ```
 
-For more examples, see [Examples of
-variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md"). For
+For more examples, see [Examples of variables](workflows-working-with-variables-ex.md "workflows-working-with-variables-ex.md"). For
 more information, see the [Workflow YAML definition](workflow-reference.md "workflow-reference.md") for your action. 8. (Optional) Choose **Validate** to validate
 the workflow's YAML code before committing. 9. Choose **Commit**, enter a commit message,
 and choose **Commit** again.

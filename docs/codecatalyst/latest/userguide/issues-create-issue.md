@@ -50,8 +50,7 @@ of the checkbox. 9. (Optional) Add an existing label or create a new label and a
 ###### Tip
 
 You can choose to assign an issue to **Amazon Q** to
-have Amazon Q try to solve the issue. For more information, see [Tutorial: Using CodeCatalyst generative AI
-features to speed up your development work](getting-started-project-assistance.md "getting-started-project-assistance.md"). This feature is
+have Amazon Q try to solve the issue. For more information, see [Tutorial: Using CodeCatalyst generative AI features to speed up your development work](getting-started-project-assistance.md "getting-started-project-assistance.md"). This feature is
 only available in the US West (Oregon) Region.
 
 This functionality requires that generative AI features are enabled for
@@ -80,9 +79,7 @@ You cannot link a pull request to an issue when you create it. However,
 you can [edit it](issues-edit-issue.md "issues-edit-issue.md") after you create it
 to add links to pull requests.
 
-## Best practices
-
-when creating and working with issues assigned to Amazon Q
+## Best practices when creating and working with issues assigned to Amazon Q
 
 When you create issues, sometimes some of them linger. The causes for this can be
 complex and variable. Sometimes it's because it's not clear who should work on it.
@@ -163,5 +160,4 @@ or create a revision.
   run these workflows before you review and approve the pull request it
   creates.
 
-For more information, see [Tutorial: Using CodeCatalyst generative AI
-features to speed up your development work](getting-started-project-assistance.md "getting-started-project-assistance.md") and [Managing generative AI features](../adminguide/managing-generative-ai-features.md "../adminguide/managing-generative-ai-features.md").
+For more information, see [Tutorial: Using CodeCatalyst generative AI features to speed up your development work](getting-started-project-assistance.md "getting-started-project-assistance.md") and [Managing generative AI features](../adminguide/managing-generative-ai-features.md "../adminguide/managing-generative-ai-features.md").

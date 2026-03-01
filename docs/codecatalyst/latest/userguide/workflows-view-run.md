@@ -16,18 +16,12 @@ For more information about workflow runs, see [Running a workflow](workflows-wor
 
 ###### Topics
 
-- [Viewing the status and details of a single
-  run](#workflows-view-run-single "#workflows-view-run-single")
-- [Viewing the status and details of all runs in
-  your project](#workflows-view-run-all "#workflows-view-run-all")
-- [Viewing the status and details of all runs of a
-  specific workflow](#workflows-view-run-wf "#workflows-view-run-wf")
-- [Viewing runs of a workflow in the
-  workflow diagram](#workflows-view-run-wf-diagram "#workflows-view-run-wf-diagram")
+- [Viewing the status and details of a single run](#workflows-view-run-single "#workflows-view-run-single")
+- [Viewing the status and details of all runs in your project](#workflows-view-run-all "#workflows-view-run-all")
+- [Viewing the status and details of all runs of a specific workflow](#workflows-view-run-wf "#workflows-view-run-wf")
+- [Viewing runs of a workflow in the workflow diagram](#workflows-view-run-wf-diagram "#workflows-view-run-wf-diagram")
 
-## Viewing the status and details of a single
-
-run
+## Viewing the status and details of a single run
 
 You might want to view the status and details of a single workflow run to check
 whether it was successful, to see at what time it was completed, or to view who or what
@@ -57,8 +51,7 @@ started it.
    - **YAML** to see the workflow definition file that was
      used for the run.
    - **Artifacts** to see the artifacts produced by the
-     workflow run. For more information about artifacts, see [Sharing artifacts and files between
-     actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+     workflow run. For more information about artifacts, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
    - **Reports** to see the test reports and other types
      of reports produced by the workflow run. For more information about
      reports, see [Quality report types](test-workflow-actions.md#test-reporting "test-workflow-actions.md#test-reporting").
@@ -70,9 +63,7 @@ started it.
 If the run's parent workflow was deleted, a message indicating this fact
 appears at the top of the run details page.
 
-## Viewing the status and details of all runs in
-
-your project
+## Viewing the status and details of all runs in your project
 
 You might want to view the status and details of all workflow runs within your project
 understand how much workflow activity is going on in your project, and learn about the
@@ -97,8 +88,7 @@ The page includes the following columns:
      workflow run. For more information about run states, see [Workflow run states](workflows-view-run-status.md "workflows-view-run-status.md").
     * **Trigger** – The person, commit, pull request
      (PR), or schedule that started the workflow run. For more information,
-     see [Starting a workflow run automatically using
-     triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+     see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
     * **Workflow** – The name of the workflow for
      which a run was started, and the source repository and branch where the
      workflow definition file resides. You might need to expand the column
@@ -117,9 +107,7 @@ The page includes the following columns:
     * **End time** – The time when the workflow run
      ended.
 
-## Viewing the status and details of all runs of a
-
-specific workflow
+## Viewing the status and details of all runs of a specific workflow
 
 You might want to view the status and details of all runs associated with a specific
 workflow to see if any runs are creating bottlenecks within the workflow, or to see
@@ -149,18 +137,14 @@ The page is divided into two sections:
 
     For more information about run states, see [Workflow run states](workflows-view-run-status.md "workflows-view-run-status.md").
 
-## Viewing runs of a workflow in the
-
-workflow diagram
+## Viewing runs of a workflow in the workflow diagram
 
 You can view the status of all runs of a workflow as they progress together through
 the workflow. The runs are displayed within the workflow diagram (as opposed to in a
 list view). This gives you a visual representation of which runs are being processed by
 which actions, and which runs are waiting in a queue.
 
-###### To view the status of multiple runs as they progress together through a
-
-workflow
+###### To view the status of multiple runs as they progress together through a workflow
 
 ###### Note
 

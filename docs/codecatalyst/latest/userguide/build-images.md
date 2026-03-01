@@ -8,16 +8,13 @@ an operating system and extra tools that a workflow action might need, such as t
 Node.js, and .tar.
 
 By default, workflow actions will run on one of the [active images](#build-curated-images "#build-curated-images") that are supplied and maintained by CodeCatalyst. Only build and test
-actions support custom images. For more information, see [Assigning a custom runtime environment Docker
-image to an action](#build-images-specify "#build-images-specify").
+actions support custom images. For more information, see [Assigning a custom runtime environment Docker image to an action](#build-images-specify "#build-images-specify").
 
 ###### Topics
 
 - [Active images](#build-curated-images "#build-curated-images")
-- [What if an active image doesn't include the
-  tools I need?](#build-images-more-tools "#build-images-more-tools")
-- [Assigning a custom runtime environment Docker
-  image to an action](#build-images-specify "#build-images-specify")
+- [What if an active image doesn't include the tools I need?](#build-images-more-tools "#build-images-more-tools")
+- [Assigning a custom runtime environment Docker image to an action](#build-images-specify "#build-images-specify")
 - [Examples](#workflows-working-custom-image-ex "#workflows-working-custom-image-ex")
 
 ## Active images
@@ -103,16 +100,13 @@ The following table shows the tools installed on each November 2022 image.
 | pip                       | 22.2.2     | 22.2.2                                                                           | 23.0.1                                                                             | 23.0.1                                                                         | 22.0.4                                                                           |
 | .NET                      | 6.0.407    | 6.0.407                                                                          | 6.0.406                                                                            | 6.0.406                                                                        | 6.0.414                                                                          |
 
-## What if an active image doesn't include the
-
-tools I need?
+## What if an active image doesn't include the tools I need?
 
 If none of the [active images](#build-curated-images "#build-curated-images") supplied by
 CodeCatalyst include the tools you need, you have a couple of options:
 
 - You can provide a custom runtime environment Docker image that includes the
-  necessary tools. For more information, see [Assigning a custom runtime environment Docker
-  image to an action](#build-images-specify "#build-images-specify").
+  necessary tools. For more information, see [Assigning a custom runtime environment Docker image to an action](#build-images-specify "#build-images-specify").
 
 ###### Note
 
@@ -147,9 +141,7 @@ source ~/.bashrc
 
 For more information about the build action YAML, see [Build and test actions YAML](build-action-ref.md "build-action-ref.md").
 
-## Assigning a custom runtime environment Docker
-
-image to an action
+## Assigning a custom runtime environment Docker image to an action
 
 If you don't want to use an [Active image](#build-curated-images "#build-curated-images")
 supplied by CodeCatalyst, you can provide a custom runtime environment Docker image. If you
@@ -172,9 +164,7 @@ also do not support the **Lambda** compute type.
 
 Visual
 
-###### To assign a custom runtime environment Docker image using the visual
-
-editor
+###### To assign a custom runtime environment Docker image using the visual editor
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
@@ -236,8 +226,7 @@ Specify the registry where your image is stored. Valid values include:
 
 
     Once you have created the role, you must assign it to the action through an environment.
-     For more information, see [Associating an environment with
-     an action](deploy-environments-add-app-to-environment.md "deploy-environments-add-app-to-environment.md").
+     For more information, see [Associating an environment with an action](deploy-environments-add-app-to-environment.md "deploy-environments-add-app-to-environment.md").
 
 **ECR image URL**, **Docker Hub
 image** or **Image URL**
@@ -280,9 +269,7 @@ Specify one of the following:
 
 YAML
 
-###### To assign a custom runtime environment Docker image using the YAML
-
-editor
+###### To assign a custom runtime environment Docker image using the YAML editor
 
 1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
 2. Choose the name of your workflow. You can filter by the source
@@ -309,17 +296,10 @@ an action in the workflow definition file.
 
 ###### Topics
 
-- [Example: Using a
-  custom runtime environment Docker image to add support for Node.js 18 with
-  Amazon ECR](#workflows-working-custom-image-ex-ecr-node18 "#workflows-working-custom-image-ex-ecr-node18")
-- [Example: Using a
-  custom runtime environment Docker image to add support for Node.js 18 with
-  Docker Hub](#workflows-working-custom-image-ex-docker-node18 "#workflows-working-custom-image-ex-docker-node18")
+- [Example: Using a custom runtime environment Docker image to add support for Node.js 18 with Amazon ECR](#workflows-working-custom-image-ex-ecr-node18 "#workflows-working-custom-image-ex-ecr-node18")
+- [Example: Using a custom runtime environment Docker image to add support for Node.js 18 with Docker Hub](#workflows-working-custom-image-ex-docker-node18 "#workflows-working-custom-image-ex-docker-node18")
 
-### Example: Using a
-
-custom runtime environment Docker image to add support for Node.js 18 with
-Amazon ECR
+### Example: Using a custom runtime environment Docker image to add support for Node.js 18 with Amazon ECR
 
 The following example shows how to use a custom runtime environment Docker image
 to add support for Node.js 18 with [Amazon ECR](https://gallery.ecr.aws/amazonlinux/amazonlinux "https://gallery.ecr.aws/amazonlinux/amazonlinux").
@@ -331,10 +311,7 @@ Configuration:
     Image: public.ecr.aws/amazonlinux/amazonlinux:2023
 ```
 
-### Example: Using a
-
-custom runtime environment Docker image to add support for Node.js 18 with
-Docker Hub
+### Example: Using a custom runtime environment Docker image to add support for Node.js 18 with Docker Hub
 
 The following example shows how to use a custom runtime environment Docker image
 to add support for Node.js 18 with [Docker

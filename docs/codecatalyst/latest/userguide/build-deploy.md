@@ -15,8 +15,7 @@ workflow to run every time you push a commit to your source repository.
 - [Prerequisites](#build-deploy-tut-prereqs "#build-deploy-tut-prereqs")
 - [Step 1: Create an AWS role](#build-deploy-tut-role "#build-deploy-tut-role")
 - [Step 2: Create an Amazon S3 bucket](#build-deploy-tut-artifact "#build-deploy-tut-artifact")
-- [Step 3: Create a source
-  repository](#deploy-tut-lambda-cfn-source "#deploy-tut-lambda-cfn-source")
+- [Step 3: Create a source repository](#deploy-tut-lambda-cfn-source "#deploy-tut-lambda-cfn-source")
 - [Step 4: Create a workflow](#build-deploy-tut-workflow.title "#build-deploy-tut-workflow.title")
 - [Step 5: Verify the results](#build-deploy.s3.verify "#build-deploy.s3.verify")
 - [Clean up](#deploy-tut-lambda-cfn-clean-up "#deploy-tut-lambda-cfn-clean-up")
@@ -179,9 +178,7 @@ You have now created a bucket called
 `codecatalyst-artifact-bucket` in the US West (Oregon)
 us-west-2 Region.
 
-## Step 3: Create a source
-
-repository
+## Step 3: Create a source repository
 
 In this step, you create a source repository in CodeCatalyst. This repository is used to
 store the tutorial's workflow definition file.
@@ -215,8 +212,7 @@ that run sequentially:
 
 - A trigger – This trigger starts the workflow run automatically when you
   push a change to your source repository. For more information on triggers, see
-  [Starting a workflow run automatically using
-  triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+  [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 - A build action called `GenerateFiles` – On trigger, the
   `GenerateFiles` action creates two files,
   `Hello.txt` and `Goodbye.txt`, and

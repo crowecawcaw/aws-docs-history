@@ -17,10 +17,8 @@ For more information about workflow runs, see [Running a workflow](workflows-wor
 ###### Topics
 
 - [Gate types](#workflows-gates-types "#workflows-gates-types")
-- [Can I set up a gate to run in parallel to
-  another action?](#workflows-approval-parallel "#workflows-approval-parallel")
-- [Can I use a gate to prevent a workflow run
-  from starting?](#workflows-gates-prevent "#workflows-gates-prevent")
+- [Can I set up a gate to run in parallel to another action?](#workflows-approval-parallel "#workflows-approval-parallel")
+- [Can I use a gate to prevent a workflow run from starting?](#workflows-gates-prevent "#workflows-gates-prevent")
 - [Limitations of gates](#workflows-gate-limitations "#workflows-gate-limitations")
 - [Adding a gate to a workflow](workflows-gates-add.md "workflows-gates-add.md")
 - [Sequencing gates and actions](workflows-gates-depends-on.md "workflows-gates-depends-on.md")
@@ -31,15 +29,11 @@ For more information about workflow runs, see [Running a workflow](workflows-wor
 Currently, Amazon CodeCatalyst supports one type of gate: the **Approval**
 gate. For more information, see [Requiring approvals on workflow runs](workflows-approval.md "workflows-approval.md").
 
-## Can I set up a gate to run in parallel to
-
-another action?
+## Can I set up a gate to run in parallel to another action?
 
 No. Gates can only run before or after an action. For more information, see [Sequencing gates and actions](workflows-gates-depends-on.md "workflows-gates-depends-on.md").
 
-## Can I use a gate to prevent a workflow run
-
-from starting?
+## Can I use a gate to prevent a workflow run from starting?
 
 Yes, with qualifications.
 
@@ -58,10 +52,8 @@ _Maximum number of concurrent workflow runs per space_ quota
 and other quotas. To ensure that you do not exceed workflow quotas, consider using a
 workflow trigger to conditionally start a workflow instead of using a gate. Also
 consider using a pull request approval rule instead of a gate. For more information
-about quotas, triggers, and pull request approval rules, see [Quotas for workflows in CodeCatalyst](workflows-quotas.md "workflows-quotas.md"), [Starting a workflow run automatically using
-triggers](workflows-add-trigger.md "workflows-add-trigger.md"), and
-[Managing requirements for merging
-a pull request with approval rules](source-pull-requests-approval-rules.md "source-pull-requests-approval-rules.md").
+about quotas, triggers, and pull request approval rules, see [Quotas for workflows in CodeCatalyst](workflows-quotas.md "workflows-quotas.md"), [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md"), and
+[Managing requirements for merging a pull request with approval rules](source-pull-requests-approval-rules.md "source-pull-requests-approval-rules.md").
 
 ## Limitations of gates
 

@@ -16,11 +16,7 @@ CodeCatalyst workflows support the following sources:
 
 ###### Topics
 
-- [Specifying a workflow file's
-  source repository](workflows-sources-specify-workflow-def.md "workflows-sources-specify-workflow-def.md")
-- [Specifying a workflow action's source
-  repository](workflows-sources-specify-action.md "workflows-sources-specify-action.md")
-- [Referencing source repository
-  files](workflows-sources-reference-files.md "workflows-sources-reference-files.md")
-- ['BranchName' and 'CommitId'
-  variables](workflows-sources-variables.md "workflows-sources-variables.md")
+- [Specifying a workflow file's source repository](workflows-sources-specify-workflow-def.md "workflows-sources-specify-workflow-def.md")
+- [Specifying a workflow action's source repository](workflows-sources-specify-action.md "workflows-sources-specify-action.md")
+- [Referencing source repository files](workflows-sources-reference-files.md "workflows-sources-reference-files.md")
+- ['BranchName' and 'CommitId' variables](workflows-sources-variables.md "workflows-sources-variables.md")

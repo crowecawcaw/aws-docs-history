@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Storing source code in repositories for a project in
-
-CodeCatalyst
+# Storing source code in repositories for a project in CodeCatalyst
 
 A source repository is where you securely store code and files for your project. It also
 stores your source history, from the first commit through the latest changes. If you choose
@@ -43,11 +41,9 @@ Repository names must be unique within a CodeCatalyst project.
 ###### Topics
 
 - [Creating a source repository](source-repositories-create.md "source-repositories-create.md")
-- [Cloning an existing Git repository
-  into a source repository](source-repositories-add-existing.md "source-repositories-add-existing.md")
+- [Cloning an existing Git repository into a source repository](source-repositories-add-existing.md "source-repositories-add-existing.md")
 - [Linking a source repository](source-repositories-link.md "source-repositories-link.md")
 - [Viewing a source repository](source-repositories-view.md "source-repositories-view.md")
-- [Editing the settings for a source
-  repository](source-repositories-edit.md "source-repositories-edit.md")
+- [Editing the settings for a source repository](source-repositories-edit.md "source-repositories-edit.md")
 - [Cloning a source repository](source-repositories-clone.md "source-repositories-clone.md")
 - [Deleting a source repository](source-repositories-delete.md "source-repositories-delete.md")

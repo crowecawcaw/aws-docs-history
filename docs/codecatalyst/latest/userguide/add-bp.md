@@ -22,8 +22,7 @@ role in the space.
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. The blueprint can only be added from the default branch of the source repository. If you developed
    the blueprint on a feature branch, merge your feature branch with the changes to the default branch. Create a pull
-   request to merge any changes to the default branch. For more information, see [Reviewing code with pull requests in
-   Amazon CodeCatalyst](source-pull-requests.md "source-pull-requests.md").
+   request to merge any changes to the default branch. For more information, see [Reviewing code with pull requests in Amazon CodeCatalyst](source-pull-requests.md "source-pull-requests.md").
 3. In the CodeCatalyst console, navigate to the space dashboard with your custom blueprint.
 4. On the space dashboard, choose the **Settings** tab, and then choose
    **Blueprints**.

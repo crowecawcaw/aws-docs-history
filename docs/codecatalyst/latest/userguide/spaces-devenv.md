@@ -22,8 +22,7 @@ maintain Dev Environments at the space level.
 ###### Important
 
 Dev Environments aren't available for users in spaces where Active Directory is used as the
-identity provider. For more information, see [I can't create a Dev Environment
-when I'm signed into CodeCatalyst using a single sign-on account](devenvironments-troubleshooting.md#troubleshoot-create-dev-env-idprovider "devenvironments-troubleshooting.md#troubleshoot-create-dev-env-idprovider").
+identity provider. For more information, see [I can't create a Dev Environment when I'm signed into CodeCatalyst using a single sign-on account](devenvironments-troubleshooting.md#troubleshoot-create-dev-env-idprovider "devenvironments-troubleshooting.md#troubleshoot-create-dev-env-idprovider").
 
 For other considerations about Dev Environments, including stopping running instances, default
 compute configuration, upgrading your compute, incurring costs, and configuring timeouts, see

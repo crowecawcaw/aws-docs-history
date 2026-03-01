@@ -28,8 +28,7 @@ Node.js, and .tar.
 - [Creating a provisioned fleet](projects-create-compute-resource.md "projects-create-compute-resource.md")
 - [Editing a provisioned fleet](edit-compute-resource.md "edit-compute-resource.md")
 - [Deleting a provisioned fleet](delete-compute-resource.md "delete-compute-resource.md")
-- [Assigning a fleet or compute to an
-  action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md")
+- [Assigning a fleet or compute to an action](workflows-assign-compute-resource.md "workflows-assign-compute-resource.md")
 - [Sharing compute across actions](compute-sharing.md "compute-sharing.md")
 - [Specifying runtime environment images](build-images.md "build-images.md")
 

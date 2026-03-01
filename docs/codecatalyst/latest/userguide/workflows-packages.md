@@ -28,9 +28,6 @@ Currently, build and test actions support CodeCatalyst package repositories.
 ###### Topics
 
 - [Tutorial: Pull from a package repository](packages-tutorial.md "packages-tutorial.md")
-- [Specifying CodeCatalyst package
-  repositories in workflows](workflows-package-specify-action.md "workflows-package-specify-action.md")
-- [Using authorization tokens in workflow
-  actions](workflows-package-export-token.md "workflows-package-export-token.md")
-- [Examples: Package repositories in
-  workflows](workflows-working-packages-ex.md "workflows-working-packages-ex.md")
+- [Specifying CodeCatalyst package repositories in workflows](workflows-package-specify-action.md "workflows-package-specify-action.md")
+- [Using authorization tokens in workflow actions](workflows-package-export-token.md "workflows-package-export-token.md")
+- [Examples: Package repositories in workflows](workflows-working-packages-ex.md "workflows-working-packages-ex.md")

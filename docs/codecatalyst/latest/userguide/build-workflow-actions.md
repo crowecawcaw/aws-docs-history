@@ -31,15 +31,13 @@ The high-level steps to build an application or resource are as follows.
 ###### To build an application (high-level tasks)
 
 1. In CodeCatalyst, you **add source code** for an application you
-   want to build. For more information, see [Storing source code in repositories for a project in
-   CodeCatalyst](source-repositories.md "source-repositories.md").
+   want to build. For more information, see [Storing source code in repositories for a project in CodeCatalyst](source-repositories.md "source-repositories.md").
 2. In CodeCatalyst, you **create a workflow**. The workflow is
    where you define how to build, test, and deploy your application. For more information,
    see [Getting started with workflows](workflows-getting-started.md "workflows-getting-started.md").
 3. (Optional) In the workflow, you **add a trigger** that
    indicates the events that will cause the workflow to start automatically. For more
-   information, see [Starting a workflow run automatically using
-   triggers](workflows-add-trigger.md "workflows-add-trigger.md")
+   information, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md")
 4. In the workflow, you add a **build action** that compiles
    and packages your application or resource source code. Optionally, you can also have the
    build action run unit tests, generate reports, and deploy your application if you don't

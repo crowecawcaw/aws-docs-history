@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Editing the search order of
-
-upstream repositories
+# Editing the search order of upstream repositories
 
 CodeCatalyst searches upstream repositories in their configured search order. When a package is
 found, CodeCatalyst stops searching. You can change the order in which the upstream repositories are

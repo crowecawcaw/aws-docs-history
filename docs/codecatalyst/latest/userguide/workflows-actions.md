@@ -14,11 +14,9 @@ actions that run sequentially or in parallel depending on how you've configured 
 - [Developing a custom action](workflows-custom-action.md "workflows-custom-action.md")
 - [Grouping actions into action groups](workflows-group-actions.md "workflows-group-actions.md")
 - [Sequencing actions](workflows-depends-on.md "workflows-depends-on.md")
-- [Sharing artifacts and files between
-  actions](workflows-working-artifacts.md "workflows-working-artifacts.md")
+- [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md")
 - [Specifying the action version to use](workflows-action-versions.md "workflows-action-versions.md")
-- [Listing the available action
-  versions](workflows-action-versions-determine.md "workflows-action-versions-determine.md")
+- [Listing the available action versions](workflows-action-versions-determine.md "workflows-action-versions-determine.md")
 - [Viewing an action's source code](workflows-view-source.md "workflows-view-source.md")
 - [Integrating with GitHub Actions](integrations-github-actions.md "integrations-github-actions.md")
 
@@ -90,8 +88,7 @@ service. For more information, see [Deploying to Amazon ECS with a workflow](dep
 - **Deploy to Kubernetes cluster**
 
 This action deploys an application to a Kubernetes cluster. For more
-information, see [Deploying to Amazon EKS with a
-workflow](deploy-action-eks.md "deploy-action-eks.md").
+information, see [Deploying to Amazon EKS with a workflow](deploy-action-eks.md "deploy-action-eks.md").
 
 - **Render Amazon ECS task definition**
 

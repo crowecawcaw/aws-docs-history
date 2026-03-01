@@ -24,12 +24,9 @@ file.
 
 - [Prerequisites](#packages-tutorial-prereqs "#packages-tutorial-prereqs")
 - [Step 1: Create a source repository](#packages-tutorial-source-repo "#packages-tutorial-source-repo")
-- [Step 2: Create the CodeCatalyst and gateway package
-  repositories](#packages-tutorial-package-repo "#packages-tutorial-package-repo")
-- [Step 3: Create the 'Hello World'
-  application](#packages-tutorial-create-app "#packages-tutorial-create-app")
-- [Step 4: Create a workflow that runs 'Hello
-  World'](#packages-tutorial-create-workflow "#packages-tutorial-create-workflow")
+- [Step 2: Create the CodeCatalyst and gateway package repositories](#packages-tutorial-package-repo "#packages-tutorial-package-repo")
+- [Step 3: Create the 'Hello World' application](#packages-tutorial-create-app "#packages-tutorial-create-app")
+- [Step 4: Create a workflow that runs 'Hello World'](#packages-tutorial-create-workflow "#packages-tutorial-create-workflow")
 - [Step 5: Verify the workflow](#packages-tutorial-verify "#packages-tutorial-verify")
 - [Step 6: Block imports from npmjs.com](#packages-tutorial-block "#packages-tutorial-block")
 - [Step 7: Test the blocking feature](#packages-tutorial-test-block "#packages-tutorial-test-block")
@@ -75,9 +72,7 @@ For more information about source repositories, see [Creating a source repositor
 
 6. Choose **Create**.
 
-## Step 2: Create the CodeCatalyst and gateway package
-
-repositories
+## Step 2: Create the CodeCatalyst and gateway package repositories
 
 In this step, you create a package repository in your CodeCatalyst project, and connect it to a
 gateway repository, also in your CodeCatalyst project. You later import the tutorial's dependency,
@@ -115,9 +110,7 @@ CodeCatalyst creates a package repository called
 `codecatalyst-package-repository` which is connected to a gateway
 repository. The gateway repository is connected to the npmjs.com registry.
 
-## Step 3: Create the 'Hello World'
-
-application
+## Step 3: Create the 'Hello World' application
 
 In this step, you create a 'Hello World' Node.js application and import its dependency
 (`lodash`) into your gateway and CodeCatalyst package repositories.
@@ -265,9 +258,7 @@ const transformedString = _.startCase(inputString.replace('-', ' '));
 console.log(transformedString);
 ```
 
-###### To test that 'lodash' was imported to your gateway and CodeCatalyst package
-
-repositories
+###### To test that 'lodash' was imported to your gateway and CodeCatalyst package repositories
 
 1. Switch to the CodeCatalyst console.
 2. In the navigation pane, choose **Packages**.
@@ -311,9 +302,7 @@ git push
 The 'Hello World' application and project files are added to your source
 repository.
 
-## Step 4: Create a workflow that runs 'Hello
-
-World'
+## Step 4: Create a workflow that runs 'Hello World'
 
 In this step, you create a workflow that runs the 'Hello World' application using the
 `lodash` dependency. The workflow includes a single _action_,
@@ -400,8 +389,7 @@ Actions:
 
 In the preceding code, replace
 `codecatalyst-package-repository` with the name of the
-CodeCatalyst package repository that you created in [Step 2: Create the CodeCatalyst and gateway package
-repositories](#packages-tutorial-package-repo "#packages-tutorial-package-repo").
+CodeCatalyst package repository that you created in [Step 2: Create the CodeCatalyst and gateway package repositories](#packages-tutorial-package-repo "#packages-tutorial-package-repo").
 
 For information about the properties in this file, see the [Build and test actions YAML](build-action-ref.md "build-action-ref.md"). 10. (Optional) Choose **Validate** to make sure the YAML code is valid
 before committing. 11. Choose **Commit**. 12. On the **Commit workflow** dialog box, enter the following:

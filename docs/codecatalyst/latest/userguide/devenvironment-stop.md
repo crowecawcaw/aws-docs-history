@@ -26,9 +26,7 @@ continuously.
 
 If you stop a Dev Environment that's associated with a deleted VPC connection, it can't be resumed.
 
-###### To stop a Dev Environment from the Dev Environments
-
-page
+###### To stop a Dev Environment from the Dev Environments page
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to the project where you want to stop a Dev Environment.

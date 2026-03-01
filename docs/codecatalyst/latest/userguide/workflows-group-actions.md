@@ -13,8 +13,7 @@ You cannot nest action groups within other action groups or actions.
 ###### Topics
 
 - [Defining an action group](#workflows-define-action-group "#workflows-define-action-group")
-- [Example: Defining two action
-  groups](workflows-group-actions-example.md "workflows-group-actions-example.md")
+- [Example: Defining two action groups](workflows-group-actions-example.md "workflows-group-actions-example.md")
 
 ## Defining an action group
 
@@ -53,8 +52,7 @@ Actions:
           ...
 ```
 
-For another example, see [Example: Defining two action
-groups](workflows-group-actions-example.md "workflows-group-actions-example.md"). For more
+For another example, see [Example: Defining two action groups](workflows-group-actions-example.md "workflows-group-actions-example.md"). For more
 information, see the description of the
 `action-group-name` property in the [Actions](workflow-reference.md#actions-reference "workflow-reference.md#actions-reference") of the [Workflow YAML definition](workflow-reference.md "workflow-reference.md"). 8. (Optional) Choose **Validate** to validate
 the workflow's YAML code before committing. 9. Choose **Commit**, enter a commit message,

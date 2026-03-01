@@ -21,9 +21,7 @@ pull request.
 If you have the Project administrator role, you can also choose to merge a pull request
 that has not yet met all the requirements for approvals and approval rules.
 
-## Merging a pull request
-
-(console)
+## Merging a pull request (console)
 
 You can merge a pull request in the CodeCatalyst console if there are no merge conflicts
 between the source and destination branches and if all required reviewers have
@@ -108,8 +106,7 @@ available documentation on the [Git
 website](https://git-scm.com/doc "https://git-scm.com/doc"). Once you have merged and pushed your changes, manually close
 the pull request. For more information, see [Closing a pull request](pull-requests-close.md "pull-requests-close.md").
 
-Common Git commands for merging
-branches| Merges changes from the source branch in the local repo to the<br>destination branch in the local repo. | `git checkout<br>`destination-branch-name``<br>`git merge<br>`source-branch-name`` |
+Common Git commands for merging branches| Merges changes from the source branch in the local repo to the<br>destination branch in the local repo. | `git checkout<br>`destination-branch-name``<br>`git merge<br>`source-branch-name`` |
 | Merges the source branch into the destination branch,<br>specifying a fast-forward merge. This merges the branches and<br>moves the destination branch pointer to the tip of the source<br>branch. | `git checkout<br>`destination-branch-name``<br>`git merge --ff-only<br>`source-branch-name`` |
 | Merges the source branch into the destination branch,<br>specifying a squash merge. This combines all commits from the<br>source branch into a single merge commit in the destination<br>branch. | `git checkout<br>`destination-branch-name``<br>`git merge --squash<br>`source-branch-name`` |
 | Merges the source branch into the destination branch,<br>specifying a three-way merge. This creates a merge commit and<br>adds the individual commits from the source branch to the<br>destination branch. | `git checkout<br>`destination-branch-name``<br>`git merge --no-ff<br>`source-branch-name`` |

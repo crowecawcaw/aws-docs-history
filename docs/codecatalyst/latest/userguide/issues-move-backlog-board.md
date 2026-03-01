@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Moving an issue beetween the backlog and
-
-board
+# Moving an issue beetween the backlog and board
 
 You can move an issue from the backlog to the board once you begin to work on the
 issue. You can also move an issue back to the backlog if the work is postponed.

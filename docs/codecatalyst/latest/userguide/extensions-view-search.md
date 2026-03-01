@@ -24,9 +24,7 @@ third-party repository provider, where you can view and work on the code in the 
 3. In the navigation pane, choose **Code**, and then choose **Source
    repositories**.
 
-###### To view linked GitHub repositories, Bitbucket repositories, or GitLab project repositories from the
-
-extension details page
+###### To view linked GitHub repositories, Bitbucket repositories, or GitLab project repositories from the extension details page
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to your CodeCatalyst space, and then choose the **Installed extensions** tab.

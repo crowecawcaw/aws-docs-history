@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Sharing artifacts and files between
-
-actions
+# Sharing artifacts and files between actions
 
 An _artifact_ is the output of a workflow action, and typically consists
 of a folder or archive of files. Artifacts are important because they allow you to share files
@@ -42,20 +40,15 @@ specifies `MYARTIFACT` as an input, giving it access to the
 
 ###### Topics
 
-- [Can I share artifacts without
-  specifying them as outputs and inputs?](#workflows-working-artifacts-share "#workflows-working-artifacts-share")
-- [Can I share artifacts between
-  workflows?](#workflows-working-artifacts-share-wf "#workflows-working-artifacts-share-wf")
+- [Can I share artifacts without specifying them as outputs and inputs?](#workflows-working-artifacts-share "#workflows-working-artifacts-share")
+- [Can I share artifacts between workflows?](#workflows-working-artifacts-share-wf "#workflows-working-artifacts-share-wf")
 - [Examples of artifacts](workflows-working-artifacts-ex.md "workflows-working-artifacts-ex.md")
 - [Defining an output artifact](workflows-working-artifacts-output.md "workflows-working-artifacts-output.md")
 - [Defining an input artifact](workflows-working-artifacts-refer.md "workflows-working-artifacts-refer.md")
-- [Referencing files in an
-  artifact](workflows-working-artifacts-refer-files.md "workflows-working-artifacts-refer-files.md")
+- [Referencing files in an artifact](workflows-working-artifacts-refer-files.md "workflows-working-artifacts-refer-files.md")
 - [Downloading artifacts](workflows-download-workflow-outputs.md "workflows-download-workflow-outputs.md")
 
-## Can I share artifacts without
-
-specifying them as outputs and inputs?
+## Can I share artifacts without specifying them as outputs and inputs?
 
 Yes, you can share artifacts between actions without specifying them in the
 `Outputs` and `Inputs` sections of your actions' YAML code. To
@@ -69,9 +62,7 @@ code by eliminating the need for the `Outputs` and `Inputs`
 sections, the feature has limitations that you should be aware of before you turn it
 on. For information about these limitations, see [Considerations for compute sharing](compute-sharing.md#compare-compute-sharing "compute-sharing.md#compare-compute-sharing").
 
-## Can I share artifacts between
-
-workflows?
+## Can I share artifacts between workflows?
 
 No, you cannot share artifacts between different workflows; however, you can share
 artifacts between actions within the same workflow.

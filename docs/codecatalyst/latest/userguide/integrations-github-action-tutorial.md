@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Tutorial: Lint code using a GitHub
-
-Action
+# Tutorial: Lint code using a GitHub Action
 
 In this tutorial, you add the [Super-Linter GitHub Action](https://github.com/marketplace/actions/super-linter "https://github.com/marketplace/actions/super-linter")
 to an Amazon CodeCatalyst workflow. The Super-Linter action inspects code, finds areas where the code has
@@ -18,14 +16,10 @@ Consider using Super-Linter to lint YAML files, such as [CloudFormation template
 ###### Topics
 
 - [Prerequisites](#integrations-github-action-tutorial-prereqs "#integrations-github-action-tutorial-prereqs")
-- [Step 1: Create a
-  source repository](#integrations-github-action-tutorial-create-source-repo "#integrations-github-action-tutorial-create-source-repo")
-- [Step 2: Add an app.js
-  file](#integrations-github-action-tutorial-add-appjs "#integrations-github-action-tutorial-add-appjs")
-- [Step 3: Create a
-  workflow that runs the Super-Linter action](#integrations-github-action-tutorial-create-workflow "#integrations-github-action-tutorial-create-workflow")
-- [Step 4: Fix problems that the
-  Super-Linter found](#integrations-github-action-tutorial-fix-probs "#integrations-github-action-tutorial-fix-probs")
+- [Step 1: Create a source repository](#integrations-github-action-tutorial-create-source-repo "#integrations-github-action-tutorial-create-source-repo")
+- [Step 2: Add an app.js file](#integrations-github-action-tutorial-add-appjs "#integrations-github-action-tutorial-add-appjs")
+- [Step 3: Create a workflow that runs the Super-Linter action](#integrations-github-action-tutorial-create-workflow "#integrations-github-action-tutorial-create-workflow")
+- [Step 4: Fix problems that the Super-Linter found](#integrations-github-action-tutorial-fix-probs "#integrations-github-action-tutorial-fix-probs")
 - [Clean up](#integrations-github-action-tutorial-cleanup "#integrations-github-action-tutorial-cleanup")
 
 ## Prerequisites
@@ -40,9 +34,7 @@ Before you begin, you'll need:
 
 For more information, see [Creating an empty project in Amazon CodeCatalyst](projects-create.md#projects-create-empty "projects-create.md#projects-create-empty").
 
-## Step 1: Create a
-
-source repository
+## Step 1: Create a source repository
 
 In this step, you create a source repository in CodeCatalyst. You'll use this repository to
 store the sample application source file, `app.js`, for this tutorial.
@@ -65,9 +57,7 @@ For more information about source repositories, see [Creating a source repositor
 
 6. Choose **Create**.
 
-## Step 2: Add an app.js
-
-file
+## Step 2: Add an app.js file
 
 In this step, you add an `app.js` file to your source repository. The
 `app.js` contains function code that has a few mistakes that the linter will
@@ -125,9 +115,7 @@ exports.lambdaHandler = async (event, context) => {
 
 You have now created a file called `app.js`.
 
-## Step 3: Create a
-
-workflow that runs the Super-Linter action
+## Step 3: Create a workflow that runs the Super-Linter action
 
 In this step, you create a workflow that runs the Super-Linter action when you push code
 to your source repository. The workflow consists of the following building blocks, which you
@@ -135,8 +123,7 @@ define in a YAML file:
 
 - **A trigger** – This trigger starts the workflow
   run automatically when you push a change to your source repository. For more information
-  about triggers, see [Starting a workflow run automatically using
-  triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+  about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 - **A 'GitHub Actions' action** – On trigger, the
   **GitHub Actions** action runs the Super-Linter action, which in turn
   inspects all files in your source repository. If the linter finds an issue, the workflow
@@ -217,12 +204,9 @@ trigger defined at the top of the workflow.
 3. In the workflow diagram, choose **SuperLinterAction**.
 4. Wait for the action to fail. This failure is expected because the linter found
    problems in the code.
-5. Leave the CodeCatalyst console open and go to [Step 4: Fix problems that the
-   Super-Linter found](#integrations-github-action-tutorial-fix-probs "#integrations-github-action-tutorial-fix-probs").
+5. Leave the CodeCatalyst console open and go to [Step 4: Fix problems that the Super-Linter found](#integrations-github-action-tutorial-fix-probs "#integrations-github-action-tutorial-fix-probs").
 
-## Step 4: Fix problems that the
-
-Super-Linter found
+## Step 4: Fix problems that the Super-Linter found
 
 The Super-Linter should have found problems in the `app.js` code, as
 well as the `README.md` file included in your source repository.

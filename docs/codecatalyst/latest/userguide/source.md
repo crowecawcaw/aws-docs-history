@@ -59,16 +59,10 @@ configured in the source action for those workflows. For more information, see [
 
 - [Source repository concepts](source-concepts.md "source-concepts.md")
 - [Setting up for working with source repositories](source-setting-up.md "source-setting-up.md")
-- [Getting started with CodeCatalyst source repositories and
-  the Single-page application blueprint](source-getting-started.md "source-getting-started.md")
-- [Storing source code in repositories for a project in
-  CodeCatalyst](source-repositories.md "source-repositories.md")
-- [Organizing your source code work with branches in
-  Amazon CodeCatalyst](source-branches.md "source-branches.md")
-- [Managing
-  source code files in Amazon CodeCatalyst](source-files.md "source-files.md")
-- [Reviewing code with pull requests in
-  Amazon CodeCatalyst](source-pull-requests.md "source-pull-requests.md")
-- [Understanding
-  changes in source code with commits in Amazon CodeCatalyst](source-commits.md "source-commits.md")
+- [Getting started with CodeCatalyst source repositories and the Single-page application blueprint](source-getting-started.md "source-getting-started.md")
+- [Storing source code in repositories for a project in CodeCatalyst](source-repositories.md "source-repositories.md")
+- [Organizing your source code work with branches in Amazon CodeCatalyst](source-branches.md "source-branches.md")
+- [Managing source code files in Amazon CodeCatalyst](source-files.md "source-files.md")
+- [Reviewing code with pull requests in Amazon CodeCatalyst](source-pull-requests.md "source-pull-requests.md")
+- [Understanding changes in source code with commits in Amazon CodeCatalyst](source-commits.md "source-commits.md")
 - [Quotas for source repositories in CodeCatalyst](source-quotas.md "source-quotas.md")

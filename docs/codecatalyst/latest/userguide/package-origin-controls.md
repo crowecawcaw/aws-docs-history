@@ -145,9 +145,7 @@ procedure.
 
 6. Choose **Save**.
 
-## Publishing and upstream
-
-repositories
+## Publishing and upstream repositories
 
 In CodeCatalyst, you cannot publish package versions that are present in reachable upstream
 repositories or public repositories. For example, suppose that you want to publish an npm

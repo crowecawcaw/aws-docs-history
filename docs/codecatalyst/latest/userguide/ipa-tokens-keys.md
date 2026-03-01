@@ -31,9 +31,7 @@ it.
 
 You can use the console to create PATs in CodeCatalyst.
 
-###### To
-
-create a personal access token (console)
+###### To create a personal access token (console)
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. In
@@ -147,9 +145,7 @@ expiration dates of your current PATs.
 You can use the CLI to view PATs associated with your user identity in
 CodeCatalyst.
 
-###### To view your personal access tokens
-
-(AWS CLI)
+###### To view your personal access tokens (AWS CLI)
 
 - At the terminal or command line, run the
   **list-access-tokens** command as follows.

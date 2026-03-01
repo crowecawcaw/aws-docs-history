@@ -1,14 +1,11 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Usage guidelines for triggers and
-
-branches
+# Usage guidelines for triggers and branches
 
 This section describes some of the main guidelines when setting up Amazon CodeCatalyst triggers
 that include branches.
 
-For more information about triggers, see [Starting a workflow run automatically using
-triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
 
 - **Guideline 1:** For both push and pull request
   triggers, if you are going to specify a branch, you must specify the destination

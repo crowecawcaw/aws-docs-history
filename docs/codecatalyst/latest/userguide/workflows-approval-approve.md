@@ -50,9 +50,7 @@ You are redirected to the workflow run approval page. 3. Under **Review decision
 **Reject**. 4. (Optional) In **Comment - optional**, enter a comment indicating
 why you approved or rejected the workflow run. 5. Choose **Submit**.
 
-###### To approve or reject a workflow run starting from an automated Slack
-
-notification
+###### To approve or reject a workflow run starting from an automated Slack notification
 
 1. Make sure Slack notifications are set up. See [Configuring approval notifications](workflows-approval-notify.md "workflows-approval-notify.md").
 2. In Slack, in the channel to which the approval notification was sent, choose the

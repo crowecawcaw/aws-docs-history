@@ -18,8 +18,7 @@ There are two types of variable that you can use in a workflow:
 ###### Note
 
 CodeCatalyst also supports [GitHub output parameters](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter "https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter"), which behave like variables and can be referenced
-in other actions. For more information, see [Exporting GitHub output parameters](integrations-github-action-export.md "integrations-github-action-export.md") and [Referencing GitHub output
-parameters](integrations-github-action-referencing.md "integrations-github-action-referencing.md")
+in other actions. For more information, see [Exporting GitHub output parameters](integrations-github-action-export.md "integrations-github-action-export.md") and [Referencing GitHub output parameters](integrations-github-action-referencing.md "integrations-github-action-referencing.md")
 
 ###### Topics
 

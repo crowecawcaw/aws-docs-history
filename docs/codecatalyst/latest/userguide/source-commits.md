@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Understanding
-
-changes in source code with commits in Amazon CodeCatalyst
+# Understanding changes in source code with commits in Amazon CodeCatalyst
 
 Commits are snapshots of the contents and changes to the contents of your repository.
 Every time a user commits and pushes a change to a branch, that information is saved. Git
@@ -16,14 +14,12 @@ In Amazon CodeCatalyst, you can:
 - View a list of commits for a branch.
 - View individual commits, including the changes made in a commit when compared to its parent or
   parents.
-  You can also view files and folders. For more information, see [Managing
-  source code files in Amazon CodeCatalyst](source-files.md "source-files.md").
+  You can also view files and folders. For more information, see [Managing source code files in Amazon CodeCatalyst](source-files.md "source-files.md").
 
 ###### Topics
 
 - [Viewing commits to a branch](#source-commits-view "#source-commits-view")
-- [Changing how commits are displayed (CodeCatalyst
-  console)](#source-commits-settings "#source-commits-settings")
+- [Changing how commits are displayed (CodeCatalyst console)](#source-commits-settings "#source-commits-settings")
 
 ## Viewing commits to a branch
 
@@ -65,16 +61,12 @@ If a commit has more than one parent, you can choose which parent commit
 to view information and display changes for by choosing the drop-down icon
 next to the parent commit ID.
 
-## Changing how commits are displayed (CodeCatalyst
-
-console)
+## Changing how commits are displayed (CodeCatalyst console)
 
 You can change what information is displayed in the **Commits** view. You can choose to hide or display columns
 such as author and commit ID.
 
-###### To change how commits are displayed
-
-(console)
+###### To change how commits are displayed (console)
 
 1. Navigate to the project that contains the source repository where you want to
    view commits.

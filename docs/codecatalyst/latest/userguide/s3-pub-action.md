@@ -14,8 +14,7 @@ bucket. The source directory can reside in:
 ###### Topics
 
 - [When to use the 'Amazon S3 publish' action](#s3-pub-action-when-to-use "#s3-pub-action-when-to-use")
-- [Runtime image used by the 'Amazon S3 publish'
-  action](#s3-pub-action-runtime "#s3-pub-action-runtime")
+- [Runtime image used by the 'Amazon S3 publish' action](#s3-pub-action-runtime "#s3-pub-action-runtime")
 - [Example: Publish files to Amazon S3](s3-pub-action-example-workflow.md "s3-pub-action-example-workflow.md")
 - [Adding the 'Amazon S3 publish' action](s3-pub-action-add.md "s3-pub-action-add.md")
 - ['Amazon S3 publish' action YAML](s3-pub-action-ref.md "s3-pub-action-ref.md")
@@ -36,8 +35,6 @@ host in Amazon S3. In this case, your workflow would include a [build action](bu
 For example, you might have a source repository with application source files that you
 want to archive on a nightly basis to Amazon S3.
 
-## Runtime image used by the 'Amazon S3 publish'
-
-action
+## Runtime image used by the 'Amazon S3 publish' action
 
 The **Amazon S3 publish** action runs on a [November 2022 image](build-images.md#build.previous-image "build-images.md#build.previous-image"). For more information, see [Active images](build-images.md#build-curated-images "build-images.md#build-curated-images").

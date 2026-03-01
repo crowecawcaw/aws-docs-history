@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Deploying to Amazon EKS with a
-
-workflow
+# Deploying to Amazon EKS with a workflow
 
 ###### Tip
 
@@ -23,19 +21,14 @@ User Guide_.
 
 ###### Topics
 
-- [How the 'Deploy to Kubernetes cluster' action
-  works](#deploy-action-eks-howitworks "#deploy-action-eks-howitworks")
-- [Runtime image used by the 'Deploy to Amazon EKS'
-  action](#deploy-action-eks-runtime "#deploy-action-eks-runtime")
+- [How the 'Deploy to Kubernetes cluster' action works](#deploy-action-eks-howitworks "#deploy-action-eks-howitworks")
+- [Runtime image used by the 'Deploy to Amazon EKS' action](#deploy-action-eks-runtime "#deploy-action-eks-runtime")
 - [Tutorial: Deploy an application to Amazon EKS](deploy-tut-eks.md "deploy-tut-eks.md")
 - [Adding the 'Deploy to Kubernetes cluster' action](deploy-action-eks-adding.md "deploy-action-eks-adding.md")
-- ['Deploy to Kubernetes
-  cluster' variables](deploy-action-eks-variables.md "deploy-action-eks-variables.md")
+- ['Deploy to Kubernetes cluster' variables](deploy-action-eks-variables.md "deploy-action-eks-variables.md")
 - ['Deploy to Kubernetes cluster' action YAML](deploy-action-ref-eks.md "deploy-action-ref-eks.md")
 
-## How the 'Deploy to Kubernetes cluster' action
-
-works
+## How the 'Deploy to Kubernetes cluster' action works
 
 The **Deploy to Kubernetes cluster** works as follows:
 
@@ -51,8 +44,6 @@ instructions in`my-manifest.yaml` to deploy your application as
    command, see the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply "https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply") topic in the _Kubernetes Reference
    Documentation_.
 
-## Runtime image used by the 'Deploy to Amazon EKS'
-
-action
+## Runtime image used by the 'Deploy to Amazon EKS' action
 
 The **Deploy to Amazon EKS** action runs on a [November 2022 image](build-images.md#build.previous-image "build-images.md#build.previous-image"). For more information, see [Active images](build-images.md#build-curated-images "build-images.md#build-curated-images").

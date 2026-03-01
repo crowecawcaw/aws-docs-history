@@ -3,8 +3,7 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 # 'Deploy to Kubernetes cluster' action YAML
 
 The following is the YAML definition of the **Deploy to Kubernetes cluster**
-action. To learn how to use this action, see [Deploying to Amazon EKS with a
-workflow](deploy-action-eks.md "deploy-action-eks.md").
+action. To learn how to use this action, see [Deploying to Amazon EKS with a workflow](deploy-action-eks.md "deploy-action-eks.md").
 
 This action definition exists as a section within a broader workflow definition file. For
 more information about this file, see [Workflow YAML definition](workflow-reference.md "workflow-reference.md").
@@ -201,8 +200,7 @@ If you do not specify an account connection:
 - The default IAM role must include the policies and permissions required by the action.
   To determine what those policies and permissions are, see the description of the **Role** property in the action's YAML definition documentation.
 
-For more information about account connections, see [Allowing access to AWS resources with connected
-AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). For information about adding an account connection to
+For more information about account connections, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). For information about adding an account connection to
 an environment, see [Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md").
 
 Corresponding UI: One of the following depending on the action version:
@@ -284,8 +282,7 @@ available.
 Make sure that this role is added to:
 
 - Your account connection. To learn more about adding an IAM role to an account
-  connection, see [Adding IAM roles to account
-  connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+  connection, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 - Your Kubernetes ConfigMap. To learn more about adding an IAM role to a ConfigMap, see
   [Manage IAM users and
   roles](https://eksctl.io/usage/iam-identity-mappings/ "https://eksctl.io/usage/iam-identity-mappings/") in the `eksctl` documentation.
@@ -298,8 +295,7 @@ on adding am IAM role to an account connection and ConfigMap.
 ###### Note
 
 You can use the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role with this action, if you'd like. For more information
- about this role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account
- and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create"). Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has
+ about this role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create"). Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has
 full access permissions which may pose a security risk. We recommend that you only use this
 role in tutorials and scenarios where security is less of a concern.
 
@@ -344,9 +340,7 @@ For more information about sources, see [Connecting source repositories to workf
 
 Corresponding UI: Inputs tab/**Sources - optional**
 
-## Artifacts -
-
-input
+## Artifacts - input
 
 (`DeployToKubernetesCluster`/Inputs/**Artifacts**)
 
@@ -357,8 +351,7 @@ If the Kubernetes manifest file or files are contained in an artifact generated 
 a previous action, specify that artifact here. If your manifest files are not contained
 within an artifact, they must reside in your source repository.
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between
-actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
 
 Corresponding UI: Configuration tab/**Artifacts - optional**
 

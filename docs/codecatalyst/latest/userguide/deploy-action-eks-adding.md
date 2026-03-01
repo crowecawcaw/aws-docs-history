@@ -32,8 +32,7 @@ After creating this role, you must add it to:
      [Enabling
      IAM principal access to your cluster](../../../eks/latest/userguide/add-user-role.md "../../../eks/latest/userguide/add-user-role.md") in the
      **Amazon EKS User Guide**.
-    + CodeCatalyst. To learn how to add an IAM role to CodeCatalyst, see [Adding IAM roles to account
-     connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+    + CodeCatalyst. To learn how to add an IAM role to CodeCatalyst, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
 
 - A CodeCatalyst space, project, and environment. The space and environment must both be
   connected to the AWS account into which you will be deploying your application. For more

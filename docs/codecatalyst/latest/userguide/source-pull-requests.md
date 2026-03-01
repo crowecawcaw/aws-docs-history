@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Reviewing code with pull requests in
-
-Amazon CodeCatalyst
+# Reviewing code with pull requests in Amazon CodeCatalyst
 
 A pull request is the primary way you and other project members can review, comment on,
 and merge code changes from one branch to another. You can use pull requests to review code
@@ -67,8 +65,7 @@ ways:
 
 - [Creating a pull request](pull-requests-create.md "pull-requests-create.md")
 - [Viewing pull requests](pull-requests-view.md "pull-requests-view.md")
-- [Managing requirements for merging
-  a pull request with approval rules](source-pull-requests-approval-rules.md "source-pull-requests-approval-rules.md")
+- [Managing requirements for merging a pull request with approval rules](source-pull-requests-approval-rules.md "source-pull-requests-approval-rules.md")
 - [Reviewing a pull request](pull-requests-review.md "pull-requests-review.md")
 - [Updating a pull request](pull-requests-update.md "pull-requests-update.md")
 - [Merging a pull request](pull-requests-merge.md "pull-requests-merge.md")

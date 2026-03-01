@@ -1,23 +1,19 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Associating an AWS account with an
-
-environment
+# Associating an AWS account with an environment
 
 Use the following instructions to associate an AWS account with an environment. When you
 associate an AWS account with an environment, workflow actions that are assigned the
 environment will be able to connect to the AWS account.
 
-For more information about account connections, see [Allowing access to AWS resources with connected
-AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
+For more information about account connections, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md").
 
 ###### Before you begin
 
 You need the following:
 
 - An AWS account connection that includes the IAM roles your workflow action will
-  need to access AWS. For information about creating an account connection, see [Allowing access to AWS resources with connected
-  AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). You can use a
+  need to access AWS. For information about creating an account connection, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). You can use a
   maximum of one account connection per environment.
 - One of the following CodeCatalyst roles: **Space administrator** or
   **Project administrator**. For more information, see [Granting users project permissions](projects-members.md "projects-members.md").
@@ -43,5 +39,4 @@ in your AWS account.
 
 If the IAM role that you want to use as the default is not listed, it might be
 because you have not added it to your AWS account connection yet. To add an IAM role
-to an account connection, see [Adding IAM roles to account
-connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+to an account connection, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").

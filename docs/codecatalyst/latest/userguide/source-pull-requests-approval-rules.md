@@ -1,8 +1,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
 
-# Managing requirements for merging
-
-a pull request with approval rules
+# Managing requirements for merging a pull request with approval rules
 
 When you create a pull request, you can choose to add required or optional reviewers
 to that individual pull request. However, you can also create requirements that all pull
@@ -35,9 +33,7 @@ CodeCatalyst projects. You cannot create approval rules for linked repositories.
 You cannot delete approval rules, but you can update them to require zero approvals,
 which effectively removes the rule.
 
-###### To view and edit approval rules for destination branches
-
-for pull requests
+###### To view and edit approval rules for destination branches for pull requests
 
 1. Navigate to the project where your repository resides.
 2. Choose the name of the repository from the list of source repositories for the
