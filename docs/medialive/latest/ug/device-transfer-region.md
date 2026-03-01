@@ -1,6 +1,4 @@
-# Transferring a Link device to another
-
-Region
+# Transferring a Link device to another Region
 
 You can transfer a device to a different AWS Region. (If instead you want to transfer
 the device to a different Availability Zone in the existing Region, see [Configuring a Link device](device-edit.md "device-edit.md").)

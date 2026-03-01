@@ -79,9 +79,7 @@ This is the tag for an ad avail lasting 414.171 PTS:
 # EXT-X-CUE-IN
 ```
 
-## Ad marker: SCTE 35
-
-enhanced
+## Ad marker: SCTE 35 enhanced
 
 Structure
 

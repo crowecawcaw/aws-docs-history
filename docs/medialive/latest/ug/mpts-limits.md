@@ -3,7 +3,7 @@
 Following is a summary of the restrictions associated with multiplexes:
 
 - There are service quotas for the number of multiplexes you can create. For more
-  information, see [Quotas in MediaLive](limits.md "limits.md") .
+  information, see [Quotas in MediaLive](limits.md "limits.md").
 - These limitations apply to a multiplex:
   - Each multiplex produces only one MPTS. The MPTS has two pipelines, so it is sent
     to two destinations.

@@ -1,6 +1,4 @@
-# Result when converting color space to Dolby
-
-Vision 8.1
+# Result when converting color space to Dolby Vision 8.1
 
 Read this section if you set up one or more MediaLive outputs to [convert the color space](colorspace-output-setup.md#colorspace-output-setup-convert "colorspace-output-setup.md#colorspace-output-setup-convert") to Dolby Vision
 8.1. The following table shows how MediaLive handles each type of color space that it encounters

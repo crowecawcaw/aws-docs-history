@@ -24,9 +24,7 @@ following types of output groups:
 All the following procedures assume that you are familiar with creating or editing a
 channel, as described in [Creating a channel from scratch](creating-channel-scratch.md "creating-channel-scratch.md").
 
-## Passing through ID3 metadata in Archive
-
-outputs
+## Passing through ID3 metadata in Archive outputs
 
 You must configure each output where you want the ID3 metadata to appear.
 
@@ -41,9 +39,7 @@ You must configure each output where you want the ID3 metadata to appear.
      the ID3 metadata in this output. Or leave empty to use the default, which is PID
    502.
 
-## Passing through ID3 metadata in CMAF Ingest
-
-outputs
+## Passing through ID3 metadata in CMAF Ingest outputs
 
 You must configure each output group where you want the ID3 metadata to appear.
 
@@ -54,9 +50,7 @@ You must configure each output group where you want the ID3 metadata to appear.
    - **Timed Metadata Behavior**: Set to
      **ENABLED**.
 
-## Passing through ID3 metadata in HLS TS
-
-outputs
+## Passing through ID3 metadata in HLS TS outputs
 
 Follow this procedure for an HLS output that is set up with a standard container, which
 holds a transport stream. You must configure each output where you want the ID3 metadata to
@@ -73,9 +67,7 @@ appear.
      the ID3 metadata in this output. Or leave empty to use the default, which is PID
    502.
 
-## Passing through ID3 metadata in HLS MP4
-
-outputs
+## Passing through ID3 metadata in HLS MP4 outputs
 
 Follow this procedure for an HLS output that is set up with an fMP4container. You must
 configure each output where you want the ID3 metadata to appear. The metadata will be
@@ -88,9 +80,7 @@ included in the emsg event.
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
 
-## Passing through ID3 metadata in
-
-MediaPackage outputs
+## Passing through ID3 metadata in MediaPackage outputs
 
 You don't have to perform any setup in MediaPackage outputs. These outputs are
 automatically set up to pass through any ID3 metadata that is present in the source.

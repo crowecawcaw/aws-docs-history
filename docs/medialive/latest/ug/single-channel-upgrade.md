@@ -1,6 +1,4 @@
-# Setting up a
-
-single-pipeline channel with upgrade options
+# Setting up a single-pipeline channel with upgrade options
 
 When you followed the [guidelines](pipeline-redundancy-guidelines.md "pipeline-redundancy-guidelines.md")
 for implementing pipeline redundancy in a MediaLive channel, you might have decided that you
@@ -28,9 +26,7 @@ input**.
   _one_ content
   source.
 
-## How a
-
-single-pipeline channel works
+## How a single-pipeline channel works
 
 When you set up a single-pipeline channel with the option to
 easily upgrade, the channel is a single-pipeline channel but the
@@ -52,9 +48,7 @@ inactive.
 
 ![Diagram showing single-pipeline channel with standard-class input connecting upstream and downstream systems.](images/pipeline-redundancy-single-channel-standard-input.png)
 
-## Failure
-
-handling
+## Failure handling
 
 If there is a problem that causes a pipeline to stop
 functioning, MediaLive stops producing output. The downstream system

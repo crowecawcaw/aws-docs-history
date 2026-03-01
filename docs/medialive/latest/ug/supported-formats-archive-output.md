@@ -1,6 +1,4 @@
-# Captions formats supported in Archive
-
-outputs
+# Captions formats supported in Archive outputs
 
 In this table, look up your input container and captions type. Then read across to
 find the caption formats that are supported in MediaLive in an Archive (MPEG-TS file)

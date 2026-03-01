@@ -1,6 +1,4 @@
-# Monitoring Link with
-
-thumbnails
+# Monitoring Link with thumbnails
 
 You can view display thumbnails of the content that is currently being
 pushed to MediaLive by an AWS Elemental Link hardware device. The thumbnails appear if

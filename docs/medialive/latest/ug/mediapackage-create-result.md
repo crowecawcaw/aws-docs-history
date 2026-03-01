@@ -1,6 +1,4 @@
-# Result of this
-
-procedure
+# Result of this procedure
 
 With a MediaPackage output group, you don't configure as
 many fields as you do with a regular HLS output group.

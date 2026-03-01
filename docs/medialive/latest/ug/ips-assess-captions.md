@@ -10,9 +10,7 @@ channel.
 2. If you reject a source, you might want to contact the upstream system to determine if it
    could provide a more suitable version of the source content.
 
-## First requirement: a source must contain all required
-
-captions languages and formats
+## First requirement: a source must contain all required captions languages and formats
 
 With a multiple-input channel, for every output there must be a captions asset in the
 source that can produce the captions in that output. If a source doesn't have all the source
@@ -51,9 +49,7 @@ languages is Bulgarian instead of Spanish.
 This source is _not_ acceptable because it is missing
 two of the output languages.
 
-## Second requirement: for embedded passthrough all sources
-
-must contain languages in the same order
+## Second requirement: for embedded passthrough all sources must contain languages in the same order
 
 When there is at least one output that has embedded captions and there are at least two
 sources that have embedded captions, the languages must be in the same order in those sources.

@@ -1,6 +1,4 @@
-# Types of actions in the
-
-schedule
+# Types of actions in the schedule
 
 The schedule is a list of actions that a channel performs as it is
 running. You can use actions to do the following:

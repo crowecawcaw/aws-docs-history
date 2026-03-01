@@ -18,6 +18,5 @@ as an _encode_.
 ###### Topics
 
 - [Identify the output encodes](planning-encodes.md "planning-encodes.md")
-- [Map the output encodes
-  to the sources](channel-map-output-source.md "channel-map-output-source.md")
+- [Map the output encodes to the sources](channel-map-output-source.md "channel-map-output-source.md")
 - [Design the encodes](designing-encodes.md "designing-encodes.md")

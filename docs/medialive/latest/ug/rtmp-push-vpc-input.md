@@ -15,6 +15,5 @@ upstream system.
 
 - [Request setup on the VPC](setup-vpc-rtmp-vpc.md "setup-vpc-rtmp-vpc.md")
 - [Create an RTMP input](setup-input-rtmp-vpc.md "setup-input-rtmp-vpc.md")
-- [Ensure correct setup on the upstream
-  system](setup-uss-rtmp-vpc.md "setup-uss-rtmp-vpc.md")
+- [Ensure correct setup on the upstream system](setup-uss-rtmp-vpc.md "setup-uss-rtmp-vpc.md")
 - [Result of this procedure](setup-rtmp-vpc-result.md "setup-rtmp-vpc-result.md")

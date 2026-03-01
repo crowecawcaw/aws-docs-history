@@ -7,24 +7,20 @@ running channels in the regular way, in the AWS Cloud.
 You decide where to run the channel when you create the channel. In this case the channel
 is a MediaLive Anywhere channel. Several new rules apply:
 
-## Workflow design and available
-
-features
+## Workflow design and available features
 
 - The channel must be [single-pipeline
   channel](feature-emla.md "feature-emla.md"). The inputs can be a combination of single-class inputs (such
   as SMPTE 2110) and standard-class inputs. MediaLive ignores content from the second
   pipeline, if there is any. You can also instruct the upstream system to send
-  content to just one of the pipelines. See [Choosing the channel class and input
-  class](class-channel-input.md "class-channel-input.md").
+  content to just one of the pipelines. See [Choosing the channel class and input class](class-channel-input.md "class-channel-input.md").
 - You can't run the channel on your Amazon VPC.
-- Some input types don't work in a MediaLive Anywhere channel. See [Input deployments: AWS Cloud and
-  MediaLive Anywhere](inputs-emla.md "inputs-emla.md").
+- Some input types don't work in a MediaLive Anywhere channel. See [Input deployments: AWS Cloud and MediaLive Anywhere](inputs-emla.md "inputs-emla.md").
 
 ## Quotas and charges
 
 - There is a new quota category: MediaLive Anywhere inputs. To view quotas, see the link in
-  [Quotas in MediaLive](limits.md "limits.md") .
+  [Quotas in MediaLive](limits.md "limits.md").
 - Charges for inputs, outputs, and channels in MediaLive Anywhere mode are different from
   charges for MediaLive in the AWS Cloud. See [https://aws.amazon.com/medialive/features/anywhere/](https://aws.amazon.com/medialive/features/anywhere/ "https://aws.amazon.com/medialive/features/anywhere/").
 

@@ -1,6 +1,4 @@
-# Pause
-
-pipeline action – payload
+# Pause pipeline action – payload
 
 For information about the meaning and values for the fields in the following
 JSON, see [Fields for pause](schedule-fields-for-pause.md "schedule-fields-for-pause.md").
@@ -32,9 +30,7 @@ JSON, see [Fields for pause](schedule-fields-for-pause.md "schedule-fields-for-p
 
 ```
 
-## Example: Pausing
-
-one pipeline
+## Example: Pausing one pipeline
 
 This example of a request pauses pipeline 0 at
 20:42:19 UTC. MediaLive always reads the command
@@ -70,9 +66,7 @@ pipelines to unpaused._
 
 ```
 
-## Example:
-
-Unpausing both pipelines
+## Example: Unpausing both pipelines
 
 This example of a request unpauses all pipelines that
 are currently paused.

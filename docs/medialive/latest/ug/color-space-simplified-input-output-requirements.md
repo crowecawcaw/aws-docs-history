@@ -1,6 +1,4 @@
-# Output
-
-requirements
+# Output requirements
 
 **Supported output types**
 

@@ -1,10 +1,7 @@
-# Design the path for the
-
-output destination
+# Design the path for the output destination
 
 Perform this step if you haven't yet designed the full destination path or
-paths. If you've already designed the paths, go to [Complete the fields on the
-console](hls-specify-destination.md "hls-specify-destination.md").
+paths. If you've already designed the paths, go to [Complete the fields on the console](hls-specify-destination.md "hls-specify-destination.md").
 
 ###### To design the path
 
@@ -44,18 +41,12 @@ console](hls-specify-destination.md "hls-specify-destination.md").
 
 ###### Topics
 
-- [The syntax for the paths for the
-  outputs](#hls-syntax-http "#hls-syntax-http")
-- [Designing the folders and
-  baseFilename](#hls-baseFilename-design "#hls-baseFilename-design")
-- [Designing the
-  nameModifier](#hls-nameModifier-design "#hls-nameModifier-design")
-- [Designing the
-  segmentModifier](#hls-segmentModifier-design "#hls-segmentModifier-design")
+- [The syntax for the paths for the outputs](#hls-syntax-http "#hls-syntax-http")
+- [Designing the folders and baseFilename](#hls-baseFilename-design "#hls-baseFilename-design")
+- [Designing the nameModifier](#hls-nameModifier-design "#hls-nameModifier-design")
+- [Designing the segmentModifier](#hls-segmentModifier-design "#hls-segmentModifier-design")
 
-## The syntax for the paths for the
-
-outputs
+## The syntax for the paths for the outputs
 
 The following table describes the parts that make up the destination
 paths for these three categories of files.
@@ -101,9 +92,7 @@ The protocol is always HTTP or HTTPS.
     in a transport stream, and `.mp4` for
     files in an fMP4 container
 
-## Designing the folders and
-
-baseFilename
+## Designing the folders and baseFilename
 
 For the `folder` and `baseFilename` portion of
 the destination path, follow these guidelines:
@@ -116,12 +105,9 @@ the destination path, follow these guidelines:
   different. Before you create different
   `baseFilenames`, make sure that the downstream
   system can work with that setup.
-- For a standard channel when you _are_ implementing redundant manifests, see [Fields for
-  redundant manifests](hls-opg-redundant-manifest.md "hls-opg-redundant-manifest.md").
+- For a standard channel when you _are_ implementing redundant manifests, see [Fields for redundant manifests](hls-opg-redundant-manifest.md "hls-opg-redundant-manifest.md").
 
-## Designing the
-
-nameModifier
+## Designing the nameModifier
 
 Design the `nameModifier` portions of the file name. The
 child manifests and media files include this modifier in their file
@@ -144,9 +130,7 @@ guidelines:
 - The `nameModifier` can include [data
   variables](variable-data-identifiers.md "variable-data-identifiers.md").
 
-## Designing the
-
-segmentModifier
+## Designing the segmentModifier
 
 Design the segmentModifiers portion of the destination path. The
 segmentModifier is optional, and if you include it, only the media file

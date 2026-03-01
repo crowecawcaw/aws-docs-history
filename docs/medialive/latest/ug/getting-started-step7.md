@@ -1,6 +1,4 @@
-# Step 9: Create your
-
-channel
+# Step 9: Create your channel
 
 You have entered the minimum required information, so you are ready
 to create the channel.

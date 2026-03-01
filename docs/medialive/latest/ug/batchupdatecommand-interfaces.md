@@ -1,6 +1,4 @@
-# Batch
-
-command in different interfaces
+# Batch command in different interfaces
 
 The batch update schedule command is represented
 differently in different interfaces:

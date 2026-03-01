@@ -1,13 +1,9 @@
-# Changing pipeline redundancy in an existing
-
-channel
+# Changing pipeline redundancy in an existing channel
 
 To enable or disable pipeline redundancy on an existing MediaLive channel, you must update
 the channel class.
 
-## Changing the channel to a
-
-single-pipeline channel
+## Changing the channel to a single-pipeline channel
 
 You can change a standard channel to single-pipeline, to remove one of the
 pipelines in the channel and to remove pipeline redundancy.
@@ -41,9 +37,7 @@ To change the channel class, the channel must be idle (not running).
     notify the downstream system for each output group that it should no longer
     expect output at its second destination.
 
-## Changing the channel class to standard –
-
-option A
+## Changing the channel class to standard – option A
 
 You can change a single-pipeline channel to a standard channel. Follow this
 procedure if you originally set up the single-pipeline channel with [standard-class inputs and upgrade

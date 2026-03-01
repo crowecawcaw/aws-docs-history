@@ -14,8 +14,7 @@ video encode where both of the following apply:
 
 - It is required if you want to convert an HDR color space to an SDR color space in an
   output that uses H.264. Even if the encode uses VBR, you must enable the mode to obtain this
-  color space conversion. For more information, see [Step 1: Configure enhanced VQ
-  mode](color-space-simplified-output-handling.md#color-space-simplified-output-config-vq "color-space-simplified-output-handling.md#color-space-simplified-output-config-vq").
+  color space conversion. For more information, see [Step 1: Configure enhanced VQ mode](color-space-simplified-output-handling.md#color-space-simplified-output-config-vq "color-space-simplified-output-handling.md#color-space-simplified-output-config-vq").
 
 ###### Note
 

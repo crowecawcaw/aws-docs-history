@@ -12,18 +12,13 @@ failover pair.
 
 ###### Topics
 
-- [Regular inputs versus
-  partner inputs](#cdi-input-partner-vs-regular "#cdi-input-partner-vs-regular")
-- [Rules for using partner CDI
-  inputs](#cdi-input-partner-rules "#cdi-input-partner-rules")
-- [Creating the set of partner
-  inputs](#cdi-input-create "#cdi-input-create")
+- [Regular inputs versus partner inputs](#cdi-input-partner-vs-regular "#cdi-input-partner-vs-regular")
+- [Rules for using partner CDI inputs](#cdi-input-partner-rules "#cdi-input-partner-rules")
+- [Creating the set of partner inputs](#cdi-input-create "#cdi-input-create")
 - [Editing the set of partner inputs](#cdi-input-edit "#cdi-input-edit")
 - [Deleting partner inputs](#cdi-input-delete "#cdi-input-delete")
 
-## Regular inputs versus
-
-partner inputs
+## Regular inputs versus partner inputs
 
 When you create a CDI input, you must decide whether you need to
 create a _regular_ CDI input or a set of
@@ -41,9 +36,7 @@ the workflow.
 | Yes (standard channel)                    | No                                                                                                                                                           | One [regular CDI<br>input](input-create-cdi-push.md "input-create-cdi-push.md"). |
 | Yes                                       | Two sets of partner inputs:<br>• Two CDI inputs set up as one set of partner<br>inputs.<br>• Two more CDI inputs set up as another set of partner<br>inputs. |
 
-## Rules for using partner CDI
-
-inputs
+## Rules for using partner CDI inputs
 
 These rules apply to partner inputs:
 
@@ -56,13 +49,10 @@ These rules apply to partner inputs:
   channel. You can't attach one partner to one channel, and the other
   partner to a different channel.
 
-## Creating the set of partner
-
-inputs
+## Creating the set of partner inputs
 
 To create the partner inputs, you must follow a special procedure. See
-[Creating a partner CDI push input in
-Amazon VPC](input-create-cdi-partners.md "input-create-cdi-partners.md").
+[Creating a partner CDI push input in Amazon VPC](input-create-cdi-partners.md "input-create-cdi-partners.md").
 
 ## Editing the set of partner inputs
 

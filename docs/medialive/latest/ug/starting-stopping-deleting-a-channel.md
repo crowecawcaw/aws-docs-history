@@ -44,9 +44,7 @@ it is already running and attempts to recover from a failure.
 6. Choose the channel name. The details for the channel appear. After a few seconds, the
    thumbnail preview of the current input appears (if thumbnail preview is enabled).
 
-### Start times for
-
-AWS Cloud channels
+### Start times for AWS Cloud channels
 
 Most channels start in 3 minutes or less, but a startup time up to 10 minutes is still
 normal. The time it takes for a channel to start depends on several factors. One factor is the
@@ -56,9 +54,7 @@ must be started up for the channel.
 We recommend that you start a channel 2 hours in advance of high-value events so that there
 is ample time to start, stop and restart a channel before the event begins.
 
-### Start times for MediaLive Anywhere
-
-channels
+### Start times for MediaLive Anywhere channels
 
 Most [MediaLive Anywhere](feature-emla.md "feature-emla.md") channels start in 3 minutes or less, but a
 startup time up to 10 minutes is still normal. The time it takes for a channel to start depends
@@ -84,5 +80,4 @@ message.
 ## Pausing a channel
 
 You can also pause one or both the pipelines in a channel by adding a Pause action to the
-schedule for the channel. For more information, see [How pause and
-unpause actions work](x-actions-in-schedule-pause.md "x-actions-in-schedule-pause.md").
+schedule for the channel. For more information, see [How pause and unpause actions work](x-actions-in-schedule-pause.md "x-actions-in-schedule-pause.md").

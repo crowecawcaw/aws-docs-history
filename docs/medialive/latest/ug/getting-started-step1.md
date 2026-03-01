@@ -1,6 +1,4 @@
-# Step 1: Set up the upstream
-
-system
+# Step 1: Set up the upstream system
 
 The upstream system is the system that streams the video to MediaLive.
 The upstream system can be anything from an on-premises appliance that

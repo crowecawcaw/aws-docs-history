@@ -1,6 +1,4 @@
-# Fields for ID3 segment
-
-tags
+# Fields for ID3 segment tags
 
 This table shows the fields that apply for an action to
 insert

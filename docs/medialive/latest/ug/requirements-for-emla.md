@@ -26,8 +26,7 @@ policies for the MediaLive permissions and the Amazon Elastic Container Service 
 
 Some users in your organization will create push inputs and SDI inputs for sources that
 originate from your on-premises network. These users need the following permissions. These
-permissions are in addition to the permissions listed in [Requirements for AWS Elemental MediaLive
-features](requirements-for-medialive.md "requirements-for-medialive.md").
+permissions are in addition to the permissions listed in [Requirements for AWS Elemental MediaLive features](requirements-for-medialive.md "requirements-for-medialive.md").
 
 | Permissions                                                   | Service name in IAM | Specific activities that the user can perform                                                                     | Actions          |
 | ------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------- |

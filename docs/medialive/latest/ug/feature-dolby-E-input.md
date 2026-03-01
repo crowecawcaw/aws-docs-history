@@ -15,12 +15,9 @@ handling this audio source are the following:
 
 - [About Dolby E](#dolby-E-input-about "#dolby-E-input-about")
 - [Getting ready](#dolby-E-input-get-ready "#dolby-E-input-get-ready")
-- [Setting up the input to
-  extract programs](#dolby-atmos-output-setup-extract "#dolby-atmos-output-setup-extract")
-- [Setting up the
-  input to pass through the audio](#dolby-atmos-output-setup-passthru "#dolby-atmos-output-setup-passthru")
-- [Setting up
-  the input to extract and pass through](#dolby-atmos-output-setup-combination "#dolby-atmos-output-setup-combination")
+- [Setting up the input to extract programs](#dolby-atmos-output-setup-extract "#dolby-atmos-output-setup-extract")
+- [Setting up the input to pass through the audio](#dolby-atmos-output-setup-passthru "#dolby-atmos-output-setup-passthru")
+- [Setting up the input to extract and pass through](#dolby-atmos-output-setup-combination "#dolby-atmos-output-setup-combination")
 
 ## About Dolby E
 
@@ -52,9 +49,7 @@ stereo (English, French, Spanish, Punjabi) with English in Dolby E
 programs 1 and 2, and so on, through to Punjabi in Dolby E programs
 7 and 8.
 
-## Setting up the input to
-
-extract programs
+## Setting up the input to extract programs
 
 You must identify each Dolby E program that you want to extract
 and map it to a _MediaLive audio
@@ -90,9 +85,7 @@ that you want to extract.
 When you have finished, there will be one audio selector for each
 program to extract.
 
-## Setting up the
-
-input to pass through the audio
+## Setting up the input to pass through the audio
 
 You can pass through the entire Dolby E audio source so that you
 can then pass it through in the output.
@@ -118,9 +111,7 @@ with the general steps for creating a channel.
 | **Dolby E<br>decode**            | Choose **Audio Dolby E<br>decode**. The \*_Dolby E<br>program selection_<br>• field<br>appears. The drop-down menu shows the eight<br>possible Dolby E programs. |
 | **Dolby E program<br>selection** | Select the Dolby E program that you want<br>to extract. For example,<br>**ALL_CHANNELS**.                                                                        |
 
-## Setting up
-
-the input to extract and pass through
+## Setting up the input to extract and pass through
 
 You can set up the source in both ways—to extract programs and to
 pass through the entire source.

@@ -10,7 +10,7 @@ when you create the channel:
 
 - You need to know if you will run the channel in the AWS Cloud or on
   on-premises hardware in a MediaLive Anywhere cluster. Some features and resources are
-  available only for one channel mode. For information, see [Running channels in AWS Elemental MediaLive Anywhere](feature-emla.md "feature-emla.md") . For information about deploying a MediaLive Anywhere cluster,
+  available only for one channel mode. For information, see [Running channels in AWS Elemental MediaLive Anywhere](feature-emla.md "feature-emla.md"). For information about deploying a MediaLive Anywhere cluster,
   see [Setting up AWS Elemental MediaLive Anywhere](setup-emla.md "setup-emla.md").
 - You will need the following information when you follow the procedure in [Complete channel and input details](creating-a-channel-step1.md "creating-a-channel-step1.md"):
   - Whether you will implement any resiliency features of MediaLive, and
@@ -25,8 +25,7 @@ when you create the channel:
 - You will need the following information to create the input selectors, as part
   of the procedure in [Complete the settings for each input](creating-a-channel-step2a.md "creating-a-channel-step2a.md"):
   - The assets to extract from each input. You identified these assets in
-    [Map the output encodes
-    to the sources](channel-map-output-source.md "channel-map-output-source.md"), as part of planning the
+    [Map the output encodes to the sources](channel-map-output-source.md "channel-map-output-source.md"), as part of planning the
     channel.
 
 - You will need the following information when you follow the procedure in [Configure outputs](creating-a-channel-step4.md "creating-a-channel-step4.md"):

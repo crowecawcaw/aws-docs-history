@@ -26,16 +26,14 @@ In MediaLive, inputs can be categorized in several ways:
        single-pipeline channel.
       + You can use a single-class input only with a single-pipeline channel.
 
-  For more information on the purpose of input classes, see [Implementing pipeline
-  redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md").
+  For more information on the purpose of input classes, see [Implementing pipeline redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md").
 
 For information on the classes applicable to each input type, see [Supported input class](inputs-single-standard-vpc.md "inputs-single-standard-vpc.md").
 
 - **Anywhere mode** –
   Some inputs apply only to channels running in the AWS Cloud,
   or only to channels running in a MediaLive Anywhere cluster. Some inputs work in either
-  mode. For more information, see [Input deployments: AWS Cloud and
-  MediaLive Anywhere](inputs-emla.md "inputs-emla.md").
+  mode. For more information, see [Input deployments: AWS Cloud and MediaLive Anywhere](inputs-emla.md "inputs-emla.md").
 - **Static versus dynamic** – When you create the
   input, you decide if it is static or dynamic.
 

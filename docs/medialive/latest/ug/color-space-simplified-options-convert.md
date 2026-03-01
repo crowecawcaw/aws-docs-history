@@ -9,12 +9,8 @@ set up another output to pass through the color space.
 
 ###### Topics
 
-- [Supported types of conversion
-  in MediaLive](color-space-simplified-supported-conversions.md "color-space-simplified-supported-conversions.md")
-- [Getting ready to use 3D LUTs files with
-  MediaLive](color-space-process-with-lut.md "color-space-process-with-lut.md")
+- [Supported types of conversion in MediaLive](color-space-simplified-supported-conversions.md "color-space-simplified-supported-conversions.md")
+- [Getting ready to use 3D LUTs files with MediaLive](color-space-process-with-lut.md "color-space-process-with-lut.md")
 - [Input requirements](color-space-simplified-supported-inputs.md "color-space-simplified-supported-inputs.md")
-- [Output
-  requirements](color-space-simplified-input-output-requirements.md "color-space-simplified-input-output-requirements.md")
-- [Handling of metadata when
-  converting](color-space-simplified-options-metadata.md "color-space-simplified-options-metadata.md")
+- [Output requirements](color-space-simplified-input-output-requirements.md "color-space-simplified-input-output-requirements.md")
+- [Handling of metadata when converting](color-space-simplified-options-metadata.md "color-space-simplified-options-metadata.md")

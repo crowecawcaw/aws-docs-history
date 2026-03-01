@@ -1,6 +1,4 @@
-# Managing maintenance
-
-notifications
+# Managing maintenance notifications
 
 When a channel needs maintenance, you receive notification in the
 Health Dashboard, one notification for each channel. In addition, AWS sends an

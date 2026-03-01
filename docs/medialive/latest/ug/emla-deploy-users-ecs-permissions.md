@@ -24,9 +24,7 @@ policies:
    `MediaLiveAnywhereCreateCluster`.
 5. Choose **Create policy**.
 
-## Create the node registration
-
-policy
+## Create the node registration policy
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane on the left, choose **Policies**. Then

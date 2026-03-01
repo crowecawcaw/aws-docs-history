@@ -1,6 +1,4 @@
-# Fields for
-
-redundant manifests
+# Fields for redundant manifests
 
 MediaLive supports redundant manifests as specified in the HLS
 specification. You can enable this feature in a standard

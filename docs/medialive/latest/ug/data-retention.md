@@ -46,9 +46,7 @@ provide you with a secure way to handle sensitive information. You should
 always use these features to pass a password; you should not circumvent them
 by including a password in a URL.
 
-## Deleting data in
-
-MediaLive
+## Deleting data in MediaLive
 
 You can delete data from AWS Elemental MediaLive by deleting the object, for example,
 the channel or input. You can delete data using the console, REST API, AWS CLI,
@@ -62,5 +60,4 @@ To delete data using the console, see the following sections:
 - [Deleting an input](delete-input.md "delete-input.md")
 - [Deleting an input security group](delete-input-security-group.md "delete-input-security-group.md")
 - [Deleting multiplexes, programs, and channels](delete-multiplex-program.md "delete-multiplex-program.md")
-- [Deleting an expired
-  reservation](deleting-reservations.md "deleting-reservations.md")
+- [Deleting an expired reservation](deleting-reservations.md "deleting-reservations.md")

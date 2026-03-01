@@ -1,6 +1,4 @@
-# Create a Microsoft Smooth output
-
-group
+# Create a Microsoft Smooth output group
 
 When you [planned
 the workflow for your channel](identify-downstream-system.md "identify-downstream-system.md"), you might have

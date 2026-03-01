@@ -6,9 +6,7 @@ but you don't specify the format of the audio in that input. AWS Elemental Media
 it can be included in the output. The output expects to be able to find the specific extracted
 language.
 
-## Rule 1: Plan the same number of selectors in every
-
-input
+## Rule 1: Plan the same number of selectors in every input
 
 The selectors in each MediaLive input must extract sufficient assets to produce every output
 audio encode. In addition, every input must have the same number of selectors.
@@ -37,9 +35,7 @@ Although you might think to create selectors to extract the AAC 2.0 audio for Fr
 and English just for this input, you mustn't do this because the first input doesn't have
 these selectors. Remember that every input must have the same number of selectors.
 
-## Rule 2: Plan a separate selector for Dolby Digital
-
-Plus 7.1
+## Rule 2: Plan a separate selector for Dolby Digital Plus 7.1
 
 If the MediaLive channel includes at least one output with Dolby Digital Plus 7.1, create one
 selector in every input for that audio asset. On the output side, in every audio encode for

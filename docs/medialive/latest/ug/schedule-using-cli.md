@@ -1,6 +1,4 @@
-# Working with the schedule
-
-(AWS CLI)
+# Working with the schedule (AWS CLI)
 
 You can use the AWS CLI to work with the schedule programmatically.
 The sections later in this chapter describe how to enter the
@@ -27,15 +25,9 @@ additional information:
 
 ###### Topics
 
-- [Creating and
-  deleting using a batch command](about-batch-update-schedule.md "about-batch-update-schedule.md")
-- [Submitting a batch update
-  schedule command](submitting-batch-command.md "submitting-batch-command.md")
-- [JSON payload for create
-  actions](schedule-create-json.md "schedule-create-json.md")
-- [JSON payload for
-  delete actions](cli-schedule-delete-json.md "cli-schedule-delete-json.md")
-- [JSON payload
-  for combining create and delete](schedule-create-and-delete-json.md "schedule-create-and-delete-json.md")
-- [Viewing the
-  schedule (AWS CLI)](viewing-schedule-using-cli.md "viewing-schedule-using-cli.md")
+- [Creating and deleting using a batch command](about-batch-update-schedule.md "about-batch-update-schedule.md")
+- [Submitting a batch update schedule command](submitting-batch-command.md "submitting-batch-command.md")
+- [JSON payload for create actions](schedule-create-json.md "schedule-create-json.md")
+- [JSON payload for delete actions](cli-schedule-delete-json.md "cli-schedule-delete-json.md")
+- [JSON payload for combining create and delete](schedule-create-and-delete-json.md "schedule-create-and-delete-json.md")
+- [Viewing the schedule (AWS CLI)](viewing-schedule-using-cli.md "viewing-schedule-using-cli.md")

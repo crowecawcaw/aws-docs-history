@@ -1,20 +1,14 @@
-# Monitoring using the
-
-MediaLive console
+# Monitoring using the MediaLive console
 
 You can monitor the state and health of channels and
 multiplexes.
 
 ###### Topics
 
-- [Monitoring a channel using
-  the console](#monitoring-console "#monitoring-console")
-- [Monitoring a
-  multiplex using the Console](#monitoring-multiplex-console "#monitoring-multiplex-console")
+- [Monitoring a channel using the console](#monitoring-console "#monitoring-console")
+- [Monitoring a multiplex using the Console](#monitoring-multiplex-console "#monitoring-multiplex-console")
 
-## Monitoring a channel using
-
-the console
+## Monitoring a channel using the console
 
 You can monitor a channel using the AWS Elemental MediaLive console to view
 its activity and its current state.
@@ -25,30 +19,23 @@ its activity and its current state.
 2. In the navigation pane, choose
    **Channels**. (For information
    about the buttons on the page, see [Editing a channel](editing-deleting-channel.md#editing-a-channel "editing-deleting-channel.md#editing-a-channel"), [Starting, stopping, and pausing a channel](starting-stopping-deleting-a-channel.md "starting-stopping-deleting-a-channel.md"),
-   and [Creating a channel by
-   cloning](creating-channel-clone.md "creating-channel-clone.md").)
+   and [Creating a channel by cloning](creating-channel-clone.md "creating-channel-clone.md").)
 3. The **Channels** page shows a list of
    your channels. Each line in the list provides basic
    information about the channel, including its state. For
-   information about states, see [States for channels and
-   multiplexes](monitor-activity-types-channel.md "monitor-activity-types-channel.md").
+   information about states, see [States for channels and multiplexes](monitor-activity-types-channel.md "monitor-activity-types-channel.md").
 4. To view more details about a channel, choose the name
    of that channel. The **Channel
    details** page appears.
 
 ###### Topics
 
-- [Status tab –
-  Viewing status information](#view-status-info "#view-status-info")
-- [Alerts tab – Viewing
-  alerts](#view-alerts "#view-alerts")
+- [Status tab – Viewing status information](#view-status-info "#view-status-info")
+- [Alerts tab – Viewing alerts](#view-alerts "#view-alerts")
 - [Handling alerts](#handle-alerts "#handle-alerts")
-- [Destinations
-  pane](#view-status-details "#view-status-details")
+- [Destinations pane](#view-status-details "#view-status-details")
 
-### Status tab –
-
-Viewing status information
+### Status tab – Viewing status information
 
 For basic status information, look at the
 **Status** pane.
@@ -69,9 +56,7 @@ information for the pipelines in the channel:
 You can specify the period of time for the health
 information.
 
-### Alerts tab – Viewing
-
-alerts
+### Alerts tab – Viewing alerts
 
 MediaLive generates alerts for a channel when an issue or
 potential issue occurs in either pipeline in a channel.
@@ -102,9 +87,7 @@ the alert.
 If you stop a channel, alerts always automatically
 clear.
 
-### Destinations
-
-pane
+### Destinations pane
 
 This pane has three panes:
 
@@ -138,16 +121,12 @@ two pipelines in the channel.
   channel in MediaPackage has one or two pipelines, mapped to
   the one or two pipelines in MediaLive.
 
-## Monitoring a
-
-multiplex using the Console
+## Monitoring a multiplex using the Console
 
 You can view the activity of your multiplex and its current
 state.
 
-###### To monitor activity on a multiplex (MediaLive
-
-console)
+###### To monitor activity on a multiplex (MediaLive console)
 
 1. Open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/ "https://console.aws.amazon.com/medialive/").
 2. In the navigation pane, choose
@@ -155,27 +134,21 @@ console)
 3. The **Multiplexes** page shows a list
    of your multiplexes. Each line in the list provides
    basic information about the multiplex, including its
-   state. For information about states, see [States for channels and
-   multiplexes](monitor-activity-types-channel.md "monitor-activity-types-channel.md").
+   state. For information about states, see [States for channels and multiplexes](monitor-activity-types-channel.md "monitor-activity-types-channel.md").
 4. To view more details about a multiplex, choose the
    name of that multiplex. The **Multiplex
    details** page appears.
 
 ###### Topics
 
-- [Viewing status
-  information](#view-status-info "#view-status-info")
+- [Viewing status information](#view-status-info "#view-status-info")
 
-### Viewing status
-
-information
+### Viewing status information
 
 The **Multiplex details** page is divided
 into two panes. The second pane is divided into tabs.
 
-#### Details
-
-tab
+#### Details tab
 
 The **Details** tab shows the fields
 that you set when you created the multiplex.
@@ -189,17 +162,13 @@ assigns:
   multiplex. For more information about these
   entitlements, see [Starting the multiplex](start-multiplex.md "start-multiplex.md").
 
-#### Programs
-
-tab
+#### Programs tab
 
 The **Programs** tab lists the tabs
 that are in the multiplex. For information about
 programs, see [Overview of multiplex and MPTS](mpts-general.md "mpts-general.md").
 
-#### Bandwidth
-
-monitoring tab
+#### Bandwidth monitoring tab
 
 The **Bandwidth monitoring** tab
 shows information about the bandwidth allocation for the
@@ -228,9 +197,7 @@ minute. The chart refreshes every minute.
    in the multiplex) or a specific program.
 4. Choose which pipeline to show.
 
-#### Alerts
-
-tab
+#### Alerts tab
 
 MediaLive generates alerts for a multiplex when an issue
 or potential issue occurs in either pipeline in a

@@ -1,6 +1,4 @@
-# Creating a channel by
-
-cloning
+# Creating a channel by cloning
 
 Cloning lets you use an existing channel as the basis for a new
 channel. When you clone an existing channel, all sections of the
@@ -17,8 +15,7 @@ following:
 
 You can clone a channel that is in the **Channels**
 list. (You can also clone a channel after choosing **Create
-channel**; for more information, see [Creating a channel from a
-template](creating-channel-template.md "creating-channel-template.md").)
+channel**; for more information, see [Creating a channel from a template](creating-channel-template.md "creating-channel-template.md").)
 
 ###### To create a channel by cloning (console)
 

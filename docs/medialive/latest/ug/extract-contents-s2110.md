@@ -1,6 +1,4 @@
-# Identifying content in a
-
-SMPTE 2110 source
+# Identifying content in a SMPTE 2110 source
 
 The content in a SMPTE 2110 source is always a set of streams consisting of one video asset,
 zero or more audio assets, and zero or more captions (ancillary data) assets. Each asset is in

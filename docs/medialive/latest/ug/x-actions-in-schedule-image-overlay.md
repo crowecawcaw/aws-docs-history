@@ -1,6 +1,4 @@
-# How image overlay actions
-
-work
+# How image overlay actions work
 
 You can set up an action to insert and remove an image overlay on the
 video:

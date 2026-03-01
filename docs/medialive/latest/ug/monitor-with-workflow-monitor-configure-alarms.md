@@ -21,9 +21,7 @@ information about how the CloudWatch service handles alarms and details of the
 alarm components, see:
 [Using CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_
 
-## Creating alarm
-
-template groups
+## Creating alarm template groups
 
 Alarm template groups allow you to sort and classify the types of alarms that are important to your workflow.
 

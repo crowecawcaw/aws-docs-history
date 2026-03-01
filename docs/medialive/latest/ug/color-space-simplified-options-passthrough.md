@@ -1,6 +1,4 @@
-# Passing through the color
-
-space
+# Passing through the color space
 
 You can set up to _pass through_ the color space
 in a MediaLive output. These rules apply:

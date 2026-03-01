@@ -14,8 +14,6 @@ upstream system.
 ###### Topics
 
 - [Request setup on the VPC](setup-vpc-rtp-vpc.md "setup-vpc-rtp-vpc.md")
-- [Create an input for RTP push from
-  Amazon VPC](setup-input-rtp-vpc.md "setup-input-rtp-vpc.md")
-- [Ensure correct setup on the upstream
-  system](setup-uss-rtp-vpc.md "setup-uss-rtp-vpc.md")
+- [Create an input for RTP push from Amazon VPC](setup-input-rtp-vpc.md "setup-input-rtp-vpc.md")
+- [Ensure correct setup on the upstream system](setup-uss-rtp-vpc.md "setup-uss-rtp-vpc.md")
 - [Result of this procedure](setup-rtp-vpc-result.md "setup-rtp-vpc-result.md")

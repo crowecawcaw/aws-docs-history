@@ -16,9 +16,7 @@ Fixed switches use UTC time. They don't use the timecode of the input.
   in the schedule you can switch to a specific input with a fixed switch, and then later switch to
   the same input with a follow switch.
 
-## Types of switches and types of
-
-inputs
+## Types of switches and types of inputs
 
 The combination of types of switches and types of inputs (file and live) means that there
 are these types of switches:

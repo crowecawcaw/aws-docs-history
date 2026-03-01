@@ -21,9 +21,7 @@ the role to the MediaConnect input. You can use the same role (for example, the
 There are two general scenarios for choosing a role, depending on whether your
 organization has a designated administrator.
 
-## Your organization has a designated
-
-administrator
+## Your organization has a designated administrator
 
 Your organization might have an administrator who manages this service. That
 administrator has likely set up one or more roles:

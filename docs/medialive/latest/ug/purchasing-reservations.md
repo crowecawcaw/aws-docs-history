@@ -37,9 +37,7 @@ auto-renewal**. This option is off by default. 7. To purchase all of the offerin
 You can't cancel a reservation after you have purchased
 it.
 
-## Filtering on the offerings
-
-page
+## Filtering on the offerings page
 
 The **Offerings** page shows the different
 reservations that you can purchase.

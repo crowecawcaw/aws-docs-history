@@ -1,6 +1,4 @@
-# Complete the fields on the
-
-console
+# Complete the fields on the console
 
 The following fields configure the location and names of the HLS media and
 manifest files (the destination).

@@ -1,6 +1,4 @@
-# Fields for the RTMP
-
-connection
+# Fields for the RTMP connection
 
 The following fields configure the logic for reconnection
 attempts:
@@ -29,9 +27,7 @@ attempts:
   **Additional settings** –
   **Certificate mode**
 
-###### To configure a secure (RTMPS) connection to the
-
-destination
+###### To configure a secure (RTMPS) connection to the destination
 
 1. **Authentication Scheme** –
    Specify the type of scheme. Typically, choose

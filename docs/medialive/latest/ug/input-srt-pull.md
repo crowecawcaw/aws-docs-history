@@ -1,8 +1,4 @@
-# Channel
-
-input—SRT
-caller
-input
+# Channel input—SRT caller input
 
 To verify that the input is set up correctly, look at the **SRT caller
 settings** section. It shows the locations of the source video. This is

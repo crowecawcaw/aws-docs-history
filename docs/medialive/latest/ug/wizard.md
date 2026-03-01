@@ -10,5 +10,4 @@ entire workflow, not just with the MediaLive portion.
 - [About the workflow wizard](wizard-about.md "wizard-about.md")
 - [Using the workflow wizard](wizard-procedure.md "wizard-procedure.md")
 - [Next steps—novice users](wizard-next-step-novice.md "wizard-next-step-novice.md")
-- [Next steps—experienced video
-  users](wizard-next-step-experienced.md "wizard-next-step-experienced.md")
+- [Next steps—experienced video users](wizard-next-step-experienced.md "wizard-next-step-experienced.md")

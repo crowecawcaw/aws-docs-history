@@ -1,6 +1,4 @@
-# Modifying the MediaLive trusted
-
-entity
+# Modifying the MediaLive trusted entity
 
 You must modify the trusted entity role that you created for MediaLive. You should have
 already [set up this trust entity](setting-up-trusted-entity.md "setting-up-trusted-entity.md").

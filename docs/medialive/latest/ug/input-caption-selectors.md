@@ -1,6 +1,4 @@
-# Input settings—Caption
-
-selectors
+# Input settings—Caption selectors
 
 If you want to extract captions from the input or to specify an external file as
 the source of the captions, this section is required. You create one or more
@@ -33,5 +31,4 @@ more
 information about setting up
 an
 input for captions, see [Including captions in a channel](captions.md "captions.md"), specifically
-[Create captions selectors in the
-inputs](identify-captions-in-the-input.md "identify-captions-in-the-input.md").
+[Create captions selectors in the inputs](identify-captions-in-the-input.md "identify-captions-in-the-input.md").

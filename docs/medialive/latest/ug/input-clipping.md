@@ -19,8 +19,7 @@ request a portion of the file, rather than the entire file.
 2. Create the MP4 file input in the usual way. See [Setting up an MP4 input](mp4-pull-input.md "mp4-pull-input.md").
 3. Attach the input to the channel in the usual way. See [Attach inputs to the channel](creating-a-channel-step2.md "creating-a-channel-step2.md").
 4. Create a switch input action in the schedule that specifies the start time and end time
-   for the clip. See [Creating actions in the schedule
-   (console)](schedule-using-console-create.md "schedule-using-console-create.md").
+   for the clip. See [Creating actions in the schedule (console)](schedule-using-console-create.md "schedule-using-console-create.md").
 
 You can specify a start point (if you don't specify one, the ingest starts at the
 beginning of the file). You can specify an endpoint (if you don't specify one, the ingest

@@ -21,9 +21,7 @@ schedule "on the spot" to switch to the video filler. The live feed continues fo
 switches to the filler video. At the top of each hour, the channel switches to the live
 feed.
 
-## Use case 2: One live feed and file inputs, and the channel starts
-
-with a file input
+## Use case 2: One live feed and file inputs, and the channel starts with a file input
 
 You have the same requirements as for use case 1, except that you want to start the
 channel with a file clip, perhaps from the opening of the sports event. At the top of the first

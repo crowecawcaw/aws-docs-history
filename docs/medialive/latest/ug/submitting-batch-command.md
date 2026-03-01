@@ -1,6 +1,4 @@
-# Submitting a batch update
-
-schedule command
+# Submitting a batch update schedule command
 
 The command for a batch update schedule command is identical
 for creating actions, deleting actions, or submitting a
@@ -46,9 +44,7 @@ commands:
 
 ###### To submit a batch command
 
-1. Before you add or delete actions, read [Creating actions in the schedule
-   (console)](schedule-using-console-create.md "schedule-using-console-create.md") and [Deleting actions
-   from the schedule (console)](schedule-using-console-delete.md "schedule-using-console-delete.md").
+1. Before you add or delete actions, read [Creating actions in the schedule (console)](schedule-using-console-create.md "schedule-using-console-create.md") and [Deleting actions from the schedule (console)](schedule-using-console-delete.md "schedule-using-console-delete.md").
 2. Prepare a file that contains the channel ID and the
    appropriate JSON payload for the actions. For the
    structure and examples of the JSON payload for different

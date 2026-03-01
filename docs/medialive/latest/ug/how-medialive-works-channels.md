@@ -114,5 +114,4 @@ You can add these actions when the channel isn't running or when it is running. 
 the actions to the channel at the time identified in the schedule, and the channel performs the
 action.
 
-For more information about schedules, see [Creating an AWS Elemental MediaLive
-schedule](working-with-schedule.md "working-with-schedule.md")
+For more information about schedules, see [Creating an AWS Elemental MediaLive schedule](working-with-schedule.md "working-with-schedule.md")

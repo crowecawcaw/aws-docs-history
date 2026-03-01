@@ -19,9 +19,7 @@ the coding mode that is identified in the first cell.
 | 6                  | 5.1 audio             | Front left  | Front right  | Center | LFE  | Surround left | Surround right |             |              |
 | 8                  | 5.1 audio plus stereo | Front left  | Front right  | Center | LFE  | Surround left | Surround right | Stereo left | Stereo right |
 
-## Recommended minimum
-
-bitrates
+## Recommended minimum bitrates
 
 We strongly recommend following the minimum audio bitrates listed in
 the following table. If you set the audio bitrates lower than the

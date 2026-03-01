@@ -12,6 +12,5 @@ To perform this setup, you must work with an operator at the upstream system.
 
 - [Obtain information](setup-mp4-obtain-info.md "setup-mp4-obtain-info.md")
 - [Create an MP4 input](setup-input-mp4.md "setup-input-mp4.md")
-- [Ensure correct setup on the MP4 upstream
-  system](setup-uss-mp4.md "setup-uss-mp4.md")
+- [Ensure correct setup on the MP4 upstream system](setup-uss-mp4.md "setup-uss-mp4.md")
 - [Result of this procedure](setup-result-mp4.md "setup-result-mp4.md")

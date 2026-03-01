@@ -25,8 +25,7 @@ that it is no longer receiving content and can switch to the other output.
 There is no disruption to the downstream system. MediaLive restarts the second
 pipeline within a few minutes.
 
-For more information about pipeline redundancy, see [Implementing pipeline
-redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md").
+For more information about pipeline redundancy, see [Implementing pipeline redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md").
 
 ## Automatic input failover
 
@@ -60,9 +59,7 @@ channel).
 
 For more information about automatic input failover, see [Implementing automatic input failover](automatic-input-failover.md "automatic-input-failover.md").
 
-## Comparison of the two
-
-features
+## Comparison of the two features
 
 Following is a comparison of pipeline redundancy and automatic input
 failover.

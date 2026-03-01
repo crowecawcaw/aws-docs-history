@@ -1,6 +1,4 @@
-# JSON payload
-
-for combining create and delete
+# JSON payload for combining create and delete
 
 To combine a batch of creates and deletes, include both a
 `Creates` section and a `Deletes`

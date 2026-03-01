@@ -1,6 +1,4 @@
-# Handling the transition when the next input is fixed or
-
-immediate
+# Handling the transition when the next input is fixed or immediate
 
 When planning the schedule, you should ensure that there is no gap when switching from a
 file input (input A) to an input (input B) that starts at a fixed time or that starts

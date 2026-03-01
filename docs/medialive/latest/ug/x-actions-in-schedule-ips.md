@@ -1,6 +1,4 @@
-# How input switch
-
-actions work
+# How input switch actions work
 
 You can set up an action to switch the input that the running
 channel is ingesting. The channel stops ingesting the current

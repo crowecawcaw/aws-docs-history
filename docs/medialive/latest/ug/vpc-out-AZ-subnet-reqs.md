@@ -1,12 +1,10 @@
-# Identifying subnet and Availability
-
-Zone requirements
+# Identifying subnet and Availability Zone requirements
 
 Subnets and Availability Zones apply as follows:
 
 - **Inputs** – Some MediaLive input types
   are in your VPC, which means that they are in a specific subnet. For
-  example, an RTMP input can be in your VPC. For more information, see [Input types, protocols, and upstream systems](inputs-supported-formats.md "inputs-supported-formats.md") .
+  example, an RTMP input can be in your VPC. For more information, see [Input types, protocols, and upstream systems](inputs-supported-formats.md "inputs-supported-formats.md").
 - **Endpoints** – The channel
   endpoints are in a subnet.
 - **Destinations** –The IP addresses for outputs in the
@@ -28,5 +26,4 @@ Subnets and Availability Zones apply as follows:
 ###### Topics
 
 - [Use case A – no VPC inputs](vpc-out-caseA.md "vpc-out-caseA.md")
-- [Use case B – channel includes VPC
-  inputs](vpc-out-caseB.md "vpc-out-caseB.md")
+- [Use case B – channel includes VPC inputs](vpc-out-caseB.md "vpc-out-caseB.md")

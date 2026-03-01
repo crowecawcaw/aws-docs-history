@@ -8,8 +8,7 @@ outputs:
 - CMAF Ingest
 - HLS
 - MediaPackage
-  Before you add ID3 metadata actions to the schedule, read [Inserting ID3 metadata using the
-  schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md").
+  Before you add ID3 metadata actions to the schedule, read [Inserting ID3 metadata using the schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md").
 
 **Insert ID3 metadata with fixed start**
 

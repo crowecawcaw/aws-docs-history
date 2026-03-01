@@ -9,6 +9,5 @@ To perform this setup, you must work with an operator at the upstream system.
 
 - [Obtain information](setup-hls-http.md "setup-hls-http.md")
 - [Create an HLS input](setup-input-hls.md "setup-input-hls.md")
-- [Ensure correct setup on the HLS upstream
-  server](setup-uss-hls.md "setup-uss-hls.md")
+- [Ensure correct setup on the HLS upstream server](setup-uss-hls.md "setup-uss-hls.md")
 - [Result of this procedure](setup-hls-result.md "setup-hls-result.md")

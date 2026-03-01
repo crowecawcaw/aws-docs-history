@@ -3,8 +3,7 @@
 Any person who is an administrator can perform the procedure to create a role and attach
 policies to the role.
 
-In [Identify the access
-requirements](complex-scenario-create-trusted-entity-role-step1.md "complex-scenario-create-trusted-entity-role-step1.md"), someone in your
+In [Identify the access requirements](complex-scenario-create-trusted-entity-role-step1.md "complex-scenario-create-trusted-entity-role-step1.md"), someone in your
 organization identified the roles that you need to create. Create those roles now using IAM.
 
 In this step, you create a role that consists of a trust policy ("let MediaLive call the

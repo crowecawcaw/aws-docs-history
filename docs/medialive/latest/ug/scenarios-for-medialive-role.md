@@ -1,6 +1,4 @@
-# Options for implementing the trusted
-
-entity
+# Options for implementing the trusted entity
 
 There are two options for setting up the trusted entity role in AWS Elemental MediaLive: a simple option
 and a complex option.

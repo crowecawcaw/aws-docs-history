@@ -1,6 +1,4 @@
-# Identify the access
-
-requirements
+# Identify the access requirements
 
 You must identify the services that MediaLive will interact with in your deployment. Then within
 each service, you must identify the operations and resources that MediaLive needs access to. Finally,

@@ -1,6 +1,4 @@
-# How pause and
-
-unpause actions work
+# How pause and unpause actions work
 
 You can insert an action to pause and unpause one or both
 pipelines in the channel. The action pauses the specified

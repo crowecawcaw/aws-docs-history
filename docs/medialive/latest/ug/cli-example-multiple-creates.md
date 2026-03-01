@@ -1,6 +1,4 @@
-# Combination
-
-of create actions
+# Combination of create actions
 
 Here is an example of a JSON body to pass into the
 `--creates` parameter of the

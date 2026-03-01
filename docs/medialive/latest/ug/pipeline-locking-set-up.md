@@ -12,11 +12,7 @@ output groups to ensure that MediaLive can successfully lock the pipelines.
 All the procedures in this section assume that you are familiar with the general
 steps for creating a channel, as described [Creating a channel from scratch](creating-channel-scratch.md "creating-channel-scratch.md").
 
-## Configuring
-
-output locking and
-setting
-the mode
+## Configuring output locking and setting the mode
 
 You can configure the channel
 as
@@ -58,12 +54,10 @@ follows:
    - **SOURCE_TIMECODE** (default): Uses embedded
      timecodes from the input source. Requires inputs with reliable
      embedded timecodes. See
-     [Inputs must include embedded
-     timecode (source timecode method)](pipeline-locking-verify-input.md#pipeline-locking-embedded-tcode "pipeline-locking-verify-input.md#pipeline-locking-embedded-tcode").
+     [Inputs must include embedded timecode (source timecode method)](pipeline-locking-verify-input.md#pipeline-locking-embedded-tcode "pipeline-locking-verify-input.md#pipeline-locking-embedded-tcode").
    - **VIDEO_ALIGNMENT**: Uses visual signature
      comparison between encoders. Does not require embedded timecodes.
-     See [Requirements for
-     video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs") for
+     See [Requirements for video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs") for
      input compatibility.
 
 6. (Optional) For CMAF Ingest and MediaPackage V2 output groups, you can
@@ -72,9 +66,7 @@ follows:
    settings**, locate the **Custom epoch** field
    and enter a custom epoch time.
 
-## Setting up an HLS, MediaPackage, or
-
-Microsoft Smooth output group
+## Setting up an HLS, MediaPackage, or Microsoft Smooth output group
 
 In an HLS output group or Microsoft Smooth output group, you must set up the
 framerate for each video encode.

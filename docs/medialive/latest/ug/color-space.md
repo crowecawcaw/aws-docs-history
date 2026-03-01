@@ -28,26 +28,19 @@ metadata.
 - [Which section to read](#color-space-which-section "#color-space-which-section")
 - [Options for handling color space](color-space-handling-options.md "color-space-handling-options.md")
 - [General information about color space](about-color-metadata.md "about-color-metadata.md")
-- [General procedure for handling color
-  space](color-space-general-procedure.md "color-space-general-procedure.md")
+- [General procedure for handling color space](color-space-general-procedure.md "color-space-general-procedure.md")
 - [Assess the color spaces in the sources](color-space-assess-inputs.md "color-space-assess-inputs.md")
-- [Handling color space metadata in the
-  inputs](color-space-input-handling.md "color-space-input-handling.md")
-- [Configuring color space handling in each
-  output](color-space-output-handling.md "color-space-output-handling.md")
-- [Results for different color space
-  handling](colorspace-output-results.md "colorspace-output-results.md")
+- [Handling color space metadata in the inputs](color-space-input-handling.md "color-space-input-handling.md")
+- [Configuring color space handling in each output](color-space-output-handling.md "color-space-output-handling.md")
+- [Results for different color space handling](colorspace-output-results.md "colorspace-output-results.md")
 - [Reference: Location of fields](colorspace-fields.md "colorspace-fields.md")
 
 ## Which section to read
 
 There are two sections in this guide about handling color space in MediaLive — this section, and the
-section [Handling a straightforward color space
-conversion](color-space-simplified.md "color-space-simplified.md").
+section [Handling a straightforward color space conversion](color-space-simplified.md "color-space-simplified.md").
 
-Read the requirements in [Determine if this section applies to
-your channel](color-space-simplified.md#color-space-simplified-which-section "color-space-simplified.md#color-space-simplified-which-section") in [Handling a straightforward color space
-conversion](color-space-simplified.md "color-space-simplified.md"). If your content doesn't meet all those requirements,
+Read the requirements in [Determine if this section applies to your channel](color-space-simplified.md#color-space-simplified-which-section "color-space-simplified.md#color-space-simplified-which-section") in [Handling a straightforward color space conversion](color-space-simplified.md "color-space-simplified.md"). If your content doesn't meet all those requirements,
 then follow the procedures in this section instead.
 
 This section provides procedures for dealing with complicated situations that include the

@@ -1,16 +1,11 @@
-# Examples of
-
-destination fields for an Archive output
-group
+# Examples of destination fields for an Archive output group
 
 These examples show how to set up the fields that
 relate to file locations. They don't show how to set up
 other fields such as fields in the individual
 outputs.
 
-## Example
-
-1
+## Example 1
 
 You want to create an archive of the streaming
 output from TV channel 59. You want to store the
@@ -49,9 +44,7 @@ if the user stops the channel), MediaLive closes the
 current file. At that point, the file becomes
 visible.
 
-## Example
-
-2
+## Example 2
 
 You want to create an archive of highlights from
 the curling game that are also being streamed (in a

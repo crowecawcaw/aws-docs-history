@@ -30,8 +30,7 @@ input details**. 5. Complete the sections:
      role**. See [IAM role and ARN](role-and-remember-arn.md "role-and-remember-arn.md").
     * You can optionally configure the channel by selecting and loading a
      channel template. For information about the **Channel
-     template** section, see [Creating a channel from a
-     template](creating-channel-template.md "creating-channel-template.md").
+     template** section, see [Creating a channel from a template](creating-channel-template.md "creating-channel-template.md").
     * Your organization might have deployed a MediaLive Anywhere cluster, in order to
      run channels on on-premises hardware. In this case, complete the MediaLive Anywhere
      settings. You must specify the channel placement group that the channel
@@ -65,8 +64,7 @@ input details**. 5. Complete the sections:
      class, you can optionally configure **Linked channel
      settings** to set up this channel as a primary or follower
      channel for pipeline locking. See
-     [Linked channels for single-pipeline
-     channels](channel-class.md#linked-channels "channel-class.md#linked-channels").
+     [Linked channels for single-pipeline channels](channel-class.md#linked-channels "channel-class.md#linked-channels").
     * In **Input specifications** and **CDI input
      specifications**, complete the fields to match your input.
      See [Input specifications settings](input-specification.md "input-specification.md").

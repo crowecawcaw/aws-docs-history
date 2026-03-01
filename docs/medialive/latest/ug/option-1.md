@@ -1,6 +1,4 @@
-# Option 1: Send all MediaLive events to an
-
-email address
+# Option 1: Send all MediaLive events to an email address
 
 This option shows how to set up to send all events to a single
 email address. The drawback of this setup is that the email
@@ -23,9 +21,7 @@ In the following procedure, we use the example of
 sender of the email. We create the subscription using the
 Amazon Simple Notification Service (Amazon SNS) console.
 
-###### To create a subscription for email notifications
-
-(Amazon SNS console)
+###### To create a subscription for email notifications (Amazon SNS console)
 
 1. Sign in to the AWS Management Console and open the Amazon SNS
    console at [https://console.aws.amazon.com/sns/v2/home](https://console.aws.amazon.com/sns/v2/home "https://console.aws.amazon.com/sns/v2/home").

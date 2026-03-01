@@ -28,9 +28,7 @@ them up for you.
 Where `5106412` is the channel ID and
 `0` is the pipeline.
 
-## Content of encoder
-
-logs
+## Content of encoder logs
 
 The logs are in JSON format:
 
@@ -75,9 +73,7 @@ The data is the following:
   the wording is subject to change, so you should not
   automate against it.
 
-## Log levels and verbosities for
-
-encoder logs
+## Log levels and verbosities for encoder logs
 
 To use this table, find a level in the first column then
 read across to identify the message severities that will
@@ -90,9 +86,7 @@ appear in the logs with this logging level.
 | WARNING |                |               | Yes              | Yes               | Yes            |
 | ERROR   |                |               |                  | Yes               | Yes            |
 
-## Managing log
-
-storage
+## Managing log storage
 
 When you delete a channel, the associated logs remain in
 CloudWatch Logs. You will continue to be charged for their storage

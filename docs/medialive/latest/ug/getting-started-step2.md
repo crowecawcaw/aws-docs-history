@@ -1,6 +1,4 @@
-# Step 2: Set up the downstream
-
-system
+# Step 2: Set up the downstream system
 
 In this tutorial, the downstream system (the destination for the
 output from MediaLive) is AWS Elemental MediaPackage.

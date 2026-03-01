@@ -1,6 +1,4 @@
-# Coordinate with the downstream
-
-system
+# Coordinate with the downstream system
 
 The destination for an Archive output group is always in an Amazon S3 bucket. You and the
 Amazon S3 operator must agree about the bucket to use.
@@ -12,22 +10,18 @@ Amazon S3 operator must agree about the bucket to use.
    - You need one destination in a single-pipeline channel.
 
 2. We recommend that you design the full path of the destination — the Amazon S3
-   bucket and all the folders. See [Fields for the output
-   destination](archive-destinations.md "archive-destinations.md").
+   bucket and all the folders. See [Fields for the output destination](archive-destinations.md "archive-destinations.md").
 3. Ask the Amazon S3 user to create any buckets that don't already exist.
 
 With MediaLive, the Amazon S3 bucket name must not use dot notation, which means it
 mustn't use . (dot) between the words in the bucket name. 4. Discuss bucket ownership with the Amazon S3 user. If the bucket belongs to another
 AWS account, you typically want that account to become the owner of the
-output. For more information, see [Controlling access to the
-output](#setting-dss-archive-canned-acl "#setting-dss-archive-canned-acl"), after this procedure.
+output. For more information, see [Controlling access to the output](#setting-dss-archive-canned-acl "#setting-dss-archive-canned-acl"), after this procedure.
 Note that you don't need user credentials to send to an S3 bucket. MediaLive has
 permission to write to the bucket via the trusted entity. Someone in your organization
 should have already set up these permissions. For more information, see [Access requirements for the trusted entity](trusted-entity-requirements.md "trusted-entity-requirements.md").
 
-## Controlling access to the
-
-output
+## Controlling access to the output
 
 You might be sending output files to an Amazon S3 bucket that is owned by another AWS
 account. In this situation, you typically want the other account to become the owner

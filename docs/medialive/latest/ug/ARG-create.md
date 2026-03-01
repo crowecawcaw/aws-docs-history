@@ -21,8 +21,7 @@ and associations that you create are the following:
 ###### Topics
 
 - [Identify the video and audio encodes](ARG-step-create-mapping.md "ARG-step-create-mapping.md")
-- [Determine Defaults and Selection
-  Rules](ARG-step-defaults.md "ARG-step-defaults.md")
+- [Determine Defaults and Selection Rules](ARG-step-defaults.md "ARG-step-defaults.md")
 - [Create the video outputs](ARG-step-create-video.md "ARG-step-create-video.md")
 - [Create the audio outputs](ARG-step-create-audio.md "ARG-step-create-audio.md")
 - [Summary](ARG-create-summary.md "ARG-create-summary.md")

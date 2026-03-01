@@ -1,6 +1,4 @@
-# Scenario B – Metadata can be corrected with
-
-force
+# Scenario B – Metadata can be corrected with force
 
 During assessment of the MediaLive input, you might have determined the following:
 

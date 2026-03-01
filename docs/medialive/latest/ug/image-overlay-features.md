@@ -1,6 +1,4 @@
-# Two options: global overlay and per-output
-
-overlay
+# Two options: global overlay and per-output overlay
 
 There are two options for inserting and removing image overlays in a MediaLive channel — the
 global option and the per-output option.
@@ -19,8 +17,7 @@ global option and the per-output option.
 ###### Topics
 
 - [How MediaLive handles a global image](#image-overlay-global-about "#image-overlay-global-about")
-- [How MediaLive handles a per-output
-  image](#image-overlay-per-output-about "#image-overlay-per-output-about")
+- [How MediaLive handles a per-output image](#image-overlay-per-output-about "#image-overlay-per-output-about")
 - [Image layers and inserting images](#image-overlay-layers "#image-overlay-layers")
 - [Removing images](#image-overlay-remove "#image-overlay-remove")
 - [Properties of the image](#image-overlay-properties "#image-overlay-properties")
@@ -41,9 +38,7 @@ proportion of the underlying video. For example, the image takes up approximatel
 height of an output 720p video frame and approximately 10% of the height of an output 4K
 video frame.
 
-## How MediaLive handles a per-output
-
-image
+## How MediaLive handles a per-output image
 
 MediaLive sets the resolution of the video, and then it overlays the image. This means that
 the image doesn't get resized, it retains its absolute size.

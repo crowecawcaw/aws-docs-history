@@ -1,19 +1,13 @@
-# Combining redundant manifests with other
+# Combining redundant manifests with other features
 
-features
-
-## Combining redundant manifests and
-
-custom path feature
+## Combining redundant manifests and custom path feature
 
 When you set up redundant manifests in a MediaLive HLS output group, you can also set up
 custom paths. Make sure that you follow the rules [for
 custom paths](hls-custom-paths-rules.md "hls-custom-paths-rules.md") and for redundant manifests for your downstream system—either an
 [Akamai CDN](hls-redundant-manif-akamai.md "hls-redundant-manif-akamai.md") or [another downstream system](hls-redundant-manif-most-systems.md "hls-redundant-manif-most-systems.md").
 
-## Combining redundant manifests with audio
-
-rendition groups
+## Combining redundant manifests with audio rendition groups
 
 ###### Note
 

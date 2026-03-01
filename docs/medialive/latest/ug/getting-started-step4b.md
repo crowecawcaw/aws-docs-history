@@ -1,6 +1,4 @@
-# Step 5: Attach the
-
-input
+# Step 5: Attach the input
 
 Now you are ready to identify the input that the channel will
 ingest.

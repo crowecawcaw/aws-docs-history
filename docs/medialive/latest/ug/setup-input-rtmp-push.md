@@ -30,8 +30,7 @@ for this input:
     * STANDARD
     * SINGLE-PIPELINE
 
-For more information, see [Implementing pipeline
-redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md"). 9. In the **Input destinations** section, in the
+For more information, see [Implementing pipeline redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md"). 9. In the **Input destinations** section, in the
 **Destination** section, enter the application names and
 application instances you previously obtained:
 

@@ -1,6 +1,4 @@
-# Identity-based
-
-policy examples for AWS Elemental MediaLive
+# Identity-based policy examples for AWS Elemental MediaLive
 
 By default, users and roles don't have permission to create or modify MediaLive
 resources. To grant users permission to perform actions on the

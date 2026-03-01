@@ -1,6 +1,4 @@
-# Examples of custom
-
-paths
+# Examples of custom paths
 
 Following are examples of the different ways that you might customize the manifests in a
 MediaLive HLS output group. In all these examples, assume the following:

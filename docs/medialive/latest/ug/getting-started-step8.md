@@ -1,6 +1,4 @@
-# Step 10: Start the upstream
-
-system and the channel
+# Step 10: Start the upstream system and the channel
 
 You can now start the upstream system in order to push the streaming
 content to MediaLive, encode the content, and send it to AWS Elemental MediaPackage. You can
@@ -9,8 +7,7 @@ preview the output on MediaPackage.
 ###### To start the upstream system
 
 1. In your upstream system, start streaming the video sources that
-   you set up in [Step 1: Set up the upstream
-   system](getting-started-step1.md "getting-started-step1.md"). Set them up
+   you set up in [Step 1: Set up the upstream system](getting-started-step1.md "getting-started-step1.md"). Set them up
    to push to the two destinations that you noted in [Step 3: Create an input](getting-started-step3.md "getting-started-step3.md"). These are two addresses in the
    input in MediaLive. For example,
    `rtp://198.51.100.10:5000` and

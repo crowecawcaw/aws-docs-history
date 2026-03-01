@@ -29,8 +29,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
 ###### Topics
 
 - [Fields in CMAF Ingest settings section](#cmafi-opg-settings "#cmafi-opg-settings")
-- [Fields for the video, audio, and
-  captions streams (encodes)](#cmafi-opg-streams-section "#cmafi-opg-streams-section")
+- [Fields for the video, audio, and captions streams (encodes)](#cmafi-opg-streams-section "#cmafi-opg-streams-section")
 
 ## Fields in CMAF Ingest settings section
 
@@ -42,9 +41,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
 | Send Delay Msec                      | Number of milliseconds to delay the output from pipeline 1,<br>when the channel starts or unpauses. (This field applies only to<br>standard channels. The value is ignored in a single-pipeline<br>channel.)<br>Some packagers always ingest the first pipeline that they<br>receive. You can therefore set a value here to ensure that<br>pipeline 0 always arrives at the packager first.                                                                               |
 | Nielsen ID3 Behavior                 | For information about this feature, see [Converting Nielsen watermarks to ID3](feature-nielsen-id3.md "feature-nielsen-id3.md").                                                                                                                                                                                                                                                                                                                                          |
 
-## Fields for the video, audio, and
-
-captions streams (encodes)
+## Fields for the video, audio, and captions streams (encodes)
 
 1. In **CMAF Ingest outputs**, choose **Add
    output** to add the appropriate number of outputs to the list

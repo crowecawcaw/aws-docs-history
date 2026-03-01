@@ -1,6 +1,4 @@
-# Channel input—MediaConnect push
-
-input
+# Channel input—MediaConnect push input
 
 To verify that the input is set up correctly, look at the **MediaConnect
 flows** section. It shows the ARNs of the AWS Elemental MediaConnect flows that are the

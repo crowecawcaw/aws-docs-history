@@ -1,6 +1,4 @@
-# Handling the transition when the next input is
-
-follow
+# Handling the transition when the next input is follow
 
 When planning the schedule, you should ensure that a switch from one input to a "follow
 input" can succeed.

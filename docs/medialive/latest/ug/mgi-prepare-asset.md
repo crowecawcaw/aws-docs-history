@@ -1,6 +1,4 @@
-# Step 1: Prepare the motion
-
-graphic asset
+# Step 1: Prepare the motion graphic asset
 
 You use an authoring system to create the asset and to manage the
 content, including implementation of features such as fade or opacity.

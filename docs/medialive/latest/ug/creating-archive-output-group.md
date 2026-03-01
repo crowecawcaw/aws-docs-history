@@ -1,6 +1,4 @@
-# Create an Archive output
-
-group
+# Create an Archive output group
 
 You create the output group and its outputs when you [create or edit a MediaLive channel](creating-a-channel-step4.md "creating-a-channel-step4.md").
 
@@ -45,9 +43,6 @@ You create the output group and its outputs when you [create or edit a MediaLive
 
 ###### Topics
 
-- [Fields for the output
-  destination](archive-destinations.md "archive-destinations.md")
-- [Fields for the output
-  container](archive-container.md "archive-container.md")
-- [Fields for the video,
-  audio, and captions streams (encodes)](archive-streams.md "archive-streams.md")
+- [Fields for the output destination](archive-destinations.md "archive-destinations.md")
+- [Fields for the output container](archive-container.md "archive-container.md")
+- [Fields for the video, audio, and captions streams (encodes)](archive-streams.md "archive-streams.md")

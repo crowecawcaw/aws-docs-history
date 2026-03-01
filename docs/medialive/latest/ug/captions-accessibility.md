@@ -1,6 +1,4 @@
-# Including accessibility data in captions in
-
-MediaLive
+# Including accessibility data in captions in MediaLive
 
 In the captions in CMAF Ingest, HLS, MediaPackage, or Microsoft Smooth output groups,
 you can include accessibility data. This data describes the type of accessibility that the
@@ -10,16 +8,11 @@ accessibility signaling.
 
 ###### Topics
 
-- [Supported accessibility data
-  standards](#captions-accessibility-standards "#captions-accessibility-standards")
-- [Specifying data in a CMAF Ingest or
-  Microsoft Smooth output](#captions-accessibility-cmaf-mss "#captions-accessibility-cmaf-mss")
-- [Specifying data in an HLS or MediaPackage
-  output](#captions-accessibility-hls-emp "#captions-accessibility-hls-emp")
+- [Supported accessibility data standards](#captions-accessibility-standards "#captions-accessibility-standards")
+- [Specifying data in a CMAF Ingest or Microsoft Smooth output](#captions-accessibility-cmaf-mss "#captions-accessibility-cmaf-mss")
+- [Specifying data in an HLS or MediaPackage output](#captions-accessibility-hls-emp "#captions-accessibility-hls-emp")
 
-## Supported accessibility data
-
-standards
+## Supported accessibility data standards
 
 MediaLive supports the following styles of accessibility data.
 
@@ -29,14 +22,10 @@ MediaLive supports the following styles of accessibility data.
 | DVB DASH accessibility   | _ETSI TS 103 285 Technical Specification, V1.3.1<br>(2020-02)_ | Yes         |                     | Yes              |
 | Accessibility            | Signaled in tags that are inserted in the HLS manifest.        |             | Yes                 |                  |
 
-## Specifying data in a CMAF Ingest or
-
-Microsoft Smooth output
+## Specifying data in a CMAF Ingest or Microsoft Smooth output
 
 You can set up the captions encode to include accessibility data when you create the
-encode, as described in [Create embedded or object captions
-encodes](output-embedded-and-more.md "output-embedded-and-more.md") and [Create sidecar or SMPTE-TT captions
-encodes](output-sidecar-and-smptett-mss.md "output-sidecar-and-smptett-mss.md").
+encode, as described in [Create embedded or object captions encodes](output-embedded-and-more.md "output-embedded-and-more.md") and [Create sidecar or SMPTE-TT captions encodes](output-sidecar-and-smptett-mss.md "output-sidecar-and-smptett-mss.md").
 
 In the output that has the captions encode that you want to set up, follow these
 steps:
@@ -52,9 +41,7 @@ you can add Dash Roles and DVB DASH accessibility style. You might want to do th
 because different downstream systems for these outputs implement different
 styles.
 
-### Handling of accessibility
-
-data in CMAF Ingest or Microsoft Smooth
+### Handling of accessibility data in CMAF Ingest or Microsoft Smooth
 
 The fields for accessibility data appear for all output group types, including
 types that don't support this data.
@@ -94,13 +81,10 @@ accessibility data. If you're not implementing encode sharing with a CMAF Ingest
 Microsoft Smooth output group, you will get an error message when you save the
 channel.
 
-## Specifying data in an HLS or MediaPackage
-
-output
+## Specifying data in an HLS or MediaPackage output
 
 You can set up the captions encode to include accessibility data when you create the
-encode, as described in [Create embedded or object captions
-encodes](output-embedded-and-more.md "output-embedded-and-more.md").
+encode, as described in [Create embedded or object captions encodes](output-embedded-and-more.md "output-embedded-and-more.md").
 
 In the output that has the captions encode that you want to set up, in
 **Accessibility**, choose
@@ -117,9 +101,7 @@ attribute:
 `#EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="captions-group",NAME="accessibility-captions1",LANGUAGE="eng",
  CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound",AUTOSELECT=YES,DEFAULT=YES,URI="caption-accessibility-eng.m3u8"`
 
-### Handling of accessibility data
-
-in HLS or MediaPackage output groups
+### Handling of accessibility data in HLS or MediaPackage output groups
 
 The **Accessibility** field appears for all output group types,
 including types that don't support this data.

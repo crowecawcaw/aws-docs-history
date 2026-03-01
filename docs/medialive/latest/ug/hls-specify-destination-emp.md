@@ -1,6 +1,4 @@
-# Complete the fields on the
-
-console
+# Complete the fields on the console
 
 After you have designed the output names and destination paths, you can
 set up the HLS output group.
@@ -33,8 +31,8 @@ manifest files (the destination).
 | domain                          | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | Enter the<br>MediaPackage channel URL                                                                                                                                                                                                           |
 | path                            | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | Not<br>applicable, the path is already specified in the<br>channel URL                                                                                                                                                                          |
 | baseFilename                    | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | Not<br>applicable, the path is already specified in the<br>channel URLWith MediaPackage, the<br>`baseFilename` is always<br>`channel`. With MediaPackage v2 it<br>is always<br>`index`.Don't<br>terminate the **baseFilename**<br>with a slash. |
-| modifier                        | **Name modifier\*<br>• in each<br>**HLS outputs\*<br>• section | Required. For<br>guidance, see [Designing the<br>nameModifier](hls-nameModifier-design-emp.md "hls-nameModifier-design-emp.md").Make<br>sure the modifiers are unique across all outputs<br>in the output group                                 |
-| segmentModifier                 | Segment modifier in each<br>\*_HLS outputs_<br>• section       | Optional. For<br>guidance, see [Designing the<br>segmentModifier](hls-segmentModifier-design-emp.md "hls-segmentModifier-design-emp.md").Keep in mind that this field exists for<br>each output.                                                |
+| modifier                        | **Name modifier\*<br>• in each<br>**HLS outputs\*<br>• section | Required. For<br>guidance, see [Designing the nameModifier](hls-nameModifier-design-emp.md "hls-nameModifier-design-emp.md").Make<br>sure the modifiers are unique across all outputs<br>in the output group                                    |
+| segmentModifier                 | Segment modifier in each<br>\*_HLS outputs_<br>• section       | Optional. For<br>guidance, see [Designing the segmentModifier](hls-segmentModifier-design-emp.md "hls-segmentModifier-design-emp.md").Keep in mind that this field exists for<br>each output.                                                   |
 
 2. Enter the input user name. For the password (if applicable), enter
    the name of the password stored on the AWS Systems Manager Parameter Store.

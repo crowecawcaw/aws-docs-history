@@ -1,6 +1,4 @@
-# Working with the schedule
-
-(console)
+# Working with the schedule (console)
 
 You can use the AWS Elemental MediaLive console to create or delete any of the
 [schedule actions](x-actions-in-schedule.md "x-actions-in-schedule.md") in
@@ -25,11 +23,7 @@ The console provides two views for working with actions:
 
 ###### Topics
 
-- [Creating actions in the schedule
-  (console)](schedule-using-console-create.md "schedule-using-console-create.md")
-- [Deleting actions
-  from the schedule (console)](schedule-using-console-delete.md "schedule-using-console-delete.md")
-- [Modifying actions in the
-  schedule (console)](schedule-modify.md "schedule-modify.md")
-- [Viewing the
-  schedule (console)](schedule-using-console-view.md "schedule-using-console-view.md")
+- [Creating actions in the schedule (console)](schedule-using-console-create.md "schedule-using-console-create.md")
+- [Deleting actions from the schedule (console)](schedule-using-console-delete.md "schedule-using-console-delete.md")
+- [Modifying actions in the schedule (console)](schedule-modify.md "schedule-modify.md")
+- [Viewing the schedule (console)](schedule-using-console-view.md "schedule-using-console-view.md")

@@ -11,5 +11,4 @@ the channel's schedule that specify when to switch from one input to another.
 - [Rules and limits for input switches](ips-limits.md "ips-limits.md")
 - [Setting up for input switching](setup-ips.md "setup-ips.md")
 - [Deleting actions from the schedule](ips-manage-schedule.md "ips-manage-schedule.md")
-- [Starting and restarting a channel that has
-  multiple inputs](ips-start-channel-multi-inputs.md "ips-start-channel-multi-inputs.md")
+- [Starting and restarting a channel that has multiple inputs](ips-start-channel-multi-inputs.md "ips-start-channel-multi-inputs.md")

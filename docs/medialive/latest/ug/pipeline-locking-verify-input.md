@@ -1,6 +1,4 @@
-# Input and output
-
-requirements
+# Input and output requirements
 
 In order for MediaLive to lock pipelines, the following conditions must be in effect in
 the channel. When pipeline locking isn't possible, processing continues. As soon as the
@@ -14,9 +12,7 @@ If the channel includes an HLS input, MediaLive stops attempting to lock pipelin
 the channel. Pipeline locking won't resume, even after the channel switches to
 another input.
 
-## Inputs must include embedded
-
-timecode (source timecode method)
+## Inputs must include embedded timecode (source timecode method)
 
 When you use the source timecode pipeline locking method (the default), the
 input must include embedded timecode. These rules apply:
@@ -32,9 +28,7 @@ MediaLive continually probes the current source for an embedded timecode. Whenev
 doesn't detect the timecode, it temporarily suspends the attempt to lock
 pipelines.
 
-## Requirements for
-
-video aligned pipeline locking
+## Requirements for video aligned pipeline locking
 
 When you use video aligned pipeline locking (**Pipeline locking
 method** set to **VIDEO_ALIGNMENT**), embedded timecodes
@@ -58,9 +52,7 @@ For all other input types, video aligned pipeline locking uses visual signature
 comparison to synchronize the pipelines. Both pipelines must receive the same
 video content for successful synchronization.
 
-## Frame rate
-
-requirements
+## Frame rate requirements
 
 The conversion between the input framerate (or framerates) and the desired output
 framerate must be _simple_, which means that one of
@@ -98,9 +90,7 @@ combinations applies to your channel:
   isn't supported: Input FPS is 29.97 FPS, output FPS is
   23.978.
 
-## Epoch locking and SCTE
-
-35
+## Epoch locking and SCTE 35
 
 There are constraints for using epoch locking in an HLS or MediaPackage output
 group.

@@ -1,6 +1,4 @@
-# Input deployments: AWS Cloud and
-
-MediaLive Anywhere
+# Input deployments: AWS Cloud and MediaLive Anywhere
 
 Inputs are categorized by the deployment mode of the channel that they are attached
 to:

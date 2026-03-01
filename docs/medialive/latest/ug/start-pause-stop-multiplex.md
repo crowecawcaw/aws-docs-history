@@ -1,6 +1,4 @@
-# Starting, pausing, or stopping a
-
-multiplex
+# Starting, pausing, or stopping a multiplex
 
 At runtime, you start both the multiplex and the channels in the multiplex. You can stop
 the multiplex and the channels independently of each other. You don't start or stop a program.

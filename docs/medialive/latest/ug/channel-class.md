@@ -23,9 +23,7 @@ With this class, the channel contains one pipeline. For each output that you
 configure, the channel delivers content to one destination on the downstream
 system.
 
-### Linked channels for single-pipeline
-
-channels
+### Linked channels for single-pipeline channels
 
 When you select **SINGLE_PIPELINE** as the channel class,
 additional fields appear for configuring linked channels. Linked channels enable

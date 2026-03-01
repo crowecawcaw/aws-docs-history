@@ -1,6 +1,4 @@
-# Create captions selectors in the
-
-inputs
+# Create captions selectors in the inputs
 
 This section describes the first step for setting up for captions in MediaLive. You must
 identify the captions that you want to use and assign each to a captions selector. If you
@@ -14,16 +12,13 @@ the Teletext captions in Czech.
 
 ###### Topics
 
-- [Identify the captions that you
-  want](#identify-source-captions-step-a "#identify-source-captions-step-a")
+- [Identify the captions that you want](#identify-source-captions-step-a "#identify-source-captions-step-a")
 - [Create captions selectors](#identify-source-captions-step-b "#identify-source-captions-step-b")
 - [Information for DVB-Sub or SCTE-27](#dvb-sub-or-scte27 "#dvb-sub-or-scte27")
 - [Information for embedded](#embedded "#embedded")
 - [Information for Teletext](#teletext "#teletext")
 
-## Identify the captions that you
-
-want
+## Identify the captions that you want
 
 1. Identify which captions are in the input (the provider of the input should provide
    you with this
@@ -31,8 +26,7 @@ want
    Identify the captions formats and, for each format, the languages.
 2. Identify which of those formats and languages that you want to use.
 3. If you are converting DVB-Sub or SCTE-27 captions to WebVTT, there are limits on the
-   number of languages that MediaLive can ingest. For more information, see [Constraints for using OCR
-   conversion](captions-languages-ocr.md "captions-languages-ocr.md").
+   number of languages that MediaLive can ingest. For more information, see [Constraints for using OCR conversion](captions-languages-ocr.md "captions-languages-ocr.md").
 4. Determine how many captions selectors to create in the input in the channel. For
    guidance, see the table that appears after this procedure.
 
@@ -41,18 +35,18 @@ You end up with a list of captions selectors to create. For example:
 - Captions Selector 1: Teletext captions in Czech
 - Captions Selector 2: Teletext captions in Polish
 
-| Source captions       | Output captions | Result                                                                                                                                                                                                                                               |
-| --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ARIB                  | ARIB            | Create a single captions selector. All languages are passed through; there is<br>no other option.                                                                                                                                                    |
-| Embedded              | Embedded        | Create a single captions selector. All languages are passed through; there is<br>no other option. For details, see [Information for embedded](#embedded "#embedded") .                                                                               |
-| Embedded              | Another format  | Specify the language to extract from the input and the language to include in<br>an output. The specified language is extracted from the embedded captions and<br>converted to the new format.                                                       |
-| DVB-Sub               | WebVTT          | Create one caption selector for each language, to a maximum of three caption<br>selectors in the input. For more information about this limit, see [Constraints for using OCR<br>conversion](captions-languages-ocr.md "captions-languages-ocr.md"). |
-| DVB-Sub               | SMPTE-TT        | Create one caption selector for each language. The specified language is<br>extracted from the DVB-Sub captions and converted to the new format.                                                                                                     |
-| DVB-Sub               | DVB-Sub         | Create a single captions selector. All languages are passed through.                                                                                                                                                                                 |
-| SCTE-27               | WebVTT          | Create one caption selector for each language, to a maximum of three caption<br>selectors in the input. For more information about this limit, see [Constraints for using OCR<br>conversion](captions-languages-ocr.md "captions-languages-ocr.md"). |
-| Teletext              | Teletext        | Create a single captions selector. All languages are passed through. All the<br>pages in the teletext are passed through. For details, see [Information for Teletext](#teletext "#teletext").                                                        |
-| Teletext              | Another format  | If you have Teletext source and want a different format in the output, create<br>one captions selector for each language and format combination.                                                                                                     |
-| Any other combination |                 | Create one captions selector for each language and format combination.                                                                                                                                                                               |
+| Source captions       | Output captions | Result                                                                                                                                                                                                                                            |
+| --------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ARIB                  | ARIB            | Create a single captions selector. All languages are passed through; there is<br>no other option.                                                                                                                                                 |
+| Embedded              | Embedded        | Create a single captions selector. All languages are passed through; there is<br>no other option. For details, see [Information for embedded](#embedded "#embedded").                                                                             |
+| Embedded              | Another format  | Specify the language to extract from the input and the language to include in<br>an output. The specified language is extracted from the embedded captions and<br>converted to the new format.                                                    |
+| DVB-Sub               | WebVTT          | Create one caption selector for each language, to a maximum of three caption<br>selectors in the input. For more information about this limit, see [Constraints for using OCR conversion](captions-languages-ocr.md "captions-languages-ocr.md"). |
+| DVB-Sub               | SMPTE-TT        | Create one caption selector for each language. The specified language is<br>extracted from the DVB-Sub captions and converted to the new format.                                                                                                  |
+| DVB-Sub               | DVB-Sub         | Create a single captions selector. All languages are passed through.                                                                                                                                                                              |
+| SCTE-27               | WebVTT          | Create one caption selector for each language, to a maximum of three caption<br>selectors in the input. For more information about this limit, see [Constraints for using OCR conversion](captions-languages-ocr.md "captions-languages-ocr.md"). |
+| Teletext              | Teletext        | Create a single captions selector. All languages are passed through. All the<br>pages in the teletext are passed through. For details, see [Information for Teletext](#teletext "#teletext").                                                     |
+| Teletext              | Another format  | If you have Teletext source and want a different format in the output, create<br>one captions selector for each language and format combination.                                                                                                  |
+| Any other combination |                 | Create one captions selector for each language and format combination.                                                                                                                                                                            |
 
 ## Create captions selectors
 

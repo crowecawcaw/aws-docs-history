@@ -1,6 +1,4 @@
-# Fields for an input
-
-prepare
+# Fields for an input prepare
 
 This section describes how to complete the fields for these three types of
 input prepares:
@@ -9,9 +7,7 @@ input prepares:
 - A prepare of a static file input
 - A prepare of a dynamic file input
 
-## Fields for a prepare of a
-
-static live input
+## Fields for a prepare of a static live input
 
 This table shows the fields that apply for an action to prepare a static
 live input.
@@ -26,9 +22,7 @@ live input.
 | **Reference action name** | If the **Start type\*<br>• is<br>**Follow\*\*, choose the input to<br>follow. This input is the input whose end you want to<br>use as the trigger for the input prepare. It is not the<br>input for the upcoming input switch.<br>The dropdown list shows all existing input switches.<br>If the input switch that you want to use as the<br>reference (trigger) isn't listed, you need to first<br>create that input switch.<br>For information about start types for input prepare,<br>see [Types of starts for input prepares](plan-prep-start-types.md "plan-prep-start-types.md"). |
 | **Follow point**          | If the **Start type\*<br>• is<br>**Follow**, complete this field. The<br>follow point is always **End**, to indicate<br>that the input prepare will occur when the input in<br>**Reference action name\*<br>• has<br>finished.                                                                                                                                                                                                                                                                                                                                                          |
 
-## Fields for a prepare of a
-
-static file input
+## Fields for a prepare of a static file input
 
 This table shows the fields that apply for an action to prepare a static
 file input.
@@ -47,9 +41,7 @@ file input.
 | **Reference action name**                                                         | If the **Start type\*<br>• is<br>**Follow\*\*, choose the input to<br>follow. This input is the input whose end you want to<br>use as the trigger for the input prepare. It is not the<br>input for the upcoming input switch.<br>The dropdown list shows all existing input switches.<br>If the input switch that you want to use as the<br>reference (trigger) isn't listed, you need to first<br>create that input switch.<br>For information about start types for input prepare,<br>see [Types of starts for input prepares](plan-prep-start-types.md "plan-prep-start-types.md"). |
 | **Follow point**                                                                  | If the **Start type\*<br>• is<br>**Follow**, complete this field. The<br>follow point is always **End**, to indicate<br>that the input prepare will occur when the input in<br>**Reference action name\*<br>• has<br>finished.                                                                                                                                                                                                                                                                                                                                                          |
 
-## Fields for a prepare of a
-
-dynamic file input
+## Fields for a prepare of a dynamic file input
 
 This table shows the fields that apply for an action to prepare a dynamic
 file input.

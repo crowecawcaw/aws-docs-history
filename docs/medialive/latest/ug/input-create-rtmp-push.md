@@ -15,6 +15,5 @@ To perform this setup, you must work with an operator at the upstream system.
 - [Obtain information](setup-rtmp-push-obtain-info.md "setup-rtmp-push-obtain-info.md")
 - [Create an input security group](setup-isg-rtmp.md "setup-isg-rtmp.md")
 - [Create an RTMP push input](setup-input-rtmp-push.md "setup-input-rtmp-push.md")
-- [Ensure correct setup on the upstream
-  system](setup-uss-rtmp-push.md "setup-uss-rtmp-push.md")
+- [Ensure correct setup on the upstream system](setup-uss-rtmp-push.md "setup-uss-rtmp-push.md")
 - [Result of this procedure](setup-result-rtmp-push.md "setup-result-rtmp-push.md")

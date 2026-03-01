@@ -1,6 +1,4 @@
-# Captions formats supported in
-
-Microsoft Smooth outputs
+# Captions formats supported in Microsoft Smooth outputs
 
 In this table, look up your input container and captions type. Then read across to
 find the caption formats that are supported in MediaLive in a Microsoft Smooth output, when

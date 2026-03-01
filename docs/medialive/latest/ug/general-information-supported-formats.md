@@ -1,6 +1,4 @@
-# General information about
-
-supported captions formats
+# General information about supported captions formats
 
 The following table shows the formats that are supported in MediaLive. It specifies
 whether they are supported in inputs or outputs, and specifies the

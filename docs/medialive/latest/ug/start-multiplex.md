@@ -5,8 +5,7 @@ channels and then start the multiplex. Or you can start the multiplex and then s
 channels.
 
 If any channels are multi-input channels, the standard recommendations about starting
-and restarting these channels apply. For more information, see [Starting and restarting a channel that has
-multiple inputs](ips-start-channel-multi-inputs.md "ips-start-channel-multi-inputs.md").
+and restarting these channels apply. For more information, see [Starting and restarting a channel that has multiple inputs](ips-start-channel-multi-inputs.md "ips-start-channel-multi-inputs.md").
 
 **Contents of the MPTS**
 

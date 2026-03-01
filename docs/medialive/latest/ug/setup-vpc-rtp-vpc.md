@@ -13,8 +13,7 @@ the upstream system and MediaLive will use.
         + You need two subnets because an RTP input is always a
          [standard-class
          input](class-channel-input.md "class-channel-input.md"), even if your channel is a single-pipeline
-         channel. For information about input classes, see [Choosing the channel class and input
-         class](class-channel-input.md "class-channel-input.md").
+         channel. For information about input classes, see [Choosing the channel class and input class](class-channel-input.md "class-channel-input.md").
         + The two subnets must be in different Availability
          Zones.
         + Each subnet must have a private CIDR block (a range of IP

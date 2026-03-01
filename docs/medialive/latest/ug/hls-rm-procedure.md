@@ -14,8 +14,7 @@ The following field relates specifically to redundant manifests:
 
 1.  Speak to the operator of the downstream system to find out if they support redundant
     manifests.
-2.  Read the information in [Fields for the output destination
-    – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md"). Manifests are considered
+2.  Read the information in [Fields for the output destination – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md"). Manifests are considered
     to be output from MediaLive. Therefore, the general rules about output destinations apply to
     redundant manifests.
 3.  Design the URLs for the two pipelines. There are special requirements for the URLs for
@@ -24,8 +23,7 @@ The following field relates specifically to redundant manifests:
         * [Rules for most downstream systems](hls-redundant-manif-most-systems.md "hls-redundant-manif-most-systems.md")
         * [Rules for Akamai CDNs](hls-redundant-manif-akamai.md "hls-redundant-manif-akamai.md")
 
-    These rules supplement the information in [Fields for the output destination
-    – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md").
+    These rules supplement the information in [Fields for the output destination – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md").
 
 4.  If you also need custom paths for manifests, make sure you read the information in
     [How custom paths work](hls-manifests-how-work.md#hls-custom-manifest-paths "hls-manifests-how-work.md#hls-custom-manifest-paths"). You must consider the rules for custom
@@ -52,16 +50,12 @@ The following field relates specifically to redundant manifests:
     For information about how this feature changes the contents of the HLS manifests, see
     [The media contents of an HLS manifest](hls-rm-manifests-contents.md "hls-rm-manifests-contents.md").
 
-## The results of this
-
-setup
+## The results of this setup
 
 Following is information about how redundant manifests work in three failure
 scenarios.
 
-### Scenario A – Input loss action is
-
-to emit output
+### Scenario A – Input loss action is to emit output
 
 If the input is lost on one of the pipelines and the [Input loss action
 field](hls-other-features.md#hls-resiliency "hls-other-features.md#hls-resiliency") is set to **EMIT_OUTPUT**, MediaLive
@@ -72,9 +66,7 @@ change to the parent or child manifests for either pipeline. The
 content inside the media files is filler content, but that doesn't
 affect how the downstream system reads the manifests.
 
-### Scenario B – Input loss action
-
-is to pause output
+### Scenario B – Input loss action is to pause output
 
 If the input is lost on one of the pipelines (for example, on pipeline 0) and the
 **Input loss action** field is set to
@@ -93,9 +85,7 @@ Downstream systems that are reading the main manifest for pipeline 1 are not aff
 because these systems are probably reading the child manifests for pipeline 1 (because
 these appear first in the manifest).
 
-### Scenario C – Pipeline
-
-failure
+### Scenario C – Pipeline failure
 
 It is also possible for a pipeline to fail. This failure isn't the same as an input
 failure. When a pipeline fails (for example, pipeline 0), the following happens:

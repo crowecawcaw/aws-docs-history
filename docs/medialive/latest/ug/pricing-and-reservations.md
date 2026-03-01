@@ -7,5 +7,4 @@ AWS Elemental MediaLive activities.
 ###### Topics
 
 - [Pricing in MediaLive](pricing.md "pricing.md")
-- [Working with reservations in
-  MediaLive](reservations.md "reservations.md")
+- [Working with reservations in MediaLive](reservations.md "reservations.md")

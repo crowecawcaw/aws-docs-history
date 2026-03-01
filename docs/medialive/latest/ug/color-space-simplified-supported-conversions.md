@@ -1,6 +1,4 @@
-# Supported types of conversion
-
-in MediaLive
+# Supported types of conversion in MediaLive
 
 You can configure a channel to use the standard MediaLive color corrector when converting
 the color space. Or you can use a [3D LUTs color

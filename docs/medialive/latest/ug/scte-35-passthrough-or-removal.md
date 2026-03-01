@@ -1,6 +1,4 @@
-# Enabling SCTE 35 passthrough or
-
-removal
+# Enabling SCTE 35 passthrough or removal
 
 You can set up the MediaLive channel so that SCTE 35 messages from the input are passed
 through (included) in the data stream for the following outputs:
@@ -38,20 +36,13 @@ SCTE 35 PID will be passed from input and an alert will be triggered.
 
 ###### Topics
 
-- [Enabling passthrough for
-  Archive outputs](#procedure-to-enable-passthrough-archive "#procedure-to-enable-passthrough-archive")
-- [Enabling passthrough for
-  CMAF Ingest outputs](#procedure-to-enable-passthrough-cmafi "#procedure-to-enable-passthrough-cmafi")
-- [Enabling passthrough for HLS
-  outputs](#procedure-to-enable-passthrough-hls "#procedure-to-enable-passthrough-hls")
-- [Enabling passthrough for SRT
-  caller outputs](#procedure-to-enable-passthrough-srt "#procedure-to-enable-passthrough-srt")
-- [Enabling passthrough for UDP
-  outputs](#procedure-to-enable-passthrough-udp "#procedure-to-enable-passthrough-udp")
+- [Enabling passthrough for Archive outputs](#procedure-to-enable-passthrough-archive "#procedure-to-enable-passthrough-archive")
+- [Enabling passthrough for CMAF Ingest outputs](#procedure-to-enable-passthrough-cmafi "#procedure-to-enable-passthrough-cmafi")
+- [Enabling passthrough for HLS outputs](#procedure-to-enable-passthrough-hls "#procedure-to-enable-passthrough-hls")
+- [Enabling passthrough for SRT caller outputs](#procedure-to-enable-passthrough-srt "#procedure-to-enable-passthrough-srt")
+- [Enabling passthrough for UDP outputs](#procedure-to-enable-passthrough-udp "#procedure-to-enable-passthrough-udp")
 
-## Enabling passthrough for
-
-Archive outputs
+## Enabling passthrough for Archive outputs
 
 Follow this procedure if you want to enable or disable passthrough of SCTE 35
 message for MediaLive Archive outputs.
@@ -75,9 +66,7 @@ message for MediaLive Archive outputs.
 All SCTE 35 messages from the input are included in the data stream of the outputs
 that you have set up.
 
-## Enabling passthrough for
-
-CMAF Ingest outputs
+## Enabling passthrough for CMAF Ingest outputs
 
 Follow this procedure if you want to enable or disable passthrough of SCTE 35
 message for MediaLive CMAF Ingest outputs.
@@ -100,9 +89,7 @@ message for MediaLive CMAF Ingest outputs.
    video, but it won't result in a new segment. Note that CMAF Ingest
    doesn't require that SCTE 35 messages force a new segment.
 
-## Enabling passthrough for HLS
-
-outputs
+## Enabling passthrough for HLS outputs
 
 Follow this procedure if you want to enable or disable passthrough of SCTE 35
 message for MediaLive HLS outputs.
@@ -125,9 +112,7 @@ message for MediaLive HLS outputs.
 All SCTE 35 messages from the input will be included in the data stream of the
 outputs that you have set up.
 
-## Enabling passthrough for SRT
-
-caller outputs
+## Enabling passthrough for SRT caller outputs
 
 Follow this procedure if you want to enable or disable passthrough of SCTE 35
 message for MediaLive SRT caller outputs.
@@ -147,9 +132,7 @@ message for MediaLive SRT caller outputs.
 All SCTE 35 messages from the input will be included in the data stream of the
 outputs that you have set up.
 
-## Enabling passthrough for UDP
-
-outputs
+## Enabling passthrough for UDP outputs
 
 Follow this procedure if you want to enable or disable passthrough of SCTE 35
 message for MediaLive UDP outputs.

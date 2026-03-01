@@ -1,6 +1,4 @@
-# Retrieving thumbnails
-
-programmatically
+# Retrieving thumbnails programmatically
 
 When the thumbnails feature is enabled, MediaLive generates thumbnails for the currently
 active input in a channel that is running. For a standard channel, MediaLive generates two

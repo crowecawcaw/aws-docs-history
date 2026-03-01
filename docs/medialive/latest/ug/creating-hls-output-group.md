@@ -13,14 +13,10 @@ You create the output group and its outputs when you [create or edit a MediaLive
       contains fields for the destination of the outputs. For more
       information see the section for the type of downstream
       system:
-      - [Fields for the output destination –
-        sending to Amazon S3](hls-destinations-s3.md "hls-destinations-s3.md")
-      - [Fields for the output destination –
-        sending to MediaStore](hls-destinations-ems.md "hls-destinations-ems.md")
-      - [Fields for the output destination –
-        sending to MediaPackage](hls-destinations-emp.md "hls-destinations-emp.md")
-      - [Fields for the output destination
-        – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md")
+      - [Fields for the output destination – sending to Amazon S3](hls-destinations-s3.md "hls-destinations-s3.md")
+      - [Fields for the output destination – sending to MediaStore](hls-destinations-ems.md "hls-destinations-ems.md")
+      - [Fields for the output destination – sending to MediaPackage](hls-destinations-emp.md "hls-destinations-emp.md")
+      - [Fields for the output destination – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md")
 
     - **HLS settings** – This section contains
       fields for the [destination of
@@ -56,14 +52,10 @@ You create the output group and its outputs when you [create or edit a MediaLive
       fields for the destination of the outputs. See these
       sections:
 
-          + [Fields for the output destination –
-           sending to Amazon S3](hls-destinations-s3.md "hls-destinations-s3.md")
-          + [Fields for the output destination –
-           sending to MediaStore](hls-destinations-ems.md "hls-destinations-ems.md")
-          + [Fields for the output destination –
-           sending to MediaPackage](hls-destinations-emp.md "hls-destinations-emp.md")
-          + [Fields for the output destination
-           – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md")
+          + [Fields for the output destination – sending to Amazon S3](hls-destinations-s3.md "hls-destinations-s3.md")
+          + [Fields for the output destination – sending to MediaStore](hls-destinations-ems.md "hls-destinations-ems.md")
+          + [Fields for the output destination – sending to MediaPackage](hls-destinations-emp.md "hls-destinations-emp.md")
+          + [Fields for the output destination – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md")
 
       This section also contains fields for the [HLS container](hls-container.md "hls-container.md").
 
@@ -91,11 +83,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
 
 - [Destination fields in an HLS output group](hls-destinations.md "hls-destinations.md")
 - [Fields for the HLS container](hls-container.md "hls-container.md")
-- [Fields for
-  customizing the paths inside the manifests](hls-custom-manifests.md "hls-custom-manifests.md")
-- [Fields for
-  redundant manifests](hls-opg-redundant-manifest.md "hls-opg-redundant-manifest.md")
-- [Fields for the video,
-  audio, and captions streams (encodes)](hls-streams-section.md "hls-streams-section.md")
-- [Fields for other HLS
-  features](hls-other-features.md "hls-other-features.md")
+- [Fields for customizing the paths inside the manifests](hls-custom-manifests.md "hls-custom-manifests.md")
+- [Fields for redundant manifests](hls-opg-redundant-manifest.md "hls-opg-redundant-manifest.md")
+- [Fields for the video, audio, and captions streams (encodes)](hls-streams-section.md "hls-streams-section.md")
+- [Fields for other HLS features](hls-other-features.md "hls-other-features.md")

@@ -1,6 +1,4 @@
-# Organize encodes in an Archive output
-
-group
+# Organize encodes in an Archive output group
 
 An Archive output group
 can

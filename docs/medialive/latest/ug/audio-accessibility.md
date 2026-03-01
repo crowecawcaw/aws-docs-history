@@ -6,8 +6,7 @@ audio track might actually be a spoken description of what's happening in the vi
 Accessibility data is also known as accessibility signaling.
 
 MediaLive also includes a feature for including accessibility data in captions. For more
-information, see [Including accessibility data in captions in
-MediaLive](captions-accessibility.md "captions-accessibility.md").
+information, see [Including accessibility data in captions in MediaLive](captions-accessibility.md "captions-accessibility.md").
 
 ## Supported accessibility data standards
 

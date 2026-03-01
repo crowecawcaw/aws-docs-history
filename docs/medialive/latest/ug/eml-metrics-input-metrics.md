@@ -1,36 +1,23 @@
-# Input
-
-metrics
+# Input metrics
 
 Input metrics relate to the video and audio input assets that are
 presented to MediaLive.
 
 ###### Topics
 
-- [Channel input
-  error seconds](#eml-metrics-input-error-seconds "#eml-metrics-input-error-seconds")
-- [FEC row packets
-  received](#eml-metrics-fec-row-received "#eml-metrics-fec-row-received")
-- [FEC column
-  packets received](#eml-metrics-fec-col-received "#eml-metrics-fec-col-received")
-- [Input timecodes
-  present](#eml-metrics-input-timecode "#eml-metrics-input-timecode")
+- [Channel input error seconds](#eml-metrics-input-error-seconds "#eml-metrics-input-error-seconds")
+- [FEC row packets received](#eml-metrics-fec-row-received "#eml-metrics-fec-row-received")
+- [FEC column packets received](#eml-metrics-fec-col-received "#eml-metrics-fec-col-received")
+- [Input timecodes present](#eml-metrics-input-timecode "#eml-metrics-input-timecode")
 - [Input video frame rate](#eml-metrics-input-frate "#eml-metrics-input-frate")
 - [Network in](#eml-metrics-network-in "#eml-metrics-network-in")
-- [Primary input
-  active](#eml-metrics-primary-active "#eml-metrics-primary-active")
-- [RTP packets
-  lost](#eml-metrics-packets-lost "#eml-metrics-packets-lost")
-- [RTP packets
-  received](#eml-metrics-packets-received "#eml-metrics-packets-received")
-- [RTP packets
-  recovered via FEC](#eml-metrics-packets-recovered "#eml-metrics-packets-recovered")
-- [Input loss
-  seconds](#eml-metrics-udp-input-loss "#eml-metrics-udp-input-loss")
+- [Primary input active](#eml-metrics-primary-active "#eml-metrics-primary-active")
+- [RTP packets lost](#eml-metrics-packets-lost "#eml-metrics-packets-lost")
+- [RTP packets received](#eml-metrics-packets-received "#eml-metrics-packets-received")
+- [RTP packets recovered via FEC](#eml-metrics-packets-recovered "#eml-metrics-packets-recovered")
+- [Input loss seconds](#eml-metrics-udp-input-loss "#eml-metrics-udp-input-loss")
 
-## Channel input
-
-error seconds
+## Channel input error seconds
 
 The number of seconds in which the channel input contained one
 or more unrecoverable packets.
@@ -68,9 +55,7 @@ ActiveInputFailoverLabel, ChannelId, Pipeline
 
 - Recommended statistic: Sum.
 
-## FEC row packets
-
-received
+## FEC row packets received
 
 The number of forward error correction (FEC) row packets
 received on both FEC streams (port 5002 and port 5004). A
@@ -110,9 +95,7 @@ ActiveInputFailoverLabel, ChannelId, Pipeline
 
 - Recommended statistic: Sum.
 
-## FEC column
-
-packets received
+## FEC column packets received
 
 The number of FEC column packets received on both FEC streams
 (port 5002 and port 5004). A non-zero value indicates that FEC
@@ -152,9 +135,7 @@ ActiveInputFailoverLabel, ChannelId, Pipeline
 
 - Recommended statistic: Sum.
 
-## Input timecodes
-
-present
+## Input timecodes present
 
 An indicator of whether a pipeline is receiving input that
 includes embedded timecodes. The embedded timecode might be
@@ -289,9 +270,7 @@ Here are some guidelines on interpreting this metric:
 - Recommended statistic: All the statistics are useful
   for this metric.
 
-## Primary input
-
-active
+## Primary input active
 
 An indicator of whether the primary input in an automatic
 input failover pair is active. A value of 1 means that the
@@ -318,9 +297,7 @@ the input preference is set to Equal Input Preference.
 - Recommended statistic: Minimum (primary input is
   inactive) or maximum (primary input is active).
 
-## RTP packets
-
-lost
+## RTP packets lost
 
 The number of RTP packets that are lost in the incoming
 transmission. _Lost_ means
@@ -369,9 +346,7 @@ ActiveInputFailoverLabel, ChannelId, Pipeline
 
 - Recommended statistic: Sum.
 
-## RTP packets
-
-received
+## RTP packets received
 
 The number of RTP packets received in an RTP input. This
 number includes the main RTP source (port 5000) and the FEC data
@@ -416,9 +391,7 @@ ActiveInputFailoverLabel, ChannelId, Pipeline
 
 - Recommended statistic: Sum.
 
-## RTP packets
-
-recovered via FEC
+## RTP packets recovered via FEC
 
 The number of RTP packets recovered via FEC.
 
@@ -461,9 +434,7 @@ ActiveInputFailoverLabel, ChannelId, Pipeline
 
 - Recommended statistic: Sum.
 
-## Input loss
-
-seconds
+## Input loss seconds
 
 The number of seconds (the _input loss
 period_) for which the channel has not received

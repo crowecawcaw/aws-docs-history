@@ -1,6 +1,4 @@
-# Use case B: One
-
-input format converted to one different output format
+# Use case B: One input format converted to one different output format
 
 This example for captions in MediaLive shows how to implement [the second use
 case](use-case-one-input-format-to-different-output-formats.md "use-case-one-input-format-to-different-output-formats.md") from the typical scenarios. The input includes two captions

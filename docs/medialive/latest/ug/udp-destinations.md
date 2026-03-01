@@ -1,6 +1,4 @@
-# Fields for the output
-
-destination
+# Fields for the output destination
 
 The following fields configure the destination of the
 output:

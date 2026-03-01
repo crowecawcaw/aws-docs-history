@@ -1,6 +1,4 @@
-# Ensure correct setup on the RTMP upstream
-
-system
+# Ensure correct setup on the RTMP upstream system
 
 An operator at the upstream server must set up the source content on the upstream
 system. Make sure that the operator sets up as follows:

@@ -1,6 +1,4 @@
-# Complete
-
-the fields on the console
+# Complete the fields on the console
 
 1. Enter the different portions of the
    destination in the appropriate fields.

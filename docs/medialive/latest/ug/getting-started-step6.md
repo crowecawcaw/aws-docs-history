@@ -1,6 +1,4 @@
-# Step 8: Set up the output and
-
-encodes
+# Step 8: Set up the output and encodes
 
 Now that you have defined one output group in the channel, you can
 set up an output ins that output group, and specify how you want to
@@ -27,6 +25,5 @@ input. 5. In **Stream settings**, choose **Audio
 1**. 6. For **Audio description name**, change the
 default name to `AAC audio`. 7. For **Audio selector name**, enter
 `My audio source`, which is the audio
-selector that you created in[Step 6: Set up
-input video, audio, captions](getting-started-step4a-input-selectors.md "getting-started-step4a-input-selectors.md"). 8. For **Codec settings**, choose
+selector that you created in[Step 6: Set up input video, audio, captions](getting-started-step4a-input-selectors.md "getting-started-step4a-input-selectors.md"). 8. For **Codec settings**, choose
 **AAC**. 9. Leave the remaining fields with the default values.

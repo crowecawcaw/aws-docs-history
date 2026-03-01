@@ -3,9 +3,7 @@
 Global metrics relate to general performance and information for
 AWS Elemental MediaLive.
 
-## Active
-
-alerts
+## Active alerts
 
 The total number of alerts that are active.
 

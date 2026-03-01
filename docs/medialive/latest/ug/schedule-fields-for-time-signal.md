@@ -1,6 +1,4 @@
-# Fields for a time_signal
-
-message
+# Fields for a time_signal message
 
 This table shows the fields that apply for an action to insert a time_signal
 SCTE 35 message.

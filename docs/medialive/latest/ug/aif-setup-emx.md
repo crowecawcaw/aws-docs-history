@@ -1,6 +1,4 @@
-# Setting up automatic input failover with MediaConnect
-
-inputs
+# Setting up automatic input failover with MediaConnect inputs
 
 To use MediaConnect inputs with automatic input failover, you must set up both the
 inputs and the MediaLive channels in a specific way.

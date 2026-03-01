@@ -1,6 +1,4 @@
-# Assess the color space metadata in the
-
-sources
+# Assess the color space metadata in the sources
 
 Before you can set up the outputs, you must determine if you need to modify the color
 space metadata in the inputs. To make this decision, you must assess the quality of the
@@ -13,8 +11,7 @@ metadata, not changing the color space itself. The handling is about changing th
 to correctly identify the color space in the input, in preparation for the planned
 handling in the outputs.
 
-The conversion of the video to a different color space occurs in [Configuring color space handling in each
-output](color-space-output-handling.md "color-space-output-handling.md").
+The conversion of the video to a different color space occurs in [Configuring color space handling in each output](color-space-output-handling.md "color-space-output-handling.md").
 
 ###### To assess the inputs
 

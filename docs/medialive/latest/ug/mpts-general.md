@@ -63,7 +63,6 @@ MediaConnect operator must create a flow that uses that entitled
 source. The flow can be
 any protocol, it doesn't have to be RTP.
 
-For more information about starting the multiplex, see [Starting, pausing, or stopping a
-multiplex](start-pause-stop-multiplex.md "start-pause-stop-multiplex.md"). For more information about entitled sources, see
+For more information about starting the multiplex, see [Starting, pausing, or stopping a multiplex](start-pause-stop-multiplex.md "start-pause-stop-multiplex.md"). For more information about entitled sources, see
 [Creating a Flow](../../../mediaconnect/latest/ug/flows-create.md "../../../mediaconnect/latest/ug/flows-create.md") in the
 _AWS Elemental MediaConnect User Guide_.

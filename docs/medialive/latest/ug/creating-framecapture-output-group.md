@@ -1,6 +1,4 @@
-# Create a Frame capture output
-
-group
+# Create a Frame capture output group
 
 You create the output group and its outputs when you [create or edit a MediaLive channel](creating-a-channel-step4.md "creating-a-channel-step4.md").
 
@@ -62,7 +60,5 @@ Thumbnails`.
 
 ###### Topics
 
-- [Frame capture
-  destination](framecapture-destinations.md "framecapture-destinations.md")
-- [Settings for
-  the stream](output-settings-framecapture.md "output-settings-framecapture.md")
+- [Frame capture destination](framecapture-destinations.md "framecapture-destinations.md")
+- [Settings for the stream](output-settings-framecapture.md "output-settings-framecapture.md")

@@ -1,8 +1,7 @@
 # Activate per-outputs image action – payload
 
 For information about the meaning and values for the fields in the following
-JSON, see [Fields for
-activating a per-outputs image overlay](schedule-fields-activate-image-per-output.md "schedule-fields-activate-image-per-output.md").
+JSON, see [Fields for activating a per-outputs image overlay](schedule-fields-activate-image-per-output.md "schedule-fields-activate-image-per-output.md").
 
 ```
 {

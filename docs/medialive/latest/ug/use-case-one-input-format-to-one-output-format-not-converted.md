@@ -1,6 +1,4 @@
-# Use case A:
-
-One input format to one output and not converted
+# Use case A: One input format to one output and not converted
 
 In this use case for including captions in a MediaLive output, the input is set up with one
 format of captions and two or more languages. Assume that you want to maintain the format in

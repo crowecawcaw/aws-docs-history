@@ -1,6 +1,4 @@
-# Setting up Nielsen watermarks in a MediaLive
-
-channel
+# Setting up Nielsen watermarks in a MediaLive channel
 
 ###### Note
 

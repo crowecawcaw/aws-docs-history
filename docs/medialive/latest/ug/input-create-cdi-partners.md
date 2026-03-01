@@ -1,6 +1,4 @@
-# Creating a partner CDI push input in
-
-Amazon VPC
+# Creating a partner CDI push input in Amazon VPC
 
 A partner CDI input is a specific configuration of a CDI input. If you want to support
 automatic input failover for the CDI source attached to the channel, you must set up the

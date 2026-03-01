@@ -1,6 +1,4 @@
-# Preparing inputs in
-
-AWS Elemental MediaLive
+# Preparing inputs in AWS Elemental MediaLive
 
 When you implement input swtitching in MediaLive, you can prepare an input that is associated
 with an immediate input switch in order to reduce the delay that occurs when MediaLive performs the
@@ -57,9 +55,7 @@ described in [Setting up for input switching](scheduled-input-switching.md "sche
 ###### Topics
 
 - [Rules and limits for input prepare in MediaLive](input-prep-rules.md "input-prep-rules.md")
-- [Setting up input prepare actions in the
-  schedule](prepare-input-procedure.md "prepare-input-procedure.md")
+- [Setting up input prepare actions in the schedule](prepare-input-procedure.md "prepare-input-procedure.md")
 - [How input prepare actions behave at runtime](input-prep-runtime.md "input-prep-runtime.md")
 - [Modifying input prepare actions](input-prep-modify.md "input-prep-modify.md")
-- [Deleting and stopping input prepare actions in the MediaLive
-  schedule](input-prep-delete.md "input-prep-delete.md")
+- [Deleting and stopping input prepare actions in the MediaLive schedule](input-prep-delete.md "input-prep-delete.md")

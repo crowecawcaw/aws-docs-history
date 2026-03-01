@@ -1,6 +1,4 @@
-# Setup with Embedded or object-style
-
-captions
+# Setup with Embedded or object-style captions
 
 This example for captions in MediaLive shows how to implement [the fourth use
 case](use-case-one-captions-output-multiple-video-encodes.md "use-case-one-captions-output-multiple-video-encodes.md") from the typical scenarios. For example, you want to produce an HLS

@@ -8,10 +8,8 @@ running).
 ###### Topics
 
 - [Providing IAM access](#thumbnails-enable-iam "#thumbnails-enable-iam")
-- [Enabling thumbnails on the
-  console](#thumbnails-enable-console "#thumbnails-enable-console")
-- [Enabling thumbnails
-  programmatically](#thumbnails-enable-progammatically "#thumbnails-enable-progammatically")
+- [Enabling thumbnails on the console](#thumbnails-enable-console "#thumbnails-enable-console")
+- [Enabling thumbnails programmatically](#thumbnails-enable-progammatically "#thumbnails-enable-progammatically")
 
 ## Providing IAM access
 
@@ -29,9 +27,7 @@ For the thumbnails feature to work, MediaLive needs access to Amazon S3:
   `thumbnails` on that page. For information about
   how to update the role, see [Create the trusted entity - complex option](setup-trusted-entity-complex.md "setup-trusted-entity-complex.md").
 
-## Enabling thumbnails on the
-
-console
+## Enabling thumbnails on the console
 
 ###### Note
 
@@ -46,9 +42,7 @@ as described in [Creating a channel from scratch](creating-channel-scratch.md "c
    **State**, choose **AUTO** or
    **DISABLED**.
 
-## Enabling thumbnails
-
-programmatically
+## Enabling thumbnails programmatically
 
 To enable the thumbnails feature, include the `ThumbnailConfiguration`
 group of parameters in the JSON for the channel. Set the `State`

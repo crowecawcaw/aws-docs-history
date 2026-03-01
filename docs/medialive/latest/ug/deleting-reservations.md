@@ -1,6 +1,4 @@
-# Deleting an expired
-
-reservation
+# Deleting an expired reservation
 
 When a reservation has expired, you can delete the reservation from the list. You can't
 cancel a reservation that hasn't expired.

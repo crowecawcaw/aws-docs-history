@@ -1,10 +1,7 @@
-# Design the path for the output
-
-destination
+# Design the path for the output destination
 
 Perform this step if you haven't yet designed the full destination path or
-paths. If you've already designed the paths, go to [Complete the fields on the
-console](hls-specify-destination-emp.md "hls-specify-destination-emp.md").
+paths. If you've already designed the paths, go to [Complete the fields on the console](hls-specify-destination-emp.md "hls-specify-destination-emp.md").
 
 ###### To design the path
 
@@ -20,13 +17,8 @@ console](hls-specify-destination-emp.md "hls-specify-destination-emp.md").
 
 ###### Topics
 
-- [Collect the information for
-  standard MediaPackage](hls-destinations-emp-info.md "hls-destinations-emp-info.md")
-- [Collect the information
-  for MediaPackage v2](hls-destinations-emp-info-v2.md "hls-destinations-emp-info-v2.md")
-- [The syntax for the paths for the
-  outputs](hls-syntax-emp.md "hls-syntax-emp.md")
-- [Designing the
-  nameModifier](hls-nameModifier-design-emp.md "hls-nameModifier-design-emp.md")
-- [Designing the
-  segmentModifier](hls-segmentModifier-design-emp.md "hls-segmentModifier-design-emp.md")
+- [Collect the information for standard MediaPackage](hls-destinations-emp-info.md "hls-destinations-emp-info.md")
+- [Collect the information for MediaPackage v2](hls-destinations-emp-info-v2.md "hls-destinations-emp-info-v2.md")
+- [The syntax for the paths for the outputs](hls-syntax-emp.md "hls-syntax-emp.md")
+- [Designing the nameModifier](hls-nameModifier-design-emp.md "hls-nameModifier-design-emp.md")
+- [Designing the segmentModifier](hls-segmentModifier-design-emp.md "hls-segmentModifier-design-emp.md")

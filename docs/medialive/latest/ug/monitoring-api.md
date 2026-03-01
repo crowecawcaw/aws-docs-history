@@ -17,9 +17,7 @@ There is an operation for each resource:
   You can query for alerts from when the alert is first set until the alert has been in a
   CLEARED state for approximately 5 minutes.
 
-## Tips for ListAlerts and
-
-ListMultiplexAlerts
+## Tips for ListAlerts and ListMultiplexAlerts
 
 The information in the response for channels and multiplexes is the
 following:

@@ -1,6 +1,4 @@
-# Fields for other UDP
-
-features
+# Fields for other UDP features
 
 The following field relates to implementing resiliency in
 a UDP output:
@@ -18,5 +16,4 @@ a UDP output:
   period**
 
 Complete these fields if you want to insert timed ID3 metadata into
-all the outputs in this output group. For detailed instructions, see [Working with ID3 metadata](id3-metadata.md "id3-metadata.md")and specifically [Inserting ID3 timed metadata when creating the MediaLive
-channel](insert-timed-metadata.md "insert-timed-metadata.md").
+all the outputs in this output group. For detailed instructions, see [Working with ID3 metadata](id3-metadata.md "id3-metadata.md")and specifically [Inserting ID3 timed metadata when creating the MediaLive channel](insert-timed-metadata.md "insert-timed-metadata.md").

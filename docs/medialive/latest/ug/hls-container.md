@@ -7,8 +7,7 @@ output.
   settings** section
   These fields control the content of the manifest and
   structure of the segments. By comparison, fields described
-  in [Fields for
-  contents of manifests](hls-other-features.md#hls-manifest-contents "hls-other-features.md#hls-manifest-contents") control how many
+  in [Fields for contents of manifests](hls-other-features.md#hls-manifest-contents "hls-other-features.md#hls-manifest-contents") control how many
   manifests and segments are in the output.
 
 ###### To configure the container
@@ -68,5 +67,4 @@ MediaLive supports these types of containers:
   This container is used to implement trick-play. For
   more information about this feature and for
   instructions on setting it up in the channel, see
-  [Trick-play track via the Image
-  Media Playlist specification](trick-play-roku.md "trick-play-roku.md").
+  [Trick-play track via the Image Media Playlist specification](trick-play-roku.md "trick-play-roku.md").

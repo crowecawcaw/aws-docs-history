@@ -1,12 +1,9 @@
-# About channel
-
-logs
+# About channel logs
 
 MediaLive produces channel logs that contain detailed information
 about activity in a channel. The logs provide a sequential
 description of activity that occurs in the channel. These logs
-can be useful when the information in alerts ([Monitoring a channel or
-multiplex using Amazon CloudWatch Events](monitoring-via-cloudwatch.md "monitoring-via-cloudwatch.md")) does not provide
+can be useful when the information in alerts ([Monitoring a channel or multiplex using Amazon CloudWatch Events](monitoring-via-cloudwatch.md "monitoring-via-cloudwatch.md")) does not provide
 enough information to resolve an issue on the channel.
 
 There are two sets of channel logs:
@@ -15,21 +12,15 @@ There are two sets of channel logs:
 - Channel as-run logs. MediaLive always produces these
   logs.
 
-## Comparison of
+## Comparison of types of logs
 
-types of logs
-
-###### Features that are the same in both types of
-
-logs
+###### Features that are the same in both types of logs
 
 Both types of logs are sent to Amazon CloudWatch Logs. You can use
 the standard features of CloudWatch Logs to view and manage the
 logs. For more information, see [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
 
-###### Features that are different in the two types of
-
-logs
+###### Features that are different in the two types of logs
 
 The following table describes the differences between
 channel encoder logs and channel as-run logs.

@@ -1,6 +1,4 @@
-# Designing the
-
-segmentModifier
+# Designing the segmentModifier
 
 Design the segmentModifiers portion of the destination path. The
 segmentModifier is optional, and if you include it, only the media file

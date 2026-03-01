@@ -1,6 +1,4 @@
-# Fields for the output destination –
-
-sending to MediaPackage
+# Fields for the output destination – sending to MediaPackage
 
 When you
 [planned the output to MediaPackage](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md"), you
@@ -20,9 +18,7 @@ two versions use different protocols:
 
 ###### Topics
 
-- [Design the path for the output
-  destination](hls-destinations-emp-design.md "hls-destinations-emp-design.md")
-- [Complete the fields on the
-  console](hls-specify-destination-emp.md "hls-specify-destination-emp.md")
+- [Design the path for the output destination](hls-destinations-emp-design.md "hls-destinations-emp-design.md")
+- [Complete the fields on the console](hls-specify-destination-emp.md "hls-specify-destination-emp.md")
 - [Standard MediaPackage example](hls-example-mediapackage.md "hls-example-mediapackage.md")
 - [MediaPackage v2 example](hls-example-mediapackage-v2.md "hls-example-mediapackage-v2.md")

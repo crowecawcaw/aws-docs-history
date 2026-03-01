@@ -22,9 +22,6 @@ output.
 ###### Topics
 
 - [Scenario A – Metadata is accurate](color-space-scenario-pass.md "color-space-scenario-pass.md")
-- [Scenario B – Metadata can be corrected with
-  force](color-space-scenario-correct.md "color-space-scenario-correct.md")
-- [Scenario C – Correct the metadata with
-  fallback](color-space-scenario-correct-one.md "color-space-scenario-correct-one.md")
-- [Scenario D – Metadata can't be
-  corrected](color-space-scenario-correct-multiple.md "color-space-scenario-correct-multiple.md")
+- [Scenario B – Metadata can be corrected with force](color-space-scenario-correct.md "color-space-scenario-correct.md")
+- [Scenario C – Correct the metadata with fallback](color-space-scenario-correct-one.md "color-space-scenario-correct-one.md")
+- [Scenario D – Metadata can't be corrected](color-space-scenario-correct-multiple.md "color-space-scenario-correct-multiple.md")

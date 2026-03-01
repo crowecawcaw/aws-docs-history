@@ -1,6 +1,4 @@
-# Fields for deactivating a
-
-motion graphics overlay
+# Fields for deactivating a motion graphics overlay
 
 This table shows the fields that apply for an action to deactivate an motion
 graphics overlay.

@@ -1,6 +1,4 @@
-# Provide information to the downstream
-
-system
+# Provide information to the downstream system
 
 The downstream system might need the source IP addresses of the one or two MediaLive
 streams, so that they can allow these addresses to connect to them. If the downstream

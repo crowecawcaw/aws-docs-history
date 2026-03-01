@@ -32,5 +32,4 @@ complete these fields, see [The procedure](creating-hls-output-group.md#hls-crea
 - [The media contents of an HLS manifest](hls-rm-manifests-contents.md "hls-rm-manifests-contents.md")
 - [Rules for most downstream systems](hls-redundant-manif-most-systems.md "hls-redundant-manif-most-systems.md")
 - [Rules for Akamai CDNs](hls-redundant-manif-akamai.md "hls-redundant-manif-akamai.md")
-- [Combining redundant manifests with other
-  features](hls-redundant-manif-combine.md "hls-redundant-manif-combine.md")
+- [Combining redundant manifests with other features](hls-redundant-manif-combine.md "hls-redundant-manif-combine.md")

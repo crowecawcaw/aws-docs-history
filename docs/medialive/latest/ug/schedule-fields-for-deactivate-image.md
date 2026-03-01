@@ -1,6 +1,4 @@
-# Fields for deactivating a
-
-global image overlay
+# Fields for deactivating a global image overlay
 
 This table shows the fields that apply for an action to deactivate an image
 overlay.

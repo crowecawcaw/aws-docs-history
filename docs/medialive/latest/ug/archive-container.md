@@ -1,6 +1,4 @@
-# Fields for the output
-
-container
+# Fields for the output container
 
 The following fields relate to the packaging and delivery
 of the archive transport stream:

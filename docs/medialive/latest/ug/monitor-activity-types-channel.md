@@ -1,13 +1,10 @@
-# States for channels and
-
-multiplexes
+# States for channels and multiplexes
 
 You can monitor the states of MediaLive channels and multiplexes.
 
 MediaLive reports the state of all channels. MediaLive turns these states into CloudWatch events
 with the detailType set to `MediaLive Channel State Change`. For an example
-of the JSON for these events, see [JSON
-for a state change event](monitoring-cloudwatch-json-state-change.md "monitoring-cloudwatch-json-state-change.md").
+of the JSON for these events, see [JSON for a state change event](monitoring-cloudwatch-json-state-change.md "monitoring-cloudwatch-json-state-change.md").
 
 The channel states are the following:
 

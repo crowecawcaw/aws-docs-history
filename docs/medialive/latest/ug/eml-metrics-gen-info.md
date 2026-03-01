@@ -72,9 +72,7 @@ for both inputs.
 - AudioDescriptionName – Identifies a specific audio description (audio
   encode) among all the outputs of a channel.
 
-## Definition of a running
-
-channel
+## Definition of a running channel
 
 Many metrics collect data only when a channel is running.
 

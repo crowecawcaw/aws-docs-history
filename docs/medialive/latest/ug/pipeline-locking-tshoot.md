@@ -23,9 +23,7 @@ These troubleshooting steps apply to all pipeline locking methods:
   perform pipeline locking for the duration because for that section of video,
   there is no simple framerate conversion.
 
-## Troubleshooting
-
-timecode-based locking
+## Troubleshooting timecode-based locking
 
 If you are using epoch locking, or pipeline locking with the source timecode
 method (the default), check the following in addition to the general
@@ -44,9 +42,7 @@ troubleshooting steps:
 - Make sure that you set up the segmentation marker type that your downstream
   system expects.
 
-## Troubleshooting video
-
-aligned pipeline locking
+## Troubleshooting video aligned pipeline locking
 
 If you are using video aligned pipeline locking (**Pipeline locking
 method** set to **VIDEO_ALIGNMENT**) and experience
@@ -56,8 +52,7 @@ troubleshooting steps:
 - Verify that the current input type is compatible. HLS, RTMP_PULL, and
   file inputs cause video aligned pipeline locking to run in open loop
   mode (unlocked). See
-  [Requirements for
-  video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").
+  [Requirements for video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").
 - Check the **PipelinesLocked** CloudWatch metric. Video
   aligned pipeline locking reports its locked status through this same
   metric. A value of 1 indicates successful synchronization.

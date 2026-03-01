@@ -1,6 +1,4 @@
-# Options for handling Microsoft Smooth
-
-output
+# Options for handling Microsoft Smooth output
 
 If you are delivering to a Microsoft Smooth Streaming server, the setup depends on whether
 you want to protect your content with a digital rights management (DRM) solution. DRM prevents

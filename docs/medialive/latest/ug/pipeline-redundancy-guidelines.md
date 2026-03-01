@@ -1,14 +1,10 @@
-# Deciding whether to
-
-implement pipeline redundancy
+# Deciding whether to implement pipeline redundancy
 
 In MediaLive, pipeline redundancy is controlled by the class that you assign to the
 channel. To determine the channel class to assign, you must decide if you want to and
 are able to implement pipeline redundancy.
 
-## Step 1: Decide if you
-
-want to implement pipeline redundancy
+## Step 1: Decide if you want to implement pipeline redundancy
 
 Decide if you _want_ to implement pipeline
 redundancy. As well as the benefit of redundant pipelines, consider the following
@@ -30,9 +26,7 @@ points:.
   implementing it later on. The procedures later in this
   section explain how to set up in this way.
 
-## Step 2: Decide if
-
-you can implement pipeline redundancy
+## Step 2: Decide if you can implement pipeline redundancy
 
 If you decide that you want to set up a standard channel, you
 must determine if you _can_ set
@@ -74,9 +68,7 @@ If the downstream system doesn't have this ability,
 there is no advantage to setting up as a standard
 channel.
 
-## Step 3: Follow the
-
-correct procedure
+## Step 3: Follow the correct procedure
 
 After you have identified the pipeline redundancy option that
 you will implement in the channel, see the following sections
@@ -84,12 +76,9 @@ for more information:
 
 - If you want to implement pipeline redundancy
   immediately, and the upstream system can provide two
-  source streams, then see [Setting up a standard
-  channel](standard-channel-procedure.md "standard-channel-procedure.md").
+  source streams, then see [Setting up a standard channel](standard-channel-procedure.md "standard-channel-procedure.md").
 - If you don't want to implement pipeline redundancy for
   now, but you want to allow for easy upgrade to pipeline
-  redundancy later, then see [Setting up a
-  single-pipeline channel with upgrade options](single-channel-upgrade.md "single-channel-upgrade.md").
+  redundancy later, then see [Setting up a single-pipeline channel with upgrade options](single-channel-upgrade.md "single-channel-upgrade.md").
 - If you don't want to implement pipeline redundancy now
-  or in the future, then see [Setting up a single-pipeline channel
-  without upgrade potential](single-pipeline-no-upgrade.md "single-pipeline-no-upgrade.md").
+  or in the future, then see [Setting up a single-pipeline channel without upgrade potential](single-pipeline-no-upgrade.md "single-pipeline-no-upgrade.md").

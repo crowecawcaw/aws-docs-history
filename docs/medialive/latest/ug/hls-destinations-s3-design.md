@@ -1,10 +1,7 @@
-# Design the path for the output
-
-destination
+# Design the path for the output destination
 
 Perform this step if you haven't yet designed the full destination path or
-paths. If you've already designed the paths, go to [Complete the fields on the
-Console](hls-destinations-s3-specify.md "hls-destinations-s3-specify.md").
+paths. If you've already designed the paths, go to [Complete the fields on the Console](hls-destinations-s3-specify.md "hls-destinations-s3-specify.md").
 
 ###### To design the path
 
@@ -16,18 +13,12 @@ bucket or buckets. For details, see the sections that follow.
 
 ###### Topics
 
-- [The syntax for the paths for the
-  outputs](#hls-syntax-s3 "#hls-syntax-s3")
-- [Designing the folders and
-  baseFilename](#hls-path-s3 "#hls-path-s3")
-- [Designing the
-  nameModifier](#hls-nameModifier-design-s3 "#hls-nameModifier-design-s3")
-- [Designing the
-  segmentModifier](#hls-segmentModifier-design-s3 "#hls-segmentModifier-design-s3")
+- [The syntax for the paths for the outputs](#hls-syntax-s3 "#hls-syntax-s3")
+- [Designing the folders and baseFilename](#hls-path-s3 "#hls-path-s3")
+- [Designing the nameModifier](#hls-nameModifier-design-s3 "#hls-nameModifier-design-s3")
+- [Designing the segmentModifier](#hls-segmentModifier-design-s3 "#hls-segmentModifier-design-s3")
 
-## The syntax for the paths for the
-
-outputs
+## The syntax for the paths for the outputs
 
 An HLS output always includes three categories of files:
 
@@ -77,9 +68,7 @@ These destination paths are constructed as follows:
   - For media files – .ts for files in a transport stream,
     or .mp4 for files in an fMP4 container
 
-## Designing the folders and
-
-baseFilename
+## Designing the folders and baseFilename
 
 Design a folder path and baseFilename that suits your purposes.
 
@@ -114,9 +103,7 @@ or
 
 `s3ssl://amzn-s3-demo-bucket/sports/redundant/curling/index-high.m3u8`
 
-## Designing the
-
-nameModifier
+## Designing the nameModifier
 
 Design the `nameModifier` portions of the file name. The
 child manifests and media files include this modifier in their file
@@ -139,9 +126,7 @@ guidelines:
 - The `nameModifier` can include [data
   variables](variable-data-identifiers.md "variable-data-identifiers.md").
 
-## Designing the
-
-segmentModifier
+## Designing the segmentModifier
 
 Design the segmentModifiers portion of the destination path. The
 segmentModifier is optional, and if you include it, only the media file

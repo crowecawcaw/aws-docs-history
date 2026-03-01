@@ -1,6 +1,4 @@
-# Logging MediaLive API calls
-
-with AWS CloudTrail
+# Logging MediaLive API calls with AWS CloudTrail
 
 AWS Elemental MediaLive is integrated with AWS CloudTrail, CloudTrail is service that
 provides a record of actions taken by a user, role, or an AWS
@@ -17,9 +15,7 @@ made, and additional details.
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## MediaLive information
-
-in CloudTrail
+## MediaLive information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the
 account. When activity occurs in MediaLive, that activity is
@@ -64,9 +60,7 @@ determine the following:
 
 For more information, see the [CloudTrail userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding
-
-MediaLive log file entries
+## Understanding MediaLive log file entries
 
 A trail is a configuration that enables delivery of events as
 log files to an Amazon S3 bucket that you specify. CloudTrail log files

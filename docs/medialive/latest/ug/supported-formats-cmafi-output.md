@@ -1,6 +1,4 @@
-# Captions formats supported in CMAF
-
-Ingest outputs
+# Captions formats supported in CMAF Ingest outputs
 
 In this table, look up your input container and captions type. Then read across to
 find the caption formats that are supported in MediaLive when you have this input container

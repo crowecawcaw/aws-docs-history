@@ -1,6 +1,4 @@
-# Color space standards that MediaLive
-
-supports
+# Color space standards that MediaLive supports
 
 Each color space standard follows a specific standard for the color space, and specific
 standards for the three sets of color data.

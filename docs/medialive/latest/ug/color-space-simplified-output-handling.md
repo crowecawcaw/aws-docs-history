@@ -1,6 +1,4 @@
-# Configuring color space handling in
-
-each output
+# Configuring color space handling in each output
 
 ###### Note
 
@@ -15,19 +13,13 @@ Follow these steps for each output in the channel.
 
 ###### Topics
 
-- [Step 1: Configure enhanced VQ
-  mode](#color-space-simplified-output-config-vq "#color-space-simplified-output-config-vq")
+- [Step 1: Configure enhanced VQ mode](#color-space-simplified-output-config-vq "#color-space-simplified-output-config-vq")
 - [Step 2: Prepare 3D LUTs files](#color-space-simplified-get-ready-lut "#color-space-simplified-get-ready-lut")
-- [Step 3: Configure the channel
-  to use 3D LUTs files](#color-space-simplified-output-configure-lut "#color-space-simplified-output-configure-lut")
-- [Step 4: Setting up for
-  passthrough](#colorspace-simplified-output-setup-passthrough "#colorspace-simplified-output-setup-passthrough")
-- [Step 5: Setting up to
-  convert](#colorspace-simplified-output-setup-convert "#colorspace-simplified-output-setup-convert")
+- [Step 3: Configure the channel to use 3D LUTs files](#color-space-simplified-output-configure-lut "#color-space-simplified-output-configure-lut")
+- [Step 4: Setting up for passthrough](#colorspace-simplified-output-setup-passthrough "#colorspace-simplified-output-setup-passthrough")
+- [Step 5: Setting up to convert](#colorspace-simplified-output-setup-convert "#colorspace-simplified-output-setup-convert")
 
-## Step 1: Configure enhanced VQ
-
-mode
+## Step 1: Configure enhanced VQ mode
 
 You must decide if you should enable enhanced VQ mode in the MediaLive output. This mode applies
 only to outputs that use H.264.
@@ -50,8 +42,7 @@ Perform these steps if you plan to convert the color space in a MediaLive output
 want to use 3D LUTs files for that conversion. You must obtain the 3D LUTs files and store
 them in an accessible location.
 
-1. Read [Getting ready to use 3D LUTs files with
-   MediaLive](color-space-process-with-lut.md "color-space-process-with-lut.md") for rules and
+1. Read [Getting ready to use 3D LUTs files with MediaLive](color-space-process-with-lut.md "color-space-process-with-lut.md") for rules and
    requirements.
 2. Identify the conversion combinations that you want to perform across all outputs in
    the channel. You can perform a maximum of 8 conversion combinations, because you can
@@ -92,9 +83,7 @@ Note also that you decided not to provide a file to convert Rec. 601 to Rec. 709
 the difference in the output is minimal. MediaLive will convert the Rec. 601 source to Rec. 709,
 but it will do so using the standard mechanism.
 
-## Step 3: Configure the channel
-
-to use 3D LUTs files
+## Step 3: Configure the channel to use 3D LUTs files
 
 Perform these steps if you plan to convert the color space in a MediaLive output, and you
 want to use 3D LUTs files for that conversion. You must configure MediaLive to use those
@@ -132,9 +121,7 @@ MediaLive uses the first file it encounters.
 - If there is no file for this combination, MediaLive performs the conversion using the
   standard mechanism (that is, without using 3D LUTs color mapping).
 
-## Step 4: Setting up for
-
-passthrough
+## Step 4: Setting up for passthrough
 
 You can set up to pass through the source color space in one or more MediaLive outputs. The key
 fields to set are **Color space** and **Color
@@ -143,8 +130,7 @@ metadata**.
 1. On the **Create channel** page, in the **Output groups** section, choose the output that contains the video. Display the
    **Stream settings** section, and choose the **Video** section.
 2. For **Codec settings**, choose a codec. For information about the
-   color spaces that each codec supports, see [Output
-   requirements](color-space-simplified-input-output-requirements.md "color-space-simplified-input-output-requirements.md").
+   color spaces that each codec supports, see [Output requirements](color-space-simplified-input-output-requirements.md "color-space-simplified-input-output-requirements.md").
 3. Choose **Codec details**. More fields appear. Choose
    **Additional settings**. More fields appear.
 
@@ -157,9 +143,7 @@ Choose **Color space passthrough**. (Or choose **Don't
 include**, which is equivalent to **Color space
 passthrough**.)
 
-## Step 5: Setting up to
-
-convert
+## Step 5: Setting up to convert
 
 You can set up to convert the color space in one or more MediaLive outputs. You must set up
 several fields, each in a specific way.
@@ -170,8 +154,7 @@ several fields, each in a specific way.
    specify a valid resolution. Make a note of whether you are specifying an SD, an HD, or a
    UHD resolution.
 3. In **Codec settings**, choose a codec. For information about the
-   color spaces that each codec supports, see [Output
-   requirements](color-space-simplified-input-output-requirements.md "color-space-simplified-input-output-requirements.md").
+   color spaces that each codec supports, see [Output requirements](color-space-simplified-input-output-requirements.md "color-space-simplified-input-output-requirements.md").
 4. Choose **Codec details**. More fields appear. Set the
    **Profile**, **Tier**, and
    **Level** fields, if they appear for the codec that you chose:

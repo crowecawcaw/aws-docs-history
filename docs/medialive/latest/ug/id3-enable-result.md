@@ -5,15 +5,12 @@ You can include metadata in the following ways.
 - Passthrough — Pass through metadata that is already present in the source input. You
   set up to include this metadata when you create or modify the channel.
 - Timestamp — Insert a timestamp at a regular interval. You set up to include this
-  metadata when you create or modify the channel. See [Inserting ID3 timed metadata when creating the MediaLive
-  channel](insert-timed-metadata.md "insert-timed-metadata.md")
+  metadata when you create or modify the channel. See [Inserting ID3 timed metadata when creating the MediaLive channel](insert-timed-metadata.md "insert-timed-metadata.md")
 - One-time insertion — Insert metadata once, at a specified time. You insert this
-  metadata by creating an action in the channel schedule. See [Inserting ID3 metadata using the
-  schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md").
+  metadata by creating an action in the channel schedule. See [Inserting ID3 metadata using the schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md").
 - Segment insertion — Insert metadata in every segment. You insert this metadata by
   creating an action in the channel schedule. You insert the action as plain text, using the
-  tag option, or as base64, using the ID3 option. See [Inserting ID3 metadata using the
-  schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md").
+  tag option, or as base64, using the ID3 option. See [Inserting ID3 metadata using the schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md").
   The different mechanisms are supported in specific types of output groups. You set up each
   output group separately. In the following table,
   read across each row to

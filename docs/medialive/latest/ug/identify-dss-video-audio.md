@@ -1,6 +1,4 @@
-# Identify the encode
-
-requirements for the output groups
+# Identify the encode requirements for the output groups
 
 After you have identified the output groups that you need to create, you
 must identify the requirements for the video and audio encodes that you will
@@ -55,8 +53,7 @@ identified.
    produce for each output group.
 8. Decide
    whether you want to implement a trick-play track. For more information,
-   see [Implementing a trick-play
-   track](trick-play-solutions.md "trick-play-solutions.md").
+   see [Implementing a trick-play track](trick-play-solutions.md "trick-play-solutions.md").
    **Result of this step**
 
 After you have performed this procedure, you will know what output

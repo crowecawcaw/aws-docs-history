@@ -1,8 +1,7 @@
 # Creating an RTMP output group
 
 When you create a AWS Elemental MediaLive channel, you might want to include an RTMP output group. For
-information about the use cases for an RTMP output group, see [Containers, protocols,
-and downstream systems](outputs-supported-containers-downstream-systems.md "outputs-supported-containers-downstream-systems.md").
+information about the use cases for an RTMP output group, see [Containers, protocols, and downstream systems](outputs-supported-containers-downstream-systems.md "outputs-supported-containers-downstream-systems.md").
 
 ###### Topics
 

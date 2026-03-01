@@ -1,6 +1,4 @@
-# Settings for
-
-the stream
+# Settings for the stream
 
 By default, the output is set up with one video encode.
 This is the only encode that a Frame capture output can

@@ -9,8 +9,7 @@
 
    You need two addresses for a standard-class input, or one address
    for a single-class input. For information about input classes and
-   their uses, see [Choosing the channel class and input
-   class](class-channel-input.md "class-channel-input.md").
+   their uses, see [Choosing the channel class and input class](class-channel-input.md "class-channel-input.md").
    - Whether the content is encrypted. If it is encrypted, find out if
      encryption uses AES 128, AES 192, or AES 256.
 

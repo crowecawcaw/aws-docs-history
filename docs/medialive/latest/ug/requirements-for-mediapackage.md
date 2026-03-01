@@ -1,6 +1,4 @@
-# Requirements for
-
-AWS Elemental MediaPackage
+# Requirements for AWS Elemental MediaPackage
 
 Your deployment might send outputs to AWS Elemental MediaPackage, either by creating an
 [HLS output group or by creating a

@@ -13,7 +13,6 @@ Create the clusters after you have created the networks.
    - **Interface mappings**: See [Designing mappings for node interfaces](emla-design-mappings.md "emla-design-mappings.md").
    - **Default route**: Select the logical interface name (from the
      **Interface mappings**) that is the default that the network
-     engineer identified in [Identifying network
-     resources](emla-deploy-identify-network-requirements.md "emla-deploy-identify-network-requirements.md").
+     engineer identified in [Identifying network resources](emla-deploy-identify-network-requirements.md "emla-deploy-identify-network-requirements.md").
 
 3. Choose Create. MediaLive Anywhere creates the cluster and adds it to the list of clusters.

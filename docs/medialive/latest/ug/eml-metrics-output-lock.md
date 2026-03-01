@@ -1,6 +1,4 @@
-# Pipeline locking
-
-metrics
+# Pipeline locking metrics
 
 Pipeline locking metrics relate to the synchronization of MediaLive
 pipelines.

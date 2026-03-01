@@ -1,6 +1,4 @@
-# Scenario C – Correct the metadata with
-
-fallback
+# Scenario C – Correct the metadata with fallback
 
 During assessment of the MediaLive input, you might have determined the following:
 

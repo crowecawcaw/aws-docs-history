@@ -8,9 +8,6 @@ using the [thumbnails feature](thumbnails.md "thumbnails.md").)
 
 ###### Topics
 
-- [Organize encodes in a Frame capture output
-  group](design-framecapture-package.md "design-framecapture-package.md")
-- [Coordinate with the downstream
-  system](framecapture-op-origin-server-s3.md "framecapture-op-origin-server-s3.md")
-- [Create a Frame capture output
-  group](creating-framecapture-output-group.md "creating-framecapture-output-group.md")
+- [Organize encodes in a Frame capture output group](design-framecapture-package.md "design-framecapture-package.md")
+- [Coordinate with the downstream system](framecapture-op-origin-server-s3.md "framecapture-op-origin-server-s3.md")
+- [Create a Frame capture output group](creating-framecapture-output-group.md "creating-framecapture-output-group.md")

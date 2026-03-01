@@ -1,6 +1,4 @@
-# Handling of metadata when
-
-converting
+# Handling of metadata when converting
 
 When you set up in MediaLive to convert the color space, you can set up to include or omit the color
 space metadata.

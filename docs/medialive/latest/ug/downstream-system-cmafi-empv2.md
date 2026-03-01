@@ -1,6 +1,4 @@
-# Obtain destination for a CMAF Ingest
-
-output group
+# Obtain destination for a CMAF Ingest output group
 
 1. Decide if you need two destination URLs for the output:
    - You need two destinations in a [standard channel](plan-redundancy.md "plan-redundancy.md").

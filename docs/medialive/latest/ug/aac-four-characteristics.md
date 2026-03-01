@@ -1,6 +1,4 @@
-# Supported sampling rate and bitrate for AAC
-
-output
+# Supported sampling rate and bitrate for AAC output
 
 This section explains how to set the following four properties of the AAC audio codec when
 you are setting up an audio encode in MediaLive:
@@ -130,9 +128,7 @@ and bitrate.
 | 48000   | 256000           | 768000                           |
 | 96000   | 640000           | 768000                           |
 
-## Coding mode
-
-ad receiver mix
+## Coding mode ad receiver mix
 
 Choose this coding mode if you have an AD (audio description)
 audio track that you want to include in the output.

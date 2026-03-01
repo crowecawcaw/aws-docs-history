@@ -1,23 +1,16 @@
-# Creating a channel from a
-
-template
+# Creating a channel from a template
 
 You can create a MediaLive channel by using a custom template or by using one of
 the built-in templates that MediaLive provides.
 
 ###### Topics
 
-- [Using built-in
-  templates](#using-builtin-templates "#using-builtin-templates")
+- [Using built-in templates](#using-builtin-templates "#using-builtin-templates")
 - [Using custom templates](#using-custom-templates "#using-custom-templates")
-- [Creating a channel from
-  a template](#create-channel-template-steps "#create-channel-template-steps")
-- [Creating a custom
-  template](#creating-custom-template "#creating-custom-template")
+- [Creating a channel from a template](#create-channel-template-steps "#create-channel-template-steps")
+- [Creating a custom template](#creating-custom-template "#creating-custom-template")
 
-## Using built-in
-
-templates
+## Using built-in templates
 
 MediaLive includes built-in templates that you can access on the
 console. Each template includes data for output groups and outputs, and
@@ -36,8 +29,7 @@ existing fields and complete the empty fields.
 You or another person in your organization may have created custom
 MediaLive templates. A custom template might contain nearly all the data that is
 required to create a complete channel, or it might contain only portions
-of the data. To create a custom template, see [Creating a custom
-template](#creating-custom-template "#creating-custom-template").
+of the data. To create a custom template, see [Creating a custom template](#creating-custom-template "#creating-custom-template").
 
 Typically, templates are created in order to be shared among
 different users.
@@ -57,9 +49,7 @@ channel** page.
 You can edit the existing fields and complete the empty fields as
 needed.
 
-## Creating a channel from
-
-a template
+## Creating a channel from a template
 
 ###### To create a MediaLive channel from a template (console)
 
@@ -87,9 +77,7 @@ a template
    be completed. You can also edit other fields as needed. For more
    information, see [Creating a channel from scratch](creating-channel-scratch.md "creating-channel-scratch.md").
 
-## Creating a custom
-
-template
+## Creating a custom template
 
 You create a custom MediaLive template by exporting the data from an existing
 (and therefore validated) channel. MediaLive exports the data to a JSON file

@@ -1,6 +1,4 @@
-# Setting up automatic input failover with RTMP
-
-and RTP inputs
+# Setting up automatic input failover with RTMP and RTP inputs
 
 To use RTMP push inputs and RTP inputs with automatic input failover in MediaLive, you
 must make sure that the upstream system provides sources in the correct way, and you

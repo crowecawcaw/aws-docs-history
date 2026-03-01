@@ -7,9 +7,7 @@ the manifests. All of this information appears as `#EXT-X-STREAM-INF` tags.
 The following sections describe the number of these tags and the contents of these tags in
 a standard (not redundant) manifest and in a redundant manifest.
 
-## What a standard manifest looks
-
-like
+## What a standard manifest looks like
 
 With a standard channel, there are two pipelines. Each pipeline produces its own set of
 manifests. Therefore, for pipeline 0, there is one main manifest, one set of child
@@ -24,9 +22,7 @@ this:
 curling-high.m3u8
 ```
 
-## What a redundant manifest looks
-
-like
+## What a redundant manifest looks like
 
 When the redundant manifest feature is enabled, each main manifest references the child
 manifests for its own pipeline and for the other pipeline.

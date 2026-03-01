@@ -1,6 +1,4 @@
-# Create an input for RTP push from
-
-Amazon VPC
+# Create an input for RTP push from Amazon VPC
 
 After the Amazon VPC user has set up on the VPC, you can create the RTP VPC push input
 in MediaLive.
@@ -134,9 +132,7 @@ the **MediaLiveAccessRole**) in both usages.
 There are two general scenarios for choosing a role, depending on whether your
 organization has a designated administrator.
 
-### Your organization has a designated
-
-administrator
+### Your organization has a designated administrator
 
 Your organization might have an administrator who manages this service.
 That administrator has likely set up one or more roles:
@@ -153,9 +149,7 @@ That administrator has likely set up one or more roles:
 - If you want the selected role to appear first in the list next
   time, select **Remember ARN**.
 
-### Your organization has no
-
-administrator
+### Your organization has no administrator
 
 Your organization might not have a designated service administrator. In
 this case, if none of your colleagues have set up a suitable role, you might

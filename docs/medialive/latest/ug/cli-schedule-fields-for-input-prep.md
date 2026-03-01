@@ -1,6 +1,4 @@
-# Input
-
-prepare action – payload
+# Input prepare action – payload
 
 The following sections show the payload for input switch
 actions.
@@ -58,9 +56,7 @@ JSON, see [Fields for an input switch](schedule-fields-for-ips.md "schedule-fiel
 }
 ```
 
-## Example of an
-
-input prepare with a fixed start time
+## Example of an input prepare with a fixed start time
 
 This example of a request is to switch to a live input
 at a fixed start time. The switch action is called
@@ -92,9 +88,7 @@ input at the specified UTC time.
 }
 ```
 
-## Example of an
-
-input prepare as a follow
+## Example of an input prepare as a follow
 
 This example of a request is to switch to a static
 file input to follow the end of the previous input. The

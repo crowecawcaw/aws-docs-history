@@ -7,8 +7,7 @@ sections:
   delivery from the upstream system. The task of creating an input is part of that
   delivery setup. You must coordinate with your upstream system and content
   provider.
-- [Implementing pipeline
-  redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md") – You must decide if you want to
+- [Implementing pipeline redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md") – You must decide if you want to
   implement pipeline redundancy—whether you set up a standard channel or a
   single-pipeline channel. Implementing pipeline redundancy provides resiliency in
   the channel processing pipeline.

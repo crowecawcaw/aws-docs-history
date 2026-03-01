@@ -1,6 +1,4 @@
-# Implementing pipeline
-
-redundancy
+# Implementing pipeline redundancy
 
 You can set up a MediaLive channel with two encoding pipelines, to provide resiliency within
 the channel processing pipeline.
@@ -20,13 +18,8 @@ the downstream system.
 
 ###### Topics
 
-- [Deciding whether to
-  implement pipeline redundancy](pipeline-redundancy-guidelines.md "pipeline-redundancy-guidelines.md")
-- [Setting up a standard
-  channel](standard-channel-procedure.md "standard-channel-procedure.md")
-- [Setting up a
-  single-pipeline channel with upgrade options](single-channel-upgrade.md "single-channel-upgrade.md")
-- [Setting up a single-pipeline channel
-  without upgrade potential](single-pipeline-no-upgrade.md "single-pipeline-no-upgrade.md")
-- [Changing pipeline redundancy in an existing
-  channel](pipeline-redundancy-change.md "pipeline-redundancy-change.md")
+- [Deciding whether to implement pipeline redundancy](pipeline-redundancy-guidelines.md "pipeline-redundancy-guidelines.md")
+- [Setting up a standard channel](standard-channel-procedure.md "standard-channel-procedure.md")
+- [Setting up a single-pipeline channel with upgrade options](single-channel-upgrade.md "single-channel-upgrade.md")
+- [Setting up a single-pipeline channel without upgrade potential](single-pipeline-no-upgrade.md "single-pipeline-no-upgrade.md")
+- [Changing pipeline redundancy in an existing channel](pipeline-redundancy-change.md "pipeline-redundancy-change.md")

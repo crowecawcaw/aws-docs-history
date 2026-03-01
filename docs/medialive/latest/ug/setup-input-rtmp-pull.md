@@ -36,8 +36,7 @@ HLS input.
 If the upstream system requires that you provide user credentials, you
 must also enter the user name and password key for accessing the location.
 These credentials are stored on the Systems Manager Parameter Store. For more
-information, see [About the feature for creating password
-parameters](requirements-for-EC2.md#about-EC2Password "requirements-for-EC2.md#about-EC2Password"). 7. In the **Tags** section, create tags if you want to
+information, see [About the feature for creating password parameters](requirements-for-EC2.md#about-EC2Password "requirements-for-EC2.md#about-EC2Password"). 7. In the **Tags** section, create tags if you want to
 associate tags with this input. For more information, see [Tagging resources](tagging.md "tagging.md"). 8. Choose **Create**.
 
 MediaLive creates the input and adds it to the list of inputs. The input

@@ -24,18 +24,14 @@ message to the POIS server. The POIS server responds in one of these way:
 The SCTE 35 messages that the POIS server returns are completely compliant
 with the SCTE 35 standard.
 
-## Number of channels and number of
-
-POIS servers
+## Number of channels and number of POIS servers
 
 - Each MediaLive channel can communicate with only one POIS server.
 - One POIS server can communicate with multiple MediaLive channels. In this
   case, the POIS server identifies each channel using a unique combination
   of a POIS acquisition point identity and a zone identity.
 
-## POIS signal conditioning and
-
-standard channels
+## POIS signal conditioning and standard channels
 
 If the channel is a standard channel (with two pipelines), then each pipeline
 sends the SCTE 35 message to the POIS server. The POIS server responds to each

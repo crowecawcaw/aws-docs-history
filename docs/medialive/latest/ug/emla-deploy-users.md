@@ -8,6 +8,5 @@ in this section.
 
 ###### Topics
 
-- [Create users and assign
-  permissions](emla-deploy-users-permissions.md "emla-deploy-users-permissions.md")
+- [Create users and assign permissions](emla-deploy-users-permissions.md "emla-deploy-users-permissions.md")
 - [Create special FAS policies](emla-deploy-users-ecs-permissions.md "emla-deploy-users-ecs-permissions.md")

@@ -1,6 +1,4 @@
-# Handling
-
-encrypted source content in an HLS source
+# Handling encrypted source content in an HLS source
 
 MediaLive can ingest an HLS source that is encrypted according to the HTTP
 Live Streaming specification.

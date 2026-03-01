@@ -6,9 +6,7 @@ appropriate to the captions formats in that input. Therefore, each input might c
 different number of selectors. The method for extracting captions is different from the method
 for extracting audio.
 
-## Rule 1: Plan the number of selectors for an input
-
-that is appropriate to the input and output
+## Rule 1: Plan the number of selectors for an input that is appropriate to the input and output
 
 In each input, you must create the number of selectors that is appropriate to the input
 format and output format:
@@ -32,9 +30,7 @@ list like this:
 Note that inputs 1, 3, and 4 each contain four selectors. Input 2 contains three
 selectors.
 
-## Rule 2: Plan the same selector names in every
-
-input
+## Rule 2: Plan the same selector names in every input
 
 Every unique selector must have the same selector name across all the inputs. This rule
 exists because each output references the selectors only once. The output doesn't reference

@@ -1,6 +1,4 @@
-# Working with a maintenance
-
-event
+# Working with a maintenance event
 
 You receive notification of upcoming maintenance for a channel at
 least 21 calendar days before the deadline for the maintenance. The
@@ -10,12 +8,9 @@ handle the upcoming maintenance event.
 ###### Topics
 
 - [How maintenance timing works](#set-maintenance-timing "#set-maintenance-timing")
-- [Options for handling
-  maintenance](#set-maintenance-change-options "#set-maintenance-change-options")
-- [Stopping a channel during the maintenance event
-  period](#maintenance-stop-channel "#maintenance-stop-channel")
-- [Rescheduling a maintenance
-  event](#set-maintenance-reschedule "#set-maintenance-reschedule")
+- [Options for handling maintenance](#set-maintenance-change-options "#set-maintenance-change-options")
+- [Stopping a channel during the maintenance event period](#maintenance-stop-channel "#maintenance-stop-channel")
+- [Rescheduling a maintenance event](#set-maintenance-reschedule "#set-maintenance-reschedule")
 
 ## How maintenance timing works
 
@@ -42,9 +37,7 @@ notification_ on Tuesday, May 2.
 
 ![Timeline showing a long bar spanning multiple days and shorter bars on specific dates.](images/maintenance.png)
 
-## Options for handling
-
-maintenance
+## Options for handling maintenance
 
 You have the following options for maintenance:
 
@@ -54,9 +47,7 @@ You have the following options for maintenance:
 - You can set a specific date and time for the maintenance window.
   See [Set a specific date](set-maintenance-change-steps.md#set-maintenance-specific-date "set-maintenance-change-steps.md#set-maintenance-specific-date")
 
-## Stopping a channel during the maintenance event
-
-period
+## Stopping a channel during the maintenance event period
 
 As part of normal operations, you might stop the channel, for example, to make changes
 to the channel configuration.
@@ -66,9 +57,7 @@ be performed automatically when you restart. The maintenance event will be consi
 completed. The maintenance status for the channel will change to **Not
 required**.
 
-## Rescheduling a maintenance
-
-event
+## Rescheduling a maintenance event
 
 If MediaLive can't perform the maintenance during the maintenance window (red mark), MediaLive
 will reschedule the maintenance for the same maintenance window in the next week. This date

@@ -1,6 +1,4 @@
-# Designing the
-
-nameModifier
+# Designing the nameModifier
 
 Design the `nameModifier` portions of the file name. The
 child manifests and media files include this modifier in their file

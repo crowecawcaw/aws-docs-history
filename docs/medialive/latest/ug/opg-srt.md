@@ -1,8 +1,7 @@
 # Creating an SRT output group
 
 When you create a AWS Elemental MediaLive channel, you might want to include an SRT output group.
-For information about the use cases for an SRT output group, see [Containers, protocols,
-and downstream systems](outputs-supported-containers-downstream-systems.md "outputs-supported-containers-downstream-systems.md").
+For information about the use cases for an SRT output group, see [Containers, protocols, and downstream systems](outputs-supported-containers-downstream-systems.md "outputs-supported-containers-downstream-systems.md").
 
 With an SRT output group, you can create one or more outputs. Each output is an SPTS with
 its own destination.
@@ -19,8 +18,7 @@ This section includes specific guidelines if you are sending the SRT output to a
 ###### Topics
 
 - [Selecting the SRT connection mode](srt-connection-mode-selection.md "srt-connection-mode-selection.md")
-- [Organize encodes in an SRT output
-  group](design-srt-package.md "design-srt-package.md")
+- [Organize encodes in an SRT output group](design-srt-package.md "design-srt-package.md")
 - [Plan for delivery using Amazon VPC](srt-get-ready.md "srt-get-ready.md")
 - [Set up the passphrase in AWS Secrets Manager](srt-output-encryption-asm.md "srt-output-encryption-asm.md")
 - [Creating SRT outputs in caller mode](creating-srt-caller-output.md "creating-srt-caller-output.md")

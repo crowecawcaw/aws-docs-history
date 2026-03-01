@@ -1,6 +1,4 @@
-# Use case B – channel includes VPC
-
-inputs
+# Use case B – channel includes VPC inputs
 
 This
 use case applies if the MediaLive channel includes inputs that use the VPC:

@@ -1,7 +1,6 @@
 # Plan the encodes
 
-In [Map the output encodes
-to the sources](channel-map-output-source.md "channel-map-output-source.md"), you sketched out a plan
+In [Map the output encodes to the sources](channel-map-output-source.md "channel-map-output-source.md"), you sketched out a plan
 for the encodes you want to create in each output group. Below is the example
 of the plan from that step, showing the outputs and encodes, and the sources
 for those encodes.

@@ -1,6 +1,4 @@
-# Option 2: Send events for specific
-
-channels to an email address
+# Option 2: Send events for specific channels to an email address
 
 You can set up a rule to send all events for one or several
 channels or multiplexes to one email address. You must perform

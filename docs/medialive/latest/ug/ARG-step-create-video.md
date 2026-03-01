@@ -23,8 +23,7 @@ output group the Channel page in the console:
      output now contains only a video encode. In an output group that
      includes audio rendition groups, each video encode must each be in a
      video-only output.
-   - Set up the rest of the stream settings as described in [Fields for the video,
-     audio, and captions streams (encodes)](hls-streams-section.md "hls-streams-section.md").
+   - Set up the rest of the stream settings as described in [Fields for the video, audio, and captions streams (encodes)](hls-streams-section.md "hls-streams-section.md").
 
 3. Complete the **Output settings** section as
    follows:

@@ -1,6 +1,4 @@
-# Getting
-
-ready
+# Getting ready
 
 To prepare to insert Nielsen watermarks in a MediaLive output, you must obtain some information
 about the watermarks data for each channel.

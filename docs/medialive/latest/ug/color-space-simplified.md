@@ -1,6 +1,4 @@
-# Handling a straightforward color space
-
-conversion
+# Handling a straightforward color space conversion
 
 You can control how MediaLive takes the color space and color space metadata in a video
 source and manipulates it in the video output. You can set up each output video encode to
@@ -18,24 +16,17 @@ metadata.
 
 ###### Topics
 
-- [Determine if this section applies to
-  your channel](#color-space-simplified-which-section "#color-space-simplified-which-section")
+- [Determine if this section applies to your channel](#color-space-simplified-which-section "#color-space-simplified-which-section")
 - [Color space versus video resolution](color-space-vs-resolution.md "color-space-vs-resolution.md")
-- [General information about color
-  space](about-color-metadata-simplified.md "about-color-metadata-simplified.md")
-- [Passing through the color
-  space](color-space-simplified-options-passthrough.md "color-space-simplified-options-passthrough.md")
+- [General information about color space](about-color-metadata-simplified.md "about-color-metadata-simplified.md")
+- [Passing through the color space](color-space-simplified-options-passthrough.md "color-space-simplified-options-passthrough.md")
 - [Converting the color space](color-space-simplified-options-convert.md "color-space-simplified-options-convert.md")
 - [Configuring the inputs](color-space-simplified-setup-input.md "color-space-simplified-setup-input.md")
-- [Configuring color space handling in
-  each output](color-space-simplified-output-handling.md "color-space-simplified-output-handling.md")
-- [Results for different color space
-  handling](colorspace-simplified-output-results.md "colorspace-simplified-output-results.md")
+- [Configuring color space handling in each output](color-space-simplified-output-handling.md "color-space-simplified-output-handling.md")
+- [Results for different color space handling](colorspace-simplified-output-results.md "colorspace-simplified-output-results.md")
 - [Reference: Location of fields](colorspace-simplified-fields.md "colorspace-simplified-fields.md")
 
-## Determine if this section applies to
-
-your channel
+## Determine if this section applies to your channel
 
 In this guide there are two sections about handling color space — this _straightforward handling_ section, and [Handling complex color space conversions](color-space.md "color-space.md").
 

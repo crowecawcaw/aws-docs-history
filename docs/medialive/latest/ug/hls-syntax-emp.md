@@ -1,6 +1,4 @@
-# The syntax for the paths for the
-
-outputs
+# The syntax for the paths for the outputs
 
 An HLS output always includes three categories of files:
 

@@ -1,6 +1,4 @@
-# Automatic input failover in a single-pipeline
-
-channel
+# Automatic input failover in a single-pipeline channel
 
 You can implement automatic input failover (AIF) in a single-pipeline channel to
 protect the MediaLive channel from failure in the upstream system or the network connection

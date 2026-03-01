@@ -1,10 +1,7 @@
-# Enabling ad avail blanking in the
-
-output
+# Enabling ad avail blanking in the output
 
 In a MediaLive channel, you can enable ad avail blanking to blank out the content for an
-SCTE 35 message that is considered an ad avail (as defined by the ad avail mode in [Getting ready: Set
-the ad avail mode](getting-ready-set-the-ad-avail-mode.md "getting-ready-set-the-ad-avail-mode.md")).
+SCTE 35 message that is considered an ad avail (as defined by the ad avail mode in [Getting ready: Set the ad avail mode](getting-ready-set-the-ad-avail-mode.md "getting-ready-set-the-ad-avail-mode.md")).
 
 A similar feature is [blackout](enable-blackout.md "enable-blackout.md").
 
@@ -40,7 +37,5 @@ Be careful not to get into the following situation:
 ###### Topics
 
 - [Enabling blanking](procedure-to-enable-ad-avail-blanking.md "procedure-to-enable-ad-avail-blanking.md")
-- [Triggers for ad avail
-  blanking](triggers-for-ad-avail-blanking.md "triggers-for-ad-avail-blanking.md")
-- [Ad avail blanking restriction
-  flags](ad-avail-blanking-restriction-flags.md "ad-avail-blanking-restriction-flags.md")
+- [Triggers for ad avail blanking](triggers-for-ad-avail-blanking.md "triggers-for-ad-avail-blanking.md")
+- [Ad avail blanking restriction flags](ad-avail-blanking-restriction-flags.md "ad-avail-blanking-restriction-flags.md")

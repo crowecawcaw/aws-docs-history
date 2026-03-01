@@ -26,9 +26,7 @@ extracting audio, and therefore allow you to use a variety of sources:
 For example, in source 1 you can identify the languages by PID. In source 2, you can
 identify by language code.
 
-## First requirement: each language must have the same coding
-
-mode in all sources
+## First requirement: each language must have the same coding mode in all sources
 
 Each output language must be present in every source, and the coding mode must be the
 same in all sources.
@@ -54,9 +52,7 @@ codecs are different for French isn't relevant. The requirement is that the _cod
 This source is _not_ acceptable because for French,
 the audio has a different coding mode from the first source.
 
-## Second requirement: each language must provide the highest
-
-coding mode required
+## Second requirement: each language must provide the highest coding mode required
 
 For each language, every source must include audio that can produce all the highest
 coding mode among all the outputs in the channel.
@@ -76,9 +72,7 @@ to set up the HLS output to remix the audio.
 This source is _not_ acceptable. This source can't
 produce Spanish Dolby Digital 5.1 for the HLS output.
 
-## Third requirement: mp4 sources should not contain
-
-variations of the same language
+## Third requirement: mp4 sources should not contain variations of the same language
 
 An MP4 file that contains multiple variations of a language might produce undesirable
 output audio. For best results, the file should contain only one version of a language:
@@ -94,9 +88,7 @@ track that contains that language. In this example, it extracts track 2, which c
 2.0. It ignores track 3. On the output side, MediaLive will try to remix this source, resulting
 in audio that has poor quality.
 
-## Fourth requirement: all sources must contain dolby if
-
-producing passthrough encode
+## Fourth requirement: all sources must contain dolby if producing passthrough encode
 
 If one of the outputs includes an encode that is set up with the Passthrough codec, then
 all the sources must include Dolby Digital, Dolby Digital Plus, or Dolby Atmos in all the

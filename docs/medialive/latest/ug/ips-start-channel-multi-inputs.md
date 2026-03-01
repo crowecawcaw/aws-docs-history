@@ -1,6 +1,4 @@
-# Starting and restarting a channel that has
-
-multiple inputs
+# Starting and restarting a channel that has multiple inputs
 
 After you create the MediaLive channel and add actions to its schedule, you can start the
 channel.

@@ -1,6 +1,4 @@
-# How a
-
-batch request works
+# How a batch request works
 
 The intention of batching is to pass or fail all the
 actions together. Therefore, AWS Elemental MediaLive validates batch

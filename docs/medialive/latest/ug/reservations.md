@@ -1,6 +1,4 @@
-# Working with reservations in
-
-MediaLive
+# Working with reservations in MediaLive
 
 A reservation is a one-year commitment to a particular input or output
 configuration. The reservation is allocated and billed on a monthly basis
@@ -28,5 +26,4 @@ next month.
 - [Add-on reservations](addon-reservations.md "addon-reservations.md")
 - [Purchasing a reservation](purchasing-reservations.md "purchasing-reservations.md")
 - [Viewing purchased reservations](view-reservations.md "view-reservations.md")
-- [Deleting an expired
-  reservation](deleting-reservations.md "deleting-reservations.md")
+- [Deleting an expired reservation](deleting-reservations.md "deleting-reservations.md")

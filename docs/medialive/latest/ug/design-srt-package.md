@@ -1,6 +1,4 @@
-# Organize encodes in an SRT output
-
-group
+# Organize encodes in an SRT output group
 
 An SRT output group can contain the following:
 

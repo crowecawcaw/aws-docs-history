@@ -1,6 +1,4 @@
-# Assess the upstream
-
-system
+# Assess the upstream system
 
 As part of the planning of the MediaLive workflow, you must assess the
 upstream system that is the source of the content, to ensure that it is

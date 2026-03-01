@@ -1,6 +1,4 @@
-# Workflow monitor
-
-groups and templates
+# Workflow monitor groups and templates
 
 Before you can deploy workflow monitoring to a signal map, you must create the groups and templates for CloudWatch alarms and EventBridge notifications. The CloudWatch templates
 define what scenarios and thresholds will be used to trigger the alarms. The EventBridge templates will determine how these alarms are reported to you.
@@ -13,5 +11,4 @@ CloudWatch and EventBridge templates. For more information about using signal ma
 ###### Topics
 
 - [CloudWatch alarm groups and templates for monitoring your AWS media workflow](monitor-with-workflow-monitor-configure-alarms.md "monitor-with-workflow-monitor-configure-alarms.md")
-- [EventBridge rule
-  groups and templates for monitoring your AWS media workflow](monitor-with-workflow-monitor-configure-notifications.md "monitor-with-workflow-monitor-configure-notifications.md")
+- [EventBridge rule groups and templates for monitoring your AWS media workflow](monitor-with-workflow-monitor-configure-notifications.md "monitor-with-workflow-monitor-configure-notifications.md")

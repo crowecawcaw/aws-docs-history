@@ -1,6 +1,4 @@
-# Requirements for AWS Elemental MediaLive
-
-features
+# Requirements for AWS Elemental MediaLive features
 
 You must give your users access to AWS Elemental MediaLive features. The permissions
 for MediaLive can be divided into three categories:
@@ -15,8 +13,7 @@ for MediaLive can be divided into three categories:
 In particular, you must decide whether to restrict the ability to work
 with reservations; you might decide to give this access only to
 administrators or advanced users. For more information about reservations,
-see [Working with reservations in
-MediaLive](reservations.md "reservations.md").
+see [Working with reservations in MediaLive](reservations.md "reservations.md").
 
 The following table shows the operations in IAM that relate to access
 for MediaLive.

@@ -1,6 +1,4 @@
-# Frame capture
-
-destination
+# Frame capture destination
 
 The following fields configure the location and names of
 the frame capture files (the destination).
@@ -18,9 +16,7 @@ You must design the destination path or paths for the output. You must then
 enter the different portions of the path into the appropriate fields on the
 console.
 
-## Design the path for the
-
-output destination
+## Design the path for the output destination
 
 ###### To design the path
 

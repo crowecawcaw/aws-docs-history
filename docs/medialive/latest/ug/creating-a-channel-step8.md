@@ -26,9 +26,6 @@ output group. 2. Read the appropriate sections that follow.
 
 ###### Topics
 
-- [Creating a captions encode from
-  scratch](create-captions-scratch.md "create-captions-scratch.md")
-- [Creating a captions encode by
-  sharing](create-captions-share.md "create-captions-share.md")
-- [Creating a captions encode by
-  cloning](create-captions-clone.md "create-captions-clone.md")
+- [Creating a captions encode from scratch](create-captions-scratch.md "create-captions-scratch.md")
+- [Creating a captions encode by sharing](create-captions-share.md "create-captions-share.md")
+- [Creating a captions encode by cloning](create-captions-clone.md "create-captions-clone.md")

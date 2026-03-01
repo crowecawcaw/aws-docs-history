@@ -1,6 +1,4 @@
-# Configuring the start time for the output
-
-timecode
+# Configuring the start time for the output timecode
 
 You can configure the start time for the output timecode that MediaLive includes in output
 encodes.

@@ -9,7 +9,6 @@ MediaLive Anywhere resources.
 2. In the navigation bar, choose MediaLive Anywhere, then choose **Networks**. On
    the **Networks** page, choose **Create network**.
 3. Complete the fields with the information that the network engineer provided you with
-   in [Identifying network
-   resources](emla-deploy-identify-network-requirements.md "emla-deploy-identify-network-requirements.md").
+   in [Identifying network resources](emla-deploy-identify-network-requirements.md "emla-deploy-identify-network-requirements.md").
 4. Choose **Create**. MediaLive Anywhere creates the network and adds it to the
    list of networks.

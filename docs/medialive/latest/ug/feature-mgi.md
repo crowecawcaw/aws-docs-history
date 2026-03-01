@@ -1,6 +1,4 @@
-# Working with motion graphics
-
-overlays
+# Working with motion graphics overlays
 
 You can use the motion graphics overlay feature to superimpose a motion
 image onto the video in a MediaLive channel. The motion image is based on an
@@ -38,7 +36,6 @@ price list. https://aws.amazon.com/medialive/pricing/
 
 ###### Topics
 
-- [Step 1: Prepare the motion
-  graphic asset](mgi-prepare-asset.md "mgi-prepare-asset.md")
+- [Step 1: Prepare the motion graphic asset](mgi-prepare-asset.md "mgi-prepare-asset.md")
 - [Step 2: Enable the feature](mgi-prepare-channel.md "mgi-prepare-channel.md")
 - [Step 3: Insert the overlay](mgi-insert-overlay.md "mgi-insert-overlay.md")

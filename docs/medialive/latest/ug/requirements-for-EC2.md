@@ -9,9 +9,7 @@ You must decide if you want to give some or all of your users
 permission to use this feature. (If you don't give this access to any users,
 then an administrator must be responsible for creating parameters.)
 
-## About the feature for creating password
-
-parameters
+## About the feature for creating password parameters
 
 The AWS Systems Manager Parameter Store is used extensively in AWS Elemental MediaLive. It is
 likely that you will use this store. The store holds passwords that MediaLive
@@ -37,9 +35,7 @@ the MediaLive console, choose **Create channel**,
 blanking**, **Avail blanking image**, and then
 choose **Credentials**.
 
-## How password parameters
-
-work
+## How password parameters work
 
 The password parameter feature ensures that when the user is creating
 a channel, AWS Elemental MediaLive does not store passwords in plaintext. It works as
@@ -59,9 +55,7 @@ follows:
   parameter name to Parameter Store and gets back the actual password in
   response.
 
-## Create feature that is built
-
-into MediaLive
+## Create feature that is built into MediaLive
 
 When a password field appears on the console, AWS Elemental MediaLive includes a
 feature that lets the user do one of the following:
@@ -76,23 +70,17 @@ Users must enter the name of a password parameter or select a name
 from the dropdown list. Some users might need permission to create a
 password parameter within AWS Elemental MediaLive.
 
-### Permission to enter a
-
-name
+### Permission to enter a name
 
 No special permission is required to enter the name of an existing
 password parameter on the AWS Elemental MediaLive console.
 
-### Permission to select a
-
-name
+### Permission to select a name
 
 For the user to select a name from the dropdown list, the user must
 have permission for `GetParameters` in AWS Systems Manager.
 
-### Permission to
-
-create
+### Permission to create
 
 For any user to create a password parameter on the AWS Elemental MediaLive console,
 that user must have permission to specific operations in AWS Systems Manager
@@ -114,9 +102,7 @@ advanced users:
   assets and whenever a new asset is required by MediaLive. An administrator
   might prefer to perform this setup on the AWS Systems Manager console.
 
-### Permission to
-
-modify and delete
+### Permission to modify and delete
 
 If you want users to be able to modify and delete password parameters
 (as well as create them), give access to modify and delete operations. The

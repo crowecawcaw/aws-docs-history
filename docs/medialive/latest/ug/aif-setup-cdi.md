@@ -1,6 +1,4 @@
-# Setting up automatic input failover with CDI
-
-inputs
+# Setting up automatic input failover with CDI inputs
 
 To use CDI inputs with automatic input failover in MediaLive, you must make sure that the
 upstream system provides sources in the correct way, and you must set up the inputs and
@@ -31,8 +29,7 @@ steps for [creating an input](create-input.md "create-input.md") and [creating a
 
 ###### To create the inputs for the input failover pair
 
-- Create a set of two partner CDI inputs. See [Creating a partner CDI push input in
-  Amazon VPC](input-create-cdi-partners.md "input-create-cdi-partners.md").
+- Create a set of two partner CDI inputs. See [Creating a partner CDI push input in Amazon VPC](input-create-cdi-partners.md "input-create-cdi-partners.md").
 
 Don't follow the usual procedure of creating two independent CDI inputs. You
 won't be able to set up these two inputs as a failover pair.

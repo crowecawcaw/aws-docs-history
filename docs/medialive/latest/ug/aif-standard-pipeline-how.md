@@ -1,6 +1,4 @@
-# Automatic input failover in a standard
-
-channel
+# Automatic input failover in a standard channel
 
 You can implement automatic input failover in a standard MediaLive channel to protect the
 MediaLive channel from failure in the upstream system or the network connection that is

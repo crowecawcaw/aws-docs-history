@@ -34,6 +34,5 @@ information that looks like this example.
 - [Identifying content in an MP4 source](extract-contents-mp4.md "extract-contents-mp4.md")
 - [Identifying content in an RTMP source](extract-contents-rtmp.md "extract-contents-rtmp.md")
 - [Identifying content in an RTP source](extract-contents-rtp.md "extract-contents-rtp.md")
-- [Identifying content in a
-  SMPTE 2110 source](extract-contents-s2110.md "extract-contents-s2110.md")
+- [Identifying content in a SMPTE 2110 source](extract-contents-s2110.md "extract-contents-s2110.md")
 - [Identifying content in an SRT source](extract-contents-srt.md "extract-contents-srt.md")

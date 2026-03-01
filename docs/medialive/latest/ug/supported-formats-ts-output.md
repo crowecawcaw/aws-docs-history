@@ -1,7 +1,4 @@
-# Captions formats supported in
-
-UDP,
-SRT, or multiplex outputs
+# Captions formats supported in UDP, SRT, or multiplex outputs
 
 In this table, look up your input container and captions type. Then read across to
 find the caption formats that are supported in MediaLive in an MPEG-TS streaming

@@ -20,15 +20,11 @@ In MediaLive, you can include ID3 metadata in the following types of output grou
 
 - [Different mechanisms for including metadata](id3-enable-result.md "id3-enable-result.md")
 - [Passing through ID3 metadata](enable-passthrough-id3.md "enable-passthrough-id3.md")
-- [Inserting ID3 timed metadata when creating the MediaLive
-  channel](insert-timed-metadata.md "insert-timed-metadata.md")
-- [Inserting ID3 metadata using the
-  schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md")
+- [Inserting ID3 timed metadata when creating the MediaLive channel](insert-timed-metadata.md "insert-timed-metadata.md")
+- [Inserting ID3 metadata using the schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md")
 
 ###### Topics
 
 - [Passing through ID3 metadata](enable-passthrough-id3.md "enable-passthrough-id3.md")
-- [Inserting ID3 timed metadata when creating the MediaLive
-  channel](insert-timed-metadata.md "insert-timed-metadata.md")
-- [Inserting ID3 metadata using the
-  schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md")
+- [Inserting ID3 timed metadata when creating the MediaLive channel](insert-timed-metadata.md "insert-timed-metadata.md")
+- [Inserting ID3 metadata using the schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md")

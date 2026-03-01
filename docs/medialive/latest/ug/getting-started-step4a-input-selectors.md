@@ -1,6 +1,4 @@
-# Step 6: Set up
-
-input video, audio, captions
+# Step 6: Set up input video, audio, captions
 
 You can create "selectors" to identify the specific video, audio,
 and captions that you want to extract from the input.

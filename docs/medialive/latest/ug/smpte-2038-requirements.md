@@ -1,6 +1,4 @@
-# A well-formed SMPTE 2038
-
-stream
+# A well-formed SMPTE 2038 stream
 
 For MediaLive to extract and process the data appropriately, the SMPTE
 2038 stream in the input must meet certain criteria:

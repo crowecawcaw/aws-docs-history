@@ -21,11 +21,9 @@ channel.
 
 ###### Topics
 
-- [Captions features supported in a
-  channel](captions-supported-features.md "captions-supported-features.md")
+- [Captions features supported in a channel](captions-supported-features.md "captions-supported-features.md")
 - [Typical scenarios for handling captions](typical-scenarios.md "typical-scenarios.md")
-- [Create captions selectors in the
-  inputs](identify-captions-in-the-input.md "identify-captions-in-the-input.md")
+- [Create captions selectors in the inputs](identify-captions-in-the-input.md "identify-captions-in-the-input.md")
 - [Plan captions for the outputs](planning-captions-in-the-outputs.md "planning-captions-in-the-outputs.md")
 - [Match formats to categories](match-categories-captions.md "match-categories-captions.md")
 - [Create captions encodes](create-captions-encodes.md "create-captions-encodes.md")

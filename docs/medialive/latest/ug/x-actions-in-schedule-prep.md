@@ -1,6 +1,4 @@
-# How input prepare
-
-actions work
+# How input prepare actions work
 
 You can set up an action to prepare an input that is
 associated with an immediate input switch, in order to reduce
@@ -15,8 +13,7 @@ create action B to switch to input X. Or you can create action B
 and then create action A.
 
 Before you add input prepare actions to the schedule, read
-[Preparing inputs in
-AWS Elemental MediaLive](feature-prepare-input.md "feature-prepare-input.md").
+[Preparing inputs in AWS Elemental MediaLive](feature-prepare-input.md "feature-prepare-input.md").
 
 ###### Input prepare with fixed start
 

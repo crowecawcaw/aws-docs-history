@@ -1,6 +1,4 @@
-# Using workflow monitor
-
-signal maps
+# Using workflow monitor signal maps
 
 From the **overview** section of the console, you can select
 a specific signal map to view more information about that signal map and its

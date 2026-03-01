@@ -4,9 +4,7 @@ To set up an audio-only output in a MediaLive channel, you must verify that the 
 inputs meet the requirements, then you must set up the audio selectors in the usual
 way.
 
-## Requirements for the channel and audio
-
-sources
+## Requirements for the channel and audio sources
 
 The channel can have a single input or multiples inputs. All the output groups
 (both those that are audio-only and those that are video-and-audio) always ingest
@@ -23,9 +21,7 @@ Each source must be one of these categories of source.
   video_ (and optionally captions). In this case, the input
   can be any input type that MediaLive supports.
 
-## Setting up the inputs in the
-
-channel
+## Setting up the inputs in the channel
 
 1. Create the inputs in the usual way. Then in the channel, set up the input
    attachments.

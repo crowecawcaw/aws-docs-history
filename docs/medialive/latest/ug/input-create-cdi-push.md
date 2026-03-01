@@ -15,6 +15,5 @@ their CDI source device.
 
 - [Request setup on the VPC](setup-vpc-cdi-vpc.md "setup-vpc-cdi-vpc.md")
 - [Create a CDI input](setup-input-cdi-vpc.md "setup-input-cdi-vpc.md")
-- [Ensure correct setup on the upstream
-  system](setup-uss-cdi-vpc.md "setup-uss-cdi-vpc.md")
+- [Ensure correct setup on the upstream system](setup-uss-cdi-vpc.md "setup-uss-cdi-vpc.md")
 - [Result of this procedure](setup-result-cdi-vpc.md "setup-result-cdi-vpc.md")

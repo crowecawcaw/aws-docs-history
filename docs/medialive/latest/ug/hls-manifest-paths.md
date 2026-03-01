@@ -28,5 +28,4 @@ see [The procedure](creating-hls-output-group.md#hls-create-procedure "creating-
 - [How manifests work](hls-manifests-how-work.md "hls-manifests-how-work.md")
 - [Rules for custom paths](hls-custom-paths-rules.md "hls-custom-paths-rules.md")
 - [Guidance for setting up for custom paths](hls-custom-paths-guidance.md "hls-custom-paths-guidance.md")
-- [Examples of custom
-  paths](hls-custom-paths-examples.md "hls-custom-paths-examples.md")
+- [Examples of custom paths](hls-custom-paths-examples.md "hls-custom-paths-examples.md")

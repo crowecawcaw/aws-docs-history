@@ -1,8 +1,7 @@
 # Return-to-network message – payload
 
 For information about the meaning and values for the fields in the following
-JSON, see [Fields for a
-return-to-network message](schedule-fields-for-return-to-network.md "schedule-fields-for-return-to-network.md").
+JSON, see [Fields for a return-to-network message](schedule-fields-for-return-to-network.md "schedule-fields-for-return-to-network.md").
 
 ```
 {

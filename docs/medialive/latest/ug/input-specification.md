@@ -11,9 +11,7 @@ The fields are the following:
   [assessed the upstream system](evaluate-upstream-system.md "evaluate-upstream-system.md") for
   each input source.
 
-## How MediaLive uses this
-
-information
+## How MediaLive uses this information
 
 MediaLive uses these values for billing and resource allocation purposes.
 
@@ -31,9 +29,7 @@ MediaLive doesn't use these values to determine what is actually in the video fo
 decoding purposes. At ingest time, it still inspects the video to detect the
 source codec, resolution, and bitrate.
 
-## Completing the settings –
-
-option A
+## Completing the settings – option A
 
 Follow this procedure if you will run the channel in the AWS Cloud, not in a
 [MediaLive Anywhere cluster](setup-emla.md "setup-emla.md").
@@ -78,9 +74,7 @@ Follow these tips:
      the device](device-edit.md "device-edit.md") to make sure that you don't get
      charged UHD rates.
 
-## Completing the settings –
-
-option B
+## Completing the settings – option B
 
 Follow this procedure if you plan to run the channel in a [MediaLive Anywhere cluster](setup-emla.md "setup-emla.md").
 

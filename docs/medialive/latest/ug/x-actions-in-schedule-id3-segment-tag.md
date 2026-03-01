@@ -1,6 +1,4 @@
-# How ID3
-
-segment tag actions work
+# How ID3 segment tag actions work
 
 You can set up an action to insert ID3 data in each segment in the following types
 of outputs:
@@ -10,8 +8,7 @@ of outputs:
 - HLS
 - MediaPackage
   Before you add ID3 segment tag actions to the schedule, read
-  [Inserting ID3 metadata using the
-  schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md").
+  [Inserting ID3 metadata using the schedule](insert-id3-metadata-via-schedule.md "insert-id3-metadata-via-schedule.md").
 
 **Insert ID3 segment tags with fixed
 start**

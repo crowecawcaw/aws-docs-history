@@ -1,6 +1,4 @@
-# Requirements for
-
-AWS CloudTrail
+# Requirements for AWS CloudTrail
 
 MediaLive is integrated with AWS CloudTrail, a service that provides a record of
 actions taken by a user, role, or an AWS service in MediaLive.

@@ -1,10 +1,7 @@
-# ID3 metadata item –
-
-payload
+# ID3 metadata item – payload
 
 For information about the meaning and values for the fields in the following
-JSON, see [Fields for ID3
-metadata](schedule-fields-for-id3-userdata.md "schedule-fields-for-id3-userdata.md").
+JSON, see [Fields for ID3 metadata](schedule-fields-for-id3-userdata.md "schedule-fields-for-id3-userdata.md").
 
 **Payload for the HlsTimedMetadataSettings
 action**

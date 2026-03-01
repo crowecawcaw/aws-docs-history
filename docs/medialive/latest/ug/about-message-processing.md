@@ -41,8 +41,6 @@ out the video, audio, and captions within the cueing information.
 
 - [Supported features by input type](input-processing-options.md "input-processing-options.md")
 - [Supported output features](processing-options.md "processing-options.md")
-- [Processing features – default
-  behavior](processing-options-default.md "processing-options-default.md")
+- [Processing features – default behavior](processing-options-default.md "processing-options-default.md")
 - [Scope of processing by feature](scope-by-feature.md "scope-by-feature.md")
-- [Supported features by
-  output type](processing-applicability-by-output-type.md "processing-applicability-by-output-type.md")
+- [Supported features by output type](processing-applicability-by-output-type.md "processing-applicability-by-output-type.md")

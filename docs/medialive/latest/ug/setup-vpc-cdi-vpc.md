@@ -9,8 +9,7 @@ both the upstream system and MediaLive will use.
     - Guideline for the subnets – Request two subnets. You need
       two subnets because a CDI input is always a [standard-class input](class-channel-input.md "class-channel-input.md"), even
       if your channel is a single-pipeline channel. For information about
-      input classes, see [Choosing the channel class and input
-      class](class-channel-input.md "class-channel-input.md").
+      input classes, see [Choosing the channel class and input class](class-channel-input.md "class-channel-input.md").
 
     These rules apply:
 

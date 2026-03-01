@@ -11,7 +11,5 @@ active for a specific time, or so that it is active indefinitely. In both
 cases, you can stop the overlay at any time by creating a deactivate
 action.
 
-For detailed information, see [Creating an AWS Elemental MediaLive
-schedule](working-with-schedule.md "working-with-schedule.md")
-and [Creating actions in the schedule
-(console)](schedule-using-console-create.md "schedule-using-console-create.md").
+For detailed information, see [Creating an AWS Elemental MediaLive schedule](working-with-schedule.md "working-with-schedule.md")
+and [Creating actions in the schedule (console)](schedule-using-console-create.md "schedule-using-console-create.md").

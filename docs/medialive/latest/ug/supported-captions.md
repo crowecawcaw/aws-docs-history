@@ -16,21 +16,12 @@ format:
 
 ###### Topics
 
-- [General information about
-  supported captions formats](general-information-supported-formats.md "general-information-supported-formats.md")
+- [General information about supported captions formats](general-information-supported-formats.md "general-information-supported-formats.md")
 - [Captions categories](categories-captions.md "categories-captions.md")
-- [How to read the supported captions
-  information](how-to-read-the-support-information.md "how-to-read-the-support-information.md")
-- [Captions formats supported in Archive
-  outputs](supported-formats-archive-output.md "supported-formats-archive-output.md")
-- [Captions formats supported in CMAF
-  Ingest outputs](supported-formats-cmafi-output.md "supported-formats-cmafi-output.md")
-- [Captions formats supported in HLS or
-  MediaPackage outputs](supported-formats-hls-output.md "supported-formats-hls-output.md")
-- [Captions formats supported in
-  Microsoft Smooth outputs](supported-formats-smooth-output.md "supported-formats-smooth-output.md")
-- [Captions formats supported in RTMP
-  outputs](supported-formats-rtmp-output.md "supported-formats-rtmp-output.md")
-- [Captions formats supported in
-  UDP,
-  SRT, or multiplex outputs](supported-formats-ts-output.md "supported-formats-ts-output.md")
+- [How to read the supported captions information](how-to-read-the-support-information.md "how-to-read-the-support-information.md")
+- [Captions formats supported in Archive outputs](supported-formats-archive-output.md "supported-formats-archive-output.md")
+- [Captions formats supported in CMAF Ingest outputs](supported-formats-cmafi-output.md "supported-formats-cmafi-output.md")
+- [Captions formats supported in HLS or MediaPackage outputs](supported-formats-hls-output.md "supported-formats-hls-output.md")
+- [Captions formats supported in Microsoft Smooth outputs](supported-formats-smooth-output.md "supported-formats-smooth-output.md")
+- [Captions formats supported in RTMP outputs](supported-formats-rtmp-output.md "supported-formats-rtmp-output.md")
+- [Captions formats supported in UDP, SRT, or multiplex outputs](supported-formats-ts-output.md "supported-formats-ts-output.md")

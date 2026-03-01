@@ -6,8 +6,7 @@ groups for the MediaLive channel.
 ###### To set up the VPC
 
 1. Provide your Amazon VPC user with the following guidelines:
-   - Guideline for the subnets and Availability Zones – See [Identifying subnet and Availability
-     Zone requirements](vpc-out-AZ-subnet-reqs.md "vpc-out-AZ-subnet-reqs.md")
+   - Guideline for the subnets and Availability Zones – See [Identifying subnet and Availability Zone requirements](vpc-out-AZ-subnet-reqs.md "vpc-out-AZ-subnet-reqs.md")
    - Guideline for the security group for channel endpoints subnets
      – The security group or groups must follow these rules:
      - The combined rules of the security groups must allow outbound

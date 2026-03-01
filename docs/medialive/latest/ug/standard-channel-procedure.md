@@ -1,6 +1,4 @@
-# Setting up a standard
-
-channel
+# Setting up a standard channel
 
 When you followed the [guidelines](pipeline-redundancy-guidelines.md "pipeline-redundancy-guidelines.md")
 for implementing pipeline redundancy in a MediaLive channel, you might have decided that you
@@ -31,9 +29,7 @@ input**.
 - Contact the upstream system and request that they provide
   two content sources.
 
-## How pipeline
-
-redundancy works
+## How pipeline redundancy works
 
 When you set up a standard channel, the channel has two
 pipelines—pipeline 0 and pipeline 1. Each input also contains
@@ -52,9 +48,7 @@ instance (the output from the green pipeline).
 
 ![Diagram showing upstream system, standard input, channel with two pipelines, and downstream system.](images/pipeline-redundancy-standard-channel.png)
 
-## Failure
-
-handling
+## Failure handling
 
 There might be a problem that causes a pipeline to stop functioning.
 

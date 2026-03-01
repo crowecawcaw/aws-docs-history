@@ -10,8 +10,7 @@ destination for the output of the HLS output group
    - You need two destinations in a [standard channel](plan-redundancy.md "plan-redundancy.md").
    - You need one destination in a single-pipeline channel.
 
-2. We recommend that you design the full path of the destination. See [Design the path for the
-   output destination](hls-destinations-design-step.md "hls-destinations-design-step.md").
+2. We recommend that you design the full path of the destination. See [Design the path for the output destination](hls-destinations-design-step.md "hls-destinations-design-step.md").
 
 If you have two destinations, the destination paths must be different from
 each other in some way. At least one of the portions of one path must be

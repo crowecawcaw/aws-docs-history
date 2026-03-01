@@ -1,6 +1,4 @@
-# Identify encode sharing
-
-opportunities
+# Identify encode sharing opportunities
 
 If you have already identified the details for all the output encodes,
 you can now identify opportunities for encode sharing.

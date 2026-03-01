@@ -37,19 +37,12 @@ channel resiliency. You might decide to implement one or both of these features.
 
 ###### Topics
 
-- [Automatic input failover in a single-pipeline
-  channel](aif-single-pipeline-how.md "aif-single-pipeline-how.md")
-- [Automatic input failover in a standard
-  channel](aif-standard-pipeline-how.md "aif-standard-pipeline-how.md")
-- [Setting up automatic input failover with CDI
-  inputs](aif-setup-cdi.md "aif-setup-cdi.md")
-- [Setting up automatic input failover with MediaConnect
-  inputs](aif-setup-emx.md "aif-setup-emx.md")
-- [Setting up automatic input failover with RTMP
-  and RTP inputs](aif-setup-other-inputs.md "aif-setup-other-inputs.md")
+- [Automatic input failover in a single-pipeline channel](aif-single-pipeline-how.md "aif-single-pipeline-how.md")
+- [Automatic input failover in a standard channel](aif-standard-pipeline-how.md "aif-standard-pipeline-how.md")
+- [Setting up automatic input failover with CDI inputs](aif-setup-cdi.md "aif-setup-cdi.md")
+- [Setting up automatic input failover with MediaConnect inputs](aif-setup-emx.md "aif-setup-emx.md")
+- [Setting up automatic input failover with RTMP and RTP inputs](aif-setup-other-inputs.md "aif-setup-other-inputs.md")
 - [Changing the roles of the failover pair](aif-setup-inverting.md "aif-setup-inverting.md")
 - [Starting the channel](aif-behavior-startup.md "aif-behavior-startup.md")
-- [Manually forcing a
-  failover](aif-and-input-switching-failoverpair.md "aif-and-input-switching-failoverpair.md")
-- [Automatic input failover and input
-  switching](aif-and-input-switching.md "aif-and-input-switching.md")
+- [Manually forcing a failover](aif-and-input-switching-failoverpair.md "aif-and-input-switching-failoverpair.md")
+- [Automatic input failover and input switching](aif-and-input-switching.md "aif-and-input-switching.md")

@@ -1,6 +1,4 @@
-# Processing features – default
-
-behavior
+# Processing features – default behavior
 
 The default handling of SCTE 35 by MediaLive is the
 following:

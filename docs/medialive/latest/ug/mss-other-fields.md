@@ -1,6 +1,4 @@
-# Fields for other
-
-Microsoft Smooth features
+# Fields for other Microsoft Smooth features
 
 ## Fields for resiliency
 
@@ -40,5 +38,4 @@ If you want all the outputs in this output group to include the SCTE-35
 messages that are already present in the input, choose **Sparse
 track**. The messages will be included in a sparse track. For more
 information, see [Processing SCTE 35 messages](scte-35-message-processing.md "scte-35-message-processing.md") and specifically
-[Enabling decoration –
-Microsoft Smooth](procedure-to-enable-decoration-ms-smooth.md "procedure-to-enable-decoration-ms-smooth.md").
+[Enabling decoration – Microsoft Smooth](procedure-to-enable-decoration-ms-smooth.md "procedure-to-enable-decoration-ms-smooth.md").

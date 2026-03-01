@@ -44,8 +44,7 @@ You set up for delivery to your VPC as follows:
   for MediaLive. You must update the role if your channel uses a custom trusted
   entity role, rather than the built-in MediaLiveAccessRole role that is
   available through the console. For more information, see [Access requirements for the trusted entity](trusted-entity-requirements.md "trusted-entity-requirements.md").
-- Update the IAM policies for users. For more information, see [Reference: summary of
-  non-administrator user access requirements](setup-users-step-1-summary.md "setup-users-step-1-summary.md").
+- Update the IAM policies for users. For more information, see [Reference: summary of non-administrator user access requirements](setup-users-step-1-summary.md "setup-users-step-1-summary.md").
 - When you create a channel, you must include this subnet, security
   group, and Elastic IP address information in the channel
   configuration.

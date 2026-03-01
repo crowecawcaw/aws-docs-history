@@ -1,6 +1,4 @@
-# Next steps—experienced video
-
-users
+# Next steps—experienced video users
 
 If you have experience with video streaming and with other AWS services, you might
 want to add more MediaLive resources and more resources from other AWS services to the

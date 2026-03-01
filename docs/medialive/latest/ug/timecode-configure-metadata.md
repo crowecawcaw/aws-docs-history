@@ -1,6 +1,4 @@
-# Including timecode metadata in the
-
-output
+# Including timecode metadata in the output
 
 You can set up a MediaLive channel to include timecode metadata in the individual output
 encode. Timecode metadata is supported in any type of output group except Frame Capture.

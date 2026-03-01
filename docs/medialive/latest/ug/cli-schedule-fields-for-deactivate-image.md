@@ -1,10 +1,7 @@
-# Deactivate global
-
-overlay action – payload
+# Deactivate global overlay action – payload
 
 For information about the meaning and values for the fields in the following
-JSON, see [Fields for deactivating a
-global image overlay](schedule-fields-for-deactivate-image.md "schedule-fields-for-deactivate-image.md").
+JSON, see [Fields for deactivating a global image overlay](schedule-fields-for-deactivate-image.md "schedule-fields-for-deactivate-image.md").
 
 ```
 {

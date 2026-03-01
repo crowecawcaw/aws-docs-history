@@ -5,16 +5,11 @@ into the channel is lost.
 
 ###### Topics
 
-- [How MediaLive handles video input
-  loss](#feature-input-loss-overview "#feature-input-loss-overview")
-- [Configuring the
-  replacement content](#feature-input-loss-customize-replacement "#feature-input-loss-customize-replacement")
-- [Customizing
-  delivery](#feature-input-loss-customize-delivery "#feature-input-loss-customize-delivery")
+- [How MediaLive handles video input loss](#feature-input-loss-overview "#feature-input-loss-overview")
+- [Configuring the replacement content](#feature-input-loss-customize-replacement "#feature-input-loss-customize-replacement")
+- [Customizing delivery](#feature-input-loss-customize-delivery "#feature-input-loss-customize-delivery")
 
-## How MediaLive handles video input
-
-loss
+## How MediaLive handles video input loss
 
 When MediaLive is ingesting an input, it might detect that the video source
 has been lost. This loss causes MediaLive to start to follow the _input loss behavior_ handling. MediaLive starts to
@@ -78,9 +73,7 @@ The default for input loss handling is the following:
 - In some output group types, you can change the delivery so that the
   encoded content isn't delivered.
 
-## Configuring the
-
-replacement content
+## Configuring the replacement content
 
 You can customize the duration of the replacement content, and you can
 customize the image or color used for the slate. For example, you can change
@@ -115,9 +108,7 @@ channel, as described in [Creating a channel from scratch](creating-channel-scra
 3. Complete one or more fields to customize the behavior.
    For details about a field on the MediaLive console, choose the **Info** link next to the field.
 
-## Customizing
-
-delivery
+## Customizing delivery
 
 You can change the default handling of the replacement content so that
 instead of delivering the encoded output, MediaLivediscards it. You can change

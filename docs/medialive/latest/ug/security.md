@@ -24,10 +24,8 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 ###### Topics
 
 - [Data protection in AWS Elemental MediaLive](data-retention.md "data-retention.md")
-- [Identity and Access Management for
-  AWS Elemental MediaLive](security-iam.md "security-iam.md")
+- [Identity and Access Management for AWS Elemental MediaLive](security-iam.md "security-iam.md")
 - [AWS managed policies for AWS Elemental MediaLive](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Compliance validation for AWS Elemental MediaLive](SERVICE-compliance.md "SERVICE-compliance.md")
 - [Resilience in AWS Elemental MediaLive](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  AWS Elemental MediaLive](infrastructure-security.md "infrastructure-security.md")
+- [Infrastructure security in AWS Elemental MediaLive](infrastructure-security.md "infrastructure-security.md")

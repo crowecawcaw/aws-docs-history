@@ -31,8 +31,7 @@ HLS input.
 7. If the upstream system and/or the license server (if the HLS source is
    encrypted) requires that you provide user credentials, you must also enter
    the user name and password key for accessing the location. These credentials
-   are stored on the Systems Manager Parameter Store. For more information, see [About the feature for creating password
-   parameters](requirements-for-EC2.md#about-EC2Password "requirements-for-EC2.md#about-EC2Password").
+   are stored on the Systems Manager Parameter Store. For more information, see [About the feature for creating password parameters](requirements-for-EC2.md#about-EC2Password "requirements-for-EC2.md#about-EC2Password").
 
 If one of the servers (upstream system or license server) requires
 credentials and the other doesn't, MediaLive presents them to both. But the

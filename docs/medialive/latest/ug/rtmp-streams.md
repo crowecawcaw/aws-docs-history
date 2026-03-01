@@ -1,6 +1,4 @@
-# Fields for the video, Audio,
-
-and captions streams (encodes)
+# Fields for the video, Audio, and captions streams (encodes)
 
 The following fields relate to the encoding of the video,
 audio, and captions streams (encodes) in the output.

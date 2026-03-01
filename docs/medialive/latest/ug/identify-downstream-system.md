@@ -1,6 +1,4 @@
-# Identify the output group types for the
-
-downstream system
+# Identify the output group types for the downstream system
 
 The first step in planning any AWS Elemental MediaLive workflow is to determine which types of [output groups](what-is-terminology.md "what-is-terminology.md") you need
 to produce, based on the requirements and capabilities of the systems that are downstream of
@@ -35,8 +33,7 @@ When you know what your downstream systems are, return to this section.
 3. Make sure that MediaLive includes an _output group_ that
    supports the output format and protocol that the downstream system requires. See [Output types supported in MediaLive](outputs-supported-containers.md "outputs-supported-containers.md").
 4. If your preferred downstream system is another AWS media service, [read this for information about choosing the service](dss-choose-service.md "dss-choose-service.md").
-5. If your downstream system supports Microsoft Smooth Streaming, see [Options for handling Microsoft Smooth
-   output](downstream-system-for-mss.md "downstream-system-for-mss.md") for options.
+5. If your downstream system supports Microsoft Smooth Streaming, see [Options for handling Microsoft Smooth output](downstream-system-for-mss.md "downstream-system-for-mss.md") for options.
 6. Decide if you want to create an Archive output group in order to produce an archive file
    of the content. An archive file is a supplement to streaming; it isn't itself a streaming
    output. Typically, you create an archive file as a permanent file version of the streaming
@@ -58,7 +55,5 @@ groups:
 ###### Topics
 
 - [Choosing among the AWS media services](dss-choose-service.md "dss-choose-service.md")
-- [Choosing between the HLS output group and
-  MediaPackage output group](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md")
-- [Options for handling Microsoft Smooth
-  output](downstream-system-for-mss.md "downstream-system-for-mss.md")
+- [Choosing between the HLS output group and MediaPackage output group](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md")
+- [Options for handling Microsoft Smooth output](downstream-system-for-mss.md "downstream-system-for-mss.md")

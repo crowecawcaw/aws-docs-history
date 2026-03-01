@@ -13,14 +13,10 @@ three reservations for this channel.
 
 ###### Topics
 
-- [Reservation
-  attributes](#addon-reservation-attributes "#addon-reservation-attributes")
-- [How an add-on
-  reservation is applied](#how-addon-reservation-applied "#how-addon-reservation-applied")
+- [Reservation attributes](#addon-reservation-attributes "#addon-reservation-attributes")
+- [How an add-on reservation is applied](#how-addon-reservation-applied "#how-addon-reservation-applied")
 
-## Reservation
-
-attributes
+## Reservation attributes
 
 The add-on reservations have these attributes:
 
@@ -30,9 +26,7 @@ The add-on reservations have these attributes:
   Normalization)
 - Region (in which the channel is running)
 
-## How an add-on
-
-reservation is applied
+## How an add-on reservation is applied
 
 At the start of each monthly billing cycle, AWS replenishes each
 add-on reservation with the pool of minutes for the month.
@@ -48,9 +42,7 @@ maximum of 60 minutes. After the reservation minutes are used up for the
 hour, AWS charges the regular rate-per-minute for the remainder of
 those channels for that hour.
 
-### Add-ons are per
-
-channel
+### Add-ons are per channel
 
 A channel matches the reservation if the add-on feature is
 enabled one or more times. Within one channel, the number of outputs
@@ -59,9 +51,7 @@ once for the entire channel. For example, if there are two outputs
 in one channel that enable audio normalization, only one reservation
 is consumed.
 
-### Running
-
-minutes can be allocated over channels
+### Running minutes can be allocated over channels
 
 The rule applies that applies to [input and output
 reservations](input-output-reservations.md#how-inputoutput-reservation-applied "input-output-reservations.md#how-inputoutput-reservation-applied") also applies to add-ons, except that the item
@@ -85,9 +75,7 @@ contribute to the 60 minutes.
 
 ![A graphic representation of 60 minutes with four channels, each channel running for 15 minutes. A bar runs across the top of the image and is divided into six segments representing 10 minute blocks, totalling 60 minutes. Below the top bar, four block are labelled as channels. Each output block occupies 15 minutes of space. Each channel block starts at the first 10 minute block. All four channel blocks are fully shaded to represent the entire channel is considered running minutes.](images/reservations-addon-shared4channels.png)
 
-### Licensing bursts are
-
-not supported
+### Licensing bursts are not supported
 
 The bursting rule that applies to [input and output
 reservations](input-output-reservations.md#how-inputoutput-reservation-applied "input-output-reservations.md#how-inputoutput-reservation-applied") also applies to add-on reservations, except

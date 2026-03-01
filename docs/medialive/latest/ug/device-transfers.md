@@ -1,6 +1,4 @@
-# Transferring a Link device to another
-
-account
+# Transferring a Link device to another account
 
 You can transfer a device to a different AWS account, to transfer ownership of the
 device to that account. The recipient of a transfer must accept or reject the incoming

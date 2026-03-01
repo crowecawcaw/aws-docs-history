@@ -1,6 +1,4 @@
-# Use case D:
-
-One captions output shared by multiple video encodes
+# Use case D: One captions output shared by multiple video encodes
 
 This example for captions in MediaLive shows how to set up captions in an ABR workflow.
 
@@ -13,6 +11,5 @@ sidecar category, in which case each captions encode is in its own output.
 
 ###### Topics
 
-- [Setup with Embedded or object-style
-  captions](setup-with-procedure-a-captions.md "setup-with-procedure-a-captions.md")
+- [Setup with Embedded or object-style captions](setup-with-procedure-a-captions.md "setup-with-procedure-a-captions.md")
 - [Setup with sidecar captions](setup-with-procedure-b-captions.md "setup-with-procedure-b-captions.md")

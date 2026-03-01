@@ -1,6 +1,4 @@
-# Streams
-
-section
+# Streams section
 
 The following fields relate to the encoding of the video,
 audio, and captions streams (encodes) in the output.
@@ -14,9 +12,7 @@ audio, and captions streams (encodes) in the output.
 - [Set up the audio encodes](creating-a-channel-step7.md "creating-a-channel-step7.md")
 - [Set up the captions encodes](creating-a-channel-step8.md "creating-a-channel-step8.md")
 
-## Packaging of video encodes and audio-only
-
-encodes
+## Packaging of video encodes and audio-only encodes
 
 MediaLive handles the packaging of encodes within each
 output as follows:
@@ -31,9 +27,7 @@ only` and each audio encode is
   marked as
   `ALTERNATE_AUDIO_NOT_AUTO_SELECT`.
 
-## Setting the
-
-width and height of the video
+## Setting the width and height of the video
 
 This section refers to the fields in **Stream
 settings**,
@@ -44,9 +38,7 @@ and **Height**. The MediaPackage output
 group doesn't support leaving these fields blank to use
 the width and height from the source video.
 
-## Setting the
-
-aspect ratio of the video
+## Setting the aspect ratio of the video
 
 This section refers to the fields in **Stream
 settings**, **Video**,
@@ -61,9 +53,7 @@ the output to follow the source video. When you choose
 denominator**. You can set the
 **AFD** fields as you want.
 
-## Setting the
-
-frame rate of the video
+## Setting the frame rate of the video
 
 This section refers to the fields in **Stream
 settings**, **Video**,
@@ -79,9 +69,7 @@ the output to follow the source video. When you choose
 set the scan type as you want; it doesn't relate
 directly to the frame rate.
 
-## Setting up
-
-for GOPs and segments
+## Setting up for GOPs and segments
 
 This section refers to the fields in **Stream
 settings**, **Video**,

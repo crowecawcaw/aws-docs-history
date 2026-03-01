@@ -1,6 +1,4 @@
-# Fields for activating a motion graphics
-
-overlay
+# Fields for activating a motion graphics overlay
 
 This table shows the fields that apply for an action to activate a motion
 graphics overlay.

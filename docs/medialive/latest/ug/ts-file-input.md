@@ -50,8 +50,7 @@ stored as a file.
     If the upstream system requires that you provide user credentials, you must
     also enter the user name and password key for accessing the location. These
     credentials are stored on the Systems Manager Parameter Store. For more information, see
-    [About the feature for creating password
-    parameters](requirements-for-EC2.md#about-EC2Password "requirements-for-EC2.md#about-EC2Password").
+    [About the feature for creating password parameters](requirements-for-EC2.md#about-EC2Password "requirements-for-EC2.md#about-EC2Password").
 
 8.  In the **Tags** section, create tags if you want to associate
     tags with this input. For more information, see [Tagging resources](tagging.md "tagging.md").
@@ -71,9 +70,7 @@ source location or locations and pull the content:
      provide one source and will therefore attempt to pull from one source
      location.
 
-## Formats for the URL in a dynamic
-
-input
+## Formats for the URL in a dynamic input
 
 The following table describes the different formats for the URL in a dynamic
 input.

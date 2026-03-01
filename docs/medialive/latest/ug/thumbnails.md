@@ -26,8 +26,6 @@ MediaLive always encrypts each thumbnail as it is created.
 ###### Topics
 
 - [Enabling thumbnails in a channel](thumbnails-enable.md "thumbnails-enable.md")
-- [Viewing thumbnails on the
-  console](thumbnails-view.md "thumbnails-view.md")
-- [Retrieving thumbnails
-  programmatically](thumbnails-work-cli.md "thumbnails-work-cli.md")
+- [Viewing thumbnails on the console](thumbnails-view.md "thumbnails-view.md")
+- [Retrieving thumbnails programmatically](thumbnails-work-cli.md "thumbnails-work-cli.md")
 - [Limit on thumbnails in MediaLive](thumbnail-limits.md "thumbnail-limits.md")

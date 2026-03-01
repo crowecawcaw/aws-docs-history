@@ -21,12 +21,9 @@ switch:
 - [Plan the action names](ips-plan-action-names.md "ips-plan-action-names.md")
 - [Plan the order of input switches](ips-order-switches.md "ips-order-switches.md")
 - [Example of a list of input switches](#ips-ordered-list-examples "#ips-ordered-list-examples")
-- [Handling the transition when the next input is fixed or
-  immediate](ips-transition-gap.md "ips-transition-gap.md")
-- [Handling the transition when the next input is
-  follow](transition-follow-success.md "transition-follow-success.md")
-- [Prepare
-  input—reducing latency when the next input is immediate](#ips-plan-immediate-prepare-input "#ips-plan-immediate-prepare-input")
+- [Handling the transition when the next input is fixed or immediate](ips-transition-gap.md "ips-transition-gap.md")
+- [Handling the transition when the next input is follow](transition-follow-success.md "transition-follow-success.md")
+- [Prepare input—reducing latency when the next input is immediate](#ips-plan-immediate-prepare-input "#ips-plan-immediate-prepare-input")
 
 ## Example of a list of input switches
 
@@ -50,12 +47,9 @@ Immediate switches to occur at any time:
 - static-live-studio, immediate, live-1
 - static-live-alternate, immediate, live-2
 
-## \*\*Prepare
-
-input—reducing latency when the next input is immediate\*\*
+## **Prepare input—reducing latency when the next input is immediate**
 
 You might have an input switch that you have identified as an immediate input switch, but
 you don't know when the switch will need to occur. You only know that you will be given just a
 few seconds advance notice. In this situation, you might want to prepare the input in advance
-by creating a prepare input action. For more information, see [Preparing inputs in
-AWS Elemental MediaLive](feature-prepare-input.md "feature-prepare-input.md").
+by creating a prepare input action. For more information, see [Preparing inputs in AWS Elemental MediaLive](feature-prepare-input.md "feature-prepare-input.md").

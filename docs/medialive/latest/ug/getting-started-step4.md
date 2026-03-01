@@ -1,6 +1,4 @@
-# Step 4: Set up key
-
-information
+# Step 4: Set up key information
 
 The first step to creating a channel from scratch is to choose the
 IAM role that MediaLive will use to access the channel when the channel is

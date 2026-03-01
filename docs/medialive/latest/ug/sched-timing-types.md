@@ -1,6 +1,4 @@
-# Types of timing for
-
-actions
+# Types of timing for actions
 
 There are several ways to specify the timing for an action:
 

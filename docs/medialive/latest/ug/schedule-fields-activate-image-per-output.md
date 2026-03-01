@@ -1,6 +1,4 @@
-# Fields for
-
-activating a per-outputs image overlay
+# Fields for activating a per-outputs image overlay
 
 This table shows the fields that apply for an action to activate an image
 overlay.

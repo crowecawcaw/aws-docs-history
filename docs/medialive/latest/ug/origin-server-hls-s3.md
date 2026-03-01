@@ -11,23 +11,19 @@ destination for the output of the HLS output group.
    - You need one destination in a single-pipeline channel.
 
 2. We recommend that you design the full path of the destination — the
-   Amazon S3 bucket and all the folders. See [Design the path for the
-   output destination](hls-destinations-design-step.md "hls-destinations-design-step.md").
+   Amazon S3 bucket and all the folders. See [Design the path for the output destination](hls-destinations-design-step.md "hls-destinations-design-step.md").
 3. Ask the Amazon S3 user to create any buckets that don't already exist.
 
 With MediaLive, the Amazon S3 bucket name must not use dot notation, which means it
 mustn't use . (dot) between the words in the bucket name. 4. Discuss ownership with the Amazon S3 user. If the bucket belongs to another
 AWS account, you typically want that account to become the owner of the
-output. For more information, see [Controlling access to the
-output](#setting-dss-hls-canned-acl "#setting-dss-hls-canned-acl"), after this procedure.
+output. For more information, see [Controlling access to the output](#setting-dss-hls-canned-acl "#setting-dss-hls-canned-acl"), after this procedure.
 Note that you don't need user credentials to send to an S3 bucket. MediaLive has
 permission to write to the S3 bucket via the trusted entity. Someone in your
 organization should have already set up these permissions. For more information, see
 [Access requirements for the trusted entity](trusted-entity-requirements.md "trusted-entity-requirements.md").
 
-## Controlling access to the
-
-output
+## Controlling access to the output
 
 You might be sending output files to an Amazon S3 bucket that is owned by another
 AWS account. In this situation, you typically want the other account to become

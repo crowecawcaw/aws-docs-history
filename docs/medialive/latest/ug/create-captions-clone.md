@@ -1,6 +1,4 @@
-# Creating a captions encode by
-
-cloning
+# Creating a captions encode by cloning
 
 You can create one captions encode and clone it among several outputs. The
 _source_ encode could be an encode that you

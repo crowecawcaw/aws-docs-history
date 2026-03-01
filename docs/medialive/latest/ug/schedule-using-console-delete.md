@@ -1,6 +1,4 @@
-# Deleting actions
-
-from the schedule (console)
+# Deleting actions from the schedule (console)
 
 These rule apply when you add delete actions to the
 schedule:
@@ -27,8 +25,7 @@ schedule:
       There are some constraints that apply to
        deleting inputs switches and input prepare,
        event when they are in the future. For more
-       information, see [Deleting actions from the schedule](ips-manage-schedule.md "ips-manage-schedule.md") and [Deleting and stopping input prepare actions in the MediaLive
-       schedule](input-prep-delete.md "input-prep-delete.md").
+       information, see [Deleting actions from the schedule](ips-manage-schedule.md "ips-manage-schedule.md") and [Deleting and stopping input prepare actions in the MediaLive schedule](input-prep-delete.md "input-prep-delete.md").
 
 
       + You can delete an action that has already been
@@ -40,8 +37,7 @@ schedule:
       There are some constraints that apply to
        deleting inputs switches and input prepare,
        event when they are in the future. For more
-       information, see [Deleting actions from the schedule](ips-manage-schedule.md "ips-manage-schedule.md") and [Deleting and stopping input prepare actions in the MediaLive
-       schedule](input-prep-delete.md "input-prep-delete.md").
+       information, see [Deleting actions from the schedule](ips-manage-schedule.md "ips-manage-schedule.md") and [Deleting and stopping input prepare actions in the MediaLive schedule](input-prep-delete.md "input-prep-delete.md").
 
   **Deleting versus
   reversing**
@@ -56,8 +52,7 @@ action. You don't unpause it by deleting the action.
 
 If the channel has already received the action, you might
 be able to modify it to effectively delete it. For more
-information, see [Modifying actions in the
-schedule (console)](schedule-modify.md "schedule-modify.md").
+information, see [Modifying actions in the schedule (console)](schedule-modify.md "schedule-modify.md").
 
 You can delete any number of actions in one request, or any
 combination of types of actions in one request. For example, you
@@ -78,8 +73,7 @@ action.
 4. If necessary, choose the **Switch**
    button to display the **List** view.
    For information about the layout and color coding of the
-   timeline view, see [Viewing the
-   schedule (console)](schedule-using-console-view.md "schedule-using-console-view.md").
+   timeline view, see [Viewing the schedule (console)](schedule-using-console-view.md "schedule-using-console-view.md").
 5. Choose one or more actions to delete.
 
 If you choose an input switch that is in an input
@@ -102,8 +96,7 @@ Choose **Actions**, and then choose
 4. If necessary, choose the **Switch**
    button to display the **Timeline**
    view. For information about the layout and color coding
-   of the timeline view, see [Viewing the
-   schedule (console)](schedule-using-console-view.md "schedule-using-console-view.md").
+   of the timeline view, see [Viewing the schedule (console)](schedule-using-console-view.md "schedule-using-console-view.md").
 5. In each action section, choose the
    **X** to delete the action.
 

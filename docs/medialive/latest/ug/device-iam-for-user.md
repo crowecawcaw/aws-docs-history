@@ -16,8 +16,7 @@ MediaLive features. Read this information as follows:
 
 - You have performed the initial setup described in [Preliminary steps for setting up to use MediaLive](setting-up.md "setting-up.md") in
   order to sign up for MediaLive and to create an administrator.
-- You have read the recommendations in [Identity and Access Management for
-  AWS Elemental MediaLive](security-iam.md "security-iam.md")about how to
+- You have read the recommendations in [Identity and Access Management for AWS Elemental MediaLive](security-iam.md "security-iam.md")about how to
   create administrators, users, and other AWS identities.
 
 ###### Topics

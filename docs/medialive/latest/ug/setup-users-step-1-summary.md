@@ -1,6 +1,4 @@
-# Reference: summary of
-
-non-administrator user access requirements
+# Reference: summary of non-administrator user access requirements
 
 The following table shows all the types of permissions that you might
 need to assign to users. Each row in the column describes an activity or set

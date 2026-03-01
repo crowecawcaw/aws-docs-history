@@ -1,6 +1,4 @@
-# Use case C: One input
-
-format converted to different formats, one format for each output
+# Use case C: One input format converted to different formats, one format for each output
 
 In this use case for including captions in a MediaLive output, the input is set up with one
 format of captions and two or more languages. Assume that you want to produce several

@@ -6,8 +6,7 @@ Obtain the following information from the operator at the upstream system:
 
 There are two URLs for a standard-class input, or one URL for a
 single-class input. For information about input classes and their uses, see
-[Choosing the channel class and input
-class](class-channel-input.md "class-channel-input.md").
+[Choosing the channel class and input class](class-channel-input.md "class-channel-input.md").
 
 See the table later in this section for the URL format and for
 examples.

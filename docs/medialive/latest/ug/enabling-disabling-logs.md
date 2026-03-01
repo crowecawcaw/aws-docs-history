@@ -1,6 +1,4 @@
-# Enabling channel
-
-encoder logs
+# Enabling channel encoder logs
 
 You enable channel encoder logs for an individual channel on
 the MediaLive console. You enable logging and set the logging level
@@ -39,9 +37,7 @@ than **DISABLED**. For more
 information, see [Logging](creating-a-channel-step3.md#channel-logging "creating-a-channel-step3.md#channel-logging"). 4. You or an administrator can also go into CloudWatch Logs and set
 an expiry date for the logs.
 
-## Disabling channel encoder
-
-logs
+## Disabling channel encoder logs
 
 You disable the capture of encoder-related logging
 information for an individual channel on the MediaLive console.

@@ -1,6 +1,4 @@
-# Viewing the
-
-schedule (AWS CLI)
+# Viewing the schedule (AWS CLI)
 
 You can use the AWS CLI to view a list of the actions that are
 currently in the schedule for one channel:

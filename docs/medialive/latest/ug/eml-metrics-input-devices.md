@@ -19,26 +19,19 @@ devices**
 
 - [Using SDI](#eml-metrics-using-SDI "#eml-metrics-using-SDI")
 - [Using HDMI](#eml-metrics-using-HDMI "#eml-metrics-using-HDMI")
-- [Input
-  locked](#eml-metrics-input-locked "#eml-metrics-input-locked")
-- [Encoder
-  running](#eml-metrics-encoder-running "#eml-metrics-encoder-running")
+- [Input locked](#eml-metrics-input-locked "#eml-metrics-input-locked")
+- [Encoder running](#eml-metrics-encoder-running "#eml-metrics-encoder-running")
 - [Linked to stream endpoint](#eml-metrics-linked-to-stream-endpoint "#eml-metrics-linked-to-stream-endpoint")
 - [Streaming](#eml-metrics-streaming "#eml-metrics-streaming")
 - [Temperature](#eml-metrics-device-temperature "#eml-metrics-device-temperature")
 - [Configured bitrate](#eml-metrics-device-configured-bitrate "#eml-metrics-device-configured-bitrate")
-- [Encoder
-  bitrate](#eml-metrics-device-encoder-bitrate "#eml-metrics-device-encoder-bitrate")
+- [Encoder bitrate](#eml-metrics-device-encoder-bitrate "#eml-metrics-device-encoder-bitrate")
 - [Configured bitrate available](#eml-metrics-device-available-bitrate "#eml-metrics-device-available-bitrate")
 - [Total packets](#eml-metrics-total-packets "#eml-metrics-total-packets")
-- [Recovered
-  packets](#eml-metrics-recovered-packets "#eml-metrics-recovered-packets")
-- [Not
-  recovered packets](#eml-metrics-not-recovered-packets "#eml-metrics-not-recovered-packets")
-- [Error
-  seconds](#eml-metrics-error-seconds "#eml-metrics-error-seconds")
-- [Use
-  cases](#eml-metrics-device-use-cases "#eml-metrics-device-use-cases")
+- [Recovered packets](#eml-metrics-recovered-packets "#eml-metrics-recovered-packets")
+- [Not recovered packets](#eml-metrics-not-recovered-packets "#eml-metrics-not-recovered-packets")
+- [Error seconds](#eml-metrics-error-seconds "#eml-metrics-error-seconds")
+- [Use cases](#eml-metrics-device-use-cases "#eml-metrics-device-use-cases")
 
 ## Using SDI
 
@@ -83,9 +76,7 @@ A value of 1 indicates that HDMI is the active input.
 - Recommended statistic: Minimum (HDMI input is
   inactive) or maximum (HDMI input is active).
 
-## Input
-
-locked
+## Input locked
 
 Indicates if an AWS Elemental Link device has successfully locked on
 to the input signal.
@@ -108,9 +99,7 @@ successfully locked.
 - Recommended statistic: Maximum. Indicates that the
   signal is successfully locked.
 
-## Encoder
-
-running
+## Encoder running
 
 The encoder is successfully processing the input signal
 from an AWS Elemental Link device
@@ -223,9 +212,7 @@ signal will be encoded.
   DeviceType.
 - Recommended statistic: P90.
 
-## Encoder
-
-bitrate
+## Encoder bitrate
 
 The actively encoded bitrate on an AWS Elemental Link device
 
@@ -300,9 +287,7 @@ endpoint.
   DeviceType.
 - Recommended statistic: Sum.
 
-## Recovered
-
-packets
+## Recovered packets
 
 On an AWS Elemental Link device, the number of packets that were lost
 during transit, but recovered by error correction.
@@ -320,9 +305,7 @@ during transit, but recovered by error correction.
   DeviceType.
 - Recommended statistic: Sum.
 
-## Not
-
-recovered packets
+## Not recovered packets
 
 On an AWS Elemental Link device, the number of packets that were lost
 during transit and were not recovered by error
@@ -341,9 +324,7 @@ correction.
   DeviceType.
 - Recommended statistic: Sum.
 
-## Error
-
-seconds
+## Error seconds
 
 On an AWS Elemental Link device, the number of seconds in which one or
 more packets were dropped and not recovered.
@@ -361,9 +342,7 @@ more packets were dropped and not recovered.
   DeviceType.
 - Recommended statistic: Sum.
 
-## Use
-
-cases
+## Use cases
 
 **Scenario: My device is not
 streaming.**

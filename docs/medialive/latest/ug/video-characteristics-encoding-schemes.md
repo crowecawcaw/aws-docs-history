@@ -1,23 +1,15 @@
-# Encoding schemes supported in
-
-video outputs in MediaLive
+# Encoding schemes supported in video outputs in MediaLive
 
 ###### Topics
 
-- [Encoding schemes for the
-  AV1 codec](#video-characteristics-encoding-schema-av1 "#video-characteristics-encoding-schema-av1")
-- [Encoding schemes for the
-  AVC (H.264) codec](#video-characteristics-encoding-scheme-avc "#video-characteristics-encoding-scheme-avc")
-- [Encoding schemes for
-  the HEVC (H.265) codec](#video-characteristics-encoding-scheme-hevc "#video-characteristics-encoding-scheme-hevc")
-- [Encoding schemes for
-  MPEG-2](#video-characteristics-encoding-scheme-mpeg2 "#video-characteristics-encoding-scheme-mpeg2")
+- [Encoding schemes for the AV1 codec](#video-characteristics-encoding-schema-av1 "#video-characteristics-encoding-schema-av1")
+- [Encoding schemes for the AVC (H.264) codec](#video-characteristics-encoding-scheme-avc "#video-characteristics-encoding-scheme-avc")
+- [Encoding schemes for the HEVC (H.265) codec](#video-characteristics-encoding-scheme-hevc "#video-characteristics-encoding-scheme-hevc")
+- [Encoding schemes for MPEG-2](#video-characteristics-encoding-scheme-mpeg2 "#video-characteristics-encoding-scheme-mpeg2")
   This section provides information about the encoding schemes that MediaLive supports in
   the different codecs that are supported in outputs.
 
-## Encoding schemes for the
-
-AV1 codec
+## Encoding schemes for the AV1 codec
 
 The AV1 codec encoding schemes for output video include profile, bit depth, chroma
 sampling, tier, and level. You can configure the bit depth by setting the
@@ -30,9 +22,7 @@ default is 8-bit.
 | Main    | 8-bit     | 4:2:0           | Main | All levels indicated in the AV1 specification |
 | 10-bit  |
 
-## Encoding schemes for the
-
-AVC (H.264) codec
+## Encoding schemes for the AVC (H.264) codec
 
 The AVC (H.264) codec encoding schemes for output video include profile, bit
 depth, and chroma sampling. In the following table, each row is a different scheme.
@@ -46,9 +36,7 @@ depth, and chroma sampling. In the following table, each row is a different sche
 | High     | 8-bit     | 4:2:2           |
 | High     | 10-bit    | 4:2:2           |
 
-## Encoding schemes for
-
-the HEVC (H.265) codec
+## Encoding schemes for the HEVC (H.265) codec
 
 The HEVC (H.265) codec encoding schemes for output video include profile, bit
 depth, chroma sampling, tier, and level. In the following table, each row is a
@@ -61,9 +49,7 @@ different scheme.
 | Main    | 10-bit    | 4:2:0           | Main |
 | Main    | 10-bit    | 4:2:0           | High |
 
-## Encoding schemes for
-
-MPEG-2
+## Encoding schemes for MPEG-2
 
 The MPEG-2 codec encoding schemes for output video include profile, bit depth, and
 chroma sampling.

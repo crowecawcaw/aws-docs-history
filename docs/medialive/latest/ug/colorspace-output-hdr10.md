@@ -1,6 +1,4 @@
-# Result when converting color space to
-
-HDR10
+# Result when converting color space to HDR10
 
 Read this section if you set up one or more MediaLive outputs to [convert the color space](colorspace-output-setup.md#colorspace-output-setup-convert "colorspace-output-setup.md#colorspace-output-setup-convert") to HDR10. The
 following table shows how MediaLive handles each type of color space that it encounters in the

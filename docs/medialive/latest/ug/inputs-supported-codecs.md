@@ -7,5 +7,4 @@ can ingest in AWS Elemental MediaLive
 
 - [Codecs supported in MediaLive inputs](inputs-supported-list.md "inputs-supported-list.md")
 - [Supported codecs by input type](inputs-supported-codecs-by-input-type.md "inputs-supported-codecs-by-input-type.md")
-- [Characteristics for video and audio
-  sources](inputs-video-audio-characteristics.md "inputs-video-audio-characteristics.md")
+- [Characteristics for video and audio sources](inputs-video-audio-characteristics.md "inputs-video-audio-characteristics.md")

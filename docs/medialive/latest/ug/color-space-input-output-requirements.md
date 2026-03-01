@@ -1,6 +1,4 @@
-# Input and output
-
-requirements
+# Input and output requirements
 
 ###### Topics
 
@@ -15,8 +13,7 @@ notes:
 
 - Handling Elemental Link inputs: MediaLive can't read the color space metadata in a
   source from an AWS Elemental Link device. The workaround when you set up the input is to specify
-  the color space that applies, as described in [Scenario B – Metadata can be corrected with
-  force](color-space-scenario-correct.md "color-space-scenario-correct.md").
+  the color space that applies, as described in [Scenario B – Metadata can be corrected with force](color-space-scenario-correct.md "color-space-scenario-correct.md").
 - Converting to Dolby Vision 8.1:
 
       + The video source must be HD or 4K resolution. In other words, the source must

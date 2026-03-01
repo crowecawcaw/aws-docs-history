@@ -14,10 +14,8 @@ decision. 2. Determine which type of source you have. If necessary, speak to the
 who is providing the source. 3. If the source is using the RTMP protocol, you must set up an input
 security group using the regular MediaLive console. See [Working with input security groups](working-with-input-security-groups.md "working-with-input-security-groups.md"). 4. Make sure that you have set up the IAM permissions
 that your users must have so that they can create and
-run the workflow. See [Setting up IAM permissions for
-users](setting-up-for-production.md "setting-up-for-production.md"), and
-specifically [Reference: summary of
-non-administrator user access requirements](setup-users-step-1-summary.md "setup-users-step-1-summary.md") 5. Sign in to the AWS Management Console and open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/ "https://console.aws.amazon.com/medialive/"). 6. Choose **Workflow wizard** from the navigation panel.
+run the workflow. See [Setting up IAM permissions for users](setting-up-for-production.md "setting-up-for-production.md"), and
+specifically [Reference: summary of non-administrator user access requirements](setup-users-step-1-summary.md "setup-users-step-1-summary.md") 5. Sign in to the AWS Management Console and open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/ "https://console.aws.amazon.com/medialive/"). 6. Choose **Workflow wizard** from the navigation panel.
 Follow the steps in the workflow wizard. 7. After you choose **Create** on the
 page, details about the workflow appear. A card appears
 for each resource that the workflow wizard involves.
@@ -40,8 +38,7 @@ that stack to create all the other resources:
 ## Modifying a workflow
 
 You can't use the workflow wizard to modify an existing workflow. For suggestions
-about making changes, see [Next steps—novice users](wizard-next-step-novice.md "wizard-next-step-novice.md") and [Next steps—experienced video
-users](wizard-next-step-experienced.md "wizard-next-step-experienced.md").
+about making changes, see [Next steps—novice users](wizard-next-step-novice.md "wizard-next-step-novice.md") and [Next steps—experienced video users](wizard-next-step-experienced.md "wizard-next-step-experienced.md").
 
 ## Deleting a workflow
 

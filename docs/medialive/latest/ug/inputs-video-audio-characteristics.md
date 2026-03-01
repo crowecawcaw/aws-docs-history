@@ -1,6 +1,4 @@
-# Characteristics for video and audio
-
-sources
+# Characteristics for video and audio sources
 
 **Orientation**
 

@@ -9,10 +9,8 @@ There are three ways to create a MediaLive channel:
 
 - **Create from scratch.** See the topics in this
   chapter.
-- **Use a built-in or custom template.** See [Creating a channel from a
-  template](creating-channel-template.md "creating-channel-template.md").
-- **Clone an existing channel.** See [Creating a channel by
-  cloning](creating-channel-clone.md "creating-channel-clone.md").
+- **Use a built-in or custom template.** See [Creating a channel from a template](creating-channel-template.md "creating-channel-template.md").
+- **Clone an existing channel.** See [Creating a channel by cloning](creating-channel-clone.md "creating-channel-clone.md").
 
 ###### Important
 

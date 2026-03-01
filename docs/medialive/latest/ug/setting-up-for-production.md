@@ -1,6 +1,4 @@
-# Setting up IAM permissions for
-
-users
+# Setting up IAM permissions for users
 
 This section describes the permissions that you must assign to users and
 other AWS identities so that they can work with AWS Elemental MediaLive and other AWS
@@ -12,8 +10,7 @@ This section assumes that you have already performed these tasks:
 
 - You have performed the initial setup described in [Preliminary steps for setting up to use MediaLive](setting-up.md "setting-up.md") in order to sign up for MediaLive and to create an
   administrator.
-- You have read the recommendations in [Identity and Access Management for
-  AWS Elemental MediaLive](security-iam.md "security-iam.md")about how to create administrators, users, and other AWS
+- You have read the recommendations in [Identity and Access Management for AWS Elemental MediaLive](security-iam.md "security-iam.md")about how to create administrators, users, and other AWS
   identities.
 
 ###### Topics
@@ -33,6 +30,7 @@ This section assumes that you have already performed these tasks:
 - [MediaConnect](requirements-for-media-connect.md "requirements-for-media-connect.md")
 - [MediaPackage](requirements-for-mediapackage.md "requirements-for-mediapackage.md")
 - [MediaStore](requirements-for-mediastore.md "requirements-for-mediastore.md")
+- [Elemental Inference](requirements-for-elemental-inference.md "requirements-for-elemental-inference.md")
 - [Resource Groups—tagging](requirements-for-tagging.md "requirements-for-tagging.md")
 - [Amazon S3](requirements-for-s3.md "requirements-for-s3.md")
 - [Secrets Manager secrets](requirements-for-secrets.md "requirements-for-secrets.md")

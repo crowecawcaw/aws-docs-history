@@ -1,6 +1,4 @@
-# Fields for the output
-
-destination
+# Fields for the output destination
 
 The following fields configure the destination of each
 Microsoft Smooth output.
@@ -24,9 +22,7 @@ Microsoft Smooth output.
   - **Certificate
     mode**
 
-## Complete
-
-the fields on the console
+## Complete the fields on the console
 
 The full path for each output in a Microsoft Smooth
 output group consists of the following:
@@ -51,9 +47,7 @@ You will be able to see the stream information
 when you look at the MediaLive logs for the
 output.
 
-###### To specify the path and connection to the
-
-downstream system
+###### To specify the path and connection to the downstream system
 
 1. Complete the **URL** fields
    in the **Microsoft Smooth group

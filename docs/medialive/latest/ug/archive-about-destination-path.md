@@ -1,6 +1,4 @@
-# Design
-
-the path for the output destination
+# Design the path for the output destination
 
 1. Design the destination path or paths, following this syntax:
 

@@ -1,6 +1,4 @@
-# Input settings—Audio
-
-selectors
+# Input settings—Audio selectors
 
 If you want to extract audio from the input, this section is required. You create
 one or more audio selectors to identify the audio asset to extract. Typically, you

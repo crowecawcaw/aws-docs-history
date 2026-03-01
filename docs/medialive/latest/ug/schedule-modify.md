@@ -1,6 +1,4 @@
-# Modifying actions in the
-
-schedule (console)
+# Modifying actions in the schedule (console)
 
 You can't modify an action in the schedule, even if it hasn't
 been received by the channel. However, you can sometimes achieve
@@ -9,24 +7,15 @@ both.
 
 ###### Topics
 
-- [General rule
-  about modifying actions](#modify-action-not-started "#modify-action-not-started")
-- [Modifying an input
-  switch action](#schedule-modify-ips "#schedule-modify-ips")
-- [Modifying an
-  input switch action in a follow chain](#schedule-modify-ips-follow "#schedule-modify-ips-follow")
-- [Inserting an input
-  switch action into a follow chain](#schedule-insert-follow "#schedule-insert-follow")
-- [Modifying an input
-  prepare action](#schedule-modify-prep "#schedule-modify-prep")
-- [Modifying an
-  image overlay that is in progress](#schedule-modify-image-overlay "#schedule-modify-image-overlay")
-- [Modifying a motion graphics overlay that is
-  in progress](#schedule-modify-mg "#schedule-modify-mg")
+- [General rule about modifying actions](#modify-action-not-started "#modify-action-not-started")
+- [Modifying an input switch action](#schedule-modify-ips "#schedule-modify-ips")
+- [Modifying an input switch action in a follow chain](#schedule-modify-ips-follow "#schedule-modify-ips-follow")
+- [Inserting an input switch action into a follow chain](#schedule-insert-follow "#schedule-insert-follow")
+- [Modifying an input prepare action](#schedule-modify-prep "#schedule-modify-prep")
+- [Modifying an image overlay that is in progress](#schedule-modify-image-overlay "#schedule-modify-image-overlay")
+- [Modifying a motion graphics overlay that is in progress](#schedule-modify-mg "#schedule-modify-mg")
 
-## General rule
-
-about modifying actions
+## General rule about modifying actions
 
 You can't modify an action in the schedule, even if it
 hasn't been received by the channel.
@@ -35,9 +24,7 @@ To change an action that hasn't yet started, delete the
 action and create it again. See the following sections for
 important tips on deleting and recreating.
 
-## Modifying an input
-
-switch action
+## Modifying an input switch action
 
 You can't modify input switches in the schedule. But you
 can achieve the same result by deleting the action and
@@ -48,9 +35,7 @@ that has a start time less than 15 seconds in the future.
 Give yourself enough time to delete and recreate the action
 before this deadline.
 
-## Modifying an
-
-input switch action in a follow chain
+## Modifying an input switch action in a follow chain
 
 When you delete an action in an _input follow chain_ (in order to delete and
 recreate it), you must also delete and recreate the input
@@ -109,9 +94,7 @@ then recreate inputs C and D. Recreate them in order going
 down the chain: input C, input D. Remember to set up input C
 to follow input A instead of input B.
 
-## Inserting an input
-
-switch action into a follow chain
+## Inserting an input switch action into a follow chain
 
 To insert a follow switch action into an _input follow chain_ (between two
 existing follow switch actions), you must delete and
@@ -127,9 +110,7 @@ inputs that follow. You then recreate the chain in the
 following order: input X (refers to input B), input C
 (refers to input X), input D (refers to input C).
 
-## Modifying an input
-
-prepare action
+## Modifying an input prepare action
 
 You can't modify input switches in the schedule. But you
 can achieve the same result by deleting the action and
@@ -140,18 +121,14 @@ that has a start time less than 15 seconds in the future.
 Give yourself enough time to delete and recreate the action
 before this deadline.
 
-### Modifying a
-
-SCTE 35 message that is in progress
+### Modifying a SCTE 35 message that is in progress
 
 You can't modify a SCTE 35 message that is active in
 the channel. Specifically, you can't shorten the
 duration of a splice_insert. But you can achieve the
 same result by creating a return-to-network action.
 
-### Modifying or deleting an ID3 segment tag that is in
-
-progress
+### Modifying or deleting an ID3 segment tag that is in progress
 
 You can't modify the contents of an ID3 segment tag
 that is active in the channel. Instead, create a new
@@ -167,9 +144,7 @@ empty tag:
   means you have effectively deleted the
   tag.
 
-## Modifying an
-
-image overlay that is in progress
+## Modifying an image overlay that is in progress
 
 You can't directly modify an image overlay (either global or per-outputs) that
 is running in the channel. But you can achieve the same result by creating a new
@@ -196,9 +171,7 @@ action with the same layer specified. You can do the following:
   The new action replaces the current action because
   you specified the same layer.
 
-## Modifying a motion graphics overlay that is
-
-in progress
+## Modifying a motion graphics overlay that is in progress
 
 You can't modify a motion graphic overlay that is running
 in the channel. But you can achieve the same result in other
@@ -206,5 +179,4 @@ ways. For example, the authoring system (that produces the
 motion graphic asset) can modify the content that is being
 published to the URL associated with the action. For
 information about preparing and publishing the motion
-graphics asset, see [Step 1: Prepare the motion
-graphic asset](mgi-prepare-asset.md "mgi-prepare-asset.md").
+graphics asset, see [Step 1: Prepare the motion graphic asset](mgi-prepare-asset.md "mgi-prepare-asset.md").

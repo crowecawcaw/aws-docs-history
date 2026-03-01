@@ -1,6 +1,4 @@
-# Determine Defaults and Selection
-
-Rules
+# Determine Defaults and Selection Rules
 
 As the second part of planning the audio rendition group, you should identify the
 following:

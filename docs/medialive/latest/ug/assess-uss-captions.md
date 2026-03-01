@@ -16,8 +16,7 @@ Obtain the following information about the captions source.
 Follow these steps for each [output group that you identified](identify-downstream-system.md "identify-downstream-system.md") for your workflow.
 
 1. Go to [Captions supported in MediaLive](supported-captions.md "supported-captions.md") and find the section for
-   the output group. For example, find [Captions formats supported in HLS or
-   MediaPackage outputs](supported-formats-hls-output.md "supported-formats-hls-output.md"). In the table in that section,
+   the output group. For example, find [Captions formats supported in HLS or MediaPackage outputs](supported-formats-hls-output.md "supported-formats-hls-output.md"). In the table in that section,
    read down the first column to find the format (container) that the content
    provider is providing.
 2. Read across to the _Source caption

@@ -8,9 +8,7 @@ will be removed.
 
 ###### Topics
 
-- [Two options: global overlay and per-output
-  overlay](image-overlay-features.md "image-overlay-features.md")
-- [Preparing the static image overlay
-  file](image-overlay-prepare-step.md "image-overlay-prepare-step.md")
+- [Two options: global overlay and per-output overlay](image-overlay-features.md "image-overlay-features.md")
+- [Preparing the static image overlay file](image-overlay-prepare-step.md "image-overlay-prepare-step.md")
 - [Handling encode sharing](image-overlay-encode-sharing.md "image-overlay-encode-sharing.md")
 - [Inserting and removing an overlay](image-overlay-insert.md "image-overlay-insert.md")

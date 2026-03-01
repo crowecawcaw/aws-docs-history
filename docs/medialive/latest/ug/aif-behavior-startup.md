@@ -23,8 +23,7 @@ Input failover in a MediaLive channel follows this rule:
 You can also manually switch to the other input, if the **Input
 preference** setting is **EQUAL_INPUT_PREFERENCE**.
 Switching over manually is useful, for example, if you believe that the active input
-is unstable. See [Manually forcing a
-failover](aif-and-input-switching-failoverpair.md "aif-and-input-switching-failoverpair.md").
+is unstable. See [Manually forcing a failover](aif-and-input-switching-failoverpair.md "aif-and-input-switching-failoverpair.md").
 
 Input failback follows this rule:
 

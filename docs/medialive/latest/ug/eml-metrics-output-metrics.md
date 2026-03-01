@@ -5,23 +5,17 @@ processed by MediaLive as an output.
 
 ###### Topics
 
-- [Active
-  outputs](#eml-metrics-active-outputs "#eml-metrics-active-outputs")
-- [Dropped
-  frames](#eml-metrics-dropped-frames "#eml-metrics-dropped-frames")
+- [Active outputs](#eml-metrics-active-outputs "#eml-metrics-active-outputs")
+- [Dropped frames](#eml-metrics-dropped-frames "#eml-metrics-dropped-frames")
 - [Fill msec](#eml-metrics-fill "#eml-metrics-fill")
-- [Output audio level
-  dBFS](#eml-metrics-audio-dbfs "#eml-metrics-audio-dbfs")
-- [Output audio level
-  LKFS](#eml-metrics-audio-lkfs "#eml-metrics-audio-lkfs")
+- [Output audio level dBFS](#eml-metrics-audio-dbfs "#eml-metrics-audio-dbfs")
+- [Output audio level LKFS](#eml-metrics-audio-lkfs "#eml-metrics-audio-lkfs")
 - [Network Out](#eml-metrics-network-out "#eml-metrics-network-out")
 - [Output 4xx errors](#eml-metrics-4xx "#eml-metrics-4xx")
 - [Output 5xx errors](#eml-metrics-5xx "#eml-metrics-5xx")
 - [SVQ time](#eml-metrics-svq-time "#eml-metrics-svq-time")
 
-## Active
-
-outputs
+## Active outputs
 
 The number of outputs that are being produced and successfully
 written to the destination.
@@ -46,9 +40,7 @@ might be intentional.
   identify situations when one or more outputs is not
   being produced.
 
-## Dropped
-
-frames
+## Dropped frames
 
 The number of input frames that MediaLive has dropped in the
 period. A value of 0 is expected and indicates that MediaLive is
@@ -81,8 +73,7 @@ the _expected time._ The
 _expected time_ is based on
 the input frame rate. The fine points of the fill frame behavior
 are controlled by the input loss behavior fields in the channel
-configuration. For information about these fields, see [Global configuration – input loss
-behavior](creating-a-channel-step3.md#input-loss-behavior "creating-a-channel-step3.md#input-loss-behavior").
+configuration. For information about these fields, see [Global configuration – input loss behavior](creating-a-channel-step3.md#input-loss-behavior "creating-a-channel-step3.md#input-loss-behavior").
 
 A value of 0 means that fill frames aren't being used. A
 non-zero value means that fill frames are being used and that
@@ -119,9 +110,7 @@ Use this metric as follows:
 - Recommended statistic: Maximum, to capture the capped
   count when fill frames are being used.
 
-## Output audio level
-
-dBFS
+## Output audio level dBFS
 
 The output audio level in decibels relative to full scale
 (dBFS).
@@ -141,9 +130,7 @@ The output audio level in decibels relative to full scale
   identify the lowest and highest audio level during the
   period.
 
-## Output audio level
-
-LKFS
+## Output audio level LKFS
 
 The output audio level in loudness, K-weighted, relative to
 full scale (LKFS).

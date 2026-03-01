@@ -1,8 +1,7 @@
 # Time_signal message – payload
 
 For information about the meaning and values for the fields in the following
-JSON, see [Fields for a time_signal
-message](schedule-fields-for-time-signal.md "schedule-fields-for-time-signal.md").
+JSON, see [Fields for a time_signal message](schedule-fields-for-time-signal.md "schedule-fields-for-time-signal.md").
 
 ```
 {

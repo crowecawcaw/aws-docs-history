@@ -1,6 +1,4 @@
-# JSON payload
-
-in different interfaces
+# JSON payload in different interfaces
 
 The JSON payload for the command is different for the
 different interfaces:

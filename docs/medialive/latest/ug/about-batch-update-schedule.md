@@ -1,6 +1,4 @@
-# Creating and
-
-deleting using a batch command
+# Creating and deleting using a batch command
 
 To create and delete actions in the schedule for a channel,
 you use the batch update schedule command. This command lets you
@@ -41,9 +39,6 @@ schedule.
 
 ###### Topics
 
-- [How a
-  batch request works](how-batch-schedule-requests-work.md "how-batch-schedule-requests-work.md")
-- [Batch
-  command in different interfaces](batchupdatecommand-interfaces.md "batchupdatecommand-interfaces.md")
-- [JSON payload
-  in different interfaces](batchupdatecommand-payloads.md "batchupdatecommand-payloads.md")
+- [How a batch request works](how-batch-schedule-requests-work.md "how-batch-schedule-requests-work.md")
+- [Batch command in different interfaces](batchupdatecommand-interfaces.md "batchupdatecommand-interfaces.md")
+- [JSON payload in different interfaces](batchupdatecommand-payloads.md "batchupdatecommand-payloads.md")

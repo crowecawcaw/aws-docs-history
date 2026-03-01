@@ -1,6 +1,4 @@
-# JSON
-
-for a state change event
+# JSON for a state change event
 
 Events that are based on a change of state in a [channel or
 multiplex](monitor-activity-types-channel.md "monitor-activity-types-channel.md") are identified by their `detail-type`

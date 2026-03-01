@@ -21,7 +21,7 @@ in the SMPTE 2038 stream. If MediaLive doesn't find the timecode there, it looks
 embedded directly in the video stream. MediaLive associates the SMPTE 12M timecode with the
 closest video frame.
 
-For information about how MediaLive uses the timecode, see [How the output timecode works at runtime](timecode-configure-source.md#timecode-runtime "timecode-configure-source.md#timecode-runtime") .
+For information about how MediaLive uses the timecode, see [How the output timecode works at runtime](timecode-configure-source.md#timecode-runtime "timecode-configure-source.md#timecode-runtime").
 
 **Ad avail messages**
 

@@ -1,6 +1,4 @@
-# Enabling decoration –
-
-Microsoft Smooth
+# Enabling decoration – Microsoft Smooth
 
 In a Microsoft Smooth output group, if you enable manifest decoration,
 instructions are inserted in the sparse track.
@@ -12,8 +10,7 @@ SCTE 35 content.
 ###### To enable decoration
 
 1. In the channel that you are creating, make sure that you have set the ad
-   avail mode. See [Getting ready: Set
-   the ad avail mode](getting-ready-set-the-ad-avail-mode.md "getting-ready-set-the-ad-avail-mode.md").
+   avail mode. See [Getting ready: Set the ad avail mode](getting-ready-set-the-ad-avail-mode.md "getting-ready-set-the-ad-avail-mode.md").
 2. In the navigation pane, find the desired Microsoft Smooth output group.
 3. For **Sparse track**, for **Sparse track
    type**, choose **SCTE_35**.

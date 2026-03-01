@@ -1,6 +1,4 @@
-# UDP or
-
-SRT output
+# UDP or SRT output
 
 In
 a

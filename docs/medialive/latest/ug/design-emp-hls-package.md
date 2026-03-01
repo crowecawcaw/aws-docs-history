@@ -1,6 +1,4 @@
-# Organize encodes in a MediaPackage output
-
-group
+# Organize encodes in a MediaPackage output group
 
 An MediaPackage output group is typically set up as a video ABR stack.
 A

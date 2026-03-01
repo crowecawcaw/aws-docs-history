@@ -1,6 +1,4 @@
-# Getting ready: Set the SCTE 35
-
-source—segments or manifest
+# Getting ready: Set the SCTE 35 source—segments or manifest
 
 If you have HLS inputs in a MediaLive channel, you must configure the input to identify
 the source of the SCTE 35 messages. There are two possible sources:
@@ -38,10 +36,8 @@ the source of the SCTE 35 messages. There are two possible sources:
 ###### Topics
 
 - [Supported manifest formats](#scte35-get-ready-source-support "#scte35-get-ready-source-support")
-- [How MediaLive creates the SCTE
-  35 messages](#scte35-get-ready-source-create-message "#scte35-get-ready-source-create-message")
-- [How MediaLive inserts the message:
-  preroll](#scte35-get-ready-source-preroll "#scte35-get-ready-source-preroll")
+- [How MediaLive creates the SCTE 35 messages](#scte35-get-ready-source-create-message "#scte35-get-ready-source-create-message")
+- [How MediaLive inserts the message: preroll](#scte35-get-ready-source-preroll "#scte35-get-ready-source-preroll")
 
 ## Supported manifest formats
 
@@ -59,9 +55,7 @@ are examples of supported formats for these tags.
 - `#EXT-X-CUE-OUT:"60.000"`
 - `#EXT-X-CUE-IN`
 
-## How MediaLive creates the SCTE
-
-35 messages
+## How MediaLive creates the SCTE 35 messages
 
 For each `EXT-X-CUE-OUT`, MediaLive creates an SCTE 35 message of type
 splice insert with the following data:
@@ -101,9 +95,7 @@ splice insert with the following data:
   EXT-X-CUE-OUT
 - `avails expected`: 0
 
-## How MediaLive inserts the message:
-
-preroll
+## How MediaLive inserts the message: preroll
 
 MediaLive includes a preroll when it inserts the SCTE 35 message that corresponds to
 the CUE-OUT. This preroll is 5 seconds in advance of the splice_time in the SCTE 35

@@ -1,6 +1,4 @@
-# Support for font styles in
-
-output captions
+# Support for font styles in output captions
 
 Depending on the scenario, there are three possibilities for the font style for output
 captions in a MediaLive output.

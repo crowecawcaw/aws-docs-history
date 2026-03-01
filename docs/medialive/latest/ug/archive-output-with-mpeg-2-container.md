@@ -1,6 +1,4 @@
-# Archive output with
-
-MPEG-2 container
+# Archive output with MPEG-2 container
 
 In an Archive output (a transport stream in an MPEG-2 container), MediaLive
 supports SCTE 35 features as follows:

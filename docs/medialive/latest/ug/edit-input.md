@@ -21,8 +21,7 @@ The rules for editing an input in MediaLive are as follows.
   **Changing the input class**
 
 - You can't change the input class if the input is attached to a channel. For
-  more information about changing the class of inputs and channels, see [Changing pipeline redundancy in an existing
-  channel](pipeline-redundancy-change.md "pipeline-redundancy-change.md").
+  more information about changing the class of inputs and channels, see [Changing pipeline redundancy in an existing channel](pipeline-redundancy-change.md "pipeline-redundancy-change.md").
   **Changing input type**
 
 - You can't change the type of an input. For example, if you set up an input as
@@ -52,8 +51,7 @@ There are constraints on performing these edits, as follows:
    - You can change the **Input devices** (applies only to
      an Elemental Link input).
    - You can change the **Input class** only if the input
-     isn't attached to a channel. For more information, see [Changing pipeline redundancy in an existing
-     channel](pipeline-redundancy-change.md "pipeline-redundancy-change.md").
+     isn't attached to a channel. For more information, see [Changing pipeline redundancy in an existing channel](pipeline-redundancy-change.md "pipeline-redundancy-change.md").
    - You can change the **Source** section (applies only
      to pull inputs).
    - You can change the **Endpoint** section only on an

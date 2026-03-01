@@ -1,6 +1,4 @@
-# Organize encodes in a Frame capture output
-
-group
+# Organize encodes in a Frame capture output group
 
 A Frame capture output group can contain
 the

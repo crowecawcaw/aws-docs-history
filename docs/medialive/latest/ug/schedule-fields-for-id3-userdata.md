@@ -1,6 +1,4 @@
-# Fields for ID3
-
-metadata
+# Fields for ID3 metadata
 
 This table shows the fields that apply for an action to
 perform a

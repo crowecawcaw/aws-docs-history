@@ -1,6 +1,4 @@
-# Inserting ID3 metadata using the
-
-schedule
+# Inserting ID3 metadata using the schedule
 
 You can create actions in the channel schedule to insert ID3 metadata in one or more
 outputs. There are two types of ID3 metadata actions:
@@ -21,9 +19,7 @@ the first column, then read across the row.
 | Segment insertion with the tag option, using the schedule | Supported   | Supported | Supported | Supported      | Supported    |
 | Segment insertion with the ID3 option, using the schedule | Supported   |           |           | Supported      |              |
 
-## Comparison of different schedule
-
-actions
+## Comparison of different schedule actions
 
 This table describes the main differences between the three mechanisms for inserting ID3
 metadata using the schedule. Find the mechanism in the first column, then read across the
@@ -45,9 +41,7 @@ insertion in the appropriate output groups.
 This section assumes that you are familiar with creating or editing a channel, as
 described in [Creating a channel from scratch](creating-channel-scratch.md "creating-channel-scratch.md").
 
-### Inserting in CMAF Ingest
-
-outputs
+### Inserting in CMAF Ingest outputs
 
 1. Display the **Create channel** or **Edit
    channel** page, then select the CMAF Ingest output group that you want to
@@ -74,9 +68,7 @@ outputs
      insert the ID3 metadata in this output. Or leave empty to use the default, which
      is PID 502.
 
-### Inserting in HLS MP4
-
-outputs
+### Inserting in HLS MP4 outputs
 
 1. Display the **Create channel** or **Edit
    channel** page, then select the output group where you want to enable ID3
@@ -95,9 +87,7 @@ outputs
 Note that with an MP4 output, the metadata will be inserted in the emsg. You don't
 need to configure this information.
 
-### Inserting in HLS audio-only
-
-outputs
+### Inserting in HLS audio-only outputs
 
 1. Display the **Create channel** or **Edit
    channel** page, then select the output group where you want to enable ID3
@@ -107,17 +97,13 @@ outputs
    - **HLS ID3 segment tagging**: Set to
      **ENABLED**.
 
-### Inserting in MediaPackage
-
-outputs
+### Inserting in MediaPackage outputs
 
 You don't need to enable insertion in MediaPackage outputs because ID3 metadata is
 enabled by default. This default behavior includes insertion of metadata using the
 schedule. MediaLive inserts the metadata in PID 502.
 
-## Step 2: Create actions in the
-
-schedule
+## Step 2: Create actions in the schedule
 
 After you have enabled ID3 metadata insertion in the appropriate output groups, you can
 create actions in the schedule.
@@ -130,5 +116,4 @@ enabled insertion.
 For more information, see the following:
 
 - [How ID3 metadata actions work](x-actions-in-schedule-id3.md "x-actions-in-schedule-id3.md")
-- [How ID3
-  segment tag actions work](x-actions-in-schedule-id3-segment-tag.md "x-actions-in-schedule-id3-segment-tag.md")
+- [How ID3 segment tag actions work](x-actions-in-schedule-id3-segment-tag.md "x-actions-in-schedule-id3-segment-tag.md")

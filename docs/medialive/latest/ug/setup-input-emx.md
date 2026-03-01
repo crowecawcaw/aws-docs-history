@@ -8,8 +8,7 @@ Create your input before you create the channel that ingests the input.
 ###### Topics
 
 - [Create the MediaConnect input](#emx-push-create "#emx-push-create")
-- [IAM role and
-  ARN](#mediaconnect-push-role-and-remember-arn "#mediaconnect-push-role-and-remember-arn")
+- [IAM role and ARN](#mediaconnect-push-role-and-remember-arn "#mediaconnect-push-role-and-remember-arn")
 
 ## Create the MediaConnect input
 
@@ -38,8 +37,7 @@ Create your input before you create the channel that ingests the input.
    B**, specify the ARN for the second flow.
 
 6. Complete the **Role ARN** section to choose a role
-   for MediaLive to use with this input. For information, see [IAM role and
-   ARN](#mediaconnect-push-role-and-remember-arn "#mediaconnect-push-role-and-remember-arn").
+   for MediaLive to use with this input. For information, see [IAM role and ARN](#mediaconnect-push-role-and-remember-arn "#mediaconnect-push-role-and-remember-arn").
 7. In the **Tags** section, create tags if you want to
    associate tags with this input. For more information, see [Tagging resources](tagging.md "tagging.md").
 8. Choose **Create**.
@@ -66,9 +64,7 @@ MediaLive coordinates with AWS Elemental MediaConnect to ensure that MediaLive r
 pipelines in the same two Availability Zones as AWS Elemental MediaConnect. This setup
 ensures maximum resiliency if one flow fails.
 
-## IAM role and
-
-ARN
+## IAM role and ARN
 
 This section describes how to complete the **Role ARN**
 section on the **Create input** pane of the MediaLive
@@ -92,9 +88,7 @@ the **MediaLiveAccessRole**) in both usages.
 There are two general scenarios for choosing a role, depending on whether your
 organization has a designated administrator.
 
-### Your organization has a designated
-
-administrator
+### Your organization has a designated administrator
 
 Your organization might have an administrator who manages this service.
 That administrator has likely set up one or more roles:
@@ -111,9 +105,7 @@ That administrator has likely set up one or more roles:
 - If you want the selected role to appear first in the list next
   time, select **Remember ARN**.
 
-### Your organization has no
-
-administrator
+### Your organization has no administrator
 
 Your organization might not have a designated service administrator. In
 this case, if none of your colleagues have set up a suitable role, you might

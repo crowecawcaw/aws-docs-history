@@ -1,6 +1,4 @@
-# Implementing low latency
-
-outputs
+# Implementing low latency outputs
 
 You can create a glass-to-glass low latency workflow that uses AWS Elemental MediaLive
 and AWS Elemental MediaPackage. The channel in AWS Elemental MediaPackage must use MediaPackage v2.
@@ -15,8 +13,7 @@ Follow these steps:
 - Coordinate with the operator of the MediaPackage operator to obtain the
   destination URL. See [HLS output group to MediaPackage v2](origin-server-hls-empv2.md "origin-server-hls-empv2.md").
 - In the channel, create an HLS output group with MediaPackage v2 as the
-  destination. Follow the guideance in [Fields for the output destination –
-  sending to MediaPackage](hls-destinations-emp.md "hls-destinations-emp.md").
+  destination. Follow the guideance in [Fields for the output destination – sending to MediaPackage](hls-destinations-emp.md "hls-destinations-emp.md").
 - When you set up the outputs and the video stream in the output
   group, follow the guidance for these fields, to achieve optimum
   latency:

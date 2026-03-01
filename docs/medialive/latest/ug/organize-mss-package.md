@@ -1,6 +1,4 @@
-# Organize encodes in a Microsoft Smooth output
-
-group
+# Organize encodes in a Microsoft Smooth output group
 
 A Microsoft Smooth output group is typically set up as a video ABR stack.
 A video ABR stack is

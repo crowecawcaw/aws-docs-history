@@ -1,10 +1,7 @@
-# Design the path for the output
-
-destination
+# Design the path for the output destination
 
 Perform this step if you haven't yet designed the full destination path or
-paths. If you've already designed the paths, go to [Complete the fields on the
-console](hls-specify-destination-ems.md "hls-specify-destination-ems.md").
+paths. If you've already designed the paths, go to [Complete the fields on the console](hls-specify-destination-ems.md "hls-specify-destination-ems.md").
 
 ###### To design the path
 
@@ -17,20 +14,13 @@ endpoint (for MediaStore).
 
 ###### Topics
 
-- [The syntax for the paths for the
-  outputs](#hls-syntax-ems "#hls-syntax-ems")
-- [How MediaLive constructs the
-  paths](#hls-how-construct-urls-ems "#hls-how-construct-urls-ems")
-- [Designing the folders and
-  baseFilename](#hls-path-ems "#hls-path-ems")
-- [Designing the
-  nameModifier](#hls-nameModifier-design-ems "#hls-nameModifier-design-ems")
-- [Designing the
-  segmentModifier](#hls-segmentModifier-design-ems "#hls-segmentModifier-design-ems")
+- [The syntax for the paths for the outputs](#hls-syntax-ems "#hls-syntax-ems")
+- [How MediaLive constructs the paths](#hls-how-construct-urls-ems "#hls-how-construct-urls-ems")
+- [Designing the folders and baseFilename](#hls-path-ems "#hls-path-ems")
+- [Designing the nameModifier](#hls-nameModifier-design-ems "#hls-nameModifier-design-ems")
+- [Designing the segmentModifier](#hls-segmentModifier-design-ems "#hls-segmentModifier-design-ems")
 
-## The syntax for the paths for the
-
-outputs
+## The syntax for the paths for the outputs
 
 An HLS output always includes three categories of files:
 
@@ -54,9 +44,7 @@ systems expect all the files to be together.
 | Child manifest files   | `protocol dataEndpoint path baseFilename<br>nameModifier extension`                                    | The path for the child manifest for the<br>high-resolution renditions of the<br>output`mediastoressl://a23f.data.mediastore.us-west-2.amazonaws.com/delivery/index-high.m3u8`                      |
 | Media files (segments) | `protocol dataEndpoint path baseFilename<br>nameModifier optionalSegmentModifier counter<br>extension` | The path for the file for the 230th segment<br>might<br>be:`mediastoressl://a23f.data.mediastore.us-west-2.amazonaws.com/delivery/index-high-00230.ts`                                             |
 
-## How MediaLive constructs the
-
-paths
+## How MediaLive constructs the paths
 
 These paths are constructed as follows:
 
@@ -80,9 +68,7 @@ These paths are constructed as follows:
   - For media files – .ts for files in a transport stream,
     or .mp4 for files in an fMP4 container
 
-## Designing the folders and
-
-baseFilename
+## Designing the folders and baseFilename
 
 Design a folder path and baseFilename that suits your purposes.
 
@@ -117,9 +103,7 @@ or
 
 `mediastoressl://a23f.data.mediastore.us-west-2.amazonaws.com/redundant/index.m3u8`
 
-## Designing the
-
-nameModifier
+## Designing the nameModifier
 
 Design the `nameModifier` portions of the file name. The
 child manifests and media files include this modifier in their file
@@ -142,9 +126,7 @@ guidelines:
 - The `nameModifier` can include [data
   variables](variable-data-identifiers.md "variable-data-identifiers.md").
 
-## Designing the
-
-segmentModifier
+## Designing the segmentModifier
 
 Design the segmentModifiers portion of the destination path. The
 segmentModifier is optional, and if you include it, only the media file

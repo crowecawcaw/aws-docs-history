@@ -15,6 +15,5 @@ To perform this setup, you must work with an operator at the upstream system.
 - [Obtain information](setup-rtp-push-obtain-info.md "setup-rtp-push-obtain-info.md")
 - [Create an input security group](setup-isg-rtp-push.md "setup-isg-rtp-push.md")
 - [Create an RTP input](setup-input-rtp-push.md "setup-input-rtp-push.md")
-- [Ensure correct setup on the upstream
-  system](setup-uss-rtp-push.md "setup-uss-rtp-push.md")
+- [Ensure correct setup on the upstream system](setup-uss-rtp-push.md "setup-uss-rtp-push.md")
 - [Result of this procedure](setup-result-rtp-push.md "setup-result-rtp-push.md")

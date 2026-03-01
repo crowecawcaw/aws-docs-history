@@ -1,6 +1,4 @@
-# How motion graphics
-
-overlay works
+# How motion graphics overlay works
 
 You can set up an action to insert and remove a motion
 graphics overlay on the video:
@@ -16,8 +14,7 @@ graphics overlay on the video:
   duration, or remove it when no duration is
   specified.
   For information about preparing the motion graphics asset that
-  the action inserts, see [Working with motion graphics
-  overlays](feature-mgi.md "feature-mgi.md").
+  the action inserts, see [Working with motion graphics overlays](feature-mgi.md "feature-mgi.md").
 
 ###### Activate or deactivate with fixed start
 

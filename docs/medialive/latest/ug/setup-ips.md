@@ -11,8 +11,7 @@ and for creating a channel, as described in[Creating a channel from scratch](cre
 
 - [Plan the outputs](ips-step-plan-outputs.md "ips-step-plan-outputs.md")
 - [Assess the sources](ips-step-plan-inputs.md "ips-step-plan-inputs.md")
-- [Organize sources into static and dynamic
-  inputs](ips-step-design-inputs.md "ips-step-design-inputs.md")
+- [Organize sources into static and dynamic inputs](ips-step-design-inputs.md "ips-step-design-inputs.md")
 - [Design the selectors for each input](ips-step-plan-attachments.md "ips-step-plan-attachments.md")
 - [Plan the input switches in the schedule](ips-step-plan-switches.md "ips-step-plan-switches.md")
 - [Create the inputs and channel](ips-step-create-inputs-channel.md "ips-step-create-inputs-channel.md")

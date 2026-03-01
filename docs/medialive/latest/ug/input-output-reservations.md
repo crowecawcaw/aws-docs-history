@@ -4,16 +4,11 @@ MediaLive offers input and output reservations.
 
 ###### Topics
 
-- [Input reservation attributes and
-  matching](#input-reservation-attributes-matching "#input-reservation-attributes-matching")
-- [Output reservation attributes and
-  matching](#output-reservation-attributes-matching "#output-reservation-attributes-matching")
-- [How an input or output reservation
-  is applied](#how-inputoutput-reservation-applied "#how-inputoutput-reservation-applied")
+- [Input reservation attributes and matching](#input-reservation-attributes-matching "#input-reservation-attributes-matching")
+- [Output reservation attributes and matching](#output-reservation-attributes-matching "#output-reservation-attributes-matching")
+- [How an input or output reservation is applied](#how-inputoutput-reservation-applied "#how-inputoutput-reservation-applied")
 
-## Input reservation attributes and
-
-matching
+## Input reservation attributes and matching
 
 An _input reservation_ applies to the cost of processing input. An
 input reservation has these attributes:
@@ -31,9 +26,7 @@ input specification for a channel is **AVC**, **HD**, and
 **Max 20 Mbps**. A reservation that matches those attributes could apply
 to the input in that channel.
 
-## Output reservation attributes and
-
-matching
+## Output reservation attributes and matching
 
 An _output reservation_ applies to the cost of the processing
 output. An output reservation has the following attributes:
@@ -90,9 +83,7 @@ reservation that specifies `<=30fps`.
 If only one of the fields does not match its corresponding reservation attribute,
 there is no match between the output and reservation.
 
-## How an input or output reservation
-
-is applied
+## How an input or output reservation is applied
 
 At the start of each monthly billing cycle, AWS replenishes each reservation with
 the pool of minutes for the month.
@@ -109,9 +100,7 @@ maximum of 60 minutes in the hour.
 After the reservation minutes are used up for the hour, AWS charges the regular
 rate-per-minute for the remainder of the items in that hour.
 
-### Running minutes can be allocated
-
-over items
+### Running minutes can be allocated over items
 
 The running minutes could come from more than one item. For example, you start
 Channel A with an input that matches a given reservation. You have purchased only one
@@ -130,9 +119,7 @@ outputs. Those four outputs would all contribute to the 60 minutes.
 
 ![A graphic representation of 60 minutes with four outputs, each output running for 15 minutes. A bar runs across the top of the image and is divided into six segments representing 10 minute blocks, totalling 60 minutes. Below the top bar, four block are labelled as outputs. Each output block occupies 15 minutes of space. Each output block starts at the first 10 minute block. All four output blocks are fully shaded to represent the entire output is considered running minutes.](images/reservations-inout-shared4outputs.png)
 
-### Processing bursts are not
-
-supported
+### Processing bursts are not supported
 
 The 60-minute rule means that reservations can't be used for processing
 bursts.
@@ -152,9 +139,7 @@ minutes are lost.
 
 The minutes are not transferred to the next month.
 
-### Running minutes can be
-
-allocated over items
+### Running minutes can be allocated over items
 
 There are no restrictions regarding channels:
 

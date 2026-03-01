@@ -1,6 +1,4 @@
-# Create a MediaPackage output
-
-group
+# Create a MediaPackage output group
 
 When you [planned
 the workflow for your channel](identify-downstream-system.md "identify-downstream-system.md"), you might have determined
@@ -40,8 +38,7 @@ You can create MediaPackage output groups for two different MediaPackage version
 
 You might want to add an output in order to implement trick-play. For more
 information about this feature and for instructions on setting it up in the
-channel, see [Trick-play track via the Image
-Media Playlist specification](trick-play-roku.md "trick-play-roku.md"). 7. Choose the first **Settings** link to view the sections
+channel, see [Trick-play track via the Image Media Playlist specification](trick-play-roku.md "trick-play-roku.md"). 7. Choose the first **Settings** link to view the sections
 for the first output. The section contains fields for the [output streams](hls-streams-section.md "hls-streams-section.md") (the video, audio,
 and captions). 8. [Save the channel](creating-a-channel-step9.md "creating-a-channel-step9.md").
 

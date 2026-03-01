@@ -7,10 +7,8 @@ system:
   application instance is also known as the _stream_ or
   _stream key_.) There are two sources for a
   standard-class input, or one source for a single-class input. For
-  information about input classes and their uses, see [Choosing the channel class and input
-  class](class-channel-input.md "class-channel-input.md"). For information about input classes and
-  their uses, see [Choosing the channel class and input
-  class](class-channel-input.md "class-channel-input.md").
+  information about input classes and their uses, see [Choosing the channel class and input class](class-channel-input.md "class-channel-input.md"). For information about input classes and
+  their uses, see [Choosing the channel class and input class](class-channel-input.md "class-channel-input.md").
 
 The operator of the upstream system might already have rules for assigning
 these names. If not, you might have names that you would like to use. Make

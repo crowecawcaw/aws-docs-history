@@ -36,8 +36,7 @@ first in the channel.
 
 - Add the remaining input attachments in any order.
 - In the **General input settings** section for each input attachment,
-  set **Source end behavior** to work correctly. For information, see [Handling the transition when the next input is fixed or
-  immediate](ips-transition-gap.md "ips-transition-gap.md").
+  set **Source end behavior** to work correctly. For information, see [Handling the transition when the next input is fixed or immediate](ips-transition-gap.md "ips-transition-gap.md").
 - In the **General input settings** section for each input attachment,
   set up the following sets of fields according to the plan that you created when you [planned the attachments](ips-step-plan-attachments.md "ips-step-plan-attachments.md"):
   - The fields in **Video selector**

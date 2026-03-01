@@ -19,9 +19,7 @@ The following sections provide details about some of these types of activities.
 
 ###### Topics
 
-- [States for channels and
-  multiplexes](monitor-activity-types-channel.md "monitor-activity-types-channel.md")
-- [Alerts that MediaLive
-  generates](monitor-activity-alerts.md "monitor-activity-alerts.md")
+- [States for channels and multiplexes](monitor-activity-types-channel.md "monitor-activity-types-channel.md")
+- [Alerts that MediaLive generates](monitor-activity-alerts.md "monitor-activity-alerts.md")
 - [Metrics that MediaLive generates](monitor-activity-types-metrics.md "monitor-activity-types-metrics.md")
 - [Logs that MediaLive generates](monitor-activity-types-logs.md "monitor-activity-types-logs.md")

@@ -1,6 +1,4 @@
-# Requirements for
-
-Amazon Elastic Compute Cloud—VPC inputs
+# Requirements for Amazon Elastic Compute Cloud—VPC inputs
 
 Your deployment might include push inputs that connect to MediaLive from a
 VPC that you created with Amazon VPC.

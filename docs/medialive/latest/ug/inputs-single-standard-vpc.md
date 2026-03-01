@@ -6,8 +6,7 @@ set up only as single-class inputs.
 
 When you have a choice, the type to use depends on whether you want to create a
 standard channel, in order to implement pipeline resiliency. For more information, see
-[Choosing the channel class and input
-class](class-channel-input.md "class-channel-input.md").
+[Choosing the channel class and input class](class-channel-input.md "class-channel-input.md").
 
 | MediaLive input type       | Supported classes   |
 | -------------------------- | ------------------- |

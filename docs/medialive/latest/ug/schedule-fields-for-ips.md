@@ -9,16 +9,11 @@ input switches:
 
 ###### Topics
 
-- [Fields for a switch to a
-  static live input](#schedule-fields-ips-static-live "#schedule-fields-ips-static-live")
-- [Fields for a switch to a
-  static file input](#schedule-fields-ips-static-file "#schedule-fields-ips-static-file")
-- [Fields for a switch to a
-  dynamic file input](#schedule-fields-ips-static-dynamic "#schedule-fields-ips-static-dynamic")
+- [Fields for a switch to a static live input](#schedule-fields-ips-static-live "#schedule-fields-ips-static-live")
+- [Fields for a switch to a static file input](#schedule-fields-ips-static-file "#schedule-fields-ips-static-file")
+- [Fields for a switch to a dynamic file input](#schedule-fields-ips-static-dynamic "#schedule-fields-ips-static-dynamic")
 
-## Fields for a switch to a
-
-static live input
+## Fields for a switch to a static live input
 
 This table shows the fields that apply for an action to switch to a static
 live input.
@@ -33,9 +28,7 @@ live input.
 | **Reference action name** | If the **Start type\*<br>• is<br>**Follow\**, choose the input to<br>switch from, which is the input that precedes this new<br>input. The dropdown list shows all existing input<br>switches that are file inputs. Remember that input B can<br>follow input A only if input A is a file input and the<br>source end behavior for input A is *continue\*.<br>For information about these switching rules, see [Fixed, immediate, and follow switches](ips-switch-types.md "ips-switch-types.md").<br>For example, if you want to switch from input A to<br>input B, specify input A in this field. |
 | **Follow point**          | If the **Start type\*<br>• is<br>**Follow**, complete this field. The<br>follow point is always **End**, to indicate<br>that the switch will occur when the input in<br>**Reference action name\*<br>• has<br>finished.                                                                                                                                                                                                                                                                                                                                                                            |
 
-## Fields for a switch to a
-
-static file input
+## Fields for a switch to a static file input
 
 This table shows the fields that apply for an action to switch to a static
 file input.
@@ -54,9 +47,7 @@ file input.
 | **Reference action name**                                                         | If the **Start type\*<br>• is<br>**Follow\*\*, choose the input to<br>switch from, which is the input that precedes this new<br>input. The dropdown list shows all existing input<br>switches that are file inputs. Remember that input B can<br>follow input A only if input A is a file input. For<br>information about these switching rules, see [Fixed, immediate, and follow switches](ips-switch-types.md "ips-switch-types.md").<br>For example, if you want to switch from input A to<br>input B, specify input A in this field. |
 | **Follow point**                                                                  | If the **Start type\*<br>• is<br>**Follow**, complete this field. The<br>follow point is always **End**, to indicate<br>that the switch will occur when the input in<br>**Reference action name\*<br>• has<br>finished.                                                                                                                                                                                                                                                                                                                   |
 
-## Fields for a switch to a
-
-dynamic file input
+## Fields for a switch to a dynamic file input
 
 This table shows the fields that apply for an action to switch to a
 dynamic file input.

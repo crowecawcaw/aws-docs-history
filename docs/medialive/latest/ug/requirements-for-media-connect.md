@@ -1,6 +1,4 @@
-# Requirements for
-
-AWS Elemental MediaConnect
+# Requirements for AWS Elemental MediaConnect
 
 Your deployment might include using a flow from AWS Elemental MediaConnect as an input
 to AWS Elemental MediaLive.

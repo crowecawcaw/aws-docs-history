@@ -1,6 +1,4 @@
-# General procedure for handling color
-
-space
+# General procedure for handling color space
 
 The procedure for handling color space in the channel is the same for both passing through
 and converting the color space in the outputs.
@@ -16,12 +14,10 @@ and converting the color space in the outputs.
          source, so that it can apply the correct conversion formula. Therefore, even if you
          plan to remove the metadata in the outputs, you must assess the metadata.
 
-    See [Assess the color space metadata in the
-    sources](color-space-input-procedure.md "color-space-input-procedure.md").
+    See [Assess the color space metadata in the sources](color-space-input-procedure.md "color-space-input-procedure.md").
 
 3.  If you need to correct the color space metadata, you do so in the input. You configure
     each input separately.
 
 See [Options for correcting metadata](color-space-cleanup-scenarios.md "color-space-cleanup-scenarios.md"). 4. Set up the output to pass through or convert the color space, and to include or omit
-the color space metadata. See [Configuring color space handling in each
-output](color-space-output-handling.md "color-space-output-handling.md").
+the color space metadata. See [Configuring color space handling in each output](color-space-output-handling.md "color-space-output-handling.md").

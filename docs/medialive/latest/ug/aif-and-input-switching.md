@@ -1,6 +1,4 @@
-# Automatic input failover and input
-
-switching
+# Automatic input failover and input switching
 
 When you implement automatic input failover in MediaLive, you can still implement input
 switching.
@@ -8,8 +6,7 @@ switching.
 ###### Note
 
 The information in this section assumes that you are familiar with the general
-steps for creating input switches, as described in [Creating actions in the schedule
-(console)](schedule-using-console-create.md "schedule-using-console-create.md").
+steps for creating input switches, as described in [Creating actions in the schedule (console)](schedule-using-console-create.md "schedule-using-console-create.md").
 
 With automatic input failover, your deployment contains an input failover pair that
 uses up your quota of push inputs for the channel. You can't attach more push inputs to

@@ -32,8 +32,7 @@ Microsoft Smooth outputs:
   content.
 
 You must set up the channel for the behavior that you want. For more
-information, see [Enabling manifest decoration in the
-output](enable-manifest-decoration.md "enable-manifest-decoration.md").
+information, see [Enabling manifest decoration in the output](enable-manifest-decoration.md "enable-manifest-decoration.md").
 
 ## Blanking and blackout
 
@@ -46,8 +45,7 @@ channel so that this content is blanked out in the output:
 - To blank out content for other messages, use the blackout
   feature.
 
-For more information, see [Enabling ad avail blanking in the
-output](enable-ad-avail-blanking.md "enable-ad-avail-blanking.md") and [Enabling blackout in the output](enable-blackout.md "enable-blackout.md").
+For more information, see [Enabling ad avail blanking in the output](enable-ad-avail-blanking.md "enable-ad-avail-blanking.md") and [Enabling blackout in the output](enable-blackout.md "enable-blackout.md").
 
 ## SCTE 35 passthrough
 
@@ -56,12 +54,9 @@ passed through to the output. Or you can set up to remove these messages from
 the output.
 
 The behavior that you want must be set up in the channel. For more
-information, see [Enabling SCTE 35 passthrough or
-removal](scte-35-passthrough-or-removal.md "scte-35-passthrough-or-removal.md").
+information, see [Enabling SCTE 35 passthrough or removal](scte-35-passthrough-or-removal.md "scte-35-passthrough-or-removal.md").
 
-## Inserting SCTE 35 messages using the
-
-schedule
+## Inserting SCTE 35 messages using the schedule
 
 You can insert SCTE 35 messages in TS outputs using the [channel schedule](x-actions-in-schedule-SCTE35.md "x-actions-in-schedule-SCTE35.md"). For example,
 you can add an action in the channel schedule to insert a splice insert in the
@@ -70,5 +65,4 @@ running channel.
 The main use case for this feature is to add SCTE 35 messages to the output,
 when the input doesn't already include SCTE 35 messages.
 
-For more information, see [Inserting SCTE 35 messages using the
-schedule](setup-scte35-insertion.md "setup-scte35-insertion.md").
+For more information, see [Inserting SCTE 35 messages using the schedule](setup-scte35-insertion.md "setup-scte35-insertion.md").

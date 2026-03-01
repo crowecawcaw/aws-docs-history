@@ -1,6 +1,4 @@
-# Results for different color space
-
-handling
+# Results for different color space handling
 
 This section describes how MediaLive handles the color space and color space metadata that it
 encounters in the source input, depending on how you set up the color space in the
@@ -8,20 +6,13 @@ output.
 
 ###### Topics
 
-- [General process for handling color
-  space conversion](#color-space-simplified-results-general "#color-space-simplified-results-general")
-- [Result when passing through color
-  space](#colorspace-simplified-output-passthrough "#colorspace-simplified-output-passthrough")
-- [Result when converting color space to
-  SDR](#color-space-simplified-output-sdr "#color-space-simplified-output-sdr")
-- [Result when converting color space to
-  HDR10](#colorspace-simplified-output-hdr10 "#colorspace-simplified-output-hdr10")
-- [Result when converting color space
-  to Dolby Vision 8.1](#color-space-simplified-output-dolby81 "#color-space-simplified-output-dolby81")
+- [General process for handling color space conversion](#color-space-simplified-results-general "#color-space-simplified-results-general")
+- [Result when passing through color space](#colorspace-simplified-output-passthrough "#colorspace-simplified-output-passthrough")
+- [Result when converting color space to SDR](#color-space-simplified-output-sdr "#color-space-simplified-output-sdr")
+- [Result when converting color space to HDR10](#colorspace-simplified-output-hdr10 "#colorspace-simplified-output-hdr10")
+- [Result when converting color space to Dolby Vision 8.1](#color-space-simplified-output-dolby81 "#color-space-simplified-output-dolby81")
 
-## General process for handling color
-
-space conversion
+## General process for handling color space conversion
 
 In an output that specifies to convert the color space, MediaLive performs the following
 steps on each video frame in the output.
@@ -58,9 +49,7 @@ color space using the standard mechanism.
 For detailed information about the results of each kind of source/output conversion, see
 the sections that follow.
 
-## Result when passing through color
-
-space
+## Result when passing through color space
 
 Read this section if you set up one or more outputs to [pass through the color
 space](color-space-simplified-output-handling.md#colorspace-simplified-output-setup-passthrough "color-space-simplified-output-handling.md#colorspace-simplified-output-setup-passthrough"). The following table shows how MediaLive handles each type of color space that it
@@ -70,9 +59,7 @@ encounters in the source.
 | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | Content in any color space that MediaLive supports | Doesn't touch the color space or brightness in the output.<br>Passes through any of the three color format metadata fields that are<br>present. |
 
-## Result when converting color space to
-
-SDR
+## Result when converting color space to SDR
 
 Read this section if you set up one or more outputs to [convert the color space](color-space-simplified-output-handling.md#colorspace-simplified-output-setup-convert "color-space-simplified-output-handling.md#colorspace-simplified-output-setup-convert") to
 Rec. 601 or Rec. 709. The following table shows how MediaLive handles each type of color space
@@ -87,9 +74,7 @@ that it encounters in the source.
 | Content in HLG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | When the output codec is H.264 and if you have enabled enhanced VQ, MediaLive does<br>the following:<br>• Converts the content to the chosen SDR color space and brightness<br>function. The conversion fits the colors into the smaller color space.<br>• Changes the color space metadata to specify the new color space.<br>• Changes any brightness metadata to specify the new standard.<br>After the conversion, the content complies completely with the new color<br>space. The color will be less rich. The color will match the new brightness<br>function.<br>If you haven't enabled enhanced VQ, MediaLive doesn't convert anything. It passes<br>through the color space metadata, and any brightness metadata.                                                             |
 | When the output codec is AV1 or H.265, MediaLive does the following:<br>• Converts the content to the chosen SDR color space and brightness<br>function. The conversion fits the colors into the smaller color space.<br>• Changes the color space metadata to specify the new color space.<br>• Changes any brightness metadata to specify the new standard.<br>After the conversion, the content complies completely with the new color<br>space. The color will be less rich. The color will match the new brightness<br>function.                                    |
 
-## Result when converting color space to
-
-HDR10
+## Result when converting color space to HDR10
 
 Read this section if you set up one or more outputs to [convert the color space](color-space-simplified-output-handling.md#colorspace-simplified-output-setup-convert "color-space-simplified-output-handling.md#colorspace-simplified-output-setup-convert") to
 HDR10. The following table shows how MediaLive handles each type of color space that it
@@ -101,9 +86,7 @@ encounters in the source.
 | Content in HDR10                      | • Doesn't touch the color space in the output.<br>• Passes through the color space metadata.<br>• Passes through the brightness metadata and the display metadata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Content in HLG                        | • There is no color space conversion—there is no change to the pixel<br>values of the content. This is appropriate because HDR10 and HLG use the same<br>color space (they are different only in brightness function and display<br>metadata).<br>• Converts the content to the new brightness function.<br>• Changes the color space metadata to the new color space.<br>• Change the brightness metadata to specify the new standard.<br>• If you completed **Max CLL** and **Max<br>FALL**, MediaLive inserts the values from those fields into the display<br>metadata.                                                                                                                                                                                                                                                                            |
 
-## Result when converting color space
-
-to Dolby Vision 8.1
+## Result when converting color space to Dolby Vision 8.1
 
 Read this section if you set up one or more outputs to [convert the color space](color-space-simplified-output-handling.md#colorspace-simplified-output-setup-convert "color-space-simplified-output-handling.md#colorspace-simplified-output-setup-convert") to
 Dolby Vision 8.1. The following table shows how MediaLive handles each type of color space that

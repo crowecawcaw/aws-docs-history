@@ -24,8 +24,7 @@ push`.
    **rtp**.
 6. in the **Input security group** section, choose
    **Create**.
-7. In the text box, enter the IP address that you noted in [Step 1: Set up the upstream
-   system](getting-started-step1.md "getting-started-step1.md") of this tutorial. Enter the
+7. In the text box, enter the IP address that you noted in [Step 1: Set up the upstream system](getting-started-step1.md "getting-started-step1.md") of this tutorial. Enter the
    address as a CIDR block. for example,
    `203.0.113.111/32` and
    `203.0.113.112/32`.
@@ -38,5 +37,4 @@ destinations include the port 5000. for example,
 `rtp://198.51.100.10:5000` and
 `rtp://192.0.2.131:5000`. these are the two
 locations where the upstream system must push the source. 10. make a note of these two addresses because you will need them in
-[Step 10: Start the upstream
-system and the channel](getting-started-step8.md "getting-started-step8.md").
+[Step 10: Start the upstream system and the channel](getting-started-step8.md "getting-started-step8.md").

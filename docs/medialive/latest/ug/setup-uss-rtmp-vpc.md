@@ -1,6 +1,4 @@
-# Ensure correct setup on the upstream
-
-system
+# Ensure correct setup on the upstream system
 
 You must make sure that the upstream system sets up correctly with your VPC and
 pushes content to the correct locations in MediaLive.

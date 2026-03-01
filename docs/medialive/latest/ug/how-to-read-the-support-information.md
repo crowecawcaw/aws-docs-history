@@ -1,6 +1,4 @@
-# How to read the supported captions
-
-information
+# How to read the supported captions information
 
 With captions, there are constraints on the ability to produce a specific output
 format from the input format.
@@ -30,14 +28,8 @@ If the format is not listed, you must ask the provider of that input to
 provide a different source.
 The tables for the supported formats are in the following sections:
 
-- [Captions formats supported in Archive
-  outputs](supported-formats-archive-output.md "supported-formats-archive-output.md")
-- [Captions formats supported in HLS or
-  MediaPackage outputs](supported-formats-hls-output.md "supported-formats-hls-output.md")
-- [Captions formats supported in
-  Microsoft Smooth outputs](supported-formats-smooth-output.md "supported-formats-smooth-output.md")
-- [Captions formats supported in RTMP
-  outputs](supported-formats-rtmp-output.md "supported-formats-rtmp-output.md")
-- [Captions formats supported in
-  UDP,
-  SRT, or multiplex outputs](supported-formats-ts-output.md "supported-formats-ts-output.md")
+- [Captions formats supported in Archive outputs](supported-formats-archive-output.md "supported-formats-archive-output.md")
+- [Captions formats supported in HLS or MediaPackage outputs](supported-formats-hls-output.md "supported-formats-hls-output.md")
+- [Captions formats supported in Microsoft Smooth outputs](supported-formats-smooth-output.md "supported-formats-smooth-output.md")
+- [Captions formats supported in RTMP outputs](supported-formats-rtmp-output.md "supported-formats-rtmp-output.md")
+- [Captions formats supported in UDP, SRT, or multiplex outputs](supported-formats-ts-output.md "supported-formats-ts-output.md")

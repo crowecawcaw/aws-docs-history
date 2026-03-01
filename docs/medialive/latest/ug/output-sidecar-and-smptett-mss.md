@@ -1,6 +1,4 @@
-# Create sidecar or SMPTE-TT captions
-
-encodes
+# Create sidecar or SMPTE-TT captions encodes
 
 Follow this procedure if the format of the captions asset that you want to add in the
 MediaLive channel is [a sidecar](categories-captions.md "categories-captions.md"), or if the format is
@@ -36,5 +34,5 @@ You set up the captions and video in the same output.
 | Style Control, Fill Line Gap, Font Family, Copyright Holder | Captions style                                 | EBU-TT-D           | See [Font styles for EBU-TT-D](ebu-tt-font-styles.md "ebu-tt-font-styles.md")                                                                    |
 | Style Control                                               | Captions style                                 | TTML, Web-VTT      | See [Font styles for TTML](ttml-font-styles.md "ttml-font-styles.md") or [Font styles for WebVTT](webvtt-font-styles.md "webvtt-font-styles.md") |
 | Language code, Language description                         | Language information for this specific caption | All formats        | Optional. For information, choose the \*_Info_<br>• link next to<br>each field.                                                                  |
-| Accessibility, Caption DASH Roles, DVB DASH accessibility   | Accessibility data                             | All formats        | [Including accessibility data in captions in<br>MediaLive](captions-accessibility.md "captions-accessibility.md")                                |
-| PIDs                                                        | PID assignment                                 | Teletext           | [PIDs for Teletext](complete-the-pids-for-teletext.md "complete-the-pids-for-teletext.md") ,                                                     |
+| Accessibility, Caption DASH Roles, DVB DASH accessibility   | Accessibility data                             | All formats        | [Including accessibility data in captions in MediaLive](captions-accessibility.md "captions-accessibility.md")                                   |
+| PIDs                                                        | PID assignment                                 | Teletext           | [PIDs for Teletext](complete-the-pids-for-teletext.md "complete-the-pids-for-teletext.md"),                                                      |

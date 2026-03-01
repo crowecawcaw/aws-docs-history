@@ -1,6 +1,4 @@
-# Fields for the
-
-container
+# Fields for the container
 
 The following fields configure the container in each
 output.

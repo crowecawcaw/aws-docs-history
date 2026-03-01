@@ -1,8 +1,7 @@
 # Plan captions for the outputs
 
 After you have set up the inputs in the MediaLive channel, you must plan the outputs. If you
-followed the instructions in [Create captions selectors in the
-inputs](identify-captions-in-the-input.md "identify-captions-in-the-input.md"), you should have
+followed the instructions in [Create captions selectors in the inputs](identify-captions-in-the-input.md "identify-captions-in-the-input.md"), you should have
 a list of the captions formats and languages that are available for inclusion in the outputs.
 
 You must now plan the captions information for the outputs.
@@ -51,5 +50,4 @@ formats are the following:
   output must be white for the first language and blue for the second language.
 
 Managing this style matching can be a little tricky. For information about the font
-style options, see [Support for font styles in
-output captions](support-for-font-styles-in-output-captions.md "support-for-font-styles-in-output-captions.md").
+style options, see [Support for font styles in output captions](support-for-font-styles-in-output-captions.md "support-for-font-styles-in-output-captions.md").

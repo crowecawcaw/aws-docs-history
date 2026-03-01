@@ -6,8 +6,7 @@ system:
 - The public network IP addresses. You need two sets of IP addresses because
   an RTP input is always a [standard-class
   input](class-channel-input.md "class-channel-input.md"), even if your channel is a single-pipeline channel. For
-  information about input classes, see [Choosing the channel class and input
-  class](class-channel-input.md "class-channel-input.md").
+  information about input classes, see [Choosing the channel class and input class](class-channel-input.md "class-channel-input.md").
 
 These are the sets of IP addresses where the source or sources for the
 content will appear on the public network. You need this information to

@@ -1,6 +1,4 @@
-# How SCTE 35
-
-actions work
+# How SCTE 35 actions work
 
 You can set up an action to insert a SCTE 35 message in the
 channel. There are three types of actions:

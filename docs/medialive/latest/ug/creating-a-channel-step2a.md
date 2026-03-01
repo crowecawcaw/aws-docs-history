@@ -37,11 +37,8 @@ must complete these fields to configure the input:
 
 ###### Topics
 
-- [Input settings—Network input
-  settings](input-network-input.md "input-network-input.md")
+- [Input settings—Network input settings](input-network-input.md "input-network-input.md")
 - [Input settings—Other settings](input-other-settings.md "input-other-settings.md")
 - [Input settings—Video selector](input-video-selector.md "input-video-selector.md")
-- [Input settings—Audio
-  selectors](input-audio-selectors.md "input-audio-selectors.md")
-- [Input settings—Caption
-  selectors](input-caption-selectors.md "input-caption-selectors.md")
+- [Input settings—Audio selectors](input-audio-selectors.md "input-audio-selectors.md")
+- [Input settings—Caption selectors](input-caption-selectors.md "input-caption-selectors.md")

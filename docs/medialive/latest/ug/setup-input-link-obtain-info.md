@@ -9,8 +9,7 @@ Obtain the following information from the operator of the AWS Elemental Link dev
 
 You need two device names for a standard-class input, or one device name
 for a single-class input. For information about input classes and their
-uses, see [Choosing the channel class and input
-class](class-channel-input.md "class-channel-input.md").
+uses, see [Choosing the channel class and input class](class-channel-input.md "class-channel-input.md").
 
 - The Region that the device is configured for, so that you can set MediaLive
   for that Region. These rules apply:

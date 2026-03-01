@@ -61,10 +61,7 @@ Game`.
 
 ###### Topics
 
-- [Fields for the output
-  destination](rtmp-destinations.md "rtmp-destinations.md")
-- [Fields for the RTMP
-  connection](rtmp-connection.md "rtmp-connection.md")
-- [Fields for the video, Audio,
-  and captions streams (encodes)](rtmp-streams.md "rtmp-streams.md")
+- [Fields for the output destination](rtmp-destinations.md "rtmp-destinations.md")
+- [Fields for the RTMP connection](rtmp-connection.md "rtmp-connection.md")
+- [Fields for the video, Audio, and captions streams (encodes)](rtmp-streams.md "rtmp-streams.md")
 - [Other fields](rtmp-other.md "rtmp-other.md")

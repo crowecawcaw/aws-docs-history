@@ -1,6 +1,4 @@
-# Organize encodes in a CMAF Ingest output
-
-group
+# Organize encodes in a CMAF Ingest output group
 
 A CMAF Ingest output group
 typically

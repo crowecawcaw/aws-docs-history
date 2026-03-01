@@ -12,6 +12,5 @@ To perform this setup, you must work with an operator at the upstream system.
 
 - [Obtain information](setup-rtmp-pull-obtain-info.md "setup-rtmp-pull-obtain-info.md")
 - [Create an RTMP pull input](setup-input-rtmp-pull.md "setup-input-rtmp-pull.md")
-- [Ensure correct setup on the RTMP upstream
-  system](setup-uss-rtmp-pull.md "setup-uss-rtmp-pull.md")
+- [Ensure correct setup on the RTMP upstream system](setup-uss-rtmp-pull.md "setup-uss-rtmp-pull.md")
 - [Result of this procedure](setup-result-rtmp-pull.md "setup-result-rtmp-pull.md")

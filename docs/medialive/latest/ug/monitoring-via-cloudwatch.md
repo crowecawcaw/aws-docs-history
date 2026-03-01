@@ -1,6 +1,4 @@
-# Monitoring a channel or
-
-multiplex using Amazon CloudWatch Events
+# Monitoring a channel or multiplex using Amazon CloudWatch Events
 
 MediaLive automatically turns the following information into events in
 CloudWatch Events:
@@ -24,11 +22,7 @@ Note that events are emitted on a best-effort basis.
 
 ###### Topics
 
-- [JSON
-  for a state change event](monitoring-cloudwatch-json-state-change.md "monitoring-cloudwatch-json-state-change.md")
-- [JSON for an
-  alert event](monitoring-cloudwatch-json-alert.md "monitoring-cloudwatch-json-alert.md")
-- [Option 1: Send all MediaLive events to an
-  email address](option-1.md "option-1.md")
-- [Option 2: Send events for specific
-  channels to an email address](option-2.md "option-2.md")
+- [JSON for a state change event](monitoring-cloudwatch-json-state-change.md "monitoring-cloudwatch-json-state-change.md")
+- [JSON for an alert event](monitoring-cloudwatch-json-alert.md "monitoring-cloudwatch-json-alert.md")
+- [Option 1: Send all MediaLive events to an email address](option-1.md "option-1.md")
+- [Option 2: Send events for specific channels to an email address](option-2.md "option-2.md")

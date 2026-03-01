@@ -1,6 +1,4 @@
-# Fields for
-
-customizing the paths inside the manifests
+# Fields for customizing the paths inside the manifests
 
 Inside the main manifest, there are paths to each child
 manifest. Inside each child manifest, there are paths to the

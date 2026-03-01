@@ -2,8 +2,7 @@
 
 After you create the inputs and the channel (step 6), you must create actions in the MediaLive
 schedule to set up the input switches that you want. For detailed information about creating
-input switch actions, see [Creating actions in the schedule
-(console)](schedule-using-console-create.md "schedule-using-console-create.md").
+input switch actions, see [Creating actions in the schedule (console)](schedule-using-console-create.md "schedule-using-console-create.md").
 
 Follow these guidelines when setting up the schedule:
 

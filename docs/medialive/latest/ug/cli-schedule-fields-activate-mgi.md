@@ -1,10 +1,7 @@
-# Activate motion graphic
-
-overlay – payload
+# Activate motion graphic overlay – payload
 
 For information about the meaning and values for the fields in the following
-JSON, see [Fields for activating a motion graphics
-overlay](schedule-fields-for-mg.md "schedule-fields-for-mg.md").
+JSON, see [Fields for activating a motion graphics overlay](schedule-fields-for-mg.md "schedule-fields-for-mg.md").
 
 ```
 {

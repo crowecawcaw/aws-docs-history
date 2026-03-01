@@ -1,6 +1,4 @@
-# Scenario D – Metadata can't be
-
-corrected
+# Scenario D – Metadata can't be corrected
 
 During assessment of the MediaLive input, you might have determined the following:
 

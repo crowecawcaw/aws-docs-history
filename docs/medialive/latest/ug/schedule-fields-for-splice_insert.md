@@ -1,6 +1,4 @@
-# Fields for a splice_insert
-
-message
+# Fields for a splice_insert message
 
 This table shows the fields that apply for an action to insert a splice_insert
 SCTE 35 message.

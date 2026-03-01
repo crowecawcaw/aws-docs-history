@@ -1,6 +1,4 @@
-# Input settings—Network input
-
-settings
+# Input settings—Network input settings
 
 The fields in the Network input settings section apply only to HLS inputs and
 multicast inputs.

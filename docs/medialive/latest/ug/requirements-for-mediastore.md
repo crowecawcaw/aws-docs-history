@@ -1,6 +1,4 @@
-# Requirements for
-
-AWS Elemental MediaStore
+# Requirements for AWS Elemental MediaStore
 
 Your deployment might include using files in an AWS Elemental MediaStore container.
 For example, your deployment might use files in the following ways:

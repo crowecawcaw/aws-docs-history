@@ -1,6 +1,4 @@
-# How AWS Elemental MediaLive works
-
-with IAM
+# How AWS Elemental MediaLive works with IAM
 
 Before you use IAM to manage access to MediaLive, learn what IAM features are
 available to use with MediaLive.
@@ -42,8 +40,7 @@ _IAM User Guide_.
 
 ### Identity-based policy examples for MediaLive
 
-To view examples of MediaLive identity-based policies, see [Identity-based
-policy examples for AWS Elemental MediaLive](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MediaLive identity-based policies, see [Identity-based policy examples for AWS Elemental MediaLive](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within MediaLive
 
@@ -74,8 +71,7 @@ The `Action` element of a JSON policy describes the
 actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
 For a list of actions in MediaLive and in other services that users
-of might need access to when working with MediaLive, see [Reference: summary of
-non-administrator user access requirements](setup-users-step-1-summary.md "setup-users-step-1-summary.md").
+of might need access to when working with MediaLive, see [Reference: summary of non-administrator user access requirements](setup-users-step-1-summary.md "setup-users-step-1-summary.md").
 
 Policy actions in MediaLive use the following prefix before the
 action:
@@ -94,8 +90,7 @@ with commas.
          ]
 ```
 
-To view examples of MediaLive identity-based policies, see [Identity-based
-policy examples for AWS Elemental MediaLive](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MediaLive identity-based policies, see [Identity-based policy examples for AWS Elemental MediaLive](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy resources for MediaLive
 
@@ -118,8 +113,7 @@ _Service Authorization Reference_. To learn with which actions
 you can specify the ARN of each resource, see
 [Actions defined by AWS Elemental MediaLive](../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions").
 
-To view examples of MediaLive identity-based policies, see [Identity-based
-policy examples for AWS Elemental MediaLive](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MediaLive identity-based policies, see [Identity-based policy examples for AWS Elemental MediaLive](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for MediaLive
 
@@ -142,12 +136,9 @@ _Service Authorization Reference_. To learn with which
 actions and resources you can use a condition key, see
 [Actions defined by AWS Elemental MediaLive](../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions").
 
-To view examples of MediaLive identity-based policies, see [Identity-based
-policy examples for AWS Elemental MediaLive](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MediaLive identity-based policies, see [Identity-based policy examples for AWS Elemental MediaLive](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## ACLs in
-
-MediaLive
+## ACLs in MediaLive
 
 **Supports ACLs:**
 
@@ -166,9 +157,7 @@ control list (ACL) when delivering to the bucket. The owner of the
 bucket creates the ACL, then provides you with the ACL to use. For
 more information about ACLs, see [Using ACLs for delivery to Amazon S3](s3-canned-acl.md "s3-canned-acl.md").
 
-## ABAC with
-
-MediaLive
+## ABAC with MediaLive
 
 **Supports ABAC (tags in policies):**
 
@@ -213,8 +202,7 @@ create a channel. They also need permission for the
 **PutParameter** action in the AWS Systems Manager.
 
 For a list of actions in other services that users of might need
-access to when working with MediaLive, see [Reference: summary of
-non-administrator user access requirements](setup-users-step-1-summary.md "setup-users-step-1-summary.md").
+access to when working with MediaLive, see [Reference: summary of non-administrator user access requirements](setup-users-step-1-summary.md "setup-users-step-1-summary.md").
 
 ## Service roles for MediaLive
 

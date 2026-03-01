@@ -1,6 +1,4 @@
-# Getting ready to use 3D LUTs files with
-
-MediaLive
+# Getting ready to use 3D LUTs files with MediaLive
 
 You can configure a channel to use a 3D LUTs color correct file for conversion, instead
 of using the standard MediaLive color corrector file for conversion.
@@ -26,9 +24,7 @@ These rules apply to using 3D LUTs files:
   Rec. 601 to HDR10, MediaLive uses that file in every output that it applies to. You can't
   configure some outputs to use the standard mechanism for conversion.
 
-## Contents of the 3D LUTs
-
-files
+## Contents of the 3D LUTs files
 
 The following rules apply to the contents of the files:
 

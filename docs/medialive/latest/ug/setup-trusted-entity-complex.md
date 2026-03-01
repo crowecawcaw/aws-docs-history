@@ -11,8 +11,7 @@ With the complex option, you must perform these tasks:
 
 ###### Topics
 
-- [Identify the access
-  requirements](complex-scenario-create-trusted-entity-role-step1.md "complex-scenario-create-trusted-entity-role-step1.md")
+- [Identify the access requirements](complex-scenario-create-trusted-entity-role-step1.md "complex-scenario-create-trusted-entity-role-step1.md")
 - [Create policies](complex-scenario-create-trusted-entity-role-step2.md "complex-scenario-create-trusted-entity-role-step2.md")
 - [Create roles](complex-scenario-create-trusted-entity-role-step3.md "complex-scenario-create-trusted-entity-role-step3.md")
 - [Set up user permissions](requirements-medialiverole-complex-permissions.md "requirements-medialiverole-complex-permissions.md")

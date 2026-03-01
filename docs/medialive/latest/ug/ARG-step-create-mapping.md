@@ -1,6 +1,4 @@
-#
-
-Identify the video and audio encodes
+# Identify the video and audio encodes
 
 You must plan the requirements for the audio rendition group. You must identify
 the video encodes that you want in the output group. You then decide on the
@@ -44,9 +42,7 @@ group`.
 
 ![Diagram showing output group with AAC, Dolby, and WebVTT caption groups in English and French.](images/ARG_twoV_twoA_twoC.png)
 
-## Rules for video and audio in rendition
-
-groups
+## Rules for video and audio in rendition groups
 
 - Both video and captions are optional.
 - A video encode can be associated with more than one rendition group.

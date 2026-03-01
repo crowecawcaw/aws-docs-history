@@ -39,8 +39,7 @@ You can delete an input switch action when the channel is idle, so long as the a
 still in the schedule.
 
 To delete an action that is in a follow chain, you must delete the entire follow chain, then
-recreate the follow chain but omitting the unwanted action. See [Deleting actions
-from the schedule (console)](schedule-using-console-delete.md "schedule-using-console-delete.md").
+recreate the follow chain but omitting the unwanted action. See [Deleting actions from the schedule (console)](schedule-using-console-delete.md "schedule-using-console-delete.md").
 
 ###### Deleting actions while the channel is recovering
 

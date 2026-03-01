@@ -37,8 +37,7 @@ synchronize the pipelines:
 - Video alignment: MediaLive uses visual signature comparison between encoders to
   synchronize the pipelines. This method does not require embedded timecodes and
   is useful when your input sources lack timecodes or have unreliable timecodes.
-  For more information, see [Requirements for
-  video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").
+  For more information, see [Requirements for video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").
   **Applicable outputs**
 
 **Source timecode** pipeline locking applies only to the following types of outputs:
@@ -63,7 +62,6 @@ synchronize the pipelines:
 
 ###### Topics
 
-- [Input and output
-  requirements](pipeline-locking-verify-input.md "pipeline-locking-verify-input.md")
+- [Input and output requirements](pipeline-locking-verify-input.md "pipeline-locking-verify-input.md")
 - [Setting up for locking](pipeline-locking-set-up.md "pipeline-locking-set-up.md")
 - [Troubleshooting](pipeline-locking-tshoot.md "pipeline-locking-tshoot.md")

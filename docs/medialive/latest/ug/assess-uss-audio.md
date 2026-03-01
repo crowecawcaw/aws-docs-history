@@ -11,15 +11,13 @@ MediaLive.
 
 | Information to obtain                                                                                                | Verify the following                                                                                                                                                                                                                                         |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| The available audio codecs or formats.                                                                               | Make sure that at least one of the audio codecs is included in the list of audio codecs<br>in [Supported codecs by input type](inputs-supported-codecs-by-input-type.md "inputs-supported-codecs-by-input-type.md") .                                        |
+| The available audio codecs or formats.                                                                               | Make sure that at least one of the audio codecs is included in the list of audio codecs<br>in [Supported codecs by input type](inputs-supported-codecs-by-input-type.md "inputs-supported-codecs-by-input-type.md").                                         |
 | The available languages for each codec. For example, English,<br>French.                                             | Identify the languages that you would like to offer. Determine<br>which of these languages the content provider can provide.                                                                                                                                 |
 | The available coding modes (for example, 2.0 and 5.1) for each<br>codec.                                             | Identify the audio coding modes that you prefer for each audio<br>language. Determine which of these coding modes the content provider can<br>provide. For more information, see the [section<br>after this table](#coding "#coding").                       |
 | Whether the audio characteristics change in the middle of the<br>stream.                                             | For best results, verify that the audio characteristics of the<br>source content don't change in the middle of the stream. For example,<br>the codec of the source should not change. The coding mode should not<br>change. A language should not disappear. |
 | If the source content is HLS, whether the audio assets are in an<br>audio rendition group or multiplexed with video. | MediaLive can ingest audio assets that are in a separate rendition<br>group or multiplexed into a single stream with the video.                                                                                                                              |
 
-###### To decide
-
-on a coding mode
+###### To decide on a coding mode
 
 If multiple coding modes are available for the same language, decide
 which mode you want to use. Follow these guidelines:

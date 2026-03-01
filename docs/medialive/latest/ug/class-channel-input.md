@@ -1,6 +1,4 @@
-# Choosing the channel class and input
-
-class
+# Choosing the channel class and input class
 
 One of the characteristics of a MediaLive channel is its class. One of the characteristics of
 a MediaLive input is its class. You set both the channel class and input class to implement or
@@ -8,8 +6,7 @@ to omit pipeline redundancy.
 
 Read this section for an overview of channel class and input class.
 Then for detailed information about implementing or omitting pipeline
-redundancy, see [Implementing pipeline
-redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md").
+redundancy, see [Implementing pipeline redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md").
 
 ## About channel classes
 
@@ -23,8 +20,7 @@ A _standard channel_ has two encoding
 pipelines. When there are two pipelines, both pipelines perform the encoding. If
 one pipeline fails, output to the downstream system can continue, from the other
 pipeline. For more information and diagrams about exactly how MediaLive handles the
-failure, see [Implementing pipeline
-redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md").
+failure, see [Implementing pipeline redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md").
 
 - Single-pipeline class
 
@@ -53,14 +49,12 @@ class when you [create the input](medialive-inputs.md "medialive-inputs.md"). So
 only be standard-class, and some other inputs can only be single-class. For more
 information, see [Supported input class](inputs-single-standard-vpc.md "inputs-single-standard-vpc.md").
 
-## Combinations of
-
-channel and input class
+## Combinations of channel and input class
 
 The following table summarizes the valid combinations of channel class and input
 class.
 
-| Channel                 | Inputs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Standard channel        | All inputs must be standard-class inputs. In this case, you can<br>implement pipeline redundancy or omit it. See [Deciding whether to<br>implement pipeline redundancy](pipeline-redundancy-guidelines.md "pipeline-redundancy-guidelines.md").                                                                                                                                                                                                                                                                                                                                 |
-| Single-pipeline channel | These possibilities apply:<br>• The channel has only single-class inputs.<br>• The channel has only standard-class inputs.<br>• The channel has a mix of standard-class and single-class<br>inputs. Typically, you set up with a mix because some of<br>your inputs can only be standard-class and/or some can only<br>be single-class.<br>The combination that applies to a channel determines if you can<br>implement pipeline redundancy. See [Deciding whether to<br>implement pipeline redundancy](pipeline-redundancy-guidelines.md "pipeline-redundancy-guidelines.md"). |
+| Channel                 | Inputs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Standard channel        | All inputs must be standard-class inputs. In this case, you can<br>implement pipeline redundancy or omit it. See [Deciding whether to implement pipeline redundancy](pipeline-redundancy-guidelines.md "pipeline-redundancy-guidelines.md").                                                                                                                                                                                                                                                                                                                                 |
+| Single-pipeline channel | These possibilities apply:<br>• The channel has only single-class inputs.<br>• The channel has only standard-class inputs.<br>• The channel has a mix of standard-class and single-class<br>inputs. Typically, you set up with a mix because some of<br>your inputs can only be standard-class and/or some can only<br>be single-class.<br>The combination that applies to a channel determines if you can<br>implement pipeline redundancy. See [Deciding whether to implement pipeline redundancy](pipeline-redundancy-guidelines.md "pipeline-redundancy-guidelines.md"). |

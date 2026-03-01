@@ -1,6 +1,4 @@
-# Map the output encodes
-
-to the sources
+# Map the output encodes to the sources
 
 In the first step of planning the channel, you identified the number of
 encodes you need in each output group. You must now determine which assets
@@ -43,8 +41,7 @@ following key components that you will create in the channel:
 
 2. Obtain the _list of sources_ that
    you created when you assessed the source content and collected
-   identifiers. For an example of such a list, see [Assess the upstream
-   system](evaluate-upstream-system.md "evaluate-upstream-system.md") .
+   identifiers. For an example of such a list, see [Assess the upstream system](evaluate-upstream-system.md "evaluate-upstream-system.md").
 3. In your table of output encodes, add two more columns, labeled _Source_ and _Identifier in source_.
 4. For each encode (column 2), find a line in the _list of sources_ that can produce that encode.
    Add the source codec and the identifier of that source codec. This

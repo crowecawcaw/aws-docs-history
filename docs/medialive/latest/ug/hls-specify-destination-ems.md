@@ -1,6 +1,4 @@
-# Complete the fields on the
-
-console
+# Complete the fields on the console
 
 After you have designed the output names and destination paths, you can
 set up the HLS output group.

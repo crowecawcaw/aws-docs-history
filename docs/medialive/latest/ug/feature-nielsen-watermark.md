@@ -13,7 +13,5 @@ information about passthrough and conversion to ID3, see [Converting Nielsen wat
 ###### Topics
 
 - [Audio requirements](supportedaudio.md "supportedaudio.md")
-- [Getting
-  ready](nielsen-watermark-getready.md "nielsen-watermark-getready.md")
-- [Setting up Nielsen watermarks in a MediaLive
-  channel](watermark-procedure.md "watermark-procedure.md")
+- [Getting ready](nielsen-watermark-getready.md "nielsen-watermark-getready.md")
+- [Setting up Nielsen watermarks in a MediaLive channel](watermark-procedure.md "watermark-procedure.md")

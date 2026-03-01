@@ -1,6 +1,4 @@
-# Identifying network
-
-resources
+# Identifying network resources
 
 This section is intended for the network engineer who is responsible for connecting the
 MediaLive Anywhere nodes to your organization's network. The network engineer performs these task in

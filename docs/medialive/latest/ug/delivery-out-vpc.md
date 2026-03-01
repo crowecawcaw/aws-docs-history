@@ -42,5 +42,4 @@ general networking practices.
 - [Getting ready](vpc-out-get-ready-subnets.md "vpc-out-get-ready-subnets.md")
 - [Setting up for VPC delivery](vpc-out-setup-steps.md "vpc-out-setup-steps.md")
 - [Changing the setup](vpc-out-change.md "vpc-out-change.md")
-- [Identifying subnet and Availability
-  Zone requirements](vpc-out-AZ-subnet-reqs.md "vpc-out-AZ-subnet-reqs.md")
+- [Identifying subnet and Availability Zone requirements](vpc-out-AZ-subnet-reqs.md "vpc-out-AZ-subnet-reqs.md")

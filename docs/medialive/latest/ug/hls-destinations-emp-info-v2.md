@@ -1,6 +1,4 @@
-# Collect the information
-
-for MediaPackage v2
+# Collect the information for MediaPackage v2
 
 For MediaPackage v2, the two URLs for a channel look like these
 examples:

@@ -53,9 +53,7 @@ The input must have these characteristics:
   and any sampling rate that Dolby Digital Plus
   supports.
 
-## Supported
-
-outputs
+## Supported outputs
 
 **Audio encoding**
 
@@ -116,7 +114,7 @@ audio to Dolby Digital Plus with Dolby Atmos.
 | **Audio Selector Name** | Choose the audio selector that you set up in the<br>input.                                                                                                                                                                                                                                                                                                                                      |
 | **Codec Settings**      | Choose **EAC3 ATMOS**.                                                                                                                                                                                                                                                                                                                                                                          |
 | **Bitrate**             | Choose a value that is applicable to the coding mode.                                                                                                                                                                                                                                                                                                                                           |
-| **Coding mode**         | Choose the coding mode you want. For more information, see<br>[Supported<br>outputs](#dolby-atmos-output-supported-outputs "#dolby-atmos-output-supported-outputs").                                                                                                                                                                                                                            |
+| **Coding mode**         | Choose the coding mode you want. For more information, see<br>[Supported outputs](#dolby-atmos-output-supported-outputs "#dolby-atmos-output-supported-outputs").                                                                                                                                                                                                                               |
 | **Dialnorm**            | Choose the dialogue normalization value. The dialnorm setting<br>adjusts the output audio gain. Dialnorm is an integer value with<br>a range of 1 to 31 corresponding to an output audio gain of -30<br>to 0 dB, respectively.                                                                                                                                                                  |
 | **DRC Line**            | Choose a Dolby dynamic range compression<br>profile. For more information about how each profile handles<br>compression, see the Dynamic Range Control section of Dolby's<br>Metadata guide for developers: [A Guide to Dolby Metadata](https://professionalsupport.dolby.com/s/article/A-Guide-to-Dolby-Metadata "https://professionalsupport.dolby.com/s/article/A-Guide-to-Dolby-Metadata"). |
 | **DRC RF**              |
@@ -125,9 +123,7 @@ audio to Dolby Digital Plus with Dolby Atmos.
 
 4. Complete the additional audio fields as desired.
 
-###### To pass through Dolby Digital Plus with Dolby Atmos from the input to the
-
-output
+###### To pass through Dolby Digital Plus with Dolby Atmos from the input to the output
 
 Follow this procedure if the source audio is already Dolby Digital Plus with Dolby
 Atmos.

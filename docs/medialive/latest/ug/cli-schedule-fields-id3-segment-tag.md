@@ -1,10 +1,7 @@
-# ID3 segment tag item
-
-– payload
+# ID3 segment tag item – payload
 
 For information about the meaning and values for the fields in the following
-JSON, see [Fields for ID3 segment
-tags](schedule-fields-for-id3-segment-tags.md "schedule-fields-for-id3-segment-tags.md").
+JSON, see [Fields for ID3 segment tags](schedule-fields-for-id3-segment-tags.md "schedule-fields-for-id3-segment-tags.md").
 
 **Payload for the HlsId3SegmentTaggingSettings
 action**
@@ -60,9 +57,7 @@ action**
 
 ```
 
-## Example using the tag
-
-property
+## Example using the tag property
 
 This example of a request
 uses the
@@ -98,9 +93,7 @@ and number of the segment.
 
 ```
 
-## Example using the Id3
-
-property
+## Example using the Id3 property
 
 This example of a request creates an ID3 segment tag to be inserted
 immediately. This example uses the `Id3`

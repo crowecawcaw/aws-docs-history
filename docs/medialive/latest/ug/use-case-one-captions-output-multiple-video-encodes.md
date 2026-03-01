@@ -1,6 +1,4 @@
-# Use case D: One
-
-captions output shared by multiple video encodes
+# Use case D: One captions output shared by multiple video encodes
 
 This use case for deals with including captions in an ABR workflow in MediaLive.
 

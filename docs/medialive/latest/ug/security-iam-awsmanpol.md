@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-MediaLiveReadOnlyPolicy
+## AWS managed policy: MediaLiveReadOnlyPolicy
 
 You can attach the `MediaLiveReadOnlyPolicy` policy to your IAM
 identities.
@@ -50,9 +48,7 @@ JSON
 
 ```
 
-## MediaLive updates to AWS managed
-
-policies
+## MediaLive updates to AWS managed policies
 
 View details about updates to AWS managed policies for MediaLive since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

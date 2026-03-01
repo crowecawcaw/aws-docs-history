@@ -1,6 +1,4 @@
-# Fields for the UDP
-
-transport
+# Fields for the UDP transport
 
 The following fields configure the transport in each
 output:

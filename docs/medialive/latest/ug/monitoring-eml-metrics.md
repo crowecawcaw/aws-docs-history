@@ -1,6 +1,4 @@
-# Monitoring channels using
-
-Amazon CloudWatch metrics
+# Monitoring channels using Amazon CloudWatch metrics
 
 You can monitor AWS Elemental MediaLive using Amazon CloudWatch metrics. CloudWatch collects raw
 data that it receives from MediaLive, and processes it into readable, near
@@ -19,9 +17,7 @@ information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/la
 - [Viewing metrics](eml-metrics-view.md "eml-metrics-view.md")
 - [Alphabetical list of MediaLive metrics](eml-metrics-alpha-list.md "eml-metrics-alpha-list.md")
 - [Global metrics](eml-metrics-global.md "eml-metrics-global.md")
-- [Input
-  metrics](eml-metrics-input-metrics.md "eml-metrics-input-metrics.md")
+- [Input metrics](eml-metrics-input-metrics.md "eml-metrics-input-metrics.md")
 - [MQCS metrics](eml-metrics-quality-score.md "eml-metrics-quality-score.md")
 - [Output metrics](eml-metrics-output-metrics.md "eml-metrics-output-metrics.md")
-- [Pipeline locking
-  metrics](eml-metrics-output-lock.md "eml-metrics-output-lock.md")
+- [Pipeline locking metrics](eml-metrics-output-lock.md "eml-metrics-output-lock.md")

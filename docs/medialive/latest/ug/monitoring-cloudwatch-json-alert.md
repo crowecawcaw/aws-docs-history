@@ -1,6 +1,4 @@
-# JSON for an
-
-alert event
+# JSON for an alert event
 
 Events that are based on [alerts](monitor-activity-types-alerts-channels.md "monitor-activity-types-alerts-channels.md") are identified by their
 `detail-type` property:

@@ -18,5 +18,4 @@ you want, then read across the row.
 Some output groups also support audio-only outputs. See [Setting up the output](audio-only-outputs-and-outputgroups.md "audio-only-outputs-and-outputgroups.md").
 
 Some output groups also support outputs that contain JPEG files, to support trick play
-according to the Roku specification. See [Trick-play track via the Image
-Media Playlist specification](trick-play-roku.md "trick-play-roku.md").
+according to the Roku specification. See [Trick-play track via the Image Media Playlist specification](trick-play-roku.md "trick-play-roku.md").

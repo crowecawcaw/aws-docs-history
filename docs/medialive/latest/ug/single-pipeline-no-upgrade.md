@@ -1,6 +1,4 @@
-# Setting up a single-pipeline channel
-
-without upgrade potential
+# Setting up a single-pipeline channel without upgrade potential
 
 When you followed the [guidelines](pipeline-redundancy-guidelines.md "pipeline-redundancy-guidelines.md")
 for implementing pipeline redundancy in a MediaLive channel, you might have decided one of
@@ -37,9 +35,7 @@ Follow these guidelines when you plan the workflow:
 - Contact the upstream system and request that they provide _one_ content source. Even for standard-class inputs,
   the upstream system should provide only one source.
 
-## How a single-pipeline channel
-
-works
+## How a single-pipeline channel works
 
 When you set up a single-pipeline channel without any upgrade provision, the
 channel is a single-pipeline channel. The inputs can be a combination of

@@ -1,6 +1,4 @@
-# Fields for the output
-
-destination
+# Fields for the output destination
 
 The following fields configure the location and names of
 the Archive output files (the destination).

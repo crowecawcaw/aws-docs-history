@@ -1,6 +1,4 @@
-# Implementing a trick-play
-
-track
+# Implementing a trick-play track
 
 Trick-play is used in digital video players to mimic some capabilities
 of analog players, including fast-forward and rewind capabilities. These
@@ -21,9 +19,7 @@ MediaLive provides two methods for including these assets:
 - In MediaPackage output groups, MediaLive supports trick-play via
   the Image Media playlist specification
 
-## Choosing an implementation of
-
-trick-play track
+## Choosing an implementation of trick-play track
 
 You can follow one or both trick-play methods in the same output
 group.
@@ -57,7 +53,5 @@ these implementations to be optional.
 
 ###### Topics
 
-- [Trick-play track via
-  I-frames](trick-play-i-frames.md "trick-play-i-frames.md")
-- [Trick-play track via the Image
-  Media Playlist specification](trick-play-roku.md "trick-play-roku.md")
+- [Trick-play track via I-frames](trick-play-i-frames.md "trick-play-i-frames.md")
+- [Trick-play track via the Image Media Playlist specification](trick-play-roku.md "trick-play-roku.md")

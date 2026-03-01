@@ -1,6 +1,4 @@
-# Ensure correct setup on the upstream
-
-system
+# Ensure correct setup on the upstream system
 
 After you create the CDI input, you must make sure that the operator at the
 upstream system sets up correctly with your VPC, and that they push content to the

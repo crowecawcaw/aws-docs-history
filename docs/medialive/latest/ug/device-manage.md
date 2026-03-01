@@ -11,10 +11,8 @@ flow, see [Using Link with a MediaLive input](device-use-input.md "device-use-in
 - [Claiming a Link device](device-claim.md "device-claim.md")
 - [Creating a Link input device](device-create.md "device-create.md")
 - [Viewing your Link devices](device-view.md "device-view.md")
-- [Transferring a Link device to another
-  account](device-transfers.md "device-transfers.md")
-- [Transferring a Link device to another
-  Region](device-transfer-region.md "device-transfer-region.md")
+- [Transferring a Link device to another account](device-transfers.md "device-transfers.md")
+- [Transferring a Link device to another Region](device-transfer-region.md "device-transfer-region.md")
 - [Configuring a Link device](device-edit.md "device-edit.md")
 - [Attaching and detaching a Link device](device-attach.md "device-attach.md")
 - [Starting and stopping a Link device](device-start-stop.md "device-start-stop.md")

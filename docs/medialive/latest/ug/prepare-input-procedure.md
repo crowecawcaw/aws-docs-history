@@ -1,6 +1,4 @@
-# Setting up input prepare actions in the
-
-schedule
+# Setting up input prepare actions in the schedule
 
 Follow this procedure to add input prepare actions to the channel schedule, in order to
 prepare any input ahead of the switch action to that input.
@@ -19,8 +17,7 @@ know that you will have an immediate switch some time in the future. Typically, 
 these actions while the channel is running, but you can also add them when the channel is
 idle.
 
-For detailed information on adding an input prepare action to the schedule, see [Creating an AWS Elemental MediaLive
-schedule](working-with-schedule.md "working-with-schedule.md").
+For detailed information on adding an input prepare action to the schedule, see [Creating an AWS Elemental MediaLive schedule](working-with-schedule.md "working-with-schedule.md").
 
 ###### Topics
 

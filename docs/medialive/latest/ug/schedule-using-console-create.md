@@ -1,10 +1,7 @@
-# Creating actions in the schedule
-
-(console)
+# Creating actions in the schedule (console)
 
 You can create different actions in the schedule. For a list of supported actions,
-see [Types of actions in the
-schedule](x-actions-in-schedule.md "x-actions-in-schedule.md").
+see [Types of actions in the schedule](x-actions-in-schedule.md "x-actions-in-schedule.md").
 
 The general procedure is the same to create any type of action.
 
@@ -20,8 +17,7 @@ The general procedure is the same to create any type of action.
 5. Choose the **Switch** button to display the view that you
    want: **List** view or **Timeline** view.
    For information about the layout and color coding of the timeline view, see
-   [Viewing the
-   schedule (console)](schedule-using-console-view.md "schedule-using-console-view.md").
+   [Viewing the schedule (console)](schedule-using-console-view.md "schedule-using-console-view.md").
 6. For **List** view, choose the appropriate action:
    - To create a fixed, follow, or immediate action from scratch,
      choose **Create**.
@@ -61,29 +57,17 @@ information about input follow chains, see [Fixed, immediate, and follow switche
 ###### Topics
 
 - [Fields for an input switch](schedule-fields-for-ips.md "schedule-fields-for-ips.md")
-- [Fields for an input
-  prepare](schedule-fields-for-input-prep.md "schedule-fields-for-input-prep.md")
-- [Fields for activating a
-  global image overlay](schedule-fields-for-activate-image.md "schedule-fields-for-activate-image.md")
-- [Fields for deactivating a
-  global image overlay](schedule-fields-for-deactivate-image.md "schedule-fields-for-deactivate-image.md")
-- [Fields for
-  activating a per-outputs image overlay](schedule-fields-activate-image-per-output.md "schedule-fields-activate-image-per-output.md")
-- [Fields for
-  deactivating a per-outputs image overlay](schedule-fields-deactivate-image-per-output.md "schedule-fields-deactivate-image-per-output.md")
-- [Fields for activating a motion graphics
-  overlay](schedule-fields-for-mg.md "schedule-fields-for-mg.md")
-- [Fields for deactivating a
-  motion graphics overlay](schedule-fields-for-mg-deactivate.md "schedule-fields-for-mg-deactivate.md")
-- [Fields for a splice_insert
-  message](schedule-fields-for-splice_insert.md "schedule-fields-for-splice_insert.md")
-- [Fields for a time_signal
-  message](schedule-fields-for-time-signal.md "schedule-fields-for-time-signal.md")
-- [Fields for a
-  return-to-network message](schedule-fields-for-return-to-network.md "schedule-fields-for-return-to-network.md")
-- [Fields for ID3
-  metadata](schedule-fields-for-id3-userdata.md "schedule-fields-for-id3-userdata.md")
-- [Fields for ID3 segment
-  tags](schedule-fields-for-id3-segment-tags.md "schedule-fields-for-id3-segment-tags.md")
+- [Fields for an input prepare](schedule-fields-for-input-prep.md "schedule-fields-for-input-prep.md")
+- [Fields for activating a global image overlay](schedule-fields-for-activate-image.md "schedule-fields-for-activate-image.md")
+- [Fields for deactivating a global image overlay](schedule-fields-for-deactivate-image.md "schedule-fields-for-deactivate-image.md")
+- [Fields for activating a per-outputs image overlay](schedule-fields-activate-image-per-output.md "schedule-fields-activate-image-per-output.md")
+- [Fields for deactivating a per-outputs image overlay](schedule-fields-deactivate-image-per-output.md "schedule-fields-deactivate-image-per-output.md")
+- [Fields for activating a motion graphics overlay](schedule-fields-for-mg.md "schedule-fields-for-mg.md")
+- [Fields for deactivating a motion graphics overlay](schedule-fields-for-mg-deactivate.md "schedule-fields-for-mg-deactivate.md")
+- [Fields for a splice_insert message](schedule-fields-for-splice_insert.md "schedule-fields-for-splice_insert.md")
+- [Fields for a time_signal message](schedule-fields-for-time-signal.md "schedule-fields-for-time-signal.md")
+- [Fields for a return-to-network message](schedule-fields-for-return-to-network.md "schedule-fields-for-return-to-network.md")
+- [Fields for ID3 metadata](schedule-fields-for-id3-userdata.md "schedule-fields-for-id3-userdata.md")
+- [Fields for ID3 segment tags](schedule-fields-for-id3-segment-tags.md "schedule-fields-for-id3-segment-tags.md")
 - [Fields for pause](schedule-fields-for-pause.md "schedule-fields-for-pause.md")
 - [Fields for unpause](schedule-fields-for-unpause.md "schedule-fields-for-unpause.md")

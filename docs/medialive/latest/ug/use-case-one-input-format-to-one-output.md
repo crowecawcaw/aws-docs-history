@@ -1,6 +1,4 @@
-# Use case A: One input format to
-
-one output and not converted
+# Use case A: One input format to one output and not converted
 
 This example for captions in MediaLive shows how to implement [the first use
 case](use-case-one-input-format-to-one-output-format-not-converted.md "use-case-one-input-format-to-one-output-format-not-converted.md") from the typical scenarios. The input is set up with one format of captions

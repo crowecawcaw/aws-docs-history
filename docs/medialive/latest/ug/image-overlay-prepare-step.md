@@ -1,6 +1,4 @@
-# Preparing the static image overlay
-
-file
+# Preparing the static image overlay file
 
 You must prepare each image overlay that you want to use in your MediaLive channel, and store
 it in a suitable location, such as an Amazon S3 bucket. You can prepare the images at any time,

@@ -26,7 +26,6 @@ output group, or from one output to an output in another output group. 2. Read t
 ###### Topics
 
 - [Creating a video encode from scratch](create-video-scratch.md "create-video-scratch.md")
-- [Setting up the video encodes in
-  a Frame capture output](create-video-scratch-framecapture.md "create-video-scratch-framecapture.md")
+- [Setting up the video encodes in a Frame capture output](create-video-scratch-framecapture.md "create-video-scratch-framecapture.md")
 - [Sharing a video encode](create-video-share.md "create-video-share.md")
 - [Creating a video encode by cloning](create-video-clone.md "create-video-clone.md")

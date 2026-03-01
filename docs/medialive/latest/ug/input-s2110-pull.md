@@ -1,6 +1,4 @@
-# Channel
-
-input—SMPTE 2110 input
+# Channel input—SMPTE 2110 input
 
 To verify that the input is set up correctly, look at the
 **SMPTE

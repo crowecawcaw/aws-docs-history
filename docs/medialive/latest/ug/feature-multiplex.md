@@ -15,5 +15,4 @@ multiplex in order to create an MPTS for distribution.
 - [Overview of multiplex and MPTS](mpts-general.md "mpts-general.md")
 - [Restrictions for multiplexes](mpts-limits.md "mpts-limits.md")
 - [Setting up a multiplex](setting-up-multiplex.md "setting-up-multiplex.md")
-- [Starting, pausing, or stopping a
-  multiplex](start-pause-stop-multiplex.md "start-pause-stop-multiplex.md")
+- [Starting, pausing, or stopping a multiplex](start-pause-stop-multiplex.md "start-pause-stop-multiplex.md")

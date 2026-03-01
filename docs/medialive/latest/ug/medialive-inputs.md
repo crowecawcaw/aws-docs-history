@@ -16,8 +16,7 @@ To create an input, you must perform these steps:
 
 The setup you perform is different for each combination of upstream system (format and
 delivery protocol) and input type. If you haven't already done so, you must identify the
-upstream system and input type for each content source. See [Assess the upstream
-system](evaluate-upstream-system.md "evaluate-upstream-system.md") .
+upstream system and input type for each content source. See [Assess the upstream system](evaluate-upstream-system.md "evaluate-upstream-system.md").
 
 ###### Topics
 

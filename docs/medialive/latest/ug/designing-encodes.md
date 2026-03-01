@@ -15,8 +15,7 @@ audio, and captions encodes to create.
 ###### Topics
 
 - [Plan the encodes](plan-encodes.md "plan-encodes.md")
-- [Identify encode sharing
-  opportunities](plan-encode-sharing.md "plan-encode-sharing.md")
+- [Identify encode sharing opportunities](plan-encode-sharing.md "plan-encode-sharing.md")
 
 | Encode nickname | Characteristics of the encode                                   | Source            | Opportunity | Action                                                                                                                                                                                                                                                                      |
 | --------------- | --------------------------------------------------------------- | ----------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

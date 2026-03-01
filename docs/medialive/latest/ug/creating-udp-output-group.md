@@ -1,6 +1,4 @@
-# Creating a UDP
-
-output group
+# Creating a UDP output group
 
 When you [planned
 the workflow for your channel](identify-downstream-system.md "identify-downstream-system.md"), you might have
@@ -63,11 +61,7 @@ Game`.
 
 ###### Topics
 
-- [Fields for the output
-  destination](udp-destinations.md "udp-destinations.md")
-- [Fields for the UDP
-  transport](udp-container.md "udp-container.md")
-- [Fields for the video, audio,
-  and captions stream (encode)](udp-streams.md "udp-streams.md")
-- [Fields for other UDP
-  features](udp-other.md "udp-other.md")
+- [Fields for the output destination](udp-destinations.md "udp-destinations.md")
+- [Fields for the UDP transport](udp-container.md "udp-container.md")
+- [Fields for the video, audio, and captions stream (encode)](udp-streams.md "udp-streams.md")
+- [Fields for other UDP features](udp-other.md "udp-other.md")

@@ -13,7 +13,6 @@ POIS server.
 
 ###### Topics
 
-- [Supported version of the
-  specification](scte35-pois-about-spec.md "scte35-pois-about-spec.md")
+- [Supported version of the specification](scte35-pois-about-spec.md "scte35-pois-about-spec.md")
 - [About POIS signal conditioning](scte35-pois-about.md "scte35-pois-about.md")
 - [Setting up for POIS signal conditioning](scte35-pois-setup.md "scte35-pois-setup.md")

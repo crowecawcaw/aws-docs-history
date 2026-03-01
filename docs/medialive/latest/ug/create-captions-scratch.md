@@ -1,6 +1,4 @@
-# Creating a captions encode from
-
-scratch
+# Creating a captions encode from scratch
 
 1. On the **Create channel** page, find the output group
    that you [created](creating-a-channel-step4.md "creating-a-channel-step4.md").

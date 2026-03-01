@@ -1,6 +1,4 @@
-# Constraints for using OCR
-
-conversion
+# Constraints for using OCR conversion
 
 MediaLive uses OCR (optical character recognition) technology for the following
 scenarios:

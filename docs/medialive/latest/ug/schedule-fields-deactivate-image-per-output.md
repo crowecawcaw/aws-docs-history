@@ -1,6 +1,4 @@
-# Fields for
-
-deactivating a per-outputs image overlay
+# Fields for deactivating a per-outputs image overlay
 
 This table shows the fields that apply for an action to deactivate the image.
 The deactivate action operates on one per-output layer that you specify and on

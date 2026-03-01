@@ -1,10 +1,7 @@
-# Deactivate motion graphic
-
-overlay – payload
+# Deactivate motion graphic overlay – payload
 
 For information about the meaning and values for the fields in the following
-JSON, see [Fields for deactivating a
-motion graphics overlay](schedule-fields-for-mg-deactivate.md "schedule-fields-for-mg-deactivate.md").
+JSON, see [Fields for deactivating a motion graphics overlay](schedule-fields-for-mg-deactivate.md "schedule-fields-for-mg-deactivate.md").
 
 ```
 {

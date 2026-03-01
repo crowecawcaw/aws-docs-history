@@ -1,6 +1,4 @@
-# Use case B: One
-
-input format converted to one different format in one output
+# Use case B: One input format converted to one different format in one output
 
 In this use case for including captions in a MediaLive output, the input is set up with one
 format of captions and two or more languages. You want to convert the captions to a

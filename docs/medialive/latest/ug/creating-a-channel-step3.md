@@ -38,8 +38,7 @@ metadata, if that metadata is present in the input. For more information, see [P
 ## Feature activations
 
 Optional features. You can enable the input prepare feature for input switching.
-For more information, see [Preparing inputs in
-AWS Elemental MediaLive](feature-prepare-input.md "feature-prepare-input.md").
+For more information, see [Preparing inputs in AWS Elemental MediaLive](feature-prepare-input.md "feature-prepare-input.md").
 
 ## Global configuration
 
@@ -47,9 +46,7 @@ Global configuration settings. In this section, complete the first three fields 
 appropriate. For details about each field, choose the **Info** link
 next to the field.
 
-## Global configuration – input loss
-
-behavior
+## Global configuration – input loss behavior
 
 Global configuration settings. The **Input Loss
 Behavior** fields control how MediaLive handles input
@@ -59,8 +56,7 @@ loss. You can customize the handling. For more information, see
 ## Motion graphics configuration
 
 Optional feature. You can enable the motion graphics overlay feature. For more
-information, see [Working with motion graphics
-overlays](feature-mgi.md "feature-mgi.md").
+information, see [Working with motion graphics overlays](feature-mgi.md "feature-mgi.md").
 
 ## Nielsen configuration
 
@@ -75,8 +71,7 @@ output. For more information about configuring the timecode, see [Working with t
 ## Logging
 
 Optional feature. You can enable logging of activity on this individual channel.
-For detailed information about this feature, see [Monitoring a channel using
-Amazon CloudWatch Logs](monitoring-with-logs.md "monitoring-with-logs.md").
+For detailed information about this feature, see [Monitoring a channel using Amazon CloudWatch Logs](monitoring-with-logs.md "monitoring-with-logs.md").
 
 To enable logging, choose a log level other than **DISABLED**.
 The levels are listed from least to most verbose.

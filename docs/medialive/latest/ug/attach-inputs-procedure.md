@@ -12,20 +12,14 @@
 
     [Channel input—Elemental Link push input](input-elink.md "input-elink.md")
     - [Channel input—HLS pull input](input-hls-pull.md "input-hls-pull.md")
-    - [Channel input—MediaConnect push
-      input](input-mediaconnect-push.md "input-mediaconnect-push.md")
-    - [Channel input—MediaConnect Router
-      input](input-mediaconnect-router.md "input-mediaconnect-router.md")
+    - [Channel input—MediaConnect push input](input-mediaconnect-push.md "input-mediaconnect-push.md")
+    - [Channel input—MediaConnect Router input](input-mediaconnect-router.md "input-mediaconnect-router.md")
     - [Channel input—MP4 pull input](input-mp4-pull.md "input-mp4-pull.md")
     - [Channel input—RTMP push input](input-rtmp-push.md "input-rtmp-push.md")
     - [Channel input—RTMP pull input](input-rtmp-pull.md "input-rtmp-pull.md")
     - [Channel input—RTP push input](input-rtp-push.md "input-rtp-push.md")
-    - [Channel
-      input—SMPTE 2110 input](input-s2110-pull.md "input-s2110-pull.md")
-    - [Channel
-      input—SRT
-      caller
-      input](input-srt-pull.md "input-srt-pull.md")
+    - [Channel input—SMPTE 2110 input](input-s2110-pull.md "input-s2110-pull.md")
+    - [Channel input—SRT caller input](input-srt-pull.md "input-srt-pull.md")
     - [Channel input—SRT listener input](input-srt-push.md "input-srt-push.md")
 
 3.  Complete the **Logical interface names** fields. These
