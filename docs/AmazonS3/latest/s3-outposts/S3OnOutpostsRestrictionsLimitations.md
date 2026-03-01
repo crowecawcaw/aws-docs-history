@@ -1,6 +1,4 @@
-# How is Amazon S3 on Outposts different from
-
-Amazon S3?
+# How is Amazon S3 on Outposts different from Amazon S3?
 
 Amazon S3 on Outposts delivers object storage to your on-premises AWS Outposts environment. Using
 S3 on Outposts helps you to meet local processing, data residency, and demanding performance
@@ -14,13 +12,10 @@ For more information about how S3 on Outposts is unique, see the following topic
 ###### Topics
 
 - [S3 on Outposts specifications](#S3OnOutpostsSpecifications "#S3OnOutpostsSpecifications")
-- [API operations supported by
-  S3 on Outposts](#S3OnOutpostsAPILimitations "#S3OnOutpostsAPILimitations")
+- [API operations supported by S3 on Outposts](#S3OnOutpostsAPILimitations "#S3OnOutpostsAPILimitations")
 - [Amazon S3 AWS CLI commands supported by S3 on Outposts](#S3OnOutpostsCLILimitations "#S3OnOutpostsCLILimitations")
-- [Amazon S3 features not supported by
-  S3 on Outposts](#S3OnOutpostsFeatureLimitations "#S3OnOutpostsFeatureLimitations")
-- [S3 on Outposts network
-  requirements](#S3OnOutpostsConnectivityRestrictions "#S3OnOutpostsConnectivityRestrictions")
+- [Amazon S3 features not supported by S3 on Outposts](#S3OnOutpostsFeatureLimitations "#S3OnOutpostsFeatureLimitations")
+- [S3 on Outposts network requirements](#S3OnOutpostsConnectivityRestrictions "#S3OnOutpostsConnectivityRestrictions")
 
 ## S3 on Outposts specifications
 
@@ -47,9 +42,7 @@ For more information about how S3 on Outposts is unique, see the following topic
 - If there is not enough space to store an object on your Outpost, the API
   returns an insufficient capacity exception (ICE).
 
-## API operations supported by
-
-S3 on Outposts
+## API operations supported by S3 on Outposts
 
 For a list of API operations supported by S3 on Outposts, see [Amazon S3 on Outposts API operations](S3OutpostsAPI.md "S3OutpostsAPI.md").
 
@@ -65,9 +58,7 @@ more information, see [Available Commands](../../../cli/latest/reference/s3.md#a
 - `presign`
 - `rm`
 
-## Amazon S3 features not supported by
-
-S3 on Outposts
+## Amazon S3 features not supported by S3 on Outposts
 
 The following Amazon S3 features are currently not supported by Amazon S3 on Outposts. Any
 attempts to use them are rejected.
@@ -98,9 +89,7 @@ attempts to use them are rejected.
 - SOAP
 - Website access
 
-## S3 on Outposts network
-
-requirements
+## S3 on Outposts network requirements
 
 - To route requests to an S3 on Outposts access point, you must create and configure an
   S3 on Outposts endpoint. The following limits apply to endpoints for

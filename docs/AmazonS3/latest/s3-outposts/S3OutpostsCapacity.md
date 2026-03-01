@@ -1,6 +1,4 @@
-# Managing S3 on Outposts capacity with Amazon CloudWatch
-
-metrics
+# Managing S3 on Outposts capacity with Amazon CloudWatch metrics
 
 To help manage the fixed S3 capacity on your Outpost, we recommend that you create
 CloudWatch alerts that tell you when your storage utilization exceeds a certain threshold. For

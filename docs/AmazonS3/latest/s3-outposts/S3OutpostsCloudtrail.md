@@ -1,6 +1,4 @@
-# Monitoring S3 on Outposts with AWS CloudTrail
-
-logs
+# Monitoring S3 on Outposts with AWS CloudTrail logs
 
 Amazon S3 on Outposts is integrated with AWS CloudTrail, a service that provides a record of
 actions taken by a user, role, or an AWS service in S3 on Outposts. You can use AWS CloudTrail
@@ -19,14 +17,11 @@ For a complete list of CloudTrail data events for S3 on Outposts, see [Amazon S3
   event Outposts bucket. Configure the lifecycle policy to periodically
   remove log files after the period of time that you need to audit them. Doing
   so reduces the amount of data that Amazon Athena analyzes for each query. For
-  more information, see [Creating and managing a lifecycle
-  configuration for your Amazon S3 on Outposts bucket](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md").
+  more information, see [Creating and managing a lifecycle configuration for your Amazon S3 on Outposts bucket](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md").
 - For examples of how to query CloudTrail logs, see the _AWS Big Data Blog_ post [Analyze Security, Compliance, and Operational Activity Using AWS CloudTrail
   and Amazon Athena](https://aws.amazon.com/blogs/big-data/aws-cloudtrail-and-amazon-athena-dive-deep-to-analyze-security-compliance-and-operational-activity/ "https://aws.amazon.com/blogs/big-data/aws-cloudtrail-and-amazon-athena-dive-deep-to-analyze-security-compliance-and-operational-activity/").
 
-## Enable CloudTrail logging for objects
-
-in an S3 on Outposts bucket
+## Enable CloudTrail logging for objects in an S3 on Outposts bucket
 
 You can use the Amazon S3 console to configure an AWS CloudTrail trail to log data events for objects
 in an Amazon S3 on Outposts bucket. CloudTrail supports logging S3 on Outposts object-level API

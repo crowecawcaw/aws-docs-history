@@ -1,19 +1,16 @@
 # Creating an endpoint on an Outpost
 
 To route requests to an Amazon S3 on Outposts access point, you must create and configure an
-S3 on Outposts endpoint. In order to create an endpoint, you will need an active connection with your service link to your Outposts home region. Each virtual private cloud (VPC) on your Outpost can have one associated endpoint. For more information about endpoint quotas, see [S3 on Outposts network
-requirements](S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions "S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions"). You must create an endpoint to be able to
+S3 on Outposts endpoint. In order to create an endpoint, you will need an active connection with your service link to your Outposts home region. Each virtual private cloud (VPC) on your Outpost can have one associated endpoint. For more information about endpoint quotas, see [S3 on Outposts network requirements](S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions "S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions"). You must create an endpoint to be able to
 access your Outposts buckets and perform object operations. For more information, see [Endpoints](S3OutpostsWorkingBuckets.md#S3OutpostsEP "S3OutpostsWorkingBuckets.md#S3OutpostsEP").
 
 ###### Permissions
 
 For more information about the permissions that are required to create an endpoint, see
-[Permissions for S3 on Outposts
-endpoints](S3OutpostsIAM.md#S3OutpostsEndpointPermissions "S3OutpostsIAM.md#S3OutpostsEndpointPermissions").
+[Permissions for S3 on Outposts endpoints](S3OutpostsIAM.md#S3OutpostsEndpointPermissions "S3OutpostsIAM.md#S3OutpostsEndpointPermissions").
 
 When you create an endpoint, S3 on Outposts also creates a service-linked role in your
-AWS account. For more information, see [Using service-linked roles for
-Amazon S3 on Outposts](S3OutpostsServiceLinkedRoles.md "S3OutpostsServiceLinkedRoles.md").
+AWS account. For more information, see [Using service-linked roles for Amazon S3 on Outposts](S3OutpostsServiceLinkedRoles.md "S3OutpostsServiceLinkedRoles.md").
 
 The following examples show you how to create an S3 on Outposts endpoint by using the
 AWS Management Console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.

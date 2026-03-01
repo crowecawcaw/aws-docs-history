@@ -89,9 +89,7 @@ Before deleting an object from a source bucket that has replication enabled,
 check the object's replication status to ensure that the object has been
 replicated.
 
-### Replication status if
-
-Amazon S3 replica modification sync on Outposts is enabled
+### Replication status if Amazon S3 replica modification sync on Outposts is enabled
 
 When your replication rules enable S3 on Outposts replica modification sync, replicas can report
 statuses other than `REPLICA`. If metadata changes are in the process of
@@ -129,8 +127,7 @@ configuration that you set on the source bucket.
   destination buckets must have versioning enabled.
 - If the destination bucket is owned by another AWS account, verify that the
   bucket owner has a bucket policy on the destination bucket that allows the
-  source bucket owner to replicate objects. For an example, see [Granting permissions when the source and
-  destination Outposts buckets are owned by different AWS accounts](outposts-replication-prerequisites-config.md#outposts-rep-prethree "outposts-replication-prerequisites-config.md#outposts-rep-prethree").
+  source bucket owner to replicate objects. For an example, see [Granting permissions when the source and destination Outposts buckets are owned by different AWS accounts](outposts-replication-prerequisites-config.md#outposts-rep-prethree "outposts-replication-prerequisites-config.md#outposts-rep-prethree").
 - If an object replica doesn't appear in the destination bucket, the following
   issues might prevent replication:
   - S3 on Outposts doesn't replicate an object in a source bucket that is a replica

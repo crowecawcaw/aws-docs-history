@@ -28,10 +28,7 @@ cloud and security _in_ the cloud:
 
 - [Setting up IAM with S3 on Outposts](S3OutpostsIAM.md "S3OutpostsIAM.md")
 - [Data encryption in S3 on Outposts](s3-outposts-data-encryption.md "s3-outposts-data-encryption.md")
-- [AWS PrivateLink for
-  S3 on Outposts](s3-outposts-privatelink-interface-endpoints.md "s3-outposts-privatelink-interface-endpoints.md")
-- [AWS Signature Version 4
-  (SigV4) authentication-specific policy keys](s3-outposts-bucket-policy-s3-sigv4-conditions.md "s3-outposts-bucket-policy-s3-sigv4-conditions.md")
+- [AWS PrivateLink for S3 on Outposts](s3-outposts-privatelink-interface-endpoints.md "s3-outposts-privatelink-interface-endpoints.md")
+- [AWS Signature Version 4 (SigV4) authentication-specific policy keys](s3-outposts-bucket-policy-s3-sigv4-conditions.md "s3-outposts-bucket-policy-s3-sigv4-conditions.md")
 - [AWS managed policies for Amazon S3 on Outposts](s3-outposts-aws-manpol.md "s3-outposts-aws-manpol.md")
-- [Using service-linked roles for
-  Amazon S3 on Outposts](S3OutpostsServiceLinkedRoles.md "S3OutpostsServiceLinkedRoles.md")
+- [Using service-linked roles for Amazon S3 on Outposts](S3OutpostsServiceLinkedRoles.md "S3OutpostsServiceLinkedRoles.md")

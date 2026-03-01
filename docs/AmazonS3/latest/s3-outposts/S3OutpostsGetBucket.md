@@ -1,6 +1,4 @@
-# Getting an S3 on Outposts bucket by using the AWS CLI and
-
-the SDK for Java
+# Getting an S3 on Outposts bucket by using the AWS CLI and the SDK for Java
 
 With Amazon S3 on Outposts, you can create S3 buckets on your AWS Outposts and easily store and
 retrieve objects on premises for applications that require local data access, local data

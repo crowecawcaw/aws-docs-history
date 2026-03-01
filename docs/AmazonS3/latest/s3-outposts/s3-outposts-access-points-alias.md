@@ -1,6 +1,4 @@
-# Using a bucket-style alias for your
-
-S3 on Outposts bucket access point
+# Using a bucket-style alias for your S3 on Outposts bucket access point
 
 With S3 on Outposts, you must use access points to access any object in an Outposts bucket. Every
 time you create an access point for a bucket, S3 on Outposts automatically generates an access point alias. You can
@@ -23,8 +21,7 @@ For more information about access point aliases, see the following topics.
 ###### Topics
 
 - [Access point aliases](#access-points-alias-name-s3-outposts "#access-points-alias-name-s3-outposts")
-- [Using an access point alias in an
-  S3 on Outposts object operation](#access-points-alias-use-case-s3-outposts "#access-points-alias-use-case-s3-outposts")
+- [Using an access point alias in an S3 on Outposts object operation](#access-points-alias-use-case-s3-outposts "#access-points-alias-use-case-s3-outposts")
 - [Limitations](#access-points-alias-limitations-s3-outposts "#access-points-alias-limitations-s3-outposts")
 
 ## Access point aliases
@@ -43,9 +40,7 @@ The `--op-s3` suffix is reserved for access point aliases, we recommend that
 you don't use it for bucket or access point names. For more information about S3 on Outposts
 bucket-naming rules, see [Working with S3 on Outposts buckets](S3OutpostsWorkingBuckets.md "S3OutpostsWorkingBuckets.md").
 
-### Finding the
-
-access point alias
+### Finding the access point alias
 
 The following examples show you how to find an access point alias by using the Amazon S3 console and
 the AWS CLI.
@@ -69,9 +64,7 @@ Points** list.
    - Choose the access point name. Then, under **Outposts access
      point overview**, copy the access point alias.
 
-###### Example: Create an access point by using the AWS CLI and find the access point alias in the
-
-response
+###### Example: Create an access point by using the AWS CLI and find the access point alias in the response
 
 The following AWS CLI example for the `create-access-point` command
 creates the access point and returns the automatically generated access point alias. To run this
@@ -143,9 +136,7 @@ To run this command, replace the `user input
 }`
 ````
 
-## Using an access point alias in an
-
-S3 on Outposts object operation
+## Using an access point alias in an S3 on Outposts object operation
 
 When adopting access points, you can use access point alias without requiring extensive code
 changes.
@@ -173,6 +164,5 @@ the full access point ARN.
 - Aliases cannot be configured by customers.
 - Aliases cannot be deleted or modified or disabled on an access point.
 - You can't use an access point alias for S3 on Outposts control plane operations. For a list
-  of S3 on Outposts control plane operations, see [Amazon S3 Control API operations for managing
-  buckets](S3OutpostsAPI.md#S3OutpostsAPIsBucket "S3OutpostsAPI.md#S3OutpostsAPIsBucket").
+  of S3 on Outposts control plane operations, see [Amazon S3 Control API operations for managing buckets](S3OutpostsAPI.md#S3OutpostsAPIsBucket "S3OutpostsAPI.md#S3OutpostsAPIsBucket").
 - Aliases cannot be used in AWS Identity and Access Management (IAM) policies.

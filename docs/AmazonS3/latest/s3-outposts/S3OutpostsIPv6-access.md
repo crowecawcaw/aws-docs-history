@@ -16,16 +16,11 @@ information about S3 on Outposts, see [S3 on Outposts pricing](https://aws.amazo
 ###### Topics
 
 - [Getting started with IPv6](#S3Outposts-ipv6-access-getting-started "#S3Outposts-ipv6-access-getting-started")
-- [Using dual-stack endpoints to make requests
-  over an IPv6 network](#S3Outposts-ipv6-access-api "#S3Outposts-ipv6-access-api")
-- [Using IPv6 addresses in IAM
-  policies](#S3Outposts-ipv6-access-iam "#S3Outposts-ipv6-access-iam")
-- [Testing IP address
-  compatibility](#S3Outposts-ipv6-access-test-compatabilty "#S3Outposts-ipv6-access-test-compatabilty")
-- [Using IPv6 with
-  AWS PrivateLink](#S3Outposts-ipv6-privatelink "#S3Outposts-ipv6-privatelink")
-- [Using S3 on Outposts dual-stack
-  endpoints](s3-outposts-dual-stack-endpoints.md "s3-outposts-dual-stack-endpoints.md")
+- [Using dual-stack endpoints to make requests over an IPv6 network](#S3Outposts-ipv6-access-api "#S3Outposts-ipv6-access-api")
+- [Using IPv6 addresses in IAM policies](#S3Outposts-ipv6-access-iam "#S3Outposts-ipv6-access-iam")
+- [Testing IP address compatibility](#S3Outposts-ipv6-access-test-compatabilty "#S3Outposts-ipv6-access-test-compatabilty")
+- [Using IPv6 with AWS PrivateLink](#S3Outposts-ipv6-privatelink "#S3Outposts-ipv6-privatelink")
+- [Using S3 on Outposts dual-stack endpoints](s3-outposts-dual-stack-endpoints.md "s3-outposts-dual-stack-endpoints.md")
 
 ## Getting started with IPv6
 
@@ -38,8 +33,7 @@ over IPv6:
 
 - The client and the network accessing the bucket must be enabled to use IPv6.
 - Both virtual hosted-style and path style requests are supported for IPv6 access.
-  For more information, see [Using S3 on Outposts dual-stack
-  endpoints](s3-outposts-dual-stack-endpoints.md "s3-outposts-dual-stack-endpoints.md").
+  For more information, see [Using S3 on Outposts dual-stack endpoints](s3-outposts-dual-stack-endpoints.md "s3-outposts-dual-stack-endpoints.md").
 - If you use source IP address filtering in your AWS Identity and Access Management (IAM) user or S3 on Outposts
   bucket policies, you must update the policies to include IPv6 address
   ranges.
@@ -56,9 +50,7 @@ actions](../userguide/S3OutpostsAPI.md "../userguide/S3OutpostsAPI.md") aren’t
   formatted remote IP addresses. The updated tools, scripts, and software will then
   correctly parse the IPv6 formatted remote IP addresses.
 
-## Using dual-stack endpoints to make requests
-
-over an IPv6 network
+## Using dual-stack endpoints to make requests over an IPv6 network
 
 To make requests with S3 on Outposts API calls over IPv6, you can use dual-stack endpoints
 via AWS CLI or AWS SDK. The [Amazon S3 control API
@@ -75,14 +67,10 @@ override of the S3 on Outposts endpoint in the configuration file.
 You can use a dual-stack endpoint to access an S3 on Outposts bucket over IPv6 from
 any of the following:
 
-- The AWS CLI, see [Using dual-stack endpoints from
-  the AWS CLI](s3-outposts-dual-stack-endpoints.md#s3-outposts-dual-stack-endpoints-cli "s3-outposts-dual-stack-endpoints.md#s3-outposts-dual-stack-endpoints-cli").
-- The AWS SDKs, see [Using S3 on Outposts dual-stack endpoints from
-  the AWS SDKs](s3-outposts-dual-stack-endpoints.md#s3-outposts-dual-stack-endpoints-sdks "s3-outposts-dual-stack-endpoints.md#s3-outposts-dual-stack-endpoints-sdks").
+- The AWS CLI, see [Using dual-stack endpoints from the AWS CLI](s3-outposts-dual-stack-endpoints.md#s3-outposts-dual-stack-endpoints-cli "s3-outposts-dual-stack-endpoints.md#s3-outposts-dual-stack-endpoints-cli").
+- The AWS SDKs, see [Using S3 on Outposts dual-stack endpoints from the AWS SDKs](s3-outposts-dual-stack-endpoints.md#s3-outposts-dual-stack-endpoints-sdks "s3-outposts-dual-stack-endpoints.md#s3-outposts-dual-stack-endpoints-sdks").
 
-## Using IPv6 addresses in IAM
-
-policies
+## Using IPv6 addresses in IAM policies
 
 Before trying to access an S3 on Outposts bucket using an IPv6 protocol, make
 sure that IAM users or S3 on Outposts bucket policies used for IP address filtering are
@@ -142,17 +130,13 @@ Before using IPv6 you must update all relevant IAM user and bucket policies that
 use IP address filtering to allow IPv6 address ranges. We recommend that you update
 your IAM policies with your organization's IPv6 address ranges in addition to your
 existing IPv4 address ranges. For an example of a bucket policy that allows access over
-both IPv6 and IPv4, see [Restrict access to
-specific IP addresses](S3Outposts-example-bucket-policies.md#S3Outposts-example-bucket-policies-IP-1 "S3Outposts-example-bucket-policies.md#S3Outposts-example-bucket-policies-IP-1").
+both IPv6 and IPv4, see [Restrict access to specific IP addresses](S3Outposts-example-bucket-policies.md#S3Outposts-example-bucket-policies-IP-1 "S3Outposts-example-bucket-policies.md#S3Outposts-example-bucket-policies-IP-1").
 
 You can review your IAM user policies using the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 For more information about IAM, see the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md"). For information about editing
-S3 on Outposts bucket policies, see [Adding or editing a bucket policy for an
-Amazon S3 on Outposts bucket](S3OutpostsBucketPolicyEdit.md "S3OutpostsBucketPolicyEdit.md").
+S3 on Outposts bucket policies, see [Adding or editing a bucket policy for an Amazon S3 on Outposts bucket](S3OutpostsBucketPolicyEdit.md "S3OutpostsBucketPolicyEdit.md").
 
-## Testing IP address
-
-compatibility
+## Testing IP address compatibility
 
 If you're using a Linux or Unix instance, or macOS X platform, you can test your access
 to a dual-stack endpoint over IPv6. For example, to test the connection to
@@ -175,9 +159,7 @@ dig s3-outposts.us-west-2.api.aws AAAA +short
 2600:1f14:2588:4801:d802:8ccf:4e04:817
 ```
 
-## Using IPv6 with
-
-AWS PrivateLink
+## Using IPv6 with AWS PrivateLink
 
 S3 on Outposts supports the IPv6 protocol for AWS PrivateLink services and
 endpoints. With AWS PrivateLink support for the IPv6 protocol, you can connect to
@@ -191,9 +173,7 @@ endpoints](https://aws.amazon.com/blogs/networking-and-content-delivery/expedite
 To update the supported IP address type from IPv4 to IPv6, see [Modify the supported IP address type](../../../vpc/latest/privatelink/configure-endpoint-service.md#supported-ip-address-types "../../../vpc/latest/privatelink/configure-endpoint-service.md#supported-ip-address-types") in the _AWS PrivateLink User
 Guide_.
 
-### Using IPv6 with
-
-AWS PrivateLink
+### Using IPv6 with AWS PrivateLink
 
 If you’re using AWS PrivateLink with IPv6, you must create an
 IPv6 or dual-stack VPC interface endpoint. For general steps on how to

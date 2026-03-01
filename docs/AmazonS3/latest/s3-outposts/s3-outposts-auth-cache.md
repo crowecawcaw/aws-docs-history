@@ -19,9 +19,7 @@ It is refreshed asynchronously when you make an S3 on Outposts API request, to e
 the latest policies are used. If the Outpost is disconnected from the AWS Region, the
 cache will be valid for up to 12 hours.
 
-## Configuring the authorization and authentication
-
-cache
+## Configuring the authorization and authentication cache
 
 S3 on Outposts automatically caches authentication and authorization data for requests
 signed with the SigV4A algorithm. For more information, see [Signing AWS API
@@ -40,8 +38,7 @@ signed with the SigV4 algorithm.
 ## Validating SigV4A signing
 
 You can use AWS CloudTrail to validate that requests were signed with SigV4A. For more
-information on setting up CloudTrail for S3 on Outposts, see [Monitoring S3 on Outposts with AWS CloudTrail
-logs](S3OutpostsCloudtrail.md "S3OutpostsCloudtrail.md").
+information on setting up CloudTrail for S3 on Outposts, see [Monitoring S3 on Outposts with AWS CloudTrail logs](S3OutpostsCloudtrail.md "S3OutpostsCloudtrail.md").
 
 After you have configured CloudTrail, you can verify how a request was signed in the
 `SignatureVersion` field of the CloudTrail logs. Requests that were signed with

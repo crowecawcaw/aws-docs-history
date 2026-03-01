@@ -1,6 +1,4 @@
-# Listing Amazon S3 on Outposts
-
-buckets
+# Listing Amazon S3 on Outposts buckets
 
 With Amazon S3 on Outposts, you can create S3 buckets on your AWS Outposts and easily store and
 retrieve objects on premises for applications that require local data access, local data

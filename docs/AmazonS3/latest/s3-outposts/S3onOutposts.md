@@ -79,8 +79,7 @@ arn:aws:s3-outposts:`region`:`account-id`:outpost/`outpost-id`/bucket/`bucket-na
 
 Every object is contained in a bucket. You must use access points to access any object in
 an Outposts bucket. When you specify the bucket for object operations, you use the
-access point ARN or access point alias. For more information about access point aliases, see [Using a bucket-style alias for your
-S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md").
+access point ARN or access point alias. For more information about access point aliases, see [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md").
 
 The following example shows the access point ARN format for S3 on Outposts, which
 includes the `outpost-id`, `account-id`, and access point
@@ -131,8 +130,7 @@ object in the same bucket. With S3 Versioning, you can preserve, retrieve, and
 restore every version of every object stored in your buckets. S3 Versioning helps you
 recover from unintended user actions and application failures.
 
-For more information, see [Managing S3 Versioning for your S3 on Outposts
-bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
+For more information, see [Managing S3 Versioning for your S3 on Outposts bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
 
 ### Version ID
 
@@ -141,8 +139,7 @@ ID for each object added to the bucket. Objects that already existed in the buck
 at the time that you enable versioning have a version ID of `null`. If
 you modify these (or any other) objects with other operations, such as [PutObject](../API/API_PutObject.md "../API/API_PutObject.md"), the new objects get a unique version ID.
 
-For more information, see [Managing S3 Versioning for your S3 on Outposts
-bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
+For more information, see [Managing S3 Versioning for your S3 on Outposts bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
 
 ### Storage class and encryption
 
@@ -186,16 +183,14 @@ buckets that you can use to perform S3 object operations, such as
 `GetObject` and `PutObject`.
 
 When you specify the bucket for object operations, you use the access point ARN or access point alias.
-For more information about access point aliases, see [Using a bucket-style alias for your
-S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md").
+For more information about access point aliases, see [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md").
 
 Access points have distinct permissions and network controls that S3 on Outposts
 applies for any request that is made through that access point. Each access point enforces a
 customized access point policy that works in conjunction with the bucket policy that is
 attached to the underlying bucket.
 
-For more information, see [Accessing your S3 on Outposts buckets and
-objects](S3OutpostsNetworking.md#AccessingS3Outposts "S3OutpostsNetworking.md#AccessingS3Outposts").
+For more information, see [Accessing your S3 on Outposts buckets and objects](S3OutpostsNetworking.md#AccessingS3Outposts "S3OutpostsNetworking.md#AccessingS3Outposts").
 
 ## Features of S3 on Outposts
 
@@ -232,9 +227,7 @@ features.
   across AWS accounts, within your organization or organizational units
   (OUs) in AWS Organizations.
 
-### Storage logging and
-
-monitoring
+### Storage logging and monitoring
 
 S3 on Outposts provides logging and monitoring tools that you can use to monitor and
 control how your S3 on Outposts resources are being used. For more information, see
@@ -343,8 +336,7 @@ rack pricing](https://aws.amazon.com/outposts/rack/pricing/ "https://aws.amazon.
 For more information about working with S3 on Outposts, see the following topics:
 
 - [Setting up your Outpost](OrderOutposts.md "OrderOutposts.md")
-- [How is Amazon S3 on Outposts different from
-  Amazon S3?](S3OnOutpostsRestrictionsLimitations.md "S3OnOutpostsRestrictionsLimitations.md")
+- [How is Amazon S3 on Outposts different from Amazon S3?](S3OnOutpostsRestrictionsLimitations.md "S3OnOutpostsRestrictionsLimitations.md")
 - [Getting started with Amazon S3 on Outposts](S3OutpostsGS.md "S3OutpostsGS.md")
 - [Networking for S3 on Outposts](S3OutpostsNetworking.md "S3OutpostsNetworking.md")
 - [Working with S3 on Outposts buckets](S3OutpostsWorkingBuckets.md "S3OutpostsWorkingBuckets.md")

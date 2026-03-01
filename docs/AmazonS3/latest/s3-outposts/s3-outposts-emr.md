@@ -27,9 +27,7 @@ Amazon EMR with Amazon S3 on Outposts supports the following applications:
   For more information, see the [Amazon EMR Release
   Guide](../../../emr/latest/ReleaseGuide/emr-release-components.md "../../../emr/latest/ReleaseGuide/emr-release-components.md").
 
-## Create and configure an Amazon S3 on Outposts
-
-bucket
+## Create and configure an Amazon S3 on Outposts bucket
 
 Amazon EMR uses the AWS SDK for Java with Amazon S3 on Outposts to store input data and output
 data. Your Amazon EMR log files are stored in a Regional Amazon S3 location that you select and
@@ -90,9 +88,7 @@ For example, if you are accessing the path
 `fs.AbstractFileSystem.s3a.impl` property to
 `org.apache.hadoop.fs.s3a.S3A`.
 
-## Getting started using Amazon EMR with
-
-Amazon S3 on Outposts
+## Getting started using Amazon EMR with Amazon S3 on Outposts
 
 The following topics explain how to get started using Amazon EMR with
 Amazon S3 on Outposts.
@@ -139,9 +135,7 @@ section. To use this example, replace the `user input
 To create a cluster that runs Spark with S3 on Outposts, complete the following
 steps in the console.
 
-###### To create a cluster that runs Spark with
-
-S3 on Outposts
+###### To create a cluster that runs Spark with S3 on Outposts
 
 1. Open the Amazon EMR console at
    [https://console.aws.amazon.com/elasticmapreduce/](https://console.aws.amazon.com/elasticmapreduce/ "https://console.aws.amazon.com/elasticmapreduce/").

@@ -1,6 +1,4 @@
-# Managing S3 Versioning for your S3 on Outposts
-
-bucket
+# Managing S3 Versioning for your S3 on Outposts bucket
 
 When enabled, S3 Versioning saves multiple distinct copies of an object in the same bucket. You can use
 S3 Versioning to preserve, retrieve, and restore every version of every object stored in your
@@ -11,8 +9,7 @@ Amazon S3 on Outposts buckets have three versioning states:
 
 - **Unversioned** – If you’ve never enabled or
   suspended S3 Versioning on your bucket, it is unversioned and returns no S3 Versioning
-  status. For more information about S3 Versioning, see Managing S3 Versioning for your S3 on Outposts
-  bucket.
+  status. For more information about S3 Versioning, see Managing S3 Versioning for your S3 on Outposts bucket.
 - **Enabled** – Enables S3 Versioning for the
   objects in the bucket. All objects added to the bucket receive a unique version ID.
   Objects that already existed in the bucket at the time that you enable versioning
@@ -24,13 +21,11 @@ Amazon S3 on Outposts buckets have three versioning states:
   receive the version ID `null`. For more information, see [Adding objects to versioning-suspended buckets](../userguide/AddingObjectstoVersionSuspendedBuckets.md "../userguide/AddingObjectstoVersionSuspendedBuckets.md") in the _Amazon S3 User Guide_.
   After you enable S3 Versioning for an S3 on Outposts bucket, it can never return to an
   unversioned state. However, you can suspend versioning. For more information about
-  S3 Versioning, see Managing S3 Versioning for your S3 on Outposts
-  bucket.
+  S3 Versioning, see Managing S3 Versioning for your S3 on Outposts bucket.
 
 For each object in your bucket, you have a current version and zero or more noncurrent
 versions. To reduce storage costs, you can configure your bucket S3 Lifecycle rules to expire
-noncurrent versions after a specified time period. For more information, see [Creating and managing a lifecycle
-configuration for your Amazon S3 on Outposts bucket](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md").
+noncurrent versions after a specified time period. For more information, see [Creating and managing a lifecycle configuration for your Amazon S3 on Outposts bucket](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md").
 
 The following examples show you how to enable or suspend versioning for an existing
 S3 on Outposts bucket by using the AWS Management Console and the AWS Command Line Interface (AWS CLI). To create a bucket

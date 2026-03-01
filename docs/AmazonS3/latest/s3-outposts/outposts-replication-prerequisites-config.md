@@ -1,16 +1,11 @@
-# Prerequisites for creating
-
-replication rules
+# Prerequisites for creating replication rules
 
 ###### Topics
 
-- [Connecting your source and destination Outpost
-  subnets](#outposts-rep-preone "#outposts-rep-preone")
+- [Connecting your source and destination Outpost subnets](#outposts-rep-preone "#outposts-rep-preone")
 - [Creating an IAM role](#outposts-rep-pretwo "#outposts-rep-pretwo")
 
-## Connecting your source and destination Outpost
-
-subnets
+## Connecting your source and destination Outpost subnets
 
 To have your replication traffic go from your source Outpost to your destination
 Outpost over your local gateway, you must add a new route to set up networking. You
@@ -24,13 +19,9 @@ endpoints is either **Private** (direct virtual private cloud [VPC]
 routing for AWS Outposts) or **Customer owned IP** (a customer-owned IP
 address pool [CoIP pool] within your on-premises network).
 
-### Step 1: Find the CIDR range of your source
+### Step 1: Find the CIDR range of your source Outposts endpoint
 
-Outposts endpoint
-
-###### To find the CIDR range of your source endpoint that's associated with
-
-your source access point
+###### To find the CIDR range of your source endpoint that's associated with your source access point
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -75,9 +66,7 @@ the **Access Type**.
     	 **CIDRs** value of your source
     	 Outposts endpoint for use in [Step 6](#outposts-pre-step6 "#outposts-pre-step6").
 
-### Step 2: Find the subnet ID and the CIDR
-
-range of your destination Outposts endpoint
+### Step 2: Find the subnet ID and the CIDR range of your destination Outposts endpoint
 
 To find the subnet ID and the CIDR range of your destination endpoint that's
 associated with your destination access point, follow the same substeps in [Step 1](#outposts-pre-step1 "#outposts-pre-step1") and change your source Outposts
@@ -85,9 +74,7 @@ endpoint to your destination Outposts endpoint when you apply those substeps.
 Copy the subnet ID value of your destination Outposts endpoint for use in [Step 6](#outposts-pre-step6 "#outposts-pre-step6"). Copy the CIDR value of your
 destination Outposts endpoint for use in [Step 5](#outposts-pre-step5 "#outposts-pre-step5").
 
-### Step 3: Find the local gateway ID of your
-
-source Outpost
+### Step 3: Find the local gateway ID of your source Outpost
 
 ###### To find the local gateway ID of your source Outpost
 
@@ -103,9 +90,7 @@ For more information about local gateway, see [Local
 gateway](../../../outposts/latest/userguide/outposts-local-gateways.md "../../../outposts/latest/userguide/outposts-local-gateways.md") in the _AWS Outposts User
 Guide_.
 
-### Step 4: Find the local gateway ID of your
-
-destination Outpost
+### Step 4: Find the local gateway ID of your destination Outpost
 
 To find the local gateway ID of your destination Outpost, follow the same
 substeps in [Step 3](#outposts-pre-step3 "#outposts-pre-step3"), except look for
@@ -113,13 +98,9 @@ the Outpost ID for your destination Outpost. Copy the local gateway ID value of
 your destination Outpost for use in [Step
 6](#outposts-pre-step6 "#outposts-pre-step6").
 
-### Step 5: Set up the connection from your
+### Step 5: Set up the connection from your source Outpost subnet to your destination Outpost subnet
 
-source Outpost subnet to your destination Outpost subnet
-
-###### To connect from your source Outpost subnet to your destination Outpost
-
-subnet
+###### To connect from your source Outpost subnet to your destination Outpost subnet
 
 1. Sign in to the AWS Management Console and open the VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -145,9 +126,7 @@ subnet
 10. Make sure the **Status** for the route is
     **Active**.
 
-### Step 6: Set up the connection from your
-
-destination Outpost subnet to your source Outpost subnet
+### Step 6: Set up the connection from your destination Outpost subnet to your source Outpost subnet
 
 1. Sign in to the AWS Management Console and open the VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -185,8 +164,7 @@ replication configuration.
 
 This section explains the trust policy and minimum required permissions policy.
 The example walkthroughs provide step-by-step instructions to create an IAM role.
-For more information, see [Creating replication rules on
-Outposts](replication-between-outposts.md "replication-between-outposts.md"). For more information about IAM
+For more information, see [Creating replication rules on Outposts](replication-between-outposts.md "replication-between-outposts.md"). For more information about IAM
 roles, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the
 _IAM User Guide_.
 
@@ -273,8 +251,7 @@ The access policy grants permissions for the following actions:
      ``DESTINATION-OUTPOSTS-BUCKET``
      bucket (the destination bucket) allow S3 on Outposts to replicate
      objects or delete markers to the destination Outposts bucket. For
-     information about delete markers, see [How delete operations affect
-     replication](S3OutpostsReplication.md#outposts-replication-delete-op "S3OutpostsReplication.md#outposts-replication-delete-op").
+     information about delete markers, see [How delete operations affect replication](S3OutpostsReplication.md#outposts-replication-delete-op "S3OutpostsReplication.md#outposts-replication-delete-op").
 
 
     ###### Note
@@ -315,9 +292,7 @@ The permissions described here are related to the minimum replication
 configuration. If you choose to add optional replication configurations,
 you must grant additional permissions to S3 on Outposts.
 
-### Granting permissions when the source and
-
-destination Outposts buckets are owned by different AWS accounts
+### Granting permissions when the source and destination Outposts buckets are owned by different AWS accounts
 
 When the source and destination Outposts buckets aren't owned by the same
 accounts, the owner of the destination Outposts bucket must update the bucket

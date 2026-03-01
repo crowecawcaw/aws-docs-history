@@ -7,8 +7,7 @@ the networking requirements for accessing S3 on Outposts.
 ###### Topics
 
 - [Choosing your networking access type](#S3OutpostsAccessType "#S3OutpostsAccessType")
-- [Accessing your S3 on Outposts buckets and
-  objects](#AccessingS3Outposts "#AccessingS3Outposts")
+- [Accessing your S3 on Outposts buckets and objects](#AccessingS3Outposts "#AccessingS3Outposts")
 - [Cross-account elastic network interfaces](#S3OutpostsXENI "#S3OutpostsXENI")
 
 ## Choosing your networking access type
@@ -35,9 +34,7 @@ customer-owned IP address pool [CoIP pool]).
   accessing S3 on Outposts within a VPC, your traffic is limited to the bandwidth of
   the local gateway.
 
-## Accessing your S3 on Outposts buckets and
-
-objects
+## Accessing your S3 on Outposts buckets and objects
 
 To access your S3 on Outposts buckets and objects, you must have the following:
 

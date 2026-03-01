@@ -15,13 +15,10 @@ started by using the AWS CLI or AWS SDK for Java, see [Getting started by using 
 
 ###### Topics
 
-- [Create a bucket, an access point, and an
-  endpoint](#S3OutpostsGSConsoleCreateBucket "#S3OutpostsGSConsoleCreateBucket")
+- [Create a bucket, an access point, and an endpoint](#S3OutpostsGSConsoleCreateBucket "#S3OutpostsGSConsoleCreateBucket")
 - [Next steps](#S3OutpostsGSConsoleNext "#S3OutpostsGSConsoleNext")
 
-## Create a bucket, an access point, and an
-
-endpoint
+## Create a bucket, an access point, and an endpoint
 
 The following procedure shows you how to create your first bucket in S3 on Outposts.
 When you create a bucket using the console, you also create an access point and an endpoint
@@ -64,8 +61,7 @@ The bucket name must:
         * **Enable** – Enables S3 Versioning for the objects in
          the bucket. All objects added to the bucket receive a unique version ID.
 
-    For more information about S3 Versioning, see [Managing S3 Versioning for your S3 on Outposts
-    bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
+    For more information about S3 Versioning, see [Managing S3 Versioning for your S3 on Outposts bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
 
 7.  (Optional) Add any **optional tags** that you would like to associate
     with the Outposts bucket. You can use tags to track criteria for individual projects or
@@ -125,5 +121,4 @@ Outpost and are not in an AWS Region. Because the AWS Management Console is host
 your Outpost. However, you can use the REST API, AWS Command Line Interface (AWS CLI), and AWS SDKs to upload and manage your objects through your access points.
 
 After you create an S3 on Outposts bucket, access point, and endpoint, you can use the AWS CLI or SDK for Java to
-upload an object to your bucket. For more information, see [Upload an object to an S3 on Outposts
-bucket](S3OutpostsUploadObjects.md "S3OutpostsUploadObjects.md").
+upload an object to your bucket. For more information, see [Upload an object to an S3 on Outposts bucket](S3OutpostsUploadObjects.md "S3OutpostsUploadObjects.md").

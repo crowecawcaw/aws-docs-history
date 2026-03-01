@@ -15,9 +15,6 @@ following topics.
 
 ###### Topics
 
-- [Managing S3 on Outposts capacity with Amazon CloudWatch
-  metrics](S3OutpostsCapacity.md "S3OutpostsCapacity.md")
-- [Receiving S3 on Outposts event notifications
-  by using Amazon CloudWatch Events](S3OutpostsNotificationsCWE.md "S3OutpostsNotificationsCWE.md")
-- [Monitoring S3 on Outposts with AWS CloudTrail
-  logs](S3OutpostsCloudtrail.md "S3OutpostsCloudtrail.md")
+- [Managing S3 on Outposts capacity with Amazon CloudWatch metrics](S3OutpostsCapacity.md "S3OutpostsCapacity.md")
+- [Receiving S3 on Outposts event notifications by using Amazon CloudWatch Events](S3OutpostsNotificationsCWE.md "S3OutpostsNotificationsCWE.md")
+- [Monitoring S3 on Outposts with AWS CloudTrail logs](S3OutpostsCloudtrail.md "S3OutpostsCloudtrail.md")

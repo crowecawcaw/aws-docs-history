@@ -16,6 +16,5 @@ The following topics provide information about developing with S3 on Outposts.
 
 - [S3 on Outposts supported regions](S3OutpostsRegions.md "S3OutpostsRegions.md")
 - [Amazon S3 on Outposts API operations](S3OutpostsAPI.md "S3OutpostsAPI.md")
-- [Configure the S3 control client
-  for S3 on Outposts by using the SDK for Java](S3OutpostsCongfigureS3ControlClientJava.md "S3OutpostsCongfigureS3ControlClientJava.md")
+- [Configure the S3 control client for S3 on Outposts by using the SDK for Java](S3OutpostsCongfigureS3ControlClientJava.md "S3OutpostsCongfigureS3ControlClientJava.md")
 - [Making requests to S3 on Outposts over IPv6](S3OutpostsIPv6-access.md "S3OutpostsIPv6-access.md")

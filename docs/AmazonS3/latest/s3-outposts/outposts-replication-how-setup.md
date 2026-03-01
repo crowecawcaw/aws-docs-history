@@ -8,8 +8,7 @@ retroactively. To replicate objects that were created before your replication
 configuration, you can use the `CopyObject` API operation to copy them to the
 same bucket. After the objects are copied, they appear as "new" objects in the bucket
 and the replication configuration will apply to them. For more information about copying
-an object, see [Copying an object in an Amazon S3 on Outposts bucket using
-the AWS SDK for Java](S3OutpostsCopyObject.md "S3OutpostsCopyObject.md") and [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md") in the _Amazon Simple Storage Service API Reference_.
+an object, see [Copying an object in an Amazon S3 on Outposts bucket using the AWS SDK for Java](S3OutpostsCopyObject.md "S3OutpostsCopyObject.md") and [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md") in the _Amazon Simple Storage Service API Reference_.
 
 To enable S3 Replication on Outposts, add a replication rule to your source Outposts bucket. The
 replication rule tells S3 on Outposts to replicate objects as specified. In the replication
@@ -47,7 +46,5 @@ information, see the following topics in the _Amazon Simple Storage Service API 
 
 ###### Topics
 
-- [Prerequisites for creating
-  replication rules](outposts-replication-prerequisites-config.md "outposts-replication-prerequisites-config.md")
-- [Creating replication rules on
-  Outposts](replication-between-outposts.md "replication-between-outposts.md")
+- [Prerequisites for creating replication rules](outposts-replication-prerequisites-config.md "outposts-replication-prerequisites-config.md")
+- [Creating replication rules on Outposts](replication-between-outposts.md "replication-between-outposts.md")

@@ -1,6 +1,4 @@
-# Managing access to an Amazon S3 on Outposts bucket using
-
-a bucket policy
+# Managing access to an Amazon S3 on Outposts bucket using a bucket policy
 
 A bucket policy is a resource-based AWS Identity and Access Management (IAM) policy that you can use to grant
 access permissions to your bucket and the objects in it. Only the bucket owner can
@@ -12,8 +10,7 @@ You can update your bucket policy to manage access to your Amazon S3 on Outposts
 
 ###### Topics
 
-- [Adding or editing a bucket policy for an
-  Amazon S3 on Outposts bucket](S3OutpostsBucketPolicyEdit.md "S3OutpostsBucketPolicyEdit.md")
+- [Adding or editing a bucket policy for an Amazon S3 on Outposts bucket](S3OutpostsBucketPolicyEdit.md "S3OutpostsBucketPolicyEdit.md")
 - [Viewing the bucket policy for your Amazon S3 on Outposts bucket](S3OutpostsBucketPolicyGet.md "S3OutpostsBucketPolicyGet.md")
 - [Deleting the bucket policy for your Amazon S3 on Outposts bucket](S3OutpostsBucketPolicyDelete.md "S3OutpostsBucketPolicyDelete.md")
 - [Bucket policy examples](S3Outposts-example-bucket-policies.md "S3Outposts-example-bucket-policies.md")

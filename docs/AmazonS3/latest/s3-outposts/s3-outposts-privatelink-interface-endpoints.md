@@ -1,6 +1,4 @@
-# AWS PrivateLink for
-
-S3 on Outposts
+# AWS PrivateLink for S3 on Outposts
 
 S3 on Outposts supports AWS PrivateLink, which provides direct management access to your
 S3 on Outposts storage through a private endpoint within your virtual private network. This
@@ -34,20 +32,13 @@ For general information about interface endpoints, see [Interface VPC endpoints
 
 ###### Topics
 
-- [Restrictions and
-  limitations](#s3-outposts-privatelink-restrictions "#s3-outposts-privatelink-restrictions")
-- [Accessing S3 on Outposts
-  interface endpoints](#s3-outposts-accessing-s3-interface-endpoints "#s3-outposts-accessing-s3-interface-endpoints")
-- [Updating an on-premises
-  DNS configuration](#s3-outposts-updating-on-premises-dns-config "#s3-outposts-updating-on-premises-dns-config")
-- [Creating a VPC endpoint for
-  S3 on Outposts](#s3-outposts-creating-vpc "#s3-outposts-creating-vpc")
-- [Creating bucket policies and
-  VPC endpoint policies for S3 on Outposts](#s3-outposts-creating-vpc-endpoint-policy "#s3-outposts-creating-vpc-endpoint-policy")
+- [Restrictions and limitations](#s3-outposts-privatelink-restrictions "#s3-outposts-privatelink-restrictions")
+- [Accessing S3 on Outposts interface endpoints](#s3-outposts-accessing-s3-interface-endpoints "#s3-outposts-accessing-s3-interface-endpoints")
+- [Updating an on-premises DNS configuration](#s3-outposts-updating-on-premises-dns-config "#s3-outposts-updating-on-premises-dns-config")
+- [Creating a VPC endpoint for S3 on Outposts](#s3-outposts-creating-vpc "#s3-outposts-creating-vpc")
+- [Creating bucket policies and VPC endpoint policies for S3 on Outposts](#s3-outposts-creating-vpc-endpoint-policy "#s3-outposts-creating-vpc-endpoint-policy")
 
-## Restrictions and
-
-limitations
+## Restrictions and limitations
 
 When you access S3 on Outposts bucket and endpoint management APIs through AWS PrivateLink,
 VPC limitations apply. For more information, see [Interface endpoint properties and limitations](../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations") and [AWS PrivateLink quotas](../../../vpc/latest/privatelink/vpc-limits-endpoints.md "../../../vpc/latest/privatelink/vpc-limits-endpoints.md")
@@ -61,9 +52,7 @@ In addition, AWS PrivateLink doesn't support the following:
   for example, GET, PUT, and similar object API operations.
 - Private DNS
 
-## Accessing S3 on Outposts
-
-interface endpoints
+## Accessing S3 on Outposts interface endpoints
 
 To access S3 on Outposts bucket and endpoint management APIs using AWS PrivateLink, you
 _must_ update your applications to use endpoint-specific DNS names.
@@ -105,9 +94,7 @@ with appropriate information.
 aws s3control list-regional-buckets --region `us-east-1` --endpoint-url https://`vpce-1a2b3c4d-5e6f.s3-outposts.us-east-1.vpce.amazonaws.com` --account-id `111122223333`
 ```
 
-### AWS SDK
-
-examples
+### AWS SDK examples
 
 Update your SDKs to the latest version, and configure your clients to use an endpoint
 URL for accessing the S3 control API for S3 on Outposts interface endpoints.
@@ -154,25 +141,19 @@ s3ControlClient = S3ControlClient.builder().region(region)
 For more information, see [`S3ControlClient`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3control/S3ControlClient.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3control/S3ControlClient.html") in the
 _AWS SDK for Java API Reference_.
 
-## Updating an on-premises
-
-DNS configuration
+## Updating an on-premises DNS configuration
 
 When using endpoint-specific DNS names to access the interface endpoints for S3 on Outposts
 bucket management and endpoint management APIs, you don’t have to update your on-premises
 DNS resolver. You can resolve the endpoint-specific DNS name with the private IP address of
 the interface endpoint from the public S3 on Outposts DNS domain.
 
-## Creating a VPC endpoint for
-
-S3 on Outposts
+## Creating a VPC endpoint for S3 on Outposts
 
 To create a VPC interface endpoint for S3 on Outposts, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the _AWS PrivateLink
 Guide_.
 
-## Creating bucket policies and
-
-VPC endpoint policies for S3 on Outposts
+## Creating bucket policies and VPC endpoint policies for S3 on Outposts
 
 You can attach an endpoint policy to your VPC endpoint that controls access to S3 on Outposts.
 You can also use the `aws:sourceVpce` condition in S3 on Outposts bucket
@@ -211,14 +192,10 @@ Private Cloud Connectivity Options](../../../whitepapers/latest/aws-vpc-connecti
 
 ###### Topics
 
-- [Example: Restricting
-  access to a specific bucket from a VPC endpoint](#privatelink-example-restrict-access-to-bucket "#privatelink-example-restrict-access-to-bucket")
-- [Example: Denying access from a specific VPC endpoint in an S3 on Outposts bucket
-  policy](#s3-outposts-privatelink-example-deny-access-from-vpc-endpoint "#s3-outposts-privatelink-example-deny-access-from-vpc-endpoint")
+- [Example: Restricting access to a specific bucket from a VPC endpoint](#privatelink-example-restrict-access-to-bucket "#privatelink-example-restrict-access-to-bucket")
+- [Example: Denying access from a specific VPC endpoint in an S3 on Outposts bucket policy](#s3-outposts-privatelink-example-deny-access-from-vpc-endpoint "#s3-outposts-privatelink-example-deny-access-from-vpc-endpoint")
 
-### Example: Restricting
-
-access to a specific bucket from a VPC endpoint
+### Example: Restricting access to a specific bucket from a VPC endpoint
 
 You can create an endpoint policy that restricts access to specific S3 on Outposts
 buckets only. The following policy restricts access for the GetBucketPolicy action
@@ -246,9 +223,7 @@ JSON
 
 ```
 
-### Example: Denying access from a specific VPC endpoint in an S3 on Outposts bucket
-
-policy
+### Example: Denying access from a specific VPC endpoint in an S3 on Outposts bucket policy
 
 The following S3 on Outposts bucket policy denies access to GetBucketPolicy on the
 `example-outpost-bucket` bucket

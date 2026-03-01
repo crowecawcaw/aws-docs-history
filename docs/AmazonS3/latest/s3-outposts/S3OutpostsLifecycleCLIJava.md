@@ -1,12 +1,9 @@
-# Creating and managing a lifecycle configuration
-
-by using the AWS CLI and SDK for Java
+# Creating and managing a lifecycle configuration by using the AWS CLI and SDK for Java
 
 You can use S3 Lifecycle to optimize storage capacity for Amazon S3 on Outposts. You can create lifecycle rules to expire objects as they age or are replaced by newer versions. You can create, enable, disable, or delete a lifecycle
 rule.
 
-For more information about S3 Lifecycle, see [Creating and managing a lifecycle
-configuration for your Amazon S3 on Outposts bucket](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md").
+For more information about S3 Lifecycle, see [Creating and managing a lifecycle configuration for your Amazon S3 on Outposts bucket](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md").
 
 ###### Note
 
@@ -19,8 +16,7 @@ AWS Command Line Interface (AWS CLI) and the AWS SDK for Java, see the following
 ###### Topics
 
 - [PUT a lifecycle configuration](#S3OutpostsPutBucketLifecycleConfiguration "#S3OutpostsPutBucketLifecycleConfiguration")
-- [GET the lifecycle
-  configuration on an S3 on Outposts bucket](#S3OutpostsGetBucketLifecycleConfiguration "#S3OutpostsGetBucketLifecycleConfiguration")
+- [GET the lifecycle configuration on an S3 on Outposts bucket](#S3OutpostsGetBucketLifecycleConfiguration "#S3OutpostsGetBucketLifecycleConfiguration")
 
 ## PUT a lifecycle configuration
 
@@ -123,9 +119,7 @@ public void putBucketLifecycleConfiguration(String bucketArn) {
 }
 ```
 
-## GET the lifecycle
-
-configuration on an S3 on Outposts bucket
+## GET the lifecycle configuration on an S3 on Outposts bucket
 
 AWS CLI
 The following AWS CLI example gets a lifecycle configuration on an Outposts

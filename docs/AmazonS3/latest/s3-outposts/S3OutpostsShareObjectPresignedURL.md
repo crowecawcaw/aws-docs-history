@@ -1,6 +1,4 @@
-# Sharing objects by using presigned
-
-URLs
+# Sharing objects by using presigned URLs
 
 To grant time-limited access to objects that are stored locally on an
 Outpost without updating your bucket policy, you can use a presigned URL. With
@@ -31,8 +29,7 @@ the object. For example, if you have a video in your bucket and both the bucket 
 object are private, you can share the video with others by generating a presigned URL.
 Because presigned URLs grant access to your S3 on Outposts buckets to whoever has the URL, we
 recommend that you protect these URLs appropriately. For more details about protecting
-presigned URLs, see [Limiting presigned
-URL capabilities](S3OutpostsPresignedURL.md#S3OutpostsPresignedUrlUploadObjectLimitCapabilities "S3OutpostsPresignedURL.md#S3OutpostsPresignedUrlUploadObjectLimitCapabilities").
+presigned URLs, see [Limiting presigned URL capabilities](S3OutpostsPresignedURL.md#S3OutpostsPresignedUrlUploadObjectLimitCapabilities "S3OutpostsPresignedURL.md#S3OutpostsPresignedUrlUploadObjectLimitCapabilities").
 
 Anyone with valid security credentials can create a presigned URL. However, the presigned
 URL must be created by someone who has permission to perform the operation that the

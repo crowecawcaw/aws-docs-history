@@ -71,8 +71,7 @@ Authorization Reference_.
 - [Principals for S3 on Outposts policies](#S3OutpostsPrincipal "#S3OutpostsPrincipal")
 - [Resource ARNs for S3 on Outposts](#S3OutpostsARN "#S3OutpostsARN")
 - [Example policies for S3 on Outposts](#S3OutpostsPolicyExamples "#S3OutpostsPolicyExamples")
-- [Permissions for S3 on Outposts
-  endpoints](#S3OutpostsEndpointPermissions "#S3OutpostsEndpointPermissions")
+- [Permissions for S3 on Outposts endpoints](#S3OutpostsEndpointPermissions "#S3OutpostsEndpointPermissions")
 - [Service-linked roles for S3 on Outposts](#S3OutpostsUsingSLR "#S3OutpostsUsingSLR")
 
 ## Principals for S3 on Outposts policies
@@ -131,18 +130,14 @@ The following bucket policy uses an AWS account principal to grant access to an
 S3 on Outposts bucket. To use this bucket policy, replace the `user
  input placeholders` with your own information.
 
-###### Example: S3 on Outposts bucket policy with a wildcard principal (`*`) and
-
-condition key to limit access to a specific IP address range
+###### Example: S3 on Outposts bucket policy with a wildcard principal (`*`) and condition key to limit access to a specific IP address range
 
 The following bucket policy uses a wildcard principal (`*`) with the
 `aws:SourceIp` condition to limit access to a specific IP address
 range. To use this bucket policy, replace the `user input
  placeholders` with your own information.
 
-## Permissions for S3 on Outposts
-
-endpoints
+## Permissions for S3 on Outposts endpoints
 
 S3 on Outposts requires its own permissions in IAM to manage S3 on Outposts endpoint
 actions.
@@ -172,5 +167,4 @@ You can use resource tags in an IAM policy to manage permissions.
 
 ## Service-linked roles for S3 on Outposts
 
-S3 on Outposts uses IAM service-linked roles to create some network resources on your behalf. For more information, see [Using service-linked roles for
-Amazon S3 on Outposts](S3OutpostsServiceLinkedRoles.md "S3OutpostsServiceLinkedRoles.md").
+S3 on Outposts uses IAM service-linked roles to create some network resources on your behalf. For more information, see [Using service-linked roles for Amazon S3 on Outposts](S3OutpostsServiceLinkedRoles.md "S3OutpostsServiceLinkedRoles.md").

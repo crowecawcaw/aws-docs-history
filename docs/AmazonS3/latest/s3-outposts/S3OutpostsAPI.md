@@ -6,18 +6,15 @@ use with Amazon S3 on Outposts.
 ###### Topics
 
 - [Amazon S3 API operations for managing objects](#S3OutpostsAPIsObject "#S3OutpostsAPIsObject")
-- [Amazon S3 Control API operations for managing
-  buckets](#S3OutpostsAPIsBucket "#S3OutpostsAPIsBucket")
-- [S3 on Outposts API operations for managing
-  Outposts](#S3OutpostsAPIs "#S3OutpostsAPIs")
+- [Amazon S3 Control API operations for managing buckets](#S3OutpostsAPIsBucket "#S3OutpostsAPIsBucket")
+- [S3 on Outposts API operations for managing Outposts](#S3OutpostsAPIs "#S3OutpostsAPIs")
 
 ## Amazon S3 API operations for managing objects
 
 S3 on Outposts is designed to use the same object API operations as Amazon S3. You must use
 access points to access any object in an Outpost bucket. When you use an object API operation
 with S3 on Outposts, you provide either the Outposts access point Amazon Resource Name
-(ARN) or the access point alias. For more information about access point aliases, see [Using a bucket-style alias for your
-S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md").
+(ARN) or the access point alias. For more information about access point aliases, see [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md").
 
 Amazon S3 on Outposts supports the following Amazon S3 API operations:
 
@@ -42,9 +39,7 @@ Amazon S3 on Outposts supports the following Amazon S3 API operations:
 - [UploadPart](../API/API_UploadPart.md "../API/API_UploadPart.md")
 - [UploadPartCopy](../API/API_UploadPartCopy.md "../API/API_UploadPartCopy.md")
 
-## Amazon S3 Control API operations for managing
-
-buckets
+## Amazon S3 Control API operations for managing buckets
 
 S3 on Outposts supports the following Amazon S3 Control API operations for working with
 buckets.
@@ -75,9 +70,7 @@ buckets.
 - [PutBucketTagging](../API/API_control_PutBucketTagging.md "../API/API_control_PutBucketTagging.md")
 - [PutBucketVersioning](../API/API_control_PutBucketVersioning.md "../API/API_control_PutBucketVersioning.md")
 
-## S3 on Outposts API operations for managing
-
-Outposts
+## S3 on Outposts API operations for managing Outposts
 
 S3 on Outposts supports the following Amazon S3 on Outposts API operations for managing
 endpoints.

@@ -19,12 +19,9 @@ S3 on Outposts buckets.
 ###### Topics
 
 - [Creating an S3 on Outposts access point](S3OutpostsCreateAccessPoint.md "S3OutpostsCreateAccessPoint.md")
-- [Using a bucket-style alias for your
-  S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md")
-- [Viewing information about an access point
-  configuration](S3OutpostsAccessPointGet.md "S3OutpostsAccessPointGet.md")
-- [View a list of your Amazon S3 on Outposts
-  access points](S3OutpostsAccessPointList.md "S3OutpostsAccessPointList.md")
+- [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md")
+- [Viewing information about an access point configuration](S3OutpostsAccessPointGet.md "S3OutpostsAccessPointGet.md")
+- [View a list of your Amazon S3 on Outposts access points](S3OutpostsAccessPointList.md "S3OutpostsAccessPointList.md")
 - [Deleting an access point](S3OutpostsAccessPointsDelete.md "S3OutpostsAccessPointsDelete.md")
 - [Adding or editing an access point policy](S3OutpostsAccessPointEditPolicy.md "S3OutpostsAccessPointEditPolicy.md")
 - [Viewing an access point policy for an S3 on Outposts access point](S3OutpostsAccessPointGetPolicy.md "S3OutpostsAccessPointGetPolicy.md")

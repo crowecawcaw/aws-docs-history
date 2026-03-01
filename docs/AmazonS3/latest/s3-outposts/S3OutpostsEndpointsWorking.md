@@ -1,8 +1,7 @@
 # Working with Amazon S3 on Outposts endpoints
 
 To route requests to an Amazon S3 on Outposts access point, you must create and configure an
-S3 on Outposts endpoint. In order to create an endpoint, you will need an active connection with your service link to your Outposts home region. Each virtual private cloud (VPC) on your Outpost can have one associated endpoint. For more information about endpoint quotas, see [S3 on Outposts network
-requirements](S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions "S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions"). You must create an endpoint to be able to
+S3 on Outposts endpoint. In order to create an endpoint, you will need an active connection with your service link to your Outposts home region. Each virtual private cloud (VPC) on your Outpost can have one associated endpoint. For more information about endpoint quotas, see [S3 on Outposts network requirements](S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions "S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions"). You must create an endpoint to be able to
 access your Outposts buckets and perform object operations. For more information, see [Endpoints](S3OutpostsWorkingBuckets.md#S3OutpostsEP "S3OutpostsWorkingBuckets.md#S3OutpostsEP").
 
 After you create an endpoint, you can use the ‘Status’ field, to understand the state of the endpoint. If your Outposts is offline, it will return a CREATE_FAILED. You can check your service link connection, delete the endpoint,
@@ -22,7 +21,5 @@ The following sections describe how to create and manage endpoints for S3 on Out
 ###### Topics
 
 - [Creating an endpoint on an Outpost](S3OutpostsCreateEndpoint.md "S3OutpostsCreateEndpoint.md")
-- [Viewing a list of your Amazon S3 on Outposts
-  endpoints](S3OutpostsListEndpoints.md "S3OutpostsListEndpoints.md")
-- [Deleting an Amazon S3 on Outposts
-  endpoint](S3OutpostsDeleteEndpoints.md "S3OutpostsDeleteEndpoints.md")
+- [Viewing a list of your Amazon S3 on Outposts endpoints](S3OutpostsListEndpoints.md "S3OutpostsListEndpoints.md")
+- [Deleting an Amazon S3 on Outposts endpoint](S3OutpostsDeleteEndpoints.md "S3OutpostsDeleteEndpoints.md")

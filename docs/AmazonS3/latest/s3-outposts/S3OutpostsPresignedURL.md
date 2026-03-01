@@ -11,9 +11,7 @@ custom expiration time that can be as low as 1 second and as high as 7 days. Whe
 the presigned URL, the individual in the VPC can perform the action embedded in the URL as
 if they were the original signing user. When the URL reaches its expiration time, the URL expires and no longer works.
 
-## Limiting presigned
-
-URL capabilities
+## Limiting presigned URL capabilities
 
 The capabilities of a presigned URL are limited by the permissions of the user who
 created it. In essence, presigned URLs are bearer tokens that grant access to those who
@@ -54,8 +52,7 @@ JSON
 
 For a list of condition keys and additional example policies that you can use to
 enforce specific behavior when presigned URL requests are authenticated by using
-Signature Version 4, see [AWS Signature Version 4
-(SigV4) authentication-specific policy keys](s3-outposts-bucket-policy-s3-sigv4-conditions.md "s3-outposts-bucket-policy-s3-sigv4-conditions.md").
+Signature Version 4, see [AWS Signature Version 4 (SigV4) authentication-specific policy keys](s3-outposts-bucket-policy-s3-sigv4-conditions.md "s3-outposts-bucket-policy-s3-sigv4-conditions.md").
 
 ###### Network path restriction
 
@@ -126,12 +123,9 @@ using. Then, generate a presigned URL by using AWS Signature Version 4.
   time.
 - Because presigned URLs grant access to your S3 on Outposts buckets to whoever
   has the URL, we recommend that you protect them appropriately. For more
-  information about protecting presigned URLs, see [Limiting presigned
-  URL capabilities](#S3OutpostsPresignedUrlUploadObjectLimitCapabilities "#S3OutpostsPresignedUrlUploadObjectLimitCapabilities").
+  information about protecting presigned URLs, see [Limiting presigned URL capabilities](#S3OutpostsPresignedUrlUploadObjectLimitCapabilities "#S3OutpostsPresignedUrlUploadObjectLimitCapabilities").
 
-## When does S3 on Outposts check the
-
-expiration date and time of a presigned URL?
+## When does S3 on Outposts check the expiration date and time of a presigned URL?
 
 At the time of the HTTP request, S3 on Outposts checks the expiration date and time of a
 signed URL. For example, if a client begins to download a large file immediately before
@@ -144,7 +138,5 @@ following topics.
 
 ###### Topics
 
-- [Sharing objects by using presigned
-  URLs](S3OutpostsShareObjectPresignedURL.md "S3OutpostsShareObjectPresignedURL.md")
-- [Generating a presigned URL to upload an
-  object to an S3 on Outposts bucket](S3OutpostsPresignedUrlUploadObject.md "S3OutpostsPresignedUrlUploadObject.md")
+- [Sharing objects by using presigned URLs](S3OutpostsShareObjectPresignedURL.md "S3OutpostsShareObjectPresignedURL.md")
+- [Generating a presigned URL to upload an object to an S3 on Outposts bucket](S3OutpostsPresignedUrlUploadObject.md "S3OutpostsPresignedUrlUploadObject.md")

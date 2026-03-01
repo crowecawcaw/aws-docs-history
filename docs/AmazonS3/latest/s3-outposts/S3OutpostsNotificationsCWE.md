@@ -1,6 +1,4 @@
-# Receiving S3 on Outposts event notifications
-
-by using Amazon CloudWatch Events
+# Receiving S3 on Outposts event notifications by using Amazon CloudWatch Events
 
 You can use CloudWatch Events to create a rule for any Amazon S3 on Outposts API event. When you
 create a rule, you can choose to get notified through all supported CloudWatch targets,

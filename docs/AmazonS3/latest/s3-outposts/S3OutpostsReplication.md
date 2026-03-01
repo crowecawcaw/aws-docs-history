@@ -20,12 +20,9 @@ up Amazon EventBridge to receive notifications about replication object failures
 
 - [Replication configuration](#outposts-replication-add-config "#outposts-replication-add-config")
 - [Requirements for S3 Replication on Outposts](#outposts-replication-requirements "#outposts-replication-requirements")
-- [What is
-  replicated?](#outposts-replication-what-is-replicated "#outposts-replication-what-is-replicated")
-- [What isn't
-  replicated?](#outposts-replication-what-is-not-replicated "#outposts-replication-what-is-not-replicated")
-- [What isn't supported by
-  S3 Replication on Outposts?](#outposts-replication-what-is-not-supported "#outposts-replication-what-is-not-supported")
+- [What is replicated?](#outposts-replication-what-is-replicated "#outposts-replication-what-is-replicated")
+- [What isn't replicated?](#outposts-replication-what-is-not-replicated "#outposts-replication-what-is-not-replicated")
+- [What isn't supported by S3 Replication on Outposts?](#outposts-replication-what-is-not-supported "#outposts-replication-what-is-not-supported")
 - [Setting up replication](outposts-replication-how-setup.md "outposts-replication-how-setup.md")
 - [Managing your replication](manage-outposts-replication.md "manage-outposts-replication.md")
 
@@ -75,11 +72,9 @@ rules, see [ReplicationConfiguration](../API/API_control_ReplicationConfiguratio
 Replication requires the following:
 
 - The destination Outpost CIDR range must be associated in your source Outpost
-  subnet table. For more information, see [Prerequisites for creating
-  replication rules](outposts-replication-prerequisites-config.md "outposts-replication-prerequisites-config.md").
+  subnet table. For more information, see [Prerequisites for creating replication rules](outposts-replication-prerequisites-config.md "outposts-replication-prerequisites-config.md").
 - Both the source and destination buckets must have S3 Versioning enabled. For
-  more information about versioning, see [Managing S3 Versioning for your S3 on Outposts
-  bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
+  more information about versioning, see [Managing S3 Versioning for your S3 on Outposts bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
 - Amazon S3 on Outposts must have permission to replicate objects from the source
   bucket to the destination bucket on your behalf. That means you must create a
   service role to delegate `GET` and `PUT` permissions to
@@ -99,22 +94,17 @@ Replication requires the following:
       creating a service role, see [Creating
       a service role](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md").
 
-## What is
-
-replicated?
+## What is replicated?
 
 By default, S3 on Outposts replicates the following:
 
 - Objects created after you add a replication configuration.
 - Object metadata from the source objects to the replicas. For information
   about how to replicate metadata from the replicas to the source objects, see
-  [Replication status if
-  Amazon S3 replica modification sync on Outposts is enabled](manage-outposts-replication.md#outposts-replication-status-sync "manage-outposts-replication.md#outposts-replication-status-sync").
+  [Replication status if Amazon S3 replica modification sync on Outposts is enabled](manage-outposts-replication.md#outposts-replication-status-sync "manage-outposts-replication.md#outposts-replication-status-sync").
 - Object tags, if there are any.
 
-### How delete operations affect
-
-replication
+### How delete operations affect replication
 
 If you delete an object from the source bucket, the following actions occur by
 default:
@@ -134,9 +124,7 @@ default:
   buckets. In other words, it doesn't delete the same object version from the
   destination buckets. This behavior protects data from malicious deletions.
 
-## What isn't
-
-replicated?
+## What isn't replicated?
 
 By default, S3 on Outposts doesn't replicate the following:
 
@@ -165,12 +153,9 @@ bucket and configure expiration actions, S3 on Outposts creates delete markers
 for expired objects in the source bucket but doesn't replicate those markers to
 the destination buckets. If you want the same lifecycle configuration applied to
 both the source and destination buckets, enable the same lifecycle configuration
-on both. For more information about lifecycle configuration, see [Creating and managing a lifecycle
-configuration for your Amazon S3 on Outposts bucket](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md").
+on both. For more information about lifecycle configuration, see [Creating and managing a lifecycle configuration for your Amazon S3 on Outposts bucket](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md").
 
-## What isn't supported by
-
-S3 Replication on Outposts?
+## What isn't supported by S3 Replication on Outposts?
 
 The following S3 Replication features are currently not supported by
 S3 on Outposts:

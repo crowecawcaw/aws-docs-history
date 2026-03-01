@@ -15,18 +15,14 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS
-
-managed policy: AWSS3OnOutpostsServiceRolePolicy
+## AWS managed policy: AWSS3OnOutpostsServiceRolePolicy
 
 Helps manage network resources for you as part of the service-linked role
 `AWSServiceRoleForS3OnOutposts`.
 
 To view the permissions for this policy, see [AWSS3OnOutpostsServiceRolePolicy](S3OutpostsServiceLinkedRoles.md "S3OutpostsServiceLinkedRoles.md").
 
-## S3 on Outposts updates to AWS managed
-
-policies
+## S3 on Outposts updates to AWS managed policies
 
 View details about updates to AWS managed policies for S3 on Outposts since this
 service began tracking these changes.

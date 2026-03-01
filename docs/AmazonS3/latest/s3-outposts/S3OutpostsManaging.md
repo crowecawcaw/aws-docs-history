@@ -15,11 +15,8 @@ capacity, see the following topics.
 
 ###### Topics
 
-- [Managing S3 Versioning for your S3 on Outposts
-  bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md")
-- [Creating and managing a lifecycle
-  configuration for your Amazon S3 on Outposts bucket](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md")
+- [Managing S3 Versioning for your S3 on Outposts bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md")
+- [Creating and managing a lifecycle configuration for your Amazon S3 on Outposts bucket](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md")
 - [Replicating objects for S3 on Outposts](S3OutpostsReplication.md "S3OutpostsReplication.md")
 - [Sharing S3 on Outposts by using AWS RAM](outposts-sharing-with-ram.md "outposts-sharing-with-ram.md")
-- [Other AWS services that use
-  S3 on Outposts](S3OutpostsOtherServices.md "S3OutpostsOtherServices.md")
+- [Other AWS services that use S3 on Outposts](S3OutpostsOtherServices.md "S3OutpostsOtherServices.md")

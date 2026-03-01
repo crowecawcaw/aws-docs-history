@@ -26,17 +26,13 @@ must grant additional permissions that the console requires, such as
 
 - For a list of the IAM policy actions, resources, and condition keys you can use
   when creating an S3 on Outposts bucket policy, see [Actions, resources, and condition keys for Amazon S3 on Outposts](../../../service-authorization/latest/reference/list_amazons3onoutposts.md "../../../service-authorization/latest/reference/list_amazons3onoutposts.md").
-- For guidance on creating your S3 on Outposts policy, see [Adding or editing a bucket policy for an
-  Amazon S3 on Outposts bucket](S3OutpostsBucketPolicyEdit.md "S3OutpostsBucketPolicyEdit.md").
+- For guidance on creating your S3 on Outposts policy, see [Adding or editing a bucket policy for an Amazon S3 on Outposts bucket](S3OutpostsBucketPolicyEdit.md "S3OutpostsBucketPolicyEdit.md").
 
 ###### Topics
 
-- [Managing access to an
-  Amazon S3 on Outposts bucket based on specific IP addresses](#S3OutpostsBucketPolicyManageIPaccess "#S3OutpostsBucketPolicyManageIPaccess")
+- [Managing access to an Amazon S3 on Outposts bucket based on specific IP addresses](#S3OutpostsBucketPolicyManageIPaccess "#S3OutpostsBucketPolicyManageIPaccess")
 
-## Managing access to an
-
-Amazon S3 on Outposts bucket based on specific IP addresses
+## Managing access to an Amazon S3 on Outposts bucket based on specific IP addresses
 
 A bucket policy is a resource-based AWS Identity and Access Management (IAM) policy that you can use to grant
 access permissions to your bucket and the objects in it. Only the bucket owner can
@@ -44,9 +40,7 @@ associate a policy with a bucket. The permissions attached to the bucket apply t
 all of the objects in the bucket that are owned by the bucket owner. Bucket policies
 are limited to 20 KB in size. For more information, see [Bucket policy](S3onOutposts.md#S3OutpostsBucketPolicies "S3onOutposts.md#S3OutpostsBucketPolicies").
 
-### Restrict access to
-
-specific IP addresses
+### Restrict access to specific IP addresses
 
 The following example denies all users from performing any [S3 on Outposts
 operations](../userguide/S3OutpostsWorkingBuckets.md "../userguide/S3OutpostsWorkingBuckets.md") on objects in the specified buckets unless the request
@@ -104,9 +98,7 @@ the ability to access your bucket.
 }
 ```
 
-### Allow both IPv4 and
-
-IPv6 addresses
+### Allow both IPv4 and IPv6 addresses
 
 When you start using IPv6 addresses, we recommend that you update all
 of your organization's policies with your IPv6 address ranges in

@@ -1,6 +1,4 @@
-# Creating replication rules on
-
-Outposts
+# Creating replication rules on Outposts
 
 S3 Replication on Outposts is the automatic, asynchronous replication of objects across buckets in
 the same or different AWS Outposts. Replication copies newly created objects and object
@@ -15,8 +13,7 @@ retroactively. To replicate objects that were created before your replication
 configuration, you can use the `CopyObject` API operation to copy them to
 the same bucket. After the objects are copied, they appear as "new" objects in the
 bucket and the replication configuration will apply to them. For more information
-about copying an object, see [Copying an object in an Amazon S3 on Outposts bucket using
-the AWS SDK for Java](S3OutpostsCopyObject.md "S3OutpostsCopyObject.md") and [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md") in the _Amazon Simple Storage Service API Reference_.
+about copying an object, see [Copying an object in an Amazon S3 on Outposts bucket using the AWS SDK for Java](S3OutpostsCopyObject.md "S3OutpostsCopyObject.md") and [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md") in the _Amazon Simple Storage Service API Reference_.
 
 When you configure replication, you add replication rules to the source Outposts
 bucket. Replication rules define which source Outposts bucket objects to replicate and
@@ -42,11 +39,9 @@ default, so the rule starts working as soon as you save it.
 In this example, you set up replication for source and destination Outposts buckets
 that are on different Outposts and are owned by the same AWS account. Examples are
 provided for using the Amazon S3 console, the AWS Command Line Interface (AWS CLI), and the AWS SDK for Java and
-AWS SDK for .NET. For information about cross-account S3 Replication on Outposts permissions, see [Granting permissions when the source and
-destination Outposts buckets are owned by different AWS accounts](outposts-replication-prerequisites-config.md#outposts-rep-prethree "outposts-replication-prerequisites-config.md#outposts-rep-prethree").
+AWS SDK for .NET. For information about cross-account S3 Replication on Outposts permissions, see [Granting permissions when the source and destination Outposts buckets are owned by different AWS accounts](outposts-replication-prerequisites-config.md#outposts-rep-prethree "outposts-replication-prerequisites-config.md#outposts-rep-prethree").
 
-For prerequisites to set up S3 on Outposts replication rules, see [Prerequisites for creating
-replication rules](outposts-replication-prerequisites-config.md "outposts-replication-prerequisites-config.md").
+For prerequisites to set up S3 on Outposts replication rules, see [Prerequisites for creating replication rules](outposts-replication-prerequisites-config.md "outposts-replication-prerequisites-config.md").
 
 Follow these steps to configure a replication rule when the destination Amazon S3 on Outposts bucket
 is in a different Outpost from the source Outposts bucket.
@@ -114,8 +109,7 @@ source:
 If the destination bucket is in a different account from the source
 Outposts bucket, you must add a bucket policy to the destination Outposts bucket
 to grant the owner of the source Outposts bucket account permission to replicate
-objects to the destination Outposts bucket. For more information, see [Granting permissions when the source and
-destination Outposts buckets are owned by different AWS accounts](outposts-replication-prerequisites-config.md#outposts-rep-prethree "outposts-replication-prerequisites-config.md#outposts-rep-prethree").
+objects to the destination Outposts bucket. For more information, see [Granting permissions when the source and destination Outposts buckets are owned by different AWS accounts](outposts-replication-prerequisites-config.md#outposts-rep-prethree "outposts-replication-prerequisites-config.md#outposts-rep-prethree").
 
 ###### Note
 
@@ -160,12 +154,10 @@ rule configuration:
      **Replication metrics**. For more information, see
      [Monitoring progress with replication metrics](manage-outposts-replication.md#outposts-enabling-replication-metrics "manage-outposts-replication.md#outposts-enabling-replication-metrics").
     * If you want to enable delete marker replication in your replication configuration, select
-     **Delete marker replication**. For more information, see [How delete operations affect
-     replication](S3OutpostsReplication.md#outposts-replication-delete-op "S3OutpostsReplication.md#outposts-replication-delete-op").
+     **Delete marker replication**. For more information, see [How delete operations affect replication](S3OutpostsReplication.md#outposts-replication-delete-op "S3OutpostsReplication.md#outposts-replication-delete-op").
     * If you want to replicate metadata changes made to the replicas back
      to the source objects, select **Replica modification
-     sync**. For more information, see [Replication status if
-     Amazon S3 replica modification sync on Outposts is enabled](manage-outposts-replication.md#outposts-replication-status-sync "manage-outposts-replication.md#outposts-replication-status-sync").
+     sync**. For more information, see [Replication status if Amazon S3 replica modification sync on Outposts is enabled](manage-outposts-replication.md#outposts-replication-status-sync "manage-outposts-replication.md#outposts-replication-status-sync").
 
 13. To finish, choose **Create rule**.
     After you save your rule, you can edit, enable, disable, or delete your rule. To do so, go
@@ -185,9 +177,7 @@ following:
   bucket.
   To verify your setup, you test it.
 
-###### To set up replication when the source and destination Outposts buckets
-
-are owned by the same AWS account
+###### To set up replication when the source and destination Outposts buckets are owned by the same AWS account
 
 1. Set a credentials profile for the AWS CLI. In this example, we use the
    profile name `acctA`. For information about setting

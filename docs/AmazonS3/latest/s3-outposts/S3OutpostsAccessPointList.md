@@ -1,6 +1,4 @@
-# View a list of your Amazon S3 on Outposts
-
-access points
+# View a list of your Amazon S3 on Outposts access points
 
 Access points simplify managing data access at
 scale for shared datasets in Amazon S3. Access points are named network endpoints that are

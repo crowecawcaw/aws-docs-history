@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon S3 on Outposts
+# Using service-linked roles for Amazon S3 on Outposts
 
 Amazon S3 on Outposts uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to S3 on Outposts. Service-linked roles are predefined by S3 on Outposts and
@@ -22,9 +20,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-linked roles** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-S3 on Outposts
+## Service-linked role permissions for S3 on Outposts
 
 S3 on Outposts uses the service-linked role named **AWSServiceRoleForS3OnOutposts** to
 help manage network resources for you.
@@ -155,9 +151,7 @@ You must configure permissions to allow an IAM entity (such as a role) to create
 or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-S3 on Outposts
+## Creating a service-linked role for S3 on Outposts
 
 You don't need to manually create a service-linked role. When you create an S3 on Outposts endpoint in the
 AWS Management Console, the AWS CLI, or the AWS API, S3 on Outposts creates the service-linked role
@@ -174,18 +168,14 @@ information, see [Creating a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the _IAM User Guide_. If you delete this
 service-linked role, you can use this same process to create the role again.
 
-## Editing a service-linked role for
-
-S3 on Outposts
+## Editing a service-linked role for S3 on Outposts
 
 S3 on Outposts does not allow you to edit the `AWSServiceRoleForS3OnOutposts` service-linked role.
 This includes the name of the role because various entities might reference it. However, you
 can edit the description of the role using IAM. For more information, see [Editing
 a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-S3 on Outposts
+## Deleting a service-linked role for S3 on Outposts
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -208,9 +198,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the
 `AWSServiceRoleForS3OnOutposts` service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for S3 on Outposts service-linked
-
-roles
+## Supported Regions for S3 on Outposts service-linked roles
 
 S3 on Outposts supports using service-linked roles in all of the AWS Regions where
 the service is available. For more information, see [S3 on Outposts Regions and endpoints](../../../general/latest/gr/outposts_region.md#outposts_region_s3 "../../../general/latest/gr/outposts_region.md#outposts_region_s3").

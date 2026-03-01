@@ -12,8 +12,7 @@ You can use S3 on Outposts through the AWS Management Console, AWS Command Line 
 
 Objects are the fundamental entities stored in Amazon S3 on Outposts. Every object is contained in a bucket.
 You must use access points to access any object in an Outpost bucket. When you specify the bucket for object operations, you use the
-access point Amazon Resource Name (ARN) or the access point alias. For more information about access point aliases, see [Using a bucket-style alias for your
-S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md").
+access point Amazon Resource Name (ARN) or the access point alias. For more information about access point aliases, see [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md").
 
 The following example shows the
 ARN format for S3 on Outposts access points, which includes the AWS Region code for the Region that the Outpost is homed to, the AWS account ID,
@@ -39,18 +38,13 @@ your Outpost. However, you can use the REST API, AWS Command Line Interface (AWS
 
 ###### Topics
 
-- [Upload an object to an S3 on Outposts
-  bucket](S3OutpostsUploadObjects.md "S3OutpostsUploadObjects.md")
-- [Copying an object in an Amazon S3 on Outposts bucket using
-  the AWS SDK for Java](S3OutpostsCopyObject.md "S3OutpostsCopyObject.md")
-- [Getting an object from an Amazon S3 on Outposts
-  bucket](S3OutpostsGetObject.md "S3OutpostsGetObject.md")
+- [Upload an object to an S3 on Outposts bucket](S3OutpostsUploadObjects.md "S3OutpostsUploadObjects.md")
+- [Copying an object in an Amazon S3 on Outposts bucket using the AWS SDK for Java](S3OutpostsCopyObject.md "S3OutpostsCopyObject.md")
+- [Getting an object from an Amazon S3 on Outposts bucket](S3OutpostsGetObject.md "S3OutpostsGetObject.md")
 - [Listing the objects in an Amazon S3 on Outposts bucket](S3OutpostsListObjects.md "S3OutpostsListObjects.md")
 - [Deleting objects in Amazon S3 on Outposts buckets](S3OutpostsDeleteObject.md "S3OutpostsDeleteObject.md")
-- [Using HeadBucket to determine if an S3 on Outposts
-  bucket exists and you have access permissions](S3OutpostsHeadBucket.md "S3OutpostsHeadBucket.md")
-- [Performing and managing a multipart upload with the
-  SDK for Java](S3OutpostsMPU.md "S3OutpostsMPU.md")
+- [Using HeadBucket to determine if an S3 on Outposts bucket exists and you have access permissions](S3OutpostsHeadBucket.md "S3OutpostsHeadBucket.md")
+- [Performing and managing a multipart upload with the SDK for Java](S3OutpostsMPU.md "S3OutpostsMPU.md")
 - [Using presigned URLs for S3 on Outposts](S3OutpostsPresignedURL.md "S3OutpostsPresignedURL.md")
 - [Amazon S3 on Outposts with local Amazon EMR on Outposts](s3-outposts-emr.md "s3-outposts-emr.md")
 - [Authorization and authentication caching](s3-outposts-auth-cache.md "s3-outposts-auth-cache.md")

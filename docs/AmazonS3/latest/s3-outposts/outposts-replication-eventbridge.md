@@ -15,13 +15,11 @@ EventBridge. Unlike other destinations, you don't need to select which event typ
 deliver. You can also use EventBridge rules to route events to additional targets. After EventBridge is
 enabled, S3 on Outposts sends all of the following events to EventBridge.
 
-| Event type                   | Description                                                                                                                                                                                                                                                                                        | Namespace     |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `OperationFailedReplication` | The replication of an object within a replication rule failed. For<br>more information about S3 Replication on Outposts failure reasons, see [Using EventBridge to view S3 Replication on Outposts<br>failure reasons](#outposts-replication-failure-codes "#outposts-replication-failure-codes"). | `s3-outposts` |
+| Event type                   | Description                                                                                                                                                                                                                                                                                     | Namespace     |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `OperationFailedReplication` | The replication of an object within a replication rule failed. For<br>more information about S3 Replication on Outposts failure reasons, see [Using EventBridge to view S3 Replication on Outposts failure reasons](#outposts-replication-failure-codes "#outposts-replication-failure-codes"). | `s3-outposts` |
 
-## Using EventBridge to view S3 Replication on Outposts
-
-failure reasons
+## Using EventBridge to view S3 Replication on Outposts failure reasons
 
 The following table lists S3 Replication on Outposts failure reasons. You can configure an EventBridge
 rule to publish and view the failure reason through Amazon Simple Queue Service (Amazon SQS), Amazon Simple Notification Service

@@ -20,8 +20,7 @@ with S3 on Outposts by using the AWS CLI and SDK for Java. To get started by usi
 - [Step 1: Create a bucket](#S3OutpostsGSCreateBucket "#S3OutpostsGSCreateBucket")
 - [Step 2: Create an access point](#S3OutpostsGSCreateAccessPoint "#S3OutpostsGSCreateAccessPoint")
 - [Step 3: Create an endpoint](#S3OutpostsGSCreateEndpoint "#S3OutpostsGSCreateEndpoint")
-- [Step 4: Upload an object to an S3 on Outposts
-  bucket](#S3OutpostsGSUploadObject "#S3OutpostsGSUploadObject")
+- [Step 4: Upload an object to an S3 on Outposts bucket](#S3OutpostsGSUploadObject "#S3OutpostsGSUploadObject")
 
 ## Step 1: Create a bucket
 
@@ -78,14 +77,12 @@ For examples of how to create an access point for an S3 Outposts bucket with the
 ## Step 3: Create an endpoint
 
 To route requests to an Amazon S3 on Outposts access point, you must create and configure an
-S3 on Outposts endpoint. In order to create an endpoint, you will need an active connection with your service link to your Outposts home region. Each virtual private cloud (VPC) on your Outpost can have one associated endpoint. For more information about endpoint quotas, see [S3 on Outposts network
-requirements](S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions "S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions"). You must create an endpoint to be able to
+S3 on Outposts endpoint. In order to create an endpoint, you will need an active connection with your service link to your Outposts home region. Each virtual private cloud (VPC) on your Outpost can have one associated endpoint. For more information about endpoint quotas, see [S3 on Outposts network requirements](S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions "S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions"). You must create an endpoint to be able to
 access your Outposts buckets and perform object operations. For more information, see [Endpoints](S3OutpostsWorkingBuckets.md#S3OutpostsEP "S3OutpostsWorkingBuckets.md#S3OutpostsEP").
 
 These examples show you how to create an endpoint by using the AWS CLI and the SDK for Java.
 For more information about the permissions required to create and manage endpoints, see
-[Permissions for S3 on Outposts
-endpoints](S3OutpostsIAM.md#S3OutpostsEndpointPermissions "S3OutpostsIAM.md#S3OutpostsEndpointPermissions").
+[Permissions for S3 on Outposts endpoints](S3OutpostsIAM.md#S3OutpostsEndpointPermissions "S3OutpostsIAM.md#S3OutpostsEndpointPermissions").
 
 AWS CLI
 
@@ -115,9 +112,6 @@ SDK for Java
 
 For examples of how to create an endpoint for an S3 Outpost with the AWS SDK for Java, see [CreateOutpostsEndPoint.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsEndPoint.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/outposts/CreateOutpostsEndPoint.java") in the _AWS SDK for Java 2.x Code Examples_.
 
-## Step 4: Upload an object to an S3 on Outposts
+## Step 4: Upload an object to an S3 on Outposts bucket
 
-bucket
-
-To upload an object, see [Upload an object to an S3 on Outposts
-bucket](S3OutpostsUploadObjects.md "S3OutpostsUploadObjects.md").
+To upload an object, see [Upload an object to an S3 on Outposts bucket](S3OutpostsUploadObjects.md "S3OutpostsUploadObjects.md").

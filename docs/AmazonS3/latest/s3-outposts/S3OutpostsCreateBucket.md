@@ -60,8 +60,7 @@ The bucket name must:
         * **Enable** – Enables S3 Versioning for the objects in
          the bucket. All objects added to the bucket receive a unique version ID.
 
-    For more information about S3 Versioning, see [Managing S3 Versioning for your S3 on Outposts
-    bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
+    For more information about S3 Versioning, see [Managing S3 Versioning for your S3 on Outposts bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
 
 7.  (Optional) Add any **optional tags** that you would like to associate
     with the Outposts bucket. You can use tags to track criteria for individual projects or

@@ -104,9 +104,7 @@ their changes relative to Amazon S3.
 | `GetAccessPointPolicy`               | Access point name as ARN       |
 | `DeleteAccessPointPolicy`            | Access point name as ARN       |
 
-## Creating and managing
-
-S3 on Outposts buckets
+## Creating and managing S3 on Outposts buckets
 
 For more information about creating and managing S3 on Outposts buckets, see the
 following topics.

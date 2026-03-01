@@ -1,6 +1,4 @@
-# Performing and managing a multipart upload with the
-
-SDK for Java
+# Performing and managing a multipart upload with the SDK for Java
 
 With Amazon S3 on Outposts, you can create S3 buckets on your AWS Outposts resources and store and
 retrieve objects on-premises for applications that require local data access, local data
@@ -11,18 +9,12 @@ The following examples show how you can use S3 on Outposts with the AWS SDK for 
 
 ###### Topics
 
-- [Perform a multipart upload of an
-  object in an S3 on Outposts bucket](#S3OutpostsInitiateMultipartUploadJava "#S3OutpostsInitiateMultipartUploadJava")
-- [Copy a large object in an S3 on Outposts
-  bucket by using multipart upload](#S3OutpostsCopyPartJava "#S3OutpostsCopyPartJava")
-- [List parts of an object in an S3 on Outposts
-  bucket](#S3OutpostsListPartsJava "#S3OutpostsListPartsJava")
-- [Retrieve a list of in-progress
-  multipart uploads in an S3 on Outposts bucket](#S3OutpostsListMultipartUploadsJava "#S3OutpostsListMultipartUploadsJava")
+- [Perform a multipart upload of an object in an S3 on Outposts bucket](#S3OutpostsInitiateMultipartUploadJava "#S3OutpostsInitiateMultipartUploadJava")
+- [Copy a large object in an S3 on Outposts bucket by using multipart upload](#S3OutpostsCopyPartJava "#S3OutpostsCopyPartJava")
+- [List parts of an object in an S3 on Outposts bucket](#S3OutpostsListPartsJava "#S3OutpostsListPartsJava")
+- [Retrieve a list of in-progress multipart uploads in an S3 on Outposts bucket](#S3OutpostsListMultipartUploadsJava "#S3OutpostsListMultipartUploadsJava")
 
-## Perform a multipart upload of an
-
-object in an S3 on Outposts bucket
+## Perform a multipart upload of an object in an S3 on Outposts bucket
 
 The following S3 on Outposts example initiates, uploads, and finishes a multipart upload
 of an object to a bucket by using the SDK for Java. To use this example, replace each
@@ -114,9 +106,7 @@ public class MultipartUploadCopy {
     }
 ```
 
-## Copy a large object in an S3 on Outposts
-
-bucket by using multipart upload
+## Copy a large object in an S3 on Outposts bucket by using multipart upload
 
 The following S3 on Outposts example uses the SDK for Java to copy an object in a bucket.
 To use this example, replace each `user input
@@ -208,9 +198,7 @@ public class MultipartUploadCopy {
 }
 ```
 
-## List parts of an object in an S3 on Outposts
-
-bucket
+## List parts of an object in an S3 on Outposts bucket
 
 The following S3 on Outposts example lists the parts of an object in a bucket by
 using the SDK for Java. To use this example, replace each `user input
@@ -260,9 +248,7 @@ public class ListParts {
 }
 ```
 
-## Retrieve a list of in-progress
-
-multipart uploads in an S3 on Outposts bucket
+## Retrieve a list of in-progress multipart uploads in an S3 on Outposts bucket
 
 The following S3 on Outposts example shows how to retrieve a list of the in-progress
 multipart uploads from an Outposts bucket by using the SDK for Java. To use this example,

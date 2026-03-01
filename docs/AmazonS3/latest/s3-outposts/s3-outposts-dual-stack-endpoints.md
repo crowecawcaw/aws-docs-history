@@ -1,22 +1,15 @@
-# Using S3 on Outposts dual-stack
-
-endpoints
+# Using S3 on Outposts dual-stack endpoints
 
 S3 on Outposts dual-stack endpoints support requests to S3 on Outposts buckets over IPv6
 and IPv4. This section describes how to use S3 on Outposts dual-stack endpoints.
 
 ###### Topics
 
-- [S3 on Outposts dual-stack
-  endpoints](#s3-outposts-dual-stack-endpoints-description "#s3-outposts-dual-stack-endpoints-description")
-- [Using dual-stack endpoints from
-  the AWS CLI](#s3-outposts-dual-stack-endpoints-cli "#s3-outposts-dual-stack-endpoints-cli")
-- [Using S3 on Outposts dual-stack endpoints from
-  the AWS SDKs](#s3-outposts-dual-stack-endpoints-sdks "#s3-outposts-dual-stack-endpoints-sdks")
+- [S3 on Outposts dual-stack endpoints](#s3-outposts-dual-stack-endpoints-description "#s3-outposts-dual-stack-endpoints-description")
+- [Using dual-stack endpoints from the AWS CLI](#s3-outposts-dual-stack-endpoints-cli "#s3-outposts-dual-stack-endpoints-cli")
+- [Using S3 on Outposts dual-stack endpoints from the AWS SDKs](#s3-outposts-dual-stack-endpoints-sdks "#s3-outposts-dual-stack-endpoints-sdks")
 
-## S3 on Outposts dual-stack
-
-endpoints
+## S3 on Outposts dual-stack endpoints
 
 When you make a request to a dual-stack endpoint, the S3 on Outposts bucket URL resolves
 to an IPv6 or an IPv4 address. For more information about accessing an
@@ -42,9 +35,7 @@ s3-outposts.`region`.api.aws
 
 Virtual hosted-style endpoint names aren't supported in S3 on Outposts.
 
-## Using dual-stack endpoints from
-
-the AWS CLI
+## Using dual-stack endpoints from the AWS CLI
 
 This section provides examples of AWS CLI commands used to make requests to a dual-stack
 endpoint. For instructions on setting up the AWS CLI, see [Getting started by using the AWS CLI and SDK for Java](S3OutpostsGSCLIJava.md "S3OutpostsGSCLIJava.md").
@@ -72,16 +63,12 @@ For example:
 `$`  aws s3control list-regional-buckets --endpoint-url https://s3-outposts.`region`.api.aws
 ```
 
-## Using S3 on Outposts dual-stack endpoints from
-
-the AWS SDKs
+## Using S3 on Outposts dual-stack endpoints from the AWS SDKs
 
 This section provides examples of how to access a dual-stack endpoint by using the
 AWS SDKs.
 
-### AWS SDK for Java 2.x
-
-dual-stack endpoint example
+### AWS SDK for Java 2.x dual-stack endpoint example
 
 The following examples show how to use the `S3ControlClient` and
 `S3OutpostsClient` classes to enable dual-stack endpoints when
