@@ -109,9 +109,7 @@ required and another rule that makes BGN segment position 2 optional.
 
 Custom validation rules have the following limitations and constraints.
 
-#### Element length rule
-
-limitations
+#### Element length rule limitations
 
 - _Element ID format_: Must be exactly 4 digits (for
   example, "1039")
@@ -149,9 +147,7 @@ limitations
 - _Single rule per target_: Cannot have multiple code
   list rules for the same element
 
-#### Element requirement rule
-
-limitations
+#### Element requirement rule limitations
 
 - _Position format_: Element position identifier must
   be in format "SEGMENT-NN" or "SEGMENT-NN-NN" for sub-elements
@@ -176,9 +172,7 @@ limitations
   defined on header segments (ISA/IEA, GS/GE, and ST/SE segments) or
   element IDs 0143, 0329, 1705
 
-## Creating Custom Validation Rules in the
-
-Console
+## Creating Custom Validation Rules in the Console
 
 You can create custom validation rules during the transformer creation process in the
 AWS B2B Data Interchange console:

@@ -1,6 +1,4 @@
-# Step 2: Creating your business
-
-profile
+# Step 2: Creating your business profile
 
 ###### Note
 

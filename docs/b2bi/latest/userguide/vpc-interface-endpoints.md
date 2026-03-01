@@ -1,6 +1,4 @@
-# Access AWS B2B Data Interchange using an interface endpoint
-
-(AWS PrivateLink)
+# Access AWS B2B Data Interchange using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS B2B Data Interchange. You can access AWS B2B Data Interchange as if it were in your VPC, without the use of an
@@ -45,9 +43,7 @@ requests to AWS B2B Data Interchange using either Regional DNS name. For example
 `b2bi.us-east-1.amazonaws.com` or
 `b2bi.us-east-1.api.aws`.
 
-## Create an endpoint policy for your interface
-
-endpoint
+## Create an endpoint policy for your interface endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to AWS B2B Data Interchange through the interface

@@ -66,8 +66,7 @@ output.
    document.
 
 You can start with an EDI document, and then run the [CreateStarterMappingTemplate](../APIReference/API_CreateStarterMappingTemplate.md "../APIReference/API_CreateStarterMappingTemplate.md") operation to create your mapping
-template. 4. [Create a trading capability for outbound
-EDI](#create-outbound-capability "#create-outbound-capability"). Make sure to select
+template. 4. [Create a trading capability for outbound EDI](#create-outbound-capability "#create-outbound-capability"). Make sure to select
 **Outbound** for the **EDI
 direction**. 5. [Create a partnership for outbound EDI](#outbound-partnership "#outbound-partnership") 6. Test your transformation workflow. For details, see the [Testing end-to-end](https://catalog.workshops.aws/getting-started-b2b-data-interchange/en-US/030-testing "https://catalog.workshops.aws/getting-started-b2b-data-interchange/en-US/030-testing") topic from our [EDI document exchange with AWS B2B Data Interchange](https://catalog.workshops.aws/getting-started-b2b-data-interchange/en-US "https://catalog.workshops.aws/getting-started-b2b-data-interchange/en-US") workshop.
 
@@ -168,9 +167,7 @@ essentially locked, and in production mode.
 ![The AWS B2B Data Interchange console Transformers wizard review page.](images/transformer-wizard-outbound-03.png) 6. After your review is complete, choose **Save** to create the
 transformer.
 
-## Create a trading capability for outbound
-
-EDI
+## Create a trading capability for outbound EDI
 
 _Trading capabilities_ contain the information required to build your event-driven EDI workflows.
 To create a trading capability, specify the EDI direction, add details about the EDI document number and version, choose
@@ -209,12 +206,10 @@ Based on the EDI direction selected and the transformer attached to the trading 
      can then paste into your input/output directory's bucket policy to
      provide AWS B2B Data Interchange the necessary access.
 
-![An example capability, showing the settings, the associate partnership, input and output directories, and an example tag.](images/capability-example-inbound.png) 4. Optionally, add tags as needed. 5. After you have configured all of the settings, choose **Create
+![An example capability, showing the settings, the associate partnership, input and output directories, and an example tag.](/images/b2bi/latest/userguide/images/capability-example-inbound.png) 4. Optionally, add tags as needed. 5. After you have configured all of the settings, choose **Create
 capability**.
 
-###### Important considerations to avoid failed transformation attempts and unnecessary
-
-charges
+###### Important considerations to avoid failed transformation attempts and unnecessary charges
 
 - B2B Data Interchange monitors all prefixes of your input directory for new
   files and attempts to transform every file placed in any prefix. Don't place

@@ -1,6 +1,4 @@
-# Step 6: Test your outbound
-
-configuration
+# Step 6: Test your outbound configuration
 
 Testing ensures your complete outbound workflow functions correctly before processing
 real business documents. This validates that all components work together and that your

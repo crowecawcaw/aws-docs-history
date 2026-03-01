@@ -1,6 +1,4 @@
-# Step 3: Create an inbound
-
-transformer
+# Step 3: Create an inbound transformer
 
 An inbound transformer defines how to convert X12 EDI documents to JSON or XML format.
 It contains the mapping logic that extracts data from the structured EDI format and
@@ -11,9 +9,7 @@ transforms it into a more accessible JSON structure for your applications.
 Before creating the transformer, you need to create sample input and output files
 in your Amazon S3 buckets that will be used to generate the mapping.
 
-### Create the input sample
-
-file
+### Create the input sample file
 
 ###### To create the EDI input sample
 
@@ -38,9 +34,7 @@ IEA*1*000000001~
 2. Upload this file to your input Amazon S3 bucket (for example,
    `s3://my-b2bi-input-bucket-your-account-id/sample-850-input.edi`).
 
-### Create the output sample
-
-file
+### Create the output sample file
 
 ###### To create the JSON output sample
 

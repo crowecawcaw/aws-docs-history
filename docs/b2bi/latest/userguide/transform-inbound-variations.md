@@ -68,10 +68,8 @@ stored.
 - [Transforming inbound EDI documents](#edi-inbound-process "#edi-inbound-process")
 - [Create a profile](#getting-started-profile "#getting-started-profile")
 - [Create an inbound transformer](#getting-started-transformer "#getting-started-transformer")
-- [Create a trading capability for inbound
-  EDI](#getting-started-capability "#getting-started-capability")
-- [Create a partnership for inbound
-  EDI](#getting-started-partnership "#getting-started-partnership")
+- [Create a trading capability for inbound EDI](#getting-started-capability "#getting-started-capability")
+- [Create a partnership for inbound EDI](#getting-started-partnership "#getting-started-partnership")
 - [EDI acknowledgements](edi-ack.md "edi-ack.md")
 - [EDI splitting](edi-split-overview.md "edi-split-overview.md")
 
@@ -82,10 +80,8 @@ XML data
 
 1. [Create a profile](#getting-started-profile "#getting-started-profile").
 2. [Create an inbound transformer](#getting-started-transformer "#getting-started-transformer").
-3. [Create a trading capability for inbound
-   EDI](#getting-started-capability "#getting-started-capability").
-4. [Create a partnership for inbound
-   EDI](#getting-started-partnership "#getting-started-partnership").
+3. [Create a trading capability for inbound EDI](#getting-started-capability "#getting-started-capability").
+4. [Create a partnership for inbound EDI](#getting-started-partnership "#getting-started-partnership").
 5. Test your transformation workflow. For details, see the [Testing end-to-end](https://catalog.workshops.aws/getting-started-b2b-data-interchange/en-US/030-testing "https://catalog.workshops.aws/getting-started-b2b-data-interchange/en-US/030-testing") topic from our [EDI document exchange with AWS B2B Data Interchange](https://catalog.workshops.aws/getting-started-b2b-data-interchange/en-US "https://catalog.workshops.aws/getting-started-b2b-data-interchange/en-US") workshop.
 
 ## Create a profile
@@ -191,9 +187,7 @@ transformer with a trading capability. At this point, the transformer is
 essentially locked, and in production mode. 5. After your review is complete, choose **Save** to create the
 transformer.
 
-## Create a trading capability for inbound
-
-EDI
+## Create a trading capability for inbound EDI
 
 _Trading capabilities_ contain the information required to build your event-driven EDI workflows.
 To create a trading capability, specify the EDI direction, add details about the EDI document number and version, choose
@@ -232,12 +226,10 @@ Based on the EDI direction selected and the transformer attached to the trading 
      can then paste into your input/output directory's bucket policy to
      provide AWS B2B Data Interchange the necessary access.
 
-![An example capability, showing the settings, the associate partnership, input and output directories, and an example tag.](/images/b2bi/latest/userguide/images/capability-example-inbound.png) 4. Optionally, add tags as needed. 5. After you have configured all of the settings, choose **Create
+![An example capability, showing the settings, the associate partnership, input and output directories, and an example tag.](images/capability-example-inbound.png) 4. Optionally, add tags as needed. 5. After you have configured all of the settings, choose **Create
 capability**.
 
-###### Important considerations to avoid failed transformation attempts and unnecessary
-
-charges
+###### Important considerations to avoid failed transformation attempts and unnecessary charges
 
 - B2B Data Interchange monitors all prefixes of your input directory for new
   files and attempts to transform every file placed in any prefix. Don't place
@@ -249,9 +241,7 @@ charges
 - B2B Data Interchange will automatically create prefixes in the specified input
   and output directories. Don't delete or edit these prefixes.
 
-## Create a partnership for inbound
-
-EDI
+## Create a partnership for inbound EDI
 
 A _partnership_ represents the connection between you and your trading partner. It incorporates a profile and one or more trading capabilities.
 It is also where you define the interchange control header and functional group header information necessary to generate outbound EDI documents.

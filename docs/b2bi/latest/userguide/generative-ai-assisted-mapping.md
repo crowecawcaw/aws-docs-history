@@ -72,8 +72,7 @@ mapping configuration step (_Step 2_).
 ###### To use generative AI-assisted EDI mapping in AWS B2B Data Interchange
 
 1. Upload your EDI document sample and JSON or XML data file sample to an Amazon S3 bucket
-   (or buckets) with the appropriate policy and permissions. For details, see [Setting up S3 bucket policies and
-   permissions](b2bi-prereq.md#buckets-and-permissions "b2bi-prereq.md#buckets-and-permissions").
+   (or buckets) with the appropriate policy and permissions. For details, see [Setting up S3 bucket policies and permissions](b2bi-prereq.md#buckets-and-permissions "b2bi-prereq.md#buckets-and-permissions").
 2. Navigate to the transformer homepage in the AWS B2B Data Interchange console. Choose **Create
    transformer** to create a new transformer or select an existing transformer
    from the list and choose **Edit** to update the configuration. In the

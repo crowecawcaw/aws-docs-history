@@ -1,6 +1,4 @@
-# Step 2: Create your business
-
-profile
+# Step 2: Create your business profile
 
 A profile stores your business contact information and serves as the foundation for
 all your AWS B2B Data Interchange activities. It represents your organization in trading partnerships

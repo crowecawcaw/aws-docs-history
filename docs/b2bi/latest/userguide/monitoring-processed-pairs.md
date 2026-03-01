@@ -1,6 +1,4 @@
-# Monitoring processed input-output
-
-pairs
+# Monitoring processed input-output pairs
 
 The Processed input-output pairs table is populated for each partnership and displays
 details for the most recently processed input/output file pairs. This table provides

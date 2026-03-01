@@ -1,14 +1,10 @@
-# Step 1: Setting up Amazon S3
-
-buckets
+# Step 1: Setting up Amazon S3 buckets
 
 B2B Data Interchange requires Amazon S3 buckets to store your input JSON files and output EDI documents.
 You must configure appropriate permissions and enable EventBridge notifications for automated
 document processing.
 
-## Creating input and output
-
-buckets
+## Creating input and output buckets
 
 ###### To create Amazon S3 buckets
 
@@ -24,9 +20,7 @@ buckets
 5. Repeat steps 2-4 to create an output bucket named
    `my-b2bi-outbound-output-`account-id``.
 
-## Enabling EventBridge
-
-notifications
+## Enabling EventBridge notifications
 
 ###### To enable notifications for your buckets
 

@@ -50,9 +50,7 @@ preserving any configurations you want to keep.
 3. Repeat for
    `my-b2bi-outbound-output-bucket-`your-account-id``.
 
-## Clean up monitoring
-
-resources
+## Clean up monitoring resources
 
 - **CloudWatch Logs:** Log groups are automatically
   cleaned up when profiles are deleted. Manually delete any custom log groups

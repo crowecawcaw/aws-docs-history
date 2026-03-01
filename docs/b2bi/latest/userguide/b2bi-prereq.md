@@ -69,9 +69,7 @@ input, output, and instruction documents. For details, see [Getting started with
 - The Amazon S3 bucket must be in the same AWS account as the B2B Data Interchange user.
 - The Amazon S3 bucket must be in the same region as the B2B Data Interchange user.
 
-## Setting up S3 bucket policies and
-
-permissions
+## Setting up S3 bucket policies and permissions
 
 Before you can transform and generate Electronic Data Interchange (EDI) documents, you
 must configure S3 bucket policies for your trading capabilities. This topic provides
@@ -100,8 +98,7 @@ policy examples, see [Example policies](#bucket-policy-examples "#bucket-policy-
 
 ###### Note
 
-For information about temporary files and related permissions, see [Managing temporary files and
-permissions](#temp-files-permissions "#temp-files-permissions").
+For information about temporary files and related permissions, see [Managing temporary files and permissions](#temp-files-permissions "#temp-files-permissions").
 
 ### Enabling EventBridge notifications
 
@@ -124,9 +121,7 @@ You must enable Amazon EventBridge notifications for your input S3 bucket.
 After enabling EventBridge, wait at least 5 minutes before placing files in your
 S3 bucket. This allows time for the changes to take effect.
 
-### Managing temporary files and
-
-permissions
+### Managing temporary files and permissions
 
 Your output bucket policies require the following permissions:
 

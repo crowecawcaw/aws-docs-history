@@ -1,6 +1,4 @@
-# Step 4: Create a trading
-
-capability
+# Step 4: Create a trading capability
 
 A trading capability connects your outbound transformer to specific Amazon S3 directories
 and defines the automated workflow. It monitors your input directory for new JSON files
@@ -48,9 +46,7 @@ output directory.
 
 5. Choose **Create capability**.
 
-## Configure Amazon S3
-
-bucket policies
+## Configure Amazon S3 bucket policies
 
 ###### To apply bucket policies
 

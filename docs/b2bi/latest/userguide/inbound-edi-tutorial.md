@@ -21,20 +21,13 @@ Before starting this tutorial, review the [Prerequisites](b2b-tutorials.md#tutor
 ###### Topics
 
 - [Inbound EDI use case](#inbound-use-case "#inbound-use-case")
-- [Step 1: Set up your Amazon S3
-  infrastructure](inbound-tutorial-step1-s3-setup.md "inbound-tutorial-step1-s3-setup.md")
-- [Step 2: Create your business
-  profile](inbound-tutorial-step2-profile.md "inbound-tutorial-step2-profile.md")
-- [Step 3: Create an inbound
-  transformer](inbound-tutorial-step3-transformer.md "inbound-tutorial-step3-transformer.md")
-- [Step 4: Create a trading
-  capability](inbound-tutorial-step4-capability.md "inbound-tutorial-step4-capability.md")
-- [Step 5: Create a
-  partnership](inbound-tutorial-step5-partnership.md "inbound-tutorial-step5-partnership.md")
-- [Step 6: Test your inbound
-  configuration](inbound-tutorial-step6-testing.md "inbound-tutorial-step6-testing.md")
-- [Step 7: Monitor your inbound
-  workflow](inbound-tutorial-step7-monitoring.md "inbound-tutorial-step7-monitoring.md")
+- [Step 1: Set up your Amazon S3 infrastructure](inbound-tutorial-step1-s3-setup.md "inbound-tutorial-step1-s3-setup.md")
+- [Step 2: Create your business profile](inbound-tutorial-step2-profile.md "inbound-tutorial-step2-profile.md")
+- [Step 3: Create an inbound transformer](inbound-tutorial-step3-transformer.md "inbound-tutorial-step3-transformer.md")
+- [Step 4: Create a trading capability](inbound-tutorial-step4-capability.md "inbound-tutorial-step4-capability.md")
+- [Step 5: Create a partnership](inbound-tutorial-step5-partnership.md "inbound-tutorial-step5-partnership.md")
+- [Step 6: Test your inbound configuration](inbound-tutorial-step6-testing.md "inbound-tutorial-step6-testing.md")
+- [Step 7: Monitor your inbound workflow](inbound-tutorial-step7-monitoring.md "inbound-tutorial-step7-monitoring.md")
 - [Cleanup steps](inbound-tutorial-cleanup.md "inbound-tutorial-cleanup.md")
 - [Next steps](#inbound-tutorial-conclusion "#inbound-tutorial-conclusion")
 

@@ -17,9 +17,7 @@ using AWS B2B Data Interchange. Choose the tutorial that matches your use case:
 
 Before you begin either tutorial, ensure you have the following:
 
-### AWS account
-
-requirements
+### AWS account requirements
 
 - An active AWS account with administrative privileges
 - Access to the AWS Management Console
@@ -44,9 +42,7 @@ GS segments) and control number management. For inbound EDI, focus on
 understanding how to consume transformed JSON data in your downstream
 applications.
 
-### Required AWS services
-
-access
+### Required AWS services access
 
 - AWS B2B Data Interchange service access in your chosen region
 - Amazon S3 service access for input and output buckets

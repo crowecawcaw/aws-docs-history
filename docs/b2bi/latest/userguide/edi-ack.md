@@ -58,8 +58,7 @@ is syntactically valid.
    service) to send these acknowledgements to your trading partner.
 
 To learn more about using B2Bi acknowledgement events to return acknowledgements to your
-trading partner, see [Details fields for transformation
-events](events-detail-reference.md#detail-fields-transform "events-detail-reference.md#detail-fields-transform").
+trading partner, see [Details fields for transformation events](events-detail-reference.md#detail-fields-transform "events-detail-reference.md#detail-fields-transform").
 
 ## Acknowledgement output paths
 

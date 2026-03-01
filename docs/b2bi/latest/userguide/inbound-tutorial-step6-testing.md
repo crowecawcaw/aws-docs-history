@@ -1,6 +1,4 @@
-# Step 6: Test your inbound
-
-configuration
+# Step 6: Test your inbound configuration
 
 Testing ensures your complete inbound workflow functions correctly before processing
 real business documents. This validates that all components work together and helps

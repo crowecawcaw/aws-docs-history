@@ -3,9 +3,7 @@
 This section provides solutions to common issues you might encounter when working with
 AWS B2B Data Interchange.
 
-## Output file is not created after the input
-
-file is placed into an Amazon S3 bucket
+## Output file is not created after the input file is placed into an Amazon S3 bucket
 
 If your output file is not being created after placing an input file into an Amazon S3
 bucket, follow these troubleshooting steps:
@@ -32,20 +30,16 @@ bucket, follow these troubleshooting steps:
       in this bucket** configuration is set to
       **On**.
 
-## Transformation fails because of S3
-
-bucket access issues
+## Transformation fails because of S3 bucket access issues
 
 If your transformation is failing due to S3 bucket access issues, follow these
 troubleshooting steps:
 
 1. Ensure that the S3 bucket policy is configured to allow AWS B2B Data Interchange service to
-   access the S3 bucket. For that follow the documentation steps in [Setting up S3 bucket policies and
-   permissions](b2bi-prereq.md#buckets-and-permissions "b2bi-prereq.md#buckets-and-permissions").
+   access the S3 bucket. For that follow the documentation steps in [Setting up S3 bucket policies and permissions](b2bi-prereq.md#buckets-and-permissions "b2bi-prereq.md#buckets-and-permissions").
 2. If you have SSE-KMS or DSSE-KMS encryption enabled on your input or output
    bucket, ensure that the key policy in AWS KMS is updated. For that follow the
-   documentation steps in [Setting up S3 bucket policies and
-   permissions](b2bi-prereq.md#buckets-and-permissions "b2bi-prereq.md#buckets-and-permissions").
+   documentation steps in [Setting up S3 bucket policies and permissions](b2bi-prereq.md#buckets-and-permissions "b2bi-prereq.md#buckets-and-permissions").
 3. In case S3 bucket issue arises when directly invoking
    `StartTransformerJob` ensure that the invoking principal (e.g.,
    user, service role) has permissions to access the bucket. Moreover ensure that
@@ -54,9 +48,7 @@ troubleshooting steps:
 4. Make sure you are using AWS B2B Data Interchange service in the same region the S3 bucket is
    created in.
 
-## The output file is successfully created but
-
-it cannot be accessed
+## The output file is successfully created but it cannot be accessed
 
 If your output file is created successfully but cannot be accessed, follow these
 troubleshooting steps:
@@ -67,9 +59,7 @@ troubleshooting steps:
   3.  Scroll down to the **Object Ownership** section and
       ensure that it says that ACLs are disabled.
 
-## Attaching sample files fails when creating
-
-a transformer in the console under root user
+## Attaching sample files fails when creating a transformer in the console under root user
 
 If attaching sample files fails when creating a transformer in the console, follow
 these troubleshooting steps:
@@ -79,9 +69,7 @@ these troubleshooting steps:
 2. Instead create a regular IAM user with necessary AWS B2B Data Interchange and Amazon S3
    permissions. For that follow the documentation steps in [Prerequisites for using AWS B2B Data Interchange](b2bi-prereq.md "b2bi-prereq.md").
 
-## Policy length limit reached when Creating
-
-Resources
+## Policy length limit reached when Creating Resources
 
 In the case that you try to create a resource (such as a profile or transformer), and
 experience an error saying the policy limit has been reached, you need to modify your

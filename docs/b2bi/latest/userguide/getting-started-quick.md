@@ -18,16 +18,14 @@ menu.
 2. The **Create transformer** screen appears. Fill in your details as
    described in [Create an inbound transformer](transform-inbound-variations.md#getting-started-transformer "transform-inbound-variations.md#getting-started-transformer") or [Create an outbound transformer](transform-outbound-variations.md#outbound-transformer "transform-outbound-variations.md#outbound-transformer"), then select **Next**.
 3. The **Create trading capability** screen appears. Fill in your details as
-   described in [Create a trading capability for inbound
-   EDI](transform-inbound-variations.md#getting-started-capability "transform-inbound-variations.md#getting-started-capability"), then select **Next**.
+   described in [Create a trading capability for inbound EDI](transform-inbound-variations.md#getting-started-capability "transform-inbound-variations.md#getting-started-capability"), then select **Next**.
 
 ###### Note
 
 Make sure to choose **Copy policy**, for both your input and output
 directory, save the policy code, and then paste the policies into your input and output
 directory's bucket policy. 4. The **Create partner** screen appears. Fill in your details as described
-in [Create a partnership for inbound
-EDI](transform-inbound-variations.md#getting-started-partnership "transform-inbound-variations.md#getting-started-partnership"),
+in [Create a partnership for inbound EDI](transform-inbound-variations.md#getting-started-partnership "transform-inbound-variations.md#getting-started-partnership"),
 then select **Next**. 5. The **Review and create** screen appears, showing all the details you've
 entered. You can select **Cancel**, or **Previous** if
 anything needs to be changed, or **Complete setup** to create your profile,

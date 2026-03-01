@@ -28,9 +28,7 @@ For example, `Transformation Completed`.
 For more information on events and how EventBridge processes them, see [Amazon EventBridge events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") in the _Amazon EventBridge User
 Guide_.
 
-## Details fields for transformation
-
-events
+## Details fields for transformation events
 
 This section describes the detail fields for the following events:
 
@@ -211,9 +209,7 @@ Value is one of `SUCCEEDED`,
 The location in Amazon S3 where the validation report is
 stored.
 
-## Details fields for split transformation
-
-events
+## Details fields for split transformation events
 
 This section describes the detail fields for the following events:
 
@@ -343,9 +339,7 @@ file. Possible values:
 The location in Amazon S3 where the validation report is
 stored. For example:
 
-## Details fields for acknowledgement
-
-events
+## Details fields for acknowledgement events
 
 This section describes the detail fields for the following events:
 

@@ -1,6 +1,4 @@
-# Step 5: Create a partnership with
-
-outbound EDI configuration
+# Step 5: Create a partnership with outbound EDI configuration
 
 A partnership represents your trading relationship with a business partner. For
 outbound EDI, the partnership requires extensive configuration of EDI headers, control

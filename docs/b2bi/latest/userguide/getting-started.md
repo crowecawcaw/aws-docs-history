@@ -18,8 +18,7 @@ B2B Data Interchange automatically transforms the files to generate X12. You can
 (that use either the AS2 or SFTP protocol) to send this X12 to your trading partner.
 
 All transformation activity and status updates, including the generation of acknowledgements,
-are logged to CloudWatch and emit events to Amazon EventBridge. For details, see [Details fields for transformation
-events](events-detail-reference.md#detail-fields-transform "events-detail-reference.md#detail-fields-transform"). You can also monitor
+are logged to CloudWatch and emit events to Amazon EventBridge. For details, see [Details fields for transformation events](events-detail-reference.md#detail-fields-transform "events-detail-reference.md#detail-fields-transform"). You can also monitor
 the transformation activity using processed input-output pairs view.
 
 ###### Topics

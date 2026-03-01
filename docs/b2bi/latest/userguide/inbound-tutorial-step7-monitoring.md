@@ -1,6 +1,4 @@
-# Step 7: Monitor your inbound
-
-workflow
+# Step 7: Monitor your inbound workflow
 
 Monitoring helps you track transformation success, identify issues, and maintain
 operational visibility for your inbound EDI processing. AWS B2B Data Interchange integrates with CloudWatch
@@ -16,9 +14,7 @@ and EventBridge for comprehensive monitoring.
    `/aws/vendedlogs/b2bi/p-`your-profile-id``.
 4. Review transformation logs for success/failure status.
 
-## Set up EventBridge monitoring
-
-(optional)
+## Set up EventBridge monitoring (optional)
 
 ###### To configure event notifications
 

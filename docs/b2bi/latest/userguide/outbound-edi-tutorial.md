@@ -49,19 +49,12 @@ Before starting this tutorial, review the [Prerequisites](b2b-tutorials.md#tutor
 
 ###### Topics
 
-- [Step 1: Setting up Amazon S3
-  buckets](outbound-tutorial-step1-s3-setup.md "outbound-tutorial-step1-s3-setup.md")
-- [Step 2: Creating your business
-  profile](outbound-tutorial-step2-profile.md "outbound-tutorial-step2-profile.md")
-- [Step 3: Creating an outbound
-  transformer](outbound-tutorial-step3-transformer.md "outbound-tutorial-step3-transformer.md")
-- [Step 4: Create a trading
-  capability](outbound-tutorial-step4-capability.md "outbound-tutorial-step4-capability.md")
-- [Step 5: Create a partnership with
-  outbound EDI configuration](outbound-tutorial-step5-partnership.md "outbound-tutorial-step5-partnership.md")
-- [Step 6: Test your outbound
-  configuration](outbound-tutorial-step6-testing.md "outbound-tutorial-step6-testing.md")
-- [Step 7: Monitor your outbound
-  workflow](outbound-tutorial-step7-monitoring.md "outbound-tutorial-step7-monitoring.md")
+- [Step 1: Setting up Amazon S3 buckets](outbound-tutorial-step1-s3-setup.md "outbound-tutorial-step1-s3-setup.md")
+- [Step 2: Creating your business profile](outbound-tutorial-step2-profile.md "outbound-tutorial-step2-profile.md")
+- [Step 3: Creating an outbound transformer](outbound-tutorial-step3-transformer.md "outbound-tutorial-step3-transformer.md")
+- [Step 4: Create a trading capability](outbound-tutorial-step4-capability.md "outbound-tutorial-step4-capability.md")
+- [Step 5: Create a partnership with outbound EDI configuration](outbound-tutorial-step5-partnership.md "outbound-tutorial-step5-partnership.md")
+- [Step 6: Test your outbound configuration](outbound-tutorial-step6-testing.md "outbound-tutorial-step6-testing.md")
+- [Step 7: Monitor your outbound workflow](outbound-tutorial-step7-monitoring.md "outbound-tutorial-step7-monitoring.md")
 - [Cleanup steps](outbound-tutorial-cleanup.md "outbound-tutorial-cleanup.md")
 - [Next steps](outbound-tutorial-conclusion.md "outbound-tutorial-conclusion.md")

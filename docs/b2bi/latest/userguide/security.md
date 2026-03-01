@@ -30,5 +30,4 @@ cloud and security _in_ the cloud:
 - [Identity and access management for AWS B2B Data Interchange](security-iam.md "security-iam.md")
 - [Compliance validation for AWS B2B Data Interchange](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS B2B Data Interchange](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Cross-service
-  confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")

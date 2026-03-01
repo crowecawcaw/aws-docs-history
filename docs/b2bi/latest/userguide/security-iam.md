@@ -8,12 +8,10 @@ use with no additional charge.
 ###### Topics
 
 - [How AWS B2B Data Interchange works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam")
-- [Identity-based policy examples for
-  AWS B2B Data Interchange](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
+- [Identity-based policy examples for AWS B2B Data Interchange](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [Troubleshooting AWS B2B Data Interchange identity and
-  access](#security_iam_troubleshoot "#security_iam_troubleshoot")
+- [Troubleshooting AWS B2B Data Interchange identity and access](#security_iam_troubleshoot "#security_iam_troubleshoot")
 
 ## How AWS B2B Data Interchange works with IAM
 
@@ -38,9 +36,7 @@ To get a high-level view of how B2B Data Interchange and other AWS services work
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-### Identity-based
-
-policies for B2B Data Interchange
+### Identity-based policies for B2B Data Interchange
 
 **Supports identity-based policies:**
 
@@ -57,16 +53,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-####
+#### Identity-based policy examples for B2B Data Interchange
 
-Identity-based policy examples for B2B Data Interchange
+To view examples of AWS B2B Data Interchange identity-based policies, see [Identity-based policy examples for AWS B2B Data Interchange](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
-To view examples of AWS B2B Data Interchange identity-based policies, see [Identity-based policy examples for
-AWS B2B Data Interchange](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
-
-### Resource-based
-
-policies within B2B Data Interchange
+### Resource-based policies within B2B Data Interchange
 
 **Supports resource-based policies:**
 
@@ -82,9 +73,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-### Policy actions
-
-for B2B Data Interchange
+### Policy actions for B2B Data Interchange
 
 **Supports policy actions:**
 
@@ -115,12 +104,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of AWS B2B Data Interchange identity-based policies, see [Identity-based policy examples for
-AWS B2B Data Interchange](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of AWS B2B Data Interchange identity-based policies, see [Identity-based policy examples for AWS B2B Data Interchange](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
-### Policy
-
-resources for B2B Data Interchange
+### Policy resources for B2B Data Interchange
 
 **Supports policy resources:**
 
@@ -140,12 +126,9 @@ GT-RESOURCES-URL in the _Service Authorization Reference_. To learn with
 which actions you can specify the ARN of each resource, see
 GT-ACTIONS-URL.
 
-To view examples of AWS B2B Data Interchange identity-based policies, see [Identity-based policy examples for
-AWS B2B Data Interchange](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of AWS B2B Data Interchange identity-based policies, see [Identity-based policy examples for AWS B2B Data Interchange](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
-### Policy
-
-condition keys for B2B Data Interchange
+### Policy condition keys for B2B Data Interchange
 
 **Supports service-specific policy condition keys:**
 
@@ -164,8 +147,7 @@ To see a list of B2B Data Interchange condition keys, see GT-CONDITIONS-URL in t
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see GT-ACTIONS-URL.
 
-To view examples of AWS B2B Data Interchange identity-based policies, see [Identity-based policy examples for
-AWS B2B Data Interchange](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of AWS B2B Data Interchange identity-based policies, see [Identity-based policy examples for AWS B2B Data Interchange](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
 ### ACLs in B2B Data Interchange
 
@@ -193,9 +175,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-### Using temporary
-
-credentials with B2B Data Interchange
+### Using temporary credentials with B2B Data Interchange
 
 **Supports temporary credentials:**
 
@@ -207,17 +187,13 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-### Cross-service
-
-principal permissions for B2B Data Interchange
+### Cross-service principal permissions for B2B Data Interchange
 
 **Supports forward access sessions (FAS):**
 
 Yes
 
-### Service roles for
-
-B2B Data Interchange
+### Service roles for B2B Data Interchange
 
 **Supports service roles:**
 
@@ -227,9 +203,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-### Service-linked
-
-roles for B2B Data Interchange
+### Service-linked roles for B2B Data Interchange
 
 **Supports service-linked roles:**
 
@@ -245,9 +219,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** link to view the service-linked role documentation for that
 service.
 
-## Identity-based policy examples for
-
-AWS B2B Data Interchange
+## Identity-based policy examples for AWS B2B Data Interchange
 
 By default, users and roles don't have permission to create or modify AWS B2B Data Interchange
 resources. To grant users permission to perform actions on the
@@ -261,16 +233,11 @@ For details about actions and resource types defined by AWS B2B Data Interchange
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the B2B Data Interchange
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the B2B Data Interchange console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
-### Policy best
-
-practices
+### Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS B2B Data Interchange resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -303,9 +270,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-### Using the B2B Data Interchange
-
-console
+### Using the B2B Data Interchange console
 
 To access the AWS B2B Data Interchange console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS B2B Data Interchange resources
@@ -322,9 +287,7 @@ B2B Data Interchange `ConsoleAccess` or `ReadOnly` AWS managed policy to
 the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-### Allow users
-
-to view their own permissions
+### Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -404,17 +367,13 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
 Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 
@@ -438,31 +397,22 @@ AWS supports additional policy types that can set the maximum permissions grante
 - **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
 - **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
 
-### Multiple policy
-
-types
+### Multiple policy types
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
 
-## Troubleshooting AWS B2B Data Interchange identity and
-
-access
+## Troubleshooting AWS B2B Data Interchange identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with AWS B2B Data Interchange and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in B2B Data Interchange](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people
-  outside of my AWS account to access my B2B Data Interchange resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in B2B Data Interchange](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside of my AWS account to access my B2B Data Interchange resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-### I am not authorized to
-
-perform an action in B2B Data Interchange
+### I am not authorized to perform an action in B2B Data Interchange
 
 If you receive an error that you're not authorized to perform an action, your
 policies must be updated to allow you to perform the action.
@@ -482,9 +432,7 @@ In this case, the policy for the `mateojackson` user must be updated to allow ac
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-### I am not authorized to perform
-
-iam:PassRole
+### I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to AWS B2B Data Interchange.
 
@@ -503,9 +451,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-### I want to allow people
-
-outside of my AWS account to access my B2B Data Interchange resources
+### I want to allow people outside of my AWS account to access my B2B Data Interchange resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

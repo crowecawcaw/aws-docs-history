@@ -1,6 +1,4 @@
-# Step 3: Creating an outbound
-
-transformer
+# Step 3: Creating an outbound transformer
 
 An outbound transformer defines how to convert JSON data to X12 EDI format. It
 contains the mapping logic that takes structured JSON purchase order data and transforms
