@@ -2,15 +2,12 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Creating additional spaces that support AWS Builder ID
-
-users
+# Creating additional spaces that support AWS Builder ID users
 
 ###### Note
 
 This topic describes how to create spaces that support users who sign in to CodeCatalyst with a
-AWS Builder ID. To create spaces that support users who are managed as part of SSO users and groups, see [Administering spaces that support identity
-federation](managing-federation-space.md "managing-federation-space.md").
+AWS Builder ID. To create spaces that support users who are managed as part of SSO users and groups, see [Administering spaces that support identity federation](managing-federation-space.md "managing-federation-space.md").
 
 When you first sign up in Amazon CodeCatalyst, you are required to create a space. You
 can choose to create additional spaces to meet your business needs.

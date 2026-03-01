@@ -16,9 +16,7 @@ connection.
 You must have the **Space administrator** role in CodeCatalyst and have
 administrator permissions for your account in AWS to manage billing.
 
-## Step 1: Add the billing account
-
-to your space
+## Step 1: Add the billing account to your space
 
 To choose a new account for billing, you must have completed the steps to add it
 to your space. Complete the steps as detailed in [Administering connected accounts](managing-accounts.md "managing-accounts.md").
@@ -26,9 +24,7 @@ to your space. Complete the steps as detailed in [Administering connected accoun
 You must have the **Space administrator** role in CodeCatalyst and have
 administrator permissions for your account in AWS to manage billing.
 
-## Step 2: Choose the billing
-
-account in CodeCatalyst
+## Step 2: Choose the billing account in CodeCatalyst
 
 Next, specify the connected account as a billing account.
 
@@ -39,9 +35,7 @@ AWS accounts that have been added to your space will show in the list.
 You must have the **Space administrator** role to manage billing and
 accounts for your space.
 
-###### To designate an added AWS account to a CodeCatalyst space for
-
-billing
+###### To designate an added AWS account to a CodeCatalyst space for billing
 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to your CodeCatalyst space. Choose **Settings**,

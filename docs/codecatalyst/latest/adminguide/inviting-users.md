@@ -7,8 +7,7 @@ more information, see [Migrating from Amazon CodeCatalyst](../userguide/migratio
 ###### Note
 
 This topic describes how to invite users who sign in to CodeCatalyst with a AWS Builder ID. To
-invite users that are managed as part of SSO users and groups, see [Administering spaces that support identity
-federation](managing-federation-space.md "managing-federation-space.md").
+invite users that are managed as part of SSO users and groups, see [Administering spaces that support identity federation](managing-federation-space.md "managing-federation-space.md").
 
 You can invite users to your CodeCatalyst space (instead of inviting them to a project within
 a space). Inviting users to a space is useful when you want that user to help you manage

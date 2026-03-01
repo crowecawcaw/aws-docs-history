@@ -7,8 +7,7 @@ more information, see [Migrating from Amazon CodeCatalyst](../userguide/migratio
 ###### Note
 
 This topic describes how to delete spaces that support users who sign in to CodeCatalyst with a
-AWS Builder ID. To delete spaces that support users who are managed as part of SSO users and groups, see [Administering spaces that support identity
-federation](managing-federation-space.md "managing-federation-space.md").
+AWS Builder ID. To delete spaces that support users who are managed as part of SSO users and groups, see [Administering spaces that support identity federation](managing-federation-space.md "managing-federation-space.md").
 
 You can delete a space to remove access to all of the space's resources. You must
 have the **Space administrator** role to delete a space.

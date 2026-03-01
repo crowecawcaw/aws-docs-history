@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Associating a space to your
-
-Identity Center application
+# Associating a space to your Identity Center application
 
 You can associate a space with your CodeCatalyst Identity Center application. You must have already
 competed the prerequisites for setting up identity federation in AWS Organizations and IAM Identity Center.

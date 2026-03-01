@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Enabling or disabling project-restricted account
-
-connections
+# Enabling or disabling project-restricted account connections
 
 The default in CodeCatalyst is to add an AWS account connection to your space that is then
 made immediately available for all projects and resources in the space. You can configure
@@ -17,9 +15,7 @@ unique to the connection between a specific AWS account and a specific space in 
 The connection can be specified as restricted. The account connection will not be available
 for workflows or default VPCs in CodeCatalyst.
 
-## Considerations for
-
-project-restricted account connections
+## Considerations for project-restricted account connections
 
 The following considerations apply to project-restricted account connections.
 
@@ -42,9 +38,7 @@ where you are a member.
   restriction, you will not be able to add the account connection to the new project's
   workflows until the project is enabled for the restricted account.
 
-## Enabling project-restricted account
-
-connections
+## Enabling project-restricted account connections
 
 Use these steps to enable an account for project restrictions and to specify projects
 where access is enabled.
@@ -66,9 +60,7 @@ Only specified projects will be able to access the account connection. 4. Choose
 **Enable**. The account connection is now restricted to the selected
 projects.
 
-## Disabling project-restricted account
-
-connections
+## Disabling project-restricted account connections
 
 Use these steps to remove project restrictions for a connected account.
 

@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Deleting a space that supports
-
-identity federation
+# Deleting a space that supports identity federation
 
 You can delete a space that supports identity federation when you no longer need it.
 

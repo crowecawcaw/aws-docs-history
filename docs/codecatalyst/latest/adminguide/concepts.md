@@ -10,8 +10,7 @@ terms used in supporting access, user management, and identity federation.
 ###### Topics
 
 - [AWS Builder ID spaces in CodeCatalyst](#concepts-spaces "#concepts-spaces")
-- [Spaces that support identity
-  federation in CodeCatalyst](#concepts-ent-spaces "#concepts-ent-spaces")
+- [Spaces that support identity federation in CodeCatalyst](#concepts-ent-spaces "#concepts-ent-spaces")
 - [Identity provider (IdP)](#concepts-idp "#concepts-idp")
 - [Identity source](#concepts-identity-source "#concepts-identity-source")
 - [Identity store](#concepts-identity-store "#concepts-identity-store")
@@ -20,8 +19,7 @@ terms used in supporting access, user management, and identity federation.
 - [Instance in IAM Identity Center](#concepts-instance "#concepts-instance")
 - [Organization instance in IAM Identity Center](#concepts-organization-instance "#concepts-organization-instance")
 - [Account instance in IAM Identity Center](#concepts-account-instance "#concepts-account-instance")
-- [How do spaces work with identity
-  federation and SSO](#federation-how-it-works "#federation-how-it-works")
+- [How do spaces work with identity federation and SSO](#federation-how-it-works "#federation-how-it-works")
 
 ## AWS Builder ID spaces in CodeCatalyst
 
@@ -30,9 +28,7 @@ emails from the members page. Users who are invited or sign up to CodeCatalyst c
 AWS Builder ID. The profile is managed in AWS Builder ID and displays as the user name and profile
 information in the user settings in CodeCatalyst.
 
-## Spaces that support identity
-
-federation in CodeCatalyst
+## Spaces that support identity federation in CodeCatalyst
 
 Users who have been added to the SSO users and groups for the IAM Identity Center instance and are
 managed in the identity store and are added to your space through IAM Identity Center. The
@@ -127,9 +123,7 @@ of IAM Identity Center rather than account instances to minimize the number of m
 An instance of IAM Identity Center that is bound to a single AWS account, and that is visible only
 within the AWS account and AWS Region in which it is enabled.
 
-## How do spaces work with identity
-
-federation and SSO
+## How do spaces work with identity federation and SSO
 
 Companies who want to set up a space for management through identity federation must
 create a space that supports SSO users and groups.

@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Configure an existing CodeCatalyst space
-
-for identity federation
+# Configure an existing CodeCatalyst space for identity federation
 
 You must have the **Space administrator** role and access to the billing
 account for the space in order to view SSO users and groups for your space.
@@ -27,8 +25,7 @@ later.
 2. Choose **Settings**, and then choose **SSO**.
 3. On the **SSO not enabled** message, choose **Set up in
    AWS**. The wizard page opens for creating a space. To complete the
-   wizard, see the steps in [Creating a space for identity
-   federation](setting-up-federation-space-create.md "setting-up-federation-space-create.md").
+   wizard, see the steps in [Creating a space for identity federation](setting-up-federation-space-create.md "setting-up-federation-space-create.md").
 
 To view information in IAM Identity Center, choose **IAM Identity Center**. You will be taken to
 IAM Identity Center, where you can work with your Identity federation administrator to configure SSO

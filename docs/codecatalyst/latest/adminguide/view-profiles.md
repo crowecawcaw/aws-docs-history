@@ -8,8 +8,7 @@ more information, see [Migrating from Amazon CodeCatalyst](../userguide/migratio
 
 This topic describes how to view your user profile if you signed in to CodeCatalyst with a
 AWS Builder ID. If you signed in as a user who is managed as part of SSO users and
-groups, see [Administering spaces that support identity
-federation](managing-federation-space.md "managing-federation-space.md").
+groups, see [Administering spaces that support identity federation](managing-federation-space.md "managing-federation-space.md").
 
 Your user profile displays your personal information, and is where you configure
 user-specific features like notifications.

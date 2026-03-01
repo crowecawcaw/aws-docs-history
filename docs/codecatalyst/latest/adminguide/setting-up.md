@@ -28,12 +28,10 @@ _CodeCatalyst User Guide_ :
 
 If you have not already set up a management account in AWS Organizations and set up your identity
 provider in IAM Identity Center, complete the prerequisites and create your first space as
-detailed in [Prerequisite 3: Setting up identity federation in
-IAM Identity Center](setting-up-federation.md#setting-up-prereq-identity "setting-up-federation.md#setting-up-prereq-identity") and [Setting up a space that supports identity federation](setting-up-federation.md "setting-up-federation.md"). You work with your Identity federation administrator
+detailed in [Prerequisite 3: Setting up identity federation in IAM Identity Center](setting-up-federation.md#setting-up-prereq-identity "setting-up-federation.md#setting-up-prereq-identity") and [Setting up a space that supports identity federation](setting-up-federation.md "setting-up-federation.md"). You work with your Identity federation administrator
 and AWS account administrator to configure and enable your identity provider (IdP).
 
 ###### Topics
 
-- [Setting up a space that supports AWS Builder ID
-  users](setting-up-space.md "setting-up-space.md")
+- [Setting up a space that supports AWS Builder ID users](setting-up-space.md "setting-up-space.md")
 - [Setting up a space that supports identity federation](setting-up-federation.md "setting-up-federation.md")

@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Setting up a space that supports AWS Builder ID
-
-users
+# Setting up a space that supports AWS Builder ID users
 
 You can create a space that manages users with AWS Builder ID access to CodeCatalyst. This is a
 CodeCatalyst space for AWS Builder ID users.

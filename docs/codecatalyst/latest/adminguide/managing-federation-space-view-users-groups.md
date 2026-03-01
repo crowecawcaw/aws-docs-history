@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Viewing SSO users and groups for
-
-a space
+# Viewing SSO users and groups for a space
 
 You must have the **Space administrator** role and access to the billing
 account for your space to view SSO users and groups for your space. You cannot directly

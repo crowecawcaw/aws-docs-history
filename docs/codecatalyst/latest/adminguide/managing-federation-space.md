@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Administering spaces that support identity
-
-federation
+# Administering spaces that support identity federation
 
 You can manage your space in CodeCatalyst after you have set up the space for identity
 federation.
@@ -28,9 +26,7 @@ _CodeCatalyst User Guide_:
 
 If you have not already connected the AWS account that will be the specified billing
 account for your space and set up your identity provider in IAM Identity Center, complete the
-prerequisites and create your first space as detailed in [Prerequisite 3: Setting up identity federation in
-IAM Identity Center](setting-up-federation.md#setting-up-prereq-identity "setting-up-federation.md#setting-up-prereq-identity") and [Creating a space for identity
-federation](setting-up-federation-space-create.md "setting-up-federation-space-create.md"). You work with your Identity federation
+prerequisites and create your first space as detailed in [Prerequisite 3: Setting up identity federation in IAM Identity Center](setting-up-federation.md#setting-up-prereq-identity "setting-up-federation.md#setting-up-prereq-identity") and [Creating a space for identity federation](setting-up-federation-space-create.md "setting-up-federation-space-create.md"). You work with your Identity federation
 administrator and AWS account administrator to configure and enable your identity provider
 (IdP). The AWS account that is specified as the billing account for your CodeCatalyst space has
 different quotas from other account connections for a space. For more information, see

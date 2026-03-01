@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Enabling generative AI features in
-
-Amazon CodeCatalyst
+# Enabling generative AI features in Amazon CodeCatalyst
 
 Amazon Q Developer in Amazon CodeCatalyst includes generative AI features that can help users in projects
 in your space develop software faster. Developers frequently have more tasks to do than
@@ -57,5 +55,4 @@ Because the **Write description for me**, **Create content summary**, **Recommen
 
 The generative AI features in CodeCatalyst are subject to quotas. For more information, see
 [Amazon Q Developer Pricing](https://aws.amazon.com/q/developer/pricing "https://aws.amazon.com/q/developer/pricing"),
-[Enabling or disabling
-generative AI features for a space](managing-generative-ai-features-enable-disable.md "managing-generative-ai-features-enable-disable.md") , and [Administering billing](managing-billing.md "managing-billing.md").
+[Enabling or disabling generative AI features for a space](managing-generative-ai-features-enable-disable.md "managing-generative-ai-features-enable-disable.md") , and [Administering billing](managing-billing.md "managing-billing.md").

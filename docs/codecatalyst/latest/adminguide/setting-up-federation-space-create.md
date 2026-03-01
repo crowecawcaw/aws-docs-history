@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Creating a space for identity
-
-federation
+# Creating a space for identity federation
 
 You cannot directly add or remove users in your space that supports identity
 federation. You must work with your Identity federation administrator to manage SSO users and
@@ -111,9 +109,7 @@ chosen. Once you create the space, you will not be able to reuse the space
 name, even if the space is deleted. SSO application names can be reassigned to
 another space, but the space name itself cannot be reused.
 
-## Next steps: Create teams, projects,
-
-and resources in CodeCatalyst
+## Next steps: Create teams, projects, and resources in CodeCatalyst
 
 After you have created your space, you can perform the following tasks.
 

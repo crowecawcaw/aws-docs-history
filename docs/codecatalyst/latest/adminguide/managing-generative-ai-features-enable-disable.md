@@ -2,15 +2,12 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Enabling or disabling
-
-generative AI features for a space
+# Enabling or disabling generative AI features for a space
 
 To allow users to use generative AI features in CodeCatalyst, you must enable them for your
 space. You cannot enable these features for specific projects. If you enable them
 for the space, all projects in the space will have access to them. For more
-information about the available generative AI features, see [Enabling generative AI features in
-Amazon CodeCatalyst](managing-generative-ai-features.md "managing-generative-ai-features.md").
+information about the available generative AI features, see [Enabling generative AI features in Amazon CodeCatalyst](managing-generative-ai-features.md "managing-generative-ai-features.md").
 
 **Before you begin**
 

@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Removing an account from a space (in
-
-AWS)
+# Removing an account from a space (in AWS)
 
 You can use the page for CodeCatalyst in AWS to remove an account that has been added to a
 space. For this procedure, using administrative permissions for the specific account you are

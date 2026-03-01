@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Adding the
-
-**Space administrator** role to SSO users in a space
+# Adding the **Space administrator** role to SSO users in a space
 
 You can use the Amazon CodeCatalyst page in the AWS Management Console to assign the **Space administrator**
 role to individual users in your SSO groups. You cannot directly add or remove users in your

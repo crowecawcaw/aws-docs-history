@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Troubleshooting problems with billing
-
-associated with your space
+# Troubleshooting problems with billing associated with your space
 
 In CodeCatalyst, you can add an AWS account to your space to grant permissions to
 resources and for billing purposes. The following information can help you troubleshoot
@@ -12,14 +10,10 @@ common issues with associated accounts in CodeCatalyst.
 
 ###### Topics
 
-- [I cannot access the
-  Amazon CodeCatalyst Spaces page in the AWS Management Console](#billing-troubleshoot-console "#billing-troubleshoot-console")
-- [I cannot change the
-  billing tier for my space](#billing-troubleshoot-need-associated-account "#billing-troubleshoot-need-associated-account")
+- [I cannot access the Amazon CodeCatalyst Spaces page in the AWS Management Console](#billing-troubleshoot-console "#billing-troubleshoot-console")
+- [I cannot change the billing tier for my space](#billing-troubleshoot-need-associated-account "#billing-troubleshoot-need-associated-account")
 
-## I cannot access the
-
-Amazon CodeCatalyst Spaces page in the AWS Management Console
+## I cannot access the Amazon CodeCatalyst Spaces page in the AWS Management Console
 
 **Problem:** When I try to access the Amazon CodeCatalyst page in the AWS Management Console to add an account to my CodeCatalyst space or add roles to an account in AWS, I
 receive a permissions error.
@@ -35,9 +29,7 @@ the console and try again.
 
 Open the Amazon CodeCatalyst page in the AWS Management Console at [https://us-west-2.console.aws.amazon.com/codecatalyst/home?region=us-west-2#/](https://us-west-2.console.aws.amazon.com/codecatalyst/home?region=us-west-2#/ "https://us-west-2.console.aws.amazon.com/codecatalyst/home?region=us-west-2#/").
 
-## I cannot change the
-
-billing tier for my space
+## I cannot change the billing tier for my space
 
 **Problem:** I am able to view billing for my space
 but cannot change the subscription tier from Free to Standard.

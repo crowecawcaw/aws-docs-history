@@ -2,9 +2,7 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Viewing your CodeCatalyst plan and
-
-billing
+# Viewing your CodeCatalyst plan and billing
 
 When you set up a billing account, the allowed CodeCatalyst tiers that you want to allow
 your space to use defaults to the free and paid tiers. Your current subscription tier

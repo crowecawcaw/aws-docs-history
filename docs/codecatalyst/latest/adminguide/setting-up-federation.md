@@ -18,8 +18,7 @@ To set up a space that supports identity federation, you must configure prerequi
 in the following services before you create or connect a CodeCatalyst space. Use the planning
 steps in the following section to help you with planning your space.
 
-After completing the prerequisites here, to continue creating your space, see [Creating a space for identity
-federation](setting-up-federation-space-create.md "setting-up-federation-space-create.md").
+After completing the prerequisites here, to continue creating your space, see [Creating a space for identity federation](setting-up-federation-space-create.md "setting-up-federation-space-create.md").
 
 The organization administrator creates the management accounts and Organizational Units for
 the company in AWS Organizations. After the management account is available, the company identity
@@ -41,18 +40,12 @@ The following diagram illustrates the flow of tasks for setting up your space.
 
 ###### Topics
 
-- [Planning your space that supports
-  identity federation](#setting-up-planning-federation "#setting-up-planning-federation")
-- [Prerequisite 1: Setting up an organization in
-  AWS Organizations](#setting-up-prereq-organization "#setting-up-prereq-organization")
-- [Prerequisite 2: Enable an instance for identity
-  federation](#setting-up-prereq-enable "#setting-up-prereq-enable")
-- [Prerequisite 3: Setting up identity federation in
-  IAM Identity Center](#setting-up-prereq-identity "#setting-up-prereq-identity")
+- [Planning your space that supports identity federation](#setting-up-planning-federation "#setting-up-planning-federation")
+- [Prerequisite 1: Setting up an organization in AWS Organizations](#setting-up-prereq-organization "#setting-up-prereq-organization")
+- [Prerequisite 2: Enable an instance for identity federation](#setting-up-prereq-enable "#setting-up-prereq-enable")
+- [Prerequisite 3: Setting up identity federation in IAM Identity Center](#setting-up-prereq-identity "#setting-up-prereq-identity")
 
-## Planning your space that supports
-
-identity federation
+## Planning your space that supports identity federation
 
 After you complete the prerequisites here for AWS Organizations and IAM Identity Center, you will use the CodeCatalyst
 page in the AWS Management Console to create or choose a space and associate it with identity
@@ -104,9 +97,7 @@ administrator sets up in the IAM Identity Center instance.
 Users or groups that are added to IAM Identity Center assignments usually appear in CodeCatalyst within two
 hours. Depending on the amount of data being synchronized, this process might take longer.
 
-## Prerequisite 1: Setting up an organization in
-
-AWS Organizations
+## Prerequisite 1: Setting up an organization in AWS Organizations
 
 Before you create a space and configure your user membership, complete the following
 prerequisities for organization and identity federation setup in AWS. You can follow the
@@ -147,9 +138,7 @@ an AWS account to join your organization](../../../organizations/latest/userguid
 Create organizational units (OUs) and add member accounts for those OUs in AWS Organizations. See
 the steps in [Managing organizational units](../../../organizations/latest/userguide/orgs_manage_ous.md "../../../organizations/latest/userguide/orgs_manage_ous.md").
 
-## Prerequisite 2: Enable an instance for identity
-
-federation
+## Prerequisite 2: Enable an instance for identity federation
 
 Before you create a space that supports identity federation, complete the following
 prerequisities for enabling your instance. You can follow the references in this chapter to get
@@ -174,9 +163,7 @@ in IAM Identity Center. For more information about this step in IAM Identity Cen
 2. On the welcome page, choose **Enable AWS SSO**. A success banner
    displays.
 
-## Prerequisite 3: Setting up identity federation in
-
-IAM Identity Center
+## Prerequisite 3: Setting up identity federation in IAM Identity Center
 
 IAM Identity Center helps you securely create or connect your identity federation and manage user access
 centrally across AWS accounts and applications. IAM Identity Center is the recommended approach for identity
@@ -199,8 +186,7 @@ Guide_.
 
 - [Set up your provider in IAM Identity Center](#setting-up-prereq-identity-provider "#setting-up-prereq-identity-provider")
 - [Set up your portal in IAM Identity Center](#setting-up-prereq-identity-portal "#setting-up-prereq-identity-portal")
-- [Create users and groups in
-  IAM Identity Center](#setting-up-prereq-identity-users-groups "#setting-up-prereq-identity-users-groups")
+- [Create users and groups in IAM Identity Center](#setting-up-prereq-identity-users-groups "#setting-up-prereq-identity-users-groups")
 
 ### Set up your provider in IAM Identity Center
 
@@ -245,9 +231,7 @@ CodeCatalyst.
 
 The name for your Identity Center application must be globally unique. In addition, since the name will be viewable for signing in and on certain pages in CodeCatalyst, choose a name that will suitably relate to your company for users signing in.
 
-### Create users and groups in
-
-IAM Identity Center
+### Create users and groups in IAM Identity Center
 
 You must create users and groups in IAM Identity Center that you will manage in IAM Identity Center and then specify
 in CodeCatalyst when you create or view your space. Create and connect groups in IAM Identity Center.
