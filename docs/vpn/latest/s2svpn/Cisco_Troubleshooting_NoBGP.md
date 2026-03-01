@@ -1,6 +1,4 @@
-# Troubleshoot AWS Site-to-Site VPN connectivity with a Cisco IOS
-
-customer gateway device without Border Gateway Protocol
+# Troubleshoot AWS Site-to-Site VPN connectivity with a Cisco IOS customer gateway device without Border Gateway Protocol
 
 When you troubleshoot the connectivity of a Cisco customer gateway device, consider three
 things: IKE, IPsec, and tunnel. You can troubleshoot these areas in any order, but we

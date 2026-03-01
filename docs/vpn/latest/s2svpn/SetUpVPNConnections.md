@@ -137,9 +137,7 @@ After you create a virtual private gateway, you must attach it to your VPC.
 - [create-vpn-gateway](../../../cli/latest/reference/ec2/create-vpn-gateway.md "../../../cli/latest/reference/ec2/create-vpn-gateway.md") (AWS CLI)
 - [New-EC2VpnGateway](../../../powershell/latest/reference/items/New-EC2VpnGateway.md "../../../powershell/latest/reference/items/New-EC2VpnGateway.md") (AWS Tools for Windows PowerShell)
 
-###### To attach a virtual private gateway to a VPC using the command line or
-
-API
+###### To attach a virtual private gateway to a VPC using the command line or API
 
 - [AttachVpnGateway](../../../AWSEC2/latest/APIReference/API_AttachVpnGateway.md "../../../AWSEC2/latest/APIReference/API_AttachVpnGateway.md") (Amazon EC2 Query API)
 - [attach-vpn-gateway](../../../cli/latest/reference/ec2/attach-vpn-gateway.md "../../../cli/latest/reference/ec2/attach-vpn-gateway.md") (AWS CLI)
@@ -156,9 +154,7 @@ To enable instances in your VPC to reach your customer gateway, you must configu
 your route table to include the routes used by your VPN connection and point them to
 your virtual private gateway or transit gateway.
 
-### (Virtual private gateway) Enable route propagation in your
-
-route table
+### (Virtual private gateway) Enable route propagation in your route table
 
 You can enable route propagation for your route table to automatically propagate Site-to-Site VPN
 routes.

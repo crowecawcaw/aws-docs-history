@@ -44,9 +44,7 @@ VPN connection experiences a period of idle time (usually 10 seconds, depending 
 configuration), the tunnel might go down. To prevent this, you can use a network
 monitoring tool to generate keepalive pings.
 
-## Working with VPN tunnel initiation
-
-options
+## Working with VPN tunnel initiation options
 
 For more information about working with VPN tunnel initiation options, see the following
 topics:

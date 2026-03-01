@@ -14,8 +14,7 @@ you can add or remove static routes from your VPN configuration.
 6. Choose **Save changes**.
 7. If you have not enabled route propagation for your route table, you must manually update the
    routes in your route table to reflect the updated static IP prefixes in your VPN connection.
-   For more information, see [(Virtual private gateway) Enable route propagation in your
-   route table](SetUpVPNConnections.md#vpn-configure-routing "SetUpVPNConnections.md#vpn-configure-routing").
+   For more information, see [(Virtual private gateway) Enable route propagation in your route table](SetUpVPNConnections.md#vpn-configure-routing "SetUpVPNConnections.md#vpn-configure-routing").
 8. For a VPN connection on a transit gateway, you add, modify, or remove the static routes in
    the transit gateway route table. For more information, see [Transit gateway route tables](../../../vpc/latest/tgw/tgw-route-tables.md "../../../vpc/latest/tgw/tgw-route-tables.md") in
    _Amazon VPC Transit Gateways_.

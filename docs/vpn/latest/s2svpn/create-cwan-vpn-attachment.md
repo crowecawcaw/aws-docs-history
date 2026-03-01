@@ -1,14 +1,10 @@
-# Create an AWS Site-to-Site VPN Cloud WAN connection using
-
-the CLI or API
+# Create an AWS Site-to-Site VPN Cloud WAN connection using the CLI or API
 
 You can create an Site-to-Site VPN connections between your on-premises and AWS Cloud WAN following the
 procedure below. For more information, see
 [Site-to-site VPN attachments in AWS Cloud WAN](../../../network-manager/latest/cloudwan/cloudwan-s2s-vpn-attachment.md "../../../network-manager/latest/cloudwan/cloudwan-s2s-vpn-attachment.md") in the _AWS Cloud WAN User Guide_.
 
-## Create a VPN connection to Cloud WAN using the
-
-CLI
+## Create a VPN connection to Cloud WAN using the CLI
 
 Use the [create-vpn-connection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpn-connection.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpn-connection.html") command to create a VPN connection that will later be attached to a Cloud WAN global network. This creates an unattached VPN connection that can subsequently be associated with Cloud WAN through the Network Manager console or API.
 
@@ -55,9 +51,7 @@ The response returns the following:
 
 After creating the VPN connection, you can attach it to your Cloud WAN global network using the Network Manager console or the `create-site-to-site-vpn-attachment` API call.
 
-## Create a VPN Cloud WAN connection using the
-
-API
+## Create a VPN Cloud WAN connection using the API
 
 You can use the EC2 API to create a VPN connection for Cloud WAN integration. This involves making a `CreateVpnConnection` API call that creates an unattached VPN connection, which can then be associated with your Cloud WAN global network.
 

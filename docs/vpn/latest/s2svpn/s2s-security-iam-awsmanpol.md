@@ -22,21 +22,16 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed
-
-policy: AWSVPCS2SVpnServiceRolePolicy
+## AWS managed policy: AWSVPCS2SVpnServiceRolePolicy
 
 You can attach the `AWSVPCS2SVpnServiceRolePolicy` policy to your IAM
 identities. This policy allows Site-to-Site VPN to manage an AWS Secrets Manager secret within Site-to-Site VPN. For more
-information, see [Using service-linked roles for
-Site-to-Site VPN](using-service-linked-roles.md "using-service-linked-roles.md").
+information, see [Using service-linked roles for Site-to-Site VPN](using-service-linked-roles.md "using-service-linked-roles.md").
 
 To view the permissions for this policy, see [AWSVPCS2SVpnServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSVPCS2SVpnServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSVPCS2SVpnServiceRolePolicy.md")
 in the _AWS Managed Policy Reference_.
 
-## Site-to-Site VPN updates to AWS managed
-
-policies
+## Site-to-Site VPN updates to AWS managed policies
 
 View details about updates to AWS managed policies for Site-to-Site VPN since this service began
 tracking these changes in May 2025.

@@ -18,10 +18,8 @@ The following tasks help you complete the migration to a new gateway.
 - [Step 2: Delete your static routes (conditional)](#step-update-staic-route "#step-update-staic-route")
 - [Step 3: Migrate to a new gateway](#step-migrate-gateway "#step-migrate-gateway")
 - [Step 4: Update VPC route tables](#step-update-routing "#step-update-routing")
-- [Step 5: Update the target gateway routing
-  (conditional)](#step-update-transit-gateway-routing "#step-update-transit-gateway-routing")
-- [Step 6: Update the customer gateway ASN
-  (conditional)](#step-update-customer-gateway-asn "#step-update-customer-gateway-asn")
+- [Step 5: Update the target gateway routing (conditional)](#step-update-transit-gateway-routing "#step-update-transit-gateway-routing")
+- [Step 6: Update the customer gateway ASN (conditional)](#step-update-customer-gateway-asn "#step-update-customer-gateway-asn")
 
 ## Step 1: Create the new target gateway
 
@@ -37,8 +35,7 @@ attachments to a VPC](../../../vpc/latest/tgw/tgw-vpc-attachments.md "../../../v
 When you modify the target from a virtual private gateway to a transit gateway, you can optionally set
 the transit gateway ASN to be the same value as the virtual private gateway ASN. If you choose to
 have a different ASN, then you must set the ASN on your customer gateway device to the
-transit gateway ASN. For more information, see [Step 6: Update the customer gateway ASN
-(conditional)](#step-update-customer-gateway-asn "#step-update-customer-gateway-asn").
+transit gateway ASN. For more information, see [Step 6: Update the customer gateway ASN (conditional)](#step-update-customer-gateway-asn "#step-update-customer-gateway-asn").
 
 ## Step 2: Delete your static routes (conditional)
 
@@ -106,9 +103,7 @@ after you modify the VPN gateway target.
 | Transit gateway                                | Virtual private gateway with propagated routes | Delete the route that contains the ID of the transit gateway.                                                         |
 | Transit gateway                                | Transit gateway                                | Update the route that contains the ID of the transit gateway to the ID of the new transit gateway.                    |
 
-## Step 5: Update the target gateway routing
-
-(conditional)
+## Step 5: Update the target gateway routing (conditional)
 
 When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic
 between the VPC and the Site-to-Site VPN. For more information, see [Transit gateway route tables](../../../vpc/latest/tgw/tgw-route-tables.md "../../../vpc/latest/tgw/tgw-route-tables.md") in _Amazon VPC Transit Gateways_.
@@ -123,9 +118,7 @@ selection, we recommend that you make routing changes to avoid connection issues
 you can advertise more specific routes on your transit gateway. For more information, see
 [Route tables and AWS Site-to-Site VPN route priority](vpn-route-priority.md "vpn-route-priority.md").
 
-## Step 6: Update the customer gateway ASN
-
-(conditional)
+## Step 6: Update the customer gateway ASN (conditional)
 
 When the new gateway has a different ASN from the old gateway, you must update the ASN on
 your customer gateway device to point to the new ASN. See [Customer gateway options for your AWS Site-to-Site VPN connection](cgw-options.md "cgw-options.md") for more information.

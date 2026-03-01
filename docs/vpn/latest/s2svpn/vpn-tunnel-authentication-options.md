@@ -26,8 +26,7 @@ CA. For more information about creating a private certificate, see [Creating and
 CA](../../../privateca/latest/userguide/creating-managing.md "../../../privateca/latest/userguide/creating-managing.md") in the _AWS Private Certificate Authority User Guide_.
 
 You must create a service-linked role to generate and use the certificate for the AWS
-side of the Site-to-Site VPN tunnel endpoint. For more information, see [Service-linked
-roles for Site-to-Site VPN](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked").
+side of the Site-to-Site VPN tunnel endpoint. For more information, see [Service-linked roles for Site-to-Site VPN](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked").
 
 ###### Note
 

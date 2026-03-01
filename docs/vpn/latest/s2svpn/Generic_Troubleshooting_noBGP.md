@@ -1,6 +1,4 @@
-# Troubleshoot AWS Site-to-Site VPN connectivity without Border Gateway
-
-Protocol
+# Troubleshoot AWS Site-to-Site VPN connectivity without Border Gateway Protocol
 
 The following diagram and table provide general instructions for troubleshooting a
 customer gateway device that does not use Border Gateway Protocol (BGP). We also

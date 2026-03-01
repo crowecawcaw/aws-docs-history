@@ -8,8 +8,7 @@ The Health Dashboard provides the following types of notifications for your VPN
 connections:
 
 - [Tunnel endpoint replacement notifications](#tunnel-replacement-notifications "#tunnel-replacement-notifications")
-- [Single tunnel VPN
-  notifications](#single-tunnel-notifications "#single-tunnel-notifications")
+- [Single tunnel VPN notifications](#single-tunnel-notifications "#single-tunnel-notifications")
 
 ## Tunnel endpoint replacement notifications
 
@@ -22,9 +21,7 @@ information, see [AWS Site-to-Site VPN tunnel endpoint replacements](endpoint-re
 When a tunnel endpoint replacement is complete, AWS sends the **Tunnel endpoint replacement notification** through a Health Dashboard
 event.
 
-## Single tunnel VPN
-
-notifications
+## Single tunnel VPN notifications
 
 A Site-to-Site VPN connection consists of two tunnels for redundancy. We strongly recommend
 that you configure both tunnels for high availability. If your VPN connection has

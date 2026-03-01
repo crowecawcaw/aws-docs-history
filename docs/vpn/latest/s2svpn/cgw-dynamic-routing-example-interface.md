@@ -166,9 +166,7 @@ If you're using clusters, edit the topology and define the interfaces
 as cluster interfaces. Use the IP addresses that are specified in the
 configuration file.
 
-###### To create and configure the VPN community, IKE, and IPsec
-
-settings
+###### To create and configure the VPN community, IKE, and IPsec settings
 
 Next, create a VPN community on your Check Point gateway, to which you
 add the network objects (interoperable devices) for each tunnel. You
@@ -240,7 +238,7 @@ and then choose **OK** when you're done:
     specified in the configuration file in the `IPSec Tunnel
 #2` section.
 
-![Check Point Interoperable Shared Secret dialog box](images/check-point-shared-secret.png) 12. Still in the **Advanced Settings** category,
+![Check Point Interoperable Shared Secret dialog box](/images/vpn/latest/s2svpn/images/check-point-shared-secret.png) 12. Still in the **Advanced Settings** category,
 choose **Advanced VPN Properties**, configure the
 properties as follows, and then choose **OK** when
 you're done:
@@ -395,12 +393,11 @@ over the connection are being encrypted. For example, the following log
 indicates that a packet to the VPC was sent over tunnel 1 and was
 encrypted.
 
-![Check Point log file](/images/vpn/latest/s2svpn/images/check-point-log.png)
+![Check Point log file](images/check-point-log.png)
 
 SonicWALL
 You can configure a SonicWALL device using the SonicOS management
-interface. For more information about configuring the tunnels, see [Configure static routing for an
-AWS Site-to-Site VPN customer gateway device](cgw-static-routing-example-interface.md "cgw-static-routing-example-interface.md").
+interface. For more information about configuring the tunnels, see [Configure static routing for an AWS Site-to-Site VPN customer gateway device](cgw-static-routing-example-interface.md "cgw-static-routing-example-interface.md").
 
 You cannot configure BGP for the device using the management interface. Instead, use
 the command line instructions provided in the example configuration file, under

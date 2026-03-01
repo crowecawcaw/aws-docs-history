@@ -1,6 +1,4 @@
-# Secure communication between AWS Site-to-Site VPN connections using
-
-VPN CloudHub
+# Secure communication between AWS Site-to-Site VPN connections using VPN CloudHub
 
 If you have multiple AWS Site-to-Site VPN connections, you can provide secure communication between
 sites using the AWS VPN CloudHub. This enables your sites to communicate with each
@@ -34,8 +32,7 @@ For this scenario, do the following:
    The network statements differ slightly depending on the type of router you
    use.
 5. Configure the routes in your subnet route tables to enable instances in your VPC
-   to communicate with your sites. For more information, see [(Virtual private gateway) Enable route propagation in your
-   route table](SetUpVPNConnections.md#vpn-configure-routing "SetUpVPNConnections.md#vpn-configure-routing"). You
+   to communicate with your sites. For more information, see [(Virtual private gateway) Enable route propagation in your route table](SetUpVPNConnections.md#vpn-configure-routing "SetUpVPNConnections.md#vpn-configure-routing"). You
    can configure an aggregate route in your route table (for example, 10.0.0.0/16).
    Use more specific prefixes between customer gateways devices and the virtual
    private gateway.

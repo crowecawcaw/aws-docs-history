@@ -1,6 +1,4 @@
-# Configure static routing for an
-
-AWS Site-to-Site VPN customer gateway device
+# Configure static routing for an AWS Site-to-Site VPN customer gateway device
 
 The following are some example procedures for configuring a customer gateway device
 using its user interface (if available).
@@ -136,9 +134,7 @@ If you're using clusters, edit the topology and define the interfaces
 as cluster interfaces. Use the IP addresses that are specified in the
 configuration file.
 
-###### To create and configure the VPN community, IKE, and IPsec
-
-settings
+###### To create and configure the VPN community, IKE, and IPsec settings
 
 In this step, you create a VPN community on your Check Point gateway,
 to which you add the network objects (interoperable devices) for each
@@ -197,7 +193,7 @@ settings.
     specified in the configuration file in the `IPSec Tunnel
 #2` section.
 
-![Check Point Interoperable Shared Secret dialog box](/images/vpn/latest/s2svpn/images/check-point-shared-secret.png) 12. Still in the **Advanced Settings** category,
+![Check Point Interoperable Shared Secret dialog box](images/check-point-shared-secret.png) 12. Still in the **Advanced Settings** category,
 choose **Advanced VPN Properties**, configure the
 properties as follows, and then choose **OK** when
 you're done:

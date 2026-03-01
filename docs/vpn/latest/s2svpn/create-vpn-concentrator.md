@@ -6,9 +6,7 @@ Concentrator. For more information about creating transit gateways, see [Create 
 gateway](../../../vpc/latest/tgw/create-tgw.md "../../../vpc/latest/tgw/create-tgw.md") in the _Amazon VPC AWS Transit Gateway
 Guide_.
 
-## Create a Site-to-Site VPN Concentrator using the
-
-console
+## Create a Site-to-Site VPN Concentrator using the console
 
 To create a Site-to-Site VPN Concentrator using the AWS Management Console, follow these
 steps:
@@ -37,9 +35,7 @@ state while it is being provisioned. Once ready, the state will change to
 `available` and you can begin creating VPN connections that use the Site-to-Site VPN
 Concentrator.
 
-## Create a Site-to-Site VPN Concentrator using the
-
-CLI
+## Create a Site-to-Site VPN Concentrator using the CLI
 
 Before creating a Site-to-Site VPN Concentrator using the CLI, ensure you have the
 following:
@@ -70,9 +66,7 @@ The following shows a successful response:
 }
 ```
 
-## Create a Site-to-Site VPN Concentrator using the
-
-API
+## Create a Site-to-Site VPN Concentrator using the API
 
 You can create a Site-to-Site VPN Concentrator using the CreateVpnConcentrators API.
 

@@ -13,9 +13,7 @@ Existing VPN connection
 The following steps demonstrate how to enable tunnel endpoint
 lifecycle control on an existing VPN connection.
 
-###### To enable tunnel endpoint lifecycle control using the
-
-AWS Management Console
+###### To enable tunnel endpoint lifecycle control using the AWS Management Console
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -34,9 +32,7 @@ AWS Management Console
    replacement**.
 8. Choose **Save changes**.
 
-###### To enable tunnel endpoint lifecycle control using the
-
-AWS CLI
+###### To enable tunnel endpoint lifecycle control using the AWS CLI
 
 Use the [modify-vpn-tunnel-options](../../../cli/latest/reference/ec2/modify-vpn-tunnel-options.md "../../../cli/latest/reference/ec2/modify-vpn-tunnel-options.md") command to turn on tunnel
 endpoint lifecycle control.
@@ -45,9 +41,7 @@ New VPN connection
 The following steps demonstrate how to enable tunnel endpoint
 lifecycle control during creation of a new VPN connection.
 
-###### To enable tunnel endpoint lifecycle control during creation of a
-
-new VPN connection using the AWS Management Console
+###### To enable tunnel endpoint lifecycle control during creation of a new VPN connection using the AWS Management Console
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -60,9 +54,7 @@ new VPN connection using the AWS Management Console
    select **Enable**.
 5. Choose **Create VPN Connection**.
 
-###### To enable tunnel endpoint lifecycle control during creation of a
-
-new VPN connection using the AWS CLI
+###### To enable tunnel endpoint lifecycle control during creation of a new VPN connection using the AWS CLI
 
 Use the [create-vpn-connection](../../../cli/latest/reference/ec2/create-vpn-connection.md "../../../cli/latest/reference/ec2/create-vpn-connection.md") command to turn on tunnel
 endpoint lifecycle control.

@@ -7,23 +7,15 @@ later.
 
 ###### Contents
 
-- [Configuring your Windows
-  instance](#cgw-device-windows-server-configure-instance "#cgw-device-windows-server-configure-instance")
+- [Configuring your Windows instance](#cgw-device-windows-server-configure-instance "#cgw-device-windows-server-configure-instance")
 - [Step 1: Create a VPN connection and configure your VPC](#cgw-device-windows-server-vpn "#cgw-device-windows-server-vpn")
-- [Step 2: Download the configuration
-  file for the VPN connection](#cgw-device-windows-server-config "#cgw-device-windows-server-config")
-- [Step 3: Configure the Windows
-  Server](#cgw-device-windows-server-configure "#cgw-device-windows-server-configure")
-- [Step 4: Set up the VPN
-  tunnel](#cgw-device-windows-server-setup-tunnel "#cgw-device-windows-server-setup-tunnel")
-- [Step 5: Enable dead
-  gateway detection](#cgw-device-windows-server-gateway-detection "#cgw-device-windows-server-gateway-detection")
-- [Step 6: Test the VPN
-  connection](#cgw-device-windows-server-test-connection "#cgw-device-windows-server-test-connection")
+- [Step 2: Download the configuration file for the VPN connection](#cgw-device-windows-server-config "#cgw-device-windows-server-config")
+- [Step 3: Configure the Windows Server](#cgw-device-windows-server-configure "#cgw-device-windows-server-configure")
+- [Step 4: Set up the VPN tunnel](#cgw-device-windows-server-setup-tunnel "#cgw-device-windows-server-setup-tunnel")
+- [Step 5: Enable dead gateway detection](#cgw-device-windows-server-gateway-detection "#cgw-device-windows-server-gateway-detection")
+- [Step 6: Test the VPN connection](#cgw-device-windows-server-test-connection "#cgw-device-windows-server-test-connection")
 
-## Configuring your Windows
-
-instance
+## Configuring your Windows instance
 
 If you are configuring Windows Server on an EC2 instance that you launched from a
 Windows AMI, do the following:
@@ -96,8 +88,7 @@ gateway. The routing for this subnet is described in the next item.
     and removing routes from a route table](../../../vpc/latest/userguide/WorkWithRouteTables.md#AddRemoveRoutes "../../../vpc/latest/userguide/WorkWithRouteTables.md#AddRemoveRoutes") in the
     _Amazon VPC User Guide_.
   - Enable route propagation for the virtual private gateway. For more
-    information, see [(Virtual private gateway) Enable route propagation in your
-    route table](SetUpVPNConnections.md#vpn-configure-routing "SetUpVPNConnections.md#vpn-configure-routing").
+    information, see [(Virtual private gateway) Enable route propagation in your route table](SetUpVPNConnections.md#vpn-configure-routing "SetUpVPNConnections.md#vpn-configure-routing").
 
 - Create a security group for your instances that allows communication between
   your VPC and network:
@@ -112,9 +103,7 @@ gateway. The routing for this subnet is described in the next item.
     enables you to test your VPN connection by pinging an instance in your
     VPC from your Windows Server.
 
-## Step 2: Download the configuration
-
-file for the VPN connection
+## Step 2: Download the configuration file for the VPN connection
 
 You can use the Amazon VPC console to download a Windows Server configuration file for your
 VPN connection.
@@ -224,9 +213,7 @@ for Windows Server IPsec VPN connections.
 We suggest that you use master key perfect forward secrecy (PFS) for your
 IPsec sessions.
 
-## Step 3: Configure the Windows
-
-Server
+## Step 3: Configure the Windows Server
 
 Before you set up the VPN tunnel, you must install and configure Routing and Remote
 Access Services on Windows Server. That allows remote users to access resources on your
@@ -289,9 +276,7 @@ network.
 7. When prompted by the **Routing and Remote Access** dialog
    box, choose **Start service**.
 
-## Step 4: Set up the VPN
-
-tunnel
+## Step 4: Set up the VPN tunnel
 
 You can configure the VPN tunnel by running the netsh scripts included in the
 downloaded configuration file, or by using the Windows Server user interface.
@@ -305,14 +290,10 @@ interface — you must enable it using the command line.
 
 ###### Options
 
-- [Option 1: Run the netsh
-  script](#cgw-device-windows-server-run-netsh "#cgw-device-windows-server-run-netsh")
-- [Option 2: Use the Windows Server user
-  interface](#cgw-device-windows-server-ui "#cgw-device-windows-server-ui")
+- [Option 1: Run the netsh script](#cgw-device-windows-server-run-netsh "#cgw-device-windows-server-run-netsh")
+- [Option 2: Use the Windows Server user interface](#cgw-device-windows-server-ui "#cgw-device-windows-server-ui")
 
-### Option 1: Run the netsh
-
-script
+### Option 1: Run the netsh script
 
 Copy the netsh script from the downloaded configuration file and replace the
 variables. The following is an example script.
@@ -346,15 +327,12 @@ enables you to cut and paste wrapped text at the command line.) To set up the se
 VPN tunnel for this VPN connection, repeat the process using the second netsh script
 in the configuration file.
 
-When you are done, go to [Configure the Windows
-firewall](#cgw-device-windows-server-firewall "#cgw-device-windows-server-firewall").
+When you are done, go to [Configure the Windows firewall](#cgw-device-windows-server-firewall "#cgw-device-windows-server-firewall").
 
 For more information about the netsh parameters, see [Netsh AdvFirewall Consec Commands](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd736198(v=ws.10)?redirectedfrom=MSDN#BKMK_2_set> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd736198(v=ws.10)?redirectedfrom=MSDN#BKMK_2_set") in the _Microsoft TechNet
 Library_.
 
-### Option 2: Use the Windows Server user
-
-interface
+### Option 2: Use the Windows Server user interface
 
 You can also use the Windows Server user interface to set up the VPN tunnel.
 
@@ -362,23 +340,16 @@ You can also use the Windows Server user interface to set up the VPN tunnel.
 
 You can't enable master key perfect forward secrecy (PFS) using the Windows
 Server user interface. You must enable PFS using the command line, as described
-in [Enable master key perfect
-forward secrecy](#cgw-device-windows-server-enable-pfs "#cgw-device-windows-server-enable-pfs").
+in [Enable master key perfect forward secrecy](#cgw-device-windows-server-enable-pfs "#cgw-device-windows-server-enable-pfs").
 
 ###### Tasks
 
-- [Configure a security
-  rule for a VPN tunnel](#cgw-device-windows-server-security-rule "#cgw-device-windows-server-security-rule")
-- [Confirm the tunnel
-  configuration](#cgw-device-windows-server-confirm-tunnel "#cgw-device-windows-server-confirm-tunnel")
-- [Enable master key perfect
-  forward secrecy](#cgw-device-windows-server-enable-pfs "#cgw-device-windows-server-enable-pfs")
-- [Configure the Windows
-  firewall](#cgw-device-windows-server-firewall "#cgw-device-windows-server-firewall")
+- [Configure a security rule for a VPN tunnel](#cgw-device-windows-server-security-rule "#cgw-device-windows-server-security-rule")
+- [Confirm the tunnel configuration](#cgw-device-windows-server-confirm-tunnel "#cgw-device-windows-server-confirm-tunnel")
+- [Enable master key perfect forward secrecy](#cgw-device-windows-server-enable-pfs "#cgw-device-windows-server-enable-pfs")
+- [Configure the Windows firewall](#cgw-device-windows-server-firewall "#cgw-device-windows-server-firewall")
 
-#### Configure a security
-
-rule for a VPN tunnel
+#### Configure a security rule for a VPN tunnel
 
 In this section, you configure a security rule on your Windows Server to
 create a VPN tunnel.
@@ -466,9 +437,7 @@ configuration file.
 After you've finished, you’ll have two tunnels configured for your VPN
 connection.
 
-#### Confirm the tunnel
-
-configuration
+#### Confirm the tunnel configuration
 
 ###### To confirm the tunnel configuration
 
@@ -515,9 +484,7 @@ inbound and clear outbound`
 7. Open the properties for your second tunnel. Repeat steps 4 to 7 for
    this tunnel.
 
-#### Enable master key perfect
-
-forward secrecy
+#### Enable master key perfect forward secrecy
 
 You can enable master key perfect forward secrecy by using the command line.
 You cannot enable this feature using the user interface.
@@ -536,9 +503,7 @@ netsh advfirewall consec set rule name="`rule_name`" new QMPFS=dhgroup2 QMSecMet
    `rule_name` with the name that you gave the second
    connection rule.
 
-#### Configure the Windows
-
-firewall
+#### Configure the Windows firewall
 
 After setting up your security rules on your server, configure some basic
 IPsec settings to work with the virtual private gateway.
@@ -606,9 +571,7 @@ ESP:SHA1-AES128+60min+100000kb
     IPsec Settings** dialog box and choose
     **OK** again to save the configuration.
 
-## Step 5: Enable dead
-
-gateway detection
+## Step 5: Enable dead gateway detection
 
 Next, configure TCP to detect when a gateway becomes unavailable. You can do this by
 modifying this registry key:
@@ -636,9 +599,7 @@ key, you must reboot the server.
 For more information, see [EnableDeadGWDetect](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc960464(v=technet.10)?redirectedfrom=MSDN> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc960464(v=technet.10)?redirectedfrom=MSDN") in the _Microsoft TechNet
 Library_.
 
-## Step 6: Test the VPN
-
-connection
+## Step 6: Test the VPN connection
 
 To test that the VPN connection is working correctly, launch an instance into your
 VPC, and ensure that it does not have an internet connection. After you've launched the
@@ -653,8 +614,7 @@ If the `ping` command fails, check the following information:
 - Ensure that you have configured your security group rules to allow ICMP to the
   instance in your VPC. If your Windows Server is an EC2 instance, ensure that its
   security group's outbound rules allow IPsec traffic. For more information, see
-  [Configuring your Windows
-  instance](#cgw-device-windows-server-configure-instance "#cgw-device-windows-server-configure-instance").
+  [Configuring your Windows instance](#cgw-device-windows-server-configure-instance "#cgw-device-windows-server-configure-instance").
 - Ensure that the operating system on the instance you are pinging is configured
   to respond to ICMP. We recommend that you use one of the Amazon Linux AMIs.
 - If the instance you are pinging is a Windows instance, connect to the instance
@@ -663,8 +623,7 @@ If the `ping` command fails, check the following information:
   your subnet. For more information, see [Step 1: Create a VPN connection and configure your VPC](#cgw-device-windows-server-vpn "#cgw-device-windows-server-vpn").
 - If your customer gateway device is an EC2 instance, ensure that you've
   disabled source/destination checking for the instance. For more information, see
-  [Configuring your Windows
-  instance](#cgw-device-windows-server-configure-instance "#cgw-device-windows-server-configure-instance").
+  [Configuring your Windows instance](#cgw-device-windows-server-configure-instance "#cgw-device-windows-server-configure-instance").
 
 In the Amazon VPC console, on the **VPN Connections** page, select your
 VPN connection. The first tunnel is in the UP state. The second tunnel should be

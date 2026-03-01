@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Site-to-Site VPN
+# Using service-linked roles for Site-to-Site VPN
 
 AWS Site-to-Site VPN uses AWS Identity and Access Management (IAM)
 service-linked roles. A service-linked role is a unique type of IAM role that is
@@ -18,9 +16,7 @@ You can delete a service-linked role only after first deleting their related res
 protects your Site-to-Site VPN resources because you can't inadvertently remove permission to
 access the resources.
 
-## Service-linked role permissions for
-
-Site-to-Site VPN
+## Service-linked role permissions for Site-to-Site VPN
 
 Site-to-Site VPN uses the service-linked role named **AWSServiceRoleForVPCS2SVPN** –
 Allow Site-to-Site VPN to create and manage resources related to your VPN connections.

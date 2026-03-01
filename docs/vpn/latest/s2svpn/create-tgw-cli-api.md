@@ -1,6 +1,4 @@
-# Create an AWS Site-to-Site VPN transit gateway connection
-
-using the CLI or API
+# Create an AWS Site-to-Site VPN transit gateway connection using the CLI or API
 
 ## Create a VPN connection to Transit Gateway using the CLI
 

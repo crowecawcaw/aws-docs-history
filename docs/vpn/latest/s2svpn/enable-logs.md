@@ -19,9 +19,7 @@ Options**, you can specify all the options you want to use for both
 tunnels, including **VPN logging** options. For more
 information about these options, see [Tunnel options for your AWS Site-to-Site VPN connection](VPNTunnels.md "VPNTunnels.md").
 
-###### To enable tunnel logging on a new Site-to-Site VPN connection using the AWS command
-
-line or API
+###### To enable tunnel logging on a new Site-to-Site VPN connection using the AWS command line or API
 
 - [CreateVpnConnection](../../../AWSEC2/latest/APIReference/API_CreateVpnConnection.md "../../../AWSEC2/latest/APIReference/API_CreateVpnConnection.md") (Amazon EC2 Query API)
 - [create-vpn-connection](../../../cli/latest/reference/ec2/create-vpn-connection.md "../../../cli/latest/reference/ec2/create-vpn-connection.md") (AWS CLI)
@@ -74,9 +72,7 @@ line or API
 10. (Optional) Repeat steps 4 through 9 for the other tunnel if
     desired.
 
-###### To enable tunnel logging on an existing Site-to-Site VPN connection using the AWS command line
-
-or API
+###### To enable tunnel logging on an existing Site-to-Site VPN connection using the AWS command line or API
 
 - [ModifyVpnTunnelOptions](../../../AWSEC2/latest/APIReference/API_ModifyVpnTunnelOptions.md "../../../AWSEC2/latest/APIReference/API_ModifyVpnTunnelOptions.md") (Amazon EC2 Query API)
 - [modify-vpn-tunnel-options](../../../cli/latest/reference/ec2/modify-vpn-tunnel-options.md "../../../cli/latest/reference/ec2/modify-vpn-tunnel-options.md") (AWS CLI)

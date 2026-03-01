@@ -1,10 +1,6 @@
-# Create an AWS Site-to-Site VPN Concentrator
+# Create an AWS Site-to-Site VPN Concentrator connection using the CLI or API
 
-connection using the CLI or API
-
-## Create a Site-to-Site VPN Concentrator
-
-connection using the CLI
+## Create a Site-to-Site VPN Concentrator connection using the CLI
 
 After creating a Site-to-Site VPN Concentrator, you need to establish individual VPN
 connections from your remote sites to the Site-to-Site VPN Concentrator. Each remote site requires
@@ -42,9 +38,7 @@ A successful response returns the following:
 }
 ```
 
-## Create a Site-to-Site VPN Concentrator connection
-
-using the API
+## Create a Site-to-Site VPN Concentrator connection using the API
 
 You can create a VPN connection that uses a Site-to-Site VPN Concentrator using the
 Amazon EC2 API. This section provides example request and response messages for creating

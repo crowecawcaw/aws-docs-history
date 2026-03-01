@@ -56,10 +56,8 @@ See the following topics for more information:
   each tunnel.
 - [AWS Site-to-Site VPN tunnel authentication options](vpn-tunnel-authentication-options.md "vpn-tunnel-authentication-options.md"): Provides information
   about the authentication options for your VPN tunnel endpoints.
-- [Requirements for an AWS Site-to-Site VPN customer gateway
-  device](CGRequirements.md "CGRequirements.md"): Provides information about the requirements for the customer gateway device
+- [Requirements for an AWS Site-to-Site VPN customer gateway device](CGRequirements.md "CGRequirements.md"): Provides information about the requirements for the customer gateway device
   on your side of the VPN connection.
-- [Secure communication between AWS Site-to-Site VPN connections using
-  VPN CloudHub](VPN_CloudHub.md "VPN_CloudHub.md"): If you have
+- [Secure communication between AWS Site-to-Site VPN connections using VPN CloudHub](VPN_CloudHub.md "VPN_CloudHub.md"): If you have
   multiple Site-to-Site VPN connections, you can provide secure communication between your
   on-premises sites by using the AWS VPN CloudHub.

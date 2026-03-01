@@ -1,6 +1,4 @@
-# Troubleshoot AWS Site-to-Site VPN connectivity with a Juniper ScreenOS customer gateway
-
-device
+# Troubleshoot AWS Site-to-Site VPN connectivity with a Juniper ScreenOS customer gateway device
 
 When you troubleshoot the connectivity of a Juniper ScreenOS-based customer gateway device,
 consider four things: IKE, IPsec, tunnel, and BGP. You can troubleshoot these areas in

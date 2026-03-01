@@ -11,9 +11,7 @@ Before deleting a Site-to-Site VPN Concentrator, ensure the following:
 - All VPN connections associated with the Site-to-Site VPN Concentrator are deleted.
 - You have the necessary permissions to delete Site-to-Site VPN Concentrators (`ec2:DeleteVpnConcentrator`).
 
-## Delete a Site-to-Site VPN Concentrator using the
-
-console
+## Delete a Site-to-Site VPN Concentrator using the console
 
 ###### To delete a Site-to-Site VPN Concentrator
 
@@ -25,9 +23,7 @@ console
 5. In the confirmation dialog, type `delete` to confirm the deletion.
 6. Choose **Delete**.
 
-## Delete a Site-to-Site VPN Concentrator using the
-
-CLI
+## Delete a Site-to-Site VPN Concentrator using the CLI
 
 Use the `delete-vpn-concentrator` command to delete a Site-to-Site VPN
 Concentrator. You'll need the `vpn-concentrator-id` in order to delete
@@ -51,9 +47,7 @@ The following response is returned:
 }
 ```
 
-## Delete a Site-to-Site VPN Concentrator using the
-
-API
+## Delete a Site-to-Site VPN Concentrator using the API
 
 Use the `DeleteVpnConcentrator` operation to delete a Site-to-Site VPN
 Concentrator. You'll need the `VpnConcentratorId` in order to delete

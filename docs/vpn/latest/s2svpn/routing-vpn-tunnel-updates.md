@@ -1,6 +1,4 @@
-# Routing during VPN tunnel endpoint
-
-updates
+# Routing during VPN tunnel endpoint updates
 
 A Site-to-Site VPN connection consists of two VPN tunnels between a customer gateway device
 and a virtual private gateway or a transit gateway. We recommend that you configure both

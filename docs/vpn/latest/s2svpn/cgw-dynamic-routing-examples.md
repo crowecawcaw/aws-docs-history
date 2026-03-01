@@ -1,6 +1,4 @@
-# Downloadable dynamic routing configuration
-
-files for AWS Site-to-Site VPN customer gateway device
+# Downloadable dynamic routing configuration files for AWS Site-to-Site VPN customer gateway device
 
 To download a sample configuration file with values specific to your Site-to-Site VPN
 connection configuration, use the Amazon VPC console, the AWS command line or the Amazon EC2 API. For more

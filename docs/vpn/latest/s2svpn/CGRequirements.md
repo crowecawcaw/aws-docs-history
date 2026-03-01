@@ -1,6 +1,4 @@
-# Requirements for an AWS Site-to-Site VPN customer gateway
-
-device
+# Requirements for an AWS Site-to-Site VPN customer gateway device
 
 AWS supports a number of Site-to-Site VPN customer gateway devices, which we provide
 downloadable configuration files for. For a list of supported devices, and the steps to

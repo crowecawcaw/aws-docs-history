@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for AWS Site-to-Site VPN
+# Identity-based policy examples for AWS Site-to-Site VPN
 
 By default, users and roles don't have permission to create or modify Site-to-Site VPN
 resources. To grant users permission to perform actions on the
@@ -14,16 +12,12 @@ For details about actions and resource types defined by Site-to-Site VPN, includ
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Site-to-Site VPN
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Site-to-Site VPN console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Describe specific Site-to-Site VPN connections](#security_iam_id-based-policy-examples-describe-specific-vpn-connections "#security_iam_id-based-policy-examples-describe-specific-vpn-connections")
 - [Create and describe resources needed for an AWS Site-to-Site VPN connection](#security_iam_id-based-policy-examples-create-resources "#security_iam_id-based-policy-examples-create-resources")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Site-to-Site VPN resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -56,9 +50,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Site-to-Site VPN
-
-console
+## Using the Site-to-Site VPN console
 
 To access the AWS Site-to-Site VPN console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Site-to-Site VPN resources
@@ -76,9 +68,7 @@ Site-to-Site VPN `AmazonVPCFullAccess` or
 entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-##
-
-Describe specific Site-to-Site VPN connections
+## Describe specific Site-to-Site VPN connections
 
 JSON
 
@@ -98,9 +88,7 @@ JSON
 
 ```
 
-##
-
-Create and describe resources needed for an AWS Site-to-Site VPN connection
+## Create and describe resources needed for an AWS Site-to-Site VPN connection
 
 JSON
 

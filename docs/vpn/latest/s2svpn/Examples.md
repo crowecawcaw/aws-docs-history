@@ -47,8 +47,7 @@ more information, see [Redundant AWS Site-to-Site VPN connections for failover](
 
 You can also use this scenario to create Site-to-Site VPN connections to multiple geographic
 locations and provide secure communication between sites. For more information, see
-[Secure communication between AWS Site-to-Site VPN connections using
-VPN CloudHub](VPN_CloudHub.md "VPN_CloudHub.md").
+[Secure communication between AWS Site-to-Site VPN connections using VPN CloudHub](VPN_CloudHub.md "VPN_CloudHub.md").
 
 ## Multiple Site-to-Site VPN connections with a transit gateway
 

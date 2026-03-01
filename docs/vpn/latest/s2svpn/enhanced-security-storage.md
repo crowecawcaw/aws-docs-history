@@ -1,6 +1,4 @@
-# Change the pre-shared key storage mode in
-
-AWS Site-to-Site VPN
+# Change the pre-shared key storage mode in AWS Site-to-Site VPN
 
 Change the pre-shared key storage mode for an existing VPN tunnel.
 

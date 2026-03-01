@@ -9,14 +9,11 @@ You can create additional VPN connections from your on-premises location to othe
 VPCs using the same customer gateway device. You can reuse the same customer gateway
 IP address for each of those VPN connections.
 
-###### Multiple customer gateway devices to a single virtual private gateway (Site-to-Site VPN
-
-CloudHub)
+###### Multiple customer gateway devices to a single virtual private gateway (Site-to-Site VPN CloudHub)
 
 You can establish multiple VPN connections to a single virtual private gateway
 from multiple customer gateway devices. This enables you to have multiple locations
-connected to the AWS VPN CloudHub. For more information, see [Secure communication between AWS Site-to-Site VPN connections using
-VPN CloudHub](VPN_CloudHub.md "VPN_CloudHub.md"). When you have customer
+connected to the AWS VPN CloudHub. For more information, see [Secure communication between AWS Site-to-Site VPN connections using VPN CloudHub](VPN_CloudHub.md "VPN_CloudHub.md"). When you have customer
 gateway devices at multiple geographic locations, each device should advertise a
 unique set of IP ranges specific to the location.
 
