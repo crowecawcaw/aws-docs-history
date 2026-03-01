@@ -8,8 +8,7 @@ You can create users in your Wickr network using the following methods:
 
 - **Single sign-on** — If you configure SSO, you can
   invite users by sharing your Wickr company ID. End users register for Wickr using the
-  provided company ID and their work email address. For more information, see [Single sign-on configuration for
-  AWS Wickr](sso-configuration.md "sso-configuration.md").
+  provided company ID and their work email address. For more information, see [Single sign-on configuration for AWS Wickr](sso-configuration.md "sso-configuration.md").
 - **Invitation** — You can manually create users in the
   AWS Management Console for Wickr and have an email invitation sent to them. End users can register for Wickr
   by choosing the link in the email.

@@ -16,13 +16,8 @@ guest user feature. For more information about pricing for the guest user featur
 
 ###### Topics
 
-- [Enable or disable guest users in
-  AWS Wickr network](guest-users-enable-disable.md "guest-users-enable-disable.md")
-- [View guest user count in AWS Wickr
-  network](view-guest-users.md "view-guest-users.md")
-- [View monthly usage in AWS Wickr
-  network](guest-user-monthly-usage.md "guest-user-monthly-usage.md")
-- [View guest users in AWS Wickr
-  network](guest-user-communicate.md "guest-user-communicate.md")
-- [Block a guest user in AWS Wickr
-  network](guest-user-block-user.md "guest-user-block-user.md")
+- [Enable or disable guest users in AWS Wickr network](guest-users-enable-disable.md "guest-users-enable-disable.md")
+- [View guest user count in AWS Wickr network](view-guest-users.md "view-guest-users.md")
+- [View monthly usage in AWS Wickr network](guest-user-monthly-usage.md "guest-user-monthly-usage.md")
+- [View guest users in AWS Wickr network](guest-user-communicate.md "guest-user-communicate.md")
+- [Block a guest user in AWS Wickr network](guest-user-block-user.md "guest-user-block-user.md")

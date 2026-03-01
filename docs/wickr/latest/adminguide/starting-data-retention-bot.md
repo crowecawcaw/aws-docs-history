@@ -10,8 +10,7 @@ it. If you plan to run the bot on a host that:
 - Will not have access to AWS services, then your options are limited. In that
   case you will use the default message streaming options. You should decide
   whether you want to limit the size of the captured message files to a specific
-  size or time interval. For more information, see [Environment variables to configure
-  data retention bot in AWS Wickr](data-retention-bot-env-variables.md "data-retention-bot-env-variables.md").
+  size or time interval. For more information, see [Environment variables to configure data retention bot in AWS Wickr](data-retention-bot-env-variables.md "data-retention-bot-env-variables.md").
 - Will have access to AWS services, then you should create a Secrets Manager secret to
   store the bot credentials, and AWS service configuration details. After the
   AWS services are configured, you can proceed to start the data retention bot

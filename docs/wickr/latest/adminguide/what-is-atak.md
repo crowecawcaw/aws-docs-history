@@ -18,8 +18,7 @@ federal agencies.
 - [Unpair the Wickr Plugin for ATAK](unpair.md "unpair.md")
 - [Dial and receive a call in ATAK](dial-and-receive-call.md "dial-and-receive-call.md")
 - [Send a file in ATAK](send-a-file.md "send-a-file.md")
-- [Send a secure voice message (Push-to-talk)
-  in ATAK](send-secure-voice-message.md "send-secure-voice-message.md")
+- [Send a secure voice message (Push-to-talk) in ATAK](send-secure-voice-message.md "send-secure-voice-message.md")
 - [Pinwheel (Quick Access) for ATAK](pinwheel.md "pinwheel.md")
 - [Navigation for ATAK](navigation.md "navigation.md")
 

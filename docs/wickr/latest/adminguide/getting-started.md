@@ -21,8 +21,6 @@ already:
 
 - Sign up for Amazon Web Services (AWS). For more information, see [Setting up for AWS Wickr](setting-up.md "setting-up.md").
 - Ensure that you have the permissions required to administer Wickr. For more information,
-  see [AWS managed policy:
-  AWSWickrFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess").
+  see [AWS managed policy: AWSWickrFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess").
 - Make sure you allow list the appropriate ports and domains for Wickr. For more
-  information, see [Ports and domains to allow list for your
-  Wickr network](allow-list-ports-domains.md "allow-list-ports-domains.md").
+  information, see [Ports and domains to allow list for your Wickr network](allow-list-ports-domains.md "allow-list-ports-domains.md").

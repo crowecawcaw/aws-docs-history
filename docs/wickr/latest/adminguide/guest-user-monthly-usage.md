@@ -2,9 +2,7 @@ This guide documents the new AWS Wickr administration console, released on
 March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
 Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
 
-# View monthly usage in AWS Wickr
-
-network
+# View monthly usage in AWS Wickr network
 
 You can view the number of guest users your network has communicated with during a
 billing period.

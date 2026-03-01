@@ -12,13 +12,9 @@ use with no additional charge.
 ###### Topics
 
 - [Audience for AWS Wickr](security_iam_audience.md "security_iam_audience.md")
-- [Authenticating with identities for
-  AWS Wickr](security_iam_authentication.md "security_iam_authentication.md")
-- [Managing access using policies for
-  AWS Wickr](security_iam_access-manage.md "security_iam_access-manage.md")
+- [Authenticating with identities for AWS Wickr](security_iam_authentication.md "security_iam_authentication.md")
+- [Managing access using policies for AWS Wickr](security_iam_access-manage.md "security_iam_access-manage.md")
 - [AWS managed policies for AWS Wickr](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [How AWS Wickr works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Identity-based policy examples for
-  AWS Wickr](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Troubleshooting AWS Wickr identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Identity-based policy examples for AWS Wickr](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Troubleshooting AWS Wickr identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")

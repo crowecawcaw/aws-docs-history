@@ -52,9 +52,7 @@ AWS PrivateLink:
   more information, see [Supported AWS Regions, service consoles, and features for Private
   Access](../../../awsconsolehelpdocs/latest/gsg/supported-regions-consoles.md "../../../awsconsolehelpdocs/latest/gsg/supported-regions-consoles.md").
 
-## Minimum required client
-
-versions for AWS PrivateLink
+## Minimum required client versions for AWS PrivateLink
 
 The following client versions have been validated with AWS PrivateLink:
 
@@ -63,9 +61,7 @@ The following client versions have been validated with AWS PrivateLink:
 - Desktop clients 6.60
 - Bots 6.60
 
-## Features requiring additional
-
-configuration
+## Features requiring additional configuration
 
 **Wickr Bots**
 

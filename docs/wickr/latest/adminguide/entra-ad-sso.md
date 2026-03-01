@@ -2,9 +2,7 @@ This guide documents the new AWS Wickr administration console, released on
 March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
 Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
 
-# Configure AWS Wickr with Microsoft Entra (Azure AD) single
-
-sign-on
+# Configure AWS Wickr with Microsoft Entra (Azure AD) single sign-on
 
 AWS Wickr can be configured to use Microsoft Entra (Azure AD) as an identity provider. To
 do so, complete the following procedures in both Microsoft Entra and the AWS Wickr admin

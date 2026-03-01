@@ -2,15 +2,12 @@ This guide documents the new AWS Wickr administration console, released on
 March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
 Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
 
-# Storage options for AWS Wickr
-
-network
+# Storage options for AWS Wickr network
 
 After data retention is enabled and the data retention bot is configured for your
 Wickr network, it will capture all messages and files sent within your network.
 Messages are saved in files which are limited to a specific size or time limit that can
-be configured using an environment variable. For more information, see [Environment variables to configure
-data retention bot in AWS Wickr](data-retention-bot-env-variables.md "data-retention-bot-env-variables.md").
+be configured using an environment variable. For more information, see [Environment variables to configure data retention bot in AWS Wickr](data-retention-bot-env-variables.md "data-retention-bot-env-variables.md").
 
 You can configure one of the following options for storing this data:
 

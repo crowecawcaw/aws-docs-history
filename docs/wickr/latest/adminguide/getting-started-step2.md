@@ -16,9 +16,8 @@ configuring these settings, see [Manage your AWS Wickr network](managing-network
 
     * **Security Group** — Manage security groups and
      their settings, such as password complexity policies, messaging preferences, calling
-     features, security features and external federation. For more information, see [Security groups for AWS Wickr](security-groups.md "security-groups.md") .
+     features, security features and external federation. For more information, see [Security groups for AWS Wickr](security-groups.md "security-groups.md").
     * **Single Sign-on (SSO) Configuration** — Configure
      SSO and view the endpoint address for your Wickr network. Wickr supports SSO providers
      who use OpenID Connect (OIDC) only. Providers who use Security Assertion Markup Language
-     (SAML) are not supported. For more information, see [Single sign-on configuration for
-     AWS Wickr](sso-configuration.md "sso-configuration.md").
+     (SAML) are not supported. For more information, see [Single sign-on configuration for AWS Wickr](sso-configuration.md "sso-configuration.md").

@@ -2,9 +2,7 @@ This guide documents the new AWS Wickr administration console, released on
 March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
 Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
 
-# Identity-based
-
-policies for Wickr
+# Identity-based policies for Wickr
 
 **Supports identity-based policies:**
 
@@ -21,9 +19,6 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-##
+## Identity-based policy examples for Wickr
 
-Identity-based policy examples for Wickr
-
-To view examples of Wickr identity-based policies, see [Identity-based policy examples for
-AWS Wickr](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Wickr identity-based policies, see [Identity-based policy examples for AWS Wickr](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

@@ -25,9 +25,7 @@ To get a high-level view of how Wickr and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Using temporary
-
-credentials with Wickr
+## Using temporary credentials with Wickr
 
 **Supports temporary credentials:**
 

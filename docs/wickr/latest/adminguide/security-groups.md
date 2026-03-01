@@ -12,8 +12,6 @@ federation.
 ###### Topics
 
 - [View security groups in AWS Wickr](view-security-groups.md "view-security-groups.md")
-- [Create a security group in
-  AWS Wickr](create-security-group.md "create-security-group.md")
+- [Create a security group in AWS Wickr](create-security-group.md "create-security-group.md")
 - [Edit a security group in AWS Wickr](edit-security-group.md "edit-security-group.md")
-- [Delete a security group in
-  AWS Wickr](delete-security-group.md "delete-security-group.md")
+- [Delete a security group in AWS Wickr](delete-security-group.md "delete-security-group.md")

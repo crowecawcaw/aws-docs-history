@@ -2,9 +2,7 @@ This guide documents the new AWS Wickr administration console, released on
 March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
 Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
 
-# Policy
-
-resources for Wickr
+# Policy resources for Wickr
 
 **Supports policy resources:**
 
@@ -23,5 +21,4 @@ To see a list of Wickr resource types and their ARNs, see [Resources Defined by 
 in the _Service Authorization Reference_. To learn with which actions you can
 specify the ARN of each resource, see [Actions Defined by AWS Wickr](../../../IAM/latest/UserGuide/list_awswickr.md#awswickr-actions-as-permissions "../../../IAM/latest/UserGuide/list_awswickr.md#awswickr-actions-as-permissions").
 
-To view examples of Wickr identity-based policies, see [Identity-based policy examples for
-AWS Wickr](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Wickr identity-based policies, see [Identity-based policy examples for AWS Wickr](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
