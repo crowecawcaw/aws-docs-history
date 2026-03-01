@@ -20,9 +20,7 @@ User Notifications is available in the following AWS Regions:
 - Europe (Stockholm)
 - South America (São Paulo)
 
-## Opt-in
-
-Regions
+## Opt-in Regions
 
 Opt-in Regions aren't enabled by default. You must manually enable these Regions to use
 them with User Notifications. For more information about AWS Regions, see [Managing AWS Regions](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/rande-manage.md"). The following opt-in

@@ -1,6 +1,4 @@
-# AWS User Notifications identity-based
-
-policy examples
+# AWS User Notifications identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify User Notifications
 resources. They also can't perform tasks using the AWS Management Console. An IAM administrator must
@@ -14,18 +12,12 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  User Notifications console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Viewing
-  User Notifications notification configurations based on tags](#security_iam_id-based-policy-examples-view-resource-tags "#security_iam_id-based-policy-examples-view-resource-tags")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the User Notifications console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Viewing User Notifications notification configurations based on tags](#security_iam_id-based-policy-examples-view-resource-tags "#security_iam_id-based-policy-examples-view-resource-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete User Notifications resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -58,9 +50,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-User Notifications console
+## Using the User Notifications console
 
 To access the AWS User Notifications console, you must have a minimum set of permissions. These
 permissions must allow you to list and view details about the User Notifications resources in your
@@ -68,9 +58,7 @@ AWS account. If you create an identity-based policy that is more restrictive tha
 minimum required permissions, the console won't function as intended for entities (IAM
 users or roles) with that policy.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -110,9 +98,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Viewing
-
-User Notifications notification configurations based on tags
+## Viewing User Notifications notification configurations based on tags
 
 You can use conditions in your identity-based policy to control access to User Notifications
 resources based on tags. This example shows how you can create a policy that allows

@@ -15,15 +15,12 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSUserNotificationsServiceLinkedRolePolicy
+## AWS managed policy: AWSUserNotificationsServiceLinkedRolePolicy
 
 You can't attach `AWSUserNotificationsServiceLinkedRolePolicy` to your IAM
 entities. This policy is attached to `AWSServiceRoleForAWSUserNotifications`, a service-linked role that allows User Notifications to call
 AWS services on your behalf, publish Amazon CloudWatch metrics, and use AWS Organizations to manage notification configurations across your organizations. For more information, see
-[Using Service-Linked Roles for
-User Notifications](using-service-linked-roles.md "using-service-linked-roles.md").
+[Using Service-Linked Roles for User Notifications](using-service-linked-roles.md "using-service-linked-roles.md").
 
 **Permissions details**
 
@@ -36,9 +33,7 @@ This `AWSUserNotificationsServiceLinkedRolePolicy` is grouped into the following
 
 To view the permissions for this policy, see [AWSUserNotificationsServiceLinkedRolePolicy](../../../aws-managed-policy/latest/reference/AWSUserNotificationsServiceLinkedRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSUserNotificationsServiceLinkedRolePolicy.md") in the _AWS Managed Policy Reference_.
 
-## User Notifications updates to AWS managed
-
-policies
+## User Notifications updates to AWS managed policies
 
 View details about updates to AWS managed policies for User Notifications since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

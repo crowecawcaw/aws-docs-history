@@ -1,6 +1,4 @@
-# How AWS User Notifications works with
-
-IAM
+# How AWS User Notifications works with IAM
 
 Before you use IAM to manage access to User Notifications, you should understand what IAM
 features are available to use with User Notifications. To get a high-level view of how User Notifications and other
@@ -13,16 +11,11 @@ User Notifications uses resource-level permissions and managed policies to defin
 
 ###### Topics
 
-- [User Notifications
-  Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Authorization based on
-  User Notifications tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [User Notifications IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [User Notifications Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Authorization based on User Notifications tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [User Notifications IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## User Notifications
-
-Identity-based policies
+## User Notifications Identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources. You can also specify the conditions under which actions are allowed or
@@ -103,12 +96,9 @@ resources you can use a condition key, see [Actions Defined by AWS User Notifica
 
 ### Examples
 
-To view examples of User Notifications identity-based policies, see [AWS User Notifications identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of User Notifications identity-based policies, see [AWS User Notifications identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Authorization based on
-
-User Notifications tags
+## Authorization based on User Notifications tags
 
 You can attach tags to User Notifications resources or pass tags in a request to
 User Notifications. To control access based on tags, you provide tag information in the
@@ -120,19 +110,14 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
 User Notifications resources, see [Tagging your AWS User Notifications resources](tagging-resources.md "tagging-resources.md").
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Viewing
-User Notifications notification configurations based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-resource-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-resource-tags").
+the tags on that resource, see [Viewing User Notifications notification configurations based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-resource-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-resource-tags").
 
-## User Notifications IAM
-
-roles
+## User Notifications IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your

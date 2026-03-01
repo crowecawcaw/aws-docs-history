@@ -1,6 +1,4 @@
-# Using Service-Linked Roles for
-
-User Notifications
+# Using Service-Linked Roles for User Notifications
 
 AWS User Notifications uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that
 is linked directly to User Notifications. Service-linked roles are predefined by User Notifications
@@ -21,13 +19,10 @@ documentation for that service.
 ###### Topics
 
 - [AWS User Notifications service-Linked Role for calling AWS services, publishing metrics, and using AWS Organizations](slr-call-services.md "slr-call-services.md")
-- [Supported Regions for
-  User Notifications Service-Linked Roles](#slr-regions "#slr-regions")
+- [Supported Regions for User Notifications Service-Linked Roles](#slr-regions "#slr-regions")
 - [Amazon EventBridge managed rules in AWS User Notifications](ev-managed-rules.md "ev-managed-rules.md")
 
-## Supported Regions for
-
-User Notifications Service-Linked Roles
+## Supported Regions for User Notifications Service-Linked Roles
 
 User Notifications supports using service-linked roles in all of the Regions where the service
 is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

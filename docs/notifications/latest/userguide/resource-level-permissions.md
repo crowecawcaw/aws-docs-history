@@ -17,9 +17,7 @@ Guide_.
 
 For more information about defining resource-level permissions, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
-##
-
-Supported resource-level permissions for User Notifications API actions
+## Supported resource-level permissions for User Notifications API actions
 
 This table describes the User Notifications API actions that currently support resource-level permissions, as well as the supported resources for each action, including their ARNs and ARN format.
 
@@ -64,9 +62,7 @@ This table describes the User Notifications API actions that currently support r
 | TagResource                                      | `arn:aws:notifications-contacts::`accountId`:emailcontact/`emailContactId``                                                       | `arn:aws:notifications-contacts::123456789012:emailcontact/02k1g09g`                                                                                                                                 |
 | UntagResource                                    | `arn:aws:notifications-contacts::`accountId`:emailcontact/`emailContactId``                                                       | `arn:aws:notifications-contacts::123456789012:emailcontact/02k1g09g`                                                                                                                                 |
 
-##
-
-Example 1: Full access
+## Example 1: Full access
 
 This policy allows a user to call all available APIs.
 
@@ -89,9 +85,7 @@ JSON
 
 ```
 
-##
-
-Example 2: ReadOnly access
+## Example 2: ReadOnly access
 
 This policy allows a user to use get and list API actions.
 
@@ -117,9 +111,7 @@ JSON
 
 ```
 
-##
-
-Example 3: Deny a user the ability to update a notification configuration
+## Example 3: Deny a user the ability to update a notification configuration
 
 This policy denies a user the ability to update a notification configuration.
 
@@ -141,9 +133,7 @@ JSON
 
 ```
 
-##
-
-Example 4: Allow users to create notification configurations and associate emails to them
+## Example 4: Allow users to create notification configurations and associate emails to them
 
 This policy allows users to create notification configurations and associate emails to those configurations.
 
@@ -172,9 +162,7 @@ JSON
 
 ```
 
-##
-
-Example 5: Allow users full create, read, update, and delete (CRUD) access.
+## Example 5: Allow users full create, read, update, and delete (CRUD) access.
 
 This policy allows users full CRUD access.
 
