@@ -8,8 +8,7 @@ few to give you an idea of the possibilities.
 - [Online betting and regulated industries](#wavelength-betting "#wavelength-betting")
 - [Media and entertainment](#wavelength-media "#wavelength-media")
 - [Healthcare](#wavelength-healthcare "#wavelength-healthcare")
-- [Augmented reality (AR) and virtual reality
-  (VR)](#wavelength-virtual-reality "#wavelength-virtual-reality")
+- [Augmented reality (AR) and virtual reality (VR)](#wavelength-virtual-reality "#wavelength-virtual-reality")
 - [Connected vehicles](#wavelength-connected-vehicles "#wavelength-connected-vehicles")
 - [Smart factories](#wavelength-smart-factories "#wavelength-smart-factories")
 - [Real-time gaming](#wavelength-gaming "#wavelength-gaming")
@@ -36,9 +35,7 @@ equipment and much more. Using AWS Wavelength to host the remote rendering engin
 doctors can experience an immersive training experience without procuring the
 often-required expensive equipment to do so.
 
-## Augmented reality (AR) and virtual reality
-
-(VR)
+## Augmented reality (AR) and virtual reality (VR)
 
 By accessing compute resources on AWS Wavelength, AR/VR applications can reduce the Motion
 to Photon (MTP) latencies to the benchmark that is needed to offer a realistic customer

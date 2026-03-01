@@ -85,9 +85,7 @@ Create a custom route table for the subnets in the Wavelength Zones so that the 
 route goes to the carrier gateway, which then sends traffic to the internet and
 telecommunication carrier network.
 
-### Example: Carrier gateway routing to the public
-
-internet
+### Example: Carrier gateway routing to the public internet
 
 Consider a scenario with the following configuration:
 
@@ -108,9 +106,7 @@ You need the following entries in the Wavelength subnet route table.
 | `VPC CIDR`  | Local                | This route allows for intra-VPC connectivity, including subnets<br>in the Availability Zones. |
 | 0.0.0.0/0   | `carrier-gateway-id` | The Carrier IP address provides internet connectivity through the<br>carrier gateway.         |
 
-#### Carrier gateway access to the public
-
-internet
+#### Carrier gateway access to the public internet
 
 The carrier gateway provides access to the internet from your Wavelength subnets.
 For information about protocol considerations, see [Networking considerations](wavelength-quotas.md#networking-considerations "wavelength-quotas.md#networking-considerations").

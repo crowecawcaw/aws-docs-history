@@ -15,8 +15,7 @@ AWS Wavelength.
 
 - [Step 1: Opt in to Wavelength Zones](#enable-zone-group "#enable-zone-group")
 - [Step 2: Configure your network](#configure-network "#configure-network")
-- [Step 3: Launch an instance in your Availability Zone public
-  subnet](#instance "#instance")
+- [Step 3: Launch an instance in your Availability Zone public subnet](#instance "#instance")
 - [Step 4: Launch an instance in the Wavelength zone](#wavelength-instance "#wavelength-instance")
 - [Step 5: Test the connectivity](#test-connecitivity "#test-connecitivity")
 
@@ -60,8 +59,7 @@ subnet in the Availability Zone.
 ###### Tasks
 
 - [Create a VPC](#create-vpc "#create-vpc")
-- [Create a carrier gateway and a subnet associated with
-  the Wavelength Zone](#create-cgw "#create-cgw")
+- [Create a carrier gateway and a subnet associated with the Wavelength Zone](#create-cgw "#create-cgw")
 - [Create a public subnet in an Availability Zone](#create-public-subnet "#create-public-subnet")
 
 ### Create a VPC
@@ -90,9 +88,7 @@ blocks in a VPC. Windows instances cannot boot correctly if launched into a VPC
 with ranges from `224.0.0.0` to `255.255.255.255` (Class D
 and Class E IP address ranges). 6. Choose **Create VPC**.
 
-### Create a carrier gateway and a subnet associated with
-
-the Wavelength Zone
+### Create a carrier gateway and a subnet associated with the Wavelength Zone
 
 After you create a VPC, create a carrier gateway, and then select the subnets that route
 traffic to the carrier gateway.
@@ -152,9 +148,7 @@ Create a subnet in an Availability Zone in the Region.
    for your subnet, using CIDR notation.
 8. Choose **Create subnet**.
 
-## Step 3: Launch an instance in your Availability Zone public
-
-subnet
+## Step 3: Launch an instance in your Availability Zone public subnet
 
 Launch an EC2 instance in the subnet that you created in the Availability Zone. You
 will use this instance to test the connectivity from the Region to the Wavelength Zone.
@@ -170,8 +164,7 @@ Carrier IP address for the instance.
 ###### Options
 
 - [Option 1: Auto assign a Carrier IP address](#wavelength-launch-instances "#wavelength-launch-instances")
-- [Option 2: Allocate and associate a Carrier IP address from the network
-  border group](#wavelength-allocate-carrier-ip "#wavelength-allocate-carrier-ip")
+- [Option 2: Allocate and associate a Carrier IP address from the network border group](#wavelength-allocate-carrier-ip "#wavelength-allocate-carrier-ip")
 
 ### Option 1: Auto assign a Carrier IP address
 
@@ -190,13 +183,10 @@ aws ec2 run-instances --region `us-east-1` --network-interfaces "DeviceIndex=0,A
 - `AssociateCarrierIpAddress` – Set this value to `true`
   to assign a Carrier IP address to the network interface.
 
-### Option 2: Allocate and associate a Carrier IP address from the network
-
-border group
+### Option 2: Allocate and associate a Carrier IP address from the network border group
 
 You can launch EC2 instances in the subnet that you created when you added the carrier
-gateway. For more information, see [Create a carrier gateway and a subnet associated with
-the Wavelength Zone](#create-cgw "#create-cgw"). Security groups control
+gateway. For more information, see [Create a carrier gateway and a subnet associated with the Wavelength Zone](#create-cgw "#create-cgw"). Security groups control
 inbound and outbound traffic for instances in a subnet, just as they do for instances in an
 Availability Zone subnet. To connect to an EC2 instance in a subnet, specify a key pair when
 you launch the instance, just as you do for instances in an Availability Zone subnet. For

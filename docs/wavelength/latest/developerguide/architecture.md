@@ -23,9 +23,7 @@ Consider the following factors when using Wavelength Zones:
   Therefore, you might need to have multiple Wavelength Zones for your latency-sensitive
   applications to meet your latency requirements. For more information, see [Networking considerations](wavelength-quotas.md#networking-considerations "wavelength-quotas.md#networking-considerations").
 
-## Discover the closest Wavelength Zone
-
-endpoint
+## Discover the closest Wavelength Zone endpoint
 
 You can use the following procedures to have client devices discover the closest
 Wavelength Zone endpoint, for example an Amazon EC2 instance:
@@ -71,8 +69,7 @@ Follow these strategies to deploy highly available architectures at the edge.
 Consider the following:
 
 - **Multiple Wavelength Zones within a given VPC**:
-  using techniques highlighted in the [Discover the closest Wavelength Zone
-  endpoint](#discover-nearest-wavelength-zone "#discover-nearest-wavelength-zone") section, you can
+  using techniques highlighted in the [Discover the closest Wavelength Zone endpoint](#discover-nearest-wavelength-zone "#discover-nearest-wavelength-zone") section, you can
   steer traffic to the optimal Wavelength Zone based on latency or application
   health.
 - **Combine Wavelength Zones with other AWS hybrid and

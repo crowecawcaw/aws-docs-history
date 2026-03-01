@@ -43,10 +43,8 @@ outbound traffic to the carrier network and the internet.
 
 - [Create a VPC](#Add_CGW_Create_VPC "#Add_CGW_Create_VPC")
 - [Create a carrier gateway](#Add_CGW_create_Gateway "#Add_CGW_create_Gateway")
-- [Create a security group to access the carrier
-  network](#Add_CGW_Security_Groups "#Add_CGW_Security_Groups")
-- [Allocate and associate a Carrier IP address
-  with the instance in the Wavelength Zone subnet](#wavelength-allocate-carrier-ip "#wavelength-allocate-carrier-ip")
+- [Create a security group to access the carrier network](#Add_CGW_Security_Groups "#Add_CGW_Security_Groups")
+- [Allocate and associate a Carrier IP address with the instance in the Wavelength Zone subnet](#wavelength-allocate-carrier-ip "#wavelength-allocate-carrier-ip")
 - [Routing to a Wavelength Zone carrier gateway](#route-tables-cgw "#route-tables-cgw")
 - [View the carrier gateway details](#view-cgw "#view-cgw")
 - [Manage carrier gateway tags](#manage-cgw-tags "#manage-cgw-tags")
@@ -148,9 +146,7 @@ create the following resources:
 
     For more information, see [Routing to a Wavelength Zone carrier gateway](#route-tables-cgw "#route-tables-cgw").
 
-### Create a security group to access the carrier
-
-network
+### Create a security group to access the carrier network
 
 By default, a VPC security group allows all outbound traffic. You can create a new
 security group and add rules that allow inbound traffic from the carrier. Then, you
@@ -190,9 +186,7 @@ associate the security group with instances in the subnet.
 
 Use the [create-security-group](../../../cli/latest/reference/ec2/create-security-group.md "../../../cli/latest/reference/ec2/create-security-group.md") command.
 
-### Allocate and associate a Carrier IP address
-
-with the instance in the Wavelength Zone subnet
+### Allocate and associate a Carrier IP address with the instance in the Wavelength Zone subnet
 
 If you used the Amazon EC2 console to launch the instance, or you did not use the
 `associate-carrier-ip-address` option in the AWS CLI, then you must allocate a
