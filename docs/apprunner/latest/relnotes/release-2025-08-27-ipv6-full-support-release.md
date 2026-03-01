@@ -1,6 +1,4 @@
-# Release: App Runner expands support for IPv6 compatibility on
-
-August 27, 2025
+# Release: App Runner expands support for IPv6 compatibility on August 27, 2025
 
 AWS App Runner expands support for IPv6 compatibility.
 
