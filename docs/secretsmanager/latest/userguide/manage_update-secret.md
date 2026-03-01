@@ -6,8 +6,7 @@ or rotate it.
 
 To determine who manages a secret, you can review the secret name. Secrets managed
 by other services are prefixed with the ID of that service. Or, in the AWS CLI, call [describe-secret](../../../cli/latest/reference/secretsmanager/describe-secret.md "../../../cli/latest/reference/secretsmanager/describe-secret.md"), and then review the field `OwningService`. For more
-information, see [AWS Secrets Manager secrets managed by other AWS
-services](service-linked-secrets.md "service-linked-secrets.md").
+information, see [AWS Secrets Manager secrets managed by other AWS services](service-linked-secrets.md "service-linked-secrets.md").
 
 For secrets you manage, you can modify the description, resource-based policy,
 the encryption key, and tags. You can also change the encrypted secret value; however, we

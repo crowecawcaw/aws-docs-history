@@ -27,18 +27,14 @@ You can use identity-based policies to:
 
 ###### Examples:
 
-- [Example: Permission to retrieve individual secret
-  values](#auth-and-access_examples_identity_read "#auth-and-access_examples_identity_read")
+- [Example: Permission to retrieve individual secret values](#auth-and-access_examples_identity_read "#auth-and-access_examples_identity_read")
 - [Example: Permission to read and describe individual secrets](#auth-and-access_examples-read-and-describe "#auth-and-access_examples-read-and-describe")
 - [Example: Permission to retrieve a group of secret values in a batch](#auth-and-access_examples_batch "#auth-and-access_examples_batch")
 - [Example: Wildcards](#auth-and-access_examples_wildcard "#auth-and-access_examples_wildcard")
-- [Example: Permission to create
-  secrets](#auth-and-access_examples_create "#auth-and-access_examples_create")
+- [Example: Permission to create secrets](#auth-and-access_examples_create "#auth-and-access_examples_create")
 - [Example: Deny a specific AWS KMS key to encrypt secrets](#auth-and-access_examples_kmskey "#auth-and-access_examples_kmskey")
 
-## Example: Permission to retrieve individual secret
-
-values
+## Example: Permission to retrieve individual secret values
 
 To grant permission to retrieve secret values, you can attach policies to secrets or
 identities. For help determining which type of policy to use, see [Identity-based
@@ -218,9 +214,7 @@ JSON
 
 ```
 
-## Example: Permission to create
-
-secrets
+## Example: Permission to create secrets
 
 To grant a user permissions to create a secret, we recommend you attach a permissions
 policy to an IAM group the user belongs to. See [IAM user groups](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md").

@@ -8,18 +8,12 @@ For issues related to rotation, see [Troubleshoot AWS Secrets Manager rotation](
 ###### Topics
 
 - ["Access denied" messages](#troubleshoot_general_access-denied-service "#troubleshoot_general_access-denied-service")
-- ["Access denied" for temporary
-  security credentials](#troubleshoot_general_access-denied-temp-creds "#troubleshoot_general_access-denied-temp-creds")
-- [Changes I make aren't always
-  immediately visible.](#troubleshoot_general_eventual-consistency "#troubleshoot_general_eventual-consistency")
-- [“Cannot generate a data key with an asymmetric KMS key”
-  when creating a secret](#asymmetrical-key "#asymmetrical-key")
-- [An AWS CLI or AWS SDK operation can't find my secret
-  from a partial ARN](#ARN_secretnamehyphen "#ARN_secretnamehyphen")
-- [This secret is managed by an AWS service, and
-  you must use that service to update it.](#troubleshoot-service-linked-secrets "#troubleshoot-service-linked-secrets")
-- [Python module import fails when using Transform:
-  AWS::SecretsManager-2024-09-16](#troubleshoot-python-import "#troubleshoot-python-import")
+- ["Access denied" for temporary security credentials](#troubleshoot_general_access-denied-temp-creds "#troubleshoot_general_access-denied-temp-creds")
+- [Changes I make aren't always immediately visible.](#troubleshoot_general_eventual-consistency "#troubleshoot_general_eventual-consistency")
+- [“Cannot generate a data key with an asymmetric KMS key” when creating a secret](#asymmetrical-key "#asymmetrical-key")
+- [An AWS CLI or AWS SDK operation can't find my secret from a partial ARN](#ARN_secretnamehyphen "#ARN_secretnamehyphen")
+- [This secret is managed by an AWS service, and you must use that service to update it.](#troubleshoot-service-linked-secrets "#troubleshoot-service-linked-secrets")
+- [Python module import fails when using Transform: AWS::SecretsManager-2024-09-16](#troubleshoot-python-import "#troubleshoot-python-import")
 
 ## "Access denied" messages
 
@@ -36,9 +30,7 @@ Secrets Manager, see [Authentication and access control for AWS Secrets Manager]
 
 If you're signing API requests manually, without using the [AWS SDKs](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/"), verify you correctly [signed the request](../../../general/latest/gr/signing_aws_api_requests.md "../../../general/latest/gr/signing_aws_api_requests.md").
 
-## "Access denied" for temporary
-
-security credentials
+## "Access denied" for temporary security credentials
 
 Verify the IAM user or role you're using to make the request has the correct
 permissions. Permissions for temporary security credentials derive from an IAM user or role.
@@ -58,9 +50,7 @@ Credentials](../../../IAM/latest/UserGuide/id_credentials_temp_request.md "../..
 
 For information about permissions required for Secrets Manager, see [Authentication and access control for AWS Secrets Manager](auth-and-access.md "auth-and-access.md").
 
-## Changes I make aren't always
-
-immediately visible.
+## Changes I make aren't always immediately visible.
 
 Secrets Manager uses a distributed computing model called [eventual consistency](https://wikipedia.org/wiki/Eventual_consistency "https://wikipedia.org/wiki/Eventual_consistency"). Any
 change that you make in Secrets Manager (or other AWS services) takes time to become visible from all
@@ -85,9 +75,7 @@ consistency, see:
 - [Amazon EC2
   Eventual Consistency](../../../AWSEC2/latest/APIReference/query-api-troubleshooting.md#eventual-consistency "../../../AWSEC2/latest/APIReference/query-api-troubleshooting.md#eventual-consistency") in the _Amazon EC2 API Reference_
 
-## “Cannot generate a data key with an asymmetric KMS key”
-
-when creating a secret
+## “Cannot generate a data key with an asymmetric KMS key” when creating a secret
 
 Secrets Manager uses a [symmetric encryption
 KMS key](../../../kms/latest/developerguide/concepts.md#symmetric-cmks "../../../kms/latest/developerguide/concepts.md#symmetric-cmks") associated with a secret to generate a data key for each secret value. You
@@ -95,9 +83,7 @@ can't use an asymmetric KMS key. Verify you are using a symmetric encryption KMS
 instead of an asymmetric KMS key. For instructions, see [Identifying asymmetric
 KMS keys](../../../kms/latest/developerguide/find-symm-asymm.md "../../../kms/latest/developerguide/find-symm-asymm.md").
 
-## An AWS CLI or AWS SDK operation can't find my secret
-
-from a partial ARN
+## An AWS CLI or AWS SDK operation can't find my secret from a partial ARN
 
 In many cases, Secrets Manager can find your secret from part of an ARN rather than the full ARN.
 However, if your secret's name ends in a hyphen followed by six characters, Secrets Manager might not be
@@ -128,20 +114,15 @@ might not find the secret.
 `$` `aws secretsmanager describe-secret --secret-id `arn:aws:secretsmanager:us-east-2:111122223333:secret:MySecret-abcdef``
 ```
 
-## This secret is managed by an AWS service, and
-
-you must use that service to update it.
+## This secret is managed by an AWS service, and you must use that service to update it.
 
 If you encounter this message while trying to modify a secret, the secret can only be
-updated by using the managing service listed in the message. For more information, see [AWS Secrets Manager secrets managed by other AWS
-services](service-linked-secrets.md "service-linked-secrets.md").
+updated by using the managing service listed in the message. For more information, see [AWS Secrets Manager secrets managed by other AWS services](service-linked-secrets.md "service-linked-secrets.md").
 
 To determine who manages a secret, you can review the secret name. Secrets managed by
 other services are prefixed with the ID of that service. Or, in the AWS CLI, call [describe-secret](../../../cli/latest/reference/secretsmanager/describe-secret.md "../../../cli/latest/reference/secretsmanager/describe-secret.md"), and then review the field `OwningService`.
 
-## Python module import fails when using `Transform:
-
-AWS::SecretsManager-2024-09-16`
+## Python module import fails when using `Transform: AWS::SecretsManager-2024-09-16`
 
 If you're using the Transform: `AWS::SecretsManager-2024-09-16` and encounter
 Python module import failures when your rotation Lambda function runs, the issue is likely caused by an

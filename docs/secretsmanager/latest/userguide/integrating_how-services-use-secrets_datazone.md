@@ -1,6 +1,4 @@
-# How Amazon DataZone uses
-
-AWS Secrets Manager
+# How Amazon DataZone uses AWS Secrets Manager
 
 Amazon DataZone is a data management service that enables you to catalog, discover,
 govern, share, and analyze your data. You can use data assets from tables and views from

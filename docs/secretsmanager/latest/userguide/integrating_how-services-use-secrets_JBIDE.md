@@ -1,6 +1,4 @@
-# How AWS Toolkit for JetBrains uses
-
-AWS Secrets Manager
+# How AWS Toolkit for JetBrains uses AWS Secrets Manager
 
 The AWS Toolkit for JetBrains is an open source plugin for the integrated development
 environments (IDEs) from JetBrains. The toolkit makes it easier for developers to

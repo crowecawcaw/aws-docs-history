@@ -1,6 +1,4 @@
-# Connect to a SQL database using JDBC with credentials in an
-
-AWS Secrets Manager secret
+# Connect to a SQL database using JDBC with credentials in an AWS Secrets Manager secret
 
 In Java applications, you can use the Secrets Manager SQL Connection drivers to connect to MySQL,
 PostgreSQL, Oracle, MSSQLServer, Db2, and Redshift databases using credentials stored in Secrets Manager. Each driver

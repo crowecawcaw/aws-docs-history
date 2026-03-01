@@ -1,6 +1,4 @@
-# Mitigate the risks of using the AWS CLI
-
-to store your AWS Secrets Manager secrets
+# Mitigate the risks of using the AWS CLI to store your AWS Secrets Manager secrets
 
 When you use the AWS Command Line Interface (AWS CLI) to invoke AWS operations, you enter those commands in
 a command shell. For example, you can use the Windows command prompt or Windows PowerShell, or
@@ -41,9 +39,7 @@ through the command history and see that the secret text isn't displayed on any 
 By default, you can't perform an equivalent technique in Windows unless you first reduce
 the size of the command history buffer to **1**.
 
-###### To configure the Windows Command Prompt to have only 1 command history buffer of 1
-
-command
+###### To configure the Windows Command Prompt to have only 1 command history buffer of 1 command
 
 1. Open an Administrator command prompt (**Run as
    administrator**).

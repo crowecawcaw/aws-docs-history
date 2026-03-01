@@ -1,6 +1,4 @@
-# How Amazon AppFlow uses
-
-AWS Secrets Manager
+# How Amazon AppFlow uses AWS Secrets Manager
 
 Amazon AppFlow is a fully-managed integration service that enables you to securely
 exchange data between software as a service (SaaS) applications, such as Salesforce, and

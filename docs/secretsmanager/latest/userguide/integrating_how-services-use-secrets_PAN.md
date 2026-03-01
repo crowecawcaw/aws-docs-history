@@ -1,6 +1,4 @@
-# How AWS Panorama
-
-uses Secrets Manager
+# How AWS Panorama uses Secrets Manager
 
 AWS Panorama is a service that brings computer vision to your on-premises
 camera network. You use AWS Panorama to register an appliance, update its

@@ -1,6 +1,4 @@
-# Access secrets from an on-premises
-
-environment
+# Access secrets from an on-premises environment
 
 You can use AWS Identity and Access Management Roles Anywhere to obtain temporary security credentials in IAM for
 workloads such as servers, containers, and applications that run outside of AWS. Your workloads can use the same IAM policies and IAM roles that you use with AWS applications to access AWS resources. With IAM Roles Anywhere,

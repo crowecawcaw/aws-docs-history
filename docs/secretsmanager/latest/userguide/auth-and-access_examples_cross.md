@@ -1,6 +1,4 @@
-# Access AWS Secrets Manager secrets from a different
-
-account
+# Access AWS Secrets Manager secrets from a different account
 
 To allow users in one account to access secrets in another account
 (_cross-account access_), you must allow access both in a resource policy
@@ -78,9 +76,7 @@ JSON
 
 ```
 
-###### Step 2: Add a statement to the key policy for the KMS key in
-
-_Account1_
+###### Step 2: Add a statement to the key policy for the KMS key in _Account1_
 
 - The following key policy statement allows `ApplicationRole`
   in `Account2` to use the KMS key in
@@ -103,9 +99,7 @@ _Account1_
 }
 ```
 
-###### Step 3: Attach an identity policy to the identity in
-
-_Account2_
+###### Step 3: Attach an identity policy to the identity in _Account2_
 
 - The following policy allows `ApplicationRole` in
   `Account2` to access the secret in

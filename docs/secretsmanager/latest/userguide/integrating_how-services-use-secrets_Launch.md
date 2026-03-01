@@ -1,6 +1,4 @@
-# How AWS Launch Wizard uses
-
-AWS Secrets Manager
+# How AWS Launch Wizard uses AWS Secrets Manager
 
 AWS Launch Wizard for Active Directory is a service that applies AWS Cloud application best
 practices to guide you through setting up a new Active Directory infrastructure, or

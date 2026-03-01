@@ -120,9 +120,7 @@ information.
 
 [Show moreShow less](# "#")
 
-## Integrating AWS Secrets Manager with
-
-GitLab
+## Integrating AWS Secrets Manager with GitLab
 
 After completing the prerequisites, you can configure GitLab to use Secrets Manager to protect your
 credentials.

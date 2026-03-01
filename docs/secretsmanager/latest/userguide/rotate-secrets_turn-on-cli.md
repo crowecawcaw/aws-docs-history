@@ -10,18 +10,14 @@ To set up rotation using the AWS CLI, if you are rotating a database secret, you
 
 ###### Steps:
 
-- [Prerequisite for database secrets: Choose a
-  rotation strategy](#rotate-secrets_turn-on-cli_step1 "#rotate-secrets_turn-on-cli_step1")
-- [Step 1: Write the rotation function
-  code](#rotate-secrets_turn-on-cli_write "#rotate-secrets_turn-on-cli_write")
+- [Prerequisite for database secrets: Choose a rotation strategy](#rotate-secrets_turn-on-cli_step1 "#rotate-secrets_turn-on-cli_step1")
+- [Step 1: Write the rotation function code](#rotate-secrets_turn-on-cli_write "#rotate-secrets_turn-on-cli_write")
 - [Step 2: Create the Lambda function](#w2aac21c11c25c15 "#w2aac21c11c25c15")
 - [Step 3: Set up network access](#w2aac21c11c25c17 "#w2aac21c11c25c17")
 - [Step 4: Configure the secret for rotation](#w2aac21c11c25c19 "#w2aac21c11c25c19")
 - [Next steps](#w2aac21c11c25c21 "#w2aac21c11c25c21")
 
-## Prerequisite for database secrets: Choose a
-
-rotation strategy
+## Prerequisite for database secrets: Choose a rotation strategy
 
 For information about the strategies offered by Secrets Manager, see [Lambda function rotation strategies](rotation-strategy.md "rotation-strategy.md").
 
@@ -40,13 +36,11 @@ If you choose the _alternating users strategy_, you must:
   alternating users rotation clones the first user, and most users do not have that
   permission.
 - Add the ARN of the superuser secret to the original secret. For more information,
-  see [JSON structure of AWS Secrets Manager secrets](reference_secret_json_structure.md "reference_secret_json_structure.md") .
+  see [JSON structure of AWS Secrets Manager secrets](reference_secret_json_structure.md "reference_secret_json_structure.md").
 
 Note that Amazon RDS Proxy does not support the alternating users strategy.
 
-## Step 1: Write the rotation function
-
-code
+## Step 1: Write the rotation function code
 
 To rotate a secret, you need a rotation function. A rotation function is a Lambda function that Secrets Manager calls to rotate your secret. For more information, see [Rotation by Lambda function](rotate-secrets_lambda.md "rotate-secrets_lambda.md"). In this step, you write the code that updates the secret and the service or database that the secret is for.
 
@@ -67,8 +61,7 @@ In this step, you create the Lambda function using the ZIP file you created in S
 
 ###### To create a Lambda rotation function and execution role
 
-1. Create a trust policy for the Lambda execution role and save it as a JSON file. For examples and more information, see [Lambda rotation function
-   execution role permissions for AWS Secrets Manager](rotating-secrets-required-permissions-function.md "rotating-secrets-required-permissions-function.md"). The policy must:
+1. Create a trust policy for the Lambda execution role and save it as a JSON file. For examples and more information, see [Lambda rotation function execution role permissions for AWS Secrets Manager](rotating-secrets-required-permissions-function.md "rotating-secrets-required-permissions-function.md"). The policy must:
    - Allow the role to call Secrets Manager operations on the secret.
    - Allow the role to call the service that the secret is for, for example, to create a new password.
 

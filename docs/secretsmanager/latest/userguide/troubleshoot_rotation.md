@@ -12,30 +12,19 @@ information, see [Managed rotation for AWS Secrets Manager secrets](rotate-secre
 
 ###### Topics
 
-- [How to troubleshoot secret rotation
-  failures in AWS Lambda functions](#troubleshooting-secret-rotation-failures "#troubleshooting-secret-rotation-failures")
-- [No activity after "Found credentials in
-  environment variables"](#troubleshoot_rotation_timing-out "#troubleshoot_rotation_timing-out")
+- [How to troubleshoot secret rotation failures in AWS Lambda functions](#troubleshooting-secret-rotation-failures "#troubleshooting-secret-rotation-failures")
+- [No activity after "Found credentials in environment variables"](#troubleshoot_rotation_timing-out "#troubleshoot_rotation_timing-out")
 - [No activity after "createSecret"](#troubleshoot_rotation_createSecret "#troubleshoot_rotation_createSecret")
 - [Error: "Access to KMS is not allowed"](#troubleshoot_rotation_kms-key "#troubleshoot_rotation_kms-key")
-- [Error: "Key is missing from secret
-  JSON"](#tshoot-lambda-mismatched-secretvalue "#tshoot-lambda-mismatched-secretvalue")
-- [Error: "setSecret: Unable to log into
-  database"](#troubleshoot_rotation_setSecret "#troubleshoot_rotation_setSecret")
+- [Error: "Key is missing from secret JSON"](#tshoot-lambda-mismatched-secretvalue "#tshoot-lambda-mismatched-secretvalue")
+- [Error: "setSecret: Unable to log into database"](#troubleshoot_rotation_setSecret "#troubleshoot_rotation_setSecret")
 - [Error: "Unable to import module 'lambda_function'"](#tshoot-python-version "#tshoot-python-version")
-- [Upgrade an existing rotation function from
-  Python 3.7 to 3.9](#troubleshoot_rotation_python39 "#troubleshoot_rotation_python39")
-- [Upgrade an existing rotation function from
-  Python 3.9 to 3.10](#troubleshoot_rotation_python_310 "#troubleshoot_rotation_python_310")
-- [AWS Lambda secret rotation with
-  PutSecretValue failed](#troubleshoot_rotation_putsecretvalue "#troubleshoot_rotation_putsecretvalue")
-- [Error: "Error when executing lambda
-  <arn> during <a
-  rotation> step"](#concurrency-related-failures "#concurrency-related-failures")
+- [Upgrade an existing rotation function from Python 3.7 to 3.9](#troubleshoot_rotation_python39 "#troubleshoot_rotation_python39")
+- [Upgrade an existing rotation function from Python 3.9 to 3.10](#troubleshoot_rotation_python_310 "#troubleshoot_rotation_python_310")
+- [AWS Lambda secret rotation with PutSecretValue failed](#troubleshoot_rotation_putsecretvalue "#troubleshoot_rotation_putsecretvalue")
+- [Error: "Error when executing lambda <arn> during <a rotation> step"](#concurrency-related-failures "#concurrency-related-failures")
 
-## How to troubleshoot secret rotation
-
-failures in AWS Lambda functions
+## How to troubleshoot secret rotation failures in AWS Lambda functions
 
 If you're experiencing secret rotation failures with your Lambda functions, use the
 following steps to troubleshoot and resolve the issue.
@@ -83,9 +72,7 @@ following steps to troubleshoot and resolve the issue.
    - If you suspect concurrency issues, see the "Troubleshooting concurrency-related
      rotation failures" section
 
-## No activity after "Found credentials in
-
-environment variables"
+## No activity after "Found credentials in environment variables"
 
 If there is no activity after "Found credentials in environment variables", and the task
 duration is long, for example the default Lambda timeout of 30000ms, then the Lambda function
@@ -151,20 +138,15 @@ If you see `ClientError: An error occurred (AccessDeniedException) when calling 
  GetSecretValue operation: Access to KMS is not allowed`, the rotation function does
 not have permission to decrypt the secret using the KMS key that was used to encrypt the
 secret. There might be a condition in the permissions policy that limits the encryption
-context to a specific secret. For information about the required permission, see [Policy
-statement for customer managed key](rotating-secrets-required-permissions-function.md#rotating-secrets-required-permissions-function-cust-key-example "rotating-secrets-required-permissions-function.md#rotating-secrets-required-permissions-function-cust-key-example").
+context to a specific secret. For information about the required permission, see [Policy statement for customer managed key](rotating-secrets-required-permissions-function.md#rotating-secrets-required-permissions-function-cust-key-example "rotating-secrets-required-permissions-function.md#rotating-secrets-required-permissions-function-cust-key-example").
 
-## Error: "Key is missing from secret
-
-JSON"
+## Error: "Key is missing from secret JSON"
 
 A Lambda rotation function requires the secret value to be in a specific JSON structure. If
 you see this error, then the JSON might be missing a key that the rotation function tried to
-access. For information about the JSON structure for each type of secret, see [JSON structure of AWS Secrets Manager secrets](reference_secret_json_structure.md "reference_secret_json_structure.md") .
+access. For information about the JSON structure for each type of secret, see [JSON structure of AWS Secrets Manager secrets](reference_secret_json_structure.md "reference_secret_json_structure.md").
 
-## Error: "setSecret: Unable to log into
-
-database"
+## Error: "setSecret: Unable to log into database"
 
 The following are issues that can cause this error:
 
@@ -197,16 +179,12 @@ If your database is Aurora PostgreSQL version 13 or later and uses
 `libpq` version 9 or older which does not support
 `scram-sha-256`, then the rotation function can't connect to the database.
 
-###### To determine which database users use `scram-sha-256`
-
-encryption
+###### To determine which database users use `scram-sha-256` encryption
 
 - See _Checking for users with non-SCRAM passwords_ in the blog
   [SCRAM Authentication in RDS for PostgreSQL 13](https://aws.amazon.com/blogs/database/scram-authentication-in-rds-for-postgresql-13/ "https://aws.amazon.com/blogs/database/scram-authentication-in-rds-for-postgresql-13/").
 
-###### To determine which version of `libpq` your rotation function
-
-uses
+###### To determine which version of `libpq` your rotation function uses
 
 1. On a Linux-based computer, on the Lambda console, navigate to your rotation
    function and download the deployment bundle. Uncompress the zip file into a work
@@ -293,14 +271,11 @@ support connections that use SSL/TLS, you need to [recreate your rotation functi
 
 You might receive this error if you're running an earlier Lambda function that was
 automatically upgraded from Python 3.7 to a newer version of Python. To resolve the error, you
-can change the Lambda function version back to Python 3.7, and then [Upgrade an existing rotation function from
-Python 3.7 to 3.9](#troubleshoot_rotation_python39 "#troubleshoot_rotation_python39"). For more information, see [Why did my Secrets Manager
+can change the Lambda function version back to Python 3.7, and then [Upgrade an existing rotation function from Python 3.7 to 3.9](#troubleshoot_rotation_python39 "#troubleshoot_rotation_python39"). For more information, see [Why did my Secrets Manager
 Lambda function rotation fail with a “pg module not found“ error?](https://repost.aws/knowledge-center/secrets-manager-lambda-rotation "https://repost.aws/knowledge-center/secrets-manager-lambda-rotation") in _AWS
 re:Post_.
 
-## Upgrade an existing rotation function from
-
-Python 3.7 to 3.9
+## Upgrade an existing rotation function from Python 3.7 to 3.9
 
 Some rotation functions created before November 2022 used Python 3.7. The AWS SDK for
 Python stopped supporting Python 3.7 in December 2023. For more information, see [Python support policy updates for AWS SDKs and Tools](https://aws.amazon.com/blogs/developer/python-support-policy-updates-for-aws-sdks-and-tools/ "https://aws.amazon.com/blogs/developer/python-support-policy-updates-for-aws-sdks-and-tools/"). To switch to a new rotation
@@ -318,16 +293,11 @@ or recreate the rotation function.
 
 ###### To upgrade to Python 3.9:
 
-- [Option 1: Recreate the rotation function using
-  CloudFormation](#update-python-opt-1 "#update-python-opt-1")
-- [Option 2: Update the runtime for the existing rotation
-  function using CloudFormation](#update-python-opt-2 "#update-python-opt-2")
-- [Option 3: For AWS CDK users, upgrade the CDK
-  library](#update-python-opt-3 "#update-python-opt-3")
+- [Option 1: Recreate the rotation function using CloudFormation](#update-python-opt-1 "#update-python-opt-1")
+- [Option 2: Update the runtime for the existing rotation function using CloudFormation](#update-python-opt-2 "#update-python-opt-2")
+- [Option 3: For AWS CDK users, upgrade the CDK library](#update-python-opt-3 "#update-python-opt-3")
 
-### Option 1: Recreate the rotation function using
-
-CloudFormation
+### Option 1: Recreate the rotation function using CloudFormation
 
 When you use the Secrets Manager console to turn on rotation, Secrets Manager uses CloudFormation to create the
 necessary resources, including the Lambda rotation function. If you used the console to turn
@@ -366,9 +336,7 @@ then under **Edit template in Application Composer**, choose the button
 4. Continue through the CloudFormation stack workflow and then choose
    **Submit**.
 
-### Option 2: Update the runtime for the existing rotation
-
-function using CloudFormation
+### Option 2: Update the runtime for the existing rotation function using CloudFormation
 
 When you use the Secrets Manager console to turn on rotation, Secrets Manager uses CloudFormation to create the
 necessary resources, including the Lambda rotation function. If you used the console to turn
@@ -405,18 +373,14 @@ then under **Edit template in Application Composer**, choose the button
 4. Continue through the CloudFormation stack workflow and then choose
    **Submit**.
 
-### Option 3: For AWS CDK users, upgrade the CDK
-
-library
+### Option 3: For AWS CDK users, upgrade the CDK library
 
 If you used the AWS CDK prior to version v2.94.0 to set up rotation for your secret, you
 can update the Lambda function by upgrading to v2.94.0 or later. For more information, see
 the [AWS Cloud Development Kit (AWS CDK) v2 Developer
 Guide](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md").
 
-## Upgrade an existing rotation function from
-
-Python 3.9 to 3.10
+## Upgrade an existing rotation function from Python 3.9 to 3.10
 
 Secrets Manager is transitioning from Python 3.9 to 3.10 for Lambda rotation functions. To switch to
 a new rotation function that uses Python 3.10, you'll need to follow the upgrade path
@@ -550,9 +514,7 @@ the **Function** page. Select the function you updated. Under
 **Code source** section, review the files included in the directory and
 ensure the Python .so file is version `3.10`.
 
-## AWS Lambda secret rotation with
-
-`PutSecretValue` failed
+## AWS Lambda secret rotation with `PutSecretValue` failed
 
 If you use an assumed role or a cross-account rotation with Secrets Manager and you find a
 **RotationFailed** event in CloudTrail with the message: **`Pending secret
@@ -560,9 +522,7 @@ If you use an assumed role or a cross-account rotation with Secrets Manager and 
 `AWSPENDING` staging label and restart rotation`**, then you need to
 update your Lambda function to use the `RotationToken` parameter.
 
-## Update Lambda rotation function to include
-
-`RotationToken`
+## Update Lambda rotation function to include `RotationToken`
 
 1. Download the Lambda function code
    - Open the Lambda console
@@ -696,18 +656,13 @@ logger.info("createSecret: Successfully put secret for ARN %s and version %s." %
 
 After updating your Lambda function code, [upload it to rotate your secret](../../../lambda/latest/dg/configuration-function-zip.md#configuration-function-update "../../../lambda/latest/dg/configuration-function-zip.md#configuration-function-update").
 
-## Error: "Error when executing lambda
-
-`<arn>` during `<a
- rotation>` step"
+## Error: "Error when executing lambda `<arn>` during `<a rotation>` step"
 
 If you're experiencing intermittent secret rotation failures with your Lambda function
 getting stuck in a loop of sets, for example between **CreateSecret** and
 **SetSecret**, the issue may be related to concurrency settings.
 
-### Concurrency troubleshooting
-
-steps
+### Concurrency troubleshooting steps
 
 ###### Warning
 

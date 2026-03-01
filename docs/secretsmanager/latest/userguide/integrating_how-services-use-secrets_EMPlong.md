@@ -1,6 +1,4 @@
-# How AWS Elemental MediaPackage uses
-
-AWS Secrets Manager
+# How AWS Elemental MediaPackage uses AWS Secrets Manager
 
 AWS Elemental MediaPackage is a just-in-time video packaging and origination service that runs in the
 AWS Cloud. With MediaPackage, you can deliver highly secure, scalable, and reliable video

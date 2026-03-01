@@ -6,8 +6,7 @@ To turn on rotation, see:
 
 - [Managed rotation for AWS Secrets Manager secrets](rotate-secrets_managed.md "rotate-secrets_managed.md")
 - [Set up automatic rotation for Amazon RDS, Amazon Aurora, Amazon Redshift, or Amazon DocumentDB secrets](rotate-secrets_turn-on-for-db.md "rotate-secrets_turn-on-for-db.md")
-- [Set up automatic rotation for
-  non-database AWS Secrets Manager secrets](rotate-secrets_turn-on-for-other.md "rotate-secrets_turn-on-for-other.md")
+- [Set up automatic rotation for non-database AWS Secrets Manager secrets](rotate-secrets_turn-on-for-other.md "rotate-secrets_turn-on-for-other.md")
   Secrets Manager rotation schedules use UTC time zone.
 
 ## Rotation windows

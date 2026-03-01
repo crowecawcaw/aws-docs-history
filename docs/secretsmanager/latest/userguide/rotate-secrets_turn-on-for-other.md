@@ -1,6 +1,4 @@
-# Set up automatic rotation for
-
-non-database AWS Secrets Manager secrets
+# Set up automatic rotation for non-database AWS Secrets Manager secrets
 
 This tutorial describes how to set up [Rotation by Lambda function](rotate-secrets_lambda.md "rotate-secrets_lambda.md") for
 non-database secrets. Rotation is the process of periodically updating a secret. When you
@@ -18,22 +16,15 @@ themselves any permissions.
 
 ###### Steps:
 
-- [Step 1: Create a generic
-  rotation function](#rotate-secrets_turn-on-for-other_create "#rotate-secrets_turn-on-for-other_create")
-- [Step 2: Write the rotation
-  function code](#rotate-secrets_turn-on-for-other_write "#rotate-secrets_turn-on-for-other_write")
-- [Step 3: Configure the
-  secret for rotation](#rotate-secrets_turn-on-for-other_configure "#rotate-secrets_turn-on-for-other_configure")
-- [Step 4: Allow the rotation
-  function to access Secrets Manager and your database or service](#rotate-secrets_turn-on-for-other_perms "#rotate-secrets_turn-on-for-other_perms")
-- [Step 5: Allow Secrets Manager to invoke
-  the rotation function](#rotate-secrets_turn-on-for-other_perms2 "#rotate-secrets_turn-on-for-other_perms2")
+- [Step 1: Create a generic rotation function](#rotate-secrets_turn-on-for-other_create "#rotate-secrets_turn-on-for-other_create")
+- [Step 2: Write the rotation function code](#rotate-secrets_turn-on-for-other_write "#rotate-secrets_turn-on-for-other_write")
+- [Step 3: Configure the secret for rotation](#rotate-secrets_turn-on-for-other_configure "#rotate-secrets_turn-on-for-other_configure")
+- [Step 4: Allow the rotation function to access Secrets Manager and your database or service](#rotate-secrets_turn-on-for-other_perms "#rotate-secrets_turn-on-for-other_perms")
+- [Step 5: Allow Secrets Manager to invoke the rotation function](#rotate-secrets_turn-on-for-other_perms2 "#rotate-secrets_turn-on-for-other_perms2")
 - [Step 6: Set up network access for the rotation function](#rotate-secrets_turn-on-for-other_network "#rotate-secrets_turn-on-for-other_network")
 - [Next steps](#rotate-secrets_turn-on-for-other_stepnext "#rotate-secrets_turn-on-for-other_stepnext")
 
-## Step 1: Create a generic
-
-rotation function
+## Step 1: Create a generic rotation function
 
 To begin, create a Lambda rotation function. It will not have the code in it to rotate
 your secret, so you'll write that in a later step. For information about how a rotation
@@ -82,18 +73,14 @@ create the function from scratch and copy the template code into the function.
         3. For **Runtime**, choose **Python 3.10**.
         4. Choose **Create function**.
 
-## Step 2: Write the rotation
-
-function code
+## Step 2: Write the rotation function code
 
 In this step, you write the code that updates the secret and the service or database
 that the secret is for. For information about what a rotation function does, including
 tips on writing your own rotation function, see [Lambda rotation functions](rotate-secrets_lambda-functions.md "rotate-secrets_lambda-functions.md"). You can also use the [Rotation function
 templates](reference_available-rotation-templates.md "reference_available-rotation-templates.md") as reference.
 
-## Step 3: Configure the
-
-secret for rotation
+## Step 3: Configure the secret for rotation
 
 In this step, you set a rotation schedule for your secret and connect the rotation
 function to the secret.
@@ -129,9 +116,7 @@ function to the secret.
       function you created in Step 1.
    6. Choose **Save**.
 
-## Step 4: Allow the rotation
-
-function to access Secrets Manager and your database or service
+## Step 4: Allow the rotation function to access Secrets Manager and your database or service
 
 The Lambda rotation function needs permission to access the secret in Secrets Manager, and it
 needs permission to access your database or service. In this step, you grant these
@@ -143,9 +128,7 @@ rotation](rotating-secrets-required-permissions-function.md "rotating-secrets-re
 For instructions, see [Lambda execution role](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md") in
 the _AWS Lambda Developer Guide_.
 
-## Step 5: Allow Secrets Manager to invoke
-
-the rotation function
+## Step 5: Allow Secrets Manager to invoke the rotation function
 
 To allow Secrets Manager to invoke the rotation function on the rotation schedule you set up,
 you need to grant `lambda:InvokeFunction` permission to the Secrets Manager service

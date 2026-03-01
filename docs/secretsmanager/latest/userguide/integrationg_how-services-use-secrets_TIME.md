@@ -1,6 +1,4 @@
-# How Amazon Timestream for InfluxDB
-
-uses AWS Secrets Manager
+# How Amazon Timestream for InfluxDB uses AWS Secrets Manager
 
 Timestream for InfluxDB is a managed time-series database engine that makes it easy for
 you to run InfluxDB databases on AWS for real-time time-series applications using

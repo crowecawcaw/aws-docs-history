@@ -1,6 +1,4 @@
-# How AWS
-
-App2Container uses AWS Secrets Manager
+# How AWS App2Container uses AWS Secrets Manager
 
 AWS App2Container is a command line tool to help you lift and shift applications that run in
 your on-premises data centers or on virtual machines, so that they run in containers

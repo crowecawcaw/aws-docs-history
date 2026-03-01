@@ -19,10 +19,8 @@ If you are new to Secrets Manager, start with one of the following tutorials:
 
 - [Move hardcoded secrets to AWS Secrets Manager](hardcoded.md "hardcoded.md")
 - [Move hardcoded database credentials to AWS Secrets Manager](hardcoded-db-creds.md "hardcoded-db-creds.md")
-- [Set up alternating users rotation for
-  AWS Secrets Manager](tutorials_rotation-alternating.md "tutorials_rotation-alternating.md")
-- [Set up single user rotation for
-  AWS Secrets Manager](tutorials_rotation-single.md "tutorials_rotation-single.md")
+- [Set up alternating users rotation for AWS Secrets Manager](tutorials_rotation-alternating.md "tutorials_rotation-alternating.md")
+- [Set up single user rotation for AWS Secrets Manager](tutorials_rotation-single.md "tutorials_rotation-single.md")
 
 Other tasks you can do with secrets:
 

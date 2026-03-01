@@ -21,8 +21,7 @@ the console. The command line tools can be useful if you want to build scripts t
 perform AWS tasks.
 
 When you enter commands in a command shell, there is a risk of the command
-history being accessed or utilities having access to your command parameters. See [Mitigate the risks of using the AWS CLI
-to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
+history being accessed or utilities having access to your command parameters. See [Mitigate the risks of using the AWS CLI to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
 
 The command line tools automatically use the default endpoint for the service in an AWS Region. You can specify a different endpoint for your API requests. See [AWS Secrets Manager endpoints](#endpoints "#endpoints").
 

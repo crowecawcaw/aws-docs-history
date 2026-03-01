@@ -16,8 +16,7 @@ Secrets Manager can automatically delete the version in the background.
 
 If you don't know whether an application still uses a secret, you can create an Amazon CloudWatch
 alarm to alert you to any attempts to access a secret during the recovery window. For more
-information, see [Monitor when AWS Secrets Manager secrets scheduled for
-deletion are accessed](monitoring_cloudwatch_deleted-secrets.md "monitoring_cloudwatch_deleted-secrets.md").
+information, see [Monitor when AWS Secrets Manager secrets scheduled for deletion are accessed](monitoring_cloudwatch_deleted-secrets.md "monitoring_cloudwatch_deleted-secrets.md").
 
 To delete a secret, you must have `secretsmanager:ListSecrets` and `secretsmanager:DeleteSecret` permissions.
 

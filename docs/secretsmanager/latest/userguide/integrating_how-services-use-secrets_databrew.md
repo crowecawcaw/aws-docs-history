@@ -1,6 +1,4 @@
-# How AWS Glue DataBrew uses
-
-AWS Secrets Manager
+# How AWS Glue DataBrew uses AWS Secrets Manager
 
 AWS Glue DataBrew is a visual data preparation tool that you can use to clean and normalize
 data without writing any code. In DataBrew, a set of data transformation steps is called a

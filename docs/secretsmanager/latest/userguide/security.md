@@ -21,8 +21,7 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 
 ###### Topics
 
-- [Mitigate the risks of using the AWS CLI
-  to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md")
+- [Mitigate the risks of using the AWS CLI to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md")
 - [Authentication and access control for AWS Secrets Manager](auth-and-access.md "auth-and-access.md")
 - [Data protection in AWS Secrets Manager](data-protection.md "data-protection.md")
 - [Secret encryption and decryption in AWS Secrets Manager](security-encryption.md "security-encryption.md")

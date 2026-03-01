@@ -20,8 +20,7 @@ in the following ways:
 - Set up API and user activity logging with AWS CloudTrail. See [Log AWS Secrets Manager events with AWS CloudTrail](monitoring-cloudtrail.md "monitoring-cloudtrail.md").
 - If you require FIPS 140-2 validated cryptographic modules when accessing AWS through
   a command line interface or an API, use a FIPS endpoint. See [AWS Secrets Manager endpoints](asm_access.md#endpoints "asm_access.md#endpoints").
-- If you use the AWS CLI to access Secrets Manager, [Mitigate the risks of using the AWS CLI
-  to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
+- If you use the AWS CLI to access Secrets Manager, [Mitigate the risks of using the AWS CLI to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
 
 ## Encryption at rest
 
@@ -43,8 +42,7 @@ Access Key. This requirement is stated in the [Signature Version 4 Signing Proce
 
 If you use the AWS Command Line Interface (AWS CLI) or any of the AWS SDKs to make calls to AWS, you
 configure the access key to use. Then those tools automatically use the access key to sign the
-requests for you. See [Mitigate the risks of using the AWS CLI
-to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
+requests for you. See [Mitigate the risks of using the AWS CLI to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
 
 ## Inter-network traffic privacy
 

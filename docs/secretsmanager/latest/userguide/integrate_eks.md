@@ -19,7 +19,7 @@ Amazon EKS Pods. This approach is suitable when:
 - You're using Amazon EKS version 1.17 or later with Amazon EC2 node groups.
 - You want to retrieve specific key-value pairs from JSON-formatted secrets.
 
-For more information, see [Use AWS Secrets and Configuration Provider CSI with IAM Roles for Service Accounts (IRSA)](integrating_ascp_irsa.md "integrating_ascp_irsa.md") .
+For more information, see [Use AWS Secrets and Configuration Provider CSI with IAM Roles for Service Accounts (IRSA)](integrating_ascp_irsa.md "integrating_ascp_irsa.md").
 
 ## ASCP with Pod Identity
 
@@ -30,8 +30,7 @@ accessing secrets in Amazon EKS. This approach is beneficial when:
 - You're using Amazon EKS version 1.24 or later.
 - You want improved performance and scalability.
 
-For more information, see [Use AWS Secrets and Configuration Provider CSI with Pod Identity for
-Amazon EKS](ascp-pod-identity-integration.md "ascp-pod-identity-integration.md").
+For more information, see [Use AWS Secrets and Configuration Provider CSI with Pod Identity for Amazon EKS](ascp-pod-identity-integration.md "ascp-pod-identity-integration.md").
 
 ## Choosing the right approach
 

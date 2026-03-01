@@ -1,6 +1,4 @@
-# Set up single user rotation for
-
-AWS Secrets Manager
+# Set up single user rotation for AWS Secrets Manager
 
 In this tutorial, you learn how to set up single user rotation for a secret that contains
 database credentials. _Single user rotation_ is a rotation strategy
@@ -18,10 +16,8 @@ information about the costs of using a Lambda function, see [Pricing](intro.md#a
 - [Prerequisites](tutorials_rotation-single.md#tutorials_rotation-single_step-setup "tutorials_rotation-single.md#tutorials_rotation-single_step-setup")
 - [Step 1: Create an Amazon RDS database user](tutorials_rotation-single.md#tutorials_rotation-single_step-dbuser "tutorials_rotation-single.md#tutorials_rotation-single_step-dbuser")
 - [Step 2: Create a secret for the database user credentials](tutorials_rotation-single.md#tutorials_rotation-single_step-rotate "tutorials_rotation-single.md#tutorials_rotation-single_step-rotate")
-- [Step 3: Test the rotated
-  password](tutorials_rotation-single.md#tutorials_rotation-single_step-connect-again "tutorials_rotation-single.md#tutorials_rotation-single_step-connect-again")
-- [Step 4: Clean up
-  resources](tutorials_rotation-single.md#tutorials_rotation-single_step-cleanup "tutorials_rotation-single.md#tutorials_rotation-single_step-cleanup")
+- [Step 3: Test the rotated password](tutorials_rotation-single.md#tutorials_rotation-single_step-connect-again "tutorials_rotation-single.md#tutorials_rotation-single_step-connect-again")
+- [Step 4: Clean up resources](tutorials_rotation-single.md#tutorials_rotation-single_step-cleanup "tutorials_rotation-single.md#tutorials_rotation-single_step-cleanup")
 - [Next steps](tutorials_rotation-single.md#tutorials_rotation-single_step-next "tutorials_rotation-single.md#tutorials_rotation-single_step-next")
 
 ## Permissions
@@ -37,8 +33,7 @@ For information about how to set up permissions in a production environment, see
 
 ## Prerequisites
 
-The prerequisite for this tutorial is [Set up alternating users rotation for
-AWS Secrets Manager](tutorials_rotation-alternating.md "tutorials_rotation-alternating.md"). Don't clean up the resources at the end of the first tutorial. After that tutorial, you have a realistic environment with an Amazon RDS database and a Secrets Manager secret that contains admin credentials for the database. You also have a second secret that contains credentials for a database user, but you don't use that secret in this tutorial.
+The prerequisite for this tutorial is [Set up alternating users rotation for AWS Secrets Manager](tutorials_rotation-alternating.md "tutorials_rotation-alternating.md"). Don't clean up the resources at the end of the first tutorial. After that tutorial, you have a realistic environment with an Amazon RDS database and a Secrets Manager secret that contains admin credentials for the database. You also have a second secret that contains credentials for a database user, but you don't use that secret in this tutorial.
 
 You also have a connection configured in MySQL Workbench to connect to the database with the admin credentials.
 
@@ -117,9 +112,7 @@ and an execution role that runs the Lambda function. When CloudFormation finishe
 the banner changes to **Secret scheduled for rotation**. The
 first rotation is complete.
 
-## Step 3: Test the rotated
-
-password
+## Step 3: Test the rotated password
 
 After the first secret rotation, which might take a few seconds, you can check that
 the secret still contains valid credentials. The password in the secret has changed from
@@ -152,14 +145,11 @@ the original credentials.
 If the credentials are valid, then MySQL Workbench opens to the design page for
 the database.
 
-## Step 4: Clean up
-
-resources
+## Step 4: Clean up resources
 
 To avoid potential charges, delete the secret you created in this tutorial. For instructions, see [Delete an AWS Secrets Manager secret](manage_delete-secret.md "manage_delete-secret.md").
 
-To clean up resources created in the previous tutorial, see [Step 4: Clean up
-resources](tutorials_rotation-alternating.md#tutorials_rotation-alternating_step-cleanup "tutorials_rotation-alternating.md#tutorials_rotation-alternating_step-cleanup").
+To clean up resources created in the previous tutorial, see [Step 4: Clean up resources](tutorials_rotation-alternating.md#tutorials_rotation-alternating_step-cleanup "tutorials_rotation-alternating.md#tutorials_rotation-alternating_step-cleanup").
 
 ## Next steps
 

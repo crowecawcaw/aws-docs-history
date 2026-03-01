@@ -15,8 +15,7 @@ your rotation function:
 - Be cautious with debugging or logging statements. They can write information to Amazon
   CloudWatch Logs. Ensure logs don't contain sensitive information.
 
-For log statement examples, see the [AWS Secrets Manager rotation function
-templates](reference_available-rotation-templates.md "reference_available-rotation-templates.md") source code.
+For log statement examples, see the [AWS Secrets Manager rotation function templates](reference_available-rotation-templates.md "reference_available-rotation-templates.md") source code.
 
 - For security, AWS Secrets Manager only allows a Lambda rotation function to rotate the
   secret directly. The rotation function can't call another Lambda function to rotate the
@@ -35,9 +34,7 @@ information, see [Understanding
 reserved concurrency and provisioned concurrency](../../../lambda/latest/dg/lambda-concurrency.md#reserved-and-provisioned "../../../lambda/latest/dg/lambda-concurrency.md#reserved-and-provisioned") in the AWS Lambda
 AWS Lambda Developer Guide.
 
-## Four steps in a rotation
-
-function
+## Four steps in a rotation function
 
 ###### Topics
 

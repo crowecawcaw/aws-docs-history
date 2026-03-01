@@ -1,6 +1,4 @@
-# Monitor when AWS Secrets Manager secrets scheduled for
-
-deletion are accessed
+# Monitor when AWS Secrets Manager secrets scheduled for deletion are accessed
 
 You can use a combination of AWS CloudTrail, Amazon CloudWatch Logs, and Amazon Simple Notification Service (Amazon SNS) to create an alarm
 that notifies you of any attempts to access a secret pending deletion. If you receive a
@@ -19,9 +17,7 @@ Before you begin these procedures, you must turn on CloudTrail in the AWS Region
 where you intend to monitor AWS Secrets Manager API requests. For instructions, go to [Creating a trail for the first time](../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md") in the _AWS CloudTrail
 User Guide_.
 
-## Step 1: Configure CloudTrail log
-
-file delivery to CloudWatch Logs
+## Step 1: Configure CloudTrail log file delivery to CloudWatch Logs
 
 You must configure delivery of your CloudTrail log files to CloudWatch Logs. You do this so CloudWatch Logs can
 monitor them for Secrets Manager API requests to retrieve a secret pending deletion.
@@ -46,9 +42,7 @@ monitor them for Secrets Manager API requests to retrieve a secret pending delet
    your account to your CloudWatch Logs log group** page, choose
    **Allow**.
 
-## Step 2: Create the CloudWatch
-
-alarm
+## Step 2: Create the CloudWatch alarm
 
 To receive a notification when a Secrets Manager `GetSecretValue` API operation
 requests to access a secret pending deletion, you must create a CloudWatch alarm and configure
@@ -99,9 +93,7 @@ following:
 
    4. Choose **Create Alarm**.
 
-## Step 3: Test the CloudWatch
-
-alarm
+## Step 3: Test the CloudWatch alarm
 
 To test your alarm, create a secret and then schedule it for deletion. Then, try to
 retrieve the secret value. You shortly receive an email at the address you configured in

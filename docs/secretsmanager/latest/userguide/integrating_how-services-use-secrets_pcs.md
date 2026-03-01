@@ -1,6 +1,4 @@
-# How AWS Parallel Computing
-
-Service uses AWS Secrets Manager
+# How AWS Parallel Computing Service uses AWS Secrets Manager
 
 AWS Parallel Computing Service (AWS PCS) is a managed service that makes it easier
 to run and scale high performance computing (HPC) and distributed machine learning

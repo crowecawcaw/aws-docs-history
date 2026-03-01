@@ -26,8 +26,7 @@ The following services offer managed rotation:
   Amazon Redshift admin passwords using AWS Secrets Manager](../../../redshift/latest/mgmt/redshift-secrets-manager-integration.md "../../../redshift/latest/mgmt/redshift-secrets-manager-integration.md") in the _Amazon Redshift
   Management Guide_.
 - **managed external secrets** offers managed rotation for secrets held by
-  Secrets Manager partners. For more information, see [Using AWS Secrets Manager managed external secrets to manage Third Party
-  secrets](managed-external-secrets.md "managed-external-secrets.md").
+  Secrets Manager partners. For more information, see [Using AWS Secrets Manager managed external secrets to manage Third Party secrets](managed-external-secrets.md "managed-external-secrets.md").
 
 ###### Tip
 

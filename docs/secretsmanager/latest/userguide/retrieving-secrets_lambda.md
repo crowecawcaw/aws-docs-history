@@ -7,9 +7,7 @@ AWS Parameters and Secrets Lambda Extension to retrieve and cache AWS Secrets Ma
 functions without using an SDK. For detailed information about using this extension, see [Use Secrets Manager
 secrets in Lambda functions](../../../lambda/latest/dg/with-secrets-manager.md "../../../lambda/latest/dg/with-secrets-manager.md") in the _Lambda Developer Guide_.
 
-## Using Secrets Manager secrets with
-
-Lambda
+## Using Secrets Manager secrets with Lambda
 
 The Lambda Developer Guide provides comprehensive instructions for using Secrets Manager secrets in
 Lambda functions. To get started:

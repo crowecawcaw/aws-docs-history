@@ -101,14 +101,11 @@ For more information, see [AWS SDKs](asm_access.md#asm-sdks "asm_access.md#asm-s
 
 ###### Examples:
 
-- [Example: Permission to retrieve individual secret
-  values](#auth-and-access_examples_read "#auth-and-access_examples_read")
+- [Example: Permission to retrieve individual secret values](#auth-and-access_examples_read "#auth-and-access_examples_read")
 - [Example: Permissions and VPCs](#auth-and-access_examples_vpc "#auth-and-access_examples_vpc")
 - [Example: Service principal](#auth-and-access_service "#auth-and-access_service")
 
-### Example: Permission to retrieve individual secret
-
-values
+### Example: Permission to retrieve individual secret values
 
 To grant permission to retrieve secret values, you can attach policies to secrets or
 identities. For help determining which type of policy to use, see [Identity-based

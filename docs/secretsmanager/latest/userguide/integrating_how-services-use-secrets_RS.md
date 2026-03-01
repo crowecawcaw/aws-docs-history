@@ -1,6 +1,4 @@
-# How Amazon Redshift uses
-
-AWS Secrets Manager
+# How Amazon Redshift uses AWS Secrets Manager
 
 Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the
 cloud.
@@ -21,5 +19,4 @@ credentials in a Secrets Manager secret with the prefix `redshiftqueryeditor`. Y
 charged for that secret. For more information, see [Querying a database using the query
 editor](../../../redshift/latest/mgmt/query-editor.md "../../../redshift/latest/mgmt/query-editor.md") in the _Amazon Redshift Management Guide_.
 
-For query editor v2, see [Amazon Redshift query editor
-v2](integrating_how-services-use-secrets_sqlworkbench.md "integrating_how-services-use-secrets_sqlworkbench.md").
+For query editor v2, see [Amazon Redshift query editor v2](integrating_how-services-use-secrets_sqlworkbench.md "integrating_how-services-use-secrets_sqlworkbench.md").

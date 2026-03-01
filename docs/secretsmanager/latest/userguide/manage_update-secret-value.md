@@ -14,8 +14,7 @@ To update the value of your secret, you can use the console, the CLI, or an SDK.
 ###### To update the secret value (AWS CLI)
 
 - When you enter commands in a command shell, there is a risk of the command
-  history being accessed or utilities having access to your command parameters. See [Mitigate the risks of using the AWS CLI
-  to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
+  history being accessed or utilities having access to your command parameters. See [Mitigate the risks of using the AWS CLI to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
 
 The following [`put-secret-value`](../../../cli/latest/reference/secretsmanager/put-secret-value.md "../../../cli/latest/reference/secretsmanager/put-secret-value.md") creates a new version of a secret with two key-value pairs.
 

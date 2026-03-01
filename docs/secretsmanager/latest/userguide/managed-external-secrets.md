@@ -1,6 +1,4 @@
-# Using AWS Secrets Manager managed external secrets to manage Third Party
-
-secrets
+# Using AWS Secrets Manager managed external secrets to manage Third Party secrets
 
 Managed external secrets is a new secret type in AWS Secrets Manager that enables you to store and
 automatically rotate credentials from integration partners.

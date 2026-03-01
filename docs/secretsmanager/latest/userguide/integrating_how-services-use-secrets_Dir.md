@@ -1,6 +1,4 @@
-# How AWS Directory Service uses
-
-AWS Secrets Manager
+# How AWS Directory Service uses AWS Secrets Manager
 
 Directory Service provides multiple ways to use Microsoft Active Directory (AD) with other AWS
 services. You can join an Amazon EC2 instance to your directory using secrets for

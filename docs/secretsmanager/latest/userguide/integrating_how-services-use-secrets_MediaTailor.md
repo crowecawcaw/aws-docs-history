@@ -1,6 +1,4 @@
-# How AWS Elemental MediaTailor uses
-
-AWS Secrets Manager
+# How AWS Elemental MediaTailor uses AWS Secrets Manager
 
 AWS Elemental MediaTailor is a scalable ad insertion and channel assembly service that runs in the
 AWS Cloud.

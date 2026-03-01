@@ -1,6 +1,4 @@
-# How AWS OpsWorks for Chef Automate uses
-
-AWS Secrets Manager
+# How AWS OpsWorks for Chef Automate uses AWS Secrets Manager
 
 OpsWorks is a configuration management service that helps you configure and operate
 applications in a cloud enterprise by using OpsWorks for Puppet Enterprise or AWS OpsWorks for Chef Automate.

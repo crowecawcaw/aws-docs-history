@@ -13,8 +13,7 @@ of your data, your company's compliance objectives, and applicable laws and regu
   Resources](https://aws.amazon.com/compliance/resources/ "https://aws.amazon.com/compliance/resources/") – This collection of workbooks and guides might apply to your industry and
   location.
 - _AWS Config_ assesses how well your resource configurations comply with internal practices,
-  industry guidelines, and regulations. For more information, see [Monitor AWS Secrets Manager secrets for compliance by using
-  AWS Config](configuring-awsconfig-rules.md "configuring-awsconfig-rules.md").
+  industry guidelines, and regulations. For more information, see [Monitor AWS Secrets Manager secrets for compliance by using AWS Config](configuring-awsconfig-rules.md "configuring-awsconfig-rules.md").
 - [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") provides a comprehensive view of your security state within AWS that helps you check your compliance with security industry standards and best practices. For information about using Security Hub CSPM to evaluate Secrets Manager resources, see [AWS Secrets Manager controls](../../../securityhub/latest/userguide/secretsmanager-controls.md "../../../securityhub/latest/userguide/secretsmanager-controls.md") in the _AWS Security Hub CSPM User Guide_.
 - _IAM Access Analyzer_ analyzes policies, including condition
   statements in a policy, that allow an external entity to access a secret. For more

@@ -1,6 +1,4 @@
-# How AWS Glue Studio uses
-
-AWS Secrets Manager
+# How AWS Glue Studio uses AWS Secrets Manager
 
 AWS Glue Studio is a graphical interface that makes it easy to create, run, and monitor
 extract, transform, and load (ETL) jobs in AWS Glue. You can use Amazon OpenSearch Service as a data store

@@ -1,6 +1,4 @@
-# How Amazon OpenSearch
-
-Ingestion uses Secrets Manager
+# How Amazon OpenSearch Ingestion uses Secrets Manager
 
 Amazon OpenSearch Ingestion is a fully managed,
 serverless data collector that streams real-time logs, metrics, and trace data to

@@ -1,6 +1,4 @@
-# How Amazon Kinesis Video Streams uses
-
-AWS Secrets Manager
+# How Amazon Kinesis Video Streams uses AWS Secrets Manager
 
 You can use Amazon Kinesis Video Streams to connect to IP cameras on customer premises, locally record
 and store video from the cameras, and stream videos to the cloud for long-term storage,

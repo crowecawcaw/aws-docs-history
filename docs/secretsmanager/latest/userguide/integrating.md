@@ -53,7 +53,7 @@ integrate with Secrets Manager.
 - [Amazon OpenSearch
   Ingestion](integrating-opensearch.md "integrating-opensearch.md")
 - [AWS OpsWorks for Chef Automate](integrating_how-services-use-secrets_opsworks-cm.md "integrating_how-services-use-secrets_opsworks-cm.md")
-- [Amazon Quick Suite](integrating_how-services-use-secrets_QS.md "integrating_how-services-use-secrets_QS.md")
+- [Amazon Quick](integrating_how-services-use-secrets_QS.md "integrating_how-services-use-secrets_QS.md")
 - [Amazon RDS](integrating_how-services-use-secrets_RDS.md "integrating_how-services-use-secrets_RDS.md")
 - [Amazon Redshift](integrating_how-services-use-secrets_RS.md "integrating_how-services-use-secrets_RS.md")
 - [Amazon Redshift query editor

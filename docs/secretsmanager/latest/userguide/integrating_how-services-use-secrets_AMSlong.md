@@ -1,6 +1,4 @@
-# How AWS Managed Services uses
-
-AWS Secrets Manager
+# How AWS Managed Services uses AWS Secrets Manager
 
 AWS Managed Services is an enterprise service that provides ongoing management of your AWS
 infrastructure. AMS Self-Service Provisioning (SSP) mode provides full access to

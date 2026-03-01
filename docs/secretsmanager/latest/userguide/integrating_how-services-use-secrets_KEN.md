@@ -1,6 +1,4 @@
-# How Amazon Kendra uses
-
-AWS Secrets Manager
+# How Amazon Kendra uses AWS Secrets Manager
 
 Amazon Kendra is a highly accurate and intelligent search service that enables your users to
 search unstructured and structured data using natural language processing and advanced

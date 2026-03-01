@@ -20,8 +20,7 @@ of the data key in the metadata of the secret.
 - [Encryption and decryption processes](#security-encryption-encrypt "#security-encryption-encrypt")
 - [Permissions for the KMS key](#security-encryption-authz "#security-encryption-authz")
 - [How Secrets Manager uses your KMS key](#security-encryption-using-cmk "#security-encryption-using-cmk")
-- [Key policy of the AWS managed key
-  (aws/secretsmanager)](#security-encryption-policies "#security-encryption-policies")
+- [Key policy of the AWS managed key (aws/secretsmanager)](#security-encryption-policies "#security-encryption-policies")
 - [Secrets Manager encryption context](#security-encryption-encryption-context "#security-encryption-encryption-context")
 - [Monitor Secrets Manager interaction with AWS KMS](#security-encryption-logs "#security-encryption-logs")
 
@@ -193,9 +192,7 @@ You can identify these validation calls because the value of the
 In the past, Secrets Manager validation calls did not include an encryption context. You
 might find calls with no encryption context in older AWS CloudTrail logs.
 
-## Key policy of the AWS managed key
-
-(`aws/secretsmanager`)
+## Key policy of the AWS managed key (`aws/secretsmanager`)
 
 The key policy for the AWS managed key for Secrets Manager (`aws/secretsmanager`) gives
 users permission to use the KMS key for specified operations only when Secrets Manager makes the

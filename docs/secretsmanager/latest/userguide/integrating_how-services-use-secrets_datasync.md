@@ -1,6 +1,4 @@
-# How AWS DataSync uses
-
-AWS Secrets Manager
+# How AWS DataSync uses AWS Secrets Manager
 
 AWS DataSync is an online data transfer service that simplifies, automates, and
 accelerates moving data between storage systems and services.

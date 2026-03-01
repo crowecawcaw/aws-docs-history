@@ -1,6 +1,4 @@
-# Use AWS Secrets and Configuration Provider CSI with Pod Identity for
-
-Amazon EKS
+# Use AWS Secrets and Configuration Provider CSI with Pod Identity for Amazon EKS
 
 The AWS Secrets and Configuration Provider integration with the Pod Identity Agent for Amazon Elastic Kubernetes Service provides enhanced
 security, simplified configuration, and improved performance for applications running on
@@ -39,9 +37,7 @@ Kubernetes clusters on Amazon EC2 instances.
 - Access to AWS CLI and Amazon EKS cluster via `kubectl`
 - Access to two AWS accounts (for cross-account access)
 
-## Install the Amazon EKS Pod Identity
-
-Agent
+## Install the Amazon EKS Pod Identity Agent
 
 To use Pod Identity with your cluster, you must install the Amazon EKS Pod Identity Agent
 add-on.

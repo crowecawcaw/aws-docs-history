@@ -1,6 +1,4 @@
-# How AWS IoT SiteWise uses
-
-AWS Secrets Manager
+# How AWS IoT SiteWise uses AWS Secrets Manager
 
 AWS IoT SiteWise is a managed service that lets you collect, model, analyze, and visualize
 data from industrial equipment at scale. You can use the AWS IoT SiteWise console to create a

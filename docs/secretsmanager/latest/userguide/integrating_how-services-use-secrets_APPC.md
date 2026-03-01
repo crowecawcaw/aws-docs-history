@@ -1,6 +1,4 @@
-# How AWS AppConfig uses
-
-AWS Secrets Manager
+# How AWS AppConfig uses AWS Secrets Manager
 
 AWS AppConfig is a capability of AWS Systems Manager that you can use to create, manage, and
 quickly deploy application configurations. A configuration can contain credential data

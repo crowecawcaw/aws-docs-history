@@ -21,12 +21,9 @@ IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserG
 - [Resource-based policies](auth-and-access_resource-policies.md "auth-and-access_resource-policies.md")
 - [Control access to secrets using attribute-based access control (ABAC)](auth-and-access-abac.md "auth-and-access-abac.md")
 - [AWS managed policy for AWS Secrets Manager](reference_available-policies.md "reference_available-policies.md")
-- [Determine who has permissions to
-  your AWS Secrets Manager secrets](determine-acccess_examine-iam-policies.md "determine-acccess_examine-iam-policies.md")
-- [Access AWS Secrets Manager secrets from a different
-  account](auth-and-access_examples_cross.md "auth-and-access_examples_cross.md")
-- [Access secrets from an on-premises
-  environment](auth-and-access-on-prem.md "auth-and-access-on-prem.md")
+- [Determine who has permissions to your AWS Secrets Manager secrets](determine-acccess_examine-iam-policies.md "determine-acccess_examine-iam-policies.md")
+- [Access AWS Secrets Manager secrets from a different account](auth-and-access_examples_cross.md "auth-and-access_examples_cross.md")
+- [Access secrets from an on-premises environment](auth-and-access-on-prem.md "auth-and-access-on-prem.md")
 
 ## Permissions reference for AWS Secrets Manager
 

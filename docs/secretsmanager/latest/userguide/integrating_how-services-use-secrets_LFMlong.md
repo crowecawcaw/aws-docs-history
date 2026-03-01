@@ -1,6 +1,4 @@
-# How Amazon Lookout for Metrics uses
-
-AWS Secrets Manager
+# How Amazon Lookout for Metrics uses AWS Secrets Manager
 
 Amazon Lookout for Metrics is a service that finds anomalies in your data, determines their root
 causes, and enables you to quickly take action. You can use Amazon Redshift or Amazon RDS as a

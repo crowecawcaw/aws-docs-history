@@ -43,8 +43,7 @@ The Secrets Manager Agent returns secret values in the same format as the respon
 - [Build the Secrets Manager Agent](#secrets-manager-agent-build "#secrets-manager-agent-build")
 - [Install the Secrets Manager Agent](#secrets-manager-agent-install "#secrets-manager-agent-install")
 - [Retrieve secrets with the Secrets Manager Agent](#secrets-manager-agent-call "#secrets-manager-agent-call")
-- [Understanding the
-  refreshNow parameter](#secrets-manager-agent-refresh "#secrets-manager-agent-refresh")
+- [Understanding the refreshNow parameter](#secrets-manager-agent-refresh "#secrets-manager-agent-refresh")
 - [Configure the Secrets Manager Agent](#secrets-manager-agent-config "#secrets-manager-agent-config")
 - [Optional features](#secrets-manager-agent-features "#secrets-manager-agent-features")
 - [Logging](#secrets-manager-agent-log "#secrets-manager-agent-log")
@@ -534,9 +533,7 @@ def get_secret():
         raise Exception(f"Error: {e}")
 ```
 
-## Understanding the
-
-`refreshNow` parameter
+## Understanding the `refreshNow` parameter
 
 The Secrets Manager Agent uses an in-memory cache to store secret values, which it refreshes
 periodically. By default, this refresh occurs when you request a secret after the Time

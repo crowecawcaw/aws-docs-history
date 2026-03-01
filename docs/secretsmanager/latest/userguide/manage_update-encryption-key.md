@@ -40,8 +40,7 @@ aws secretsmanager update-secret \
 2. (Optional) If you have secret versions that have custom labels, to re-encrypt them using the new key, you must recreate those versions.
 
 When you enter commands in a command shell, there is a risk of the command
-history being accessed or utilities having access to your command parameters. See [Mitigate the risks of using the AWS CLI
-to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
+history being accessed or utilities having access to your command parameters. See [Mitigate the risks of using the AWS CLI to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
 
     1. Get the value of the secret version.
 

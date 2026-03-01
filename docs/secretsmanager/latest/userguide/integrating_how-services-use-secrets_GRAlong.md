@@ -1,6 +1,4 @@
-# How Amazon Managed Grafana uses
-
-AWS Secrets Manager
+# How Amazon Managed Grafana uses AWS Secrets Manager
 
 Amazon Managed Grafana is a fully managed and secure data visualization service that you can use to
 instantly query, correlate, and visualize operational metrics, logs, and traces from

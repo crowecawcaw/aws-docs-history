@@ -216,9 +216,7 @@ recent version is used.
 (Optional) The alias for the version. The default is the most recent
 version AWSCURRENT. For more information, see [Secret versions](whats-in-a-secret.md#term_version "whats-in-a-secret.md#term_version").
 
-### Create a basic SecretProviderClass configuration to mount secrets in your Amazon EKS
-
-Pods.
+### Create a basic SecretProviderClass configuration to mount secrets in your Amazon EKS Pods.
 
 Pod Identity
 SecretProviderClass to use a secret in the same Amazon EKS cluster:
@@ -283,9 +281,7 @@ spec:
 
 ```
 
-#### Example: Mount key-value pairs from a
-
-secret
+#### Example: Mount key-value pairs from a secret
 
 This example shows how to mount specific key-value pairs from a JSON-formatted
 secret:

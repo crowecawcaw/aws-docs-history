@@ -1,6 +1,4 @@
-# How AWS Elemental MediaConvert uses
-
-AWS Secrets Manager
+# How AWS Elemental MediaConvert uses AWS Secrets Manager
 
 AWS Elemental MediaConvert is a file-based video processing service that provides scalable video
 processing for content owners and distributors with media libraries of any size. To use

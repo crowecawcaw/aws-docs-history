@@ -73,8 +73,7 @@ Secrets Manager generates a CloudTrail log entry when you create a secret. For m
       - To store a managed external secrets from an Secrets Manager partner, choose **Partner
         secret**. Then choose the partner and provide the
         details that identify the secret for the partner. For details, see
-        [Using AWS Secrets Manager managed external secrets to manage Third Party
-        secrets](managed-external-secrets.md "managed-external-secrets.md").
+        [Using AWS Secrets Manager managed external secrets to manage Third Party secrets](managed-external-secrets.md "managed-external-secrets.md").
 
    2. For **Encryption key**, choose the AWS KMS key that
       Secrets Manager uses to encrypt the secret value. For more information, see [Secret encryption and decryption](security-encryption.md "security-encryption.md").
@@ -88,8 +87,7 @@ Secrets Manager generates a CloudTrail log entry when you create a secret. For m
         information about the costs of using a customer managed key, see [Pricing](intro.md#asm_pricing "intro.md#asm_pricing").
 
       You must have [Permissions for the KMS key](security-encryption.md#security-encryption-authz "security-encryption.md#security-encryption-authz"). For
-      information about cross-account access, see [Access AWS Secrets Manager secrets from a different
-      account](auth-and-access_examples_cross.md "auth-and-access_examples_cross.md").
+      information about cross-account access, see [Access AWS Secrets Manager secrets from a different account](auth-and-access_examples_cross.md "auth-and-access_examples_cross.md").
 
    3. Choose **Next**.
 
@@ -124,8 +122,7 @@ choose the refresh button.
 ## AWS CLI
 
 When you enter commands in a command shell, there is a risk of the command
-history being accessed or utilities having access to your command parameters. See [Mitigate the risks of using the AWS CLI
-to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
+history being accessed or utilities having access to your command parameters. See [Mitigate the risks of using the AWS CLI to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
 
 ###### Example Create a secret from database credentials in a JSON file
 

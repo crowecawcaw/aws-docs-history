@@ -1,6 +1,4 @@
-# Set up alternating users rotation for
-
-AWS Secrets Manager
+# Set up alternating users rotation for AWS Secrets Manager
 
 In this tutorial, you learn how to set up alternating users rotation for a secret that
 contains database credentials. _Alternating users rotation_ is a rotation
@@ -34,14 +32,10 @@ information about the costs of using a Lambda function, see [Pricing](intro.md#a
 
 - [Permissions](#tutorials_rotation-alternating-permissions "#tutorials_rotation-alternating-permissions")
 - [Prerequisites](#tutorials_rotation-alternating-step-setup "#tutorials_rotation-alternating-step-setup")
-- [Step 1: Create an Amazon RDS
-  database user](#tutorials_rotation-alternating-step-database "#tutorials_rotation-alternating-step-database")
-- [Step 2: Create a secret for
-  the user credentials](#tutorials_rotation-alternating_step-rotate "#tutorials_rotation-alternating_step-rotate")
-- [Step 3: Test the
-  rotated secret](#tutorials_rotation-alternating_step-test-secret "#tutorials_rotation-alternating_step-test-secret")
-- [Step 4: Clean up
-  resources](#tutorials_rotation-alternating_step-cleanup "#tutorials_rotation-alternating_step-cleanup")
+- [Step 1: Create an Amazon RDS database user](#tutorials_rotation-alternating-step-database "#tutorials_rotation-alternating-step-database")
+- [Step 2: Create a secret for the user credentials](#tutorials_rotation-alternating_step-rotate "#tutorials_rotation-alternating_step-rotate")
+- [Step 3: Test the rotated secret](#tutorials_rotation-alternating_step-test-secret "#tutorials_rotation-alternating_step-test-secret")
+- [Step 4: Clean up resources](#tutorials_rotation-alternating_step-cleanup "#tutorials_rotation-alternating_step-cleanup")
 - [Next steps](#tutorials_rotation-alternating_step-next "#tutorials_rotation-alternating_step-next")
 
 ## Permissions
@@ -60,12 +54,9 @@ For information about how to set up permissions in a production environment, see
 ###### For this tutorial, you need the following:
 
 - [Prereq A: Amazon VPC](#tutorials_rotation-alternating-step-vpc "#tutorials_rotation-alternating-step-vpc")
-- [Prereq B: Amazon EC2
-  instance](#tutorials_rotation-alternating-step-setup_ec2 "#tutorials_rotation-alternating-step-setup_ec2")
-- [Prereq C: Amazon RDS
-  database and a Secrets Manager secret for the admin credentials](#tutorials_rotation-alternating-step-database "#tutorials_rotation-alternating-step-database")
-- [Prereq D: Allow
-  your local computer to connect to the EC2 instance](#tutorials_rotation-alternating-step-ec2connect "#tutorials_rotation-alternating-step-ec2connect")
+- [Prereq B: Amazon EC2 instance](#tutorials_rotation-alternating-step-setup_ec2 "#tutorials_rotation-alternating-step-setup_ec2")
+- [Prereq C: Amazon RDS database and a Secrets Manager secret for the admin credentials](#tutorials_rotation-alternating-step-database "#tutorials_rotation-alternating-step-database")
+- [Prereq D: Allow your local computer to connect to the EC2 instance](#tutorials_rotation-alternating-step-ec2connect "#tutorials_rotation-alternating-step-ec2connect")
 
 ### Prereq A: Amazon VPC
 
@@ -148,9 +139,7 @@ access`.
 access`.
 9. Choose **Create endpoint**.
 
-### Prereq B: Amazon EC2
-
-instance
+### Prereq B: Amazon EC2 instance
 
 The Amazon RDS database you create in a later step will be in the VPC, so to access it,
 you need a bastion host. The bastion host is also in the VPC, but in a later step,
@@ -191,9 +180,7 @@ The key pair is automatically downloaded. 7. Under **Network settings**, choose
 
 8. Choose **Launch instance**.
 
-### Prereq C: Amazon RDS
-
-database and a Secrets Manager secret for the admin credentials
+### Prereq C: Amazon RDS database and a Secrets Manager secret for the admin credentials
 
 In this step, you create an Amazon RDS MySQL database and configure it so that Amazon RDS
 creates a secret to contain the admin credentials. Then Amazon RDS automatically manages
@@ -204,9 +191,7 @@ previous step. Then Amazon RDS sets up security groups so that the database and 
 instance can access each other. You add a rule to the security group attached to the
 instance to allow your local computer to connect to it as well.
 
-###### To create an Amazon RDS database with an Secrets Manager secret that contains the admin
-
-credentials
+###### To create an Amazon RDS database with an Secrets Manager secret that contains the admin credentials
 
 1. In the Amazon RDS console, choose **Create database**.
 2. In the **Engine options** section, for **Engine
@@ -225,9 +210,7 @@ tier`.
    `SecretsManagerTutorialInstance`.
 6. Choose **Create database**.
 
-### Prereq D: Allow
-
-your local computer to connect to the EC2 instance
+### Prereq D: Allow your local computer to connect to the EC2 instance
 
 In this step, you configure the EC2 instance you created in Prereq B to allow your
 local computer to connect to it. To do this, you edit the security group that Amazon RDS
@@ -251,9 +234,7 @@ address) to connect to the bastion host by using SSH over the internet.
    2. For **Source type**, choose `My
 IP`.
 
-## Step 1: Create an Amazon RDS
-
-database user
+## Step 1: Create an Amazon RDS database user
 
 First, you need a user whose credentials will be stored in the secret. To create the
 user, log into the Amazon RDS database with admin credentials. For simplicity, in the
@@ -327,9 +308,7 @@ GRANT SELECT ON myDB . * TO 'appuser'@'%';
 In the **Output** window, you see the commands are
 successful.
 
-## Step 2: Create a secret for
-
-the user credentials
+## Step 2: Create a secret for the user credentials
 
 Next, you create a secret to store the credentials of the user you just created. This
 is the secret you'll be rotating. You turn on automatic rotation, and to indicate the
@@ -380,9 +359,7 @@ and an execution role that runs the Lambda function. When CloudFormation finishe
 the banner changes to **Secret scheduled for rotation**. The
 first rotation is complete.
 
-## Step 3: Test the
-
-rotated secret
+## Step 3: Test the rotated secret
 
 Now that the secret is rotated, you can check that the secret contains valid new
 credentials. The password in the secret has changed from the original
@@ -418,13 +395,10 @@ the database.
 This shows that the secret rotation is successful. The credentials in the secret have
 been updated and it is a valid password to connect to the database.
 
-## Step 4: Clean up
-
-resources
+## Step 4: Clean up resources
 
 If you want to try another rotation strategy, _single user
-rotation_, skip cleaning up resources and go to [Set up single user rotation for
-AWS Secrets Manager](tutorials_rotation-single.md "tutorials_rotation-single.md").
+rotation_, skip cleaning up resources and go to [Set up single user rotation for AWS Secrets Manager](tutorials_rotation-single.md "tutorials_rotation-single.md").
 
 Otherwise, to avoid potential charges, and to remove the EC2 instance that has access
 to the internet, delete the following resources you created in this tutorial and its

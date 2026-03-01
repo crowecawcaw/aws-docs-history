@@ -38,9 +38,7 @@ You can use AWS CloudTrail logs to audit your use of secrets through the VPC end
    endpoints using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md").
 3. To use IPv6 and dual-stack addressing, see [IPv4 and IPv6 access](ip-access.md "ip-access.md").
 
-## Create an endpoint policy for your interface
-
-endpoint
+## Create an endpoint policy for your interface endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to Secrets Manager through the interface

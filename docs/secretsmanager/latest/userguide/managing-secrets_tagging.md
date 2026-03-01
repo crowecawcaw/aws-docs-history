@@ -170,9 +170,7 @@ aws secretsmanager untag-resource \
             --tag-keys '[ "FirstTag", "SecondTag"]'
 ```
 
-## Tag secrets using the Secrets Manager
-
-API
+## Tag secrets using the Secrets Manager API
 
 You can add, list, and remove tags using the Secrets Manager API. For examples, see the
 following documentation:
@@ -184,9 +182,7 @@ following documentation:
 - [Untag](../apireference/API_UntagResource.md "../apireference/API_UntagResource.md"): Remove tags
   from a secret
 
-## Tag secrets using the Secrets Manager AWS
-
-SDK
+## Tag secrets using the Secrets Manager AWS SDK
 
 To change tags for your secret, use the following API operations:
 

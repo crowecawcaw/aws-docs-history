@@ -1,6 +1,4 @@
-# AWS Secrets Manager rotation function
-
-templates
+# AWS Secrets Manager rotation function templates
 
 AWS Secrets Manager provides a set of rotation function templates that help automate the secure
 management of credentials for various database systems and services. The templates are
@@ -30,20 +28,14 @@ To use the templates, see:
   - [Amazon RDS Db2 alternating users](reference_available-rotation-templates.md#sar-template-db2-multiuser "reference_available-rotation-templates.md#sar-template-db2-multiuser")
   - [Amazon RDS MariaDB single user](reference_available-rotation-templates.md#sar-template-mariadb-singleuser "reference_available-rotation-templates.md#sar-template-mariadb-singleuser")
   - [Amazon RDS MariaDB alternating users](reference_available-rotation-templates.md#sar-template-mariadb-multiuser "reference_available-rotation-templates.md#sar-template-mariadb-multiuser")
-  - [Amazon RDS and Amazon Aurora MySQL single
-    user](reference_available-rotation-templates.md#sar-template-mysql-singleuser "reference_available-rotation-templates.md#sar-template-mysql-singleuser")
-  - [Amazon RDS and Amazon Aurora MySQL alternating
-    users](reference_available-rotation-templates.md#sar-template-mysql-multiuser "reference_available-rotation-templates.md#sar-template-mysql-multiuser")
+  - [Amazon RDS and Amazon Aurora MySQL single user](reference_available-rotation-templates.md#sar-template-mysql-singleuser "reference_available-rotation-templates.md#sar-template-mysql-singleuser")
+  - [Amazon RDS and Amazon Aurora MySQL alternating users](reference_available-rotation-templates.md#sar-template-mysql-multiuser "reference_available-rotation-templates.md#sar-template-mysql-multiuser")
   - [Amazon RDS Oracle single user](reference_available-rotation-templates.md#sar-template-oracle-singleuser "reference_available-rotation-templates.md#sar-template-oracle-singleuser")
   - [Amazon RDS Oracle alternating users](reference_available-rotation-templates.md#sar-template-oracle-multiuser "reference_available-rotation-templates.md#sar-template-oracle-multiuser")
-  - [Amazon RDS and Amazon Aurora PostgreSQL single
-    user](reference_available-rotation-templates.md#sar-template-postgre-singleuser "reference_available-rotation-templates.md#sar-template-postgre-singleuser")
-  - [Amazon RDS and Amazon Aurora PostgreSQL alternating
-    users](reference_available-rotation-templates.md#sar-template-postgre-multiuser "reference_available-rotation-templates.md#sar-template-postgre-multiuser")
-  - [Amazon RDS Microsoft SQLServer single
-    user](reference_available-rotation-templates.md#sar-template-sqlserver-singleuser "reference_available-rotation-templates.md#sar-template-sqlserver-singleuser")
-  - [Amazon RDS Microsoft SQLServer alternating
-    users](reference_available-rotation-templates.md#sar-template-sqlserver-multiuser "reference_available-rotation-templates.md#sar-template-sqlserver-multiuser")
+  - [Amazon RDS and Amazon Aurora PostgreSQL single user](reference_available-rotation-templates.md#sar-template-postgre-singleuser "reference_available-rotation-templates.md#sar-template-postgre-singleuser")
+  - [Amazon RDS and Amazon Aurora PostgreSQL alternating users](reference_available-rotation-templates.md#sar-template-postgre-multiuser "reference_available-rotation-templates.md#sar-template-postgre-multiuser")
+  - [Amazon RDS Microsoft SQLServer single user](reference_available-rotation-templates.md#sar-template-sqlserver-singleuser "reference_available-rotation-templates.md#sar-template-sqlserver-singleuser")
+  - [Amazon RDS Microsoft SQLServer alternating users](reference_available-rotation-templates.md#sar-template-sqlserver-multiuser "reference_available-rotation-templates.md#sar-template-sqlserver-multiuser")
 
 - [Amazon DocumentDB (with MongoDB compatibility)](reference_available-rotation-templates.md#NON-RDS_rotation_templates "reference_available-rotation-templates.md#NON-RDS_rotation_templates")
   - [Amazon DocumentDB single user](reference_available-rotation-templates.md#sar-template-mongodb-singleuser "reference_available-rotation-templates.md#sar-template-mongodb-singleuser")
@@ -55,8 +47,7 @@ To use the templates, see:
 
 - [Amazon Timestream for InfluxDB](reference_available-rotation-templates.md#template-TimeStream "reference_available-rotation-templates.md#template-TimeStream")
   - [Amazon Timestream for InfluxDB single user](reference_available-rotation-templates.md#template-TimeStream-singleuser "reference_available-rotation-templates.md#template-TimeStream-singleuser")
-  - [Amazon Timestream for InfluxDB alternating
-    users](reference_available-rotation-templates.md#template-TimeStream-multiuser "reference_available-rotation-templates.md#template-TimeStream-multiuser")
+  - [Amazon Timestream for InfluxDB alternating users](reference_available-rotation-templates.md#template-TimeStream-multiuser "reference_available-rotation-templates.md#template-TimeStream-multiuser")
 
 - [Amazon ElastiCache](reference_available-rotation-templates.md#template-ELC "reference_available-rotation-templates.md#template-ELC")
 - [Active Directory](reference_available-rotation-templates.md#template-AD "reference_available-rotation-templates.md#template-AD")
@@ -123,9 +114,7 @@ To use the templates, see:
   package compatible with Lambda?](https://repost.aws/knowledge-center/lambda-python-package-compatible "https://repost.aws/knowledge-center/lambda-python-package-compatible") in _AWS Knowledge
   Center_.
 
-### Amazon RDS and Amazon Aurora MySQL single
-
-user
+### Amazon RDS and Amazon Aurora MySQL single user
 
 - **Template name:**
   SecretsManagerRDSMySQLRotationSingleUser
@@ -142,9 +131,7 @@ user
   package compatible with Lambda?](https://repost.aws/knowledge-center/lambda-python-package-compatible "https://repost.aws/knowledge-center/lambda-python-package-compatible") in _AWS Knowledge
   Center_.
 
-### Amazon RDS and Amazon Aurora MySQL alternating
-
-users
+### Amazon RDS and Amazon Aurora MySQL alternating users
 
 - **Template name:**
   SecretsManagerRDSMySQLRotationMultiUser
@@ -183,9 +170,7 @@ users
 - **Source code:** [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSOracleRotationMultiUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSOracleRotationMultiUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSOracleRotationMultiUser/lambda_function.py")
 - **Dependency:** [python-oracledb 2.4.1](https://github.com/oracle/python-oracledb "https://github.com/oracle/python-oracledb")
 
-### Amazon RDS and Amazon Aurora PostgreSQL single
-
-user
+### Amazon RDS and Amazon Aurora PostgreSQL single user
 
 - **Template name:**
   SecretsManagerRDSPostgreSQLRotationSingleUser
@@ -196,9 +181,7 @@ user
 - **Source code:** [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationSingleUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationSingleUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationSingleUser/lambda_function.py")
 - **Dependency:** PyGreSQL 5.2.5
 
-### Amazon RDS and Amazon Aurora PostgreSQL alternating
-
-users
+### Amazon RDS and Amazon Aurora PostgreSQL alternating users
 
 - **Template name:**
   SecretsManagerRDSPostgreSQLRotationMultiUser
@@ -209,9 +192,7 @@ users
 - **Source code:** [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationMultiUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationMultiUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSPostgreSQLRotationMultiUser/lambda_function.py")
 - **Dependency:** PyGreSQL 5.2.5
 
-### Amazon RDS Microsoft SQLServer single
-
-user
+### Amazon RDS Microsoft SQLServer single user
 
 - **Template name:**
   SecretsManagerRDSSQLServerRotationSingleUser
@@ -222,9 +203,7 @@ user
 - **Source code:** [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSSQLServerRotationSingleUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSSQLServerRotationSingleUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerRDSSQLServerRotationSingleUser/lambda_function.py")
 - **Dependency:** Pymssql 2.2.2
 
-### Amazon RDS Microsoft SQLServer alternating
-
-users
+### Amazon RDS Microsoft SQLServer alternating users
 
 - **Template name:**
   SecretsManagerRDSSQLServerRotationMultiUser
@@ -303,9 +282,7 @@ Guide_.
   [https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerInfluxDBRotationSingleUser/lambda_function.py](https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerInfluxDBRotationSingleUser/lambda_function.py "https://github.com/aws-samples/aws-secrets-manager-rotation-lambdas/tree/master/SecretsManagerInfluxDBRotationSingleUser/lambda_function.py")
 - **Dependency:** InfluxDB 2.0 python client
 
-### Amazon Timestream for InfluxDB alternating
-
-users
+### Amazon Timestream for InfluxDB alternating users
 
 - **Template name:**
   SecretsManagerInfluxDBRotationMultiUser

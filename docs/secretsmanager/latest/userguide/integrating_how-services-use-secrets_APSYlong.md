@@ -1,6 +1,4 @@
-# How AWS AppSync uses
-
-AWS Secrets Manager
+# How AWS AppSync uses AWS Secrets Manager
 
 AWS AppSync provides a robust, scalable GraphQL interface for application developers to
 combine data from multiple sources, including Amazon DynamoDB, AWS Lambda, and HTTP

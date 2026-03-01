@@ -7,6 +7,5 @@ To connect to a database using the credentials in a secret, you can use the Secr
 ###### Topics
 
 - [Get a Secrets Manager secret value using Java with client-side caching](retrieving-secrets_cache-java.md "retrieving-secrets_cache-java.md")
-- [Connect to a SQL database using JDBC with credentials in an
-  AWS Secrets Manager secret](retrieving-secrets_jdbc.md "retrieving-secrets_jdbc.md")
+- [Connect to a SQL database using JDBC with credentials in an AWS Secrets Manager secret](retrieving-secrets_jdbc.md "retrieving-secrets_jdbc.md")
 - [Get a Secrets Manager secret value using the Java AWS SDK](retrieving-secrets-java-sdk.md "retrieving-secrets-java-sdk.md")

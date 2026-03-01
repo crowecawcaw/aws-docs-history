@@ -1,6 +1,4 @@
-# How Amazon Data Firehose uses
-
-AWS Secrets Manager
+# How Amazon Data Firehose uses AWS Secrets Manager
 
 You can use Amazon Data Firehose to deliver real-time streaming data to various streaming
 destinations. When the destination requires a credentials or key, Firehose retrieves a

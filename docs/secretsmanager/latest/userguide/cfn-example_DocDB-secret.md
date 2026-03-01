@@ -1,6 +1,4 @@
-# Create an AWS Secrets Manager secret and an
-
-Amazon DocumentDB instance with CloudFormation
+# Create an AWS Secrets Manager secret and an Amazon DocumentDB instance with CloudFormation
 
 This example creates a secret and an Amazon DocumentDB instance using the credentials in the secret
 as the user and password. The secret has a resource-based policy attached that defines who can

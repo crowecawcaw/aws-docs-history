@@ -62,9 +62,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSSecretsManagerClientReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSSecretsManagerClientReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSSecretsManagerClientReadOnlyAccess.md")
 in the _AWS Managed Policy Reference Guide_.
 
-## Secrets Manager updates to AWS managed
-
-policies
+## Secrets Manager updates to AWS managed policies
 
 View details about updates to AWS managed policies for Secrets Manager.
 

@@ -1,6 +1,4 @@
-# Determine who has permissions to
-
-your AWS Secrets Manager secrets
+# Determine who has permissions to your AWS Secrets Manager secrets
 
 By default, IAM identities don't have permission to access secrets. When authorizing
 access to a secret, Secrets Manager evaluates the resource-based policy attached to the secret and all

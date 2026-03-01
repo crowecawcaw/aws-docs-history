@@ -1,6 +1,4 @@
-# How AWS Elemental MediaConnect uses
-
-AWS Secrets Manager
+# How AWS Elemental MediaConnect uses AWS Secrets Manager
 
 AWS Elemental MediaConnect is a service that makes it easy for broadcasters and other premium video
 providers to reliably ingest live video into the AWS Cloud and distribute it to

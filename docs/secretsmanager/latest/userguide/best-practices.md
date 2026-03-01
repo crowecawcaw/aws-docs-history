@@ -80,8 +80,7 @@ user](rotation-strategy.md#rotating-secrets-one-user-one-password "rotation-stra
 When you use the AWS CLI to invoke AWS operations, you enter those commands in a
 command shell. Most command shells offer features that could compromise your secrets,
 such as logging and the ability to see the last entered command. Before you use the
-AWS CLI to enter sensitive information, be sure to [Mitigate the risks of using the AWS CLI
-to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
+AWS CLI to enter sensitive information, be sure to [Mitigate the risks of using the AWS CLI to store your AWS Secrets Manager secrets](security_cli-exposure-risks.md "security_cli-exposure-risks.md").
 
 ## Limit access to secrets
 
@@ -170,8 +169,7 @@ monitoring, and notification services. For more information, see:
 
 - [Log AWS Secrets Manager events with AWS CloudTrail](monitoring-cloudtrail.md "monitoring-cloudtrail.md")
 - [Monitor AWS Secrets Manager with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
-- [Monitor AWS Secrets Manager secrets for compliance by using
-  AWS Config](configuring-awsconfig-rules.md "configuring-awsconfig-rules.md")
+- [Monitor AWS Secrets Manager secrets for compliance by using AWS Config](configuring-awsconfig-rules.md "configuring-awsconfig-rules.md")
 - [Monitor Secrets Manager costs](monitor-secretsmanager-costs.md "monitor-secretsmanager-costs.md")
 - [Detect threats with Amazon GuardDuty](monitoring-guardduty.md "monitoring-guardduty.md")
 

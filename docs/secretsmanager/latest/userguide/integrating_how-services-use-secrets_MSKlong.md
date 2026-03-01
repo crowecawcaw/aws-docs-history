@@ -1,6 +1,4 @@
-# How Amazon Managed Streaming for Apache Kafka uses
-
-AWS Secrets Manager
+# How Amazon Managed Streaming for Apache Kafka uses AWS Secrets Manager
 
 Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build and run
 applications that use Apache Kafka to process streaming data. You can control access to
