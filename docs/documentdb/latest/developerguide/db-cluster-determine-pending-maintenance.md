@@ -1,6 +1,4 @@
-# Determining
-
-pending maintenance
+# Determining pending maintenance
 
 You can determine whether you have the latest Amazon DocumentDB engine version by determining whether you have pending cluster maintenance.
 

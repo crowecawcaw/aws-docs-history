@@ -11,8 +11,7 @@ The following topics show how to perform various tasks when working with Amazon 
 - [Monitoring an elastic cluster](#elastic-monitor "#elastic-monitor")
 - [Deleting an elastic cluster](#elastic-delete "#elastic-delete")
 - [Managing elastic cluster snapshots](elastic-manage-snapshots.md "elastic-manage-snapshots.md")
-- [Stopping and starting an
-  Amazon DocumentDB elastic cluster](elastic-cluster-stop-start.md "elastic-cluster-stop-start.md")
+- [Stopping and starting an Amazon DocumentDB elastic cluster](elastic-cluster-stop-start.md "elastic-cluster-stop-start.md")
 - [Maintaining Amazon DocumentDB elastic clusters](elastic-cluster-maintenance.md "elastic-cluster-maintenance.md")
 
 ## Modifying elastic cluster configurations

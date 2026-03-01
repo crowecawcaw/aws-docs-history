@@ -126,9 +126,7 @@ To modify a cluster parameter group's parameters, use the `modify-db-cluster-par
 
   Parameters with the `ApplyType` of `static` must have an `ApplyMethod` of `pending-reboot`.
 
-###### To change the values of a cluster parameter group's parameters
-
-(AWS CLI)
+###### To change the values of a cluster parameter group's parameters (AWS CLI)
 
 The following example changes the `tls` parameter.
 

@@ -16,15 +16,13 @@ different use cases, including the following:
 - [Billing](#change_streams-billing "#change_streams-billing")
 - [Limitations](#change_streams-limitations "#change_streams-limitations")
 - [Enabling change streams](#change_streams-enabling "#change_streams-enabling")
-- [Example: using change
-  streams with Python](#change_streams-using_example "#change_streams-using_example")
+- [Example: using change streams with Python](#change_streams-using_example "#change_streams-using_example")
 - [Full document lookup](#change_streams-lookup "#change_streams-lookup")
 - [Resuming a change stream](#change_streams-resuming "#change_streams-resuming")
 - [Resuming a change stream with startAtOperationTime](#change_streams-startAtOperation "#change_streams-startAtOperation")
 - [Resuming a change stream with postBatchResumeToken](#change_streams-postBatchResumeToken "#change_streams-postBatchResumeToken")
 - [Transactions in change streams](#change_streams-transactions "#change_streams-transactions")
-- [Modifying the
-  change stream log retention duration](#change_streams-modifying_log_retention "#change_streams-modifying_log_retention")
+- [Modifying the change stream log retention duration](#change_streams-modifying_log_retention "#change_streams-modifying_log_retention")
 - [Using change streams on secondary instances](#change-streams-secondary-instances "#change-streams-secondary-instances")
 
 ## Supported operations
@@ -149,9 +147,7 @@ cursor = new DBCommandCursor(db,
       cursor:{}}));
 ```
 
-## Example: using change
-
-streams with Python
+## Example: using change streams with Python
 
 The following is an example of using an Amazon DocumentDB change stream with
 Python at the collection level.
@@ -500,9 +496,7 @@ Resuming with the last `postBatchResumeToken` skips the scanning of unmatched op
 
 Change stream events will not contain events from uncommitted and/or aborted transactions. For example, if you start a transaction with one `INSERT` operation and one `UPDATE` operation, and if your `INSERT` operation succeeds, but the `UPDATE` operation fails, the transaction will be rolled back. Since this transaction was rolled back, your change stream will not contain any events for this transaction.
 
-## Modifying the
-
-change stream log retention duration
+## Modifying the change stream log retention duration
 
 You can modify the change stream log retention duration to be between 1 hour and 7 days using the AWS Management Console or the AWS CLI.
 

@@ -1,23 +1,66 @@
-# Using Amazon DocumentDB event subscriptions
+# Amazon DocumentDB event categories and messages
 
-Amazon DocumentDB uses Amazon Simple Notification Service (Amazon SNS) to provide notifications when an Amazon DocumentDB event occurs. These notifications can be in any form that is supported by Amazon SNS for an AWS Region, such as an email, a text message, or a call to an HTTP endpoint.
+Amazon DocumentDB generates a significant number of events in categories that you can subscribe to
+using the console. Each category applies to a source type, which can be an instance,
+cluster, snapshot, or parameter group.
 
-Amazon DocumentDB groups these events into categories that you can subscribe to so that you can be notified when an event in that category occurs. You can subscribe to an event category for an instance, cluster, snapshot, cluster snapshot, or for a parameter group. For example, if you subscribe to the Backup category for a given instance, you are notified whenever a backup-related event occurs that affects the instance. You also receive notification when an event subscription changes.
+###### Note
 
-Events occur at both the cluster and the instance level, so you can receive events if you subscribe to a cluster or an instance.
+Amazon DocumentDB uses existing Amazon RDS event definitions and IDs.
 
-Event subscriptions are sent to the addresses you provide when you create the subscription. You might want to create several different subscriptions, such as a subscription that receives all event notifications and another subscription that includes only critical events for your production instances. You can easily turn off notification without deleting a subscription. To do so, set the **Enabled** radio button to **No** in the Amazon DocumentDB console.
+## Amazon DocumentDB events originating from instances
 
-###### Important
+| Category             | Description                                                                                                                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| availability         | The instance restarted.                                                                                                                                                                     |
+| availability         | The instance shutdown.                                                                                                                                                                      |
+| configuration change | Applying modification to an instance class.                                                                                                                                                 |
+| configuration change | Finished applying modification to an instance class.                                                                                                                                        |
+| configuration change | Reset primary credentials.                                                                                                                                                                  |
+| creation             | Instance created.                                                                                                                                                                           |
+| deletion             | Instance deleted                                                                                                                                                                            |
+| failure              | The instance has failed due to an incompatible configuration or an underlying storage issue. Begin a point-in-time-restore for the instance.                                                |
+| notification         | Instance stopped.                                                                                                                                                                           |
+| notification         | Instance started.                                                                                                                                                                           |
+| notification         | Instance is being started due to it exceeding the maximum allowed time being stopped.                                                                                                       |
+| recovery             | Recovery of the instance has started. Recovery time will vary with the amount of data to be recovered.                                                                                      |
+| recovery             | Recovery of the instance is complete.                                                                                                                                                       |
+| security patching    | The operating system update is available for your instance. For information about applying updates, see [Maintaining Amazon DocumentDB](db-instance-maintain.md "db-instance-maintain.md"). |
 
-Amazon DocumentDB doesn't guarantee the order of events sent in an event stream. The event order is subject to change.
+## Amazon DocumentDB events originating from a cluster
 
-Amazon DocumentDB uses the Amazon Resource Name (ARN) of an Amazon SNS topic to identify each subscription. The Amazon DocumentDB console creates the ARN for you when you create the subscription.
+| Category     | Description                                                                              |
+| ------------ | ---------------------------------------------------------------------------------------- |
+| creation     | Cluster created                                                                          |
+| deletion     | Cluster deleted.                                                                         |
+| failover     | Promoting previous primary again.                                                        |
+| failover     | Completed failover to instance.                                                          |
+| failover     | Started failover to DB instance: %s                                                      |
+| failover     | Started same AZ failover to DB instance: %s                                              |
+| failover     | Started cross AZ failover to DB instance: %s                                             |
+| maintenance  | Cluster has been patched.                                                                |
+| maintenance  | Database cluster is in a state that cannot be upgraded: %s                               |
+| notification | The cluster stopped.                                                                     |
+| notification | The cluster started.                                                                     |
+| notification | The cluster stop failed.                                                                 |
+| notification | The cluster is being started due to it exceeding the maximum allowed time being stopped. |
+| notification | Renamed cluster from %s to %s.                                                           |
 
-Billing for Amazon DocumentDB event subscriptions is through Amazon SNS. Amazon SNS fees apply when using event notification. For more information, see Amazon Simple Notification Service Pricing. Other than Amazon SNS charges, Amazon DocumentDB does not bill for event subscriptions.
+## Amazon DocumentDB events originating from cluster snapshot
 
-###### Topics
+The following table shows the event category and a list of events when an Amazon DocumentDB cluster snapshot is the source type.
 
-- [Subscribing to events](event-subscriptions.md "event-subscriptions.md")
-- [Manage subscriptions](event-subscriptions.md "event-subscriptions.md")
-- [Categories and messages](event-subscriptions.md "event-subscriptions.md")
+| Category | Description                          |
+| -------- | ------------------------------------ |
+| backup   | Creating manual cluster snapshot.    |
+| backup   | Manual cluster snapshot created.     |
+| backup   | Creating automated cluster snapshot. |
+| backup   | Automated cluster snapshot created.  |
+
+## Amazon DocumentDB events originating from parameter group
+
+The following table shows the event category and a list of events when a parameter group is the source type.
+
+| Category             | Description                                     |
+| -------------------- | ----------------------------------------------- |
+| configuration change | Updated parameter %s to %s with apply method %s |

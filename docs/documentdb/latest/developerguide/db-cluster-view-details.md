@@ -1,6 +1,4 @@
-# Describing Amazon DocumentDB
-
-clusters
+# Describing Amazon DocumentDB clusters
 
 You can use either Amazon DocumentDB Management Console or the AWS CLI to see
 details such as connection endpoints, security groups, VPCs, and

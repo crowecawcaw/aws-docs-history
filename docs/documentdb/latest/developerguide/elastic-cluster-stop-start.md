@@ -1,6 +1,4 @@
-# Stopping and starting an
-
-Amazon DocumentDB elastic cluster
+# Stopping and starting an Amazon DocumentDB elastic cluster
 
 Stopping and starting Amazon DocumentDB elastic clusters can help you manage costs
 for development and test environments. Instead of creating and
@@ -10,14 +8,10 @@ You can then start it again when you resume your testing.
 
 ###### Topics
 
-- [Overview of
-  stopping and starting an elastic cluster](#elastic-cluster-stop-start-overview "#elastic-cluster-stop-start-overview")
-- [Operations you can
-  perform on a stopped elastic cluster](#elastic-cluster-stopped-operations "#elastic-cluster-stopped-operations")
+- [Overview of stopping and starting an elastic cluster](#elastic-cluster-stop-start-overview "#elastic-cluster-stop-start-overview")
+- [Operations you can perform on a stopped elastic cluster](#elastic-cluster-stopped-operations "#elastic-cluster-stopped-operations")
 
-## Overview of
-
-stopping and starting an elastic cluster
+## Overview of stopping and starting an elastic cluster
 
 During periods where you don't need an Amazon DocumentDB elastic cluster, you can
 stop the cluster. You can then start the
@@ -154,9 +148,7 @@ aws docdb-elastic start-cluster ^
    --cluster-arn `arn:aws:docdb-elastic:us-east-1:477568257630:cluster/b9f1d489-6c3e-4764-bb42-da62ceb7bda2`
 ```
 
-## Operations you can
-
-perform on a stopped elastic cluster
+## Operations you can perform on a stopped elastic cluster
 
 You can't modify the configuration of an Amazon DocumentDB elastic cluster while the cluster is stopped.
 You must start the cluster before performing any such administrative actions.

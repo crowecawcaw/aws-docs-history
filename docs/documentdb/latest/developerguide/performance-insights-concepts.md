@@ -7,9 +7,7 @@
 - [Dimensions](#performance-insights-concepts-dimensions "#performance-insights-concepts-dimensions")
 - [Max vCPU](#performance-insights-concepts-maxvcpu "#performance-insights-concepts-maxvcpu")
 
-## Average active
-
-sessions
+## Average active sessions
 
 Database load (DB load) measures the level of activity in your database. The key
 metric in Performance Insights is `DB Load`, which is collected every

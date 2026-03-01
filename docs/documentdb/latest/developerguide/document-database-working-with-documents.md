@@ -389,9 +389,7 @@ Results from this operation look something like the following.
 }
 ```
 
-###
-
-Adding a new field
+### Adding a new field
 
 To modify a document by adding one or more new fields, use
 the `update()` operation with a query document

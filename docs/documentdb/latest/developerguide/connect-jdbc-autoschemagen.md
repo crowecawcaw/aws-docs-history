@@ -10,27 +10,19 @@ collection for documents and create a schema based on the following behavior.
 
 ###### Topics
 
-- [Schema generation
-  limitations](#connect-jdbc-autoschemagen-limits "#connect-jdbc-autoschemagen-limits")
-- [Scanning method
-  options](#connect-jdbc-autoschemagen-scanningoptions "#connect-jdbc-autoschemagen-scanningoptions")
+- [Schema generation limitations](#connect-jdbc-autoschemagen-limits "#connect-jdbc-autoschemagen-limits")
+- [Scanning method options](#connect-jdbc-autoschemagen-scanningoptions "#connect-jdbc-autoschemagen-scanningoptions")
 - [Amazon DocumentDB data types](#connect-jdbc-autoschemagen-datatypes "#connect-jdbc-autoschemagen-datatypes")
-- [Mapping scalar document
-  fields](#connect-jdbc-autoschemagen-scalarfields "#connect-jdbc-autoschemagen-scalarfields")
-- [Object and array data
-  type handling](#connect-jdbc-autoschemagen-objectandarray "#connect-jdbc-autoschemagen-objectandarray")
+- [Mapping scalar document fields](#connect-jdbc-autoschemagen-scalarfields "#connect-jdbc-autoschemagen-scalarfields")
+- [Object and array data type handling](#connect-jdbc-autoschemagen-objectandarray "#connect-jdbc-autoschemagen-objectandarray")
 
-## Schema generation
-
-limitations
+## Schema generation limitations
 
 The DocumentDB JDBC driver imposes a limit on the length of identifiers at 128
 characters. The schema generator may truncate the length of generated identifiers
 (table names and column names) to ensure they fit that limit.
 
-## Scanning method
-
-options
+## Scanning method options
 
 The sampling behavior can be modified using connection string or data source
 options.
@@ -79,9 +71,7 @@ the supported data types, and their associated JDBC data types.
 | Symbol                  | No                      | VARCHAR        |
 | DBPointer (4.0+)        | No                      | VARCHAR        |
 
-## Mapping scalar document
-
-fields
+## Mapping scalar document fields
 
 When scanning a sample of documents from a collection, the JDBC driver will create
 one or more schema to represent the samples in the collection. In general, a scalar
@@ -95,9 +85,7 @@ collection named team, and a single document `{ "_id" : "112233", "name" :
 | team       | name        | VARCHAR   |     |
 | team       | age         | INTEGER   |     |
 
-### Data type conflict
-
-promotion
+### Data type conflict promotion
 
 When scanning the sampled documents, it is possible that the data types for a
 field are not consistent from document to document. In this case, the JDBC
@@ -130,18 +118,14 @@ encountered.
 | team       | name        | VARCHAR   |     |
 | team       | age         | VARCHAR   |     |
 
-### Scalar-scalar
-
-conflict promotion
+### Scalar-scalar conflict promotion
 
 The following diagram shows the way in which scalar-scalar data type conflicts
 are resolved.
 
 ![Hierarchy diagram showing how conflicting data types will be promoted when they aren't consistent in documents.](images/jdbc/scalar-scalar-promotion.png)
 
-### Scalar-complex type
-
-conflict promotion
+### Scalar-complex type conflict promotion
 
 Like the scalar-scalar type conflicts, the same field in different documents
 can have conflicting data types between complex (array and object) and scalar
@@ -188,9 +172,7 @@ and the customer1_subscriptions virtual table:
 | customer_address        | country                  | VARCHAR   |       |
 | customer_address        | code                     | VARCHAR   |       |
 
-## Object and array data
-
-type handling
+## Object and array data type handling
 
 So far, we've only described how scalar data types are mapped. Object and Array
 data types are (currently) mapped to virtual tables. The JDBC driver will create a
@@ -204,9 +186,7 @@ and is provided as a foreign key to the associated base table.
 For embedded array type fields, index columns are generated to represent the index
 into the array at each level of the array.
 
-### Embedded object field
-
-example
+### Embedded object field example
 
 For object fields in a document, a mapping to a virtual table is created by
 the JDBC driver.
@@ -246,9 +226,7 @@ and the customer_address virtual table:
 | customer_address | country       | VARCHAR   |       |
 | customer_address | code          | VARCHAR   |       |
 
-### Embedded array field
-
-example
+### Embedded array field example
 
 For array fields in a document, a mapping to a virtual table is also created
 by the JDBC driver.

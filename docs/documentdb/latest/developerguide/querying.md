@@ -108,9 +108,7 @@ For a listing of supported query operators, see [Query and projection operators]
 
 ## Query plan
 
-### How Can I See
-
-the `executionStats` for a Query Plan?
+### How Can I See the `executionStats` for a Query Plan?
 
 When determining why a query is executing slower than expected, it can be useful to understand what the `executionStats` are
 for the query plan. The `executionStats` provide the number of documents returned from a particular stage (`nReturned`), the amount of execution time spent at each stage (`executionTimeMillisEstimate`), and the amount of time it takes to generate a query plan (`planningTimeMillis`). You can determine the most time-intensive stages of your query to help focus your optimization efforts from the output of `executionStats`, as shown in the query examples below. The `executionStats` parameter does not currently support `update` and `delete` commands.

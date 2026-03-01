@@ -1,6 +1,4 @@
-# Database access using Role-Based
-
-Access Control
+# Database access using Role-Based Access Control
 
 You can restrict access to the actions that users can perform on databases using
 _role-based access control_ (RBAC) in Amazon DocumentDB (with MongoDB compatibility). RBAC works by
@@ -26,11 +24,9 @@ users and modify the roles as necessary to enforce least privileges for your clu
 ###### Topics
 
 - [RBAC concepts](#role_based_access_control-concepts "#role_based_access_control-concepts")
-- [Getting started with RBAC
-  built-in roles](#role_based_access_control-getting_started "#role_based_access_control-getting_started")
+- [Getting started with RBAC built-in roles](#role_based_access_control-getting_started "#role_based_access_control-getting_started")
 - [Getting started with RBAC user-defined roles](#w2aac29c29c15 "#w2aac29c29c15")
-- [Connecting to Amazon DocumentDB as
-  a User](#role_based_access_control-connecting_as_user "#role_based_access_control-connecting_as_user")
+- [Connecting to Amazon DocumentDB as a User](#role_based_access_control-connecting_as_user "#role_based_access_control-connecting_as_user")
 - [Common commands](#role_based_access_control-common_commands "#role_based_access_control-common_commands")
 - [Functional differences](#role_based_access_control-functional_differences "#role_based_access_control-functional_differences")
 - [Limits](#role_based_access_control-limits "#role_based_access_control-limits")
@@ -108,9 +104,7 @@ database for the role when creating the user. To issue commands against the
 `admin` database, you can use the command `use admin`. For
 more information, see [Common commands](#role_based_access_control-common_commands "#role_based_access_control-common_commands").
 
-## Getting started with RBAC
-
-built-in roles
+## Getting started with RBAC built-in roles
 
 To help you get started with role-based access control, this section walks you through
 an example scenario of enforcing least privilege by creating roles for three users with
@@ -486,9 +480,7 @@ Output from this operation looks something like the following.
 }
 ```
 
-## Connecting to Amazon DocumentDB as
-
-a User
+## Connecting to Amazon DocumentDB as a User
 
 When connecting to an Amazon DocumentDB cluster, you connect in the context of a particular
 database. By default, if you don't specify a database in your connection string, you are

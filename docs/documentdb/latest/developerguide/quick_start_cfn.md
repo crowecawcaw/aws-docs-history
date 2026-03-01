@@ -28,11 +28,9 @@ resources, see [Amazon VPC Security](../../../vpc/latest/userguide/VPC_Security.
 ###### Topics
 
 - [Prerequisites](#quick_start_cfn-prerequisites "#quick_start_cfn-prerequisites")
-- [Launching an Amazon DocumentDB
-  CloudFormation stack](#quick_start_cfn-launch_stack "#quick_start_cfn-launch_stack")
+- [Launching an Amazon DocumentDB CloudFormation stack](#quick_start_cfn-launch_stack "#quick_start_cfn-launch_stack")
 - [Accessing the Amazon DocumentDB cluster](#quick_start_cfn-accessing_stack "#quick_start_cfn-accessing_stack")
-- [Termination
-  protection and deletion protection](#quick_start_cfn-termination_deletion_protection "#quick_start_cfn-termination_deletion_protection")
+- [Termination protection and deletion protection](#quick_start_cfn-termination_deletion_protection "#quick_start_cfn-termination_deletion_protection")
 
 ## Prerequisites
 
@@ -41,9 +39,7 @@ Before you create an Amazon DocumentDB cluster, you must have the following:
 - A default Amazon VPC
 - The required IAM permissions
 
-### Required IAM
-
-Permissions
+### Required IAM Permissions
 
 The following permissions allow you to create resources for the
 CloudFormation stack:
@@ -67,9 +63,7 @@ Region where you will create the CloudFormation stack. If you need to create
 a key pair, see [Creating a Key Pair Using Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md#having-ec2-create-your-key-pair")
 in the _Amazon EC2 User Guide_.
 
-## Launching an Amazon DocumentDB
-
-CloudFormation stack
+## Launching an Amazon DocumentDB CloudFormation stack
 
 This section describes how to launch and configure an Amazon DocumentDB CloudFormation
 stack.
@@ -289,8 +283,7 @@ Amazon DocumentDB cluster:**
 
         CloudFormation termination protection is different
         from the Amazon DocumentDB concept of deletion
-        protection. For more information, see [Termination
-        protection and deletion protection](#quick_start_cfn-termination_deletion_protection "#quick_start_cfn-termination_deletion_protection").Choose **Next** to continue.
+        protection. For more information, see [Termination protection and deletion protection](#quick_start_cfn-termination_deletion_protection "#quick_start_cfn-termination_deletion_protection").Choose **Next** to continue.
 
 6.  **Review <stack-name>** — Review
     your stack template, details, and configuration options. You can
@@ -318,9 +311,7 @@ information about using Amazon DocumentDB.
 - [Managing Amazon DocumentDB resources](managing-documentdb.md "managing-documentdb.md")
 - [Monitoring Amazon DocumentDB](monitoring_docdb.md "monitoring_docdb.md")
 
-## Termination
-
-protection and deletion protection
+## Termination protection and deletion protection
 
 It is an Amazon DocumentDB best practice to enable deletion protection and
 termination protection. CloudFormation termination protection is a

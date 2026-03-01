@@ -11,8 +11,7 @@ The lifecycle of an Amazon DocumentDB instance includes creating, modifying, mai
   instance](db-instance-modify.md "db-instance-modify.md")
 - [Rebooting an instance](db-instance-reboot.md "db-instance-reboot.md")
 - [Deleting an instance](db-instance-delete.md "db-instance-delete.md")
-  You can create a new Amazon DocumentDB instance using the AWS Management Console or the AWS CLI. To add an instance to a cluster, the cluster must be in an _available_ state. You cannot add an instance to a cluster that is stopped. If the cluster is stopped, first start the cluster, wait for the cluster to become _available_, and then add an instance. For more information, see [Stopping and starting an
-  Amazon DocumentDB cluster](db-cluster-stop-start.md "db-cluster-stop-start.md").
+  You can create a new Amazon DocumentDB instance using the AWS Management Console or the AWS CLI. To add an instance to a cluster, the cluster must be in an _available_ state. You cannot add an instance to a cluster that is stopped. If the cluster is stopped, first start the cluster, wait for the cluster to become _available_, and then add an instance. For more information, see [Stopping and starting an Amazon DocumentDB cluster](db-cluster-stop-start.md "db-cluster-stop-start.md").
 
 ###### Note
 

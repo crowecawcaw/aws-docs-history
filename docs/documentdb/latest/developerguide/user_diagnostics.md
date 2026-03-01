@@ -9,28 +9,19 @@ instance. To find an instance endpoint, see [Understanding Amazon DocumentDB end
 
 - [How do I determine the number of insert, update, and delete operations performed on my collection through the Mongo API?](#user-diag-performed-operations "#user-diag-performed-operations")
 - [How do I analyze cache performance?](#user-diag-cache-perf "#user-diag-cache-perf")
-- [How do I find
-  and terminate long running or blocked queries?](#user_diagnostics-query_terminating "#user_diagnostics-query_terminating")
-- [How can I see a query
-  plan and optimize a query?](#user_diagnostics-query_plan "#user_diagnostics-query_plan")
+- [How do I find and terminate long running or blocked queries?](#user_diagnostics-query_terminating "#user_diagnostics-query_terminating")
+- [How can I see a query plan and optimize a query?](#user_diagnostics-query_plan "#user_diagnostics-query_plan")
 - [How can I see a query plan in elastic clusters?](#user-diagnostics-ec-query-plan "#user-diagnostics-ec-query-plan")
-- [How do I list all
-  running operations on an instance?](#user_diagnostics-list_queries "#user_diagnostics-list_queries")
-- [How do I know
-  when a query is making progress?](#user_diagnostics-query_progressing "#user_diagnostics-query_progressing")
+- [How do I list all running operations on an instance?](#user_diagnostics-list_queries "#user_diagnostics-list_queries")
+- [How do I know when a query is making progress?](#user_diagnostics-query_progressing "#user_diagnostics-query_progressing")
 - [How do I determine why a system suddenly runs slowly?](#user_diagnostics-speed_change "#user_diagnostics-speed_change")
-- [How do I
-  determine the cause of high CPU utilization on one or more
-  cluster instances?](#user_diagnostics-cpu_utilization "#user_diagnostics-cpu_utilization")
-- [How do I determine
-  the open cursors on an instance?](#user_diagnostics-open_cursors "#user_diagnostics-open_cursors")
+- [How do I determine the cause of high CPU utilization on one or more cluster instances?](#user_diagnostics-cpu_utilization "#user_diagnostics-cpu_utilization")
+- [How do I determine the open cursors on an instance?](#user_diagnostics-open_cursors "#user_diagnostics-open_cursors")
 - [How do I determine the current Amazon DocumentDB engine version?](#user_diagnostics-engine_version "#user_diagnostics-engine_version")
 - [How do I analyze index usage and identify unused indexes?](#user-diag-index-usage "#user-diag-index-usage")
-- [How do I
-  identify missing indexes?](#user_diagnostics-identify_missing_indexes "#user_diagnostics-identify_missing_indexes")
+- [How do I identify missing indexes?](#user_diagnostics-identify_missing_indexes "#user_diagnostics-identify_missing_indexes")
 - [How do I determine database collection bloat?](#performance-collection-bloat "#performance-collection-bloat")
-- [Summary of useful
-  queries](#user_diagnostics-useful_queries "#user_diagnostics-useful_queries")
+- [Summary of useful queries](#user_diagnostics-useful_queries "#user_diagnostics-useful_queries")
 
 ## How do I determine the number of insert, update, and delete operations performed on my collection through the Mongo API?
 
@@ -127,9 +118,7 @@ For each index, the following cache statistics can be found under the `cacheStat
 - **`blksRead`** - The number of blocks read from the disk for this index.
 - **`blksHitRatio`** - The cache hit ratio rounded to four decimal places, calculated by `100 * [blksHit / (blksHit + blksRead)]`.
 
-## How do I find
-
-and terminate long running or blocked queries?
+## How do I find and terminate long running or blocked queries?
 
 User queries can run slowly because of a suboptimal query plan or
 can be blocked due to resource contention.
@@ -161,9 +150,7 @@ db.adminCommand({
 
 Next, you can narrow down the query to find the `opid` of a query running for more than 10 seconds and terminate it.
 
-###### To find and terminate a query running for more than 10
-
-seconds
+###### To find and terminate a query running for more than 10 seconds
 
 1. Find the `opid` of the query.
 
@@ -206,9 +193,7 @@ Output from this operation looks something like the following (JSON format).
 db.adminCommand({killOp: 1, op: 24646});
 ```
 
-## How can I see a query
-
-plan and optimize a query?
+## How can I see a query plan and optimize a query?
 
 If a query runs slow, it could be because the query execution
 requires a full scan of the collection to choose the relevant
@@ -405,9 +390,7 @@ Each shard has multiple data partitions which can have different input stages.
 In this example, a “COLLSCAN“ (a collection scan) is run on all partitions before the results are merged at the ”PARTITION_MERGE“ stage within each shard.
 The results across the shards are then merged together at the ”SHARD_MERGE“ stage before being sent back to the client.
 
-## How do I list all
-
-running operations on an instance?
+## How do I list all running operations on an instance?
 
 As a user or primary user, you often want to list all the current
 operations running on an instance for diagnostics and
@@ -529,9 +512,7 @@ automatically generates an iterator object `'it'` to view
 the rest of the results. Keep executing the `'it'`
 command until all results have been exhausted.
 
-## How do I know
-
-when a query is making progress?
+## How do I know when a query is making progress?
 
 User queries can run slowly due to a suboptimal query plan, or
 they can be blocked due to resource contention. Debugging such
@@ -734,13 +715,9 @@ the namespace `"admin.$cmd"`, and one internal
 `"TTLMonitor"` task.
 
 If the output indicates many queries with blocking wait states,
-see [How do I find
-and terminate long running or blocked queries?](#user_diagnostics-query_terminating "#user_diagnostics-query_terminating")
+see [How do I find and terminate long running or blocked queries?](#user_diagnostics-query_terminating "#user_diagnostics-query_terminating")
 
-## How do I
-
-determine the cause of high CPU utilization on one or more
-cluster instances?
+## How do I determine the cause of high CPU utilization on one or more cluster instances?
 
 The following sections might help you identify the cause of high
 instance CPU utilization. Your results can vary depending on the
@@ -749,12 +726,9 @@ workload.
 - To determine why an instance is suddenly running slowly,
   see [How do I determine why a system suddenly runs slowly?](#user_diagnostics-speed_change "#user_diagnostics-speed_change")
 - To identify and terminate long running queries on a
-  particular instance, see [How do I find
-  and terminate long running or blocked queries?](#user_diagnostics-query_terminating "#user_diagnostics-query_terminating")
-- To understand whether a query is progressing, see [How do I know
-  when a query is making progress?](#user_diagnostics-query_progressing "#user_diagnostics-query_progressing")
-- To determine why a query takes a long time to run, see [How can I see a query
-  plan and optimize a query?](#user_diagnostics-query_plan "#user_diagnostics-query_plan")
+  particular instance, see [How do I find and terminate long running or blocked queries?](#user_diagnostics-query_terminating "#user_diagnostics-query_terminating")
+- To understand whether a query is progressing, see [How do I know when a query is making progress?](#user_diagnostics-query_progressing "#user_diagnostics-query_progressing")
+- To determine why a query takes a long time to run, see [How can I see a query plan and optimize a query?](#user_diagnostics-query_plan "#user_diagnostics-query_plan")
 - To track long-running queries over time, see [Profiling Amazon DocumentDB operations](profiling.md "profiling.md").
 
 Depending on the reason for your high instance CPU utilization,
@@ -780,9 +754,7 @@ eventually consistent.
   replicas to the cluster increases the resources available
   for read traffic. For more information, see [Adding an Amazon DocumentDB instance to a cluster](db-instance-add.md "db-instance-add.md").
 
-## How do I determine
-
-the open cursors on an instance?
+## How do I determine the open cursors on an instance?
 
 When connected to a Amazon DocumentDB instance, you can use the command
 `db.runCommand("listCursors")` to list the open cursors on that instance. There is a limit of up to 4,560 active cursors open at any given time on a given Amazon DocumentDB instance, depending on the instance type. It is generally advised to close cursors that are no longer in use because cursors utilize resources on an instance and have an upper limit. See [Amazon DocumentDB Quotas and limits](limits.md "limits.md") for specific limits.
@@ -901,9 +873,7 @@ To drop an unused index, run the following command:
 db.collection.dropIndex("indexName")
 ```
 
-## How do I
-
-identify missing indexes?
+## How do I identify missing indexes?
 
 You can use the [Amazon DocumentDB profiler to log slow queries](profiling.md "profiling.md").
 A query that appears repeatedly in the slow query log may indicate
@@ -1040,9 +1010,7 @@ The result looks similar to this:
 }
 ```
 
-## Summary of useful
-
-queries
+## Summary of useful queries
 
 The following queries can be useful for monitoring performance and resource utilization in Amazon DocumentDB.
 

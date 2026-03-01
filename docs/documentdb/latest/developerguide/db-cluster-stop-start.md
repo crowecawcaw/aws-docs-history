@@ -1,6 +1,4 @@
-# Stopping and starting an
-
-Amazon DocumentDB cluster
+# Stopping and starting an Amazon DocumentDB cluster
 
 Stopping and starting Amazon DocumentDB clusters can help you manage costs
 for development and test environments. Instead of creating and
@@ -10,14 +8,10 @@ needed. You can then start them again when you resume your testing.
 
 ###### Topics
 
-- [Overview of
-  stopping and starting a cluster](#db-cluster-stop-start-overview "#db-cluster-stop-start-overview")
-- [Operations you can
-  perform on a stopped cluster](#db-cluster-stopped-operations "#db-cluster-stopped-operations")
+- [Overview of stopping and starting a cluster](#db-cluster-stop-start-overview "#db-cluster-stop-start-overview")
+- [Operations you can perform on a stopped cluster](#db-cluster-stopped-operations "#db-cluster-stopped-operations")
 
-## Overview of
-
-stopping and starting a cluster
+## Overview of stopping and starting a cluster
 
 During periods where you don't need an Amazon DocumentDB cluster, you can
 stop all instances in that cluster at once. You can then start the
@@ -150,9 +144,7 @@ aws docdb start-db-cluster ^
    --db-cluster-identifier `sample-cluster`
 ```
 
-## Operations you can
-
-perform on a stopped cluster
+## Operations you can perform on a stopped cluster
 
 While an Amazon DocumentDB cluster is stopped, you can do a point-in-time
 restore to any point within your specified automated backup retention

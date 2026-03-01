@@ -67,8 +67,7 @@ For scaling best practices, see [Scaling elastic clusters](elastic-best-practice
 
 ###### Note
 
-Cluster-level scaling is also available. For more information, see [Scaling Amazon DocumentDB
-clusters](db-cluster-manage-performance.md "db-cluster-manage-performance.md").
+Cluster-level scaling is also available. For more information, see [Scaling Amazon DocumentDB clusters](db-cluster-manage-performance.md "db-cluster-manage-performance.md").
 
 ## Elastic cluster reliability
 

@@ -1,6 +1,4 @@
-# Updating your Amazon DocumentDB TLS
-
-certificates — GovCloud
+# Updating your Amazon DocumentDB TLS certificates — GovCloud
 
 ###### Topics
 
@@ -69,8 +67,7 @@ By having both CA certificates in the new CA bundle, you can update your applica
 
 Any downloads of the CA certificate bundle after December
 21, 2021 should use the new CA certificate bundle. To verify that your application is
-using the latest CA certificate bundle, see [How can I be sure that I'm using
-the newest CA bundle?](#ca_cert_rotation_pdt-faq_question13 "#ca_cert_rotation_pdt-faq_question13") If you're already using the
+using the latest CA certificate bundle, see [How can I be sure that I'm using the newest CA bundle?](#ca_cert_rotation_pdt-faq_question13 "#ca_cert_rotation_pdt-faq_question13") If you're already using the
 latest CA certificate bundle in your application, you can skip to Step 2.
 
 For examples of using a CA bundle with your application, see [Encrypting data in transit](security.encryption.md "security.encryption.md") and [Connecting with TLS enabled](connect_programmatically.md#connect_programmatically-tls_enabled "connect_programmatically.md#connect_programmatically-tls_enabled").
@@ -169,11 +166,9 @@ we suggest the following:
   certificate to one or more instances but did not reboot them, reboot your instances
   to apply the new certificate. For more information, see [Rebooting an Amazon DocumentDB instance](db-instance-reboot.md "db-instance-reboot.md").
 - **Verify that your clients are using the latest certificate
-  bundle.** See [How can I be sure that I'm using
-  the newest CA bundle?](#ca_cert_rotation_pdt-faq_question13 "#ca_cert_rotation_pdt-faq_question13").
+  bundle.** See [How can I be sure that I'm using the newest CA bundle?](#ca_cert_rotation_pdt-faq_question13 "#ca_cert_rotation_pdt-faq_question13").
 - **Verify that your instances are using the latest
-  certificate.** See [How do I know which of my Amazon DocumentDB
-  instances are using the old/new server certificate?](#ca_cert_rotation_pdt-faq_question5 "#ca_cert_rotation_pdt-faq_question5").
+  certificate.** See [How do I know which of my Amazon DocumentDB instances are using the old/new server certificate?](#ca_cert_rotation_pdt-faq_question5 "#ca_cert_rotation_pdt-faq_question5").
 - **Verify that the latest certificate CA is being utilized by
   your application.** Some drivers, like Java and Go, require extra code to
   import multiple certificates from a certificate bundle to the trust store. For more
@@ -185,32 +180,24 @@ we suggest the following:
 
 The following are answers to some common questions about TLS certificates.
 
-### What if I have questions or
-
-issues?
+### What if I have questions or issues?
 
 If you have questions or issues, contact [Support](https://aws.amazon.com/premiumsupport "https://aws.amazon.com/premiumsupport").
 
-### How do I know whether I'm using TLS to
-
-connect to my Amazon DocumentDB cluster?
+### How do I know whether I'm using TLS to connect to my Amazon DocumentDB cluster?
 
 You can determine whether your cluster is using TLS by examining the `tls`
 parameter for your cluster’s cluster parameter group. If the `tls` parameter
 is set to `enabled`, you are using the TLS certificate to connect to your
 cluster. For more information, see [Managing Amazon DocumentDB cluster parameter groups](cluster_parameter_groups.md "cluster_parameter_groups.md").
 
-### Why are you updating the CA and server
-
-certificates?
+### Why are you updating the CA and server certificates?
 
 The Amazon DocumentDB CA and server certificates were updated as part
 of standard maintenance and security best practices for Amazon DocumentDB. The current CA and
 server certificates will expire on Wednesday, May 18, 2022.
 
-### What happens if I don't take any action
-
-by the expiration date?
+### What happens if I don't take any action by the expiration date?
 
 If you are using TLS to connect to your Amazon DocumentDB cluster and you do not make the
 change by May 18, 2022, your applications that connect via TLS will no longer be able to
@@ -220,16 +207,12 @@ Amazon DocumentDB will not rotate your database certificates automatically befor
 You must update your applications and clusters to use the new CA certificates before or
 after the expiration date.
 
-### How do I know which of my Amazon DocumentDB
-
-instances are using the old/new server certificate?
+### How do I know which of my Amazon DocumentDB instances are using the old/new server certificate?
 
 To identify the Amazon DocumentDB instances that still use the old server certificate, you can
 use either the Amazon DocumentDB AWS Management Console or the AWS CLI.
 
-###### To identify the instances in your clusters that are using the older
-
-certificate
+###### To identify the instances in your clusters that are using the older certificate
 
 1.  Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
 2.  In the list of Regions in the upper-right corner of the screen, choose
@@ -258,9 +241,7 @@ aws docdb describe-db-instances \
 
 ```
 
-### How do I modify individual instances in
-
-my Amazon DocumentDB cluster to update the server certificate?
+### How do I modify individual instances in my Amazon DocumentDB cluster to update the server certificate?
 
 We recommend that you update server certificates for all instances in a given cluster
 at the same time. To modify the instances in your cluster, you can use either the
@@ -316,18 +297,14 @@ aws docdb modify-db-instance --db-instance-identifier `<yourInstanceIdentifier>`
 aws docdb modify-db-instance --db-instance-identifier `<yourInstanceIdentifier>` --ca-certificate-identifier rds-ca-rsa4096-g1 --no-apply-immediately
 ```
 
-### What happens if I add a new instance to
-
-an existing cluster?
+### What happens if I add a new instance to an existing cluster?
 
 All new instances that are created use the old server
 certificate and require TLS connections using the old CA certificate. Any new Amazon DocumentDB
 instances created after March 21, 2022 will default to using the new
 certificates.
 
-### What happens if there is an instance
-
-replacement or failover on my cluster?
+### What happens if there is an instance replacement or failover on my cluster?
 
 If there is an instance replacement in your cluster, the new instance that is created
 continues to use the same server certificate that the instance was previously using. We
@@ -335,50 +312,37 @@ recommend that you update server certificates for all instances at the same time
 failover occurs in the cluster, the server certificate on the new primary is
 used.
 
-### If I'm not using TLS to connect to
-
-my cluster, do I still need to update each of my instances?
+### If I'm not using TLS to connect to my cluster, do I still need to update each of my instances?
 
 If you are not using TLS to connect to your Amazon DocumentDB clusters, no action is
 needed.
 
-### If I'm not using TLS to connect to my
-
-cluster but I plan to in the future, what should I do?
+### If I'm not using TLS to connect to my cluster but I plan to in the future, what should I do?
 
 If you created a cluster before March 21, 2022, follow
 [Step 1](ca_cert_rotation.md#ca_cert_rotation-pdt-updating_application_step1 "ca_cert_rotation.md#ca_cert_rotation-pdt-updating_application_step1") and [Step 2](ca_cert_rotation.md#ca_cert_rotation-pdt-updating_application_step2 "ca_cert_rotation.md#ca_cert_rotation-pdt-updating_application_step2") in the previous section to ensure that your application is using the
 updated CA bundle, and that each Amazon DocumentDB instance is using the latest server
 certificate. If you create a cluster after March 21, 2022, your cluster will already
 have the latest server certificate. To verify that your application is using the latest
-CA bundle, see [If I'm not using TLS to connect to
-my cluster, do I still need to update each of my instances?](#ca_cert_rotation_pdt-faq_question10 "#ca_cert_rotation_pdt-faq_question10")
+CA bundle, see [If I'm not using TLS to connect to my cluster, do I still need to update each of my instances?](#ca_cert_rotation_pdt-faq_question10 "#ca_cert_rotation_pdt-faq_question10")
 
-### Can the
-
-deadline be extended beyond May 18, 2022?
+### Can the deadline be extended beyond May 18, 2022?
 
 If your applications are connecting via TLS, the deadline
 cannot be extended beyond May 18, 2022.
 
-### How can I be sure that I'm using
-
-the newest CA bundle?
+### How can I be sure that I'm using the newest CA bundle?
 
 For compatibility reasons, both old and new CA bundle files are named
 `us-gov-west-1-bundle.pem`. You can also use tools like
 `openssl` or `keytool` to inspect the CA bundle.
 
-### Why do I see "RDS" in the name of the
-
-CA bundle?
+### Why do I see "RDS" in the name of the CA bundle?
 
 For certain management features, such as certificate management, Amazon DocumentDB uses
 operational technology that is shared with Amazon Relational Database Service (Amazon RDS).
 
-### When will the new certificate
-
-expire?
+### When will the new certificate expire?
 
 The new server certificate will expire (generally) as follows:
 
@@ -390,9 +354,7 @@ The new server certificate will expire (generally) as follows:
 
 Error messages will vary depending on your driver. In general, you'll see certificate validation errors that contain the string "certificate has expired".
 
-### If I applied the new server
-
-certificate, can I revert it back to the old server certificate?
+### If I applied the new server certificate, can I revert it back to the old server certificate?
 
 If you need to revert an instance to the old server certificate, we recommend that
 you do so for all instances in the cluster. You can revert the server certificate for
@@ -429,17 +391,13 @@ aws docdb modify-db-instance --db-instance-identifier `<db_instance_name>` ca-ce
 If you choose `--no-apply-immediately`, the changes will be applied
 during the cluster’s next maintenance window.
 
-### If I restore from a snapshot or a
-
-point in time restore, will it have the new server certificate ?
+### If I restore from a snapshot or a point in time restore, will it have the new server certificate ?
 
 If you restore a snapshot or perform a point-in-time restore
 after March 21, 2022, the new cluster that is created will use the new CA
 certificate.
 
-### What if I’m having issues connecting
-
-directly to my Amazon DocumentDB cluster from Mac OS X Catalina?
+### What if I’m having issues connecting directly to my Amazon DocumentDB cluster from Mac OS X Catalina?
 
 Mac OS X Catalina has updated the requirements for trusted certificates. Trusted
 certificates must now be valid for 825 days or fewer (see [https://support.apple.com/en-us/HT210176](https://support.apple.com/en-us/HT210176 "https://support.apple.com/en-us/HT210176")). Amazon DocumentDB instance certificates are

@@ -3,8 +3,7 @@
 In this section, we will explain how to deploy a patch update using the AWS Management Console or the AWS CLI.
 A patch update is an update within the same engine version (for example, updating a 3.6 engine version to a newer 3.6 engine version).
 You can update it immediately or during your cluster's next maintenance window.
-To determine whether your engine needs an update, see [Determining
-pending maintenance](db-cluster-determine-pending-maintenance.md "db-cluster-determine-pending-maintenance.md"). Please note that when you apply the update, your cluster will experience some downtime.
+To determine whether your engine needs an update, see [Determining pending maintenance](db-cluster-determine-pending-maintenance.md "db-cluster-determine-pending-maintenance.md"). Please note that when you apply the update, your cluster will experience some downtime.
 
 ###### Note
 

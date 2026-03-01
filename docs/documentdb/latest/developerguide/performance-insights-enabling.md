@@ -8,9 +8,7 @@ The Performance Insights agent consumes limited CPU and memory on the DB host. W
 the DB load is high, the agent limits the performance impact by collecting data less
 frequently.
 
-## Enabling Performance
-
-Insights when creating a cluster
+## Enabling Performance Insights when creating a cluster
 
 In the console, you can enable or disable Performance Insights when you create or
 modify a new DB instance.

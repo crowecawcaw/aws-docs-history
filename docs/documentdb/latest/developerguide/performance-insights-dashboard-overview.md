@@ -1,6 +1,4 @@
-# Overview of the
-
-Performance Insights dashboard
+# Overview of the Performance Insights dashboard
 
 The dashboard is the easiest way to interact with Performance Insights. The
 following example shows the dashboard for an Amazon DocumentDB instance. By default, the

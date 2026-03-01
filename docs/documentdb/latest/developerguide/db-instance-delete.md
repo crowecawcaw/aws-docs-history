@@ -4,8 +4,7 @@ You can delete your Amazon DocumentDB instance using either the AWS Management C
 instance that is stopped. If the Amazon DocumentDB cluster that contains
 your instance is stopped, first start the cluster, wait for the
 instance to become _available_, and then
-delete the instance. For more information, see [Stopping and starting an
-Amazon DocumentDB cluster](db-cluster-stop-start.md "db-cluster-stop-start.md").
+delete the instance. For more information, see [Stopping and starting an Amazon DocumentDB cluster](db-cluster-stop-start.md "db-cluster-stop-start.md").
 
 ###### Note
 

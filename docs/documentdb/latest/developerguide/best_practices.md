@@ -15,8 +15,7 @@ new best practices are identified.
 - [Migrations](#best_practices-migrations "#best_practices-migrations")
 - [Working with cluster parameter groups](#best_practices-cluster_parameter_groups "#best_practices-cluster_parameter_groups")
 - [Aggregation pipeline queries](#best_practices-aggregation_pipeline_queries "#best_practices-aggregation_pipeline_queries")
-- [batchInsert and
-  batchUpdate](#best_practices-batchinsert_batchupdate "#best_practices-batchinsert_batchupdate")
+- [batchInsert and batchUpdate](#best_practices-batchinsert_batchupdate "#best_practices-batchinsert_batchupdate")
 
 ## Basic operational guidelines
 
@@ -52,8 +51,7 @@ guidelines.
 - Enable cluster deletion protection for all production clusters, or any cluster
   that has valuable data. Before deleting an Amazon DocumentDB cluster, take a final snapshot. If
   you are deploying resources with CloudFormation, enable termination protection. For more
-  information, see [Termination
-  protection and deletion protection](quick_start_cfn.md#quick_start_cfn-termination_deletion_protection "quick_start_cfn.md#quick_start_cfn-termination_deletion_protection").
+  information, see [Termination protection and deletion protection](quick_start_cfn.md#quick_start_cfn-termination_deletion_protection "quick_start_cfn.md#quick_start_cfn-termination_deletion_protection").
 - When creating an Amazon DocumentDB cluster, the `--engine-version` is an optional parameter
   that defaults to the latest major engine version. The current major engine version is
   5.0.0. When new major engine versions are released, the default engine version for
@@ -179,8 +177,7 @@ fewer.
 ### Identifying missing indexes
 
 Identifying missing indexes is a best practice that we recommend performing on a
-regular basis. For more information, please see [How do I
-identify missing indexes?](user_diagnostics.md#user_diagnostics-identify_missing_indexes "user_diagnostics.md#user_diagnostics-identify_missing_indexes").
+regular basis. For more information, please see [How do I identify missing indexes?](user_diagnostics.md#user_diagnostics-identify_missing_indexes "user_diagnostics.md#user_diagnostics-identify_missing_indexes").
 
 ### Identifying unused indexes
 
@@ -212,8 +209,7 @@ privilege.
   for Amazon DocumentDB. For more information, see [Rotating Your AWS Secrets Manager Secrets](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md") and [Rotating Secrets for Amazon DocumentDB](../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md "../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md") in the _AWS Secrets
   Manager User Guide_.
 - Grant each Amazon DocumentDB user the minimum set of permissions that are required to
-  perform their duties. For more information, see [Database access using Role-Based
-  Access Control](role_based_access_control.md "role_based_access_control.md").
+  perform their duties. For more information, see [Database access using Role-Based Access Control](role_based_access_control.md "role_based_access_control.md").
 - Use Transport Layer Security (TLS) to encrypt your data in transit and AWS KMS to
   encrypt your data at rest.
 
@@ -231,8 +227,7 @@ Amazon DocumentDB. For pricing information, see [Amazon DocumentDB (with MongoDB
   instances to provide high availability. However, you can optimize costs by using a
   single instance development cluster when high availability is not required.
 - For development and test scenarios, stop a cluster when it is no longer needed and
-  start the cluster when development resumes. For more information, see [Stopping and starting an
-  Amazon DocumentDB cluster](db-cluster-stop-start.md "db-cluster-stop-start.md").
+  start the cluster when development resumes. For more information, see [Stopping and starting an Amazon DocumentDB cluster](db-cluster-stop-start.md "db-cluster-stop-start.md").
 - Both TTL and change streams incur I/O's when data is written, read, and deleted.
   If you have enabled these features but are not utilizing them in your application,
   disabling the features can help reduce costs.
@@ -456,9 +451,7 @@ the beginning of the pipeline. Using `$match` first will reduce the number of
 documents subsequent stages within the aggregation pipeline query will need to process,
 thus improving the performance of your query.
 
-## `batchInsert` and
-
-`batchUpdate`
+## `batchInsert` and `batchUpdate`
 
 When performing a high rate of concurrent `batchInsert` and/or
 `batchUpdate` operations, and the amount of `FreeableMemory`

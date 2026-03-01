@@ -1,6 +1,4 @@
-# Scaling Amazon DocumentDB
-
-clusters
+# Scaling Amazon DocumentDB clusters
 
 Amazon DocumentDB enables you to scale the storage and compute in your
 clusters based on your needs. This section describes how you can use

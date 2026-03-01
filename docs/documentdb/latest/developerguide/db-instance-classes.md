@@ -132,8 +132,7 @@ Output from this operation looks something like the following.
 ]
 ```
 
-For more information, see [Describing Amazon DocumentDB
-instances](db-instance-view-details.md "db-instance-view-details.md").
+For more information, see [Describing Amazon DocumentDB instances](db-instance-view-details.md "db-instance-view-details.md").
 
 ## Changing an instance's class
 

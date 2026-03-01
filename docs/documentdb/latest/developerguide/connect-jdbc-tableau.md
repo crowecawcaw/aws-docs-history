@@ -2,14 +2,10 @@
 
 ###### Topics
 
-- [Adding the Amazon DocumentDB JDBC
-  Driver](#connect-jdbc-tableau-adddriver "#connect-jdbc-tableau-adddriver")
-- [Connecting to Amazon DocumentDB using Tableau - SSH
-  Tunnel](#connect-jdbc-tableau-ssh "#connect-jdbc-tableau-ssh")
+- [Adding the Amazon DocumentDB JDBC Driver](#connect-jdbc-tableau-adddriver "#connect-jdbc-tableau-adddriver")
+- [Connecting to Amazon DocumentDB using Tableau - SSH Tunnel](#connect-jdbc-tableau-ssh "#connect-jdbc-tableau-ssh")
 
-## Adding the Amazon DocumentDB JDBC
-
-Driver
+## Adding the Amazon DocumentDB JDBC Driver
 
 To connect to Amazon DocumentDB from Tableau Desktop you must download and install the
 Amazon DocumentDB JDBC driver and the DocumentDB Tableau connector.
@@ -38,9 +34,7 @@ documentation](https://tableau.github.io/connector-plugin-sdk/docs/run-taco "htt
 
 If you are using newer CA certificates, make sure to upgrade your JDBC driver to v1.4.5 (available in this AWS [GitHub repository](https://github.com/aws/amazon-documentdb-jdbc-driver/releases/tag/v1.4.5 "https://github.com/aws/amazon-documentdb-jdbc-driver/releases/tag/v1.4.5").).
 
-## Connecting to Amazon DocumentDB using Tableau - SSH
-
-Tunnel
+## Connecting to Amazon DocumentDB using Tableau - SSH Tunnel
 
 To connect to Tableau from a client machine outside of the VPC of your DocumentDB
 cluster, you must setup an SSH tunnel before following the steps below:

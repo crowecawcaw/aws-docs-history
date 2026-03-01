@@ -411,8 +411,7 @@ Global cluster switchovers and failovers are supported on Amazon DocumentDB 4.0 
 ### New feature
 
 For Amazon DocumentDB 3.6 (minimum engine patch version 1.0.208662), TLS CA certificate updates no longer require a system reboot.
-For more information, see [Updating your Amazon DocumentDB TLS
-certificates](ca_cert_rotation.md "ca_cert_rotation.md").
+For more information, see [Updating your Amazon DocumentDB TLS certificates](ca_cert_rotation.md "ca_cert_rotation.md").
 
 ## August 8, 2024
 
@@ -501,8 +500,7 @@ Amazon DocumentDB now recognizes -NaN as a valid JSON token.
 ### New feature
 
 For Amazon DocumentDB 4.0 (minimum engine patch version 2.0.10179) and 5.0 (minimum engine patch version 3.0.4780), TLS CA certificate updates no longer require a system reboot.
-For more information, see [Updating your Amazon DocumentDB TLS
-certificates](ca_cert_rotation.md "ca_cert_rotation.md").
+For more information, see [Updating your Amazon DocumentDB TLS certificates](ca_cert_rotation.md "ca_cert_rotation.md").
 
 ## July 8, 2024
 
@@ -571,8 +569,7 @@ this [blog post](https://aws.amazon.com/about-aws/whats-new/2024/04/amazon-docum
 Amazon DocumentDB elastic clusters now support the following features:
 
 - Readable secondary shard instance replicas - for more information, see step 5b of [Step 1: Create an elastic cluster](elastic-get-started.md#elastic-get-started-clusters "elastic-get-started.md#elastic-get-started-clusters").
-- Start/stop cluster - for more information, see [Stopping and starting an
-  Amazon DocumentDB elastic cluster](elastic-cluster-stop-start.md "elastic-cluster-stop-start.md").
+- Start/stop cluster - for more information, see [Stopping and starting an Amazon DocumentDB elastic cluster](elastic-cluster-stop-start.md "elastic-cluster-stop-start.md").
 - Configurable shard instances - for more information, see step 5b of [Step 1: Create an elastic cluster](elastic-get-started.md#elastic-get-started-clusters "elastic-get-started.md#elastic-get-started-clusters").
 - Automatic backups for snapshots - for more information, see [Managing an elastic cluster snapshot automatic backup](elastic-manage-snapshots.md#elastic-auto-snapshot "elastic-manage-snapshots.md#elastic-auto-snapshot").
 - Copy snapshot - for more information, see [Copying an elastic cluster snapshot](elastic-manage-snapshots.md#elastic-copy-snapshot "elastic-manage-snapshots.md#elastic-copy-snapshot").

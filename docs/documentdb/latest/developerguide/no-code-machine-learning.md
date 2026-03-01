@@ -12,7 +12,7 @@ You can now build ML models for regression and forecasting needs and use foundat
 SageMaker AI Canvas provides a visual interface that allows Amazon DocumentDB customers to generate predictions without requiring any AI/ML expertise or write a single line of code.
 Customers can now launch the SageMaker AI Canvas workspace from the AWS Management Console, import and join Amazon DocumentDB data for data preparation and model training.
 Data in Amazon DocumentDB can now be used in SageMaker AI Canvas to build and augment models to predict customer churn, detect fraud, predict maintenance failures, forecast business metrics, and generate content.
-Customers can now publish and share ML-driven insights across teams using SageMaker AI Canvas’s native integration with Quick Suite.
+Customers can now publish and share ML-driven insights across teams using SageMaker AI Canvas’s native integration with Quick.
 Data ingestion pipelines in SageMaker AI Canvas run on Amazon DocumentDB secondary instances by default, ensuring that the performance of application and SageMaker AI Canvas ingestion workloads are not hindered.
 
 Amazon DocumentDB customers can get started with SageMaker AI Canvas by navigating to the new Amazon DocumentDB No-Code ML Console page and connecting to new or available SageMaker AI Canvas workspaces.
@@ -58,8 +58,7 @@ roles: [{role: "read", db: "sample-database-1"}]
 
 This creates a `canvas_user` which has read permissions to the `sample-database-1` database.
 Your Canvas analysts can use this credential to access data in your Amazon DocumentDB cluster.
-Refer to [Database access using Role-Based
-Access Control](role_based_access_control.md "role_based_access_control.md") to learn more.
+Refer to [Database access using Role-Based Access Control](role_based_access_control.md "role_based_access_control.md") to learn more.
 
 ## Available regions
 

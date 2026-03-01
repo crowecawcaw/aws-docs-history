@@ -2,8 +2,7 @@
 
 You can modify your Amazon DocumentDB instance using either the AWS Management Console or the AWS CLI. To modify an instance, the instance must be in the _available_ state. You cannot modify an
 instance that is stopped. If the cluster is stopped, first start
-the cluster, wait for the instance to become _available_, and then make the desired modifications. For more information, see [Stopping and starting an
-Amazon DocumentDB cluster](db-cluster-stop-start.md "db-cluster-stop-start.md").
+the cluster, wait for the instance to become _available_, and then make the desired modifications. For more information, see [Stopping and starting an Amazon DocumentDB cluster](db-cluster-stop-start.md "db-cluster-stop-start.md").
 
 Using the AWS Management Console
 To modify a specific Amazon DocumentDB instance using the console,
@@ -18,7 +17,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 (![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the screenshot below.
 
-![Clusters table showing list of clusters under Cluster identifier column, with instances nested inside clusters.](/images/documentdb/latest/developerguide/images/choose-clusters.png) 4. Check the box to the left of the instance you wish to modify. 5. Choose **Actions**, and then
+![Clusters table showing list of clusters under Cluster identifier column, with instances nested inside clusters.](images/choose-clusters.png) 4. Check the box to the left of the instance you wish to modify. 5. Choose **Actions**, and then
 choose **Modify**. 6. In the **Modify instance:
 <instance-name>** pane, make the
 changes that you want. You can make the following
@@ -38,8 +37,7 @@ changes:
     * **Certificate
      authority** — Server
      certificate for this instance. For more
-     information, see [Updating your Amazon DocumentDB TLS
-     certificates](ca_cert_rotation.md "ca_cert_rotation.md").
+     information, see [Updating your Amazon DocumentDB TLS certificates](ca_cert_rotation.md "ca_cert_rotation.md").
     * **Failover**
      — During failover, the instance with
      the highest promotion tier will be promoted

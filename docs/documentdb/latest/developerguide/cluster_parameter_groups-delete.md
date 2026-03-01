@@ -39,9 +39,7 @@ parameter group:
 2. Deleting the specified cluster parameter group.
 3. Verifying that the cluster parameter group was deleted.
 
-###### 1. Find the name of the cluster parameter group that you want to
-
-delete.
+###### 1. Find the name of the cluster parameter group that you want to delete.
 
 The following code lists the names of all cluster parameter groups.
 

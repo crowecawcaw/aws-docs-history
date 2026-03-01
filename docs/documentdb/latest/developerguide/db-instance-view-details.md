@@ -1,6 +1,4 @@
-# Describing Amazon DocumentDB
-
-instances
+# Describing Amazon DocumentDB instances
 
 You can use either the Amazon DocumentDB Management Console or the AWS CLI
 to see details such as connection endpoints, security groups

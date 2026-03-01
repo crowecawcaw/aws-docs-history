@@ -1,8 +1,6 @@
 # Opening the Performance Insights dashboard
 
-###### To view the Performance Insights dashboard in the AWS Management Console,
-
-use the following steps:
+###### To view the Performance Insights dashboard in the AWS Management Console, use the following steps:
 
 1. Open the Performance Insights console at [https://console.aws.amazon.com/docdb/](https://console.aws.amazon.com/docdb/home#performance-insights "https://console.aws.amazon.com/docdb/home#performance-insights").
 2. Choose a DB instance. The Performance Insights dashboard is shown for that
