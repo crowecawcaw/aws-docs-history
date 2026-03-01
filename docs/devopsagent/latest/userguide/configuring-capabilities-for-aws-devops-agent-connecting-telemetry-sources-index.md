@@ -19,6 +19,8 @@ To learn about 2-way integrations, see
 
 Currently, AWS DevOps Agent supports AWS CloudWatch, Datadog, New Relic, and Splunk users with built-in, 1 way integrations.
 
+**Security best practice:** When configuring credentials for built-in 1-way integrations, we recommend scoping API keys and tokens to read-only access. AWS DevOps Agent uses these credentials for telemetry introspection only and does not require write access to your telemetry provider.
+
 The AWS CloudWatch built-in, 1-way integration requires no additional setup and enables the following:
 
 - **Topology resource mapping** - AWS DevOps Agent will augment your DevOps Agent Space Topology with entities and relationships available to it via your configured primary and secondary AWS cloud accounts.

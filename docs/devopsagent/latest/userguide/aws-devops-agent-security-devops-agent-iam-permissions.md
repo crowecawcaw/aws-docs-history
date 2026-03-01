@@ -154,3 +154,36 @@ This policy grants view-only access to investigations and recommendations:
   ]
 }
 ```
+
+## AWS Managed policies for AWS DevOps Agent
+
+AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. These AWS managed policies grant necessary permissions for common use cases so that you can avoid having to investigate what permissions are needed. For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the IAM User Guide.
+
+The following AWS managed policies, which you can attach to users in your account, are specific to AWS DevOps Agent.
+
+### AWSServiceRoleForAIDevOpsPolicy
+
+This Service Linked Role provides AWS DevOps Agent ability to provide usage information.
+
+```
+{
+  "Version" : "2012-10-17",
+  "Statement" : [
+    {
+      "Sid" : "sid1",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudwatch:PutMetricData"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudwatch:namespace" : [
+            "AWS/AIDevOps"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
