@@ -1,6 +1,4 @@
-# Security groups for your
-
-Application Load Balancer
+# Security groups for your Application Load Balancer
 
 The security group for your Application Load Balancer controls the traffic that is allowed to reach and
 leave the load balancer. You must ensure that your load balancer can communicate with

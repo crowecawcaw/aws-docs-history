@@ -1,6 +1,4 @@
-# Update the health check settings of an Application Load Balancer
-
-target group
+# Update the health check settings of an Application Load Balancer target group
 
 You can update the health check settings for your target group at any time.
 For the list of health check settings, see [Health check settings](target-group-health-checks.md#health-check-settings "target-group-health-checks.md#health-check-settings").

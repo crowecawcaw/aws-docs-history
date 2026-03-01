@@ -122,9 +122,7 @@ your Application Load Balancer:
   Otherwise, authentication failures can occur because the client OIDC redirect URLs
   do not match the port number of the originally generated URI.
 
-## Configure user
-
-authentication
+## Configure user authentication
 
 You configure user authentication by creating an authenticate action for one or
 more listener rules. The `authenticate-cognito` and
@@ -288,8 +286,7 @@ network diagram.
    `ELBAuthUserClaimsSizeExceeded` metric.
 9. The Application Load Balancer validates the cookie and forwards the user info to targets in
    the `X-AMZN-OIDC-*` HTTP headers set. For more information, see
-   [User claims encoding and signature
-   verification](#user-claims-encoding "#user-claims-encoding").
+   [User claims encoding and signature verification](#user-claims-encoding "#user-claims-encoding").
 10. The target sends a response back to the Application Load Balancer.
 11. The Application Load Balancer sends the final response to the user.
 
@@ -316,9 +313,7 @@ length of the authentication session is determined by the session timeout
 configured on the Application Load Balancer for the authentication feature. This session timeout is
 included in the Auth cookie value, which is also encrypted.
 
-## User claims encoding and signature
-
-verification
+## User claims encoding and signature verification
 
 After your load balancer authenticates a user successfully, it sends the user
 claims received from the IdP to the target. The load balancer signs the user claim

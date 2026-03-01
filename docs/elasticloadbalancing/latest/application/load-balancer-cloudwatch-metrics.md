@@ -25,8 +25,7 @@ For more information, see the [Amazon CloudWatch User Guide](../../../AmazonClou
 ###### Contents
 
 - [Application Load Balancer metrics](#load-balancer-metrics-alb "#load-balancer-metrics-alb")
-- [Metric dimensions for
-  Application Load Balancers](#load-balancer-metric-dimensions-alb "#load-balancer-metric-dimensions-alb")
+- [Metric dimensions for Application Load Balancers](#load-balancer-metric-dimensions-alb "#load-balancer-metric-dimensions-alb")
 - [Statistics for Application Load Balancer metrics](#metric-statistics "#metric-statistics")
 - [View CloudWatch metrics for your load balancer](#view-metric-data "#view-metric-data")
 
@@ -143,9 +142,7 @@ target optimizer.
 | `TargetControlWorkQueueLength`    | Number of signals received by the ALB from agents asking for requests.<br>This data comes from snapshots taken at 1-minute intervals. Sub-minute<br>changes are not captured.<br>**Reporting criteria**: Target optimizer is enabled<br>on a target group and there is a nonzero value.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                                           |
 | `TargetControlProcessedBytes`     | Number of bytes processed by ALB for traffic to<br>target groups that enable target optimizer.<br>**Reporting criteria**: Target optimizer is enabled<br>on a target group and there is a nonzero value.<br>**Statistics**: The most meaningful statistic<br>is `Sum`.<br>Dimensions<br>• `LoadBalancer`<br>• `AvailabilityZone`,<br>`LoadBalancer`                                                                                                                                          |
 
-## Metric dimensions for
-
-Application Load Balancers
+## Metric dimensions for Application Load Balancers
 
 To filter the metrics for your Application Load Balancer, use the following dimensions.
 

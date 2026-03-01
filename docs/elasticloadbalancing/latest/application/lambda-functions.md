@@ -27,8 +27,7 @@ the Application Load Balancer security groups.
 
 - [Prepare the Lambda function](#prepare-lambda-function "#prepare-lambda-function")
 - [Create a target group for the Lambda function](#create-lambda-target-group "#create-lambda-target-group")
-- [Receive events from the load
-  balancer](#receive-event-from-load-balancer "#receive-event-from-load-balancer")
+- [Receive events from the load balancer](#receive-event-from-load-balancer "#receive-event-from-load-balancer")
 - [Respond to the load balancer](#respond-to-load-balancer "#respond-to-load-balancer")
 - [Multi-value headers](#multi-value-headers "#multi-value-headers")
 - [Enable health checks](#enable-health-checks-lambda "#enable-health-checks-lambda")
@@ -161,9 +160,7 @@ Resources:
         - Id: !Ref myLambdaFunction
 ```
 
-## Receive events from the load
-
-balancer
+## Receive events from the load balancer
 
 The load balancer supports Lambda invocation for requests over both HTTP and
 HTTPS. The load balancer sends an event in JSON format. The load balancer adds the
@@ -261,15 +258,11 @@ receives.
 
 ###### Contents
 
-- [Requests with multi-value
-  headers](#multi-value-headers-request "#multi-value-headers-request")
-- [Responses with multi-value
-  headers](#multi-value-headers-response "#multi-value-headers-response")
+- [Requests with multi-value headers](#multi-value-headers-request "#multi-value-headers-request")
+- [Responses with multi-value headers](#multi-value-headers-response "#multi-value-headers-response")
 - [Enable multi-value headers](#enable-multi-value-headers "#enable-multi-value-headers")
 
-### Requests with multi-value
-
-headers
+### Requests with multi-value headers
 
 The names of the fields used for headers and query string parameters differ
 depending on whether you enable multi-value headers for the target group.
@@ -330,9 +323,7 @@ the client and sends you an event that includes headers using
 If the query parameters are URL-encoded, the load balancer does not decode
 them. You must decode them in your Lambda function.
 
-### Responses with multi-value
-
-headers
+### Responses with multi-value headers
 
 The names of the fields used for headers differ depending on whether you
 enable multi-value headers for the target group. You must use

@@ -375,8 +375,7 @@ application.
 - [Requirements and considerations](#target-group-health-considerations "#target-group-health-considerations")
 - [Monitoring](#target-group-health-monitoring "#target-group-health-monitoring")
 - [Example](#target-group-health-examples "#target-group-health-examples")
-- [Using Route 53 DNS failover for your load
-  balancer](#r53-dns-failover "#r53-dns-failover")
+- [Using Route 53 DNS failover for your load balancer](#r53-dns-failover "#r53-dns-failover")
 
 ### Unhealthy state actions
 
@@ -488,9 +487,7 @@ The following example demonstrates how target group health settings are applied.
 - The load balancer distributes traffic between the 14 healthy targets in
   both Availability Zones.
 
-### Using Route 53 DNS failover for your load
-
-balancer
+### Using Route 53 DNS failover for your load balancer
 
 If you use Route 53 to route DNS queries to your load balancer, you can also
 configure DNS failover for your load balancer using Route 53. In a failover

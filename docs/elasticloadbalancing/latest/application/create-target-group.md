@@ -16,8 +16,7 @@ target group is not in use by a listener for any other load balancer.
 
 You can add or remove targets from your target group at any time. For more
 information, see [Register targets with your Application Load Balancer target group](target-group-register-targets.md "target-group-register-targets.md"). You can also modify the health
-check settings for your target group. For more information, see [Update the health check settings of an Application Load Balancer
-target group](modify-health-check-settings.md "modify-health-check-settings.md").
+check settings for your target group. For more information, see [Update the health check settings of an Application Load Balancer target group](modify-health-check-settings.md "modify-health-check-settings.md").
 
 Console
 

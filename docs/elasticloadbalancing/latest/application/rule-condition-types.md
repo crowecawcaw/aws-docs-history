@@ -20,8 +20,7 @@ see [HTTP header conditions](#http-header-conditions "#http-header-conditions").
 `http-request-method`
 
 Route based on the HTTP request method of each request. For more
-information, see [HTTP request method
-conditions](#http-request-method-conditions "#http-request-method-conditions").
+information, see [HTTP request method conditions](#http-request-method-conditions "#http-request-method-conditions").
 
 `path-pattern`
 
@@ -173,9 +172,7 @@ Regex matching
 ]
 ```
 
-## HTTP request method
-
-conditions
+## HTTP request method conditions
 
 You can use HTTP request method conditions to configure rules that route requests
 based on the HTTP request method of the request. You can specify standard or custom
