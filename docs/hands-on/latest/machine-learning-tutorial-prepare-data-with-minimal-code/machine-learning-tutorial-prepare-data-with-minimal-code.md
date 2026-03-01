@@ -1,6 +1,4 @@
-# Prepare Training Data for Machine Learning with Minimal
-
-Code
+# Prepare Training Data for Machine Learning with Minimal Code
 
 |                      |                                                                                                                                                                       |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
