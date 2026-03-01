@@ -23,6 +23,12 @@ Use the following resources to learn more about the Customer Carbon Footprint To
 
 This section documents the updates made to Customer Carbon Footprint Tool. This page lists announcements about new or updated features, bug fixes, improvements, and deprecated functionality for the year 2026.
 
+#### February 23, 2026
+
+##### On-demand backfills for carbon emissions in Data Exports are now available
+
+We now support on-demand backfills for carbon emissions data exports. This is useful when you have an existing data export and new columns or a new methodology are released and you want your historical data to be updated with the latest information. See how to request one in the [user guide](../../../cur/latest/userguide/troubleshooting-carbon-emissions.md#carbon-emissions-backfill-request "../../../cur/latest/userguide/troubleshooting-carbon-emissions.md#carbon-emissions-backfill-request").
+
 #### February 19, 2026
 
 ##### Updates to market-based emissions in multiple AWS Regions
@@ -71,9 +77,7 @@ You can find detailed information about the updated methodology in our [methodol
 
 #### August 15, 2025
 
-##### Updates to market-based emissions calculations in multiple
-
-AWS Regions
+##### Updates to market-based emissions calculations in multiple AWS Regions
 
 Customers with usage in Canada West (Calgary), Canada (Central), US West (N. California), Asia Pacific (Jakarta), and edge locations in North America will see a decrease in their market-based emissions in their May 2025 data. Customers with usage in Asia Pacific (Osaka) and Asia Pacific (Tokyo) will see an increase in their market-based emissions in their May 2025 data.
 
@@ -93,9 +97,7 @@ Customers with usage in Europe (Frankfurt) and Europe (Paris) will see a one-tim
 
 #### June 24, 2025
 
-##### Location-based method (LBM) emission calculation is
-
-launched
+##### Location-based method (LBM) emission calculation is launched
 
 The Customer Carbon Footprint Tool and AWS Data Exports now include emissions calculated using the location-based method (LBM), in addition to the existing market-based method (MBM) calculations. LBM calculates emissions based on the average carbon intensity of electricity grids where energy consumption occurs. Electricity grids worldwide vary in their power sources. Some rely more heavily on carbon-intensive fuels like coal, while others use a higher percentage of low-carbon sources such as hydro or other renewables. To learn more about LBM, see the [GHG Protocol Scope 2 Guidance](https://ghgprotocol.org/sites/default/files/2023-03/Scope%202%20Guidance.pdf "https://ghgprotocol.org/sites/default/files/2023-03/Scope%202%20Guidance.pdf").
 
@@ -111,9 +113,7 @@ The CCFT now displays Amazon CloudFront emissions separately in the service brea
 
 If you have an existing data export, you will need to recreate the data to see CloudFront data for historical months. Previously exported data remains unchanged. To backfill all of your data, you must create a new export.
 
-##### Emissions threshold updated for granularity and expanded
-
-historical data
+##### Emissions threshold updated for granularity and expanded historical data
 
 The CCFT now shows emissions data at a more granular level with expanded historical coverage. Previously, data was not visible if estimated emissions for the AWS account didn't exceed 0.05 MTCO2e over a 36 month period. Now, estimated emissions is visible in the CCFT console and CSV download as long as emissions for any period rounds to 1 kg (0.001 MTCO2e). CCFT console or CSV download will show `0 emissions` for the selected time period if the estimated emissions are below 0.0005 MTCO2e. With this update, the CCFT console and CSV download contains 38 months of data instead of the previous 36 months.
 
