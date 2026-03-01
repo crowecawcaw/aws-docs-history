@@ -1,6 +1,4 @@
-# Troubleshooting server-side rendered
-
-applications
+# Troubleshooting server-side rendered applications
 
 If you experience unexpected issues when deploying an SSR app with Amplify Hosting
 compute, review the following troubleshooting topics. If you don't see a solution to
@@ -9,48 +7,33 @@ Issues repository.
 
 ###### Topics
 
-- [I need help using a framework
-  adapter](#ssr-framework-adapter "#ssr-framework-adapter")
-- [Edge API routes cause my
-  Next.js build to fail](#nextjs-edge-API-route-not-supported "#nextjs-edge-API-route-not-supported")
-- [On-Demand Incremental Static
-  Regeneration isn't working for my app](#on-demand-isr-not-supported "#on-demand-isr-not-supported")
-- [My application's build output exceeds the
-  maximum allowed size](#build-output-too-large "#build-output-too-large")
+- [I need help using a framework adapter](#ssr-framework-adapter "#ssr-framework-adapter")
+- [Edge API routes cause my Next.js build to fail](#nextjs-edge-API-route-not-supported "#nextjs-edge-API-route-not-supported")
+- [On-Demand Incremental Static Regeneration isn't working for my app](#on-demand-isr-not-supported "#on-demand-isr-not-supported")
+- [My application's build output exceeds the maximum allowed size](#build-output-too-large "#build-output-too-large")
 - [My build fails with an out of memory error](#out-of-memory "#out-of-memory")
-- [My application's HTTP response size
-  is too large](#http-response-size-too-large "#http-response-size-too-large")
-- [How do I measure my compute app's start up time
-  locally?](#out-of-memory "#out-of-memory")
+- [My application's HTTP response size is too large](#http-response-size-too-large "#http-response-size-too-large")
+- [How do I measure my compute app's start up time locally?](#out-of-memory "#out-of-memory")
 - [My build fails with a deprecated Node.js version error](#nodejs-version "#nodejs-version")
 
-## I need help using a framework
-
-adapter
+## I need help using a framework adapter
 
 If you are having issues deploying an SSR app that uses a framework adapter, see
-[Using open source adapters for any SSR
-framework](using-framework-adapter.md "using-framework-adapter.md").
+[Using open source adapters for any SSR framework](using-framework-adapter.md "using-framework-adapter.md").
 
-## Edge API routes cause my
-
-Next.js build to fail
+## Edge API routes cause my Next.js build to fail
 
 Currently, Amplify doesn't support Next.js Edge API Routes. You must use
 non-edge APIs and middleware when hosting your app with Amplify.
 
-## On-Demand Incremental Static
-
-Regeneration isn't working for my app
+## On-Demand Incremental Static Regeneration isn't working for my app
 
 Starting with version 12.2.0, Next.js supports Incremental Static Regeneration
 (ISR) to manually purge the Next.js cache for a specific page. However, Amplify
 doesn't currently support On-Demand ISR. If your app is using Next.js on-demand
 revalidation, this feature won't work when you deploy your app to Amplify.
 
-## My application's build output exceeds the
-
-maximum allowed size
+## My application's build output exceeds the maximum allowed size
 
 Currently, the maximum build output size that Amplify supports for SSR apps is
 220 MB. If you get an error message stating that the size of your app's build output
@@ -175,17 +158,13 @@ settings file.
 For more information about Next.js cache configuration to improve build
 performance, see [AWS CodeBuild](https://nextjs.org/docs/app/guides/ci-build-caching#aws-codebuild "https://nextjs.org/docs/app/guides/ci-build-caching#aws-codebuild") on the Next.js website.
 
-## My application's HTTP response size
-
-is too large
+## My application's HTTP response size is too large
 
 Currently, the maximum response size that Amplify supports for Next.js 12 and
 later apps using the Web Compute platform is 5.72 MB. Responses over that limit
 return 504 errors with no content to clients.
 
-## How do I measure my compute app's start up time
-
-locally?
+## How do I measure my compute app's start up time locally?
 
 Use the following instructions to determine the local initialization/start up time
 for your Next.js 12 or later Compute app. You can compare your app's performance
@@ -267,5 +246,4 @@ For detailed migration guidelines, visit: https://docs.aws.amazon.com/amplify/la
 
 Cause: Your SSR application was built using a deprecated Node.js version (14.x, 16.x, or 18.x). Effective September 15, 2025, Amplify blocks deployment of SSR applications that use these deprecated versions during the build process.
 
-Update your build environment to use Node.js 20 or later. For detailed instructions, see [I need to update my application's Node.js
-version](troubleshooting-general.md#update-node-version "troubleshooting-general.md#update-node-version").
+Update your build environment to use Node.js 20 or later. For detailed instructions, see [I need to update my application's Node.js version](troubleshooting-general.md#update-node-version "troubleshooting-general.md#update-node-version").

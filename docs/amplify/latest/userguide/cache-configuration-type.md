@@ -1,6 +1,4 @@
-# How Amplify applies cache configuration to an
-
-app
+# How Amplify applies cache configuration to an app
 
 To manage caching for your app, Amplify determines the type of content that is being
 served by examining the app's platform type and rewrite rules. For `Compute` apps,
@@ -47,9 +45,7 @@ This content uses either the Amplify-Default or
 Amplify-DefaultNoCookies cache policy depending on the value of
 `cacheConfig.type` that is set on your Amplify `App`.
 
-## Understanding Amplify's managed cache
-
-policies
+## Understanding Amplify's managed cache policies
 
 Amplify uses the following predefined managed cache policies to optimize the default cache
 configuration for your hosted applications.
@@ -59,9 +55,7 @@ configuration for your hosted applications.
 - Amplify-ImageOptimization
 - Amplify-StaticContent
 
-### Amplify-Default managed cache policy
-
-settings
+### Amplify-Default managed cache policy settings
 
 [View
 this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront/v4/home#/policies/cache/4d1d2f1d-3a71-49ad-9e08-7ea5d843a556 "https://console.aws.amazon.com/cloudfront/v4/home#/policies/cache/4d1d2f1d-3a71-49ad-9e08-7ea5d843a556")
@@ -86,9 +80,7 @@ This policy has the following settings:
 - **Cache compressed objects setting:**
   Gzip and Brotli enabled.
 
-### Amplify-DefaultNoCookies managed
-
-cache policy settings
+### Amplify-DefaultNoCookies managed cache policy settings
 
 [View
 this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront/v4/home#/policies/cache/a6bad946-36c3-4c33-aa98-362c74a7fb13 "https://console.aws.amazon.com/cloudfront/v4/home#/policies/cache/a6bad946-36c3-4c33-aa98-362c74a7fb13")
@@ -113,9 +105,7 @@ This policy has the following settings:
 - **Cache compressed objects setting:**
   Gzip and Brotli enabled.
 
-### Amplify-ImageOptimization managed cache policy
-
-settings
+### Amplify-ImageOptimization managed cache policy settings
 
 [View
 this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront/v4/home#/policies/cache/1c6db51a-a33f-469a-8245-dae26771f530 "https://console.aws.amazon.com/cloudfront/v4/home#/policies/cache/1c6db51a-a33f-469a-8245-dae26771f530")
@@ -139,9 +129,7 @@ This policy has the following settings:
 - **Cache compressed objects setting:**
   Gzip and Brotli enabled.
 
-### Amplify-StaticContent managed cache policy
-
-settings
+### Amplify-StaticContent managed cache policy settings
 
 [View
 this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront/v4/home#/policies/cache/7e5fad67-ee98-4ad0-b05a-394999eefc1a "https://console.aws.amazon.com/cloudfront/v4/home#/policies/cache/7e5fad67-ee98-4ad0-b05a-394999eefc1a")

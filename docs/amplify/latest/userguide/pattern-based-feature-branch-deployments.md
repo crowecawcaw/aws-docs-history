@@ -1,6 +1,4 @@
-# Pattern-based feature branch
-
-deployments
+# Pattern-based feature branch deployments
 
 Pattern-based branch deployments allow you to automatically deploy branches that match a
 specific pattern to Amplify. Product teams using feature branch or GitFlow workflows for
@@ -34,10 +32,8 @@ You can use pattern-based feature branch deployments for an app connected to an
 Amazon Route 53 custom domain.
 
 - For instructions on setting up pattern-based feature branch deployments, see
-  [Setting up
-  automatic subdomains for an Amazon Route 53 custom domain](to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md "to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md")
+  [Setting up automatic subdomains for an Amazon Route 53 custom domain](to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md "to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md")
 - For instructions on connecting an Amplify app to a custom domain managed in
-  Route 53, see [Adding a custom domain
-  managed by Amazon Route 53](to-add-a-custom-domain-managed-by-amazon-route-53.md "to-add-a-custom-domain-managed-by-amazon-route-53.md")
+  Route 53, see [Adding a custom domain managed by Amazon Route 53](to-add-a-custom-domain-managed-by-amazon-route-53.md "to-add-a-custom-domain-managed-by-amazon-route-53.md")
 - For more information about using Route 53, see [What is Amazon Route
   53](../../../Route53/latest/DeveloperGuide/Welcome.md "../../../Route53/latest/DeveloperGuide/Welcome.md").

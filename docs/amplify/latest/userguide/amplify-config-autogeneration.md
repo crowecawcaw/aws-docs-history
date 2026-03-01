@@ -1,6 +1,4 @@
-# Automatic build-time generation of
-
-Amplify config (Gen 1 apps only)
+# Automatic build-time generation of Amplify config (Gen 1 apps only)
 
 ###### Note
 
@@ -27,6 +25,5 @@ for this backend.
 ![The location of the checkbox to turn off CI/CD in the Amplify console.](images/amplify_turnoff_CICD.png) 6. Select an existing service role to give Amplify the permissions it requires to
 make changes to your app backend. If you need to create a service role, choose
 **Create new role**. For more information about creating a
-service role, see [Adding a service role with permissions to deploy
-backend resources](amplify-service-role.md "amplify-service-role.md"). 7. Choose **Save**. Amplify applies these changes the next time
+service role, see [Adding a service role with permissions to deploy backend resources](amplify-service-role.md "amplify-service-role.md"). 7. Choose **Save**. Amplify applies these changes the next time
 you build the app.

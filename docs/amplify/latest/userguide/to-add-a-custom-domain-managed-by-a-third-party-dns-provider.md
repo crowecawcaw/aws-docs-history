@@ -1,12 +1,9 @@
-# Adding a
-
-custom domain managed by a third-party DNS provider
+# Adding a custom domain managed by a third-party DNS provider
 
 If you are not using Amazon Route 53 to manage your domain, you can add a custom domain
 managed by a third-party DNS provider to your app deployed with Amplify.
 
-If you are using GoDaddy, see [Updating DNS records for a
-domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md") for instructions specific to this provider.
+If you are using GoDaddy, see [Updating DNS records for a domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md") for instructions specific to this provider.
 
 ###### To add a custom domain managed by a third-party DNS provider
 
@@ -70,8 +67,7 @@ the console.
 
 ![The DNS records displayed in the Amplify console.](images/amplify-customdomains-DNSRecords.png) 11. Do one of the following:
 
-    * If you're using GoDaddy, go to [Updating DNS records for a
-     domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md").
+    * If you're using GoDaddy, go to [Updating DNS records for a domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md").
     * If you're using a different third-party DNS provider, go to the next step in
      this procedure.
 

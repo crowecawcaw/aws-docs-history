@@ -2,17 +2,14 @@
 
 ###### Important
 
-One-click deployment using the **Deploy to Amplify Hosting** button is no longer available. To deploy from a repository, create a new application in Amplify Hosting. For instructions, see [Getting started with deploying an app to Amplify
-Hosting](getting-started.md "getting-started.md").
+One-click deployment using the **Deploy to Amplify Hosting** button is no longer available. To deploy from a repository, create a new application in Amplify Hosting. For instructions, see [Getting started with deploying an app to Amplify Hosting](getting-started.md "getting-started.md").
 
 The **Deploy to Amplify Hosting** button enables you to share
 GitHub projects publicly or within your team. The following is an image of the button:
 
 ![The Deploy to Amplify Hosting button.](images/OneClickButton.png)
 
-## Adding
-
-the Deploy to Amplify Hosting button to a repository or blog
+## Adding the Deploy to Amplify Hosting button to a repository or blog
 
 Add the button to your GitHub README.md file, blog post, or any other markup page that
 renders HTML. The button has the following two components:

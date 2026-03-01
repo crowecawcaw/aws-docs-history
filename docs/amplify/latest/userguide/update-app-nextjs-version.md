@@ -1,6 +1,4 @@
-# Migrating a Next.js 11 SSR app to Amplify
-
-Hosting compute
+# Migrating a Next.js 11 SSR app to Amplify Hosting compute
 
 When you deploy a new Next.js app, by default Amplify uses the most recent supported
 version of Next.js. Currently, the Amplify Hosting compute SSR provider supports Next.js

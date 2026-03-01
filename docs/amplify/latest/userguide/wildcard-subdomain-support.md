@@ -25,9 +25,7 @@ The following requirements apply to wildcard subdomains:
 - By default, all Amplify provisioned certificates cover all subdomains for a
   custom domain.
 
-## To add or delete a wildcard
-
-subdomain
+## To add or delete a wildcard subdomain
 
 After adding a custom domain to an app, you can add a wildcard subdomain for an app
 branch.

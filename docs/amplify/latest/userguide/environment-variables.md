@@ -1,6 +1,4 @@
-# Using environment variables in an Amplify
-
-application
+# Using environment variables in an Amplify application
 
 Environment variables are key-value pairs that you can add to your application's settings
 to make them available to Amplify Hosting. As a best practice, you can use environment
@@ -20,9 +18,7 @@ Documentation_. For a Gen 1 app, store secrets
 in an environment secret created using the AWS Systems Manager Parameter Store. For more information,
 see [Managing environment secrets](environment-secrets.md "environment-secrets.md").
 
-## Amplify environment variable
-
-reference
+## Amplify environment variable reference
 
 The following environment variables are accessible by default within the Amplify
 console.
@@ -47,11 +43,11 @@ console.
 | AMPLIFY_FACEBOOK_CLIENT_SECRET      | The Facebook client secret                                                                                                                                                                                                                                                                                                                                                                          | `example123456`                                                                        |
 | AMPLIFY_GOOGLE_CLIENT_ID            | The Google client ID                                                                                                                                                                                                                                                                                                                                                                                | `123456`                                                                               |
 | AMPLIFY_GOOGLE_CLIENT_SECRET        | The Google client secret                                                                                                                                                                                                                                                                                                                                                                            | `example123456`                                                                        |
-| AMPLIFY_DIFF_DEPLOY                 | Enable or disable diff based frontend deployment. For more information,<br>see [Configuring diff based frontend build and<br>deploy](edit-build-settings.md#enable-diff-deploy "edit-build-settings.md#enable-diff-deploy").                                                                                                                                                                        | `true`                                                                                 |
+| AMPLIFY_DIFF_DEPLOY                 | Enable or disable diff based frontend deployment. For more information,<br>see [Configuring diff based frontend build and deploy](edit-build-settings.md#enable-diff-deploy "edit-build-settings.md#enable-diff-deploy").                                                                                                                                                                           | `true`                                                                                 |
 | AMPLIFY_DIFF_DEPLOY_ROOT            | The path to use for diff based frontend deployment comparisons, relative<br>to the root of your repository.                                                                                                                                                                                                                                                                                         | `dist`                                                                                 |
-| AMPLIFY_DIFF_BACKEND                | Enable or disable diff based backend builds. This applies to Gen 1 apps<br>only. For more information, see [Configuring diff based backend builds for a Gen 1<br>app](edit-build-settings.md#enable-diff-backend "edit-build-settings.md#enable-diff-backend")                                                                                                                                      | `true`                                                                                 |
-| AMPLIFY_BACKEND_PULL_ONLY           | Amplify manages this environment variable. This applies to Gen 1 apps<br>only. For more information, see [Edit an existing frontend to point to a<br>different backend](reuse-backends.md#reuse-backends-edit-existing "reuse-backends.md#reuse-backends-edit-existing")                                                                                                                            | `true`                                                                                 |
-| AMPLIFY_BACKEND_APP_ID              | Amplify manages this environment variable. This applies to Gen 1 apps<br>only. For more information, see [Edit an existing frontend to point to a<br>different backend](reuse-backends.md#reuse-backends-edit-existing "reuse-backends.md#reuse-backends-edit-existing")                                                                                                                            | `abcd1234`                                                                             |
+| AMPLIFY_DIFF_BACKEND                | Enable or disable diff based backend builds. This applies to Gen 1 apps<br>only. For more information, see [Configuring diff based backend builds for a Gen 1 app](edit-build-settings.md#enable-diff-backend "edit-build-settings.md#enable-diff-backend")                                                                                                                                         | `true`                                                                                 |
+| AMPLIFY_BACKEND_PULL_ONLY           | Amplify manages this environment variable. This applies to Gen 1 apps<br>only. For more information, see [Edit an existing frontend to point to a different backend](reuse-backends.md#reuse-backends-edit-existing "reuse-backends.md#reuse-backends-edit-existing")                                                                                                                               | `true`                                                                                 |
+| AMPLIFY_BACKEND_APP_ID              | Amplify manages this environment variable. This applies to Gen 1 apps<br>only. For more information, see [Edit an existing frontend to point to a different backend](reuse-backends.md#reuse-backends-edit-existing "reuse-backends.md#reuse-backends-edit-existing")                                                                                                                               | `abcd1234`                                                                             |
 | AMPLIFY_SKIP_BACKEND_BUILD          | If you do not have a backend section in your build specification and want<br>to disable backend builds, set this environment variable to<br>`true`. This applies to Gen 1 apps only.                                                                                                                                                                                                                | `true`                                                                                 |
 | AMPLIFY_ENABLE_DEBUG_OUTPUT         | Set this variable to `true` to print a stack trace in the logs. This is helpful<br>for debugging backend build errors.                                                                                                                                                                                                                                                                              | `true`                                                                                 |
 | AMPLIFY_MONOREPO_APP_ROOT           | The path to use to specify the app root of a monorepo app, relative to<br>the root of your repository.                                                                                                                                                                                                                                                                                              | `apps/react-app`                                                                       |
@@ -68,9 +64,7 @@ The `AMPLIFY_AMAZON_CLIENT_ID` and
 `AMPLIFY_AMAZON_CLIENT_SECRET` environment variables are OAuth tokens, not
 an AWS access key and secret key.
 
-## Frontend framework environment
-
-variables
+## Frontend framework environment variables
 
 If you are developing your app with a frontend framework that supports its own
 environment variables, it is important to understand that these are not the same as the

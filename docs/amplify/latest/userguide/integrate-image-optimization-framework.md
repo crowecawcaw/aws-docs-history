@@ -1,6 +1,4 @@
-# Image optimization integration for
-
-framework authors
+# Image optimization integration for framework authors
 
 Framework authors can integrate Amplify's image optimization feature by using the
 Amplify Hosting deployment specification. To enable image optimization, your deployment
@@ -24,12 +22,9 @@ following example demonstrates how to configure the routing rule.
 ```
 
 For more information about configuring image optimization settings using the deployment
-specification, see [Using the Amplify Hosting deployment
-specification to configure build output](ssr-deployment-specification.md "ssr-deployment-specification.md") .
+specification, see [Using the Amplify Hosting deployment specification to configure build output](ssr-deployment-specification.md "ssr-deployment-specification.md") .
 
-## Understanding the Image optimization
-
-API
+## Understanding the Image optimization API
 
 Image optimization can be invoked at runtime via an Amplify app's domain URL, at the
 path defined by the routing rule.

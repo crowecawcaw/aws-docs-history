@@ -1,6 +1,4 @@
-# Creating and editing redirects in the Amplify
-
-console
+# Creating and editing redirects in the Amplify console
 
 You can create and edit redirects for an application in the Amplify console. Before
 you get started, you will need the following information about the parts of a

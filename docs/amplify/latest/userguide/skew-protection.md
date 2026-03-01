@@ -44,6 +44,5 @@ skew protection to take up to ten minutes.
 
 ###### Topics
 
-- [Configuring deployment skew protection for an
-  Amplify application](configure-skew-protection.md "configure-skew-protection.md")
+- [Configuring deployment skew protection for an Amplify application](configure-skew-protection.md "configure-skew-protection.md")
 - [How skew protection works](skew-protection-headers.md "skew-protection-headers.md")

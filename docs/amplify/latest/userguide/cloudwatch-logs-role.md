@@ -1,6 +1,4 @@
-# Adding a service role with permissions to access
-
-CloudWatch Logs
+# Adding a service role with permissions to access CloudWatch Logs
 
 Amplify sends information about your SSR runtime to Amazon CloudWatch Logs in your AWS account.
 When you deploy an SSR app, the app requires an IAM service role that Amplify assumes

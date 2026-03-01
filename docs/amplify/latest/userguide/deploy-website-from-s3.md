@@ -1,6 +1,4 @@
-# Deploying a static website to Amplify from an
-
-Amazon S3 bucket
+# Deploying a static website to Amplify from an Amazon S3 bucket
 
 You can use the integration between Amplify Hosting and Amazon S3 to host static website
 content stored on S3 with just a few clicks. Deploying to Amplify Hosting
@@ -34,11 +32,7 @@ Amplify Hosting.
 
 ###### Topics
 
-- [Deploying a static website from
-  S3 using the Amplify console](deploy--from-amplify-console.md "deploy--from-amplify-console.md")
-- [Creating a bucket policy to deploy a static website from
-  S3 using the AWS SDKs](deploy-with-sdks.md "deploy-with-sdks.md")
-- [Updating a static website deployed to
-  Amplify from an S3 bucket](update-website-deployed-from-s3.md "update-website-deployed-from-s3.md")
-- [Updating an
-  S3 deployment to use a bucket and prefix instead of a .zip file](update-s3-zip-to-bucket.md "update-s3-zip-to-bucket.md")
+- [Deploying a static website from S3 using the Amplify console](deploy--from-amplify-console.md "deploy--from-amplify-console.md")
+- [Creating a bucket policy to deploy a static website from S3 using the AWS SDKs](deploy-with-sdks.md "deploy-with-sdks.md")
+- [Updating a static website deployed to Amplify from an S3 bucket](update-website-deployed-from-s3.md "update-website-deployed-from-s3.md")
+- [Updating an S3 deployment to use a bucket and prefix instead of a .zip file](update-s3-zip-to-bucket.md "update-s3-zip-to-bucket.md")

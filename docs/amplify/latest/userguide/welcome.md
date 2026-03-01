@@ -71,8 +71,7 @@ where files fail to upload properly.
 
 ## Getting started with Amplify Hosting
 
-To get started with Amplify Hosting, see the [Getting started with deploying an app to Amplify
-Hosting](getting-started.md "getting-started.md") tutorial. After completing the tutorial, you will know
+To get started with Amplify Hosting, see the [Getting started with deploying an app to Amplify Hosting](getting-started.md "getting-started.md") tutorial. After completing the tutorial, you will know
 how to connect a web app in a Git repository (GitHub, BitBucket, GitLab, or AWS CodeCommit) and
 deploy it to Amplify Hosting with continuous deployment.
 

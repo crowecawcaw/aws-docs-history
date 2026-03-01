@@ -1,6 +1,4 @@
-# Configuring the build instance for an Amplify
-
-application
+# Configuring the build instance for an Amplify application
 
 Amplify Hosting offers configurable build instance sizes that enable you to provide your
 application's build instance with the CPU, memory, and disk space resources that it requires.
@@ -27,10 +25,8 @@ type:
 ###### Topics
 
 - [Understanding build instance types](#understanding-build-instance-sizes "#understanding-build-instance-sizes")
-- [Configuring the build instance type in the
-  Amplify console](#configure-build-instance-type "#configure-build-instance-type")
-- [Configuring an application's heap memory to utilize
-  large instance types](#configuring-heap-memory "#configuring-heap-memory")
+- [Configuring the build instance type in the Amplify console](#configure-build-instance-type "#configure-build-instance-type")
+- [Configuring an application's heap memory to utilize large instance types](#configuring-heap-memory "#configuring-heap-memory")
 
 ## Understanding build instance types
 
@@ -51,8 +47,7 @@ of the application's branches. The following key details apply to build instance
 
 You can configure the build instance type when you create a new application or you can
 update the instance type on an existing application. For instructions on configuring this
-setting in the Amplify console, see [Configuring the build instance type in the
-Amplify console](#configure-build-instance-type "#configure-build-instance-type"). You can also update this setting using the
+setting in the Amplify console, see [Configuring the build instance type in the Amplify console](#configure-build-instance-type "#configure-build-instance-type"). You can also update this setting using the
 SDKs. For more information, see the [CreateApp](../APIReference/API_CreateApp.md "../APIReference/API_CreateApp.md"), and [UpdateApp](../APIReference/API_UpdateApp.md "../APIReference/API_UpdateApp.md")
 APIs in the _Amplify API Reference_.
 
@@ -67,9 +62,7 @@ that you initiate from the `main` branch will use the **Large**
 build instance type. However, any builds that are in progress at the time that you update the
 build instance type will continue to run on the **Standard** instance.
 
-## Configuring the build instance type in the
-
-Amplify console
+## Configuring the build instance type in the Amplify console
 
 Use the following procedure to configure the build instance type when you create a new
 Amplify application.
@@ -96,8 +89,7 @@ Amplify application.
 7. If you are deploying a Node.js runtime based application, configure the heap memory
    size to effectively utilize a large instance type. You can do this on the **App
    settings** page by either setting an environment variable or updating the build
-   settings. For more information, see [Configuring an application's heap memory to utilize
-   large instance types](#configuring-heap-memory "#configuring-heap-memory") .
+   settings. For more information, see [Configuring an application's heap memory to utilize large instance types](#configuring-heap-memory "#configuring-heap-memory").
    - Set an environment variable
      1. In the **Advanced settings**, **Environment
         variables** section, choose **Add new**.
@@ -143,9 +135,7 @@ application.
    4. When the deployment completes, the application's build settings will show that the
       branch is using the updated build instance type.
 
-## Configuring an application's heap memory to utilize
-
-large instance types
+## Configuring an application's heap memory to utilize large instance types
 
 If you are building memory intensive applications, use this section to understand how to
 configure your application to utilize large instance types. Programming languages and

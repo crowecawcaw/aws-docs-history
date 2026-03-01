@@ -1,6 +1,4 @@
-# Retrieving and analyzing access logs for an Amplify
-
-application
+# Retrieving and analyzing access logs for an Amplify application
 
 Amplify stores access logs for all of the apps you host in Amplify. Access logs
 contain information about requests that are made to your hosted apps. Amplify retains all

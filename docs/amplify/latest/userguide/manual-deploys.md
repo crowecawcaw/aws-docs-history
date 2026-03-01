@@ -1,6 +1,4 @@
-# Deploying an application to Amplify without a Git
-
-repository
+# Deploying an application to Amplify without a Git repository
 
 Manual deployments enable you to publish your web app with Amplify Hosting without
 connecting a Git provider. You can drag and drop a zipped folder from your desktop and host
@@ -18,8 +16,7 @@ are uploaded. See the [Deploy files stored on Amazon S3, Dropbox, or your Deskto
 console](https://aws.amazon.com/blogs/mobile/deploy-files-s3-dropbox-amplify-console/ "https://aws.amazon.com/blogs/mobile/deploy-files-s3-dropbox-amplify-console/") blog post for more details about setting up this scenario.
 
 Amplify Hosting does not support manual deploys for server-side rendered (SSR) apps. For
-more information, see [Deploying server-side rendered applications with
-Amplify Hosting](server-side-rendering-amplify.md "server-side-rendering-amplify.md").
+more information, see [Deploying server-side rendered applications with Amplify Hosting](server-side-rendering-amplify.md "server-side-rendering-amplify.md").
 
 ## Drag and drop manual deployments
 
@@ -50,8 +47,7 @@ If you are deploying a static website from S3, the following procedure
 requires that you upload a zipped folder with the contents of your build output to your
 S3 bucket. We recommend that you deploy a static website directly from
 S3 using the bucket name and prefix. For more information about this
-simplified process, see [Deploying a static website to Amplify from an
-Amazon S3 bucket](deploy-website-from-s3.md "deploy-website-from-s3.md").
+simplified process, see [Deploying a static website to Amplify from an Amazon S3 bucket](deploy-website-from-s3.md "deploy-website-from-s3.md").
 
 ###### To manually deploy an app from Amazon S3 or a public URL
 
@@ -72,8 +68,7 @@ Amazon S3 bucket](deploy-website-from-s3.md "deploy-website-from-s3.md").
         host**, choose **Browse
         S3**. Then, select the name of the Amazon S3 bucket
         from the list. Access control lists (ACLs) must be enabled for the bucket
-        you select. For more information, see [Troubleshooting Amazon S3 bucket access
-        for manual deployments](#troubleshooting-s3-bucket-access "#troubleshooting-s3-bucket-access").
+        you select. For more information, see [Troubleshooting Amazon S3 bucket access for manual deployments](#troubleshooting-s3-bucket-access "#troubleshooting-s3-bucket-access").
      2. Select the name of the .zip file to deploy.
      3. Choose **Choose prefix**.
 
@@ -91,9 +86,7 @@ folder named “build” or “public”, first navigate into that folder, selec
 contents, and zip it from there. If you do not do this, you will see an “Access Denied”
 error because the site's root directory will not be initialized properly.
 
-### Troubleshooting Amazon S3 bucket access
-
-for manual deployments
+### Troubleshooting Amazon S3 bucket access for manual deployments
 
 When you create an Amazon S3 bucket, you use its Amazon S3 Object Ownership setting to control
 whether access control lists (ACLs) are enabled or disabled for the bucket. To manually

@@ -20,8 +20,6 @@ The build notifications feature allows you to share information with team member
 
 - [Configuring the build settings for an Amplify application](build-settings.md "build-settings.md")
 - [Customizing the build image](custom-build-image.md "custom-build-image.md")
-- [Configuring the build instance for an Amplify
-  application](custom-build-instance.md "custom-build-instance.md")
-- [Creating an incoming webhook to start a
-  build](create-incoming-webhook.md "create-incoming-webhook.md")
+- [Configuring the build instance for an Amplify application](custom-build-instance.md "custom-build-instance.md")
+- [Creating an incoming webhook to start a build](create-incoming-webhook.md "create-incoming-webhook.md")
 - [Setting up email notifications for builds](notifications.md "notifications.md")

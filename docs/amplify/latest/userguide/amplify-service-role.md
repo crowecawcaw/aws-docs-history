@@ -1,6 +1,4 @@
-# Adding a service role with permissions to deploy
-
-backend resources
+# Adding a service role with permissions to deploy backend resources
 
 Amplify requires permissions to deploy backend resources with your front end. You use
 a service role to accomplish this. A service role is the AWS Identity and Access Management (IAM) role that
@@ -14,9 +12,7 @@ Amplify service role that has account administrative permissions and explicity a
 direct access to resources that Amplify applications require to deploy, create, and
 manage backends.
 
-## Creating an Amplify service role in the IAM
-
-console
+## Creating an Amplify service role in the IAM console
 
 ###### To create a service role
 
@@ -56,14 +52,11 @@ console
 
 7. Amplify now has permissions to deploy backend resources for your app.
 
-## Editing a service role's trust policy to
-
-prevent confused deputy
+## Editing a service role's trust policy to prevent confused deputy
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action can coerce a more-privileged entity to perform the
-action. For more information, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+action. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 Currently, the default trust policy for the `Amplify-Backend Deployment`
 service role enforces the `aws:SourceArn` and `aws:SourceAccount`

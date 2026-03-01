@@ -43,9 +43,7 @@ requirements.
 8. **Wget**: Amplify can use the Wget utility to download files during the build process. We recommend that you install it in your custom image.
 9. **Tar**: Amplify can use the Tar utility to uncompress downloaded files during the build process. We recommend that you install it in your custom image.
 
-## Configuring a custom build
-
-image for an app
+## Configuring a custom build image for an app
 
 Use the following procedure to configure a custom build image for an application in the Amplify console.
 
@@ -69,9 +67,7 @@ Use the following procedure to configure a custom build image for an application
    `public.ecr.aws/xxxxxxxx/ecr-examplerepo`.
 8. Choose **Save**.
 
-## Using specific package and dependency versions in the
-
-build image
+## Using specific package and dependency versions in the build image
 
 Live package updates enable you to specify the versions of packages and dependencies to
 use in the Amplify default build image. The default build image comes with several

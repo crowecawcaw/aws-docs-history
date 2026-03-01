@@ -1,6 +1,4 @@
-# Creating a bucket policy to deploy a static website from
-
-S3 using the AWS SDKs
+# Creating a bucket policy to deploy a static website from S3 using the AWS SDKs
 
 You can use the AWS SDKs to deploy a static website from Amazon S3 to Amplify Hosting.
 If you deploy your website using an SDK, you must create your own bucket policy that

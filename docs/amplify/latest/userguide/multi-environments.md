@@ -26,14 +26,9 @@ branches.
 
 ###### Topics
 
-- [Team workflows with fullstack Amplify Gen 2
-  apps](team-workflows-gen2.md "team-workflows-gen2.md")
-- [Team workflows with
-  fullstack Amplify Gen 1 apps](team-workflows-with-amplify-cli-backend-environments.md "team-workflows-with-amplify-cli-backend-environments.md")
-- [Pattern-based feature branch
-  deployments](pattern-based-feature-branch-deployments.md "pattern-based-feature-branch-deployments.md")
-- [Automatic build-time generation of
-  Amplify config (Gen 1 apps only)](amplify-config-autogeneration.md "amplify-config-autogeneration.md")
+- [Team workflows with fullstack Amplify Gen 2 apps](team-workflows-gen2.md "team-workflows-gen2.md")
+- [Team workflows with fullstack Amplify Gen 1 apps](team-workflows-with-amplify-cli-backend-environments.md "team-workflows-with-amplify-cli-backend-environments.md")
+- [Pattern-based feature branch deployments](pattern-based-feature-branch-deployments.md "pattern-based-feature-branch-deployments.md")
+- [Automatic build-time generation of Amplify config (Gen 1 apps only)](amplify-config-autogeneration.md "amplify-config-autogeneration.md")
 - [Conditional backend builds (Gen 1 apps only)](conditional-backends.md "conditional-backends.md")
-- [Use Amplify backends across apps (Gen 1 apps
-  only)](reuse-backends.md "reuse-backends.md")
+- [Use Amplify backends across apps (Gen 1 apps only)](reuse-backends.md "reuse-backends.md")

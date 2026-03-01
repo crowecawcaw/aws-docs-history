@@ -1,6 +1,4 @@
-# Using open source adapters for any SSR
-
-framework
+# Using open source adapters for any SSR framework
 
 You can use any SSR framework build adapter that has been created for integration with
 Amplify Hosting. Each framework that offers an adapter determines how the adapter is

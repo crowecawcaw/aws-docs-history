@@ -1,15 +1,11 @@
-# Setting up redirects and rewrites for an Amplify
-
-application
+# Setting up redirects and rewrites for an Amplify application
 
 Redirects enable a web server to reroute navigation from one URL to another. Common reasons
 for using redirects include to customize the appearance of a URL, to avoid broken links, to
 move the hosting location of an app or site without changing its address, and to change a
 requested URL to the form needed by a web app.
 
-## Understanding the redirects that Amplify
-
-supports
+## Understanding the redirects that Amplify supports
 
 Amplify supports the following redirect types in the console.
 
@@ -89,9 +85,7 @@ The following order of redirects ignores the redirection of _specific-filename.h
 /docs/specific-filename.html /documents/different-filename.html 301
 ```
 
-## Understanding how Amplify forwards query
-
-parameters
+## Understanding how Amplify forwards query parameters
 
 You can use query parameters for more control over your URL matches. Amplify forwards
 all query parameters to the destination path for 301 and 302 redirects, with the following

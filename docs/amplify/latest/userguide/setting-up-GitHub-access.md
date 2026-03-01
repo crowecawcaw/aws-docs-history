@@ -1,6 +1,4 @@
-# Setting up Amplify access to GitHub
-
-repositories
+# Setting up Amplify access to GitHub repositories
 
 Amplify now uses the GitHub Apps feature to authorize Amplify read-only access to GitHub
 repositories. With the Amplify GitHub App, permissions are more fine-tuned, enabling you to
@@ -21,18 +19,12 @@ app. For example, to install the Amplify GitHub App in the US West (Oregon) regi
 
 ###### Topics
 
-- [Installing and authorizing the Amplify GitHub App
-  for a new deployment](#setting-up-github-app "#setting-up-github-app")
-- [Migrating an existing OAuth app
-  to the Amplify GitHub App](#migrating-to-github-app-auth "#migrating-to-github-app-auth")
-- [Setting up the Amplify GitHub App for
-  CloudFormation, CLI, and SDK deployments](#setting-up-github-app-cloudformation "#setting-up-github-app-cloudformation")
-- [Setting up web previews with the Amplify
-  GitHub App](#setting-up-github-app-pr-previews "#setting-up-github-app-pr-previews")
+- [Installing and authorizing the Amplify GitHub App for a new deployment](#setting-up-github-app "#setting-up-github-app")
+- [Migrating an existing OAuth app to the Amplify GitHub App](#migrating-to-github-app-auth "#migrating-to-github-app-auth")
+- [Setting up the Amplify GitHub App for CloudFormation, CLI, and SDK deployments](#setting-up-github-app-cloudformation "#setting-up-github-app-cloudformation")
+- [Setting up web previews with the Amplify GitHub App](#setting-up-github-app-pr-previews "#setting-up-github-app-pr-previews")
 
-## Installing and authorizing the Amplify GitHub App
-
-for a new deployment
+## Installing and authorizing the Amplify GitHub App for a new deployment
 
 When you deploy a new app to Amplify from existing code in a GitHub repo, use the
 following instructions to install and authorize the GitHub App.
@@ -71,9 +63,7 @@ following instructions to install and authorize the GitHub App.
 14. On the **Review** page, choose **Save and
     deploy**.
 
-## Migrating an existing OAuth app
-
-to the Amplify GitHub App
+## Migrating an existing OAuth app to the Amplify GitHub App
 
 Existing Amplify apps that you previously connected from GitHub repositories use OAuth
 for repo access. We strongly recommend that you migrate these apps to use the Amplify GitHub
@@ -111,16 +101,13 @@ subsequent app migrations.
     installation**. This step deletes your existing webhook, creates a new one, and
     completes the migration.
 
-## Setting up the Amplify GitHub App for
-
-CloudFormation, CLI, and SDK deployments
+## Setting up the Amplify GitHub App for CloudFormation, CLI, and SDK deployments
 
 Existing Amplify apps that you previously connected from GitHub repositories use OAuth
 for repo access. This can include apps that you deployed using the Amplify Command Line
 Interface (CLI), CloudFormation, or the SDKs. We strongly recommend that you migrate these apps to use
 the new Amplify GitHub App. Migration must be performed in the Amplify console in the
-AWS Management Console. For instructions, see [Migrating an existing OAuth app
-to the Amplify GitHub App](#migrating-to-github-app-auth "#migrating-to-github-app-auth").
+AWS Management Console. For instructions, see [Migrating an existing OAuth app to the Amplify GitHub App](#migrating-to-github-app-auth "#migrating-to-github-app-auth").
 
 You can use CloudFormation, the Amplify CLI, and the SDKs to deploy a new Amplify app that uses
 the GitHub App for repo access. This process requires that you first install the Amplify
@@ -180,9 +167,7 @@ aws amplify create-app --name `myapp-using-githubapp` --repository `https://gith
 
 ```
 
-## Setting up web previews with the Amplify
-
-GitHub App
+## Setting up web previews with the Amplify GitHub App
 
 A web preview deploys every pull request (PR) made to your GitHub repository to a unique
 preview URL. Previews now use the Amplify GitHub App for access to your GitHub repo. For

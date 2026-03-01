@@ -21,9 +21,7 @@ To get a high-level view of how Amplify and other AWS services work with most IA
 features, see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for Amplify
+## Identity-based policies for Amplify
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amplify
 
-Identity-based policy examples for Amplify
+To view examples of Amplify identity-based policies, see [Identity-based policy examples for Amplify](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amplify identity-based policies, see [Identity-based policy examples for
-Amplify](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amplify
+## Resource-based policies within Amplify
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amplify
+## Policy actions for Amplify
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Amplify identity-based policies, see [Identity-based policy examples for
-Amplify](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amplify identity-based policies, see [Identity-based policy examples for Amplify](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amplify
+## Policy resources for Amplify
 
 **Supports policy resources:**
 
@@ -121,12 +109,9 @@ For a list of Amplify resource types and their ARNs, see [Resource types defined
 in the _Service Authorization Reference_. To learn with which actions you can
 specify the ARN of each resource, see [Actions defined by AWS Amplify](../../../service-authorization/latest/reference/list_awsamplify.md#awsamplify-actions-as-permissions "../../../service-authorization/latest/reference/list_awsamplify.md#awsamplify-actions-as-permissions").
 
-To view examples of Amplify identity-based policies, see [Identity-based policy examples for
-Amplify](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amplify identity-based policies, see [Identity-based policy examples for Amplify](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amplify
+## Policy condition keys for Amplify
 
 **Supports service-specific policy condition keys:**
 
@@ -146,12 +131,9 @@ For a list of Amplify condition keys, see
 which actions and resources you can use a condition key, see
 [Actions defined by AWS Amplify](../../../service-authorization/latest/reference/list_awsamplify.md#awsamplify-actions-as-permissions "../../../service-authorization/latest/reference/list_awsamplify.md#awsamplify-actions-as-permissions").
 
-To view examples of Amplify identity-based policies, see [Identity-based policy examples for
-Amplify](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amplify identity-based policies, see [Identity-based policy examples for Amplify](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-Amplify
+## Access control lists (ACLs) in Amplify
 
 **Supports ACLs:**
 
@@ -160,9 +142,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with Amplify
+## Attribute-based access control (ABAC) with Amplify
 
 **Supports ABAC (tags in policies):**
 
@@ -179,9 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Amplify
+## Using temporary credentials with Amplify
 
 **Supports temporary credentials:**
 
@@ -193,9 +171,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for Amplify
+## Forward access sessions for Amplify
 
 **Supports forward access sessions (FAS):**
 
@@ -204,9 +180,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amplify
+## Service roles for Amplify
 
 **Supports service roles:**
 
@@ -221,9 +195,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amplify functionality.
 Edit service roles only when Amplify provides guidance to do so.
 
-## Service-linked
-
-roles for Amplify
+## Service-linked roles for Amplify
 
 **Supports service-linked roles:**
 

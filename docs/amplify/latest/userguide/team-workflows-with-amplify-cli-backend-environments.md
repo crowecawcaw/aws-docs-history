@@ -1,6 +1,4 @@
-# Team workflows with
-
-fullstack Amplify Gen 1 apps
+# Team workflows with fullstack Amplify Gen 1 apps
 
 A feature branch deployment consists of a **frontend**, and
 an optional **backend** environment. The frontend is built and

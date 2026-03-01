@@ -28,9 +28,7 @@ see [Getting started with existing code](getting-started.md "getting-started.md"
 
 6. Choose **Save**.
 
-## Create
-
-a new backend environment with authentication parameters for social sign-in
+## Create a new backend environment with authentication parameters for social sign-in
 
 ###### To connect a branch to an app
 
@@ -54,8 +52,7 @@ a new backend environment with authentication parameters for social sign-in
      for social sign-in keys. For example,
      `AMPLIFY_FACEBOOK_CLIENT_SECRET` is a valid
      environment variable. For the list of Amplify system environment
-     variables that are available by default, see the table in [Amplify environment variable
-     reference](environment-variables.md#amplify-console-environment-variables "environment-variables.md#amplify-console-environment-variables").
+     variables that are available by default, see the table in [Amplify environment variable reference](environment-variables.md#amplify-console-environment-variables "environment-variables.md#amplify-console-environment-variables").
 
    - **Connecting a branch to an existing
      app**

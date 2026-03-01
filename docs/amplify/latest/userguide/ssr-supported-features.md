@@ -29,8 +29,7 @@ Node.js 16, and Node.js 18 runtimes. Supported runtimes include Node.js 20 and N
 
 You can specify the Node.js version to use in the **Live package
 override** feature in the Amplify console. For more information about
-configuring live package updates, see [Using specific package and dependency versions in the
-build image](custom-build-image.md#setup-live-updates "custom-build-image.md#setup-live-updates"). You can also specify the Node.js
+configuring live package updates, see [Using specific package and dependency versions in the build image](custom-build-image.md#setup-live-updates "custom-build-image.md#setup-live-updates"). You can also specify the Node.js
 version using other mechanisms, such as nvm commands. If you don't specify a
 version, Amplify defaults to use the current version used by the Amplify build
 container.
@@ -74,8 +73,7 @@ logs:DescribeLogGroups
 logs:PutLogEvents
 ```
 
-For more information about service roles, see [Adding a service role with permissions to deploy
-backend resources](amplify-service-role.md "amplify-service-role.md").
+For more information about service roles, see [Adding a service role with permissions to deploy backend resources](amplify-service-role.md "amplify-service-role.md").
 
 ## Amplify Next.js 11 SSR support
 
@@ -87,15 +85,12 @@ Classic (Next.js 11 only) SSR provider.
 ###### Note
 
 We strongly recommend that you migrate your Next.js 11 apps to the Amplify Hosting
-compute managed SSR provider. For more information, see [Migrating a Next.js 11 SSR app to Amplify
-Hosting compute](update-app-nextjs-version.md "update-app-nextjs-version.md").
+compute managed SSR provider. For more information, see [Migrating a Next.js 11 SSR app to Amplify Hosting compute](update-app-nextjs-version.md "update-app-nextjs-version.md").
 
 The following list describes the specific features that the Amplify Classic (Next.js
 11 only) SSR provider supports.
 
-###### Supported
-
-features
+###### Supported features
 
 - Server-side rendered pages (SSR)
 - Static pages
@@ -130,9 +125,7 @@ in your AWS account, including:
 - Four [Lambda@Edge
   functions](../../../AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.md "../../../AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.md") to customize the content that CloudFront delivers.
 
-### AWS Identity and Access Management permissions for Next.js 11 SSR
-
-apps
+### AWS Identity and Access Management permissions for Next.js 11 SSR apps
 
 Amplify requires AWS Identity and Access Management (IAM) permissions to deploy an SSR app. For SSR apps,
 Amplify deploys resources such as an Amazon S3 bucket, a CloudFront distribution,
@@ -142,8 +135,7 @@ when you try to deploy your SSR app. To provide Amplify with the required permis
 you must specify a service role.
 
 To create an IAM service role that Amplify assumes when calling other services on
-your behalf, see [Adding a service role with permissions to deploy
-backend resources](amplify-service-role.md "amplify-service-role.md"). These instructions demonstrate
+your behalf, see [Adding a service role with permissions to deploy backend resources](amplify-service-role.md "amplify-service-role.md"). These instructions demonstrate
 how to create a role that attaches the `AdministratorAccess-Amplify` managed
 policy.
 
@@ -227,37 +219,27 @@ amplify:UpdateApp
 amplify:UpdateBranch
 ```
 
-### Troubleshooting Next.js 11 SSR
-
-deployments
+### Troubleshooting Next.js 11 SSR deployments
 
 If you experience unexpected issues when deploying a Classic (Next.js 11 only) SSR app
 with Amplify, review the following troubleshooting topics.
 
 ###### Topics
 
-- [My application's output directory is
-  overridden](#output-directory-overridden "#output-directory-overridden")
+- [My application's output directory is overridden](#output-directory-overridden "#output-directory-overridden")
 - [I get a 404 error after deploying my SSR site](#404-error "#404-error")
-- [My application is missing the rewrite rule
-  for CloudFront SSR distributions](#cloudfront-rewrite-rule-missing "#cloudfront-rewrite-rule-missing")
+- [My application is missing the rewrite rule for CloudFront SSR distributions](#cloudfront-rewrite-rule-missing "#cloudfront-rewrite-rule-missing")
 - [My application is too large to deploy](#app-too-large-to-deploy "#app-too-large-to-deploy")
 - [My build fails with an out of memory error](#out-of-memory "#out-of-memory")
 - [My application has both SSR and SSG branches](#ssr-and-ssg-branches "#ssr-and-ssg-branches")
-- [My application stores static files in a folder with a
-  reserved path](#amplify-reserved-path "#amplify-reserved-path")
-- [My application has reached a CloudFront
-  limit](#cloudfront-distribution-limit "#cloudfront-distribution-limit")
-- [Lambda@Edge functions are created
-  in the US East (N. Virginia) Region](#nextjs-version-lambda-edge-functions "#nextjs-version-lambda-edge-functions")
-- [My Next.js application uses unsupported
-  features](#nextjs-version-support "#nextjs-version-support")
+- [My application stores static files in a folder with a reserved path](#amplify-reserved-path "#amplify-reserved-path")
+- [My application has reached a CloudFront limit](#cloudfront-distribution-limit "#cloudfront-distribution-limit")
+- [Lambda@Edge functions are created in the US East (N. Virginia) Region](#nextjs-version-lambda-edge-functions "#nextjs-version-lambda-edge-functions")
+- [My Next.js application uses unsupported features](#nextjs-version-support "#nextjs-version-support")
 - [Images in my Next.js application aren't loading](#image-size-limit "#image-size-limit")
 - [Unsupported Regions](#amplify-region-support "#amplify-region-support")
 
-#### My application's output directory is
-
-overridden
+#### My application's output directory is overridden
 
 The output directory for a Next.js app deployed with Amplify must be set to
 `.next`. If your app's output directory is being overridden, check the
@@ -299,12 +281,9 @@ frontend:
 If you get a 404 error after deploying your site, the issue could be caused by your
 output directory being overridden. To check your `next.config.js` file and
 verify the correct build output directory in your app's build spec, follow the steps in
-the previous topic, [My application's output directory is
-overridden](#output-directory-overridden "#output-directory-overridden").
+the previous topic, [My application's output directory is overridden](#output-directory-overridden "#output-directory-overridden").
 
-#### My application is missing the rewrite rule
-
-for CloudFront SSR distributions
+#### My application is missing the rewrite rule for CloudFront SSR distributions
 
 When you deploy an SSR app, Amplify creates a rewrite rule for your CloudFront SSR
 distributions. If you can't access your app in a web browser, verify that the CloudFront
@@ -368,9 +347,7 @@ You can't deploy an app that has both SSR and SSG branches. If you need to deplo
 both SSR and SSG branches, you must deploy one app that uses only SSR branches and
 another app that uses only SSG branches.
 
-#### My application stores static files in a folder with a
-
-reserved path
+#### My application stores static files in a folder with a reserved path
 
 Next.js can serve static files from a folder named `public` that's stored
 in the project's root directory. When you deploy and host a Next.js app with Amplify,
@@ -379,27 +356,21 @@ reserves the `public/static` path for use when distributing the app. If your
 app includes this path, you must rename the `static` folder before deploying
 with Amplify.
 
-#### My application has reached a CloudFront
-
-limit
+#### My application has reached a CloudFront limit
 
 [CloudFront service
 quotas](../../../AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.md "../../../AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.md") limit your AWS account to 25 distributions with attached Lambda@Edge
 functions. If you exceed this quota, you can either delete any unused CloudFront distributions
 from your account or request a quota increase. For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
-#### Lambda@Edge functions are created
-
-in the US East (N. Virginia) Region
+#### Lambda@Edge functions are created in the US East (N. Virginia) Region
 
 When you deploy a Next.js app, Amplify creates Lambda@Edge functions to customize
 the content that CloudFront delivers. Lambda@Edge functions are created in the US East (N. Virginia) Region,
 not the Region where your app is deployed. This is a Lambda@Edge restriction. For more
 information about Lambda@Edge functions, see [Restrictions on edge functions](../../../AmazonCloudFront/latest/DeveloperGuide/edge-functions-restrictions.md "../../../AmazonCloudFront/latest/DeveloperGuide/edge-functions-restrictions.md") in the _Amazon CloudFront Developer Guide._
 
-#### My Next.js application uses unsupported
-
-features
+#### My Next.js application uses unsupported features
 
 Apps deployed with Amplify support the Next.js major versions up through version 11. For a detailed list of the Next.js features that are supported and unsupported by
 Amplify, see [supported features](#supportedfeatures "#supportedfeatures").
@@ -407,8 +378,7 @@ Amplify, see [supported features](#supportedfeatures "#supportedfeatures").
 When you deploy a new Next.js app, Amplify uses the most recent supported version
 of Next.js by default. If you have an existing Next.js app that you deployed to
 Amplify with an older version of Next.js, you can migrate the app to the Amplify
-Hosting compute SSR provider. For instructions, see [Migrating a Next.js 11 SSR app to Amplify
-Hosting compute](update-app-nextjs-version.md "update-app-nextjs-version.md").
+Hosting compute SSR provider. For instructions, see [Migrating a Next.js 11 SSR app to Amplify Hosting compute](update-app-nextjs-version.md "update-app-nextjs-version.md").
 
 #### Images in my Next.js application aren't loading
 

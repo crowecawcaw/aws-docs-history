@@ -36,16 +36,14 @@ When web previews are enabled for an application in a public repository, with an
 Compute role, you need to carefully manage which branches can access the role. We recommend
 that you don't use an app-level role. Instead, you should attach a Compute role at the
 branch-level. This allows you to grant permissions only to the branches that require access to
-specific resources. For more information, see [Adding an SSR Compute role to allow access to
-AWS resources](amplify-SSR-compute-role.md "amplify-SSR-compute-role.md") .
+specific resources. For more information, see [Adding an SSR Compute role to allow access to AWS resources](amplify-SSR-compute-role.md "amplify-SSR-compute-role.md") .
 
 ## Enable web previews for pull requests
 
 For apps stored in a GitHub repo, web previews use the Amplify GitHub App for repo access.
 If you are enabling web previews on an existing Amplify app that you previously deployed
 from a GitHub repo using OAuth for access, you must first migrate the app to use the
-Amplify GitHub App. For migration instructions, see [Migrating an existing OAuth app
-to the Amplify GitHub App](setting-up-GitHub-access.md#migrating-to-github-app-auth "setting-up-GitHub-access.md#migrating-to-github-app-auth").
+Amplify GitHub App. For migration instructions, see [Migrating an existing OAuth app to the Amplify GitHub App](setting-up-GitHub-access.md#migrating-to-github-app-auth "setting-up-GitHub-access.md#migrating-to-github-app-auth").
 
 ###### To enable web previews for pull requests
 
@@ -96,13 +94,10 @@ your PR to a preview URL. After the pull request is closed, the preview URL is d
 environment linked to the pull request is deleted. For GitHub repositories only, you can access a preview of your URL directly from the
 pull request in your GitHub account.
 
-## Web preview access with
-
-subdomains
+## Web preview access with subdomains
 
 Web previews for pull requests are accessible with subdomains for an Amplify app that
 is connected to a custom domain managed by Amazon Route 53. When the pull request is closed,
 branches and subdomains associated with the pull request are automatically deleted. This is
 the default behavior for web previews after you set up pattern-based feature branch
-deployments for your app. For instructions on setting up automatic subdomains, see [Setting up
-automatic subdomains for an Amazon Route 53 custom domain](to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md "to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md").
+deployments for your app. For instructions on setting up automatic subdomains, see [Setting up automatic subdomains for an Amazon Route 53 custom domain](to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md "to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md").

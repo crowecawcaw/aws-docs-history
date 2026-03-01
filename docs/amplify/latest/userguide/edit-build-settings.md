@@ -21,30 +21,20 @@ repository.
 
 ###### Topics
 
-- [Setting branch-specific build settings with
-  scripting](#branch-specific-build-settings "#branch-specific-build-settings")
-- [Setting a command to navigate to a
-  subfolder](#navigating-to-a-subfolder "#navigating-to-a-subfolder")
-- [Deploying the backend with the front end for a Gen 1
-  app](#frontend-with-backend "#frontend-with-backend")
+- [Setting branch-specific build settings with scripting](#branch-specific-build-settings "#branch-specific-build-settings")
+- [Setting a command to navigate to a subfolder](#navigating-to-a-subfolder "#navigating-to-a-subfolder")
+- [Deploying the backend with the front end for a Gen 1 app](#frontend-with-backend "#frontend-with-backend")
 - [Setting the output folder](#setting-the-output-folder "#setting-the-output-folder")
-- [Installing packages as part of a
-  build](#installing-packages-as-part-of-your-build "#installing-packages-as-part-of-your-build")
+- [Installing packages as part of a build](#installing-packages-as-part-of-your-build "#installing-packages-as-part-of-your-build")
 - [Using a private npm registry](#using-a-private-npm-registry "#using-a-private-npm-registry")
 - [Installing OS packages](#installing-os-packages "#installing-os-packages")
-- [Setting key-value storage for every
-  build](#key-value-storage-for-every-build "#key-value-storage-for-every-build")
+- [Setting key-value storage for every build](#key-value-storage-for-every-build "#key-value-storage-for-every-build")
 - [Skipping the build for a commit](#skip-build-for-a-commit "#skip-build-for-a-commit")
-- [Turning off automatic builds on every
-  commit](#disable-automatic-builds "#disable-automatic-builds")
-- [Configuring diff based frontend build and
-  deploy](#enable-diff-deploy "#enable-diff-deploy")
-- [Configuring diff based backend builds for a Gen 1
-  app](#enable-diff-backend "#enable-diff-backend")
+- [Turning off automatic builds on every commit](#disable-automatic-builds "#disable-automatic-builds")
+- [Configuring diff based frontend build and deploy](#enable-diff-deploy "#enable-diff-deploy")
+- [Configuring diff based backend builds for a Gen 1 app](#enable-diff-backend "#enable-diff-backend")
 
-## Setting branch-specific build settings with
-
-scripting
+## Setting branch-specific build settings with scripting
 
 You can use bash shell scripting to set branch-specific build settings. For example, the
 following script uses the system environment variable _$AWS_BRANCH_ to run one set of commands if the branch name is _main_ and a different set of commands if the branch name
@@ -59,9 +49,7 @@ frontend:
         - if [ "${AWS_BRANCH}" = "dev" ]; then echo "dev branch"; fi
 ```
 
-## Setting a command to navigate to a
-
-subfolder
+## Setting a command to navigate to a subfolder
 
 For monorepos, users want to be able to `cd` into a folder to run the build.
 After you run the `cd` command, it applies to all stages of your build so you
@@ -83,9 +71,7 @@ frontend:
         - npm run build
 ```
 
-## Deploying the backend with the front end for a Gen 1
-
-app
+## Deploying the backend with the front end for a Gen 1 app
 
 ###### Note
 
@@ -122,9 +108,7 @@ frontend:
     baseDirectory: public
 ```
 
-## Installing packages as part of a
-
-build
+## Installing packages as part of a build
 
 You can use the `npm` or `yarn` commands to install packages
 during the build.
@@ -177,9 +161,7 @@ build:
         - sudo yum install -y <package>
 ```
 
-## Setting key-value storage for every
-
-build
+## Setting key-value storage for every build
 
 The `envCache` provides key-value storage at build time. Values stored in the
 `envCache` can only be modified during a build and can be re-used at the next
@@ -199,9 +181,7 @@ envCache --get <key>
 
 To skip an automatic build on a particular commit, include the text **[skip-cd]** at the end of the commit message.
 
-## Turning off automatic builds on every
-
-commit
+## Turning off automatic builds on every commit
 
 You can configure Amplify to turn off automatic builds on every code commit. To set
 up, choose **App settings**, **Branch settings**, and then
@@ -209,9 +189,7 @@ locate the **Branches** section that lists the connected branches. Select a
 branch, and then choose **Actions**, **Disable auto
 build**. New commits to that branch will no longer start a new build.
 
-## Configuring diff based frontend build and
-
-deploy
+## Configuring diff based frontend build and deploy
 
 You can configure Amplify to use diff based frontend builds. If enabled, at the start
 of each build Amplify attempts to run a diff on either your `appRoot`, or the
@@ -248,9 +226,7 @@ Optionally, you can set the `AMPLIFY_DIFF_DEPLOY_ROOT` environment variable
 to override the default path with a path relative to the root of your repo, such as
 `dist`.
 
-## Configuring diff based backend builds for a Gen 1
-
-app
+## Configuring diff based backend builds for a Gen 1 app
 
 ###### Note
 

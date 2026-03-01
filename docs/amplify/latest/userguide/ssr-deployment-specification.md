@@ -1,6 +1,4 @@
-# Using the Amplify Hosting deployment
-
-specification to configure build output
+# Using the Amplify Hosting deployment specification to configure build output
 
 The Amplify Hosting deployment specification is a file system based specification that
 defines the directory structure that facilitates deployments to Amplify Hosting. A
@@ -67,9 +65,7 @@ Provides frameworks with a service to optimize images at runtime.
 Provides frameworks with a mechanism to map incoming request paths to specific
 targets.
 
-## The .amplify-hosting/static
-
-directory
+## The .amplify-hosting/static directory
 
 You must place all publicly accessible static files that are meant to be served from
 the application URL in the `.amplify-hosting/static` directory. The
@@ -89,9 +85,7 @@ must prepend the base path to the static assets inside the
 `main.css` will be
 `.amplify-hosting/static/folder1/folder2/main.css`.
 
-## The .amplify-hosting/compute
-
-directory
+## The .amplify-hosting/compute directory
 
 A single compute resource is represented by a single subdirectory named
 `default` contained within the
@@ -125,9 +119,7 @@ minutes, and the only writable path within the execution instance is the
 can't exceed 220 MB. For example, the `.amplify/compute/default`
 subdirectory can't exceed 220 MB when uncompressed.
 
-## The
-
-.amplify-hosting/deploy-manifest.json file
+## The .amplify-hosting/deploy-manifest.json file
 
 Use the `deploy-manifest.json` file to store the configuration
 details and metadata for a deployment. At a minimum, a
@@ -169,8 +161,7 @@ Hosting routing rules primitive. Routing rules provide a mechanism for routing i
 request paths to a specific target in the deployment bundle. Routing rules only dictate
 the destination of an incoming request and are applied after the request has been
 transformed by rewrite and redirect rules. For more information about how Amplify
-Hosting handles rewrites and redirects, see [Setting up redirects and rewrites for an Amplify
-application](redirects.md "redirects.md").
+Hosting handles rewrites and redirects, see [Setting up redirects and rewrites for an Amplify application](redirects.md "redirects.md").
 
 Routing rules don't rewrite or transform the request. If an incoming request matches
 the path pattern for a route, the request is routed as-is to the route's target.
@@ -309,12 +300,9 @@ attribute with multiple routing rules specified.
 ```
 
 For more information about specifying routing rules in your deployment manifest, see
-[Best practices for configuring routing
-rules](#routing-best-practices "#routing-best-practices")
+[Best practices for configuring routing rules](#routing-best-practices "#routing-best-practices")
 
-### Using the computeResources
-
-attribute
+### Using the computeResources attribute
 
 The `computeResources` attribute enables frameworks to provide metadata
 about the provisioned compute resources. Every compute resource must have a
@@ -470,9 +458,7 @@ properties.
 | name    | String | Yes      | The name of the framework.                                                               |
 | version | String | Yes      | The version of the framework.<br>It must be a valid semantic versioning (semver) string. |
 
-## Best practices for configuring routing
-
-rules
+## Best practices for configuring routing rules
 
 Routing rules provide a mechanism for routing incoming request paths to specific
 targets in the deployment bundle. In a deployment bundle, framework authors can emit files

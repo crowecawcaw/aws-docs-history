@@ -27,9 +27,6 @@ assumes to allow Amplify to access Amazon CloudWatch Logs.
 
 ###### Topics
 
-- [Adding a service role with permissions to deploy
-  backend resources](amplify-service-role.md "amplify-service-role.md")
-- [Adding an SSR Compute role to allow access to
-  AWS resources](amplify-SSR-compute-role.md "amplify-SSR-compute-role.md")
-- [Adding a service role with permissions to access
-  CloudWatch Logs](cloudwatch-logs-role.md "cloudwatch-logs-role.md")
+- [Adding a service role with permissions to deploy backend resources](amplify-service-role.md "amplify-service-role.md")
+- [Adding an SSR Compute role to allow access to AWS resources](amplify-SSR-compute-role.md "amplify-SSR-compute-role.md")
+- [Adding a service role with permissions to access CloudWatch Logs](cloudwatch-logs-role.md "cloudwatch-logs-role.md")

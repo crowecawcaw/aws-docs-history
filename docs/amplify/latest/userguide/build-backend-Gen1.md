@@ -46,8 +46,7 @@ documentation_.
 4. Amplify authorizes access to your git repository. For GitHub repositories,
    Amplify now uses the GitHub Apps feature to authorize Amplify access.
 
-For more information about installing and authorizing the GitHub App, see [Setting up Amplify access to GitHub
-repositories](setting-up-GitHub-access.md "setting-up-GitHub-access.md"). 5. On the **Add repository branch** page do the following:
+For more information about installing and authorizing the GitHub App, see [Setting up Amplify access to GitHub repositories](setting-up-GitHub-access.md "setting-up-GitHub-access.md"). 5. On the **Add repository branch** page do the following:
 
     1. In the **Recently updated repositories** list, select
      the name of the repository to connect.
@@ -118,9 +117,7 @@ backend, including an AWS AppSync GraphQL API to access data and an Amazon Dynam
 host the Todo items. Amplify uses CloudFormation to deploy your backend, which enables you to
 store your backend definition as infrastructure-as-code.
 
-## Step 3: Connect the backend to the
-
-frontend
+## Step 3: Connect the backend to the frontend
 
 Now that you have deployed a frontend and created a cloud backend that contains a
 data model, you need to connect them. Use the following instructions to pull your
@@ -162,8 +159,7 @@ run in _pull only_ mode. At build time, Amplify will
 automatically generate the `aws-exports.js` file only, without
 modifying your backend environment. 4. Next, you must set up a service role to give Amplify the permissions it
 requires to make changes to your app backend. You can either use an existing
-service role or create a new one. For instructions, see [Adding a service role with permissions to deploy
-backend resources](amplify-service-role.md "amplify-service-role.md"). 5. After adding a service role, return to the **Edit target
+service role or create a new one. For instructions, see [Adding a service role with permissions to deploy backend resources](amplify-service-role.md "amplify-service-role.md"). 5. After adding a service role, return to the **Edit target
 backend** window and choose **Save**. 6. To finish connecting the **staging** backend to
 the **main** branch of the frontend app, perform a
 new build of your project.
@@ -182,9 +178,7 @@ Do one of the following:
 Follow our recommended workflow to [set up feature branch deployments with multiple backend
 environments](multi-environments.md#team-workflows-with-amplify-cli-backend-environments "multi-environments.md#team-workflows-with-amplify-cli-backend-environments").
 
-### Create a frontend UI in
-
-Amplify Studio
+### Create a frontend UI in Amplify Studio
 
 Use Studio to build your frontend UI with a set of ready-to-use UI
 components, and then connect it to your app backend. For more information and

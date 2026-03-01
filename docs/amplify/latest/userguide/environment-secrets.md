@@ -9,9 +9,7 @@ Environment secrets for a Gen 1 app are similar to environment variables, but th
 AWS Systems Manager Parameter Store key value pairs that can be encrypted. Some values must be
 encrypted, such as the Sign in with Apple private key for Amplify.
 
-## Using AWS Systems Manager to set environment secrets for
-
-an Amplify Gen 1 application
+## Using AWS Systems Manager to set environment secrets for an Amplify Gen 1 application
 
 Use the following instructions to set an environment secret for a Gen 1 Amplify app
 using the AWS Systems Manager console.
@@ -43,16 +41,12 @@ Amplify only has access to the keys under the
 specific environment build. You must specify the default AWS KMS key to allow
 Amplify to decrypt the value.
 
-## Accessing environment secrets for a Gen 1
-
-application
+## Accessing environment secrets for a Gen 1 application
 
 Environment secrets for a Gen 1 application are stored in `process.env.secrets` as a JSON
 string.
 
-## Amplify environment secrets
-
-reference
+## Amplify environment secrets reference
 
 Specify an Systems Manager parameter in the format
 `/amplify/{your_app_id}/{your_backend_environment_name}/AMPLIFY_SIWA_CLIENT_ID`.

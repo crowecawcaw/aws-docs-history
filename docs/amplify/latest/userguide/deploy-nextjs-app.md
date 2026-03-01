@@ -8,14 +8,11 @@ deployed before November 17, 2022 are using the Classic (Next.js 11 only) SSR pr
 We strongly recommend that you migrate apps using Classic (Next.js 11 only) SSR to the
 Amplify Hosting compute SSR provider. Amplify doesn't perform automatic migrations for
 you. You must manually migrate your app and then initiate a new build to complete the
-update. For instructions, see [Migrating a Next.js 11 SSR app to Amplify
-Hosting compute](update-app-nextjs-version.md "update-app-nextjs-version.md").
+update. For instructions, see [Migrating a Next.js 11 SSR app to Amplify Hosting compute](update-app-nextjs-version.md "update-app-nextjs-version.md").
 
 Use the following instructions to deploy a new Next.js SSR app.
 
-###### To deploy an SSR app to Amplify using the Amplify Hosting compute SSR
-
-provider
+###### To deploy an SSR app to Amplify using the Amplify Hosting compute SSR provider
 
 1. Sign in to the AWS Management Console and open the [Amplify
    console](https://console.aws.amazon.com/amplify/ "https://console.aws.amazon.com/amplify/").
@@ -74,9 +71,7 @@ supports only SSG pages.
 },
 ```
 
-## Amplify build settings for a Next.js SSR
-
-application
+## Amplify build settings for a Next.js SSR application
 
 After inspecting your app's `package.json` file, Amplify checks the build
 settings for the app. You can save build settings in the Amplify console or in an
@@ -114,9 +109,7 @@ frontend:
 
 ```
 
-## Amplify build settings for a Next.js 13
-
-or earlier SSG application
+## Amplify build settings for a Next.js 13 or earlier SSG application
 
 If Amplify detects that you are deploying a Next.js 13 or earlier SSG app, it
 generates a build specification for the app and sets `baseDirectory` to
@@ -151,9 +144,7 @@ frontend:
 
 ```
 
-## Amplify build settings for a Next.js 14 or later SSG
-
-application
+## Amplify build settings for a Next.js 14 or later SSG application
 
 In Next.js version 14, the `next export` command was deprecated and
 replaced with `output: 'export'` in the `next.config.js`

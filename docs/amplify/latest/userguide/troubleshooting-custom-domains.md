@@ -9,31 +9,19 @@ support case](../../../awssupport/latest/user/case-management.md#creating-a-supp
 
 ###### Topics
 
-- [I need to verify that my
-  CNAME resolves](#how-do-i-verify-that-my-cname-resolves "#how-do-i-verify-that-my-cname-resolves")
-- [My domain hosted with a third-party is stuck in the Pending Verification
-  state](#my-domain-hosted-with-a-third-party-is-stuck-in-the-pending-verification-state "#my-domain-hosted-with-a-third-party-is-stuck-in-the-pending-verification-state")
-- [My domain hosted with Amazon Route 53 is stuck in the Pending Verification
-  state](#my-domain-hosted-with-amazon-route-53-is-stuck-in-the-pending-verification-state "#my-domain-hosted-with-amazon-route-53-is-stuck-in-the-pending-verification-state")
-- [My
-  app with multi-level subdomains is stuck in the Pending Verification
-  state](#multilevel-domain-is-stuck-in-the-pending-verification-state "#multilevel-domain-is-stuck-in-the-pending-verification-state")
-- [My DNS provider doesn't support A
-  records with fully qualified domain names](#FQDN-A-recored-unsupported "#FQDN-A-recored-unsupported")
-- [I get a
-  CNAMEAlreadyExistsException error](#i-get-a-cnamealreadyexistsexception-error "#i-get-a-cnamealreadyexistsexception-error")
-- [I get an Additional
-  Verification Required error](#i-get-an-additionalverificationrequired-error "#i-get-an-additionalverificationrequired-error")
-- [I get a 404 error on the CloudFront
-  URL](#i-get-a-404-cloudfront-url "#i-get-a-404-cloudfront-url")
-- [I get SSL certificate or HTTPS errors
-  when visiting my domain](#ssl-HTTPS-errors-on-domain "#ssl-HTTPS-errors-on-domain")
+- [I need to verify that my CNAME resolves](#how-do-i-verify-that-my-cname-resolves "#how-do-i-verify-that-my-cname-resolves")
+- [My domain hosted with a third-party is stuck in the Pending Verification state](#my-domain-hosted-with-a-third-party-is-stuck-in-the-pending-verification-state "#my-domain-hosted-with-a-third-party-is-stuck-in-the-pending-verification-state")
+- [My domain hosted with Amazon Route 53 is stuck in the Pending Verification state](#my-domain-hosted-with-amazon-route-53-is-stuck-in-the-pending-verification-state "#my-domain-hosted-with-amazon-route-53-is-stuck-in-the-pending-verification-state")
+- [My app with multi-level subdomains is stuck in the Pending Verification state](#multilevel-domain-is-stuck-in-the-pending-verification-state "#multilevel-domain-is-stuck-in-the-pending-verification-state")
+- [My DNS provider doesn't support A records with fully qualified domain names](#FQDN-A-recored-unsupported "#FQDN-A-recored-unsupported")
+- [I get a CNAMEAlreadyExistsException error](#i-get-a-cnamealreadyexistsexception-error "#i-get-a-cnamealreadyexistsexception-error")
+- [I get an Additional Verification Required error](#i-get-an-additionalverificationrequired-error "#i-get-an-additionalverificationrequired-error")
+- [I get a 404 error on the CloudFront URL](#i-get-a-404-cloudfront-url "#i-get-a-404-cloudfront-url")
+- [I get SSL certificate or HTTPS errors when visiting my domain](#ssl-HTTPS-errors-on-domain "#ssl-HTTPS-errors-on-domain")
 - [Path components not supported in domain redirects](#domain-redirects-path-components "#domain-redirects-path-components")
 - [I get a 400 error for cross account domain association](#cross-account-domain-association-400-error "#cross-account-domain-association-400-error")
 
-## I need to verify that my
-
-CNAME resolves
+## I need to verify that my CNAME resolves
 
 1. After you update your DNS records with your third-party domain provider,
    you can use a tool such as [dig](<https://en.wikipedia.org/wiki/Dig_(command)> "https://en.wikipedia.org/wiki/Dig_(command)") or a free
@@ -47,9 +35,7 @@ CNAME resolves correctly to a cloudfront.net URL.
 
 ![The whatsmydns.net application showing the results of a resolving CNAME.](images/amplify-troubleshooting-whatsmydns-2Update.png)
 
-## My domain hosted with a third-party is stuck in the Pending Verification
-
-state
+## My domain hosted with a third-party is stuck in the Pending Verification state
 
 1. If your custom domain is stuck in the **Pending
    Verification** state, verify that your CNAME
@@ -77,9 +63,7 @@ resolving or you can migrate your DNS to Route 53. For more information, see
 [Making Amazon
 Route 53 the DNS service for an existing domain](../../../Route53/latest/DeveloperGuide/MigratingDNS.md "../../../Route53/latest/DeveloperGuide/MigratingDNS.md").
 
-## My domain hosted with Amazon Route 53 is stuck in the Pending Verification
-
-state
+## My domain hosted with Amazon Route 53 is stuck in the Pending Verification state
 
 If you transferred your domain to Amazon Route 53, it is possible that your domain has
 different name servers than those issued by Amplify when your app was created.
@@ -107,10 +91,7 @@ server values on the right side.
 see [Creating a support case](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case") in the
 _AWS Support User Guide_.
 
-## My
-
-app with multi-level subdomains is stuck in the Pending Verification
-state
+## My app with multi-level subdomains is stuck in the Pending Verification state
 
 If an app with multi-level subdomains is stuck in the **Pending
 Verification** state when connecting to a third-party DNS provider,
@@ -129,9 +110,7 @@ from the records. For example, if the full format is
 propagate. Then use a tool such as MX Toolbox to check whether the verification
 process is working.
 
-## My DNS provider doesn't support A
-
-records with fully qualified domain names
+## My DNS provider doesn't support A records with fully qualified domain names
 
 Some DNS providers don't support A records with a fully qualified domain name
 (FQDN), such as `example.cloudfront.net`. For example, Cloudflare
@@ -160,9 +139,7 @@ This workaround enables you to properly point your apex domain (@ record) to
 services like CloudFront, while avoiding the IPv4-only limitation of A
 records in Cloudflare's system.
 
-## I get a
-
-CNAMEAlreadyExistsException error
+## I get a CNAMEAlreadyExistsException error
 
 If you get a **CNAMEAlreadyExistsException** error,
 this means that one of the host names that you tried to connect (a subdomain, or the
@@ -218,9 +195,7 @@ Perform the following steps to diagnose the cause of the **CNAMEAlreadyExistsExc
    Amplify Hosting and start over with the workflow to connect a custom
    domain in the Amplify console.
 
-## I get an Additional
-
-Verification Required error
+## I get an Additional Verification Required error
 
 If you get an **Additional Verification Required**
 error, this means that AWS Certificate Manager (ACM) requires additional information to process
@@ -235,9 +210,7 @@ Forum](https://forums.aws.amazon.com/forum.jspa?forumID=206 "https://forums.aws.
 You cannot request a certificate for Amazon-owned domain names such as those
 ending in amazonaws.com, cloudfront.net, or elasticbeanstalk.com.
 
-## I get a 404 error on the CloudFront
-
-URL
+## I get a 404 error on the CloudFront URL
 
 To serve traffic, Amplify Hosting points to a CloudFront URL via a CNAME record. In
 the process of connecting an app to a custom domain, the Amplify console displays
@@ -254,9 +227,7 @@ also configure `dev.example.com` that points to the dev branch of the
 same app. Therefore, you must visit your application based on it's configured
 subdomains so that Amplify can route the requests accordingly.
 
-## I get SSL certificate or HTTPS errors
-
-when visiting my domain
+## I get SSL certificate or HTTPS errors when visiting my domain
 
 If you have Certificate Authority Authorization (CAA) DNS records configured with
 your third-party DNS provider, AWS Certificate Manager (ACM) might not be able to update or
@@ -301,12 +272,9 @@ perform.
 
 
 
-        	+ [Adding a custom domain
-        	 managed by Amazon Route 53](to-add-a-custom-domain-managed-by-amazon-route-53.md "to-add-a-custom-domain-managed-by-amazon-route-53.md").
-        	+ [Adding a
-        	 custom domain managed by a third-party DNS provider](to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md "to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md").
-        	+ [Updating DNS records for a
-        	 domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md").
+        	+ [Adding a custom domain managed by Amazon Route 53](to-add-a-custom-domain-managed-by-amazon-route-53.md "to-add-a-custom-domain-managed-by-amazon-route-53.md").
+        	+ [Adding a custom domain managed by a third-party DNS provider](to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md "to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md").
+        	+ [Updating DNS records for a domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md").
 
     - Contact Support to have your SSL certificate reissued.
 
@@ -314,8 +282,7 @@ perform.
 
 Domain redirects only match the hostname portion. Path components in domain-based
 source rules (e.g., `"https://domain.com/path"`) are not supported and
-will cause the rule to be ignored without error. For more information, see [Redirects and rewrites example
-reference](redirect-rewrite-examples.md "redirect-rewrite-examples.md").
+will cause the rule to be ignored without error. For more information, see [Redirects and rewrites example reference](redirect-rewrite-examples.md "redirect-rewrite-examples.md").
 
 ## I get a 400 error for cross account domain association
 

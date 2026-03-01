@@ -1,6 +1,4 @@
-# Redirects and rewrites example
-
-reference
+# Redirects and rewrites example reference
 
 This section provides examples for a variety of common redirect scenarios.
 
@@ -34,16 +32,13 @@ Original address domain matching is case-insensitive.
 ###### Topics
 
 - [Simple redirects and rewrites](#simple-redirects-and-rewrites "#simple-redirects-and-rewrites")
-- [Redirects for single page web apps
-  (SPA)](#redirects-for-single-page-web-apps-spa "#redirects-for-single-page-web-apps-spa")
+- [Redirects for single page web apps (SPA)](#redirects-for-single-page-web-apps-spa "#redirects-for-single-page-web-apps-spa")
 - [Reverse proxy rewrite](#reverse-proxy-rewrite "#reverse-proxy-rewrite")
 - [Trailing slashes and clean URLs](#trailing-slashes-and-clean-urls "#trailing-slashes-and-clean-urls")
 - [Placeholders](#placeholders "#placeholders")
-- [Query strings and path
-  parameters](#query-strings-and-path-parameters "#query-strings-and-path-parameters")
+- [Query strings and path parameters](#query-strings-and-path-parameters "#query-strings-and-path-parameters")
 - [Region-based redirects](#region-based-redirects "#region-based-redirects")
-- [Using wildcard expressions in redirects and
-  rewrites](#wildcard-redirects "#wildcard-redirects")
+- [Using wildcard expressions in redirects and rewrites](#wildcard-redirects "#wildcard-redirects")
 
 ## Simple redirects and rewrites
 
@@ -173,9 +168,7 @@ Path components in domain-based source rules (such as
 `"https://domain.com/path"`) are not supported and will cause the rule
 to be ignored without error.
 
-## Redirects for single page web apps
-
-(SPA)
+## Redirects for single page web apps (SPA)
 
 Most SPA frameworks support HTML5 history.pushState() to change browser location without
 initiating a server request. This works for users who begin their journey from the root (or
@@ -260,9 +253,7 @@ JSON format
 ]
 ```
 
-## Query strings and path
-
-parameters
+## Query strings and path parameters
 
 ###### Warning
 
@@ -339,9 +330,7 @@ JSON format
 ]
 ```
 
-## Using wildcard expressions in redirects and
-
-rewrites
+## Using wildcard expressions in redirects and rewrites
 
 You can use the wildcard expression, `<*>`, in the original address for
 a redirect or rewrite. You must place the expression at the end of the original address,

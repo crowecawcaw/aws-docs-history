@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AdministratorAccess-Amplify
+## AWS managed policy: AdministratorAccess-Amplify
 
 You can attach the `AdministratorAccess-Amplify` policy to your IAM
 identities. Amplify also attaches this policy to a service role that allows Amplify
@@ -45,9 +43,7 @@ This is required to support Amazon Cognito user pools configuration.
 To view the permissions for this policy, see [AdministratorAccess-Amplify](../../../aws-managed-policy/latest/reference/AdministratorAccess-Amplify.md "../../../aws-managed-policy/latest/reference/AdministratorAccess-Amplify.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed
-
-policy: AmplifyBackendDeployFullAccess
+## AWS managed policy: AmplifyBackendDeployFullAccess
 
 You can attach the `AmplifyBackendDeployFullAccess` policy to your IAM
 identities.
@@ -91,9 +87,7 @@ defined by customers.
 To view the permissions for this policy, see [AmplifyBackendDeployFullAccess](../../../aws-managed-policy/latest/reference/AmplifyBackendDeployFullAccess.md "../../../aws-managed-policy/latest/reference/AmplifyBackendDeployFullAccess.md") in the _AWS Managed Policy
 Reference_.
 
-## Amplify updates to AWS managed
-
-policies
+## Amplify updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amplify since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

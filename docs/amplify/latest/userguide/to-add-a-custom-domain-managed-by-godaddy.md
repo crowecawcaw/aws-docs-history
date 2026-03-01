@@ -1,6 +1,4 @@
-# Updating DNS records for a
-
-domain managed by GoDaddy
+# Updating DNS records for a domain managed by GoDaddy
 
 If GoDaddy is your DNS provider, use the following instructions to update your DNS
 records in the GoDaddy UI to finish connecting your Amplify app to your GoDaddy
@@ -9,8 +7,7 @@ domain.
 ###### To add a custom domain managed by GoDaddy
 
 1. Before you can update your DNS records with GoDaddy, complete steps one through
-   nine of the procedure [Adding a
-   custom domain managed by a third-party DNS provider](to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md "to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md").
+   nine of the procedure [Adding a custom domain managed by a third-party DNS provider](to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md "to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md").
 2. Log in to your GoDaddy account.
 3. In your list of domains, find the domain to add and choose **Manage DNS**.
 4. On the **DNS** page, GoDaddy displays a list of
@@ -49,7 +46,7 @@ domain.
    The following screenshot shows the location of the verification record to
    use.
 
-   ![The DNS records section in the Amplify console with the Hostname verification record circled](images/amplify-customdomains-DNS-verification-1.png) 3. For **Value**, enter the ACM validation certificate.
+   ![The DNS records section in the Amplify console with the Hostname verification record circled](/images/amplify/latest/userguide/images/amplify-customdomains-DNS-verification-1.png) 3. For **Value**, enter the ACM validation certificate.
 
    For example, if the validation server is **\_cjhwou20vhu2exampleuw20vuyb2ovb9.j9s73ucn9vy.acm-validations.aws**,
    enter **\_cjhwou20vhu2exampleuw20vuyb2ovb9.j9s73ucn9vy.acm-validations.aws**

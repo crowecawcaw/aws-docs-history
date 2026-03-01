@@ -8,9 +8,7 @@ build.
 Cypress is a JavaScript-based testing framework that allows you to run E2E tests on a
 browser. For a tutorial that demonstrates how to set up E2E tests, see the blog post [Running end-to-end Cypress tests for your fullstack CI/CD deployment with Amplify](https://aws.amazon.com/blogs/mobile/run-end-to-end-cypress-tests-for-your-fullstack-ci-cd-deployment-with-amplify-console/ "https://aws.amazon.com/blogs/mobile/run-end-to-end-cypress-tests-for-your-fullstack-ci-cd-deployment-with-amplify-console/").
 
-## Adding Cypress tests to an
-
-existing Amplify application
+## Adding Cypress tests to an existing Amplify application
 
 You can add Cypress tests to an existing app by updating the app's build settings in the
 Amplify console. The build specification YAML contains a collection of build commands and

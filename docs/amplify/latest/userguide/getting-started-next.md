@@ -39,8 +39,7 @@ repository provider, then choose **Next**.
 
 For GitHub repositories, Amplify uses the GitHub Apps feature to authorize
 Amplify access. For more information about installing and authorizing the GitHub
-App, see [Setting up Amplify access to GitHub
-repositories](setting-up-GitHub-access.md "setting-up-GitHub-access.md").
+App, see [Setting up Amplify access to GitHub repositories](setting-up-GitHub-access.md "setting-up-GitHub-access.md").
 
 ###### Note
 
@@ -54,9 +53,7 @@ only. 4. On the **Add repository branch** page do the following:
     2. Select the name of the repository branch to connect.
     3. Choose **Next**.
 
-## Step 2: Confirm the
-
-build settings
+## Step 2: Confirm the build settings
 
 Amplify automatically detects the sequence of build commands to run for the branch
 you are deploying. In this step you review and confirm your build settings.

@@ -1,6 +1,4 @@
-# Updating an
-
-S3 deployment to use a bucket and prefix instead of a .zip file
+# Updating an S3 deployment to use a bucket and prefix instead of a .zip file
 
 If you already have an existing static website deployed to Amplify Hosting from a
 .zip file in an Amazon S3 general purpose bucket, you can update the application deployment

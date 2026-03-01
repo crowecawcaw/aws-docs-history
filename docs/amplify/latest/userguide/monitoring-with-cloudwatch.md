@@ -1,6 +1,4 @@
-# Monitoring an Amplify application with
-
-Amazon CloudWatch
+# Monitoring an Amplify application with Amazon CloudWatch
 
 AWS Amplify is integrated with Amazon CloudWatch, enabling you to monitor metrics for your
 Amplify applications in near real-time, and create alarms that send notifications when a
@@ -137,10 +135,8 @@ logs:DescribeLogGroups
 logs:PutLogEvents
 ```
 
-For more information about adding a service role, see [Adding a service role with permissions to deploy
-backend resources](amplify-service-role.md "amplify-service-role.md"). For more
-information about deploying server-side rendered apps, see [Deploying server-side rendered applications with
-Amplify Hosting](server-side-rendering-amplify.md "server-side-rendering-amplify.md").
+For more information about adding a service role, see [Adding a service role with permissions to deploy backend resources](amplify-service-role.md "amplify-service-role.md"). For more
+information about deploying server-side rendered apps, see [Deploying server-side rendered applications with Amplify Hosting](server-side-rendering-amplify.md "server-side-rendering-amplify.md").
 
 You can view the Amplify Hosting compute logs for an SSR application in the CloudWatch
 console or in the Amplify console. Use the following instructions to view the logs in

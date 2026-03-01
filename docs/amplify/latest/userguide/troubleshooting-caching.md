@@ -5,14 +5,10 @@ this section for help.
 
 ###### Topics
 
-- [I want to reduce the size of the cache for an
-  app](#reduce-cache-size "#reduce-cache-size")
-- [I want to disable reading from the cache for
-  an app](#disable-reading-cache "#disable-reading-cache")
+- [I want to reduce the size of the cache for an app](#reduce-cache-size "#reduce-cache-size")
+- [I want to disable reading from the cache for an app](#disable-reading-cache "#disable-reading-cache")
 
-## I want to reduce the size of the cache for an
-
-app
+## I want to reduce the size of the cache for an app
 
 If you are using the cache, you might be caching intermediate files that aren't
 cleaned up between builds. Caching these infrequently used files will increase the
@@ -36,9 +32,7 @@ When you cache the `node_modules` folder,
 For a full example of the build specification settings for an Amplify app, see
 [Build specification YAML syntax reference](yml-specification-syntax.md#build-yaml-syntax "yml-specification-syntax.md#build-yaml-syntax")
 
-## I want to disable reading from the cache for
-
-an app
+## I want to disable reading from the cache for an app
 
 If you want to disable reading from the cache for an app, remove the cache section
 from your app's build specification.

@@ -5,17 +5,12 @@ the topics in this section for help.
 
 ###### Topics
 
-- [New commits to my repository aren't
-  triggering Amplify builds](#commits-not-triggering-builds "#commits-not-triggering-builds")
-- [My repository name isn't listed in the Amplify
-  console when creating a new application](#repo-not-listed "#repo-not-listed")
-- [My build fails with the Cannot find
-  module aws-exports error (Gen 1 apps only)](#cannot-find-aws-exports "#cannot-find-aws-exports")
+- [New commits to my repository aren't triggering Amplify builds](#commits-not-triggering-builds "#commits-not-triggering-builds")
+- [My repository name isn't listed in the Amplify console when creating a new application](#repo-not-listed "#repo-not-listed")
+- [My build fails with the Cannot find module aws-exports error (Gen 1 apps only)](#cannot-find-aws-exports "#cannot-find-aws-exports")
 - [I want to override a build timeout](#override-build-timeout "#override-build-timeout")
 
-## New commits to my repository aren't
-
-triggering Amplify builds
+## New commits to my repository aren't triggering Amplify builds
 
 If new commits to your Git repository aren't triggering Amplify builds, verify
 that your webhook is still present on your repository. If it's present, check the
@@ -24,9 +19,7 @@ payload size limit of 256 KB for incoming webhooks. If you push a commit to your
 repository that has a large number of changed files, you might exceed this limit and
 cause builds to not be triggered.
 
-## My repository name isn't listed in the Amplify
-
-console when creating a new application
+## My repository name isn't listed in the Amplify console when creating a new application
 
 When you create a new application in the Amplify console, you can choose from
 your organization's available repositories on the **Add repository and
@@ -36,9 +29,7 @@ large number of repositories. To resolve this issue, push a commit to the
 repository, then refresh the repository list in the console. This should cause the
 repository to be displayed.
 
-## My build fails with the `Cannot find
-
-module aws-exports` error (Gen 1 apps only)
+## My build fails with the `Cannot find module aws-exports` error (Gen 1 apps only)
 
 If your app can't find the `aws-exports.js` file during a
 build, the following error is returned.

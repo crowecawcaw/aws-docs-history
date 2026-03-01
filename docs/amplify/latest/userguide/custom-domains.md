@@ -25,13 +25,11 @@ prerequisites.
 - You have a certificate issued by or imported into AWS Certificate Manager.
 - You have deployed your app to Amplify Hosting.
 
-For more information about completing this step, see [Getting started with deploying an app to Amplify
-Hosting](getting-started.md "getting-started.md").
+For more information about completing this step, see [Getting started with deploying an app to Amplify Hosting](getting-started.md "getting-started.md").
 
 - You have a basic knowledge of domains and DNS terminology.
 
-For more information about domains and DNS, see [Understanding DNS terminology
-and concepts](understanding-dns-terminology-and-concepts.md "understanding-dns-terminology-and-concepts.md").
+For more information about domains and DNS, see [Understanding DNS terminology and concepts](understanding-dns-terminology-and-concepts.md "understanding-dns-terminology-and-concepts.md").
 
 ###### Warning
 
@@ -39,19 +37,13 @@ When initiating a DomainAssociation request for an Amplify app with a domain tha
 
 ###### Topics
 
-- [Understanding DNS terminology
-  and concepts](understanding-dns-terminology-and-concepts.md "understanding-dns-terminology-and-concepts.md")
+- [Understanding DNS terminology and concepts](understanding-dns-terminology-and-concepts.md "understanding-dns-terminology-and-concepts.md")
 - [Using SSL/TLS certificates](using-certificates.md "using-certificates.md")
-- [Adding a custom domain
-  managed by Amazon Route 53](to-add-a-custom-domain-managed-by-amazon-route-53.md "to-add-a-custom-domain-managed-by-amazon-route-53.md")
-- [Adding a
-  custom domain managed by a third-party DNS provider](to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md "to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md")
-- [Updating DNS records for a
-  domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md")
-- [Updating the SSL/TLS certificate for a
-  domain](to-update-certificate.md "to-update-certificate.md")
+- [Adding a custom domain managed by Amazon Route 53](to-add-a-custom-domain-managed-by-amazon-route-53.md "to-add-a-custom-domain-managed-by-amazon-route-53.md")
+- [Adding a custom domain managed by a third-party DNS provider](to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md "to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md")
+- [Updating DNS records for a domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md")
+- [Updating the SSL/TLS certificate for a domain](to-update-certificate.md "to-update-certificate.md")
 - [Managing subdomains](to-manage-subdomains.md "to-manage-subdomains.md")
 - [Setting up wildcard subdomains](wildcard-subdomain-support.md "wildcard-subdomain-support.md")
-- [Setting up
-  automatic subdomains for an Amazon Route 53 custom domain](to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md "to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md")
+- [Setting up automatic subdomains for an Amazon Route 53 custom domain](to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md "to-set-up-automatic-subdomains-for-a-Route-53-custom-domain.md")
 - [Troubleshooting custom domains](custom-domain-troubleshoot-guide.md "custom-domain-troubleshoot-guide.md")

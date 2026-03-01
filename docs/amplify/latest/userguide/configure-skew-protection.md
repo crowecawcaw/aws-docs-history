@@ -1,6 +1,4 @@
-# Configuring deployment skew protection for an
-
-Amplify application
+# Configuring deployment skew protection for an Amplify application
 
 You can add or remove deployment skew protection for an application using the Amplify
 console, the AWS Command Line Interface, or the SDKs. The feature is applied at the branch level. Only new

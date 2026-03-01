@@ -30,8 +30,7 @@ appropriate:
   (Amazon S3)
   bucket that you specify. You can identify which users and accounts called AWS, the source IP
   address from which the calls were made, and when the calls occurred. For more information, see
-  [Logging Amplify API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+  [Logging Amplify API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 - _Amazon EventBridge_ is a serverless event bus service that makes it easy to
   connect your applications with data from a variety of sources. EventBridge delivers a stream of
   real-time data from your own applications, Software-as-a-Service (SaaS) applications, and AWS

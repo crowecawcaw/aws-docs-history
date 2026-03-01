@@ -1,6 +1,4 @@
-# Deploying server-side rendered applications with
-
-Amplify Hosting
+# Deploying server-side rendered applications with Amplify Hosting
 
 You can use AWS Amplify to deploy and host web apps that use server-side rendering (SSR).
 Amplify Hosting automatically detects applications created using the Next.js framework and you
@@ -40,8 +38,7 @@ configuration.
 **Open source adapters**
 
 - **Use an open source adapter -** For instructions on
-  using any adapter that isn't in the preceding list, see [Using open source adapters for any SSR
-  framework](using-framework-adapter.md "using-framework-adapter.md") .
+  using any adapter that isn't in the preceding list, see [Using open source adapters for any SSR framework](using-framework-adapter.md "using-framework-adapter.md") .
 - **Build a framework adapter -** Framework authors that
   want to integrate features that a framework provides, can use the Amplify Hosting
   deployment specification to configure your build output to conform to the structure
@@ -50,8 +47,7 @@ configuration.
 - **Configure a post-build script -** You can use the
   Amplify Hosting deployment specification to manipulate your build output as needed for
   specific scenarios. For more information, see [Using the Amplify Hosting deployment
-  specification to configure build output](ssr-deployment-specification.md "ssr-deployment-specification.md"). For an example, see [Deploying an Express server using the deployment
-  manifest](deploy-express-server.md "deploy-express-server.md").
+  specification to configure build output](ssr-deployment-specification.md "ssr-deployment-specification.md"). For an example, see [Deploying an Express server using the deployment manifest](deploy-express-server.md "deploy-express-server.md").
 
 ###### Topics
 
@@ -71,8 +67,7 @@ deployment bundle that conforms to the build output that Amplify expects. If you
 deploying a Next.js application, no adapter is needed.
 
 If you're deploying an SSR app that uses a framework adapter, you must first install and
-configure the adapter. For instructions, see [Using open source adapters for any SSR
-framework](using-framework-adapter.md "using-framework-adapter.md").
+configure the adapter. For instructions, see [Using open source adapters for any SSR framework](using-framework-adapter.md "using-framework-adapter.md").
 
 ###### To deploy an SSR app to Amplify Hosting
 

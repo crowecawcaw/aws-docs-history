@@ -1,14 +1,10 @@
-# Deploying a static website from
-
-S3 using the Amplify console
+# Deploying a static website from S3 using the Amplify console
 
 Use the following instructions to deploy a new static website from an Amazon S3 general purpose
 bucket using the Amplify
 console.
 
-###### To deploy a static website from an Amazon S3 general purpose bucket using the
-
-Amplify console
+###### To deploy a static website from an Amazon S3 general purpose bucket using the Amplify console
 
 1. Sign in to the AWS Management Console and open the Amplify console at [https://console.aws.amazon.com/amplify/](https://console.aws.amazon.com/amplify/ "https://console.aws.amazon.com/amplify/").
 2. On the **All apps** page, choose **Create new

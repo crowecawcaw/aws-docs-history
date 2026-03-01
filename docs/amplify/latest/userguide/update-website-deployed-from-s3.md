@@ -1,6 +1,4 @@
-# Updating a static website deployed to
-
-Amplify from an S3 bucket
+# Updating a static website deployed to Amplify from an S3 bucket
 
 If you update any of the objects for a static website in general purpose S3
 bucket hosted on Amplify, you must redeploy the application to Amplify

@@ -1,6 +1,4 @@
-# Making environment variables accessible to
-
-server-side runtimes
+# Making environment variables accessible to server-side runtimes
 
 Amplify Hosting supports adding environment variables to your application's builds by
 setting them in the project's configuration in the Amplify console.
@@ -88,9 +86,7 @@ NEXT_PUBLIC_GRAPHQL_ENDPOINT=uowelalsmlsadf
 NEXT_PUBLIC_FEATURE_FLAG=true
 ```
 
-## SSR environment variables for
-
-monorepos
+## SSR environment variables for monorepos
 
 If you are deploying an SSR app in a monorepo and want to make specific environment
 variables accessible to Next.js, you must prefix the `.env.production`

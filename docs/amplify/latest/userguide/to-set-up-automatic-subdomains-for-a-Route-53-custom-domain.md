@@ -1,6 +1,4 @@
-# Setting up
-
-automatic subdomains for an Amazon Route 53 custom domain
+# Setting up automatic subdomains for an Amazon Route 53 custom domain
 
 After an app is connected to a custom domain in Route 53, Amplify enables you to
 automatically create subdomains for newly connected branches. For example, if you connect

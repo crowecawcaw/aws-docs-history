@@ -11,11 +11,7 @@ output that Amplify expects.
 
 ###### Topics
 
-- [Using the Amplify Hosting deployment
-  specification to configure build output](ssr-deployment-specification.md "ssr-deployment-specification.md")
-- [Deploying an Express server using the deployment
-  manifest](deploy-express-server.md "deploy-express-server.md")
-- [Image optimization integration for
-  framework authors](integrate-image-optimization-framework.md "integrate-image-optimization-framework.md")
-- [Using open source adapters for any SSR
-  framework](using-framework-adapter.md "using-framework-adapter.md")
+- [Using the Amplify Hosting deployment specification to configure build output](ssr-deployment-specification.md "ssr-deployment-specification.md")
+- [Deploying an Express server using the deployment manifest](deploy-express-server.md "deploy-express-server.md")
+- [Image optimization integration for framework authors](integrate-image-optimization-framework.md "integrate-image-optimization-framework.md")
+- [Using open source adapters for any SSR framework](using-framework-adapter.md "using-framework-adapter.md")

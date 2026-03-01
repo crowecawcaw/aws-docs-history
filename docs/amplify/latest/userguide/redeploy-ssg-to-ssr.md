@@ -1,6 +1,4 @@
-# Adding SSR functionality to a static Next.js
-
-app
+# Adding SSR functionality to a static Next.js app
 
 You can add SSR functionality to an existing static (SSG) Next.js app deployed with
 Amplify. Before you start the process of converting your SSG app to SSR, update the app to

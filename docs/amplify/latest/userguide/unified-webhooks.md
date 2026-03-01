@@ -28,16 +28,13 @@ Unified webhooks provide the following benefits:
   webhooks allocated by your Git provider for other essential workflows in your
   development process.
 
-## Getting started with unified
-
-webhooks
+## Getting started with unified webhooks
 
 **Creating a new app**
 
 When you deploy a new application to Amplify Hosting from a Git repository, the
 unified webhooks feature is automatically implemented for your repository. For
-instructions on creating a new application, see [Getting started with deploying an app to Amplify
-Hosting](getting-started.md "getting-started.md").
+instructions on creating a new application, see [Getting started with deploying an app to Amplify Hosting](getting-started.md "getting-started.md").
 
 **Updating an existing app**
 

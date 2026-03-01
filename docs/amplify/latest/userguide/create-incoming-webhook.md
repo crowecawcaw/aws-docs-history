@@ -1,6 +1,4 @@
-# Creating an incoming webhook to start a
-
-build
+# Creating an incoming webhook to start a build
 
 Set up an incoming webhook in the Amplify console to start a build without committing
 code to your Git repository. You can use webhooks with headless CMS tools (such as

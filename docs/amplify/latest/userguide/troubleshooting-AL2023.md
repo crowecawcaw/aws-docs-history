@@ -1,20 +1,14 @@
-# Troubleshooting Amazon Linux 2023 build image
-
-issues
+# Troubleshooting Amazon Linux 2023 build image issues
 
 The following information can help you troubleshoot issues with the Amazon Linux 2023
 (AL2023) build image.
 
 ###### Topics
 
-- [I want to run Amplify functions with the Python
-  runtime](#python-runtime "#python-runtime")
-- [I want to run commands that require superuser or
-  root privileges](#root-privileges "#root-privileges")
+- [I want to run Amplify functions with the Python runtime](#python-runtime "#python-runtime")
+- [I want to run commands that require superuser or root privileges](#root-privileges "#root-privileges")
 
-## I want to run Amplify functions with the Python
-
-runtime
+## I want to run Amplify functions with the Python runtime
 
 Amplify Hosting now uses the Amazon Linux 2023 build image by default when you deploy
 a new application. AL2023 comes pre-installed with Python versions 3.8, 3.9, 3.10,
@@ -46,9 +40,7 @@ backend:
         - amplifyPush --simple
 ```
 
-## I want to run commands that require superuser or
-
-root privileges
+## I want to run commands that require superuser or root privileges
 
 If you are using the Amazon Linux 2023 build image and get an error when running system
 commands that require superuser or root privileges, you must run these commands

@@ -1,6 +1,4 @@
-# Adding an SSR Compute role to allow access to
-
-AWS resources
+# Adding an SSR Compute role to allow access to AWS resources
 
 This integration, enables you to assign an IAM role to the Amplify SSR Compute
 service to allow your server-side rendered (SSR) application to securely access specific
@@ -53,12 +51,9 @@ application. This provides flexibility and reduces application downtime.
 You are responsible for configuring your application to meet your security and
 compliance objectives. This includes managing your SSR Compute role, which should be
 configured to have the minimum set of permissions needed to support your use case. For
-more information, see [Managing IAM SSR Compute role
-security](#managing-compute-role-security "#managing-compute-role-security").
+more information, see [Managing IAM SSR Compute role security](#managing-compute-role-security "#managing-compute-role-security").
 
-## Creating an SSR Compute role in
-
-the IAM console
+## Creating an SSR Compute role in the IAM console
 
 Before you can attach an IAM SSR Compute role to an Amplify application, the role
 must already exist in your AWS account. In this section, you will learn how to create
@@ -99,9 +94,7 @@ service.
 After you create a policy, use the following instructions to attach the policy to an
 IAM role.
 
-###### To create a role that grants Amplify permissions to specific AWS
-
-resources
+###### To create a role that grants Amplify permissions to specific AWS resources
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane of the console, choose **Roles** and
@@ -152,9 +145,7 @@ JSON
    sections to edit the custom policy and permissions for the role.
 10. Review the role and then choose **Create role**.
 
-## Adding an IAM SSR Compute role to an
-
-Amplify app
+## Adding an IAM SSR Compute role to an Amplify app
 
 After you have created an IAM role in your AWS account, you can associate it with
 an app in the Amplify console.
@@ -187,9 +178,7 @@ attach a role to a specific branch, do the following:
 
 7. Choose, **Save**.
 
-## Managing IAM SSR Compute role
-
-security
+## Managing IAM SSR Compute role security
 
 Security is a shared responsibility between AWS and you. You are responsible for
 configuring your application to meet your security and compliance objectives. This

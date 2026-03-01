@@ -1,6 +1,4 @@
-# Troubleshooting general Amplify
-
-issues
+# Troubleshooting general Amplify issues
 
 The following information can help you troubleshoot general issues with Amplify
 Hosting.
@@ -8,14 +6,10 @@ Hosting.
 ###### Topics
 
 - [HTTP 429 status code (Too many requests)](#429-request-error "#429-request-error")
-- [The Amplify console doesn't display
-  the build status and last update time for my app](#build-status-not-displayed "#build-status-not-displayed")
-- [Web previews are not being created for new
-  pull requests](#pull-request-previews "#pull-request-previews")
-- [My manual deployment is stuck with a
-  pending status in the Amplify console](#manual-deployment-pending "#manual-deployment-pending")
-- [I need to update my application's Node.js
-  version](#update-node-version "#update-node-version")
+- [The Amplify console doesn't display the build status and last update time for my app](#build-status-not-displayed "#build-status-not-displayed")
+- [Web previews are not being created for new pull requests](#pull-request-previews "#pull-request-previews")
+- [My manual deployment is stuck with a pending status in the Amplify console](#manual-deployment-pending "#manual-deployment-pending")
+- [I need to update my application's Node.js version](#update-node-version "#update-node-version")
 
 ## HTTP 429 status code (Too many requests)
 
@@ -44,9 +38,7 @@ more information about the CloudFront cache, see [Optimizing
 caching and availability](../../../AmazonCloudFront/latest/DeveloperGuide/ConfiguringCaching.md "../../../AmazonCloudFront/latest/DeveloperGuide/ConfiguringCaching.md") in the _Amazon CloudFront Developer
 Guide_.
 
-## The Amplify console doesn't display
-
-the build status and last update time for my app
+## The Amplify console doesn't display the build status and last update time for my app
 
 When you navigate to the **All apps** page in the Amplify
 console, a tile is displayed for each of your apps in the current Region. If you
@@ -77,9 +69,7 @@ your app's branch.
 7. Return to the **All apps** page. The build status and
    last update time should now be displayed for your app.
 
-## Web previews are not being created for new
-
-pull requests
+## Web previews are not being created for new pull requests
 
 The web previews feature enables you to preview changes from pull requests before
 merging them into an integration branch. A web preview deploys every pull request
@@ -106,9 +96,7 @@ the service role (if the app doesn't have a backend or isn't a
 `WEB_COMPUTE` app), or you can make the GitHub repository
 private.
 
-## My manual deployment is stuck with a
-
-pending status in the Amplify console
+## My manual deployment is stuck with a pending status in the Amplify console
 
 Manual deployments enable you to publish your web app with Amplify Hosting
 without connecting a Git provider. You can use one of the following four deployment
@@ -139,12 +127,9 @@ folders.
 We highly recommend uploading a .zip file to an Amazon S3 bucket, as this avoids file
 uploads from the Amplify console and provides a higher reliability for manual
 deployments. Amplify's integration with Amazon S3 simplifies this process. For more
-information, see [Deploying a static website to Amplify from an
-Amazon S3 bucket](deploy-website-from-s3.md "deploy-website-from-s3.md").
+information, see [Deploying a static website to Amplify from an Amazon S3 bucket](deploy-website-from-s3.md "deploy-website-from-s3.md").
 
-## I need to update my application's Node.js
-
-version
+## I need to update my application's Node.js version
 
 Amplify support for apps using Node.js versions 14, 16, and 18 ends on September 15, 2025. The behavior after this date depends on your application type:
 
@@ -168,8 +153,7 @@ Prior to upgrading, we recommend that you test your application on a new branch 
 **Upgrade options**
 
 **Amplify console**
-You can use the live package updates feature in the Amplify console to specify the version of Node.js to use. For instructions, see [Using specific package and dependency versions in the
-build image](custom-build-image.md#setup-live-updates "custom-build-image.md#setup-live-updates").
+You can use the live package updates feature in the Amplify console to specify the version of Node.js to use. For instructions, see [Using specific package and dependency versions in the build image](custom-build-image.md#setup-live-updates "custom-build-image.md#setup-live-updates").
 
 **Custom build image**
 If you are using a custom build image and NVM is installed on your image, you can add

@@ -29,6 +29,5 @@ _in_ the cloud:
 - [Compliance Validation for AWS Amplify](Amplify-compliance.md "Amplify-compliance.md")
 - [Infrastructure Security in AWS Amplify](infrastructure-security.md "infrastructure-security.md")
 - [Security event logging and monitoring in Amplify](monitoring-overview.md "monitoring-overview.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Security best practices for Amplify](security-best-practices.md "security-best-practices.md")

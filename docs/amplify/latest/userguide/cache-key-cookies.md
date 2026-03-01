@@ -3,8 +3,7 @@
 When you deploy your app to Amplify, you can choose whether you want to include or exclude
 cookies in the cache key. In the Amplify console, this setting is specified on the
 **Custom headers and cache** page using the **Cache key
-settings** toggle. For instructions, see [Including or excluding cookies from the cache
-key](#set-cache-key-cookies "#set-cache-key-cookies").
+settings** toggle. For instructions, see [Including or excluding cookies from the cache key](#set-cache-key-cookies "#set-cache-key-cookies").
 
 **Include cookies in the cache key**
 
@@ -31,9 +30,7 @@ If you are using the SDKs or the AWS CLI, this setting corresponds to setting th
 For more information about the cache key, see [Understand the
 cache key](../../../AmazonCloudFront/latest/DeveloperGuide/understanding-the-cache-key.md "../../../AmazonCloudFront/latest/DeveloperGuide/understanding-the-cache-key.md") in the _Amazon CloudFront Developer Guide;_.
 
-## Including or excluding cookies from the cache
-
-key
+## Including or excluding cookies from the cache key
 
 You can set the cache key cookie configuration for an app in the Amplify console, SDKs,
 or the AWS CLI.
@@ -73,9 +70,7 @@ key when you are deploying a new app using the Amplify console.
 ![Screenshot of the Cache key settings toggle in the Amplify console.](images/amplify-caching-1.png) 8. Choose **Next**. 9. On the **Review** page, choose **Save and
 deploy**.
 
-## Changing the cache key cookie configuration for an
-
-app
+## Changing the cache key cookie configuration for an app
 
 You can change the cache key cookie configuration for an app that is already deployed to
 Amplify. Use the following procedure to change whether to include or exclude cookies from the

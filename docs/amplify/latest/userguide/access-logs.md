@@ -14,9 +14,6 @@ applications:
 
 ###### Topics
 
-- [Monitoring an Amplify application with
-  Amazon CloudWatch](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md")
-- [Retrieving and analyzing access logs for an Amplify
-  application](using-access-logs.md "using-access-logs.md")
-- [Logging Amplify API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Monitoring an Amplify application with Amazon CloudWatch](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md")
+- [Retrieving and analyzing access logs for an Amplify application](using-access-logs.md "using-access-logs.md")
+- [Logging Amplify API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

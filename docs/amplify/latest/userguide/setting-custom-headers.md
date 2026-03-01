@@ -106,5 +106,4 @@ customHeaders:
         value: 's-maxage=3600'
 ```
 
-For more information about controlling application performance with headers, see [Using the Cache-Control header to
-increase app performance](Using-headers-to-control-cache-duration.md "Using-headers-to-control-cache-duration.md").
+For more information about controlling application performance with headers, see [Using the Cache-Control header to increase app performance](Using-headers-to-control-cache-duration.md "Using-headers-to-control-cache-duration.md").

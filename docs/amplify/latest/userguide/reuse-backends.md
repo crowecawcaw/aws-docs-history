@@ -1,6 +1,4 @@
-# Use Amplify backends across apps (Gen 1 apps
-
-only)
+# Use Amplify backends across apps (Gen 1 apps only)
 
 ###### Note
 
@@ -13,9 +11,7 @@ apps in a given region. You can do this when you create a new app, connect a new
 an existing app, or update an existing frontend to point to a different backend
 environment.
 
-## Reuse backends when creating a new
-
-app
+## Reuse backends when creating a new app
 
 ###### To reuse a backend when creating a new Amplify app
 
@@ -50,15 +46,12 @@ app
    4. Select an existing service role to give Amplify the permissions it
       requires to make changes to your app backend. If you need to create a
       service role, choose **Create new role**. For more
-      information about creating a service role, see [Adding a service role with permissions to deploy
-      backend resources](amplify-service-role.md "amplify-service-role.md").
+      information about creating a service role, see [Adding a service role with permissions to deploy backend resources](amplify-service-role.md "amplify-service-role.md").
    5. Choose **Next**.
 
 7. Choose **Save and deploy**.
 
-## Reuse backends when connecting a branch
-
-to an existing app
+## Reuse backends when connecting a branch to an existing app
 
 ###### To reuse a backend when connecting a branch to an existing Amplify app
 
@@ -79,8 +72,7 @@ to an existing app
    one.
 8. If you need to set up a service role to give Amplify the permissions it
    requires to make changes to your app backend, the console prompts you to perform
-   this task. For more information about creating a service role, see [Adding a service role with permissions to deploy
-   backend resources](amplify-service-role.md "amplify-service-role.md").
+   this task. For more information about creating a service role, see [Adding a service role with permissions to deploy backend resources](amplify-service-role.md "amplify-service-role.md").
 9. By default, full-stack CI/CD is turned off. Turning off full-stack CI/CD causes
    the app to run in _pull only_ mode. At build time, Amplify
    will automatically generate the `aws-exports.js` file only, without
@@ -88,9 +80,7 @@ to an existing app
 10. Choose **Next**.
 11. Choose **Save and deploy**.
 
-## Edit an existing frontend to point to a
-
-different backend
+## Edit an existing frontend to point to a different backend
 
 ###### To edit a frontend Amplify app to point to a different backend
 

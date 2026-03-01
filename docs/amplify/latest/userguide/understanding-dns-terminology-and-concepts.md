@@ -1,6 +1,4 @@
-# Understanding DNS terminology
-
-and concepts
+# Understanding DNS terminology and concepts
 
 If you are unfamiliar with the terms and concepts associated with Domain Name System
 (DNS), the following topics can help you understand the procedures for adding custom
@@ -53,9 +51,7 @@ you host your domain with a third-party provider such as GoDaddy, you have to ma
 update your domain’s DNS settings and add a new CNAME record provided by
 Amplify.
 
-## Custom domain activation
-
-process
+## Custom domain activation process
 
 ###### Warning
 
