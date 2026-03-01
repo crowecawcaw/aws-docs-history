@@ -1,6 +1,4 @@
-# Example: Manage IGMP configurations using
-
-AWS Transit Gateway
+# Example: Manage IGMP configurations using AWS Transit Gateway
 
 This example shows at least one host that uses the IGMP protocol for multicast traffic.
 AWS automatically creates the multicast group when it receives an IGMP `JOIN`
@@ -28,8 +26,7 @@ Use the following settings:
     * Disable **Static sources support**.
 
 6. Create an association between subnets in the transit gateway VPC attachment and the multicast
-   domain. For more information see [Associating VPC attachments and subnets with
-   a multicast domain in AWS Transit Gateway](associate-attachment-to-domain.md "associate-attachment-to-domain.md").
+   domain. For more information see [Associating VPC attachments and subnets with a multicast domain in AWS Transit Gateway](associate-attachment-to-domain.md "associate-attachment-to-domain.md").
 7. The default IGMP version for EC2 is IGMPv3. You need to change the version for all
    IGMP group members. You can run the following command:
 
@@ -38,5 +35,4 @@ sudo sysctl net.ipv4.conf.eth0.force_igmp_version=2
 ```
 
 8. Add the members that do not use the IGMP protocol to the multicast group. For more
-   information, see [Register members with a multicast
-   group in AWS Transit Gateway](add-members-multicast-group.md "add-members-multicast-group.md").
+   information, see [Register members with a multicast group in AWS Transit Gateway](add-members-multicast-group.md "add-members-multicast-group.md").

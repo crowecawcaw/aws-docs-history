@@ -4,9 +4,7 @@ You can view your network function attachments, including your AWS Network Firew
 either Amazon VPC Console or the Network Manager console to get a visual representation of your network
 topology.
 
-## View a network function attachment using
-
-the Network Manager console
+## View a network function attachment using the Network Manager console
 
 You can view a network function attachments using the Network Manager console.
 
@@ -26,9 +24,7 @@ You can view a network function attachments using the Network Manager console.
 The Network Manager console provides detailed information about your firewall attachments,
 including their status, associated transit gateway, and Availability Zones.
 
-## View a network function attachment using the
-
-Amazon VPC Console console
+## View a network function attachment using the Amazon VPC Console console
 
 Use the VPC console to see a list of your transit gateway attachment types.
 

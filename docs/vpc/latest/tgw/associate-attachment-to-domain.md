@@ -1,6 +1,4 @@
-# Associating VPC attachments and subnets with
-
-a multicast domain in AWS Transit Gateway
+# Associating VPC attachments and subnets with a multicast domain in AWS Transit Gateway
 
 Use the following procedure to associate a VPC attachment with a multicast domain. When
 you create an association, you can then select the subnets to include in the multicast

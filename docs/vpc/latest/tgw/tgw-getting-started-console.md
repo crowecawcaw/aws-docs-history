@@ -15,8 +15,7 @@ VPCs.
   propagate the CIDRs of a newly attached VPC if an identical route exists in the transit gateway
   route tables.
 - Verify that you have the permissions required to work with transit gateways. For more
-  information, see [Identity and access management in
-  AWS Transit Gateway](transit-gateway-authentication-access-control.md "transit-gateway-authentication-access-control.md") .
+  information, see [Identity and access management in AWS Transit Gateway](transit-gateway-authentication-access-control.md "transit-gateway-authentication-access-control.md").
 - You can't ping between hosts if you haven't added an ICMP rule to each of the host
   security groups. For more information, see [Configure
   security group rules](../userguide/working-with-security-group-rules.md "../userguide/working-with-security-group-rules.md") in the _Amazon VPC User Guide_.

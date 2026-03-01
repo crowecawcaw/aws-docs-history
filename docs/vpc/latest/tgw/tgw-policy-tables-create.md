@@ -1,6 +1,4 @@
-# Create a transit gateway policy
-
-table in AWS Transit Gateway
+# Create a transit gateway policy table in AWS Transit Gateway
 
 ###### To create a transit gateway policy table using the console
 

@@ -1,6 +1,4 @@
-# Accept an AWS Transit Gateway resource share using the
-
-AWS Resource Access Manager console
+# Accept an AWS Transit Gateway resource share using the AWS Resource Access Manager console
 
 If you were added to a resource share, you receive an invitation to join the resource
 share. You must accept the resource share through the AWS Resource Access Manager (AWS RAM) console

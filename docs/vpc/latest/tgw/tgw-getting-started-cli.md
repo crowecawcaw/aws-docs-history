@@ -1,6 +1,4 @@
-# Tutorial: Create an AWS Transit Gateway using the AWS
-
-command line
+# Tutorial: Create an AWS Transit Gateway using the AWS command line
 
 In this tutorial, you'll learn how to use the AWS CLI to create a transit gateway and
 connect two VPCs to it. You'll create the transit gateway, attach both VPCs, and then
@@ -34,8 +32,7 @@ Before you begin, make sure you have:
 - [Step 4: Verify that the transit gateway attachments are available](#configure-routes "#configure-routes")
 - [Step 5: Add routes between your transit gateway and VPCs](#create-routes "#create-routes")
 - [Step 6: Test the transit gateway](#test-connectivity "#test-connectivity")
-- [Step 7: Delete the transit gateway attachments and transit
-  gateway](#cleanup "#cleanup")
+- [Step 7: Delete the transit gateway attachments and transit gateway](#cleanup "#cleanup")
 - [Conclusion](#conclusion "#conclusion")
 
 ## Step 1: Create the transit gateway
@@ -362,9 +359,7 @@ Replace `10.2.0.50` with the actual private IP address of your EC2 instance in t
 
 If the ping is successful, your transit gateway is correctly configured and routing traffic between your VPCs.
 
-## Step 7: Delete the transit gateway attachments and transit
-
-gateway
+## Step 7: Delete the transit gateway attachments and transit gateway
 
 When you no longer need the transit gateway, you can delete it. First, you must delete
 all attachments. Run the `delete-transit-gateway-vpc-attachment` command,

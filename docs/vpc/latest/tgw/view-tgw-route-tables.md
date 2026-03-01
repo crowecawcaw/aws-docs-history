@@ -1,6 +1,4 @@
-# View transit gateway route tables using
-
-AWS Transit Gateway
+# View transit gateway route tables using AWS Transit Gateway
 
 ###### To view your transit gateway route tables using the console
 

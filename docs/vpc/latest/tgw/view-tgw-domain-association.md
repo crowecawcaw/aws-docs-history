@@ -1,6 +1,4 @@
-# View multicast domain
-
-associations in AWS Transit Gateway
+# View multicast domain associations in AWS Transit Gateway
 
 View your multicast domains to verify that they are available, and that
 they contain the appropriate subnets and attachments.

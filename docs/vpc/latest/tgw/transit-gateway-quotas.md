@@ -18,8 +18,7 @@ If an adjustable quota is not yet available in Service Quotas, you can open a su
 | Transit gateways per account    | 5       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-A2478D36 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-A2478D36") |
 | CIDR blocks per transit gateway | 5       | No                                                                                                                                                                         |
 
-The CIDR blocks are used in the [Connect attachments and Connect peers in
-AWS Transit Gateway](tgw-connect.md "tgw-connect.md") feature.
+The CIDR blocks are used in the [Connect attachments and Connect peers in AWS Transit Gateway](tgw-connect.md "tgw-connect.md") feature.
 
 ## Routing
 

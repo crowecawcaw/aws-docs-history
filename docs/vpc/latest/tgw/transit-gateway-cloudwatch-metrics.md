@@ -18,8 +18,7 @@ For more information, see the [Amazon CloudWatch User Guide](../../../AmazonClou
 ###### Contents
 
 - [Transit gateway metrics](#transit-gateway-metrics "#transit-gateway-metrics")
-- [Attachment-level and availability zone
-  metrics](#transit-gateway-attachment-metrics "#transit-gateway-attachment-metrics")
+- [Attachment-level and availability zone metrics](#transit-gateway-attachment-metrics "#transit-gateway-attachment-metrics")
 - [Transit gateway metric dimensions](#transit-gateway-dimensions "#transit-gateway-dimensions")
 
 ## Transit gateway metrics
@@ -42,9 +41,7 @@ supported dimensions.
 | `PacketDropCountNoRoute`    | The number of packets dropped because they did not match a route.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.          |
 | `PacketDropCountTTLExpired` | The number of packets dropped because the TTL expired.<br>**Statistics**: The only meaningful statistic<br>is `Sum`.                     |
 
-## Attachment-level and availability zone
-
-metrics
+## Attachment-level and availability zone metrics
 
 The following metrics are available for transit gateway attachments. All attachment metrics are published to the transit gateway owner's account. Individual
 attachment metrics are also published to the attachment owner's account. The

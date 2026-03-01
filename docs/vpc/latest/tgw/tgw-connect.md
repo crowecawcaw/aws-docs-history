@@ -1,6 +1,4 @@
-# Connect attachments and Connect peers in
-
-AWS Transit Gateway
+# Connect attachments and Connect peers in AWS Transit Gateway
 
 You can create a _Transit Gateway Connect attachment_ to
 establish a connection between a transit gateway and third-party virtual appliances (such as SD-WAN

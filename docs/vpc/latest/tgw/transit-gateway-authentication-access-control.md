@@ -1,6 +1,4 @@
-# Identity and access management in
-
-AWS Transit Gateway
+# Identity and access management in AWS Transit Gateway
 
 AWS uses security credentials to identify you and to grant you access to your AWS
 resources. You can use features of AWS Identity and Access Management (IAM) to allow other users, services, and

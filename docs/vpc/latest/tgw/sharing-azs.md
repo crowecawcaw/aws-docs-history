@@ -1,6 +1,4 @@
-# Share resources across Availability Zones in
-
-AWS Transit Gateway
+# Share resources across Availability Zones in AWS Transit Gateway
 
 To ensure that resources are distributed across the Availability Zones for a Region, AWS Transit Gateway independently map s
 Availability Zones to names for each account. This could lead to Availability Zone naming differences

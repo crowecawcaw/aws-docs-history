@@ -176,7 +176,7 @@ JSON
 ```
 
 Some additional IAM role and permission configuration is required, depending on
-whether you're publishing to CloudWatch Logs or Amazon S3. For more information, see [AWS Transit Gateway Flow Logs records in Amazon CloudWatch Logs](flow-logs-cwl.md "flow-logs-cwl.md") and [AWS Transit Gateway Flow Logs records in Amazon S3](flow-logs-s3.md "flow-logs-s3.md") .
+whether you're publishing to CloudWatch Logs or Amazon S3. For more information, see [AWS Transit Gateway Flow Logs records in Amazon CloudWatch Logs](flow-logs-cwl.md "flow-logs-cwl.md") and [AWS Transit Gateway Flow Logs records in Amazon S3](flow-logs-s3.md "flow-logs-s3.md").
 
 ## Transit Gateway Flow Logs pricing
 

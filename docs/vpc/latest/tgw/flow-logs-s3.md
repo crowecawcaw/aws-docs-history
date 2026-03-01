@@ -24,12 +24,9 @@ Guide_.
 ###### Contents
 
 - [Flow log files](#flow-logs-s3-path "#flow-logs-s3-path")
-- [IAM policy for IAM principals that publish
-  flow logs to Amazon S3](#flow-logs-s3-iam "#flow-logs-s3-iam")
-- [Amazon S3 bucket permissions for flow
-  logs](#flow-logs-s3-permissions "#flow-logs-s3-permissions")
-- [Required key policy for use with
-  SSE-KMS](#flow-logs-s3-cmk-policy "#flow-logs-s3-cmk-policy")
+- [IAM policy for IAM principals that publish flow logs to Amazon S3](#flow-logs-s3-iam "#flow-logs-s3-iam")
+- [Amazon S3 bucket permissions for flow logs](#flow-logs-s3-permissions "#flow-logs-s3-permissions")
+- [Required key policy for use with SSE-KMS](#flow-logs-s3-cmk-policy "#flow-logs-s3-cmk-policy")
 - [Amazon S3 log file permissions](#flow-logs-file-permissions "#flow-logs-file-permissions")
 - [Create the source account role](flowlog-s3-create-source.md "flowlog-s3-create-source.md")
 - [Create a Flow Log that publishes
@@ -132,9 +129,7 @@ contains the flow log records with an end time between 16:20:00 and
 123456789012_vpcflowlogs_us-east-1_fl-1234abcd_20180620T1620Z_fe123456.log.gz
 ```
 
-## IAM policy for IAM principals that publish
-
-flow logs to Amazon S3
+## IAM policy for IAM principals that publish flow logs to Amazon S3
 
 The IAM principal that creates the flow log must have the following permissions,
 which are required to publish flow logs to the destination Amazon S3 bucket.
@@ -158,9 +153,7 @@ JSON
 
 ```
 
-## Amazon S3 bucket permissions for flow
-
-logs
+## Amazon S3 bucket permissions for flow logs
 
 By default, Amazon S3 buckets and the objects they contain are private. Only the bucket
 owner can access the bucket and the objects stored in it. However, the bucket owner
@@ -246,9 +239,7 @@ best practice to use the `aws:SourceAccount` and
 The source account is the owner of the flow log and the source ARN is the wildcard
 (\*) ARN of the logs service.
 
-## Required key policy for use with
-
-SSE-KMS
+## Required key policy for use with SSE-KMS
 
 You can protect the data in your Amazon S3 bucket by enabling either Server-Side
 Encryption with Amazon S3-Managed Keys (SSE-S3) or Server-Side Encryption with KMS Keys

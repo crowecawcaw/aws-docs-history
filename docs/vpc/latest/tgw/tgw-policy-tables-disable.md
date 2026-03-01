@@ -1,6 +1,4 @@
-# Delete a transit gateway policy
-
-table in AWS Transit Gateway
+# Delete a transit gateway policy table in AWS Transit Gateway
 
 Delete a transit gateway policy table. When a table is deleted, all policy rules within that
 table are deleted.

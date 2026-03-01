@@ -1,6 +1,4 @@
-# View Connect attachments and
-
-Connect peers in AWS Transit Gateway
+# View Connect attachments and Connect peers in AWS Transit Gateway
 
 View your Connect attachments and Connect peers.
 

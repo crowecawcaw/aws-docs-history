@@ -1,6 +1,4 @@
-# Create the AWS Transit Gateway Flow Logs destination
-
-account role for Amazon Data Firehose
+# Create the AWS Transit Gateway Flow Logs destination account role for Amazon Data Firehose
 
 From the destination account, create the destination role in the AWS Identity and Access Management console.
 

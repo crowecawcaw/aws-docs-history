@@ -1,14 +1,10 @@
-# Route traffic through an AWS Transit Gateway network
-
-function attachment
+# Route traffic through an AWS Transit Gateway network function attachment
 
 After creating a network function attachment, you need to update your transit gateway route
 tables to send traffic through the firewall for inspection using either the Amazon VPC Console or by
 using the CLI. For the steps to update a transit gateway route table association, see [Associate a transit gateway route table](associate-tgw-route-table.md "associate-tgw-route-table.md").
 
-## Route traffic through a firewall
-
-attachment using the console
+## Route traffic through a firewall attachment using the console
 
 Use the Amazon VPC Console console to route traffic through a transit gateway network function
 attachment.
@@ -31,9 +27,7 @@ Only static routes are supported.
 
 Traffic matching the CIDR block in your route table will now be sent to the firewall attachment for inspection before being forwarded to its final destination.
 
-## Route traffic through a network function attachment using
-
-the CLI or API
+## Route traffic through a network function attachment using the CLI or API
 
 Use the command line or API to route a transit gateway network function attachment.
 

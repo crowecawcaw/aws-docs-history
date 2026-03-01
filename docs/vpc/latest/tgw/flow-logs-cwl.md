@@ -24,18 +24,14 @@ Guide_.
 
 ###### Contents
 
-- [IAM roles for publishing flow logs to
-  CloudWatch Logs](#flow-logs-iam "#flow-logs-iam")
-- [Permissions for IAM users to pass a
-  role](#flow-logs-iam-user "#flow-logs-iam-user")
+- [IAM roles for publishing flow logs to CloudWatch Logs](#flow-logs-iam "#flow-logs-iam")
+- [Permissions for IAM users to pass a role](#flow-logs-iam-user "#flow-logs-iam-user")
 - [Create a Flow Log that publishes
   to CloudWatch Logs](flow-logs-cwl-create-flow-log.md "flow-logs-cwl-create-flow-log.md")
 - [View Flow Logs records](view-flow-log-records.md "view-flow-log-records.md")
 - [Process Flow Log records](process-records-cwl.md "process-records-cwl.md")
 
-## IAM roles for publishing flow logs to
-
-CloudWatch Logs
+## IAM roles for publishing flow logs to CloudWatch Logs
 
 The IAM role that's associated with your flow log must have sufficient
 permissions to publish flow logs to the specified log group in CloudWatch Logs. The IAM role
@@ -106,9 +102,7 @@ log.
 }
 ```
 
-## Permissions for IAM users to pass a
-
-role
+## Permissions for IAM users to pass a role
 
 Users must also have permissions to use the `iam:PassRole` action for
 the IAM role that's associated with the flow log.

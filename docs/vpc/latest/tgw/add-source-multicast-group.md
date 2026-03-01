@@ -1,6 +1,4 @@
-# Register sources with a multicast
-
-group in AWS Transit Gateway
+# Register sources with a multicast group in AWS Transit Gateway
 
 ###### Note
 

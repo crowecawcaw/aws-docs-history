@@ -9,9 +9,7 @@ roles](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md "../
 Amazon VPC uses service-linked roles for the permissions that it requires to call other AWS
 services on your behalf when you work with a transit gateway.
 
-### Permissions granted by the service-linked
-
-role
+### Permissions granted by the service-linked role
 
 Amazon VPC uses the service-linked role named **AWSServiceRoleForVPCTransitGateway**
 to call the following actions on your behalf when you work with a transit gateway:

@@ -1,6 +1,4 @@
-# Enable route propagation to a transit gateway route
-
-table in AWS Transit Gateway
+# Enable route propagation to a transit gateway route table in AWS Transit Gateway
 
 Use route propagation to add a route from an attachment to a route table.
 

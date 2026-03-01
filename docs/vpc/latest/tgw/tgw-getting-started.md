@@ -8,5 +8,4 @@ AWS CLI.
 ###### Tasks
 
 - [Tutorial: Create an AWS Transit Gateway using the Amazon VPC Console](tgw-getting-started-console.md "tgw-getting-started-console.md")
-- [Tutorial: Create an AWS Transit Gateway using the AWS
-  command line](tgw-getting-started-cli.md "tgw-getting-started-cli.md")
+- [Tutorial: Create an AWS Transit Gateway using the AWS command line](tgw-getting-started-cli.md "tgw-getting-started-cli.md")

@@ -1,6 +1,4 @@
-# Delete an association for a transit gateway
-
-route table in AWS Transit Gateway
+# Delete an association for a transit gateway route table in AWS Transit Gateway
 
 You can disassociate a transit gateway route table from a transit gateway attachment.
 

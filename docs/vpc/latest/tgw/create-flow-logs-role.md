@@ -1,6 +1,4 @@
-# Create or update an IAM role for AWS Transit Gateway
-
-Flow Logs
+# Create or update an IAM role for AWS Transit Gateway Flow Logs
 
 You can update an existing role or use the following procedure to create a new role for
 use with flow logs using the AWS Identity and Access Management console.
@@ -25,8 +23,7 @@ use with flow logs using the AWS Identity and Access Management console.
    permissions**, choose **Create inline
    policy**, and then choose the **JSON**
    tab.
-7. Copy the first policy from [IAM roles for publishing flow logs to
-   CloudWatch Logs](flow-logs-cwl.md#flow-logs-iam "flow-logs-cwl.md#flow-logs-iam") and paste it in the window. Choose
+7. Copy the first policy from [IAM roles for publishing flow logs to CloudWatch Logs](flow-logs-cwl.md#flow-logs-iam "flow-logs-cwl.md#flow-logs-iam") and paste it in the window. Choose
    **Review policy**.
 8. Enter a name for your policy, and choose **Create
    policy**.

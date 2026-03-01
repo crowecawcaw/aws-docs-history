@@ -1,6 +1,4 @@
-# Deregister members from a multicast
-
-group in AWS Transit Gateway
+# Deregister members from a multicast group in AWS Transit Gateway
 
 You don't need to follow this procedure unless you manually added a member to the
 multicast group.

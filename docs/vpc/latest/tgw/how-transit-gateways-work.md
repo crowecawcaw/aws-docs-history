@@ -118,8 +118,7 @@ appliance mode support for the VPC attachment in which the appliance is located.
 This ensures that the transit gateway uses the same Availability Zone for that VPC attachment
 for the lifetime of a flow of traffic between source and destination. It also allows
 the transit gateway to send traffic to any Availability Zone in the VPC, as long as there is a
-subnet association in that zone. For more information, see [Example: Appliance in a shared services
-VPC](#transit-gateway-appliance-scenario "#transit-gateway-appliance-scenario").
+subnet association in that zone. For more information, see [Example: Appliance in a shared services VPC](#transit-gateway-appliance-scenario "#transit-gateway-appliance-scenario").
 
 ## Routing
 
@@ -255,9 +254,7 @@ Direct Connect gateway route, which is the preferred route. The Site-to-Site VPN
 which is the backup route, will only display when the Direct Connect gateway is no
 longer advertised.
 
-#### VPC and transit gateway route table
-
-differences
+#### VPC and transit gateway route table differences
 
 Route table evaluation differs between whether you're using a VPC route table
 or a transit gateway route table.
@@ -402,9 +399,7 @@ the previous diagram, with route propagation enabled.
 | 10.3.0.0/16   | `Attachment for VPC C`          | propagated |
 | 10.99.99.0/24 | `Attachment for VPN connection` | propagated |
 
-##### Customer gateway BGP
-
-table
+##### Customer gateway BGP table
 
 The customer gateway BGP table contains the following VPC CIDRs.
 
@@ -458,9 +453,7 @@ table.
 Each VPC has a route table, and the transit gateway has two route tables—one for the VPCs and one for
 the VPN connection.
 
-##### VPC A, VPC B, and VPC C route
-
-tables
+##### VPC A, VPC B, and VPC C route tables
 
 Each VPC has a route table with 2 entries. The first entry is the default entry for local
 IPv4 routing in the VPC. This entry enables the instances in this VPC to communicate
@@ -472,9 +465,7 @@ The following table shows the VPC A routes.
 | 10.1.0.0/16 | local    |
 | 0.0.0.0/0   | _tgw-id_ |
 
-##### Transit gateway route
-
-tables
+##### Transit gateway route tables
 
 This scenario uses one route table for the VPCs and one route table for the VPN connection.
 
@@ -494,8 +485,7 @@ routes for each of the VPC attachments.
 | 10.2.0.0/16 | `Attachment for VPC B` | propagated |
 | 10.3.0.0/16 | `Attachment for VPC C` | propagated |
 
-For more information about propagating routes in a transit gateway route table, see [Enable route propagation to a transit gateway route
-table in AWS Transit Gateway](enable-tgw-route-propagation.md "enable-tgw-route-propagation.md").
+For more information about propagating routes in a transit gateway route table, see [Enable route propagation to a transit gateway route table in AWS Transit Gateway](enable-tgw-route-propagation.md "enable-tgw-route-propagation.md").
 
 ##### Customer gateway BGP table
 
@@ -560,9 +550,7 @@ table.
 Each VPC has a route table, and the transit gateway has two route tables—one for the VPCs and
 one for the VPN connection and shared services VPC.
 
-##### VPC A, VPC B, VPC C, and VPC D
-
-route tables
+##### VPC A, VPC B, VPC C, and VPC D route tables
 
 Each VPC has a route table with two entries. The first entry is the default entry for local
 routing in the VPC; this entry enables the instances in this VPC to communicate with
@@ -574,9 +562,7 @@ transit gateway.
 | 10.1.0.0/16 | local                |
 | 0.0.0.0/0   | `transit gateway ID` |
 
-##### Transit gateway route
-
-tables
+##### Transit gateway route tables
 
 This scenario uses one route table for the VPCs and one route table for the VPN
 connection.
@@ -601,12 +587,9 @@ services VPC.
 | 10.2.0.0/16 | `Attachment for VPC B` | propagated |
 | 10.3.0.0/16 | `Attachment for VPC C` | propagated |
 
-For more information, see [Enable route propagation to a transit gateway route
-table in AWS Transit Gateway](enable-tgw-route-propagation.md "enable-tgw-route-propagation.md").
+For more information, see [Enable route propagation to a transit gateway route table in AWS Transit Gateway](enable-tgw-route-propagation.md "enable-tgw-route-propagation.md").
 
-##### Customer gateway BGP
-
-table
+##### Customer gateway BGP table
 
 The customer gateway BGP table contains the CIDRs for all four VPCs.
 
@@ -658,9 +641,7 @@ table for transit gateway 1. When the VPN connection is up, the following action
 
 Each VPC has a route table and each transit gateway has a route table.
 
-##### VPC A and VPC B route
-
-tables
+##### VPC A and VPC B route tables
 
 Each VPC has a route table with 2 entries. The first entry is the default entry for local
 IPv4 routing in the VPC. This default entry enables the resources in this VPC to
@@ -692,9 +673,7 @@ propagation enabled.
 | 10.0.0.0/16   | `Attachment ID for peering connection` | static     |
 | 10.2.0.0/16   | `Attachment ID for peering connection` | static     |
 
-##### Customer gateway BGP
-
-table
+##### Customer gateway BGP table
 
 The customer gateway BGP table contains the following VPC CIDRs.
 

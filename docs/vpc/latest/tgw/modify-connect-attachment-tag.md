@@ -31,9 +31,7 @@ You can modify the tags for your Connect attachment.
 6. To remove a tag, choose **Remove**.
 7. Choose **Save**.
 
-###### To modify your Connect attachment and Connect peer tags using the
-
-AWS CLI
+###### To modify your Connect attachment and Connect peer tags using the AWS CLI
 
 Use the [create-tags](../../../cli/latest/reference/ec2/create-tags.md "../../../cli/latest/reference/ec2/create-tags.md") and
 [delete-tags](../../../cli/latest/reference/ec2/delete-tags.md "../../../cli/latest/reference/ec2/delete-tags.md")

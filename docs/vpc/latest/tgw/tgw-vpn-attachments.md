@@ -1,6 +1,4 @@
-# AWS Site-to-Site VPN attachments in
-
-AWS Transit Gateway
+# AWS Site-to-Site VPN attachments in AWS Transit Gateway
 
 You can connect a Site-to-Site VPN attachment to a transit gateway in AWS Transit Gateway, allowing you to connect
 your VPCs and on-premises networks. Both dynamic and static routes are supported, as well as

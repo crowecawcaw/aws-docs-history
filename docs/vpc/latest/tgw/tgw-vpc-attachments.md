@@ -156,9 +156,7 @@ destination Availability Zones when determining the path through an appliance mo
 This approach enhances efficiency and reduces latency. The behavior varies depending on the specific configuration and traffic patterns. The following are example
 scenarios.
 
-### Scenario 1: Intra-Availability Zone
-
-Traffic Routing via Appliance VPC
+### Scenario 1: Intra-Availability Zone Traffic Routing via Appliance VPC
 
 When traffic flows from source Availability Zone us-east-1a to destination
 Availability Zone us-east-1a, with Appliance Mode VPC attachments in both us-east-1a
@@ -166,9 +164,7 @@ and us-east-1b, Transit Gateway selects a network interface from us-east-1a with
 the appliance VPC. This Availability Zone is maintained for the entire duration of
 the traffic flow between source and destination.
 
-### Scenario 2: Inter-Availability Zone
-
-Traffic Routing via Appliance VPC
+### Scenario 2: Inter-Availability Zone Traffic Routing via Appliance VPC
 
 For traffic flowing from source Availability Zone us-east-1a to destination
 Availability Zone us-east-1b, with Appliance Mode VPC attachments in both us-east-1a
@@ -176,19 +172,14 @@ and us-east-1b, Transit Gateway uses a flow hash algorithm to select either
 us-east-1a or us-east-1b in the appliance VPC. The chosen Availability Zone is used
 consistently for the lifetime of the flow.
 
-### Scenario 3: Routing traffic
-
-through an appliance VPC without Availability Zone data
+### Scenario 3: Routing traffic through an appliance VPC without Availability Zone data
 
 When traffic originates from source Availability Zone us-east-1a to a destination
 without Availability Zone information (e.g., internet-bound traffic), with Appliance
 Mode VPC attachments in both us-east-1a and us-east-1b, Transit Gateway selects a
 network interface from us-east-1a within the appliance VPC.
 
-### Scenario 4: Routing traffic through
-
-an appliance VPC in an Availability Zone distinct from either the source or
-destination
+### Scenario 4: Routing traffic through an appliance VPC in an Availability Zone distinct from either the source or destination
 
 When traffic flows from source Availability Zone us-east-1a to destination
 Availability Zone us-east-1b, with Appliance Mode VPC attachments in different
