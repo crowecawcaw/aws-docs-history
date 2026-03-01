@@ -15,9 +15,7 @@ support the following:
   such as Java 7 and later support these modes.
   Refer to [Infrastructure security in Amazon EC2](../../../AWSEC2/latest/UserGuide/infrastructure-security.md "../../../AWSEC2/latest/UserGuide/infrastructure-security.md").
 
-## Make Amazon WorkSpaces Instances API requests through a VPC interface
-
-endpoint
+## Make Amazon WorkSpaces Instances API requests through a VPC interface endpoint
 
 You can connect directly to Amazon WorkSpaces Instances API endpoints through an [interface
 endpoint](../../../AmazonVPC/latest/UserGuide/vpce-interface.md "../../../AmazonVPC/latest/UserGuide/vpce-interface.md") in your virtual private cloud (VPC) instead of connecting over the

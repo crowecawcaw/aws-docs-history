@@ -31,8 +31,7 @@ in the _Amazon WorkSpaces Administration Guide_.
 
 - [Data protection in Amazon WorkSpaces Instances](data-protection.md "data-protection.md")
 - [Identity and access management for WorkSpaces Instances](workspaces-access-control.md "workspaces-access-control.md")
-- [Using service-linked roles for
-  Amazon WorkSpaces Instances](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for Amazon WorkSpaces Instances](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Compliance validation for Amazon WorkSpaces Instances](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon WorkSpaces Instances](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon WorkSpaces Instances](infrastructure-security.md "infrastructure-security.md")

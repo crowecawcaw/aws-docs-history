@@ -1,6 +1,4 @@
-# Administration guides for partner solutions on
-
-Amazon WorkSpaces Core
+# Administration guides for partner solutions on Amazon WorkSpaces Core
 
 Amazon WorkSpaces Core offers managed virtual desktop infrastructure designed to work with third-party
 management solutions. For more information, see [Amazon WorkSpaces Core](https://aws.amazon.com/workspaces/core/ "https://aws.amazon.com/workspaces/core/"). Amazon WorkSpaces Core is part
