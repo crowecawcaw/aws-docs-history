@@ -11,9 +11,7 @@ operational flags and dynamic configurations, you can update block lists, allow 
 throttling limits, logging verbosity, and perform other operational tuning to quickly respond to
 issues in production environments.
 
-## \*\*Get started with
-
-AWS AppConfig\*\*
+## Get started with AWS AppConfig
 
 The following video can help you understand the capabilities of AWS AppConfig.
 
@@ -109,8 +107,7 @@ and risk mitigation through staged rollouts. Additionally, feature flags enable 
 in production with real users, while freeform configurations enable you to retrieve
 configuration data from other AWS services. Both profile types allow for faster
 iteration, experimentation, personalization, and efficient management of the software
-lifecycle. For more information about creating a configuration profile, see [Creating a configuration profile in
-AWS AppConfig](appconfig-creating-configuration-profile.md "appconfig-creating-configuration-profile.md").
+lifecycle. For more information about creating a configuration profile, see [Creating a configuration profile in AWS AppConfig](appconfig-creating-configuration-profile.md "appconfig-creating-configuration-profile.md").
 
 A configuration profile can also include optional validators to ensure your
 configuration data is syntactically and semantically correct. AWS AppConfig performs a check
@@ -132,22 +129,19 @@ When you start a deployment, AWS AppConfig performs the following tasks:
 3. Sends a copy of the data to AWS AppConfig Agent to be read by your application. This
    copy is called the _deployed data_.
 
-For more information about deploying a configuration, see [Deploying feature flags and configuration data in
-AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md").
+For more information about deploying a configuration, see [Deploying feature flags and configuration data in AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md").
 
 **4. Retrieve the configuration**
 
 To retrieve the data, your application makes an HTTP call to the localhost server
 where AWS AppConfig Agent has cached a local copy of your deployed configuration data.
 Retrieving data is a metered event. AWS AppConfig Agent supports several use cases, as
-described in [How to use AWS AppConfig Agent to retrieve configuration
-data](appconfig-agent-how-to-use.md "appconfig-agent-how-to-use.md").
+described in [How to use AWS AppConfig Agent to retrieve configuration data](appconfig-agent-how-to-use.md "appconfig-agent-how-to-use.md").
 
 If AWS AppConfig Agent isn't supported for your use case, you can configure your
 application to poll AWS AppConfig for configuration updates by directly calling the [StartConfigurationSession](../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md "../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md") and [GetLatestConfiguration](../../2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md "../../2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md") API actions.
 
-For more information about retrieving a configuration, see [Retrieving feature flags and configuration data in
-AWS AppConfig](retrieving-feature-flags.md "retrieving-feature-flags.md").
+For more information about retrieving a configuration, see [Retrieving feature flags and configuration data in AWS AppConfig](retrieving-feature-flags.md "retrieving-feature-flags.md").
 
 ## Pricing for AWS AppConfig
 

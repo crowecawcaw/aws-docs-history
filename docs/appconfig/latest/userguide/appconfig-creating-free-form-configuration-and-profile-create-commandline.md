@@ -60,8 +60,7 @@ Note the following important information.
 
 - If you created a configuration profile for AWS CodePipeline, then you must create a
   pipeline in CodePipeline that specifies AWS AppConfig as the _deploy provider_.
-  You don't need to perform [Deploying feature flags and configuration data in
-  AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md"). However, you must configure a client to
+  You don't need to perform [Deploying feature flags and configuration data in AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md"). However, you must configure a client to
   receive application configuration updates as described in [Retrieving configuration data without AWS AppConfig Agent](about-data-plane.md "about-data-plane.md"). For information
   about creating a pipeline that specifies AWS AppConfig as the deploy provider, see [Tutorial: Create a Pipeline that Uses
   AWS AppConfig as a Deployment Provider](../../../codepipeline/latest/userguide/tutorials-AppConfig.md "../../../codepipeline/latest/userguide/tutorials-AppConfig.md") in the
@@ -70,5 +69,4 @@ Note the following important information.
   create new versions of the configuration by using the [CreateHostedConfigurationVersion](../../2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md "../../2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md") API operations. To view AWS CLI details
   and sample commands for this API operation, see [create-hosted-configuration-version](../../../cli/latest/reference/appconfig/create-hosted-configuration-version.md "../../../cli/latest/reference/appconfig/create-hosted-configuration-version.md") in the
   _AWS CLI Command Reference_.
-  Proceed to [Deploying feature flags and configuration data in
-  AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md").
+  Proceed to [Deploying feature flags and configuration data in AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md").

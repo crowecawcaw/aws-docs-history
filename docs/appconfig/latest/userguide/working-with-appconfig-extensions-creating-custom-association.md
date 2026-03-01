@@ -1,6 +1,4 @@
-# Step 4:
-
-Create an extension association for a custom AWS AppConfig extension
+# Step 4: Create an extension association for a custom AWS AppConfig extension
 
 To create an extension, or configure an AWS authored extension, you define the action
 points that invoke an extension when a specific AWS AppConfig resource is used. For example, you

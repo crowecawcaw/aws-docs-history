@@ -1,6 +1,4 @@
-# Feature flag
-
-samples for AWS AppConfig Agent local development mode
+# Feature flag samples for AWS AppConfig Agent local development mode
 
 This section includes feature flag samples you can use with AWS AppConfig Agent in local
 development mode. Local development mode expects feature flag data in the data's
@@ -13,13 +11,10 @@ enabled state.
 
 ###### Topics
 
-- [Basic
-  feature flag samples](#appconfig-agent-how-to-use-local-development-samples-basic "#appconfig-agent-how-to-use-local-development-samples-basic")
+- [Basic feature flag samples](#appconfig-agent-how-to-use-local-development-samples-basic "#appconfig-agent-how-to-use-local-development-samples-basic")
 - [Multi-variant feature flag samples](#appconfig-agent-how-to-use-local-development-samples-multi-variant "#appconfig-agent-how-to-use-local-development-samples-multi-variant")
 
-## Basic
-
-feature flag samples
+## Basic feature flag samples
 
 Use the following basic feature flag samples with AWS AppConfig Agent in local development
 mode.

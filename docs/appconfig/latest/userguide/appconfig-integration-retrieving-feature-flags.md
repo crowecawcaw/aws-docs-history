@@ -1,6 +1,4 @@
-# Retrieving basic and
-
-multi-variant feature flags
+# Retrieving basic and multi-variant feature flags
 
 For feature flag configurations (configurations of type
 `AWS.AppConfig.FeatureFlags`), the AWS AppConfig Agent enables you to retrieve a
@@ -45,14 +43,10 @@ To retrieve flag variants, you must use the latest version of AWS AppConfig Agen
 compute environment. For more information, see the following topics that describe how to
 update, install, or add the agent for each of the following compute environments:
 
-- For Lambda compute environments: [Adding the AWS AppConfig Agent
-  Lambda extension](appconfig-integration-lambda-extensions-add.md "appconfig-integration-lambda-extensions-add.md")
-- For Amazon EC2 compute environments: [Step 2: (Required) Installing and
-  starting AWS AppConfig Agent on Amazon EC2 instances](appconfig-integration-ec2.md#appconfig-integration-ec2-installing "appconfig-integration-ec2.md#appconfig-integration-ec2-installing")
-- For Amazon ECS compute environments: [Starting the AWS AppConfig
-  agent for Amazon ECS integration](appconfig-integration-containers-agent-starting-ecs.md "appconfig-integration-containers-agent-starting-ecs.md")
-- For Amazon EKS compute environments: [Starting the AWS AppConfig
-  agent for Amazon EKS integration](appconfig-integration-containers-agent-starting-eks.md "appconfig-integration-containers-agent-starting-eks.md")
+- For Lambda compute environments: [Adding the AWS AppConfig Agent Lambda extension](appconfig-integration-lambda-extensions-add.md "appconfig-integration-lambda-extensions-add.md")
+- For Amazon EC2 compute environments: [Step 2: (Required) Installing and starting AWS AppConfig Agent on Amazon EC2 instances](appconfig-integration-ec2.md#appconfig-integration-ec2-installing "appconfig-integration-ec2.md#appconfig-integration-ec2-installing")
+- For Amazon ECS compute environments: [Starting the AWS AppConfig agent for Amazon ECS integration](appconfig-integration-containers-agent-starting-ecs.md "appconfig-integration-containers-agent-starting-ecs.md")
+- For Amazon EKS compute environments: [Starting the AWS AppConfig agent for Amazon EKS integration](appconfig-integration-containers-agent-starting-eks.md "appconfig-integration-containers-agent-starting-eks.md")
   **To retrieve flag data using the caller context of
   jane\_doe@example.org (who has not opted into the beta program):**
 

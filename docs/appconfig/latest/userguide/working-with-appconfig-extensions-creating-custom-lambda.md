@@ -1,6 +1,4 @@
-# Step 1: Create a
-
-Lambda function for a custom AWS AppConfig extension
+# Step 1: Create a Lambda function for a custom AWS AppConfig extension
 
 For most use-cases, to create a custom extension, you must create an AWS Lambda function to perform any computation and processing defined in the
 extension. This section includes Lambda function sample code for a custom AWS AppConfig extension.
@@ -79,9 +77,7 @@ Name (ARN) for the function. You specify the ARN when you create the AWS Identit
 assume role in the next section. You specify the ARN and the name when you create the
 extension.
 
-## Payload
-
-reference
+## Payload reference
 
 This section includes payload request and response reference details for working with
 custom AWS AppConfig extensions.

@@ -1,24 +1,16 @@
-# Understanding AWS AppConfig
-
-extensions
+# Understanding AWS AppConfig extensions
 
 This topic introduces AWS AppConfig extension concepts and terminology. The information is
 discussed in the context of each step required to set up and use AWS AppConfig extensions.
 
 ###### Topics
 
-- [Step 1: Determine what you
-  want to do with extensions](#working-with-appconfig-extensions-how-it-works-step-1 "#working-with-appconfig-extensions-how-it-works-step-1")
-- [Step 2: Determine when you
-  want the extension to run](#working-with-appconfig-extensions-how-it-works-step-2 "#working-with-appconfig-extensions-how-it-works-step-2")
-- [Step 3: Create an
-  extension association](#working-with-appconfig-extensions-how-it-works-step-3 "#working-with-appconfig-extensions-how-it-works-step-3")
-- [Step 4: Deploy a
-  configuration and verify the extension actions are performed](#working-with-appconfig-extensions-how-it-works-step-4 "#working-with-appconfig-extensions-how-it-works-step-4")
+- [Step 1: Determine what you want to do with extensions](#working-with-appconfig-extensions-how-it-works-step-1 "#working-with-appconfig-extensions-how-it-works-step-1")
+- [Step 2: Determine when you want the extension to run](#working-with-appconfig-extensions-how-it-works-step-2 "#working-with-appconfig-extensions-how-it-works-step-2")
+- [Step 3: Create an extension association](#working-with-appconfig-extensions-how-it-works-step-3 "#working-with-appconfig-extensions-how-it-works-step-3")
+- [Step 4: Deploy a configuration and verify the extension actions are performed](#working-with-appconfig-extensions-how-it-works-step-4 "#working-with-appconfig-extensions-how-it-works-step-4")
 
-## Step 1: Determine what you
-
-want to do with extensions
+## Step 1: Determine what you want to do with extensions
 
 Do you want to receive a notification to a webhook that sends messages to Slack anytime
 an AWS AppConfig deployment completes? Do you want to back up a configuration profile to an
@@ -30,25 +22,21 @@ use the AWS authored extensions included with AWS AppConfig.
 ###### Note
 
 For most use cases, to create a custom extension, you must create an AWS Lambda function to perform any computation and processing defined in the
-extension. For more information, see [Walkthrough: Creating
-custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md").
+extension. For more information, see [Walkthrough: Creating custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md").
 
 The following AWS authored extensions can help you quickly integrate configuration
 deployments with other services. You can use these extensions in the AWS AppConfig console or by
 calling extension [API actions](../../2019-10-09/APIReference/API_Operations.md "../../2019-10-09/APIReference/API_Operations.md") directly
 from the AWS CLI, AWS Tools for PowerShell, or the SDK.
 
-| Extension                                                                                                                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Amazon CloudWatch Evidently A/B testing](working-with-appconfig-extensions-about-predefined-evidently.md "working-with-appconfig-extensions-about-predefined-evidently.md")                                                          | This extension allows your application to assign variations to user sessions<br>locally instead of by calling the [EvaluateFeature](../../../cloudwatchevidently/latest/APIReference/API_EvaluateFeature.md "../../../cloudwatchevidently/latest/APIReference/API_EvaluateFeature.md") operation. For more information, see [Using the the<br>Amazon CloudWatch Evidently extension](working-with-appconfig-extensions-about-predefined-evidently.md "working-with-appconfig-extensions-about-predefined-evidently.md"). |
-| [AWS AppConfig deployment events to EventBridge](working-with-appconfig-extensions-about-predefined-notification-eventbridge.md "working-with-appconfig-extensions-about-predefined-notification-eventbridge.md")                     | This extension sends events to the EventBridge default event bus when a configuration<br>is deployed.                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| [AWS AppConfig deployment events to Amazon Simple Notification Service (Amazon SNS)](working-with-appconfig-extensions-about-predefined-notification-sns.md "working-with-appconfig-extensions-about-predefined-notification-sns.md") | This extension sends messages to an Amazon SNS topic that you specify when a configuration is<br>deployed.                                                                                                                                                                                                                                                                                                                                                                                                               |
-| [AWS AppConfig deployment events to Amazon Simple Queue Service (Amazon SQS)](working-with-appconfig-extensions-about-predefined-notification-sqs.md "working-with-appconfig-extensions-about-predefined-notification-sqs.md")        | This extension enqueues messages into your Amazon SQS queue when a configuration is<br>deployed.                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| [Integration extension—Atlassian Jira](working-with-appconfig-extensions-about-jira.md "working-with-appconfig-extensions-about-jira.md")                                                                                             | This extensions allows AWS AppConfig to create and update issues whenever you make changes to a [feature flag](appconfig-creating-configuration-and-profile.md#appconfig-creating-configuration-and-profile-feature-flags "appconfig-creating-configuration-and-profile.md#appconfig-creating-configuration-and-profile-feature-flags").                                                                                                                                                                                 |
+| Extension                                                                                                                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [AWS AppConfig deployment events to EventBridge](working-with-appconfig-extensions-about-predefined-notification-eventbridge.md "working-with-appconfig-extensions-about-predefined-notification-eventbridge.md")                     | This extension sends events to the EventBridge default event bus when a configuration<br>is deployed.                                                                                                                                                                                                                                    |
+| [AWS AppConfig deployment events to Amazon Simple Notification Service (Amazon SNS)](working-with-appconfig-extensions-about-predefined-notification-sns.md "working-with-appconfig-extensions-about-predefined-notification-sns.md") | This extension sends messages to an Amazon SNS topic that you specify when a configuration is<br>deployed.                                                                                                                                                                                                                               |
+| [AWS AppConfig deployment events to Amazon Simple Queue Service (Amazon SQS)](working-with-appconfig-extensions-about-predefined-notification-sqs.md "working-with-appconfig-extensions-about-predefined-notification-sqs.md")        | This extension enqueues messages into your Amazon SQS queue when a configuration is<br>deployed.                                                                                                                                                                                                                                         |
+| [Integration extension—Atlassian Jira](working-with-appconfig-extensions-about-jira.md "working-with-appconfig-extensions-about-jira.md")                                                                                             | This extensions allows AWS AppConfig to create and update issues whenever you make changes to a [feature flag](appconfig-creating-configuration-and-profile.md#appconfig-creating-configuration-and-profile-feature-flags "appconfig-creating-configuration-and-profile.md#appconfig-creating-configuration-and-profile-feature-flags"). |
 
-## Step 2: Determine when you
-
-want the extension to run
+## Step 2: Determine when you want the extension to run
 
 An extension defines one or more actions that it performs during an AWS AppConfig workflow. For
 example, the AWS authored `AWS AppConfig deployment events to Amazon SNS` extension includes an action to send a notification to an
@@ -87,9 +75,7 @@ service stops the workflow and rolls back the deployment.
 
 - `AT_DEPLOYMENT_TICK`
 
-## Step 3: Create an
-
-extension association
+## Step 3: Create an extension association
 
 To create an extension, or configure an AWS authored extension, you define the action
 points that invoke an extension when a specific AWS AppConfig resource is used. For example, you
@@ -116,9 +102,7 @@ anytime the configuration is deployed for the application to any of the three en
 You don't have to create an extension to use AWS authored extensions, but you do
 have to create an extension association.
 
-## Step 4: Deploy a
-
-configuration and verify the extension actions are performed
+## Step 4: Deploy a configuration and verify the extension actions are performed
 
 After you create an association, when a hosted configuration is created or a
 configuration is deployed, AWS AppConfig invokes the extension and performs the specified actions.

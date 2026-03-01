@@ -40,8 +40,7 @@ console.
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/appconfig/](https://console.aws.amazon.com/systems-manager/appconfig/ "https://console.aws.amazon.com/systems-manager/appconfig/").
 2. In the navigation pane, choose **Applications**, and then choose an
-   application you created in [Creating a namespace for your application in
-   AWS AppConfig](appconfig-creating-namespace.md "appconfig-creating-namespace.md").
+   application you created in [Creating a namespace for your application in AWS AppConfig](appconfig-creating-namespace.md "appconfig-creating-namespace.md").
 3. On the **Environments** tab, fill the radio button for an
    environment, and then choose **View details**.
 4. Choose **Start deployment**.
@@ -57,9 +56,7 @@ console.
     for a resource.
 11. Choose **Start deployment**.
 
-## Deploy a configuration
-
-(commandline)
+## Deploy a configuration (commandline)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows) or
 AWS Tools for PowerShell to deploy an AWS AppConfig configuration.

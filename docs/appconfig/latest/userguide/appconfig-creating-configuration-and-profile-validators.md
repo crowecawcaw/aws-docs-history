@@ -1,6 +1,4 @@
-# Understanding
-
-validators
+# Understanding validators
 
 When you create a configuration profile, you have the option to specify up to two
 validators. A validator ensures that your configuration data is syntactically and

@@ -1,6 +1,4 @@
-# Using AWS AppConfig Agent with
-
-AWS Lambda
+# Using AWS AppConfig Agent with AWS Lambda
 
 An AWS Lambda extension is a companion process that augments the capabilities of a Lambda
 function. An extension can start before a function is invoked, run in parallel with a
@@ -24,11 +22,7 @@ multiple cold starts and retrieves new configuration data frequently.
 
 ###### Topics
 
-- [Understanding how
-  the AWS AppConfig Agent Lambda extension works](appconfig-integration-lambda-extensions-how-it-works.md "appconfig-integration-lambda-extensions-how-it-works.md")
-- [Adding the AWS AppConfig Agent
-  Lambda extension](appconfig-integration-lambda-extensions-add.md "appconfig-integration-lambda-extensions-add.md")
-- [Configuring the AWS AppConfig
-  Agent Lambda extension](appconfig-integration-lambda-extensions-config.md "appconfig-integration-lambda-extensions-config.md")
-- [Understanding available
-  versions of the AWS AppConfig Agent Lambda extension](appconfig-integration-lambda-extensions-versions.md "appconfig-integration-lambda-extensions-versions.md")
+- [Understanding how the AWS AppConfig Agent Lambda extension works](appconfig-integration-lambda-extensions-how-it-works.md "appconfig-integration-lambda-extensions-how-it-works.md")
+- [Adding the AWS AppConfig Agent Lambda extension](appconfig-integration-lambda-extensions-add.md "appconfig-integration-lambda-extensions-add.md")
+- [Configuring the AWS AppConfig Agent Lambda extension](appconfig-integration-lambda-extensions-config.md "appconfig-integration-lambda-extensions-config.md")
+- [Understanding available versions of the AWS AppConfig Agent Lambda extension](appconfig-integration-lambda-extensions-versions.md "appconfig-integration-lambda-extensions-versions.md")

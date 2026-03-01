@@ -1,6 +1,4 @@
-# Deploying AWS AppConfig configurations using
-
-CodePipeline
+# Deploying AWS AppConfig configurations using CodePipeline
 
 AWS AppConfig is an integrated deploy action for AWS CodePipeline (CodePipeline). CodePipeline is a fully managed
 continuous delivery service that helps you automate your release pipelines for fast and

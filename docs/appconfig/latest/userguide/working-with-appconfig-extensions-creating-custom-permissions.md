@@ -1,6 +1,4 @@
-# Step 2:
-
-Configure permissions for a custom AWS AppConfig extension
+# Step 2: Configure permissions for a custom AWS AppConfig extension
 
 Use the following procedure to create and configure an AWS Identity and Access Management (IAM) service role
 (or _assume role_). AWS AppConfig uses this role to invoke the Lambda

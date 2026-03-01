@@ -1,6 +1,4 @@
-# Understanding the
-
-configuration profile IAM role
+# Understanding the configuration profile IAM role
 
 You can create the IAM role that provides access to the configuration data by using
 AWS AppConfig. Or you can create the IAM role yourself. If you create the role by using AWS AppConfig, the

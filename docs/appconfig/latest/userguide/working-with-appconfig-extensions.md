@@ -1,6 +1,4 @@
-# Extending AWS AppConfig workflows using
-
-extensions
+# Extending AWS AppConfig workflows using extensions
 
 An extension augments your ability to inject logic or behavior at different points during
 the AWS AppConfig workflow of creating or deploying a configuration. For example, you can use
@@ -21,9 +19,6 @@ extensions to perform the following types of tasks (to name a few):
 
 ###### Contents
 
-- [Understanding AWS AppConfig
-  extensions](working-with-appconfig-extensions-about.md "working-with-appconfig-extensions-about.md")
-- [Working with AWS
-  authored extensions](working-with-appconfig-extensions-about-predefined.md "working-with-appconfig-extensions-about-predefined.md")
-- [Walkthrough: Creating
-  custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md")
+- [Understanding AWS AppConfig extensions](working-with-appconfig-extensions-about.md "working-with-appconfig-extensions-about.md")
+- [Working with AWS authored extensions](working-with-appconfig-extensions-about-predefined.md "working-with-appconfig-extensions-about-predefined.md")
+- [Walkthrough: Creating custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md")

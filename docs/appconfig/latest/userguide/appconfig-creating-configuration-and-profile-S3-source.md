@@ -1,6 +1,4 @@
-# Understanding
-
-configurations stored in Amazon S3
+# Understanding configurations stored in Amazon S3
 
 You can store configurations in an Amazon Simple Storage Service (Amazon S3) bucket. When you create the
 configuration profile, you specify the URI to a single S3 object in a bucket. You also

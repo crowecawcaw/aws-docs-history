@@ -1,6 +1,4 @@
-# Creating a
-
-feature flag configuration profile in AWS AppConfig
+# Creating a feature flag configuration profile in AWS AppConfig
 
 You can use feature flags to enable or disable features within your applications or to
 configure different characteristics of your application features using flag attributes.
@@ -20,20 +18,15 @@ defined for the variant, AWS AppConfig returns different flag values to the appl
 
 To create multi-variant feature flags, create a configuration profile first, and then
 edit any flags within the configuration profile to add variants. For more information, see
-[Creating multi-variant
-feature flags](appconfig-creating-multi-variant-feature-flags.md "appconfig-creating-multi-variant-feature-flags.md").
+[Creating multi-variant feature flags](appconfig-creating-multi-variant-feature-flags.md "appconfig-creating-multi-variant-feature-flags.md").
 
 ###### Topics
 
 - [Understanding feature flag attributes](#appconfig-creating-configuration-profile-feature-flag-attributes "#appconfig-creating-configuration-profile-feature-flag-attributes")
-- [Creating a
-  feature flag configuration profile (console)](appconfig-creating-feature-flag-configuration-create-console.md "appconfig-creating-feature-flag-configuration-create-console.md")
-- [Creating a
-  feature flag configuration profile (command line)](appconfig-creating-feature-flag-configuration-commandline.md "appconfig-creating-feature-flag-configuration-commandline.md")
-- [Creating multi-variant
-  feature flags](appconfig-creating-multi-variant-feature-flags.md "appconfig-creating-multi-variant-feature-flags.md")
-- [Understanding the type reference
-  for AWS.AppConfig.FeatureFlags](appconfig-type-reference-feature-flags.md "appconfig-type-reference-feature-flags.md")
+- [Creating a feature flag configuration profile (console)](appconfig-creating-feature-flag-configuration-create-console.md "appconfig-creating-feature-flag-configuration-create-console.md")
+- [Creating a feature flag configuration profile (command line)](appconfig-creating-feature-flag-configuration-commandline.md "appconfig-creating-feature-flag-configuration-commandline.md")
+- [Creating multi-variant feature flags](appconfig-creating-multi-variant-feature-flags.md "appconfig-creating-multi-variant-feature-flags.md")
+- [Understanding the type reference for AWS.AppConfig.FeatureFlags](appconfig-type-reference-feature-flags.md "appconfig-type-reference-feature-flags.md")
 - [Saving a previous feature flag version to a new version](appconfig-creating-configuration-profile-feature-flags-editing-version.md "appconfig-creating-configuration-profile-feature-flags-editing-version.md")
 
 ## Understanding feature flag attributes

@@ -70,9 +70,7 @@ Note the following important information.
   `GetConfiguration`, is deprecated. The `GetConfiguration` API
   operation does not support encrypted configurations.
 
-## (Example) Retrieving a
-
-configuration by calling AWS AppConfig APIs
+## (Example) Retrieving a configuration by calling AWS AppConfig APIs
 
 The following AWS CLI example demonstrates how to retrieve configuration data by using the
 AWS AppConfig Data `StartConfigurationSession` and

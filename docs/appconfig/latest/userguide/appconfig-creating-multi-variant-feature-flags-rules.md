@@ -1,6 +1,4 @@
-# Understanding
-
-multi-variant feature flag rules
+# Understanding multi-variant feature flag rules
 
 When you create a feature flag variant, you specify a rule for it. Rules are
 expressions that take context values as input and produce a boolean result as output.
@@ -34,8 +32,7 @@ which means the user views the current experience in production.
 
 ###### Note
 
-For information about retrieving multi-variant feature flags, see [Retrieving basic and
-multi-variant feature flags](appconfig-integration-retrieving-feature-flags.md "appconfig-integration-retrieving-feature-flags.md").
+For information about retrieving multi-variant feature flags, see [Retrieving basic and multi-variant feature flags](appconfig-integration-retrieving-feature-flags.md "appconfig-integration-retrieving-feature-flags.md").
 
 ## Understanding the split operator
 

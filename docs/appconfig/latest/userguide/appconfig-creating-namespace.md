@@ -1,6 +1,4 @@
-# Creating a namespace for your application in
-
-AWS AppConfig
+# Creating a namespace for your application in AWS AppConfig
 
 The procedures in this section help you create an AWS AppConfig artifact called an application.
 An application is simply an organizational construct like a folder that identifies the
@@ -13,8 +11,7 @@ free form configuration data.
 The following procedure gives you the option to associate an extension with a feature flag
 configuration profile. An _extension_ augments your ability to inject logic
 or behavior at different points during the AWS AppConfig workflow of creating or deploying a
-configuration. For more information, see [Understanding AWS AppConfig
-extensions](working-with-appconfig-extensions-about.md "working-with-appconfig-extensions-about.md").
+configuration. For more information, see [Understanding AWS AppConfig extensions](working-with-appconfig-extensions-about.md "working-with-appconfig-extensions-about.md").
 
 ###### Note
 
@@ -25,14 +22,10 @@ reference](../../../AWSCloudFormation/latest/UserGuide/AWS_AppConfig.md "../../.
 
 ###### Topics
 
-- [Creating an AWS AppConfig application
-  (console)](#appconfig-creating-application-console "#appconfig-creating-application-console")
-- [Creating an AWS AppConfig application
-  (command line)](#appconfig-creating-application-commandline "#appconfig-creating-application-commandline")
+- [Creating an AWS AppConfig application (console)](#appconfig-creating-application-console "#appconfig-creating-application-console")
+- [Creating an AWS AppConfig application (command line)](#appconfig-creating-application-commandline "#appconfig-creating-application-commandline")
 
-## Creating an AWS AppConfig application
-
-(console)
+## Creating an AWS AppConfig application (console)
 
 Use the following procedure to create an AWS AppConfig application by using the AWS Systems Manager
 console.
@@ -46,19 +39,15 @@ console.
 4. For **Description**, enter information about the
    application.
 5. (Optional) In the **Extensions** section, choose an extension from
-   the list. For more information, see [Understanding AWS AppConfig
-   extensions](working-with-appconfig-extensions-about.md "working-with-appconfig-extensions-about.md").
+   the list. For more information, see [Understanding AWS AppConfig extensions](working-with-appconfig-extensions-about.md "working-with-appconfig-extensions-about.md").
 6. (Optional) In the **Tags** section, enter a key and an optional
    value. You can specify a maximum of 50 tags for a resource.
 7. Choose **Create application**.
 
 AWS AppConfig creates the application and then displays the **Environments**
-tab. Proceed to [Creating environments for your application in
-AWS AppConfig](appconfig-creating-environment.md "appconfig-creating-environment.md").
+tab. Proceed to [Creating environments for your application in AWS AppConfig](appconfig-creating-environment.md "appconfig-creating-environment.md").
 
-## Creating an AWS AppConfig application
-
-(command line)
+## Creating an AWS AppConfig application (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows) or
 AWS Tools for PowerShell to create an AWS AppConfig application.

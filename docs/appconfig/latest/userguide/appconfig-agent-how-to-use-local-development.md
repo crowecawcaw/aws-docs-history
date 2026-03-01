@@ -1,6 +1,4 @@
-# Working with AWS AppConfig Agent
-
-local development mode
+# Working with AWS AppConfig Agent local development mode
 
 AWS AppConfig Agent supports a _local development mode_. If you enable local
 development mode, the agent reads configuration data from a specified directory on disk. It
@@ -49,8 +47,7 @@ Mobile:Development:EnableMobilePaymentsFeatureFlagConfiguration
 ###### Note
 
     * To view feature flag samples you can add to a file in your
-     `LOCAL_DEVELOPMENT_DIRECTORY` directory, see [Feature flag
-     samples for AWS AppConfig Agent local development mode](appconfig-agent-how-to-use-local-development-samples.md "appconfig-agent-how-to-use-local-development-samples.md").
+     `LOCAL_DEVELOPMENT_DIRECTORY` directory, see [Feature flag samples for AWS AppConfig Agent local development mode](appconfig-agent-how-to-use-local-development-samples.md "appconfig-agent-how-to-use-local-development-samples.md").
     * (Optional) You can control the content type the agent returns for your
      configuration data based on the extension you give the file. For example, if you
      name the file with a .json extension, the agent returns a content type of

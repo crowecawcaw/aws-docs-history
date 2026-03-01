@@ -1,6 +1,4 @@
-# Understanding
-
-multi-variant feature flag concepts and common use cases
+# Understanding multi-variant feature flag concepts and common use cases
 
 To help you better understand feature flag variants, this section explains flag
 variant concepts and common use cases.
@@ -34,8 +32,7 @@ flag.
 
 AWS AppConfig agent evaluates variant rules and determines which rule applies to the
 request based on the provided context. For more information about retrieving
-multi-varient feature flags, see [Retrieving basic and
-multi-variant feature flags](appconfig-integration-retrieving-feature-flags.md "appconfig-integration-retrieving-feature-flags.md").
+multi-varient feature flags, see [Retrieving basic and multi-variant feature flags](appconfig-integration-retrieving-feature-flags.md "appconfig-integration-retrieving-feature-flags.md").
 
 **Common use cases**
 

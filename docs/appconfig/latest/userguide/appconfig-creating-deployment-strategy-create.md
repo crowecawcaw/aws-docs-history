@@ -5,9 +5,7 @@ your own. You can create a maximum of 20 deployment strategies. When you deploy 
 configuration, you can choose the deployment strategy that works best for the application
 and the environment.
 
-## Creating an AWS AppConfig
-
-deployment strategy (console)
+## Creating an AWS AppConfig deployment strategy (console)
 
 Use the following procedure to create an AWS AppConfig deployment strategy by using the
 AWS Systems Manager console.
@@ -44,9 +42,7 @@ _AWS CodePipeline User Guide_.
 
 Proceed to [Deploying a configuration](appconfig-deploying.md "appconfig-deploying.md").
 
-## Creating an
-
-AWS AppConfig deployment strategy (command line)
+## Creating an AWS AppConfig deployment strategy (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows) or
 AWS Tools for PowerShell to create an AWS AppConfig deployment strategy.

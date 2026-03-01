@@ -1,6 +1,4 @@
-# Starting the AWS AppConfig
-
-agent for Amazon ECS integration
+# Starting the AWS AppConfig agent for Amazon ECS integration
 
 The AWS AppConfig Agent sidecar container is automatically available in your Amazon ECS
 environment. To use it, you must start it, as described in the following procedure.
@@ -50,6 +48,5 @@ Note the following information.
   dependency to the HEALTHY condition. For more information, see [ContainerDependency](../../../AmazonECS/latest/APIReference/API_ContainerDependency.md "../../../AmazonECS/latest/APIReference/API_ContainerDependency.md") in the _Amazon Elastic Container Service API Reference_.
 - You can adjust the default behavior of AWS AppConfig Agent by entering or changing
   environment variables. For information about the available environment variables,
-  see [(Optional) Using
-  environment variables to configure AWS AppConfig Agent for Amazon ECS and Amazon EKS](appconfig-integration-containers-agent-configuring.md "appconfig-integration-containers-agent-configuring.md"). For
+  see [(Optional) Using environment variables to configure AWS AppConfig Agent for Amazon ECS and Amazon EKS](appconfig-integration-containers-agent-configuring.md "appconfig-integration-containers-agent-configuring.md"). For
   information about how to change environment variables in Amazon ECS, see [Passing environment variables to a container](../../../AmazonECS/latest/developerguide/taskdef-envfiles.md "../../../AmazonECS/latest/developerguide/taskdef-envfiles.md") in the _Amazon Elastic Container Service Developer Guide_.

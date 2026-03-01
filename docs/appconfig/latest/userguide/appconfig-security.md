@@ -24,9 +24,7 @@ cloud and security _in_ the cloud:
   AWS Systems Manager](../../../systems-manager/latest/userguide/security.md "../../../systems-manager/latest/userguide/security.md"). That section describes how to configure Systems Manager to meet the security
   and compliance objectives for AWS AppConfig.
 
-## Implement least privilege
-
-access
+## Implement least privilege access
 
 As a security best practice, grant the minimum required permissions that identities
 require to perform specific actions on specific resources under specific conditions.
@@ -40,12 +38,9 @@ security risk and the impact that could result from errors or malicious intent.
 
 For more information about implementing least privilege access, see [SEC03-BP02 Grant least privilege access](../../../wellarchitected/latest/framework/sec_permissions_least_privileges.md "../../../wellarchitected/latest/framework/sec_permissions_least_privileges.md") in the
 _AWS Well-Architected Tool User Guide_. For more information about the AWS AppConfig Agent
-features mentioned in this section, see [Using a manifest to enable
-additional retrieval features](appconfig-agent-how-to-use-additional-features.md "appconfig-agent-how-to-use-additional-features.md").
+features mentioned in this section, see [Using a manifest to enable additional retrieval features](appconfig-agent-how-to-use-additional-features.md "appconfig-agent-how-to-use-additional-features.md").
 
-## Data encryption at rest for
-
-AWS AppConfig
+## Data encryption at rest for AWS AppConfig
 
 AWS AppConfig provides encryption by default to protect customer data at rest using
 AWS owned keys.
@@ -269,9 +264,7 @@ operations called by AWS AppConfig to access data encrypted by your customer man
 }
 ```
 
-## Access AWS AppConfig using an interface
-
-endpoint (AWS PrivateLink)
+## Access AWS AppConfig using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS AppConfig. You can access AWS AppConfig as if it were in your VPC, without the use of an
@@ -296,9 +289,7 @@ _AWS PrivateLink Guide_.
 AWS AppConfig supports making calls to the [`appconfig`](../../2019-10-09/APIReference/API_Operations_Amazon_AppConfig.md "../../2019-10-09/APIReference/API_Operations_Amazon_AppConfig.md") and [`appconfigdata`](../../2019-10-09/APIReference/API_Operations_AWS_AppConfig_Data.md "../../2019-10-09/APIReference/API_Operations_AWS_AppConfig_Data.md") services through the interface
 endpoint.
 
-### Create an interface endpoint for
-
-AWS AppConfig
+### Create an interface endpoint for AWS AppConfig
 
 You can create an interface endpoint for AWS AppConfig using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the
@@ -320,9 +311,7 @@ AWS AppConfig using its default Regional DNS name. For example,
 `appconfig.us-east-1.amazonaws.com` and
 `appconfigdata.us-east-1.amazonaws.com`.
 
-### Create an endpoint policy for your interface
-
-endpoint
+### Create an endpoint policy for your interface endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface
 endpoint. The default endpoint policy allows full access to AWS AppConfig through the
@@ -372,9 +361,7 @@ This section describes important security information about AWS AppConfig integr
 Secrets Manager. For information about Secrets Manager, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the
 _AWS Secrets Manager User Guide_.
 
-### Setting
-
-up automatic rotation of Secrets Manager secrets deployed by AWS AppConfig
+### Setting up automatic rotation of Secrets Manager secrets deployed by AWS AppConfig
 
 _Rotation_ is the process of periodically updating a secret
 stored in Secrets Manager. When you rotate a secret, you update the credentials in both the

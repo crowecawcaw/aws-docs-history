@@ -1,6 +1,4 @@
-# Creating a free form
-
-configuration profile in AWS AppConfig
+# Creating a free form configuration profile in AWS AppConfig
 
 _Configuration data_ is a collection of settings that influence the
 behavior of your application. A _configuration profile_ includes, among
@@ -39,12 +37,9 @@ configuration profile.
 
 ###### Topics
 
-- [Understanding
-  validators](appconfig-creating-configuration-and-profile-validators.md "appconfig-creating-configuration-and-profile-validators.md")
-- [Understanding
-  configuration store quotas and limitations](appconfig-creating-configuration-and-profile-quotas.md "appconfig-creating-configuration-and-profile-quotas.md")
+- [Understanding validators](appconfig-creating-configuration-and-profile-validators.md "appconfig-creating-configuration-and-profile-validators.md")
+- [Understanding configuration store quotas and limitations](appconfig-creating-configuration-and-profile-quotas.md "appconfig-creating-configuration-and-profile-quotas.md")
 - [Understanding the AWS AppConfig hosted configuration store](appconfig-creating-configuration-and-profile-about-hosted-store.md "appconfig-creating-configuration-and-profile-about-hosted-store.md")
-- [Understanding
-  configurations stored in Amazon S3](appconfig-creating-configuration-and-profile-S3-source.md "appconfig-creating-configuration-and-profile-S3-source.md")
+- [Understanding configurations stored in Amazon S3](appconfig-creating-configuration-and-profile-S3-source.md "appconfig-creating-configuration-and-profile-S3-source.md")
 - [Creating an AWS AppConfig freeform configuration profile (console)](appconfig-creating-free-form-configuration-and-profile-create-console.md "appconfig-creating-free-form-configuration-and-profile-create-console.md")
 - [Creating an AWS AppConfig freeform configuration profile (command line)](appconfig-creating-free-form-configuration-and-profile-create-commandline.md "appconfig-creating-free-form-configuration-and-profile-create-commandline.md")

@@ -7,8 +7,7 @@ tracks which configuration profiles and environments have been included in these
 accessed within that interval will be considered active. If you attempt to delete an active
 configuration profile or environment, AWS AppConfig returns an error. If needed, you can bypass this
 error by using the `DeletionProtectionCheck` parameter. For more information, see
-[Bypassing or forcing a deletion protection
-check](deletion-protection-check.md "deletion-protection-check.md").
+[Bypassing or forcing a deletion protection check](deletion-protection-check.md "deletion-protection-check.md").
 
 ###### Configure deletion protection using the console
 

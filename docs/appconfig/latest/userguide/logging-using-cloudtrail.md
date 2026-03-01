@@ -1,6 +1,4 @@
-# Logging AWS AppConfig API calls using
-
-AWS CloudTrail
+# Logging AWS AppConfig API calls using AWS CloudTrail
 
 AWS AppConfig is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service
 that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all
@@ -67,8 +65,7 @@ shows the resource types available for AWS AppConfig.
       fields.
   4.  For **Selector name**, enter
       **AppConfigDataEvents**. For information about enabling Amazon CloudWatch Logs
-      for your data event trail, see [Logging metrics for AWS AppConfig data plane
-      calls](monitoring-data-plane-call-logging.md "monitoring-data-plane-call-logging.md").
+      for your data event trail, see [Logging metrics for AWS AppConfig data plane calls](monitoring-data-plane-call-logging.md "monitoring-data-plane-call-logging.md").
 
 - To log data events using the AWS CLI, configure the
   `--advanced-event-selectors` parameter to set the `eventCategory`

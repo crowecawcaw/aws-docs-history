@@ -1,6 +1,4 @@
-# Configuring
-
-AWS AppConfig Agent to write configuration copies to disk
+# Configuring AWS AppConfig Agent to write configuration copies to disk
 
 You can configure AWS AppConfig Agent to automatically store a copy of a configuration to
 disk in plain text. This feature enables customers with applications that read
@@ -19,8 +17,7 @@ Note the following important information about this feature:
   are human readable. Don't enable this feature for configurations that include
   sensitive data.
 - This feature writes to the local disk. Use the principle of least privilege for
-  filesystem permissions. For more information, see [Implement least privilege
-  access](appconfig-security.md#appconfig-security-least-privilege-access "appconfig-security.md#appconfig-security-least-privilege-access").
+  filesystem permissions. For more information, see [Implement least privilege access](appconfig-security.md#appconfig-security-least-privilege-access "appconfig-security.md#appconfig-security-least-privilege-access").
 
 ###### To enable write configuration copy to disk
 

@@ -27,8 +27,6 @@ when appropriate:
 
 ###### Topics
 
-- [Logging AWS AppConfig API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-- [Logging metrics for AWS AppConfig data plane
-  calls](monitoring-data-plane-call-logging.md "monitoring-data-plane-call-logging.md")
+- [Logging AWS AppConfig API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging metrics for AWS AppConfig data plane calls](monitoring-data-plane-call-logging.md "monitoring-data-plane-call-logging.md")
 - [Monitoring deployments for automatic rollback](monitoring-deployments.md "monitoring-deployments.md")

@@ -1,6 +1,4 @@
-# Step 3:
-
-Create a custom AWS AppConfig extension
+# Step 3: Create a custom AWS AppConfig extension
 
 An extension defines one or more actions that it performs during an AWS AppConfig workflow. For
 example, the AWS authored `AWS AppConfig deployment events to Amazon SNS` extension includes an action to send a notification to an
@@ -36,17 +34,24 @@ respond to an error and prevent an action from happening.
   service stops the workflow and rolls back the deployment.
 
 - `AT_DEPLOYMENT_TICK`
+  The `AT_DEPLOYMENT_TICK` action point supports third-party monitoring
+  integration. `AT_DEPLOYMENT_TICK` is invoked during configuration deployment
+  processing orchestration. If you use a third-party monitoring solution (for example,
+  Datadog or New Relic), you can create an AWS AppConfig extension that checks for alarms at the
+  `AT_DEPLOYMENT_TICK` action point and, as a safety guardrail, rolls back the
+  deployment if it triggered an alarm.
 
-###### Note
+If you use a third-party monitoring solution like Datadog or New Relic, you can create an
+AWS AppConfig extension that checks for alarms at the `AT_DEPLOYMENT_TICK` action point
+and, as a safety guardrail, rolls back the deployment if it triggered an alarm. For more information, see the following Datadog and New Relic integration examples on GitHub:
 
-The `AT_DEPLOYMENT_TICK` action point supports third-party monitoring
-integration. `AT_DEPLOYMENT_TICK` is invoked during configuration deployment
-processing orchestration. If you use a third-party monitoring solution (for example,
-Datadog), you can create an AWS AppConfig extension that checks for alarms at the
-`AT_DEPLOYMENT_TICK` action point and, as a safety guardrail, rolls back the
-deployment if it triggered an alarm. To view a code sample of an AWS AppConfig extension that
-uses the `AT_DEPLOYMENT_TICK` action point to integrate with Datadog, see
-[aws-samples / aws-appconfig-tick-extn-for-datadog](https://github.com/aws-samples/aws-appconfig-tick-extn-for-datadog "https://github.com/aws-samples/aws-appconfig-tick-extn-for-datadog") on GitHub.
+- [Datadog](https://github.com/aws-samples/aws-appconfig-tick-extn-for-datadog "https://github.com/aws-samples/aws-appconfig-tick-extn-for-datadog")
+- [New Relic](https://github.com/aws-samples/sample-aws-appconfig-tick-extn-for-newrelic "https://github.com/aws-samples/sample-aws-appconfig-tick-extn-for-newrelic")
+  For more
+  information about AWS AppConfig extensions, see the following topics:
+
+- [Extending AWS AppConfig workflows using extensions](working-with-appconfig-extensions.md "working-with-appconfig-extensions.md")
+- [Walkthrough: Creating custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md")
 
 ###### Sample extension
 

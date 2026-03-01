@@ -61,9 +61,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Grant programmatic
-
-access
+## Grant programmatic access
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 
@@ -104,9 +102,7 @@ based on CloudWatch alarms. This section includes the following procedures.
 Use the following procedure to create an IAM policy that gives AWS AppConfig permission
 to call the `DescribeAlarms` API action.
 
-###### To create an IAM permission policy for rollback based on CloudWatch
-
-alarms
+###### To create an IAM permission policy for rollback based on CloudWatch alarms
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

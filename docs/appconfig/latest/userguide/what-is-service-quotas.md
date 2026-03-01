@@ -6,5 +6,4 @@ You can view information about AWS AppConfig endpoints and service quotas in the
 
 AWS AppConfig is a capability of AWS Systems Manager.
 
-For information about quotas for services that store AWS AppConfig configurations, see [Understanding
-configuration store quotas and limitations](appconfig-creating-configuration-and-profile-quotas.md "appconfig-creating-configuration-and-profile-quotas.md").
+For information about quotas for services that store AWS AppConfig configurations, see [Understanding configuration store quotas and limitations](appconfig-creating-configuration-and-profile-quotas.md "appconfig-creating-configuration-and-profile-quotas.md").

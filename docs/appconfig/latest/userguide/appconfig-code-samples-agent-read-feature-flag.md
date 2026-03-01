@@ -1,6 +1,4 @@
-# Using AWS AppConfig Agent to
-
-read a specific feature flag
+# Using AWS AppConfig Agent to read a specific feature flag
 
 Each of the following samples includes comments about the actions performed by the
 code.

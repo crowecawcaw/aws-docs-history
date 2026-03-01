@@ -1,6 +1,4 @@
-# Logging metrics for AWS AppConfig data plane
-
-calls
+# Logging metrics for AWS AppConfig data plane calls
 
 If you configured AWS CloudTrail to log AWS AppConfig data events, you can enable Amazon CloudWatch Logs to log
 metrics for calls to the AWS AppConfig data plane. You can then search and filter log data in CloudWatch Logs
@@ -101,9 +99,7 @@ For example
 If you set up the error metric with no dimension, as described here, you can view those
 metrics on the **Metrics with no dimension** page.
 
-## Creating an alarm for a CloudWatch
-
-metric
+## Creating an alarm for a CloudWatch metric
 
 After you create metrics, you can create metric alarms in CloudWatch. For example, you can
 create an alarm for the _AWS AppConfig calls_ metric you created in the previous

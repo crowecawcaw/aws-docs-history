@@ -1,6 +1,4 @@
-# Retrieving feature flags and configuration data in
-
-AWS AppConfig
+# Retrieving feature flags and configuration data in AWS AppConfig
 
 Your application retrieves feature flags and free form configuration data by establishing a
 configuration session using the AWS AppConfig Data service. We recommended you use AWS AppConfig Agent to
@@ -13,8 +11,7 @@ level, the process works as follows:
 2. The agent calls the [StartConfigurationSession](../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md "../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md") and [GetLatestConfiguration](../../2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md "../../2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md") API actions and caches your configuration data
    locally.
 3. To retrieve the data, your application makes an HTTP call to the localhost server.
-   AWS AppConfig Agent supports several use cases, as described in [How to use AWS AppConfig Agent to retrieve configuration
-   data](appconfig-agent-how-to-use.md "appconfig-agent-how-to-use.md").
+   AWS AppConfig Agent supports several use cases, as described in [How to use AWS AppConfig Agent to retrieve configuration data](appconfig-agent-how-to-use.md "appconfig-agent-how-to-use.md").
    If you prefer, you can manually call these API actions to retrieve a configuration. The API
    process works as follows:
 
@@ -42,8 +39,6 @@ Retrieving configuration data from a separate AWS account isn't supported.
 ###### Contents
 
 - [What is AWS AppConfig Agent?](appconfig-agent.md "appconfig-agent.md")
-- [How to use AWS AppConfig Agent to retrieve configuration
-  data](appconfig-agent-how-to-use.md "appconfig-agent-how-to-use.md")
-- [AWS AppConfig browser and mobile use
-  considerations](appconfig-retrieving-mobile.md "appconfig-retrieving-mobile.md")
+- [How to use AWS AppConfig Agent to retrieve configuration data](appconfig-agent-how-to-use.md "appconfig-agent-how-to-use.md")
+- [AWS AppConfig browser and mobile use considerations](appconfig-retrieving-mobile.md "appconfig-retrieving-mobile.md")
 - [Retrieving configuration data without AWS AppConfig Agent](about-data-plane.md "about-data-plane.md")

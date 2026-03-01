@@ -1,6 +1,4 @@
-# Using
-
-AWS AppConfig Agent to retrieve a feature flag with variants
+# Using AWS AppConfig Agent to retrieve a feature flag with variants
 
 Each of the following samples includes comments about the actions performed by the
 code.

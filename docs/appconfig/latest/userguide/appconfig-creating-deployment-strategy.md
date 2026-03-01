@@ -1,6 +1,4 @@
-# Working with deployment
-
-strategies
+# Working with deployment strategies
 
 A deployment strategy enables you to slowly release changes to production environments
 over minutes or hours. An AWS AppConfig deployment strategy defines the following important aspects
@@ -17,6 +15,5 @@ You can choose a predefined strategy included with AWS AppConfig or create your 
 
 ###### Topics
 
-- [Using predefined
-  deployment strategies](appconfig-creating-deployment-strategy-predefined.md "appconfig-creating-deployment-strategy-predefined.md")
+- [Using predefined deployment strategies](appconfig-creating-deployment-strategy-predefined.md "appconfig-creating-deployment-strategy-predefined.md")
 - [Create a deployment strategy](appconfig-creating-deployment-strategy-create.md "appconfig-creating-deployment-strategy-create.md")

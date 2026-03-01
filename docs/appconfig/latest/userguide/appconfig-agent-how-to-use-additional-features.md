@@ -1,16 +1,12 @@
-# Using a manifest to enable
-
-additional retrieval features
+# Using a manifest to enable additional retrieval features
 
 AWS AppConfig Agent offers the following additional features to help you retrieve
 configurations for your applications.
 
-- [Configuring
-  AWS AppConfig Agent to retrieve configurations from multiple accounts](appconfig-agent-how-to-use-additional-features-multi-account.md "appconfig-agent-how-to-use-additional-features-multi-account.md"): Use
+- [Configuring AWS AppConfig Agent to retrieve configurations from multiple accounts](appconfig-agent-how-to-use-additional-features-multi-account.md "appconfig-agent-how-to-use-additional-features-multi-account.md"): Use
   AWS AppConfig Agent from a primary or _retrieval_ AWS account to retrieve
   configuration data from multiple vendor accounts.
-- [Configuring
-  AWS AppConfig Agent to write configuration copies to disk](appconfig-agent-how-to-use-additional-features-write-to-disk.md "appconfig-agent-how-to-use-additional-features-write-to-disk.md"): Use
+- [Configuring AWS AppConfig Agent to write configuration copies to disk](appconfig-agent-how-to-use-additional-features-write-to-disk.md "appconfig-agent-how-to-use-additional-features-write-to-disk.md"): Use
   AWS AppConfig Agent to write configuration data to disk. This feature enables customers with
   applications that read configuration data from disk to integrate with AWS AppConfig.
 
@@ -78,7 +74,6 @@ one of the following values:
 For more information about setting variables for AWS AppConfig Agent, see the relevant topic
 for your use case:
 
-- [Configuring the AWS AppConfig
-  Agent Lambda extension](appconfig-integration-lambda-extensions-config.md "appconfig-integration-lambda-extensions-config.md")
+- [Configuring the AWS AppConfig Agent Lambda extension](appconfig-integration-lambda-extensions-config.md "appconfig-integration-lambda-extensions-config.md")
 - [Using AWS AppConfig Agent with Amazon EC2](appconfig-integration-ec2.md#appconfig-integration-ec2-configuring "appconfig-integration-ec2.md#appconfig-integration-ec2-configuring")
 - [Using AWS AppConfig Agent with Amazon ECS and Amazon EKS](appconfig-integration-containers-agent.md#appconfig-integration-containers-agent-configuring "appconfig-integration-containers-agent.md#appconfig-integration-containers-agent-configuring")

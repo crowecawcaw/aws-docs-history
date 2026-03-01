@@ -1,6 +1,4 @@
-# Using
-
-the AWS AppConfig deployment events to Amazon SNS extension
+# Using the AWS AppConfig deployment events to Amazon SNS extension
 
 The `AWS AppConfig deployment events to Amazon SNS` extension is an AWS authored
 extension that helps you monitor and act on the AWS AppConfig configuration deployment workflow.
@@ -11,8 +9,7 @@ deployment start, end, and rollback.
 
 If you want more control over which action points send Amazon SNS notifications, you can
 create a custom extension and enter an Amazon SNS topic Amazon Resource Name (ARN) for the URI
-field. For information about creating an extension, see [Walkthrough: Creating
-custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md").
+field. For information about creating an extension, see [Walkthrough: Creating custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md").
 
 ## Using the extension
 
@@ -48,8 +45,7 @@ This extension is invoked by the following action points:
 - `ON_DEPLOYMENT_COMPLETE`
 - `ON_DEPLOYMENT_ROLLED_BACK`
   You can't customize the actions points for this extension. To invoke different action points, you can create your own extension.
-  For more information, see [Walkthrough: Creating
-  custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md").
+  For more information, see [Walkthrough: Creating custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md").
 
 Use the following procedures to create an AWS AppConfig extension association by using either the
 AWS Systems Manager console or the AWS CLI.

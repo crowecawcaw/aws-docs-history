@@ -1,6 +1,4 @@
-# Deploying feature flags and configuration data in
-
-AWS AppConfig
+# Deploying feature flags and configuration data in AWS AppConfig
 
 After you [create
 required artifacts](creating-feature-flags-and-configuration-data.md "creating-feature-flags-and-configuration-data.md") for working with feature flags and freeform configuration data, you
@@ -28,15 +26,12 @@ information:
    on Amazon CloudWatch alarms. A deployment strategy enables you to slowly release changes to production
    environments over minutes or hours. Once configured, if one or more CloudWatch alarms go into the
    alarm state during a deployment, AWS AppConfig automatically rolls back your configuration data to the
-   previous version. For more information about deployment strategies, see [Working with deployment
-   strategies](appconfig-creating-deployment-strategy.md "appconfig-creating-deployment-strategy.md"). For more information about automatic
+   previous version. For more information about deployment strategies, see [Working with deployment strategies](appconfig-creating-deployment-strategy.md "appconfig-creating-deployment-strategy.md"). For more information about automatic
    rollbacks, see [Monitoring deployments for automatic rollback](monitoring-deployments.md "monitoring-deployments.md").
 
 ###### Topics
 
-- [Working with deployment
-  strategies](appconfig-creating-deployment-strategy.md "appconfig-creating-deployment-strategy.md")
+- [Working with deployment strategies](appconfig-creating-deployment-strategy.md "appconfig-creating-deployment-strategy.md")
 - [Deploying a configuration](appconfig-deploying.md "appconfig-deploying.md")
-- [Deploying AWS AppConfig configurations using
-  CodePipeline](appconfig-integration-codepipeline.md "appconfig-integration-codepipeline.md")
+- [Deploying AWS AppConfig configurations using CodePipeline](appconfig-integration-codepipeline.md "appconfig-integration-codepipeline.md")
 - [Reverting a configuration](appconfig-deploying-reverting.md "appconfig-deploying-reverting.md")

@@ -1,6 +1,4 @@
-# Creating a
-
-feature flag configuration profile (console)
+# Creating a feature flag configuration profile (console)
 
 Use the following procedure to create an AWS AppConfig feature flag configuration profile by
 using the AWS AppConfig console. At the time you create the configuration profile, you can also
@@ -10,8 +8,7 @@ create a basic feature flag.
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/appconfig/](https://console.aws.amazon.com/systems-manager/appconfig/ "https://console.aws.amazon.com/systems-manager/appconfig/").
 2. In the navigation pane, choose **Applications**, and then choose
-   an application you created in [Creating a namespace for your application in
-   AWS AppConfig](appconfig-creating-namespace.md "appconfig-creating-namespace.md").
+   an application you created in [Creating a namespace for your application in AWS AppConfig](appconfig-creating-namespace.md "appconfig-creating-namespace.md").
 3. On the **Configuration profiles and feature flags** tab, choose
    **Create configuration**.
 4. In the **Configuration options** section, choose
@@ -60,5 +57,4 @@ create a basic feature flag.
 15. Choose **Next**.
 16. On the **Review and save** page, verify the details of the flag
     and then **Save and continue to deploy**.
-    Proceed to [Deploying feature flags and configuration data in
-    AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md").
+    Proceed to [Deploying feature flags and configuration data in AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md").

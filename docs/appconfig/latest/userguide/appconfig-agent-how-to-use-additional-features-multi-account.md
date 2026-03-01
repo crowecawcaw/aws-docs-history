@@ -1,6 +1,4 @@
-# Configuring
-
-AWS AppConfig Agent to retrieve configurations from multiple accounts
+# Configuring AWS AppConfig Agent to retrieve configurations from multiple accounts
 
 You can configure AWS AppConfig Agent to retrieve configurations from multiple AWS accounts
 by entering credential overrides in the AWS AppConfig Agent manifest. _Credential

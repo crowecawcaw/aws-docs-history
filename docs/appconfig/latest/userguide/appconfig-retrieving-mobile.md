@@ -1,6 +1,4 @@
-# AWS AppConfig browser and mobile use
-
-considerations
+# AWS AppConfig browser and mobile use considerations
 
 Feature flags enable you to update the experience of your web pages and mobile application
 on the fly, without the overhead, risk, or rigidity of an app store release. Using feature
@@ -14,19 +12,14 @@ with web pages and mobiles devices.
 
 ###### Topics
 
-- [Configuration data and flag
-  retrieval](#appconfig-retrieving-mobile-configuration-data "#appconfig-retrieving-mobile-configuration-data")
-- [Authentication and
-  Amazon Cognito](#appconfig-retrieving-mobile-authentication "#appconfig-retrieving-mobile-authentication")
+- [Configuration data and flag retrieval](#appconfig-retrieving-mobile-configuration-data "#appconfig-retrieving-mobile-configuration-data")
+- [Authentication and Amazon Cognito](#appconfig-retrieving-mobile-authentication "#appconfig-retrieving-mobile-authentication")
 - [Caching](#appconfig-retrieving-mobile-caching "#appconfig-retrieving-mobile-caching")
 - [Segmentation](#appconfig-retrieving-mobile-segmentation "#appconfig-retrieving-mobile-segmentation")
-- [Bandwidth (mobile use
-  cases)](#appconfig-retrieving-mobile-experience-bandwidth "#appconfig-retrieving-mobile-experience-bandwidth")
+- [Bandwidth (mobile use cases)](#appconfig-retrieving-mobile-experience-bandwidth "#appconfig-retrieving-mobile-experience-bandwidth")
 - [Additional flag use cases](#appconfig-retrieving-mobile-use-cases "#appconfig-retrieving-mobile-use-cases")
 
-## Configuration data and flag
-
-retrieval
+## Configuration data and flag retrieval
 
 For browser and mobile use cases, many customers choose to employ a proxy layer between
 the web or the mobile application and AWS AppConfig. Doing so decouples your AWS AppConfig call volume
@@ -45,9 +38,7 @@ Mobile uses cases typically do not require high-frequency polling intervals. Con
 AWS AppConfig Agent to refresh data from AWS AppConfig more frequently than your application refreshes
 from the proxy.
 
-## Authentication and
-
-Amazon Cognito
+## Authentication and Amazon Cognito
 
 Lambda function URLs support [two forms of access control](../../../lambda/latest/dg/urls-auth.md "../../../lambda/latest/dg/urls-auth.md"),
 `AWS_IAM` and `NONE`. Use `NONE` if you prefer to
@@ -114,9 +105,7 @@ environments, such as device type (tablet vs phone) or OS major versions. With s
 environments, you can deploy the same or different sets of configuration data to meet the
 particular requirements of your customer base.
 
-## Bandwidth (mobile use
-
-cases)
+## Bandwidth (mobile use cases)
 
 In general, aim to keep the size of each flag set small. Mobile use cases tend to
 involve low-bandwidth constraints. Minimizing the size of your data will help you maintain a

@@ -1,6 +1,4 @@
-# Walkthrough: Creating
-
-custom AWS AppConfig extensions
+# Walkthrough: Creating custom AWS AppConfig extensions
 
 To create a custom AWS AppConfig extension, complete the following tasks. Each task is described
 in more detail in later topics.
@@ -23,8 +21,7 @@ You can view samples of custom AWS AppConfig extensions on GitHub:
 For most use cases, to create a custom extension, you must create an AWS Lambda function to perform any computation and processing defined in the
 extension. An exception to this rule is if you create _custom_
 versions of the [AWS authored notification extensions](working-with-appconfig-extensions-about-predefined.md "working-with-appconfig-extensions-about-predefined.md") to add or remove action points. For
-more details about this exception, see [Step 3:
-Create a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-extensions.md "working-with-appconfig-extensions-creating-custom-extensions.md").
+more details about this exception, see [Step 3: Create a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-extensions.md "working-with-appconfig-extensions-creating-custom-extensions.md").
 
 **2. [Configure permissions for your custom extension](working-with-appconfig-extensions-creating-custom-permissions.md "working-with-appconfig-extensions-creating-custom-permissions.md")**
 
@@ -66,11 +63,7 @@ The extension runs whenever a hosted configuration is created
 
 ###### Topics
 
-- [Step 1: Create a
-  Lambda function for a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-lambda.md "working-with-appconfig-extensions-creating-custom-lambda.md")
-- [Step 2:
-  Configure permissions for a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-permissions.md "working-with-appconfig-extensions-creating-custom-permissions.md")
-- [Step 3:
-  Create a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-extensions.md "working-with-appconfig-extensions-creating-custom-extensions.md")
-- [Step 4:
-  Create an extension association for a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-association.md "working-with-appconfig-extensions-creating-custom-association.md")
+- [Step 1: Create a Lambda function for a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-lambda.md "working-with-appconfig-extensions-creating-custom-lambda.md")
+- [Step 2: Configure permissions for a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-permissions.md "working-with-appconfig-extensions-creating-custom-permissions.md")
+- [Step 3: Create a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-extensions.md "working-with-appconfig-extensions-creating-custom-extensions.md")
+- [Step 4: Create an extension association for a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-association.md "working-with-appconfig-extensions-creating-custom-association.md")

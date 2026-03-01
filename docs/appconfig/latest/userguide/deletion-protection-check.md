@@ -1,6 +1,4 @@
-# Bypassing or forcing a deletion protection
-
-check
+# Bypassing or forcing a deletion protection check
 
 To help you manage deletion protection, the [DeleteEnvironment](../../2019-10-09/APIReference/API_DeleteEnvironment.md "../../2019-10-09/APIReference/API_DeleteEnvironment.md")
 and [DeleteConfigurationProfile](../../2019-10-09/APIReference/API_DeleteConfigurationProfile.md "../../2019-10-09/APIReference/API_DeleteConfigurationProfile.md") APIs include a parameter called

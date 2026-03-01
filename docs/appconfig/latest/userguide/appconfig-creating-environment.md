@@ -1,6 +1,4 @@
-# Creating environments for your application in
-
-AWS AppConfig
+# Creating environments for your application in AWS AppConfig
 
 For each AWS AppConfig application, you define one or more environments. An environment is a
 logical deployment group of AppConfig targets, such as applications in a `Beta` or
@@ -19,14 +17,10 @@ information, see [Configure permissions for automatic rollback](setting-up-appco
 
 ###### Topics
 
-- [Creating an AWS AppConfig environment
-  (console)](#appconfig-creating-environment-console "#appconfig-creating-environment-console")
-- [Creating an AWS AppConfig environment
-  (command line)](#appconfig-creating-environment-commandline "#appconfig-creating-environment-commandline")
+- [Creating an AWS AppConfig environment (console)](#appconfig-creating-environment-console "#appconfig-creating-environment-console")
+- [Creating an AWS AppConfig environment (command line)](#appconfig-creating-environment-commandline "#appconfig-creating-environment-commandline")
 
-## Creating an AWS AppConfig environment
-
-(console)
+## Creating an AWS AppConfig environment (console)
 
 Use the following procedure to create an AWS AppConfig environment by using the AWS Systems Manager
 console.
@@ -50,19 +44,15 @@ console.
    of these metrics goes into an `ALARM` state. For information about
    recommended metrics, see [Monitoring deployments for automatic rollback](monitoring-deployments.md "monitoring-deployments.md")
 8. (Optional) In the **Associate extensions** section, choose an
-   extension from the list. For more information, see [Understanding AWS AppConfig
-   extensions](working-with-appconfig-extensions-about.md "working-with-appconfig-extensions-about.md").
+   extension from the list. For more information, see [Understanding AWS AppConfig extensions](working-with-appconfig-extensions-about.md "working-with-appconfig-extensions-about.md").
 9. (Optional) In the **Tags** section, enter a key and an optional
    value. You can specify a maximum of 50 tags for a resource.
 10. Choose **Create environment**.
 
 AWS AppConfig creates the environment and then displays the **Environment
-details** page. Proceed to [Creating a configuration profile in
-AWS AppConfig](appconfig-creating-configuration-profile.md "appconfig-creating-configuration-profile.md").
+details** page. Proceed to [Creating a configuration profile in AWS AppConfig](appconfig-creating-configuration-profile.md "appconfig-creating-configuration-profile.md").
 
-## Creating an AWS AppConfig environment
-
-(command line)
+## Creating an AWS AppConfig environment (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows) or
 AWS Tools for PowerShell to create an AWS AppConfig environment.
@@ -159,5 +149,4 @@ Response Metadata : Runtime Metadata
 State             : State of the environment
 ```
 
-Proceed to [Creating a configuration profile in
-AWS AppConfig](appconfig-creating-configuration-profile.md "appconfig-creating-configuration-profile.md").
+Proceed to [Creating a configuration profile in AWS AppConfig](appconfig-creating-configuration-profile.md "appconfig-creating-configuration-profile.md").

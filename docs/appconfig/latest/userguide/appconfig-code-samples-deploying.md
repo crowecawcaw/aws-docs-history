@@ -1,6 +1,4 @@
-# Deploying a configuration
-
-profile
+# Deploying a configuration profile
 
 Each of the following samples includes comments about the actions performed by the
 code. The samples in this section call the following APIs:

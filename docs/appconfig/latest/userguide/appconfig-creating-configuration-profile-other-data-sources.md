@@ -1,6 +1,4 @@
-# Creating a
-
-configuration profile for non-native data sources
+# Creating a configuration profile for non-native data sources
 
 AWS AppConfig supports deploying configuration data from most any data store. Natively, AWS AppConfig
 supports deploying configuration data stored in the following services:
@@ -27,19 +25,16 @@ involves the following processes or actions:
    function](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") that fetches data from your data source. As long as a Lambda function
    can access the data source, your AWS AppConfig extension will be able to retrieve the data.
 2. Create a custom AWS AppConfig extension that invokes your Lambda function. For more
-   information, see [Walkthrough: Creating
-   custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md").
+   information, see [Walkthrough: Creating custom AWS AppConfig extensions](working-with-appconfig-extensions-creating-custom.md "working-with-appconfig-extensions-creating-custom.md").
 3. Create an AWS AppConfig free-form configuration profile. Specifically, create a
    configuration profile that uses the **AWS AppConfig hosted configuration**
    definition. The configuration profile functions as a temporary data store after your
    Lambda function retrieves your configuration from your source. Your application will
    retrieve the configuration data from the AWS AppConfig hosted configuration store. For more
-   information, see [Creating a free form
-   configuration profile in AWS AppConfig](appconfig-free-form-configurations-creating.md "appconfig-free-form-configurations-creating.md").
+   information, see [Creating a free form configuration profile in AWS AppConfig](appconfig-free-form-configurations-creating.md "appconfig-free-form-configurations-creating.md").
 4. Create an extension association that triggers using the
    `PRE_CREATE_HOSTED_CONFIGURATION_VERSION` action point. For more
-   information, see [Step 4:
-   Create an extension association for a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-association.md "working-with-appconfig-extensions-creating-custom-association.md").
+   information, see [Step 4: Create an extension association for a custom AWS AppConfig extension](working-with-appconfig-extensions-creating-custom-association.md "working-with-appconfig-extensions-creating-custom-association.md").
    Once configured, when your application requests a new version of the configuration data,
    the Lambda fetches your configuration data and pulls it into the configuration profile.
    AWS AppConfig then saves the configuration profile and your third-party data.

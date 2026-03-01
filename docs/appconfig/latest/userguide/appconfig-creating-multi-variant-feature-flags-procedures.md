@@ -1,6 +1,4 @@
-# Creating a
-
-multi-variant feature flag
+# Creating a multi-variant feature flag
 
 Use the procedures in this section to create variants of a feature flag.
 
@@ -13,19 +11,16 @@ Note the following important information.
   profile_. You must complete the workflow of creating the new
   configuration profile first. After you create the configuration profile, you can add
   variants to any flag within the configuration profile. For information about how to
-  create a new configuration profile, see [Creating a
-  feature flag configuration profile in AWS AppConfig](appconfig-creating-configuration-and-profile-feature-flags.md "appconfig-creating-configuration-and-profile-feature-flags.md").
+  create a new configuration profile, see [Creating a feature flag configuration profile in AWS AppConfig](appconfig-creating-configuration-and-profile-feature-flags.md "appconfig-creating-configuration-and-profile-feature-flags.md").
 - To retrieve feature flag variant data for Amazon EC2, Amazon ECS, and Amazon EKS compute
   platforms, you must use AWS AppConfig Agent version 2.0.4416 or later.
 - For performance reasons, AWS CLI and SDK calls to AWS AppConfig don't retrieve variant
-  data. For more information about AWS AppConfig Agent, see [How to use AWS AppConfig Agent to retrieve configuration
-  data](appconfig-agent-how-to-use.md "appconfig-agent-how-to-use.md").
+  data. For more information about AWS AppConfig Agent, see [How to use AWS AppConfig Agent to retrieve configuration data](appconfig-agent-how-to-use.md "appconfig-agent-how-to-use.md").
 - When you create a feature flag variant, you specify a rule for it. Rules are
   expressions that take request context as input and produce a boolean result as
   output. Before you create variants, review the supported operands and operators for
   flag variant rules. You can create rules before you create variants. For more
-  information, see [Understanding
-  multi-variant feature flag rules](appconfig-creating-multi-variant-feature-flags-rules.md "appconfig-creating-multi-variant-feature-flags-rules.md").
+  information, see [Understanding multi-variant feature flag rules](appconfig-creating-multi-variant-feature-flags-rules.md "appconfig-creating-multi-variant-feature-flags-rules.md").
 
 ###### Topics
 
@@ -89,8 +84,7 @@ existing feature flags to create variants.
 11. Verify the details of the flag and its variants and choose **Create
     flag**.
 
-For information about deploying your new feature flag with variants, see [Deploying feature flags and configuration data in
-AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md").
+For information about deploying your new feature flag with variants, see [Deploying feature flags and configuration data in AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md").
 
 ## Creating a multi-variant feature flag (command line)
 
@@ -103,8 +97,7 @@ You can also edit existing feature flags to create variants.
 Complete the following tasks before you create a multi-variant feature flag by
 using the AWS CLI.
 
-- Create a feature flag configuration profile. For more information, see [Creating a
-  feature flag configuration profile in AWS AppConfig](appconfig-creating-configuration-and-profile-feature-flags.md "appconfig-creating-configuration-and-profile-feature-flags.md").
+- Create a feature flag configuration profile. For more information, see [Creating a feature flag configuration profile in AWS AppConfig](appconfig-creating-configuration-and-profile-feature-flags.md "appconfig-creating-configuration-and-profile-feature-flags.md").
 - Update to the latest version of the AWS CLI. For more information, see [Install or update to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the
   _AWS Command Line Interface User Guide_.
 

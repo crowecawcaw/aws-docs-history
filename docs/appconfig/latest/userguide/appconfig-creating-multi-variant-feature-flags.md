@@ -1,6 +1,4 @@
-# Creating multi-variant
-
-feature flags
+# Creating multi-variant feature flags
 
 Feature flag variants enable you to define a set of possible flag values to return for
 a request. You can also configure different statuses (enabled or disabled) for
@@ -16,9 +14,6 @@ variants and the default variant.
 
 ###### Topics
 
-- [Understanding
-  multi-variant feature flag concepts and common use cases](appconfig-creating-multi-variant-feature-flags-concepts.md "appconfig-creating-multi-variant-feature-flags-concepts.md")
-- [Understanding
-  multi-variant feature flag rules](appconfig-creating-multi-variant-feature-flags-rules.md "appconfig-creating-multi-variant-feature-flags-rules.md")
-- [Creating a
-  multi-variant feature flag](appconfig-creating-multi-variant-feature-flags-procedures.md "appconfig-creating-multi-variant-feature-flags-procedures.md")
+- [Understanding multi-variant feature flag concepts and common use cases](appconfig-creating-multi-variant-feature-flags-concepts.md "appconfig-creating-multi-variant-feature-flags-concepts.md")
+- [Understanding multi-variant feature flag rules](appconfig-creating-multi-variant-feature-flags-rules.md "appconfig-creating-multi-variant-feature-flags-rules.md")
+- [Creating a multi-variant feature flag](appconfig-creating-multi-variant-feature-flags-procedures.md "appconfig-creating-multi-variant-feature-flags-procedures.md")

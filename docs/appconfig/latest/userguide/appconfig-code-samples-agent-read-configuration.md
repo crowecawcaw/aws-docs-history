@@ -1,6 +1,4 @@
-# Using AWS AppConfig Agent to
-
-read a freeform configuration profile
+# Using AWS AppConfig Agent to read a freeform configuration profile
 
 Each of the following samples includes comments about the actions performed by the
 code.

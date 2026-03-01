@@ -1,6 +1,4 @@
-# Creating feature flags and free
-
-form configuration data in AWS AppConfig
+# Creating feature flags and free form configuration data in AWS AppConfig
 
 The topics in this section help you complete the following tasks in AWS AppConfig. These tasks
 create important artifacts for deploying configuration data.
@@ -65,11 +63,7 @@ defined for the variant, AWS AppConfig returns different flag values to the appl
 
 ###### Topics
 
-- [Understanding the
-  configuration profile IAM role](appconfig-creating-configuration-and-profile-iam-role.md "appconfig-creating-configuration-and-profile-iam-role.md")
-- [Creating a namespace for your application in
-  AWS AppConfig](appconfig-creating-namespace.md "appconfig-creating-namespace.md")
-- [Creating environments for your application in
-  AWS AppConfig](appconfig-creating-environment.md "appconfig-creating-environment.md")
-- [Creating a configuration profile in
-  AWS AppConfig](appconfig-creating-configuration-profile.md "appconfig-creating-configuration-profile.md")
+- [Understanding the configuration profile IAM role](appconfig-creating-configuration-and-profile-iam-role.md "appconfig-creating-configuration-and-profile-iam-role.md")
+- [Creating a namespace for your application in AWS AppConfig](appconfig-creating-namespace.md "appconfig-creating-namespace.md")
+- [Creating environments for your application in AWS AppConfig](appconfig-creating-environment.md "appconfig-creating-environment.md")
+- [Creating a configuration profile in AWS AppConfig](appconfig-creating-configuration-profile.md "appconfig-creating-configuration-profile.md")

@@ -1,6 +1,4 @@
-# Creating or updating a
-
-freeform configuration stored in the hosted configuration store
+# Creating or updating a freeform configuration stored in the hosted configuration store
 
 Each of the following samples includes comments about the actions performed by the
 code. The samples in this section call the following APIs:

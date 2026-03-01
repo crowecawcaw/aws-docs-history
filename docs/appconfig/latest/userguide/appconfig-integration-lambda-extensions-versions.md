@@ -1,6 +1,4 @@
-# Understanding available
-
-versions of the AWS AppConfig Agent Lambda extension
+# Understanding available versions of the AWS AppConfig Agent Lambda extension
 
 This topic includes information about AWS AppConfig Agent Lambda extension versions. The
 AWS AppConfig Agent Lambda extension supports Lambda functions developed for the x86-64 and ARM64
@@ -18,49 +16,40 @@ Note the following important details about the AWS AppConfig Agent Lambda extens
   APIs instead. If you are using a version of the AWS AppConfig Agent Lambda extension created
   after January 28, 2022, you need to configure permissions to the new APIs. For
   more information, see [Retrieving configuration data without AWS AppConfig Agent](about-data-plane.md "about-data-plane.md").
-- AWS AppConfig supports all of the versions listed in [Older
-  extension versions](#appconfig-integration-lambda-extensions-enabling-older-versions "#appconfig-integration-lambda-extensions-enabling-older-versions").
+- AWS AppConfig supports all of the versions listed in [Older extension versions](#appconfig-integration-lambda-extensions-enabling-older-versions "#appconfig-integration-lambda-extensions-enabling-older-versions").
   We recommend that you periodically update to the latest version to take advantage of
   extension enhancements.
 
 ###### Topics
 
-- [AWS AppConfig
-  Agent Lambda Extension release notes](#appconfig-integration-lambda-extensions-versions-release-notes "#appconfig-integration-lambda-extensions-versions-release-notes")
-- [Finding your
-  Lambda extension version number](#appconfig-integration-lambda-extensions-versions-find "#appconfig-integration-lambda-extensions-versions-find")
-- [x86-64
-  platform](#appconfig-integration-lambda-extensions-enabling-x86-64 "#appconfig-integration-lambda-extensions-enabling-x86-64")
-- [ARM64
-  platform](#appconfig-integration-lambda-extensions-enabling-ARM64 "#appconfig-integration-lambda-extensions-enabling-ARM64")
-- [Older
-  extension versions](#appconfig-integration-lambda-extensions-enabling-older-versions "#appconfig-integration-lambda-extensions-enabling-older-versions")
+- [AWS AppConfig Agent Lambda Extension release notes](#appconfig-integration-lambda-extensions-versions-release-notes "#appconfig-integration-lambda-extensions-versions-release-notes")
+- [Finding your Lambda extension version number](#appconfig-integration-lambda-extensions-versions-find "#appconfig-integration-lambda-extensions-versions-find")
+- [x86-64 platform](#appconfig-integration-lambda-extensions-enabling-x86-64 "#appconfig-integration-lambda-extensions-enabling-x86-64")
+- [ARM64 platform](#appconfig-integration-lambda-extensions-enabling-ARM64 "#appconfig-integration-lambda-extensions-enabling-ARM64")
+- [Older extension versions](#appconfig-integration-lambda-extensions-enabling-older-versions "#appconfig-integration-lambda-extensions-enabling-older-versions")
 
-## AWS AppConfig
-
-Agent Lambda Extension release notes
+## AWS AppConfig Agent Lambda Extension release notes
 
 The following table describes changes made to recent versions of the AWS AppConfig Lambda
 extension.
 
-| Version  | Launch date | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2.0.8693 | 11/20/2025  | Improved environment support, minor enhancements, and bug fixes.<br>Added support for the following AWS Regions:<br>• Asia Pacific (Taipei), ap-east-2<br>• Asia Pacific (New Zealand), ap-southeast-6<br>• Asia Pacific (Thailand), ap-southeast-7<br>• Mexico (Central), mx-central-1                                                                                                                                                                                                                                                                                         |
-| 2.0.2037 | 05/12/2025  | Added `/ping` path, which exposes a simple health check that<br>returns that agent's version. Also includes minor enhancements and bug<br>fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| 2.0.1079 | 12/12/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| 2.0.719  | 08/08/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| 2.0.678  | 07/23/2024  | Enhancements to support feature flag targets, variants, and splits. For<br>more information, see [Creating multi-variant<br>feature flags](appconfig-creating-multi-variant-feature-flags.md "appconfig-creating-multi-variant-feature-flags.md").                                                                                                                                                                                                                                                                                                                              |
-| 2.0.501  | 07/01/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| 2.0.358  | 12/01/2023  | Added support for the following [retrieval features:](appconfig-agent-how-to-use-additional-features.md "appconfig-agent-how-to-use-additional-features.md")<br>• _Multi-account retrieval_: Use AWS AppConfig Agent from a<br>primary or *retrieval<br>• AWS account to retrieve<br>configuration data from multiple vendor accounts.<br>• *Write configuration copy to disk\*: Use AWS AppConfig<br>Agent to write configuration data to disk. This feature enables customers<br>with applications that read configuration data from disk to integrate with<br>AWS AppConfig. |
-| 2.0.181  | 08/14/2023  | Added support for the Israel (Tel Aviv) il-central-1 AWS Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| 2.0.165  | 02/21/2023  | Minor bug fixes. No longer restricting extension use to specific runtime<br>versions via the AWS Lambda console. Added support for the following<br>AWS Regions:<br>• Middle East (UAE), me-central-1<br>• Asia Pacific (Hyderabad), ap-south-2<br>• Asia Pacific (Melbourne), ap-southeast-4<br>• Europe (Spain), eu-south-2<br>• Europe (Zurich), eu-central-2                                                                                                                                                                                                                |
-| 2.0.122  | 08/23/2022  | Added support for a tunneling proxy, which can be configured with the<br>`AWS_APPCONFIG_EXTENSION_PROXY_URL` and<br>`AWS_APPCONFIG_EXTENSION_PROXY_HEADERS` environment variables.<br>Added .NET 6 as a runtime. For more information about environment variables,<br>see [Configuring the AWS AppConfig<br>Agent Lambda extension](appconfig-integration-lambda-extensions-config.md "appconfig-integration-lambda-extensions-config.md").                                                                                                                                     |
-| 2.0.58   | 05/03/2022  | Improved support for Graviton2 (ARM64) processors in Lambda.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| 2.0.45   | 03/15/2022  | Added support for calling a single feature flag. Previously, customers<br>called feature flags grouped into a configuration profile and had to parse the<br>response client-side. With this release, customers can use a<br>`flag=<flag-name>` parameter when calling the HTTP<br>localhost endpoint to get the value of a single flag. Also added initial<br>support for Graviton2 (ARM64) processors.                                                                                                                                                                         |
+| Version     | Launch date | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2.0.11962.0 | 02/20/2026  | Improved environment support, minor enhancements, and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 2.0.8693    | 11/20/2025  | Improved environment support, minor enhancements, and bug fixes. Added support for the following AWS Regions<br>• Asia Pacific (Taipei), ap-east-2<br>• Asia Pacific (New Zealand), ap-southeast-6<br>• Asia Pacific (Thailand), ap-southeast-7<br>• Mexico (Central), mx-central-1                                                                                                                                                                                                                                                                                    |
+| 2.0.2037    | 05/12/2025  | Added<br>`/ping` path, which exposes a simple health check that returns that agent's version. Also includes minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 2.0.1079    | 12/12/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 2.0.719     | 08/08/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 2.0.678     | 07/23/2024  | Enhancements to support feature flag targets, variants, and splits. For more information, see<br>[Creating multi-variant feature flags](appconfig-creating-multi-variant-feature-flags.md "appconfig-creating-multi-variant-feature-flags.md").                                                                                                                                                                                                                                                                                                                        |
+| 2.0.501     | 07/01/2024  | Minor enhancements and bug fixes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 2.0.358     | 12/01/2023  | Added support for the following<br>[retrieval features:](appconfig-agent-how-to-use-additional-features.md "appconfig-agent-how-to-use-additional-features.md")<br>• _Multi-account retrieval_: Use AWS AppConfig Agent from a primary or<br>*retrieval<br>• AWS account to retrieve configuration data from multiple vendor accounts.<br>• *Write configuration copy to disk\*: Use AWS AppConfig Agent to write configuration data to disk. This feature enables customers with applications that read configuration data from disk to integrate with AWS AppConfig. |
+| 2.0.181     | 08/14/2023  | Added support for the Israel (Tel Aviv) il-central-1 AWS Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 2.0.165     | 02/21/2023  | Minor bug fixes. No longer restricting extension use to specific runtime versions via the AWS Lambda console. Added support for the following AWS Regions:<br>• Middle East (UAE), me-central-1<br>• Asia Pacific (Hyderabad), ap-south-2<br>• Asia Pacific (Melbourne), ap-southeast-4<br>• Europe (Spain), eu-south-2<br>• Europe (Zurich), eu-central-2                                                                                                                                                                                                             |
+| 2.0.122     | 08/23/2022  | Added support for a tunneling proxy, which can be configured with the<br>`AWS_APPCONFIG_EXTENSION_PROXY_URL` and<br>`AWS_APPCONFIG_EXTENSION_PROXY_HEADERS` environment variables. Added .NET 6 as a runtime. For more information about environment variables, see<br>[Configuring the AWS AppConfig Agent Lambda extension](appconfig-integration-lambda-extensions-config.md "appconfig-integration-lambda-extensions-config.md").                                                                                                                                  |
+| 2.0.58      | 05/03/2022  | Improved support for Graviton2 (ARM64) processors in Lambda.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 2.0.45      | 03/15/2022  | Added support for calling a single feature flag. Previously, customers called feature flags grouped into a configuration profile and had to parse the response client-side. With this release, customers can use a<br>`flag=<flag-name>` parameter when calling the HTTP localhost endpoint to get the value of a single flag. Also added initial support for Graviton2 (ARM64) processors.                                                                                                                                                                            |
 
-## Finding your
-
-Lambda extension version number
+## Finding your Lambda extension version number
 
 Use the following procedure to locate the version number of your currently
 configured AWS AppConfig Agent Lambda extension. To work properly, your Lambda function must be
@@ -83,13 +72,117 @@ is currently hosted.
    extension version in the **Details of the Execution** section. This
    version must match the required URLs for that version.
 
-## x86-64
-
-platform
+## x86-64 platform
 
 When you add the extension as a layer to your Lambda, you must specify an ARN. Choose
 an ARN from the following table that corresponds with the AWS Region where you created
 the Lambda. These ARNs are for Lambda functions developed for the x86-64 platform.
+
+| Version 2.0.11962.0        | Region                                                                               | ARN |
+| -------------------------- | ------------------------------------------------------------------------------------ | --- |
+| US East (N. Virginia)      | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension:296`            |
+| US East (Ohio)             | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension:252`            |
+| US West (N. California)    | `arn:aws:lambda:us-west-1:958113053741:layer:AWS-AppConfig-Extension:359`            |
+| US West (Oregon)           | `arn:aws:lambda:us-west-2:359756378197:layer:AWS-AppConfig-Extension:348`            |
+| Canada (Central)           | `arn:aws:lambda:ca-central-1:039592058896:layer:AWS-AppConfig-Extension:239`         |
+| Canada West (Calgary)      | `arn:aws:lambda:ca-west-1:436199621743:layer:AWS-AppConfig-Extension:147`            |
+| Europe (Frankfurt)         | `arn:aws:lambda:eu-central-1:066940009817:layer:AWS-AppConfig-Extension:270`         |
+| Europe (Zurich)            | `arn:aws:lambda:eu-central-2:758369105281:layer:AWS-AppConfig-Extension:195`         |
+| Europe (Ireland)           | `arn:aws:lambda:eu-west-1:434848589818:layer:AWS-AppConfig-Extension:278`            |
+| Europe (London)            | `arn:aws:lambda:eu-west-2:282860088358:layer:AWS-AppConfig-Extension:217`            |
+| Europe (Paris)             | `arn:aws:lambda:eu-west-3:493207061005:layer:AWS-AppConfig-Extension:248`            |
+| Europe (Stockholm)         | `arn:aws:lambda:eu-north-1:646970417810:layer:AWS-AppConfig-Extension:342`           |
+| Europe (Milan)             | `arn:aws:lambda:eu-south-1:203683718741:layer:AWS-AppConfig-Extension:226`           |
+| Europe (Spain)             | `arn:aws:lambda:eu-south-2:586093569114:layer:AWS-AppConfig-Extension:189`           |
+| China (Beijing)            | `arn:aws-cn:lambda:cn-north-1:615057806174:layer:AWS-AppConfig-Extension:219`        |
+| China (Ningxia)            | `arn:aws-cn:lambda:cn-northwest-1:615084187847:layer:AWS-AppConfig-Extension:221`    |
+| Asia Pacific (Hong Kong)   | `arn:aws:lambda:ap-east-1:630222743974:layer:AWS-AppConfig-Extension:228`            |
+| Asia Pacific (Tokyo)       | `arn:aws:lambda:ap-northeast-1:980059726660:layer:AWS-AppConfig-Extension:245`       |
+| Asia Pacific (Seoul)       | `arn:aws:lambda:ap-northeast-2:826293736237:layer:AWS-AppConfig-Extension:248`       |
+| Asia Pacific (Osaka)       | `arn:aws:lambda:ap-northeast-3:706869817123:layer:AWS-AppConfig-Extension:247`       |
+| Asia Pacific (Singapore)   | `arn:aws:lambda:ap-southeast-1:421114256042:layer:AWS-AppConfig-Extension:233`       |
+| Asia Pacific (Sydney)      | `arn:aws:lambda:ap-southeast-2:080788657173:layer:AWS-AppConfig-Extension:288`       |
+| Asia Pacific (Jakarta)     | `arn:aws:lambda:ap-southeast-3:418787028745:layer:AWS-AppConfig-Extension:231`       |
+| Asia Pacific (Melbourne)   | `arn:aws:lambda:ap-southeast-4:307021474294:layer:AWS-AppConfig-Extension:163`       |
+| Asia Pacific (Malaysia)    | `arn:aws:lambda:ap-southeast-5:631746059939:layer:AWS-AppConfig-Extension:136`       |
+| Asia Pacific (Mumbai)      | `arn:aws:lambda:ap-south-1:554480029851:layer:AWS-AppConfig-Extension:264`           |
+| Asia Pacific (Hyderabad)   | `arn:aws:lambda:ap-south-2:489524808438:layer:AWS-AppConfig-Extension:192`           |
+| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:381491832265:layer:AWS-AppConfig-Extension:58`        |
+| Asia Pacific (Thailand)    | `arn:aws:lambda:ap-southeast-7:851725616657:layer:AWS-AppConfig-Extension:109`       |
+| Asia Pacific (Taipei)      | `arn:aws:lambda:ap-east-2:730335625313:layer:AWS-AppConfig-Extension:118`            |
+| South America (São Paulo)  | `arn:aws:lambda:sa-east-1:000010852771:layer:AWS-AppConfig-Extension:302`            |
+| Mexico (Central)           | `arn:aws:lambda:mx-central-1:891376990304:layer:AWS-AppConfig-Extension:115`         |
+| Africa (Cape Town)         | `arn:aws:lambda:af-south-1:574348263942:layer:AWS-AppConfig-Extension:234`           |
+| Israel (Tel Aviv)          | `arn:aws:lambda:il-central-1:895787185223:layer:AWS-AppConfig-Extension:168`         |
+| Middle East (UAE)          | `arn:aws:lambda:me-central-1:662846165436:layer:AWS-AppConfig-Extension:206`         |
+| Middle East (Bahrain)      | `arn:aws:lambda:me-south-1:559955524753:layer:AWS-AppConfig-Extension:244`           |
+| AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension:184` |
+| AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension:182` |
+
+## ARM64 platform
+
+When you add the extension as a layer to your Lambda, you must specify an ARN. Choose
+an ARN from the following table that corresponds with the AWS Region where you created
+the Lambda. These ARNs are for Lambda functions developed for the ARM64 platform.
+
+| Version 2.0.11962.0        | Region                                                                                     | ARN |
+| -------------------------- | ------------------------------------------------------------------------------------------ | --- |
+| US East (N. Virginia)      | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension-Arm64:229`            |
+| US East (Ohio)             | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension-Arm64:204`            |
+| US West (N. California)    | `arn:aws:lambda:us-west-1:958113053741:layer:AWS-AppConfig-Extension-Arm64:236`            |
+| US West (Oregon)           | `arn:aws:lambda:us-west-2:359756378197:layer:AWS-AppConfig-Extension-Arm64:250`            |
+| Canada (Central)           | `arn:aws:lambda:ca-central-1:039592058896:layer:AWS-AppConfig-Extension-Arm64:159`         |
+| Canada West (Calgary)      | `arn:aws:lambda:ca-west-1:436199621743:layer:AWS-AppConfig-Extension-Arm64:137`            |
+| Europe (Frankfurt)         | `arn:aws:lambda:eu-central-1:066940009817:layer:AWS-AppConfig-Extension-Arm64:213`         |
+| Europe (Zurich)            | `arn:aws:lambda:eu-central-2:758369105281:layer:AWS-AppConfig-Extension-Arm64:153`         |
+| Europe (Ireland)           | `arn:aws:lambda:eu-west-1:434848589818:layer:AWS-AppConfig-Extension-Arm64:216`            |
+| Europe (London)            | `arn:aws:lambda:eu-west-2:282860088358:layer:AWS-AppConfig-Extension-Arm64:169`            |
+| Europe (Paris)             | `arn:aws:lambda:eu-west-3:493207061005:layer:AWS-AppConfig-Extension-Arm64:167`            |
+| Europe (Stockholm)         | `arn:aws:lambda:eu-north-1:646970417810:layer:AWS-AppConfig-Extension-Arm64:201`           |
+| Europe (Milan)             | `arn:aws:lambda:eu-south-1:203683718741:layer:AWS-AppConfig-Extension-Arm64:154`           |
+| Europe (Spain)             | `arn:aws:lambda:eu-south-2:586093569114:layer:AWS-AppConfig-Extension-Arm64:150`           |
+| Asia Pacific (Hong Kong)   | `arn:aws:lambda:ap-east-1:630222743974:layer:AWS-AppConfig-Extension-Arm64:156`            |
+| Asia Pacific (Taipei)      | `arn:aws:lambda:ap-east-2:730335625313:layer:AWS-AppConfig-Extension-Arm64:92`             |
+| Asia Pacific (Tokyo)       | `arn:aws:lambda:ap-northeast-1:980059726660:layer:AWS-AppConfig-Extension-Arm64:198`       |
+| Asia Pacific (Seoul)       | `arn:aws:lambda:ap-northeast-2:826293736237:layer:AWS-AppConfig-Extension-Arm64:156`       |
+| Asia Pacific (Osaka)       | `arn:aws:lambda:ap-northeast-3:706869817123:layer:AWS-AppConfig-Extension-Arm64:162`       |
+| Asia Pacific (Singapore)   | `arn:aws:lambda:ap-southeast-1:421114256042:layer:AWS-AppConfig-Extension-Arm64:185`       |
+| Asia Pacific (Sydney)      | `arn:aws:lambda:ap-southeast-2:080788657173:layer:AWS-AppConfig-Extension-Arm64:231`       |
+| Asia Pacific (Jakarta)     | `arn:aws:lambda:ap-southeast-3:418787028745:layer:AWS-AppConfig-Extension-Arm64:168`       |
+| Asia Pacific (Melbourne)   | `arn:aws:lambda:ap-southeast-4:307021474294:layer:AWS-AppConfig-Extension-Arm64:148`       |
+| Asia Pacific (Malaysia)    | `arn:aws:lambda:ap-southeast-5:631746059939:layer:AWS-AppConfig-Extension-Arm64:111`       |
+| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:381491832265:layer:AWS-AppConfig-Extension-Arm64:48`        |
+| Asia Pacific (Thailand)    | `arn:aws:lambda:ap-southeast-7:851725616657:layer:AWS-AppConfig-Extension-Arm64:108`       |
+| Asia Pacific (Mumbai)      | `arn:aws:lambda:ap-south-1:554480029851:layer:AWS-AppConfig-Extension-Arm64:206`           |
+| Asia Pacific (Hyderabad)   | `arn:aws:lambda:ap-south-2:489524808438:layer:AWS-AppConfig-Extension-Arm64:150`           |
+| South America (São Paulo)  | `arn:aws:lambda:sa-east-1:000010852771:layer:AWS-AppConfig-Extension-Arm64:190`            |
+| Mexico (Central)           | `arn:aws:lambda:mx-central-1:891376990304:layer:AWS-AppConfig-Extension-Arm64:114`         |
+| Africa (Cape Town)         | `arn:aws:lambda:af-south-1:574348263942:layer:AWS-AppConfig-Extension-Arm64:162`           |
+| Middle East (UAE)          | `arn:aws:lambda:me-central-1:662846165436:layer:AWS-AppConfig-Extension-Arm64:162`         |
+| Middle East (Bahrain)      | `arn:aws:lambda:me-south-1:559955524753:layer:AWS-AppConfig-Extension-Arm64:172`           |
+| Israel (Tel Aviv)          | `arn:aws:lambda:il-central-1:895787185223:layer:AWS-AppConfig-Extension-Arm64:151`         |
+| China (Beijing)            | `arn:aws-cn:lambda:cn-north-1:615057806174:layer:AWS-AppConfig-Extension-Arm64:141`        |
+| China (Ningxia)            | `arn:aws-cn:lambda:cn-northwest-1:615084187847:layer:AWS-AppConfig-Extension-Arm64:143`    |
+| AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension-Arm64:130` |
+| AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension-Arm64:128` |
+
+## Older extension versions
+
+This section lists the ARNs and AWS Regions for older versions of the AWS AppConfig Lambda
+extension. This list doesn't contain information for all previous versions of the AWS AppConfig
+Agent Lambda extension, but it will be updated when new versions are released.
+
+###### Topics
+
+- [Older extension versions (x86-64 platform)](#appconfig-integration-lambda-extensions-enabling-older-versions-x86-64 "#appconfig-integration-lambda-extensions-enabling-older-versions-x86-64")
+- [Older extension versions (ARM64 platform)](#appconfig-integration-lambda-extensions-enabling-older-versions-ARM64 "#appconfig-integration-lambda-extensions-enabling-older-versions-ARM64")
+
+### Older extension versions (x86-64 platform)
+
+The following tables list ARNs and the AWS Regions for older versions of the
+AWS AppConfig Agent Lambda extension developed for the x86-64 platform.
+
+Date replaced by newer extension: 02/17/2026
 
 | Version 2.0.8693           | Region                                                                               | ARN |
 | -------------------------- | ------------------------------------------------------------------------------------ | --- |
@@ -131,73 +224,6 @@ the Lambda. These ARNs are for Lambda functions developed for the x86-64 platfor
 | Middle East (Bahrain)      | `arn:aws:lambda:me-south-1:559955524753:layer:AWS-AppConfig-Extension:227`           |
 | AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension:184` |
 | AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension:182` |
-
-## ARM64
-
-platform
-
-When you add the extension as a layer to your Lambda, you must specify an ARN. Choose
-an ARN from the following table that corresponds with the AWS Region where you created
-the Lambda. These ARNs are for Lambda functions developed for the ARM64 platform.
-
-| Version 2.0.8693           | Region                                                                                     | ARN |
-| -------------------------- | ------------------------------------------------------------------------------------------ | --- |
-| US East (N. Virginia)      | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension-Arm64:212`            |
-| US East (Ohio)             | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension-Arm64:187`            |
-| US West (N. California)    | `arn:aws:lambda:us-west-1:958113053741:layer:AWS-AppConfig-Extension-Arm64:225`            |
-| US West (Oregon)           | `arn:aws:lambda:us-west-2:359756378197:layer:AWS-AppConfig-Extension-Arm64:237`            |
-| Canada (Central)           | `arn:aws:lambda:ca-central-1:039592058896:layer:AWS-AppConfig-Extension-Arm64:148`         |
-| Canada West (Calgary)      | `arn:aws:lambda:ca-west-1:436199621743:layer:AWS-AppConfig-Extension-Arm64:120`            |
-| Europe (Frankfurt)         | `arn:aws:lambda:eu-central-1:066940009817:layer:AWS-AppConfig-Extension-Arm64:204`         |
-| Europe (Zurich)            | `arn:aws:lambda:eu-central-2:758369105281:layer:AWS-AppConfig-Extension-Arm64:136`         |
-| Europe (Ireland)           | `arn:aws:lambda:eu-west-1:434848589818:layer:AWS-AppConfig-Extension-Arm64:199`            |
-| Europe (London)            | `arn:aws:lambda:eu-west-2:282860088358:layer:AWS-AppConfig-Extension-Arm64:159`            |
-| Europe (Paris)             | `arn:aws:lambda:eu-west-3:493207061005:layer:AWS-AppConfig-Extension-Arm64:154`            |
-| Europe (Stockholm)         | `arn:aws:lambda:eu-north-1:646970417810:layer:AWS-AppConfig-Extension-Arm64:192`           |
-| Europe (Milan)             | `arn:aws:lambda:eu-south-1:203683718741:layer:AWS-AppConfig-Extension-Arm64:143`           |
-| Europe (Spain)             | `arn:aws:lambda:eu-south-2:586093569114:layer:AWS-AppConfig-Extension-Arm64:137`           |
-| Asia Pacific (Hong Kong)   | `arn:aws:lambda:ap-east-1:630222743974:layer:AWS-AppConfig-Extension-Arm64:145`            |
-| Asia Pacific (Taipei)      | `arn:aws:lambda:ap-east-2:730335625313:layer:AWS-AppConfig-Extension-Arm64:74`             |
-| Asia Pacific (Tokyo)       | `arn:aws:lambda:ap-northeast-1:980059726660:layer:AWS-AppConfig-Extension-Arm64:181`       |
-| Asia Pacific (Seoul)       | `arn:aws:lambda:ap-northeast-2:826293736237:layer:AWS-AppConfig-Extension-Arm64:147`       |
-| Asia Pacific (Osaka)       | `arn:aws:lambda:ap-northeast-3:706869817123:layer:AWS-AppConfig-Extension-Arm64:149`       |
-| Asia Pacific (Singapore)   | `arn:aws:lambda:ap-southeast-1:421114256042:layer:AWS-AppConfig-Extension-Arm64:176`       |
-| Asia Pacific (Sydney)      | `arn:aws:lambda:ap-southeast-2:080788657173:layer:AWS-AppConfig-Extension-Arm64:215`       |
-| Asia Pacific (Jakarta)     | `arn:aws:lambda:ap-southeast-3:418787028745:layer:AWS-AppConfig-Extension-Arm64:159`       |
-| Asia Pacific (Melbourne)   | `arn:aws:lambda:ap-southeast-4:307021474294:layer:AWS-AppConfig-Extension-Arm64:137`       |
-| Asia Pacific (Malaysia)    | `arn:aws:lambda:ap-southeast-5:631746059939:layer:AWS-AppConfig-Extension-Arm64:102`       |
-| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:381491832265:layer:AWS-AppConfig-Extension-Arm64:31`        |
-| Asia Pacific (Thailand)    | `arn:aws:lambda:ap-southeast-7:851725616657:layer:AWS-AppConfig-Extension-Arm64:97`        |
-| Asia Pacific (Mumbai)      | `arn:aws:lambda:ap-south-1:554480029851:layer:AWS-AppConfig-Extension-Arm64:190`           |
-| Asia Pacific (Hyderabad)   | `arn:aws:lambda:ap-south-2:489524808438:layer:AWS-AppConfig-Extension-Arm64:137`           |
-| South America (São Paulo)  | `arn:aws:lambda:sa-east-1:000010852771:layer:AWS-AppConfig-Extension-Arm64:176`            |
-| Mexico (Central)           | `arn:aws:lambda:mx-central-1:891376990304:layer:AWS-AppConfig-Extension-Arm64:97`          |
-| Africa (Cape Town)         | `arn:aws:lambda:af-south-1:574348263942:layer:AWS-AppConfig-Extension-Arm64:153`           |
-| Middle East (UAE)          | `arn:aws:lambda:me-central-1:662846165436:layer:AWS-AppConfig-Extension-Arm64:151`         |
-| Middle East (Bahrain)      | `arn:aws:lambda:me-south-1:559955524753:layer:AWS-AppConfig-Extension-Arm64:155`           |
-| Israel (Tel Aviv)          | `arn:aws:lambda:il-central-1:895787185223:layer:AWS-AppConfig-Extension-Arm64:138`         |
-| China (Beijing)            | `arn:aws-cn:lambda:cn-north-1:615057806174:layer:AWS-AppConfig-Extension-Arm64:127`        |
-| China (Ningxia)            | `arn:aws-cn:lambda:cn-northwest-1:615084187847:layer:AWS-AppConfig-Extension-Arm64:125`    |
-| AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension-Arm64:130` |
-| AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension-Arm64:128` |
-
-## Older
-
-extension versions
-
-This section lists the ARNs and AWS Regions for older versions of the AWS AppConfig Lambda
-extension. This list doesn't contain information for all previous versions of the AWS AppConfig
-Agent Lambda extension, but it will be updated when new versions are released.
-
-###### Topics
-
-- [Older extension versions (x86-64 platform)](#appconfig-integration-lambda-extensions-enabling-older-versions-x86-64 "#appconfig-integration-lambda-extensions-enabling-older-versions-x86-64")
-- [Older extension versions (ARM64 platform)](#appconfig-integration-lambda-extensions-enabling-older-versions-ARM64 "#appconfig-integration-lambda-extensions-enabling-older-versions-ARM64")
-
-### Older extension versions (x86-64 platform)
-
-The following tables list ARNs and the AWS Regions for older versions of the
-AWS AppConfig Agent Lambda extension developed for the x86-64 platform.
 
 Date replaced by newer extension: 11/20/2025
 
@@ -629,6 +655,49 @@ Date replaced by newer extension: 03/15/2022
 
 The following tables list ARNs and the AWS Regions for older versions of the
 AWS AppConfig Agent Lambda extension developed for the ARM64 platform.
+
+Date replaced by newer extension: 02/17/2026
+
+| Version 2.0.8693           | Region                                                                                     | ARN |
+| -------------------------- | ------------------------------------------------------------------------------------------ | --- |
+| US East (N. Virginia)      | `arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension-Arm64:212`            |
+| US East (Ohio)             | `arn:aws:lambda:us-east-2:728743619870:layer:AWS-AppConfig-Extension-Arm64:187`            |
+| US West (N. California)    | `arn:aws:lambda:us-west-1:958113053741:layer:AWS-AppConfig-Extension-Arm64:225`            |
+| US West (Oregon)           | `arn:aws:lambda:us-west-2:359756378197:layer:AWS-AppConfig-Extension-Arm64:237`            |
+| Canada (Central)           | `arn:aws:lambda:ca-central-1:039592058896:layer:AWS-AppConfig-Extension-Arm64:148`         |
+| Canada West (Calgary)      | `arn:aws:lambda:ca-west-1:436199621743:layer:AWS-AppConfig-Extension-Arm64:120`            |
+| Europe (Frankfurt)         | `arn:aws:lambda:eu-central-1:066940009817:layer:AWS-AppConfig-Extension-Arm64:204`         |
+| Europe (Zurich)            | `arn:aws:lambda:eu-central-2:758369105281:layer:AWS-AppConfig-Extension-Arm64:136`         |
+| Europe (Ireland)           | `arn:aws:lambda:eu-west-1:434848589818:layer:AWS-AppConfig-Extension-Arm64:199`            |
+| Europe (London)            | `arn:aws:lambda:eu-west-2:282860088358:layer:AWS-AppConfig-Extension-Arm64:159`            |
+| Europe (Paris)             | `arn:aws:lambda:eu-west-3:493207061005:layer:AWS-AppConfig-Extension-Arm64:154`            |
+| Europe (Stockholm)         | `arn:aws:lambda:eu-north-1:646970417810:layer:AWS-AppConfig-Extension-Arm64:192`           |
+| Europe (Milan)             | `arn:aws:lambda:eu-south-1:203683718741:layer:AWS-AppConfig-Extension-Arm64:143`           |
+| Europe (Spain)             | `arn:aws:lambda:eu-south-2:586093569114:layer:AWS-AppConfig-Extension-Arm64:137`           |
+| Asia Pacific (Hong Kong)   | `arn:aws:lambda:ap-east-1:630222743974:layer:AWS-AppConfig-Extension-Arm64:145`            |
+| Asia Pacific (Taipei)      | `arn:aws:lambda:ap-east-2:730335625313:layer:AWS-AppConfig-Extension-Arm64:74`             |
+| Asia Pacific (Tokyo)       | `arn:aws:lambda:ap-northeast-1:980059726660:layer:AWS-AppConfig-Extension-Arm64:181`       |
+| Asia Pacific (Seoul)       | `arn:aws:lambda:ap-northeast-2:826293736237:layer:AWS-AppConfig-Extension-Arm64:147`       |
+| Asia Pacific (Osaka)       | `arn:aws:lambda:ap-northeast-3:706869817123:layer:AWS-AppConfig-Extension-Arm64:149`       |
+| Asia Pacific (Singapore)   | `arn:aws:lambda:ap-southeast-1:421114256042:layer:AWS-AppConfig-Extension-Arm64:176`       |
+| Asia Pacific (Sydney)      | `arn:aws:lambda:ap-southeast-2:080788657173:layer:AWS-AppConfig-Extension-Arm64:215`       |
+| Asia Pacific (Jakarta)     | `arn:aws:lambda:ap-southeast-3:418787028745:layer:AWS-AppConfig-Extension-Arm64:159`       |
+| Asia Pacific (Melbourne)   | `arn:aws:lambda:ap-southeast-4:307021474294:layer:AWS-AppConfig-Extension-Arm64:137`       |
+| Asia Pacific (Malaysia)    | `arn:aws:lambda:ap-southeast-5:631746059939:layer:AWS-AppConfig-Extension-Arm64:102`       |
+| Asia Pacific (New Zealand) | `arn:aws:lambda:ap-southeast-6:381491832265:layer:AWS-AppConfig-Extension-Arm64:31`        |
+| Asia Pacific (Thailand)    | `arn:aws:lambda:ap-southeast-7:851725616657:layer:AWS-AppConfig-Extension-Arm64:97`        |
+| Asia Pacific (Mumbai)      | `arn:aws:lambda:ap-south-1:554480029851:layer:AWS-AppConfig-Extension-Arm64:190`           |
+| Asia Pacific (Hyderabad)   | `arn:aws:lambda:ap-south-2:489524808438:layer:AWS-AppConfig-Extension-Arm64:137`           |
+| South America (São Paulo)  | `arn:aws:lambda:sa-east-1:000010852771:layer:AWS-AppConfig-Extension-Arm64:176`            |
+| Mexico (Central)           | `arn:aws:lambda:mx-central-1:891376990304:layer:AWS-AppConfig-Extension-Arm64:97`          |
+| Africa (Cape Town)         | `arn:aws:lambda:af-south-1:574348263942:layer:AWS-AppConfig-Extension-Arm64:153`           |
+| Middle East (UAE)          | `arn:aws:lambda:me-central-1:662846165436:layer:AWS-AppConfig-Extension-Arm64:151`         |
+| Middle East (Bahrain)      | `arn:aws:lambda:me-south-1:559955524753:layer:AWS-AppConfig-Extension-Arm64:155`           |
+| Israel (Tel Aviv)          | `arn:aws:lambda:il-central-1:895787185223:layer:AWS-AppConfig-Extension-Arm64:138`         |
+| China (Beijing)            | `arn:aws-cn:lambda:cn-north-1:615057806174:layer:AWS-AppConfig-Extension-Arm64:127`        |
+| China (Ningxia)            | `arn:aws-cn:lambda:cn-northwest-1:615084187847:layer:AWS-AppConfig-Extension-Arm64:125`    |
+| AWS GovCloud (US-East)     | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension-Arm64:130` |
+| AWS GovCloud (US-West)     | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension-Arm64:128` |
 
 Date replaced by newer extension: 11/20/2025
 

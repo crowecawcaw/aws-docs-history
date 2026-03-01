@@ -1,6 +1,4 @@
-# Creating a configuration profile in
-
-AWS AppConfig
+# Creating a configuration profile in AWS AppConfig
 
 _Configuration data_ is a collection of settings that influence the
 behavior of your application. A _configuration profile_ includes, among
@@ -147,9 +145,6 @@ allow-list:
 
 ###### Topics
 
-- [Creating a
-  feature flag configuration profile in AWS AppConfig](appconfig-creating-configuration-and-profile-feature-flags.md "appconfig-creating-configuration-and-profile-feature-flags.md")
-- [Creating a free form
-  configuration profile in AWS AppConfig](appconfig-free-form-configurations-creating.md "appconfig-free-form-configurations-creating.md")
-- [Creating a
-  configuration profile for non-native data sources](appconfig-creating-configuration-profile-other-data-sources.md "appconfig-creating-configuration-profile-other-data-sources.md")
+- [Creating a feature flag configuration profile in AWS AppConfig](appconfig-creating-configuration-and-profile-feature-flags.md "appconfig-creating-configuration-and-profile-feature-flags.md")
+- [Creating a free form configuration profile in AWS AppConfig](appconfig-free-form-configurations-creating.md "appconfig-free-form-configurations-creating.md")
+- [Creating a configuration profile for non-native data sources](appconfig-creating-configuration-profile-other-data-sources.md "appconfig-creating-configuration-profile-other-data-sources.md")

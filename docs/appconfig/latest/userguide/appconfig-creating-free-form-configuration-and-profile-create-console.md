@@ -7,8 +7,7 @@ Use the following procedure to create an AWS AppConfig freeform configuration pr
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/appconfig/](https://console.aws.amazon.com/systems-manager/appconfig/ "https://console.aws.amazon.com/systems-manager/appconfig/").
 2. In the navigation pane, choose **Applications**, and then choose
-   an application you created in [Creating a namespace for your application in
-   AWS AppConfig](appconfig-creating-namespace.md "appconfig-creating-namespace.md").
+   an application you created in [Creating a namespace for your application in AWS AppConfig](appconfig-creating-namespace.md "appconfig-creating-namespace.md").
 3. Choose the **Configuration profiles and feature flags** tab, and
    then choose **Create configuration**.
 4. In the **Configuration options** section, choose
@@ -62,11 +61,9 @@ continue to deploy**.
 
 If you created a configuration profile for AWS CodePipeline, then you must create a
 pipeline in CodePipeline that specifies AWS AppConfig as the _deploy provider_. You
-don't need to perform [Deploying feature flags and configuration data in
-AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md"). However, you must configure a client to
+don't need to perform [Deploying feature flags and configuration data in AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md"). However, you must configure a client to
 receive application configuration updates as described in [Retrieving configuration data without AWS AppConfig Agent](about-data-plane.md "about-data-plane.md"). For information about
 creating a pipeline that specifies AWS AppConfig as the deploy provider, see [Tutorial: Create a Pipeline that Uses
 AWS AppConfig as a Deployment Provider](../../../codepipeline/latest/userguide/tutorials-AppConfig.md "../../../codepipeline/latest/userguide/tutorials-AppConfig.md") in the _AWS CodePipeline User Guide_.
 
-Proceed to [Deploying feature flags and configuration data in
-AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md").
+Proceed to [Deploying feature flags and configuration data in AWS AppConfig](deploying-feature-flags.md "deploying-feature-flags.md").

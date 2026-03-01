@@ -1,6 +1,4 @@
-# Creating a
-
-feature flag configuration profile (command line)
+# Creating a feature flag configuration profile (command line)
 
 The following procedure describes how to use the AWS Command Line Interface (on Linux or Windows) or
 Tools for Windows PowerShell to create an AWS AppConfig feature flag configuration profile. At the time you create the
@@ -47,8 +45,7 @@ New-APPCConfigurationProfile `
 
 3. Create your feature flag configuration data. Your data must be in a JSON format
    and conform to the `AWS.AppConfig.FeatureFlags` JSON schema.
-   For more information about the schema, see [Understanding the type reference
-   for AWS.AppConfig.FeatureFlags](appconfig-type-reference-feature-flags.md "appconfig-type-reference-feature-flags.md").
+   For more information about the schema, see [Understanding the type reference for AWS.AppConfig.FeatureFlags](appconfig-type-reference-feature-flags.md "appconfig-type-reference-feature-flags.md").
 4. Use the `CreateHostedConfigurationVersion` API to save your feature
    flag configuration data to AWS AppConfig.
 

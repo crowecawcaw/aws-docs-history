@@ -1,6 +1,4 @@
-# Starting the AWS AppConfig
-
-agent for Amazon EKS integration
+# Starting the AWS AppConfig agent for Amazon EKS integration
 
 The AWS AppConfig Agent sidecar container is automatically available in your Amazon EKS
 environment. To use it, you must start it. The following procedure describes how to use
@@ -68,8 +66,7 @@ Note the following information.
     * AWS AppConfig Agent runs on port 2772, by default. You can specify a different
      port.
     * You can adjust the default behavior of AWS AppConfig Agent by entering environment
-     variables. For more information, see [(Optional) Using
-     environment variables to configure AWS AppConfig Agent for Amazon ECS and Amazon EKS](appconfig-integration-containers-agent-configuring.md "appconfig-integration-containers-agent-configuring.md").
+     variables. For more information, see [(Optional) Using environment variables to configure AWS AppConfig Agent for Amazon ECS and Amazon EKS](appconfig-integration-containers-agent-configuring.md "appconfig-integration-containers-agent-configuring.md").
     * For `AWS Region`, specify the AWS Region code
      (for example, `us-west-1`) where AWS AppConfig Agent retrieves configuration
      data.
@@ -97,5 +94,4 @@ Locate a statement like the following for the AWS AppConfig Agent container:
 
 You can adjust the default behavior of AWS AppConfig Agent by entering or changing
 environment variables. For information about the available environment variables, see
-[(Optional) Using
-environment variables to configure AWS AppConfig Agent for Amazon ECS and Amazon EKS](appconfig-integration-containers-agent-configuring.md "appconfig-integration-containers-agent-configuring.md").
+[(Optional) Using environment variables to configure AWS AppConfig Agent for Amazon ECS and Amazon EKS](appconfig-integration-containers-agent-configuring.md "appconfig-integration-containers-agent-configuring.md").

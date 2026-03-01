@@ -1,6 +1,4 @@
-# Creating a configuration
-
-profile for a secret stored in Secrets Manager
+# Creating a configuration profile for a secret stored in Secrets Manager
 
 Each of the following samples includes comments about the actions performed by the
 code. The samples in this section call the following APIs:
