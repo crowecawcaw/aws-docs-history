@@ -13,8 +13,7 @@ For information about job metrics sent to Amazon CloudWatch, see [Using CloudWat
 
 **Set up email notifications for job status changes**
 
-To set up an EventBridge event rule, see [Tutorial: Setting up email notifications
-for failed jobs](setting-up-cloudwatch-event-rules.md#mediaconvert_sns_tutorial "setting-up-cloudwatch-event-rules.md#mediaconvert_sns_tutorial").
+To set up an EventBridge event rule, see [Tutorial: Setting up email notifications for failed jobs](setting-up-cloudwatch-event-rules.md#mediaconvert_sns_tutorial "setting-up-cloudwatch-event-rules.md#mediaconvert_sns_tutorial").
 
 For a list of all job status change notifications that you can set up event
 rules for, see [List of MediaConvert EventBridge events](mediaconvert_event_list.md "mediaconvert_event_list.md").
@@ -31,8 +30,7 @@ appear in your output Amazon S3 bucket.
 For more information about `STATUS_UPDATE` events, see the table of
 event types in [List of MediaConvert EventBridge events](mediaconvert_event_list.md "mediaconvert_event_list.md").
 
-For information about adjusting the frequency of status updates, see [Adjust the status update
-interval](adjusting-the-status-update-interval.md "adjusting-the-status-update-interval.md").
+For information about adjusting the frequency of status updates, see [Adjust the status update interval](adjusting-the-status-update-interval.md "adjusting-the-status-update-interval.md").
 
 **Automatically initiate post-processing with an AWS Lambda function**
 
@@ -64,6 +62,5 @@ EventBridge.
 ###### Topics
 
 - [Setting up EventBridge rules](setting-up-cloudwatch-event-rules.md "setting-up-cloudwatch-event-rules.md")
-- [Monitoring MediaConvert job
-  progress](how-mediaconvert-jobs-progress.md "how-mediaconvert-jobs-progress.md")
+- [Monitoring MediaConvert job progress](how-mediaconvert-jobs-progress.md "how-mediaconvert-jobs-progress.md")
 - [List of MediaConvert EventBridge events](mediaconvert_event_list.md "mediaconvert_event_list.md")

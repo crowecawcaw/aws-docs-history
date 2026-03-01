@@ -21,8 +21,7 @@ detailed instructions, see [Passing through HDR content](passing-through-hdr-con
 To provide HDR 10 metadata that is not present in your input, or to correct metadata
 that is wrong, add it or overwrite it in the input video settings. This doesn't change
 the video content and is different from the color space conversion that you can do in
-your output video settings. For detailed instructions, see [Replacing inaccurate or
-missing HDR metadata](replacing-inaccurate-or-missing-hdr-metadata.md "replacing-inaccurate-or-missing-hdr-metadata.md").
+your output video settings. For detailed instructions, see [Replacing inaccurate or missing HDR metadata](replacing-inaccurate-or-missing-hdr-metadata.md "replacing-inaccurate-or-missing-hdr-metadata.md").
 
 ###### Converting from an hdr format to a different HDR format
 
@@ -63,6 +62,5 @@ to confirm the tone mapping results.
 
 - [Passing through HDR content](passing-through-hdr-content.md "passing-through-hdr-content.md")
 - [Creating HDR HLS outputs that comply with the Apple specification](creating-hdr-hls-outputs-that-comply-with-the-apple-specification.md "creating-hdr-hls-outputs-that-comply-with-the-apple-specification.md")
-- [Replacing inaccurate or
-  missing HDR metadata](replacing-inaccurate-or-missing-hdr-metadata.md "replacing-inaccurate-or-missing-hdr-metadata.md")
+- [Replacing inaccurate or missing HDR metadata](replacing-inaccurate-or-missing-hdr-metadata.md "replacing-inaccurate-or-missing-hdr-metadata.md")
 - [Requirements for creating HDR10+ outputs](hdr10plus-limitations.md "hdr10plus-limitations.md")

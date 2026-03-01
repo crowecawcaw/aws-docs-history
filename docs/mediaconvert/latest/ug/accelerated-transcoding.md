@@ -23,6 +23,5 @@ pricing](https://aws.amazon.com/mediaconvert/pricing/ "https://aws.amazon.com/me
 ###### Topics
 
 - [Configuring a job with Accelerated transcoding](setting-up-accelerated-transcoding.md "setting-up-accelerated-transcoding.md")
-- [Example accelerated
-  transcoding job settings JSON](sample-acceleration-job-settings-in-json.md "sample-acceleration-job-settings-in-json.md")
+- [Example accelerated transcoding job settings JSON](sample-acceleration-job-settings-in-json.md "sample-acceleration-job-settings-in-json.md")
 - [Accelerated transcoding job settings requirements](job-requirements.md "job-requirements.md")

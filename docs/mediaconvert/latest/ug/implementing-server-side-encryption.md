@@ -1,6 +1,4 @@
-# Implementing server-side
-
-encryption
+# Implementing server-side encryption
 
 Server-side encryption with Amazon S3 is one of the encryption options that you can use with
 AWS Elemental MediaConvert.
@@ -60,7 +58,7 @@ account. Otherwise, AWS KMS uses the AWS managed key for Amazon S3, which has th
     `kms:Decrypt` permissions. To learn more, see these topics:
 
         * For more information about setting up an IAM role for AWS Elemental MediaConvert to
-         assume, see [Setting up IAM permissions](iam-role.md "iam-role.md")  in the Getting
+         assume, see [Setting up IAM permissions](iam-role.md "iam-role.md") in the Getting
          Started chapter of this guide.
         * For more information about granting IAM permissions using an inline policy,
          see the procedure **To embed an inline policy for a user or

@@ -1,6 +1,4 @@
-# IMSC, TTML, and WebVTT (sidecar)
-
-output captions
+# IMSC, TTML, and WebVTT (sidecar) output captions
 
 This section covers how to configure IMSC, TTML, and WebVTT (sidecar) output captions in AWS Elemental MediaConvert. The main topics include:
 
@@ -11,9 +9,7 @@ This section covers how to configure IMSC, TTML, and WebVTT (sidecar) output cap
   outputs according to the following information. For restrictions on IMSC support,
   see [IMSC requirements](imsc-captions-support.md "imsc-captions-support.md").
 
-## Where to specify the
-
-captions
+## Where to specify the captions
 
 Put your captions in the same output group, but a different output from your video.
 
@@ -32,9 +28,7 @@ the output.
    **Stream settings** section. Choose the **Remove**
    button.
 
-## How to specify
-
-multiple captions tracks
+## How to specify multiple captions tracks
 
 Put each captions track in its own output.
 
@@ -43,9 +37,7 @@ Put each captions track in its own output.
 The captions track that you specify first in your job is signaled as the
 default track in the HLS manifest.
 
-## Sidecar captions container
-
-options
+## Sidecar captions container options
 
 Depending on your output group, you can choose the captions container for IMSC
 and TTML captions outputs.
@@ -59,13 +51,10 @@ these:
 
 For all other output groups, IMSC and TTML files are raw.
 
-###### To specify the captions container for IMSC and TTML captions in DASH ISO
-
-output groups
+###### To specify the captions container for IMSC and TTML captions in DASH ISO output groups
 
 1. Set up the outputs in your **DASH ISO** output group
-   as described in [Creating outputs
-   in ABR streaming output groups](setting-up-a-job.md#create-outputs-in-abr-streaming-output-groups "setting-up-a-job.md#create-outputs-in-abr-streaming-output-groups"). Put
+   as described in [Creating outputs in ABR streaming output groups](setting-up-a-job.md#create-outputs-in-abr-streaming-output-groups "setting-up-a-job.md#create-outputs-in-abr-streaming-output-groups"). Put
    captions in a separate output.
 2. On the **Create job** page, in the **Job** pane on the left, choose the captions output.
 3. In the **Output settings** section on the right,

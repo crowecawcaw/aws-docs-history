@@ -1,15 +1,10 @@
-# Adjusting the input timeline with the input
-
-timecode source
+# Adjusting the input timeline with the input timecode source
 
 The value for **Timecode source** that you specify in an input's
 settings affects the input timeline for that input. For information about which
-features are affected by the input timeline, see [Input
-timelines](specifying-inputs.md#input-timelines "specifying-inputs.md#input-timelines").
+features are affected by the input timeline, see [Input timelines](specifying-inputs.md#input-timelines "specifying-inputs.md#input-timelines").
 
-###### To adjust the input **Timecode source** setting
-
-(console)
+###### To adjust the input **Timecode source** setting (console)
 
 1.  On the **Create job** page, in the **Job** pane on the left, choose an input.
 2.  Under **Video selector**, **Timecode
@@ -34,9 +29,7 @@ timelines](specifying-inputs.md#input-timelines "specifying-inputs.md#input-time
 
     Regardless of the source, timecodes are in the following 24-hour format with a frame number: HH:MM:SS:FF.
 
-###### To adjust the input `TimecodeSource` (\*\*Timecode
-
-source\*\*) setting (API, SDK, and AWS CLI)
+###### To adjust the input `TimecodeSource` (**Timecode source**) setting (API, SDK, and AWS CLI)
 
 - In your JSON job specification, set a value for [TimecodeSource](../apireference/jobs.md#jobs-model-inputtimecodesource "../apireference/jobs.md#jobs-model-inputtimecodesource"), located in `Settings`,
   `Inputs`.

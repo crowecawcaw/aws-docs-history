@@ -1,6 +1,4 @@
-# Working with telecine in
-
-AWS Elemental MediaConvert
+# Working with telecine in AWS Elemental MediaConvert
 
 When you convert the frame rate from 23.976 frames per second (fps) to 29.97 fps, and your
 output scan type is interlaced, you can optionally use the **Telecine**

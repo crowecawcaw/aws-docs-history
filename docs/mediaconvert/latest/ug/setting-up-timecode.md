@@ -3,8 +3,7 @@
 AWS Elemental MediaConvert manages transcoded video frames by their timecode. The service uses the
 timecodes from the input and output timelines that it constructs to line up the elements
 of your output assets. For information about which features are affected by each type of
-timeline, and about how timelines work, see [How MediaConvert
-uses timelines to assemble jobs](specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs "specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs").
+timeline, and about how timelines work, see [How MediaConvert uses timelines to assemble jobs](specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs "specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs").
 
 There are three distinct groups of timecode settings, located in three different
 places on the console:
@@ -34,10 +33,7 @@ is the same as 30.75 seconds.
 
 ###### Topics
 
-- [Adjusting the input timeline with the input
-  timecode source](timecode-input.md "timecode-input.md")
-- [Adjusting the output timeline with the job-wide
-  timecode configuration](timecode-jobconfig.md "timecode-jobconfig.md")
+- [Adjusting the input timeline with the input timecode source](timecode-input.md "timecode-input.md")
+- [Adjusting the output timeline with the job-wide timecode configuration](timecode-jobconfig.md "timecode-jobconfig.md")
 - [Inserting timecode metadata](timecode-insertion.md "timecode-insertion.md")
-- [Burning in timecodes on the video
-  frames](timecode-burn-in.md "timecode-burn-in.md")
+- [Burning in timecodes on the video frames](timecode-burn-in.md "timecode-burn-in.md")

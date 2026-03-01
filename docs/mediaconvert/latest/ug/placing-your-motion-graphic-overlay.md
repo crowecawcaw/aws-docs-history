@@ -1,6 +1,4 @@
-# Specify motion
-
-graphic overlay start time and playback
+# Specify motion graphic overlay start time and playback
 
 You can specify motion graphic overlay **Start time** and
 **Playback** settings instead of using the default setting.
@@ -22,8 +20,7 @@ timeline. This timeline is affected by the input **Timecode
 source** setting.
 
 For more information about the input and output timelines, and the timecode
-settings that affect them, see [How MediaConvert
-uses timelines to assemble jobs](specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs "specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs"). For jobs with
+settings that affect them, see [How MediaConvert uses timelines to assemble jobs](specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs "specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs"). For jobs with
 multiple inputs, MediaConvert places the motion overlay on each input,
 according to the input timeline for that input. After you specify
 **Start time** once, MediaConvert applies that value to

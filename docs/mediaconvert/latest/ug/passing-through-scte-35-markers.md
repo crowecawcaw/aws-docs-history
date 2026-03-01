@@ -1,6 +1,4 @@
-# Configuring SCTE-35 marker passthrough from
-
-your input
+# Configuring SCTE-35 marker passthrough from your input
 
 You can include time_signal SCTE-35 markers from your input in any output that has a
 transport stream container. These outputs might be in an HLS package, or they might be
@@ -32,5 +30,4 @@ A PID, or packet identifier, is an identifier for a set of data in an MPEG-2
 transport stream container. PIDs are used by downstream systems and players to
 locate specific information in the container. 7. Optional. For outputs in an **Apple HLS** output group, you
 can set up the job to include ad markers in the manifest. For more information,
-see [Including SCTE-35
-information in your HLS manifest](including-scte-35-information-in-your-hls-manifest.md "including-scte-35-information-in-your-hls-manifest.md").
+see [Including SCTE-35 information in your HLS manifest](including-scte-35-information-in-your-hls-manifest.md "including-scte-35-information-in-your-hls-manifest.md").

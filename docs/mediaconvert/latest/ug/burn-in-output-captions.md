@@ -11,21 +11,15 @@ This section covers how to configure burn-in output captions in AWS Elemental Me
   replacing pixels of video content with the captions. If you want burn-in captions in
   an output, set up the captions according to the following information.
 
-## Where to specify the
-
-captions
+## Where to specify the captions
 
 Put your captions in the same output group and the same output as your video.
 
-## How to specify multiple
-
-captions tracks
+## How to specify multiple captions tracks
 
 You can burn in only one track of captions in each output.
 
-## How to use style
-
-passthrough
+## How to use style passthrough
 
 You can choose how to stylize the burn-in caption text that appears in your
 output video. There are a few options, including style passthrough, default
@@ -61,9 +55,7 @@ manually override any of the individual style options.
 TTML and TTML-like (IMSC, SMPTE-TT) inputs have special style formatting
 requirements. For more information, see [TTML style formatting](ttml-style-formatting.md "ttml-style-formatting.md").
 
-## How to specify the
-
-font script
+## How to specify the font script
 
 AWS Elemental MediaConvert automatically selects the appropriate script for your captions, based on
 the language that you specify in the output captions settings. If the language that you choose has more
@@ -86,9 +78,7 @@ case, if you don’t specify a value for **Font script**, the service defaults t
 
 In most cases, for **Font script** you can keep the default value of **Automatic**. When you do, the service chooses the script based on the language of the captions text.
 
-## Non-english fonts and unsupported
-
-characters
+## Non-english fonts and unsupported characters
 
 When your input font uses a non-English font script, your output burn-in
 captions may contain unsupported Unicode characters `□`. To resolve,

@@ -1,6 +1,4 @@
-# Input timecode source and
-
-captions alignment
+# Input timecode source and captions alignment
 
 When you adjust your input timeline by setting the input **Timecode
 source** to **Start at 0** or **Specified start**,

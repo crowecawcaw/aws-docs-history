@@ -18,9 +18,7 @@ MediaConvert outputs, and the actual output files that MediaConvert delivers to 
 ###### Topics
 
 - [Setting up captions in outputs](set-up-captions-in-outputs.md "set-up-captions-in-outputs.md")
-- [Using output groups to specify a streaming package
-  type or standalone file](outputs-file-ABR.md "outputs-file-ABR.md")
-- [Choosing your ABR streaming
-  output groups](choosing-your-streaming-output-groups.md "choosing-your-streaming-output-groups.md")
+- [Using output groups to specify a streaming package type or standalone file](outputs-file-ABR.md "outputs-file-ABR.md")
+- [Choosing your ABR streaming output groups](choosing-your-streaming-output-groups.md "choosing-your-streaming-output-groups.md")
 - [Recommended encoding settings for video quality](video-quality.md "video-quality.md")
 - [Using variables in your job settings](using-variables-in-your-job-settings.md "using-variables-in-your-job-settings.md")

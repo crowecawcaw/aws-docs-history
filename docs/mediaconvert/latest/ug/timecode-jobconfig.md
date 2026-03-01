@@ -1,10 +1,8 @@
-# Adjusting the output timeline with the job-wide
-
-timecode configuration
+# Adjusting the output timeline with the job-wide timecode configuration
 
 The values that you specify for the job-wide **Timecode
 configuration** settings affect the output timeline. For information
-about which features are affected by the output timeline, see [Output timeline](specifying-inputs.md#output-timeline "specifying-inputs.md#output-timeline") .
+about which features are affected by the output timeline, see [Output timeline](specifying-inputs.md#output-timeline "specifying-inputs.md#output-timeline").
 
 ###### To adjust the job-wide timecode configuration (console)
 

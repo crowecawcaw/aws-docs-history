@@ -1,6 +1,4 @@
-# Configuring a job for pre-mixed audio
-
-descriptions
+# Configuring a job for pre-mixed audio descriptions
 
 If you have an input that already has pre-mixed audio descriptions, and does not
 contain an _audio description audio signal_ or an

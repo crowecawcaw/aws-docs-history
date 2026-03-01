@@ -1,6 +1,4 @@
-# Getting a Kantar watermarking
-
-license
+# Getting a Kantar watermarking license
 
 To use Kantar audio watermarking with MediaConvert, you must first establish a
 relationship with Kantar and acquire a license from them. Kantar provides the following

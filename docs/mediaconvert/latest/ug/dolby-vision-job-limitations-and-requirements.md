@@ -1,6 +1,4 @@
-# Dolby
-
-Vision input format support and job setting requirements
+# Dolby Vision input format support and job setting requirements
 
 The tables in this section describe Dolby Vision input format support
 and job setting requirements for implementation with AWS Elemental MediaConvert.

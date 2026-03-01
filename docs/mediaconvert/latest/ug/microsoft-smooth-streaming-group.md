@@ -1,6 +1,4 @@
-# Microsoft Smooth
-
-Streaming group
+# Microsoft Smooth Streaming group
 
 The following is an EventBridge sample event for a job with a
 `COMPLETE` status. It includes output file path information

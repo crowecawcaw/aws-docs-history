@@ -1,8 +1,7 @@
 # Monitoring AWS Elemental MediaConvert
 
 You can track a job's progress, including the status, phase, and percentage of
-completion. For information, see [Monitoring MediaConvert job
-progress](how-mediaconvert-jobs-progress.md "how-mediaconvert-jobs-progress.md").
+completion. For information, see [Monitoring MediaConvert job progress](how-mediaconvert-jobs-progress.md "how-mediaconvert-jobs-progress.md").
 
 You can monitor the _status_ of your jobs and their percent completion in these
 places:
@@ -62,12 +61,10 @@ For more information about using MediaConvert with CloudWatch metrics, see [Usin
 With CloudTrail, you can get detailed information about when you perform a MediaConvert action through an
 API call or the MediaConvert console.
 
-For more information about using CloudTrail, see [Logging AWS Elemental MediaConvert API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+For more information about using CloudTrail, see [Logging AWS Elemental MediaConvert API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 ###### Topics
 
 - [Using EventBridge with AWS Elemental MediaConvert](eventbridge_events.md "eventbridge_events.md")
 - [Using CloudWatch with MediaConvert](cloudwatch_metrics.md "cloudwatch_metrics.md")
-- [Logging AWS Elemental MediaConvert API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging AWS Elemental MediaConvert API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

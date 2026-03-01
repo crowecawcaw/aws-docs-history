@@ -1,6 +1,4 @@
-# Setting
-
-the fragment length for streaming outputs
+# Setting the fragment length for streaming outputs
 
 For all ABR streaming output groups other than
 HLS
@@ -16,8 +14,7 @@ end of the video and requests segments that don't exist.
 **GOP size** (`GopSize`), and **Frame
 rate** (`FramerateNumerator`,
 `FramerateDenominator`). For information about finding these settings
-on the console and in your JSON job specification, see [Finding the
-settings related to fragment length](#finding-the-settings-related-to-fragment-length "#finding-the-settings-related-to-fragment-length").
+on the console and in your JSON job specification, see [Finding the settings related to fragment length](#finding-the-settings-related-to-fragment-length "#finding-the-settings-related-to-fragment-length").
 
 ###### Note
 
@@ -41,14 +38,9 @@ Fragment length must be a whole number and must be a multiple of this value:
 **GOP size** x **Closed GOP cadence** ÷
 **Frame rate**
 
-## Fragment
+## Fragment length examples
 
-length
-examples
-
-###### Example:
-
-Correct settings
+###### Example: Correct settings
 
 Closed GOP cadence = 1
 
@@ -68,9 +60,7 @@ GOP size = 90 frames
 
 Fragment length = 2
 
-## Finding the
-
-settings related to fragment length
+## Finding the settings related to fragment length
 
 When you set **Fragment length**, check your values for
 **Closed GOP cadence**, **GOP size**, and
@@ -82,9 +72,7 @@ You can set the fragment length using either the console or the JSON job
 specification. The **Fragment length** setting applies to
 an output group and affects every output in the group.
 
-###### To find the **Fragment length** setting
-
-(console)
+###### To find the **Fragment length** setting (console)
 
 1. On the **Create job** page, in the **Job** pane on the left, under
    **Output groups**, choose the name of your CMAF,
@@ -98,9 +86,7 @@ titled
 group settings**, or **MS Smooth group
 settings**.
 
-###### To find the **Fragment length** setting (JSON job
-
-specification)
+###### To find the **Fragment length** setting (JSON job specification)
 
 - Find `FragmentLength` as a child of
   `OutputGroupSettings`, as in the following
@@ -128,9 +114,7 @@ specification)
 		...
 ```
 
-### Closed GOP
-
-cadence, GOP size, and frame rate
+### Closed GOP cadence, GOP size, and frame rate
 
 You can set **Closed GOP cadence**, **GOP
 size**, and **Frame rate** using either the
@@ -144,10 +128,7 @@ output group work with the value that you specify for the output group's
 Your ABR stack has multiple outputs. Make sure to set these values in
 each output.
 
-###### To find the encoding settings for an
-
-output
-(console)
+###### To find the encoding settings for an output (console)
 
 1. On the **Create job** page, in the **Job** pane on the left, under **Output
    groups**,
@@ -160,9 +141,7 @@ output
    size**, and **Frame rate** on this
    tab.
 
-###### To find the encoding settings for an output (JSON job
-
-specification)
+###### To find the encoding settings for an output (JSON job specification)
 
 - Find `GopClosedCadence`, `GopSize`,
   `FramerateNumerator`, and

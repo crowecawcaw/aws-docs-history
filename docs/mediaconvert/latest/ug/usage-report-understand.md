@@ -1,6 +1,4 @@
-# Understanding your AWS billing and usage
-
-reports for MediaConvert
+# Understanding your AWS billing and usage reports for MediaConvert
 
 AWS Elemental MediaConvert billing and usage reports use codes and abbreviations.
 

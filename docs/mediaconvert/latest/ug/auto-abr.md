@@ -12,8 +12,7 @@ quality-defined variable bitrate (QVBR) rate control mode.
 - [Understanding how automated ABR works](#how-automated-abr-works "#how-automated-abr-works")
 - [Creating a job with automated ABR](creating-an-automated-abr-stack.md "creating-an-automated-abr-stack.md")
 - [Applying automated ABR rules](automated-abr-rules.md "automated-abr-rules.md")
-- [Job settings limitations for
-  automated ABR](feature-restrictions-for-automated-abr.md "feature-restrictions-for-automated-abr.md")
+- [Job settings limitations for automated ABR](feature-restrictions-for-automated-abr.md "feature-restrictions-for-automated-abr.md")
 
 ## Understanding how automated ABR works
 
@@ -52,9 +51,7 @@ the stack. For example, if you set **Profile** to
 **High 10-bit**, every rendition will have that codec
 profile.
 
-### Settings that apply to the
-
-ABR stack
+### Settings that apply to the ABR stack
 
 You can set the following limits that relate to the whole ABR stack:
 
@@ -90,9 +87,7 @@ If you don't specify this, the default minimum is 600 kb/s.
 The instantaneous minimum bitrate can vary below the value that you
 specify.
 
-### Settings that apply
-
-to renditions in the stack
+### Settings that apply to renditions in the stack
 
 You can set the following limits that relate to properties of the renditions in
 the stack:
@@ -151,10 +146,7 @@ the MediaConvert console, you must explicitly set `rateControlMode` to
 - **HDR buffer size**
 - **HDR buffer initial fill**
 
-### Automated ABR frequently
-
-asked
-questions
+### Automated ABR frequently asked questions
 
 ###### How can I see what renditions AWS Elemental MediaConvert created for me?
 

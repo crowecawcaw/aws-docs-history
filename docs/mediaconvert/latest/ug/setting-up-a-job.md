@@ -75,9 +75,7 @@ include up to 150 inputs in your job.
 
 You can transcode portions of your inputs. For more information, see [Input settings](specifying-inputs.md "specifying-inputs.md").
 
-## Step 2: Create input selectors for video, audio, and
-
-captions
+## Step 2: Create input selectors for video, audio, and captions
 
 Next, create input selectors to flag the video, audio, and captions elements from your
 input that you will use in your outputs. This labels each input element so that you can
@@ -85,9 +83,7 @@ point to it when you set up your outputs. When you set up input selectors, you a
 provide the service with information about where to find the data and how to interpret
 it.
 
-###### To
-
-set up your input selectors
+###### To set up your input selectors
 
 1. In the **Video selector** section, specify values for the
    fields that are applicable to your job.
@@ -118,8 +114,7 @@ channels per track.
 
     1. For **Selector type**, choose the way that your audio
      assets are identified. Often, this is by track. If you are using an HLS
-     input, and would like to select an alternate audio rendition, see [Alternate HLS audio
-     rendition requirements](using-alternate-audio-renditions.md "using-alternate-audio-renditions.md").
+     input, and would like to select an alternate audio rendition, see [Alternate HLS audio rendition requirements](using-alternate-audio-renditions.md "using-alternate-audio-renditions.md").
     2. Provide the identifier (that is, track number, PID, or language code)
      for your primary audio asset. Your primary audio asset is likely to be
      track 1.
@@ -134,8 +129,7 @@ channels per track.
      package, combine multiple input tracks in one audio selector by
      typing a comma-separated list.
      For more information about combining tracks, see
-     [Setting up audio tracks and audio
-     selectors](more-about-audio-tracks-selectors.md "more-about-audio-tracks-selectors.md").
+     [Setting up audio tracks and audio selectors](more-about-audio-tracks-selectors.md "more-about-audio-tracks-selectors.md").
     3. If your audio is in a separate file from your video, choose the
      **External file** slider switch element and provide
      the URI to your audio
@@ -189,8 +183,7 @@ You can use MediaConvert to create media assets that fall broadly into two categ
 Create one file output group for all the standalone files that you intend to
 create. Create one ABR streaming output group for each ABR streaming package
 that you intend to create. For guidance on which ABR streaming output groups to
-include in your job, see [Choosing your ABR streaming
-output groups](choosing-your-streaming-output-groups.md "choosing-your-streaming-output-groups.md"). 3. Optionally, for **Custom group name**, enter a name for your
+include in your job, see [Choosing your ABR streaming output groups](choosing-your-streaming-output-groups.md "choosing-your-streaming-output-groups.md"). 3. Optionally, for **Custom group name**, enter a name for your
 group. Any name that you provide here appears in the **Output
 groups** section of the console but does not affect your
 outputs. 4. For **Destination**, specify the URI for the Amazon S3 location
@@ -231,9 +224,7 @@ For each ABR streaming output group that you set up in [Step 3: Create output gr
 create and set up an output for each media element that you want in the ABR
 streaming package.
 
-#### Creating video ABR streaming
-
-outputs
+#### Creating video ABR streaming outputs
 
 For each video output that you include in your output group, MediaConvert creates
 one video rendition, or set of segmented video files.
@@ -298,9 +289,7 @@ delete it as follows:
    each
    one.
 
-#### Creating audio ABR streaming
-
-outputs
+#### Creating audio ABR streaming outputs
 
 For each audio output that you include in your output group, MediaConvert creates
 one audio rendition, or set of segmented video files. The most common reason
@@ -347,8 +336,7 @@ this procedure. 4. Specify your audio settings as follows:
      For more information about individual settings, choose the **Info** link next to each setting.
     2. Under **Stream settings**, for
      **Audio source**, choose one of the
-     audio selectors that you created in [Step 2: Create input selectors for video, audio, and
-     captions](#create-selectors "#create-selectors").
+     audio selectors that you created in [Step 2: Create input selectors for video, audio, and captions](#create-selectors "#create-selectors").
     3. In the **Stream settings** section,
      specify values for audio encoding. For more information about individual settings, choose the **Info** link next to each setting.
 
@@ -367,9 +355,7 @@ this procedure. 4. Specify your audio settings as follows:
    5. Set up the output as described in steps 2 through 4 of
       this procedure.
 
-#### Creating captions for ABR
-
-streaming outputs
+#### Creating captions for ABR streaming outputs
 
 Setting up captions can be complex. For detailed information, see [Setting up input captions](including-captions.md "including-captions.md"). For
 basic instructions, complete the following procedure.
@@ -402,14 +388,11 @@ easy to identify which files came from which output, such as
      For more information about individual settings, choose the **Info** link next to each setting.
     2. Under **Stream settings**, for
      **Captions source**, choose one of the
-     captions selectors that you created in [Step 2: Create input selectors for video, audio, and
-     captions](#create-selectors "#create-selectors").
+     captions selectors that you created in [Step 2: Create input selectors for video, audio, and captions](#create-selectors "#create-selectors").
     3. In the **Stream settings** section,
      specify values for the remaining captions settings.
 
-#### Creating additional
-
-manifests
+#### Creating additional manifests
 
 By default, MediaConvert generates a single multivariant playlist for each of your
 CMAF, DASH ISO, Apple HLS,
@@ -469,9 +452,7 @@ create.
    2. In the **Outputs** pane, choose
       **Add output**.
 
-#### Set up output
-
-selectors in file outputs
+#### Set up output selectors in file outputs
 
 Next, for each file output that you just created, set up output selectors.
 
@@ -525,8 +506,7 @@ preset. 4. Specify your output settings as follows:
      **Video**.
     4. Under **Stream settings**, for
      **Audio source**, choose one of the
-     audio selectors that you created in [Step 2: Create input selectors for video, audio, and
-     captions](#create-selectors "#create-selectors").
+     audio selectors that you created in [Step 2: Create input selectors for video, audio, and captions](#create-selectors "#create-selectors").
     5. In the **Stream settings** section,
      specify values for audio encoding. For more information about individual settings, choose the **Info** link next to each setting.
     6. To include captions in the output, choose **Add
@@ -534,9 +514,7 @@ preset. 4. Specify your output settings as follows:
      settings. For more information about setting up captions,
      see [Setting up input captions](including-captions.md "including-captions.md").
 
-## Step 5: Specify global job
-
-settings
+## Step 5: Specify global job settings
 
 Global job settings apply to every output that the job creates.
 
@@ -556,7 +534,7 @@ how MediaConvert manages timecodes, see [Setting up timecodes](setting-up-timeco
 2. For **IAM role**, choose an IAM role that has permissions
    to access the Amazon S3 buckets that hold your input and output files. The IAM role
    must have a trusted relationship with MediaConvert. For information about creating this
-   role, see [Setting up IAM permissions](iam-role.md "iam-role.md") .
+   role, see [Setting up IAM permissions](iam-role.md "iam-role.md").
 3. Optionally, specify job-wide timecode settings in the **Timecode
    configuration** pane.
 4. Specify values for the other job settings and enable global processors.

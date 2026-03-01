@@ -1,6 +1,4 @@
-# Example ESAM XML Manifest
-
-Confirm Condition Notification
+# Example ESAM XML Manifest Confirm Condition Notification
 
 This ESAM manifest confirm condition (MCC) XML document generates HLS manifest cue
 tags for two 30-second ad breaks. The first begins at 10 seconds in; the second

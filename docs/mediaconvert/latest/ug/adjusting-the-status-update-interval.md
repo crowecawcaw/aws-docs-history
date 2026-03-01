@@ -1,6 +1,4 @@
-# Adjust the status update
-
-interval
+# Adjust the status update interval
 
 By default, AWS Elemental MediaConvert sends `STATUS_UPDATE` events to
 Amazon EventBridge approximately once per minute. These status updates provide information

@@ -31,9 +31,7 @@ You add metadata tags to jobs in one of the following ways:
 	"settings":{
 ```
 
-## AWS Elemental MediaConvert job tag
-
-restrictions
+## AWS Elemental MediaConvert job tag restrictions
 
 The following basic restrictions apply to tags on jobs:
 

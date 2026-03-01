@@ -1,6 +1,4 @@
-# Example accelerated
-
-transcoding job settings JSON
+# Example accelerated transcoding job settings JSON
 
 The following example JSON job converts an MP4 file to another MP4 file that is 720p
 encoded with H.265. To use this example, replace the settings with your values. At

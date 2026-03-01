@@ -1,6 +1,4 @@
-# Creating a role with the IAM
-
-console
+# Creating a role with the IAM console
 
 Working directly with AWS Identity and Access Management (IAM), you
 can do actions that aren't available in the MediaConvert

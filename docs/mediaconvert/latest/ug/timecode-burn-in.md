@@ -1,6 +1,4 @@
-# Burning in timecodes on the video
-
-frames
+# Burning in timecodes on the video frames
 
 The **Timecode burn-in** setting determines whether a given
 output has visible timecodes inscribed into the video frames themselves. The

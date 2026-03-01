@@ -1,6 +1,4 @@
-# Restrictions for tags on
-
-AWS Elemental MediaConvert resources
+# Restrictions for tags on AWS Elemental MediaConvert resources
 
 The following basic restrictions apply to tags:
 

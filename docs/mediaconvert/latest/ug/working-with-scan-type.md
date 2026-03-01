@@ -1,6 +1,4 @@
-# Working with progressive and interlaced scan
-
-types in AWS Elemental MediaConvert
+# Working with progressive and interlaced scan types in AWS Elemental MediaConvert
 
 _Progressive_ and _interlaced_ are two types of video display methods. Modern display devices
 detect whether a video is interlaced or progressive and automatically play back the video
@@ -14,10 +12,8 @@ input that is not interlaced, your output video quality suffers.
 ###### Topics
 
 - [Basic scan type vocabulary](#scan-type-vocabulary "#scan-type-vocabulary")
-- [Settings for scan type
-  conversion](#settings-for-scan-type-conversion "#settings-for-scan-type-conversion")
-- [Converting the scan type of your
-  video](converting-scan-type.md "converting-scan-type.md")
+- [Settings for scan type conversion](#settings-for-scan-type-conversion "#settings-for-scan-type-conversion")
+- [Converting the scan type of your video](converting-scan-type.md "converting-scan-type.md")
 - [Valid settings combinations and requirements](valid-settings-combinations.md "valid-settings-combinations.md")
 
 ## Basic scan type vocabulary
@@ -61,9 +57,7 @@ When you create interlaced outputs with MediaConvert, you can specify
 which field polarity comes first with the setting **Interlace
 mode**.
 
-## Settings for scan type
-
-conversion
+## Settings for scan type conversion
 
 To convert between interlaced to progressive video, specify the MediaConvert settings
 covered in this topic. This topic offers conceptual information and guidance for

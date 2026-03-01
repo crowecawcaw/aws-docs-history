@@ -9,7 +9,5 @@ mode.
 
 ###### Topics
 
-- [Comparison of QVBR with other rate control
-  modes](choosing-rate-control-mode.md "choosing-rate-control-mode.md")
-- [Configuring quality-defined variable bitrate
-  mode](qvbr-guidelines.md "qvbr-guidelines.md")
+- [Comparison of QVBR with other rate control modes](choosing-rate-control-mode.md "choosing-rate-control-mode.md")
+- [Configuring quality-defined variable bitrate mode](qvbr-guidelines.md "qvbr-guidelines.md")

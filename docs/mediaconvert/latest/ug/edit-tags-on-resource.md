@@ -1,6 +1,4 @@
-# Editing tags on an AWS Elemental MediaConvert
-
-resource
+# Editing tags on an AWS Elemental MediaConvert resource
 
 The following procedure shows you how to edit tags on existing job templates, output
 presets, and queues using the AWS Elemental MediaConvert console. You can't edit tags on existing

@@ -1,6 +1,4 @@
-# Container and DRM system support with
-
-SPEKE
+# Container and DRM system support with SPEKE
 
 MediaConvert supports both [SPEKE Version 1.0](../../../speke/latest/documentation/the-speke-api.md "../../../speke/latest/documentation/the-speke-api.md") and [SPEKE Version
 2.0](../../../speke/latest/documentation/the-speke-api-v2.md "../../../speke/latest/documentation/the-speke-api-v2.md"). For more information, see the [SPEKE partner and customer guide](../../../speke/latest/documentation/speke-api-specification.md "../../../speke/latest/documentation/speke-api-specification.md").

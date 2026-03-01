@@ -54,8 +54,7 @@ JSON.
 
 ###### Topics
 
-- [Events with INPUT_INFORMATION
-  status](ev_status_input_information.md "ev_status_input_information.md")
+- [Events with INPUT_INFORMATION status](ev_status_input_information.md "ev_status_input_information.md")
 - [Events with PROGRESSING status](ev_status_progressing.md "ev_status_progressing.md")
 - [Events with STATUS_UPDATE status](ev_status_status_update.md "ev_status_status_update.md")
 - [Events with COMPLETE status](ev_status_complete.md "ev_status_complete.md")

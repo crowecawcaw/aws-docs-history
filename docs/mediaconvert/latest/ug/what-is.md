@@ -15,7 +15,7 @@ features that enable premium content experiences, including:
   multiscreen devices.
 
 For simple use cases, you can set up a MediaConvert transcoding job in a few steps. For
-instructions, see [Getting started with MediaConvert](getting-started.md "getting-started.md") .
+instructions, see [Getting started with MediaConvert](getting-started.md "getting-started.md").
 
 MediaConvert has the following components:
 

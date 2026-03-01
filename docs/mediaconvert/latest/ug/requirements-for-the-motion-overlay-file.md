@@ -1,6 +1,4 @@
-# Requirements to set up
-
-motion graphic overlay files
+# Requirements to set up motion graphic overlay files
 
 The following table describes how to set up motion graphic overlay files.
 

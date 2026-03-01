@@ -4,8 +4,7 @@ To set up Amazon EventBridge rules: Create a rule that links the event from AWS 
 and the target service that responds to your job status change, such as Amazon Simple Notification Service
 (Amazon SNS) or AWS Lambda.
 
-For a tutorial on setting up an EventBridge rule with AWS Elemental MediaConvert, see [Tutorial: Setting up email notifications
-for failed jobs](#mediaconvert_sns_tutorial "#mediaconvert_sns_tutorial").
+For a tutorial on setting up an EventBridge rule with AWS Elemental MediaConvert, see [Tutorial: Setting up email notifications for failed jobs](#mediaconvert_sns_tutorial "#mediaconvert_sns_tutorial").
 
 For a list of the events that MediaConvert sends in the EventBridge event stream, see [List of MediaConvert EventBridge events](mediaconvert_event_list.md "mediaconvert_event_list.md").
 
@@ -16,19 +15,13 @@ Amazon EventBridge](../../../eventbridge/latest/userguide/eb-troubleshooting.md 
 
 ###### Topics
 
-- [Tutorial: Setting up email notifications
-  for failed jobs](#mediaconvert_sns_tutorial "#mediaconvert_sns_tutorial")
-- [Step 1: Create a topic in
-  Amazon SNS](#mediaconvert_sns_create_topic "#mediaconvert_sns_create_topic")
-- [Step 2: Specify an event
-  pattern in an EventBridge rule](#mediaconvert_sns_rule_event_source "#mediaconvert_sns_rule_event_source")
-- [Step 3: Add the Amazon SNS topic and finish
-  your rule](#add-target-and-finish-rule "#add-target-and-finish-rule")
+- [Tutorial: Setting up email notifications for failed jobs](#mediaconvert_sns_tutorial "#mediaconvert_sns_tutorial")
+- [Step 1: Create a topic in Amazon SNS](#mediaconvert_sns_create_topic "#mediaconvert_sns_create_topic")
+- [Step 2: Specify an event pattern in an EventBridge rule](#mediaconvert_sns_rule_event_source "#mediaconvert_sns_rule_event_source")
+- [Step 3: Add the Amazon SNS topic and finish your rule](#add-target-and-finish-rule "#add-target-and-finish-rule")
 - [Step 4: Test your rule](#mediaconvert_sns_test_rule "#mediaconvert_sns_test_rule")
 
-## Tutorial: Setting up email notifications
-
-for failed jobs
+## Tutorial: Setting up email notifications for failed jobs
 
 In this tutorial, you configure an EventBridge event rule that captures events when a job
 status changes to `ERROR` and then notifies you about the event. To do
@@ -36,9 +29,7 @@ this, you first create a topic in Amazon SNS that will send you an email notific
 about the failed job. Next, you create a rule in EventBridge by defining an event source
 and referencing the Amazon SNS topic (the "target").
 
-## Step 1: Create a topic in
-
-Amazon SNS
+## Step 1: Create a topic in Amazon SNS
 
 The first part of setting up an EventBridge rule is preparing the rule target. In this
 case, that means creating and subscribing to an Amazon SNS topic.
@@ -67,9 +58,7 @@ case, that means creating and subscribing to an Amazon SNS topic.
 9. You will receive a notification email from Amazon SNS. When you receive it,
    choose the **Confirm subscription** link in the email.
 
-## Step 2: Specify an event
-
-pattern in an EventBridge rule
+## Step 2: Specify an event pattern in an EventBridge rule
 
 This step shows how to specify your event pattern in an EventBridge rule. This rule will
 capture events sent by MediaConvert when a job status changes to
@@ -114,9 +103,7 @@ status changes to `ERROR`. For more information about event
 patterns, see [Events and event patterns](../../../AmazonCloudWatch/latest/DeveloperGuide/CloudWatchEventsandEventPatterns.md "../../../AmazonCloudWatch/latest/DeveloperGuide/CloudWatchEventsandEventPatterns.md") in the
 _Amazon CloudWatch User Guide_. 6. Choose **Next**.
 
-## Step 3: Add the Amazon SNS topic and finish
-
-your rule
+## Step 3: Add the Amazon SNS topic and finish your rule
 
 Add the Amazon SNS topic that you created in step 1 to the EventBridge rule that you started
 in step 2.

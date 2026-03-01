@@ -9,8 +9,7 @@ using SPEKE for MediaConvert.
 
 ###### Topics
 
-- [Container and DRM system support with
-  SPEKE](encryption-choosing-speke-version.md "encryption-choosing-speke-version.md")
+- [Container and DRM system support with SPEKE](encryption-choosing-speke-version.md "encryption-choosing-speke-version.md")
 - [Deploying SPEKE](encryption-deploying-speke.md "encryption-deploying-speke.md")
 - [SPEKE encryption parameters](speke-encryption-parameters.md "speke-encryption-parameters.md")
 - [SPEKE v2.0 presets](drm-content-speke-v2-presets.md "drm-content-speke-v2-presets.md")

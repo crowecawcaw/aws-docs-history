@@ -2,8 +2,7 @@
 
 MediaConvert sends the event for `COMPLETE` when all outputs are
 written to Amazon S3 without errors. It contains both warnings and output information for
-the completed job. For more information about output file names and paths, see [Output file names and
-paths](output-file-names-and-paths.md "output-file-names-and-paths.md").
+the completed job. For more information about output file names and paths, see [Output file names and paths](output-file-names-and-paths.md "output-file-names-and-paths.md").
 
 The following JSON is an example event containing the `COMPLETE` status
 for a job.

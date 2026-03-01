@@ -1,6 +1,4 @@
-# Setting up AWS Elemental MediaConvert resources
-
-for cost allocation through tagging
+# Setting up AWS Elemental MediaConvert resources for cost allocation through tagging
 
 For all outputs that you produce using an on-demand queue, you can use the AWS Billing and Cost Management dashboard to set up a monthly cost allocation report. This report
 shows what AWS charges you for transcoding, sorted by resource. You can set up your
@@ -10,9 +8,7 @@ job, on the queue that you submit the job to, on the job template that you creat
 job from, or on the output presets that you use to set up the individual outputs of the
 job.
 
-###### To set up cost allocation through tagging for your AWS Elemental MediaConvert
-
-charges
+###### To set up cost allocation through tagging for your AWS Elemental MediaConvert charges
 
 1. Tag the resources that you intend to sort your bill by. For instructions, see
    the other topics in this chapter.

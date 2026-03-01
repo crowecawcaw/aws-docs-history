@@ -21,8 +21,7 @@ format column to see the available output captions formats.
 
 The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
 
-If your input captions are in a sidecar format, see [Sidecar captions supported in CMAF output
-container](sidecar-captions-support-tables-by-container-type.md#sidecar-cmaf-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-cmaf-output-container"). _Sidecar captions_ are captions that you provide as a separate input file from your
+If your input captions are in a sidecar format, see [Sidecar captions supported in CMAF output container](sidecar-captions-support-tables-by-container-type.md#sidecar-cmaf-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-cmaf-output-container"). _Sidecar captions_ are captions that you provide as a separate input file from your
 video.
 
 | Input captions container | Input captions format | Supported output captions formats |
@@ -57,8 +56,7 @@ Ancillary captions include these formats:
 
 The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
 
-If your input captions are in a sidecar format, see [Sidecar captions supported in DASH output
-container](sidecar-captions-support-tables-by-container-type.md#sidecar-dash-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-dash-output-container").
+If your input captions are in a sidecar format, see [Sidecar captions supported in DASH output container](sidecar-captions-support-tables-by-container-type.md#sidecar-dash-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-dash-output-container").
 _Sidecar captions_ are captions that you provide as a separate
 input file from your video.
 
@@ -99,8 +97,7 @@ Ancillary captions include these formats:
 
 The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
 
-If your input captions are in a sidecar format, see [Sidecar captions supported in HLS output
-container](sidecar-captions-support-tables-by-container-type.md#sidecar-hls-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-hls-output-container").
+If your input captions are in a sidecar format, see [Sidecar captions supported in HLS output container](sidecar-captions-support-tables-by-container-type.md#sidecar-hls-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-hls-output-container").
 _Sidecar captions_ are captions that you provide as a separate
 input file from your video.
 
@@ -148,8 +145,7 @@ Ancillary captions include these formats:
 
 The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
 
-If your input captions are in a sidecar format, see [Sidecar captions supported in Microsoft Smooth
-Streaming (MSS) output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mss-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mss-output-container").
+If your input captions are in a sidecar format, see [Sidecar captions supported in Microsoft Smooth Streaming (MSS) output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mss-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mss-output-container").
 _Sidecar captions_ are captions that you provide as a separate
 input file from your video.
 
@@ -189,8 +185,7 @@ Ancillary captions include these formats:
 
 The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
 
-If your input captions are in a sidecar format, see [Sidecar captions supported in MP4 output
-container](sidecar-captions-support-tables-by-container-type.md#sidecar-mp4-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mp4-output-container").
+If your input captions are in a sidecar format, see [Sidecar captions supported in MP4 output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mp4-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mp4-output-container").
 _Sidecar captions_ are captions that you provide as a separate
 input file from your video.
 
@@ -230,8 +225,7 @@ Ancillary captions include these formats:
 
 The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
 
-If your input captions are in a sidecar format, see [Sidecar captions supported in MPEG2-TS
-File output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mpeg2-ts-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mpeg2-ts-output-container").
+If your input captions are in a sidecar format, see [Sidecar captions supported in MPEG2-TS File output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mpeg2-ts-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mpeg2-ts-output-container").
 _Sidecar captions_ are captions that you provide as a separate
 input file from your video.
 
@@ -279,8 +273,7 @@ Ancillary captions include these formats:
 
 The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
 
-If your input captions are in a sidecar format, see [Sidecar captions supported in MXF output
-container](sidecar-captions-support-tables-by-container-type.md#sidecar-mxf-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mxf-output-container").
+If your input captions are in a sidecar format, see [Sidecar captions supported in MXF output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mxf-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mxf-output-container").
 _Sidecar captions_ are captions that you provide as a separate
 input file from your video.
 
@@ -326,8 +319,7 @@ Ancillary captions include these formats:
 
 The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
 
-If your input captions are in a sidecar format, see [Sidecar captions supported in QuickTime
-output container](sidecar-captions-support-tables-by-container-type.md#sidecar-quicktime-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-quicktime-output-container").
+If your input captions are in a sidecar format, see [Sidecar captions supported in QuickTime output container](sidecar-captions-support-tables-by-container-type.md#sidecar-quicktime-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-quicktime-output-container").
 _Sidecar captions_ are captions that you provide as a separate
 input file from your video.
 
@@ -370,8 +362,7 @@ The following table lists standalone sidecar output captions formats that MediaC
 supports with outputs in the **File** output group.
 _Sidecar_ captions are captions that are in a separate file from your video.
 
-If your input captions are in a sidecar format, see [Sidecar captions
-supported with File output groups](sidecar-captions-support-tables-by-container-type.md#sidecar-captions-supported-as-standalone-file-in-output "sidecar-captions-support-tables-by-container-type.md#sidecar-captions-supported-as-standalone-file-in-output"). _Sidecar captions_ are captions that you provide as a separate input
+If your input captions are in a sidecar format, see [Sidecar captions supported with File output groups](sidecar-captions-support-tables-by-container-type.md#sidecar-captions-supported-as-standalone-file-in-output "sidecar-captions-support-tables-by-container-type.md#sidecar-captions-supported-as-standalone-file-in-output"). _Sidecar captions_ are captions that you provide as a separate input
 file from your video.
 
 When you set up these output captions in your job, choose **No container**

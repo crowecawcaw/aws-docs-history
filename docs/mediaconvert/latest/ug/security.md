@@ -1,6 +1,4 @@
-# Security
-
-in AWS Elemental MediaConvert
+# Security in AWS Elemental MediaConvert
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a data center and network architecture that is built to meet
 the requirements of the most security-sensitive organizations.
@@ -27,8 +25,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 
 - [General AWS data protection](data-protection-aws-general.md "data-protection-aws-general.md")
 - [Identity and Access Management for AWS Elemental MediaConvert](security-iam.md "security-iam.md")
-- [Setting up access for other AWS
-  accounts to your AWS Elemental MediaConvert outputs](setting-up-access-for-other-aws-accounts.md "setting-up-access-for-other-aws-accounts.md")
+- [Setting up access for other AWS accounts to your AWS Elemental MediaConvert outputs](setting-up-access-for-other-aws-accounts.md "setting-up-access-for-other-aws-accounts.md")
 - [How to allow or disallow input location types](disallow-inputs.md "disallow-inputs.md")
 - [Compliance validation for AWS Elemental MediaConvert](mediaconvert-compliance.md "mediaconvert-compliance.md")
 - [Resilience in AWS Elemental MediaConvert](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

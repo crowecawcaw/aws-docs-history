@@ -1,6 +1,4 @@
-# Using accelerated transcoding with
-
-hopped jobs
+# Using accelerated transcoding with hopped jobs
 
 To reduce the transcoding time for certain jobs, use accelerated transcoding. In most
 cases, you submit accelerated jobs to on-demand queues, because reserved queues

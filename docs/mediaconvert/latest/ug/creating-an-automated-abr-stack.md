@@ -7,7 +7,7 @@ these optional settings, see [Understanding how automated ABR works](auto-abr.md
 Console
 To set up an automated ABR job using the MediaConvert console:
 
-1. Begin setting up your job as usual. For more information, see [Getting started with MediaConvert](getting-started.md "getting-started.md") .
+1. Begin setting up your job as usual. For more information, see [Getting started with MediaConvert](getting-started.md "getting-started.md").
 
 Instead of following the general instructions for setting up output groups and
 outputs, follow this procedure. 2. Enable accelerated transcoding. This is optional, but we strongly recommend
@@ -53,8 +53,7 @@ require video and audio to be in the same muxed output, skip this step.
     **Output 1** holds your automated ABR video settings
     and represents every video rendition in your stack. 3. Choose the new output from the list of outputs. 4. In the **Encoding settings** section, set up your
     audio rendition as you would for a job that doesn't use automated ABR.
-    For more information, see [Creating audio ABR streaming
-    outputs](setting-up-a-job.md#audio-abr-streaming-outputs "setting-up-a-job.md#audio-abr-streaming-outputs").
+    For more information, see [Creating audio ABR streaming outputs](setting-up-a-job.md#audio-abr-streaming-outputs "setting-up-a-job.md#audio-abr-streaming-outputs").
 
 13. Optionally, add captions. Do this as you would for a manually specified ABR
     stack. For more information, see [Setting up input captions](including-captions.md "including-captions.md").

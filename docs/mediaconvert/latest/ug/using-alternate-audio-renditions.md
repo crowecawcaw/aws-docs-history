@@ -1,6 +1,4 @@
-# Alternate HLS audio
-
-rendition requirements
+# Alternate HLS audio rendition requirements
 
 With HLS rendition groups, you can use the audio selector settings to indicate
 which alternate audio rendition you want MediaConvert to use. To be eligible for

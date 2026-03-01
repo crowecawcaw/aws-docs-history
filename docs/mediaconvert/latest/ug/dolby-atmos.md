@@ -14,5 +14,4 @@ passing through already encoded Dolby Digital Plus with Atmos content.
 - [Configuring Dolby Atmos encoding](using-dolby-atmos-encoding.md "using-dolby-atmos-encoding.md")
 - [Requirements for Dolby Atmos encoding](feature-restrictions-for-dolby-atmos-encoding.md "feature-restrictions-for-dolby-atmos-encoding.md")
 - [Configuring Dolby Atmos passthrough](using-dolby-atmos-passthrough.md "using-dolby-atmos-passthrough.md")
-- [Feature
-  Restrictions for Dolby Atmos Passthrough](feature-restrictions-for-dolby-atmos-passthrough.md "feature-restrictions-for-dolby-atmos-passthrough.md")
+- [Feature Restrictions for Dolby Atmos Passthrough](feature-restrictions-for-dolby-atmos-passthrough.md "feature-restrictions-for-dolby-atmos-passthrough.md")

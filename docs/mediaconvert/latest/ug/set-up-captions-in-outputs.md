@@ -46,13 +46,10 @@ The following procedure shows how to set up captions for different outputs.
 
 ###### Details by output captions format
 
-- [CEA/EIA-608 and CEA/EIA-708 (embedded)
-  output captions](embedded-output-captions.md "embedded-output-captions.md")
+- [CEA/EIA-608 and CEA/EIA-708 (embedded) output captions](embedded-output-captions.md "embedded-output-captions.md")
 - [DVB-Sub output captions](dvb-sub-output-captions.md "dvb-sub-output-captions.md")
-- [IMSC, TTML, and WebVTT (sidecar)
-  output captions](ttml-and-webvtt-output-captions.md "ttml-and-webvtt-output-captions.md")
-- [SCC, SRT, and SMI (sidecar) output
-  captions](scc-srt-output-captions.md "scc-srt-output-captions.md")
+- [IMSC, TTML, and WebVTT (sidecar) output captions](ttml-and-webvtt-output-captions.md "ttml-and-webvtt-output-captions.md")
+- [SCC, SRT, and SMI (sidecar) output captions](scc-srt-output-captions.md "scc-srt-output-captions.md")
 - [Teletext output captions](teletext-output-captions.md "teletext-output-captions.md")
 - [Burn-in output captions](burn-in-output-captions.md "burn-in-output-captions.md")
 - [Settings for accessibility captions](accessibility-captions.md "accessibility-captions.md")

@@ -20,21 +20,15 @@ You can use Amazon Transcribe with MediaConvert to generate captions and include
 them in your output. For more information, see [AWS VOD captioning using
 Amazon Transcribe](https://github.com/aws-samples/aws-transcribe-captioning-tools "https://github.com/aws-samples/aws-transcribe-captioning-tools") in _AWS Samples_ on GitHub.
 
-## Specifying the timecode
-
-source
+## Specifying the timecode source
 
 For your captions to correctly synchronize with your video, you must set up your input
 timeline to match the timecodes embedded in your captions file. MediaConvert establishes the input timeline based on the value you choose for the input **Timecode source** setting. For more
-information, see [Input timecode source and
-captions alignment](about-input-timecode-source-and-captions-alignment.md "about-input-timecode-source-and-captions-alignment.md").
+information, see [Input timecode source and captions alignment](about-input-timecode-source-and-captions-alignment.md "about-input-timecode-source-and-captions-alignment.md").
 
-For instructions on adjusting the **Timecode source** setting, see [Adjusting the input timeline with the input
-timecode source](timecode-input.md "timecode-input.md").
+For instructions on adjusting the **Timecode source** setting, see [Adjusting the input timeline with the input timecode source](timecode-input.md "timecode-input.md").
 
-## Gathering required captions
-
-information
+## Gathering required captions information
 
 Before you set up captions in your job, note the following information:
 

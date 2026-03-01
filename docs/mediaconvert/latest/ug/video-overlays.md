@@ -15,8 +15,6 @@ might include the following:
 ###### Topics
 
 - [How to overlay a full screen video](video-overlays-add.md "video-overlays-add.md")
-- [How to shrink content during ad playback
-  (picture-in-picture)](overlay-shrink-pip.md "overlay-shrink-pip.md")
-- [How to shrink content during ad playback (merge
-  squeeze)](overlay-shrink.md "overlay-shrink.md")
+- [How to shrink content during ad playback (picture-in-picture)](overlay-shrink-pip.md "overlay-shrink-pip.md")
+- [How to shrink content during ad playback (merge squeeze)](overlay-shrink.md "overlay-shrink.md")
 - [Video overlay feature limitations](video-overlays-restrictions.md "video-overlays-restrictions.md")

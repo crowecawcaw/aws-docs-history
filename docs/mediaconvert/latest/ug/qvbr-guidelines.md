@@ -1,6 +1,4 @@
-# Configuring quality-defined variable bitrate
-
-mode
+# Configuring quality-defined variable bitrate mode
 
 When you use QVBR, you can specify the quality level for your output and the maximum
 peak bitrate. For reasonable values of those settings, the encoder chooses how many

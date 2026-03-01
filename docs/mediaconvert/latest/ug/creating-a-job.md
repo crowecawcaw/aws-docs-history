@@ -6,7 +6,7 @@ of how to create a job using the AWS Management Console.
 
 When you create a job, you submit it to a queue for processing. Processing begins
 automatically from your queues as resources allow. For information about resource
-allocation, see [Processing multiple jobs in parallel](working-with-on-demand-queues.md#queue-resources "working-with-on-demand-queues.md#queue-resources") .
+allocation, see [Processing multiple jobs in parallel](working-with-on-demand-queues.md#queue-resources "working-with-on-demand-queues.md#queue-resources").
 
 ###### To create a job using the MediaConvert console
 

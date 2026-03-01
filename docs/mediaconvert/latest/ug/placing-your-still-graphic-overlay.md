@@ -1,6 +1,4 @@
-# Placing your image
-
-overlay
+# Placing your image overlay
 
 Whether your still image overlay is in input or output, set up the
 **Start time** and **Duration**. The following
@@ -28,8 +26,7 @@ the overlay that you're using:
   **Timecode configuration**, **Source**
   setting.
   For more information about the input and output timelines, and the timecode
-  settings that affect them, see [How MediaConvert
-  uses timelines to assemble jobs](specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs "specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs").
+  settings that affect them, see [How MediaConvert uses timelines to assemble jobs](specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs "specifying-inputs.md#how-mediaconvert-uses-timelines-to-assemble-jobs").
 
 ###### Tip
 

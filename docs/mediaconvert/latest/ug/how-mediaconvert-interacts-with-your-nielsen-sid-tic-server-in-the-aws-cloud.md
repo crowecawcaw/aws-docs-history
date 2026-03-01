@@ -1,6 +1,4 @@
-# Nielsen SID/TIC server requirements in the AWS
-
-Cloud
+# Nielsen SID/TIC server requirements in the AWS Cloud
 
 The following diagram shows, at a high level, how
 MediaConvert interacts with the other parts of the
@@ -34,7 +32,7 @@ This should result in a REST endpoint that you provide for the setting
 
 The roles and access you set up for this data sharing is different from
 the IAM permissions you set up to allow MediaConvert to access your input
-and output Amazon S3 buckets. For information about that setup, see [Setting up IAM permissions](iam-role.md "iam-role.md") , which is a sub-topic of
+and output Amazon S3 buckets. For information about that setup, see [Setting up IAM permissions](iam-role.md "iam-role.md"), which is a sub-topic of
 the Getting started chapter of this guide.
 
 ![The video is rotated so that the top of the pre-rotation image is parallel to the right edge of the post-rotation video frame. Black vertical bars on the right and left accommodate the difference between the aspect ratio of the original video and the rotated video.](images/NielsenWatermarking.png)

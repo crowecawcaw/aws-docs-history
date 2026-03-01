@@ -1,6 +1,4 @@
-# Creating the
-
-IAM role within MediaConvert
+# Creating the IAM role within MediaConvert
 
 When you create the AWS Identity and Access Management (IAM) role in MediaConvert with configured permissions,
 you can restrict MediaConvert access to only specific Amazon S3 buckets. You can also

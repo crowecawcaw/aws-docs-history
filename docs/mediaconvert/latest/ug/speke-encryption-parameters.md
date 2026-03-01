@@ -89,20 +89,15 @@ arn:aws:acm:region:123456789012:certificate/97b4deb6-8983-4e39-918e-ef1378924e1e
 
     	+ For **SPEKE**, fill in the encryption parameter
     	 fields.
-    	+ For **Static Key**, see [Static key encryption
-    	 parameters](#static-key-encryption-parameters "#static-key-encryption-parameters") below.
+    	+ For **Static Key**, see [Static key encryption parameters](#static-key-encryption-parameters "#static-key-encryption-parameters") below.
 
-## Additional configuration options for
-
-Apple HLS and CMAF
+## Additional configuration options for Apple HLS and CMAF
 
 - (Optional) For **Constant initialization vector** enter a
   128-bit, 16-byte hex value represented by a 32-character string,
   to be used with the key for encrypting content.
 
-## Static key encryption
-
-parameters
+## Static key encryption parameters
 
 The following options are for static key encryption:
 

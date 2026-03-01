@@ -1,6 +1,4 @@
-# File group with a
-
-frame capture output
+# File group with a frame capture output
 
 This guide provides an Amazon EventBridge example event for a job with a
 `COMPLETE` status. It also shows output file path information

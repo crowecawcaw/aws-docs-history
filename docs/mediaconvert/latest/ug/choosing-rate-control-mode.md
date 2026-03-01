@@ -1,6 +1,4 @@
-# Comparison of QVBR with other rate control
-
-modes
+# Comparison of QVBR with other rate control modes
 
 The rate control mode that you choose depends on the way that you will distribute your
 asset. AWS Elemental MediaConvert offers the following choices for bitrate mode:

@@ -1,6 +1,4 @@
-# Granting access to
-
-your output Amazon S3 bucket
+# Granting access to your output Amazon S3 bucket
 
 Suppose that you want the outputs of your MediaConvert jobs to reside in an Amazon S3
 bucket that you own, but you want users that belong to another AWS account to have

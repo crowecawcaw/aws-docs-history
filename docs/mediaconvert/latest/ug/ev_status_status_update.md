@@ -9,8 +9,7 @@ You can optionally specify a different update frequency in your job, with the
 **Status update interval** setting. For more frequent updates,
 you can choose 10, 12, 15, 20, or 30 seconds. For fewer updates, you can choose
 anywhere from 2 to 10 minutes, in increments of one minute. For more information,
-see [Adjust the status update
-interval](adjusting-the-status-update-interval.md "adjusting-the-status-update-interval.md").
+see [Adjust the status update interval](adjusting-the-status-update-interval.md "adjusting-the-status-update-interval.md").
 
 A `STATUS_UPDATE` event contains information about your job's current
 phase. When available, it contains job and phase percent completion.

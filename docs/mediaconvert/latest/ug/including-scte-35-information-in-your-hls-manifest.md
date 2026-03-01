@@ -1,6 +1,4 @@
-# Including SCTE-35
-
-information in your HLS manifest
+# Including SCTE-35 information in your HLS manifest
 
 For outputs in an HLS package, you can have the service include information in the HLS
 manifest about the SCTE-35 markers that are in each of the outputs.
@@ -24,15 +22,12 @@ manifest about the SCTE-35 markers that are in each of the outputs.
        **Elemental** and **SCTE-35
        enhanced**.
 
-    For sample manifests created with each setting selected, see [Sample manifest: Elemental ad
-    markers](sample-manifest-elemental-ad-markers.md "sample-manifest-elemental-ad-markers.md") and [Sample manifest:
-    SCTE-35 enhanced ad markers](sample-manifest-scte-35-enhanced-ad-markers.md "sample-manifest-scte-35-enhanced-ad-markers.md").
+    For sample manifests created with each setting selected, see [Sample manifest: Elemental ad markers](sample-manifest-elemental-ad-markers.md "sample-manifest-elemental-ad-markers.md") and [Sample manifest: SCTE-35 enhanced ad markers](sample-manifest-scte-35-enhanced-ad-markers.md "sample-manifest-scte-35-enhanced-ad-markers.md").
 
 5.  If the source of your ad markers is an ESAM document, set these additional
     settings:
     1. Make sure that you entered XML for **Manifest confirm
-       condition notification XML** during the procedure in [Specifying SCTE-35 markers
-       using ESAM XML](specifying-scte-35-markers-using-esam-xml.md "specifying-scte-35-markers-using-esam-xml.md").
+       condition notification XML** during the procedure in [Specifying SCTE-35 markers using ESAM XML](specifying-scte-35-markers-using-esam-xml.md "specifying-scte-35-markers-using-esam-xml.md").
 
     When you want SCTE-35 markers in the output transport stream as well
     as in the manifest, use `dataPassThrough` attributes set to

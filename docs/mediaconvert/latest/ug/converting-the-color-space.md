@@ -6,15 +6,12 @@ corrector** settings.
 
 MediaConvert supports the following input color spaces: Rec. 601, Rec. 709, HDR10, HLG 2020, P3DCI, and P3D65.
 
-## Supported color space
-
-conversions
+## Supported color space conversions
 
 Your input color space is set by your input video or by the values that you set
 for **Color space** and **Color space usage** in
 your input settings. For more information about the input color space settings, see
-[Replacing inaccurate or
-missing HDR metadata](replacing-inaccurate-or-missing-hdr-metadata.md "replacing-inaccurate-or-missing-hdr-metadata.md").
+[Replacing inaccurate or missing HDR metadata](replacing-inaccurate-or-missing-hdr-metadata.md "replacing-inaccurate-or-missing-hdr-metadata.md").
 
 For information about how to convert the color space, see [Color space conversion](converting-the-color-space.md "converting-the-color-space.md").
 

@@ -7,9 +7,7 @@ By default, you specify the time delta in seconds. If you want to specify it in
 milliseconds instead, set **Time delta units (TimeDeltaUnits)** to
 **Milliseconds (MILLISECONDS)**.
 
-## Adjusting
-
-for different timecodes between video and captions files
+## Adjusting for different timecodes between video and captions files
 
 With timecode-based captions formats, such as SCC and STL, the timecodes in the captions
 might be relative to a starting timecode that is different from the starting timecode embedded
@@ -26,9 +24,7 @@ video.
 **Solution:** Add five minutes to the captions. Enter
 `300` for **Time delta**.
 
-## Adjusting captions
-
-after synchronizing video and audio
+## Adjusting captions after synchronizing video and audio
 
 Your timecode-based (SCC or STL) captions might be aligned with the timecodes that are
 embedded in your video, but you might need to use the input **Timecode
@@ -37,8 +33,7 @@ and captions, which you need to adjust for. You don't need to make this adjustme
 timestamp-based captions formats, such as SRT, SMI, and TTML.
 
 For more information about aligning captions when you use input **Timecode
-source**, see [Input timecode source and
-captions alignment](about-input-timecode-source-and-captions-alignment.md "about-input-timecode-source-and-captions-alignment.md").
+source**, see [Input timecode source and captions alignment](about-input-timecode-source-and-captions-alignment.md "about-input-timecode-source-and-captions-alignment.md").
 
 **Example problem:** Your video file might have embedded
 timecodes that start at 00:05:00:00 and the first instance of dialogue that requires captions
@@ -52,9 +47,7 @@ six minutes into the video.
 **Solution:** Subtract five minutes from the captions. Enter
 `-300` for **Time delta**.
 
-## Correcting slight errors in
-
-captions sync
+## Correcting slight errors in captions sync
 
 With any type of sidecar format, there might be a small error in your input captions
 file, so that the captions are consistently a little late or a little early.

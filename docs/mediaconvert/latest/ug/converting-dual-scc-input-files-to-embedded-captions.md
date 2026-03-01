@@ -1,6 +1,4 @@
-# Converting dual SCC
-
-input files to embedded captions
+# Converting dual SCC input files to embedded captions
 
 If you want to use two SCC files as your captions input and embed the captions as two
 output captions channels embedded in your output video stream, set up your captions according

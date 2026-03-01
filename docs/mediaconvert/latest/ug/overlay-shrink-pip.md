@@ -1,6 +1,4 @@
-# How to shrink content during ad playback
-
-(picture-in-picture)
+# How to shrink content during ad playback (picture-in-picture)
 
 The following procedure describes how to reduce the size of your primary content (to
 20 percent) while displaying an advertisement in full screen. In steps 3 through 7, you

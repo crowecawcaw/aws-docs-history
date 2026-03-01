@@ -43,8 +43,6 @@ rate.
 
 - [Setting up queue hopping](setting-up-queue-hopping.md "setting-up-queue-hopping.md")
 - [Setting priority for hopped jobs](job-priority-and-queue-hopping.md "job-priority-and-queue-hopping.md")
-- [Using accelerated transcoding with
-  hopped jobs](accelerated-transcoding-queue-hopping.md "accelerated-transcoding-queue-hopping.md")
+- [Using accelerated transcoding with hopped jobs](accelerated-transcoding-queue-hopping.md "accelerated-transcoding-queue-hopping.md")
 - [Viewing hopped job history](job-queue-hopping-history.md "job-queue-hopping-history.md")
-- [Understanding queue hopping with
-  paused queues](queue-hopping-with-paused-queues.md "queue-hopping-with-paused-queues.md")
+- [Understanding queue hopping with paused queues](queue-hopping-with-paused-queues.md "queue-hopping-with-paused-queues.md")

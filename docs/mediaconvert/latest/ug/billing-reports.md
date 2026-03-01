@@ -1,6 +1,4 @@
-# AWS Billing reports for
-
-MediaConvert
+# AWS Billing reports for MediaConvert
 
 Your monthly bill from AWS separates your usage information and cost by AWS service and
 function. There are several AWS Billing reports available: the monthly report, the
@@ -23,5 +21,4 @@ For detailed information about MediaConvert usage charges, see [MediaConvert Pri
 FAQs](https://aws.amazon.com/mediaconvert/faqs/#billing "https://aws.amazon.com/mediaconvert/faqs/#billing").
 
 For information about understanding the codes and abbreviations used in the billing
-and usage reports for MediaConvert, see [Understanding your AWS billing and usage
-reports for MediaConvert](usage-report-understand.md "usage-report-understand.md").
+and usage reports for MediaConvert, see [Understanding your AWS billing and usage reports for MediaConvert](usage-report-understand.md "usage-report-understand.md").

@@ -1,6 +1,4 @@
-# Output file names and
-
-paths
+# Output file names and paths
 
 The EventBridge job `COMPLETE` notification includes details about your
 output in JSON. This information includes the file names and paths for the
@@ -46,10 +44,8 @@ topics:
 ###### Topics
 
 - [File group](file-group.md "file-group.md")
-- [File group with a
-  frame capture output](file-group-with-frame-capture-output.md "file-group-with-frame-capture-output.md")
+- [File group with a frame capture output](file-group-with-frame-capture-output.md "file-group-with-frame-capture-output.md")
 - [Apple HLS group](apple-hls-group.md "apple-hls-group.md")
 - [DASH ISO group](dash-iso-group.md "dash-iso-group.md")
 - [CMAF group](cmaf-group.md "cmaf-group.md")
-- [Microsoft Smooth
-  Streaming group](microsoft-smooth-streaming-group.md "microsoft-smooth-streaming-group.md")
+- [Microsoft Smooth Streaming group](microsoft-smooth-streaming-group.md "microsoft-smooth-streaming-group.md")

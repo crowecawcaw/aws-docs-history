@@ -13,8 +13,7 @@ AWS provides the following reports for MediaConvert:
   the activity for the AWS services that you're using, including MediaConvert. With
   billing reports, you can also find the total number of Normalized Transcoding
   Minutes for MediaConvert jobs you were billed for within a billing period. For more
-  information about billing reports, see [AWS Billing reports for
-  MediaConvert](billing-reports.md "billing-reports.md").
+  information about billing reports, see [AWS Billing reports for MediaConvert](billing-reports.md "billing-reports.md").
 - Usage report – A summary of activity for a specific
   service, aggregated by hour, day, or month. You can choose which usage type and
   operation to include, and choose how the data is aggregated. With usage reports, you
@@ -25,8 +24,6 @@ AWS provides the following reports for MediaConvert:
 
 ###### Topics
 
-- [AWS Billing reports for
-  MediaConvert](billing-reports.md "billing-reports.md")
+- [AWS Billing reports for MediaConvert](billing-reports.md "billing-reports.md")
 - [AWS usage reports for MediaConvert](usage-report.md "usage-report.md")
-- [Understanding your AWS billing and usage
-  reports for MediaConvert](usage-report-understand.md "usage-report-understand.md")
+- [Understanding your AWS billing and usage reports for MediaConvert](usage-report-understand.md "usage-report-understand.md")

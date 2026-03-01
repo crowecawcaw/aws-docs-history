@@ -1,6 +1,4 @@
-# Replacing inaccurate or
-
-missing HDR metadata
+# Replacing inaccurate or missing HDR metadata
 
 If your input video is missing HDR metadata, or has HDR metadata that is wrong, you
 can add it or overwrite it in the input video settings. For HLG and HDR 10, you can

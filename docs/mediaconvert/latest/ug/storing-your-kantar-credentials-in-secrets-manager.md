@@ -1,6 +1,4 @@
-# Storing your Kantar
-
-credentials in AWS Secrets Manager
+# Storing your Kantar credentials in AWS Secrets Manager
 
 After you establish a relationship with Kantar, store your Kantar username and
 password in an AWS Secrets Manager secret. You can find a step-by-step tutorial in the topic

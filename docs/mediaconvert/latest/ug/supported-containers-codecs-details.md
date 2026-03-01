@@ -1,6 +1,4 @@
-# Supported containers and codecs
-
-reference tables
+# Supported containers and codecs reference tables
 
 The following sections provide reference tables for containers and codecs that
 MediaConvert supports.
@@ -144,8 +142,7 @@ Specify your input IMF by providing the path to your Composition Playlist
 IMPs.
 
 For information about using IMF inputs to create Dolby Vision outputs, see
-[Dolby
-Vision input format support and job setting requirements](dolby-vision-job-limitations-and-requirements.md "dolby-vision-job-limitations-and-requirements.md").
+[Dolby Vision input format support and job setting requirements](dolby-vision-job-limitations-and-requirements.md "dolby-vision-job-limitations-and-requirements.md").
 
 **Matroska**
 
@@ -170,8 +167,7 @@ MOV inputs must be self-contained. References to external files are not
 supported.
 
 For information about using MOV inputs to create Dolby Vision outputs, see
-[Dolby
-Vision input format support and job setting requirements](dolby-vision-job-limitations-and-requirements.md "dolby-vision-job-limitations-and-requirements.md").
+[Dolby Vision input format support and job setting requirements](dolby-vision-job-limitations-and-requirements.md "dolby-vision-job-limitations-and-requirements.md").
 
 **MP3 (MPEG-1 Layer 3)**
 
@@ -239,8 +235,7 @@ MediaConvert does not support MXF inputs with OP1b profiles.
 For more information about creating MXF outputs, see [Creating MXF outputs](mxf.md "mxf.md").
 
 For information about using MXF inputs to create Dolby Vision outputs, see
-[Dolby
-Vision input format support and job setting requirements](dolby-vision-job-limitations-and-requirements.md "dolby-vision-job-limitations-and-requirements.md").
+[Dolby Vision input format support and job setting requirements](dolby-vision-job-limitations-and-requirements.md "dolby-vision-job-limitations-and-requirements.md").
 
 **OGG (Ogg Vorbis Audio)**
 
@@ -327,8 +322,7 @@ For information about what output AAC profiles, coding modes, sample rates
 For more information about Apple ProRes formats, see [https://support.apple.com/en-us/HT202410](https://support.apple.com/en-us/HT202410 "https://support.apple.com/en-us/HT202410").
 
 You can also passthrough Apple ProRes inputs to MXF and MOV output
-containers. For more information, see: [Video passthrough codec
-support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
+containers. For more information, see: [Video passthrough codec support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
 
 ###### Note
 
@@ -363,8 +357,7 @@ For HLS output codec recommendations from Apple, see [https://developer.apple.co
 | Output      | [CMAF DASH](#container-cmaf "#container-cmaf")<br>[CMAF HLS](#container-cmaf "#container-cmaf")<br>[DASH](#container-dash "#container-dash")<br>[F4V](#container-flash "#container-flash")<br>[HLS](#container-hls "#container-hls")<br>[MOV](#container-mov "#container-mov")<br>[MP4](#container-mp4 "#container-mp4")<br>[MPEG-TS](#container-mpeg-ts "#container-mpeg-ts")<br>[MSS](#container-mss "#container-mss")<br>[MXF](#container-mxf "#container-mxf")<br>[No<br>container](#container-none "#container-none") |
 
 You can also passthrough AVC inputs to most output containers. For more
-information, see: [Video passthrough codec
-support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
+information, see: [Video passthrough codec support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
 
 **AVC-Intra**
 
@@ -377,8 +370,7 @@ MediaConvert only supports YUV AVC-Intra inputs, it does not support RGB
 AVC-Intra inputs.
 
 You can also passthrough AVC-Intra inputs to MXF and MOV output
-containers. For more information, see: [Video passthrough codec
-support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
+containers. For more information, see: [Video passthrough codec support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
 
 **Canopus HQ**
 
@@ -424,8 +416,7 @@ For more information, see [Dolby Atmos](dolby-atmos.md "dolby-atmos.md").
 | Output      | _Not<br>supported_ |
 
 You can also passthrough DV/DVCPRO inputs to MXF and MOV output
-containers. For more information, see: [Video passthrough codec
-support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
+containers. For more information, see: [Video passthrough codec support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
 
 **DV25, DV50**
 
@@ -508,8 +499,7 @@ output group for the widest player compatibility. For more details, see
 [https://developer.apple.com/documentation/http-live-streaming/hls-authoring-specification-for-apple-devices](https://developer.apple.com/documentation/http-live-streaming/hls-authoring-specification-for-apple-devices "https://developer.apple.com/documentation/http-live-streaming/hls-authoring-specification-for-apple-devices").
 
 You can also passthrough HEVC inputs to supported output containers. For more
-information, see: [Video passthrough codec
-support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
+information, see: [Video passthrough codec support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
 
 **JPEG 2000 (J2K)**
 
@@ -519,8 +509,7 @@ support and job settings requirements](video-passthrough-feature-restrictions.md
 | Output          | _Not supported_ |
 
 You can also passthrough J2K inputs to MXF and MOV output containers. For
-more information, see: [Video passthrough codec
-support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
+more information, see: [Video passthrough codec support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
 
 **MJPEG (Motion JPEG)**
 
@@ -632,8 +621,7 @@ support and job settings requirements](video-passthrough-feature-restrictions.md
 | Output      | [MXF](#container-mxf "#container-mxf")<br>[No<br>container](#container-none "#container-none") |
 
 You can also passthrough VC-3 inputs to MXF and MOV output containers. For
-more information, see: [Video passthrough codec
-support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
+more information, see: [Video passthrough codec support and job settings requirements](video-passthrough-feature-restrictions.md "video-passthrough-feature-restrictions.md")
 
 **VP8**
 

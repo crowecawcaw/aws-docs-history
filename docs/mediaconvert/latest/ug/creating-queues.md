@@ -5,7 +5,7 @@ AWS Regions. Other queues appear only in the AWS Region where they are created. 
 additional resources to your account, you can create your own on-demand queues.
 
 To learn how queues affect the way that MediaConvert allocates the processing of
-resources, see [Processing multiple jobs in parallel](working-with-on-demand-queues.md#queue-resources "working-with-on-demand-queues.md#queue-resources") . The
+resources, see [Processing multiple jobs in parallel](working-with-on-demand-queues.md#queue-resources "working-with-on-demand-queues.md#queue-resources"). The
 following tabs show different options for creating an on-demand queue.
 
 Console

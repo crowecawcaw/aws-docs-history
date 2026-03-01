@@ -1,6 +1,4 @@
-# Logging AWS Elemental MediaConvert API calls using
-
-AWS CloudTrail
+# Logging AWS Elemental MediaConvert API calls using AWS CloudTrail
 
 AWS Elemental MediaConvert integrates with AWS CloudTrail, a service that provides a record of operations taken
 by a user, role, or an AWS service. CloudTrail captures all operations (API calls) you perform,
@@ -17,14 +15,10 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../aws
 
 ###### Topics
 
-- [Finding information about MediaConvert in
-  CloudTrail](#service-name-info-in-cloudtrail "#service-name-info-in-cloudtrail")
-- [Understanding CloudTrail management
-  events for MediaConvert](#understanding-service-name-entries "#understanding-service-name-entries")
+- [Finding information about MediaConvert in CloudTrail](#service-name-info-in-cloudtrail "#service-name-info-in-cloudtrail")
+- [Understanding CloudTrail management events for MediaConvert](#understanding-service-name-entries "#understanding-service-name-entries")
 
-## Finding information about MediaConvert in
-
-CloudTrail
+## Finding information about MediaConvert in CloudTrail
 
 You can view, search, and download events from the last 90 days in [Event
 history](https://console.aws.amazon.com/cloudtrailv2/home?region=us-west-2#/events "https://console.aws.amazon.com/cloudtrailv2/home?region=us-west-2#/events") in the CloudTrail console. For more information, see [Working with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
@@ -45,9 +39,7 @@ With CloudTrail Lake event data stores, CloudTrail provides a searchable store o
 event data. For more information, see [Working with
 CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md").
 
-## Understanding CloudTrail management
-
-events for MediaConvert
+## Understanding CloudTrail management events for MediaConvert
 
 [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are
 performed on resources in your AWS account. These are also known as control plane

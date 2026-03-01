@@ -15,11 +15,8 @@ about these steps, see the following topics.
 
 ###### Topics
 
-- [Getting a Kantar watermarking
-  license](getting-a-kantar-watermarking-license.md "getting-a-kantar-watermarking-license.md")
-- [Storing your Kantar
-  credentials in AWS Secrets Manager](storing-your-kantar-credentials-in-secrets-manager.md "storing-your-kantar-credentials-in-secrets-manager.md")
-- [Granting IAM
-  permissions to your Kantar credentials](granting-permissions-for-mediaconvert-to-access-secrets-manager-secret.md "granting-permissions-for-mediaconvert-to-access-secrets-manager-secret.md")
+- [Getting a Kantar watermarking license](getting-a-kantar-watermarking-license.md "getting-a-kantar-watermarking-license.md")
+- [Storing your Kantar credentials in AWS Secrets Manager](storing-your-kantar-credentials-in-secrets-manager.md "storing-your-kantar-credentials-in-secrets-manager.md")
+- [Granting IAM permissions to your Kantar credentials](granting-permissions-for-mediaconvert-to-access-secrets-manager-secret.md "granting-permissions-for-mediaconvert-to-access-secrets-manager-secret.md")
 - [Configuring a job for Kantar watermarking](setting-up-your-job-for-kantar-watermarking.md "setting-up-your-job-for-kantar-watermarking.md")
 - [Kantar job requirements](kantar-requirements.md "kantar-requirements.md")

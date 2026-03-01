@@ -15,19 +15,13 @@ For more information, see [Variable frame rate inputs](using-variable-frame-rate
 
 ###### Topics
 
-- [Settings for frame rate
-  conversion](#settings-for-frame-rate-conversion "#settings-for-frame-rate-conversion")
+- [Settings for frame rate conversion](#settings-for-frame-rate-conversion "#settings-for-frame-rate-conversion")
 - [Converting the frame rate of your video](converting-frame-rate.md "converting-frame-rate.md")
-- [Using variable frame rate inputs
-  in AWS Elemental MediaConvert](using-variable-frame-rate-inputs.md "using-variable-frame-rate-inputs.md")
-- [Working with progressive and interlaced scan
-  types in AWS Elemental MediaConvert](working-with-scan-type.md "working-with-scan-type.md")
-- [Working with telecine in
-  AWS Elemental MediaConvert](working-with-telecine-and-inverse-telecine.md "working-with-telecine-and-inverse-telecine.md")
+- [Using variable frame rate inputs in AWS Elemental MediaConvert](using-variable-frame-rate-inputs.md "using-variable-frame-rate-inputs.md")
+- [Working with progressive and interlaced scan types in AWS Elemental MediaConvert](working-with-scan-type.md "working-with-scan-type.md")
+- [Working with telecine in AWS Elemental MediaConvert](working-with-telecine-and-inverse-telecine.md "working-with-telecine-and-inverse-telecine.md")
 
-## Settings for frame rate
-
-conversion
+## Settings for frame rate conversion
 
 To create outputs that have a different frame rate than your input, use these
 MediaConvert settings:

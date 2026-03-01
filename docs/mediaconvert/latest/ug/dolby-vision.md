@@ -7,5 +7,4 @@ Dolby Vision outputs from supported sources.
 ###### Topics
 
 - [Configuring Dolby Vision](setting-up-a-dolby-vision-job.md "setting-up-a-dolby-vision-job.md")
-- [Dolby
-  Vision input format support and job setting requirements](dolby-vision-job-limitations-and-requirements.md "dolby-vision-job-limitations-and-requirements.md")
+- [Dolby Vision input format support and job setting requirements](dolby-vision-job-limitations-and-requirements.md "dolby-vision-job-limitations-and-requirements.md")

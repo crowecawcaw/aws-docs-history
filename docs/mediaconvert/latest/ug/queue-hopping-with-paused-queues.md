@@ -1,20 +1,14 @@
-# Understanding queue hopping with
-
-paused queues
+# Understanding queue hopping with paused queues
 
 Pausing a queue affects a job's queue hopping behavior. Jobs don't hop from a queue while it's paused, but they do hop freely to paused
 queues. This section describes what happens when you configure queue hopping _from_ a paused queue or _to_ a paused queue.
 
-## Hopping from a paused
-
-queue
+## Hopping from a paused queue
 
 Jobs don't hop from a queue while it's paused. Queue hopping behavior
 depends on how long the queue is paused. Consider these two situations:
 
-###### You submit a job to a queue, pause the queue for longer than
-
-the queue hopping wait time, then reactivate it.
+###### You submit a job to a queue, pause the queue for longer than the queue hopping wait time, then reactivate it.
 
 In this situation, whether the job hops depends on where the job is in the queue. If
 there are any jobs ahead of it in the queue, the job hops to the destination
@@ -28,9 +22,7 @@ the job, you pause `Queue1`. Ten minutes later, the job remains in
 `Queue1`. At that time, there are no jobs ahead of it in
 `Queue1`, so the job runs from `Queue1`.
 
-###### You submit a job to a queue. You pause the queue and then reactivate
-
-it before the wait time passes.
+###### You submit a job to a queue. You pause the queue and then reactivate it before the wait time passes.
 
 In this situation, the time that the queue is paused doesn't affect
 queue hopping at all.
@@ -42,9 +34,7 @@ the job, you pause `Queue1`. One minute later, you reactivate
 job), there are still jobs ahead of it in the queue. Therefore, the job hops to
 `Queue2`, as though you hadn't paused the queue.
 
-## Hopping to a paused
-
-queue
+## Hopping to a paused queue
 
 Jobs hop freely from active queues to paused queues. For example, imagine that you submit
 a job to `Queue1` with a wait time of 15 minutes and a destination of

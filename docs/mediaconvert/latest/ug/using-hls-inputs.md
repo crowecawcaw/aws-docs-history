@@ -34,9 +34,7 @@ With HLS inputs, you can use the following input features:
 - Image insertion
 - Embedded input captions selectors
 
-## HLS input feature
-
-restrictions
+## HLS input feature restrictions
 
 When your input is an HLS package, your job is restricted in these
 ways:

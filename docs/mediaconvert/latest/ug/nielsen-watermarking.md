@@ -30,8 +30,6 @@ watermarking in a single job.
 
 ###### Topics
 
-- [Configuring
-  PCM to ID3 metadata](setting-up-pcm-to-id3-metadata.md "setting-up-pcm-to-id3-metadata.md")
+- [Configuring PCM to ID3 metadata](setting-up-pcm-to-id3-metadata.md "setting-up-pcm-to-id3-metadata.md")
 - [Configuring Nielsen non-linear watermarking](setting-up-non-linear-watermarking.md "setting-up-non-linear-watermarking.md")
-- [Nielsen SID/TIC server requirements in the AWS
-  Cloud](how-mediaconvert-interacts-with-your-nielsen-sid-tic-server-in-the-aws-cloud.md "how-mediaconvert-interacts-with-your-nielsen-sid-tic-server-in-the-aws-cloud.md")
+- [Nielsen SID/TIC server requirements in the AWS Cloud](how-mediaconvert-interacts-with-your-nielsen-sid-tic-server-in-the-aws-cloud.md "how-mediaconvert-interacts-with-your-nielsen-sid-tic-server-in-the-aws-cloud.md")

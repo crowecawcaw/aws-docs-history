@@ -1,6 +1,4 @@
-# Feature
-
-Restrictions for Dolby Atmos Passthrough
+# Feature Restrictions for Dolby Atmos Passthrough
 
 Note the following restrictions in the AWS Elemental MediaConvert implementation of Dolby
 Atmos passthrough:

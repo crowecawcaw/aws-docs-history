@@ -6,15 +6,11 @@ This section covers how to configure DVB-Sub output captions in AWS Elemental Me
 - How to specify multiple captions tracks.
 - How to specify the font script.
 
-## Where to specify the
-
-captions
+## Where to specify the captions
 
 Put your captions in the same output group and the same output as your video.
 
-## How to specify multiple
-
-captions tracks
+## How to specify multiple captions tracks
 
 - If your input captions are the same format as your output captions
   (passthrough), you need to create only one group of captions settings.
@@ -27,9 +23,7 @@ captions tracks
   the captions selector under **Captions source** that is
   set up for the track that you want to include.
 
-## How to specify the font
-
-script
+## How to specify the font script
 
 AWS Elemental MediaConvert automatically selects the appropriate script for your captions, based on
 the language that you specify in the output captions settings. If the language that you choose has more

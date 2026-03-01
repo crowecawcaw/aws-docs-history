@@ -22,5 +22,4 @@ The MediaConvert usage report includes the following information:
        Minutes (NTM)
       + A code that identifies a reserved transcode slot (RTS)
 
-  For a detailed explanation of MediaConvert usage types, see [Understanding your AWS billing and usage
-  reports for MediaConvert](usage-report-understand.md "usage-report-understand.md").
+  For a detailed explanation of MediaConvert usage types, see [Understanding your AWS billing and usage reports for MediaConvert](usage-report-understand.md "usage-report-understand.md").

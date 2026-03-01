@@ -1,6 +1,4 @@
-# Job settings limitations for
-
-automated ABR
+# Job settings limitations for automated ABR
 
 Jobs that include automated ABR output groups are restricted in the following
 ways:

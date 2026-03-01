@@ -1,6 +1,4 @@
-# Specifying SCTE-35 markers
-
-using ESAM XML
+# Specifying SCTE-35 markers using ESAM XML
 
 If your input video doesn't contain SCTE-35 markers, but you need to specify ad
 insertion points in your outputs, you can provide Event Signaling and Management (ESAM)
@@ -47,8 +45,7 @@ five-minute preroll.
 5. In the **Ad signaling** section, enable **Event
    signaling and messaging (ESAM)**.
 6. For **Signal processing notification XML**, enter your ESAM
-   signaling XML document as text. For an example, see [Example ESAM XML signal processing
-   notification](example-esam-xml.md "example-esam-xml.md").
+   signaling XML document as text. For an example, see [Example ESAM XML signal processing notification](example-esam-xml.md "example-esam-xml.md").
 
 ###### Note
 
@@ -67,8 +64,7 @@ set the `dataPassThrough` attribute in your MCC document to
 `"true"`. If you don't want markers in the transport stream,
 remove the `dataPassThrough` attributes.
 
-For an example, see [Example ESAM XML Manifest
-Confirm Condition Notification](example-esam-xml-manifest-conditioning.md "example-esam-xml-manifest-conditioning.md"). 8. For each MPEG2-TS output where you want SCTE-35 markers, enable the
+For an example, see [Example ESAM XML Manifest Confirm Condition Notification](example-esam-xml-manifest-conditioning.md "example-esam-xml-manifest-conditioning.md"). 8. For each MPEG2-TS output where you want SCTE-35 markers, enable the
 markers:
 
     1. In the **Job** pane on the left, under
@@ -89,8 +85,7 @@ markers:
    job.
 
 If you want to condition your HLS manifest with your ESAM insertion points,
-follow the procedure in [Including SCTE-35
-information in your HLS manifest](including-scte-35-information-in-your-hls-manifest.md "including-scte-35-information-in-your-hls-manifest.md").
+follow the procedure in [Including SCTE-35 information in your HLS manifest](including-scte-35-information-in-your-hls-manifest.md "including-scte-35-information-in-your-hls-manifest.md").
 Otherwise, follow these steps to confirm that the following settings are still
 in their default state:
 
@@ -175,9 +170,7 @@ in their default state:
          array.
 
 
-        For sample manifests created with each setting selected, see [Sample manifest: Elemental ad
-         markers](sample-manifest-elemental-ad-markers.md "sample-manifest-elemental-ad-markers.md") and [Sample manifest:
-         SCTE-35 enhanced ad markers](sample-manifest-scte-35-enhanced-ad-markers.md "sample-manifest-scte-35-enhanced-ad-markers.md").
+        For sample manifests created with each setting selected, see [Sample manifest: Elemental ad markers](sample-manifest-elemental-ad-markers.md "sample-manifest-elemental-ad-markers.md") and [Sample manifest: SCTE-35 enhanced ad markers](sample-manifest-scte-35-enhanced-ad-markers.md "sample-manifest-scte-35-enhanced-ad-markers.md").
 
     If you don't want to condition your HLS manifests with SCTE-35 information,
     keep the default setting `NONE` for `scte35Source` and

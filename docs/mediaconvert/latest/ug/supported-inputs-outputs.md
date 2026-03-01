@@ -2,8 +2,7 @@
 
 This chapter provides reference tables and detailed information for input and output formats that AWS Elemental MediaConvert supports. It covers supported input and output containers, codecs, and captions.
 
-To find information about a specific container or codec, search [Supported containers and codecs
-reference tables](supported-containers-codecs-details.md "supported-containers-codecs-details.md").
+To find information about a specific container or codec, search [Supported containers and codecs reference tables](supported-containers-codecs-details.md "supported-containers-codecs-details.md").
 
 ###### Topics
 

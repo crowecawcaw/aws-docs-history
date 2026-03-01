@@ -337,8 +337,7 @@ To resolve this issue:
 - Use a media analysis tool to check the actual duration and
   timecode range of your input.
 
-For more information about how MediaConvert handles timecodes and input timelines, see [Input
-timelines](specifying-inputs.md#input-timelines "specifying-inputs.md#input-timelines").
+For more information about how MediaConvert handles timecodes and input timelines, see [Input timelines](specifying-inputs.md#input-timelines "specifying-inputs.md#input-timelines").
 
 Example error messages:
 
@@ -982,8 +981,7 @@ To resolve this issue:
 - Transfer your content to an approved input location.
 - Specify an allowed input location and resubmit your job.
 
-For more information about input policies and restrictions, see [How to allow or disallow input location types using an
-Input policy](disallow-inputs.md#input-policies "disallow-inputs.md#input-policies").
+For more information about input policies and restrictions, see [How to allow or disallow input location types using an Input policy](disallow-inputs.md#input-policies "disallow-inputs.md#input-policies").
 
 Example error messages:
 

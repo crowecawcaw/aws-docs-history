@@ -3,8 +3,7 @@
 To use this feature, you must first establish a relationship with Nielsen and set up a
 Nielsen SID/TIC server in the AWS Cloud. Contact Nielsen to download their SID/TIC
 server software, generate a WRR license file, and receive installation and setup
-instructions. For an overview of how the infrastructure works, see [Nielsen SID/TIC server requirements in the AWS
-Cloud](how-mediaconvert-interacts-with-your-nielsen-sid-tic-server-in-the-aws-cloud.md "how-mediaconvert-interacts-with-your-nielsen-sid-tic-server-in-the-aws-cloud.md").
+instructions. For an overview of how the infrastructure works, see [Nielsen SID/TIC server requirements in the AWS Cloud](how-mediaconvert-interacts-with-your-nielsen-sid-tic-server-in-the-aws-cloud.md "how-mediaconvert-interacts-with-your-nielsen-sid-tic-server-in-the-aws-cloud.md").
 
 ###### To set up Nielsen non-linear watermarking (console)
 

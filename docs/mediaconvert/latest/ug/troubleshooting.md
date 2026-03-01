@@ -5,8 +5,7 @@ AWS Elemental MediaConvert.
 
 Errors occur when your job runs into a problem that results in an `ERROR`
 status. Alternatively, you receive warnings when an issue occurs in your job but the job still completes.
-For more information about job statuses, see [Monitoring MediaConvert job
-progress](how-mediaconvert-jobs-progress.md "how-mediaconvert-jobs-progress.md").
+For more information about job statuses, see [Monitoring MediaConvert job progress](how-mediaconvert-jobs-progress.md "how-mediaconvert-jobs-progress.md").
 
 Each error and warning has both a code and a message. The code uniquely
 identifies the issue, and the message briefly explains what happened. For

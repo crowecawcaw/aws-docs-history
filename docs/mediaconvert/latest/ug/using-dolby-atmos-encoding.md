@@ -10,9 +10,7 @@ input audio channels must already be set up according the Dolby Atmos standard y
 For more information about Dolby Atmos, see the Dolby online
 documentation.
 
-## Setting up a job for
-
-Dolby Atmos encoding
+## Setting up a job for Dolby Atmos encoding
 
 AWS Elemental MediaConvert can encode Dolby Digital Plus with Atmos channel-based, immersive
 audio, Audio Descriptive Model Broadcast WAV files, or Dolby Atmos Master File.
@@ -31,9 +29,7 @@ the following procedures:
 
 [Procedure with a single audio input file](#proc-atmos-single-input-file "#proc-atmos-single-input-file")
 
-###### To set up a Dolby Atmos job, with audio inputs as 16 individual .wav
-
-files
+###### To set up a Dolby Atmos job, with audio inputs as 16 individual .wav files
 
 1.  Open the MediaConvert console at [https://console.aws.amazon.com/mediaconvert](https://console.aws.amazon.com/mediaconvert "https://console.aws.amazon.com/mediaconvert").
 2.  Choose **Create job**.
@@ -117,9 +113,7 @@ Set them up as follows:
      **Dialnorm** setting under audio encoding
      settings.
 
-###### To set up a Dolby Atmos job, with audio input as a single file with 16
-
-tracks
+###### To set up a Dolby Atmos job, with audio input as a single file with 16 tracks
 
 1. Open the MediaConvert console at [https://console.aws.amazon.com/mediaconvert](https://console.aws.amazon.com/mediaconvert "https://console.aws.amazon.com/mediaconvert").
 2. Choose **Create job**.

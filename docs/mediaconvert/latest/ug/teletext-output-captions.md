@@ -9,9 +9,7 @@ This section covers how to configure teletext output captions in AWS Elemental M
   the captions to different Teletext pages or to just pass through your captions
   exactly from the input to the output.
 
-## Teletext to Teletext
-
-passthrough
+## Teletext to Teletext passthrough
 
 When your input captions format is Teletext and you want your output captions
 to be on the same pages, with the same styling, as the input, then you can pass
@@ -32,9 +30,7 @@ way:
 When you work directly in your JSON job specification, one captions tab
 corresponds to one child of `CaptionDescriptions`.
 
-## Teletext to Teletext, page
-
-remapping
+## Teletext to Teletext, page remapping
 
 When your input captions format is Teletext and, in your output, you want to
 change the Teletext pages that your captions are on, you specify the pages in
@@ -54,9 +50,7 @@ the input and output. To do so, set up your captions this way:
   **Language**, **Description**, and
   **Page types**.
 
-## Teletext from other
-
-captions formats
+## Teletext from other captions formats
 
 When your input captions are in a format other than Teletext, you must specify
 the Teletext pages for your output captions. MediaConvert supports these

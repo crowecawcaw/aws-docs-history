@@ -1,8 +1,6 @@
-# Setting up access for other AWS
+# Setting up access for other AWS accounts to your AWS Elemental MediaConvert outputs
 
-accounts to your AWS Elemental MediaConvert outputs
-
-When you follow the usual setup for permissions as described in [Setting up IAM permissions](iam-role.md "iam-role.md") , only users that belong to your AWS account can access your
+When you follow the usual setup for permissions as described in [Setting up IAM permissions](iam-role.md "iam-role.md"), only users that belong to your AWS account can access your
 output files.
 
 In some cases, you might want to allow users of other AWS accounts access to the outputs
@@ -27,7 +25,5 @@ to the outputs to the owner of the bucket.
 
 ###### Topics
 
-- [Granting access to
-  your output Amazon S3 bucket](granting-access-to-your-output-amazon-s3-bucket.md "granting-access-to-your-output-amazon-s3-bucket.md")
-- [Writing your
-  outputs to an Amazon S3 bucket in another account](write-your-outputs-to-another-accounts-amazon-s3-bucket.md "write-your-outputs-to-another-accounts-amazon-s3-bucket.md")
+- [Granting access to your output Amazon S3 bucket](granting-access-to-your-output-amazon-s3-bucket.md "granting-access-to-your-output-amazon-s3-bucket.md")
+- [Writing your outputs to an Amazon S3 bucket in another account](write-your-outputs-to-another-accounts-amazon-s3-bucket.md "write-your-outputs-to-another-accounts-amazon-s3-bucket.md")

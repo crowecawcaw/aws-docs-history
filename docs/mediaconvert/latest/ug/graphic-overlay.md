@@ -17,9 +17,7 @@ underlying video at the same time, or to overlap each other.
 - [Choosing between input and output overlays](choosing-between-input-overlay-and-output-overlay.md "choosing-between-input-overlay-and-output-overlay.md")
 - [Configuring input overlays](setting-up-still-graphic-overlays-in-inputs.md "setting-up-still-graphic-overlays-in-inputs.md")
 - [Configuring output overlays](setting-up-still-graphic-overlays-in-outputs.md "setting-up-still-graphic-overlays-in-outputs.md")
-- [Placing your image
-  overlay](placing-your-still-graphic-overlay.md "placing-your-still-graphic-overlay.md")
+- [Placing your image overlay](placing-your-still-graphic-overlay.md "placing-your-still-graphic-overlay.md")
 - [Sizing your overlay for scaling](about-overlay-scaling.md "about-overlay-scaling.md")
 - [Understanding overlay layers](using-multiple-overlays.md "using-multiple-overlays.md")
-- [Requirements for the overlay
-  file](requirements-for-the-overlay-file.md "requirements-for-the-overlay-file.md")
+- [Requirements for the overlay file](requirements-for-the-overlay-file.md "requirements-for-the-overlay-file.md")

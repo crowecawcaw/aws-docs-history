@@ -17,22 +17,19 @@ For a list of the available format identifiers and examples of how to use them, 
 [List of settings variables with examples](#list-of-settings-variables-with-examples "#list-of-settings-variables-with-examples").
 
 For information about format identifiers that function differently in streaming
-outputs, see [Using settings
-variables with streaming outputs](#using-settings-variables-with-streaming-outputs "#using-settings-variables-with-streaming-outputs").
+outputs, see [Using settings variables with streaming outputs](#using-settings-variables-with-streaming-outputs "#using-settings-variables-with-streaming-outputs").
 
 ###### Topics
 
 - [List of settings variables with examples](#list-of-settings-variables-with-examples "#list-of-settings-variables-with-examples")
-- [Using settings
-  variables with streaming outputs](#using-settings-variables-with-streaming-outputs "#using-settings-variables-with-streaming-outputs")
+- [Using settings variables with streaming outputs](#using-settings-variables-with-streaming-outputs "#using-settings-variables-with-streaming-outputs")
 - [Specifying a minimum number of digits](#specifying-a-minimum-number-of-digits "#specifying-a-minimum-number-of-digits")
 
 ## List of settings variables with examples
 
 The following table provides information about each of the format identifiers that you can
 use in your AWS Elemental MediaConvert job. For information about format identifiers that
-function differently in streaming outputs, see [Using settings
-variables with streaming outputs](#using-settings-variables-with-streaming-outputs "#using-settings-variables-with-streaming-outputs").
+function differently in streaming outputs, see [Using settings variables with streaming outputs](#using-settings-variables-with-streaming-outputs "#using-settings-variables-with-streaming-outputs").
 
 | Format identifier               | Value to put in the job setting | Compatible job settings                          | Description and example                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------------------- | ------------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,9 +46,7 @@ variables with streaming outputs](#using-settings-variables-with-streaming-outpu
 | Output container file extension | `$ex$`                          | Name modifier<br>Segment modifier                | Varies depending on the output group. For **File group\*<br>• outputs, this<br>is the extension of the output container file. For other output<br>groups, this is the extension of the manifest.<br>Example for file group: If you choose **MPEG2-TS\*<br>• for **Output<br>settings**, **Container**,<br>`$ex$` resolves to<br>`m2ts`.<br>Example for HLS group: If your output group is HLS, `$ex$` resolves<br>to `m3u8`. |
 | `$`                             | `$$`                            | Name modifier<br>Segment modifier                | Escaped `$`.<br>Example:<br>Suppose that you provide the following values:<br>• Input file name: `file1.mp4`<br>• Destination:<br>`s3://amzn-s3-demo-bucket/`<br>• Name modifier:<br>`my-video$$hi-res-`<br>Your output file name and path resolves to<br>`s3://amzn-s3-demo-bucket/my-video$hi-res-file1.mp4`.                                                                                                              |
 
-## Using settings
-
-variables with streaming outputs
+## Using settings variables with streaming outputs
 
 Variables in your job settings, also called _format
 identifiers_, function differently for outputs in Apple HLS and DASH

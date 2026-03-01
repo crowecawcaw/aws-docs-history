@@ -59,8 +59,7 @@ earlier under **Job settings**, **AWS integration**. 5. Choose **Create**.
 
 For information about tracking the status of your job, see [Using EventBridge with AWS Elemental MediaConvert](eventbridge_events.md "eventbridge_events.md").
 
-For information about the file names and paths for your job outputs, see [Output file names and
-paths](output-file-names-and-paths.md "output-file-names-and-paths.md"). 6. Optionally, if you don't want to keep the transcoded files that you generate during this
+For information about the file names and paths for your job outputs, see [Output file names and paths](output-file-names-and-paths.md "output-file-names-and-paths.md"). 6. Optionally, if you don't want to keep the transcoded files that you generate during this
 tutorial, delete them from Amazon S3 to avoid incurring storage charges. For more
 information, see [Deleting objects
 _Amazon S3 User Guide_](../../../AmazonS3/latest/userguide/DeletingObjects.md "../../../AmazonS3/latest/userguide/DeletingObjects.md").

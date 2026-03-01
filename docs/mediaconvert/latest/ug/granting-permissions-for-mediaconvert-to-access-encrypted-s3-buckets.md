@@ -17,10 +17,7 @@ Grant these permissions in the following use cases:
   `kms:GenerateDataKey`.
   The following example inline policy grants both permissions.
 
-## Example
-
-inline policy with kms:Decrypt and
-kms:GenerateDataKey
+## Example inline policy with kms:Decrypt and kms:GenerateDataKey
 
 This policy grants permissions for both `kms:Decrypt` and
 `kms:GenerateDataKey`.

@@ -1,6 +1,4 @@
-# Video passthrough codec
-
-support and job settings requirements
+# Video passthrough codec support and job settings requirements
 
 The following table shows which combinations of input video codec and output
 container support video passthrough.

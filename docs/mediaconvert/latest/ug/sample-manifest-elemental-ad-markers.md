@@ -1,6 +1,4 @@
-# Sample manifest: Elemental ad
-
-markers
+# Sample manifest: Elemental ad markers
 
 To generate the following sample manifest, choose **Apple HLS group
 settings**, **Advanced**, **Ad

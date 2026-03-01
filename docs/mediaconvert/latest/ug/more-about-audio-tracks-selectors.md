@@ -1,6 +1,4 @@
-# Setting up audio tracks and audio
-
-selectors
+# Setting up audio tracks and audio selectors
 
 You use audio selectors to associate input audio with output audio. You can set up
 a single audio selector to represent one or more tracks from the input. After that,

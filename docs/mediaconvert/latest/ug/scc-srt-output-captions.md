@@ -1,15 +1,11 @@
-# SCC, SRT, and SMI (sidecar) output
-
-captions
+# SCC, SRT, and SMI (sidecar) output captions
 
 This section covers how to configure SCC, SRT, and SMI (sidecar) output captions in AWS Elemental MediaConvert. The main topics include:
 
 - Where to specify the captions.
 - How to specify multiple captions tracks.
 
-## Where to specify the
-
-captions
+## Where to specify the captions
 
 Put your captions in the same output group, but a different output from your video.
 
@@ -28,9 +24,7 @@ the output.
    **Stream settings** section. Choose the **Remove**
    button.
 
-## How to specify multiple
-
-captions tracks
+## How to specify multiple captions tracks
 
 For each SRT, SCC or SMI output you must have one output per caption
 selector. In the caption output, choose the captions selector under

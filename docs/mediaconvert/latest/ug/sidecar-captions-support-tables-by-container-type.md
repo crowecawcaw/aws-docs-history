@@ -11,28 +11,17 @@ format.
 
 ###### Topics
 
-- [Sidecar captions supported in CMAF output
-  container](#sidecar-cmaf-output-container "#sidecar-cmaf-output-container")
-- [Sidecar captions supported in DASH output
-  container](#sidecar-dash-output-container "#sidecar-dash-output-container")
-- [Sidecar captions supported in HLS output
-  container](#sidecar-hls-output-container "#sidecar-hls-output-container")
-- [Sidecar captions supported in Microsoft Smooth
-  Streaming (MSS) output container](#sidecar-mss-output-container "#sidecar-mss-output-container")
-- [Sidecar captions supported in MP4 output
-  container](#sidecar-mp4-output-container "#sidecar-mp4-output-container")
-- [Sidecar captions supported in MPEG2-TS
-  File output container](#sidecar-mpeg2-ts-output-container "#sidecar-mpeg2-ts-output-container")
-- [Sidecar captions supported in MXF output
-  container](#sidecar-mxf-output-container "#sidecar-mxf-output-container")
-- [Sidecar captions supported in QuickTime
-  output container](#sidecar-quicktime-output-container "#sidecar-quicktime-output-container")
-- [Sidecar captions
-  supported with File output groups](#sidecar-captions-supported-as-standalone-file-in-output "#sidecar-captions-supported-as-standalone-file-in-output")
+- [Sidecar captions supported in CMAF output container](#sidecar-cmaf-output-container "#sidecar-cmaf-output-container")
+- [Sidecar captions supported in DASH output container](#sidecar-dash-output-container "#sidecar-dash-output-container")
+- [Sidecar captions supported in HLS output container](#sidecar-hls-output-container "#sidecar-hls-output-container")
+- [Sidecar captions supported in Microsoft Smooth Streaming (MSS) output container](#sidecar-mss-output-container "#sidecar-mss-output-container")
+- [Sidecar captions supported in MP4 output container](#sidecar-mp4-output-container "#sidecar-mp4-output-container")
+- [Sidecar captions supported in MPEG2-TS File output container](#sidecar-mpeg2-ts-output-container "#sidecar-mpeg2-ts-output-container")
+- [Sidecar captions supported in MXF output container](#sidecar-mxf-output-container "#sidecar-mxf-output-container")
+- [Sidecar captions supported in QuickTime output container](#sidecar-quicktime-output-container "#sidecar-quicktime-output-container")
+- [Sidecar captions supported with File output groups](#sidecar-captions-supported-as-standalone-file-in-output "#sidecar-captions-supported-as-standalone-file-in-output")
 
-## Sidecar captions supported in CMAF output
-
-container
+## Sidecar captions supported in CMAF output container
 
 The following table lists supported output captions formats for this output container when your input captions are in a sidecar format. _Sidecar_ captions are captions that are in a separate file from your video.
 
@@ -47,9 +36,7 @@ The following table lists supported output captions formats for this output cont
 | TTML                  | .ttml, .xml, .dfxp        | IMSC (as sidecar .fmp4)<br>WebVTT |
 | WebVTT                | .vtt                      | IMSC (as sidecar .fmp4)<br>WebVTT |
 
-## Sidecar captions supported in DASH output
-
-container
+## Sidecar captions supported in DASH output container
 
 The following table lists supported output captions formats for this output container when your input captions are in a sidecar format. _Sidecar_ captions are captions that are in a separate file from your video.
 
@@ -64,9 +51,7 @@ The following table lists supported output captions formats for this output cont
 | TTML                  | .ttml, .xml, .dfxp        | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml) |
 | WebVTT                | .vtt                      | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml) |
 
-## Sidecar captions supported in HLS output
-
-container
+## Sidecar captions supported in HLS output container
 
 The following table lists supported output captions formats for this output container when your input captions are in a sidecar format. _Sidecar_ captions are captions that are in a separate file from your video.
 
@@ -81,9 +66,7 @@ The following table lists supported output captions formats for this output cont
 | TTML                  | .ttml, .xml, .dfxp        | Burn in<br>WebVTT                                                               |
 | WebVTT                | .vtt                      | Burn in<br>WebVTT                                                               |
 
-## Sidecar captions supported in Microsoft Smooth
-
-Streaming (MSS) output container
+## Sidecar captions supported in Microsoft Smooth Streaming (MSS) output container
 
 The following table lists supported output captions formats for this output container when your input captions are in a sidecar format. _Sidecar_ captions are captions that are in a separate file from your video.
 
@@ -98,9 +81,7 @@ The following table lists supported output captions formats for this output cont
 | TTML                  | .ttml, .xml, .dfxp        | Burn in<br>TTML                   |
 | WebVTT                | .vtt                      | Burn in<br>TTML                   |
 
-## Sidecar captions supported in MP4 output
-
-container
+## Sidecar captions supported in MP4 output container
 
 The following table lists supported output captions formats for this output container when your input captions are in a sidecar format. _Sidecar_ captions are captions that are in a separate file from your video.
 
@@ -115,9 +96,7 @@ The following table lists supported output captions formats for this output cont
 | TTML                  | .ttml, .xml, .dfxp        | Burn in                                                               |
 | WebVTT                | .vtt                      | Burn in                                                               |
 
-## Sidecar captions supported in MPEG2-TS
-
-File output container
+## Sidecar captions supported in MPEG2-TS File output container
 
 The following table lists supported output captions formats for this output container when your input captions are in a sidecar format. _Sidecar_ captions are captions that are in a separate file from your video.
 
@@ -132,9 +111,7 @@ The following table lists supported output captions formats for this output cont
 | TTML                  | .ttml, .xml, .dfxp        | Burn in<br>Teletext<br>DVB-Sub                                                               |
 | WebVTT                | .vtt                      | Burn in<br>Teletext<br>DVB-Sub                                                               |
 
-## Sidecar captions supported in MXF output
-
-container
+## Sidecar captions supported in MXF output container
 
 The following table lists supported output captions formats for this output container when your input captions are in a sidecar format. _Sidecar_ captions are captions that are in a separate file from your video.
 
@@ -149,9 +126,7 @@ The following table lists supported output captions formats for this output cont
 | TTML                  | .ttml, .xml, .dfxp        | Burn in<br>Teletext                                                               |
 | WebVTT                | .vtt                      | Burn in<br>Teletext                                                               |
 
-## Sidecar captions supported in QuickTime
-
-output container
+## Sidecar captions supported in QuickTime output container
 
 The following table lists supported output captions formats for this output container when your input captions are in a sidecar format. _Sidecar_ captions are captions that are in a separate file from your video.
 
@@ -166,9 +141,7 @@ The following table lists supported output captions formats for this output cont
 | TTML                  | .ttml, .xml, .dfxp        | Burn in                                                               |
 | WebVTT                | .vtt                      | Burn in                                                               |
 
-## Sidecar captions
-
-supported with File output groups
+## Sidecar captions supported with File output groups
 
 The following table lists standalone sidecar output captions formats that MediaConvert
 supports with outputs in the **File** output group.

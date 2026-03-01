@@ -16,17 +16,12 @@ assembly.
 
 ###### Topics
 
-- [How MediaConvert
-  uses timelines to assemble jobs](#how-mediaconvert-uses-timelines-to-assemble-jobs "#how-mediaconvert-uses-timelines-to-assemble-jobs")
-- [Setting up an assembly workflow
-  job](#setting-up-an-assembly-workflow-job "#setting-up-an-assembly-workflow-job")
-- [Setting up audio tracks and audio
-  selectors](more-about-audio-tracks-selectors.md "more-about-audio-tracks-selectors.md")
+- [How MediaConvert uses timelines to assemble jobs](#how-mediaconvert-uses-timelines-to-assemble-jobs "#how-mediaconvert-uses-timelines-to-assemble-jobs")
+- [Setting up an assembly workflow job](#setting-up-an-assembly-workflow-job "#setting-up-an-assembly-workflow-job")
+- [Setting up audio tracks and audio selectors](more-about-audio-tracks-selectors.md "more-about-audio-tracks-selectors.md")
 - [Setting up input captions](including-captions.md "including-captions.md")
 
-## How MediaConvert
-
-uses timelines to assemble jobs
+## How MediaConvert uses timelines to assemble jobs
 
 MediaConvert assembles inputs
 and
@@ -38,9 +33,7 @@ timeline.
 
 ![Three separate input files are represented with three rectangles. Each is marked with a number line that represents an input timeline. One timeline starts at zero. One timeline shows embedded timecodes. One timeline reflects a specified start setting that starts at one hour. Two of these rectangles have clips inside them, represented with color fill in only parts of the rectangle. One of the rectangles is filled entirely, representing that the entire input file is used in the output. Below the input rectangles is a wider rectangle that represents all the clips and inputs assembled together. This rectangle is marked with a number line that represents the output timeline, which starts at 00:00:00:00.](images/assembly.png)
 
-### Input
-
-timelines
+### Input timelines
 
 Each input has its own _input timeline_. An input
 timeline is a series of timecodes that MediaConvert generates to represent each
@@ -50,8 +43,7 @@ By default, the input timeline is the same as any timecodes embedded in the inpu
 video. You can specify a different starting timecode in the input setting
 **Timecode source**. If you use the API or an SDK, you can find this setting in the JSON file of your job. The setting name is
 `TimecodeSource`, located in `Settings`,
-`Inputs`. For more information, see [Adjusting the input timeline with the input
-timecode source](timecode-input.md "timecode-input.md").
+`Inputs`. For more information, see [Adjusting the input timeline with the input timecode source](timecode-input.md "timecode-input.md").
 
 MediaConvert uses the input timeline for the following:
 
@@ -79,8 +71,7 @@ By default, the output timeline is the same as any timecodes embedded in the vid
 of your first input file. You can specify a different starting timecode in the
 job-wide **Timecode configuration** settings under **Job
 settings**. If you use the API or an SDK, you can find these settings in the JSON file of your job. These settings are under `Settings`,
-`TimecodeConfig`. For more information, see [Adjusting the output timeline with the job-wide
-timecode configuration](timecode-jobconfig.md "timecode-jobconfig.md").
+`TimecodeConfig`. For more information, see [Adjusting the output timeline with the job-wide timecode configuration](timecode-jobconfig.md "timecode-jobconfig.md").
 
 MediaConvert uses the output timeline for the following:
 
@@ -94,9 +85,7 @@ MediaConvert uses the output timeline for the following:
 - Interpreting the timecode that you provide when you specify a value for
   **Anchor timecode**.
 
-## Setting up an assembly workflow
-
-job
+## Setting up an assembly workflow job
 
 Follow these steps to set up a job that combines assembly workflow features such as
 input clipping, input stitching, graphic overlay, and sidecar captions sync. Doing these
@@ -105,8 +94,7 @@ your input clips last. This is because each input timeline counts frames from th
 input, not from each individual clip.
 
 This procedure relies on the concept of input and output timelines. For more
-information, see [How MediaConvert
-uses timelines to assemble jobs](#how-mediaconvert-uses-timelines-to-assemble-jobs "#how-mediaconvert-uses-timelines-to-assemble-jobs").
+information, see [How MediaConvert uses timelines to assemble jobs](#how-mediaconvert-uses-timelines-to-assemble-jobs "#how-mediaconvert-uses-timelines-to-assemble-jobs").
 
 ###### To set up an assembly workflow job (console)
 
@@ -122,8 +110,7 @@ For full instructions, see [Step 1: Specify input files](setting-up-a-job.md#spe
 up your audio selectors.**
 
 In each input, you create audio selectors to map your input audio to your
-outputs. For instructions, see [Step 2: Create input selectors for video, audio, and
-captions](setting-up-a-job.md#create-selectors "setting-up-a-job.md#create-selectors").
+outputs. For instructions, see [Step 2: Create input selectors for video, audio, and captions](setting-up-a-job.md#create-selectors "setting-up-a-job.md#create-selectors").
 
 With sidecar audio files, MediaConvert synchronizes audio and video without
 regard to timecodes. MediaConvert lines up the start of the audio file with the
@@ -149,8 +136,7 @@ format:
 
     * [About input
      timecode source and captions alignment](about-input-timecode-source-and-captions-alignment.md "about-input-timecode-source-and-captions-alignment.md")
-    * [Adjusting the input timeline with the input
-     timecode source](timecode-input.md "timecode-input.md")
+    * [Adjusting the input timeline with the input timecode source](timecode-input.md "timecode-input.md")
     * [Captions and captions selectors](including-captions.md "including-captions.md")
 
 4. **Set up when you want any graphic overlays or motion
@@ -169,10 +155,8 @@ overlay you specify:
 
 ###### Related information
 
-    * [Adjusting the input timeline with the input
-     timecode source](timecode-input.md "timecode-input.md")
-    * [Adjusting the output timeline with the job-wide
-     timecode configuration](timecode-jobconfig.md "timecode-jobconfig.md")
+    * [Adjusting the input timeline with the input timecode source](timecode-input.md "timecode-input.md")
+    * [Adjusting the output timeline with the job-wide timecode configuration](timecode-jobconfig.md "timecode-jobconfig.md")
     * [Image insertion](graphic-overlay.md "graphic-overlay.md")
 
 5. **Specify input clips.**
@@ -224,8 +208,7 @@ Set up input clips as follows:
     	 source** setting.
     	* Specify an input clip duration that is less than 12 hours
     	 long.
-    For more information, see [Adjusting the input timeline with the input
-     timecode source](timecode-input.md "timecode-input.md").
+    For more information, see [Adjusting the input timeline with the input timecode source](timecode-input.md "timecode-input.md").
     4. Specify any additional clips. Multiple clips must be in chronological
      order and can't overlap; each **Start timecode** must
      come after the previous clip's **End timecode**.

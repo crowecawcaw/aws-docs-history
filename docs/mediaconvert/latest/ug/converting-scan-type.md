@@ -1,15 +1,11 @@
-# Converting the scan type of your
-
-video
+# Converting the scan type of your video
 
 After you know how you want to specify the relevant settings, use one of the following procedures to set up your job. For conceptual information and guidance about choosing the right values for these settings, see
 
 [Settings for scan
 type conversion](working-with-scan-type.md#settings-for-scan-type-conversion "working-with-scan-type.md#settings-for-scan-type-conversion").
 
-###### To set up your transcoding job to convert scan type and telecine
-
-(console)
+###### To set up your transcoding job to convert scan type and telecine (console)
 
 1. Consult the topic [Settings for scan
    type conversion](working-with-scan-type.md#settings-for-scan-type-conversion "working-with-scan-type.md#settings-for-scan-type-conversion") to determine
@@ -45,9 +41,7 @@ type conversion](working-with-scan-type.md#settings-for-scan-type-conversion "wo
    Therefore, you only need to make this setting visible in the MediaConvert console
    when you are creating a telecine output.
 
-###### To set up your transcoding job to convert scan type and telecine (API, CLI,
-
-or SDK)
+###### To set up your transcoding job to convert scan type and telecine (API, CLI, or SDK)
 
 If you use the API, CLI, or an SDK, specify the relevant settings in your JSON
 job specification and then submit it programmatically with your job. For more

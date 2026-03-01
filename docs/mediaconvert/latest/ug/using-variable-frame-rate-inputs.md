@@ -1,6 +1,4 @@
-# Using variable frame rate inputs
-
-in AWS Elemental MediaConvert
+# Using variable frame rate inputs in AWS Elemental MediaConvert
 
 Some videos have a frame rate that varies over the duration of the video. Some
 cameras—for example, the cameras in many smartphones—automatically

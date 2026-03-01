@@ -21,5 +21,4 @@ For more information about audio descriptions, see [BBC WHP
 ###### Topics
 
 - [Configuring a job that mixes audio descriptions](audio-description-use.md "audio-description-use.md")
-- [Configuring a job for pre-mixed audio
-  descriptions](audio-description-broadcaster-mix.md "audio-description-broadcaster-mix.md")
+- [Configuring a job for pre-mixed audio descriptions](audio-description-broadcaster-mix.md "audio-description-broadcaster-mix.md")

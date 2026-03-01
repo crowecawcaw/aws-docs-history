@@ -77,8 +77,7 @@ MediaConvert to select an optimal GOP size.
 ###### Note
 
 Streaming video formats, including HLS, DASH, CMAF, and MSS, require the
-fragment or segment length to be a multiple of the GOP size. For more information, see [Setting
-the fragment length for streaming outputs](setting-the-fragment-length.md "setting-the-fragment-length.md"). When you
+fragment or segment length to be a multiple of the GOP size. For more information, see [Setting the fragment length for streaming outputs](setting-the-fragment-length.md "setting-the-fragment-length.md"). When you
 set GOP mode control to Auto for these video formats, MediaConvert automatically selects a
 compatible and optimized GOP size that's relative to the fragment or segment length.
 

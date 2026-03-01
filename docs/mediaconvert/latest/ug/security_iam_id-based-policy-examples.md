@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for AWS Elemental MediaConvert
+# Identity-based policy examples for AWS Elemental MediaConvert
 
 By default, users and roles don't have permission to create or modify MediaConvert
 resources. To grant users permission to perform actions on the
@@ -14,22 +12,14 @@ For details about actions and resource types defined by MediaConvert, including 
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the MediaConvert
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Example policy: Basic
-  MediaConvert policy](#example-policy-basic-mediaconvert-user-policy "#example-policy-basic-mediaconvert-user-policy")
-- [Example policy:
-  Resource-level access control](#example-policy-resource-level-access-control "#example-policy-resource-level-access-control")
-- [Example
-  policy: Tag-based access control using resource tags](#example-policy-tag-based-access-control-using-resource-tags "#example-policy-tag-based-access-control-using-resource-tags")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the MediaConvert console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Example policy: Basic MediaConvert policy](#example-policy-basic-mediaconvert-user-policy "#example-policy-basic-mediaconvert-user-policy")
+- [Example policy: Resource-level access control](#example-policy-resource-level-access-control "#example-policy-resource-level-access-control")
+- [Example policy: Tag-based access control using resource tags](#example-policy-tag-based-access-control-using-resource-tags "#example-policy-tag-based-access-control-using-resource-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete MediaConvert resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -62,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the MediaConvert
-
-console
+## Using the MediaConvert console
 
 To access the AWS Elemental MediaConvert console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the MediaConvert resources
@@ -132,9 +120,7 @@ the bucket instead. In this example, the account number is
 }
 ```
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -174,17 +160,14 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Example policy: Basic
-
-MediaConvert policy
+## Example policy: Basic MediaConvert policy
 
 The following example policy grants the basic permissions to operate
 AWS Elemental MediaConvert. In this example, the account number is
 `111122223333` and the role name is
 `MediaConvertRole`. If you are using encryption, or if your
 Amazon S3 buckets have default encryption enabled, you need additional permissions. For more
-information, see [Protecting your media assets with encryption and DRM using
-AWS Elemental MediaConvert](using-encryption.md "using-encryption.md").
+information, see [Protecting your media assets with encryption and DRM using AWS Elemental MediaConvert](using-encryption.md "using-encryption.md").
 
 ```
 {
@@ -226,9 +209,7 @@ AWS Elemental MediaConvert](using-encryption.md "using-encryption.md").
 }
 ```
 
-## Example policy:
-
-Resource-level access control
+## Example policy: Resource-level access control
 
 The following example policy grants permissions to certain AWS Elemental MediaConvert resources
 in your account. In this example, the account number is
@@ -283,9 +264,7 @@ and output media files stored in Amazon S3.
 
 ```
 
-## Example
-
-policy: Tag-based access control using resource tags
+## Example policy: Tag-based access control using resource tags
 
 The following policy grants access to all actions on all MediaConvert resources
 in the account, unless the action listed under

@@ -21,14 +21,10 @@ condition keys to allow or disallow input location types.
 
 ###### Topics
 
-- [How to allow or disallow input location types using an
-  Input policy](#input-policies "#input-policies")
-- [How to use IAM condition keys with
-  Input policies](#input-policy-condition-keys "#input-policy-condition-keys")
+- [How to allow or disallow input location types using an Input policy](#input-policies "#input-policies")
+- [How to use IAM condition keys with Input policies](#input-policy-condition-keys "#input-policy-condition-keys")
 
-## How to allow or disallow input location types using an
-
-Input policy
+## How to allow or disallow input location types using an Input policy
 
 To create or change a policy, submit a **put-policy** command using the
 API, SDK, or Command Line Interface (CLI) and include the policy in JSON. Visit the
@@ -88,9 +84,7 @@ code will be **`3457`** and the message will be: **`You specified
  an input location that your policy disallows. Specify an allowed input location and
  resubmit your job.`**
 
-## How to use IAM condition keys with
-
-Input policies
+## How to use IAM condition keys with Input policies
 
 When you include a _condition key_ in your IAM
 policy that you use to submit create job requests, IAM checks if your account has

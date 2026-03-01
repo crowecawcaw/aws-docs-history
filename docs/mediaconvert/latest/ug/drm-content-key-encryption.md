@@ -30,8 +30,7 @@ ACM–managed certificates](../../../acm/latest/userguide/gs-acm-list.md "../../
 
 When you use DRM encryption, provide one of your associated certificate ARNs in the
 SPEKE encryption parameters. This enables content key encryption. You can use the same
-certificate ARN for multiple jobs. For information, see [Container and DRM system support with
-SPEKE](encryption-choosing-speke-version.md "encryption-choosing-speke-version.md").
+certificate ARN for multiple jobs. For information, see [Container and DRM system support with SPEKE](encryption-choosing-speke-version.md "encryption-choosing-speke-version.md").
 
 **To renew a certificate**
 

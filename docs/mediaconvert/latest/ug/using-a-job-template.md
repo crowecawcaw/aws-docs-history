@@ -29,4 +29,4 @@ template. 7. In the **Job settings** section of the **Job
 pane**, choose **Settings**. 8. In the **Job settings** pane, in the **IAM role**
 dropdown list, choose the service role that you created to grant permissions to
 MediaConvert to access your resources on your behalf. For instructions on creating this
-role, see [Setting up IAM permissions](iam-role.md "iam-role.md") .
+role, see [Setting up IAM permissions](iam-role.md "iam-role.md").

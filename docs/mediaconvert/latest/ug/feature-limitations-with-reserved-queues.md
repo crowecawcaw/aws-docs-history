@@ -20,5 +20,4 @@ Reserved queues cannot run accelerated jobs. However, you can submit a
 job to a reserved queue with **Accelerated
 transcoding** set as **Preferred**. When
 you do, if the job hops to an on-demand queue, it will run with
-acceleration. For more information, see [Using accelerated transcoding with
-hopped jobs](accelerated-transcoding-queue-hopping.md "accelerated-transcoding-queue-hopping.md").
+acceleration. For more information, see [Using accelerated transcoding with hopped jobs](accelerated-transcoding-queue-hopping.md "accelerated-transcoding-queue-hopping.md").

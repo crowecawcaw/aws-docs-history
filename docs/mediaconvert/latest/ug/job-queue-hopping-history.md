@@ -52,8 +52,7 @@ If you use billing tags on your jobs and set your billing tags source to
 under the tags for the submission queue. To track how much you were billed for a
 job that hops queues, you can set the billing tags source to
 **Job**. For more information about using tags to sort your
-AWS bill, see [Setting up AWS Elemental MediaConvert resources
-for cost allocation through tagging](setting-up-resources-for-catt.md "setting-up-resources-for-catt.md").
+AWS bill, see [Setting up AWS Elemental MediaConvert resources for cost allocation through tagging](setting-up-resources-for-catt.md "setting-up-resources-for-catt.md").
 
 ###### Note
 

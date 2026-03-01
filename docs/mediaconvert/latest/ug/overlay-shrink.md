@@ -1,6 +1,4 @@
-# How to shrink content during ad playback (merge
-
-squeeze)
+# How to shrink content during ad playback (merge squeeze)
 
 The following procedure describes how to reduce the size of your primary content (to
 75 percent) while displaying an advertisement beneath it. In steps 3 through 12, you

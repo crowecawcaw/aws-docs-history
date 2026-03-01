@@ -1,6 +1,4 @@
-# IMSC, SCC, SMPTE-TT, SRT, STL, TTML (sidecar) input
-
-captions
+# IMSC, SCC, SMPTE-TT, SRT, STL, TTML (sidecar) input captions
 
 IMSC, SCC, SMPTE-TT, SRT, STL, and TTML are sidecar captions formats. With these formats,
 you provide input captions as a separate file. Depending on your output captions settings,
@@ -57,8 +55,7 @@ described in [Use cases for time delta](time-delta-use-cases.md "time-delta-use-
 
 MediaConvert handles the alignment of captions with video differently depending on
 whether the caption format is timecode-based or timestamp-based. For more information, see
-[Input timecode source and
-captions alignment](about-input-timecode-source-and-captions-alignment.md "about-input-timecode-source-and-captions-alignment.md").
+[Input timecode source and captions alignment](about-input-timecode-source-and-captions-alignment.md "about-input-timecode-source-and-captions-alignment.md").
 
 Enter a positive or negative number in **Time delta** to modify the time
 values in the captions file. By default, time delta is measured in seconds. For example, enter
@@ -78,9 +75,7 @@ value when calculating output SRT timings.
 
 ###### Topics
 
-- [Input timecode source and
-  captions alignment](about-input-timecode-source-and-captions-alignment.md "about-input-timecode-source-and-captions-alignment.md")
+- [Input timecode source and captions alignment](about-input-timecode-source-and-captions-alignment.md "about-input-timecode-source-and-captions-alignment.md")
 - [Use cases for time delta](time-delta-use-cases.md "time-delta-use-cases.md")
-- [Converting dual SCC
-  input files to embedded captions](converting-dual-scc-input-files-to-embedded-captions.md "converting-dual-scc-input-files-to-embedded-captions.md")
+- [Converting dual SCC input files to embedded captions](converting-dual-scc-input-files-to-embedded-captions.md "converting-dual-scc-input-files-to-embedded-captions.md")
 - [TTML style formatting](ttml-style-formatting.md "ttml-style-formatting.md")

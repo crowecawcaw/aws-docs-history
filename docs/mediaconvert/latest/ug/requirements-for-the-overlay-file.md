@@ -1,6 +1,4 @@
-# Requirements for the overlay
-
-file
+# Requirements for the overlay file
 
 Set up the image files that you want to insert over your video as follows:
 

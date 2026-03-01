@@ -1,8 +1,7 @@
 # WebVTT input captions (as part of an HLS source)
 
 AWS Elemental MediaConvert supports WebVTT as an input captions format either as a sidecar file or as
-part of an HLS source. If your input WebVTT captions are in a sidecar file, see [IMSC, SCC, SMPTE-TT, SRT, STL, TTML (sidecar) input
-captions](sidecar-input.md "sidecar-input.md").
+part of an HLS source. If your input WebVTT captions are in a sidecar file, see [IMSC, SCC, SMPTE-TT, SRT, STL, TTML (sidecar) input captions](sidecar-input.md "sidecar-input.md").
 
 When your input WebVTT captions are part of a HLS source, you don't need to specify the source WebVTT manifest file for the WebVTT captions. That information is in the
 main HLS input file that you specify in your job input. You will need to enable the **Use HLS Rendition Group** and use the following settings.

@@ -15,8 +15,7 @@ in the container. This includes the following:
   When you set up streaming output packages that contain audio, video, and captions, you
   create separate outputs for each element inside the output package. These are not
   audio-only outputs as described in this chapter. For more information about setting up
-  streaming outputs, see [Creating outputs
-  in ABR streaming output groups](setting-up-a-job.md#create-outputs-in-abr-streaming-output-groups "setting-up-a-job.md#create-outputs-in-abr-streaming-output-groups").
+  streaming outputs, see [Creating outputs in ABR streaming output groups](setting-up-a-job.md#create-outputs-in-abr-streaming-output-groups "setting-up-a-job.md#create-outputs-in-abr-streaming-output-groups").
 
 You set up an audio-only output in the same way that you set up an output that
 contains video, except that you don't include video or captions.

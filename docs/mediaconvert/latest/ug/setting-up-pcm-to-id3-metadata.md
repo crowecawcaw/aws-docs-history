@@ -1,6 +1,4 @@
-# Configuring
-
-PCM to ID3 metadata
+# Configuring PCM to ID3 metadata
 
 To use this feature, your input must have PCM audio that contains Nielsen watermarks.
 You provide your Nielsen distributor ID to MediaConvert and then, during the transcode,

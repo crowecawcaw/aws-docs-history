@@ -12,7 +12,5 @@ setting playback to repeat. This guide shows you how.
 ###### Topics
 
 - [Configuring motion image insertion](setting-up-motion-graphic-overlays.md "setting-up-motion-graphic-overlays.md")
-- [Specify motion
-  graphic overlay start time and playback](placing-your-motion-graphic-overlay.md "placing-your-motion-graphic-overlay.md")
-- [Requirements to set up
-  motion graphic overlay files](requirements-for-the-motion-overlay-file.md "requirements-for-the-motion-overlay-file.md")
+- [Specify motion graphic overlay start time and playback](placing-your-motion-graphic-overlay.md "placing-your-motion-graphic-overlay.md")
+- [Requirements to set up motion graphic overlay files](requirements-for-the-motion-overlay-file.md "requirements-for-the-motion-overlay-file.md")

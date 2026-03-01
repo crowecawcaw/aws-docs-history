@@ -1,6 +1,4 @@
-# CEA/EIA-608 and CEA/EIA-708 (embedded)
-
-output captions
+# CEA/EIA-608 and CEA/EIA-708 (embedded) output captions
 
 This section covers how to configure embedded output captions in AWS Elemental MediaConvert. The main topics include:
 
@@ -8,15 +6,11 @@ This section covers how to configure embedded output captions in AWS Elemental M
 - How to specify multiple captions tracks.
 - Embedded and ancillary captions in MXF outputs.
 
-## Where to specify the
-
-captions
+## Where to specify the captions
 
 Put your captions in the same output group and the same output as your video.
 
-## How to specify multiple
-
-captions tracks
+## How to specify multiple captions tracks
 
 - If your input captions format is embedded (that is, you are passing
   through embedded-to-embedded), you need to create only one group of
@@ -25,17 +19,14 @@ captions tracks
   input.
 - If your input captions are two SCC files, you can create output
   captions as two output captions channels that are embedded in your
-  output video stream. For more information, see [Converting dual SCC
-  input files to embedded captions](converting-dual-scc-input-files-to-embedded-captions.md "converting-dual-scc-input-files-to-embedded-captions.md").
+  output video stream. For more information, see [Converting dual SCC input files to embedded captions](converting-dual-scc-input-files-to-embedded-captions.md "converting-dual-scc-input-files-to-embedded-captions.md").
 - If your input captions are not embedded or SCC, you can include only
   one captions track per output. In each output, include one group of
   captions settings. Under **Captions source**, choose
   the selector that is set up for the track that you want to
   include.
 
-## Embedded and
-
-ancillary captions in MXF outputs
+## Embedded and ancillary captions in MXF outputs
 
 Whether your MXF output can contain ancillary captions depends on the MXF
 profile:

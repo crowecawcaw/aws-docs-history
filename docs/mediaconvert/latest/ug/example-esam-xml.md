@@ -1,6 +1,4 @@
-# Example ESAM XML signal processing
-
-notification
+# Example ESAM XML signal processing notification
 
 This ESAM XML block generates two 30-second ad breaks, one at 10 seconds in and
 the other at 75 seconds in.
