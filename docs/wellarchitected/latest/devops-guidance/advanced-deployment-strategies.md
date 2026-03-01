@@ -10,6 +10,5 @@ provide enhanced user experience.
 ###### Topics
 
 - [Indicators for advanced deployment strategies](indicators-for-advanced-deployment-strategies.md "indicators-for-advanced-deployment-strategies.md")
-- [Anti-patterns for advanced
-  deployment strategies](anti-patterns-for-advanced-deployment-strategies.md "anti-patterns-for-advanced-deployment-strategies.md")
+- [Anti-patterns for advanced deployment strategies](anti-patterns-for-advanced-deployment-strategies.md "anti-patterns-for-advanced-deployment-strategies.md")
 - [Metrics for advanced deployment strategies](metrics-for-advanced-deployment-strategies.md "metrics-for-advanced-deployment-strategies.md")

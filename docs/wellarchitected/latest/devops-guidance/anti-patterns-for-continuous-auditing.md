@@ -1,6 +1,4 @@
-# Anti-patterns for continuous
-
-auditing
+# Anti-patterns for continuous auditing
 
 - **Inadequate audit trails**: Not keeping comprehensive
   audit trails makes it difficult to track actions performed in your environment. This

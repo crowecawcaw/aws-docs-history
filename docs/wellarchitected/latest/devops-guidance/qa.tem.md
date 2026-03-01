@@ -1,53 +1,31 @@
-# [QA.TEM.6] Enhance developer experience through scalable quality assurance platforms
+# [QA.TEM.5] Run tests in parallel for faster results
 
 **Category:** RECOMMENDED
 
-As team structures and operating models change within the organization to support
-distributed teams with value stream ownership, the roles and responsibility of quality
-assurance teams also evolve. In a DevOps environment with supportive team dynamics,
-individual stream-aligned teams take ownership of quality assurance and security within
-their value stream and products. This approach removes the handoff of responsibility and
-accountability to centralized quality assurance or testing teams within the organization.
-These quality assurance functions are still extremely important to sustainably practicing
-DevOps and can be distributed to make them more effective in supporting stream-aligned
-teams. 
+Parallelized test execution is the practice of concurrently
+running multiple test cases or suites to accelerate test
+results and expedite feedback. As software grows and becomes
+more modular, especially in architectures like microservices,
+the number of test cases also increases. Running these tests
+sequentially could significantly slow down delivery pipelines.
+By creating many test beds and distributing test cases across
+them asynchronously, tests can be run in parallel to allow for
+faster iterations and more frequent deployments.
 
-One method of distributing a centralized quality assurance function is to form
-platform teams. These platform teams offer scalable testing services to stream-aligned
-teams to enhance the developer experience and expedite test environment set up. Platforms
-managed by these teams can feature self-service options, automated test environment
-management, test bed provisioning, and equipping teams with the tools to produce, manage,
-and use test data and infrastructure. Additionally, these platforms can integrate device
-farms, allowing for testing across a variety of devices such as mobile phones or web
-browsers such as Chrome and Firefox on diverse operating systems.
-
-Quality assurance platforms can also be created to provide
-security related capabilities which enable continuous
-visibility into the security posture of applications
-throughout the development lifecycle, such as Application
-Security Posture Management (ASPM). Stream-aligned teams can
-leverage these capabilities to prioritize and address
-vulnerabilities identified during testing, contributing to
-overall risk reduction and improved application security. By
-providing a platform for consistent testing procedures and
-security controls, quality assurance platform teams can help
-support the organization's observability and automated
-governance goals.
-
-Another method of distributing quality assurance teams is to
-form enabling teams. These teams can help stream-aligned teams
-onboard to quality assurance platforms and teach teams to
-become self-sufficient with test design and execution. It is
-important that enabling teams do not take ownership over
-testing for a value stream or product. They provide
-just-in-time guidance and knowledge sharing, but ultimately
-move on to help other teams. If long-term quality assurance
-support is needed within a development team, cross-train the
-quality assurance member so that they gain development skills
-and permanently embed them into the stream-aligned team.
+Adopt a scaling-out strategy to test bed provisioning to establish multiple test beds
+tailored for specific test scenarios. Each test bed, provisioned through infrastructure as
+code (IaC), should have the necessary infrastructure and data setup for its designated
+test cases. Serverless infrastructure or container orchestration tools combined with state
+machines, such as [AWS Step Functions](https://aws.amazon.com/step-functions/ "https://aws.amazon.com/step-functions/"), can
+improve your ability to dynamically provision and run tests in a scalable and
+cost-effective way. Test operations should not impact the data or outcome of other test
+beds. As tests are parallelized across multiple test beds, ensure data isolation to
+maintain test integrity. Use monitoring solutions to track parallelized test runs,
+ensuring each test bed is performing optimally and to help in debugging any anomalies.
 
 **Related information:**
 
-- [The
-  Amazon Software Development Process: Self-Service
-  Tools](https://youtu.be/52SC80SFPOw?t=579 "https://youtu.be/52SC80SFPOw?t=579")
+- [Run
+  Selenium tests at scale using AWS Fargate](https://aws.amazon.com/blogs/opensource/run-selenium-tests-at-scale-using-aws-fargate/ "https://aws.amazon.com/blogs/opensource/run-selenium-tests-at-scale-using-aws-fargate/")
+- [Runs
+  in AWS Device Farm](../../../devicefarm/latest/developerguide/test-runs.md "../../../devicefarm/latest/developerguide/test-runs.md")

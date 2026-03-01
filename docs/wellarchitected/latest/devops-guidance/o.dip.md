@@ -1,44 +1,30 @@
-# [O.DIP.2] Centralize logs for enhanced security investigations
+# [O.DIP.1] Aggregate logs and events across workloads
 
-**Category:** FOUNDATIONAL 
+**Category:** FOUNDATIONAL
 
-Effective security investigations require the aggregation,
-standardization, and centralization of logs and events so they
-are readily accessible to investigation teams. Centralized
-logs and event data enhance the ability of security teams to
-conduct effective investigations, improve threat detection,
-and accelerate incident response times.
+Logs and events should be aggregated across multiple workloads
+to provide a comprehensive view of the entire system. This
+enables teams to troubleshoot, identify patterns, and resolve
+operational issues.
 
-Use cloud native tools or Security Information and Event Management (SIEM) solutions
-to aggregate, standardize, and centralize logs and event data, while respecting regional
-boundaries and data sovereignty requirements. These tools are designed to collect and
-analyze logs and security events from various sources to provide a centralized view of an
-organization's security posture. Centralizing, normalizing, deduping, and removing
-unnecessary data allows security teams to use automation and scripted investigation tools
-which leads to a faster and more efficient response process.
-
-Given the sensitivity of this data, verify that the data is accessible only to
-authorized security personnel and that strong access controls are in place to maintain data
-security and confidentiality. Only grant least-privilege permission to the data so that it
-is only accessible to authorized users with the minimum level of access required to perform
-investigations. For instance, access to overwrite this data should be restricted.
+Implement a log aggregation solution that supports collecting logs from various
+sources and provides functions for filtering, searching, visualizing, and alerting. Make
+sure the solution provides real-time data collection, supports necessary data sources, and
+offers visualization options. The tool should be accessible to application teams, allowing
+them to monitor and troubleshoot their system as needed.
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF07-BP02 Analyze
-  metrics when events or incidents occur](../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics.md "../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics.md")
+- [AWS Well-Architected Reliability Pillar: REL11-BP01 Monitor
+  all components of the workload to detect failures](../reliability-pillar/rel_withstand_component_failures_monitoring_health.md "../reliability-pillar/rel_withstand_component_failures_monitoring_health.md")
+- [Cross-account
+  cross-Region CloudWatch console](../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md "../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md")
 - [Collect,
   analyze, and display Amazon CloudWatch Logs in a single
   dashboard with the Centralized Logging on AWS solution](../../../solutions/latest/centralized-logging-on-aws/welcome.md "../../../solutions/latest/centralized-logging-on-aws/welcome.md")
-- [Cross-account
-  cross-Region CloudWatch console](../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md "../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md")
-- [AWS Well-Architected Framework - Security Pillar -
-  Detection](../framework/sec-detection.md "../framework/sec-detection.md")
-- [Amazon
-  Security Lake](https://aws.amazon.com/security-lake/ "https://aws.amazon.com/security-lake/")
-- [Centralized
-  Logging on AWS](https://aws.amazon.com/solutions/implementations/centralized-logging/ "https://aws.amazon.com/solutions/implementations/centralized-logging/")
-- [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/ "https://aws.amazon.com/opensearch-service/")
 - [Centralized
   Logging with OpenSearch](https://aws.amazon.com/solutions/implementations/centralized-logging-with-opensearch/ "https://aws.amazon.com/solutions/implementations/centralized-logging-with-opensearch/")
-- [AWS Marketplace: SIEM](https://aws.amazon.com/marketplace/solutions/security/siem "https://aws.amazon.com/marketplace/solutions/security/siem")
+- [Sending
+  Logs Directly to Amazon S3](../../../AmazonCloudWatch/latest/logs/Sending-Logs-Directly-To-S3.md "../../../AmazonCloudWatch/latest/logs/Sending-Logs-Directly-To-S3.md")
+- [One
+  Observability Workshop](https://observability.workshop.aws/ "https://observability.workshop.aws/")

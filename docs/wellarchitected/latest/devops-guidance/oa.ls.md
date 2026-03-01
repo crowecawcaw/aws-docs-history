@@ -1,28 +1,43 @@
-# [OA.LS.5] Assemble a cross-functional enabling team that focuses on organizational
+# [OA.LS.1] Appoint a decision-making leader to own DevOps adoption
 
-transformation
+**Category:** FOUNDATIONAL
 
-**Category:** RECOMMENDED
+DevOps adoption requires a dedicated leader to help facilitate continued progress, make
+resource decisions, and gain alignment with leaders throughout the organization. This
+leadership role, inspired by Amazon's single-threaded leadership concept, becomes the
+person within the company fully dedicated and accountable for DevOps adoption. They have
+no competing priorities, focusing solely on DevOps adoption and driving the initiative
+forward.
 
-To spread knowledge across the organizations and help individual teams adopt DevOps
-capabilities, create an enabling team with expertise in DevOps culture, practices, and tools. The single-threaded DevOps owner is responsible for creating this team and
-providing it with the autonomy, resources, training, and tools that help them
-effectively support and guide other teams.This centralized team should collaborate closely with other
-teams to identify and address barriers to adoption, share best practices, and promote a
-culture of nearly continuous learning and improvement. 
+A single-threaded leader becomes the focal point for
+centralizing decision-making. They have the leeway within the
+organization to assess areas of improvement, and the ability
+to organize teams to solve problems. Appoint a leader with
+decision-making authority. Because DevOps adoption has a broad
+impact that requires change to occur throughout the entire
+organization, the leader must have support from executives,
+such as the CEO, CTO, CIO, or CISO. The ideal single-threaded
+leader for DevOps adoption is usually a role reporting
+directly to senior executives. This connection helps them
+drive organizational decisions, structure teams, and allocate
+responsibilities with the proper level of authority and direct
+escalation channels.
 
-In many organizations, this team takes the form of the _Center of
-Enablement_. While this centralized team is not strictly required for every
-organization to adopt DevOps, we recommend it due to its potential to streamline and
-expedite transformation. If leadership chooses not to create a Center of Enablement, they
-can supplement it by fostering a strong culture of collaboration, sharing,
-automation, and continuous improvement. With the right support and resources being
-provided from leadership, teams can work together to establish their own DevOps processes.
-Use existing tools and resources to support these efforts.
+The leader should work closely with enthusiastic early
+adopters to build momentum and support for the initiative.
+Open communication channels must remain open throughout the
+organization to foster collaboration and receive support. As
+progress is made, the leader regularly updates other teams and
+leaders of DevOps adoption initiatives and the impact DevOps
+is having on the business.
 
 **Related information:**
 
-- [AWS Well-Architected Operational Excellence Pillar: Separated AEO and IEO with
-  centralized governance and an internal service provider consulting partner](../operational-excellence-pillar/separated-aeo-ieo-with-cent-gov-and-partner.md "../operational-excellence-pillar/separated-aeo-ieo-with-cent-gov-and-partner.md")
-- [What is a cloud center of excellence and why should your organization create
-  one?](https://aws.amazon.com/blogs/publicsector/what-is-cloud-center-excellence-why-should-your-organization-create-one/ "https://aws.amazon.com/blogs/publicsector/what-is-cloud-center-excellence-why-should-your-organization-create-one/")
+- [AWS Well-Architected Cost Optimization Pillar: COST01-BP02 Establish a partnership
+  between finance and technology](../cost-optimization-pillar/cost_cloud_financial_management_partnership.md "../cost-optimization-pillar/cost_cloud_financial_management_partnership.md")
+- [AWS Cloud Adoption Framework: People Perspective - Transformational
+  leadership](../../../whitepapers/latest/aws-caf-people-perspective/transformational-leadership.md "../../../whitepapers/latest/aws-caf-people-perspective/transformational-leadership.md")
+- [A Conversation with Werner
+  Vogels: Learning from the Amazon technology platform](https://queue.acm.org/detail.cfm?id=1142065 "https://queue.acm.org/detail.cfm?id=1142065")
+- [Two-Pizza Teams Are Just the Start, Part 2: Accountability and Empowerment Are Key to
+  High-Performing Agile Organizations](https://aws.amazon.com/blogs/enterprise-strategy/two-pizza-teams-are-just-the-start-accountability-and-empowerment-are-key-to-high-performing-agile-organizations-part-2/ "https://aws.amazon.com/blogs/enterprise-strategy/two-pizza-teams-are-just-the-start-accountability-and-empowerment-are-key-to-high-performing-agile-organizations-part-2/")

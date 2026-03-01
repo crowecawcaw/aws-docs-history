@@ -10,6 +10,5 @@ issues, fostering an environment of proactive security and governance.
 ###### Topics
 
 - [Indicators for continuous auditing](indicators-for-continuous-auditin.md "indicators-for-continuous-auditin.md")
-- [Anti-patterns for continuous
-  auditing](anti-patterns-for-continuous-auditing.md "anti-patterns-for-continuous-auditing.md")
+- [Anti-patterns for continuous auditing](anti-patterns-for-continuous-auditing.md "anti-patterns-for-continuous-auditing.md")
 - [Metrics for continuous auditing](metrics-for-continuous-auditing.md "metrics-for-continuous-auditing.md")

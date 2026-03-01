@@ -1,59 +1,68 @@
-# [QA.ST.2] Normalize security testing findings
+# [QA.ST.7] Conduct proactive exploratory security testing activities
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Effective vulnerability management requires clarity and
-consistency. Given the diversity of security testing tools in
-a DevOps environment, findings often emerge from different
-sources and in different formats. This diversity of tooling
-can introduce confusion and inefficiency into risk management
-processes.  Having a common framework for normalizing the
-interpretation and ranking of vulnerabilities from diverse
-security testing tools provides a systematic approach to risk
-management and mitigation. Normalization is not just about
-consistency, it helps ensure that every identified
-vulnerability is understood, categorized, and managed
-according to its threat level.
+Conduct frequent exploratory security testing activities,
+encompassing penetration testing, red teaming, and
+participation in vulnerability disclosure or bug bounty
+programs.
 
-Begin by selecting a recognized scoring system, such as the
-Common Vulnerability Scoring System
-([CVSS](https://nvd.nist.gov/vuln-metrics/cvss "https://nvd.nist.gov/vuln-metrics/cvss")),
-as the baseline for vulnerability ranking. This will provide a
-universal language for risk assessment and
-prioritization. Many modern security tools have built-in
-integrations with popular scoring systems. Configure your
-tools to automatically map their findings to the chosen
-system, ensuring uniformity across all results. It is
-important to periodically review the normalization process,
-updating it as required and ensuring alignment with industry
-best practices.
+Penetration tests use ethical hackers to detect vulnerabilities in system or networks
+by mimicking potential threat actor actions. These exploratory security tests reveal
+weaknesses in the system using the ingenuity of human testers. Deployment pipelines can
+trigger the penetration testing process and wait for an approval to help ensure that
+vulnerabilities are identified and fixed before code moves to the next stage. Automation
+can be used to run repetitive, baseline tests, such as dynamic application security
+testing, to enable human testers to focus on more complex scenarios. Review the [AWS Customer Support Policy for
+Penetration Testing](https://aws.amazon.com/security/penetration-testing/ "https://aws.amazon.com/security/penetration-testing/") before running penetration tests against AWS
+infrastructure. Penetration testing is most effective when you need a broad review of the
+application or system against known vulnerabilities.
 
-Use tools that can automatically translate findings into the
-standardized format. Integrations like the Static Analysis
-Results Interchange Format
-([SARIF](https://sarifweb.azurewebsites.net/ "https://sarifweb.azurewebsites.net/"))
-or [OCSF
-Schema](https://schema.ocsf.io/ "https://schema.ocsf.io/") can assist with this. These tools can enable
-centralizing findings from different sources into a single
-dashboard or reporting platform to create a unified view of
-the security posture which can streamline the prioritization
-and remediation process.
+Going beyond the scope of penetration tests, red
+teaming emulates real-world adversaries in a full-scale
+simulation, targeting the organization's technology, people,
+and processes. Red teaming is more focused than penetration
+testing, targeting specific vulnerabilities by allocating more
+resources, spending more time, and examining additional attack
+vectors. This includes potential threats from internal
+sources, such as lost devices, external sources like phishing
+campaigns, and those arising from social engineering tactics.
+This approach provides insights into how threat actors might
+exploit weaknesses and bypass defenses in a real-world
+scenario. Red teaming evaluates the broader resilience of an
+application or system, including its resistance to
+sophisticated attacks that span the entire organization's
+security posture.
 
-By adopting a systematic approach to normalization, organizations can verify that
-their response to vulnerabilities is consistent, effective, and aligned with the actual
-risks posed to the system. Ensure that everyone involved in the security process understands
-the chosen scoring system and knows how to interpret it. Regular workshops or training
-sessions can help ensure ongoing alignment.
+Vulnerability disclosure and bug bounty programs invite external researchers to
+examine your software, complementing and often surpassing internal security evaluations.
+Researchers who participate in these programs not only identify potential exploits but
+also verify them, resulting in higher fidelity findings. The person who identified the
+vulnerability does not disclose it publicly for a set amount of time, allowing a patch to
+be rolled out before the information is disclosed publicly, and in some cases will receive
+compensation for their efforts. These programs foster a culture of openness and continuous
+improvement, emphasizing the importance of external feedback in maintaining secure
+systems.
+
+The findings from exploratory security testing should be
+communicated to development teams as soon as findings are
+available, allowing for quick remediation and learning.
 
 **Related information:**
 
-- [NIST
-  Common Vulnerability Scoring System (CVSS)](https://nvd.nist.gov/vuln-metrics/cvss "https://nvd.nist.gov/vuln-metrics/cvss")
-- [MITRE Common
-  Weakness Scoring System (CWSS™)](https://cwe.mitre.org/cwss/cwss_v1.0.1.html "https://cwe.mitre.org/cwss/cwss_v1.0.1.html")
-- [Static
-  Analysis Results Interchange Format (SARIF)](https://sarifweb.azurewebsites.net/ "https://sarifweb.azurewebsites.net/")
-- [OCSF
-  Schema](https://schema.ocsf.io/ "https://schema.ocsf.io/")
-- [OCSF
-  GitHub](https://github.com/ocsf "https://github.com/ocsf")
+- [AWS Well-Architected Security Pillar: SEC11-BP03 Perform
+  regular penetration testing](../framework/sec_appsec_perform_regular_penetration_testing.md "../framework/sec_appsec_perform_regular_penetration_testing.md")
+- [Security
+  in every stage of the CI/CD pipeline: Penetration Testing
+  and Red Teaming](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#penetration-testing "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#penetration-testing")
+- [AWS Penetration Testing: A DIY Guide for Beginners](https://www.getastra.com/blog/security-audit/aws-penetration-testing/ "https://www.getastra.com/blog/security-audit/aws-penetration-testing/")
+- [AWS Customer Support Policy for Penetration Testing](https://aws.amazon.com/security/penetration-testing/ "https://aws.amazon.com/security/penetration-testing/")
+- [AWS Cloud Security - Vulnerability Reporting](https://aws.amazon.com/security/vulnerability-reporting/ "https://aws.amazon.com/security/vulnerability-reporting/")
+- [AWS BugBust](https://aws.amazon.com/bugbust/ "https://aws.amazon.com/bugbust/")
+- [AWS CloudSaga - Simulate security events in AWS](https://github.com/awslabs/aws-cloudsaga "https://github.com/awslabs/aws-cloudsaga")
+- [RFC
+  9116 - A File Format to Aid in Security Vulnerability
+  Disclosure](https://www.rfc-editor.org/rfc/rfc9116 "https://www.rfc-editor.org/rfc/rfc9116")
+- [Amazon's
+  approach to security during development: Penetration
+  Testing](https://youtu.be/NeR7FhHqDGQ?t=1432 "https://youtu.be/NeR7FhHqDGQ?t=1432")

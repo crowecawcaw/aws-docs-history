@@ -1,33 +1,36 @@
-# [DL.CD.1] Deploy changes to production frequently
+# [DL.CD.6] Refine delivery pipelines using metrics for continuous improvement
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Frequent deployments to production encourages small, rapid, and iterative changes to
-the code base. Deploying small and validated changes regularly helps mitigate the risk
-associated with each deployment. Frequent deployments not only streamlines the testing and
-validation process, but also expedites the feedback loop, leading to quicker resolution of
-issues.
+Use key metrics—whether sourced from this guidance, established frameworks
+like [DORA](https://dora.dev/ "https://dora.dev/") or [SPACE](https://queue.acm.org/detail.cfm?id=3454124 "https://queue.acm.org/detail.cfm?id=3454124"), or custom to your
+organization—to continually optimize the development lifecycle. Metrics such as deployment
+frequency, change lead time, failure rate, and time to recover serve as outcome-based
+lagging indicators. These indicators span many DevOps capabilities to provide insights
+into the efficiency and reliability of the full delivery process. While individual metrics
+offer granular insights to optimize specific continuous delivery capabilities, these
+aggregated metrics present a holistic overview of the end-to-end development
+lifecycle. Both granular and holistic metrics are important for continuous improvement.
 
-Use a pipeline to automate the deployment of validated changes across various
-environments, including production. This pipeline should be automatically triggered, such as
-by the completion of continuous integration or an updated artifact in an artifact
-repository. Once invoked, the pipeline should automatically begin to deploy changes to
-non-production environments for further testing and validation. Upon successful validation,
-changes can be deployed to the production environment.
+Use observability practices to continuously monitor the
+development lifecycle, including incorporating monitoring and
+logging into your delivery pipelines. Use logs to generate
+metrics, and use these metrics to identify areas for
+improvement. Make these metrics visible to all team members
+and use them to drive your continuous improvement efforts.
 
-When working in a DevOps environment, it is important to distinguish between
-_deploying_ and _releasing_. Even after deploying
-changes to production, these changes might not necessarily be visible or accessible to all
-users. By using advanced deployment strategies and employing [feature flags](https://aws.amazon.com/systems-manager/features/appconfig/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc#Feature_flags"), teams can deploy code to production and decide when to release or
-rollback specific features in real time, offering more granular control over releasing new
-features to end users.
+Putting an emphasis on continually optimizing pipelines using
+metrics is recommended. When getting started with DevOps
+adoption, initial efforts should prioritize the establishment
+of a stable and effective delivery pipeline, with subsequent
+enhancements to the pipeline being driven by metrics.
 
-Teams should focus on deploying small changes rather than
-bundling multiple changes into a single, large batch
-deployment. Accumulating changes complicates testing and
-validation, and it becomes challenging to ensure that all
-components interact correctly. The practice of deploying small
-changes demands discipline and commitment, but it improves
-deployment frequency, security, and enhanced collaboration
-while ensuring that the code base remains up-to-date and
-releasable at all times.
+**Related information:**
+
+- [Deployment
+  Pipeline Reference Architecture](https://pipelines.devops.aws.dev/application-pipeline/ "https://pipelines.devops.aws.dev/application-pipeline/")
+- [AWS Observability Best Practices: Key Performance
+  Indicators](https://aws-observability.github.io/observability-best-practices/guides/operational/business/key-performance-indicators/ "https://aws-observability.github.io/observability-best-practices/guides/operational/business/key-performance-indicators/")
+- [DevOps Research and
+  Assessment (DORA)](https://dora.dev/ "https://dora.dev/")
+- [SPACE](https://queue.acm.org/detail.cfm?id=3454124 "https://queue.acm.org/detail.cfm?id=3454124")

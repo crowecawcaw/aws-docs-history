@@ -1,51 +1,54 @@
-# [QA.NT.5] Automate adherence to compliance standards through conformance testing
+# [QA.NT.7] Verify service integrations through contract testing
 
 **Category:** RECOMMENDED
 
-Conformance testing, often referred to as compliance testing, verifies that a system
-meets internal and external compliance requirements. It compares the system's behaviors,
-functions, and capabilities with predefined criteria from recognized standards or
-specifications.
+Contract testing helps ensure that different system components
+or services can seamlessly communicate and are compatible with
+each other. This involves creating contracts that detail
+interactions between services, capturing everything from
+request structures to expected responses. As changes are made,
+these contracts can be used by producing (teams that expose
+the API) and consuming (teams that use the API) services to
+ensure they remain compatible. Contract testing provides a
+safety net for both producers and consumers by ensuring
+changes in one do not adversely impact the other. This creates
+a culture of collaboration between teams while providing
+faster feedback for identifying integration issues earlier in
+the development lifecycle.
 
-Conformance testing acts as a safeguard, ensuring that while agility is prioritized,
-compliance isn't compromised. There are many regulated industries, such as finance,
-healthcare, or aerospace, that have a strict set of compliance requirements which must be
-met when delivering software. Historically, balancing fast software delivery with
-stringent compliance was a challenge in these industries. Generating the documentation and
-proof required to maintain compliance was often a manual, time-intensive step that created
-a bottleneck at the end of the development lifecycle.
+There are different types of contract testing. In
+consumer-driven contract testing, the consumer of a service
+dictates the expected behaviors of the producer. This is
+contrasted with provider-driven approaches, where the producer
+service determines its behaviors without explicit input from
+its consumers. Consumer-driven contract testing is the type we
+generally recommend, as designing contracts with the consumer
+in mind ensures that APIs are tailored to the customer's
+actual needs, making integrations more intuitive.
 
-Conformance testing integrated into deployment pipelines provides a solution to this
-problem by automating the creation of compliance attestations and documentation. It can be
-used to meet both internal and external compliance requirements. Start by determining both
-internal (for example, risk assessment policies, or change management procedures) and
-external standards (for example, [GxP](https://aws.amazon.com/compliance/gxp-part-11-annex-11/ "https://aws.amazon.com/compliance/gxp-part-11-annex-11/") for life sciences). Prioritize and
-choose the relevant parts of the standards which can be automated (for example, GxP
-Installation Qualification report). Ensure that conformance tests remain current by
-updating them according to evolving standards.
-
-Use the data at your disposal, including APIs, output from other forms of testing,
-and possibly additional data from IT Service Management (ITSM) and Configuration
-Management Databases (CMDB). Embed conformance testing scripts into deployment pipelines
-to generate real-time compliance attestations and documentation using this data. Consider
-using machine-readable markup languages, such as JSON and YAML, to store the compliance
-artifacts. If the markup languages are not considered sufficiently human readable by
-auditors, then retain the ability to convert these markdown files into another format.
-This conversion can then be done when needed, not as a default step, removing the burden
-of document management where it is not absolutely necessary.
+Begin by clearly defining contracts between your services. Use
+purpose-built contract testing tools, such
+as [Pact](http://Pact.io "http://Pact.io")
+or [Spring
+Cloud Contract](https://spring.io/projects/spring-cloud-contract/ "https://spring.io/projects/spring-cloud-contract/"), to simplify managing and validating
+contracts. When any modification is made in a producer
+service, run contract tests to assess the contracts'
+validity. Similarly, before a consumer service integrates with
+a producer, run the relevant contract tests to guarantee
+they'll interact correctly. This process allows producers to
+maintain backwards compatibility, while allowing consumers to
+identify and fix potential integration issues early in the
+development lifecycle. Embed contract testing into your
+deployment pipeline. This ensures continuous validation of
+contracts as changes are made to services, promoting a
+continuous and consistent integration process.
 
 **Related information:**
 
-- [Wikipedia
-  - Conformance testing](https://en.wikipedia.org/wiki/Conformance_testing "https://en.wikipedia.org/wiki/Conformance_testing")
-- [Qualification
-  Strategy for Life Science Organizations](../../../whitepapers/latest/gxp-systems-on-aws/qualification-strategy-for-life-science-organizations.md "../../../whitepapers/latest/gxp-systems-on-aws/qualification-strategy-for-life-science-organizations.md")
-- [Automating
-  the Installation Qualification (IQ) Step to Expedite GxP
-  Compliance](https://aws.amazon.com/blogs/industries/automating-the-installation-qualification-iq-step-to-expedite-gxp-compliance/ "https://aws.amazon.com/blogs/industries/automating-the-installation-qualification-iq-step-to-expedite-gxp-compliance/")
-- [Automating
-  GxP compliance in the cloud: Best practices and
-  architecture guidelines](https://aws.amazon.com/blogs/industries/automating-gxp-compliance-in-the-cloud-best-practices-and-architecture-guidelines/ "https://aws.amazon.com/blogs/industries/automating-gxp-compliance-in-the-cloud-best-practices-and-architecture-guidelines/")
-- [Automating
-  GxP Infrastructure Installation Qualification on AWS with
-  Chef InSpec](https://aws.amazon.com/blogs/industries/automating-gxp-infrastructure-installation-qualification-on-aws-with-chef-inspec/ "https://aws.amazon.com/blogs/industries/automating-gxp-infrastructure-installation-qualification-on-aws-with-chef-inspec/")
+- [AWS Well-Architected Reliability Pillar: REL03-BP03 Provide
+  service contracts per API](../reliability-pillar/rel_service_architecture_api_contracts.md "../reliability-pillar/rel_service_architecture_api_contracts.md")
+- [Introduction
+  To Contract Testing With Examples](https://www.softwaretestinghelp.com/contract-testing/ "https://www.softwaretestinghelp.com/contract-testing/")
+- [CloudFormation
+  Command Line Interface: Testing resource types using
+  contract tests](../../../cloudformation-cli/latest/userguide/resource-type-test.md "../../../cloudformation-cli/latest/userguide/resource-type-test.md")

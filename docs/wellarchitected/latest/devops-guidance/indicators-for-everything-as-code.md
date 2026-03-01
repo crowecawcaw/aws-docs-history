@@ -6,8 +6,7 @@ scalability, and automation.
 
 ###### Indicators
 
-- [[DL.EAC.1] Organize
-  infrastructure as code for scale](dl.eac.md "dl.eac.md")
+- [[DL.EAC.1] Organize infrastructure as code for scale](dl.eac.md "dl.eac.md")
 - [[DL.EAC.2] Modernize networks through infrastructure as code](dl.eac.md "dl.eac.md")
 - [[DL.EAC.3] Codify data operations](dl.eac.md "dl.eac.md")
 - [[DL.EAC.4] Implement continuous configuration for enhanced application management](dl.eac.md "dl.eac.md")

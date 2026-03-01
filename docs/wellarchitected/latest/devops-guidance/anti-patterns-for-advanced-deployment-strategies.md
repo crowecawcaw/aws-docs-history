@@ -1,6 +1,4 @@
-# Anti-patterns for advanced
-
-deployment strategies
+# Anti-patterns for advanced deployment strategies
 
 - **Deploying directly to
   production**: Deploying changes directly to

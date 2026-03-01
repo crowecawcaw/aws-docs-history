@@ -1,50 +1,50 @@
-# [DL.EAC.6] Use general-purpose programming languages to generate Infrastructure-as-Code
+# [DL.EAC.1] Organize infrastructure as code for scale
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Developing infrastructure as code (IaC) using general-purpose programming languages
-aligns closely with modern software development practices and DevOps principles. IaC has
-traditionally been implemented as predefined templates modeled through domain-specific
-languages using markup languages like JSON or YAML. During deployment, these templates are
-provided parameters which specify environment-specific details. While parameterized
-templates are still a best practice for traditional IaC templates, this approach can
-become difficult to develop, troubleshoot, and manage as infrastructure and environments
-become more complex.
+Infrastructure as code (IaC) provides consistent and automated infrastructure
+management capabilities which are important to DevOps adoption. Effectively organizing and
+scaling IaC within your organization enhances flexibility, readability, and reusability
+across multiple teams, while streamlining infrastructure provisioning and maintenance.
 
-Using general-purpose programming languages changes how we develop, manage, and
-deploy IaC. It is no longer a collection of parameterized templates, but instead
-infrastructure is written in common programming languages such as TypeScript, Python, or
-Java, and can be treated the same as other code throughout the development lifecycle.
-Instead of providing environment-specific configuration during deployment, tools
-like [AWS Cloud Development Kit (AWS CDK)](../../../cdk/v2/guide/best-practices.md#best-practices-apps-stages "../../../cdk/v2/guide/best-practices.md#best-practices-apps-stages")
-generate separate templates for each environment using configurations defined in source
-code. This provides a more predictable, consistent, and reproducible deployment process.
+When working with IaC files and artifacts, apply modern
+practices such as modular design for improved management and
+reuse, and maintain thorough in-code documentation for
+clarity. Adopt IaC-specific design patterns, like breaking
+down infrastructure templates into reusable modules. Treat IaC
+testing with the same rigor as other software, focusing on
+security risks like excessive privileges or open security
+groups, while upholding quality standards. Use version
+control for IaC templates to ensure traceable changes,
+reliable rollbacks, and efficient sharing across the
+organization.
 
-Transitioning to using general-purpose programming languages
-for IaC can also change how you govern IaC at scale. For
-example, AWS CDK includes the ability to consume, publish, and
-version software components called AWS CDK
-[constructs](../../../cdk/v2/guide/constructs.md "../../../cdk/v2/guide/constructs.md")
-through private artifact registries or the
-open-source [Construct
-Hub](https://constructs.dev/ "https://constructs.dev/") registry.
+You must carefully consider your organization's governance structure when deciding
+how to implement IaC at scale. Depending on the specific needs, your organization might find
+one model more suitable than the other, or even adopt a hybrid approach that combines
+elements of both. The right approach to scaling is dependent on factors such as team
+dynamics, operating model, application type, and the desired rate of change.
+
+For example, services like [AWS Service Catalog](https://aws.amazon.com/servicecatalog/ "https://aws.amazon.com/servicecatalog/") and [AWS Proton](https://aws.amazon.com/proton/ "https://aws.amazon.com/proton/") provide
+distinct methods to distribute and consume secure-by-default software components and IaC in
+different ways. Service Catalog suits organizations favoring predefined deployment standards and
+centrally defined resource provisioning, while AWS Proton is ideal for organizations that
+allow development teams to maintain infrastructure and application autonomy. Some
+organizations might prefer to adopt a fully decentralized approach, where individual teams
+provision and manage their own [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") IaC templates. Choose the tools and distribution methods that best
+support your governance model and business goals.
 
 **Related information:**
 
-- [Best
-  practices for developing and deploying cloud
-  infrastructure with the AWS CDK](../../../cdk/v2/guide/best-practices.md "../../../cdk/v2/guide/best-practices.md")
-- [CDK
-  for Terraform (CDKtf)](https://www.terraform.io/docs/cdktf/index.html "https://www.terraform.io/docs/cdktf/index.html")
-- [CDK for Kubernetes
-  (CDK8s)](https://cdk8s.io/ "https://cdk8s.io/")
-- [AWS Solutions Constructs](../../../solutions/latest/constructs/welcome.md "../../../solutions/latest/constructs/welcome.md")
-- [Artifact
-  Repository - AWS CodeArtifact](https://aws.amazon.com/codeartifact/ "https://aws.amazon.com/codeartifact/")
 - [Infrastructure
-  IS Code with the AWS CDK](https://www.youtube.com/watch?v=Lh-kVC2r2AU "https://www.youtube.com/watch?v=Lh-kVC2r2AU")
-- [Best
-  practices for using the AWS CDK in TypeScript to create
-  IaC projects](../../../prescriptive-guidance/latest/best-practices-cdk-typescript-iac/introduction.md "../../../prescriptive-guidance/latest/best-practices-cdk-typescript-iac/introduction.md")
-- [Adding
-  the "AWS CDK bootstrap" action in Amazon CodeCatalyst](../../../codecatalyst/latest/userguide/cdk-boot-action.md "../../../codecatalyst/latest/userguide/cdk-boot-action.md")
+  as code - Introduction to DevOps on AWS](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md")
+- [Infrastructure
+  as Code on AWS - An Introduction](https://blog.awsfundamentals.com/infrastructure-as-code-on-aws-an-introduction "https://blog.awsfundamentals.com/infrastructure-as-code-on-aws-an-introduction")
+- [Accelerate
+  deployments on AWS with effective governance](https://aws.amazon.com/blogs/architecture/accelerate-deployments-on-aws-with-effective-governance/ "https://aws.amazon.com/blogs/architecture/accelerate-deployments-on-aws-with-effective-governance/")
+- [Source
+  Control concepts](https://aws.amazon.com/devops/source-control/ "https://aws.amazon.com/devops/source-control/")
+- [Design
+  Patterns](https://refactoring.guru/design-patterns "https://refactoring.guru/design-patterns")
+- [Amazon's
+  approach to security during development: Octane](https://youtu.be/NeR7FhHqDGQ?t=1571 "https://youtu.be/NeR7FhHqDGQ?t=1571")

@@ -1,52 +1,42 @@
-# [AG.DEP.2] Continuously baseline environments to manage drift
+# [AG.DEP.4] Codify environment vending
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Baselining environments is a structured process for routinely updating and
-standardizing individual environments within the landing zone to match a specified
-configured state or _baseline_. Drift management, a part of this process,
-involves the identification and resolution of differences between the environment's current
-configuration and its desired baseline state.
+A core benefit of the DevOps model is team autonomy and reducing cross-team
+dependencies. Through infrastructure as code (IaC), teams can establish and manage their
+environments autonomously in a self-service manner, shifting from traditional methods
+where operations teams would oversee these responsibilities.
 
-Regular baselining helps to ensure consistency across
-environments at scale, minimizing errors and enhancing
-operational efficiency and governance capabilities. The
-centralized platform team that manages the landing zone and
-environments within require the ability to consistently add
-new features, security configuration, performance
-improvements, or resolving detected drift issues.
+By provisioning environments, and the accounts operating them,
+as IaC or API calls, teams are empowered with the flexibility
+to create environments according to their specific
+requirements and ways of working. Codifying the environment
+provisioning process provides teams with the flexibility to
+create both persistent and ephemeral environments based on
+their specific needs and workflows. In particular, this
+code-based approach enables the easy creation of ephemeral
+environments that can be automatically setup and torn down
+when not in use, optimizing resource utilization and cost.
 
-The team must be able to baseline all targeted environments
-every time a change is made to the overall landing zone
-desired state definition or when a misconfiguration is
-detected within the environment.
-
-It is the shared responsibility of the platform team and teams operating workloads to
-verify that the correct policies, alerts, and resources are configured properly and
-securely. As these teams are both making changes to the same environment, it is important
-that all controls and resources managed by the platform team are secured against
-unauthorized modifications by other teams operating within the environment. Changes being
-made by the platform team to the environment should be communicated to the other teams
-to promote a culture of transparency and collaboration.
-
-All deployment, updates, or new features made to the
-environments should be made through an infrastructure as code
-(IaC) approach, which allows for version control, testing, and
-reproducibility of environments. It is also recommended to
-have a separate staging environment to test these changes
-before they are deployed to the production environments,
-further reducing the risk of disruptions or errors.
+Use shared libraries or services that allow teams to request
+and manage environments using IaC. These libraries should
+encapsulate best practices for environment configuration and
+should be designed to be used directly in deployment
+pipelines, enabling individual teams to manage their
+environments autonomously. This reduces the need for manual
+requests or interactions with a developer portal, as well as
+reduces the reliance on platform teams for provisioning and
+managing environments on their behalf. This approach promotes
+consistency and reduces overhead from cross-team
+collaboration.
 
 **Related information:**
 
-- [Customize
-  your AWS Control Tower landing zone](../../../controltower/latest/userguide/customize-landing-zone.md "../../../controltower/latest/userguide/customize-landing-zone.md")
-- [Types
-  of Landing Zone Governance Drift](../../../controltower/latest/userguide/governance-drift.md "../../../controltower/latest/userguide/governance-drift.md")
-- [Customize
-  accounts with Account Factory Customization (AFC)](../../../controltower/latest/userguide/af-customization-page.md "../../../controltower/latest/userguide/af-customization-page.md")
-- [Overview
-  of AWS Control Tower Account Factory for Terraform
-  (AFT)](../../../controltower/latest/userguide/aft-overview.md "../../../controltower/latest/userguide/aft-overview.md")
-- [Implementing
-  automatic drift detection in CDK Pipelines using Amazon EventBridge](https://aws.amazon.com/blogs/devops/implementing-automatic-drift-detection-in-cdk-pipelines-using-amazon-eventbridge "https://aws.amazon.com/blogs/devops/implementing-automatic-drift-detection-in-cdk-pipelines-using-amazon-eventbridge")
+- [What
+  is the AWS CDK?](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
+- [Create
+  an AWS Proton environment](../../../proton/latest/userguide/ag-create-env.md "../../../proton/latest/userguide/ag-create-env.md")
+- [Provision
+  and manage accounts with Account Factory](../../../controltower/latest/userguide/account-factory.md "../../../controltower/latest/userguide/account-factory.md")
+- [Provision
+  Accounts Through Service Catalog](../../../controltower/latest/userguide/service-catalog.md "../../../controltower/latest/userguide/service-catalog.md")

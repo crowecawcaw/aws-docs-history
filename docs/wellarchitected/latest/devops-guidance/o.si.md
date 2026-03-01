@@ -1,70 +1,48 @@
-# [O.SI.5] Set and monitor service level objectives against performance standards
+# [O.SI.2] Centralize tooling for streamlined system instrumentation and telemetry data interpretation
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Teams should define and document Service Level Objectives (SLOs) for every service,
-regardless of whether it is directly consumed by external customers or used internally.
-SLOs should be accessible and clearly communicate the expected standard of performance and
-availability for the service. While Service Level Agreements (SLAs), which define a
-contract that must be met for service availability, are typically defined and published
-for services that are directly consumed by customers, it is equally important to establish
-SLOs for services consumed internally. Such SLOs help ensure performance standards are
-met, even in the absence of formal SLAs, and can also act as data points for meeting Key
-Performance Indicators (KPIs).
+Centralized observability platforms are able to offer user-friendly, self-service
+capabilities to individual teams that simplify embedding visibility into system components
+and their dependencies. These tools streamline the onboarding process and offer
+auto-instrumentation capabilities to automate the monitoring of applications.
 
-The creation of SLOs should be a collaborative effort
-involving both the business and technical teams. The technical
-team must provide realistic estimations based on the system's
-capabilities and constraints, while the business team ensures
-these align with the company's business objectives and
-internal standards.
+Adopt an observability platform that provides observability to teams using the
+_X as a Service_ (XaaS) interaction mode as defined in the [Team Topologies](https://teamtopologies.com/ "https://teamtopologies.com/") book by Matthew Skelton and
+Manuel Pais. The platform needs to support ingesting the required data sources for effective
+monitoring, and provide the desired level of visibility into the system components and their
+dependencies.
 
-SLOs should be SMART (Specific, Measurable, Achievable,
-Relevant, and Time-bound). This means that they should clearly
-define what is to be achieved, provide a way to measure the
-progress, ensure that the goals can realistically be achieved
-given the current resources and capabilities, align with
-business objectives, and set a time frame for the achievement
-of these goals.
+Onboarding to the platform should be easy for teams, or support auto-instrumentation
+to automatically monitor applications for a hands-off experience. This enables the
+organization to achieve real-time visibility into system data and improve the ability to
+identify and resolve issues quickly.
 
-When defining SLOs, rather than using averages, it is
-preferable to use percentiles for measurement. Percentiles are
-more reliable in detecting outliers and provide a more
-accurate representation of the system's performance. For
-example, a 99th percentile latency SLO means that 99% of
-requests should be faster than a specific threshold, providing
-a much more accurate depiction of the service's performance
-than an average would.
+The observability platform should offer capabilities to follow
+requests through the system, the services it interacts with,
+the state of the infrastructure that these services run on,
+and the impact of each of these on user experience. By
+understanding the entire request pathway, teams can identify
+where slowdowns or bottlenecks occur, whether this latency is
+caused by hardware or dependencies between microservices that
+weren't identified during development.
 
-Teams internally measure and monitor their SLOs to ensure they
-are meeting the defined business and technical objectives.
-When measuring against a SLO, teams produce Service Level
-Indicators (SLIs), which are the actual measurements of the
-performance and availability of the service at that point in
-time. SLIs are used to evaluate whether the service is meeting
-the defined SLOs. By continuously tracking SLIs against the
-target SLOs, teams can detect and resolve issues that impact
-the performance and availability of their services while
-ensuring that they continue to meet both external customer
-expectations and internal performance standards.
-
-Continuous improvement and periodic review of SLOs are
-required to ensure they remain realistic and aligned with both
-the system's capabilities and the business's objectives. Any
-changes to the system that could affect its performance should
-trigger a review of the associated SLOs.
+As the observability platform matures, it could begin to offer other capabilities
+such as trend analysis, anomaly detection, and automated responses, ultimately aiming to
+reduce the mean time to detect ([MTTD](../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttd.md "../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttd.md")) and the mean time to resolve ([MTTR](../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttr.md "../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttr.md")) any issues. This can lead to reduced downtime and improved ability to
+achieve desired business outcomes.
 
 **Related information:**
 
+- [AWS observability tools](../management-and-governance-guide/aws-observability-tools.md "../management-and-governance-guide/aws-observability-tools.md")
 - [What
-  Is SLA (Service Level Agreement)?](https://aws.amazon.com/what-is/service-level-agreement/ "https://aws.amazon.com/what-is/service-level-agreement/")
-- [What
-  is the difference between SLA and KPI?](https://aws.amazon.com/what-is/service-level-agreement/#seo-faq-pairs#sla-kpi "https://aws.amazon.com/what-is/service-level-agreement/#seo-faq-pairs#sla-kpi")
-- [AWS Well-Architected Framework - Reliability Pillar](../reliability-pillar/welcome.md "../reliability-pillar/welcome.md")
-- [Designed-For
-  Availability for Select AWS Services](../reliability-pillar/appendix-a-designed-for-availability-for-select-aws-services.md "../reliability-pillar/appendix-a-designed-for-availability-for-select-aws-services.md")
-- [Understanding
-  KPIs ("Golden Signals")](https://aws-observability.github.io/observability-best-practices/guides/operational/business/key-performance-indicators/#10-understanding-kpis-golden-signals "https://aws-observability.github.io/observability-best-practices/guides/operational/business/key-performance-indicators/#10-understanding-kpis-golden-signals")
+  is Amazon CloudWatch Application Insights?](../../../AmazonCloudWatch/latest/monitoring/appinsights-what-is.md "../../../AmazonCloudWatch/latest/monitoring/appinsights-what-is.md")
+- [Integrated
+  observability partners](../management-and-governance-guide/integrated-observability-partners.md "../management-and-governance-guide/integrated-observability-partners.md")
+- [Observability
+  Access Manager](https://github.com/aws-samples/cloudwatch-obervability-access-manager-terraform "https://github.com/aws-samples/cloudwatch-obervability-access-manager-terraform")
+- [Apache
+  DevLake](https://devlake.apache.org/ "https://devlake.apache.org/")
 - [The
-  Importance of Key Performance Indicators (KPIs) for
-  Large-Scale Cloud Migrations](https://aws.amazon.com/blogs/mt/the-importance-of-key-performance-indicators-kpis-for-large-scale-cloud-migrations/ "https://aws.amazon.com/blogs/mt/the-importance-of-key-performance-indicators-kpis-for-large-scale-cloud-migrations/")
+  Amazon Software Development Process: Self-Service
+  Tools](https://youtu.be/52SC80SFPOw?t=579 "https://youtu.be/52SC80SFPOw?t=579")

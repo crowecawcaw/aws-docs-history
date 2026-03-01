@@ -9,8 +9,7 @@ security and reliability of the development process.
 ###### Indicators
 
 - [[DL.SCM.1] Use a version control system with appropriate access management](dl.scm.md "dl.scm.md")
-- [[DL.SCM.2] Keep feature branches
-  short-lived](dl.scm.md "dl.scm.md")
+- [[DL.SCM.2] Keep feature branches short-lived](dl.scm.md "dl.scm.md")
 - [[DL.SCM.3] Use artifact repositories with enforced authentication and authorization](dl.scm.md "dl.scm.md")
 - [[DL.SCM.4] Grant access only to trusted repositories](dl.scm.md "dl.scm.md")
 - [[DL.SCM.5] Maintain an approved open-source software license list](dl.scm.md "dl.scm.md")
