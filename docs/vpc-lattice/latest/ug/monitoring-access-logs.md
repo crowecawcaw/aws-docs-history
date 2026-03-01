@@ -18,8 +18,7 @@ Logs**.
 
 ###### Contents
 
-- [IAM permissions required to enable access
-  logs](#monitoring-access-logs-IAM "#monitoring-access-logs-IAM")
+- [IAM permissions required to enable access logs](#monitoring-access-logs-IAM "#monitoring-access-logs-IAM")
 - [Access log destinations](#monitoring-access-logs-destinations "#monitoring-access-logs-destinations")
 - [Enable access logs](#monitoring-access-logs-enable "#monitoring-access-logs-enable")
 - [Request tracking](#x-amzn-RequestId-enable "#x-amzn-RequestId-enable")
@@ -27,9 +26,7 @@ Logs**.
 - [Resource access log contents](#monitoring-resource-access-logs-contents "#monitoring-resource-access-logs-contents")
 - [Troubleshoot access logs](#monitoring-access-logs-troubleshoot "#monitoring-access-logs-troubleshoot")
 
-## IAM permissions required to enable access
-
-logs
+## IAM permissions required to enable access logs
 
 To enable access logs and send the logs to their destinations, you must have the
 following actions in the policy attached to the IAM user, group, or role that you are
@@ -129,14 +126,10 @@ access logs to the destination that you choose.
 
 ###### Contents
 
-- [Enable access logs using the
-  console](#monitoring-access-logs-console "#monitoring-access-logs-console")
-- [Enable access logs using the
-  AWS CLI](#monitoring-access-logs-cli "#monitoring-access-logs-cli")
+- [Enable access logs using the console](#monitoring-access-logs-console "#monitoring-access-logs-console")
+- [Enable access logs using the AWS CLI](#monitoring-access-logs-cli "#monitoring-access-logs-cli")
 
-### Enable access logs using the
-
-console
+### Enable access logs using the console
 
 You can enable access logs for a service network, a service, or a resource configuration during creation.
 You can also enable access logs after you create a service network, service, or resource configuration as
@@ -163,9 +156,7 @@ described in the following procedure.
 
 6. Choose **Save changes**.
 
-### Enable access logs using the
-
-AWS CLI
+### Enable access logs using the AWS CLI
 
 Use the CLI command [create-access-log-subscription](../../../cli/latest/reference/vpc-lattice/create-access-log-subscription.md "../../../cli/latest/reference/vpc-lattice/create-access-log-subscription.md") to enable access logs for service
 networks or services.

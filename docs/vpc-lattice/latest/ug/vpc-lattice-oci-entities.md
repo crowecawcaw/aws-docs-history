@@ -30,8 +30,7 @@ associate the resources with your default service network.
 
 Clients in other VPCs or AWS accounts that you've shared your service network with
 can access these resources through their own service network
-endpoints or VPC associations. For more information, see [Manage associations for a VPC Lattice
-resource configuration](resource-configuration-associations.md "resource-configuration-associations.md").
+endpoints or VPC associations. For more information, see [Manage associations for a VPC Lattice resource configuration](resource-configuration-associations.md "resource-configuration-associations.md").
 
 ### Considerations
 

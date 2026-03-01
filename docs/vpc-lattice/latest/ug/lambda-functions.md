@@ -48,9 +48,7 @@ VPC Lattice service. For more information, see [Lambda function versions](../../
 [Create an alias for a Lambda function](../../../lambda/latest/dg/configuration-aliases.md "../../../lambda/latest/dg/configuration-aliases.md")
 in the _AWS Lambda Developer Guide_.
 
-## Create a target group for the Lambda
-
-function
+## Create a target group for the Lambda function
 
 Create a target group, which is used in request routing. If the request content
 matches a listener rule with an action to forward it to this target group, the
@@ -67,8 +65,7 @@ VPC Lattice service invokes the registered Lambda function.
    function**.
 5. For **Target group name**, enter a name for the target group.
 6. For **Lambda event structure version**, choose a version.
-   For more information, see [Receive events from the VPC Lattice
-   service](#receive-event-from-service "#receive-event-from-service").
+   For more information, see [Receive events from the VPC Lattice service](#receive-event-from-service "#receive-event-from-service").
 7. (Optional) To add tags, expand **Tags**, choose **Add
    new tag**, and enter the tag key and tag value.
 8. Choose **Next**.
@@ -79,16 +76,12 @@ VPC Lattice service invokes the registered Lambda function.
 
 10. Choose **Create target group**.
 
-###### To create a target group and register the Lambda function using the
-
-AWS CLI
+###### To create a target group and register the Lambda function using the AWS CLI
 
 Use the [create-target-group](../../../cli/latest/reference/vpc-lattice/create-target-group.md "../../../cli/latest/reference/vpc-lattice/create-target-group.md")
 and [register-targets](../../../cli/latest/reference/vpc-lattice/register-targets.md "../../../cli/latest/reference/vpc-lattice/register-targets.md") commands.
 
-## Receive events from the VPC Lattice
-
-service
+## Receive events from the VPC Lattice service
 
 The VPC Lattice service supports Lambda invocation for requests over both HTTP and
 HTTPS. The service sends an event in JSON format, and adds the

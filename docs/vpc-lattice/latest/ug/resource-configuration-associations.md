@@ -1,6 +1,4 @@
-# Manage associations for a VPC Lattice
-
-resource configuration
+# Manage associations for a VPC Lattice resource configuration
 
 Consumer accounts with which you share a resource configuration with and clients in
 your account can access the resource configuration either directly using a VPC endpoint
@@ -8,9 +6,7 @@ of type resource or through a VPC endpoint of type service-network. As a result,
 resource configuration will have endpoint associations and service network
 associations.
 
-## Manage service network resource
-
-associations
+## Manage service network resource associations
 
 Create or delete a service network association.
 
@@ -56,9 +52,7 @@ Use the [create-service-network-resource-association](../../../cli/latest/refere
 
 Use the [delete-service-network-resource-association](../../../cli/latest/reference/vpc-lattice/delete-service-network-resource-association.md "../../../cli/latest/reference/vpc-lattice/delete-service-network-resource-association.md") command.
 
-## Manage resource VPC endpoint
-
-associations
+## Manage resource VPC endpoint associations
 
 Consumer accounts with access to your resource configuration or clients in
 your account can access the resource configuration using a resource VPC

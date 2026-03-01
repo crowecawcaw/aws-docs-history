@@ -58,8 +58,7 @@ For more information, see [Health checks for your VPC Lattice target groups](tar
 
 Health checks are not available if the target type is **Lambda
 function**. 11. For **Lambda event structure version**, choose a version.
-For more information, see [Receive events from the VPC Lattice
-service](lambda-functions.md#receive-event-from-service "lambda-functions.md#receive-event-from-service").
+For more information, see [Receive events from the VPC Lattice service](lambda-functions.md#receive-event-from-service "lambda-functions.md#receive-event-from-service").
 
 This option is available only if the target type is **Lambda function** 12. (Optional) To add tags, expand **Tags**, choose **Add
 new tag**, and enter the tag key and tag value. 13. Choose **Next**. 14. For **Register targets**, you can either skip this step or

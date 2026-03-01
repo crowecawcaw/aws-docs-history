@@ -1,8 +1,7 @@
 # Amazon VPC Lattice API permissions
 
 You must grant IAM identities (such as users or roles) permission to call the
-VPC Lattice API actions they need, as described in [Policy actions
-for VPC Lattice](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions"). In addition,
+VPC Lattice API actions they need, as described in [Policy actions for VPC Lattice](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions"). In addition,
 for some VPC Lattice actions, you must grant IAM identities permission to call specific
 actions from other AWS APIs.
 

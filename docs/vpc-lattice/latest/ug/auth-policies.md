@@ -24,14 +24,12 @@ parameter with the command.
 
 ###### Contents
 
-- [Common elements in an auth
-  policy](#auth-policies-common-elements "#auth-policies-common-elements")
+- [Common elements in an auth policy](#auth-policies-common-elements "#auth-policies-common-elements")
 - [Resource format for auth policies](#auth-policies-resource-format "#auth-policies-resource-format")
 - [Condition keys that can be used in auth policies](#auth-policies-condition-keys "#auth-policies-condition-keys")
 - [Resource tags](#resource-tags "#resource-tags")
 - [Principal tags](#principal-tags "#principal-tags")
-- [Anonymous (unauthenticated)
-  principals](#anonymous-unauthenticated-principals "#anonymous-unauthenticated-principals")
+- [Anonymous (unauthenticated) principals](#anonymous-unauthenticated-principals "#anonymous-unauthenticated-principals")
 - [Example auth policies](#example-auth-policies "#example-auth-policies")
 - [How authorization works](#auth-policies-evaluation-logic "#auth-policies-evaluation-logic")
   To get started with auth policies, follow the procedure to create an auth policy that
@@ -43,16 +41,11 @@ auth policies. For instructions that use the console, see [Service networks in V
 
 ###### Tasks
 
-- [Add an auth policy to a
-  service network](#add-service-network-auth-policy "#add-service-network-auth-policy")
-- [Change a service network's
-  auth type](#change-service-network-auth-type "#change-service-network-auth-type")
-- [Remove an auth policy from
-  a service network](#remove-service-network-auth-policy "#remove-service-network-auth-policy")
+- [Add an auth policy to a service network](#add-service-network-auth-policy "#add-service-network-auth-policy")
+- [Change a service network's auth type](#change-service-network-auth-type "#change-service-network-auth-type")
+- [Remove an auth policy from a service network](#remove-service-network-auth-policy "#remove-service-network-auth-policy")
 
-### Add an auth policy to a
-
-service network
+### Add an auth policy to a service network
 
 Follow the steps in this section to use the AWS CLI to:
 
@@ -60,9 +53,7 @@ Follow the steps in this section to use the AWS CLI to:
 - Add an auth policy to the service network. If you do not add an auth
   policy, all traffic will get an access denied error.
 
-###### To enable access control and add an auth policy to a new service
-
-network
+###### To enable access control and add an auth policy to a new service network
 
 1. To enable access control on a service network so that it can use an
    auth policy, use the **create-service-network** command
@@ -98,8 +89,7 @@ aws vpc-lattice put-auth-policy --resource-identifier `sn-0123456789abcdef0` --p
 ```
 
 Use JSON to create a policy definition. For more information, see
-[Common elements in an auth
-policy](#auth-policies-common-elements "#auth-policies-common-elements").
+[Common elements in an auth policy](#auth-policies-common-elements "#auth-policies-common-elements").
 
 If successful, the command returns output similar to the
 following.
@@ -111,9 +101,7 @@ following.
 }
 ```
 
-###### To enable access control and add an auth policy to an existing service
-
-network
+###### To enable access control and add an auth policy to an existing service network
 
 1. To enable access control on a service network so that it can use an
    auth policy, use the **update-service-network** command
@@ -145,8 +133,7 @@ aws vpc-lattice put-auth-policy --resource-identifier `sn-0123456789abcdef0` --p
 ```
 
 Use JSON to create a policy definition. For more information, see
-[Common elements in an auth
-policy](#auth-policies-common-elements "#auth-policies-common-elements").
+[Common elements in an auth policy](#auth-policies-common-elements "#auth-policies-common-elements").
 
 If successful, the command returns output similar to the
 following.
@@ -158,9 +145,7 @@ following.
 }
 ```
 
-### Change a service network's
-
-auth type
+### Change a service network's auth type
 
 ###### To disable the auth policy for a service network
 
@@ -175,9 +160,7 @@ If you need to enable the auth policy again later, run this command with
 `AWS_IAM` specified for the `--auth-type`
 option.
 
-### Remove an auth policy from
-
-a service network
+### Remove an auth policy from a service network
 
 ###### To remove an auth policy from a service network
 
@@ -195,15 +178,11 @@ policies. For instructions that use the console, see [Services in VPC Lattice](s
 
 ###### Tasks
 
-- [Add an auth policy to a
-  service](#add-service-auth-policy "#add-service-auth-policy")
+- [Add an auth policy to a service](#add-service-auth-policy "#add-service-auth-policy")
 - [Change a service's auth type](#change-service-auth-type "#change-service-auth-type")
-- [Remove an auth policy from a
-  service](#remove-service-auth-policy "#remove-service-auth-policy")
+- [Remove an auth policy from a service](#remove-service-auth-policy "#remove-service-auth-policy")
 
-### Add an auth policy to a
-
-service
+### Add an auth policy to a service
 
 Follow these steps to use the AWS CLI to:
 
@@ -251,8 +230,7 @@ aws vpc-lattice put-auth-policy --resource-identifier `svc-0123456789abcdef0` --
 ```
 
 Use JSON to create a policy definition. For more information, see
-[Common elements in an auth
-policy](#auth-policies-common-elements "#auth-policies-common-elements").
+[Common elements in an auth policy](#auth-policies-common-elements "#auth-policies-common-elements").
 
 If successful, the command returns output similar to the
 following.
@@ -264,9 +242,7 @@ following.
 }
 ```
 
-###### To enable access control and add an auth policy to an existing
-
-service
+###### To enable access control and add an auth policy to an existing service
 
 1. To enable access control on a service so that it can use an auth
    policy, use the **update-service** command with the
@@ -298,8 +274,7 @@ aws vpc-lattice put-auth-policy --resource-identifier `svc-0123456789abcdef0` --
 ```
 
 Use JSON to create a policy definition. For more information, see
-[Common elements in an auth
-policy](#auth-policies-common-elements "#auth-policies-common-elements").
+[Common elements in an auth policy](#auth-policies-common-elements "#auth-policies-common-elements").
 
 If successful, the command returns output similar to the
 following.
@@ -326,9 +301,7 @@ If you need to enable the auth policy again later, run this command with
 `AWS_IAM` specified for the `--auth-type`
 option.
 
-### Remove an auth policy from a
-
-service
+### Remove an auth policy from a service
 
 ###### To remove an auth policy from a service
 
@@ -345,9 +318,7 @@ If you enable auth policies that require authenticated requests to a service, an
 requests to that service must contain a valid request signature that is computed using
 Signature Version 4 (SigV4). For more information, see [SIGv4 authenticated requests for Amazon VPC Lattice](sigv4-authenticated-requests.md "sigv4-authenticated-requests.md").
 
-## Common elements in an auth
-
-policy
+## Common elements in an auth policy
 
 VPC Lattice auth policies are specified using the same syntax as IAM policies. For
 more information, see [Identity-based
@@ -509,9 +480,7 @@ account IDs or role ARNs.
 }
 ```
 
-## Anonymous (unauthenticated)
-
-principals
+## Anonymous (unauthenticated) principals
 
 Anonymous principals are callers that don't sign their AWS requests with [Signature Version 4 (SigV4)](sigv4-authenticated-requests.md "sigv4-authenticated-requests.md"), and are
 within a VPC that is connected to the service network. Anonymous principals can make
@@ -593,9 +562,7 @@ JSON
 
 ```
 
-###### Example 3: Restrict access to services by authenticated principals in a specific
-
-VPC
+###### Example 3: Restrict access to services by authenticated principals in a specific VPC
 
 The following auth policy example only allows authenticated requests from
 principals in the VPC whose VPC ID is

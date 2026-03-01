@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-VPCLatticeFullAccess
+## AWS managed policy: VPCLatticeFullAccess
 
 This policy provides full access to Amazon VPC Lattice and limited access to other dependent
 services. It includes permissions to do the following:
@@ -46,12 +44,9 @@ Reference_.
 To use other AWS services that VPC Lattice is integrated with and the entire suite of
 VPC Lattice features, you must have specific additional permissions. These permissions are
 not included in the `VPCLatticeFullAccess` managed policy because of the
-[confused deputy](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") privilege escalation risk. For more information, see [Additional
-required permissions for full access](security_iam_id-based-policies.md#security_iam_id-based-policy-additional-permissions "security_iam_id-based-policies.md#security_iam_id-based-policy-additional-permissions").
+[confused deputy](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") privilege escalation risk. For more information, see [Additional required permissions for full access](security_iam_id-based-policies.md#security_iam_id-based-policy-additional-permissions "security_iam_id-based-policies.md#security_iam_id-based-policy-additional-permissions").
 
-## AWS managed policy:
-
-VPCLatticeReadOnlyAccess
+## AWS managed policy: VPCLatticeReadOnlyAccess
 
 This policy provides read-only access to Amazon VPC Lattice and limited access to other
 dependent services. It includes permissions to do the following:
@@ -74,18 +69,14 @@ dependent services. It includes permissions to do the following:
 To view the permissions for this policy, see [VPCLatticeReadOnlyAccess](../../../aws-managed-policy/latest/reference/VPCLatticeReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/VPCLatticeReadOnlyAccess.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-VPCLatticeServicesInvokeAccess
+## AWS managed policy: VPCLatticeServicesInvokeAccess
 
 This policy provides access to invoke Amazon VPC Lattice services.
 
 To view the permissions for this policy, see [VPCLatticeServicesInvokeAccess](../../../aws-managed-policy/latest/reference/VPCLatticeServicesInvokeAccess.md "../../../aws-managed-policy/latest/reference/VPCLatticeServicesInvokeAccess.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AWSVpcLatticeServiceRolePolicy
+## AWS managed policy: AWSVpcLatticeServiceRolePolicy
 
 This policy is attached to a service-linked role named **AWSServiceRoleForVpcLattice** to allow VPC Lattice to perform actions on your
 behalf. You can't attach this policy to your IAM entities. For more information, see

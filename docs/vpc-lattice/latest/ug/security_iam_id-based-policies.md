@@ -1,6 +1,4 @@
-# Identity-based policies for
-
-Amazon VPC Lattice
+# Identity-based policies for Amazon VPC Lattice
 
 By default, users and roles don't have permission to create or modify VPC Lattice
 resources. To grant users permission to perform actions on the
@@ -14,16 +12,11 @@ For details about actions and resource types defined by VPC Lattice, including t
 
 ###### Contents
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Additional
-  required permissions for full access](#security_iam_id-based-policy-additional-permissions "#security_iam_id-based-policy-additional-permissions")
-- [Identity-based policy examples
-  for VPC Lattice](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Additional required permissions for full access](#security_iam_id-based-policy-additional-permissions "#security_iam_id-based-policy-additional-permissions")
+- [Identity-based policy examples for VPC Lattice](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete VPC Lattice resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -56,9 +49,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Additional
-
-required permissions for full access
+## Additional required permissions for full access
 
 To use other AWS services that VPC Lattice is integrated with and the entire suite of
 VPC Lattice features, you must have specific additional permissions. These permissions are
@@ -130,9 +121,7 @@ This policy provides the following additional permissions:
 - `firehose:TagDeliveryStream`: Allows you to add or update tags for
   Firehose delivery streams.
 
-## Identity-based policy examples
-
-for VPC Lattice
+## Identity-based policy examples for VPC Lattice
 
 ###### Topics
 
@@ -146,8 +135,7 @@ for VPC Lattice
 The following example demonstrates a policy that gives users with this policy the
 permission to create, update, and delete the VPC associations to a service network,
 but only for the VPC and service network specified in the condition. For more
-information about specifying condition keys, see [Policy
-condition keys for VPC Lattice](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys").
+information about specifying condition keys, see [Policy condition keys for VPC Lattice](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys").
 
 JSON
 
@@ -187,8 +175,7 @@ The following example demonstrates a policy that limits the service associations
 to a service network that users with this policy can create by specifying the ARNs of
 the service and service network that can be used with the
 `CreateServiceNetworkServiceAssociation` API action. For more
-information about specifying the ARN values, see [Policy
-resources for VPC Lattice](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources").
+information about specifying the ARN values, see [Policy resources for VPC Lattice](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources").
 
 JSON
 

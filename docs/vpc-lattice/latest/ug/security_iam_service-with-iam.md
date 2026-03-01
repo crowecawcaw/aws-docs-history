@@ -20,9 +20,7 @@ For a high-level view of how VPC Lattice and other AWS services work with most I
 features, see [AWS
 services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based policies
-
-for VPC Lattice
+## Identity-based policies for VPC Lattice
 
 **Supports identity-based policies:**
 
@@ -39,9 +37,7 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-## Resource-based
-
-policies within VPC Lattice
+## Resource-based policies within VPC Lattice
 
 **Supports resource-based policies:**
 
@@ -62,9 +58,7 @@ VPC Lattice also supports resource-based permissions policies for integration wi
 AWS Resource Access Manager. You can use these resource-based policies to grant permission to manage connectivity to other
 AWS accounts or organizations for services, resource configurations, and service networks. For more information, see [Share your VPC Lattice entities](sharing.md "sharing.md").
 
-## Policy actions
-
-for VPC Lattice
+## Policy actions for VPC Lattice
 
 **Supports policy actions:**
 
@@ -93,9 +87,7 @@ actions whose names begin with the word `Get`, as follows:
 For a complete list of VPC Lattice API actions, see [Actions defined by Amazon VPC Lattice](../../../service-authorization/latest/reference/list_amazonvpclattice.md#amazonvpclattice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonvpclattice.md#amazonvpclattice-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-## Policy
-
-resources for VPC Lattice
+## Policy resources for VPC Lattice
 
 **Supports policy resources:**
 
@@ -175,9 +167,7 @@ information.
 "Resource": "arn:aws:vpc-lattice:`region`:`account-id`:targetgroup/`target-group-id`"
 ```
 
-## Policy
-
-condition keys for VPC Lattice
+## Policy condition keys for VPC Lattice
 
 **Supports service-specific policy condition keys:**
 
@@ -199,9 +189,7 @@ AWS supports global condition keys and service-specific condition keys. For
 information about AWS global condition keys, see [AWS global condition
 context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_.
 
-## Access control lists (ACLs) in
-
-VPC Lattice
+## Access control lists (ACLs) in VPC Lattice
 
 **Supports ACLs:**
 
@@ -210,9 +198,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control (ABAC)
-
-with VPC Lattice
+## Attribute-based access control (ABAC) with VPC Lattice
 
 **Supports ABAC (tags in policies):**
 
@@ -229,9 +215,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary credentials
-
-with VPC Lattice
+## Using temporary credentials with VPC Lattice
 
 **Supports temporary credentials:**
 
@@ -243,9 +227,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Service roles for
-
-VPC Lattice
+## Service roles for VPC Lattice
 
 **Supports service roles:**
 
@@ -260,9 +242,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break VPC Lattice functionality. Edit
 service roles only when VPC Lattice provides guidance to do so.
 
-## Service-linked roles
-
-for VPC Lattice
+## Service-linked roles for VPC Lattice
 
 **Supports service-linked roles:**
 

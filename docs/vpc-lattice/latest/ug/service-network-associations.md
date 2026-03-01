@@ -1,6 +1,4 @@
-# Manage the associations for a VPC Lattice
-
-service network
+# Manage the associations for a VPC Lattice service network
 
 When you associate a service or a resource configuration with the service network, it
 enables clients in VPCs connected to the service network, to make requests to the
@@ -19,23 +17,18 @@ DNS is enabled on the service network endpoint or service network VPC associatio
 
 ###### Contents
 
-- [Manage service network
-  service associations](#service-network-service-associations "#service-network-service-associations")
-- [Manage service
-  network resource associations](#service-network-resource-config-associations "#service-network-resource-config-associations")
+- [Manage service network service associations](#service-network-service-associations "#service-network-service-associations")
+- [Manage service network resource associations](#service-network-resource-config-associations "#service-network-resource-config-associations")
 - [Manage service network VPC associations](#service-network-vpc-associations "#service-network-vpc-associations")
 - [Manage service network VPC endpoint associations](#service-network-vpc-endpoint-associations "#service-network-vpc-endpoint-associations")
 
-## Manage service network
-
-service associations
+## Manage service network service associations
 
 You can associate services that reside in your account or services that are shared
 with you from different accounts. This is an optional step while creating a service
 network. However, a service network is not fully functional until you associate a
 service. Service owners can associate their services to a service network if their
-account has the required access. For more information, see [Identity-based policy examples
-for VPC Lattice](security_iam_id-based-policies.md#security_iam_id-based-policy-examples "security_iam_id-based-policies.md#security_iam_id-based-policy-examples").
+account has the required access. For more information, see [Identity-based policy examples for VPC Lattice](security_iam_id-based-policies.md#security_iam_id-based-policy-examples "security_iam_id-based-policies.md#security_iam_id-based-policy-examples").
 
 When you delete a service association, the service can no longer connect to other
 services in the service network.
@@ -72,9 +65,7 @@ Use the [create-service-network-service-association](../../../cli/latest/referen
 
 Use the [delete-service-network-service-association](../../../cli/latest/reference/vpc-lattice/delete-service-network-service-association.md "../../../cli/latest/reference/vpc-lattice/delete-service-network-service-association.md") command.
 
-## Manage service
-
-network resource associations
+## Manage service network resource associations
 
 A resource configuration is a logical object that represents either a single
 resource or a group of resources. You can associate resource configurations that
@@ -84,9 +75,7 @@ Resource configuration owners can associate their resource configurations to a
 service network if their account has the required access. For more information, see
 [Identity-based policy examples for VPC Lattice](security_iam_id-based-policies.md#security_iam_id-based-policy-examples "security_iam_id-based-policies.md#security_iam_id-based-policy-examples").
 
-### Manage
-
-associations between service networks and resource configurations
+### Manage associations between service networks and resource configurations
 
 You can create or delete the association between the service network and
 resource configuration.
@@ -138,8 +127,7 @@ type service network.
 
 Associating a VPC is an optional step when you create a service network. Network
 owners can associate VPCs to a service network if their account has the required
-access. For more information, see [Identity-based policy examples
-for VPC Lattice](security_iam_id-based-policies.md#security_iam_id-based-policy-examples "security_iam_id-based-policies.md#security_iam_id-based-policy-examples").
+access. For more information, see [Identity-based policy examples for VPC Lattice](security_iam_id-based-policies.md#security_iam_id-based-policy-examples "security_iam_id-based-policies.md#security_iam_id-based-policy-examples").
 
 When you create a VPC association to a resource configuration, you can specify the
 private DNS preference. This preference allows VPC Lattice to provision private hosted

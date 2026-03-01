@@ -12,8 +12,7 @@ create to enable access to resources in your VPC.
 
 - [Managed prefix list](#managed-prefix-list "#managed-prefix-list")
 - [Security group rules](#security-groups-rules "#security-groups-rules")
-- [Manage security groups for a VPC
-  association](#service-network-security-group "#service-network-security-group")
+- [Manage security groups for a VPC association](#service-network-security-group "#service-network-security-group")
 
 ## Managed prefix list
 
@@ -67,7 +66,7 @@ sudo route -n add -net `169.254.171.0` `primary-ip-address` 255.255.255.0
 
 To avoid creating a static route, we recommend that you use a service network endpoint in a VPC
 to establish connectivity. For
-more information, see [Manage service network VPC endpoint associations](service-network-associations.md#service-network-vpc-endpoint-associations "service-network-associations.md#service-network-vpc-endpoint-associations") .
+more information, see [Manage service network VPC endpoint associations](service-network-associations.md#service-network-vpc-endpoint-associations "service-network-associations.md#service-network-vpc-endpoint-associations").
 
 ## Security group rules
 
@@ -85,9 +84,7 @@ time.
 - Security group rules for resource gateway control outbound traffic from the
   resource gateway to resources.
 
-###### Recommended outbound rules for traffic flowing from resource gateway to a
-
-database resource
+###### Recommended outbound rules for traffic flowing from resource gateway to a database resource
 
 For traffic to flow from resource gateway to resources, you must create outbound
 rules for the open ports and accepted listener protocols for the resources.
@@ -106,9 +103,7 @@ for the services.
 | ---------- | ---------- | ---------- | ----------------------------------------- |
 | `VPC CIDR` | `listener` | `listener` | Allow traffic from clients to VPC Lattice |
 
-###### Recommended outbound rules for traffic flowing from client instances to
-
-VPC Lattice
+###### Recommended outbound rules for traffic flowing from client instances to VPC Lattice
 
 By default, security groups allow all outbound traffic. However, if you have
 custom outbound rules, you must allow outbound traffic to VPC Lattice prefix for
@@ -120,9 +115,7 @@ referencing the ID of the prefix list for VPC Lattice.
 | ----------------------------------- | ---------- | ---------- | ----------------------------------------- |
 | `ID of the VPC Lattice prefix list` | `listener` | `listener` | Allow traffic from clients to VPC Lattice |
 
-###### Recommended inbound rules for traffic flowing from VPC Lattice to target
-
-instances
+###### Recommended inbound rules for traffic flowing from VPC Lattice to target instances
 
 You can't use the client security group as a source for your target's security
 groups, because traffic flows from VPC Lattice. You can reference the ID of the prefix
@@ -133,9 +126,7 @@ list for VPC Lattice.
 | `ID of the VPC Lattice prefix list` | `target`       | `target`       | Allow traffic from VPC Lattice to targets              |
 | `ID of the VPC Lattice prefix list` | `health check` | `health check` | Allow health check traffic from VPC Lattice to targets |
 
-## Manage security groups for a VPC
-
-association
+## Manage security groups for a VPC association
 
 You can use the AWS CLI to view, add, or update security groups on the VPC to service
 network association. When using the AWS CLI, remember that your commands run in the
@@ -148,9 +139,7 @@ the VPC you want to add to the service network. For more information, see [Contr
 traffic to your resources using security groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") in the
 _Amazon VPC User Guide_
 
-###### To add a security group when you create a VPC association using the
-
-console
+###### To add a security group when you create a VPC association using the console
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -163,9 +152,7 @@ console
 5. Select a VPC and up to five security groups.
 6. Choose **Save changes**.
 
-###### To add or update security groups for an existing VPC association using the
-
-console
+###### To add or update security groups for an existing VPC association using the console
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -202,9 +189,7 @@ If successful, the command returns output similar to the following.
 }
 ```
 
-###### To add or update security groups for an existing VPC association using the
-
-AWS CLI
+###### To add or update security groups for an existing VPC association using the AWS CLI
 
 Use the [update-service-network-vpc-association](../../../cli/latest/reference/vpc-lattice/update-service-network-vpc-association.md "../../../cli/latest/reference/vpc-lattice/update-service-network-vpc-association.md") command, specifying the ID of
 the service network and the IDs of the security groups. These security groups

@@ -8,18 +8,14 @@ with VPC Lattice APIs.
 
 Each interface endpoint is represented by one or more [network interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in your subnets.
 
-## Considerations for interface VPC
-
-endpoints
+## Considerations for interface VPC endpoints
 
 Before you set up an interface VPC endpoint for VPC Lattice, ensure that you review
 [Access AWS services through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the _AWS PrivateLink Guide_.
 
 VPC Lattice supports making calls to all of its API actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-VPC Lattice
+## Creating an interface VPC endpoint for VPC Lattice
 
 You can create a VPC endpoint for the VPC Lattice service using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Create an

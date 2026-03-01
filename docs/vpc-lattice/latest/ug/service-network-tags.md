@@ -1,6 +1,4 @@
-# Manage tags for a VPC Lattice service
-
-network
+# Manage tags for a VPC Lattice service network
 
 Tags help you to categorize your service network in different ways, for example, by
 purpose, owner, or environment.
