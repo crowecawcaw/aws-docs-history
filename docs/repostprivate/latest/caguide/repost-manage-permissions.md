@@ -19,15 +19,12 @@ Follow these procedures to create your IAM role and policy.
 
 ###### Topics
 
-- [Use an AWS managed policy or create a
-  customer managed policy](#create-iam-role-support-app "#create-iam-role-support-app")
+- [Use an AWS managed policy or create a customer managed policy](#create-iam-role-support-app "#create-iam-role-support-app")
 - [Example IAM policy](#example-repost-policy "#example-repost-policy")
 - [Create an IAM role](#creating-an-iam-role-for-repost "#creating-an-iam-role-for-repost")
 - [Troubleshooting](#troubleshooting-permissions-for-support-app "#troubleshooting-permissions-for-support-app")
 
-## Use an AWS managed policy or create a
-
-customer managed policy
+## Use an AWS managed policy or create a customer managed policy
 
 To grant your role permissions, you can use either an AWS managed policy or a
 customer managed policy.
@@ -169,18 +166,12 @@ See the following topics to manage access to re:Post Private.
 
 ###### Contents
 
-- [I want to restrict specific users in my
-  private re:Post from specific actions](repost-manage-permissions.md#restrict-repost-users "repost-manage-permissions.md#restrict-repost-users")
-- [When I configure a private re:Post, I don't see the
-  IAM role that I created](repost-manage-permissions.md#missing-iam-role "repost-manage-permissions.md#missing-iam-role")
-- [My IAM role is missing a
-  permission](repost-manage-permissions.md#missing-permissions-repost "repost-manage-permissions.md#missing-permissions-repost")
-- [An error says that my IAM
-  role isn't valid](repost-manage-permissions.md#find-the-configured-iam-role "repost-manage-permissions.md#find-the-configured-iam-role")
+- [I want to restrict specific users in my private re:Post from specific actions](repost-manage-permissions.md#restrict-repost-users "repost-manage-permissions.md#restrict-repost-users")
+- [When I configure a private re:Post, I don't see the IAM role that I created](repost-manage-permissions.md#missing-iam-role "repost-manage-permissions.md#missing-iam-role")
+- [My IAM role is missing a permission](repost-manage-permissions.md#missing-permissions-repost "repost-manage-permissions.md#missing-permissions-repost")
+- [An error says that my IAM role isn't valid](repost-manage-permissions.md#find-the-configured-iam-role "repost-manage-permissions.md#find-the-configured-iam-role")
 
-### I want to restrict specific users in my
-
-private re:Post from specific actions
+### I want to restrict specific users in my private re:Post from specific actions
 
 By default, users in your private re:Post have the same permissions specified in the
 IAM policy that you attach to the IAM role that you create. This means that anyone in
@@ -191,17 +182,13 @@ We recommend the following best practices:
 
 - Use an IAM policy that has the minimum required permissions to the Support. See [AWS managed policy: AWSRepostSpaceSupportOperationsPolicy](security-with-iam-managed-policy.md#support-case-manpol "security-with-iam-managed-policy.md#support-case-manpol").
 
-### When I configure a private re:Post, I don't see the
-
-IAM role that I created
+### When I configure a private re:Post, I don't see the IAM role that I created
 
 If your IAM role doesn't appear in the **IAM role for re:Post Private;** list, this means that the role doesn't have re:Post Private as
 a trusted entity, or that the role was deleted. You can update the existing role, or
 create another one. See [Create an IAM role](#creating-an-iam-role-for-repost "#creating-an-iam-role-for-repost").
 
-### My IAM role is missing a
-
-permission
+### My IAM role is missing a permission
 
 The IAM role that you create for your private re:Post needs permissions to perform
 the actions that you want. For example, if you want your users in the private re:Post to create
@@ -213,8 +200,6 @@ the policy attached to your role has the required permission.
 
 See the previous [Example IAM policy](#example-repost-policy "#example-repost-policy").
 
-### An error says that my IAM
-
-role isn't valid
+### An error says that my IAM role isn't valid
 
 Verify that you chose the correct role for your private re:Post configuration.

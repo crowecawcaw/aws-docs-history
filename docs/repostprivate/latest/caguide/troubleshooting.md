@@ -18,5 +18,4 @@ Make sure that you enabled AWS IAM Identity Center for your account and set up I
 
 ## Can't manage users or groups in a private re:Post
 
-Be sure that you have the required permissions to edit a private re:Post and manage users and groups within the private re:Post. For more information, see [AWS re:Post Private identity-based
-policy examples](security-iam-policy-examples.md "security-iam-policy-examples.md").
+Be sure that you have the required permissions to edit a private re:Post and manage users and groups within the private re:Post. For more information, see [AWS re:Post Private identity-based policy examples](security-iam-policy-examples.md "security-iam-policy-examples.md").

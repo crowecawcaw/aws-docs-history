@@ -21,8 +21,7 @@ _IAM User Guide_.
 
 - [AWS managed policy: AWSRepostSpaceSupportOperationsPolicy](#support-case-manpol "#support-case-manpol")
 - [AWS managed policy: AWSrePostPrivateCloudWatchAccess](#cloudwatch-metric-manpol "#cloudwatch-metric-manpol")
-- [AWS re:Post Private updates to
-  AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AWS re:Post Private updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
 ## AWS managed policy: AWSRepostSpaceSupportOperationsPolicy
 
@@ -83,9 +82,7 @@ JSON
 
 ```
 
-## AWS re:Post Private updates to
-
-AWS managed policies
+## AWS re:Post Private updates to AWS managed policies
 
 View details about updates to AWS managed policies for re:Post Private since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

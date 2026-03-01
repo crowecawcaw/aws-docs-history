@@ -61,8 +61,7 @@ context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md
 
 ### Examples
 
-To view examples of re:Post Private identity-based policies, see [AWS re:Post Private identity-based
-policy examples](security-iam-policy-examples.md "security-iam-policy-examples.md").
+To view examples of re:Post Private identity-based policies, see [AWS re:Post Private identity-based policy examples](security-iam-policy-examples.md "security-iam-policy-examples.md").
 
 ## re:Post Private resource-based policies
 
@@ -74,16 +73,12 @@ re:Post Private doesn't support resource-based policies.
 
 re:Post Private supports tagging resources or controlling access based on tags. For more information, see [Controlling access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md").
 
-## re:Post Private IAM
-
-roles
+## re:Post Private IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with re:Post Private
+### Using temporary credentials with re:Post Private
 
 We strongly recommend using temporary credentials to sign in with federation,
 assume an IAM role, or to assume a cross-account role. You obtain
@@ -93,9 +88,7 @@ temporary security credentials by calling AWS STS API operations such as
 
 re:Post Private supports using temporary credentials.
 
-## Service-linked
-
-roles
+## Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action for you. Service-linked roles appear in your
