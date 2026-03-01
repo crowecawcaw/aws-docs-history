@@ -49,9 +49,7 @@ server.
   - Revert to ready for cutover
   - Terminate launch instances
 
-### Multiple managed source
-
-server
+### Multiple managed source server
 
 As a management account, you can perform the following actions on multiple managed source
 servers.

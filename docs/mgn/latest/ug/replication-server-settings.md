@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Replication server settings
-
-reference
+# Replication server settings reference
 
 Replication servers are lightweight Amazon EC2 instances that are used to replicate
 data between your source servers and AWS. Replication servers are automatically
@@ -52,9 +50,7 @@ subnets in certain cases, such as the migration of thousands of servers.
 Using more than one staging area subnet might result in higher compute
 consumption as more replication servers are needed.
 
-### Launching replication servers in Availability
-
-Zones
+### Launching replication servers in Availability Zones
 
 If you want your replication servers to be launched in a specific
 Availability Zone, then select or create a subnet in that specific
@@ -98,9 +94,7 @@ frequent spikes. These are the most common instance type changes:
 - Replication Servers are only supported on x86_64 CPU architecture
   instance types.
 
-## Dedicated instance for
-
-replication server
+## Dedicated instance for replication server
 
 Choose whether you would like to use a **Dedicated
 instance for replication server**.
@@ -188,9 +182,7 @@ Learn more about Amazon EBS Volume Encryption in [this Amazon EBS article](../..
 Reversing the encryption option after data replication has started will
 cause data replication to start from the beginning.
 
-### Using an AWS KMS Customer Managed Key
-
-(CMK) for encryption
+### Using an AWS KMS Customer Managed Key (CMK) for encryption
 
 If you decide to use a Customer Managed Key (CMK), or if your default
 Amazon EBS encryption key is a CMK, you will need to add additional permissions
@@ -338,9 +330,7 @@ arn:aws:iam::111122223333:role/aws-service-role/mgn.amazonaws.com/AWSServiceRole
 For this command to succeed, the user making the request must have
 permissions for the CreateGrant action.
 
-## Always use Application Migration Service
-
-security group
+## Always use Application Migration Service security group
 
 Choose whether you would like to **Always use the
 Application Migration Service security group**.
@@ -438,9 +428,7 @@ You should use this option if you want to:
   from one private IP address (source) to another private IP address
   (on AWS)
 
-#### Network architecture diagram –
-
-private IP
+#### Network architecture diagram – private IP
 
 The following diagram illustrates the high-level interaction between
 the different replication system components when using private IP or VPC

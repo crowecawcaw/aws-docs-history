@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Monitoring Application Migration
-
-Service with Amazon CloudWatch
+# Monitoring Application Migration Service with Amazon CloudWatch
 
 You can monitor Application Migration Service using CloudWatch, which collects raw data and
 processes it into readable, near real-time metrics. These statistics are kept for 15 months,

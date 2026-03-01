@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Using service-linked roles for
-
-AWS Application Migration Service
+# Using service-linked roles for AWS Application Migration Service
 
 AWS Application Migration Service uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS Application Migration Service. Service-linked roles are predefined by
@@ -25,9 +23,7 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 with a link to view the service-linked role
 documentation for that service.
 
-## AWSServiceRoleForApplicationMigrationService
-
-service-linked role
+## AWSServiceRoleForApplicationMigrationService service-linked role
 
 AWS Application Migration Service uses the service-linked role named
 **AWSServiceRoleForApplicationMigrationService**. This is a managed

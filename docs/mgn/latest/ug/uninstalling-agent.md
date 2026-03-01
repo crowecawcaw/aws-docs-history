@@ -15,9 +15,7 @@ console.
   metering period continues and once 2160 hours have elapsed, billing for replication
   begins.
 
-## Uninstalling the Agent through the AWS Application Migration Service
-
-console
+## Uninstalling the Agent through the AWS Application Migration Service console
 
 To uninstall the AWS Replication Agent though the AWS Application Migration Service console.
 
@@ -35,9 +33,7 @@ The AWS Replication Agent is uninstalled from all of the selected source servers
 You can then archive these servers. [Learn more
 about archiving.](add-server-server-page.md#server-actions-main "add-server-server-page.md#server-actions-main")
 
-## Uninstalling the Agent manually through the
-
-source server
+## Uninstalling the Agent manually through the source server
 
 To uninstall the AWS Replication Agent manually through the source server:
 

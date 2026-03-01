@@ -8,8 +8,7 @@ The following are sample MGN events in EventBridge:
 
 - [MGN source server launch result](#eventbridge-event-1 "#eventbridge-event-1")
 - [MGN source server lifecycle state change](#eventbridge-event-2 "#eventbridge-event-2")
-- [MGN source server data replication stalled
-  change](#eventbridge-event-3 "#eventbridge-event-3")
+- [MGN source server data replication stalled change](#eventbridge-event-3 "#eventbridge-event-3")
 
 ## MGN source server launch result
 
@@ -72,9 +71,7 @@ Sample event:
 
 ```
 
-## MGN source server data replication stalled
-
-change
+## MGN source server data replication stalled change
 
 Emitted when the data replication state becomes stalled, and when data replication state is no longer stalled (not stalled).
 

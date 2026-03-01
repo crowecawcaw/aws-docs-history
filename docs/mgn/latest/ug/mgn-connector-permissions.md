@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# IAM roles needed for the MGN
-
-connector
+# IAM roles needed for the MGN connector
 
 To use MGN connector you must have these required IAM roles for individual accounts and AWS Organizations networks:
 

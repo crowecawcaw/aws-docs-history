@@ -7,9 +7,7 @@ have been added to AWS Application Migration Service. The **Applications** page
 allows you to manage your applications and perform a variety of commands for one or more
 applications (such as controlling replication and launching test and cutover instances).
 
-## Interacting with the Applications
-
-page
+## Interacting with the Applications page
 
 The **Applications** page shows a list of
 applications. Each row on the list represents a single application.

@@ -10,7 +10,7 @@ AWS Application Migration Service is divided into several primary pages. Each pa
 actions. The default view for the AWS Application Migration Service console is the **Source
 servers** page. This page automatically opens every time you open AWS Application Migration Service.
 
-You can navigate to other AWS Application Migration Service pages through the left-hand **AWS Application Migration Service** navigation menu. You can also access the AWS Migration Hub and the
+You can navigate to other AWS Application Migration Service pages through the left-hand **AWS Application Migration Service** navigation menu. You can also access the
 AWS Application Migration Service documentation through this menu.
 
 Each AWS Application Migration Service page will open in the right-hand main view. Here, you can interact with the

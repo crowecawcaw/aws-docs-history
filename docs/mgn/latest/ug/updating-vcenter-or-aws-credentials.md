@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Updating the vCenter or AWS
-
-Credentials
+# Updating the vCenter or AWS Credentials
 
 Users who want to change the vCenter or AWS credentials used by the Application Migration Service appliance
 should follow these steps. This change requires root privileges on the appliance:

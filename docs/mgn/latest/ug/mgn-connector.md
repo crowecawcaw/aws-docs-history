@@ -20,8 +20,7 @@ The MGN connector is not supported for IPv6.
 
 - [Prerequisites for installing the MGN connector](mgn-connector-prerequisites.md "mgn-connector-prerequisites.md")
 - [Architecture overview for MGN connector](mgn-connector-architecture.md "mgn-connector-architecture.md")
-- [IAM roles needed for the MGN
-  connector](mgn-connector-permissions.md "mgn-connector-permissions.md")
+- [IAM roles needed for the MGN connector](mgn-connector-permissions.md "mgn-connector-permissions.md")
 - [Set up the MGN Connector](mgn-connector-setup-instructions.md "mgn-connector-setup-instructions.md")
 - [Installing the MGN connector on a secured network](mgn-connector-installing-secured-network.md "mgn-connector-installing-secured-network.md")
 - [Manage your MGN Connectors](mgn-connector-main.md "mgn-connector-main.md")

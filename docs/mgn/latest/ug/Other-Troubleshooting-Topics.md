@@ -8,8 +8,7 @@ Use the information in this section to help you with other troubleshooting.
 
 - [Re-initialize the AWS Application Migration Service](#Re-initialize-the-service "#Re-initialize-the-service")
 - [Windows license activation – AWS](#Windows-License-Activation "#Windows-License-Activation")
-- [Migration leaving behind replication
-  volumes after cutover](#Migration-Leaving-Replication-Volumes "#Migration-Leaving-Replication-Volumes")
+- [Migration leaving behind replication volumes after cutover](#Migration-Leaving-Replication-Volumes "#Migration-Leaving-Replication-Volumes")
 - [Replication lag issues](#Replication-Lag-Issues "#Replication-Lag-Issues")
 - [Windows Driver changes](#Windows-Drive-Changes "#Windows-Drive-Changes")
 - [Windows Dynamic Disk troubleshooting](#Windows-Dynamic-Disk "#Windows-Dynamic-Disk")
@@ -33,9 +32,7 @@ against the AWS KMS.
 If license activation failed, follow [this AWS
 guide](https://aws.amazon.com/premiumsupport/knowledge-center/windows-activation-fails/ "https://aws.amazon.com/premiumsupport/knowledge-center/windows-activation-fails/") to resolve.
 
-## Migration leaving behind replication
-
-volumes after cutover
+## Migration leaving behind replication volumes after cutover
 
 If you are seeing left behind replication volumes in AWS after running the cutover process,
 then ensure that the names of the replication volumes match those given to them by AWS Application Migration Service (AWS MGN).

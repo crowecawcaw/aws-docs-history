@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Installing the AWS Application Migration Service vCenter Client for Agentless Replication on vCenter source
-
-environments
+# Installing the AWS Application Migration Service vCenter Client for Agentless Replication on vCenter source environments
 
 AWS Application Migration Service allows you to perform agentless snapshot replication from your vCenter
 source environment into AWS. This is achieved by installing the Application Migration Service vCenter Client in your
@@ -19,10 +17,8 @@ Replication Agent on each individual server.
 - [Generating vCenter Client IAM credentials](vcenter-credentials-mgn.md "vcenter-credentials-mgn.md")
 - [Installing the Application Migration Service vCenter Client](installing-vcenter-appliance-mgn.md "installing-vcenter-appliance-mgn.md")
 - [Replicating servers from vCenter to AWS](replicating-vcenter-aws-mgn.md "replicating-vcenter-aws-mgn.md")
-- [Updating the vCenter or AWS
-  Credentials](updating-vcenter-or-aws-credentials.md "updating-vcenter-or-aws-credentials.md")
-- [Differentiating agentless and agent-based
-  servers](differences-vcenter-aws.md "differences-vcenter-aws.md")
+- [Updating the vCenter or AWS Credentials](updating-vcenter-or-aws-credentials.md "updating-vcenter-or-aws-credentials.md")
+- [Differentiating agentless and agent-based servers](differences-vcenter-aws.md "differences-vcenter-aws.md")
 
 ## Prerequisites
 

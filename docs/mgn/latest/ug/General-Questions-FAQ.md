@@ -6,44 +6,31 @@ This section contains answers to general questions about AWS Application Migrati
 
 ###### Topics
 
-- [Can AWS Application Migration Service
-  protect or migrate physical servers?](#Can-CloudEndure-Protect-Migrate-Servers "#Can-CloudEndure-Protect-Migrate-Servers")
-- [What data is stored on and transmitted through Application
-  Migration Service servers?](#What-Data-Stored "#What-Data-Stored")
-- [What should I consider when replicating Active
-  Directory?](#What-Active-Directory "#What-Active-Directory")
-- [Does AWS Application Migration Service work with LVM and RAID
-  configurations?](#Does-LVM-RAID-Work "#Does-LVM-RAID-Work")
+- [Can AWS Application Migration Service protect or migrate physical servers?](#Can-CloudEndure-Protect-Migrate-Servers "#Can-CloudEndure-Protect-Migrate-Servers")
+- [What data is stored on and transmitted through Application Migration Service servers?](#What-Data-Stored "#What-Data-Stored")
+- [What should I consider when replicating Active Directory?](#What-Active-Directory "#What-Active-Directory")
+- [Does AWS Application Migration Service work with LVM and RAID configurations?](#Does-LVM-RAID-Work "#Does-LVM-RAID-Work")
 - [What is there to note regarding SAN/NAS support?](#SAN-NAS-Support "#SAN-NAS-Support")
-- [Does AWS Application Migration Service support
-  Windows License migration?](#Does-Windows-License-Migration "#Does-Windows-License-Migration")
-- [Can you perform an OS (Operating System) upgrade with
-  AWS Application Migration Service?](#Can-OS-Upgrade "#Can-OS-Upgrade")
+- [Does AWS Application Migration Service support Windows License migration?](#Does-Windows-License-Migration "#Does-Windows-License-Migration")
+- [Can you perform an OS (Operating System) upgrade with AWS Application Migration Service?](#Can-OS-Upgrade "#Can-OS-Upgrade")
 - [What are the AWS Application Migration Service quota limits?](#MGN-service-limits-faq "#MGN-service-limits-faq")
-- [What are the Private APIs used by AWS MGN to define actions in the
-  IAM Policy?](#mgn-apis "#mgn-apis")
+- [What are the Private APIs used by AWS MGN to define actions in the IAM Policy?](#mgn-apis "#mgn-apis")
 - [Which post-launch scripts does AWS MGN support?](#mgn-post-launch "#mgn-post-launch")
 - [What happens if I use a custom DNS?](#custom-DNS "#custom-DNS")
 - [Can I use AWS Application Migration Service to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?](#vmc "#vmc")
 - [When should I use AWS Elastic Disaster Recovery (AWS DRS) for migration?](#using-drs "#using-drs")
 
-## Can AWS Application Migration Service
-
-protect or migrate physical servers?
+## Can AWS Application Migration Service protect or migrate physical servers?
 
 Because AWS Application Migration Service works at the OS layer it can protect and migrate not
 only virtual servers but physical ones as well.
 
-## What data is stored on and transmitted through Application
-
-Migration Service servers?
+## What data is stored on and transmitted through Application Migration Service servers?
 
 AWS Application Migration Service store only configuration and log data on the AWS Application Migration Service console's encrypted database.
 Replicated data is always stored on the customer’s own cloud VPC. The replicated data is encrypted in transit.
 
-## What should I consider when replicating Active
-
-Directory?
+## What should I consider when replicating Active Directory?
 
 There are two main approaches when it comes to migrating Active Directory or domain
 controllers from a disaster:
@@ -60,9 +47,7 @@ In this case, it is important to conduct any tests using an isolated subnet in t
 cloud, so to avoid having the test or cutover instances communicate into the source AD
 server outside of a cutover.
 
-## Does AWS Application Migration Service work with LVM and RAID
-
-configurations?
+## Does AWS Application Migration Service work with LVM and RAID configurations?
 
 Yes, AWS Application Migration Service works with any such configuration.
 
@@ -75,16 +60,12 @@ If the disks are mounted over the network, such as an NFS share, as most NAS
 implementations are, the AWS Replication Agent would need to be installed on the actual NFS
 server in order to replicate the disk.
 
-## Does AWS Application Migration Service support
-
-Windows License migration?
+## Does AWS Application Migration Service support Windows License migration?
 
 AWS Application Migration Service conforms to the [Microsoft Licensing on
 AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/") guidelines.
 
-## Can you perform an OS (Operating System) upgrade with
-
-AWS Application Migration Service?
+## Can you perform an OS (Operating System) upgrade with AWS Application Migration Service?
 
 Yes. AWS Application Migration Service allows you to [perform an OS upgrade](predefined-post-launch-actions.md#predefined-windows-upgrade "predefined-post-launch-actions.md#predefined-windows-upgrade") using a predefined
 action. The action will clone your machine and upgrade the clone. After the upgrade, verify
@@ -107,9 +88,7 @@ The following are the AWS Application Migration Service service quota limits:
 You can learn about the AWS Application Migration Service limits in the [AWS General
 Reference](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md").
 
-## What are the Private APIs used by AWS MGN to define actions in the
-
-IAM Policy?
+## What are the Private APIs used by AWS MGN to define actions in the IAM Policy?
 
 MGN utilizes the following Private API resources as actions in the IAM Policy. [Learn more about Actions, resources, and condition keys for MGN.](../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md "../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md")
 

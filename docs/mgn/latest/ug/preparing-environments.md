@@ -86,12 +86,9 @@ All communication is encrypted with TLS.
 ###### Topics
 
 - [Communication over TCP port 443](#TCP-443 "#TCP-443")
-- [Communication between the source servers and
-  AWS Application Migration Service over TCP port 443](#Source-Manager-TCP-443 "#Source-Manager-TCP-443")
-- [Communication between the staging area subnet and
-  AWS Application Migration Service over TCP port 443](#Communication-TCP-443-Staging "#Communication-TCP-443-Staging")
-- [Communication between the source servers and the
-  staging area subnet over TCP port 1500](#Communication-TCP-1500 "#Communication-TCP-1500")
+- [Communication between the source servers and AWS Application Migration Service over TCP port 443](#Source-Manager-TCP-443 "#Source-Manager-TCP-443")
+- [Communication between the staging area subnet and AWS Application Migration Service over TCP port 443](#Communication-TCP-443-Staging "#Communication-TCP-443-Staging")
+- [Communication between the source servers and the staging area subnet over TCP port 1500](#Communication-TCP-1500 "#Communication-TCP-1500")
 
 ### Communication over TCP port 443
 
@@ -169,9 +166,7 @@ TCP port 443 is used for two communication routes:
 
 2. Between the staging area subnet and AWS Application Migration Service.
 
-### Communication between the source servers and
-
-AWS Application Migration Service over TCP port 443
+### Communication between the source servers and AWS Application Migration Service over TCP port 443
 
 Each source server that is added to Application Migration Service must continuously communicate with
 Application Migration Service (mgn.<region>.amazonaws.com) over TCP port 443.
@@ -195,17 +190,13 @@ These are the main operations performed through TCP port 443:
 
 Make sure that your corporate firewall allows connections over TCP port 443.
 
-#### Solving communication problems over TCP port 443
-
-between the source servers and AWS Application Migration Service
+#### Solving communication problems over TCP port 443 between the source servers and AWS Application Migration Service
 
 If there is no connection between your source servers and Application Migration Service, make sure
 that your corporate firewall enables connectivity from the source servers to Application Migration Service over TCP
 Port 443. If the connectivity is blocked, enable it.
 
-##### Enabling Windows Firewall for TCP port 443
-
-connectivity
+##### Enabling Windows Firewall for TCP port 443 connectivity
 
 ###### Important
 
@@ -244,9 +235,7 @@ it and select **Enable Rule** from the pop-up menu.
 
 ![Outbound Rules table with BranchCache Hosted Cache Client rule highlighted and Enable Rule option.](images/network-requirements-3-re.png)
 
-##### Enabling Linux Firewall for TCP port 443
-
-connectivity
+##### Enabling Linux Firewall for TCP port 443 connectivity
 
 1. Enter this command to add the required Firewall rule:
 
@@ -269,9 +258,7 @@ _target prot opt source destination_
 
 _ACCEPT tcp -- anywhere anywhere tcp dpt:443_
 
-### Communication between the staging area subnet and
-
-AWS Application Migration Service over TCP port 443
+### Communication between the staging area subnet and AWS Application Migration Service over TCP port 443
 
 The replication servers in the staging area subnet must continuously communicate with
 Application Migration Service over TCP port 443. The main operations that are performed through this route
@@ -289,9 +276,7 @@ are:
 
 The staging area subnet requires Amazon S3 access.
 
-#### Configuring communication over TCP
-
-port 443 between the staging area subnet and AWS Application Migration Service
+#### Configuring communication over TCP port 443 between the staging area subnet and AWS Application Migration Service
 
 You can establish communication between the staging area subnet and AWS Application Migration Service over TCP port 443 directly.
 
@@ -305,9 +290,7 @@ FAQ](https://aws.amazon.com/vpc/faqs/ "https://aws.amazon.com/vpc/faqs/").
 2. [Private IP
    address + NAT instance](../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md "../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md")
 
-### Communication between the source servers and the
-
-staging area subnet over TCP port 1500
+### Communication between the source servers and the staging area subnet over TCP port 1500
 
 Each source server with an installed AWS Replication Agent continuously communicates with
 the AWS Application Migration Service replication servers in the staging area subnet over TCP port 1500. TCP port 1500 is needed for the transfer of replicated data from the source servers to the
@@ -325,9 +308,7 @@ source server to the Replication Server. Each replication server gets assigned a
 server certificate, which is distributed to the corresponding Agent and validated against on the
 agent side.
 
-#### Establishing communication
-
-over TCP port 1500
+#### Establishing communication over TCP port 1500
 
 ###### Important
 

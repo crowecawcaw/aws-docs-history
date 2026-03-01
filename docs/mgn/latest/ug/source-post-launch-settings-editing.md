@@ -24,15 +24,12 @@ There are 2 types of post-launch actions:
 - **Predefined post-launch actions** – These out-of-the box
   actions are based on public SSM documents that cannot be changed and have certain
   unchangeable parameters such as the platform name and order. Fields are prepopulated with
-  the necessary values and only need to be activated or deactivated. For a list of the available actions, see [Predefined post-launch actions
-  reference](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
+  the necessary values and only need to be activated or deactivated. For a list of the available actions, see [Predefined post-launch actions reference](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 - **Custom post-launch actions** – These actions are based
   on SSM documents that you create and upload to your account.
 
-To add a custom post-launch action, see [Create a custom
-post-launch action](post-launch-settings.md#post-launch-settings-custom-actions-add "post-launch-settings.md#post-launch-settings-custom-actions-add").
-To edit a custom post-launch action, see [Edit custom post-launch
-actions](post-launch-settings.md#post-launch-settings-custom-actions-edit "post-launch-settings.md#post-launch-settings-custom-actions-edit").
+To add a custom post-launch action, see [Create a custom post-launch action](post-launch-settings.md#post-launch-settings-custom-actions-add "post-launch-settings.md#post-launch-settings-custom-actions-add").
+To edit a custom post-launch action, see [Edit custom post-launch actions](post-launch-settings.md#post-launch-settings-custom-actions-edit "post-launch-settings.md#post-launch-settings-custom-actions-edit").
 
 Use the **Filter by** options on the left-hand side to
 filter the available actions according to your preferences.

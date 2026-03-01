@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Activating and deactivating post-launch
-
-actions
+# Activating and deactivating post-launch actions
 
 This setting controls whether post-launch actions are active or inactive. You must leave
 the **Install Systems Manager agent and allow executing actions on launched

@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Predefined post-launch actions
-
-reference
+# Predefined post-launch actions reference
 
 AWS Application Migration Service allows you to execute various predefined post-launch actions on your
 Amazon EC2 launch instance. Use these out-of-the-box actions to modernize your servers
@@ -12,32 +10,23 @@ configure disaster recovery, and more.
 ###### Choose from these predefined post-launch actions:
 
 - [Install the SSM agent](#predefined-ssm-agent "#predefined-ssm-agent")
-- [Configure
-  AWS Elastic Disaster Recovery](#predefined-elastic-disaster-recovery "#predefined-elastic-disaster-recovery")
+- [Configure AWS Elastic Disaster Recovery](#predefined-elastic-disaster-recovery "#predefined-elastic-disaster-recovery")
 - [Convert operating systems](#predefined-operating-systems "#predefined-operating-systems")
-- [Replace SUSE
-  subscription](#predefined-license-and-subscription "#predefined-license-and-subscription")
-- [Conduct Amazon EC2 connectivity
-  checks](#predefined-ec2-connectivity-check "#predefined-ec2-connectivity-check")
-- [Validate volume
-  integrity](#predefined-volume-integrity-validation "#predefined-volume-integrity-validation")
-- [Verify process
-  status](#predefined-process-status-validation "#predefined-process-status-validation")
+- [Replace SUSE subscription](#predefined-license-and-subscription "#predefined-license-and-subscription")
+- [Conduct Amazon EC2 connectivity checks](#predefined-ec2-connectivity-check "#predefined-ec2-connectivity-check")
+- [Validate volume integrity](#predefined-volume-integrity-validation "#predefined-volume-integrity-validation")
+- [Verify process status](#predefined-process-status-validation "#predefined-process-status-validation")
 - [Convert MS-SQL license](#predefined-windows-ms-sql-conversion "#predefined-windows-ms-sql-conversion")
-- [Install a CloudWatch
-  Agent](#predefined-cloudwatch-agent-installation "#predefined-cloudwatch-agent-installation")
+- [Install a CloudWatch Agent](#predefined-cloudwatch-agent-installation "#predefined-cloudwatch-agent-installation")
 - [Upgrade Windows](#predefined-windows-upgrade "#predefined-windows-upgrade")
-- [Create AMI from
-  instance](#predefined-create-ami-from-instance "#predefined-create-ami-from-instance")
+- [Create AMI from instance](#predefined-create-ami-from-instance "#predefined-create-ami-from-instance")
 - [Join Directory Service domain](#predefined-joined-domain "#predefined-joined-domain")
 - [Configure Time Sync](#predefined-time-sync "#predefined-time-sync")
 - [Validate disk space](#predefined-validate-disk-space "#predefined-validate-disk-space")
-- [Verify HTTP/HTTPS
-  response](#predefined-verify-http-https-response "#predefined-verify-http-https-response")
+- [Verify HTTP/HTTPS response](#predefined-verify-http-https-response "#predefined-verify-http-https-response")
 - [Enable Amazon Inspector Classic](#predefined-inspector "#predefined-inspector")
 - [Verify Tags](#predefined-verify-tags "#predefined-verify-tags")
-- [Auto Scaling group
-  setting](#predefined-autoscaling-group-setting "#predefined-autoscaling-group-setting")
+- [Auto Scaling group setting](#predefined-autoscaling-group-setting "#predefined-autoscaling-group-setting")
 - [Dynatrace](#predefined-dynatrace "#predefined-dynatrace")
 - [New Relic](#predefined-new-relic "#predefined-new-relic")
 - [TrendMicro](#predefined-trend-micro "#predefined-trend-micro")
@@ -55,9 +44,7 @@ cannot be deactivated.
 
 [Learn more about SSM.](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md")
 
-## Configure
-
-AWS Elastic Disaster Recovery
+## Configure AWS Elastic Disaster Recovery
 
 ###### Note
 
@@ -97,9 +84,7 @@ Use the **CentOS to Rocky** feature to perform
 changes to the target machine operating system. It allows you to convert any of
 your source servers that are running CentOS to [Rocky Linux](https://rockylinux.org/ "https://rockylinux.org/").
 
-## Replace SUSE
-
-subscription
+## Replace SUSE subscription
 
 ###### Note
 
@@ -115,9 +100,7 @@ An AWS-provided SUSE subscription allows AWS to manage your licenses,
 including renewal handling, saving you time and simplifying your billing and
 license management processes
 
-## Conduct Amazon EC2 connectivity
-
-checks
+## Conduct Amazon EC2 connectivity checks
 
 Use the **EC2 connectivity check** feature to
 conduct network connectivity checks to a predefined list of ports and hosts.
@@ -126,9 +109,7 @@ conduct network connectivity checks to a predefined list of ports and hosts.
 
 Up to 5 Port:IP couples can be checked in a single action.
 
-## Validate volume
-
-integrity
+## Validate volume integrity
 
 Use the **Volume integrity validation** feature
 to ensure that Amazon EBS volumes on the launched instance are:
@@ -144,9 +125,7 @@ saves the time of manual validations.
 
 Up to 50 volumes can be checked in a single action.
 
-## Verify process
-
-status
+## Verify process status
 
 Use the **Process status validation** feature to
 ensure that processes are in running state following instance launch. You need to
@@ -179,9 +158,7 @@ To allow the SSM document to run these APIs, you need the required
 permissions or have access to a role with those permissions and then provide the
 role’s ARN as an input parameter to the SSM automation document.
 
-## Install a CloudWatch
-
-Agent
+## Install a CloudWatch Agent
 
 Use the **CloudWatch agent installation** feature to
 install and configure the CloudWatch Agent and Application Insights.
@@ -252,9 +229,7 @@ The SSM document:
 
 [Learn more about upgrading Windows.](../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.md")
 
-## Create AMI from
-
-instance
+## Create AMI from instance
 
 Use the **Create AMI from Instance** feature to
 create a new Amazon Machine Image (AMI) from your Application Migration Service launched
@@ -316,9 +291,7 @@ Use the **Disk space validation** feature to
 obtain visibility into the disc space that you have at your disposal, as well as
 logs with actionable insights.
 
-## Verify HTTP/HTTPS
-
-response
+## Verify HTTP/HTTPS response
 
 Use the **Verify HTTP/HTTPS response** feature to
 conduct HTTP/HTTPS connectivity checks to a predefined list of URLs. The feature
@@ -352,9 +325,7 @@ Use the **Verify tags** feature to validate that
 tags that have been defined in the launch template and on the source server are
 copied to the migrated server.
 
-## Auto Scaling group
-
-setting
+## Auto Scaling group setting
 
 Use the **Auto Scaling group setting** when you
 would like to create an Auto Scaling group for a migrated stateless web

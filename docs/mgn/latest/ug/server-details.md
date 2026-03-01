@@ -39,6 +39,5 @@ The server details view is divided into several tabs, including:
 - [Review launch settings for a source server](launch-settings-source.md "launch-settings-source.md")
 - [Review post-launch settings](source-post-launch-settings.md "source-post-launch-settings.md")
 - [Editing the post-launch settings](source-post-launch-settings-editing.md "source-post-launch-settings-editing.md")
-- [Activating and deactivating post-launch
-  actions](source-post-launch-settings-actions.md "source-post-launch-settings-actions.md")
+- [Activating and deactivating post-launch actions](source-post-launch-settings-actions.md "source-post-launch-settings-actions.md")
 - [Deploying post-launch actions](source-post-launch-settings-deployment.md "source-post-launch-settings-deployment.md")

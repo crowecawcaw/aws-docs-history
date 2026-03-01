@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Using identity-based
-
-policies
+# Using identity-based policies
 
 By default, users and roles don't have permission to create or modify
 AWS Application Migration Service resources. They also can't perform tasks using the
@@ -16,7 +14,5 @@ create an IAM identity-based policy using example JSON policy documents, see
 
 ###### Topics
 
-- [Customer-managed policies in
-  AWS MGN](customer_managed_policies_mgn.md "customer_managed_policies_mgn.md")
-- [Restrict permission to act on a source server associated with given AWS vCenter
-  client](restrict-to-vcenter-client.md "restrict-to-vcenter-client.md")
+- [Customer-managed policies in AWS MGN](customer_managed_policies_mgn.md "customer_managed_policies_mgn.md")
+- [Restrict permission to act on a source server associated with given AWS vCenter client](restrict-to-vcenter-client.md "restrict-to-vcenter-client.md")

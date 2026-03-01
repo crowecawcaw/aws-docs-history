@@ -7,34 +7,23 @@ This section contains answers to questions about the AWS Replication Agent.
 ###### Topics
 
 - [What does the AWS Replication Agent do?](#What-Agent-Do "#What-Agent-Do")
-- [What kind of data is transferred between the agent and
-  the AWS Application Migration Service?](#What-Data-Transferred "#What-Data-Transferred")
-- [Can a proxy server be used between the source server and the
-  AWS Application Migration Service console?](#Can-Proxy-Used "#Can-Proxy-Used")
-- [What are the prerequisites needed to install the
-  AWS Replication Agent?](#What-Pre-Requisites-Agent "#What-Pre-Requisites-Agent")
+- [What kind of data is transferred between the agent and the AWS Application Migration Service?](#What-Data-Transferred "#What-Data-Transferred")
+- [Can a proxy server be used between the source server and the AWS Application Migration Service console?](#Can-Proxy-Used "#Can-Proxy-Used")
+- [What are the prerequisites needed to install the AWS Replication Agent?](#What-Pre-Requisites-Agent "#What-Pre-Requisites-Agent")
 - [What ports does the AWS Replication Agent utilize?](#What-Ports-Agent "#What-Ports-Agent")
 - [What privileges does the AWS Replication Agent require?](#Agent-privileges "#Agent-privileges")
 - [Is it possible to install the agent on servers running operating systems that are not listed as supported?](#Agent-installation-on-unsupported-operating-system "#Agent-installation-on-unsupported-operating-system")
-- [What kind of resources does the AWS Replication Agent
-  utilize?](#What-Resources-Agent "#What-Resources-Agent")
+- [What kind of resources does the AWS Replication Agent utilize?](#What-Resources-Agent "#What-Resources-Agent")
 - [Can AWS Application Migration Service migrate containers?](#Can-Containers "#Can-Containers")
-- [Does the AWS Replication Agent cache any data to
-  disk?](#Does-Agent-Cache-Data "#Does-Agent-Cache-Data")
-- [How is communication between the AWS Replication
-  Agent and the AWS Application Migration Service secured?](#How-Communication-Secured "#How-Communication-Secured")
-- [Is it possible to change the port the AWS Replication
-  Agent utilizes from TCP Port 1500 to a different port?](#Can-Change-Port-TCP "#Can-Change-Port-TCP")
+- [Does the AWS Replication Agent cache any data to disk?](#Does-Agent-Cache-Data "#Does-Agent-Cache-Data")
+- [How is communication between the AWS Replication Agent and the AWS Application Migration Service secured?](#How-Communication-Secured "#How-Communication-Secured")
+- [Is it possible to change the port the AWS Replication Agent utilizes from TCP Port 1500 to a different port?](#Can-Change-Port-TCP "#Can-Change-Port-TCP")
 - [How do I manually uninstall the AWS Application Migration Service agent from a server?](#How-Manually-Uninstall-Agent "#How-Manually-Uninstall-Agent")
 - [When do I need to reinstall the agent?](#When-Reinstall-Agent "#When-Reinstall-Agent")
-- [How much bandwidth does the AWS Replication Agent
-  consume?](#How-Much-Bandwidth "#How-Much-Bandwidth")
-- [How many disks can the AWS Replication Agent
-  replicate?](#How-Many-Disks-Agent-Replicate "#How-Many-Disks-Agent-Replicate")
-- [Is it possible to add a disk to replication
-  without a complete resync of any disks that have already been replicated?](#What-mgn-Agent-Services "#What-mgn-Agent-Services")
-- [Is the AWS Replication Agent installed on launched
-  test and cutover instances?](#agent-transfer-instance "#agent-transfer-instance")
+- [How much bandwidth does the AWS Replication Agent consume?](#How-Much-Bandwidth "#How-Much-Bandwidth")
+- [How many disks can the AWS Replication Agent replicate?](#How-Many-Disks-Agent-Replicate "#How-Many-Disks-Agent-Replicate")
+- [Is it possible to add a disk to replication without a complete resync of any disks that have already been replicated?](#What-mgn-Agent-Services "#What-mgn-Agent-Services")
+- [Is the AWS Replication Agent installed on launched test and cutover instances?](#agent-transfer-instance "#agent-transfer-instance")
 - [How do temporary credentials work?](#temporary-credentials-operation "#temporary-credentials-operation")
 - [Which Windows and Linux OSs support no-rescan upon reboot?](#agent-no-rescan "#agent-no-rescan")
 
@@ -45,9 +34,7 @@ attached to the server and replicates it to the replication server. The agent th
 an OS-level read filter to capture writes and synchronizes any block level modifications to
 the AWS Application Migration Service replication server, ensuring near-zero RPO.
 
-## What kind of data is transferred between the agent and
-
-the AWS Application Migration Service?
+## What kind of data is transferred between the agent and the AWS Application Migration Service?
 
 The AWS Replication Agent sends the following types of information to the Service Manager
 of AWS Application Migration Service:
@@ -68,9 +55,7 @@ machine:
   names
 - Machine's Private IP address
 
-## Can a proxy server be used between the source server and the
-
-AWS Application Migration Service console?
+## Can a proxy server be used between the source server and the AWS Application Migration Service console?
 
 Yes. The proxy is configured using an environment variable prior to the install.
 
@@ -83,9 +68,7 @@ Make sure the proxy has a trailing forward slash.
 Ensure that you have allowlisted the [MGN IPs and URLs](preparing-environments.md#TCP-443 "preparing-environments.md#TCP-443") for
 both SSL Interception and Authentication.
 
-## What are the prerequisites needed to install the
-
-AWS Replication Agent?
+## What are the prerequisites needed to install the AWS Replication Agent?
 
 The installation requirements for source server depend on the type of OS that the server
 runs – either Linux or Windows.
@@ -109,9 +92,7 @@ The agent is designed and tested to work on the officially supported operating s
 Any installation or replication issues encountered when using unsupported operating systems will need to be handled through your own troubleshooting or support channels, as the AWS engineering team will be limited in their ability to assist.
 We advise using the agent only on supported OS versions to ensure the best experience. Please refer to [Supported operating systems](Supported-Operating-Systems.md "Supported-Operating-Systems.md").
 
-## What kind of resources does the AWS Replication Agent
-
-utilize?
+## What kind of resources does the AWS Replication Agent utilize?
 
 The AWS Replication Agent is lightweight and nondisruptive. The agent utilizes
 approximately 5% CPU and 250 MB of RAM.
@@ -122,9 +103,7 @@ AWS Application Migration Service (AWS MGN) only supports the replication of ful
 Nevertheless, AWS MGN replicates on a server level and therefore any containers within the
 selected servers will be replicated.
 
-## Does the AWS Replication Agent cache any data to
-
-disk?
+## Does the AWS Replication Agent cache any data to disk?
 
 AWS Application Migration Service does not write any cache or do any sort of journalling to
 disk. The Agent holds a buffer which is large enough to map all volume's blocks ~250 MB in
@@ -136,17 +115,13 @@ agent will read the block from the volume directly. This is the case where you m
 backlog in the AWS Application Migration Service console. The cause of this is the volume of
 change is greater than the bandwidth available.
 
-## How is communication between the AWS Replication
-
-Agent and the AWS Application Migration Service secured?
+## How is communication between the AWS Replication Agent and the AWS Application Migration Service secured?
 
 All communication is encrypted using SSL. In addition, each Agent is assigned a key during
 installation which is used to encrypt all traffic. All keys are unique and are not shared
 across multiple agents.
 
-## Is it possible to change the port the AWS Replication
-
-Agent utilizes from TCP Port 1500 to a different port?
+## Is it possible to change the port the AWS Replication Agent utilizes from TCP Port 1500 to a different port?
 
 No. The AWS Application Migration Service Agent can only utilize TCP Port 1500 for replication.
 
@@ -175,9 +150,7 @@ action](predefined-post-launch-actions.md#predefined-windows-upgrade "predefined
 
 - After adding new volumes
 
-## How much bandwidth does the AWS Replication Agent
-
-consume?
+## How much bandwidth does the AWS Replication Agent consume?
 
 The AWS Replication Agent opens up to five connections and will attempt to maximize
 available bandwidth.
@@ -187,16 +160,12 @@ selecting a specific server and clicking the **Replication
 settings** tab or by changing the **Replication
 template** (in this case the change will only affect newly added servers).
 
-## How many disks can the AWS Replication Agent
-
-replicate?
+## How many disks can the AWS Replication Agent replicate?
 
 The agent can replicate up to 50 disks from a single server. Ensure that the replication
 server instance type supports at least the number of disks being replicated.
 
-## Is it possible to add a disk to replication
-
-without a complete resync of any disks that have already been replicated?
+## Is it possible to add a disk to replication without a complete resync of any disks that have already been replicated?
 
 When you are adding a disk to a source server, AWS Application Migration Service will not automatically identify this
 disk and add it to the **Disk settings** section in the
@@ -215,9 +184,7 @@ tracking being unloaded and reset, so we have no way of being certain of the syn
 the rescan on the original volumes is happening, the agent is also ensuring that the initial
 sync of the new volume is being completed in parallel.
 
-## Is the AWS Replication Agent installed on launched
-
-test and cutover instances?
+## Is the AWS Replication Agent installed on launched test and cutover instances?
 
 During the launch process, either upon test or cutover instance launch, the AWS
 Replication agent is removed from the test or cutover instance, and will not run on

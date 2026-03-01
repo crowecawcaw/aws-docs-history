@@ -35,7 +35,6 @@ dashboards:
 ###### Topics
 
 - [Review overall application status](application-overview-dashboard.md "application-overview-dashboard.md")
-- [Source server
-  migration metrics](application-source-server-migration-metrics.md "application-source-server-migration-metrics.md")
+- [Source server migration metrics](application-source-server-migration-metrics.md "application-source-server-migration-metrics.md")
 - [Review application source servers](application-source-servers-table.md "application-source-servers-table.md")
 - [Review application tags](application-cirrus_tags.md "application-cirrus_tags.md")

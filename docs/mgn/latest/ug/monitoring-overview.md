@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Monitoring Application Migration
-
-Service
+# Monitoring Application Migration Service
 
 Monitoring is an important part of maintaining the reliability, availability, and
 performance of Application Migration Service and your other AWS

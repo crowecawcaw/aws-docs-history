@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Application Migration Service EventBridge sample
-
-events
+# Application Migration Service EventBridge sample events
 
 Application Migration Service sends events to Amazon EventBridge whenever a Source server
 launch has completed, a Source server reaches the READY_FOR_TEST lifecycle state for the first

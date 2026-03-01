@@ -28,9 +28,7 @@ down access), add this statement to your policy:
 }
 ```
 
-## Use the created VPC Endpoint for
-
-AWS Application Migration Service
+## Use the created VPC Endpoint for AWS Application Migration Service
 
 Once you have created the VPC Endpoint, the AWS Replication Agent can connect to
 Application Migration Service via Site-to-Site VPN/Direct Connect by using the --endpoint installation parameter.
@@ -41,17 +39,13 @@ Run the AWS Replication Agent installer with the --endpoint parameter. Enter you
 endpoint-specific DNS hostname within the parameter. The installer is then able to
 connect to Application Migration Service via the endpoint over your Site-to-Site VPN/Direct Connect connection.
 
-## Create an Amazon S3 endpoint for
-
-AWS Application Migration Service
+## Create an Amazon S3 endpoint for AWS Application Migration Service
 
 To allow the AWS Replication Agent installer to communicate with Amazon S3, create an interface
 Amazon S3 endpoint for Application Migration Service in your staging area subnet. For more information, see [Endpoints for
 Amazon S3](../../../vpc/latest/privatelink/vpc-endpoints-s3.md "../../../vpc/latest/privatelink/vpc-endpoints-s3.md") in the _Amazon VPC User Guide_.
 
-## Use the created Amazon S3 Endpoint for
-
-AWS Application Migration Service
+## Use the created Amazon S3 Endpoint for AWS Application Migration Service
 
 Once you have created the Amazon VPC Endpoint, the AWS Replication Agent can connect to Amazon S3 via
 Site-to-Site VPN/Direct Connect by using the --s3-endpoint installation parameter. Learn more about [Private DNS for interface endpoints](../../../vpc/latest/privatelink/vpce-interface.md#vpce-private-dns "../../../vpc/latest/privatelink/vpce-interface.md#vpce-private-dns") in the _Amazon VPC User

@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Review the migration status of
-
-applications in a wave
+# Review the migration status of applications in a wave
 
 The application **Migration status** metric provides an
 aggregated overview of the migration status of the wave's associated applications. You can look

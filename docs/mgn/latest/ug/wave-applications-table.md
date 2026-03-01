@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Review all applications associated with a
-
-wave
+# Review all applications associated with a wave
 
 The **Applications** table lists all the applications that
 are associated with the wave.

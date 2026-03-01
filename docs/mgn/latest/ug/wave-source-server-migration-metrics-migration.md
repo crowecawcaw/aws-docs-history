@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Review the migration lifecycle
-
-for the servers in a wave
+# Review the migration lifecycle for the servers in a wave
 
 The source server's **Migration lifecycle** metric provides
 an aggregated overview of the migration lifecycle of the wave's associated servers . You can

@@ -45,9 +45,7 @@ Source server **Data replication status** can have one of these values:
 - **Paused**
 - **Disconnected**
 
-## Understand the migration lifecycle
-
-metric
+## Understand the migration lifecycle metric
 
 The source server **Migration lifecycle** metric shows an
 aggregated overview of your source servers' migration lifecycle. You can look up an individual

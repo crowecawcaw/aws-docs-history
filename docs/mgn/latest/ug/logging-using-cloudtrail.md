@@ -14,9 +14,7 @@ request was made, who made the request, when it was made, and additional details
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-## AWS Application Migration Service information in
-
-CloudTrail
+## AWS Application Migration Service information in CloudTrail
 
 CloudTrail is activated on your AWS account when you create the account. When activity occurs in
 AWS Application Migration Service, that activity is recorded in a CloudTrail event along with other
@@ -52,9 +50,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding AWS Application Migration Service log file
-
-entries
+## Understanding AWS Application Migration Service log file entries
 
 A trail is a configuration that allows for the delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

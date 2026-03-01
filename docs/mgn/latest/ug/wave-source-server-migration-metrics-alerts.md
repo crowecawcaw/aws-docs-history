@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Review alerts on source servers
-
-in a wave
+# Review alerts on source servers in a wave
 
 The source server **Alerts** metric provides an aggregated
 overview of the alerts related to the wave's associated servers. You can look up an individual

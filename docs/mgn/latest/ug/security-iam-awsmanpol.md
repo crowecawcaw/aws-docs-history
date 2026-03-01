@@ -17,9 +17,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS MGN updates for AWS
-
-managed policies
+## AWS MGN updates for AWS managed policies
 
 View details about updates to AWS managed policies for AWS Application Migration Service since March
 1, 2021.
@@ -56,31 +54,18 @@ View details about updates to AWS managed policies for AWS Application Migration
 
 ###### Topics
 
-- [AWS managed policy:
-  AWSApplicationMigrationServiceRolePolicy](security-iam-awsmanpol-AWSApplicationMigrationServiceRolePolicy.md "security-iam-awsmanpol-AWSApplicationMigrationServiceRolePolicy.md")
-- [AWS managed policy:
-  AWSApplicationMigrationConversionServerPolicy](security-iam-awsmanpol-AWSApplicationMigrationConversionServerPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationConversionServerPolicy.md")
-- [AWS managed policy:
-  AWSApplicationMigrationReplicationServerPolicy](security-iam-awsmanpol-AWSApplicationMigrationReplicationServerPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationReplicationServerPolicy.md")
-- [AWS managed policy:
-  AWSApplicationMigrationAgentPolicy](security-iam-awsmanpol-AWSApplicationMigrationAgentPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationAgentPolicy.md")
+- [AWS managed policy: AWSApplicationMigrationServiceRolePolicy](security-iam-awsmanpol-AWSApplicationMigrationServiceRolePolicy.md "security-iam-awsmanpol-AWSApplicationMigrationServiceRolePolicy.md")
+- [AWS managed policy: AWSApplicationMigrationConversionServerPolicy](security-iam-awsmanpol-AWSApplicationMigrationConversionServerPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationConversionServerPolicy.md")
+- [AWS managed policy: AWSApplicationMigrationReplicationServerPolicy](security-iam-awsmanpol-AWSApplicationMigrationReplicationServerPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationReplicationServerPolicy.md")
+- [AWS managed policy: AWSApplicationMigrationAgentPolicy](security-iam-awsmanpol-AWSApplicationMigrationAgentPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationAgentPolicy.md")
 - [AWS managed policy: AWSApplicationMigrationMGHAccess](security-iam-awsmanpol-AWSApplicationMigrationMGHAccess.md "security-iam-awsmanpol-AWSApplicationMigrationMGHAccess.md")
 - [AWS managed policy: AWSApplicationMigrationFullAccess](security-iam-awsmanpol-AWSApplicationMigrationFullAccess.md "security-iam-awsmanpol-AWSApplicationMigrationFullAccess.md")
-- [AWS managed
-  policy: AWSApplicationMigrationEC2Access](security-iam-awsmanpol-AWSApplicationMigrationEC2Access.md "security-iam-awsmanpol-AWSApplicationMigrationEC2Access.md")
-- [AWS managed
-  policy: AWSApplicationMigrationSSMAccess](security-iam-awsmanpol-AWSApplicationMigrationSSMAccess.md "security-iam-awsmanpol-AWSApplicationMigrationSSMAccess.md")
-- [AWS managed policy:
-  AWSApplicationMigrationReadOnlyAccess](security-iam-awsmanpol-AWSApplicationMigrationReadOnlyAccess.md "security-iam-awsmanpol-AWSApplicationMigrationReadOnlyAccess.md")
-- [AWS managed policy:
-  AWSApplicationMigrationVCenterClientPolicy](security-iam-awsmanpol-AWSApplicationMigrationVCenterClientPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationVCenterClientPolicy.md")
-- [AWS managed policy:
-  AWSApplicationMigrationAgentInstallationPolicy](security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy.md")
-- [AWS managed policy:
-  AWSApplicationMigrationAgentPolicy_v2](security-iam-awsmanpol-AWSApplicationMigrationAgentPolicy_v2.md "security-iam-awsmanpol-AWSApplicationMigrationAgentPolicy_v2.md")
-- [AWS managed policy:
-  AWSApplicationMigrationServiceEc2InstancePolicy](security-iam-awsmanpol-AWSApplicationMigrationServiceEc2InstancePolicy.md "security-iam-awsmanpol-AWSApplicationMigrationServiceEc2InstancePolicy.md")
-- [AWS managed policy:
-  AWSApplicationMigrationNetworkMigrationMultiAccount](security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationMultiAccount.md "security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationMultiAccount.md")
-- [AWS managed policy:
-  AWSApplicationMigrationNetworkMigrationCustomResource](security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationCustomResource.md "security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationCustomResource.md")
+- [AWS managed policy: AWSApplicationMigrationEC2Access](security-iam-awsmanpol-AWSApplicationMigrationEC2Access.md "security-iam-awsmanpol-AWSApplicationMigrationEC2Access.md")
+- [AWS managed policy: AWSApplicationMigrationSSMAccess](security-iam-awsmanpol-AWSApplicationMigrationSSMAccess.md "security-iam-awsmanpol-AWSApplicationMigrationSSMAccess.md")
+- [AWS managed policy: AWSApplicationMigrationReadOnlyAccess](security-iam-awsmanpol-AWSApplicationMigrationReadOnlyAccess.md "security-iam-awsmanpol-AWSApplicationMigrationReadOnlyAccess.md")
+- [AWS managed policy: AWSApplicationMigrationVCenterClientPolicy](security-iam-awsmanpol-AWSApplicationMigrationVCenterClientPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationVCenterClientPolicy.md")
+- [AWS managed policy: AWSApplicationMigrationAgentInstallationPolicy](security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy.md")
+- [AWS managed policy: AWSApplicationMigrationAgentPolicy_v2](security-iam-awsmanpol-AWSApplicationMigrationAgentPolicy_v2.md "security-iam-awsmanpol-AWSApplicationMigrationAgentPolicy_v2.md")
+- [AWS managed policy: AWSApplicationMigrationServiceEc2InstancePolicy](security-iam-awsmanpol-AWSApplicationMigrationServiceEc2InstancePolicy.md "security-iam-awsmanpol-AWSApplicationMigrationServiceEc2InstancePolicy.md")
+- [AWS managed policy: AWSApplicationMigrationNetworkMigrationMultiAccount](security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationMultiAccount.md "security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationMultiAccount.md")
+- [AWS managed policy: AWSApplicationMigrationNetworkMigrationCustomResource](security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationCustomResource.md "security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationCustomResource.md")

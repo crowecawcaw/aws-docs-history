@@ -6,16 +6,13 @@ Use the information in this section to troubleshoot launch errors.
 
 ###### Topics
 
-- [Do I need to recreate the entire launch
-  template for every version?](#Solving-Communication-Problems1 "#Solving-Communication-Problems1")
+- [Do I need to recreate the entire launch template for every version?](#Solving-Communication-Problems1 "#Solving-Communication-Problems1")
 - [Error - AccessDeniedException - Must be admin user](#error-admin-user "#error-admin-user")
 - [VPCIdNotSpecified error](#Troubleshooting-vpc-error "#Troubleshooting-vpc-error")
 - [Error: Failed to connect using HTTP channel](#Error-Failed-to-connect-using-HTTP-channel "#Error-Failed-to-connect-using-HTTP-channel")
 - [Could not take up-to-date snapshot. Launching from snapshot taken on...](#up-to-date-snapshot "#up-to-date-snapshot")
 
-## Do I need to recreate the entire launch
-
-template for every version?
+## Do I need to recreate the entire launch template for every version?
 
 When you save a new template version, it is tagged as the latest version. However, for a
 multitude of reasons, AWS Application Migration Service (AWS MGN) uses the version marked as the default for its

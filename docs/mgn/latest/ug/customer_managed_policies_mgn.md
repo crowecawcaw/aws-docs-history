@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Customer-managed policies in
-
-AWS MGN
+# Customer-managed policies in AWS MGN
 
 You can create your own custom IAM policies to allow permissions for
 AWS Application Migration Service actions and resources. You can attach these custom policies to the

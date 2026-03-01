@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# AWS managed policy:
-
-AWSApplicationMigrationNetworkMigrationCustomResource
+# AWS managed policy: AWSApplicationMigrationNetworkMigrationCustomResource
 
 Allows modification of Transit Gateway resources created by Application Migration Service. You can attach the `AWSApplicationMigrationNetworkMigrationCustomResource` policy to your IAM identities.
 

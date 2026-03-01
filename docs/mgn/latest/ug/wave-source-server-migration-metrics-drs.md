@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Review data replication status of
-
-the servers in a wave
+# Review data replication status of the servers in a wave
 
 The source server **Data replication status** metric provides
 an aggregated overview of the data replication status of the wave's associated servers. You can

@@ -39,9 +39,7 @@ specific use cases that require long-term credentials (for example, agentless sn
 based replications). In general, you should be able to use the same policy as
 recommended above in _Temporary Credentials_.
 
-## Installing the AWS Replication Agent on an
-
-Amazon EC2 instance
+## Installing the AWS Replication Agent on an Amazon EC2 instance
 
 When installing an AWS Replication Agent on an Amazon EC2 instance (when the source server
 is in AWS Regions), you don't need to generate credentials. Instead, you can use an instance

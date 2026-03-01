@@ -11,9 +11,7 @@ To use the Application Migration Service connector you must meet these prerequis
 - The _openssl_ library must be installed on the server.
 - You must have the required [permissions](mgn-connector-permissions.md "mgn-connector-permissions.md").
 
-## Operating systems that support the MGN
-
-connector
+## Operating systems that support the MGN connector
 
 The MGN connector can be installed on servers running the following Linux
 versions:

@@ -11,18 +11,12 @@ You can also edit the replication settings for a particular server or group of s
 
 ###### Topics
 
-- [Understanding template settings and server-specific
-  settings](#template-vs-server "#template-vs-server")
-- [Edit your replication settings
-  template](#edit-replication-template "#edit-replication-template")
-- [Edit replication settings for a
-  server](#edit-replication-settings "#edit-replication-settings")
-- [Replication server settings
-  reference](replication-server-settings.md "replication-server-settings.md")
+- [Understanding template settings and server-specific settings](#template-vs-server "#template-vs-server")
+- [Edit your replication settings template](#edit-replication-template "#edit-replication-template")
+- [Edit replication settings for a server](#edit-replication-settings "#edit-replication-settings")
+- [Replication server settings reference](replication-server-settings.md "replication-server-settings.md")
 
-## Understanding template settings and server-specific
-
-settings
+## Understanding template settings and server-specific settings
 
 The replication template settings determine how data replication works for each new
 server you add to AWS Application Migration Service. These settings are
@@ -34,9 +28,7 @@ source servers or for a group of source servers. These changes do not affect the
 template. [Learn more about configuring your
 initial replication template](first-time-setup-gs.md "first-time-setup-gs.md").
 
-## Edit your replication settings
-
-template
+## Edit your replication settings template
 
 To edit the replication settings template:
 
@@ -49,9 +41,7 @@ To edit the replication settings template:
   your account but do not affect servers that you already added to
   AWS Application Migration Service.
 
-## Edit replication settings for a
-
-server
+## Edit replication settings for a server
 
 To edit the settings for an individual server or group of servers:
 

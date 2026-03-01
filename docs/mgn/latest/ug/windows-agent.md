@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Installing the AWS Replication Agent on Windows
-
-servers
+# Installing the AWS Replication Agent on Windows servers
 
 Complete these steps to install the AWS Replication Agent on Windows source
 servers.

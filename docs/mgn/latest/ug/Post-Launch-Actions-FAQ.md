@@ -6,14 +6,11 @@ This section contains answers to questions about post-launch actions.
 
 ###### Topics
 
-- [What operating systems
-  does the post-launch actions framework support?](#What-OS-Post-Launch-Actions "#What-OS-Post-Launch-Actions")
+- [What operating systems does the post-launch actions framework support?](#What-OS-Post-Launch-Actions "#What-OS-Post-Launch-Actions")
 - [What version of AWS Systems Manager Agent will be installed on my instance?](#What-Version-SSM "#What-Version-SSM")
 - [Why is the AWS Systems Manager Agent not executing my post launch actions?](#SSM-Agent-Not-Discovered "#SSM-Agent-Not-Discovered")
 
-## What operating systems
-
-does the post-launch actions framework support?
+## What operating systems does the post-launch actions framework support?
 
 Verify that your operating systems [are supported by AWS Systems Manager](../../../systems-manager/latest/userguide/prereqs-operating-systems.md "../../../systems-manager/latest/userguide/prereqs-operating-systems.md").
 

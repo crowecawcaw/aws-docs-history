@@ -11,11 +11,8 @@ replication status**, and **Migration status**.
 
 ###### Topics
 
-- [Review alerts on source servers
-  in a wave](wave-source-server-migration-metrics-alerts.md "wave-source-server-migration-metrics-alerts.md")
-- [Review data replication status of
-  the servers in a wave](wave-source-server-migration-metrics-drs.md "wave-source-server-migration-metrics-drs.md")
-- [Review the migration lifecycle
-  for the servers in a wave](wave-source-server-migration-metrics-migration.md "wave-source-server-migration-metrics-migration.md")
+- [Review alerts on source servers in a wave](wave-source-server-migration-metrics-alerts.md "wave-source-server-migration-metrics-alerts.md")
+- [Review data replication status of the servers in a wave](wave-source-server-migration-metrics-drs.md "wave-source-server-migration-metrics-drs.md")
+- [Review the migration lifecycle for the servers in a wave](wave-source-server-migration-metrics-migration.md "wave-source-server-migration-metrics-migration.md")
 - [Review the source servers in a wave](wave-source-servers-table.md "wave-source-servers-table.md")
 - [Review tags assigned to a wave](wave-cirrus_tags.md "wave-cirrus_tags.md")

@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Differentiating agentless and agent-based
-
-servers
+# Differentiating agentless and agent-based servers
 
 You can differentiate an agentless vCenter VM that's replicating through snapshot shipping
 and an agent-based server (from any source infrastructure) through several ways:

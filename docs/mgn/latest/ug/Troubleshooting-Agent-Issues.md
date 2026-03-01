@@ -40,9 +40,7 @@ support Windows 10 (64-bit).
 If your OS is indeed 64-bit, then there may be other elements blocking the installation of
 your agent. The block is actually coming from the Windows Operating System itself. You would need to identify what the cause is. One of the way is running [sfc scan](https://support.microsoft.com/en-au/topic/use-the-system-file-checker-tool-to-repair-missing-or-corrupted-system-files-79aa86cb-ca52-166a-92a3-966e85d4094e "https://support.microsoft.com/en-au/topic/use-the-system-file-checker-tool-to-repair-missing-or-corrupted-system-files-79aa86cb-ca52-166a-92a3-966e85d4094e").
 
-### Is having a mounted '/tmp' directory a requirement for the
-
-agent?
+### Is having a mounted '/tmp' directory a requirement for the agent?
 
 The simple requirement is just to have enough free space. There is no need for this to be
 a separate mount. The need for the '/tmp' requirement is actually only if '/tmp' is a separate
@@ -55,9 +53,7 @@ Installation may fail due to an old AWS Replication Agent. Ensure that you are a
 to install the latest version of the AWS Replication Agent. You can learn how to download the
 Agent [here](adding-servers.md "adding-servers.md").
 
-### Installation cannot be completed -
-
-CloudEndure Agent
+### Installation cannot be completed - CloudEndure Agent
 
 Agent installation will fail if the source server already has the CloudEndure User Agent
 installed on it. You will need to [uninstall the CloudEndure Agent](https://docs.cloudendure.com/#Installing_the_CloudEndure_Agents/Uninstalling_the_Agents/Uninstalling_the_Agents.htm#Uninstalling_the_Agents%3FTocPath%3DNavigation%7CInstalling%2520the%2520CloudEndure%2520Agents%7CUninstalling%2520the%2520Agents%7C_____0 "https://docs.cloudendure.com/#Installing_the_CloudEndure_Agents/Uninstalling_the_Agents/Uninstalling_the_Agents.htm#Uninstalling_the_Agents%3FTocPath%3DNavigation%7CInstalling%2520the%2520CloudEndure%2520Agents%7CUninstalling%2520the%2520Agents%7C_____0") and then install the AWS Replication Agent in order
@@ -320,9 +316,7 @@ Variable**.
      paths in the **Variable value** field. If the path of the
      net.exe and/or sc.exe files does not appear there, manually add it to the **Variable value** field, and click **OK**.
 
-### Windows - Installation Failed - Request
-
-Signature
+### Windows - Installation Failed - Request Signature
 
 If the AWS Replication Agent installation fails on Windows with the following error:
 

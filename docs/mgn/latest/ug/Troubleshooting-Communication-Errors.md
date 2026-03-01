@@ -1,24 +1,18 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Troubleshooting communication
-
-errors
+# Troubleshooting communication errors
 
 Use the information in this section to troubleshoot communication errors.
 
 ###### Topics
 
-- [Solving communication problems over TCP Port
-  443 between the staging area and the AWS Application Migration Service](#Solving-Communication-Problems "#Solving-Communication-Problems")
+- [Solving communication problems over TCP Port 443 between the staging area and the AWS Application Migration Service](#Solving-Communication-Problems "#Solving-Communication-Problems")
 - [Authenticate with service errors](#Authenticate-With-Service-Errors "#Authenticate-With-Service-Errors")
-- [Calculating the required bandwidth for TCP Port
-  1500](#Calculating-Bandwidth "#Calculating-Bandwidth")
+- [Calculating the required bandwidth for TCP Port 1500](#Calculating-Bandwidth "#Calculating-Bandwidth")
 - [Verifying communication over Port 1500](#Verifying-Communication-1500 "#Verifying-Communication-1500")
 - [Solving communication problems over Port 1500](#Solving-Problems-1500 "#Solving-Problems-1500")
 
-## Solving communication problems over TCP Port
-
-443 between the staging area and the AWS Application Migration Service
+## Solving communication problems over TCP Port 443 between the staging area and the AWS Application Migration Service
 
 - **DHCP** – [Check the DHCP options set of the VPC of the staging area.](../../../directoryservice/latest/admin-guide/dhcp_options_set.md "../../../directoryservice/latest/admin-guide/dhcp_options_set.md")
 
@@ -71,9 +65,7 @@ The replication server needs to be able to reach the AWS MGN endpoint and have t
   Group](replication-server-settings.md#cirrus-security-group "replication-server-settings.md#cirrus-security-group") to allow outbound TCP traffic on port 53.
 - The Replication Server does not have the proper [IAM policy](security-iam-awsmanpol-AWSApplicationMigrationReplicationServerPolicy.md "security-iam-awsmanpol-AWSApplicationMigrationReplicationServerPolicy.md").
 
-## Calculating the required bandwidth for TCP Port
-
-1500
+## Calculating the required bandwidth for TCP Port 1500
 
 The required bandwidth for transferring the replicated data over TCP Port 1500 should be
 based on the write speed of the participating source servers. The recommended bandwidth should
@@ -206,9 +198,7 @@ the Source Servers.
     **Note**: If you are using VPN, enter a specific IP
      address range in the **Destination** column.
 
-### Firewall (both internal and external) in the source
-
-server/infrastructure.
+### Firewall (both internal and external) in the source server/infrastructure.
 
 Firewall issues may have several causes. Check the following if you experience any
 firewall issues, such as Windows Firewall connection issues:

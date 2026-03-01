@@ -7,14 +7,12 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 - [Overview](#security-overview "#security-overview")
 - [Identity and access management for AWS Application Migration Service](identity-access-management.md "identity-access-management.md")
 - [Managing access using policies](security_iam_access-manage.md "security_iam_access-manage.md")
-- [Using service-linked roles for
-  AWS Application Migration Service](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for AWS Application Migration Service](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Policy structure](#iam-policy-structure "#iam-policy-structure")
 - [Resilience in AWS Application Migration Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Application Migration Service](infrastructure-security.md "infrastructure-security.md")
 - [Compliance validation for AWS Application Migration Service](compliance-validation.md "compliance-validation.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 
 ## Overview
 

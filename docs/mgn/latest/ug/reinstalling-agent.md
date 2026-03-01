@@ -8,5 +8,4 @@ existing agent installation. You do not need to remove any previous versions pri
 install.
 
 - [Installing the AWS Replication Agent on Linux servers](linux-agent.md "linux-agent.md")
-- [Installing the AWS Replication Agent on Windows
-  servers](windows-agent.md "windows-agent.md")
+- [Installing the AWS Replication Agent on Windows servers](windows-agent.md "windows-agent.md")

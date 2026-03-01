@@ -26,8 +26,7 @@ update your account-level launch template.
 ###### Topics
 
 - [General launch settings reference](#general-launch-settings "#general-launch-settings")
-- [Default EC2 launch template
-  settings](#default-ec2-launch-template "#default-ec2-launch-template")
+- [Default EC2 launch template settings](#default-ec2-launch-template "#default-ec2-launch-template")
 - [MAP program tagging setting](#map-program-tagging "#map-program-tagging")
 
 ## General launch settings reference
@@ -82,9 +81,7 @@ you use BYOL licensing for Windows you have to change the **Placement.tenancy** 
 
 UEFI is not supported in CentOS 6 and Rhel 6.
 
-## Default EC2 launch template
-
-settings
+## Default EC2 launch template settings
 
 In the **Default EC2 launch template** section, you
 can define the following options:

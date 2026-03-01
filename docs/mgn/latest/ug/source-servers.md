@@ -34,7 +34,6 @@ individual replication settings and launch settings for the server.
 ###### Topics
 
 - [Adding source servers](adding-servers.md "adding-servers.md")
-- [Installing the AWS Application Migration Service vCenter Client for Agentless Replication on vCenter source
-  environments](agentless-mgn.md "agentless-mgn.md")
+- [Installing the AWS Application Migration Service vCenter Client for Agentless Replication on vCenter source environments](agentless-mgn.md "agentless-mgn.md")
 - [Manage source servers](server-list.md "server-list.md")
 - [Access details on a source server](server-details.md "server-details.md")

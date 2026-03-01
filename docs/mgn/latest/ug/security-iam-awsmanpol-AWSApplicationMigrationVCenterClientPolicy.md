@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# AWS managed policy:
-
-AWSApplicationMigrationVCenterClientPolicy
+# AWS managed policy: AWSApplicationMigrationVCenterClientPolicy
 
 You can attach the `AWSApplicationMigrationVCenterClientPolicy` policy to
 your IAM identities.

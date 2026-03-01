@@ -1,8 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Review source server data
-
-replication status
+# Review source server data replication status
 
 The source server **Data replication status**
 migration metric presents an aggregated overview of the application associated

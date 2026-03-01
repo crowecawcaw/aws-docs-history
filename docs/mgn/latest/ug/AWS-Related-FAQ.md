@@ -6,34 +6,22 @@ This section contains answers to questions about AWS and AWS Application Migrati
 
 ###### Topics
 
-- [What does the AWS Application Migration Service Machine
-  Conversion Server do?](#What-Conversion-Server-Do "#What-Conversion-Server-Do")
+- [What does the AWS Application Migration Service Machine Conversion Server do?](#What-Conversion-Server-Do "#What-Conversion-Server-Do")
 - [What boot modes are supported by the AWS Application Migration Service?](#Supported-boot-mode "#Supported-boot-mode")
 - [How can we encrypt an unencrypted AWS Application Migration Service base snapshot?](#encrypt-base-snapshot "#encrypt-base-snapshot")
-- [How do I change the server AMI on AWS after
-  Migration?](#How-Change-Server-AMI "#How-Change-Server-AMI")
-- [Which AWS services are
-  automatically installed when launching a test or cutover instance?](#Which-AWS-Services-Automatically-Installed-Target "#Which-AWS-Services-Automatically-Installed-Target")
-- [How long does it take to copy a disk from the
-  AWS Application Migration Service staging area to production?](#How-Long-Copy-Disk-Staging "#How-Long-Copy-Disk-Staging")
-- [What are the
-  differences between conversion servers and replication servers?](#What-differences-Conversion-Servers-Replication-Servers "#What-differences-Conversion-Servers-Replication-Servers")
+- [How do I change the server AMI on AWS after Migration?](#How-Change-Server-AMI "#How-Change-Server-AMI")
+- [Which AWS services are automatically installed when launching a test or cutover instance?](#Which-AWS-Services-Automatically-Installed-Target "#Which-AWS-Services-Automatically-Installed-Target")
+- [How long does it take to copy a disk from the AWS Application Migration Service staging area to production?](#How-Long-Copy-Disk-Staging "#How-Long-Copy-Disk-Staging")
+- [What are the differences between conversion servers and replication servers?](#What-differences-Conversion-Servers-Replication-Servers "#What-differences-Conversion-Servers-Replication-Servers")
 - [Can I prevent AWS Application Migration Service from cleaning up test instance resources in AWS?](#Can-Prevent-Clean-Up-Target-Resources "#Can-Prevent-Clean-Up-Target-Resources")
-- [Why are my Windows server disks read-only
-  after launching the test or cutover instance?](#Why-Windows-Server-Disks-Read-Only "#Why-Windows-Server-Disks-Read-Only")
-- [What impacts the conversion and boot
-  time of test and cutover instances?](#What-Impacts-Conversion-Boot-Time-Target "#What-Impacts-Conversion-Boot-Time-Target")
+- [Why are my Windows server disks read-only after launching the test or cutover instance?](#Why-Windows-Server-Disks-Read-Only "#Why-Windows-Server-Disks-Read-Only")
+- [What impacts the conversion and boot time of test and cutover instances?](#What-Impacts-Conversion-Boot-Time-Target "#What-Impacts-Conversion-Boot-Time-Target")
 - [Why do I observe EBS volume performance issues while using test or cutover instances?](#EBS-performance-hit-after-instance-launch "#EBS-performance-hit-after-instance-launch")
-- [How is the AWS Licensing Model Tenancy chosen for
-  AWS Application Migration Service?](#How-Licensing-Model-Tenancy "#How-Licensing-Model-Tenancy")
-- [How does AWS Application Migration Service interact with Interface VPC
-  Endpoints?](#mgn-and-vpc "#mgn-and-vpc")
-- [How do I use MGN with CloudWatch and EventBridge
-  dashboards?](#mgn-and-monitoring "#mgn-and-monitoring")
+- [How is the AWS Licensing Model Tenancy chosen for AWS Application Migration Service?](#How-Licensing-Model-Tenancy "#How-Licensing-Model-Tenancy")
+- [How does AWS Application Migration Service interact with Interface VPC Endpoints?](#mgn-and-vpc "#mgn-and-vpc")
+- [How do I use MGN with CloudWatch and EventBridge dashboards?](#mgn-and-monitoring "#mgn-and-monitoring")
 
-## What does the AWS Application Migration Service Machine
-
-Conversion Server do?
+## What does the AWS Application Migration Service Machine Conversion Server do?
 
 The machine conversion server converts the disks to boot and run on AWS.
 
@@ -71,18 +59,14 @@ To encrypt an existing unencrypted base snapshot, follow these steps:
 
 Enabling default EBS encryption at the region level will encrypt all newly created EBS volumes and snapshots in that region.
 
-## How do I change the server AMI on AWS after
-
-Migration?
+## How do I change the server AMI on AWS after Migration?
 
 After the machine has been launched by AWS Application Migration Service switching the AMI can
 be done by launching a vanilla machine from the required AMI, stopping that machine, detaching
 all the disks (including the root) and then attaching the disks from the test or cutover
 instance created by AWS Application Migration Service.
 
-## Which AWS services are
-
-automatically installed when launching a test or cutover instance?
+## Which AWS services are automatically installed when launching a test or cutover instance?
 
 AWS Application Migration Service automatically installs EC2Config. After installation,
 EC2Config automatically installs the SSM EC2 Configuration Service.
@@ -100,16 +84,12 @@ Migration using the wizard in C:\Program
 Data\Amazon\EC2-Windows\Launch\Settings\Ec2LaunchSettings.exe on the test or cutover
 instance.
 
-## How long does it take to copy a disk from the
-
-AWS Application Migration Service staging area to production?
+## How long does it take to copy a disk from the AWS Application Migration Service staging area to production?
 
 AWS Application Migration Service uses internal cloud provider snapshots. This process
 typically takes less than a minute and the size of the volume does not impact the time.
 
-## What are the
-
-differences between conversion servers and replication servers?
+## What are the differences between conversion servers and replication servers?
 
 Replication servers run on Linux and conversion servers (for Windows machines) run on
 Windows.
@@ -136,9 +116,7 @@ test process either when requested by the user or when a new Test instance is la
 To prevent this in AWS, you can [activate Termination Protection](../../../AWSEC2/latest/UserGuide/terminating-instances.md#Using_ChangingDisableAPITermination "../../../AWSEC2/latest/UserGuide/terminating-instances.md#Using_ChangingDisableAPITermination") for the test or cutover instance, and the resources
 will not be removed upon a new instance launch.
 
-## Why are my Windows server disks read-only
-
-after launching the test or cutover instance?
+## Why are my Windows server disks read-only after launching the test or cutover instance?
 
 When launching test or cutover instances Windows Server may boot with all the disks as
 read-only.
@@ -147,9 +125,7 @@ This a common issue that occurs when detaching and attaching data disks. This is
 resolved using steps in [this
 Microsoft TechNet article](https://blogs.technet.microsoft.com/askcore/2011/06/02/my-disk-is-read-only-help/ "https://blogs.technet.microsoft.com/askcore/2011/06/02/my-disk-is-read-only-help/").
 
-## What impacts the conversion and boot
-
-time of test and cutover instances?
+## What impacts the conversion and boot time of test and cutover instances?
 
 Prior to launching the test or cutover instance, AWS Application Migration Service goes through
 a machine conversion server process on the boot volume. The conversion process is fairly
@@ -186,16 +162,12 @@ adjusting to the AWS virtual hardware.
 
 The EBS volumes attached to the test or cutover instances are created from snapshots of convertered volumes. For any volume type that were created from snapshots, the storage blocks are pulled down from Amazon S3 and written to the volume before accessed by you. This process may take significant time and varies based on the EBS volume type. For additional details and EBS initialization options, refer to [Initialize Amazon EBS volumes](../../../ebs/latest/userguide/ebs-initialize.md "../../../ebs/latest/userguide/ebs-initialize.md")
 
-## How is the AWS Licensing Model Tenancy chosen for
-
-AWS Application Migration Service?
+## How is the AWS Licensing Model Tenancy chosen for AWS Application Migration Service?
 
 AWS Application Migration Service conforms to the [Microsoft Licensing on
 AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/") guidelines.
 
-## How does AWS Application Migration Service interact with Interface VPC
-
-Endpoints?
+## How does AWS Application Migration Service interact with Interface VPC Endpoints?
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can
 establish a private connection between your VPC and AWS Application Migration Service. You can
@@ -224,9 +196,7 @@ PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/private
 For more information, see [Getting
 Started](../../../vpc/latest/userguide/GetStarted.md "../../../vpc/latest/userguide/GetStarted.md") in the _Amazon VPC User Guide_.
 
-## How do I use MGN with CloudWatch and EventBridge
-
-dashboards?
+## How do I use MGN with CloudWatch and EventBridge dashboards?
 
 You can monitor AWS Application Migration Service using CloudWatch, which collects raw data and
 processes it into readable, near real-time metrics. AWS Application Migration Service sends

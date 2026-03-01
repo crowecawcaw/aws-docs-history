@@ -4,9 +4,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 This section contains answers to questions about what AWS Application Migration Service works with.
 
-## Does AWS MGN work with Microsoft Windows Failover
-
-Clustering?
+## Does AWS MGN work with Microsoft Windows Failover Clustering?
 
 Yes.
 

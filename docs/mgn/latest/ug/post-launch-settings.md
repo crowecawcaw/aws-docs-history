@@ -28,25 +28,16 @@ various post-launch actions, including:
 
 ###### Topics
 
-- [Activating post-launch
-  settings](#post-launch-settings-activation "#post-launch-settings-activation")
-- [Editing the post-launch settings
-  template](#post-launch-settings-editing "#post-launch-settings-editing")
-- [Deploying post-launch
-  actions](#deploying-post-launch-actions-2022 "#deploying-post-launch-actions-2022")
-- [Encrypt post-launch action
-  parameters](#encrypt-post-launch-actions-parameters "#encrypt-post-launch-actions-parameters")
+- [Activating post-launch settings](#post-launch-settings-activation "#post-launch-settings-activation")
+- [Editing the post-launch settings template](#post-launch-settings-editing "#post-launch-settings-editing")
+- [Deploying post-launch actions](#deploying-post-launch-actions-2022 "#deploying-post-launch-actions-2022")
+- [Encrypt post-launch action parameters](#encrypt-post-launch-actions-parameters "#encrypt-post-launch-actions-parameters")
 - [Post-launch actions table](#post-launch-actions-table "#post-launch-actions-table")
-- [Create a custom
-  post-launch action](#post-launch-settings-custom-actions-add "#post-launch-settings-custom-actions-add")
-- [Edit custom post-launch
-  actions](#post-launch-settings-custom-actions-edit "#post-launch-settings-custom-actions-edit")
-- [Predefined post-launch actions
-  reference](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
+- [Create a custom post-launch action](#post-launch-settings-custom-actions-add "#post-launch-settings-custom-actions-add")
+- [Edit custom post-launch actions](#post-launch-settings-custom-actions-edit "#post-launch-settings-custom-actions-edit")
+- [Predefined post-launch actions reference](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 
-## Activating post-launch
-
-settings
+## Activating post-launch settings
 
 To use the post-launch template activate the post-launch actions. This allows
 Application Migration Service to:
@@ -79,9 +70,7 @@ The post-launch actions are shown in the \*\*Settings
 
 > Post-launch template\*\* view.
 
-## Editing the post-launch settings
-
-template
+## Editing the post-launch settings template
 
 Application Migration Service supports post-launch modernization actions, giving you the opportunity to
 move and improve. The service provides actions that you can execute on your Amazon EC2 launch
@@ -90,16 +79,12 @@ instances and enables you to create your own actions.
 The actions described in these sections can be edited within the
 post-launch template. Once you have edited your settings, choose **Save template**.
 
-## Deploying post-launch
-
-actions
+## Deploying post-launch actions
 
 Use this setting to choose whether to execute the post-launch actions on your
 cutover instances, on your test instances, or on both cutover and test instances.
 
-## Encrypt post-launch action
-
-parameters
+## Encrypt post-launch action parameters
 
 The post-launch action parameters are stored in SSM [Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md") . For enhanced security, ensure that users who do not
 have permissions to execute SSM documents, do not have access to the Parameter
@@ -130,9 +115,7 @@ to filter the available actions according to your preferences.
 Click the settings icon in the right-hand corner of the screen to alternate
 between card and list view, according to your preferences.
 
-## Create a custom
-
-post-launch action
+## Create a custom post-launch action
 
 AWS Application Migration Service allows you to execute any SSM document that you like – public SSM
 document or ones you created and uploaded to your account.
@@ -197,9 +180,7 @@ such as API keys and database passwords.
 Edit each setting as required and then click **Add
 action**.
 
-## Edit custom post-launch
-
-actions
+## Edit custom post-launch actions
 
 AWS Application Migration Service allows you to execute any SSM document that you like – public SSM
 document or ones you created and uploaded to your account.

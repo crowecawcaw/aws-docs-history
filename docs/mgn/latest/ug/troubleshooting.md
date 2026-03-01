@@ -7,8 +7,7 @@ This section provides help for common communication, credential, installation, a
 ###### Topics
 
 - [Troubleshooting launch errors](Troubleshooting-Launch-Errors.md "Troubleshooting-Launch-Errors.md")
-- [Troubleshooting communication
-  errors](Troubleshooting-Communication-Errors.md "Troubleshooting-Communication-Errors.md")
+- [Troubleshooting communication errors](Troubleshooting-Communication-Errors.md "Troubleshooting-Communication-Errors.md")
 - [Troubleshooting agent issues](Troubleshooting-Agent-Issues.md "Troubleshooting-Agent-Issues.md")
 - [Troubleshooting agentless replication issues](agentless-troubleshooting.md "agentless-troubleshooting.md")
 - [Common replication errors](common-replication-errors.md "common-replication-errors.md")
