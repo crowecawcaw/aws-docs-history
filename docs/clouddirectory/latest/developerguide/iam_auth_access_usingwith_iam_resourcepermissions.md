@@ -1,8 +1,6 @@
 Amazon Cloud Directory is no longer be open to new customers. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/") and [Amazon Neptune](https://aws.amazon.com/neptune/ "https://aws.amazon.com/neptune/"). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/ "https://aws.amazon.com/support/").
 
-# Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions
-
-Reference
+# Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions Reference
 
 When you are setting up [Access Control](iam_auth_access.md#iam_auth_access_accesscontrol "iam_auth_access.md#iam_auth_access_accesscontrol") and writing permissions policies that you
 can attach to an IAM identity (identity-based policies), you can use the following table as

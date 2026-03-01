@@ -96,5 +96,4 @@ To create a policy object, use the [`CreateObject`](../APIReference/API_CreateOb
 - To list the policies that are attached to a particular object, use the [`ListObjectPolicies`](../APIReference/API_ListObjectPolicies.md "../APIReference/API_ListObjectPolicies.md") API action.
 
 For a list of operations and the permissions required to perform each API action,
-see [Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions
-Reference](iam_auth_access_usingwith_iam_resourcepermissions.md "iam_auth_access_usingwith_iam_resourcepermissions.md").
+see [Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions Reference](iam_auth_access_usingwith_iam_resourcepermissions.md "iam_auth_access_usingwith_iam_resourcepermissions.md").

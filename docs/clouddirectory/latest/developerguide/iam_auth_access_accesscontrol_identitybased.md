@@ -14,24 +14,17 @@ information, see [Overview of Managing Access Permissions to Your Cloud Director
 
 The sections in this topic cover the following:
 
-- [Permissions
-  Required to Use the Directory Service Console](#iam_auth_access_usingwith_iam_requiredpermissions_console "#iam_auth_access_usingwith_iam_requiredpermissions_console")
-- [AWS Managed
-  (Predefined) Policies for Amazon Cloud Directory](#iam_auth_access_accesscontrol_managedpolicies "#iam_auth_access_accesscontrol_managedpolicies")
+- [Permissions Required to Use the Directory Service Console](#iam_auth_access_usingwith_iam_requiredpermissions_console "#iam_auth_access_usingwith_iam_requiredpermissions_console")
+- [AWS Managed (Predefined) Policies for Amazon Cloud Directory](#iam_auth_access_accesscontrol_managedpolicies "#iam_auth_access_accesscontrol_managedpolicies")
 
-## Permissions
+## Permissions Required to Use the Directory Service Console
 
-Required to Use the Directory Service Console
-
-For a user to work with the Directory Service console, that user must have permissions listed in the policy above or the permissions granted by the Directory Service Full Access Role or Directory Service Read Only role, described in [AWS Managed
-(Predefined) Policies for Amazon Cloud Directory](#iam_auth_access_accesscontrol_managedpolicies "#iam_auth_access_accesscontrol_managedpolicies").
+For a user to work with the Directory Service console, that user must have permissions listed in the policy above or the permissions granted by the Directory Service Full Access Role or Directory Service Read Only role, described in [AWS Managed (Predefined) Policies for Amazon Cloud Directory](#iam_auth_access_accesscontrol_managedpolicies "#iam_auth_access_accesscontrol_managedpolicies").
 
 If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console won't function as intended for users with that IAM policy.
 
-## AWS Managed
-
-(Predefined) Policies for Amazon Cloud Directory
+## AWS Managed (Predefined) Policies for Amazon Cloud Directory
 
 AWS addresses many common use cases by providing standalone IAM policies
 that are created and administered by AWS. Managed policies grant necessary permissions for

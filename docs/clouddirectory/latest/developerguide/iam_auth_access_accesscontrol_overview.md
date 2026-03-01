@@ -16,11 +16,9 @@ administrator privileges. For more information, see
 ###### Topics
 
 - [Cloud Directory Resources and Operations](#iam_auth_access_creatingiampolicies "#iam_auth_access_creatingiampolicies")
-- [Understanding
-  Resource Ownership](#iam_auth_access_accesscontrol_resourceowner "#iam_auth_access_accesscontrol_resourceowner")
+- [Understanding Resource Ownership](#iam_auth_access_accesscontrol_resourceowner "#iam_auth_access_accesscontrol_resourceowner")
 - [Managing Access to Resources](#iam_auth_access_accesscontrol_managingaccess "#iam_auth_access_accesscontrol_managingaccess")
-- [Specifying Policy Elements: Actions,
-  Effects, Resources, and Principals](#iam_auth_access_specifyingiampolicyactions "#iam_auth_access_specifyingiampolicyactions")
+- [Specifying Policy Elements: Actions, Effects, Resources, and Principals](#iam_auth_access_specifyingiampolicyactions "#iam_auth_access_specifyingiampolicyactions")
 - [Specifying Conditions in a Policy](#iam_auth_access_specifyingiampolicyconditions "#iam_auth_access_specifyingiampolicyconditions")
 
 ## Cloud Directory Resources and Operations
@@ -40,9 +38,7 @@ Cloud Directory provides a set of operations to work with the appropriate resour
 available operations, see either [Amazon Cloud Directory Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") or [Directory
 Service Actions](../../../directoryservice/latest/devguide/API_Operations.md "../../../directoryservice/latest/devguide/API_Operations.md").
 
-## Understanding
-
-Resource Ownership
+## Understanding Resource Ownership
 
 A _resource owner_ is the AWS account that created a
 resource. That is, the resource owner is the AWS account of the
@@ -81,8 +77,7 @@ supports only identity-based policies (IAM policies).
 ###### Topics
 
 - [Identity-Based Policies (IAM Policies)](#iam_auth_access_accesscontrol_managingaccess_identitybased "#iam_auth_access_accesscontrol_managingaccess_identitybased")
-- [Resource-Based
-  Policies](#iam_auth_access_accesscontrol_managingaccess_resourcebased "#iam_auth_access_accesscontrol_managingaccess_resourcebased")
+- [Resource-Based Policies](#iam_auth_access_accesscontrol_managingaccess_resourcebased "#iam_auth_access_accesscontrol_managingaccess_resourcebased")
 
 ### Identity-Based Policies (IAM Policies)
 
@@ -110,18 +105,14 @@ For more information about using identity-based policies with Cloud Directory, s
 For more information about users, groups, roles, and permissions, see [Identities (Users, Groups, and Roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the
 _IAM User Guide_.
 
-### Resource-Based
-
-Policies
+### Resource-Based Policies
 
 Other services, such as Amazon S3, also support resource-based permissions
 policies. For example, you can attach a policy to an S3 bucket to manage access
 permissions to that bucket. Cloud Directory doesn't support resource-based
 policies.
 
-## Specifying Policy Elements: Actions,
-
-Effects, Resources, and Principals
+## Specifying Policy Elements: Actions, Effects, Resources, and Principals
 
 For each Cloud Directory resource (see [Cloud Directory Resources and Operations](#iam_auth_access_creatingiampolicies "#iam_auth_access_creatingiampolicies")), the service defines a set of API operations.
 For a list of available API operations, see either [Amazon Cloud Directory Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") or [Directory Service Actions](../../../directoryservice/latest/devguide/API_Operations.md "../../../directoryservice/latest/devguide/API_Operations.md"). To grant permissions for these API operations, Cloud Directory
@@ -150,8 +141,7 @@ To learn more about IAM policy syntax and descriptions, see [AWS IAM
 Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_.
 
 For a table showing all of the Amazon Cloud Directory API actions and
-the resources that they apply to, see [Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions
-Reference](iam_auth_access_usingwith_iam_resourcepermissions.md "iam_auth_access_usingwith_iam_resourcepermissions.md").
+the resources that they apply to, see [Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions Reference](iam_auth_access_usingwith_iam_resourcepermissions.md "iam_auth_access_usingwith_iam_resourcepermissions.md").
 
 ## Specifying Conditions in a Policy
 

@@ -24,5 +24,4 @@ The following sections describe how to manage permissions for Cloud Directory. W
 
 - [Overview of Managing Access Permissions to Your Cloud Directory Resources](iam_auth_access_accesscontrol_overview.md "iam_auth_access_accesscontrol_overview.md")
 - [Using Identity-Based Policies (IAM Policies) for Cloud Directory](iam_auth_access_accesscontrol_identitybased.md "iam_auth_access_accesscontrol_identitybased.md")
-- [Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions
-  Reference](iam_auth_access_usingwith_iam_resourcepermissions.md "iam_auth_access_usingwith_iam_resourcepermissions.md")
+- [Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions Reference](iam_auth_access_usingwith_iam_resourcepermissions.md "iam_auth_access_usingwith_iam_resourcepermissions.md")

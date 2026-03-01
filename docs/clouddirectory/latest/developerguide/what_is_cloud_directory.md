@@ -30,8 +30,7 @@ following:
   for consumers
   Cloud Directory includes a set of API operations to access various objects and policies
   stored in your Cloud Directory-based directories. For a list of available operations, see [Amazon Cloud Directory API Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md"). For a list of operations and the permissions
-  required to perform each API action, see [Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions
-  Reference](iam_auth_access_usingwith_iam_resourcepermissions.md "iam_auth_access_usingwith_iam_resourcepermissions.md").
+  required to perform each API action, see [Amazon Cloud Directory API Permissions: Actions, Resources, and Conditions Reference](iam_auth_access_usingwith_iam_resourcepermissions.md "iam_auth_access_usingwith_iam_resourcepermissions.md").
 
 For a list of supported Cloud Directory regions, see the [AWS
 Regions and Endpoints](../../../general/latest/gr/rande.md#clouddirectory_region "../../../general/latest/gr/rande.md#clouddirectory_region") documentation. For additional resources, see [Cloud Directory Resources](resources.md "resources.md").

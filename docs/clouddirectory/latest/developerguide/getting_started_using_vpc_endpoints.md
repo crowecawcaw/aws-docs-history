@@ -1,8 +1,6 @@
 Amazon Cloud Directory is no longer be open to new customers. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/") and [Amazon Neptune](https://aws.amazon.com/neptune/ "https://aws.amazon.com/neptune/"). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/ "https://aws.amazon.com/support/").
 
-# Using Cloud Directory Interface VPC
-
-Endpoints
+# Using Cloud Directory Interface VPC Endpoints
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private
 connection between your VPC and Cloud Directory. You can use this connection to enable Cloud Directory to
@@ -52,9 +50,7 @@ Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpo
 For general information, see [What is
 Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the _Amazon VPC User Guide_.
 
-### Control Access to Your Cloud Directory VPC
-
-Endpoint
+### Control Access to Your Cloud Directory VPC Endpoint
 
 A VPC endpoint policy is an IAM resource policy that you attach to an endpoint when you
 create or modify the endpoint. If you don't attach a policy when you create an endpoint, we
