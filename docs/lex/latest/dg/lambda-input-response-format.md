@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Lambda Function Input
-
-Event and Response Format
+# Lambda Function Input Event and Response Format
 
 This section describes the structure of the event data that
 Amazon Lex provides to a Lambda function. Use this information to
@@ -14,14 +12,10 @@ the response that Amazon Lex expects your Lambda function to return.
 
 ###### Topics
 
-- [Input Event
-  Format](#using-lambda-input-event-format "#using-lambda-input-event-format")
-- [Response
-  Format](#using-lambda-response-format "#using-lambda-response-format")
+- [Input Event Format](#using-lambda-input-event-format "#using-lambda-input-event-format")
+- [Response Format](#using-lambda-response-format "#using-lambda-response-format")
 
-## Input Event
-
-Format
+## Input Event Format
 
 The following shows the general format of an Amazon Lex event that
 is passed to a Lambda function. Use this information when you are
@@ -338,15 +332,13 @@ the message version.
   client sends in the request. If you want Amazon Lex to
   include them in the response to the client, your Lambda
   function should send these back to Amazon Lex in the
-  response. For more information, see [Setting Session
-  Attributes](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md")
+  response. For more information, see [Setting Session Attributes](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md")
 - **requestAttributes**
   – Request-specific attributes that the client
   sends in the request. Use request attributes to pass
   information that doesn't need to persist for the entire
   session. If there are no request attributes, the value
-  will be null. For more information, see [Setting Request
-  Attributes](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md")
+  will be null. For more information, see [Setting Request Attributes](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md")
 - **recentIntentSummaryView** –
   Information about the state of an intent. You can see
   information about the last three intents used. You can
@@ -381,12 +373,9 @@ the message version.
        and value of the slots from the intent that
        activated the context.
 
-  For more information, see [Setting Intent
-  Context](context-mgmt-active-context.md "context-mgmt-active-context.md").
+  For more information, see [Setting Intent Context](context-mgmt-active-context.md "context-mgmt-active-context.md").
 
-## Response
-
-Format
+## Response Format
 
 Amazon Lex expects a response from a Lambda function in the
 following format:
@@ -505,8 +494,7 @@ If you specify a time-to-live of 0 for a context that was
 included in the input event, it will be inactive on the next
 request.
 
-For more information, see [Setting Intent
-Context](context-mgmt-active-context.md "context-mgmt-active-context.md").
+For more information, see [Setting Intent Context](context-mgmt-active-context.md "context-mgmt-active-context.md").
 
 ### dialogAction
 

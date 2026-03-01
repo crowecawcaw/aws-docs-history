@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 5 (Optional):
-
-Review the Details of the Information Flow (Console)
+# Step 5 (Optional): Review the Details of the Information Flow (Console)
 
 This section explains the flow of information between the client
 and Amazon Lex for each user input, including the integration of the
@@ -17,9 +15,7 @@ The section assumes that the client sends requests to
 Amazon Lex using the `PostText` runtime API and shows
 request and response details accordingly. For an example of the
 information flow between the client and Amazon Lex in which
-client uses the `PostContent` API, see [Step 2a
-(Optional): Review the Details of the Spoken Information
-Flow (Console)](gs-bp-details-postcontent-flow.md "gs-bp-details-postcontent-flow.md") .
+client uses the `PostContent` API, see [Step 2a (Optional): Review the Details of the Spoken Information Flow (Console)](gs-bp-details-postcontent-flow.md "gs-bp-details-postcontent-flow.md").
 
 For more information about the `PostText` runtime API
 and additional details on the requests and responses shown in the
@@ -89,8 +85,7 @@ following steps, see [PostText](API_runtime_PostText.md "API_runtime_PostText.md
     }
     ```
 
-    For more information, see [Input Event
-    Format](lambda-input-response-format.md#using-lambda-input-event-format "lambda-input-response-format.md#using-lambda-input-event-format").
+    For more information, see [Input Event Format](lambda-input-response-format.md#using-lambda-input-event-format "lambda-input-response-format.md#using-lambda-input-event-format").
 
     In addition to the information that the client
     sent, Amazon Lex also includes the following
@@ -130,8 +125,7 @@ following steps, see [PostText](API_runtime_PostText.md "API_runtime_PostText.md
     ```
 
     For information about the response format, see
-    [Response
-    Format](lambda-input-response-format.md#using-lambda-response-format "lambda-input-response-format.md#using-lambda-response-format").
+    [Response Format](lambda-input-response-format.md#using-lambda-response-format "lambda-input-response-format.md#using-lambda-response-format").
 
     Note the following:
 
@@ -620,5 +614,4 @@ following steps, see [PostText](API_runtime_PostText.md "API_runtime_PostText.md
 
 ###### Next Step
 
-[Step 6: Update the Intent
-Configuration to Add an Utterance (Console)](gs-bp-utterance.md "gs-bp-utterance.md")
+[Step 6: Update the Intent Configuration to Add an Utterance (Console)](gs-bp-utterance.md "gs-bp-utterance.md")

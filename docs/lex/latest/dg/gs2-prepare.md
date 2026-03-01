@@ -83,9 +83,7 @@ export const handler = (event, context, callback) => {
 
 5. Choose **Save**.
 
-## Test the Lambda Function Using Sample Event
-
-Data
+## Test the Lambda Function Using Sample Event Data
 
 In the console, test the Lambda function by using sample event data to manually
 invoke it.

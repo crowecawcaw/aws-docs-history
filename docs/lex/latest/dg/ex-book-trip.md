@@ -61,10 +61,8 @@ POST /bot/BookTrip/alias/$LATEST/user/wch89kjqcpkds8seny7dly5x3otq68j3/text
   wants to book a car, Amazon Lex can prompt the user to confirm (or deny) that the car is
   being booked for the same city and dates as their hotel reservation
   In this exercise you use blueprints to create an Amazon Lex bot and a Lambda function. For more
-  information about blueprints, see [Amazon Lex and AWS Lambda
-  Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md").
+  information about blueprints, see [Amazon Lex and AWS Lambda Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md").
 
 ###### Next Step
 
-[Step 1: Review the Blueprints Used in this
-Exercise](ex-book-trip-blueprints.md "ex-book-trip-blueprints.md")
+[Step 1: Review the Blueprints Used in this Exercise](ex-book-trip-blueprints.md "ex-book-trip-blueprints.md")

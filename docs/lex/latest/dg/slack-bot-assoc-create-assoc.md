@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 4: Integrate the
-
-Slack Application with the Amazon Lex Bot
+# Step 4: Integrate the Slack Application with the Amazon Lex Bot
 
 Now that you have Slack application credentials, you can integrate
 the application with your Amazon Lex bot. To associate the Slack
@@ -19,9 +17,7 @@ association is activated, Amazon Lex returns two URLs
 URL**). Record these URLs because you need them
 later.
 
-###### To integrate the Slack application with your Amazon Lex
-
-bot
+###### To integrate the Slack application with your Amazon Lex bot
 
 1. Sign in to the AWS Management Console, and open the Amazon Lex
    console at [https://console.aws.amazon.com/lex/](https://console.aws.amazon.com/lex/ "https://console.aws.amazon.com/lex/").
@@ -68,5 +64,4 @@ configuration to use these endpoints as follows:
 
 ###### Next Step
 
-[Step 5: Complete
-Slack Integration](slack-bot-back-in-slack-console.md "slack-bot-back-in-slack-console.md")
+[Step 5: Complete Slack Integration](slack-bot-back-in-slack-console.md "slack-bot-back-in-slack-console.md")

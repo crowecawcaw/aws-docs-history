@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 2 (Optional):
-
-Review the Details of Information Flow (Console)
+# Step 2 (Optional): Review the Details of Information Flow (Console)
 
 This section explains the flow of information between a client and
 Amazon Lex for each user input in our example conversation.
@@ -25,8 +23,5 @@ the bot.
 
 ###### Topics
 
-- [Step 2a
-  (Optional): Review the Details of the Spoken Information
-  Flow (Console)](gs-bp-details-postcontent-flow.md "gs-bp-details-postcontent-flow.md")
-- [Step 2b (Optional): Review
-  the Details of the Typed Information Flow (Console)](gs-bp-details-part1.md "gs-bp-details-part1.md")
+- [Step 2a (Optional): Review the Details of the Spoken Information Flow (Console)](gs-bp-details-postcontent-flow.md "gs-bp-details-postcontent-flow.md")
+- [Step 2b (Optional): Review the Details of the Typed Information Flow (Console)](gs-bp-details-part1.md "gs-bp-details-part1.md")

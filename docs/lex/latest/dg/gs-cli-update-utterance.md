@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Exercise 2: Add a New Utterance
-
-(AWS CLI)
+# Exercise 2: Add a New Utterance (AWS CLI)
 
 To improve the machine learning model that Amazon Lex uses to recognize requests from your
 users, add another sample utterance to the bot.
@@ -20,8 +18,7 @@ Adding a new utterance is a four-step process.
 4. Use the [GetBot](API_GetBot.md "API_GetBot.md") and [PutBot](API_PutBot.md "API_PutBot.md") operations to rebuild any
    bot that uses the intent.
    To run the commands in this exercise, you need to know the region where the commands
-   will be run. For a list of regions, see [Model Building
-   Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building") .
+   will be run. For a list of regions, see [Model Building Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building").
 
 The response from the `GetIntent` operation contains a field called
 `checksum` that identifies a specific revision of the intent. You must

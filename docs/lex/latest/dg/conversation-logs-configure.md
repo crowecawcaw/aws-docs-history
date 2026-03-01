@@ -24,8 +24,7 @@ Bucket](../../../AmazonS3/latest/gsg/CreatingABucket.md "../../../AmazonS3/lates
 Guide_.
 
 You must provide an IAM role with policies that enable Amazon Lex to write
-to the configured log group or bucket. For more information, see [Creating an IAM Role and
-Policies for Conversation Logs](conversation-logs-policies.md#conversation-logs-role-and-policy "conversation-logs-policies.md#conversation-logs-role-and-policy").
+to the configured log group or bucket. For more information, see [Creating an IAM Role and Policies for Conversation Logs](conversation-logs-policies.md#conversation-logs-role-and-policy "conversation-logs-policies.md#conversation-logs-role-and-policy").
 
 If you create a service-linked role using the AWS Command Line Interface, you must add
 a custom suffix to the role using the `custom-suffix` option as follows:
@@ -56,9 +55,7 @@ JSON
 
 ```
 
-## Enabling Conversation
-
-Logs
+## Enabling Conversation Logs
 
 ###### To turn on logs using the console
 
@@ -111,9 +108,7 @@ Logs
    an IAM role that has the required permissions for enabling conversation
    logs on the specified resources.
 
-## Disabling Conversation
-
-Logs
+## Disabling Conversation Logs
 
 ###### To turn off logs using the console
 

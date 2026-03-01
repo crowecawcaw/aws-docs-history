@@ -3,20 +3,14 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 1: Review the Blueprints Used in this
-
-Exercise
+# Step 1: Review the Blueprints Used in this Exercise
 
 ###### Topics
 
-- [Overview of the Bot Blueprint
-  (BookTrip)](#ex-book-trip-bp-summary-bot "#ex-book-trip-bp-summary-bot")
-- [Overview of the Lambda Function
-  Blueprint (lex-book-trip-python)](#ex-book-trip-summary-lambda "#ex-book-trip-summary-lambda")
+- [Overview of the Bot Blueprint (BookTrip)](#ex-book-trip-bp-summary-bot "#ex-book-trip-bp-summary-bot")
+- [Overview of the Lambda Function Blueprint (lex-book-trip-python)](#ex-book-trip-summary-lambda "#ex-book-trip-summary-lambda")
 
-## Overview of the Bot Blueprint
-
-(BookTrip)
+## Overview of the Bot Blueprint (BookTrip)
 
 The blueprint (**BookTrip**) you use to create a bot provides the
 following preconfiguration:
@@ -110,15 +104,12 @@ size`, `luxury`, and `minivan`, for
     - Denial – "Okay, I have cancelled your reservation in
       progress."
 
-## Overview of the Lambda Function
-
-Blueprint (lex-book-trip-python)
+## Overview of the Lambda Function Blueprint (lex-book-trip-python)
 
 In addition to the bot blueprint, AWS Lambda provides a blueprint
 (**lex-book-trip-python**) that you can use as a code hook with
 the bot blueprint. For a list of bot blueprints and corresponding Lambda function
-blueprints, see [Amazon Lex and AWS Lambda
-Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md").
+blueprints, see [Amazon Lex and AWS Lambda Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md").
 
 When you create a bot using the BookTrip blueprint, you update configuration of
 both the intents (BookCar and BookHotel) by adding this Lambda function as a code

@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Exercise 1: Create an Amazon Lex Bot Using a
-
-Blueprint (Console)
+# Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)
 
 In this exercise, you do the following:
 
@@ -14,8 +12,7 @@ In this exercise, you do the following:
 
 For this exercise, you use the
 **OrderFlowers** blueprint. For information
-about blueprints, see [Amazon Lex and AWS Lambda
-Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md").
+about blueprints, see [Amazon Lex and AWS Lambda Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md").
 
 - Create an AWS Lambda function and test it in the Lambda console.
   While processing a request, your bot calls this Lambda function.
@@ -29,9 +26,7 @@ Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md").
   fulfill the intent. Test the end-to-end experience.
   The following sections explain what the blueprints do.
 
-## Amazon Lex Bot: Blueprint
-
-Overview
+## Amazon Lex Bot: Blueprint Overview
 
 You use the **OrderFlowers** blueprint to create
 an Amazon Lex bot.For more information about the structure of a bot,
@@ -76,9 +71,7 @@ bot is preconfigured as follows:
     {FlowerType} will be ready for pickup by
     {PickupTime} on {PickupDate}. Does this sound okay?"
 
-## AWS Lambda Function: Blueprint
-
-Summary
+## AWS Lambda Function: Blueprint Summary
 
 The Lambda function in this exercise performs both initialization
 and validation and fulfillment tasks. Therefore, after creating the
@@ -97,5 +90,4 @@ initialization and validation and fulfillment tasks.
 
 ###### Next Step
 
-[Step 1: Create an Amazon Lex Bot
-(Console)](gs-bp-create-bot.md "gs-bp-create-bot.md")
+[Step 1: Create an Amazon Lex Bot (Console)](gs-bp-create-bot.md "gs-bp-create-bot.md")

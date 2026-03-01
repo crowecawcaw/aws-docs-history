@@ -3,17 +3,14 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Test the Bot Using Speech Input
-
-(AWS CLI)
+# Test the Bot Using Speech Input (AWS CLI)
 
 To test the bot using audio files, use the [PostContent](API_runtime_PostContent.md "API_runtime_PostContent.md")
 operation. You generate the audio files using Amazon Polly text-to-speech
 operations.
 
 To run the commands in this exercise, you need to know the region the Amazon Lex
-and Amazon Polly commands will be run. For a list of regions for Amazon Lex, see [Runtime Service
-Quotas](gl-limits.md#gl-limits-runtime "gl-limits.md#gl-limits-runtime"). For a list
+and Amazon Polly commands will be run. For a list of regions for Amazon Lex, see [Runtime Service Quotas](gl-limits.md#gl-limits-runtime "gl-limits.md#gl-limits-runtime"). For a list
 of regions for Amazon Polly see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md#pol_region "../../../general/latest/gr/rande.md#pol_region") in the _Amazon Web Services General
 Reference_.
 
@@ -185,5 +182,4 @@ fulfillment of the intent:
 
 ## Next Step
 
-[Exercise 2: Add a New Utterance
-(AWS CLI)](gs-cli-update-utterance.md "gs-cli-update-utterance.md")
+[Exercise 2: Add a New Utterance (AWS CLI)](gs-cli-update-utterance.md "gs-cli-update-utterance.md")

@@ -33,8 +33,7 @@ migrate a bot, Amazon Lex provides the following:
 - Tags
   To migrate a bot, your user or role must have IAM permission for
   both Amazon Lex and Amazon Lex V2 API operations. For the required permissions, see
-  [Allow a user to
-  migrate a bot to Amazon Lex V2 APIs](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-migrate "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-migrate").
+  [Allow a user to migrate a bot to Amazon Lex V2 APIs](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-migrate "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-migrate").
 
 ## Migrating a bot (Console)
 
@@ -78,12 +77,9 @@ can't be migrated. You get an error or warning message for each
 resource that can't be migrated. Each message includes a link to
 documentation that explains how to resolve the issue.
 
-## Migrating a Lambda
-
-function
+## Migrating a Lambda function
 
 Amazon Lex V2 changes the way that Lambda functions are defined for a bot.
 It only allows one Lambda function in an alias for each language in a
 bot. For more information on migrating your Lambda functions, see
-[Migrating a Lambda function from
-Amazon Lex V1 to Amazon Lex V2](message-lambda.md "message-lambda.md").
+[Migrating a Lambda function from Amazon Lex V1 to Amazon Lex V2](message-lambda.md "message-lambda.md").

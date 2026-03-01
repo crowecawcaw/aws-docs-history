@@ -26,9 +26,7 @@ To get a high-level view of how Amazon Lex and other AWS services work with most
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon Lex
+## Identity-based policies for Amazon Lex
 
 **Supports identity-based policies:**
 
@@ -45,16 +43,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon Lex
 
-Identity-based policy examples for Amazon Lex
+To view examples of Amazon Lex identity-based policies, see [Identity-based policy examples for Amazon Lex](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon Lex identity-based policies, see [Identity-based policy
-examples for Amazon Lex](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon Lex
+## Resource-based policies within Amazon Lex
 
 **Supports resource-based policies:**
 
@@ -70,9 +63,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amazon Lex
+## Policy actions for Amazon Lex
 
 **Supports policy actions:**
 
@@ -110,9 +101,7 @@ action:
 "Action": "lex:Describe*"
 ```
 
-## Policy
-
-resources for Amazon Lex
+## Policy resources for Amazon Lex
 
 **Supports policy resources:**
 
@@ -163,9 +152,7 @@ To see a list of Amazon Lex resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon Lex](../../../service-authorization/latest/reference/list_amazonlex.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonlex.md#your_service-actions-as-permissions").
 
-## Policy
-
-condition keys for Amazon Lex
+## Policy condition keys for Amazon Lex
 
 **Supports service-specific policy condition keys:**
 
@@ -265,9 +252,7 @@ on the tags associated with the corresponding resource type.
 | [TagResource](API_TagResource.md "API_TagResource.md")                                                 | bot, alias, or channel | `lex:ResourceTag, aws:RequestTag,<br>aws:TagKeys` |                                                                                                                                                                                  |
 | [UntagResource](API_UntagResource.md "API_UntagResource.md")                                           | bot, alias, or channel | `lex:ResourceTag, aws:RequestTag,<br>aws:TagKeys` |                                                                                                                                                                                  |
 
-## Using temporary
-
-credentials with Amazon Lex
+## Using temporary credentials with Amazon Lex
 
 **Supports temporary credentials:**
 
@@ -284,9 +269,7 @@ assume an IAM role, or to assume a cross-account role. You
 obtain temporary security credentials by calling AWS STS API
 operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md").
 
-## Cross-service
-
-principal permissions for Amazon Lex
+## Cross-service principal permissions for Amazon Lex
 
 **Supports forward access sessions (FAS):**
 
@@ -295,9 +278,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon Lex
+## Service roles for Amazon Lex
 
 **Supports service roles:**
 
@@ -312,21 +293,16 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon Lex functionality.
 Edit service roles only when Amazon Lex provides guidance to do so.
 
-### Choosing an IAM role
-
-in Amazon Lex
+### Choosing an IAM role in Amazon Lex
 
 Amazon Lex uses service-linked roles to call Amazon Comprehend and Amazon Polly. It
 uses resource-level permissions on your AWS Lambda functions to
 invoke them.
 
 You must provide an IAM role to enable conversation tagging.
-For more information, see [Creating an IAM Role and
-Policies for Conversation Logs](conversation-logs-policies.md#conversation-logs-role-and-policy "conversation-logs-policies.md#conversation-logs-role-and-policy").
+For more information, see [Creating an IAM Role and Policies for Conversation Logs](conversation-logs-policies.md#conversation-logs-role-and-policy "conversation-logs-policies.md#conversation-logs-role-and-policy").
 
-## Service-linked
-
-roles for Amazon Lex
+## Service-linked roles for Amazon Lex
 
 **Supports service-linked roles:**
 
@@ -336,5 +312,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating or managing Amazon Lex service-linked roles, see [Using Service-Linked Roles for
-Amazon Lex](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing Amazon Lex service-linked roles, see [Using Service-Linked Roles for Amazon Lex](using-service-linked-roles.md "using-service-linked-roles.md").

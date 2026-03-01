@@ -28,14 +28,11 @@ information.
 
 ###### Topics
 
-- [Model Building API
-  Operations](#programming-model-build-time-api "#programming-model-build-time-api")
+- [Model Building API Operations](#programming-model-build-time-api "#programming-model-build-time-api")
 - [Runtime API Operations](#programming-model-runtime-api "#programming-model-runtime-api")
 - [Lambda Functions As Code Hooks](#prog-model-lambda "#prog-model-lambda")
 
-## Model Building API
-
-Operations
+## Model Building API Operations
 
 To programmatically create bots, intents, and slot types, use the model building
 API operations. You can also use the model building API to manage, update, and

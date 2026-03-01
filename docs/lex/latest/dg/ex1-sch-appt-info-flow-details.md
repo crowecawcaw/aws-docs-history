@@ -22,13 +22,10 @@ API, see [PostText](API_runtime_PostText.md "API_runtime_PostText.md").
 ###### Note
 
 For an example of information flow between client and Amazon Lex in
-which client uses the `PostContent` API, see [Step 2a
-(Optional): Review the Details of the Spoken Information
-Flow (Console)](gs-bp-details-postcontent-flow.md "gs-bp-details-postcontent-flow.md") .
+which client uses the `PostContent` API, see [Step 2a (Optional): Review the Details of the Spoken Information Flow (Console)](gs-bp-details-postcontent-flow.md "gs-bp-details-postcontent-flow.md").
 
 - Data flow between Amazon Lex and the Lambda function. For more information, see
-  [Lambda Function Input
-  Event and Response Format](lambda-input-response-format.md "lambda-input-response-format.md").
+  [Lambda Function Input Event and Response Format](lambda-input-response-format.md "lambda-input-response-format.md").
 
 ###### Note
 
@@ -74,8 +71,7 @@ This section describes what happens after each user input.
        (`MakeAppointment`). The service invokes the Lambda
        function, which is configured as a code hook, to perform
        initialization and validation by passing the following event. For
-       details, see [Input Event
-       Format](lambda-input-response-format.md#using-lambda-input-event-format "lambda-input-response-format.md#using-lambda-input-event-format").
+       details, see [Input Event Format](lambda-input-response-format.md#using-lambda-input-event-format "lambda-input-response-format.md#using-lambda-input-event-format").
 
     ```
     {
@@ -118,8 +114,7 @@ This section describes what happens after each user input.
        validate). The Lambda function returns the following response to
        Amazon Lex, directing the service to elicit information for the
        `AppointmentType` slot. For information about the
-       response format, see [Response
-       Format](lambda-input-response-format.md#using-lambda-response-format "lambda-input-response-format.md#using-lambda-response-format").
+       response format, see [Response Format](lambda-input-response-format.md#using-lambda-response-format "lambda-input-response-format.md#using-lambda-response-format").
 
     ```
     {

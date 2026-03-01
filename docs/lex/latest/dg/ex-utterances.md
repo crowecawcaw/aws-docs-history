@@ -32,8 +32,7 @@ to the bot name.
 ###### To view and add missed utterances to a bot:
 
 1. Follow the first step of Getting Started Exercise 1 to create and test an
-   `OrderFlowers` bot. For instructions, see [Exercise 1: Create an Amazon Lex Bot Using a
-   Blueprint (Console)](gs-bp.md "gs-bp.md").
+   `OrderFlowers` bot. For instructions, see [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md").
 2. Test the bot by typing the following utterances in the **Test
    Bot** window. Type each utterance several times. The example bot
    doesn't recognize the following utterances:

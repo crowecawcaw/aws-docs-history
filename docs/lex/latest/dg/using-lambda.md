@@ -16,7 +16,5 @@ to the client application for fulfillment.
 
 ###### Topics
 
-- [Lambda Function Input
-  Event and Response Format](lambda-input-response-format.md "lambda-input-response-format.md")
-- [Amazon Lex and AWS Lambda
-  Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md")
+- [Lambda Function Input Event and Response Format](lambda-input-response-format.md "lambda-input-response-format.md")
+- [Amazon Lex and AWS Lambda Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md")

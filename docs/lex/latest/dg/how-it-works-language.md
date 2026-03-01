@@ -11,9 +11,7 @@ features that support them are listed in the following tables.
 Amazon Lex V2 supports additional languages, see [Languages
 Supported in Amazon Lex V2](../../../lexv2/latest/dg/how-languages.md "../../../lexv2/latest/dg/how-languages.md")
 
-## Supported
-
-Languages and Locales
+## Supported Languages and Locales
 
 Amazon Lex V1 supports the following languages and locales.
 
@@ -33,13 +31,11 @@ Amazon Lex V1 supports the following languages and locales.
 | ja-JP  | Japanese (Japan)        |
 | ko-KR  | Korean (Korea)          |
 
-## Languages and Locales
-
-Supported by Amazon Lex Features
+## Languages and Locales Supported by Amazon Lex Features
 
 All Amazon Lex features are supported in all languages and locales
 except as listed in this table.
 
-| Feature                                                                                      | Supported languages and locales |
-| -------------------------------------------------------------------------------------------- | ------------------------------- |
-| [Setting Intent<br>Context](context-mgmt-active-context.md "context-mgmt-active-context.md") | English (US) (en-US)            |
+| Feature                                                                                   | Supported languages and locales |
+| ----------------------------------------------------------------------------------------- | ------------------------------- |
+| [Setting Intent Context](context-mgmt-active-context.md "context-mgmt-active-context.md") | English (US) (en-US)            |

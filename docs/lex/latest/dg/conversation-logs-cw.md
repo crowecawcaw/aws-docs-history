@@ -168,5 +168,4 @@ The input format may change without a corresponding change in the
 fields are present.
 
 You must have a role and policy set to enable Amazon Lex to write to CloudWatch Logs.
-For more information see [IAM Policies for Conversation
-Logs](conversation-logs-policies.md "conversation-logs-policies.md").
+For more information see [IAM Policies for Conversation Logs](conversation-logs-policies.md "conversation-logs-policies.md").

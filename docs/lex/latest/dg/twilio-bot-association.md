@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Integrating an Amazon Lex Bot with Twilio
-
-Programmable SMS
+# Integrating an Amazon Lex Bot with Twilio Programmable SMS
 
 This exercise provides instructions for integrating an Amazon Lex bot with the Twilio
 simple messaging service (SMS). You perform the following steps:
@@ -19,10 +17,8 @@ simple messaging service (SMS). You perform the following steps:
 ###### Topics
 
 - [Step 1: Create an Amazon Lex Bot](#twilio-bot-assoc-create-bot "#twilio-bot-assoc-create-bot")
-- [Step 2: Create a Twilio SMS
-  Account](#twilio-bot-assoc-create-fb-app "#twilio-bot-assoc-create-fb-app")
-- [Step 3: Integrate the Twilio Messaging
-  Service Endpoint with the Amazon Lex Bot](#twilio-bot-assoc-create-assoc "#twilio-bot-assoc-create-assoc")
+- [Step 2: Create a Twilio SMS Account](#twilio-bot-assoc-create-fb-app "#twilio-bot-assoc-create-fb-app")
+- [Step 3: Integrate the Twilio Messaging Service Endpoint with the Amazon Lex Bot](#twilio-bot-assoc-create-assoc "#twilio-bot-assoc-create-assoc")
 - [Step 4: Test the Integration](#twilio-bot-test "#twilio-bot-test")
 
 ## Step 1: Create an Amazon Lex Bot
@@ -30,16 +26,12 @@ simple messaging service (SMS). You perform the following steps:
 If you don't already have an Amazon Lex bot, create and deploy one. In this topic, we
 assume that you are using the bot that you created in Getting Started Exercise 1.
 However, you can use any of the example bots provided in this guide. For Getting Started
-Exercise 1, see [Exercise 1: Create an Amazon Lex Bot Using a
-Blueprint (Console)](gs-bp.md "gs-bp.md").
+Exercise 1, see [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md").
 
-1. Create an Amazon Lex bot. For instructions, see [Exercise 1: Create an Amazon Lex Bot Using a
-   Blueprint (Console)](gs-bp.md "gs-bp.md").
+1. Create an Amazon Lex bot. For instructions, see [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md").
 2. Deploy the bot and create an alias. For instructions, see [Exercise 3: Publish a Version and Create an Alias](gettingstarted-ex3.md "gettingstarted-ex3.md").
 
-## Step 2: Create a Twilio SMS
-
-Account
+## Step 2: Create a Twilio SMS Account
 
 Sign up for a Twilio account and record the following account information:
 
@@ -48,9 +40,7 @@ Sign up for a Twilio account and record the following account information:
 
 For sign-up instructions, see [https://www.twilio.com/console](https://www.twilio.com/console "https://www.twilio.com/console").
 
-## Step 3: Integrate the Twilio Messaging
-
-Service Endpoint with the Amazon Lex Bot
+## Step 3: Integrate the Twilio Messaging Service Endpoint with the Amazon Lex Bot
 
 ###### To integrate Twilio with your Amazon Lex bot
 
@@ -113,5 +103,4 @@ Use your mobile phone to test the integration between Twilio SMS and your bot.
 
 The Amazon Lex bot responds. If you created the bot using Getting Started
 Exercise 1, you can use the example conversations provided in that exercise. For
-more information, see [Step 4: Add the Lambda
-Function as Code Hook (Console)](gs-bp-create-integrate.md "gs-bp-create-integrate.md").
+more information, see [Step 4: Add the Lambda Function as Code Hook (Console)](gs-bp-create-integrate.md "gs-bp-create-integrate.md").

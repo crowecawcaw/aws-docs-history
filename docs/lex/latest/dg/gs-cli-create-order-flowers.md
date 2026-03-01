@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 3: Create an Intent
-
-(AWS CLI)
+# Step 3: Create an Intent (AWS CLI)
 
 Create an intent for the `OrderFlowersBot` bot and provide three slots,
 or parameters. The slots allow the bot to fulfill the intent:
@@ -16,8 +14,7 @@ or parameters. The slots allow the bot to fulfill the intent:
   types used for getting the date and time to deliver the flowers from the
   user.
   To run the commands in this exercise, you need to know the region where the
-  commands will be run. For a list of regions, see [Model Building
-  Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building") .
+  commands will be run. For a list of regions, see [Model Building Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building").
 
 ###### To create the `OrderFlowers` intent (AWS CLI)
 
@@ -40,5 +37,4 @@ The server responds with the following:
 
 ## Next Step
 
-[Step 4: Create a Bot
-(AWS CLI)](gs-cli-create-order-flowers-bot.md "gs-cli-create-order-flowers-bot.md")
+[Step 4: Create a Bot (AWS CLI)](gs-cli-create-order-flowers-bot.md "gs-cli-create-order-flowers-bot.md")

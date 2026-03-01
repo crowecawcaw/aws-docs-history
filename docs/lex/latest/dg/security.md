@@ -38,9 +38,6 @@ cloud:
 - [Data Protection in Amazon Lex](data-protection.md "data-protection.md")
 - [Identity and Access Management for Amazon Lex](security-iam.md "security-iam.md")
 - [Monitoring in Amazon Lex](monitoring-aws-lex.md "monitoring-aws-lex.md")
-- [Compliance Validation for
-  Amazon Lex](compliance.md "compliance.md")
-- [Resilience in
-  Amazon Lex](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure Security in
-  Amazon Lex](infrastructure-security.md "infrastructure-security.md")
+- [Compliance Validation for Amazon Lex](compliance.md "compliance.md")
+- [Resilience in Amazon Lex](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure Security in Amazon Lex](infrastructure-security.md "infrastructure-security.md")

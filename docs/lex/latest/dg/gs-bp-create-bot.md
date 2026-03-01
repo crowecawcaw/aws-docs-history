@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 1: Create an Amazon Lex Bot
-
-(Console)
+# Step 1: Create an Amazon Lex Bot (Console)
 
 For this exercise, create a bot for ordering flowers, called
 OrderFlowersBot.
@@ -74,5 +72,4 @@ Specifically:
 
 ###### Next Step
 
-[Step 2 (Optional):
-Review the Details of Information Flow (Console)](gs-bp-details-two-runtime-apis.md "gs-bp-details-two-runtime-apis.md")
+[Step 2 (Optional): Review the Details of Information Flow (Console)](gs-bp-details-two-runtime-apis.md "gs-bp-details-two-runtime-apis.md")

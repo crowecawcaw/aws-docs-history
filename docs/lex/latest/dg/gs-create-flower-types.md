@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 2: Create a Custom Slot Type
-
-(AWS CLI)
+# Step 2: Create a Custom Slot Type (AWS CLI)
 
 Create a custom slot type with enumeration values for the flowers that can be
 ordered. You use this type in the next step when you create the
@@ -13,8 +11,7 @@ ordered. You use this type in the next step when you create the
 possible values for a slot, or parameter, of the intent.
 
 To run the commands in this exercise, you need to know the region where the
-commands will be run. For a list of regions, see [Model Building
-Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building") .
+commands will be run. For a list of regions, see [Model Building Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building").
 
 ###### To create a custom slot type (AWS CLI)
 
@@ -59,5 +56,4 @@ The response from the server is:
 
 ## Next Step
 
-[Step 3: Create an Intent
-(AWS CLI)](gs-cli-create-order-flowers.md "gs-cli-create-order-flowers.md")
+[Step 3: Create an Intent (AWS CLI)](gs-cli-create-order-flowers.md "gs-cli-create-order-flowers.md")

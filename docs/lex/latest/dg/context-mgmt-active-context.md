@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Setting Intent
-
-Context
+# Setting Intent Context
 
 You can have Amazon Lex trigger intents based on
 _context_. A _context_ is
@@ -39,8 +37,7 @@ set active contexts in a call to the `PostContent` or
 You can also set the context of a conversation using the Lambda
 function for the intent. The output context from Amazon Lex is sent to
 the Lambda function input event. The Lambda function can send contexts
-in its response. For more information, see [Lambda Function Input
-Event and Response Format](lambda-input-response-format.md "lambda-input-response-format.md").
+in its response. For more information, see [Lambda Function Input Event and Response Format](lambda-input-response-format.md "lambda-input-response-format.md").
 
 For example, suppose you have an intent to book a rental car that
 is configured to return an output context called
@@ -62,8 +59,7 @@ intents eligible to follow up the current intent.
 Each context has a list of parameters that are maintained in
 the session. The parameters are the slot values for the
 fulfilled intent. You can use these parameters to pre-populate
-slot values for other intents. For more information,see [Using Default Slot
-Values](context-mgmt-default.md "context-mgmt-default.md").
+slot values for other intents. For more information,see [Using Default Slot Values](context-mgmt-default.md "context-mgmt-default.md").
 
 You configure the output context when you create an intent
 with the console or with the [PutIntent](API_PutIntent.md "API_PutIntent.md") operation. You can configure
@@ -118,5 +114,4 @@ You can configure the slots in an intent to take default values from the current
 active context. Default values are used when Amazon Lex recognizes a new intent but
 doesn't receive a slot value. You specify the context name and slot name in the form
 `#context-name.parameter-name` when you define the slot. For more
-information, see [Using Default Slot
-Values](context-mgmt-default.md "context-mgmt-default.md").
+information, see [Using Default Slot Values](context-mgmt-default.md "context-mgmt-default.md").

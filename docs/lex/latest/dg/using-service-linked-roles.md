@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Using Service-Linked Roles for
-
-Amazon Lex
+# Using Service-Linked Roles for Amazon Lex
 
 Amazon Lex uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Amazon Lex. Service-linked roles are predefined by Amazon Lex and
@@ -49,8 +47,7 @@ again.
 
 You can also use the AWS CLI to create a service-linked role with the
 **AWSServiceRoleForLexBots** use case. In the AWS CLI create a service-linked
-role with the Amazon Lex service name `lex.amazonaws.com`. For more information, see [Step 1: Create a Service-Linked Role
-(AWS CLI)](gs-create-role.md "gs-create-role.md"). If you delete this service-linked role, you can use this
+role with the Amazon Lex service name `lex.amazonaws.com`. For more information, see [Step 1: Create a Service-Linked Role (AWS CLI)](gs-create-role.md "gs-create-role.md"). If you delete this service-linked role, you can use this
 same process to create the role again.
 
 ## Editing a Service-Linked Role for Amazon Lex

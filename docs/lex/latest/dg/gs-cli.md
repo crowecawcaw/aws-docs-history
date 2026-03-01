@@ -32,8 +32,7 @@ information, see [Step 2: Set Up the AWS Command Line Interface](gs-set-up-cli.m
 ###### Topics
 
 - [Exercise 1: Create an Amazon Lex Bot (AWS CLI)](gs-cli-create.md "gs-cli-create.md")
-- [Exercise 2: Add a New Utterance
-  (AWS CLI)](gs-cli-update-utterance.md "gs-cli-update-utterance.md")
+- [Exercise 2: Add a New Utterance (AWS CLI)](gs-cli-update-utterance.md "gs-cli-update-utterance.md")
 - [Exercise 3: Add a Lambda Function (AWS CLI)](gs-cli-update-lambda.md "gs-cli-update-lambda.md")
 - [Exercise 4: Publish a Version (AWS CLI)](gs-cli-publish.md "gs-cli-publish.md")
 - [Exercise 5: Create an Alias (AWS CLI)](gs-cli-create-alias.md "gs-cli-create-alias.md")

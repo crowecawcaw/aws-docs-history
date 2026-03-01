@@ -23,5 +23,4 @@ generated while creating the bot to connect it to your Amazon Lex bot.
 
 ###### Next Step
 
-[Step 3: Integrate the Kik Bot with the
-Amazon Lex Bot](kik-bot-assoc-create-assoc.md "kik-bot-assoc-create-assoc.md")
+[Step 3: Integrate the Kik Bot with the Amazon Lex Bot](kik-bot-assoc-create-assoc.md "kik-bot-assoc-create-assoc.md")

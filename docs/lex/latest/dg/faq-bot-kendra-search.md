@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Example: Creating a
-
-FAQ Bot for an Amazon Kendra Index
+# Example: Creating a FAQ Bot for an Amazon Kendra Index
 
 This example creates an Amazon Lex bot that uses an Amazon Kendra index
 to provide answers to users' questions. The FAQ bot manages
@@ -82,9 +80,7 @@ utterance`.
    Now, create the intent to search an Amazon Kendra index and the
    response messages that it should return.
 
-###### To create an AMAZON.KendraSearchIntent intent and
-
-response message
+###### To create an AMAZON.KendraSearchIntent intent and response message
 
 1. In the navigation pane, choose the plus (+) next
    to **Intents**.

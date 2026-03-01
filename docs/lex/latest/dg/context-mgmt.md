@@ -14,17 +14,10 @@ Lambda functions create.
 
 ###### Topics
 
-- [Setting Intent
-  Context](context-mgmt-active-context.md "context-mgmt-active-context.md")
-- [Using Default Slot
-  Values](context-mgmt-default.md "context-mgmt-default.md")
-- [Setting Session
-  Attributes](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md")
-- [Setting Request
-  Attributes](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md")
-- [Setting the Session
-  Timeout](context-mgmt-session-timeout.md "context-mgmt-session-timeout.md")
-- [Sharing Information
-  Between Intents](context-mgmt-cross-intent.md "context-mgmt-cross-intent.md")
-- [Setting Complex
-  Attributes](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md")
+- [Setting Intent Context](context-mgmt-active-context.md "context-mgmt-active-context.md")
+- [Using Default Slot Values](context-mgmt-default.md "context-mgmt-default.md")
+- [Setting Session Attributes](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md")
+- [Setting Request Attributes](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md")
+- [Setting the Session Timeout](context-mgmt-session-timeout.md "context-mgmt-session-timeout.md")
+- [Sharing Information Between Intents](context-mgmt-cross-intent.md "context-mgmt-cross-intent.md")
+- [Setting Complex Attributes](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md")

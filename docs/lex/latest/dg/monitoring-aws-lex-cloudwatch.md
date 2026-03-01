@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Monitoring Amazon Lex
-
-with Amazon CloudWatch
+# Monitoring Amazon Lex with Amazon CloudWatch
 
 To track the health of your Amazon Lex bots, use Amazon CloudWatch. With CloudWatch,
 you can get metrics for individual Amazon Lex operations or for global
@@ -15,9 +13,7 @@ define. For example, you can monitor the number of requests made to
 a bot over a particular time period, view the latency of successful
 requests, or raise an alarm when errors exceed a threshold.
 
-## CloudWatch Metrics for
-
-Amazon Lex
+## CloudWatch Metrics for Amazon Lex
 
 To get metrics for your Amazon Lex operations , you must specify
 the following information:
@@ -46,9 +42,7 @@ You must have the appropriate CloudWatch permissions to monitor
 Amazon Lex with CloudWatch . For more information, see [Authentication and Access Control for Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md "../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md") in
 the _Amazon CloudWatch User Guide_.
 
-## Viewing Amazon Lex
-
-Metrics
+## Viewing Amazon Lex Metrics
 
 View Amazon Lex metrics using the Amazon Lex console or the CloudWatch
 console.
@@ -75,9 +69,7 @@ console.
    for the selected date range is displayed in the
    graph.
 
-## Creating an
-
-Alarm
+## Creating an Alarm
 
 A CloudWatch alarm watches a single metric over a specified time
 period, and performs one or more actions: sending a notification
@@ -117,9 +109,7 @@ persisted for the period that you specify.
    with the alarm, choose **Create
    Alarm**.
 
-## CloudWatch
-
-Metrics for Amazon Lex Runtime
+## CloudWatch Metrics for Amazon Lex Runtime
 
 The following table describes the Amazon Lex runtime
 metrics.
@@ -177,9 +167,7 @@ can group metrics by dimensions in the CloudWatch console:
 | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `BotAlias, BotChannelName, BotName,<br>Source` | Group metrics by the bot's alias, the<br>channel name, the bot's name, and the<br>source of traffic. |
 
-## CloudWatch Metrics
-
-for Conversation Logs
+## CloudWatch Metrics for Conversation Logs
 
 Amazon Lex uses the following metrics for conversation
 logging:

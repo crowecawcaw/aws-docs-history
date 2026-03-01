@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 6: Update the Intent
-
-Configuration to Add an Utterance (Console)
+# Step 6: Update the Intent Configuration to Add an Utterance (Console)
 
 The `OrderFlowers` bot is configured with only two
 utterances. This provides limited information for Amazon Lex to build a
@@ -39,5 +37,4 @@ and responds with "What type of flowers would you like to order?".
 
 ###### Next Step
 
-[Step 7 (Optional): Clean Up
-(Console)](gs-bp-cleaning-up.md "gs-bp-cleaning-up.md")
+[Step 7 (Optional): Clean Up (Console)](gs-bp-cleaning-up.md "gs-bp-cleaning-up.md")

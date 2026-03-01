@@ -12,7 +12,5 @@ and channel association metrics.
 
 ###### Topics
 
-- [Monitoring Amazon Lex
-  with Amazon CloudWatch](monitoring-aws-lex-cloudwatch.md "monitoring-aws-lex-cloudwatch.md")
-- [Monitoring Amazon Lex API
-  Calls with AWS CloudTrail Logs](monitoring-aws-lex-cloudtrail.md "monitoring-aws-lex-cloudtrail.md")
+- [Monitoring Amazon Lex with Amazon CloudWatch](monitoring-aws-lex-cloudwatch.md "monitoring-aws-lex-cloudwatch.md")
+- [Monitoring Amazon Lex API Calls with AWS CloudTrail Logs](monitoring-aws-lex-cloudtrail.md "monitoring-aws-lex-cloudtrail.md")

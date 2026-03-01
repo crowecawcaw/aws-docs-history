@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Encrypting Conversation
-
-Logs
+# Encrypting Conversation Logs
 
 You can use encryption to help protect the contents of your conversation
 logs. For text and audio logs, you can use AWS KMS customer managed CMKs to
@@ -36,12 +34,9 @@ policy must grant access to the AWS KMS key configured for that bucket. If you
 specify an AWS KMS key in your audio log settings, your must grant access to
 that key.
 
-If you have not created a role for conversation logs, see [IAM Policies for Conversation
-Logs](conversation-logs-policies.md "conversation-logs-policies.md").
+If you have not created a role for conversation logs, see [IAM Policies for Conversation Logs](conversation-logs-policies.md "conversation-logs-policies.md").
 
-###### To create an IAM policy for using an AWS KMS key for encrypting audio
-
-logs
+###### To create an IAM policy for using an AWS KMS key for encrypting audio logs
 
 1. Create a document in the current directory called
    `LexConversationLogsKMSPolicy.json`, add the

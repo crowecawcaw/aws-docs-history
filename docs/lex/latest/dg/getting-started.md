@@ -19,10 +19,7 @@ a list of supported operations, see the [API Reference](API_Reference.md "API_Re
 
 ###### Topics
 
-- [Step 1: Set Up an AWS Account and Create an Administrator
-  User](gs-account.md "gs-account.md")
+- [Step 1: Set Up an AWS Account and Create an Administrator User](gs-account.md "gs-account.md")
 - [Step 2: Set Up the AWS Command Line Interface](gs-set-up-cli.md "gs-set-up-cli.md")
-- [Step 3:
-  Getting
-  Started (Console)](gs-console.md "gs-console.md")
+- [Step 3: Getting Started (Console)](gs-console.md "gs-console.md")
 - [Step 4: Getting Started (AWS CLI)](gs-cli.md "gs-cli.md")

@@ -58,8 +58,7 @@ your intent configuration to perform user data validation and fulfillment tasks.
        information back to the client application to do the necessary fulfillment.
 
   In addition to custom intents such as ordering a pizza, Amazon Lex also provides
-  built-in intents to quickly set up your bot. For more information, see [Built-in Intents and Slot
-  Types](howitworks-builtins.md "howitworks-builtins.md").
+  built-in intents to quickly set up your bot. For more information, see [Built-in Intents and Slot Types](howitworks-builtins.md "howitworks-builtins.md").
 
 - **Slot** – An intent can require zero or more
   slots or parameters. You add slots as part of the intent configuration. At runtime,
@@ -91,8 +90,7 @@ Amazon Lex can still understand the intended slot value.
 
 Amazon Lex also provides built-in slot types. For example,
 `AMAZON.NUMBER` is a built-in slot type that you can use for the
-number of pizzas ordered. For more information, see [Built-in Intents and Slot
-Types](howitworks-builtins.md "howitworks-builtins.md").
+number of pizzas ordered. For more information, see [Built-in Intents and Slot Types](howitworks-builtins.md "howitworks-builtins.md").
 For a list of AWS Regions where Amazon Lex is available, see [AWS Regions and
 Endpoints](../../../general/latest/gr/rande.md#lex_region "../../../general/latest/gr/rande.md#lex_region") in the _Amazon Web Services General Reference_.
 
@@ -110,8 +108,7 @@ exercises.
 - [Conversation Logs](conversation-logs.md "conversation-logs.md")
 - [Managing Sessions With the Amazon Lex API](how-session-api.md "how-session-api.md")
 - [Bot Deployment Options](chatbot-service.md "chatbot-service.md")
-- [Built-in Intents and Slot
-  Types](howitworks-builtins.md "howitworks-builtins.md")
+- [Built-in Intents and Slot Types](howitworks-builtins.md "howitworks-builtins.md")
 - [Custom Slot Types](howitworks-custom-slots.md "howitworks-custom-slots.md")
 - [Slot Obfuscation](how-obfuscate.md "how-obfuscate.md")
 - [Sentiment Analysis](sentiment-analysis.md "sentiment-analysis.md")

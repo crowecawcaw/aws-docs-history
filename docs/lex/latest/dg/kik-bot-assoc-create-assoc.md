@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 3: Integrate the Kik Bot with the
-
-Amazon Lex Bot
+# Step 3: Integrate the Kik Bot with the Amazon Lex Bot
 
 Now that you have created an Amazon Lex bot and a Kik bot, you are ready to create an
 channel association between them in Amazon Lex. When the association is activated, Amazon Lex

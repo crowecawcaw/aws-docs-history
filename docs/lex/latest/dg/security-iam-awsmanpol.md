@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# AWS managed policies for
-
-Amazon Lex
+# AWS managed policies for Amazon Lex
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed
 to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
@@ -22,9 +20,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS
-
-managed policy: AmazonLexReadOnly
+## AWS managed policy: AmazonLexReadOnly
 
 You can attach the `AmazonLexReadOnly` policy to your
 IAM identities.
@@ -99,9 +95,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonLexRunBotsOnly
+## AWS managed policy: AmazonLexRunBotsOnly
 
 You can attach the `AmazonLexRunBotsOnly` policy to
 your IAM identities.
@@ -141,9 +135,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonLexFullAccess
+## AWS managed policy: AmazonLexFullAccess
 
 You can attach the `AmazonLexFullAccess` policy to your IAM
 identities.
@@ -350,9 +342,7 @@ JSON
 
 ```
 
-## Amazon Lex updates
-
-to AWS managed policies
+## Amazon Lex updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Lex
 since this service began tracking these changes. For automatic

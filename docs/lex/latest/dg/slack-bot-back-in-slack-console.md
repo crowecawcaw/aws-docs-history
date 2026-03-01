@@ -3,16 +3,13 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 5: Complete
-
-Slack Integration
+# Step 5: Complete Slack Integration
 
 In this section, use the Slack API console to complete integration
 of the Slack application.
 
 1. Sign in to the Slack API console at [http://api.slack.com](http://api.slack.com "http://api.slack.com").
-   Choose the app that you created in [Step 3: Create a Slack
-   Application](slack-bot-assoc-create-app.md "slack-bot-assoc-create-app.md").
+   Choose the app that you created in [Step 3: Create a Slack Application](slack-bot-assoc-create-app.md "slack-bot-assoc-create-app.md").
 2. Update the **OAuth & Permissions**
    feature as follows:
    1. In the left menu, choose **OAuth &

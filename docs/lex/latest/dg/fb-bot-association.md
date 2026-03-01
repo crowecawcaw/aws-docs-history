@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Integrating an Amazon Lex Bot with Facebook
-
-Messenger
+# Integrating an Amazon Lex Bot with Facebook Messenger
 
 This exercise shows how to integrate Facebook Messenger with your Amazon Lex bot. You
 perform the following steps:
@@ -19,8 +17,7 @@ perform the following steps:
 
 - [Step 1: Create an Amazon Lex Bot](#fb-bot-assoc-create-bot "#fb-bot-assoc-create-bot")
 - [Step 2: Create a Facebook Application](#fb-bot-assoc-create-fb-app "#fb-bot-assoc-create-fb-app")
-- [Step 3: Integrate Facebook Messenger with
-  the Amazon Lex Bot](#fb-bot-assoc-create-assoc "#fb-bot-assoc-create-assoc")
+- [Step 3: Integrate Facebook Messenger with the Amazon Lex Bot](#fb-bot-assoc-create-assoc "#fb-bot-assoc-create-assoc")
 - [Step 4: Test the Integration](#fb-bot-test "#fb-bot-test")
 
 ## Step 1: Create an Amazon Lex Bot
@@ -28,11 +25,9 @@ perform the following steps:
 If you don't already have an Amazon Lex bot, create and deploy one. In this topic, we
 assume that you are using the bot that you created in Getting Started Exercise 1.
 However, you can use any of the example bots provided in this guide. For Getting Started
-Exercise 1, see [Exercise 1: Create an Amazon Lex Bot Using a
-Blueprint (Console)](gs-bp.md "gs-bp.md").
+Exercise 1, see [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md").
 
-1. Create an Amazon Lex bot. For instructions, see [Exercise 1: Create an Amazon Lex Bot Using a
-   Blueprint (Console)](gs-bp.md "gs-bp.md").
+1. Create an Amazon Lex bot. For instructions, see [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md").
 2. Deploy the bot and create an alias. For instructions, see [Exercise 3: Publish a Version and Create an Alias](gettingstarted-ex3.md "gettingstarted-ex3.md").
 
 ## Step 2: Create a Facebook Application
@@ -44,9 +39,7 @@ the following:
 - The **App Secret** for the Facebook App
 - The **Page Access Token** for the Facebook page
 
-## Step 3: Integrate Facebook Messenger with
-
-the Amazon Lex Bot
+## Step 3: Integrate Facebook Messenger with the Amazon Lex Bot
 
 In this section, you integrate Facebook Messenger with your Amazon Lex bot.
 
@@ -114,5 +107,4 @@ the page.
 You can now start a conversation from Facebook Messenger with your Amazon Lex bot.
 
 1. Open your Facebook page, and choose **Message**.
-2. In the Messenger window, use the same test utterances provided in [Step 1: Create an Amazon Lex Bot
-   (Console)](gs-bp-create-bot.md "gs-bp-create-bot.md").
+2. In the Messenger window, use the same test utterances provided in [Step 1: Create an Amazon Lex Bot (Console)](gs-bp-create-bot.md "gs-bp-create-bot.md").

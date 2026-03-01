@@ -3,14 +3,11 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Test the Bot Using Text Input
-
-(AWS CLI)
+# Test the Bot Using Text Input (AWS CLI)
 
 To verify that the bot works correctly with text input, use the [PostText](API_runtime_PostText.md "API_runtime_PostText.md")
 operation. To run the commands in this exercise, you need to know the region
-where the commands will be run. For a list of regions, see [Runtime Service
-Quotas](gl-limits.md#gl-limits-runtime "gl-limits.md#gl-limits-runtime").
+where the commands will be run. For a list of regions, see [Runtime Service Quotas](gl-limits.md#gl-limits-runtime "gl-limits.md#gl-limits-runtime").
 
 ###### Note
 
@@ -107,5 +104,4 @@ complete the conversation:
 
 ## Next Step
 
-[Test the Bot Using Speech Input
-(AWS CLI)](gs-create-test-speech.md "gs-create-test-speech.md")
+[Test the Bot Using Speech Input (AWS CLI)](gs-create-test-speech.md "gs-create-test-speech.md")

@@ -56,5 +56,4 @@ and fulfill intent.
 
 ###### Next Step
 
-[Step 3: Create a Lambda
-function](ex-book-trip-create-lambda-function.md "ex-book-trip-create-lambda-function.md")
+[Step 3: Create a Lambda function](ex-book-trip-create-lambda-function.md "ex-book-trip-create-lambda-function.md")

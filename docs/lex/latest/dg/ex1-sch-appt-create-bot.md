@@ -25,8 +25,7 @@ requests to Amazon Lex during the build process:
 
     * Create a new version of the slot types (from the $LATEST version).
      For information about slot types defined in this bot blueprint, see
-     [Overview of the Bot Blueprint
-     (ScheduleAppointment)](ex1-sch-appt.md#ex1-sch-appt-bp-summary-bot "ex1-sch-appt.md#ex1-sch-appt-bp-summary-bot").
+     [Overview of the Bot Blueprint (ScheduleAppointment)](ex1-sch-appt.md#ex1-sch-appt-bp-summary-bot "ex1-sch-appt.md#ex1-sch-appt-bp-summary-bot").
     * Create a version of the `MakeAppointment` intent (from
      the $LATEST version). In some cases, the console sends a request for
      the `update` API operation before creating a new version.
@@ -77,5 +76,4 @@ section, you add a Lambda function to do this.
 
 ###### Next Step
 
-[Step 2: Create a Lambda
-Function](ex1-sch-appt-create-lambda-function.md "ex1-sch-appt-create-lambda-function.md")
+[Step 2: Create a Lambda Function](ex1-sch-appt-create-lambda-function.md "ex1-sch-appt-create-lambda-function.md")

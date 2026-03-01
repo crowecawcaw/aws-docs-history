@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Setting Session
-
-Attributes
+# Setting Session Attributes
 
 _Session attributes_ contain
 application-specific information that is passed between a bot and a
@@ -14,13 +12,11 @@ to all Lambda functions configured for a bot. If a Lambda function
 adds or updates session attributes, Amazon Lex passes the new information
 back to the client application. For example:
 
-- In [Exercise 1: Create an Amazon Lex Bot Using a
-  Blueprint (Console)](gs-bp.md "gs-bp.md"), the
+- In [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md"), the
   example bot uses the `price` session attribute to
   maintain the price of flowers. The Lambda function sets this
   attribute based on the type of flowers that was ordered. For
-  more information, see [Step 5 (Optional):
-  Review the Details of the Information Flow (Console)](gs-bp-details-after-lambda.md "gs-bp-details-after-lambda.md").
+  more information, see [Step 5 (Optional): Review the Details of the Information Flow (Console)](gs-bp-details-after-lambda.md "gs-bp-details-after-lambda.md").
 - In [Book Trip](ex-book-trip.md "ex-book-trip.md"), the example bot uses the
   `currentReservation` session attribute to
   maintain a copy of the slot type data during the
@@ -99,5 +95,4 @@ map, and then send it as the
 
 If you are sending binary or structured data in a session
 attribute, you must first transform the data to a simple string. For
-more information, see [Setting Complex
-Attributes](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md").
+more information, see [Setting Complex Attributes](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md").

@@ -20,5 +20,4 @@ fix the issue.
 - [Conversation logs](message-logs.md "message-logs.md")
 - [Message groups](migrate-message-groups.md "migrate-message-groups.md")
 - [Prompts and phrases](message-prompts-phrases.md "message-prompts-phrases.md")
-- [Other Amazon Lex V1
-  features](message-features.md "message-features.md")
+- [Other Amazon Lex V1 features](message-features.md "message-features.md")

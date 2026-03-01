@@ -20,8 +20,7 @@ Adding a Lambda expression is a five-step process.
 5. Use the [GetBot](API_GetBot.md "API_GetBot.md") and [PutBot](API_PutBot.md "API_PutBot.md") operations to rebuild any
    bot that uses the intent.
    To run the commands in this exercise, you need to know the region where the commands
-   will be run. For a list of regions, see [Model Building
-   Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building") .
+   will be run. For a list of regions, see [Model Building Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building").
 
 If you add a Lambda function to an intent before you add the
 `InvokeFunction` permission, you get the following error message:
@@ -51,9 +50,7 @@ following error message:
 
 ```
 
-This exercise uses the Lambda function from [Exercise 1: Create an Amazon Lex Bot Using a
-Blueprint (Console)](gs-bp.md "gs-bp.md"). For instructions to create the Lambda function, see [Step 3: Create a
-Lambda Function (Console)](gs-bp-create-lambda-function.md "gs-bp-create-lambda-function.md").
+This exercise uses the Lambda function from [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md"). For instructions to create the Lambda function, see [Step 3: Create a Lambda Function (Console)](gs-bp-create-lambda-function.md "gs-bp-create-lambda-function.md").
 
 ###### Note
 

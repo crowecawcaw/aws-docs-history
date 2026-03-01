@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 3: Update the Intent: Configure
-
-a Code Hook
+# Step 3: Update the Intent: Configure a Code Hook
 
 In this section, you update the configuration of the `MakeAppointment`
 intent to use the Lambda function as a code hook for the validation and fulfillment
@@ -42,5 +40,4 @@ should still be the $LATEST version in the console.
 
 ###### Next Step
 
-[Step 4: Deploy the Bot on the Facebook
-Messenger Platform](ex-sch-appt-fb-integration.md "ex-sch-appt-fb-integration.md")
+[Step 4: Deploy the Bot on the Facebook Messenger Platform](ex-sch-appt-fb-integration.md "ex-sch-appt-fb-integration.md")

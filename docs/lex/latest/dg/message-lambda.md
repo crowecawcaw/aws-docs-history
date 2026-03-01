@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Migrating a Lambda function from
-
-Amazon Lex V1 to Amazon Lex V2
+# Migrating a Lambda function from Amazon Lex V1 to Amazon Lex V2
 
 Amazon Lex V2 allows only one Lambda function for each language in a bot.
 The Lambda function and its settings are configured for the bot alias
@@ -87,9 +85,7 @@ def lambda_handler(event, context):
     return response
 ```
 
-## List of updated
-
-fields
+## List of updated fields
 
 The following tables provide detailed information about the
 updated fields in the Amazon Lex V2 Lambda request and response. You can
@@ -100,9 +96,7 @@ use these tables to map fields between the versions.
 The following fields have been updated in the Lambda
 function request format.
 
-#### Active
-
-contexts
+#### Active contexts
 
 The `activeContexts` structure is now part
 of the `sessionState` structure.
@@ -149,9 +143,7 @@ included.
 | bot.version  | bot.version  |
 | N/A          | bot.localeId |
 
-#### Current
-
-intent
+#### Current intent
 
 The `sessionState.intent` structure
 contains the details of the active intent. Amazon Lex V2 also
@@ -167,9 +159,7 @@ is always the same as
 | currentIntent.name               | sessionState.intent.name OR<br>interpretations[0].intent.name |
 | currentIntent.nluConfidenceScore | interpretations[0].nluConfidence.score                        |
 
-#### Dialog
-
-action
+#### Dialog action
 
 The `confirmationStatus` field is now part
 of the `sessionState` structure.

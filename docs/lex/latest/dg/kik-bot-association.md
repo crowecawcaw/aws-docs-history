@@ -18,6 +18,5 @@ messaging application. You perform the following steps:
 
 - [Step 1: Create an Amazon Lex Bot](kik-bot-assoc-create-bot.md "kik-bot-assoc-create-bot.md")
 - [Step 2: Create a Kik Bot](kik-bot-assoc-create-kik-bot.md "kik-bot-assoc-create-kik-bot.md")
-- [Step 3: Integrate the Kik Bot with the
-  Amazon Lex Bot](kik-bot-assoc-create-assoc.md "kik-bot-assoc-create-assoc.md")
+- [Step 3: Integrate the Kik Bot with the Amazon Lex Bot](kik-bot-assoc-create-assoc.md "kik-bot-assoc-create-assoc.md")
 - [Step 4: Test the Integration](kik-bot-assoc-test.md "kik-bot-assoc-test.md")

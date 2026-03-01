@@ -49,5 +49,4 @@ following into the Lambda function:
 ```
 
 For more information about the data sent from Amazon Lex to a Lambda
-function, see [Input Event
-Format](lambda-input-response-format.md#using-lambda-input-event-format "lambda-input-response-format.md#using-lambda-input-event-format").
+function, see [Input Event Format](lambda-input-response-format.md#using-lambda-input-event-format "lambda-input-response-format.md#using-lambda-input-event-format").

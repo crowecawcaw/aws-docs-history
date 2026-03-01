@@ -19,12 +19,10 @@ publish a version of a bot, you do the following:
    operation.
 3. Publish a version of a bot with the [CreateBotVersion](API_CreateBotVersion.md "API_CreateBotVersion.md") operation .
    To run the commands in this exercise, you need to know the region where the commands
-   will be run. For a list of regions, see [Model Building
-   Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building") .
+   will be run. For a list of regions, see [Model Building Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building").
 
 ###### Topics
 
-- [Step 1: Publish the Slot Type
-  (AWS CLI)](gs-cli-publish-slot-type.md "gs-cli-publish-slot-type.md")
+- [Step 1: Publish the Slot Type (AWS CLI)](gs-cli-publish-slot-type.md "gs-cli-publish-slot-type.md")
 - [Step 2: Publish the Intent (AWS CLI)](gs-cli-publish-intent.md "gs-cli-publish-intent.md")
 - [Step 3: Publish the Bot (AWS CLI)](gs-cli-publish-bot.md "gs-cli-publish-bot.md")

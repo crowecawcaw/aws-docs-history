@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Amazon Lex and AWS Lambda
-
-Blueprints
+# Amazon Lex and AWS Lambda Blueprints
 
 The Amazon Lex console provides example bots (called bot
 blueprints) that are preconfigured so you can quickly create and
@@ -35,13 +33,10 @@ corresponding AWS Lambda function blueprints as code hooks for bots:
        `lex-book-trip-python`
 
   To create a bot using a blueprint and configure it to use a Lambda
-  function as a code hook, see [Exercise 1: Create an Amazon Lex Bot Using a
-  Blueprint (Console)](gs-bp.md "gs-bp.md"). For an example of using other
+  function as a code hook, see [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md"). For an example of using other
   blueprints, see [Additional Examples: Creating Amazon Lex Bots](additional-exercises.md "additional-exercises.md").
 
-## Updating a Blueprint
-
-for a Specific Locale
+## Updating a Blueprint for a Specific Locale
 
 If you are using a blueprint in a locale other than English
 (US) (en-US), you need to update the name of any intents to

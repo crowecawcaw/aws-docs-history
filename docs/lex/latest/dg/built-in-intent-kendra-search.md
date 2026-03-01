@@ -25,8 +25,7 @@ following types of responses to a question:
   question
 - A document that is related to the question
   For an example of using the
-  `AMAZON.KendraSearchIntent`, see [Example: Creating a
-  FAQ Bot for an Amazon Kendra Index](faq-bot-kendra-search.md "faq-bot-kendra-search.md").
+  `AMAZON.KendraSearchIntent`, see [Example: Creating a FAQ Bot for an Amazon Kendra Index](faq-bot-kendra-search.md "faq-bot-kendra-search.md").
 
 If you configure an `AMAZON.KendraSearchIntent`
 intent for your bot, Amazon Lex calls the intent whenever it can't
@@ -111,12 +110,9 @@ operation](../../../kendra/latest/dg/API_Query.md "../../../kendra/latest/dg/API
 Guide_.
 
 For an example of how to use the
-`AMAZON.KendraSearchIntent`, see [Example: Creating a
-FAQ Bot for an Amazon Kendra Index](faq-bot-kendra-search.md "faq-bot-kendra-search.md").
+`AMAZON.KendraSearchIntent`, see [Example: Creating a FAQ Bot for an Amazon Kendra Index](faq-bot-kendra-search.md "faq-bot-kendra-search.md").
 
-## IAM Policy for Amazon Kendra
-
-Search
+## IAM Policy for Amazon Kendra Search
 
 To use the `AMAZON.KendraSearchIntent` intent,
 you must use a role that provides AWS Identity and Access Management (IAM) policies
@@ -133,9 +129,7 @@ an SDK to create the intent, you must use a role
 specifically for calling the `Query`
 operation.
 
-### Attaching
-
-Permissions
+### Attaching Permissions
 
 You can use the console to attach permissions to
 access the Amazon Kendra `Query` operation to the
@@ -224,9 +218,7 @@ The following code is formatted for Linux and
 MacOS. For Windows, replace the Linux line
 continuation character (\) with a caret (^).
 
-###### To add Query operation permission to a
-
-role
+###### To add Query operation permission to a role
 
 1. Create a document called
    `KendraQueryPolicy.json`
@@ -258,9 +250,7 @@ or to use a role that you created when you create the
 The following procedure shows how to choose the IAM
 role to use.
 
-###### To specify the runtime role for
-
-AMAZON.KendraSearchIntent
+###### To specify the runtime role for AMAZON.KendraSearchIntent
 
 1. Sign in to the AWS Management Console and open the Amazon Lex console at
    [https://console.aws.amazon.com/lex/](https://console.aws.amazon.com/lex/ "https://console.aws.amazon.com/lex/").
@@ -292,9 +282,7 @@ AMAZON.KendraSearchIntent
      operation, choose **Use an
      existing role**.
 
-## Using Request and
-
-Session Attributes as Filters
+## Using Request and Session Attributes as Filters
 
 To filter the response from Amazon Kendra to items related to
 current conversation, use session and request attributes as
@@ -302,10 +290,8 @@ filters by adding the `queryFilterString`
 parameter when you create your bot. You specify a
 placeholder for the attribute when you create the intent,
 and then Amazon Lex V2 substitutes a value before it calls Amazon Kendra.
-For more information about request attributes, see [Setting Request
-Attributes](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md"). For more
-information about session attributes, see [Setting Session
-Attributes](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md").
+For more information about request attributes, see [Setting Request Attributes](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md"). For more
+information about session attributes, see [Setting Session Attributes](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md").
 
 The following is a example of a
 `queryFilterString` parameter that uses a
@@ -366,9 +352,7 @@ the following is a valid query filter for the `AMAZON.KendraSearchIntent`.
 }
 ```
 
-## Using the Search
-
-Response
+## Using the Search Response
 
 Amazon Kendra returns the response to a search in the intent's
 `conclusion` statement. The intent must have
@@ -421,9 +405,7 @@ group messages match any response from Amazon Kendra:
 - “I think the answer to your questions is
   ((x-amz-lex:kendra-search-response-answer-1))”
 
-## Using a Lambda
-
-Function to Manage the Request and Response
+## Using a Lambda Function to Manage the Request and Response
 
 The `AMAZON.KendraSearchIntent` intent can use
 your dialog code hook and fulfillment code hook to manage
@@ -432,9 +414,7 @@ hook Lambda function when you want to modify the query that
 you send to Amazon Kendra, and the fulfillment code hook Lambda
 function when you want to modify the response.
 
-### Creating a
-
-Query with the Dialog Code Hook
+### Creating a Query with the Dialog Code Hook
 
 You can use the dialog code hook to create a query to
 send to Amazon Kendra. Using the dialog code hook is optional.
@@ -477,9 +457,7 @@ to `delegate`. Amazon Lex sends the query to Amazon Kendra
 and then returns the query response to the fulfillment
 code hook.
 
-### Using
-
-the Fulfillment Code Hook for the Response
+### Using the Fulfillment Code Hook for the Response
 
 After Amazon Lex sends a query to Amazon Kendra, the query response
 is returned to the

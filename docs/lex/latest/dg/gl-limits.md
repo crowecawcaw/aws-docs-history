@@ -15,14 +15,10 @@ a larger project, be sure to add this time to your plan.
 
 ###### Topics
 
-- [Runtime Service
-  Quotas](#gl-limits-runtime "#gl-limits-runtime")
-- [Model Building
-  Quotas](#gl-limits-model-building "#gl-limits-model-building")
+- [Runtime Service Quotas](#gl-limits-runtime "#gl-limits-runtime")
+- [Model Building Quotas](#gl-limits-model-building "#gl-limits-model-building")
 
-## Runtime Service
-
-Quotas
+## Runtime Service Quotas
 
 In addition to the quotas described in the API reference, note
 the following:
@@ -59,9 +55,7 @@ the following:
   KB. The maximum output size is 25 KB, of which 12 KB
   can be session attributes.
 
-### Using the
-
-`$LATEST` version
+### Using the `$LATEST` version
 
 - The `$LATEST` version of your bot
   should only be used for manual testing. Amazon Lex limits
@@ -81,9 +75,7 @@ the following:
   `$LATEST` version of the bot, the
   change is picked up immediately.
 
-### Session
-
-Timeout
+### Session Timeout
 
 - The session timeout set when the bot was created
   determines how long the bot retains conversation
@@ -94,9 +86,7 @@ Timeout
   bot version, even if you update the bot alias to
   point to another version.
 
-## Model Building
-
-Quotas
+## Model Building Quotas
 
 Model building refers to creating and managing bots. This
 includes creating and managing bots, intents, slot types, slots,
@@ -106,8 +96,7 @@ and bot channel associations.
 
 - [Bot Quotas](#gl-limits-bots "#gl-limits-bots")
 - [Intent Quotas](#gl-limits-intents "#gl-limits-intents")
-- [Slot Type
-  Quotas](#gl-limits-slot-type "#gl-limits-slot-type")
+- [Slot Type Quotas](#gl-limits-slot-type "#gl-limits-slot-type")
 
 ### Bot Quotas
 
@@ -237,8 +226,7 @@ I want a {pizzaSize} {pizzaTopping} pizza
     `ElicitSlot` directive in the
     response with an intent that is derived from
     built-in intents. For more information, see
-    [Response
-    Format](lambda-input-response-format.md#using-lambda-response-format "lambda-input-response-format.md#using-lambda-response-format").
+    [Response Format](lambda-input-response-format.md#using-lambda-response-format "lambda-input-response-format.md#using-lambda-response-format").
   - The service does not support adding sample
     utterances to built-in intents. Similarly,
     you cannot add or remove slots to built-in
@@ -248,9 +236,7 @@ I want a {pizzaSize} {pizzaTopping} pizza
   account. You can create up to 100 slots in an
   intent.
 
-### Slot Type
-
-Quotas
+### Slot Type Quotas
 
 - Slot type names are case insensitive at the time
   of creation. If you create the

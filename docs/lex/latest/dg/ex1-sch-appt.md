@@ -44,8 +44,7 @@ In this exercise, you do the following:
 
 - Create and test a bot (using the ScheduleAppointment blueprint). For this
   exercise, you use a bot blueprint to quickly set up and test the bot. For a list
-  of available blueprints, see [Amazon Lex and AWS Lambda
-  Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md").This bot is preconfigured with one
+  of available blueprints, see [Amazon Lex and AWS Lambda Blueprints](lex-lambda-blueprints.md "lex-lambda-blueprints.md").This bot is preconfigured with one
   intent (`MakeAppointment`).
 - Create and test a Lambda function (using the lex-make-appointment-python
   blueprint provided by Lambda). You configure the `MakeAppointment`
@@ -68,22 +67,15 @@ application, you might use a real calendar to set an appointment.
 
 ###### Topics
 
-- [Overview of the Bot Blueprint
-  (ScheduleAppointment)](#ex1-sch-appt-bp-summary-bot "#ex1-sch-appt-bp-summary-bot")
-- [Overview of the Lambda Function
-  Blueprint (lex-make-appointment-python)](#ex1-sch-appt-summary-lambda "#ex1-sch-appt-summary-lambda")
+- [Overview of the Bot Blueprint (ScheduleAppointment)](#ex1-sch-appt-bp-summary-bot "#ex1-sch-appt-bp-summary-bot")
+- [Overview of the Lambda Function Blueprint (lex-make-appointment-python)](#ex1-sch-appt-summary-lambda "#ex1-sch-appt-summary-lambda")
 - [Step 1: Create an Amazon Lex Bot](ex1-sch-appt-create-bot.md "ex1-sch-appt-create-bot.md")
-- [Step 2: Create a Lambda
-  Function](ex1-sch-appt-create-lambda-function.md "ex1-sch-appt-create-lambda-function.md")
-- [Step 3: Update the Intent: Configure
-  a Code Hook](ex1-sch-appt-create-integrate.md "ex1-sch-appt-create-integrate.md")
-- [Step 4: Deploy the Bot on the Facebook
-  Messenger Platform](ex-sch-appt-fb-integration.md "ex-sch-appt-fb-integration.md")
+- [Step 2: Create a Lambda Function](ex1-sch-appt-create-lambda-function.md "ex1-sch-appt-create-lambda-function.md")
+- [Step 3: Update the Intent: Configure a Code Hook](ex1-sch-appt-create-integrate.md "ex1-sch-appt-create-integrate.md")
+- [Step 4: Deploy the Bot on the Facebook Messenger Platform](ex-sch-appt-fb-integration.md "ex-sch-appt-fb-integration.md")
 - [Details of Information Flow](ex1-sch-appt-info-flow-details.md "ex1-sch-appt-info-flow-details.md")
 
-## Overview of the Bot Blueprint
-
-(ScheduleAppointment)
+## Overview of the Bot Blueprint (ScheduleAppointment)
 
 The ScheduleAppointment blueprint that you use to create a bot for this exercise
 is preconfigured with the following:
@@ -133,9 +125,7 @@ is preconfigured with the following:
     - Cancel message– "Okay, I will not schedule an
       appointment."
 
-## Overview of the Lambda Function
-
-Blueprint (lex-make-appointment-python)
+## Overview of the Lambda Function Blueprint (lex-make-appointment-python)
 
 The Lambda function blueprint (lex-make-appointment-python) is a code hook for bots
 that you create using the ScheduleAppointment bot blueprint.
@@ -150,8 +140,7 @@ fulfillment tasks.
   - If there are no appointments available, the Lambda function
     returns a response directing Amazon Lex to prompt the user for another
     day or date (by setting the `dialogAction` type to
-    `ElicitSlot)`. For more information, see [Response
-    Format](lambda-input-response-format.md#using-lambda-response-format "lambda-input-response-format.md#using-lambda-response-format").
+    `ElicitSlot)`. For more information, see [Response Format](lambda-input-response-format.md#using-lambda-response-format "lambda-input-response-format.md#using-lambda-response-format").
   - If there is only one appointment available on the specified day or
     date, the Lambda function suggests the available time in the response
     and directs Amazon Lex to obtain user confirmation by setting the
@@ -175,15 +164,13 @@ constructs and returns a response card to Amazon Lex. The response card lists
 available days and times as buttons to choose from. When testing the bot using
 the client provided by the Amazon Lex console, you cannot see the response card. To
 see it, you must integrate the bot with a messaging platform, such as Facebook
-Messenger. For instructions, see [Integrating an Amazon Lex Bot with Facebook
-Messenger](fb-bot-association.md "fb-bot-association.md"). For more information about response
-cards, see [Managing Messages](howitworks-manage-prompts.md "howitworks-manage-prompts.md") .
+Messenger. For instructions, see [Integrating an Amazon Lex Bot with Facebook Messenger](fb-bot-association.md "fb-bot-association.md"). For more information about response
+cards, see [Managing Messages](howitworks-manage-prompts.md "howitworks-manage-prompts.md").
 
 When Amazon Lex invokes the Lambda function, it passes event data as input. One of the
 event fields is `invocationSource`, which the Lambda function uses to
 choose between an input validation and fulfillment activity. For more information,
-see [Input Event
-Format](lambda-input-response-format.md#using-lambda-input-event-format "lambda-input-response-format.md#using-lambda-input-event-format").
+see [Input Event Format](lambda-input-response-format.md#using-lambda-input-event-format "lambda-input-response-format.md#using-lambda-input-event-format").
 
 ###### Next Step
 

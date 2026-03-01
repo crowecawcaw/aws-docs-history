@@ -49,9 +49,7 @@ The `$LATEST` version of your bot should only be used for manual
 testing. Amazon Lex limits the number of runtime requests that you can make to the
 `$LATEST` version of the bot.
 
-### Publishing an Amazon Lex Resource
-
-Version
+### Publishing an Amazon Lex Resource Version
 
 When you publish a resource, Amazon Lex makes a copy of the `$LATEST`
 version and saves it as a numbered version. The published version can't be changed.
@@ -84,18 +82,14 @@ different from the `$LATEST` version. If you try to publish the
 `$LATEST` version without modifying it, Amazon Lex doesn't create or
 publish a new version.
 
-### Updating an Amazon Lex
-
-Resource
+### Updating an Amazon Lex Resource
 
 You can update only the `$LATEST` version of an Amazon Lex bot, intent,
 or slot type. Published versions can't be changed. You can publish a new version any
 time after you update a resource in the console or with the [CreateBotVersion](API_CreateBotVersion.md "API_CreateBotVersion.md"), the [CreateIntentVersion](API_CreateIntentVersion.md "API_CreateIntentVersion.md") or
 the [CreateSlotTypeVersion](API_CreateSlotTypeVersion.md "API_CreateSlotTypeVersion.md") operations.
 
-### Deleting an Amazon Lex
-
-Resource or Version
+### Deleting an Amazon Lex Resource or Version
 
 Amazon Lex supports deleting a resource or version using the console or one of the
 API operations:
@@ -137,5 +131,4 @@ publish a version and create an alias that points to that version. Use the alias
 your client application for the reasons explained in this section. When you update
 an alias, Amazon Lex will wait until the session timeout of all current sessions expires
 before it starts using the new version. For more information about the session
-timeout, see [Setting the Session
-Timeout](context-mgmt-session-timeout.md "context-mgmt-session-timeout.md")
+timeout, see [Setting the Session Timeout](context-mgmt-session-timeout.md "context-mgmt-session-timeout.md")

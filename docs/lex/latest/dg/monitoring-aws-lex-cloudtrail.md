@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Monitoring Amazon Lex API
-
-Calls with AWS CloudTrail Logs
+# Monitoring Amazon Lex API Calls with AWS CloudTrail Logs
 
 Amazon Lex is integrated with AWS CloudTrail, a service that provides
 a record of actions taken by a user, role, or an AWS service in
@@ -23,9 +21,7 @@ made the request, when it was made, and additional details.
 To learn more about CloudTrail, including how to configure and enable
 it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Amazon Lex
-
-Information in CloudTrail
+## Amazon Lex Information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the
 account. When supported event activity occurs in Amazon Lex,
@@ -105,9 +101,7 @@ calls to the [PutBot](API_PutBot.md "API_PutBot.md"), [GetBot](API_GetBot.md "AP
 operations generate entries in the CloudTrail log. The actions
 documented in [Amazon Lex Runtime Service](API_Operations_Amazon_Lex_Runtime_Service.md "API_Operations_Amazon_Lex_Runtime_Service.md"), [PostContent](API_runtime_PostContent.md "API_runtime_PostContent.md") and [PostText](API_runtime_PostText.md "API_runtime_PostText.md"), are not logged.
 
-## Example: Amazon Lex
-
-Log File Entries
+## Example: Amazon Lex Log File Entries
 
 A trail is a configuration that enables delivery of events as
 log files to an S3 bucket that you specify. CloudTrail log files

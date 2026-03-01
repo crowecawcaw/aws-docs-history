@@ -38,12 +38,9 @@ CloudWatch Logs log group or S3 bucket.
 
 ###### Topics
 
-- [IAM Policies for Conversation
-  Logs](conversation-logs-policies.md "conversation-logs-policies.md")
+- [IAM Policies for Conversation Logs](conversation-logs-policies.md "conversation-logs-policies.md")
 - [Configuring Conversation Logs](conversation-logs-configure.md "conversation-logs-configure.md")
-- [Encrypting Conversation
-  Logs](conversation-logs-encrypting.md "conversation-logs-encrypting.md")
+- [Encrypting Conversation Logs](conversation-logs-encrypting.md "conversation-logs-encrypting.md")
 - [Viewing Text Logs in Amazon CloudWatch Logs](conversation-logs-cw.md "conversation-logs-cw.md")
 - [Accessing Audio Logs in Amazon S3](conversation-logs-s3.md "conversation-logs-s3.md")
-- [Monitoring Conversation Log
-  Status with CloudWatch Metrics](conversation-logs-monitoring.md "conversation-logs-monitoring.md")
+- [Monitoring Conversation Log Status with CloudWatch Metrics](conversation-logs-monitoring.md "conversation-logs-monitoring.md")

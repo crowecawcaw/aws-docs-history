@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 4: Add the Lambda
-
-Function as Code Hook (Console)
+# Step 4: Add the Lambda Function as Code Hook (Console)
 
 In this section, you update the configuration of the OrderFlowers
 intent to use the Lambda function as follows:
@@ -57,8 +55,7 @@ perform user input validation and fulfillment. The input
 event the Lambda function receives has a field
 (`invocationSource`) that the code uses to
 determine what portion of the code to run. For more
-information, see [Lambda Function Input
-Event and Response Format](lambda-input-response-format.md "lambda-input-response-format.md").
+information, see [Lambda Function Input Event and Response Format](lambda-input-response-format.md "lambda-input-response-format.md").
 
     1. Select the $LATEST version of the
      `OrderFlowers` intent. That's is the
@@ -84,5 +81,4 @@ Event and Response Format](lambda-input-response-format.md "lambda-input-respons
 
 ###### Next Step
 
-[Step 5 (Optional):
-Review the Details of the Information Flow (Console)](gs-bp-details-after-lambda.md "gs-bp-details-after-lambda.md")
+[Step 5 (Optional): Review the Details of the Information Flow (Console)](gs-bp-details-after-lambda.md "gs-bp-details-after-lambda.md")

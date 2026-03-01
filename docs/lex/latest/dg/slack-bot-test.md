@@ -23,5 +23,4 @@ your Amazon Lex bot.
 
 If you created the bot using Getting Started Exercise 1,
 you can use the example conversations provided in that
-exercise. For more information, see [Step 4: Add the Lambda
-Function as Code Hook (Console)](gs-bp-create-integrate.md "gs-bp-create-integrate.md").
+exercise. For more information, see [Step 4: Add the Lambda Function as Code Hook (Console)](gs-bp-create-integrate.md "gs-bp-create-integrate.md").

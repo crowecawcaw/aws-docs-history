@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 3: Create a Lambda
-
-function
+# Step 3: Create a Lambda function
 
 In this section you create a Lambda function using a blueprint
 (**lex-book-trip-python**) provided in the AWS Lambda console. You
@@ -28,8 +26,7 @@ This Lambda function is written in Python.
 
 5. Choose **Create function**.
 6. If you are using a locale other than English (US) (en-US), update the intent
-   names as described in [Updating a Blueprint
-   for a Specific Locale](lex-lambda-blueprints.md#blueprint-update-locale "lex-lambda-blueprints.md#blueprint-update-locale").
+   names as described in [Updating a Blueprint for a Specific Locale](lex-lambda-blueprints.md#blueprint-update-locale "lex-lambda-blueprints.md#blueprint-update-locale").
 7. Test the Lambda function. You invoke the Lambda function twice, using sample
    data for both booking a car and booking a hotel.
    1. Choose **Configure test event** from the
@@ -45,5 +42,4 @@ This Lambda function is written in Python.
 
 ###### Next Step
 
-[Step 4: Add the Lambda Function as a Code
-Hook](ex-book-trip-create-integrate.md "ex-book-trip-create-integrate.md")
+[Step 4: Add the Lambda Function as a Code Hook](ex-book-trip-create-integrate.md "ex-book-trip-create-integrate.md")

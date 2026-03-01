@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Identity-based policy
-
-examples for Amazon Lex
+# Identity-based policy examples for Amazon Lex
 
 By default, users and roles don't have permission to create or modify Amazon Lex
 resources. To grant users permission to perform actions on the
@@ -19,20 +17,14 @@ For details about actions and resource types defined by Amazon Lex, including th
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Amazon Lex
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Lex console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Delete All Amazon Lex Bots](#security_iam_id-based-policy-examples-access-one-bot "#security_iam_id-based-policy-examples-access-one-bot")
-- [Allow a user to
-  migrate a bot to Amazon Lex V2 APIs](#security_iam_id-based-policy-examples-migrate "#security_iam_id-based-policy-examples-migrate")
+- [Allow a user to migrate a bot to Amazon Lex V2 APIs](#security_iam_id-based-policy-examples-migrate "#security_iam_id-based-policy-examples-migrate")
 - [Use a Tag to Access a Resource](#security_iam_id-based-policy-examples-tag "#security_iam_id-based-policy-examples-tag")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Lex resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -65,9 +57,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Amazon Lex
-
-console
+## Using the Amazon Lex console
 
 To access the Amazon Lex console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon Lex resources
@@ -109,20 +99,16 @@ The **AmazonLexFullAccess** policy
 doesn't grant the user permission to use the
 `KendraSearchIntent` intent to query an Amazon Kendra index.
 To query an index, you must add additional permissions to the
-policy. For the required permissions, see [IAM Policy for Amazon Kendra
-Search](built-in-intent-kendra-search.md#kendra-search-iam "built-in-intent-kendra-search.md#kendra-search-iam").
+policy. For the required permissions, see [IAM Policy for Amazon Kendra Search](built-in-intent-kendra-search.md#kendra-search-iam "built-in-intent-kendra-search.md#kendra-search-iam").
 
 You can also create your own custom IAM policies to allow
 permissions for Amazon Lex API actions. You can attach these custom
 policies to the IAM roles or groups that require those
 permission.
 
-For details about AWS managed policies for Amazon Lex, see [AWS managed policies for
-Amazon Lex](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+For details about AWS managed policies for Amazon Lex, see [AWS managed policies for Amazon Lex](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -187,17 +173,13 @@ JSON
 
 ```
 
-## Allow a user to
-
-migrate a bot to Amazon Lex V2 APIs
+## Allow a user to migrate a bot to Amazon Lex V2 APIs
 
 The following IAM permission policy allows a user to start migrating
 a bot from Amazon Lex to Amazon Lex V2 APIs and to see the list of migrations and
 their progress.
 
-##
-
-Use a Tag to Access a Resource
+## Use a Tag to Access a Resource
 
 This example policy grants a user or role in your AWS
 account permission to use the `PostText` operation with

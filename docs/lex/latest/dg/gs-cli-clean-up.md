@@ -15,8 +15,7 @@ resources in the following order.
 3. Delete intents to free up slot type resources.
 4. Delete slot types.
    To run the commands in this exercise, you need to know the region where the commands
-   will be run. For a list of regions, see [Model Building
-   Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building") .
+   will be run. For a list of regions, see [Model Building Quotas](gl-limits.md#gl-limits-model-building "gl-limits.md#gl-limits-model-building").
 
 ###### To clean up your account (AWS CLI)
 

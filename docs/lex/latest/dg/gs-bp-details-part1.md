@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 2b (Optional): Review
-
-the Details of the Typed Information Flow (Console)
+# Step 2b (Optional): Review the Details of the Typed Information Flow (Console)
 
 This section explains flow of information between client and
 Amazon Lex in which the client uses the `PostText`
@@ -252,5 +250,4 @@ API to send requests. For more information, see [PostText](API_runtime_PostText.
 
 ###### Next Step
 
-[Step 3: Create a
-Lambda Function (Console)](gs-bp-create-lambda-function.md "gs-bp-create-lambda-function.md")
+[Step 3: Create a Lambda Function (Console)](gs-bp-create-lambda-function.md "gs-bp-create-lambda-function.md")

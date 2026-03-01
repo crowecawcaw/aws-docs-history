@@ -12,9 +12,7 @@ it.
 
 You don't need the AWS CLI to perform the steps in the Getting Started exercises.
 However, some of the later exercises in this guide use the AWS CLI. If you prefer to
-start by using the console, skip this step and go to [Step 3:
-Getting
-Started (Console)](gs-console.md "gs-console.md"). Later, when you need the AWS CLI, return here to set
+start by using the console, skip this step and go to [Step 3: Getting Started (Console)](gs-console.md "gs-console.md"). Later, when you need the AWS CLI, return here to set
 it up.
 
 ###### To set up the AWS CLI
@@ -47,6 +45,4 @@ aws help
 
 ##
 
-[Step 3:
-Getting
-Started (Console)](gs-console.md "gs-console.md")
+[Step 3: Getting Started (Console)](gs-console.md "gs-console.md")

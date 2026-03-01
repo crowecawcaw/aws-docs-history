@@ -25,5 +25,4 @@ as in the following image.
 ![The console showing the new bot alias.](images/gs2-final.png)
 Now that you have a working bot with published version and an alias, you can deploy the
 bot (in your mobile application or integrate the bot with Facebook Messenger). For an
-example, see [Integrating an Amazon Lex Bot with Facebook
-Messenger](fb-bot-association.md "fb-bot-association.md").
+example, see [Integrating an Amazon Lex Bot with Facebook Messenger](fb-bot-association.md "fb-bot-association.md").

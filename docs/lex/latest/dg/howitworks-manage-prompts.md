@@ -8,8 +8,7 @@ no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources
 ###### Topics
 
 - [Types of Messages](#msg-prompts-msg-types "#msg-prompts-msg-types")
-- [Contexts for Configuring
-  Messages](#msg-prompts-context-for-msgs "#msg-prompts-context-for-msgs")
+- [Contexts for Configuring Messages](#msg-prompts-context-for-msgs "#msg-prompts-context-for-msgs")
 - [Supported Message Formats](#msg-prompts-formats "#msg-prompts-formats")
 - [Message Groups](#message-groups "#message-groups")
 - [Response Cards](#msg-prompts-resp-card "#msg-prompts-resp-card")
@@ -113,9 +112,7 @@ By
 providing the messages while configuring your bot, you can eliminate the need to
 construct a prompt in your Lambda function.
 
-## Contexts for Configuring
-
-Messages
+## Contexts for Configuring Messages
 
 When you are creating your bot, you can create messages in different contexts,
 such as clarification prompts in bot, prompts for slot values, and messages from
@@ -238,8 +235,7 @@ If you want Amazon Lex to return a specific type of message to the client in a r
 request, set the `x-amzn-lex:accept-content-types` request parameter. The
 response is limited to the type or types requested. If there is more than one
 message of the specified type, Amazon Lex returns one at random. For more information
-about the `x-amz-lex:accept-content-types` header, see [Setting the Response
-Type](context-mgmt-request-attribs.md#special-response "context-mgmt-request-attribs.md#special-response").
+about the `x-amz-lex:accept-content-types` header, see [Setting the Response Type](context-mgmt-request-attribs.md#special-response "context-mgmt-request-attribs.md#special-response").
 
 ## Message Groups
 
@@ -299,8 +295,7 @@ exception. When you use a message group to group messages by type, don't use the
 `x-amz-lex:accept-content-types` header.
 
 For more information about the `x-amz-lex:accept-content-types` header,
-see [Setting the Response
-Type](context-mgmt-request-attribs.md#special-response "context-mgmt-request-attribs.md#special-response").
+see [Setting the Response Type](context-mgmt-request-attribs.md#special-response "context-mgmt-request-attribs.md#special-response").
 
 ## Response Cards
 
@@ -342,8 +337,7 @@ transforms response cards for Facebook Messenger, Slack, and Twilio. For other
 clients, Amazon Lex sends a JSON structure in the [PostText](API_runtime_PostText.md "API_runtime_PostText.md") response. For example, if the client is
 Facebook Messenger, Amazon Lex transforms the response card to a generic template. For
 more information about Facebook Messenger generic templates, see [Generic Template](https://developers.facebook.com/docs/messenger-platform/send-api-reference/generic-template "https://developers.facebook.com/docs/messenger-platform/send-api-reference/generic-template") on the Facebook website. For an example of the JSON
-structure, see [Generating Response Cards
-Dynamically](#msg-prompts-resp-card-dynamic "#msg-prompts-resp-card-dynamic").
+structure, see [Generating Response Cards Dynamically](#msg-prompts-resp-card-dynamic "#msg-prompts-resp-card-dynamic").
 
 You can use response cards only with the [PostText](API_runtime_PostText.md "API_runtime_PostText.md") operation. You can't use response cards
 with the [PostContent](API_runtime_PostContent.md "API_runtime_PostContent.md") operation.
@@ -374,20 +368,16 @@ illustration:
 
 To customize the content of a response card, you can refer to session
 attributes. At runtime, Amazon Lex substitutes these references with appropriate
-values from the session attributes. For more information, see [Setting Session
-Attributes](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md"). For an example, see [Using a Response Card](ex-resp-card.md "ex-resp-card.md").
+values from the session attributes. For more information, see [Setting Session Attributes](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md"). For an example, see [Using a Response Card](ex-resp-card.md "ex-resp-card.md").
 
-### Generating Response Cards
-
-Dynamically
+### Generating Response Cards Dynamically
 
 To generate response cards dynamically at runtime, use the initialization and
 validation Lambda function for the intent. Use a dynamic response card when the
 responses are determined at runtime in the Lambda function. In response to user
 input, the Lambda function generates a response card and returns it in the
 `dialogAction` section of the response. For more information, see
-[Response
-Format](lambda-input-response-format.md#using-lambda-response-format "lambda-input-response-format.md#using-lambda-response-format").
+[Response Format](lambda-input-response-format.md#using-lambda-response-format "lambda-input-response-format.md#using-lambda-response-format").
 
 The following is a partial response from a Lambda function that shows the
 `responseCard` element. It generates a user experience similar to

@@ -20,8 +20,7 @@ to protect your data. For more information, see the [AWS Key Management Service 
 
 When a messaging platform sends a request to Amazon Lex it includes platform-specific
 information as a request attribute to your Lambda function. Use these attributes to
-customize the way that your bot behaves. For more information, see [Setting Request
-Attributes](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md").
+customize the way that your bot behaves. For more information, see [Setting Request Attributes](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md").
 
 All of the attributes take the namespace, `x-amz-lex:`, as the prefix . For
 example, the `user-id` attribute is called `x-amz-lex:user-id`.

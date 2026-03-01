@@ -3,18 +3,14 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# IAM Policies for Conversation
-
-Logs
+# IAM Policies for Conversation Logs
 
 Depending on the type of logging that you select, Amazon Lex requires
 permission to use Amazon CloudWatch Logs and Amazon Simple Storage Service (S3) buckets to store your logs. You
 must create AWS Identity and Access Management roles and permissions to enable Amazon Lex to access these
 resources.
 
-## Creating an IAM Role and
-
-Policies for Conversation Logs
+## Creating an IAM Role and Policies for Conversation Logs
 
 To enable conversation logs, you must grant write permission for CloudWatch Logs
 and Amazon S3. If you enable object encryption for your S3 objects, you need to
@@ -70,9 +66,7 @@ aws iam create-role \
 Next, create and attach a policy to the role that enables Amazon Lex to
 write to CloudWatch Logs.
 
-###### To create an IAM policy for logging conversation text to
-
-CloudWatch Logs
+###### To create an IAM policy for logging conversation text to CloudWatch Logs
 
 1. Create a document in the current directory called
    `LexConversationLogsCloudWatchLogsPolicy.json`, add
@@ -142,9 +136,7 @@ aws iam attach-role-policy \
     --role-name `role-name`
 ```
 
-## Granting Permission to Pass an
-
-IAM Role
+## Granting Permission to Pass an IAM Role
 
 When you use the console, the AWS Command Line Interface, or an AWS SDK to specify an
 IAM role to use for conversation logs, the user specifying the

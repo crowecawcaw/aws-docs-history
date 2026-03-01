@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Setting Request
-
-Attributes
+# Setting Request Attributes
 
 _Request attributes_ contain request-specific
 information and apply only to the current request. A client
@@ -28,9 +26,7 @@ The namespace `x-amz-lex:` is reserved for the
 predefined request attributes. Don't create request attributes with
 the prefix `x-amz-lex:`.
 
-## Setting Predefined
-
-Request Attributes
+## Setting Predefined Request Attributes
 
 Amazon Lex provides predefined request attributes for managing the
 way that it processes information sent to your bot. The
@@ -42,9 +38,7 @@ In addition to the following predefined attributes, Amazon Lex
 provides predefined attributes for messaging platforms. For a
 list of those attributes, see [Deploying an Amazon Lex Bot on a Messaging Platform](example1.md "example1.md").
 
-### Setting the Response
-
-Type
+### Setting the Response Type
 
 If you have two client applications that have different
 capabilities, you may need to limit the format of messages
@@ -86,9 +80,7 @@ of a `PostContent` operation response
 contains data in the format set in the
 `Accept` header in the request.
 
-### Setting the Preferred
-
-Time Zone
+### Setting the Preferred Time Zone
 
 To set the time zone used to resolve dates so that it is
 relative to the user's time zone, use the
@@ -128,9 +120,7 @@ Number Authority (IANA) time zone names. For the list of
 time zone names, see the [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones") on
 Wikipedia.
 
-## Setting User-Defined Request
-
-Attributes
+## Setting User-Defined Request Attributes
 
 A _user-defined request attribute_ is data
 that you send to your bot in each request. You send the
@@ -167,5 +157,4 @@ the map, and then send it as the
 
 If you are sending binary or structured data in a request
 attribute, you must first transform the data to a simple string.
-For more information, see [Setting Complex
-Attributes](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md").
+For more information, see [Setting Complex Attributes](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md").

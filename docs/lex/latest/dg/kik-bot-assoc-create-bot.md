@@ -8,11 +8,9 @@ no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources
 If you don't already have an Amazon Lex bot, create and deploy one. In this topic, we
 assume that you are using the bot that you created in Getting Started Exercise 1.
 However, you can use any of the example bots provided in this guide. For Getting Started
-Exercise 1, see [Exercise 1: Create an Amazon Lex Bot Using a
-Blueprint (Console)](gs-bp.md "gs-bp.md")
+Exercise 1, see [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md")
 
-1. Create an Amazon Lex bot. For instructions, see [Exercise 1: Create an Amazon Lex Bot Using a
-   Blueprint (Console)](gs-bp.md "gs-bp.md").
+1. Create an Amazon Lex bot. For instructions, see [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md").
 2. Deploy the bot and create an alias. For instructions, see [Exercise 3: Publish a Version and Create an Alias](gettingstarted-ex3.md "gettingstarted-ex3.md").
 
 ###### Next Step

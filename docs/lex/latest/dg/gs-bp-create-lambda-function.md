@@ -3,9 +3,7 @@ will discontinue support for Amazon Lex V1. After September 15, 2025, you will
 no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
 .
 
-# Step 3: Create a
-
-Lambda Function (Console)
+# Step 3: Create a Lambda Function (Console)
 
 Create a Lambda function (using the
 **lex-order-flowers-python** blueprint) and
@@ -42,8 +40,7 @@ following.
 
 5. Choose **Create function**.
 6. If you are using a locale other than English (US) (en-US),
-   update the intent names as described in [Updating a Blueprint
-   for a Specific Locale](lex-lambda-blueprints.md#blueprint-update-locale "lex-lambda-blueprints.md#blueprint-update-locale").
+   update the intent names as described in [Updating a Blueprint for a Specific Locale](lex-lambda-blueprints.md#blueprint-update-locale "lex-lambda-blueprints.md#blueprint-update-locale").
 7. Test the Lambda function.
    1. Choose **Select a test event**,
       **Configure test
@@ -64,5 +61,4 @@ following.
 
 ###### Next Step
 
-[Step 4: Add the Lambda
-Function as Code Hook (Console)](gs-bp-create-integrate.md "gs-bp-create-integrate.md")
+[Step 4: Add the Lambda Function as Code Hook (Console)](gs-bp-create-integrate.md "gs-bp-create-integrate.md")

@@ -62,9 +62,7 @@ Amazon Lex matches the fallback intent in these situations:
   `abortStatement` parameter of the [PutBot](API_PutBot.md "API_PutBot.md")
   operation.
 
-## Using Clarification
-
-Prompts
+## Using Clarification Prompts
 
 If you provide your bot with a clarification prompt, the
 prompt is used to solicit a valid intent from the user. The
@@ -98,9 +96,7 @@ circumstances:
   get an intent from the user, it returns a 400 Bad
   Request exception.
 
-## Using a Lambda Function with a
-
-Fallback Intent
+## Using a Lambda Function with a Fallback Intent
 
 When a fallback intent is invoked, the response depends on
 the setting of the `fulfillmentActivity`
@@ -143,5 +139,4 @@ number of times that the fallback intent is called using a
 session variable. Your Lambda function can take a different
 action if it is called more times than the threshold that
 you set in your Lambda function. For more information about
-session variables, see [Setting Session
-Attributes](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md").
+session variables, see [Setting Session Attributes](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md").

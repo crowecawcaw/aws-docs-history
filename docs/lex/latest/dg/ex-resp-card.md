@@ -26,8 +26,7 @@ To create and test a bot with a response card:
 
 1. Follow Getting Started Exercise 1 to create and test an OrderFlowers bot. You must
    complete steps 1, 2, and 3. You don't need to add a Lambda function to test the
-   response card. For instructions, see [Exercise 1: Create an Amazon Lex Bot Using a
-   Blueprint (Console)](gs-bp.md "gs-bp.md").
+   response card. For instructions, see [Exercise 1: Create an Amazon Lex Bot Using a Blueprint (Console)](gs-bp.md "gs-bp.md").
 2. Update the bot by adding the response card, and then publish a version. When you
    publish a version, specify an alias (BETA) to point to it.
    1. In the Amazon Lex console, choose your bot.
@@ -48,15 +47,12 @@ To create and test a bot with a response card:
 
 3. Deploy the bot on a messaging platform:
    - Deploy the bot on the Facebook Messenger platform and test the
-     integration. For instructions, see [Integrating an Amazon Lex Bot with Facebook
-     Messenger](fb-bot-association.md "fb-bot-association.md"). When you order flowers, the
+     integration. For instructions, see [Integrating an Amazon Lex Bot with Facebook Messenger](fb-bot-association.md "fb-bot-association.md"). When you order flowers, the
      message window shows the response card so you can choose a flower
      type.
    - Deploy the bot on the Slack platform and test the integration. For
-     instructions, see [Integrating an Amazon Lex Bot
-     with Slack](slack-bot-association.md "slack-bot-association.md") . When you order flowers, the
+     instructions, see [Integrating an Amazon Lex Bot with Slack](slack-bot-association.md "slack-bot-association.md"). When you order flowers, the
      message window shows the response card so you can choose a flower
      type.
-   - Deploy the bot on the Twilio SMS platform. For instructions, see [Integrating an Amazon Lex Bot with Twilio
-     Programmable SMS](twilio-bot-association.md "twilio-bot-association.md") . When you order flowers, the message from Twilio shows the image from the
+   - Deploy the bot on the Twilio SMS platform. For instructions, see [Integrating an Amazon Lex Bot with Twilio Programmable SMS](twilio-bot-association.md "twilio-bot-association.md") . When you order flowers, the message from Twilio shows the image from the
      response card. Twilio SMS does not support buttons in the response.
