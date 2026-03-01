@@ -1,13 +1,9 @@
-# Switch to UEFI on a
-
-SuperMicro
+# Switch to UEFI on a SuperMicro
 
 To switch the boot mode from BIOS (Legacy mode) to UEFI, you can use the IPMI
 interface, or you can work when directly connected to the server.
 
-## Step 1: Install Java
-
-applet
+## Step 1: Install Java applet
 
 Decide if you want to use the IPMI management console, or if you plan to
 connect directly to the server. If you want to use the console, decide if you
@@ -50,9 +46,7 @@ Lan Param(3) IP address: 10 4 130 12
 
 You can now open the remote console window.
 
-## Step 2: Change the
-
-mode to UEFI
+## Step 2: Change the mode to UEFI
 
 This procedure is nearly identical to the procedure for switching to BIOS. You
 change the same fields on the **Setup Utility** screen.

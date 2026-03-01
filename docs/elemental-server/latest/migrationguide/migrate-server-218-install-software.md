@@ -1,6 +1,4 @@
-# Step G: Install worker software on a
-
-AWS Elemental Server node
+# Step G: Install worker software on a AWS Elemental Server node
 
 This install procedure isn't the same as the install procedure on a newly obtained
 appliance (as described in [AWS Elemental Server Installation Guide](../installguide.md "../installguide.md")). You don't have to configure the

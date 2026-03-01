@@ -1,6 +1,4 @@
-# Step H: Restore the database on a AWS Elemental Server
-
-node
+# Step H: Restore the database on a AWS Elemental Server node
 
 You restore data using the same lifeboat script that you used to create the
 backup.

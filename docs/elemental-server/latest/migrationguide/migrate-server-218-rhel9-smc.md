@@ -3,8 +3,7 @@
 You install RHEL 9 on an SMC chassis from the IPMI interface.
 
 1. Install the Java applet and change the security level, if necessary. For
-   information, see [Step 1: Install Java
-   applet](migrate-server-218-boot-mode-uefi-smc.md#migrate-server-218-boot-mode-uefi-smc-step1 "migrate-server-218-boot-mode-uefi-smc.md#migrate-server-218-boot-mode-uefi-smc-step1").
+   information, see [Step 1: Install Java applet](migrate-server-218-boot-mode-uefi-smc.md#migrate-server-218-boot-mode-uefi-smc-step1 "migrate-server-218-boot-mode-uefi-smc.md#migrate-server-218-boot-mode-uefi-smc-step1").
 2. Make sure that there are no physical USB drives plugged into the
    system.
 3. Make sure that you are at a workstation that has direct access to the

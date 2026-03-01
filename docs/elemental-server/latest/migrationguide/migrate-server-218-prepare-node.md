@@ -1,18 +1,12 @@
-# Step B: Prepare the AWS Elemental Server node for
+# Step B: Prepare the AWS Elemental Server node for migration
 
-migration
-
-## Upgrade to the latest 2.17 minor
-
-version
+## Upgrade to the latest 2.17 minor version
 
 To upgrade to version 2.18.0 or higher, the software currently installed on the
 node must be version 2.17.0 or higher. For instructions about how to upgrade to that
 version, see the [https://docs.aws.amazon.com/elemental-onprem/latest/pdf/elemental_server_upgrade_guide_2.17.pdf](../../../elemental-onprem/latest/pdf/elemental_server_upgrade_guide_2.17.md "../../../elemental-onprem/latest/pdf/elemental_server_upgrade_guide_2.17.md")Server 2.17 Upgrade Guide.
 
-## Verify access to the BMC on the
-
-appliances
+## Verify access to the BMC on the appliances
 
 Make sure that you have access to the BMC on each appliance:
 

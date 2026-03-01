@@ -5,9 +5,7 @@
 Refer to the essential notes in the [AWS Elemental Server Release Notes](../../../elemental-onprem/latest/pdf/elemental_server_conductor_file_release_notes_2.18.0.md "../../../elemental-onprem/latest/pdf/elemental_server_conductor_file_release_notes_2.18.0.md") to identify key changes to the
 behavior of AWS Elemental Server.
 
-## Modify your automation system for
-
-HTTPS
+## Modify your automation system for HTTPS
 
 After a node has been migrated, it uses HTTPS. By default, the nodes are set up
 with self-signed certificates. Make sure of the following points:

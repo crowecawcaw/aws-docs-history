@@ -10,9 +10,7 @@ AWS Elemental software. These files might include credentials and other sensitiv
 information. Handle the backup according to your organization's best practices for
 handling sensitive data.
 
-## About the backup
-
-process
+## About the backup process
 
 The script backs up the following data:
 
@@ -29,9 +27,7 @@ The script backs up the following data:
 - Remote storage mounts.
 - Node data. Data such as data about the events and MPTSes.
 
-## Step 1: Download the lifeboat
-
-script
+## Step 1: Download the lifeboat script
 
 You must copy the lifeboat script onto every node.
 
